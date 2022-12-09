@@ -62,6 +62,8 @@ Next immersive translator, only for release new version
 
 当前的`generalRule`如下：
 
+> `translationTheme`: `underline`, `none`
+
 ```json
 {
   "translationTheme": "none",

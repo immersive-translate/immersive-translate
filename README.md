@@ -33,7 +33,7 @@ Next immersive translator, only for release new version
       "excludeSelectors": [".reply"]
     }
   ],
-  "translationUrlPatern": {
+  "translationUrlPattern": {
     "excludeMatches": ["www.google.com"]
   },
   "translationLanguagePattern": {
@@ -54,15 +54,18 @@ Next immersive translator, only for release new version
 ```
 
 
-其中，`rules` 里的规则，可以覆盖`generalRule`里的全部规则，这样，你就可以对指定网站进行个性化配置了。
+其中，`rules` 里的规则字段，可以使用`generalRule`里的全部字段，`rules`的优先级最高，当匹配到特定网站的某一条`rule`时，会合并`generalRule`和该`rule`，通过rule,我们可以对任意网站进行任意自定义配置。
 
 
-当前仅支持：`google`,`tencent`翻译引擎
+`translationEngines`, 为默认翻译引擎，当前仅支持：`google`,`tencent`， 其中`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符500万。具体申请过程参考[这里](https://hcfy.app/docs/services/qq-api/)
 
+
+`translationUrlPattern`, 配置 总是翻译的网站，以及永不翻译的网站。其中`matches`配置总是翻译的网站， `excludeMatches`配置永不翻译的网站。配置的值可以是域名或者带有`*`的网址，比如：`www.google.com/mail/*`
+
+`tranlationLanguagePattern`,配置总是翻译的语言，以及永不翻译的语言。其中`matches`配置总是翻译的语言，比如`en`,`excludeMatches`配置永不翻译的语言。
 
 当前的`generalRule`如下：
 
-> `translationTheme`: `underline`, `none`
 
 ```json
 {
@@ -131,6 +134,9 @@ Next immersive translator, only for release new version
   ]
 }
 ```
+
+`translationTheme`为译文的显示格式:，当前仅支持： `underline`, `none`
+
 
 当前的默认`rules`如下：
 

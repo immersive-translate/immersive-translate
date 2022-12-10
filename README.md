@@ -22,7 +22,7 @@ Next immersive translator, only for release new version
       ]
     }
   },
-  "translationUrlPatern": {
+  "translationUrlPattern": {
     "excludeMatches": ["www.google.com"]
   },
   "translationLanguagePattern": {

@@ -17,9 +17,17 @@ jobs:
           mdbook-version: 'latest'
       - name: Build website
         run: make build
-      - name: Publish pages
-        run: make publish
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
-          CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
-
+      # - name: Publish pages
+      #   run: make publish
+      #   env:
+      #     CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+      #     CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+          projectName: immersive-translate
+          directory: book
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}

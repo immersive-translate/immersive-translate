@@ -1,4 +1,4 @@
-# next-immersive-translate
+# Next Immersive Translate
 
 Next immersive translator, only for release new version
 

@@ -221,7 +221,8 @@
     {
       "matches": "www.youtube.com",
       "selectors": [
-        "yt-formatted-string[slot=content]"
+        "yt-formatted-string[slot=content]",
+        "yt-formatted-string[disable-attributed-string]"
       ],
       "detectParagraphLanguage": true
     },
@@ -459,5 +460,5 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-12T19:41:50+0000"
+  "buildinConfigUpdatedAt": "2022-12-12T20:06:19+0000"
 }

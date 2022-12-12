@@ -92,7 +92,8 @@
     ],
     "additionalInlineTags": [],
     "inlineSelectors": [],
-    "additionalInlineSelectors": []
+    "additionalInlineSelectors": [],
+    "blockSelectors": []
   },
   "rules": [
     {
@@ -168,7 +169,9 @@
         "[data-click-id=body] h3",
         "[data-click-id=background] h3",
         "[data-testid=comment]",
-        "[data-adclicklocation=media]"
+        "[data-adclicklocation=media]",
+        ".Comment__body",
+        "faceplate-batch .md"
       ],
       "detectParagraphLanguage": true
     },
@@ -240,7 +243,16 @@
       ],
       "excludeSelectors": [
         ".captioned-button-wrap",
-        ".subscription-widget-wrap"
+        ".subscription-widget-wrap",
+        ".tweet-header",
+        ".tweet-link-bottom",
+        ".expanded-link",
+        ".meta-subheader"
+      ],
+      "blockSelectors": [
+        ".tweet-link-top",
+        ".tweet-link-bottom",
+        ".expanded-link"
       ]
     },
     {
@@ -460,5 +472,5 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-12T20:06:19+0000"
+  "buildinConfigUpdatedAt": "2022-12-12T22:17:20+0000"
 }

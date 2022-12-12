@@ -58,7 +58,10 @@
       "TT"
     ],
     "additionalExcludeTags": [],
-    "stayOriginalTags": ["CODE", "TT"],
+    "stayOriginalTags": [
+      "CODE",
+      "TT"
+    ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
       "A",
@@ -97,14 +100,22 @@
         "mail.jabber.org",
         "antirez.com"
       ],
-      "additionalExcludeTags": ["PRE"]
+      "additionalExcludeTags": [
+        "PRE"
+      ]
     },
     {
       "matches": "*.wikipedia.org",
-      "excludeSelectors": [".mw-editsection", ".mw-cite-backlink"]
+      "excludeSelectors": [
+        ".mw-editsection",
+        ".mw-cite-backlink"
+      ]
     },
     {
-      "matches": ["twitter.com", "*.twitter.com"],
+      "matches": [
+        "twitter.com",
+        "*.twitter.com"
+      ],
       "selectors": [
         "[data-testid=\"tweetText\"]",
         ".tweet-text",
@@ -113,7 +124,9 @@
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
-      "inlineSelectors": ["[data-testid=\"tweetText\"] div"]
+      "inlineSelectors": [
+        "[data-testid=\"tweetText\"] div"
+      ]
     },
     {
       "matches": [
@@ -123,14 +136,17 @@
         "askubuntu.com",
         "serverfault.com"
       ],
-      "additionalSelectors": [".comment-copy"]
+      "additionalSelectors": [
+        ".comment-copy"
+      ]
     },
-
     {
       "matches": "developer.apple.com/documentation/*",
-      "selectors": [".container", "h3.title"]
+      "selectors": [
+        ".container",
+        "h3.title"
+      ]
     },
-
     {
       "matches": "news.ycombinator.com",
       "selectors": [
@@ -141,9 +157,10 @@
         ".hn-comment-text",
         ".hn-story-title"
       ],
-      "excludeSelectors": [".reply"]
+      "excludeSelectors": [
+        ".reply"
+      ]
     },
-
     {
       "matches": "www.reddit.com",
       "selectors": [
@@ -156,22 +173,36 @@
       "detectParagraphLanguage": true
     },
     {
-      "matches": ["old.reddit.com/*/.compact", "old.reddit.com/.compact"],
-      "selectors": [".title > a", ".usertext-body"],
+      "matches": [
+        "old.reddit.com/*/.compact",
+        "old.reddit.com/.compact"
+      ],
+      "selectors": [
+        ".title > a",
+        ".usertext-body"
+      ],
       "detectParagraphLanguage": true
     },
     {
       "matches": "old.reddit.com",
-      "selectors": ["p.title > a", "[role=main] .md-container"],
+      "selectors": [
+        "p.title > a",
+        "[role=main] .md-container"
+      ],
       "detectParagraphLanguage": true
     },
     {
       "matches": "www.reuters.com/",
-      "excludeSelectors": ["header"]
+      "excludeSelectors": [
+        "header"
+      ]
     },
     {
       "matches": "github.com",
-      "selectors": [".markdown-title", ".markdown-body"],
+      "selectors": [
+        ".markdown-title",
+        ".markdown-body"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -181,20 +212,23 @@
         "div[dir=auto][class]",
         "span[lang]"
       ],
-      "excludeSelectors": ["[role=button]"],
+      "excludeSelectors": [
+        "[role=button]"
+      ],
       "translationClasses": "immersive-translate-text",
       "detectParagraphLanguage": true
     },
     {
       "matches": "www.youtube.com",
-      "selectors": ["yt-formatted-string[slot=content]"],
+      "selectors": [
+        "yt-formatted-string[slot=content]"
+      ],
       "detectParagraphLanguage": true
     },
     {
       "matches": "1paragraph.app",
       "selectors": "#book"
     },
-
     {
       "matches": "*.substack.com",
       "selectors": [
@@ -209,8 +243,13 @@
       ]
     },
     {
-      "matches": ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
-      "selectors": ["[data-test-id=card-container]"],
+      "matches": [
+        "seekingalpha.com/article/*",
+        "seekingalpha.com/news/*"
+      ],
+      "selectors": [
+        "[data-test-id=card-container]"
+      ],
       "excludeSelectors": [
         "[data-test-id=post-page-meta]",
         "header > div:first-child"
@@ -218,7 +257,10 @@
     },
     {
       "matches": "hn.algolia.com",
-      "selectors": [".Story_title > a:first-child", ".Story_comment > span"]
+      "selectors": [
+        ".Story_title > a:first-child",
+        ".Story_comment > span"
+      ]
     },
     {
       "matches": "read.readwise.io",
@@ -227,13 +269,14 @@
         "div[class^=\"_description_\"]",
         "#document-text-content"
       ],
-
       "detectParagraphLanguage": true
     },
     {
       "matches": "www.inoreader.com",
-      "selectors": [".article_title_link", ".article_content"],
-
+      "selectors": [
+        ".article_title_link",
+        ".article_content"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -275,10 +318,11 @@
     },
     {
       "matches": "*.gitbook.io",
-      "additionalSelectors": ["main"],
+      "additionalSelectors": [
+        "main"
+      ],
       "_comment": "https://midjourney.gitbook.io/docs/user-manual"
     },
-
     {
       "matches": "arxiv.org",
       "additionalSelectors": [
@@ -305,7 +349,10 @@
       "detectParagraphLanguage": true
     },
     {
-      "matches": ["web.telegram.org/k/*", "web.telegram.org/k/"],
+      "matches": [
+        "web.telegram.org/k/*",
+        "web.telegram.org/k/"
+      ],
       "selectors": [
         ".message"
       ],
@@ -321,16 +368,23 @@
     },
     {
       "matches": "lobste.rs",
-      "selectors": [".u-repost-of", ".comment_text"]
+      "selectors": [
+        ".u-repost-of",
+        ".comment_text"
+      ]
     },
     {
       "matches": "*.slack.com",
-      "selectors": [".p-rich_text_section"],
+      "selectors": [
+        ".p-rich_text_section"
+      ],
       "detectParagraphLanguage": true
     },
     {
       "matches": "1paragraph.app",
-      "additionalSelectors": ["#book"]
+      "additionalSelectors": [
+        "#book"
+      ]
     },
     {
       "matches": "www.google.*/search*",
@@ -346,7 +400,11 @@
     },
     {
       "matches": "lowendtalk.com",
-      "selectors": ["[role=heading]", "h1", ".userContent"]
+      "selectors": [
+        "[role=heading]",
+        "h1",
+        ".userContent"
+      ]
     },
     {
       "matches": "www.linkedin.com/jobs/*",
@@ -356,7 +414,9 @@
     },
     {
       "matches": "www.linkedin.com",
-      "addtionalSelectors": ["span.break-words > span > span[dir=ltr]"]
+      "addtionalSelectors": [
+        "span.break-words > span > span[dir=ltr]"
+      ]
     },
     {
       "matches": "www.indiehackers.com",
@@ -374,14 +434,20 @@
       ]
     },
     {
-      "matches": ["notion.site", "www.notion.so"],
+      "matches": [
+        "notion.site",
+        "www.notion.so"
+      ],
       "selectors": [
         "div[data-block-id]"
       ]
     },
     {
       "matches": "www.newyorker.com",
-      "additionalSelectors": ["h1", "[data-testid=SummaryItemHed]"]
+      "additionalSelectors": [
+        "h1",
+        "[data-testid=SummaryItemHed]"
+      ]
     },
     {
       "matches": "start.me",
@@ -392,5 +458,6 @@
         ".rss-showcase__text"
       ]
     }
-  ]
+  ],
+  "buildinConfigUpdatedAt": "2022-12-12T00:33:00+0000"
 }

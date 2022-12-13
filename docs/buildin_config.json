@@ -26,7 +26,12 @@
       "section h2",
       "section h3",
       "main h2",
-      "main h3"
+      "main h3",
+      ".article-title",
+      ".article__title",
+      ".summary",
+      ".content",
+      ".headline"
     ],
     "excludeSelectors": [],
     "additionalExcludeSelectors": [
@@ -470,7 +475,14 @@
         ".rss-showcase__title",
         ".rss-showcase__text"
       ]
+    },
+    {
+      "matches": "www.scmp.com",
+      "additionalSelectors": [
+        ".info__subHeadline",
+        ".section-content h2"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-12T22:17:20+0000"
+  "buildinConfigUpdatedAt": "2022-12-13T14:33:30+0000"
 }

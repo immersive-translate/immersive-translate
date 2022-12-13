@@ -1,4 +1,5 @@
 {
+  "minVersion": "0.0.4.1",
   "translationParagraphLanguagePattern": {
     "matches": [
       "www.reddit.com",
@@ -484,5 +485,5 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-13T14:33:30+0000"
+  "buildinConfigUpdatedAt": "2022-12-13T15:37:13+0000"
 }

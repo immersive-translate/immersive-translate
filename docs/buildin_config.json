@@ -110,8 +110,24 @@
       "matches": [
         "http://localhost:8000/*"
       ],
-      "atomicBlockSelectors": [
-        "h3"
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "INPUT",
+        "BUTTON",
+        "LABEL",
+        "IMG",
+        "SUB",
+        "SUP",
+        "BR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT"
       ]
     },
     {
@@ -503,5 +519,5 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-13T18:49:41+0000"
+  "buildinConfigUpdatedAt": "2022-12-14T05:29:41+0000"
 }

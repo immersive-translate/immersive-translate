@@ -517,7 +517,13 @@
         ".info__subHeadline",
         ".section-content h2"
       ]
+    },
+    {
+      "matches": "www.lesswrong.com",
+      "extraBlockSelectors": [
+        "span.commentOnSelection"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-14T05:29:41+0000"
+  "buildinConfigUpdatedAt": "2022-12-15T00:52:29+0000"
 }

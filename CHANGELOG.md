@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.4.6
+
+- Support check new version
+
 ## 0.0.3
 
 - Support local files

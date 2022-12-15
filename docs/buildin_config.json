@@ -268,7 +268,10 @@
       "selectors": "#book"
     },
     {
-      "matches": "*.substack.com",
+      "matches": [
+        "*.substack.com",
+        "newsletter.rootsofprogress.org"
+      ],
       "selectors": [
         ".post-preview-title",
         ".post-preview-description",
@@ -525,5 +528,5 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-15T00:52:29+0000"
+  "buildinConfigUpdatedAt": "2022-12-15T09:06:23+0000"
 }

@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.4.8
+
+- Fix code order.
+- Support basic popup ui
+
 ## 0.0.4.6
 
 - Support check new version

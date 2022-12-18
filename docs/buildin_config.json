@@ -32,6 +32,9 @@
       "main h2",
       "main h3",
       ".article-title",
+      ".article-subtitle",
+      ".article_title",
+      ".article_subtitle",
       ".article__title",
       ".summary",
       ".content",
@@ -526,8 +529,17 @@
       "extraBlockSelectors": [
         "span.commentOnSelection"
       ]
+    },
+    {
+      "matches": [
+        "mastodon.social"
+      ],
+      "selectors": [
+        "div.status__content__text"
+      ],
+      "detectLanguage": true
     }
   ],
   "buildinConfigUpdatedAt": "1970-01-01T00:00:00.000Z",
-  "latestVersion": "0.0.4.6"
+  "latestVersion": "0.0.4.8"
 }

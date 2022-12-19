@@ -152,7 +152,8 @@
     {
       "matches": [
         "twitter.com",
-        "*.twitter.com"
+        "mobile.twitter.com",
+        "tweetdeck.twitter.com"
       ],
       "selectors": [
         "[data-testid=\"tweetText\"]",
@@ -538,6 +539,12 @@
         "div.status__content__text"
       ],
       "detectLanguage": true
+    },
+    {
+      "matches": "www.cnbc.com",
+      "additionalSelectors": [
+        "div.RenderKeyPoints-list"
+      ]
     }
   ],
   "buildinConfigUpdatedAt": "1970-01-01T00:00:00.000Z",

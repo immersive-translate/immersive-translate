@@ -533,7 +533,9 @@
     },
     {
       "matches": [
-        "mastodon.social"
+        "mastodon.social",
+        "indieweb.social",
+        "mastodon.world"
       ],
       "selectors": [
         "div.status__content__text"

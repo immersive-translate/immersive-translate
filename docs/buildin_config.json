@@ -534,6 +534,8 @@
     {
       "matches": [
         "mastodon.social",
+        "mastodon.online",
+        "kolektiva.social",
         "indieweb.social",
         "mastodon.world"
       ],

@@ -15,7 +15,7 @@
 // @connect    tmt.tencentcloudapi.com
 // @connect    www2.deepl.com
 // @run-at       document-end
-// @require    ./immersive-translate-0.0.5.2.lib.js#sha256=931effcf7c0f3ca6c9b7dc1a342d1ed2bbf430c19a6634534a4fd7ee907e8c54
+// @require    ./immersive-translate.lib.js#sha256=2c7afab4c8b4fecc845e4020a0386e49137b2bdc6bad56b5fbf1f3e2ba8d3945
 // ==/UserScript==
 
 

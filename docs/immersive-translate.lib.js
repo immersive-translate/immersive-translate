@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-23T03:07:16.958Z", TRANSLATE_SERVICE: "google", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+  var define_process_env_default = { BUILD_TIME: "2022-12-23T05:29:19.358Z", TRANSLATE_SERVICE: "google", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
 
   // browser/userscript_polyfill.ts
   var storageApi = {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Next Immersive Translate
 // @namespace    https://immersive-translate.owenyoung.com/
-// @version      0.0.5.1
+// @version      0.0.5.2
 // @description  Web page translator
 // @author       Owen Young
 // @match      *://*/*
@@ -15,7 +15,7 @@
 // @connect    tmt.tencentcloudapi.com
 // @connect    www2.deepl.com
 // @run-at       document-end
-// @require    immersive-translate.lib.js#sha256=ceca144dd525e80d4c12bcdf598699a662ca6189a223be6ec93889fd012221f9
+// @require    ./immersive-translate-0.0.5.2.lib.js#sha256=931effcf7c0f3ca6c9b7dc1a342d1ed2bbf430c19a6634534a4fd7ee907e8c54
 // ==/UserScript==
 
 

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-23T05:31:42.804Z", TRANSLATE_SERVICE: "google", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+  var define_process_env_default = { BUILD_TIME: "2022-12-24T16:00:56.642Z", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
 
   // browser/userscript_polyfill.ts
   var storageApi = {
@@ -307,6 +307,217 @@
     };
     self.GM_fetch.polyfill = true;
   })();
+
+  // utils/language_match.ts
+  function isMatchLanguage(lang, matchPattern) {
+    let matches = matchPattern.matches || [];
+    if (matches && !Array.isArray(matches)) {
+      matches = [matches];
+    }
+    if (matches.length === 0) {
+      return false;
+    }
+    if (matches.length > 0) {
+      if (matches.includes(lang)) {
+        return true;
+      } else {
+        for (const match of matches) {
+          if (match.includes("*")) {
+            const reg = new RegExp(match);
+            if (reg.test(lang)) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  // env.ts
+  function getEnv() {
+    if (typeof process === "undefined") {
+      if (typeof Deno !== "undefined") {
+        const denoEnv = Deno.env.toObject();
+        return denoEnv;
+      }
+    }
+    const injectEnv = define_process_env_default;
+    return injectEnv;
+  }
+  var env = getEnv();
+  function isMonkey() {
+    return env.TRANSLATE_USERSCRIPT === "1";
+  }
+
+  // constant.ts
+  var brandName = "Next Translator";
+  var brandId = "immersive-translate";
+  var targetContainerElementAttributeName = `data-${brandId}-container`;
+  var buildinConfigStorageKey = "buildinConfig";
+  var contextMenuId = `${brandId}-context-menu`;
+  var contextOpenOptionsMenuId = `${brandId}-open-options-menu`;
+  var sourceElementMarkAttributeName = `data-${brandId}-mark`;
+  var sourceAtomicBlockElementMarkAttributeName = `data-${brandId}-atomic-block-mark`;
+  var sourceInlineElementMarkAttributeName = `data-${brandId}-inline-mark`;
+  var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
+  var sourceElementWithGlobalStyleMarkAttributeName = `data-${brandId}-global-style-mark`;
+  var delimiters = ["\u{1F6A0}\u{1F6A0}", "\u{1F69E}"];
+  var titleDelimiters = " --- ";
+  var translationTextSeparator = "\n@\u{1F6A0}\n";
+  var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
+  var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
+  var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+  var languages = [
+    "af",
+    "am",
+    "ar",
+    "auto",
+    "az",
+    "be",
+    "bg",
+    "bn",
+    "bs",
+    "ca",
+    "ceb",
+    "co",
+    "cs",
+    "cy",
+    "da",
+    "de",
+    "el",
+    "en",
+    "eo",
+    "es",
+    "et",
+    "eu",
+    "fa",
+    "fi",
+    "fil",
+    "fj",
+    "fr",
+    "fy",
+    "ga",
+    "gd",
+    "gl",
+    "gu",
+    "ha",
+    "haw",
+    "he",
+    "hi",
+    "hmn",
+    "hr",
+    "ht",
+    "hu",
+    "hy",
+    "id",
+    "ig",
+    "is",
+    "it",
+    "ja",
+    "jw",
+    "ka",
+    "kk",
+    "km",
+    "kn",
+    "ko",
+    "ku",
+    "ky",
+    "la",
+    "lb",
+    "lo",
+    "lt",
+    "lv",
+    "mg",
+    "mi",
+    "mk",
+    "ml",
+    "mn",
+    "mr",
+    "ms",
+    "mt",
+    "mww",
+    "my",
+    "ne",
+    "nl",
+    "no",
+    "ny",
+    "otq",
+    "pa",
+    "pl",
+    "ps",
+    "pt",
+    "ro",
+    "ru",
+    "sd",
+    "si",
+    "sk",
+    "sl",
+    "sm",
+    "sn",
+    "so",
+    "sq",
+    "sr",
+    "sr-Cyrl",
+    "sr-Latn",
+    "st",
+    "su",
+    "sv",
+    "sw",
+    "ta",
+    "te",
+    "tg",
+    "th",
+    "tlh",
+    "tlh-Qaak",
+    "to",
+    "tr",
+    "ty",
+    "ug",
+    "uk",
+    "ur",
+    "uz",
+    "vi",
+    "wyw",
+    "xh",
+    "yi",
+    "yo",
+    "yua",
+    "yue",
+    "zh-CN",
+    "zh-TW",
+    "zu",
+    "und"
+  ];
+
+  // utils/format_language.ts
+  function formatLanguage(langCode) {
+    if (typeof langCode !== "string")
+      return "und";
+    if (langCode === "zh" || langCode === "zh-Hans") {
+      return "zh-CN";
+    } else if (langCode === "zh-Hant" || langCode === "zh-HK") {
+      return "zh-TW";
+    } else if (langCode === "iw") {
+      return "he";
+    } else if (langCode === "jv") {
+      return "jw";
+    }
+    if (languages.indexOf(langCode) === -1) {
+      if (langCode.indexOf("-") !== -1) {
+        langCode = langCode.split("-")[0];
+        if (languages.indexOf(langCode) === -1) {
+          return "und";
+        } else {
+          return langCode;
+        }
+      } else {
+        return "und";
+      }
+    } else {
+      return langCode;
+    }
+  }
 
   // https://deno.land/std@0.167.0/fmt/colors.ts
   var colors_exports = {};
@@ -2472,7 +2683,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var B4 = W2(z2);
   var { getMessage: H } = B4;
 
-  // https://esm.sh/v96/p-throttle@5.0.0/deno/p-throttle.js
+  // https://esm.sh/v99/p-throttle@5.0.0/deno/p-throttle.js
   var a16 = class extends Error {
     constructor() {
       super("Throttled function aborted"), this.name = "AbortError";
@@ -3382,259 +3593,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   // deps.ts
   var toast = Fe2.alert;
 
-  // constant.ts
-  var brandName = "Next Translator";
-  var brandId = "immersive-translate";
-  var targetContainerElementAttributeName = `data-${brandId}-container`;
-  var buildinConfigStorageKey = "buildinConfig";
-  var contextMenuId = `${brandId}-context-menu`;
-  var contextOpenOptionsMenuId = `${brandId}-open-options-menu`;
-  var sourceElementMarkAttributeName = `data-${brandId}-mark`;
-  var sourceAtomicBlockElementMarkAttributeName = `data-${brandId}-atomic-block-mark`;
-  var sourceInlineElementMarkAttributeName = `data-${brandId}-inline-mark`;
-  var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
-  var sourceElementWithGlobalStyleMarkAttributeName = `data-${brandId}-global-style-mark`;
-  var delimiters = ["\u{1F6A0}\u{1F6A0}", "\u{1F69E}"];
-  var translationTextSeparator = "\n@\u{1F6A0}\n";
-  var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
-  var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
-  var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
-  var languages = [
-    "af",
-    "am",
-    "ar",
-    "auto",
-    "az",
-    "be",
-    "bg",
-    "bn",
-    "bs",
-    "ca",
-    "ceb",
-    "co",
-    "cs",
-    "cy",
-    "da",
-    "de",
-    "el",
-    "en",
-    "eo",
-    "es",
-    "et",
-    "eu",
-    "fa",
-    "fi",
-    "fil",
-    "fj",
-    "fr",
-    "fy",
-    "ga",
-    "gd",
-    "gl",
-    "gu",
-    "ha",
-    "haw",
-    "he",
-    "hi",
-    "hmn",
-    "hr",
-    "ht",
-    "hu",
-    "hy",
-    "id",
-    "ig",
-    "is",
-    "it",
-    "ja",
-    "jw",
-    "ka",
-    "kk",
-    "km",
-    "kn",
-    "ko",
-    "ku",
-    "ky",
-    "la",
-    "lb",
-    "lo",
-    "lt",
-    "lv",
-    "mg",
-    "mi",
-    "mk",
-    "ml",
-    "mn",
-    "mr",
-    "ms",
-    "mt",
-    "mww",
-    "my",
-    "ne",
-    "nl",
-    "no",
-    "ny",
-    "otq",
-    "pa",
-    "pl",
-    "ps",
-    "pt",
-    "ro",
-    "ru",
-    "sd",
-    "si",
-    "sk",
-    "sl",
-    "sm",
-    "sn",
-    "so",
-    "sq",
-    "sr",
-    "sr-Cyrl",
-    "sr-Latn",
-    "st",
-    "su",
-    "sv",
-    "sw",
-    "ta",
-    "te",
-    "tg",
-    "th",
-    "tlh",
-    "tlh-Qaak",
-    "to",
-    "tr",
-    "ty",
-    "ug",
-    "uk",
-    "ur",
-    "uz",
-    "vi",
-    "wyw",
-    "xh",
-    "yi",
-    "yo",
-    "yua",
-    "yue",
-    "zh-CN",
-    "zh-TW",
-    "zu",
-    "und"
-  ];
-
-  // log.ts
-  var Timing = class {
-    #t = performance.now();
-    reset() {
-      this.#t = performance.now();
-    }
-    stop(message) {
-      const now = performance.now();
-      const d16 = Math.round(now - this.#t);
-      let cf = colors_exports.green;
-      if (d16 > 1e4) {
-        cf = colors_exports.red;
-      } else if (d16 > 1e3) {
-        cf = colors_exports.yellow;
-      }
-      console.debug(
-        colors_exports.dim(brandName + " TIMING:"),
-        message,
-        "in",
-        cf(d16 + "ms")
-      );
-      this.#t = now;
-    }
-  };
-  var Logger = class {
-    #level = 1 /* Info */;
-    get level() {
-      return this.#level;
-    }
-    setLevel(level) {
-      switch (level) {
-        case "debug":
-          this.#level = 0 /* Debug */;
-          break;
-        case "info":
-          this.#level = 1 /* Info */;
-          break;
-        case "warn":
-          this.#level = 2 /* Warn */;
-          break;
-        case "error":
-          this.#level = 3 /* Error */;
-          break;
-        case "fatal":
-          this.#level = 4 /* Fatal */;
-          break;
-      }
-    }
-    debug(...args) {
-      if (this.#level <= 0 /* Debug */) {
-        console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
-      }
-    }
-    info(...args) {
-      if (this.#level <= 1 /* Info */) {
-        console.log(colors_exports.green(brandName + " INFO:"), ...args);
-      }
-    }
-    warn(...args) {
-      if (this.#level <= 2 /* Warn */) {
-        console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
-      }
-    }
-    error(...args) {
-      if (this.#level <= 3 /* Error */) {
-        console.error(colors_exports.red(brandName + " ERROR:"), ...args);
-      }
-    }
-    fatal(...args) {
-      if (this.#level <= 4 /* Fatal */) {
-        console.error(colors_exports.red(brandName + " FATAL:"), ...args);
-        Deno.exit(1);
-      }
-    }
-    timing() {
-      if (this.level === 0 /* Debug */) {
-        return new Timing();
-      }
-      return { reset: () => {
-      }, stop: () => {
-      } };
-    }
-  };
-  var log_default = new Logger();
-
-  // utils/format_language.ts
-  function formatLanguage(langCode) {
-    if (typeof langCode !== "string")
-      return "und";
-    if (langCode === "zh" || langCode === "zh-Hans") {
-      return "zh-CN";
-    } else if (langCode === "zh-Hant" || langCode === "zh-HK") {
-      return "zh-TW";
-    } else if (langCode === "iw") {
-      return "he";
-    } else if (langCode === "jv") {
-      return "jw";
-    }
-    if (languages.indexOf(langCode) === -1) {
-      if (langCode.indexOf("-") !== -1) {
-        langCode = langCode.split("-")[0];
-        if (languages.indexOf(langCode) === -1) {
-          return "und";
-        } else {
-          return langCode;
-        }
-      } else {
-        return "und";
-      }
-    } else {
-      return langCode;
-    }
-  }
-
   // errors.ts
   var CommonError = class extends Error {
     constructor(name, message, details) {
@@ -3680,6 +3638,30 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // messages.ts
+  var [sendDBStore, storeDBStream, waitDBStore] = H(
+    "db_store",
+    {
+      async: true
+    }
+  );
+  var [sendDBQuery, queryDBStream, waitDBQuery] = H(
+    "db_query",
+    {
+      async: true
+    }
+  );
+  var [sendDBGetSize, getDBSizeStream, waitDBGetSize] = H(
+    "db_get_size",
+    {
+      async: true
+    }
+  );
+  var [sendDBDelete, deleteDBStream, waitDBDelete] = H(
+    "db_delete",
+    {
+      async: true
+    }
+  );
   var [sendFetchFromChrome, fetchStream, waitforFetch] = H(
     "fetch",
     {
@@ -3765,22 +3747,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     async: true
   });
   var [sendReady, readyStream, waitForReady] = H("READY");
-
-  // env.ts
-  function getEnv() {
-    if (typeof process === "undefined") {
-      if (typeof Deno !== "undefined") {
-        const denoEnv = Deno.env.toObject();
-        return denoEnv;
-      }
-    }
-    const injectEnv = define_process_env_default;
-    return injectEnv;
-  }
-  var env = getEnv();
-  function isMonkey() {
-    return env.TRANSLATE_USERSCRIPT === "1";
-  }
+  var [sendUrlChange, urlChangeStream, waitForUrlChange] = H("urlChange");
 
   // buildin_config.json
   var buildin_config_default = {
@@ -4047,8 +4014,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       {
         "matches": "www.youtube.com",
         "selectors": [
-          "yt-formatted-string[slot=content]",
+          "yt-formatted-string[slot=content].ytd-comment-renderer",
           "yt-formatted-string[disable-attributed-string]"
+        ],
+        "globalStyles": {
+          "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;"
+        },
+        "atomicBlockSelectors": [
+          "yt-formatted-string[slot=content].ytd-comment-renderer"
         ],
         "detectParagraphLanguage": true
       },
@@ -4495,7 +4468,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       translationService: "google",
       translationServices: {},
       generalRule: finalBuildInConfig.generalRule,
-      translationGeneralConfig: {},
+      translationGeneralConfig: { engine: "google" },
       rules: []
     };
     const envUserConfig = getEnvUserConfig();
@@ -4646,6 +4619,25 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       }
     );
   }
+  function queryDb(query) {
+    if (isMonkey()) {
+      return Promise.resolve(null);
+    }
+    return sendMessage(
+      sendDBQuery,
+      query
+    );
+  }
+  async function setDbStore(params) {
+    if (isMonkey()) {
+      return;
+    }
+    await sendMessage(
+      sendDBStore,
+      params
+    );
+    return;
+  }
 
   // dom/detect_page_language.ts
   async function detectPageLanguage() {
@@ -4661,32 +4653,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         return "und";
       }
     }
-  }
-
-  // utils/language_match.ts
-  function isMatchLanguage(lang, matchPattern) {
-    let matches = matchPattern.matches || [];
-    if (matches && !Array.isArray(matches)) {
-      matches = [matches];
-    }
-    if (matches.length === 0) {
-      return false;
-    }
-    if (matches.length > 0) {
-      if (matches.includes(lang)) {
-        return true;
-      } else {
-        for (const match of matches) {
-          if (match.includes("*")) {
-            const reg = new RegExp(match);
-            if (reg.test(lang)) {
-              return true;
-            }
-          }
-        }
-      }
-    }
-    return false;
   }
 
   // dom/util.ts
@@ -4907,6 +4873,142 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return finalContainers;
   }
 
+  // dom/unmount.ts
+  var cleanQueue = [];
+  function addToUnmountQueue(fn) {
+    cleanQueue.push(fn);
+  }
+  function clean() {
+    cleanQueue.forEach((fn) => fn());
+    cleanQueue = [];
+  }
+
+  // log.ts
+  var Timing = class {
+    #t = performance.now();
+    reset() {
+      this.#t = performance.now();
+    }
+    stop(message) {
+      const now = performance.now();
+      const d16 = Math.round(now - this.#t);
+      let cf = colors_exports.green;
+      if (d16 > 1e4) {
+        cf = colors_exports.red;
+      } else if (d16 > 1e3) {
+        cf = colors_exports.yellow;
+      }
+      console.debug(
+        colors_exports.dim(brandName + " TIMING:"),
+        message,
+        "in",
+        cf(d16 + "ms")
+      );
+      this.#t = now;
+    }
+  };
+  var Logger = class {
+    #level = 1 /* Info */;
+    get level() {
+      return this.#level;
+    }
+    setLevel(level) {
+      switch (level) {
+        case "debug":
+          this.#level = 0 /* Debug */;
+          break;
+        case "info":
+          this.#level = 1 /* Info */;
+          break;
+        case "warn":
+          this.#level = 2 /* Warn */;
+          break;
+        case "error":
+          this.#level = 3 /* Error */;
+          break;
+        case "fatal":
+          this.#level = 4 /* Fatal */;
+          break;
+      }
+    }
+    debug(...args) {
+      if (this.#level <= 0 /* Debug */) {
+        console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
+      }
+    }
+    info(...args) {
+      if (this.#level <= 1 /* Info */) {
+        console.log(colors_exports.green(brandName + " INFO:"), ...args);
+      }
+    }
+    warn(...args) {
+      if (this.#level <= 2 /* Warn */) {
+        console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
+      }
+    }
+    error(...args) {
+      if (this.#level <= 3 /* Error */) {
+        console.error(colors_exports.red(brandName + " ERROR:"), ...args);
+      }
+    }
+    fatal(...args) {
+      if (this.#level <= 4 /* Fatal */) {
+        console.error(colors_exports.red(brandName + " FATAL:"), ...args);
+      }
+    }
+    timing() {
+      if (this.level === 0 /* Debug */) {
+        return new Timing();
+      }
+      return { reset: () => {
+      }, stop: () => {
+      } };
+    }
+  };
+  var log_default = new Logger();
+
+  // content_message_listeners.ts
+  var currentPageLanguage = "und";
+  function setCurrentPageLanguage(lang) {
+    currentPageLanguage = lang;
+  }
+  function getCurrentPageLanguage() {
+    return currentPageLanguage;
+  }
+  function setupMessageListeners() {
+    urlChangeStream.subscribe(() => {
+      log_default.debug(`url change, clean dom, and init new page`);
+      initPage();
+    });
+    toggleTranslateStream.subscribe(async () => {
+      log_default.debug(`received toggleTranslate`);
+      await toggleTranslatePage();
+    });
+    getPageTranslatedStatusStream.subscribe(([_2, __, cb]) => {
+      log_default.debug(`received getPageTranslatedStatus`);
+      const pageStatus2 = getPageStatus();
+      cb({
+        ok: true,
+        data: pageStatus2
+      });
+    });
+    setPageLanguageStream.subscribe(([lang, __, cb]) => {
+      log_default.debug(`received setPageLanguage`);
+      setCurrentPageLanguage(lang);
+      cb({
+        ok: true,
+        data: lang
+      });
+    });
+    getPageLanguageStream.subscribe(([_2, __, cb]) => {
+      log_default.debug(`received getPageLanguage`);
+      cb({
+        ok: true,
+        data: currentPageLanguage
+      });
+    });
+  }
+
   // dom/elements_to_paragraph.ts
   function elementsToParagraph(elements, excludeElements, ctx) {
     const variables = [];
@@ -4963,6 +5065,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // services/util.ts
+  async function stringToSHA1String(message) {
+    const msgUint8 = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest("SHA-1", msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map((b10) => b10.toString(16).padStart(2, "0")).join("");
+  }
   function splitSentences(sentences, maxLength, maxGroupLength) {
     const tempSentences = splitStentenceWithMaxLength(sentences, maxLength);
     const tempSentenceGroups = [];
@@ -5109,13 +5217,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     for (const container of containers) {
       let inlineElementGroups = [];
       if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
-        const paragraph = elementsToParagraph(
-          [container],
-          excludeElements,
-          ctx
-        );
-        if (paragraph) {
-          allParagraphs.push(paragraph);
+        if (!isMarked(container, sourceElementMarkAttributeName)) {
+          container.setAttribute(sourceElementMarkAttributeName, "1");
+          const paragraph = elementsToParagraph(
+            [container],
+            excludeElements,
+            ctx
+          );
+          if (paragraph) {
+            allParagraphs.push(paragraph);
+          }
         }
         continue;
       }
@@ -5386,6 +5497,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   function normalizeContainer(containers, excludeElements, extraInlineElements, extraBlockElements, rule) {
     for (const container of containers) {
       container.setAttribute(targetContainerElementAttributeName, "1");
+      if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
+        return;
+      }
       const preTags = container.querySelectorAll("pre");
       for (const preTag of preTags) {
         const html = preTag.innerHTML;
@@ -5394,9 +5508,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       if (isPreElementByStyle(container)) {
         const html = container.innerHTML;
         container.innerHTML = html.replace(/\n/g, "<br>");
-      }
-      if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
-        return;
       }
       wrapTextNode(
         0,
@@ -5454,49 +5565,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return style.whiteSpace.startsWith("pre") || style.whiteSpace === "break-spaces";
   }
 
-  // content_message_listeners.ts
-  var currentPageLanguage = "und";
-  function setCurrentPageLanguage(lang) {
-    currentPageLanguage = lang;
-  }
-  function getCurrentPageLanguage() {
-    return currentPageLanguage;
-  }
-  function setupMessageListeners() {
-    toggleTranslateStream.subscribe(async () => {
-      log_default.debug(`received toggleTranslate`);
-      await toggleTranslatePage();
-    });
-    getPageTranslatedStatusStream.subscribe(([_2, __, cb]) => {
-      log_default.debug(`received getPageTranslatedStatus`);
-      const pageStatus2 = getPageStatus();
-      cb({
-        ok: true,
-        data: pageStatus2
-      });
-    });
-    setPageLanguageStream.subscribe(([lang, __, cb]) => {
-      log_default.debug(`received setPageLanguage`);
-      setCurrentPageLanguage(lang);
-      cb({
-        ok: true,
-        data: lang
-      });
-    });
-    getPageLanguageStream.subscribe(([_2, __, cb]) => {
-      log_default.debug(`received getPageLanguage`);
-      cb({
-        ok: true,
-        data: currentPageLanguage
-      });
-    });
-  }
-
   // services/translation.ts
   var Translation = class {
     constructor(serviceConfig, generalConfig) {
       this.maxTextLength = 1800;
-      this.isSupportList = false;
+      this.isSupportList = true;
       this.maxTextGroupLength = 1e3;
       this.serviceConfig = serviceConfig;
       this.generalConfig = generalConfig;
@@ -5513,12 +5586,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       throw new Error("Not implemented");
     }
     async multipleTranslate(payload, everySentenceCallback) {
-      const { sentences } = payload;
-      if (sentences.length === 0) {
+      if (payload.sentences.length === 0) {
         return {
-          ...payload
+          sentences: []
         };
       }
+      const { sentences } = payload;
       const respondedSentences = [];
       const tempSentenceGroups = splitSentences(
         sentences,
@@ -5533,13 +5606,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       let currentSentenceIndex = 0;
       for (let i21 = 0; i21 < tempSentenceGroups.length; i21++) {
         const tempSentenceGroup = tempSentenceGroups[i21];
+        const url = tempSentenceGroup.url;
         const throttled = throttle(async () => {
           if (this.isSupportList) {
             const result2 = await this.translateList({
               text: tempSentenceGroup.tempSentences.map((item) => item.text),
               from: tempSentenceGroup.from,
               to: tempSentenceGroup.to,
-              url: payload.url
+              url
             });
             return result2;
           } else {
@@ -5550,7 +5624,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
               text: mergedText,
               from: tempSentenceGroup.from,
               to: tempSentenceGroup.to,
-              url: payload.url
+              url
             });
             const { text } = result2;
             const translatedTexts2 = text.split(
@@ -5576,7 +5650,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             throw e18;
           }
         }
-        const { text: translatedTexts } = result;
+        const { text: translatedTexts, from: detectedFrom } = result;
         for (let j7 = 0; j7 < translatedTexts.length; j7++) {
           const translatedText = translatedTexts[j7];
           const tempSentence = tempSentenceGroup.tempSentences[j7];
@@ -5606,8 +5680,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         everySentenceCallback(null, respondedSentences[currentSentenceIndex]);
       }
       return {
-        sentences: respondedSentences,
-        url: payload.url
+        sentences: respondedSentences
       };
     }
   };
@@ -5880,9 +5953,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var _Google = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
+      this.isSupportList = false;
     }
     async translate(payload) {
       const { text, from, to } = payload;
+      if (!text)
+        return { ...payload };
       const adaptedFrom = _Google.langMap.get(from) || "auto";
       const adaptedTo = _Google.langMap.get(to) || "zh-CN";
       const result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
@@ -6197,19 +6273,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       this.maxTextLength = 1200;
       this.isSupportList = true;
     }
-    async translate(payload) {
-      const { text, to, from } = payload;
-      const result = await translate(
-        [text],
-        _D.langMap.get(to),
-        _D.langMap.get(from)
-      );
-      return {
-        from: _D.langMapReverse.get(result.from),
-        to,
-        text: result.text[0]
-      };
-    }
     async translateList(payload) {
       const { text, to, from } = payload;
       const result = await translate(
@@ -6435,28 +6498,29 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     if (!sentence.text) {
       return sentence;
     }
-    const { config, translationService } = ctx;
-    const generalConfig = config.translationGeneralConfig;
-    const services = config.translationServices;
-    const defaultTranslationEngine = translationService;
-    const serviceConfig = services[defaultTranslationEngine] || {};
-    const translator = new TranslationServices[defaultTranslationEngine].class(
-      serviceConfig,
-      generalConfig
-    );
     if (sentence.from === "und") {
       sentence.from = "auto";
     }
-    await translator.init();
-    const result = await translator.translate(
-      sentence
+    const result = await translateMultipleSentences(
+      {
+        sentences: [sentence]
+      },
+      ctx
     );
-    return {
-      ...sentence,
-      ...result
-    };
+    if (result.sentences.length > 0) {
+      return {
+        ...sentence,
+        ...result.sentences[0]
+      };
+    }
+    throw new CommonError("translateFailed", "translate failed");
   }
   async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
+    if (!payload.sentences.length) {
+      return {
+        ...payload
+      };
+    }
     const { config, translationService } = ctx;
     const generalConfig = config.translationGeneralConfig;
     const services = config.translationServices;
@@ -6468,15 +6532,73 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       }
       return sentence;
     });
+    const noCacheSentences = [];
+    const finalResult = {
+      sentences: Array(payload.sentences.length)
+    };
+    const sourceLength = payload.sentences.length;
+    let sentenceIndex = -1;
+    for (const sentence of payload.sentences) {
+      sentenceIndex++;
+      const res = await queryDb({
+        originalText: sentence.text,
+        from: sentence.from,
+        to: sentence.to,
+        service: defaultTranslationEngine
+      });
+      if (res) {
+        const result = {
+          ...sentence,
+          text: res.translatedText
+        };
+        finalResult.sentences[sentenceIndex] = result;
+        if (everySentenceCallback) {
+          everySentenceCallback(null, result);
+        }
+      } else {
+        noCacheSentences.push(sentence);
+      }
+    }
+    const resultLength = noCacheSentences.length;
+    if (sourceLength - resultLength > 0) {
+      log_default.debug(`use ${sourceLength - resultLength} sentences from cache`);
+    }
+    if (!noCacheSentences.length) {
+      return finalResult;
+    }
     const translator = new TranslationServices[defaultTranslationEngine].class(
       serviceConfig,
       generalConfig
     );
     await translator.init();
-    await translator.multipleTranslate(
-      payload,
+    const noCacheResult = await translator.multipleTranslate(
+      {
+        sentences: noCacheSentences
+      },
       everySentenceCallback
     );
+    let resultIndex = -1;
+    for (const sentence of noCacheResult.sentences) {
+      resultIndex++;
+      if (defaultTranslationEngine !== "mock") {
+        await setDbStore(
+          {
+            translatedText: sentence.text,
+            from: noCacheSentences[resultIndex].from,
+            to: noCacheSentences[resultIndex].to,
+            detectedFrom: sentence.from,
+            key: await stringToSHA1String(noCacheSentences[resultIndex].text),
+            service: defaultTranslationEngine
+          }
+        );
+      }
+      const index = finalResult.sentences.findIndex((s19) => !s19);
+      if (index === -1) {
+        throw new CommonError("translateFailed", "can not match the result");
+      }
+      finalResult.sentences[index] = sentence;
+    }
+    return finalResult;
   }
 
   // utils/url_match.ts
@@ -6667,6 +6789,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var currentParagraphIds = [];
   var paragraphEntities = /* @__PURE__ */ new Map();
   var allNewDynamicElements = [];
+  var allIntersectionObserver = [];
   var currentNewDynamicElements = [];
   var debounceTranslateCurrentQueue = debounce(translateCurrentQueue, 300);
   var debounceTranslateNewDynamicNodes = debounce(
@@ -6674,6 +6797,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     1e3
   );
   var mutationObserver;
+  var titleMutationObserver;
   var originalPageTitle = "";
   async function toggleTranslatePage() {
     const options = {
@@ -6720,7 +6844,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const firstElement = getFirstHTMLElement(paragraph.elements);
     const lastElement = getLastHTMLElement(paragraph.elements);
     if (firstElement) {
-      new IntersectionObserver((entries, observer) => {
+      const observe = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > 0) {
             observer.disconnect();
@@ -6730,10 +6854,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             }
           }
         });
-      }).observe(firstElement);
+      });
+      allIntersectionObserver.push(observe);
+      observe.observe(firstElement);
     }
     if (lastElement && lastElement !== firstElement) {
-      new IntersectionObserver((entries, observer) => {
+      const observe = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > 0) {
             observer.disconnect();
@@ -6743,7 +6869,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             }
           }
         });
-      }).observe(lastElement);
+      });
+      allIntersectionObserver.push(observe);
+      observe.observe(lastElement);
     }
   }
   async function translateNewDynamicNodes(ctx) {
@@ -6810,7 +6938,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
   async function translateTitle(ctx) {
     const pageTitle = document.title;
-    if (!originalPageTitle) {
+    if (originalPageTitle !== pageTitle) {
       originalPageTitle = pageTitle;
     }
     if (!pageTitle) {
@@ -6824,7 +6952,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         to: ctx.targetLanguage
       }, ctx);
       if (result && result.text) {
-        document.title = originalPageTitle + " --- " + result.text;
+        document.title = originalPageTitle + titleDelimiters + result.text;
       }
     } catch (e18) {
       throw e18;
@@ -7005,8 +7133,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           from: currentLang,
           to: ctx.targetLanguage
         };
-      }),
-      url: ctx.encryptedUrl
+      })
     };
     const sentenceLength = payload.sentences.length;
     if (sentenceLength > 0) {
@@ -7052,6 +7179,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
   function enableMutatinObserver(rule, ctx) {
     disableMutatinObserver();
+    allNewDynamicElements = [];
+    currentNewDynamicElements = [];
     const inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text");
     mutationObserver = new MutationObserver(function(mutations) {
       mutations.forEach((mutation) => {
@@ -7078,11 +7207,83 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       childList: true,
       subtree: true
     });
+    const titleElement = document.querySelector("title");
+    if (titleElement) {
+      titleMutationObserver = new MutationObserver(function(mutations) {
+        if (mutations.length > 0) {
+          const title = mutations[0].target.text;
+          if (!title.includes(titleDelimiters)) {
+            translateTitle(ctx).catch((e18) => {
+              log_default.error(
+                `translateTitle error:`,
+                e18.name,
+                e18.message,
+                e18.details || ""
+              );
+            });
+          }
+        }
+      });
+      titleMutationObserver.observe(titleElement, {
+        subtree: true,
+        characterData: true,
+        childList: true
+      });
+    }
+  }
+  async function initPage() {
+    clean();
+    restorePage();
+    const options = {
+      url: globalThis.location.href,
+      config: await getConfig()
+    };
+    const ctx = await getContext(options);
+    const { config } = ctx;
+    const isDebug = config.debug;
+    if (isDebug) {
+      log_default.setLevel("debug");
+    } else {
+      log_default.setLevel("info");
+    }
+    log_default.debug(`context`, ctx);
+    addToUnmountQueue(() => {
+      paragraphEntities.clear();
+      allIntersectionObserver.forEach((observer) => {
+        observer.disconnect();
+      });
+      allIntersectionObserver = [];
+    });
+    let lang = "und";
+    if (!isMonkey()) {
+      lang = await detectTabLanguage();
+    }
+    if (lang === "und") {
+      lang = await detectPageLanguage();
+    }
+    setCurrentPageLanguage(lang);
+    let isAutoTranslate = ctx.isTranslateUrl;
+    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl) {
+      log_default.debug(`detect page language: ${lang}`);
+      if (isMatchLanguage(lang, ctx.config.translationLanguagePattern)) {
+        isAutoTranslate = true;
+        log_default.debug(`match language pattern ${lang}, auto translate`);
+      }
+    }
+    if (isAutoTranslate) {
+      await toggleTranslatePage();
+    } else {
+      log_default.debug(`do not auto translate`);
+    }
   }
   function disableMutatinObserver() {
     if (mutationObserver) {
       mutationObserver.disconnect();
       mutationObserver.takeRecords();
+    }
+    if (titleMutationObserver) {
+      titleMutationObserver.disconnect();
+      titleMutationObserver.takeRecords();
     }
   }
   function getPageStatus() {
@@ -7116,49 +7317,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     if (!isMonkey()) {
       sendReady();
     }
-    const options = {
-      url: globalThis.location.href,
-      config: await getConfig()
-    };
-    const ctx = await getContext(options);
-    const { config } = ctx;
-    const isDebug = config.debug;
-    if (isDebug) {
-      log_default.setLevel("debug");
-    } else {
-      log_default.setLevel("info");
-    }
-    log_default.debug(`context`, ctx);
-    let lang = "und";
-    if (!isMonkey()) {
-      lang = await detectTabLanguage();
-    }
-    if (lang === "und") {
-      lang = await detectPageLanguage();
-    }
-    setCurrentPageLanguage(lang);
-    let isAutoTranslate = ctx.isTranslateUrl;
-    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl) {
-      log_default.debug(`detect page language: ${lang}`);
-      if (isMatchLanguage(lang, config.translationLanguagePattern)) {
-        isAutoTranslate = true;
-        log_default.debug(`match language pattern ${lang}, auto translate`);
-      }
-    }
-    if (isAutoTranslate) {
-      await toggleTranslatePage();
-    } else {
-      log_default.debug(`do not auto translate`);
-    }
+    await initPage();
   }
 
   // immersive-translate.lib.ts
-  function toggleTranslatePage2() {
+  function toggleTranslatePage3() {
     toggleTranslatePage().catch((e18) => {
       console.error(`Translate page error:`, e18);
     });
   }
-  GM.registerMenuCommand("Toggle Translate", toggleTranslatePage2, "t");
+  GM.registerMenuCommand("Toggle Translate", toggleTranslatePage3, "t");
   var addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
   async function main2() {
     let injectedCss = "";

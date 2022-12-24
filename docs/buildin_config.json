@@ -262,8 +262,14 @@
     {
       "matches": "www.youtube.com",
       "selectors": [
-        "yt-formatted-string[slot=content]",
+        "yt-formatted-string[slot=content].ytd-comment-renderer",
         "yt-formatted-string[disable-attributed-string]"
+      ],
+      "globalStyles": {
+        "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;"
+      },
+      "atomicBlockSelectors": [
+        "yt-formatted-string[slot=content].ytd-comment-renderer"
       ],
       "detectParagraphLanguage": true
     },
@@ -552,5 +558,5 @@
     }
   ],
   "buildinConfigUpdatedAt": "1970-01-01T00:00:00.000Z",
-  "latestVersion": "0.0.5.1"
+  "latestVersion": "0.0.5.3"
 }

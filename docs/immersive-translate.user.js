@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name         Next Immersive Translate
+// @name         Immersive Translate
 // @namespace    https://immersive-translate.owenyoung.com/
-// @version      0.0.7
+// @version      0.0.8
 // @description  Web page translator
 // @author       Owen Young
+// @homepageURL    https://immersive-translate.owenyoung.com/
+// @supportURL    https://github.com/immersive-translate/next-immersive-translate/
 // @match      *://*/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=userscript.net
 // @grant       GM.getValue

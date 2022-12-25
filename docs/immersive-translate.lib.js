@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-24T16:00:56.642Z", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+  var define_process_env_default = { BUILD_TIME: "2022-12-25T05:14:06.565Z", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
 
   // browser/userscript_polyfill.ts
   var storageApi = {
@@ -369,10 +369,14 @@
   var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
   var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
+    "auto",
+    "en",
+    "zh-CN",
+    "zh-TW",
+    "ja",
     "af",
     "am",
     "ar",
-    "auto",
     "az",
     "be",
     "bg",
@@ -386,7 +390,6 @@
     "da",
     "de",
     "el",
-    "en",
     "eo",
     "es",
     "et",
@@ -414,7 +417,6 @@
     "ig",
     "is",
     "it",
-    "ja",
     "jw",
     "ka",
     "kk",
@@ -484,8 +486,6 @@
     "yo",
     "yua",
     "yue",
-    "zh-CN",
-    "zh-TW",
     "zu",
     "und"
   ];
@@ -3863,7 +3863,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "rules": [
       {
         "matches": [
-          "http://localhost:8000/*"
+          "mail.jabber.org",
+          "antirez.com"
         ],
         "excludeTags": [
           "TITLE",
@@ -3873,7 +3874,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "SVG",
           "svg",
           "INPUT",
-          "BUTTON",
           "LABEL",
           "IMG",
           "SUB",
@@ -3883,15 +3883,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "KBD",
           "WBR",
           "TT"
-        ]
-      },
-      {
-        "matches": [
-          "mail.jabber.org",
-          "antirez.com"
-        ],
-        "additionalExcludeTags": [
-          "PRE"
         ]
       },
       {
@@ -4295,7 +4286,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "mastodon.online",
           "kolektiva.social",
           "indieweb.social",
-          "mastodon.world"
+          "mastodon.world",
+          "infosec.exchange"
         ],
         "selectors": [
           "div.status__content__text"
@@ -5496,18 +5488,23 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   // dom/normalize_container.ts
   function normalizeContainer(containers, excludeElements, extraInlineElements, extraBlockElements, rule) {
     for (const container of containers) {
-      container.setAttribute(targetContainerElementAttributeName, "1");
       if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
         return;
       }
-      const preTags = container.querySelectorAll("pre");
-      for (const preTag of preTags) {
-        const html = preTag.innerHTML;
-        preTag.innerHTML = html.replace(/\n/g, "<br>");
+      container.setAttribute(targetContainerElementAttributeName, "1");
+      const isExcludePre = rule.excludeTags.includes("PRE") || rule.additionalExcludeTags.includes("PRE");
+      if (!isExcludePre) {
+        const preTags = container.querySelectorAll("pre");
+        for (const preTag of preTags) {
+          const html = preTag.innerHTML;
+          preTag.innerHTML = html.replace(/\n/g, "<br>");
+        }
       }
-      if (isPreElementByStyle(container)) {
-        const html = container.innerHTML;
-        container.innerHTML = html.replace(/\n/g, "<br>");
+      if (container.tagName !== "PRE") {
+        if (isPreElementByStyle(container)) {
+          const html = container.innerHTML;
+          container.innerHTML = html.replace(/\n/g, "<br>");
+        }
       }
       wrapTextNode(
         0,
@@ -7329,10 +7326,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   GM.registerMenuCommand("Toggle Translate", toggleTranslatePage3, "t");
   var addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
   async function main2() {
-    let injectedCss = "";
-    if (globalThis.IMMERSIVE_TRANSLATE_INJECTED_CSS) {
-      injectedCss = globalThis.IMMERSIVE_TRANSLATE_INJECTED_CSS;
-    }
+    const env2 = getEnv();
+    let injectedCss = env2.TRANSLATE_INJECTED_CSS;
     if (injectedCss) {
       addCSS(injectedCss);
     }

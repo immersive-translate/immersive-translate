@@ -6,7 +6,106 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-25T05:14:06.565Z", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+  var define_process_env_default = { BUILD_TIME: "2022-12-25T06:55:37.244Z", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+
+  // manifest.json
+  var manifest_default = {
+    "manifest_version": 3,
+    "name": "Next Immersive Translate",
+    "description": "Web page translator",
+    "version": "0.0.5.5",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      "styles/inject.css"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>",
+          "file://*/*"
+        ],
+        "js": [
+          "js/browser-polyfill.js",
+          "content_script.js"
+        ],
+        "css": [
+          "styles/inject.css"
+        ],
+        "run_at": "document_end"
+      }
+    ],
+    "commands": {
+      "hotkey-toggle-translation": {
+        "suggested_key": {
+          "default": "Ctrl+T",
+          "mac": "MacCtrl+T"
+        },
+        "description": "Toggle Translate"
+      },
+      "hotkey-toggle-dual": {
+        "suggested_key": {
+          "default": "Ctrl+D",
+          "mac": "MacCtrl+D"
+        },
+        "description": "Toggle Dual"
+      }
+    },
+    "options_page": "options.html",
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": true,
+      "browser_style": false
+    },
+    "permissions": [
+      "storage",
+      "activeTab",
+      "contextMenus",
+      "webRequest",
+      "webRequestBlocking",
+      "declarativeNetRequestWithHostAccess"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "ruleset_1",
+          "enabled": true,
+          "path": "rules/request_modifier_rule.json"
+        }
+      ]
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png",
+        "128": "icons/128.png",
+        "256": "icons/256.png"
+      }
+    },
+    "browser_action": {
+      "default_icon": "icons/32.png",
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png",
+      "256": "icons/256.png"
+    },
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "{344b7391-6f01-466e-bbf6-888907a21b4d}",
+        "strict_min_version": "63.0"
+      }
+    }
+  };
 
   // browser/userscript_polyfill.ts
   var storageApi = {
@@ -20,10 +119,16 @@
       }
     }
   };
+  function getManifest() {
+    return manifest_default;
+  }
   var browser = {
     storage: {
       local: storageApi,
       sync: storageApi
+    },
+    runtime: {
+      getManifest
     }
   };
   globalThis.browser = browser;
@@ -7317,17 +7422,19 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     await initPage();
   }
 
-  // immersive-translate.lib.ts
+  // immersive-translate.lib.tsx
   function toggleTranslatePage3() {
     toggleTranslatePage().catch((e18) => {
       console.error(`Translate page error:`, e18);
     });
   }
-  GM.registerMenuCommand("Toggle Translate", toggleTranslatePage3, "t");
+  if (GM && GM.registerMenuCommand) {
+    GM.registerMenuCommand("Toggle Translate", toggleTranslatePage3, "t");
+  }
   var addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
   async function main2() {
     const env2 = getEnv();
-    let injectedCss = env2.TRANSLATE_INJECTED_CSS;
+    const injectedCss = env2.TRANSLATE_INJECTED_CSS;
     if (injectedCss) {
       addCSS(injectedCss);
     }

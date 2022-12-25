@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Next Immersive Translate
 // @namespace    https://immersive-translate.owenyoung.com/
-// @version      0.0.5.4
+// @version      0.0.5.5
 // @description  Web page translator
 // @author       Owen Young
 // @match      *://*/*
@@ -15,15 +15,14 @@
 // @connect    tmt.tencentcloudapi.com
 // @connect    www2.deepl.com
 // @run-at       document-end
-// @require    https://immersive-translate.owenyoung.com/immersive-translate.lib.js#sha256=8e9308808d6de4e4aeb8ee1492b36d78f288e0bf004889c86373643a16b13e27
+// @require   https://cdn.jsdelivr.net/gh/immersive-translate/next-immersive-translate@nightly-0.0.5.5/docs/immersive-translate.lib.js
 // ==/UserScript==
-
 globalThis.IMMERSIVE_TRANSLATE_CONFIG = {
   debug: true,
   translationLanguagePattern: {
     matches: ["en"],
   },
-  translationService: "mock",
+  translationService: "google",
   translationThemePatterns: {
     underline: {
       matches: ["discord.com"],
@@ -35,7 +34,6 @@ globalThis.IMMERSIVE_TRANSLATE_CONFIG = {
 };
 
 if (globalThis.IMMERSIVE_TRANSLATE_ENTRY) {
-  console.log("yes");
   globalThis.IMMERSIVE_TRANSLATE_ENTRY().catch((e) => {
     console.error(`immersive translate error`, e);
   });

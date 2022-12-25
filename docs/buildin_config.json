@@ -111,7 +111,8 @@
   "rules": [
     {
       "matches": [
-        "http://localhost:8000/*"
+        "mail.jabber.org",
+        "antirez.com"
       ],
       "excludeTags": [
         "TITLE",
@@ -121,7 +122,6 @@
         "SVG",
         "svg",
         "INPUT",
-        "BUTTON",
         "LABEL",
         "IMG",
         "SUB",
@@ -131,15 +131,6 @@
         "KBD",
         "WBR",
         "TT"
-      ]
-    },
-    {
-      "matches": [
-        "mail.jabber.org",
-        "antirez.com"
-      ],
-      "additionalExcludeTags": [
-        "PRE"
       ]
     },
     {
@@ -543,7 +534,8 @@
         "mastodon.online",
         "kolektiva.social",
         "indieweb.social",
-        "mastodon.world"
+        "mastodon.world",
+        "infosec.exchange"
       ],
       "selectors": [
         "div.status__content__text"

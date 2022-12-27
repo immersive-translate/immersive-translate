@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-27T08:57:23.688Z", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-27T09:37:44.321Z", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -3080,11 +3080,13 @@ textarea,
   var buildinConfigStorageKey = "buildinConfig";
   var contextMenuId = `${brandId}-context-menu`;
   var contextOpenOptionsMenuId = `${brandId}-open-options-menu`;
+  var buildinConfigSyncUrl = "https://immersive-translate.owenyoung.com/buildin_config.json";
   var sourceElementMarkAttributeName = `data-${brandId}-mark`;
   var sourceElementParagraphAttributeName = `data-${brandId}-paragraph-id`;
   var sourceAtomicBlockElementMarkAttributeName = `data-${brandId}-atomic-block-mark`;
   var sourceInlineElementMarkAttributeName = `data-${brandId}-inline-mark`;
   var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
+  var lastRunTimeStorageKey = "lastRunTime";
   var sourceElementWithGlobalStyleMarkAttributeName = `data-${brandId}-global-style-mark`;
   var delimiters = ["\u{1F6A0}\u{1F6A0}", "\u{1F69E}"];
   var titleDelimiters = " --- ";
@@ -7814,7 +7816,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const defaultConfig = {
       buildinConfigUpdatedAt: finalBuildInConfig.buildinConfigUpdatedAt,
       minVersion: finalBuildInConfig.minVersion,
-      interval: 1e3 * 60 * 60 * 1,
+      interval: 1,
       debug: false,
       alpha: false,
       targetLanguage: "zh-CN",
@@ -7943,6 +7945,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       return request(options);
     }
     return sendMessage(sendFetch, options);
+  }
+  function getConfig2() {
+    if (isMonkey()) {
+      return getConfig();
+    }
+    return sendMessage(
+      sendGetConfig,
+      null
+    );
   }
   function detectLanguage(options) {
     if (isMonkey()) {
@@ -10384,7 +10395,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     const options = {
       url: globalThis.location.href,
-      config: await getConfig()
+      config: await getConfig2()
     };
     const ctx = await getContext(options);
     log_default.debug("ctx", ctx);
@@ -10545,7 +10556,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     setLoadingToParagraph(id);
     const options = {
       url: globalThis.location.href,
-      config: await getConfig()
+      config: await getConfig2()
     };
     const ctx = await getContext(options);
     const currentLang = getCurrentPageLanguage();
@@ -10721,16 +10732,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     restorePage();
     const options = {
       url: globalThis.location.href,
-      config: await getConfig()
+      config: await getConfig2()
     };
     const ctx = await getContext(options);
     const { config } = ctx;
-    const isDebug = config.debug;
-    if (isDebug) {
-      log_default.setLevel("debug");
-    } else {
-      log_default.setLevel("info");
-    }
     log_default.debug(`context`, ctx);
     addToUnmountQueue(() => {
       cleanParagraphs();
@@ -10834,6 +10839,82 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
   }
 
+  // utils/compare_version.ts
+  function isAVersionGreaterOrEqualWithB(a21, b11) {
+    const result = a21.localeCompare(b11, void 0, {
+      numeric: true,
+      sensitivity: "base"
+    });
+    return result >= 0;
+  }
+
+  // cron.ts
+  async function runCron(interval) {
+    try {
+      const now = new Date();
+      log_default.debug(
+        `cron task start, next will run at`,
+        new Date(now.getTime() + interval).toLocaleString()
+      );
+      await browserAPI.storage.local.set({
+        [lastRunTimeStorageKey]: now.toISOString()
+      });
+      await syncRules();
+    } catch (e19) {
+      log_default.error("run cron task failed", e19);
+    }
+  }
+  async function checkCronAndRunOnce() {
+    const config = await getConfig2();
+    const interval = config.interval;
+    if (interval) {
+      const lastRunTimeResult = await browserAPI.storage.local.get(
+        lastRunTimeStorageKey
+      );
+      if (lastRunTimeResult && lastRunTimeResult[lastRunTimeStorageKey]) {
+        const lastRunTime = lastRunTimeResult[lastRunTimeStorageKey];
+        if (Date.now() - new Date(lastRunTime).getTime() < interval) {
+          log_default.debug(`cron task not run, last run time is ${lastRunTime}`);
+          return;
+        } else {
+          runCron(interval);
+        }
+      } else {
+        runCron(interval);
+      }
+    }
+  }
+  async function syncRules() {
+    try {
+      const localConfig = await getConfig2();
+      const data = await request2({ url: buildinConfigSyncUrl });
+      const localConfigUpdatedAtIsoString = localConfig.buildinConfigUpdatedAt;
+      const localConfigUpdatedAt = new Date(localConfigUpdatedAtIsoString);
+      const latestIsoTime = data.buildinConfigUpdatedAt;
+      const latest = new Date(latestIsoTime);
+      const remoteMinVersion = data.minVersion;
+      const localVersion = browserAPI.runtime.getManifest().version;
+      if (isAVersionGreaterOrEqualWithB(localVersion, remoteMinVersion)) {
+        if (latest > localConfigUpdatedAt) {
+          await browserAPI.storage.local.set({
+            buildinConfig: data
+          });
+          log_default.info(
+            `sync remote rules success, latest: ${new Date(latestIsoTime).toLocaleString()}`
+          );
+        } else {
+          log_default.debug(`no need to sync rules, latest: ${localConfigUpdatedAt}`);
+        }
+      } else {
+        log_default.info(
+          `local version is too old, please update to ${remoteMinVersion} or later`
+        );
+      }
+    } catch (e19) {
+      log_default.error(`sync rules error: `, e19);
+    }
+  }
+
   // dom/main.ts
   async function main() {
     const isUserscript = isMonkey();
@@ -10844,6 +10925,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (!isUserscript) {
       sendReady();
     }
+    const config = await getConfig2();
+    const isDebug = config.debug;
+    if (isDebug) {
+      log_default.setLevel("debug");
+    } else {
+      log_default.setLevel("info");
+    }
+    checkCronAndRunOnce();
     await initPage();
   }
 

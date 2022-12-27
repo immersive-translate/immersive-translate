@@ -23,6 +23,7 @@
   "generalRule": {
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
+    "urlChangeDelay": 10,
     "globalStyles": {},
     "selectors": [],
     "additionalSelectors": [
@@ -101,7 +102,8 @@
       "VAR",
       "IMG",
       "CODE",
-      "SCRIPT"
+      "SCRIPT",
+      "TIME"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -235,6 +237,9 @@
         ".markdown-title",
         ".markdown-body"
       ],
+      "excludeSelectors": [
+        ".css-truncate"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -253,12 +258,12 @@
     {
       "matches": "www.youtube.com",
       "selectors": [
-        "yt-formatted-string[slot=content].ytd-comment-renderer",
-        "yt-formatted-string[disable-attributed-string]"
+        "yt-formatted-string[slot=content].ytd-comment-renderer"
       ],
       "globalStyles": {
         "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;"
       },
+      "urlChangeDelay": 2000,
       "atomicBlockSelectors": [
         "yt-formatted-string[slot=content].ytd-comment-renderer"
       ],
@@ -547,8 +552,20 @@
       "additionalSelectors": [
         "div.RenderKeyPoints-list"
       ]
+    },
+    {
+      "matches": "app.daily.dev",
+      "selectors": [
+        "h1",
+        ".typo-body",
+        "article h3",
+        "[class^=markdown_markdown]"
+      ],
+      "globalStyles": {
+        ".line-clamp-3": "-webkit-line-clamp: unset"
+      }
     }
   ],
   "buildinConfigUpdatedAt": "1970-01-01T00:00:00.000Z",
-  "latestVersion": "0.0.5.3"
+  "latestVersion": "0.0.9"
 }

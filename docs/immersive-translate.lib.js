@@ -28,6 +28,8 @@
   --typography-spacing-vertical: 1.5rem;
   --block-spacing-vertical: calc(var(--spacing) * 2);
   --block-spacing-horizontal: var(--spacing);
+  --grid-spacing-vertical: 0;
+  --grid-spacing-horizontal: var(--spacing);
   --form-element-spacing-vertical: 0.75rem;
   --form-element-spacing-horizontal: 1rem;
   --nav-element-spacing-vertical: 1rem;
@@ -132,6 +134,10 @@ dialog > article {
 
 a {
   --text-decoration: none;
+}
+a.secondary,
+a.contrast {
+  --text-decoration: underline;
 }
 
 small {
@@ -616,11 +622,66 @@ main {
 }
 
 /**
+* Container
+*/
+.container,
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--spacing);
+  padding-left: var(--spacing);
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 510px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 920px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1130px;
+  }
+}
+
+/**
  * Section
  * Responsive spacings for section
  */
 section {
   margin-bottom: var(--block-spacing-vertical);
+}
+
+/**
+* Grid
+* Minimal grid system with auto-layout columns
+*/
+.grid {
+  grid-column-gap: var(--grid-spacing-horizontal);
+  grid-row-gap: var(--grid-spacing-vertical);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+  }
+}
+.grid > * {
+  min-width: 0;
 }
 
 /**
@@ -705,6 +766,30 @@ a:focus,
 [role="link"]:focus {
   --background-color: var(--primary-focus);
 }
+a.secondary,
+[role="link"].secondary {
+  --color: var(--secondary);
+}
+a.secondary:is([aria-current], :hover, :active, :focus),
+[role="link"].secondary:is([aria-current], :hover, :active, :focus) {
+  --color: var(--secondary-hover);
+}
+a.secondary:focus,
+[role="link"].secondary:focus {
+  --background-color: var(--secondary-focus);
+}
+a.contrast,
+[role="link"].contrast {
+  --color: var(--contrast);
+}
+a.contrast:is([aria-current], :hover, :active, :focus),
+[role="link"].contrast:is([aria-current], :hover, :active, :focus) {
+  --color: var(--contrast-hover);
+}
+a.contrast:focus,
+[role="link"].contrast:focus {
+  --background-color: var(--contrast-focus);
+}
 
 h1,
 h2,
@@ -749,13 +834,16 @@ h6 {
   margin-top: var(--typography-spacing-vertical);
 }
 
-hgroup {
+hgroup,
+.headings {
   margin-bottom: var(--typography-spacing-vertical);
 }
-hgroup > * {
+hgroup > *,
+.headings > * {
   margin-bottom: 0;
 }
-hgroup > *:last-child {
+hgroup > *:last-child,
+.headings > *:last-child {
   --color: var(--muted-color);
   --font-weight: unset;
   font-size: 1rem;
@@ -944,19 +1032,125 @@ input[type="reset"]:focus,
     0 0 0 var(--outline-width) var(--primary-focus);
 }
 
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).secondary,
 input[type="reset"] {
   --background-color: var(--secondary);
   --border-color: var(--secondary);
   --color: var(--secondary-inverse);
   cursor: pointer;
 }
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).secondary:is([aria-current], :hover, :active, :focus),
 input[type="reset"]:is([aria-current], :hover, :active, :focus) {
   --background-color: var(--secondary-hover);
   --border-color: var(--secondary-hover);
+  --color: var(--secondary-inverse);
 }
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).secondary:focus,
 input[type="reset"]:focus {
   --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
     0 0 0 var(--outline-width) var(--secondary-focus);
+}
+
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).contrast {
+  --background-color: var(--contrast);
+  --border-color: var(--contrast);
+  --color: var(--contrast-inverse);
+}
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).contrast:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--contrast-hover);
+  --border-color: var(--contrast-hover);
+  --color: var(--contrast-inverse);
+}
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).contrast:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--contrast-focus);
+}
+
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline,
+input[type="reset"].outline {
+  --background-color: transparent;
+  --color: var(--primary);
+}
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline:is([aria-current], :hover, :active, :focus),
+input[type="reset"].outline:is([aria-current], :hover, :active, :focus) {
+  --background-color: transparent;
+  --color: var(--primary-hover);
+}
+
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline.secondary,
+input[type="reset"].outline {
+  --color: var(--secondary);
+}
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline.secondary:is([aria-current], :hover, :active, :focus),
+input[type="reset"].outline:is([aria-current], :hover, :active, :focus) {
+  --color: var(--secondary-hover);
+}
+
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline.contrast {
+  --color: var(--contrast);
+}
+:is(
+    button,
+    input[type="submit"],
+    input[type="button"],
+    [role="button"]
+  ).outline.contrast:is([aria-current], :hover, :active, :focus) {
+  --color: var(--contrast-hover);
 }
 
 :where(
@@ -1909,6 +2103,9 @@ details summary[role="button"]::after {
   height: calc(1rem * var(--line-height, 1.5));
   background-image: var(--icon-chevron-button);
 }
+details summary[role="button"]:not(.outline).contrast::after {
+  background-image: var(--icon-chevron-button-inverse);
+}
 details[open] > summary {
   margin-bottom: calc(var(--spacing));
 }
@@ -2024,11 +2221,71 @@ dialog article > footer [role="button"]:not(:first-of-type) {
 dialog article p:last-of-type {
   margin: 0;
 }
+dialog article .close {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  margin-top: calc(var(--block-spacing-vertical) * -0.5);
+  margin-bottom: var(--typography-spacing-vertical);
+  margin-left: auto;
+  background-image: var(--icon-close);
+  background-position: center;
+  background-size: auto 1rem;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  transition: opacity var(--transition);
+}
+dialog article .close:is([aria-current], :hover, :active, :focus) {
+  opacity: 1;
+}
 dialog:not([open]),
 dialog[open="false"] {
   display: none;
 }
 
+.modal-is-open {
+  padding-right: var(--scrollbar-width, 0px);
+  overflow: hidden;
+  pointer-events: none;
+}
+.modal-is-open dialog {
+  pointer-events: auto;
+}
+
+:where(.modal-is-opening, .modal-is-closing) dialog,
+:where(.modal-is-opening, .modal-is-closing) dialog > article {
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+:where(.modal-is-opening, .modal-is-closing) dialog {
+  animation-duration: 0.8s;
+  animation-name: modal-overlay;
+}
+:where(.modal-is-opening, .modal-is-closing) dialog > article {
+  animation-delay: 0.2s;
+  animation-name: modal;
+}
+
+.modal-is-closing dialog,
+.modal-is-closing dialog > article {
+  animation-delay: 0s;
+  animation-direction: reverse;
+}
+
+@keyframes modal-overlay {
+  from {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: transparent;
+  }
+}
+@keyframes modal {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
 /**
  * Nav
  */
@@ -11068,6 +11325,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var zh_CN_default = {
     "general": "\u57FA\u672C\u8BBE\u7F6E",
     "reset": "\u91CD\u7F6E",
+    "close": "\u5173\u95ED",
     "homepage": "\u4E3B\u9875",
     "options": "\u9009\u9879",
     "about": "\u5173\u4E8E",
@@ -11356,6 +11614,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       ctx,
       currentUrl,
       currentLang,
+      onClose,
       onTranslatePage
     } = props;
     const setSettings = onUserConfigChange;
@@ -11404,12 +11663,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const handleOpenOptions = (e19) => {
       e19.preventDefault();
       browserAPI.runtime.openOptionsPage();
-      globalThis.close();
+      onClose();
     };
     const handleOpenHomepage = (e19) => {
       e19.preventDefault();
       globalThis.open(homepage, "_blank");
-      globalThis.close();
+      onClose();
     };
     const handleToggleAlpha = (_e3) => {
       setSettings((settings) => {
@@ -11539,6 +11798,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         (item) => item.ok
       );
     }
+    const handleClosePopup = () => {
+      onClose();
+    };
     return /* @__PURE__ */ p21("div", {
       className: "p-3",
       children: [
@@ -11708,12 +11970,20 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                 version
               ]
             }),
+            isMonkey() && /* @__PURE__ */ p21("a", {
+              href: "#",
+              class: "secondary",
+              onClick: handleClosePopup,
+              children: t18("close")
+            }),
             isMonkey() ? /* @__PURE__ */ p21("a", {
               href: "#",
+              class: "secondary",
               onClick: handleOpenHomepage,
               children: t18("homepage")
             }) : /* @__PURE__ */ p21("a", {
               href: "#",
+              class: "secondary",
               onClick: handleOpenOptions,
               children: t18("options")
             })
@@ -11880,11 +12150,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       toggleTranslatePage();
       onClose();
     };
+    const handleClose = () => {
+      onClose();
+    };
     if (!config || !ctx) {
       return null;
     }
     return /* @__PURE__ */ p21(Popup, {
       root,
+      onClose: handleClose,
       onToggleTranslate: handleToggleTranslatePage,
       onTranslatePage: handleTranslatePage,
       onSetPageLanguage,

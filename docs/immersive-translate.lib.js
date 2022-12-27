@@ -10844,17 +10844,19 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       }
     } else {
       const paragraph = getParagraph(translatedSentence.id);
-      const targetItem = paragraphToHtml(
-        paragraph,
-        translatedSentence,
-        ctx
-      );
-      const wrapperId = translatedSentence.id;
-      const wrapper = document.getElementById(
-        `${translationTargetElementWrapperClass}-${wrapperId}`
-      );
-      if (wrapper) {
-        wrapper.innerHTML = targetItem.html;
+      if (paragraph) {
+        const targetItem = paragraphToHtml(
+          paragraph,
+          translatedSentence,
+          ctx
+        );
+        const wrapperId = translatedSentence.id;
+        const wrapper = document.getElementById(
+          `${translationTargetElementWrapperClass}-${wrapperId}`
+        );
+        if (wrapper) {
+          wrapper.innerHTML = targetItem.html;
+        }
       }
     }
   }
@@ -10866,7 +10868,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     currentParagraphIds = [];
     const currentLang = getCurrentPageLanguage();
     const payload = {
-      sentences: ids.map((id) => {
+      sentences: ids.filter((id) => getParagraph(id)).map((id) => {
         const paragraph = getParagraph(id);
         return {
           id: paragraph.id,

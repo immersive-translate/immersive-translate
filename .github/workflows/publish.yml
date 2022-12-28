@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - 'README.md'
+      - 'book.toml'
 jobs:
   deploy:
     name: Deploy to GitHub Pages

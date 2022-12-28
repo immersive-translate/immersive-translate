@@ -1,6 +1,6 @@
 .Phony: serve
 serve:
-	mdbook serve
+	mdbook serve --port 8000
 
 .Phony: build
 build:

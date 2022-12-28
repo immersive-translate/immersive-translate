@@ -1,0 +1,159 @@
+:root {
+  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --line-height: 1.5;
+  --font-weight: 400;
+  --border-radius: 0.25rem;
+  --border-width: 1px;
+  --outline-width: 3px;
+  --spacing: 0.5rem;
+  --typography-spacing-vertical: 1.5rem;
+  --block-spacing-vertical: calc(var(--spacing) * 2);
+  --block-spacing-horizontal: var(--spacing);
+  --grid-spacing-vertical: 0;
+  --grid-spacing-horizontal: var(--spacing);
+  --form-element-spacing-vertical: 0.75rem;
+  --form-element-spacing-horizontal: 1rem;
+  --nav-element-spacing-vertical: 1rem;
+  --nav-element-spacing-horizontal: 0.5rem;
+  --nav-link-spacing-vertical: 0.5rem;
+  --nav-link-spacing-horizontal: 0.5rem;
+  --form-label-font-weight: var(--font-weight);
+  --transition: 0.2s ease-in-out;
+  --modal-overlay-backdrop-filter: blur(0.25rem);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#mount > main {
+  padding-top: calc(var(--block-spacing-vertical) + 3.5rem);
+  padding-left: var(--block-spacing-horizontal);
+  padding-right: var(--block-spacing-horizontal);
+}
+#mount > nav {
+  --nav-link-spacing-vertical: 1rem;
+  padding-left: var(--block-spacing-horizontal);
+  padding-right: var(--block-spacing-horizontal);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: var(--nav-background-color);
+  box-shadow: 0px 1px 0 var(--nav-border-color);
+}
+@media (min-width: 992px) {
+  #mount > nav ul:first-of-type li:nth-of-type(2) {
+    display: inline;
+  }
+}
+@media (min-width: 992px) {
+  #mount > main {
+    --block-spacing-horizontal: calc(var(--spacing) * 1.75);
+    grid-column-gap: calc(var(--block-spacing-horizontal) * 3);
+    display: grid;
+    grid-template-columns: 250px auto;
+  }
+}
+@media (min-width: 1200px) {
+  #mount > main {
+    --block-spacing-horizontal: calc(var(--spacing) * 2);
+  }
+}
+#mount > main > aside,
+#mount > main div[role="main"] {
+  min-width: 0;
+}
+main > aside nav {
+  width: 100%;
+  padding-bottom: var(--block-spacing-vertical);
+}
+@media (min-width: 992px) {
+  main > aside nav {
+    position: fixed;
+    width: 250px;
+    max-height: calc(100vh - 5.5rem);
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+}
+.nav-left {
+  flex-shrink: 0;
+  flex: 6;
+}
+.nav-right {
+  flex: 2;
+}
+.select {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  flex: 0 1 10rem;
+  max-height: 12rem;
+}
+
+p {
+  margin: 0;
+}
+button {
+  padding: 5px 22px;
+}
+.confirm {
+  padding: 8px 22px;
+}
+.description {
+  color: rgb(148 163 184);
+  font-size: 17px;
+  margin: 0;
+}
+
+.secretInput {
+  display: flex;
+  padding: 0.5rem 0rem;
+}
+input.input {
+  margin-bottom: 0;
+  height: 2.6rem;
+}
+.secretLeft {
+  display: flex;
+  flex: 0 1 6rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+.secretRight {
+  flex: 1 1 auto;
+  margin: 0;
+}
+.confirmSecret {
+  padding: 0.4rem 6rem;
+}
+
+.alwaysLanModal {
+  min-width: 10rem;
+}
+.option-list {
+  max-height: 13rem;
+  overflow: scroll;
+}
+.langs-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.lang-card {
+  padding: 0.25rem 0.8rem;
+  border: 1px solid rgba(233, 233, 233, 1);
+  margin-right: 1rem;
+  margin-bottom: 0.8rem;
+  color: rgb(148 163 184);
+  border-radius: 0.15rem;
+  font-size: 17px;
+}

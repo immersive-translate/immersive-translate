@@ -1,0 +1,31 @@
+li.select-link.select-link:hover > ul {
+  display: none;
+}
+li.select-link.select-link > ul {
+  display: none;
+}
+li.select-link.select-link a:focus ~ ul {
+  display: none;
+}
+
+li.select-link.select-link a:active ~ ul {
+  display: none;
+}
+li.select-link-active.select-link-active > ul {
+  display: flex;
+}
+li.select-link-active.select-link-active:hover > ul {
+  display: flex;
+}
+
+li.select-link-active.select-link-active a:focus ~ ul {
+  display: flex;
+}
+
+li.select-link-active.select-link-active a:active ~ ul {
+  display: flex;
+}
+ul.select-link-ul.select-link-ul {
+  right: 0px;
+  left: auto;
+}

@@ -1,0 +1,72 @@
+.immersive-translate-target-wrapper {
+  /* position: relative; */
+}
+.immersive-translate-target-translation-block-wrapper {
+  /* position: relative; */
+  /* top: 16px; */
+  white-space: pre-wrap !important;
+}
+
+.immersive-translate-target-translation-inline-wrapper {
+  white-space: pre-wrap !important;
+}
+.immersive-translate-target-translation-theme-underline {
+  border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-text {
+  font-size: 15px !important;
+}
+
+.immersive-translate-error {
+  color: red;
+}
+.immersive-translate-clickable-button {
+  align-items: normal;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgb(0, 0, 238);
+  border-style: none;
+  box-sizing: content-box;
+  color: rgb(0, 0, 238);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  height: auto;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  transform-origin: 0 0;
+  width: auto;
+  -moz-appearance: none;
+  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
+  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
+}
+.immersive-translate-loading {
+  margin-left: 6px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border: 2px rgba(0, 0, 0, 0.25) solid;
+  border-top: 2px rgba(0, 0, 0, 1) solid;
+  border-radius: 50%;
+  -webkit-animation: spCircRot 0.6s infinite linear;
+  animation: immersive-translate-loading-animation 0.6s infinite linear;
+  position: relative;
+}
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

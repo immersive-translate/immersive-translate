@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-28T15:47:52.642Z", VERSION: "0.0.17", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-28T16:24:44.013Z", VERSION: "0.0.17", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -9570,13 +9570,13 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     lang: "en",
     fallbackLang: "en"
   };
-  function useTranslate(rawOptions, translations) {
+  function useTranslate(rawOptions, translations2) {
     const options = Object.assign(
       {},
       defaultOptions,
       rawOptions
     );
-    cache = translations || cache;
+    cache = translations2 || cache;
     const [lang, setLang] = P2(options.lang);
     const [data, setData] = P2(cache);
     const [isReady2, setReady] = P2(false);
@@ -10392,10 +10392,172 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     presets: [y6(), l17()]
   });
 
+  // static/locales/zh-CN.json
+  var zh_CN_default = {
+    "general": "\u57FA\u672C\u8BBE\u7F6E",
+    "reset": "\u91CD\u7F6E",
+    "close": "\u5173\u95ED",
+    "homepage": "\u4E3B\u9875",
+    "options": "\u9009\u9879",
+    "about": "\u5173\u4E8E",
+    "service": "\u7FFB\u8BD1\u670D\u52A1",
+    "target": "\u76EE\u6807\u8BED\u8A00",
+    "add": "\u6DFB\u52A0",
+    "edit": "\u7F16\u8F91",
+    "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
+    "select translation service": "\u9009\u62E9\u4E00\u4E2A\u670D\u52A1\u4F5C\u4E3A\u7FFB\u8BD1\u670D\u52A1",
+    "language": "\u8BED\u8A00",
+    "show-original": "\u663E\u793A\u539F\u6587",
+    "translate": "\u7FFB\u8BD1",
+    "Translated": "\u5DF2\u7FFB\u8BD1",
+    "Translating": "\u7FFB\u8BD1\u4E2D",
+    "Error": "\u9519\u8BEF",
+    "translationServices": {
+      "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
+      "google": "\u8C37\u6B4C\u7FFB\u8BD1",
+      "mock": "\u6A21\u62DF\u7FFB\u8BD1",
+      "transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
+      "d": "Deepl(Alpha)"
+    },
+    "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
+    "always translated languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
+    "automatically translated to the target language when the language is the following": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "always translated sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "automatically translated to the target language when the domain name is the following": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "never translated sites": "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "it will not be translated when the site is the following domain name": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
+    "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details": "\u7B2C\u4E09\u65B9\u7FFB\u8BD1\u670D\u52A1\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
+    "confirm": "\u4FDD\u5B58",
+    "languages": {
+      "af": "\u5357\u975E\u8377\u5170\u8BED",
+      "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
+      "ar": "\u963F\u62C9\u4F2F\u8BED",
+      "auto": "\u68C0\u6D4B\u8BED\u8A00",
+      "und": "\u672A\u77E5\u8BED\u8A00",
+      "az": "\u963F\u585E\u62DC\u7586\u8BED",
+      "be": "\u767D\u4FC4\u7F57\u65AF\u8BED",
+      "bg": "\u4FDD\u52A0\u5229\u4E9A\u8BED",
+      "bn": "\u5B5F\u52A0\u62C9\u8BED",
+      "bs": "\u6CE2\u65AF\u5C3C\u4E9A\u8BED",
+      "ca": "\u52A0\u6CF0\u7F57\u5C3C\u4E9A\u8BED",
+      "ceb": "\u5BBF\u52A1\u8BED",
+      "co": "\u79D1\u897F\u5609\u8BED",
+      "cs": "\u6377\u514B\u8BED",
+      "cy": "\u5A01\u5C14\u58EB\u8BED",
+      "da": "\u4E39\u9EA6\u8BED",
+      "de": "\u5FB7\u8BED",
+      "el": "\u5E0C\u814A\u8BED",
+      "en": "\u82F1\u8BED",
+      "eo": "\u4E16\u754C\u8BED",
+      "es": "\u897F\u73ED\u7259\u8BED",
+      "et": "\u7231\u6C99\u5C3C\u4E9A\u8BED",
+      "eu": "\u5DF4\u65AF\u514B\u8BED",
+      "fa": "\u6CE2\u65AF\u8BED",
+      "fi": "\u82AC\u5170\u8BED",
+      "fil": "\u83F2\u5F8B\u5BBE\u8BED",
+      "fj": "\u6590\u6D4E\u8BED",
+      "fr": "\u6CD5\u8BED",
+      "fy": "\u5F17\u91CC\u65AF\u5170\u8BED",
+      "ga": "\u7231\u5C14\u5170\u8BED",
+      "gd": "\u82CF\u683C\u5170\u76D6\u5C14\u8BED",
+      "gl": "\u52A0\u5229\u897F\u4E9A\u8BED",
+      "gu": "\u53E4\u5409\u62C9\u7279\u8BED",
+      "ha": "\u8C6A\u8428\u8BED",
+      "haw": "\u590F\u5A01\u5937\u8BED",
+      "he": "\u5E0C\u4F2F\u6765\u8BED",
+      "hi": "\u5370\u5730\u8BED",
+      "hmn": "\u82D7\u8BED",
+      "hr": "\u514B\u7F57\u5730\u4E9A\u8BED",
+      "ht": "\u6D77\u5730\u514B\u91CC\u5965\u5C14\u8BED",
+      "hu": "\u5308\u7259\u5229\u8BED",
+      "hy": "\u4E9A\u7F8E\u5C3C\u4E9A\u8BED",
+      "id": "\u5370\u5EA6\u5C3C\u897F\u4E9A\u8BED",
+      "ig": "\u4F0A\u535A\u8BED",
+      "is": "\u51B0\u5C9B\u8BED",
+      "it": "\u610F\u5927\u5229\u8BED",
+      "ja": "\u65E5\u8BED",
+      "jw": "\u722A\u54C7\u8BED",
+      "ka": "\u683C\u9C81\u5409\u4E9A\u8BED",
+      "kk": "\u54C8\u8428\u514B\u8BED",
+      "km": "\u9AD8\u68C9\u8BED",
+      "kn": "\u5361\u7EB3\u8FBE\u8BED",
+      "ko": "\u97E9\u8BED",
+      "ku": "\u5E93\u5C14\u5FB7\u8BED",
+      "ky": "\u5409\u5C14\u5409\u65AF\u8BED",
+      "la": "\u62C9\u4E01\u8BED",
+      "lb": "\u5362\u68EE\u5821\u8BED",
+      "lo": "\u8001\u631D\u8BED",
+      "lt": "\u7ACB\u9676\u5B9B\u8BED",
+      "lv": "\u62C9\u8131\u7EF4\u4E9A\u8BED",
+      "mg": "\u9A6C\u5C14\u52A0\u4EC0\u8BED",
+      "mi": "\u6BDB\u5229\u8BED",
+      "mk": "\u9A6C\u5176\u987F\u8BED",
+      "ml": "\u9A6C\u62C9\u96C5\u62C9\u59C6\u8BED",
+      "mn": "\u8499\u53E4\u8BED",
+      "mr": "\u9A6C\u62C9\u5730\u8BED",
+      "ms": "\u9A6C\u6765\u8BED",
+      "mt": "\u9A6C\u8033\u4ED6\u8BED",
+      "mww": "\u767D\u82D7\u6587",
+      "my": "\u7F05\u7538\u8BED",
+      "ne": "\u5C3C\u6CCA\u5C14\u8BED",
+      "nl": "\u8377\u5170\u8BED",
+      "no": "\u632A\u5A01\u8BED",
+      "ny": "\u5C3C\u6768\u624E\u8BED\uFF08\u9F50\u5207\u74E6\u8BED\uFF09",
+      "otq": "\u514B\u96F7\u5854\u7F57\u5965\u6258\u7C73\u8BED",
+      "pa": "\u65C1\u906E\u666E\u8BED",
+      "pl": "\u6CE2\u5170\u8BED",
+      "ps": "\u666E\u4EC0\u56FE\u8BED",
+      "pt": "\u8461\u8404\u7259\u8BED\uFF08\u8461\u8404\u7259\u3001\u5DF4\u897F\uFF09",
+      "ro": "\u7F57\u9A6C\u5C3C\u4E9A\u8BED",
+      "ru": "\u4FC4\u8BED",
+      "sd": "\u4FE1\u5FB7\u8BED",
+      "si": "\u50E7\u4F3D\u7F57\u8BED",
+      "sk": "\u65AF\u6D1B\u4F10\u514B\u8BED",
+      "sl": "\u65AF\u6D1B\u6587\u5C3C\u4E9A\u8BED",
+      "sm": "\u8428\u6469\u4E9A\u8BED",
+      "sn": "\u4FEE\u7EB3\u8BED",
+      "so": "\u7D22\u9A6C\u91CC\u8BED",
+      "sq": "\u963F\u5C14\u5DF4\u5C3C\u4E9A\u8BED",
+      "sr": "\u585E\u5C14\u7EF4\u4E9A\u8BED",
+      "sr-Cyrl": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u897F\u91CC\u5C14\u6587)",
+      "sr-Latn": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u62C9\u4E01\u6587)",
+      "st": "\u585E\u7D22\u6258\u8BED",
+      "su": "\u5DFD\u4ED6\u8BED",
+      "sv": "\u745E\u5178\u8BED",
+      "sw": "\u65AF\u74E6\u5E0C\u91CC\u8BED",
+      "ta": "\u6CF0\u7C73\u5C14\u8BED",
+      "te": "\u6CF0\u5362\u56FA\u8BED",
+      "tg": "\u5854\u5409\u514B\u8BED",
+      "th": "\u6CF0\u8BED",
+      "tlh": "\u514B\u6797\u8D21\u8BED",
+      "tlh-Qaak": "\u514B\u6797\u8D21\u8BED(piqaD)",
+      "to": "\u6C64\u52A0\u8BED",
+      "tr": "\u571F\u8033\u5176\u8BED",
+      "ty": "\u5854\u5E0C\u63D0\u8BED",
+      "ug": "\u7EF4\u543E\u5C14\u8BED",
+      "uk": "\u4E4C\u514B\u5170\u8BED",
+      "ur": "\u4E4C\u5C14\u90FD\u8BED",
+      "uz": "\u4E4C\u5179\u522B\u514B\u8BED",
+      "vi": "\u8D8A\u5357\u8BED",
+      "wyw": "\u6587\u8A00\u6587",
+      "xh": "\u73ED\u56FE\u8BED",
+      "yi": "\u610F\u7B2C\u7EEA\u8BED",
+      "yo": "\u7EA6\u9C81\u5DF4\u8BED",
+      "yua": "\u5C24\u5361\u5766\u739B\u96C5\u8BED",
+      "yue": "\u7CA4\u8BED\uFF08\u7E41\u4F53\uFF09",
+      "zh-CN": "\u4E2D\u6587\uFF08\u7B80\u4F53\uFF09",
+      "zh-TW": "\u4E2D\u6587\uFF08\u7E41\u4F53\uFF09",
+      "zu": "\u7956\u9C81\u8BED"
+    }
+  };
+
+  // locales.ts
+  var translations = {
+    "zh-CN": zh_CN_default
+  };
+  var locales_default = translations;
+
   // pages/options.tsx
-  function getLocaleUrl(_root, lang) {
-    return browserAPI.runtime.getURL(`locales/${lang}.json`);
-  }
   function main() {
     const mountPoint = document.getElementById("mount");
     if (mountPoint) {
@@ -10407,9 +10569,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         }
         re(
           /* @__PURE__ */ p19(TranslateProvider, {
-            getUrl: getLocaleUrl,
             lang: config.interfaceLanguage,
             fallbackLang: "zh-CN",
+            translations: locales_default,
             children: /* @__PURE__ */ p19(App, {})
           }),
           mountPoint

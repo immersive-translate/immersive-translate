@@ -266,6 +266,8 @@
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
+      "wrapperPrefix": "\n",
+      "wrapperSuffix": "\n",
       "globalStyles": {
         "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
         "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
@@ -578,6 +580,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-28T12:13:12.072Z",
-  "latestVersion": "0.0.16"
+  "buildinConfigUpdatedAt": "2022-12-29T05:59:09.825Z",
+  "latestVersion": "0.0.17"
 }

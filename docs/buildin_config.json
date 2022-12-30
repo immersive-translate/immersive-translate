@@ -579,8 +579,15 @@
       "globalStyles": {
         ".line-clamp-3": "-webkit-line-clamp: unset"
       }
+    },
+    {
+      "matches": "www.aljazeera.com",
+      "addtionalSelectors": [
+        "h1",
+        ".article__subhead"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-30T18:44:55.485Z",
-  "latestVersion": "0.0.18"
+  "buildinConfigUpdatedAt": "2022-12-30T20:29:33.401Z",
+  "latestVersion": "0.0.19"
 }

@@ -38,6 +38,7 @@
       ".article_subtitle",
       ".article__title",
       ".articleTitle",
+      ".Article__content",
       ".title",
       ".titleLink",
       ".summary",
@@ -580,6 +581,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-29T05:59:09.825Z",
-  "latestVersion": "0.0.17"
+  "buildinConfigUpdatedAt": "2022-12-30T18:44:55.485Z",
+  "latestVersion": "0.0.18"
 }

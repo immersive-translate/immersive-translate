@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.18
+
+- Support deepl, bing,baidu,youdao, volc, openl, caiyun.
+
 ## 0.0.13
 
 - Support userscript

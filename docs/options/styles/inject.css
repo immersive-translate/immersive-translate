@@ -38,6 +38,7 @@
   transform-origin: 0 0;
   width: auto;
   -moz-appearance: none;
+  appearance: none;
   -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
   -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
 }
@@ -53,6 +54,29 @@
   -webkit-animation: spCircRot 0.6s infinite linear;
   animation: immersive-translate-loading-animation 0.6s infinite linear;
   position: relative;
+}
+.immersive-translate-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.immersive-translate-tooltip .immersive-translate-tooltip-text {
+  display: inline-block;
+  visibility: hidden;
+  width: max-content;
+  max-width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 10000000000;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {
+  visibility: visible;
 }
 @-webkit-keyframes immersive-translate-loading-animation {
   from {

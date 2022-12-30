@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-28T17:23:31.099Z", VERSION: "0.0.17", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-30T18:45:11.413Z", VERSION: "0.0.18", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n.immersive-translate-tooltip .immersive-translate-tooltip-text {\n  display: inline-block;\n  visibility: hidden;\n  width: max-content;\n  max-width: 300px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 8px;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 10000000000;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {\n  visibility: visible;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -42,22 +42,22 @@
 }
 @media (min-width: 576px) {
   #mount {
-    --font-size: 17px;
+    --font-size: 16px;
   }
 }
 @media (min-width: 768px) {
   #mount {
-    --font-size: 18px;
+    --font-size: 16px;
   }
 }
 @media (min-width: 992px) {
   #mount {
-    --font-size: 19px;
+    --font-size: 17px;
   }
 }
 @media (min-width: 1200px) {
   #mount {
-    --font-size: 20px;
+    --font-size: 18px;
   }
 }
 
@@ -2968,7 +2968,7 @@ textarea,
 }
 
 /*# sourceMappingURL=custom.css.map */
-`, TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n", TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n", TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+`, IMMERSIVE_TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n", IMMERSIVE_TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // browser/web_polyfill.ts
   (function() {
@@ -3690,6 +3690,11 @@ textarea,
     var u14 = a(i++, 3);
     !d.__s && H(u14.__H, t17) && (u14.__ = _2, u14.i = t17, n.__H.__h.push(u14));
   }
+  function w2(_2) {
+    return f = 5, x(function() {
+      return { current: _2 };
+    }, []);
+  }
   function x(_2, t17) {
     var u14 = a(i++, 7);
     return H(u14.__H, t17) ? (u14.__V = _2(), u14.i = t17, u14.__h = _2, u14.__V) : u14.__;
@@ -3980,9 +3985,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       }
     }
   };
-  var w2 = Function.prototype.bind;
+  var w3 = Function.prototype.bind;
   function c2(e18, t17) {
-    return w2.call(e18, t17);
+    return w3.call(e18, t17);
   }
   var d4 = class {
     constructor(t17) {
@@ -4068,7 +4073,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       return t17.source = this, t17.operator = r13, t17;
     }
     subscribe(r13, t17, n21) {
-      let s19 = w3(r13) ? r13 : new u3(r13, t17, n21);
+      let s19 = w4(r13) ? r13 : new u3(r13, t17, n21);
       return u2(() => {
         let { operator: e18, source: c26 } = this;
         s19.add(e18 ? e18.call(s19, c26) : c26 ? this._subscribe(s19) : this._trySubscribe(s19));
@@ -4118,7 +4123,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   function d5(i20) {
     return i20 && t(i20.next) && t(i20.error) && t(i20.complete);
   }
-  function w3(i20) {
+  function w4(i20) {
     return i20 && i20 instanceof l2 || d5(i20) && d3(i20);
   }
 
@@ -5232,7 +5237,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     let e18 = T6(s19, r13);
     e18 && (F6(s19, r13), chrome.runtime.onMessage.removeListener(e18));
   };
-  var w9 = class extends Error {
+  var w10 = class extends Error {
     constructor(r13) {
       var e18, n21, { coreMessage: t17 = null, coreResponse: c26 = null, message: o21 = ((n21 = (e18 = chrome.runtime) === null || e18 === void 0 ? void 0 : e18.lastError) === null || n21 === void 0 ? void 0 : n21.message) || c26?.payload.greeting || "chrome.runtime.lastError is undefined" } = r13;
       super(o21), this.coreMessage = t17, this.coreResponse = c26;
@@ -5242,7 +5247,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     let o21 = { async: false, tabId: e18 || null, payload: r13, scope: s19 }, i20 = (l18) => {
       if (chrome.runtime.lastError) {
         let y9 = chrome.runtime.lastError.message, b11 = "The message port closed before a response was received";
-        y9 && y9.includes(b11) ? t17() : c26(new w9({ coreMessage: o21 }));
+        y9 && y9.includes(b11) ? t17() : c26(new w10({ coreMessage: o21 }));
       } else
         l18 && !l18.success ? c26(l18.payload) : t17();
     };
@@ -5250,7 +5255,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   });
   var U3 = (s19) => (r13, { tabId: e18, frameId: n21 } = {}) => new Promise((t17, c26) => {
     let o21 = { async: true, tabId: e18 || null, payload: r13, scope: s19 }, i20 = (l18) => {
-      chrome.runtime.lastError || l18 === null || !l18.success ? c26(new w9({ coreMessage: o21, coreResponse: l18 })) : t17(l18.payload);
+      chrome.runtime.lastError || l18 === null || !l18.success ? c26(new w10({ coreMessage: o21, coreResponse: l18 })) : t17(l18.payload);
     };
     typeof e18 == "number" && typeof n21 == "number" ? chrome.tabs.sendMessage(e18, o21, { frameId: n21 }, i20) : typeof e18 == "number" ? chrome.tabs.sendMessage(e18, o21, i20) : chrome.runtime.sendMessage(o21, i20);
   });
@@ -5368,7 +5373,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
   function D3() {
   }
-  var w10 = { d: 0, b: 134217728, c: 268435456, a: 671088640, u: 805306368, o: 939524096 };
+  var w11 = { d: 0, b: 134217728, c: 268435456, a: 671088640, u: 805306368, o: 939524096 };
   function jt(t17) {
     var e18;
     return ((e18 = t17.match(/[-=:;]/g)) == null ? void 0 : e18.length) || 0;
@@ -5416,8 +5421,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return n21;
   }
   function Mt(t17, e18) {
-    let r13 = t17.p & w10.o;
-    return r13 == (e18.p & w10.o) && (r13 == w10.b || r13 == w10.o) ? 0 : t17.p - e18.p || t17.o - e18.o || Dt.compare(t17.n, e18.n);
+    let r13 = t17.p & w11.o;
+    return r13 == (e18.p & w11.o) && (r13 == w11.b || r13 == w11.o) ? 0 : t17.p - e18.p || t17.o - e18.o || Dt.compare(t17.n, e18.n);
   }
   function H3(t17, e18) {
     return Math.round(parseInt(t17, 16) * e18);
@@ -5449,7 +5454,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           }
           if (h9[1] == "l") {
             for (let m15 of x12(b11))
-              p20.push(...l18(m15, { n: a19, p: (y9 = w10[h9[7]], s19 & ~w10.o | y9), r: u14, i: f13 }, c26));
+              p20.push(...l18(m15, { n: a19, p: (y9 = w11[h9[7]], s19 & ~w11.o | y9), r: u14, i: f13 }, c26));
             continue;
           }
           if (h9[1] == "i") {
@@ -5457,11 +5462,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             continue;
           }
           if (h9[1] == "k") {
-            p20.push({ p: w10.d, o: 0, r: [h9], d: l18(b11, { p: w10.d }, c26).map(tt).join("") });
+            p20.push({ p: w11.d, o: 0, r: [h9], d: l18(b11, { p: w11.d }, c26).map(tt).join("") });
             continue;
           }
           if (h9[1] == "f") {
-            p20.push(...x12(b11).map((m15) => ({ p: w10.d, o: 0, r: [h9], d: l18(m15, { p: w10.d }, c26).map(tt).join("") })));
+            p20.push(...x12(b11).map((m15) => ({ p: w11.d, o: 0, r: [h9], d: l18(m15, { p: w11.d }, c26).map(tt).join("") })));
             continue;
           }
         }
@@ -5491,7 +5496,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       i20.d && i20.n ? r13?.p == i20.p && "" + r13.r == "" + i20.r ? (r13.c = [r13.c, i20.c].filter(Boolean).join(" "), r13.d = r13.d + ";" + i20.d) : n21.push(r13 = { ...i20, n: i20.n && e18 }) : n21.push({ ...i20, n: i20.n && e18 });
     return n21;
   }
-  function B6(t17, e18, r13 = w10.u, n21, i20) {
+  function B6(t17, e18, r13 = w11.u, n21, i20) {
     let l18 = [];
     for (let o21 of t17)
       for (let a19 of function(s19, u14, f13, c26, p20) {
@@ -5503,14 +5508,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         }(s19, u14);
         return v6 ? typeof v6 == "string" ? ({ r: c26, p: f13 } = at(s19, u14, f13, c26), pt(B6(N4(v6), u14, f13, c26, s19.i), s19.n)) : Array.isArray(v6) ? v6.map((g7) => {
           var y9, A5;
-          return { o: 0, ...g7, r: [...x12(c26), ...x12(g7.r)], p: (y9 = f13, A5 = (d16 = g7.p) != null ? d16 : f13, y9 & ~w10.o | A5) };
+          return { o: 0, ...g7, r: [...x12(c26), ...x12(g7.r)], p: (y9 = f13, A5 = (d16 = g7.p) != null ? d16 : f13, y9 & ~w11.o | A5) };
         }) : ct(v6, s19, u14, f13, c26) : [{ c: lt(s19), p: 0, o: 0, r: [] }];
       }(o21, e18, r13, n21, i20))
         l18.splice(St(l18, a19), 0, a19);
     return l18;
   }
   function ht(t17, e18, r13, n21, i20, l18, o21, a19) {
-    return pt((a19 ? r13.flatMap((s19) => B6([s19], n21, i20, l18, o21)) : B6(r13, n21, i20, l18, o21)).map((s19) => s19.p & w10.o && (s19.n || e18 == w10.b) ? { ...s19, p: s19.p & ~w10.o | e18, o: 0 } : s19), t17);
+    return pt((a19 ? r13.flatMap((s19) => B6([s19], n21, i20, l18, o21)) : B6(r13, n21, i20, l18, o21)).map((s19) => s19.p & w11.o && (s19.n || e18 == w11.b) ? { ...s19, p: s19.p & ~w11.o | e18, o: 0 } : s19), t17);
   }
   function Ot(t17, e18, r13, n21) {
     var i20;
@@ -5568,7 +5573,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
               let { v: d16 } = n21[0].pop();
               for (let v6 of p20)
                 v6.v.splice(+(v6.v[0] == "dark") - +(d16[0] == "dark"), d16.length);
-              K2([...r13, Ot(c26.length > 1 ? c26.slice(0, -1) + V4(JSON.stringify([c26, p20])) : c26 + "(" + st(p20) + ")", w10.a, p20, /@$/.test(c26))], n21);
+              K2([...r13, Ot(c26.length > 1 ? c26.slice(0, -1) + V4(JSON.stringify([c26, p20])) : c26 + "(" + st(p20) + ")", w11.a, p20, /@$/.test(c26))], n21);
             }
             f13 = r13.lastIndexOf("(", f13 - 1);
           }
@@ -5625,7 +5630,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   function dt(t17, ...e18) {
     var r13, n21;
     let i20 = U4(t17, e18), l18 = (((r13 = i20.find((o21) => o21.label)) == null ? void 0 : r13.label) || "css") + V4(JSON.stringify(i20));
-    return n21 = (o21, a19) => pt(i20.flatMap((s19) => ct(s19, o21, a19, w10.o)), l18), ut.set(l18, n21), l18;
+    return n21 = (o21, a19) => pt(i20.flatMap((s19) => ct(s19, o21, a19, w11.o)), l18), ut.set(l18, n21), l18;
   }
   var ce2 = new Proxy(function(t17, e18) {
     return bt("animation", t17, e18);
@@ -5762,7 +5767,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }), Object.defineProperties(function(s19) {
       if (!i20.size)
         for (let f13 of x12(r13.preflight))
-          typeof f13 == "function" && (f13 = f13(n21)), f13 && (typeof f13 == "string" ? ht("", w10.b, N4(f13), n21, w10.b, [], false, true) : ct(f13, {}, n21, w10.b)).forEach(a19);
+          typeof f13 == "function" && (f13 = f13(n21)), f13 && (typeof f13 == "string" ? ht("", w11.b, N4(f13), n21, w11.b, [], false, true) : ct(f13, {}, n21, w11.b)).forEach(a19);
       s19 = "" + s19;
       let u14 = i20.get(s19);
       if (!u14) {
@@ -5938,7 +5943,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var C5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" };
   var T8 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" };
   var F8 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" };
-  var w11 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" };
+  var w12 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" };
   var A4 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" };
   var D4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" };
   var U5 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" };
@@ -5952,7 +5957,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var W4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" };
   var I6 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" };
   var M5 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" };
-  var l16 = { __proto__: null, inherit: s17, current: d15, transparent: p15, black: x13, white: b9, slate: u12, gray: g5, zinc: h7, neutral: y7, stone: k5, red: C5, orange: T8, amber: F8, yellow: w11, lime: A4, green: D4, emerald: U5, teal: E4, cyan: L5, sky: S8, blue: v4, indigo: z4, violet: O5, purple: R4, fuchsia: W4, pink: I6, rose: M5 };
+  var l16 = { __proto__: null, inherit: s17, current: d15, transparent: p15, black: x13, white: b9, slate: u12, gray: g5, zinc: h7, neutral: y7, stone: k5, red: C5, orange: T8, amber: F8, yellow: w12, lime: A4, green: D4, emerald: U5, teal: E4, cyan: L5, sky: S8, blue: v4, indigo: z4, violet: O5, purple: R4, fuchsia: W4, pink: I6, rose: M5 };
   var H4 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: l16, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...a17(4, "rem", 4, 0.5, 0.5), ...a17(12, "rem", 4, 5), 14: "3.5rem", ...a17(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: o20("blur"), backdropBrightness: o20("brightness"), backdropContrast: o20("contrast"), backdropGrayscale: o20("grayscale"), backdropHueRotate: o20("hueRotate"), backdropInvert: o20("invert"), backdropOpacity: o20("opacity"), backdropSaturate: o20("saturate"), backdropSepia: o20("sepia"), backgroundColor: o20("colors"), backgroundImage: { none: "none" }, backgroundOpacity: o20("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...a17(200, "", 100, 0, 50), ...a17(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e18 }) => ({ DEFAULT: e18("colors.gray.200", "currentColor"), ...e18("colors") }), borderOpacity: o20("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: o20("spacing"), borderWidth: { DEFAULT: "1px", ...n20(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: o20("colors"), caretColor: o20("colors"), accentColor: ({ theme: e18 }) => ({ auto: "auto", ...e18("colors") }), contrast: { ...a17(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: o20("borderColor"), divideOpacity: o20("borderOpacity"), divideWidth: o20("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: o20("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e18 }) => ({ ...e18("spacing"), ...i18(2, 6), ...i18(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: o20("spacing"), gradientColorStops: o20("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e18 }) => ({ ...e18("spacing"), ...i18(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e18 }) => ({ ...e18("spacing"), ...i18(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...a17(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e18 }) => ({ auto: "auto", ...e18("spacing") }), maxHeight: ({ theme: e18 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e18("spacing") }), maxWidth: ({ theme: e18, breakpoints: f13 }) => ({ ...f13(e18("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...a17(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: o20("spacing"), placeholderColor: o20("colors"), placeholderOpacity: o20("opacity"), outlineColor: o20("colors"), outlineOffset: n20(8, "px"), outlineWidth: n20(8, "px"), ringColor: ({ theme: e18 }) => ({ ...e18("colors"), DEFAULT: e18("colors.blue.500", "#3b82f6") }), ringOffsetColor: o20("colors"), ringOffsetWidth: n20(8, "px"), ringOpacity: ({ theme: e18 }) => ({ ...e18("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...n20(8, "px") }, rotate: { ...n20(2, "deg"), ...n20(12, "deg", 3), ...n20(180, "deg", 45) }, saturate: a17(200, "", 100, 0, 50), scale: { ...a17(150, "", 100, 0, 50), ...a17(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: o20("spacing"), scrollPadding: o20("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...n20(2, "deg"), ...n20(12, "deg", 3) }, space: o20("spacing"), stroke: o20("colors"), strokeWidth: a17(2), textColor: o20("colors"), textDecorationColor: o20("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...n20(8, "px") }, textUnderlineOffset: { auto: "auto", ...n20(8, "px") }, textIndent: o20("spacing"), textOpacity: o20("opacity"), transitionDuration: ({ theme: e18 }) => ({ ...e18("durations"), DEFAULT: "150ms" }), transitionDelay: o20("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e18 }) => ({ ...e18("spacing"), ...i18(2, 4), full: "100%" }), width: ({ theme: e18 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e18("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...a17(50, "", 1, 0, 10), auto: "auto" } };
   function i18(e18, f13) {
     let t17 = {};
@@ -6383,16 +6388,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       if (c26)
         return { paddingRight: c26, paddingLeft: c26 };
     }
-  }), gt("content-", "content", ({ _: t17 }) => ({ "--tw-content": t17, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: t17 }) => t17 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", u13), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: t17 = "", 2: r13 }) => ({ ["overscroll-behavior" + t17]: r13 })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: t17, _: r13 }) => ({ top: t17 != "-x" && r13, right: t17 != "-y" && r13, bottom: t17 != "-x" && r13, left: t17 != "-y" && r13 })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", v5), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", $2), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", S10), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", $2), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", S10), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (t17) => u13(v5(t17))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", x14), yt2("(content|items|self)-", (t17) => ({ ["align-" + t17[1]]: x14(t17) })), yt2("(place-(content|items|self))-", ({ 1: t17, $$: r13 }) => ({ [t17]: ("wun".includes(r13[3]) ? "space-" : "") + r13 })), gt("p([xytrbl])?(?:$|-)", "padding", w12("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", w12("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: t17, _: r13 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${t17}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[t17]]: `calc(${r13} * calc(1 - var(--tw-space-${t17}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[t17]]: `calc(${r13} * var(--tw-space-${t17}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${t17}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", s18), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: t17, 2: r13 = "", 3: a19 }) => r13 == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a19 ? "numeric-fraction" : "pt".includes(r13[0]) ? "numeric-spacing" : r13 ? "numeric-figure" : t17)]: t17, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: t17 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": t17 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: t17 }) => typeof t17 == "string" ? { fontSize: t17 } : { fontSize: t17[0], ...typeof t17[1] == "string" ? { lineHeight: t17[1] } : t17[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: false, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: false, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: false, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: t17 }) => `linear-gradient(to ${p16(t17, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: t17 }) => ({ "--tw-gradient-from": t17.value, "--tw-gradient-to": t17.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: t17 }) => ({ "--tw-gradient-to": t17.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${t17.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: false, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: t17 }) => t17 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: t17 }) => t17 + (t17 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", u13), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: t17, _: r13 }) => {
+  }), gt("content-", "content", ({ _: t17 }) => ({ "--tw-content": t17, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: t17 }) => t17 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", u13), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: t17 = "", 2: r13 }) => ({ ["overscroll-behavior" + t17]: r13 })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: t17, _: r13 }) => ({ top: t17 != "-x" && r13, right: t17 != "-y" && r13, bottom: t17 != "-x" && r13, left: t17 != "-y" && r13 })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", v5), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", $2), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", S10), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", $2), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", S10), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (t17) => u13(v5(t17))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", x14), yt2("(content|items|self)-", (t17) => ({ ["align-" + t17[1]]: x14(t17) })), yt2("(place-(content|items|self))-", ({ 1: t17, $$: r13 }) => ({ [t17]: ("wun".includes(r13[3]) ? "space-" : "") + r13 })), gt("p([xytrbl])?(?:$|-)", "padding", w13("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", w13("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: t17, _: r13 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${t17}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[t17]]: `calc(${r13} * calc(1 - var(--tw-space-${t17}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[t17]]: `calc(${r13} * var(--tw-space-${t17}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${t17}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", s18), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: t17, 2: r13 = "", 3: a19 }) => r13 == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a19 ? "numeric-fraction" : "pt".includes(r13[0]) ? "numeric-spacing" : r13 ? "numeric-figure" : t17)]: t17, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: t17 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": t17 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: t17 }) => typeof t17 == "string" ? { fontSize: t17 } : { fontSize: t17[0], ...typeof t17[1] == "string" ? { lineHeight: t17[1] } : t17[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: false, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: false, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: false, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: t17 }) => `linear-gradient(to ${p16(t17, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: t17 }) => ({ "--tw-gradient-from": t17.value, "--tw-gradient-to": t17.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: t17 }) => ({ "--tw-gradient-to": t17.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${t17.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: false, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: t17 }) => t17 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: t17 }) => t17 + (t17 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", u13), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: t17, _: r13 }) => {
     let a19 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[t17] || [t17, t17];
     return { [`border-${p16(a19[0])}-radius`]: r13, [`border-${p16(a19[1])}-radius`]: r13 };
-  }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: t17, _: r13 }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (t17 || "-x")]: r13, ["--tw-border-spacing" + (t17 || "-y")]: r13, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, w12("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", w12("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": t17 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: t17 } })), yt2("divide-([xy]-reverse)", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + t17]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: t17, _: r13 }) => {
+  }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: t17, _: r13 }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (t17 || "-x")]: r13, ["--tw-border-spacing" + (t17 || "-y")]: r13, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, w13("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", w13("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": t17 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: t17 } })), yt2("divide-([xy]-reverse)", ({ 1: t17 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + t17]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: t17, _: r13 }) => {
     let a19 = { x: "lr", y: "tb" }[t17];
     return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${t17}-reverse`]: "0", [`border-${p16(a19[0])}Width`]: `calc(${r13} * calc(1 - var(--tw-divide-${t17}-reverse)))`, [`border-${p16(a19[1])}Width`]: `calc(${r13} * var(--tw-divide-${t17}-reverse))` } };
   }), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: false }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: t17 }, { theme: r13 }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${t17} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r13("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P3(r13("ringOffsetColor", "", "#fff")), "--tw-ring-color": P3(r13("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r13("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: false, opacitySection: "opacity" }, ({ _: t17 }) => ({ "--tw-shadow-color": t17.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: t17 }) => ({ "--tw-shadow": s18(t17), "--tw-shadow-colored": s18(t17).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...k6(), ...k6("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (t17, { theme: r13 }) => ({ transitionProperty: s18(t17), transitionTimingFunction: t17._ == "none" ? void 0 : s18(r13("transitionTimingFunction", "")), transitionDuration: t17._ == "none" ? void 0 : s18(r13("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", s18), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", s18), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", s18), gt("animate(?:$|-)", "animation", (t17, { theme: r13, h: a19 }) => {
     let i20 = s18(t17), l18 = i20.split(" "), d16 = r13("keyframes", l18[0]);
     return d16 ? { ["@keyframes " + (l18[0] = a19(l18[0]))]: d16, animation: l18.join(" ") } : { animation: i20 };
-  }), "(transform)-(none)", yt2("transform", h8), yt2("transform-(cpu|gpu)", ({ 1: t17 }) => ({ "--tw-transform": C6(t17 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: t17, _: r13 }) => ({ ["--tw-scale" + (t17 || "-x")]: r13, ["--tw-scale" + (t17 || "-y")]: r13, ...h8() })), gt("-?(rotate)-", "rotate", y8), gt("-?(translate-[xy])-", "translate", y8), gt("-?(skew-[xy])-", "skew", y8), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", u13), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: t17 }) => ({ "scroll-snap-type": t17 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", w12("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", w12("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: t17, 2: r13, 3: a19 }) => ({ [`--tw-${r13 ? "pan-x" : a19 ? "pan-y" : t17}`]: t17, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: false, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: t17 }) => ({ x: "horizontal", y: "vertical" })[t17] || t17 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: false, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: false, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
+  }), "(transform)-(none)", yt2("transform", h8), yt2("transform-(cpu|gpu)", ({ 1: t17 }) => ({ "--tw-transform": C6(t17 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: t17, _: r13 }) => ({ ["--tw-scale" + (t17 || "-x")]: r13, ["--tw-scale" + (t17 || "-y")]: r13, ...h8() })), gt("-?(rotate)-", "rotate", y8), gt("-?(translate-[xy])-", "translate", y8), gt("-?(skew-[xy])-", "skew", y8), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", u13), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: t17 }) => ({ "scroll-snap-type": t17 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", w13("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", w13("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: t17, 2: r13, 3: a19 }) => ({ [`--tw-${r13 ? "pan-x" : a19 ? "pan-y" : t17}`]: t17, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: false, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: t17 }) => ({ x: "horizontal", y: "vertical" })[t17] || t17 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: false, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: false, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
   function u13(t17) {
     return (typeof t17 == "string" ? t17 : t17[1]).replace(/-/g, " ").trim();
   }
@@ -6411,7 +6416,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   function x14({ $$: t17 }) {
     return ({ r: "flex-", "": "flex-", w: "space-", u: "space-", n: "space-" }[t17[3] || ""] || "") + t17;
   }
-  function w12(t17, r13 = "") {
+  function w13(t17, r13 = "") {
     return ({ 1: a19, _: i20 }) => {
       let l18 = { x: "lr", y: "tb" }[a19] || a19 + a19;
       return l18 ? { ...He(t17 + "-" + p16(l18[0]) + r13, i20), ...He(t17 + "-" + p16(l18[1]) + r13, i20) } : He(t17 + r13, i20);
@@ -6576,7 +6581,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                 return t17.keyCode === 13;
               }, ee4 = function(t17) {
                 return t17.keyCode === 27;
-              }, K4 = function(t17, c26) {
+              }, K5 = function(t17, c26) {
                 t17.classList.add(e18.classes.container), t17.style[c26] = "-10000px", document.body.appendChild(t17), t17.style[c26] = "-" + t17.offsetHeight + "px", t17.listener && window.addEventListener("keydown", t17.listener), fe().then(function() {
                   t17.style.transition = me2(), t17.style[c26] = 0;
                 });
@@ -6616,7 +6621,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   return O6(f13, p20);
                 }, l18.listener = function(n21) {
                   ($3(n21) || ee4(n21)) && F10();
-                }, K4(l18, p20), k7 && k7 < 1 && (k7 = 1), !S12 && k7 && oe3(k7).then(function() {
+                }, K5(l18, p20), k7 && k7 < 1 && (k7 = 1), !S12 && k7 && oe3(k7).then(function() {
                   return O6(f13, p20);
                 });
               }, ke2 = u14.force = function(t17, c26) {
@@ -6631,7 +6636,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   O6(f13, p20), j8(), S12 ? S12() : c26 && c26();
                 }, l18.appendChild(n21), l18.appendChild(r13), l18.listener = function(C7) {
                   $3(C7) && r13.click();
-                }, K4(l18, p20), te2();
+                }, K5(l18, p20), te2();
               }, Ce2 = u14.confirm = function(t17, c26, s19) {
                 var d16 = t17.text, i20 = t17.submitText, k7 = i20 === void 0 ? "Yes" : i20, H6 = t17.cancelText, S12 = H6 === void 0 ? "Cancel" : H6, h9 = t17.submitCallback, p20 = t17.cancelCallback, l18 = t17.position, f13 = l18 === void 0 ? e18.positions.confirm || f13.top : l18;
                 R6(), F10();
@@ -6648,7 +6653,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   O6(r13, f13), j8(), p20 ? p20() : s19 && s19();
                 }, n21.appendChild(C7), n21.appendChild(x15), n21.appendChild(a19), n21.listener = function(E5) {
                   $3(E5) ? x15.click() : ee4(E5) && a19.click();
-                }, K4(n21, f13), te2(n21, f13);
+                }, K5(n21, f13), te2(n21, f13);
               }, ve2 = function(t17, c26, s19) {
                 var d16 = t17.text, i20 = t17.submitText, k7 = i20 === void 0 ? "Submit" : i20, H6 = t17.cancelText, S12 = H6 === void 0 ? "Cancel" : H6, h9 = t17.submitCallback, p20 = t17.cancelCallback, l18 = t17.position, f13 = l18 === void 0 ? e18.positions.input || f13.top : l18, n21 = g7(t17, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
                 R6(), F10();
@@ -6676,7 +6681,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   O6(C7, f13), j8(), p20 ? p20(a19.value) : s19 && s19(a19.value);
                 }, r13.appendChild(x15), r13.appendChild(a19), r13.appendChild(E5), r13.appendChild(D7), r13.listener = function(M6) {
                   $3(M6) ? E5.click() : ee4(M6) && D7.click();
-                }, K4(r13, f13), a19.focus(), te2(r13, f13);
+                }, K5(r13, f13), a19.focus(), te2(r13, f13);
               };
               u14.input = ve2;
               var Ee2 = u14.select = function(t17, c26) {
@@ -6698,7 +6703,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   O6(l18, h9), j8(), k7 ? k7() : c26 && c26();
                 }, p20.appendChild(n21), p20.listener = function(r13) {
                   ee4(r13) && n21.click();
-                }, K4(p20, h9), te2(p20, h9);
+                }, K5(p20, h9), te2(p20, h9);
               }, Te = u14.date = function(t17, c26, s19) {
                 var d16 = t17.value, i20 = d16 === void 0 ? new Date() : d16, k7 = t17.submitText, H6 = k7 === void 0 ? "OK" : k7, S12 = t17.cancelText, h9 = S12 === void 0 ? "Cancel" : S12, p20 = t17.submitCallback, l18 = t17.cancelCallback, f13 = t17.position, n21 = f13 === void 0 ? e18.positions.date || n21.top : f13;
                 R6(), F10();
@@ -6759,7 +6764,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                   O6(de2, n21), j8(), l18 ? l18(i20) : s19 && s19(i20);
                 }, I9.appendChild(Z4), I9.appendChild(q6), I9.appendChild(G5), I9.appendChild(C7), I9.appendChild(x15), I9.appendChild(a19), I9.appendChild(ne4), I9.appendChild(se2), I9.appendChild(ae3), ue3.appendChild(I9), Y4.appendChild(ue3), Y4.appendChild(z5), Y4.appendChild(U6), Y4.listener = function(L6) {
                   $3(L6) ? z5.click() : ee4(L6) && U6.click();
-                }, K4(Y4, n21), te2(Y4, n21);
+                }, K5(Y4, n21), te2(Y4, n21);
               };
               u14.default = { alert: he2, force: ke2, confirm: Ce2, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F10 };
             }]);
@@ -7054,8 +7059,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "yo",
     "yua",
     "yue",
-    "zu",
-    "und"
+    "zu"
   ];
   var buildinExcludeUrls = [
     "https://immersive-translate.owenyoung.com/options/",
@@ -7156,7 +7160,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const [STORAGE_AREA] = P2(storageArea);
     const [state, setState] = P2(INITIAL_VALUE3);
     const [isPersistent, setIsPersistent] = P2(true);
-    const [error, setError] = P2("");
+    const [error2, setError] = P2("");
     j2(() => {
       storage.get(key, INITIAL_VALUE3, STORAGE_AREA).then((res) => {
         if (res[key]) {
@@ -7164,9 +7168,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         }
         setIsPersistent(true);
         setError("");
-      }).catch((error2) => {
+      }).catch((error3) => {
         setIsPersistent(false);
-        setError(error2);
+        setError(error3);
       });
     }, [key, INITIAL_VALUE3, STORAGE_AREA]);
     const updateValue = L2(
@@ -7177,22 +7181,22 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           setState(toStore);
           setIsPersistent(true);
           setError("");
-        }).catch((error2) => {
+        }).catch((error3) => {
           setState(toStore);
           setIsPersistent(false);
-          setError(error2);
+          setError(error3);
         });
       },
       [STORAGE_AREA, key, state]
     );
-    return [state, updateValue, isPersistent, error];
+    return [state, updateValue, isPersistent, error2];
   }
 
   // libs/use-chrome-storage/createChromeStorageStateHook.ts
   function createChromeStorageStateHook(key, initialValue, storageArea) {
     const consumers = [];
     return function useCreateChromeStorageHook() {
-      const [value, setValue, isPersistent, error] = useChromeStorage(
+      const [value, setValue, isPersistent, error2] = useChromeStorage(
         key,
         initialValue,
         storageArea
@@ -7208,7 +7212,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           consumers.splice(consumers.indexOf(setValue), 1);
         };
       }, [setValue]);
-      return [value, setValueAll, isPersistent, error];
+      return [value, setValueAll, isPersistent, error2];
     };
   }
 
@@ -7241,7 +7245,10 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
   var env = getEnv();
   function isMonkey() {
-    return env.TRANSLATE_USERSCRIPT === "1";
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isDeno2() {
+    return typeof Deno !== "undefined";
   }
 
   // buildin_config.json
@@ -7285,6 +7292,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         ".article_subtitle",
         ".article__title",
         ".articleTitle",
+        ".Article__content",
         ".title",
         ".titleLink",
         ".summary",
@@ -7513,6 +7521,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "yt-formatted-string#video-title",
           "span#video-title"
         ],
+        "wrapperPrefix": "\n",
+        "wrapperSuffix": "\n",
         "globalStyles": {
           "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
           "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
@@ -7872,19 +7882,78 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   // config.ts
   function getEnvUserConfig() {
     const defaultUserConfig = {};
-    if (env.TRANSLATE_SECRET_TENCENT_SECRET_ID && env.TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
+    if (env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID && env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
       const tencentAuthConfig = {
-        secretId: env.TRANSLATE_SECRET_TENCENT_SECRET_ID,
-        secretKey: env.TRANSLATE_SECRET_TENCENT_SECRET_KEY
+        secretId: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID,
+        secretKey: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY
       };
       defaultUserConfig.translationServices = {};
       defaultUserConfig.translationServices.tencent = tencentAuthConfig;
     }
-    if (env.TRANSLATE_SERVICE) {
-      defaultUserConfig.translationService = env.TRANSLATE_SERVICE;
+    if (env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID && env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY) {
+      const baiduAuthConfig = {
+        appid: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID,
+        key: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.baidu = baiduAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN) {
+      const caiyunAuthConfig = {
+        token: env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY) {
+      const openlAuthConfig = {
+        apikey: env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.openl = openlAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID && env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET) {
+      const youdaoAuthConfig = {
+        appId: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID,
+        appSecret: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID && env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY) {
+      const volcAuthConfig = {
+        accessKeyId: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID,
+        secretAccessKey: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.volc = volcAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY) {
+      const deeplAuthConfig = {
+        authKey: env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.deepl = deeplAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SERVICE) {
+      defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE;
     }
     if (env.DEBUG === "1") {
       defaultUserConfig.debug = true;
+      defaultUserConfig.cache = false;
+      defaultUserConfig.alpha = true;
     }
     if (env.MOCK === "1") {
       defaultUserConfig.translationService = "mock";
@@ -7912,6 +7981,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       }
     }
     const defaultConfig = {
+      cache: true,
       buildinConfigUpdatedAt: finalBuildInConfig.buildinConfigUpdatedAt,
       minVersion: finalBuildInConfig.minVersion,
       interval: 1e3 * 60 * 60 * 1,
@@ -7992,6 +8062,19 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // services/util.ts
+  async function humanReadableSize(bytes) {
+    const thresh = 1024;
+    if (Math.abs(bytes) < thresh) {
+      return bytes + " B";
+    }
+    const units = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+    let u14 = -1;
+    do {
+      bytes /= thresh;
+      ++u14;
+    } while (Math.abs(bytes) >= thresh && u14 < units.length - 1);
+    return bytes.toFixed(1) + " " + units[u14];
+  }
   function splitSentences(sentences, maxLength, maxGroupLength) {
     const tempSentences = splitStentenceWithMaxLength(sentences, maxLength);
     const tempSentenceGroups = [];
@@ -8129,6 +8212,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       this.serviceConfig = serviceConfig;
       this.generalConfig = generalConfig;
     }
+    static getAllProps() {
+      return [];
+    }
+    static getProps() {
+      return [];
+    }
     async init() {
     }
     getMaxTextGroupLength() {
@@ -8255,16 +8344,45 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   async function request(options) {
     if (options.body) {
     }
-    let { url, ...fetchOptions } = options;
+    let { url, responseType, ...fetchOptions } = options;
+    if (!responseType) {
+      responseType = "json";
+    }
     fetchOptions = {
       mode: "cors",
       ...fetchOptions
     };
     const fetchFn = options.fetchPolyfill || fetch;
     const response = await fetchFn(url, fetchOptions);
-    if (response.ok && response.status >= 200 && response.status < 300) {
-      const data = await response.json();
-      return data;
+    if (response.ok && response.status >= 200 && response.status < 400) {
+      if (responseType === "json") {
+        const data = await response.json();
+        return data;
+      } else if (responseType === "text") {
+        const data = await response.text();
+        return data;
+      } else if (responseType === "raw") {
+        const data = await response.text();
+        const responseHeaders = Object.fromEntries([
+          ...response.headers.entries()
+        ]);
+        let finalUrl = response.url;
+        if (!finalUrl) {
+          if (response.headers.get("X-Final-URL")) {
+            finalUrl = response.headers.get("X-Final-URL");
+          } else {
+            finalUrl = url;
+          }
+        }
+        const result = {
+          body: data,
+          headers: responseHeaders,
+          status: response.status,
+          statusText: response.statusText,
+          url: finalUrl
+        };
+        return result;
+      }
     } else {
       let details;
       try {
@@ -8338,6 +8456,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
   );
   var [
+    sendRestorePage,
+    pageRestoreStream,
+    waitForPageRestore
+  ] = H2(
+    "restorePage",
+    {
+      async: true
+    }
+  );
+  var [
     sendPageTranslatedStatus,
     pageTranslatedStatusStream,
     waitForPageTranslatedStatus
@@ -8401,21 +8529,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var [sendReady, readyStream, waitForReady] = H2("READY");
   var [sendUrlChange, urlChangeStream, waitForUrlChange] = H2("urlChange");
 
-  // utils/sha256.ts
-  async function sha256(message) {
-    const msgUint8 = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);
-    const result = hex(hashBuffer);
-    return result;
-  }
-  function hex(hashBuffer) {
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map((b11) => b11.toString(16).padStart(2, "0")).join(
-      ""
-    );
-    return hashHex;
-  }
-
   // browser_proxy.ts
   async function sendMessage(fn, options) {
     try {
@@ -8434,47 +8547,513 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
   }
   function request2(options) {
-    if (isMonkey()) {
+    if (isMonkey() || isDeno2()) {
       options.fetchPolyfill = globalThis.GM_fetch;
       return request(options);
     }
     return sendMessage(sendFetch, options);
   }
-  function sha2562(message) {
-    if (isMonkey()) {
-      return sha256(message);
+
+  // libs/sha256.js
+  var ERROR = "input is invalid type";
+  var WINDOW = typeof window === "object";
+  var root = WINDOW ? window : {};
+  if (root.JS_SHA256_NO_WINDOW) {
+    WINDOW = false;
+  }
+  var WEB_WORKER = !WINDOW && typeof self === "object";
+  var NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process === "object" && process.versions && process.versions.node;
+  if (NODE_JS) {
+    root = global;
+  } else if (WEB_WORKER) {
+    root = self;
+  }
+  var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module === "object" && module.exports;
+  var AMD = typeof define === "function" && define.amd;
+  var ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
+  var HEX_CHARS = "0123456789abcdef".split("");
+  var EXTRA = [-2147483648, 8388608, 32768, 128];
+  var SHIFT = [24, 16, 8, 0];
+  var K4 = [
+    1116352408,
+    1899447441,
+    3049323471,
+    3921009573,
+    961987163,
+    1508970993,
+    2453635748,
+    2870763221,
+    3624381080,
+    310598401,
+    607225278,
+    1426881987,
+    1925078388,
+    2162078206,
+    2614888103,
+    3248222580,
+    3835390401,
+    4022224774,
+    264347078,
+    604807628,
+    770255983,
+    1249150122,
+    1555081692,
+    1996064986,
+    2554220882,
+    2821834349,
+    2952996808,
+    3210313671,
+    3336571891,
+    3584528711,
+    113926993,
+    338241895,
+    666307205,
+    773529912,
+    1294757372,
+    1396182291,
+    1695183700,
+    1986661051,
+    2177026350,
+    2456956037,
+    2730485921,
+    2820302411,
+    3259730800,
+    3345764771,
+    3516065817,
+    3600352804,
+    4094571909,
+    275423344,
+    430227734,
+    506948616,
+    659060556,
+    883997877,
+    958139571,
+    1322822218,
+    1537002063,
+    1747873779,
+    1955562222,
+    2024104815,
+    2227730452,
+    2361852424,
+    2428436474,
+    2756734187,
+    3204031479,
+    3329325298
+  ];
+  var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
+  var blocks = [];
+  if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
+    Array.isArray = function(obj) {
+      return Object.prototype.toString.call(obj) === "[object Array]";
+    };
+  }
+  if (ARRAY_BUFFER && (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView)) {
+    ArrayBuffer.isView = function(obj) {
+      return typeof obj === "object" && obj.buffer && obj.buffer.constructor === ArrayBuffer;
+    };
+  }
+  var createOutputMethod = function(outputType, is224) {
+    return function(message) {
+      return new Sha256(is224, true).update(message)[outputType]();
+    };
+  };
+  var createMethod = function(is224) {
+    var method = createOutputMethod("hex", is224);
+    method.create = function() {
+      return new Sha256(is224);
+    };
+    method.update = function(message) {
+      return method.create().update(message);
+    };
+    for (var i20 = 0; i20 < OUTPUT_TYPES.length; ++i20) {
+      var type = OUTPUT_TYPES[i20];
+      method[type] = createOutputMethod(type, is224);
     }
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "sha256",
-        options: message
-      }
-    );
+    return method;
+  };
+  var createHmacOutputMethod = function(outputType, is224) {
+    return function(key, message) {
+      return new HmacSha256(key, is224, true).update(message)[outputType]();
+    };
+  };
+  var createHmacMethod = function(is224) {
+    var method = createHmacOutputMethod("hex", is224);
+    method.create = function(key) {
+      return new HmacSha256(key, is224);
+    };
+    method.update = function(key, message) {
+      return method.create(key).update(message);
+    };
+    for (var i20 = 0; i20 < OUTPUT_TYPES.length; ++i20) {
+      var type = OUTPUT_TYPES[i20];
+      method[type] = createHmacOutputMethod(type, is224);
+    }
+    return method;
+  };
+  function Sha256(is224, sharedMemory) {
+    if (sharedMemory) {
+      blocks[0] = blocks[16] = blocks[1] = blocks[2] = blocks[3] = blocks[4] = blocks[5] = blocks[6] = blocks[7] = blocks[8] = blocks[9] = blocks[10] = blocks[11] = blocks[12] = blocks[13] = blocks[14] = blocks[15] = 0;
+      this.blocks = blocks;
+    } else {
+      this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    }
+    if (is224) {
+      this.h0 = 3238371032;
+      this.h1 = 914150663;
+      this.h2 = 812702999;
+      this.h3 = 4144912697;
+      this.h4 = 4290775857;
+      this.h5 = 1750603025;
+      this.h6 = 1694076839;
+      this.h7 = 3204075428;
+    } else {
+      this.h0 = 1779033703;
+      this.h1 = 3144134277;
+      this.h2 = 1013904242;
+      this.h3 = 2773480762;
+      this.h4 = 1359893119;
+      this.h5 = 2600822924;
+      this.h6 = 528734635;
+      this.h7 = 1541459225;
+    }
+    this.block = this.start = this.bytes = this.hBytes = 0;
+    this.finalized = this.hashed = false;
+    this.first = true;
+    this.is224 = is224;
   }
-  function hmacSha256ByArrayBuffer(message, key) {
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "hmacSha256ByArrayBuffer",
-        options: {
-          message,
-          key
+  Sha256.prototype.update = function(message) {
+    if (this.finalized) {
+      return;
+    }
+    var notString, type = typeof message;
+    if (type !== "string") {
+      if (type === "object") {
+        if (message === null) {
+          throw new Error(ERROR);
+        } else if (ARRAY_BUFFER && message.constructor === ArrayBuffer) {
+          message = new Uint8Array(message);
+        } else if (!Array.isArray(message)) {
+          if (!ARRAY_BUFFER || !ArrayBuffer.isView(message)) {
+            throw new Error(ERROR);
+          }
+        }
+      } else {
+        throw new Error(ERROR);
+      }
+      notString = true;
+    }
+    var code2, index = 0, i20, length = message.length, blocks2 = this.blocks;
+    while (index < length) {
+      if (this.hashed) {
+        this.hashed = false;
+        blocks2[0] = this.block;
+        blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+      }
+      if (notString) {
+        for (i20 = this.start; index < length && i20 < 64; ++index) {
+          blocks2[i20 >> 2] |= message[index] << SHIFT[i20++ & 3];
+        }
+      } else {
+        for (i20 = this.start; index < length && i20 < 64; ++index) {
+          code2 = message.charCodeAt(index);
+          if (code2 < 128) {
+            blocks2[i20 >> 2] |= code2 << SHIFT[i20++ & 3];
+          } else if (code2 < 2048) {
+            blocks2[i20 >> 2] |= (192 | code2 >> 6) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 & 63) << SHIFT[i20++ & 3];
+          } else if (code2 < 55296 || code2 >= 57344) {
+            blocks2[i20 >> 2] |= (224 | code2 >> 12) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 & 63) << SHIFT[i20++ & 3];
+          } else {
+            code2 = 65536 + ((code2 & 1023) << 10 | message.charCodeAt(++index) & 1023);
+            blocks2[i20 >> 2] |= (240 | code2 >> 18) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 >> 12 & 63) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i20++ & 3];
+            blocks2[i20 >> 2] |= (128 | code2 & 63) << SHIFT[i20++ & 3];
+          }
         }
       }
-    );
-  }
-  function hmacSha256ByString(message, key) {
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "hmacSha256ByString",
-        options: {
-          message,
-          key
+      this.lastByteIndex = i20;
+      this.bytes += i20 - this.start;
+      if (i20 >= 64) {
+        this.block = blocks2[16];
+        this.start = i20 - 64;
+        this.hash();
+        this.hashed = true;
+      } else {
+        this.start = i20;
+      }
+    }
+    if (this.bytes > 4294967295) {
+      this.hBytes += this.bytes / 4294967296 << 0;
+      this.bytes = this.bytes % 4294967296;
+    }
+    return this;
+  };
+  Sha256.prototype.finalize = function() {
+    if (this.finalized) {
+      return;
+    }
+    this.finalized = true;
+    var blocks2 = this.blocks, i20 = this.lastByteIndex;
+    blocks2[16] = this.block;
+    blocks2[i20 >> 2] |= EXTRA[i20 & 3];
+    this.block = blocks2[16];
+    if (i20 >= 56) {
+      if (!this.hashed) {
+        this.hash();
+      }
+      blocks2[0] = this.block;
+      blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+    }
+    blocks2[14] = this.hBytes << 3 | this.bytes >>> 29;
+    blocks2[15] = this.bytes << 3;
+    this.hash();
+  };
+  Sha256.prototype.hash = function() {
+    var a19 = this.h0, b11 = this.h1, c26 = this.h2, d16 = this.h3, e18 = this.h4, f13 = this.h5, g7 = this.h6, h9 = this.h7, blocks2 = this.blocks, j8, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+    for (j8 = 16; j8 < 64; ++j8) {
+      t1 = blocks2[j8 - 15];
+      s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3;
+      t1 = blocks2[j8 - 2];
+      s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10;
+      blocks2[j8] = blocks2[j8 - 16] + s0 + blocks2[j8 - 7] + s1 << 0;
+    }
+    bc = b11 & c26;
+    for (j8 = 0; j8 < 64; j8 += 4) {
+      if (this.first) {
+        if (this.is224) {
+          ab = 300032;
+          t1 = blocks2[0] - 1413257819;
+          h9 = t1 - 150054599 << 0;
+          d16 = t1 + 24177077 << 0;
+        } else {
+          ab = 704751109;
+          t1 = blocks2[0] - 210244248;
+          h9 = t1 - 1521486534 << 0;
+          d16 = t1 + 143694565 << 0;
+        }
+        this.first = false;
+      } else {
+        s0 = (a19 >>> 2 | a19 << 30) ^ (a19 >>> 13 | a19 << 19) ^ (a19 >>> 22 | a19 << 10);
+        s1 = (e18 >>> 6 | e18 << 26) ^ (e18 >>> 11 | e18 << 21) ^ (e18 >>> 25 | e18 << 7);
+        ab = a19 & b11;
+        maj = ab ^ a19 & c26 ^ bc;
+        ch = e18 & f13 ^ ~e18 & g7;
+        t1 = h9 + s1 + ch + K4[j8] + blocks2[j8];
+        t22 = s0 + maj;
+        h9 = d16 + t1 << 0;
+        d16 = t1 + t22 << 0;
+      }
+      s0 = (d16 >>> 2 | d16 << 30) ^ (d16 >>> 13 | d16 << 19) ^ (d16 >>> 22 | d16 << 10);
+      s1 = (h9 >>> 6 | h9 << 26) ^ (h9 >>> 11 | h9 << 21) ^ (h9 >>> 25 | h9 << 7);
+      da = d16 & a19;
+      maj = da ^ d16 & b11 ^ ab;
+      ch = h9 & e18 ^ ~h9 & f13;
+      t1 = g7 + s1 + ch + K4[j8 + 1] + blocks2[j8 + 1];
+      t22 = s0 + maj;
+      g7 = c26 + t1 << 0;
+      c26 = t1 + t22 << 0;
+      s0 = (c26 >>> 2 | c26 << 30) ^ (c26 >>> 13 | c26 << 19) ^ (c26 >>> 22 | c26 << 10);
+      s1 = (g7 >>> 6 | g7 << 26) ^ (g7 >>> 11 | g7 << 21) ^ (g7 >>> 25 | g7 << 7);
+      cd = c26 & d16;
+      maj = cd ^ c26 & a19 ^ da;
+      ch = g7 & h9 ^ ~g7 & e18;
+      t1 = f13 + s1 + ch + K4[j8 + 2] + blocks2[j8 + 2];
+      t22 = s0 + maj;
+      f13 = b11 + t1 << 0;
+      b11 = t1 + t22 << 0;
+      s0 = (b11 >>> 2 | b11 << 30) ^ (b11 >>> 13 | b11 << 19) ^ (b11 >>> 22 | b11 << 10);
+      s1 = (f13 >>> 6 | f13 << 26) ^ (f13 >>> 11 | f13 << 21) ^ (f13 >>> 25 | f13 << 7);
+      bc = b11 & c26;
+      maj = bc ^ b11 & d16 ^ cd;
+      ch = f13 & g7 ^ ~f13 & h9;
+      t1 = e18 + s1 + ch + K4[j8 + 3] + blocks2[j8 + 3];
+      t22 = s0 + maj;
+      e18 = a19 + t1 << 0;
+      a19 = t1 + t22 << 0;
+    }
+    this.h0 = this.h0 + a19 << 0;
+    this.h1 = this.h1 + b11 << 0;
+    this.h2 = this.h2 + c26 << 0;
+    this.h3 = this.h3 + d16 << 0;
+    this.h4 = this.h4 + e18 << 0;
+    this.h5 = this.h5 + f13 << 0;
+    this.h6 = this.h6 + g7 << 0;
+    this.h7 = this.h7 + h9 << 0;
+  };
+  Sha256.prototype.hex = function() {
+    this.finalize();
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h42 = this.h4, h52 = this.h5, h62 = this.h6, h72 = this.h7;
+    var hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h32 >> 28 & 15] + HEX_CHARS[h32 >> 24 & 15] + HEX_CHARS[h32 >> 20 & 15] + HEX_CHARS[h32 >> 16 & 15] + HEX_CHARS[h32 >> 12 & 15] + HEX_CHARS[h32 >> 8 & 15] + HEX_CHARS[h32 >> 4 & 15] + HEX_CHARS[h32 & 15] + HEX_CHARS[h42 >> 28 & 15] + HEX_CHARS[h42 >> 24 & 15] + HEX_CHARS[h42 >> 20 & 15] + HEX_CHARS[h42 >> 16 & 15] + HEX_CHARS[h42 >> 12 & 15] + HEX_CHARS[h42 >> 8 & 15] + HEX_CHARS[h42 >> 4 & 15] + HEX_CHARS[h42 & 15] + HEX_CHARS[h52 >> 28 & 15] + HEX_CHARS[h52 >> 24 & 15] + HEX_CHARS[h52 >> 20 & 15] + HEX_CHARS[h52 >> 16 & 15] + HEX_CHARS[h52 >> 12 & 15] + HEX_CHARS[h52 >> 8 & 15] + HEX_CHARS[h52 >> 4 & 15] + HEX_CHARS[h52 & 15] + HEX_CHARS[h62 >> 28 & 15] + HEX_CHARS[h62 >> 24 & 15] + HEX_CHARS[h62 >> 20 & 15] + HEX_CHARS[h62 >> 16 & 15] + HEX_CHARS[h62 >> 12 & 15] + HEX_CHARS[h62 >> 8 & 15] + HEX_CHARS[h62 >> 4 & 15] + HEX_CHARS[h62 & 15];
+    if (!this.is224) {
+      hex2 += HEX_CHARS[h72 >> 28 & 15] + HEX_CHARS[h72 >> 24 & 15] + HEX_CHARS[h72 >> 20 & 15] + HEX_CHARS[h72 >> 16 & 15] + HEX_CHARS[h72 >> 12 & 15] + HEX_CHARS[h72 >> 8 & 15] + HEX_CHARS[h72 >> 4 & 15] + HEX_CHARS[h72 & 15];
+    }
+    return hex2;
+  };
+  Sha256.prototype.toString = Sha256.prototype.hex;
+  Sha256.prototype.digest = function() {
+    this.finalize();
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h42 = this.h4, h52 = this.h5, h62 = this.h6, h72 = this.h7;
+    var arr = [
+      h0 >> 24 & 255,
+      h0 >> 16 & 255,
+      h0 >> 8 & 255,
+      h0 & 255,
+      h1 >> 24 & 255,
+      h1 >> 16 & 255,
+      h1 >> 8 & 255,
+      h1 & 255,
+      h22 >> 24 & 255,
+      h22 >> 16 & 255,
+      h22 >> 8 & 255,
+      h22 & 255,
+      h32 >> 24 & 255,
+      h32 >> 16 & 255,
+      h32 >> 8 & 255,
+      h32 & 255,
+      h42 >> 24 & 255,
+      h42 >> 16 & 255,
+      h42 >> 8 & 255,
+      h42 & 255,
+      h52 >> 24 & 255,
+      h52 >> 16 & 255,
+      h52 >> 8 & 255,
+      h52 & 255,
+      h62 >> 24 & 255,
+      h62 >> 16 & 255,
+      h62 >> 8 & 255,
+      h62 & 255
+    ];
+    if (!this.is224) {
+      arr.push(h72 >> 24 & 255, h72 >> 16 & 255, h72 >> 8 & 255, h72 & 255);
+    }
+    return arr;
+  };
+  Sha256.prototype.array = Sha256.prototype.digest;
+  Sha256.prototype.arrayBuffer = function() {
+    this.finalize();
+    var buffer = new ArrayBuffer(this.is224 ? 28 : 32);
+    var dataView = new DataView(buffer);
+    dataView.setUint32(0, this.h0);
+    dataView.setUint32(4, this.h1);
+    dataView.setUint32(8, this.h2);
+    dataView.setUint32(12, this.h3);
+    dataView.setUint32(16, this.h4);
+    dataView.setUint32(20, this.h5);
+    dataView.setUint32(24, this.h6);
+    if (!this.is224) {
+      dataView.setUint32(28, this.h7);
+    }
+    return buffer;
+  };
+  function HmacSha256(key, is224, sharedMemory) {
+    var i20, type = typeof key;
+    if (type === "string") {
+      var bytes = [], length = key.length, index = 0, code2;
+      for (i20 = 0; i20 < length; ++i20) {
+        code2 = key.charCodeAt(i20);
+        if (code2 < 128) {
+          bytes[index++] = code2;
+        } else if (code2 < 2048) {
+          bytes[index++] = 192 | code2 >> 6;
+          bytes[index++] = 128 | code2 & 63;
+        } else if (code2 < 55296 || code2 >= 57344) {
+          bytes[index++] = 224 | code2 >> 12;
+          bytes[index++] = 128 | code2 >> 6 & 63;
+          bytes[index++] = 128 | code2 & 63;
+        } else {
+          code2 = 65536 + ((code2 & 1023) << 10 | key.charCodeAt(++i20) & 1023);
+          bytes[index++] = 240 | code2 >> 18;
+          bytes[index++] = 128 | code2 >> 12 & 63;
+          bytes[index++] = 128 | code2 >> 6 & 63;
+          bytes[index++] = 128 | code2 & 63;
         }
       }
+      key = bytes;
+    } else {
+      if (type === "object") {
+        if (key === null) {
+          throw new Error(ERROR);
+        } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
+          key = new Uint8Array(key);
+        } else if (!Array.isArray(key)) {
+          if (!ARRAY_BUFFER || !ArrayBuffer.isView(key)) {
+            throw new Error(ERROR);
+          }
+        }
+      } else {
+        throw new Error(ERROR);
+      }
+    }
+    if (key.length > 64) {
+      key = new Sha256(is224, true).update(key).array();
+    }
+    var oKeyPad = [], iKeyPad = [];
+    for (i20 = 0; i20 < 64; ++i20) {
+      var b11 = key[i20] || 0;
+      oKeyPad[i20] = 92 ^ b11;
+      iKeyPad[i20] = 54 ^ b11;
+    }
+    Sha256.call(this, is224, sharedMemory);
+    this.update(iKeyPad);
+    this.oKeyPad = oKeyPad;
+    this.inner = true;
+    this.sharedMemory = sharedMemory;
+  }
+  HmacSha256.prototype = new Sha256();
+  HmacSha256.prototype.finalize = function() {
+    Sha256.prototype.finalize.call(this);
+    if (this.inner) {
+      this.inner = false;
+      var innerHash = this.array();
+      Sha256.call(this, this.is224, this.sharedMemory);
+      this.update(this.oKeyPad);
+      this.update(innerHash);
+      Sha256.prototype.finalize.call(this);
+    }
+  };
+  var exports = createMethod();
+  exports.sha256 = exports;
+  exports.sha224 = createMethod(true);
+  exports.sha256.hmac = createHmacMethod();
+  exports.sha224.hmac = createHmacMethod(true);
+  var sha256_default = exports;
+
+  // utils/sha256.ts
+  var sha256Fn = sha256_default.sha256;
+  function sha256(message) {
+    return Promise.resolve(sha256Fn(message));
+  }
+  function hex(hashBuffer) {
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map((b11) => b11.toString(16).padStart(2, "0")).join(
+      ""
     );
+    return hashHex;
+  }
+  function hmacSha256(str, keyString) {
+    const hash = sha256Fn.hmac.create(keyString);
+    hash.update(str);
+    return Promise.resolve(hash.array());
+  }
+  async function hmacSha256ByString(str, keyString) {
+    const sig = await hmacSha256(str, keyString);
+    return hex(sig);
+  }
+  async function hmacSha256ByArrayBuffer(str, keyString) {
+    const buffer = decodeHex(keyString);
+    const sig = await hmacSha256(str, buffer);
+    return hex(sig);
+  }
+  function decodeHex(string) {
+    const bytes = [];
+    string.replace(/../g, function(pair) {
+      bytes.push(parseInt(pair, 16));
+      return "";
+    });
+    return new Uint8Array(bytes).buffer;
   }
 
   // services/tencent.ts
@@ -8514,6 +9093,17 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       const month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0");
       const date = `${dateObj.getUTCDate()}`.padStart(2, "0");
       return `${year}-${month}-${date}`;
+    }
+    static getAllProps() {
+      return [{
+        name: "secretId",
+        required: true,
+        type: "text"
+      }, {
+        name: "secretKey",
+        required: true,
+        type: "password"
+      }];
     }
     async translate(payload) {
       const { text, from, to } = payload;
@@ -8578,14 +9168,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         `host:${host}`,
         "",
         "content-type;host",
-        await sha2562(payload)
+        await sha256(payload)
       ].join("\n");
       const datestamp = _Tencent.getUTCDate(now);
       const StringToSign = [
         "TC3-HMAC-SHA256",
         timestamp,
         `${datestamp}/${service}/tc3_request`,
-        await sha2562(CanonicalRequest)
+        await sha256(CanonicalRequest)
       ].join("\n");
       const SecretDate = await hmacSha256ByString(datestamp, `TC3${secretKey}`);
       const SecretService = await hmacSha256ByArrayBuffer(
@@ -8951,8 +9541,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   function stringifyJson(object) {
     return JSON.stringify(object).replace('"method":"', () => {
-      const self = object;
-      if ((self.id + 3) % 13 === 0 || (self.id + 5) % 29 === 0) {
+      const self2 = object;
+      if ((self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0) {
         return '"method" : "';
       }
       return '"method": "';
@@ -8967,7 +9557,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return await request2(
       {
         method: "POST",
-        url: API_URL,
+        url: API_URL + "?method=LMT_split_text",
         headers,
         body: stringifyJson(data)
       }
@@ -8995,7 +9585,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     });
     const response = await request2({
       method: "POST",
-      url: API_URL,
+      url: API_URL + "?method=LMT_handle_jobs",
       body: stringifyJson(data),
       headers
     });
@@ -9061,8 +9651,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var _D = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
-      this.maxTextGroupLength = 1e4;
-      this.maxTextLength = 1200;
+      this.maxTextGroupLength = 3;
+      this.maxTextLength = 800;
       this.isSupportList = true;
     }
     async translateList(payload) {
@@ -9085,8 +9675,45 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
+  // services/bai.ts
+  var RAW_LANGUAGES = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["yue", "yue"],
+    ["wyw", "wyw"],
+    ["ja", "jp"],
+    ["ko", "kor"],
+    ["fr", "fra"],
+    ["es", "spa"],
+    ["th", "th"],
+    ["ar", "ara"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["de", "de"],
+    ["it", "it"],
+    ["el", "el"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["bg", "bul"],
+    ["et", "est"],
+    ["da", "dan"],
+    ["fi", "fin"],
+    ["cs", "cs"],
+    ["ro", "rom"],
+    ["sl", "slo"],
+    ["sv", "swe"],
+    ["hu", "hu"],
+    ["zh-TW", "cht"],
+    ["vi", "vie"]
+  ];
+  var langMap4 = new Map(RAW_LANGUAGES);
+  var langMapReverse = new Map(
+    RAW_LANGUAGES.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+
   // services/transmart.ts
-  var langMap4 = [
+  var langMap5 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["zh-TW", "zh-TW"],
@@ -9109,21 +9736,24 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var _Transmart = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
-      this.maxTextGroupLength = 5;
+      this.maxTextGroupLength = 3;
       this.clientKey = btoa(
         "transmart_crx_" + navigator.userAgent
       ).slice(0, 100);
     }
     async translate(payload) {
-      const { text, to } = payload;
+      const { from, text, to } = payload;
       const formatedTo = _Transmart.langMap.get(to);
-      const sourceLanguage = await this.detectLanguage(text);
+      let sourceLanguage = _Transmart.langMap.get(from);
+      if (!(from !== "auto" && sourceLanguage)) {
+        sourceLanguage = await this.detectLanguage(text);
+      }
       const internalFrom = _Transmart.langMapReverse.get(sourceLanguage);
       if (sourceLanguage === formatedTo) {
         return {
           text,
-          from: sourceLanguage,
-          to: formatedTo
+          from: _Transmart.langMapReverse.get(sourceLanguage),
+          to
         };
       }
       const requestPayload = JSON.stringify(
@@ -9155,8 +9785,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       };
     }
     async translateList(payload) {
-      const { text, to } = payload;
-      const sourceLanguage = await this.detectLanguage(text.join("\n"));
+      const { from, text, to } = payload;
+      let sourceLanguage = _Transmart.langMap.get(from);
+      if (!(from !== "auto" && sourceLanguage)) {
+        sourceLanguage = await this.detectLanguage(text.join("\n"));
+      }
       const internalSourceLanguage = _Transmart.langMapReverse.get(
         sourceLanguage
       );
@@ -9217,9 +9850,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
   };
   var Transmart = _Transmart;
-  Transmart.langMap = new Map(langMap4);
+  Transmart.langMap = new Map(langMap5);
   Transmart.langMapReverse = new Map(
-    langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+    langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // services/mock.ts
@@ -9254,6 +9887,1248 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
   };
 
+  // services/openl.ts
+  var rawLangMap = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"],
+    ["de", "de"],
+    ["fr", "fr"],
+    ["it", "it"],
+    ["es", "es"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["pt", "pt"],
+    ["ru", "ru"]
+  ];
+  var langMap6 = new Map(rawLangMap);
+  var langMapReverse2 = new Map(
+    rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var _Openl = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.apikey = "";
+      this.codename = _Openl.DEFAULT_CODENAME;
+      this.isSupportList = false;
+      this.maxTextGroupLength = 1;
+      if (!serviceConfig || !serviceConfig.apikey) {
+        throw new Error("apikey are required");
+      }
+      this.apikey = serviceConfig.apikey;
+      if (serviceConfig.codename) {
+        this.codename = serviceConfig.codename;
+      }
+    }
+    static getAllProps() {
+      const props = _Openl.getProps();
+      return [
+        ...props,
+        {
+          type: "password",
+          name: "apikey",
+          required: true
+        }
+      ];
+    }
+    static getProps() {
+      return [{
+        type: "select",
+        name: "codename",
+        label: "translationEngine",
+        default: _Openl.DEFAULT_CODENAME,
+        required: false,
+        options: [
+          {
+            label: "translationServices.deepl",
+            value: "deepl"
+          },
+          {
+            label: "translationServices.youdao",
+            value: "youdao"
+          },
+          {
+            label: "translationServices.tencent",
+            value: "tencent"
+          },
+          {
+            label: "translationServices.aliyun",
+            value: "aliyun"
+          },
+          {
+            label: "translationServices.baidu",
+            value: "baidu"
+          },
+          {
+            label: "translationServices.caiyun",
+            value: "caiyun"
+          },
+          {
+            label: "translationServices.wechat",
+            value: "wechat"
+          },
+          {
+            label: "translationServices.azure",
+            value: "azure"
+          },
+          {
+            label: "translationServices.ibm",
+            value: "ibm"
+          },
+          {
+            label: "translationServices.aws",
+            value: "aws"
+          },
+          {
+            label: "translationServices.google",
+            value: "google"
+          }
+        ]
+      }];
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const response = await request2(
+        {
+          url: `https://api.openl.club/services/${this.codename}/translate`,
+          headers: {
+            "content-type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify({
+            apikey: this.apikey,
+            text,
+            source_lang: langMap6.get(from) || "auto",
+            target_lang: langMap6.get(to)
+          })
+        }
+      );
+      if (response.status) {
+        const result = response;
+        return {
+          text: result.result,
+          from: langMapReverse2.get(result.source_lang),
+          to: langMapReverse2.get(result.target_lang)
+        };
+      } else {
+        throw new Error(response.msg);
+      }
+    }
+  };
+  var Openl = _Openl;
+  Openl.DEFAULT_CODENAME = "deepl";
+  var openl_default = Openl;
+
+  // services/deepl.ts
+  var rawLangMap2 = [
+    ["auto", ""],
+    ["zh-CN", "ZH"],
+    ["zh-TW", "ZH"],
+    ["en", "EN"],
+    ["de", "DE"],
+    ["fr", "FR"],
+    ["it", "IT"],
+    ["ja", "JA"],
+    ["es", "ES"],
+    ["nl", "NL"],
+    ["pl", "PL"],
+    ["pt", "PT"],
+    ["ru", "RU"]
+  ];
+  var langMap7 = new Map(rawLangMap2);
+  var langMapReverse3 = new Map(
+    rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Deepl = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.authKey = "";
+      this.maxTextGroupLength = 10;
+      this.maxTextLength = 1200;
+      if (!serviceConfig || !serviceConfig.authKey) {
+        throw new Error("authKey are required");
+      }
+      this.authKey = serviceConfig.authKey;
+    }
+    static getAllProps() {
+      return [{
+        name: "authKey",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { from, to, text } = payload;
+      const bodyParams = {
+        ["source_lang"]: langMap7.get(from),
+        ["target_lang"]: langMap7.get(to)
+      };
+      const bodySearchParams = new URLSearchParams(bodyParams);
+      text.forEach((item) => {
+        bodySearchParams.append("text", item);
+      });
+      const body = bodySearchParams.toString();
+      let deeplEndpoint = "https://api-free.deepl.com/v2/translate";
+      if (!this.authKey.includes(":fx")) {
+        deeplEndpoint = "https://api.deepl.com/v2/translate";
+      }
+      const response = await request2(
+        {
+          url: deeplEndpoint,
+          method: "POST",
+          body,
+          headers: {
+            Authorization: "DeepL-Auth-Key " + this.authKey,
+            "content-type": "application/x-www-form-urlencoded"
+          }
+        }
+      );
+      const { translations: translations2 } = response;
+      const resultText = translations2.map((t17) => t17.text);
+      return {
+        text: resultText,
+        from: translations2[0] && langMapReverse3.get(translations2[0].detected_source_language) || from,
+        to
+      };
+    }
+  };
+  var deepl_default = Deepl;
+
+  // services/volc/sign.ts
+  var unsignableHeaders = [
+    "authorization",
+    "content-type",
+    "content-length",
+    "user-agent",
+    "presigned-expires",
+    "expect"
+  ];
+  var constant = {
+    algorithm: "HMAC-SHA256",
+    v4Identifier: "request",
+    dateHeader: "X-Date",
+    tokenHeader: "X-Security-Token",
+    contentSha256Header: "X-Content-Sha256",
+    notSignBody: "X-NotSignBody",
+    kDatePrefix: "",
+    credential: "X-Credential",
+    algorithmKey: "X-Algorithm",
+    signHeadersKey: "X-SignedHeaders",
+    signQueriesKey: "X-SignedQueries",
+    signatureKey: "X-Signature"
+  };
+  var uriEscape = (str) => {
+    try {
+      return encodeURIComponent(str).replace(/[^A-Za-z0-9_.~\-%]+/g, escape).replace(
+        /[*]/g,
+        (ch) => `%${ch.charCodeAt(0).toString(16).toUpperCase()}`
+      );
+    } catch (e18) {
+      return "";
+    }
+  };
+  var queryParamsToString = (params) => Object.keys(params).map((key) => {
+    const val = params[key];
+    if (typeof val === "undefined" || val === null) {
+      return;
+    }
+    const escapedKey = uriEscape(key);
+    if (!escapedKey) {
+      return;
+    }
+    if (Array.isArray(val)) {
+      return `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}`;
+    }
+    return `${escapedKey}=${uriEscape(val)}`;
+  }).filter((v6) => v6).join("&");
+  var Signer = class {
+    constructor(request3, serviceName, options) {
+      this.request = request3;
+      this.request.headers = request3.headers || {};
+      this.serviceName = serviceName;
+      options = options || {};
+      this.bodySha256 = options.bodySha256;
+      this.request.params = this.sortParams(this.request.params);
+    }
+    sortParams(params) {
+      const newParams = {};
+      if (params) {
+        Object.keys(params).filter((key) => {
+          const value = params[key];
+          return typeof value !== "undefined" && value !== null;
+        }).sort().map((key) => {
+          newParams[key] = params[key];
+        });
+      }
+      return newParams;
+    }
+    async addAuthorization(credentials, date) {
+      const datetime = this.getDateTime(date);
+      await this.addHeaders(credentials, datetime);
+      this.request.headers["Authorization"] = await this.authorization(
+        credentials,
+        datetime
+      );
+    }
+    async authorization(credentials, datetime) {
+      const parts = [];
+      const credString = this.credentialString(datetime);
+      parts.push(
+        `${constant.algorithm} Credential=${credentials.accessKeyId}/${credString}`
+      );
+      parts.push(`SignedHeaders=${this.signedHeaders()}`);
+      parts.push(`Signature=${await this.signature(credentials, datetime)}`);
+      return parts.join(", ");
+    }
+    async getSignUrl(credentials, date) {
+      const datetime = this.getDateTime(date);
+      let query = { ...this.request.params };
+      const params = this.request.params;
+      const headers2 = this.request.headers;
+      if (credentials.sessionToken) {
+        query[constant.tokenHeader] = credentials.sessionToken;
+      }
+      query[constant.dateHeader] = datetime;
+      query[constant.notSignBody] = "";
+      query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`;
+      query[constant.algorithmKey] = constant.algorithm;
+      query[constant.signHeadersKey] = "";
+      query[constant.signQueriesKey] = void 0;
+      query[constant.signatureKey] = void 0;
+      query = this.sortParams(query);
+      this.request.params = query;
+      this.request.headers = {};
+      const sig = await this.signature(credentials, datetime);
+      this.request.params = params;
+      this.request.headers = headers2;
+      query[constant.signQueriesKey] = Object.keys(query).sort().join(";");
+      query[constant.signatureKey] = sig;
+      return queryParamsToString(query);
+    }
+    getDateTime(date) {
+      return this.iso8601(date).replace(/[:\-]|\.\d{3}/g, "");
+    }
+    async addHeaders(credentials, datetime) {
+      this.request.headers[constant.dateHeader] = datetime;
+      if (credentials.sessionToken) {
+        this.request.headers[constant.tokenHeader] = credentials.sessionToken;
+      }
+      if (this.request.body) {
+        let body = this.request.body;
+        this.request.headers[constant.contentSha256Header] = await sha256(body);
+      }
+    }
+    async signature(credentials, datetime) {
+      const signingKey = await this.getSigningKey(
+        credentials,
+        datetime.substr(0, 8),
+        this.request.region,
+        this.serviceName
+      );
+      return hex(await hmacSha256(await this.stringToSign(datetime), signingKey));
+    }
+    async stringToSign(datetime) {
+      const parts = [];
+      parts.push(constant.algorithm);
+      parts.push(datetime);
+      parts.push(this.credentialString(datetime));
+      const x15 = await this.canonicalString();
+      parts.push(
+        await this.hexEncodedHash(x15)
+      );
+      const result = parts.join("\n");
+      return result;
+    }
+    async canonicalString() {
+      const parts = [], pathname = this.request.pathname || "/";
+      parts.push(this.request.method.toUpperCase());
+      parts.push(pathname);
+      const queryString = queryParamsToString(this.request.params) || "";
+      parts.push(queryString);
+      parts.push(`${this.canonicalHeaders()}
+`);
+      parts.push(this.signedHeaders());
+      parts.push(await this.hexEncodedBodyHash());
+      const result = parts.join("\n");
+      return result;
+    }
+    canonicalHeaders() {
+      const headers2 = [];
+      Object.keys(this.request.headers).forEach((key) => {
+        headers2.push([key, this.request.headers[key]]);
+      });
+      headers2.sort((a19, b11) => a19[0].toLowerCase() < b11[0].toLowerCase() ? -1 : 1);
+      const parts = [];
+      headers2.forEach((item) => {
+        const key = item[0].toLowerCase();
+        if (this.isSignableHeader(key)) {
+          const value = item[1];
+          if (typeof value === "undefined" || value === null || typeof value.toString !== "function") {
+            throw new Error(`Header ${key} contains invalid value`);
+          }
+          parts.push(`${key}:${this.canonicalHeaderValues(value.toString())}`);
+        }
+      });
+      return parts.join("\n");
+    }
+    canonicalHeaderValues(values) {
+      return values.replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "");
+    }
+    signedHeaders() {
+      const keys = [];
+      Object.keys(this.request.headers).forEach((key) => {
+        key = key.toLowerCase();
+        if (this.isSignableHeader(key)) {
+          keys.push(key);
+        }
+      });
+      return keys.sort().join(";");
+    }
+    signedQueries() {
+      return Object.keys(this.request.params).join(";");
+    }
+    credentialString(datetime) {
+      return this.createScope(
+        datetime.substr(0, 8),
+        this.request.region,
+        this.serviceName
+      );
+    }
+    async hexEncodedHash(str) {
+      return await sha256(str);
+    }
+    async hexEncodedBodyHash() {
+      if (this.request.headers[constant.contentSha256Header]) {
+        return this.request.headers[constant.contentSha256Header];
+      }
+      if (this.request.body) {
+        return await this.hexEncodedHash(queryParamsToString(this.request.body));
+      }
+      return await this.hexEncodedHash("");
+    }
+    isSignableHeader(key) {
+      return unsignableHeaders.indexOf(key) < 0;
+    }
+    iso8601(date) {
+      if (date === void 0) {
+        date = new Date();
+      }
+      return date.toISOString().replace(/\.\d{3}Z$/, "Z");
+    }
+    async getSigningKey(credentials, date, region, service) {
+      const kDate = await hmacSha256(
+        date,
+        `${constant.kDatePrefix}${credentials.secretKey}`
+      );
+      const kRegion = await hmacSha256(region, kDate);
+      const kService = await hmacSha256(service, kRegion);
+      return hmacSha256(constant.v4Identifier, kService);
+    }
+    createScope(date, region, serviceName) {
+      return [date.substr(0, 8), region, serviceName, constant.v4Identifier].join(
+        "/"
+      );
+    }
+  };
+
+  // services/volc/mod.ts
+  var rawLangMap3 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ];
+  var langMap8 = new Map(rawLangMap3);
+  var langMapReverse4 = new Map(
+    rawLangMap3.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Volc = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.accessKeyId = "";
+      this.secretAccessKey = "";
+      this.maxTextGroupLength = 8;
+      if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey) {
+        throw new Error("accessKeyId and secretAccessKey are required");
+      }
+      this.accessKeyId = serviceConfig.accessKeyId;
+      this.secretAccessKey = serviceConfig.secretAccessKey;
+    }
+    static getAllProps() {
+      return [{
+        name: "accessKeyId",
+        required: true,
+        type: "text"
+      }, {
+        name: "secretAccessKey",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { text, from, to } = payload;
+      const source = text;
+      const requestObj = {
+        region: "cn-north-1",
+        method: "POST",
+        params: {
+          "Action": "TranslateText",
+          "Version": "2020-06-01"
+        },
+        pathname: "/",
+        headers: {
+          "Content-Type": "application/json",
+          "host": "open.volcengineapi.com"
+        },
+        body: JSON.stringify({
+          "SourceLanguage": langMap8.get(from),
+          "TargetLanguage": "zh",
+          "TextList": text
+        })
+      };
+      const signer = new Signer(requestObj, "translate");
+      await signer.addAuthorization({
+        accessKeyId: this.accessKeyId,
+        secretKey: this.secretAccessKey
+      });
+      const urlSearchParams = new URLSearchParams(requestObj.params);
+      const response = await request2(
+        {
+          url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
+          headers: signer.request.headers,
+          method: requestObj.method,
+          body: requestObj.body
+        }
+      );
+      if (response.TranslationList) {
+        const resultText = response.TranslationList.map((item) => item.Translation);
+        let remoteFrom = from;
+        if (response.TranslationList.length > 0) {
+          if (response.TranslationList[0].DetectedSourceLanguage) {
+            remoteFrom = langMapReverse4.get(
+              response.TranslationList[0].DetectedSourceLanguage
+            ) || from;
+          }
+        }
+        return {
+          text: resultText,
+          from: remoteFrom,
+          to
+        };
+      } else {
+        const error2 = response.ResponseMetadata.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      }
+    }
+  };
+  var mod_default = Volc;
+
+  // utils/md5.js
+  function safeAdd(x15, y9) {
+    var lsw = (x15 & 65535) + (y9 & 65535);
+    var msw = (x15 >> 16) + (y9 >> 16) + (lsw >> 16);
+    return msw << 16 | lsw & 65535;
+  }
+  function bitRotateLeft(num, cnt) {
+    return num << cnt | num >>> 32 - cnt;
+  }
+  function md5cmn(q6, a19, b11, x15, s19, t17) {
+    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a19, q6), safeAdd(x15, t17)), s19), b11);
+  }
+  function md5ff(a19, b11, c26, d16, x15, s19, t17) {
+    return md5cmn(b11 & c26 | ~b11 & d16, a19, b11, x15, s19, t17);
+  }
+  function md5gg(a19, b11, c26, d16, x15, s19, t17) {
+    return md5cmn(b11 & d16 | c26 & ~d16, a19, b11, x15, s19, t17);
+  }
+  function md5hh(a19, b11, c26, d16, x15, s19, t17) {
+    return md5cmn(b11 ^ c26 ^ d16, a19, b11, x15, s19, t17);
+  }
+  function md5ii(a19, b11, c26, d16, x15, s19, t17) {
+    return md5cmn(c26 ^ (b11 | ~d16), a19, b11, x15, s19, t17);
+  }
+  function binlMD5(x15, len) {
+    x15[len >> 5] |= 128 << len % 32;
+    x15[(len + 64 >>> 9 << 4) + 14] = len;
+    var i20;
+    var olda;
+    var oldb;
+    var oldc;
+    var oldd;
+    var a19 = 1732584193;
+    var b11 = -271733879;
+    var c26 = -1732584194;
+    var d16 = 271733878;
+    for (i20 = 0; i20 < x15.length; i20 += 16) {
+      olda = a19;
+      oldb = b11;
+      oldc = c26;
+      oldd = d16;
+      a19 = md5ff(a19, b11, c26, d16, x15[i20], 7, -680876936);
+      d16 = md5ff(d16, a19, b11, c26, x15[i20 + 1], 12, -389564586);
+      c26 = md5ff(c26, d16, a19, b11, x15[i20 + 2], 17, 606105819);
+      b11 = md5ff(b11, c26, d16, a19, x15[i20 + 3], 22, -1044525330);
+      a19 = md5ff(a19, b11, c26, d16, x15[i20 + 4], 7, -176418897);
+      d16 = md5ff(d16, a19, b11, c26, x15[i20 + 5], 12, 1200080426);
+      c26 = md5ff(c26, d16, a19, b11, x15[i20 + 6], 17, -1473231341);
+      b11 = md5ff(b11, c26, d16, a19, x15[i20 + 7], 22, -45705983);
+      a19 = md5ff(a19, b11, c26, d16, x15[i20 + 8], 7, 1770035416);
+      d16 = md5ff(d16, a19, b11, c26, x15[i20 + 9], 12, -1958414417);
+      c26 = md5ff(c26, d16, a19, b11, x15[i20 + 10], 17, -42063);
+      b11 = md5ff(b11, c26, d16, a19, x15[i20 + 11], 22, -1990404162);
+      a19 = md5ff(a19, b11, c26, d16, x15[i20 + 12], 7, 1804603682);
+      d16 = md5ff(d16, a19, b11, c26, x15[i20 + 13], 12, -40341101);
+      c26 = md5ff(c26, d16, a19, b11, x15[i20 + 14], 17, -1502002290);
+      b11 = md5ff(b11, c26, d16, a19, x15[i20 + 15], 22, 1236535329);
+      a19 = md5gg(a19, b11, c26, d16, x15[i20 + 1], 5, -165796510);
+      d16 = md5gg(d16, a19, b11, c26, x15[i20 + 6], 9, -1069501632);
+      c26 = md5gg(c26, d16, a19, b11, x15[i20 + 11], 14, 643717713);
+      b11 = md5gg(b11, c26, d16, a19, x15[i20], 20, -373897302);
+      a19 = md5gg(a19, b11, c26, d16, x15[i20 + 5], 5, -701558691);
+      d16 = md5gg(d16, a19, b11, c26, x15[i20 + 10], 9, 38016083);
+      c26 = md5gg(c26, d16, a19, b11, x15[i20 + 15], 14, -660478335);
+      b11 = md5gg(b11, c26, d16, a19, x15[i20 + 4], 20, -405537848);
+      a19 = md5gg(a19, b11, c26, d16, x15[i20 + 9], 5, 568446438);
+      d16 = md5gg(d16, a19, b11, c26, x15[i20 + 14], 9, -1019803690);
+      c26 = md5gg(c26, d16, a19, b11, x15[i20 + 3], 14, -187363961);
+      b11 = md5gg(b11, c26, d16, a19, x15[i20 + 8], 20, 1163531501);
+      a19 = md5gg(a19, b11, c26, d16, x15[i20 + 13], 5, -1444681467);
+      d16 = md5gg(d16, a19, b11, c26, x15[i20 + 2], 9, -51403784);
+      c26 = md5gg(c26, d16, a19, b11, x15[i20 + 7], 14, 1735328473);
+      b11 = md5gg(b11, c26, d16, a19, x15[i20 + 12], 20, -1926607734);
+      a19 = md5hh(a19, b11, c26, d16, x15[i20 + 5], 4, -378558);
+      d16 = md5hh(d16, a19, b11, c26, x15[i20 + 8], 11, -2022574463);
+      c26 = md5hh(c26, d16, a19, b11, x15[i20 + 11], 16, 1839030562);
+      b11 = md5hh(b11, c26, d16, a19, x15[i20 + 14], 23, -35309556);
+      a19 = md5hh(a19, b11, c26, d16, x15[i20 + 1], 4, -1530992060);
+      d16 = md5hh(d16, a19, b11, c26, x15[i20 + 4], 11, 1272893353);
+      c26 = md5hh(c26, d16, a19, b11, x15[i20 + 7], 16, -155497632);
+      b11 = md5hh(b11, c26, d16, a19, x15[i20 + 10], 23, -1094730640);
+      a19 = md5hh(a19, b11, c26, d16, x15[i20 + 13], 4, 681279174);
+      d16 = md5hh(d16, a19, b11, c26, x15[i20], 11, -358537222);
+      c26 = md5hh(c26, d16, a19, b11, x15[i20 + 3], 16, -722521979);
+      b11 = md5hh(b11, c26, d16, a19, x15[i20 + 6], 23, 76029189);
+      a19 = md5hh(a19, b11, c26, d16, x15[i20 + 9], 4, -640364487);
+      d16 = md5hh(d16, a19, b11, c26, x15[i20 + 12], 11, -421815835);
+      c26 = md5hh(c26, d16, a19, b11, x15[i20 + 15], 16, 530742520);
+      b11 = md5hh(b11, c26, d16, a19, x15[i20 + 2], 23, -995338651);
+      a19 = md5ii(a19, b11, c26, d16, x15[i20], 6, -198630844);
+      d16 = md5ii(d16, a19, b11, c26, x15[i20 + 7], 10, 1126891415);
+      c26 = md5ii(c26, d16, a19, b11, x15[i20 + 14], 15, -1416354905);
+      b11 = md5ii(b11, c26, d16, a19, x15[i20 + 5], 21, -57434055);
+      a19 = md5ii(a19, b11, c26, d16, x15[i20 + 12], 6, 1700485571);
+      d16 = md5ii(d16, a19, b11, c26, x15[i20 + 3], 10, -1894986606);
+      c26 = md5ii(c26, d16, a19, b11, x15[i20 + 10], 15, -1051523);
+      b11 = md5ii(b11, c26, d16, a19, x15[i20 + 1], 21, -2054922799);
+      a19 = md5ii(a19, b11, c26, d16, x15[i20 + 8], 6, 1873313359);
+      d16 = md5ii(d16, a19, b11, c26, x15[i20 + 15], 10, -30611744);
+      c26 = md5ii(c26, d16, a19, b11, x15[i20 + 6], 15, -1560198380);
+      b11 = md5ii(b11, c26, d16, a19, x15[i20 + 13], 21, 1309151649);
+      a19 = md5ii(a19, b11, c26, d16, x15[i20 + 4], 6, -145523070);
+      d16 = md5ii(d16, a19, b11, c26, x15[i20 + 11], 10, -1120210379);
+      c26 = md5ii(c26, d16, a19, b11, x15[i20 + 2], 15, 718787259);
+      b11 = md5ii(b11, c26, d16, a19, x15[i20 + 9], 21, -343485551);
+      a19 = safeAdd(a19, olda);
+      b11 = safeAdd(b11, oldb);
+      c26 = safeAdd(c26, oldc);
+      d16 = safeAdd(d16, oldd);
+    }
+    return [a19, b11, c26, d16];
+  }
+  function binl2rstr(input) {
+    var i20;
+    var output = "";
+    var length32 = input.length * 32;
+    for (i20 = 0; i20 < length32; i20 += 8) {
+      output += String.fromCharCode(input[i20 >> 5] >>> i20 % 32 & 255);
+    }
+    return output;
+  }
+  function rstr2binl(input) {
+    var i20;
+    var output = [];
+    output[(input.length >> 2) - 1] = void 0;
+    for (i20 = 0; i20 < output.length; i20 += 1) {
+      output[i20] = 0;
+    }
+    var length8 = input.length * 8;
+    for (i20 = 0; i20 < length8; i20 += 8) {
+      output[i20 >> 5] |= (input.charCodeAt(i20 / 8) & 255) << i20 % 32;
+    }
+    return output;
+  }
+  function rstrMD5(s19) {
+    return binl2rstr(binlMD5(rstr2binl(s19), s19.length * 8));
+  }
+  function rstrHMACMD5(key, data) {
+    var i20;
+    var bkey = rstr2binl(key);
+    var ipad = [];
+    var opad = [];
+    var hash;
+    ipad[15] = opad[15] = void 0;
+    if (bkey.length > 16) {
+      bkey = binlMD5(bkey, key.length * 8);
+    }
+    for (i20 = 0; i20 < 16; i20 += 1) {
+      ipad[i20] = bkey[i20] ^ 909522486;
+      opad[i20] = bkey[i20] ^ 1549556828;
+    }
+    hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8);
+    return binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
+  }
+  function rstr2hex(input) {
+    var hexTab = "0123456789abcdef";
+    var output = "";
+    var x15;
+    var i20;
+    for (i20 = 0; i20 < input.length; i20 += 1) {
+      x15 = input.charCodeAt(i20);
+      output += hexTab.charAt(x15 >>> 4 & 15) + hexTab.charAt(x15 & 15);
+    }
+    return output;
+  }
+  function str2rstrUTF8(input) {
+    return unescape(encodeURIComponent(input));
+  }
+  function rawMD5(s19) {
+    return rstrMD5(str2rstrUTF8(s19));
+  }
+  function hexMD5(s19) {
+    return rstr2hex(rawMD5(s19));
+  }
+  function rawHMACMD5(k7, d16) {
+    return rstrHMACMD5(str2rstrUTF8(k7), str2rstrUTF8(d16));
+  }
+  function hexHMACMD5(k7, d16) {
+    return rstr2hex(rawHMACMD5(k7, d16));
+  }
+  function md5(string, key, raw) {
+    if (!key) {
+      if (!raw) {
+        return hexMD5(string);
+      }
+      return rawMD5(string);
+    }
+    if (!raw) {
+      return hexHMACMD5(key, string);
+    }
+    return rawHMACMD5(key, string);
+  }
+
+  // services/bing/api.js
+  var TRANSLATE_API_ROOT = "https://{s}bing.com";
+  var TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator";
+  var TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3";
+  var TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3";
+  var globalConfigStorageKey = "bingGlobalConfig";
+  var rawLangMap4 = [
+    ["auto", "auto-detect"],
+    ["ar", "ar"],
+    ["ga", "ga"],
+    ["et", "et"],
+    ["bg", "bg"],
+    ["is", "is"],
+    ["pl", "pl"],
+    ["bs", "bs-Latn"],
+    ["fa", "fa"],
+    ["da", "da"],
+    ["de", "de"],
+    ["ru", "ru"],
+    ["fr", "fr"],
+    ["zh-TW", "zh-Hant"],
+    ["fil", "fil"],
+    ["fj", "fj"],
+    ["fi", "fi"],
+    ["gu", "gu"],
+    ["kk", "kk"],
+    ["ht", "ht"],
+    ["ko", "ko"],
+    ["nl", "nl"],
+    ["ca", "ca"],
+    ["zh-CN", "zh-Hans"],
+    ["cs", "cs"],
+    ["kn", "kn"],
+    ["otq", "otq"],
+    ["tlh", "tlh"],
+    ["hr", "hr"],
+    ["lv", "lv"],
+    ["lt", "lt"],
+    ["ro", "ro"],
+    ["mg", "mg"],
+    ["mt", "mt"],
+    ["mr", "mr"],
+    ["ml", "ml"],
+    ["ms", "ms"],
+    ["mi", "mi"],
+    ["bn", "bn-BD"],
+    ["hmn", "mww"],
+    ["af", "af"],
+    ["pa", "pa"],
+    ["pt", "pt"],
+    ["ps", "ps"],
+    ["ja", "ja"],
+    ["sv", "sv"],
+    ["sm", "sm"],
+    ["sr-Latn", "sr-Latn"],
+    ["sr-Cyrl", "sr-Cyrl"],
+    ["no", "nb"],
+    ["sk", "sk"],
+    ["sl", "sl"],
+    ["sw", "sw"],
+    ["ty", "ty"],
+    ["te", "te"],
+    ["ta", "ta"],
+    ["th", "th"],
+    ["to", "to"],
+    ["tr", "tr"],
+    ["cy", "cy"],
+    ["ur", "ur"],
+    ["uk", "uk"],
+    ["es", "es"],
+    ["he", "iw"],
+    ["el", "el"],
+    ["hu", "hu"],
+    ["it", "it"],
+    ["hi", "hi"],
+    ["id", "id"],
+    ["en", "en"],
+    ["yua", "yua"],
+    ["yue", "yua"],
+    ["vi", "vi"],
+    ["ku", "ku"],
+    ["km", "kmr"]
+  ];
+  var langMap9 = new Map(rawLangMap4);
+  var langMapReverse5 = new Map(
+    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var MAX_TEXT_LEN = 1e3;
+  var globalConfig;
+  var globalConfigPromise;
+  function replaceSubdomain(url, subdomain) {
+    return url.replace("{s}", subdomain ? subdomain + "." : "");
+  }
+  async function isTokenExpired() {
+    if (!globalConfig) {
+      const storageValue = await browserAPI.storage.local.get(
+        globalConfigStorageKey
+      );
+      if (storageValue) {
+        globalConfig = storageValue[globalConfigStorageKey];
+      }
+      return true;
+    }
+    const { tokenTs, tokenExpiryInterval } = globalConfig;
+    return Date.now() - tokenTs > tokenExpiryInterval;
+  }
+  async function fetchGlobalConfig() {
+    let subdomain;
+    let IG;
+    let IID;
+    let token;
+    let key;
+    let tokenExpiryInterval;
+    let isVertical;
+    let frontDoorBotClassification;
+    let isSignedInOrCorporateUser;
+    let cookie;
+    try {
+      const finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain);
+      const response = await request2({
+        url: finalUrl,
+        responseType: "raw"
+      });
+      const { body, headers: headers2, url } = response;
+      subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1];
+      cookie = headers2["set-cookie"];
+      IG = body.match(/IG:"([^"]+)"/)[1];
+      IID = body.match(/data-iid="([^"]+)"/)[1];
+      [
+        key,
+        token,
+        tokenExpiryInterval,
+        isVertical,
+        frontDoorBotClassification,
+        isSignedInOrCorporateUser
+      ] = JSON.parse(
+        body.match(/params_RichTranslateHelper\s?=\s?([^\]]+\])/)[1]
+      );
+    } catch (e18) {
+      console.error("failed to fetch global config", e18);
+      throw e18;
+    }
+    globalConfig = {
+      subdomain,
+      IG,
+      IID,
+      key,
+      token,
+      tokenTs: key,
+      tokenExpiryInterval,
+      isVertical,
+      frontDoorBotClassification,
+      isSignedInOrCorporateUser,
+      cookie,
+      count: 0
+    };
+    await browserAPI.storage.local.set({
+      [globalConfigStorageKey]: globalConfig
+    });
+    return globalConfig;
+  }
+  function makeRequestURL(isSpellCheck) {
+    const { IG, IID, subdomain, isVertical } = globalConfig;
+    return replaceSubdomain(
+      isSpellCheck ? TRANSLATE_SPELL_CHECK_API : TRANSLATE_API,
+      subdomain
+    ) + "?isVertical=" + +isVertical + (IG && IG.length ? "&IG=" + IG : "") + (IID && IID.length ? "&IID=" + IID + "." + globalConfig.count++ : "");
+  }
+  function makeRequestBody(isSpellCheck, text, fromLang, toLang) {
+    const { token, key } = globalConfig;
+    const body = {
+      fromLang,
+      text,
+      token,
+      key
+    };
+    if (!isSpellCheck && toLang) {
+      body.to = toLang;
+    }
+    return body;
+  }
+  async function translate2(text, from, to) {
+    if (!text || !(text = text.trim())) {
+      return;
+    }
+    if (text.length > MAX_TEXT_LEN) {
+      throw new Error(
+        `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
+      );
+    }
+    if (!globalConfigPromise) {
+      globalConfigPromise = fetchGlobalConfig();
+    }
+    await globalConfigPromise;
+    const isTokenExpiredValue = await isTokenExpired();
+    if (isTokenExpiredValue) {
+      globalConfigPromise = fetchGlobalConfig();
+      await globalConfigPromise;
+    }
+    from = from || "auto";
+    to = to || "zh-CN";
+    from = langMap9.get(from) || from;
+    to = langMap9.get(to) || to;
+    const requestURL = makeRequestURL(false);
+    const requestBody = makeRequestBody(
+      false,
+      text,
+      from,
+      to === "auto-detect" ? "zh-Hans" : to
+    );
+    const requestHeaders = {
+      referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
+      "content-type": "application/x-www-form-urlencoded"
+    };
+    const searchParams = new URLSearchParams(requestBody);
+    const finalUrl = requestURL;
+    const requestBodyString = searchParams.toString();
+    const body = await request2({
+      url: finalUrl,
+      headers: requestHeaders,
+      method: "POST",
+      body: requestBodyString
+    });
+    if (body.ShowCaptcha || body.StatusCode === 401 || body.statusCode) {
+      globalConfig = null;
+      globalConfigPromise = null;
+      await browserAPI.storage.local.remove(globalConfigStorageKey);
+      if (body.ShowCaptcha) {
+        throw new Error(`
+      Sorry that bing translator seems to be asking for the captcha,
+      Please take care not to request too frequently.
+      The response code is ${body.StatusCode}.
+    `);
+      }
+      if (body.StatusCode === 401) {
+        throw new Error(`
+      Max count of translation exceeded. Please try it again later.
+      The response code is 401.
+    `);
+      }
+      if (body.statusCode) {
+        throw new Error(
+          `Something went wrong! The response is ${JSON.stringify(body)}.`
+        );
+      }
+    }
+    const translation = body[0].translations[0];
+    const detectedLang = body[0].detectedLanguage;
+    const res = {
+      text: translation.text,
+      from: langMapReverse5.get(detectedLang.language),
+      to: langMapReverse5.get(translation.to)
+    };
+    return res;
+  }
+
+  // services/bing/mod.ts
+  var Bing = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.isSupportList = false;
+      this.maxTextLength = 1e3;
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      if (!text)
+        return { ...payload };
+      const result = await translate2(text, from, to);
+      return result;
+    }
+  };
+
+  // services/baidu.ts
+  var rawLangMap5 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["yue", "yue"],
+    ["wyw", "wyw"],
+    ["ja", "jp"],
+    ["ko", "kor"],
+    ["fr", "fra"],
+    ["es", "spa"],
+    ["th", "th"],
+    ["ar", "ara"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["de", "de"],
+    ["it", "it"],
+    ["el", "el"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["bg", "bul"],
+    ["et", "est"],
+    ["da", "dan"],
+    ["fi", "fin"],
+    ["cs", "cs"],
+    ["ro", "rom"],
+    ["sl", "slo"],
+    ["sv", "swe"],
+    ["hu", "hu"],
+    ["zh-TW", "cht"],
+    ["vi", "vie"]
+  ];
+  var langMap10 = new Map(rawLangMap5);
+  var langMapReverse6 = new Map(
+    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Baidu = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.endpoint = "https://api.fanyi.baidu.com/api/trans/vip/translate";
+      this.appid = "";
+      this.key = "";
+      this.isSupportList = false;
+      if (!serviceConfig || !serviceConfig.appid || !serviceConfig.key) {
+        throw new Error("appid and key are required");
+      }
+      this.appid = serviceConfig.appid;
+      this.key = serviceConfig.key;
+    }
+    static getAllProps() {
+      return [{
+        name: "appid",
+        required: true,
+        type: "text"
+      }, {
+        name: "key",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translate(payload) {
+      const salt = Date.now().toString();
+      const { endpoint } = this;
+      const { appid, key } = this;
+      const { text, from, to } = payload;
+      const params = new URLSearchParams({
+        from: langMap10.get(from),
+        to: langMap10.get(to),
+        q: text,
+        salt,
+        appid,
+        sign: md5(appid + text + salt + key)
+      });
+      const urlObj = new URL(endpoint);
+      urlObj.search = params.toString();
+      const data = await request2(
+        {
+          url: urlObj.toString()
+        }
+      );
+      if (data.error_code) {
+        console.error(
+          new Error("[Baidu service]" + data.error_msg)
+        );
+        throw new CommonError("API_SERVER_ERROR", data.error_msg);
+      }
+      const {
+        trans_result: transResult,
+        from: langDetected
+      } = data;
+      const transParagraphs = transResult.map(({ dst }) => dst);
+      const detectedFrom = langMapReverse6.get(langDetected);
+      return {
+        from: detectedFrom,
+        to,
+        text: transParagraphs.join("\n")
+      };
+    }
+  };
+  var baidu_default = Baidu;
+
+  // services/caiyun.ts
+  var rawLangMap6 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ];
+  var langMap11 = new Map(rawLangMap6);
+  var Caiyun = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.token = "";
+      if (!serviceConfig || !serviceConfig.token) {
+        throw new Error("token are required");
+      }
+      this.token = serviceConfig.token;
+    }
+    static getAllProps() {
+      return [{
+        name: "token",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { text, from, to } = payload;
+      const source = text;
+      const response = await request2(
+        {
+          url: "https://api.interpreter.caiyunai.com/v1/translator",
+          headers: {
+            "content-type": "application/json",
+            "x-authorization": "token " + this.token
+          },
+          method: "POST",
+          body: JSON.stringify({
+            source,
+            trans_type: `${langMap11.get(from)}2${langMap11.get(to)}`
+          })
+        }
+      );
+      const result = response;
+      return {
+        text: result.target,
+        from,
+        to
+      };
+    }
+  };
+  var caiyun_default = Caiyun;
+
+  // services/youdao.ts
+  var rawLangMap7 = [
+    ["auto", "auto"],
+    ["en", "en"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["es", "es"],
+    ["zh-CN", "zh-CHS"],
+    ["ja", "ja"],
+    ["ko", "ko"],
+    ["fr", "fr"],
+    ["ar", "ar"],
+    ["id", "id"],
+    ["vi", "vi"],
+    ["it", "it"]
+  ];
+  var langMap12 = new Map(rawLangMap7);
+  var langMapReverse7 = new Map(
+    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  function truncate(q6) {
+    const len = q6.length;
+    if (len <= 20)
+      return q6;
+    return q6.substring(0, 10) + len + q6.substring(len - 10, len);
+  }
+  var Youdao = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.isSupportList = false;
+      this.appId = "";
+      this.appSecret = "";
+      if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret) {
+        throw new Error("appId and appSecret are required");
+      }
+      this.appId = serviceConfig.appId;
+      this.appSecret = serviceConfig.appSecret;
+    }
+    static getAllProps() {
+      return [{
+        name: "appId",
+        required: true,
+        type: "text"
+      }, {
+        name: "appSecret",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const salt = new Date().getTime();
+      const curTime = Math.round(new Date().getTime() / 1e3);
+      const str1 = this.appId + truncate(text) + salt + curTime + this.appSecret;
+      const sign = await sha256(str1);
+      const params = {
+        q: text,
+        appKey: this.appId,
+        salt: salt.toString(),
+        from: langMap12.get(from),
+        to: langMap12.get(to),
+        sign,
+        signType: "v3",
+        curtime: curTime.toString()
+      };
+      const urlSearchParams = new URLSearchParams(params);
+      const res = await request2(
+        {
+          url: "https://openapi.youdao.com/api",
+          method: "POST",
+          body: urlSearchParams.toString(),
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        }
+      );
+      const result = res;
+      const l18 = result.l;
+      const [remoteFrom, _2] = l18.split("2");
+      return {
+        text: result.translation.join("\n"),
+        from: langMapReverse7.get(remoteFrom),
+        to
+      };
+    }
+  };
+  var youdao_default = Youdao;
+
   // services/mod.ts
   var TranslationServices = {
     mock: {
@@ -9261,20 +11136,55 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       name: "Mock",
       homepage: "https://www.google.com"
     },
-    tencent: {
-      class: Tencent,
-      name: "Tencent",
-      homepage: "https://fanyi.qq.com/"
-    },
     google: {
       class: Google,
       name: "Google",
       homepage: "https://translate.google.com/"
     },
+    deepl: {
+      class: deepl_default,
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator"
+    },
     transmart: {
       class: Transmart,
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
+    },
+    bing: {
+      class: Bing,
+      name: "Bing",
+      homepage: "https://www.bing.com/translator"
+    },
+    caiyun: {
+      class: caiyun_default,
+      name: "Caiyun",
+      homepage: "https://fanyi.caiyunapp.com/"
+    },
+    tencent: {
+      class: Tencent,
+      name: "Tencent",
+      homepage: "https://fanyi.qq.com/"
+    },
+    baidu: {
+      class: baidu_default,
+      name: "Baidu",
+      homepage: "https://fanyi.baidu.com/"
+    },
+    volc: {
+      class: mod_default,
+      name: "Volc",
+      homepage: "https://www.volcengine.com/"
+    },
+    openl: {
+      class: openl_default,
+      name: "Openl",
+      homepage: "https://openl.org/"
+    },
+    youdao: {
+      class: youdao_default,
+      name: "Youdao",
+      homepage: "https://fanyi.youdao.com/"
     },
     d: {
       class: D6,
@@ -9287,9 +11197,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const service = TranslationServices[key];
     const translationConfig = ctx.config.translationServices[key] || {};
     let ok = true;
-    if (key === "tencent") {
-      if (!translationConfig.secretId || !translationConfig.secretKey) {
-        ok = false;
+    const allProps = service.class.getAllProps();
+    if (allProps.length > 0) {
+      const requiredProps = allProps.filter((prop) => prop.required);
+      if (requiredProps.length > 0) {
+        for (const prop of requiredProps) {
+          if (!translationConfig[prop.name]) {
+            ok = false;
+            break;
+          }
+        }
       }
     }
     return {
@@ -9297,7 +11214,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       id: key,
       selected: ctx.translationService === key,
       ok,
-      config: translationConfig
+      config: translationConfig,
+      props: service.class.getProps(),
+      allProps
     };
   }
   var allServiceKeys = Object.keys(
@@ -9340,6 +11259,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
     const urlObj = new URL(rawUrl);
     urlObj.hash = "";
+    urlObj.search = "";
     const url = urlObj.href;
     const hostname2 = urlObj.hostname;
     if (matches && matches.length > 0) {
@@ -9482,9 +11402,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
     const defaultTargetLanguage = targetLanguage || "zh-CN";
     const hostname2 = urlObj.hostname;
-    const encryptedHostname = await sha2562(hostname2);
+    const encryptedHostname = await sha256(hostname2);
     const pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash;
-    const encryptedPath = await sha2562(pathAndQueryAndHash);
+    const encryptedPath = await sha256(pathAndQueryAndHash);
     const encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`;
     const ctx = {
       targetLanguage: defaultTargetLanguage,
@@ -9514,11 +11434,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return /* @__PURE__ */ p19("div", {
       className: "nav-left",
       children: [
-        /* @__PURE__ */ p19("p", {
+        /* @__PURE__ */ p19("div", {
           className: "title",
           children: props.title
         }),
-        /* @__PURE__ */ p19("p", {
+        /* @__PURE__ */ p19("div", {
           className: "description",
           children: props.description
         })
@@ -9526,9 +11446,90 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     });
   }
 
+  // hooks/use_outside_click.tsx
+  function useOutsideAlerter(ref, root2, callback) {
+    j2(() => {
+      function handleClickOutside(event) {
+        if (ref && ref.current && !ref.current.contains(event.target)) {
+          callback();
+        }
+      }
+      root2.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        root2.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  // components/select_link.tsx
+  function SelectLink(props) {
+    const items = props.items;
+    const root2 = props.root;
+    let { size } = props;
+    if (!size) {
+      size = "sm";
+    }
+    const [open, setOpen] = P2(false);
+    const selectRef = w2(null);
+    const aRef = w2(null);
+    useOutsideAlerter(selectRef, root2 || document, () => {
+      setOpen(false);
+      if (aRef.current) {
+        aRef.current.blur();
+      }
+    });
+    let checkedItem = items.find((item) => item.selected);
+    if (!checkedItem) {
+      checkedItem = items[0];
+    }
+    const handleToggle = (e18) => {
+      e18.preventDefault();
+      const targetState = !open;
+      if (!targetState && aRef.current) {
+        aRef.current.blur();
+      }
+      setOpen(targetState);
+    };
+    return /* @__PURE__ */ p19("nav", {
+      class: `inline-block text-${size}`,
+      ref: selectRef,
+      children: /* @__PURE__ */ p19("li", {
+        class: `py-0 select-link text-${size} ${open ? "select-link-active" : ""}`,
+        role: "list",
+        children: [
+          /* @__PURE__ */ p19("a", {
+            ref: aRef,
+            class: `text-${size}`,
+            href: "#",
+            onClick: handleToggle,
+            children: checkedItem.label
+          }),
+          /* @__PURE__ */ p19("ul", {
+            class: "select-link-ul max-h-30 overflow-y-scroll ",
+            role: "listbox",
+            children: items.map((item, index) => {
+              return /* @__PURE__ */ p19("li", {
+                children: /* @__PURE__ */ p19("a", {
+                  class: `text-${size} ${item.selected ? "select-link-selected" : ""}`,
+                  href: "#",
+                  onClick: (e18) => {
+                    e18.preventDefault();
+                    setOpen(false);
+                    item.onSelected(item);
+                  },
+                  children: item.label
+                })
+              }, `item-${index}`);
+            })
+          })
+        ]
+      })
+    });
+  }
+
   // libs/preact-translation/utils.ts
-  function getResourceUrl(root, lang) {
-    return [root, !root || root.endsWith("/") ? "" : "/", lang, ".json"].join("");
+  function getResourceUrl(root2, lang) {
+    return [root2, !root2 || root2.endsWith("/") ? "" : "/", lang, ".json"].join("");
   }
   function format(str, params) {
     let result = str;
@@ -9592,7 +11593,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           cache[langKey] = resource;
           setData({ ...cache });
           setReady(true);
-        }).catch((error) => {
+        }).catch((error2) => {
           setData({ ...cache });
           setReady(true);
         });
@@ -9648,124 +11649,107 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return M2(TranslateContext);
   }
 
-  // components/secret_section.tsx
-  function SecretSection() {
-    const [secretId, setSecretId] = P2("");
-    const [secretKey, setSecretKey] = P2("");
-    const [settings, setSettings, _isPersistent, error] = useUserConfig();
-    const [config, setConfig] = P2(null);
+  // components/option_field.tsx
+  function OptionField(props) {
+    let { field, root: root2, onChange, value } = props;
+    value = value || field.default || "";
     const { t: t17 } = useI18n();
-    j2(() => {
-      getConfig().then((result) => {
-        setConfig(result);
-        if (result && result.translationServices && result.translationServices.tencent && result.translationServices.tencent.secretId) {
-          setSecretId(result.translationServices.tencent.secretId);
-        }
-        if (result && result.translationServices && result.translationServices.tencent && result.translationServices.tencent.secretKey) {
-          setSecretKey(result.translationServices.tencent.secretKey);
-        }
-      });
-    }, [settings]);
-    const handleChangeId = (e18) => {
-      e18.preventDefault();
-      setSecretId(e18.target.value);
-    };
-    const handleChangeKey = (e18) => {
-      e18.preventDefault();
-      setSecretKey(e18.target.value);
-    };
-    const handleSubmit = (e18) => {
-      e18.preventDefault();
-      setSettings((state) => {
-        return {
-          ...state,
-          translationServices: {
-            tencent: {
-              secretId,
-              secretKey
-            }
-          }
-        };
-      });
-    };
-    j2(() => {
-      getConfig().then((config2) => {
-        setConfig(config2);
-      });
-    }, [settings]);
-    return /* @__PURE__ */ p19("div", {
-      className: "pr-10 secret",
-      children: [
-        /* @__PURE__ */ p19("p", {
-          className: "pb-2 description",
-          children: t17(
-            "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details"
-          )
-        }),
-        /* @__PURE__ */ p19("div", {
-          className: "secretInput",
-          children: [
-            /* @__PURE__ */ p19("div", {
-              className: "secretLeft",
-              children: /* @__PURE__ */ p19("label", {
-                for: "secretId",
-                children: "secretId\uFF1A"
-              })
-            }),
-            /* @__PURE__ */ p19("div", {
-              className: "secretRight",
-              children: /* @__PURE__ */ p19("input", {
-                placeholder: "secretId",
-                className: "input",
-                required: true,
-                onChange: handleChangeId,
-                value: secretId
-              })
-            })
-          ]
-        }),
-        /* @__PURE__ */ p19("div", {
-          className: "secretInput",
-          children: [
-            /* @__PURE__ */ p19("div", {
-              className: "secretLeft",
-              children: /* @__PURE__ */ p19("label", {
-                for: "secretKey",
-                children: "secretKey\uFF1A"
-              })
-            }),
-            /* @__PURE__ */ p19("div", {
-              className: "secretRight",
-              children: /* @__PURE__ */ p19("input", {
-                placeholder: "secretKey",
-                value: secretKey,
-                type: "password",
-                required: true,
-                className: "input",
-                onChange: handleChangeKey
-              })
-            })
-          ]
-        }),
-        /* @__PURE__ */ p19("div", {
-          className: "confirmSecret",
-          children: /* @__PURE__ */ p19("a", {
-            href: "#confirm",
-            role: "button",
-            onClick: handleSubmit,
-            className: "confirm",
-            children: t17("confirm")
+    if (field.type === "select") {
+      return /* @__PURE__ */ p19("div", {
+        class: "flex justify-end mb-2",
+        children: [
+          /* @__PURE__ */ p19("label", {
+            class: "engine",
+            children: [
+              field.label ? t17(field.label) : field.name,
+              "\uFF1A"
+            ]
+          }),
+          /* @__PURE__ */ p19(SelectLink, {
+            root: root2,
+            items: field.options.map(
+              (fieldOption) => {
+                return {
+                  label: `${fieldOption.label ? t17(fieldOption.label) : fieldOption.value}`,
+                  value,
+                  selected: value === fieldOption.value,
+                  onSelected: () => {
+                    onChange(fieldOption.value);
+                  }
+                };
+              }
+            )
           })
-        })
-      ]
-    });
+        ]
+      });
+    } else if (field.type === "text") {
+      return /* @__PURE__ */ p19("div", {
+        className: "secretInput",
+        children: [
+          /* @__PURE__ */ p19("div", {
+            className: "secretLeft",
+            children: /* @__PURE__ */ p19("label", {
+              for: field.name,
+              children: [
+                field.label ? t17(field.label) : field.name,
+                "\uFF1A"
+              ]
+            })
+          }),
+          /* @__PURE__ */ p19("div", {
+            className: "secretRight",
+            children: /* @__PURE__ */ p19("input", {
+              required: field.required,
+              placeholder: field.name,
+              className: "input",
+              value,
+              onChange: (e18) => {
+                onChange(e18.target.value);
+              }
+            })
+          })
+        ]
+      });
+    } else if (field.type === "password") {
+      return /* @__PURE__ */ p19("div", {
+        className: "secretInput",
+        children: [
+          /* @__PURE__ */ p19("div", {
+            className: "secretLeft",
+            children: /* @__PURE__ */ p19("label", {
+              for: field.name,
+              children: [
+                field.label ? t17(field.label) : field.name,
+                "\uFF1A"
+              ]
+            })
+          }),
+          /* @__PURE__ */ p19("div", {
+            className: "secretRight",
+            children: /* @__PURE__ */ p19("input", {
+              required: field.required,
+              placeholder: field.name,
+              value,
+              type: "password",
+              className: "input",
+              onChange: (e18) => {
+                onChange(e18.target.value);
+              }
+            })
+          })
+        ]
+      });
+    } else {
+      return null;
+    }
   }
 
-  // components/always_lan_modal.tsx
-  function AlwaysLanModal(props) {
+  // components/always_lang.tsx
+  function AlwaysLang(props) {
     const { t: t17 } = useI18n();
     return /* @__PURE__ */ p19("details", {
       role: "list",
+      className: "nav-right",
       children: [
         /* @__PURE__ */ p19("summary", {
           "aria-haspopup": "listbox",
@@ -9796,34 +11780,79 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     });
   }
 
+  // components/always_urls.tsx
+  function AlwaysLang2(props) {
+    const { t: t17 } = useI18n();
+    const onClickDot = (e18) => {
+    };
+    return /* @__PURE__ */ p19("div", {
+      children: props.urls.map((item) => {
+        return /* @__PURE__ */ p19("div", {
+          className: "url-list",
+          children: [
+            /* @__PURE__ */ p19("div", {
+              className: "url-left",
+              children: [
+                /* @__PURE__ */ p19("div", {
+                  className: "url-name",
+                  children: item
+                }),
+                /* @__PURE__ */ p19("div", {
+                  className: "description url-name",
+                  children: item
+                })
+              ]
+            }),
+            /* @__PURE__ */ p19("div", {
+              className: "url-dot",
+              onClick: onClickDot,
+              children: "..."
+            })
+          ]
+        });
+      })
+    });
+  }
+
   // utils/languages.ts
   var getLanguages = () => {
     return languages.filter((lang) => {
-      return lang !== "und" && lang !== "auto";
+      return lang !== "auto";
     });
   };
 
   // pages/general.tsx
   var languages2 = getLanguages();
   function General() {
-    const [isShowAlwaysLanModal, setIsShowAlwaysLanModal] = P2(
-      false
-    );
     const { t: t17 } = useI18n();
-    const [isShowTencentToken, setIsShowTencentToken] = P2(false);
-    const [serviceButtonText, setServiceButtonText] = P2("service");
-    const [langsArr, setLangsArr] = P2([]);
-    const [sitesArr, setSitesArr] = P2([]);
-    const [neverSitesArr, setNeverSitesArr] = P2([]);
-    const [settings, setSettings, _isPersistent, error] = useUserConfig();
+    const [settings, setSettings, _isPersistent, error2] = useUserConfig();
     const [config, setConfig] = P2(null);
     const [ctx, setContext] = P2(null);
+    const [isShowAlwaysLang, setIsShowAlwaysLang] = P2(
+      false
+    );
+    const [serviceButtonText, setServiceButtonText] = P2("service");
+    const [langsArr, setLangsArr] = P2([]);
     let translationServiceItems = [];
     if (ctx) {
       translationServiceItems = getTranslationServices(ctx);
     }
+    let currentTranslationServiceConfig = null;
+    let curentTranslationServiceItem = null;
     let alwaysTranslatedLangs = [];
-    if (config) {
+    if (config && ctx) {
+      const { translationService, translationServices, translationUrlPattern } = config;
+      if (TranslationServices[translationService]) {
+        curentTranslationServiceItem = formatTranslationService(
+          translationService,
+          ctx
+        );
+      }
+      if (translationServices && translationServices[translationService]) {
+        currentTranslationServiceConfig = translationServices[translationService] || {};
+      } else {
+        currentTranslationServiceConfig = {};
+      }
       alwaysTranslatedLangs = languages2.map((lang) => {
         if (config.translationLanguagePattern.matches.includes(lang)) {
           return {
@@ -9841,7 +11870,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     j2(() => {
       getConfig().then((config2) => {
         setConfig(config2);
-        console.log(config2);
+        log_default.debug(config2);
         setLangsArr(() => {
           return [...config2.translationLanguagePattern.matches];
         });
@@ -9849,9 +11878,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           setServiceButtonText(
             t17(`translationServices.${config2.translationService}`)
           );
-          if (config2.translationService === "tencent") {
-            setIsShowTencentToken(true);
-          }
         }
       });
     }, []);
@@ -9870,29 +11896,16 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         });
       }
     }, [config]);
-    const toggleTencentToken = (e18) => {
+    const toggleAlwaysLang = (e18) => {
       e18.preventDefault();
-      setIsShowTencentToken(!isShowTencentToken);
-    };
-    const toggleAlwaysLanModal = (e18) => {
-      e18.preventDefault();
-      setIsShowAlwaysLanModal(!isShowAlwaysLanModal);
+      setIsShowAlwaysLang(!isShowAlwaysLang);
     };
     const selectService = (service) => {
       setSettings((state) => {
         return { ...state, translationService: service };
       });
-      switch (service) {
-        case "tencent":
-          if (!isShowTencentToken)
-            setIsShowTencentToken(true);
-          break;
-        default:
-          setIsShowTencentToken(false);
-      }
     };
     const handleChangeValue = (value) => {
-      setIsShowTencentToken(false);
       setSettings(() => {
         return {
           ...value
@@ -9909,7 +11922,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       });
     };
     const onSelectAlwaysLangs = (item) => {
-      let newMatches = [...settings.translationLanguagePattern.matches];
+      let currentMatches = [];
+      if (settings.translationLanguagePattern && settings.translationLanguagePattern.matches) {
+        currentMatches = settings.translationLanguagePattern.matches;
+      }
+      let newMatches = [...currentMatches];
       if (item.checked) {
         const newSet = new Set(newMatches);
         newSet.delete(item.value);
@@ -9919,7 +11936,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         newSet.add(item.value);
         newMatches = Array.from(newSet);
       }
-      console.log(newMatches);
       setLangsArr(() => {
         return [...newMatches];
       });
@@ -9991,13 +12007,34 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                 return /* @__PURE__ */ p19("option", {
                   value: item.id,
                   selected: item.id === config.translationService,
-                  children: t17(`translationServices.${item.id}`)
+                  children: `${t17("translationServices." + item.id)}`
                 });
               })
             })
           ]
         }),
-        isShowTencentToken ? /* @__PURE__ */ p19(SecretSection, {}) : null,
+        currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop, index) => {
+          return /* @__PURE__ */ p19(OptionField, {
+            field: prop,
+            value: currentTranslationServiceConfig[prop.name],
+            onChange: (value) => {
+              setSettings((state) => {
+                const currentServices = state.translationServices || {};
+                const currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
+                return {
+                  ...state,
+                  translationServices: {
+                    ...currentServices,
+                    [curentTranslationServiceItem.id]: {
+                      ...currentServiceConfig,
+                      [prop.name]: value
+                    }
+                  }
+                };
+              });
+            }
+          });
+        }),
         /* @__PURE__ */ p19("div", {
           className: "nav",
           children: [
@@ -10007,12 +12044,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                 "automatically translated to the target language when the language is the following"
               )
             }),
-            /* @__PURE__ */ p19("div", {
-              className: "nav-right",
-              children: /* @__PURE__ */ p19(AlwaysLanModal, {
-                options: alwaysTranslatedLangs,
-                onSelectAlwaysLangs
-              })
+            /* @__PURE__ */ p19(AlwaysLang, {
+              options: alwaysTranslatedLangs,
+              onSelectAlwaysLangs
             })
           ]
         }),
@@ -10036,12 +12070,17 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             }),
             /* @__PURE__ */ p19("div", {
               className: "nav-right",
-              children: /* @__PURE__ */ p19(AlwaysLanModal, {
-                options: alwaysTranslatedLangs,
-                onSelectAlwaysLangs
+              children: /* @__PURE__ */ p19("a", {
+                href: "#",
+                role: "button",
+                className: "secondary outline",
+                children: t17("add")
               })
             })
           ]
+        }),
+        /* @__PURE__ */ p19(AlwaysLang2, {
+          urls: config.translationUrlPattern.matches
         }),
         /* @__PURE__ */ p19("div", {
           className: "nav",
@@ -10054,9 +12093,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             }),
             /* @__PURE__ */ p19("div", {
               className: "nav-right",
-              children: /* @__PURE__ */ p19(AlwaysLanModal, {
-                options: alwaysTranslatedLangs,
-                onSelectAlwaysLangs
+              children: /* @__PURE__ */ p19("a", {
+                href: "#",
+                role: "button",
+                className: "secondary outline",
+                children: t17("add")
               })
             })
           ]
@@ -10081,7 +12122,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
 
   // pages/import_export.tsx
   function ImportExport() {
-    const [settings, setSettings, _isPersistent, error] = useUserConfig();
+    const [settings, setSettings, _isPersistent, error2] = useUserConfig();
     const [config, setConfig] = P2(null);
     j2(() => {
       getConfig().then((config2) => {
@@ -10117,7 +12158,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           children: "Import/Export"
         }),
         /* @__PURE__ */ p19("p", {
-          children: error
+          children: error2
         }),
         /* @__PURE__ */ p19("textarea", {
           rows: 10,
@@ -10188,10 +12229,159 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       text
     });
   }
+  function error(text) {
+    toast({
+      type: "error",
+      text
+    });
+  }
+
+  // services/cache.ts
+  var dbNames = [];
+  async function openIndexedDB(dbName, _storageName) {
+    return await new Promise((resolve, reject) => {
+      const name = dbName;
+      const version = 1;
+      const request3 = indexedDB.open(name, version);
+      request3.onsuccess = (_event) => {
+        resolve(request3.result);
+      };
+      request3.onerror = (event) => {
+        console.error(
+          "onerror: Error opening the database, switching to non-database mode",
+          event
+        );
+        reject();
+      };
+      request3.onupgradeneeded = (_event) => {
+        const db = request3.result;
+        const storageName = _storageName ? _storageName : "cache";
+        db.createObjectStore(storageName, {
+          keyPath: "key"
+        });
+      };
+    });
+  }
+  async function getAllDBNames() {
+    if (dbNames && dbNames.length > 0) {
+      return dbNames;
+    }
+    const db = await openIndexedDB("cacheList", "cache_list");
+    dbNames = await new Promise((resolve) => {
+      const storageName = "cache_list";
+      const objectStore = db.transaction([storageName], "readonly").objectStore(storageName);
+      const request3 = objectStore.getAllKeys();
+      request3.onsuccess = (_event) => {
+        resolve(request3.result);
+      };
+      request3.onerror = (event) => {
+        console.error(event);
+        resolve([]);
+      };
+    });
+    return dbNames;
+  }
+  async function calculateSize() {
+    try {
+      const promises = [];
+      const dbnames = await getAllDBNames();
+      dbnames.forEach((dbName) => {
+        promises.push(getDatabaseSize(dbName));
+      });
+      const results = await Promise.all(promises);
+      return humanReadableSize(
+        results.reduce((total, size) => total + size, 0)
+      );
+    } catch (e18) {
+      console.error(e18);
+      return humanReadableSize(0);
+    }
+  }
+  async function getDatabaseSize(dbName) {
+    const db = await openIndexedDB(dbName);
+    const tableNames = [...db.objectStoreNames];
+    const tableSizeGetters = tableNames.reduce(
+      (acc, tableName) => {
+        const tmp = getTableSize(db, tableName);
+        acc.push(tmp);
+        return acc;
+      },
+      []
+    );
+    const sizes = await Promise.all(tableSizeGetters);
+    const total = sizes.reduce((acc, val) => acc + val, 0);
+    return total;
+  }
+  async function getTableSize(db, storageName) {
+    return await new Promise((resolve, reject) => {
+      if (db == null)
+        return reject();
+      let size = 0;
+      const transaction = db.transaction([storageName]).objectStore(storageName).openCursor();
+      transaction.onsuccess = (_event) => {
+        const cursor = transaction.result;
+        if (cursor) {
+          const storedObject = cursor.value;
+          const json = JSON.stringify(storedObject);
+          size += json.length;
+          cursor.continue();
+        } else {
+          resolve(size);
+        }
+      };
+      transaction.onerror = (err) => reject("error in " + storageName + ": " + err);
+    });
+  }
+  async function deleteAll() {
+    try {
+      const dbnames = await getAllDBNames();
+      const promises = dbnames.map((dbName) => {
+        return deleteDatabase(dbName);
+      });
+      const results = await Promise.all(promises);
+      if (results.every((ok) => ok)) {
+        return true;
+      }
+      return false;
+    } catch (e18) {
+      console.error("deleteAll error", e18);
+      return false;
+    }
+  }
+  async function deleteDatabase(dbName) {
+    return await new Promise((resolve) => {
+      const DBDeleteRequest = indexedDB.deleteDatabase(dbName);
+      DBDeleteRequest.onsuccess = () => {
+        resolve(true);
+      };
+      DBDeleteRequest.onerror = (err) => {
+        resolve(false);
+      };
+    });
+  }
+
+  // browser/cache_manager.ts
+  async function cleanCache() {
+    const keys = ["bingGlobalConfig", "baiduGlobalConfig"];
+    for (const key of keys) {
+      await browserAPI.storage.local.remove(key);
+    }
+    if (!isMonkey()) {
+      await deleteAll();
+    }
+  }
+  function getCacheSize() {
+    if (!isMonkey()) {
+      return calculateSize();
+    } else {
+      return Promise.resolve("0 B");
+    }
+  }
 
   // pages/about.tsx
   var AlreadyLatest = ({ date }) => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: [
         "\u672C\u5730\u9002\u914D\u89C4\u5219\u5DF2\u662F\u6700\u65B0: ",
         new Date(date).toLocaleString()
@@ -10200,6 +12390,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   var SyncSuccess = ({ date }) => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: [
         "\u6210\u529F\u540C\u6B65\u5B98\u65B9\u6700\u65B0\u89C4\u5219: ",
         new Date(date).toLocaleString()
@@ -10208,17 +12399,20 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   var Checking = () => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       "aria-busy": true,
       children: "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0..."
     });
   };
   var Syncing = () => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219..."
     });
   };
   var LocalVersionIsTooOld = ({ minVersion }) => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: [
         "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 ",
         minVersion,
@@ -10228,6 +12422,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   var NewVersion = ({ latestVersion }) => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: [
         "\u53D1\u73B0\u65B0\u7248\u672C:",
         " ",
@@ -10240,11 +12435,13 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   var CurrentLatestVersion = () => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002"
     });
   };
   var SyncFailed = ({ message, handleSyncing, date }) => {
     return /* @__PURE__ */ p19("p", {
+      class: "text-sm",
       children: [
         "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25 ",
         /* @__PURE__ */ p19("a", {
@@ -10262,6 +12459,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
   function About() {
     const [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null);
+    const [cacheSize, setCacheSize] = P2("\u8BA1\u7B97\u4E2D...");
     const [remoteConfig, setRemoteConfig] = P2(null);
     const [_2, setStorageBuildinConfig] = useBuildinConfig();
     const [isNeedUpdate, setIsNeedUpdate] = P2(null);
@@ -10270,8 +12468,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
       false
     );
+    const [config, setConfig] = P2(null);
     const [isLatestVersion, setIsLatestVersion] = P2(null);
-    const [_settings, setSettings, _isPersistent, _error] = useUserConfig();
+    const [settings, setSettings, _isPersistent, _error] = useUserConfig();
+    const { t: t17 } = useI18n();
+    const [isCleaning, setIsCleaning] = P2(false);
     const version = getVersion();
     const handleSyncing = async () => {
       setSyncErrorMessage("");
@@ -10307,6 +12508,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     j2(() => {
       getConfig().then((localConfig) => {
         const localConfigUpdatedAtIsoString = localConfig.buildinConfigUpdatedAt;
+        setConfig(localConfig);
         const localConfigUpdatedAt = new Date(localConfigUpdatedAtIsoString);
         setLocalBuildinConfigUpdatedAt(localConfigUpdatedAtIsoString);
         request({
@@ -10341,7 +12543,15 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           setSyncErrorMessage(e18.message);
         });
       });
+      getCacheSize().then((size) => {
+        setCacheSize(size);
+      });
     }, []);
+    j2(() => {
+      getConfig().then((config2) => {
+        setConfig(config2);
+      });
+    }, [settings, localBuildinConfigUpdatedAt]);
     const handleToggleAlpha = (_e3) => {
       setSettings((state) => {
         const action = !state.alpha;
@@ -10356,13 +12566,39 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         };
       });
     };
+    const handleCleanCache = (e18) => {
+      e18.preventDefault();
+      e18.stopPropagation();
+      setIsCleaning(true);
+      cleanCache().then(() => {
+        setIsCleaning(false);
+        success("\u6E05\u7406\u6210\u529F");
+        setCacheSize("0 B");
+      }).catch((e19) => {
+        setIsCleaning(false);
+        error(e19.message);
+      });
+    };
+    const handleCacheOption = (checked) => {
+      setSettings((state) => {
+        return {
+          ...state,
+          cache: checked
+        };
+      });
+    };
+    if (!config) {
+      return null;
+    }
     return /* @__PURE__ */ p19("div", {
+      class: "text-sm",
       children: [
         /* @__PURE__ */ p19("h1", {
           onClick: onClickMultipleTimes(7)(handleToggleAlpha),
           children: "About"
         }),
         /* @__PURE__ */ p19("p", {
+          class: "mb-2",
           children: [
             "V",
             version
@@ -10372,6 +12608,40 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           latestVersion: remoteConfig?.latestVersion
         }),
         isLatestVersion === true && /* @__PURE__ */ p19(CurrentLatestVersion, {}),
+        /* @__PURE__ */ p19("fieldset", {
+          children: /* @__PURE__ */ p19("label", {
+            for: "switch",
+            children: [
+              /* @__PURE__ */ p19("input", {
+                type: "checkbox",
+                id: "cache",
+                name: "cache",
+                role: "switch",
+                onChange: () => {
+                  handleCacheOption(!config.cache);
+                },
+                checked: config.cache
+              }),
+              t17("allowCacheTranslations")
+            ]
+          })
+        }),
+        cacheSize && /* @__PURE__ */ p19("p", {
+          class: "text-sm",
+          children: [
+            "\u7F13\u5B58\u5927\u5C0F\uFF1A",
+            cacheSize,
+            " \xA0 ",
+            isCleaning ? /* @__PURE__ */ p19("span", {
+              children: "\u6E05\u7406\u4E2D..."
+            }) : /* @__PURE__ */ p19("a", {
+              class: "text-sm",
+              href: "#",
+              onClick: handleCleanCache,
+              children: "\u6E05\u9664\u7F13\u5B58"
+            })
+          ]
+        }),
         syncErrorMessage ? /* @__PURE__ */ p19(SyncFailed, {
           handleSyncing,
           message: syncErrorMessage,
@@ -10401,6 +12671,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "options": "\u9009\u9879",
     "about": "\u5173\u4E8E",
     "service": "\u7FFB\u8BD1\u670D\u52A1",
+    "translationEngine": "\u5F15\u64CE\u9009\u9879",
     "target": "\u76EE\u6807\u8BED\u8A00",
     "add": "\u6DFB\u52A0",
     "edit": "\u7F16\u8F91",
@@ -10412,10 +12683,24 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "Translated": "\u5DF2\u7FFB\u8BD1",
     "Translating": "\u7FFB\u8BD1\u4E2D",
     "Error": "\u9519\u8BEF",
+    "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
     "translationServices": {
       "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
       "google": "\u8C37\u6B4C\u7FFB\u8BD1",
+      "bai": "\u767E\u5EA6(Alpha)",
+      "baidu": "\u767E\u5EA6\u7FFB\u8BD1",
+      "aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
+      "volc": "\u706B\u5C71\u7FFB\u8BD1",
+      "bing": "\u5FC5\u5E94\u7FFB\u8BD1",
+      "deepl": "Deepl",
+      "wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
+      "azure": "\u5FAE\u8F6F\u7FFB\u8BD1",
+      "ibm": "IBM Watson",
+      "aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
       "mock": "\u6A21\u62DF\u7FFB\u8BD1",
+      "caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+      "openl": "OpenL",
+      "youdao": "\u6709\u9053\u7FFB\u8BD1",
       "transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
       "d": "Deepl(Alpha)"
     },
@@ -10433,7 +12718,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
       "ar": "\u963F\u62C9\u4F2F\u8BED",
       "auto": "\u68C0\u6D4B\u8BED\u8A00",
-      "und": "\u672A\u77E5\u8BED\u8A00",
       "az": "\u963F\u585E\u62DC\u7586\u8BED",
       "be": "\u767D\u4FC4\u7F57\u65AF\u8BED",
       "bg": "\u4FDD\u52A0\u5229\u4E9A\u8BED",

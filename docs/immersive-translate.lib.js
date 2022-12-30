@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-28T15:00:27.924Z", VERSION: "0.0.17", TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-30T18:45:11.413Z", VERSION: "0.0.18", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n.immersive-translate-tooltip .immersive-translate-tooltip-text {\n  display: inline-block;\n  visibility: hidden;\n  width: max-content;\n  max-width: 300px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 8px;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 10000000000;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {\n  visibility: visible;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -42,22 +42,22 @@
 }
 @media (min-width: 576px) {
   #mount {
-    --font-size: 17px;
+    --font-size: 16px;
   }
 }
 @media (min-width: 768px) {
   #mount {
-    --font-size: 18px;
+    --font-size: 16px;
   }
 }
 @media (min-width: 992px) {
   #mount {
-    --font-size: 19px;
+    --font-size: 17px;
   }
 }
 @media (min-width: 1200px) {
   #mount {
-    --font-size: 20px;
+    --font-size: 18px;
   }
 }
 
@@ -2968,7 +2968,7 @@ textarea,
 }
 
 /*# sourceMappingURL=custom.css.map */
-`, TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n", TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n", TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", TRANSLATE_USERSCRIPT: "1" };
+`, IMMERSIVE_TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n", IMMERSIVE_TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // https://esm.sh/v102/n-gram@2.0.2/deno/n-gram.js
   var c = o(2);
@@ -3161,10 +3161,10 @@ textarea,
       if (iso1) {
         return iso1;
       } else {
-        return "und";
+        return "auto";
       }
     }
-    return "und";
+    return "auto";
   }
 
   // env.ts
@@ -3180,7 +3180,10 @@ textarea,
   }
   var env = getEnv();
   function isMonkey() {
-    return env.TRANSLATE_USERSCRIPT === "1";
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isDeno() {
+    return typeof Deno !== "undefined";
   }
 
   // browser/userscript_polyfill.ts
@@ -3222,6 +3225,15 @@ textarea,
     set: async (obj) => {
       for (const key in obj) {
         await GM.setValue(key, obj[key]);
+      }
+    },
+    remove: async (key) => {
+      if (typeof key === "string") {
+        await GM.deleteValue(key);
+      } else if (Array.isArray(key)) {
+        for (const k8 of key) {
+          await GM.deleteValue(k8);
+        }
       }
     }
   };
@@ -3275,51 +3287,6 @@ textarea,
       }
       return value;
     }
-    function Headers(headers3) {
-      this.map = {};
-      if (headers3 instanceof Headers) {
-        headers3.forEach(function(value, name) {
-          this.append(name, value);
-        }, this);
-      } else if (headers3) {
-        Object.getOwnPropertyNames(headers3).forEach(function(name) {
-          this.append(name, headers3[name]);
-        }, this);
-      }
-    }
-    Headers.prototype.append = function(name, value) {
-      name = normalizeName(name);
-      value = normalizeValue(value);
-      var list = this.map[name];
-      if (!list) {
-        list = [];
-        this.map[name] = list;
-      }
-      list.push(value);
-    };
-    Headers.prototype["delete"] = function(name) {
-      delete this.map[normalizeName(name)];
-    };
-    Headers.prototype.get = function(name) {
-      var values = this.map[normalizeName(name)];
-      return values ? values[0] : null;
-    };
-    Headers.prototype.getAll = function(name) {
-      return this.map[normalizeName(name)] || [];
-    };
-    Headers.prototype.has = function(name) {
-      return this.map.hasOwnProperty(normalizeName(name));
-    };
-    Headers.prototype.set = function(name, value) {
-      this.map[normalizeName(name)] = [normalizeValue(value)];
-    };
-    Headers.prototype.forEach = function(callback, thisArg) {
-      Object.getOwnPropertyNames(this.map).forEach(function(name) {
-        this.map[name].forEach(function(value) {
-          callback.call(thisArg, value, name, this);
-        }, this);
-      }, this);
-    };
     function consumed(body) {
       if (body.bodyUsed) {
         return Promise2.reject(new TypeError("Already read"));
@@ -3357,85 +3324,10 @@ textarea,
       }(),
       formData: "FormData" in self
     };
-    function Body() {
-      this.bodyUsed = false;
-      this._initBody = function(body) {
-        this._bodyInit = body;
-        if (typeof body === "string") {
-          this._bodyText = body;
-        } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
-          this._bodyBlob = body;
-        } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
-          this._bodyFormData = body;
-        } else if (!body) {
-          this._bodyText = "";
-        } else {
-          throw new Error("unsupported BodyInit type");
-        }
-      };
-      if (support.blob) {
-        this.blob = function() {
-          var rejected = consumed(this);
-          if (rejected) {
-            return rejected;
-          }
-          if (this._bodyBlob) {
-            return Promise2.resolve(this._bodyBlob);
-          } else if (this._bodyFormData) {
-            throw new Error("could not read FormData body as blob");
-          } else {
-            return Promise2.resolve(new Blob([this._bodyText]));
-          }
-        };
-        this.arrayBuffer = function() {
-          return this.blob().then(readBlobAsArrayBuffer);
-        };
-        this.text = function() {
-          var rejected = consumed(this);
-          if (rejected) {
-            return rejected;
-          }
-          if (this._bodyBlob) {
-            return readBlobAsText(this._bodyBlob);
-          } else if (this._bodyFormData) {
-            throw new Error("could not read FormData body as text");
-          } else {
-            return Promise2.resolve(this._bodyText);
-          }
-        };
-      } else {
-        this.text = function() {
-          var rejected = consumed(this);
-          return rejected ? rejected : Promise2.resolve(this._bodyText);
-        };
-      }
-      if (support.formData) {
-        this.formData = function() {
-          return this.text().then(decode);
-        };
-      }
-      this.json = function() {
-        return this.text().then(JSON.parse);
-      };
-      return this;
-    }
     var methods = ["DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT"];
     function normalizeMethod(method) {
       var upcased = method.toUpperCase();
       return methods.indexOf(upcased) > -1 ? upcased : method;
-    }
-    function Request(url, options) {
-      options = options || {};
-      this.url = url;
-      this.credentials = options.credentials || "omit";
-      this.headers = new Headers(options.headers);
-      this.method = normalizeMethod(options.method || "GET");
-      this.mode = options.mode || null;
-      this.referrer = null;
-      if ((this.method === "GET" || this.method === "HEAD") && options.body) {
-        throw new TypeError("Body not allowed for GET or HEAD requests");
-      }
-      this._initBody(options.body);
     }
     function decode(body) {
       var form = new FormData();
@@ -3460,29 +3352,18 @@ textarea,
       });
       return head;
     }
-    Body.call(Request.prototype);
-    function Response(bodyInit, options) {
-      if (!options) {
-        options = {};
-      }
-      this._initBody(bodyInit);
-      this.type = "default";
-      this.url = null;
-      this.status = options.status;
-      this.ok = this.status >= 200 && this.status < 300;
-      this.statusText = options.statusText;
-      this.headers = options.headers instanceof Headers ? options.headers : new Headers(options.headers);
-      this.url = options.url || "";
-    }
-    Body.call(Response.prototype);
     self.Headers = Headers;
     self.Request = Request;
     self.Response = Response;
     self.GM_fetch = function(input, init) {
       var request3;
+      var theFinalBody;
       if (Request.prototype.isPrototypeOf(input) && !init) {
         request3 = input;
       } else {
+        if (init.body) {
+          theFinalBody = init.body;
+        }
         request3 = new Request(input, init);
       }
       return new Promise2(function(resolve, reject) {
@@ -3508,14 +3389,21 @@ textarea,
           }
           var rawRespHeaders = resp.responseHeaders;
           _parsedRespHeaders = headers2(rawRespHeaders);
+          var finalUrl = responseURL(
+            resp.finalUrl || resp.responseURL,
+            rawRespHeaders,
+            _parsedRespHeaders
+          );
+          _parsedRespHeaders.set("X-Final-URL", finalUrl);
           var options = {
             status,
             statusText: resp.statusText,
             headers: _parsedRespHeaders,
-            url: responseURL(resp.finalUrl, rawRespHeaders, _parsedRespHeaders)
+            url: finalUrl
           };
           var body = resp.responseText;
-          resolve(new Response(body, options));
+          const finalResponse = new Response(body, options);
+          resolve(finalResponse);
         };
         xhr_details.onerror = function() {
           reject(new TypeError("Network request failed"));
@@ -3524,8 +3412,8 @@ textarea,
         request3.headers.forEach(function(value, name) {
           xhr_details.headers[name] = value;
         });
-        if (typeof request3._bodyInit !== "undefined") {
-          xhr_details.data = request3._bodyInit;
+        if (theFinalBody) {
+          xhr_details.data = theFinalBody;
         }
         GM.xmlHttpRequest(xhr_details);
       });
@@ -3576,7 +3464,7 @@ textarea,
   var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
   var lastRunTimeStorageKey = "lastRunTime";
   var sourceElementWithGlobalStyleMarkAttributeName = `data-${brandId}-global-style-mark`;
-  var delimiters = ["\u{1F6A0}\u{1F6A0}", "\u{1F69E}"];
+  var delimiters = ["@", "#"];
   var titleDelimiters = " --- ";
   var translationTextSeparator = "\n@\u{1F6A0}\n";
   var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
@@ -3700,8 +3588,7 @@ textarea,
     "yo",
     "yua",
     "yue",
-    "zu",
-    "und"
+    "zu"
   ];
   var buildinExcludeUrls = [
     "https://immersive-translate.owenyoung.com/options/",
@@ -3713,7 +3600,7 @@ textarea,
   // utils/format_language.ts
   function formatLanguage(langCode) {
     if (typeof langCode !== "string")
-      return "und";
+      return "auto";
     if (langCode === "zh" || langCode === "zh-Hans") {
       return "zh-CN";
     } else if (langCode === "zh-Hant" || langCode === "zh-HK") {
@@ -3727,12 +3614,12 @@ textarea,
       if (langCode.indexOf("-") !== -1) {
         langCode = langCode.split("-")[0];
         if (languages.indexOf(langCode) === -1) {
-          return "und";
+          return "auto";
         } else {
           return langCode;
         }
       } else {
-        return "und";
+        return "auto";
       }
     } else {
       return langCode;
@@ -3740,7 +3627,7 @@ textarea,
   }
 
   // utils/platform.ts
-  function isDeno() {
+  function isDeno2() {
     return typeof Deno !== "undefined";
   }
 
@@ -3787,7 +3674,7 @@ textarea,
 
   // browser/browser.ts
   var browserAPI;
-  if (isDeno()) {
+  if (isDeno2()) {
     browserAPI = mock_browser_default;
   } else {
     browserAPI = globalThis.browser;
@@ -7052,7 +6939,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                 return t18.keyCode === 13;
               }, ee3 = function(t18) {
                 return t18.keyCode === 27;
-              }, K4 = function(t18, c28) {
+              }, K5 = function(t18, c28) {
                 t18.classList.add(e19.classes.container), t18.style[c28] = "-10000px", document.body.appendChild(t18), t18.style[c28] = "-" + t18.offsetHeight + "px", t18.listener && window.addEventListener("keydown", t18.listener), fe().then(function() {
                   t18.style.transition = me2(), t18.style[c28] = 0;
                 });
@@ -7092,7 +6979,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   return O6(f17, p22);
                 }, l22.listener = function(n22) {
                   ($3(n22) || ee3(n22)) && F11();
-                }, K4(l22, p22), k8 && k8 < 1 && (k8 = 1), !S12 && k8 && oe3(k8).then(function() {
+                }, K5(l22, p22), k8 && k8 < 1 && (k8 = 1), !S12 && k8 && oe3(k8).then(function() {
                   return O6(f17, p22);
                 });
               }, ke2 = u16.force = function(t18, c28) {
@@ -7107,7 +6994,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   O6(f17, p22), j9(), S12 ? S12() : c28 && c28();
                 }, l22.appendChild(n22), l22.appendChild(r14), l22.listener = function(C7) {
                   $3(C7) && r14.click();
-                }, K4(l22, p22), te();
+                }, K5(l22, p22), te();
               }, Ce2 = u16.confirm = function(t18, c28, s21) {
                 var d17 = t18.text, i22 = t18.submitText, k8 = i22 === void 0 ? "Yes" : i22, H6 = t18.cancelText, S12 = H6 === void 0 ? "Cancel" : H6, h11 = t18.submitCallback, p22 = t18.cancelCallback, l22 = t18.position, f17 = l22 === void 0 ? e19.positions.confirm || f17.top : l22;
                 R6(), F11();
@@ -7124,7 +7011,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   O6(r14, f17), j9(), p22 ? p22() : s21 && s21();
                 }, n22.appendChild(C7), n22.appendChild(x15), n22.appendChild(a21), n22.listener = function(E5) {
                   $3(E5) ? x15.click() : ee3(E5) && a21.click();
-                }, K4(n22, f17), te(n22, f17);
+                }, K5(n22, f17), te(n22, f17);
               }, ve2 = function(t18, c28, s21) {
                 var d17 = t18.text, i22 = t18.submitText, k8 = i22 === void 0 ? "Submit" : i22, H6 = t18.cancelText, S12 = H6 === void 0 ? "Cancel" : H6, h11 = t18.submitCallback, p22 = t18.cancelCallback, l22 = t18.position, f17 = l22 === void 0 ? e19.positions.input || f17.top : l22, n22 = g10(t18, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
                 R6(), F11();
@@ -7152,7 +7039,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   O6(C7, f17), j9(), p22 ? p22(a21.value) : s21 && s21(a21.value);
                 }, r14.appendChild(x15), r14.appendChild(a21), r14.appendChild(E5), r14.appendChild(D8), r14.listener = function(M6) {
                   $3(M6) ? E5.click() : ee3(M6) && D8.click();
-                }, K4(r14, f17), a21.focus(), te(r14, f17);
+                }, K5(r14, f17), a21.focus(), te(r14, f17);
               };
               u16.input = ve2;
               var Ee2 = u16.select = function(t18, c28) {
@@ -7174,7 +7061,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   O6(l22, h11), j9(), k8 ? k8() : c28 && c28();
                 }, p22.appendChild(n22), p22.listener = function(r14) {
                   ee3(r14) && n22.click();
-                }, K4(p22, h11), te(p22, h11);
+                }, K5(p22, h11), te(p22, h11);
               }, Te = u16.date = function(t18, c28, s21) {
                 var d17 = t18.value, i22 = d17 === void 0 ? new Date() : d17, k8 = t18.submitText, H6 = k8 === void 0 ? "OK" : k8, S12 = t18.cancelText, h11 = S12 === void 0 ? "Cancel" : S12, p22 = t18.submitCallback, l22 = t18.cancelCallback, f17 = t18.position, n22 = f17 === void 0 ? e19.positions.date || n22.top : f17;
                 R6(), F11();
@@ -7235,7 +7122,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   O6(de2, n22), j9(), l22 ? l22(i22) : s21 && s21(i22);
                 }, I9.appendChild(Z4), I9.appendChild(q7), I9.appendChild(G5), I9.appendChild(C7), I9.appendChild(x15), I9.appendChild(a21), I9.appendChild(ne3), I9.appendChild(se2), I9.appendChild(ae3), ue3.appendChild(I9), Y4.appendChild(ue3), Y4.appendChild(z7), Y4.appendChild(U6), Y4.listener = function(L6) {
                   $3(L6) ? z7.click() : ee3(L6) && U6.click();
-                }, K4(Y4, n22), te(Y4, n22);
+                }, K5(Y4, n22), te(Y4, n22);
               };
               u16.default = { alert: he2, force: ke2, confirm: Ce2, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F11 };
             }]);
@@ -7305,16 +7192,45 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   async function request(options) {
     if (options.body) {
     }
-    let { url, ...fetchOptions } = options;
+    let { url, responseType, ...fetchOptions } = options;
+    if (!responseType) {
+      responseType = "json";
+    }
     fetchOptions = {
       mode: "cors",
       ...fetchOptions
     };
     const fetchFn = options.fetchPolyfill || fetch;
     const response = await fetchFn(url, fetchOptions);
-    if (response.ok && response.status >= 200 && response.status < 300) {
-      const data = await response.json();
-      return data;
+    if (response.ok && response.status >= 200 && response.status < 400) {
+      if (responseType === "json") {
+        const data = await response.json();
+        return data;
+      } else if (responseType === "text") {
+        const data = await response.text();
+        return data;
+      } else if (responseType === "raw") {
+        const data = await response.text();
+        const responseHeaders = Object.fromEntries([
+          ...response.headers.entries()
+        ]);
+        let finalUrl = response.url;
+        if (!finalUrl) {
+          if (response.headers.get("X-Final-URL")) {
+            finalUrl = response.headers.get("X-Final-URL");
+          } else {
+            finalUrl = url;
+          }
+        }
+        const result = {
+          body: data,
+          headers: responseHeaders,
+          status: response.status,
+          statusText: response.statusText,
+          url: finalUrl
+        };
+        return result;
+      }
     } else {
       let details;
       try {
@@ -7361,7 +7277,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   );
   var sendFetch = (options) => {
-    if (isDeno()) {
+    if (isDeno2()) {
       return request(options);
     } else {
       return sendFetchFromChrome(options);
@@ -7383,6 +7299,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     waitForPageTranslate
   ] = H2(
     "pageTranslate",
+    {
+      async: true
+    }
+  );
+  var [
+    sendRestorePage,
+    pageRestoreStream,
+    waitForPageRestore
+  ] = H2(
+    "restorePage",
     {
       async: true
     }
@@ -7492,6 +7418,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         ".article_subtitle",
         ".article__title",
         ".articleTitle",
+        ".Article__content",
         ".title",
         ".titleLink",
         ".summary",
@@ -7720,6 +7647,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           "yt-formatted-string#video-title",
           "span#video-title"
         ],
+        "wrapperPrefix": "\n",
+        "wrapperSuffix": "\n",
         "globalStyles": {
           "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
           "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
@@ -8097,19 +8026,78 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   // config.ts
   function getEnvUserConfig() {
     const defaultUserConfig = {};
-    if (env.TRANSLATE_SECRET_TENCENT_SECRET_ID && env.TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
+    if (env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID && env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
       const tencentAuthConfig = {
-        secretId: env.TRANSLATE_SECRET_TENCENT_SECRET_ID,
-        secretKey: env.TRANSLATE_SECRET_TENCENT_SECRET_KEY
+        secretId: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID,
+        secretKey: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY
       };
       defaultUserConfig.translationServices = {};
       defaultUserConfig.translationServices.tencent = tencentAuthConfig;
     }
-    if (env.TRANSLATE_SERVICE) {
-      defaultUserConfig.translationService = env.TRANSLATE_SERVICE;
+    if (env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID && env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY) {
+      const baiduAuthConfig = {
+        appid: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID,
+        key: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.baidu = baiduAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN) {
+      const caiyunAuthConfig = {
+        token: env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY) {
+      const openlAuthConfig = {
+        apikey: env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.openl = openlAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID && env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET) {
+      const youdaoAuthConfig = {
+        appId: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID,
+        appSecret: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID && env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY) {
+      const volcAuthConfig = {
+        accessKeyId: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID,
+        secretAccessKey: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.volc = volcAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY) {
+      const deeplAuthConfig = {
+        authKey: env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY
+      };
+      if (!defaultUserConfig.translationServices) {
+        defaultUserConfig.translationServices = {};
+      }
+      defaultUserConfig.translationServices.deepl = deeplAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SERVICE) {
+      defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE;
     }
     if (env.DEBUG === "1") {
       defaultUserConfig.debug = true;
+      defaultUserConfig.cache = false;
+      defaultUserConfig.alpha = true;
     }
     if (env.MOCK === "1") {
       defaultUserConfig.translationService = "mock";
@@ -8137,6 +8125,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       }
     }
     const defaultConfig = {
+      cache: true,
       buildinConfigUpdatedAt: finalBuildInConfig.buildinConfigUpdatedAt,
       minVersion: finalBuildInConfig.minVersion,
       interval: 1e3 * 60 * 60 * 1,
@@ -8216,21 +8205,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return finalConfig;
   }
 
-  // utils/sha256.ts
-  async function sha256(message) {
-    const msgUint8 = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);
-    const result = hex(hashBuffer);
-    return result;
-  }
-  function hex(hashBuffer) {
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map((b11) => b11.toString(16).padStart(2, "0")).join(
-      ""
-    );
-    return hashHex;
-  }
-
   // browser_proxy.ts
   async function sendMessage(fn, options) {
     try {
@@ -8249,7 +8223,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   }
   function request2(options) {
-    if (isMonkey()) {
+    if (isMonkey() || isDeno()) {
       options.fetchPolyfill = globalThis.GM_fetch;
       return request(options);
     }
@@ -8290,42 +8264,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     sendPageTranslatedStatus(status);
   }
-  function sha2562(message) {
-    if (isMonkey()) {
-      return sha256(message);
-    }
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "sha256",
-        options: message
-      }
-    );
-  }
-  function hmacSha256ByArrayBuffer(message, key) {
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "hmacSha256ByArrayBuffer",
-        options: {
-          message,
-          key
-        }
-      }
-    );
-  }
-  function hmacSha256ByString(message, key) {
-    return sendMessage(
-      sendUtilsRequest,
-      {
-        method: "hmacSha256ByString",
-        options: {
-          message,
-          key
-        }
-      }
-    );
-  }
   function queryDb(query) {
     if (isMonkey()) {
       return Promise.resolve(null);
@@ -8347,9 +8285,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // dom/util.ts
-  function duplicatedElements(root, array) {
-    const footers = root.querySelectorAll("footer");
-    const headers2 = root.querySelectorAll("header");
+  function duplicatedElements(root2, array) {
+    const footers = root2.querySelectorAll("footer");
+    const headers2 = root2.querySelectorAll("header");
     for (let i22 = 0; i22 < array.length; i22++) {
       const a21 = array[i22];
       for (let j9 = i22 + 1; j9 < array.length; j9++) {
@@ -8417,10 +8355,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       return null;
     }
   }
-  function getElementsBySelectors(root, selectors) {
+  function getElementsBySelectors(root2, selectors) {
     const elements = [];
     for (const selector of selectors) {
-      const nodes = root.querySelectorAll(selector);
+      const nodes = root2.querySelectorAll(selector);
       for (const node of nodes) {
         elements.push(node);
       }
@@ -8484,7 +8422,22 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text)) {
       return false;
     }
+    if (isUrl(text)) {
+      return false;
+    }
     return true;
+  }
+  function isUrl(text) {
+    if (text && text.includes("://")) {
+      try {
+        new URL(text);
+        return true;
+      } catch (_e3) {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
   function isMarked(element, markedAttribute) {
     return element.hasAttribute(markedAttribute) && element.getAttribute(markedAttribute) === "1";
@@ -8492,8 +8445,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   function trimText(text) {
     return text.replace(/\s/g, " ");
   }
-  function getMainText(root) {
-    const main3 = root.querySelector("main");
+  function getMainText(root2) {
+    const main3 = root2.querySelector("main");
     let text = "";
     if (main3) {
       text = trimText(main3.innerText);
@@ -8501,7 +8454,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (text.length >= 10) {
       return text;
     }
-    const article = root.querySelectorAll("article");
+    const article = root2.querySelectorAll("article");
     if (article.length > 0) {
       for (const a21 of article) {
         text = trimText(a21.innerText);
@@ -8510,48 +8463,48 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (text.length >= 10) {
       return text;
     }
-    text = trimText(root.innerText);
+    text = trimText(root2.innerText);
     return text;
   }
 
   // dom/detect_page_language.ts
   async function detectPageLanguage() {
-    let lang = "und";
+    let lang = "auto";
     if (document.body && document.body.innerText) {
       lang = await detectLanguage({
         text: getMainText(document.body)
       });
     }
-    if (lang === "und" && document.documentElement && document.documentElement.lang) {
+    if (lang === "auto" && document.documentElement && document.documentElement.lang) {
       lang = formatLanguage(document.documentElement.lang);
     }
     return lang;
   }
 
   // dom/get_containers.ts
-  function getContainers(root, ctx) {
-    if (!(root && root.innerText)) {
+  function getContainers(root2, ctx) {
+    if (!(root2 && root2.innerText)) {
       return [];
     }
     const { rule } = ctx;
     let contentContainers = [];
     if (rule && rule.selectors.length > 0) {
       const containers = rule.selectors.map((selector) => {
-        const elements = root.querySelectorAll(selector);
+        const elements = root2.querySelectorAll(selector);
         return Array.from(elements);
       }).flat();
       contentContainers.push(...containers);
     } else {
       if (rule && rule.additionalSelectors.length > 0) {
         const additionalElements = getElementsBySelectors(
-          root,
+          root2,
           rule.additionalSelectors
         );
         contentContainers.push(...additionalElements);
       }
-      const articleElements = getElementsBySelectors(root, ["article"]);
+      const articleElements = getElementsBySelectors(root2, ["article"]);
       contentContainers.push(...articleElements);
-      const allPTags = root.querySelectorAll("p");
+      const allPTags = root2.querySelectorAll("p");
       if (allPTags.length > 0) {
         allPTags.forEach((p22) => {
           const myInnerText = p22.innerText.match(/\S+/g);
@@ -8564,7 +8517,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           }
         });
       }
-      const allBrTags = root.querySelectorAll("br");
+      const allBrTags = root2.querySelectorAll("br");
       if (allBrTags.length > 0) {
         allBrTags.forEach((br) => {
           if (br.parentElement) {
@@ -8579,12 +8532,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         });
       }
       if (contentContainers.length === 0) {
-        let mains = root.querySelectorAll("[role=main]");
+        let mains = root2.querySelectorAll("[role=main]");
         if (mains.length === 0) {
-          mains = root.querySelectorAll("main");
+          mains = root2.querySelectorAll("main");
         }
         if (mains.length === 0) {
-          mains = root.querySelectorAll(".main");
+          mains = root2.querySelectorAll(".main");
         }
         if (mains.length > 0) {
           const mainsArray = Array.from(mains);
@@ -8592,7 +8545,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         }
       }
     }
-    const finalContainers = duplicatedElements(root, contentContainers);
+    const finalContainers = duplicatedElements(root2, contentContainers);
     finalContainers.sort(function(a21, b11) {
       return a21.compareDocumentPosition(b11) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
     });
@@ -8610,7 +8563,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // dom/current_language.ts
-  var currentPageLanguage = "und";
+  var currentPageLanguage = "auto";
   function setCurrentPageLanguage(lang) {
     currentPageLanguage = lang;
   }
@@ -8635,10 +8588,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           const codeText = element.innerText;
           const variable = {
             type: element.nodeName.toLowerCase(),
+            attributes: element.attributes,
             value: codeText
           };
           variables.push(variable);
-          const delimiter = `${delimiters[0]}`;
+          const index = variables.length - 1;
+          const delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
           text += delimiter;
         } else {
           continue;
@@ -8647,7 +8602,20 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         const rawText = element.innerText;
         const isStartWithSpace = rawText.startsWith(" ");
         const isEndWithSpace = rawText.endsWith(" ");
-        text += (isStartWithSpace ? " " : "") + rawText.trim() + (isEndWithSpace ? " " : "");
+        const finalText = rawText.trim();
+        if (isUrl(finalText)) {
+          const variable = {
+            type: element.nodeName.toLowerCase(),
+            attributes: element.attributes,
+            value: finalText
+          };
+          variables.push(variable);
+          const index = variables.length - 1;
+          const delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
+          text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
+        } else {
+          text += (isStartWithSpace ? " " : "") + finalText + (isEndWithSpace ? " " : "");
+        }
       }
       if (typeof element !== "string") {
         const whitespace = getWhitespace(element.nextSibling);
@@ -8658,7 +8626,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     let inline = false;
     const wordCount = text.split(" ").length;
-    if (wordCount < 4 && text.length < 12) {
+    if (wordCount < 4 && text.length < 20) {
       inline = true;
     }
     const paragraph = {
@@ -8674,12 +8642,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // services/util.ts
-  async function stringToSHA1String(message) {
-    const msgUint8 = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest("SHA-1", msgUint8);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map((b11) => b11.toString(16).padStart(2, "0")).join("");
-  }
   function splitSentences(sentences, maxLength, maxGroupLength) {
     const tempSentences = splitStentenceWithMaxLength(sentences, maxLength);
     const tempSentenceGroups = [];
@@ -9048,10 +9010,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     return allParagraphs;
   }
-  function getInlineElementsOfInlineElement(root) {
+  function getInlineElementsOfInlineElement(root2) {
     const elements = [];
     const treeWalker = document.createTreeWalker(
-      root,
+      root2,
       NodeFilter.SHOW_TEXT,
       null
     );
@@ -9078,7 +9040,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       }
     }
     if (typeof elements[elements.length - 1] !== "string") {
-      const whitespace = getWhitespace(root.nextSibling);
+      const whitespace = getWhitespace(root2.nextSibling);
       if (whitespace) {
         elements.push(whitespace);
       }
@@ -9092,7 +9054,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // dom/paragraph_to_html.ts
-  var regex = new RegExp(`${delimiters[0]}`, "g");
   function paragraphToHtml(sourceItem, sentence, ctx) {
     const { rule, translationTheme } = ctx;
     let { variables, text } = sourceItem;
@@ -9100,6 +9061,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const { text: targetText } = sentence;
     const { wrapperPrefix, wrapperSuffix } = rule;
     const position = "afterend";
+    const regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g");
     let matchIndex = 0;
     let html = targetText;
     if (variables.length > 0) {
@@ -9107,7 +9069,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         const variable = variables[Number(matchIndex)];
         matchIndex++;
         if (variable.type) {
-          return `<${variable.type}>${escapeHTML(variable.value)}</${variable.type}>`;
+          const { attributes } = variable;
+          const attributesString = Array.from(attributes).reduce(
+            (acc, { name, value }) => {
+              return `${acc} ${name}="${value}"`;
+            },
+            ""
+          );
+          return `<${variable.type} ${attributesString}>${escapeHTML(variable.value)}</${variable.type}>`;
         }
         return match;
       });
@@ -9131,7 +9100,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         html = `${wrapperPrefix}${html}`;
       }
       if (wrapperPrefix === "smart") {
-        if (text.length >= 70) {
+        if (text.length >= 80) {
           html = `<br>${html}`;
         }
       }
@@ -9184,24 +9153,24 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       );
     }
   }
-  function wrapTextNode(depth, root, excludeElements, extraInlineElements, extraBlockElements, rule) {
-    if (isMarked(root, sourceAtomicBlockElementMarkAttributeName)) {
+  function wrapTextNode(depth, root2, excludeElements, extraInlineElements, extraBlockElements, rule) {
+    if (isMarked(root2, sourceAtomicBlockElementMarkAttributeName)) {
       return;
     }
     const { stayOriginalTags } = rule;
     let isSingleInlineElement = false;
     if (depth === 0) {
-      if (root.childNodes && root.childNodes.length === 1 && root.nodeType === Node.ELEMENT_NODE && isInlineElement(
-        root,
+      if (root2.childNodes && root2.childNodes.length === 1 && root2.nodeType === Node.ELEMENT_NODE && isInlineElement(
+        root2,
         extraInlineElements,
         extraBlockElements,
         rule
-      ) && !stayOriginalTags.includes(root.nodeName)) {
+      ) && !stayOriginalTags.includes(root2.nodeName)) {
         isSingleInlineElement = true;
       }
     }
-    if (root && root.childNodes && root.childNodes.length > 0) {
-      for (const node of root.childNodes) {
+    if (root2 && root2.childNodes && root2.childNodes.length > 0) {
+      for (const node of root2.childNodes) {
         if ((isInlineElement(node, extraInlineElements, extraBlockElements, rule) || isExcludeElement(node, excludeElements, rule)) && !isSingleInlineElement) {
           continue;
         }
@@ -9323,6 +9292,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       this.serviceConfig = serviceConfig;
       this.generalConfig = generalConfig;
     }
+    static getAllProps() {
+      return [];
+    }
+    static getProps() {
+      return [];
+    }
     async init() {
     }
     getMaxTextGroupLength() {
@@ -9434,6 +9409,508 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   };
 
+  // libs/sha256.js
+  var ERROR = "input is invalid type";
+  var WINDOW = typeof window === "object";
+  var root = WINDOW ? window : {};
+  if (root.JS_SHA256_NO_WINDOW) {
+    WINDOW = false;
+  }
+  var WEB_WORKER = !WINDOW && typeof self === "object";
+  var NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process === "object" && process.versions && process.versions.node;
+  if (NODE_JS) {
+    root = global;
+  } else if (WEB_WORKER) {
+    root = self;
+  }
+  var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module === "object" && module.exports;
+  var AMD = typeof define === "function" && define.amd;
+  var ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
+  var HEX_CHARS = "0123456789abcdef".split("");
+  var EXTRA = [-2147483648, 8388608, 32768, 128];
+  var SHIFT = [24, 16, 8, 0];
+  var K4 = [
+    1116352408,
+    1899447441,
+    3049323471,
+    3921009573,
+    961987163,
+    1508970993,
+    2453635748,
+    2870763221,
+    3624381080,
+    310598401,
+    607225278,
+    1426881987,
+    1925078388,
+    2162078206,
+    2614888103,
+    3248222580,
+    3835390401,
+    4022224774,
+    264347078,
+    604807628,
+    770255983,
+    1249150122,
+    1555081692,
+    1996064986,
+    2554220882,
+    2821834349,
+    2952996808,
+    3210313671,
+    3336571891,
+    3584528711,
+    113926993,
+    338241895,
+    666307205,
+    773529912,
+    1294757372,
+    1396182291,
+    1695183700,
+    1986661051,
+    2177026350,
+    2456956037,
+    2730485921,
+    2820302411,
+    3259730800,
+    3345764771,
+    3516065817,
+    3600352804,
+    4094571909,
+    275423344,
+    430227734,
+    506948616,
+    659060556,
+    883997877,
+    958139571,
+    1322822218,
+    1537002063,
+    1747873779,
+    1955562222,
+    2024104815,
+    2227730452,
+    2361852424,
+    2428436474,
+    2756734187,
+    3204031479,
+    3329325298
+  ];
+  var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
+  var blocks = [];
+  if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
+    Array.isArray = function(obj) {
+      return Object.prototype.toString.call(obj) === "[object Array]";
+    };
+  }
+  if (ARRAY_BUFFER && (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView)) {
+    ArrayBuffer.isView = function(obj) {
+      return typeof obj === "object" && obj.buffer && obj.buffer.constructor === ArrayBuffer;
+    };
+  }
+  var createOutputMethod = function(outputType, is224) {
+    return function(message) {
+      return new Sha256(is224, true).update(message)[outputType]();
+    };
+  };
+  var createMethod = function(is224) {
+    var method = createOutputMethod("hex", is224);
+    method.create = function() {
+      return new Sha256(is224);
+    };
+    method.update = function(message) {
+      return method.create().update(message);
+    };
+    for (var i22 = 0; i22 < OUTPUT_TYPES.length; ++i22) {
+      var type = OUTPUT_TYPES[i22];
+      method[type] = createOutputMethod(type, is224);
+    }
+    return method;
+  };
+  var createHmacOutputMethod = function(outputType, is224) {
+    return function(key, message) {
+      return new HmacSha256(key, is224, true).update(message)[outputType]();
+    };
+  };
+  var createHmacMethod = function(is224) {
+    var method = createHmacOutputMethod("hex", is224);
+    method.create = function(key) {
+      return new HmacSha256(key, is224);
+    };
+    method.update = function(key, message) {
+      return method.create(key).update(message);
+    };
+    for (var i22 = 0; i22 < OUTPUT_TYPES.length; ++i22) {
+      var type = OUTPUT_TYPES[i22];
+      method[type] = createHmacOutputMethod(type, is224);
+    }
+    return method;
+  };
+  function Sha256(is224, sharedMemory) {
+    if (sharedMemory) {
+      blocks[0] = blocks[16] = blocks[1] = blocks[2] = blocks[3] = blocks[4] = blocks[5] = blocks[6] = blocks[7] = blocks[8] = blocks[9] = blocks[10] = blocks[11] = blocks[12] = blocks[13] = blocks[14] = blocks[15] = 0;
+      this.blocks = blocks;
+    } else {
+      this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    }
+    if (is224) {
+      this.h0 = 3238371032;
+      this.h1 = 914150663;
+      this.h2 = 812702999;
+      this.h3 = 4144912697;
+      this.h4 = 4290775857;
+      this.h5 = 1750603025;
+      this.h6 = 1694076839;
+      this.h7 = 3204075428;
+    } else {
+      this.h0 = 1779033703;
+      this.h1 = 3144134277;
+      this.h2 = 1013904242;
+      this.h3 = 2773480762;
+      this.h4 = 1359893119;
+      this.h5 = 2600822924;
+      this.h6 = 528734635;
+      this.h7 = 1541459225;
+    }
+    this.block = this.start = this.bytes = this.hBytes = 0;
+    this.finalized = this.hashed = false;
+    this.first = true;
+    this.is224 = is224;
+  }
+  Sha256.prototype.update = function(message) {
+    if (this.finalized) {
+      return;
+    }
+    var notString, type = typeof message;
+    if (type !== "string") {
+      if (type === "object") {
+        if (message === null) {
+          throw new Error(ERROR);
+        } else if (ARRAY_BUFFER && message.constructor === ArrayBuffer) {
+          message = new Uint8Array(message);
+        } else if (!Array.isArray(message)) {
+          if (!ARRAY_BUFFER || !ArrayBuffer.isView(message)) {
+            throw new Error(ERROR);
+          }
+        }
+      } else {
+        throw new Error(ERROR);
+      }
+      notString = true;
+    }
+    var code2, index = 0, i22, length = message.length, blocks2 = this.blocks;
+    while (index < length) {
+      if (this.hashed) {
+        this.hashed = false;
+        blocks2[0] = this.block;
+        blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+      }
+      if (notString) {
+        for (i22 = this.start; index < length && i22 < 64; ++index) {
+          blocks2[i22 >> 2] |= message[index] << SHIFT[i22++ & 3];
+        }
+      } else {
+        for (i22 = this.start; index < length && i22 < 64; ++index) {
+          code2 = message.charCodeAt(index);
+          if (code2 < 128) {
+            blocks2[i22 >> 2] |= code2 << SHIFT[i22++ & 3];
+          } else if (code2 < 2048) {
+            blocks2[i22 >> 2] |= (192 | code2 >> 6) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 & 63) << SHIFT[i22++ & 3];
+          } else if (code2 < 55296 || code2 >= 57344) {
+            blocks2[i22 >> 2] |= (224 | code2 >> 12) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 & 63) << SHIFT[i22++ & 3];
+          } else {
+            code2 = 65536 + ((code2 & 1023) << 10 | message.charCodeAt(++index) & 1023);
+            blocks2[i22 >> 2] |= (240 | code2 >> 18) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 >> 12 & 63) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i22++ & 3];
+            blocks2[i22 >> 2] |= (128 | code2 & 63) << SHIFT[i22++ & 3];
+          }
+        }
+      }
+      this.lastByteIndex = i22;
+      this.bytes += i22 - this.start;
+      if (i22 >= 64) {
+        this.block = blocks2[16];
+        this.start = i22 - 64;
+        this.hash();
+        this.hashed = true;
+      } else {
+        this.start = i22;
+      }
+    }
+    if (this.bytes > 4294967295) {
+      this.hBytes += this.bytes / 4294967296 << 0;
+      this.bytes = this.bytes % 4294967296;
+    }
+    return this;
+  };
+  Sha256.prototype.finalize = function() {
+    if (this.finalized) {
+      return;
+    }
+    this.finalized = true;
+    var blocks2 = this.blocks, i22 = this.lastByteIndex;
+    blocks2[16] = this.block;
+    blocks2[i22 >> 2] |= EXTRA[i22 & 3];
+    this.block = blocks2[16];
+    if (i22 >= 56) {
+      if (!this.hashed) {
+        this.hash();
+      }
+      blocks2[0] = this.block;
+      blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+    }
+    blocks2[14] = this.hBytes << 3 | this.bytes >>> 29;
+    blocks2[15] = this.bytes << 3;
+    this.hash();
+  };
+  Sha256.prototype.hash = function() {
+    var a21 = this.h0, b11 = this.h1, c28 = this.h2, d17 = this.h3, e19 = this.h4, f17 = this.h5, g10 = this.h6, h11 = this.h7, blocks2 = this.blocks, j9, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+    for (j9 = 16; j9 < 64; ++j9) {
+      t1 = blocks2[j9 - 15];
+      s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3;
+      t1 = blocks2[j9 - 2];
+      s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10;
+      blocks2[j9] = blocks2[j9 - 16] + s0 + blocks2[j9 - 7] + s1 << 0;
+    }
+    bc = b11 & c28;
+    for (j9 = 0; j9 < 64; j9 += 4) {
+      if (this.first) {
+        if (this.is224) {
+          ab = 300032;
+          t1 = blocks2[0] - 1413257819;
+          h11 = t1 - 150054599 << 0;
+          d17 = t1 + 24177077 << 0;
+        } else {
+          ab = 704751109;
+          t1 = blocks2[0] - 210244248;
+          h11 = t1 - 1521486534 << 0;
+          d17 = t1 + 143694565 << 0;
+        }
+        this.first = false;
+      } else {
+        s0 = (a21 >>> 2 | a21 << 30) ^ (a21 >>> 13 | a21 << 19) ^ (a21 >>> 22 | a21 << 10);
+        s1 = (e19 >>> 6 | e19 << 26) ^ (e19 >>> 11 | e19 << 21) ^ (e19 >>> 25 | e19 << 7);
+        ab = a21 & b11;
+        maj = ab ^ a21 & c28 ^ bc;
+        ch = e19 & f17 ^ ~e19 & g10;
+        t1 = h11 + s1 + ch + K4[j9] + blocks2[j9];
+        t22 = s0 + maj;
+        h11 = d17 + t1 << 0;
+        d17 = t1 + t22 << 0;
+      }
+      s0 = (d17 >>> 2 | d17 << 30) ^ (d17 >>> 13 | d17 << 19) ^ (d17 >>> 22 | d17 << 10);
+      s1 = (h11 >>> 6 | h11 << 26) ^ (h11 >>> 11 | h11 << 21) ^ (h11 >>> 25 | h11 << 7);
+      da = d17 & a21;
+      maj = da ^ d17 & b11 ^ ab;
+      ch = h11 & e19 ^ ~h11 & f17;
+      t1 = g10 + s1 + ch + K4[j9 + 1] + blocks2[j9 + 1];
+      t22 = s0 + maj;
+      g10 = c28 + t1 << 0;
+      c28 = t1 + t22 << 0;
+      s0 = (c28 >>> 2 | c28 << 30) ^ (c28 >>> 13 | c28 << 19) ^ (c28 >>> 22 | c28 << 10);
+      s1 = (g10 >>> 6 | g10 << 26) ^ (g10 >>> 11 | g10 << 21) ^ (g10 >>> 25 | g10 << 7);
+      cd = c28 & d17;
+      maj = cd ^ c28 & a21 ^ da;
+      ch = g10 & h11 ^ ~g10 & e19;
+      t1 = f17 + s1 + ch + K4[j9 + 2] + blocks2[j9 + 2];
+      t22 = s0 + maj;
+      f17 = b11 + t1 << 0;
+      b11 = t1 + t22 << 0;
+      s0 = (b11 >>> 2 | b11 << 30) ^ (b11 >>> 13 | b11 << 19) ^ (b11 >>> 22 | b11 << 10);
+      s1 = (f17 >>> 6 | f17 << 26) ^ (f17 >>> 11 | f17 << 21) ^ (f17 >>> 25 | f17 << 7);
+      bc = b11 & c28;
+      maj = bc ^ b11 & d17 ^ cd;
+      ch = f17 & g10 ^ ~f17 & h11;
+      t1 = e19 + s1 + ch + K4[j9 + 3] + blocks2[j9 + 3];
+      t22 = s0 + maj;
+      e19 = a21 + t1 << 0;
+      a21 = t1 + t22 << 0;
+    }
+    this.h0 = this.h0 + a21 << 0;
+    this.h1 = this.h1 + b11 << 0;
+    this.h2 = this.h2 + c28 << 0;
+    this.h3 = this.h3 + d17 << 0;
+    this.h4 = this.h4 + e19 << 0;
+    this.h5 = this.h5 + f17 << 0;
+    this.h6 = this.h6 + g10 << 0;
+    this.h7 = this.h7 + h11 << 0;
+  };
+  Sha256.prototype.hex = function() {
+    this.finalize();
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h42 = this.h4, h52 = this.h5, h62 = this.h6, h72 = this.h7;
+    var hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h32 >> 28 & 15] + HEX_CHARS[h32 >> 24 & 15] + HEX_CHARS[h32 >> 20 & 15] + HEX_CHARS[h32 >> 16 & 15] + HEX_CHARS[h32 >> 12 & 15] + HEX_CHARS[h32 >> 8 & 15] + HEX_CHARS[h32 >> 4 & 15] + HEX_CHARS[h32 & 15] + HEX_CHARS[h42 >> 28 & 15] + HEX_CHARS[h42 >> 24 & 15] + HEX_CHARS[h42 >> 20 & 15] + HEX_CHARS[h42 >> 16 & 15] + HEX_CHARS[h42 >> 12 & 15] + HEX_CHARS[h42 >> 8 & 15] + HEX_CHARS[h42 >> 4 & 15] + HEX_CHARS[h42 & 15] + HEX_CHARS[h52 >> 28 & 15] + HEX_CHARS[h52 >> 24 & 15] + HEX_CHARS[h52 >> 20 & 15] + HEX_CHARS[h52 >> 16 & 15] + HEX_CHARS[h52 >> 12 & 15] + HEX_CHARS[h52 >> 8 & 15] + HEX_CHARS[h52 >> 4 & 15] + HEX_CHARS[h52 & 15] + HEX_CHARS[h62 >> 28 & 15] + HEX_CHARS[h62 >> 24 & 15] + HEX_CHARS[h62 >> 20 & 15] + HEX_CHARS[h62 >> 16 & 15] + HEX_CHARS[h62 >> 12 & 15] + HEX_CHARS[h62 >> 8 & 15] + HEX_CHARS[h62 >> 4 & 15] + HEX_CHARS[h62 & 15];
+    if (!this.is224) {
+      hex2 += HEX_CHARS[h72 >> 28 & 15] + HEX_CHARS[h72 >> 24 & 15] + HEX_CHARS[h72 >> 20 & 15] + HEX_CHARS[h72 >> 16 & 15] + HEX_CHARS[h72 >> 12 & 15] + HEX_CHARS[h72 >> 8 & 15] + HEX_CHARS[h72 >> 4 & 15] + HEX_CHARS[h72 & 15];
+    }
+    return hex2;
+  };
+  Sha256.prototype.toString = Sha256.prototype.hex;
+  Sha256.prototype.digest = function() {
+    this.finalize();
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h42 = this.h4, h52 = this.h5, h62 = this.h6, h72 = this.h7;
+    var arr = [
+      h0 >> 24 & 255,
+      h0 >> 16 & 255,
+      h0 >> 8 & 255,
+      h0 & 255,
+      h1 >> 24 & 255,
+      h1 >> 16 & 255,
+      h1 >> 8 & 255,
+      h1 & 255,
+      h22 >> 24 & 255,
+      h22 >> 16 & 255,
+      h22 >> 8 & 255,
+      h22 & 255,
+      h32 >> 24 & 255,
+      h32 >> 16 & 255,
+      h32 >> 8 & 255,
+      h32 & 255,
+      h42 >> 24 & 255,
+      h42 >> 16 & 255,
+      h42 >> 8 & 255,
+      h42 & 255,
+      h52 >> 24 & 255,
+      h52 >> 16 & 255,
+      h52 >> 8 & 255,
+      h52 & 255,
+      h62 >> 24 & 255,
+      h62 >> 16 & 255,
+      h62 >> 8 & 255,
+      h62 & 255
+    ];
+    if (!this.is224) {
+      arr.push(h72 >> 24 & 255, h72 >> 16 & 255, h72 >> 8 & 255, h72 & 255);
+    }
+    return arr;
+  };
+  Sha256.prototype.array = Sha256.prototype.digest;
+  Sha256.prototype.arrayBuffer = function() {
+    this.finalize();
+    var buffer = new ArrayBuffer(this.is224 ? 28 : 32);
+    var dataView = new DataView(buffer);
+    dataView.setUint32(0, this.h0);
+    dataView.setUint32(4, this.h1);
+    dataView.setUint32(8, this.h2);
+    dataView.setUint32(12, this.h3);
+    dataView.setUint32(16, this.h4);
+    dataView.setUint32(20, this.h5);
+    dataView.setUint32(24, this.h6);
+    if (!this.is224) {
+      dataView.setUint32(28, this.h7);
+    }
+    return buffer;
+  };
+  function HmacSha256(key, is224, sharedMemory) {
+    var i22, type = typeof key;
+    if (type === "string") {
+      var bytes = [], length = key.length, index = 0, code2;
+      for (i22 = 0; i22 < length; ++i22) {
+        code2 = key.charCodeAt(i22);
+        if (code2 < 128) {
+          bytes[index++] = code2;
+        } else if (code2 < 2048) {
+          bytes[index++] = 192 | code2 >> 6;
+          bytes[index++] = 128 | code2 & 63;
+        } else if (code2 < 55296 || code2 >= 57344) {
+          bytes[index++] = 224 | code2 >> 12;
+          bytes[index++] = 128 | code2 >> 6 & 63;
+          bytes[index++] = 128 | code2 & 63;
+        } else {
+          code2 = 65536 + ((code2 & 1023) << 10 | key.charCodeAt(++i22) & 1023);
+          bytes[index++] = 240 | code2 >> 18;
+          bytes[index++] = 128 | code2 >> 12 & 63;
+          bytes[index++] = 128 | code2 >> 6 & 63;
+          bytes[index++] = 128 | code2 & 63;
+        }
+      }
+      key = bytes;
+    } else {
+      if (type === "object") {
+        if (key === null) {
+          throw new Error(ERROR);
+        } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
+          key = new Uint8Array(key);
+        } else if (!Array.isArray(key)) {
+          if (!ARRAY_BUFFER || !ArrayBuffer.isView(key)) {
+            throw new Error(ERROR);
+          }
+        }
+      } else {
+        throw new Error(ERROR);
+      }
+    }
+    if (key.length > 64) {
+      key = new Sha256(is224, true).update(key).array();
+    }
+    var oKeyPad = [], iKeyPad = [];
+    for (i22 = 0; i22 < 64; ++i22) {
+      var b11 = key[i22] || 0;
+      oKeyPad[i22] = 92 ^ b11;
+      iKeyPad[i22] = 54 ^ b11;
+    }
+    Sha256.call(this, is224, sharedMemory);
+    this.update(iKeyPad);
+    this.oKeyPad = oKeyPad;
+    this.inner = true;
+    this.sharedMemory = sharedMemory;
+  }
+  HmacSha256.prototype = new Sha256();
+  HmacSha256.prototype.finalize = function() {
+    Sha256.prototype.finalize.call(this);
+    if (this.inner) {
+      this.inner = false;
+      var innerHash = this.array();
+      Sha256.call(this, this.is224, this.sharedMemory);
+      this.update(this.oKeyPad);
+      this.update(innerHash);
+      Sha256.prototype.finalize.call(this);
+    }
+  };
+  var exports = createMethod();
+  exports.sha256 = exports;
+  exports.sha224 = createMethod(true);
+  exports.sha256.hmac = createHmacMethod();
+  exports.sha224.hmac = createHmacMethod(true);
+  var sha256_default = exports;
+
+  // utils/sha256.ts
+  var sha256Fn = sha256_default.sha256;
+  function sha256(message) {
+    return Promise.resolve(sha256Fn(message));
+  }
+  function hex(hashBuffer) {
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map((b11) => b11.toString(16).padStart(2, "0")).join(
+      ""
+    );
+    return hashHex;
+  }
+  function hmacSha256(str, keyString) {
+    const hash = sha256Fn.hmac.create(keyString);
+    hash.update(str);
+    return Promise.resolve(hash.array());
+  }
+  async function hmacSha256ByString(str, keyString) {
+    const sig = await hmacSha256(str, keyString);
+    return hex(sig);
+  }
+  async function hmacSha256ByArrayBuffer(str, keyString) {
+    const buffer = decodeHex(keyString);
+    const sig = await hmacSha256(str, buffer);
+    return hex(sig);
+  }
+  function decodeHex(string) {
+    const bytes = [];
+    string.replace(/../g, function(pair) {
+      bytes.push(parseInt(pair, 16));
+      return "";
+    });
+    return new Uint8Array(bytes).buffer;
+  }
+
   // services/tencent.ts
   var langMap = [
     ["auto", "auto"],
@@ -9471,6 +9948,17 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       const month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0");
       const date = `${dateObj.getUTCDate()}`.padStart(2, "0");
       return `${year}-${month}-${date}`;
+    }
+    static getAllProps() {
+      return [{
+        name: "secretId",
+        required: true,
+        type: "text"
+      }, {
+        name: "secretKey",
+        required: true,
+        type: "password"
+      }];
     }
     async translate(payload) {
       const { text, from, to } = payload;
@@ -9535,14 +10023,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         `host:${host}`,
         "",
         "content-type;host",
-        await sha2562(payload)
+        await sha256(payload)
       ].join("\n");
       const datestamp = _Tencent.getUTCDate(now);
       const StringToSign = [
         "TC3-HMAC-SHA256",
         timestamp,
         `${datestamp}/${service}/tc3_request`,
-        await sha2562(CanonicalRequest)
+        await sha256(CanonicalRequest)
       ].join("\n");
       const SecretDate = await hmacSha256ByString(datestamp, `TC3${secretKey}`);
       const SecretService = await hmacSha256ByArrayBuffer(
@@ -9924,7 +10412,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return await request2(
       {
         method: "POST",
-        url: API_URL,
+        url: API_URL + "?method=LMT_split_text",
         headers,
         body: stringifyJson(data)
       }
@@ -9952,7 +10440,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
     const response = await request2({
       method: "POST",
-      url: API_URL,
+      url: API_URL + "?method=LMT_handle_jobs",
       body: stringifyJson(data),
       headers
     });
@@ -10018,8 +10506,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var _D = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
-      this.maxTextGroupLength = 1e4;
-      this.maxTextLength = 1200;
+      this.maxTextGroupLength = 3;
+      this.maxTextLength = 800;
       this.isSupportList = true;
     }
     async translateList(payload) {
@@ -10042,8 +10530,45 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
+  // services/bai.ts
+  var RAW_LANGUAGES = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["yue", "yue"],
+    ["wyw", "wyw"],
+    ["ja", "jp"],
+    ["ko", "kor"],
+    ["fr", "fra"],
+    ["es", "spa"],
+    ["th", "th"],
+    ["ar", "ara"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["de", "de"],
+    ["it", "it"],
+    ["el", "el"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["bg", "bul"],
+    ["et", "est"],
+    ["da", "dan"],
+    ["fi", "fin"],
+    ["cs", "cs"],
+    ["ro", "rom"],
+    ["sl", "slo"],
+    ["sv", "swe"],
+    ["hu", "hu"],
+    ["zh-TW", "cht"],
+    ["vi", "vie"]
+  ];
+  var langMap4 = new Map(RAW_LANGUAGES);
+  var langMapReverse = new Map(
+    RAW_LANGUAGES.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+
   // services/transmart.ts
-  var langMap4 = [
+  var langMap5 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["zh-TW", "zh-TW"],
@@ -10066,21 +10591,24 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var _Transmart = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
-      this.maxTextGroupLength = 5;
+      this.maxTextGroupLength = 3;
       this.clientKey = btoa(
         "transmart_crx_" + navigator.userAgent
       ).slice(0, 100);
     }
     async translate(payload) {
-      const { text, to } = payload;
+      const { from, text, to } = payload;
       const formatedTo = _Transmart.langMap.get(to);
-      const sourceLanguage = await this.detectLanguage(text);
+      let sourceLanguage = _Transmart.langMap.get(from);
+      if (!(from !== "auto" && sourceLanguage)) {
+        sourceLanguage = await this.detectLanguage(text);
+      }
       const internalFrom = _Transmart.langMapReverse.get(sourceLanguage);
       if (sourceLanguage === formatedTo) {
         return {
           text,
-          from: sourceLanguage,
-          to: formatedTo
+          from: _Transmart.langMapReverse.get(sourceLanguage),
+          to
         };
       }
       const requestPayload = JSON.stringify(
@@ -10112,8 +10640,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       };
     }
     async translateList(payload) {
-      const { text, to } = payload;
-      const sourceLanguage = await this.detectLanguage(text.join("\n"));
+      const { from, text, to } = payload;
+      let sourceLanguage = _Transmart.langMap.get(from);
+      if (!(from !== "auto" && sourceLanguage)) {
+        sourceLanguage = await this.detectLanguage(text.join("\n"));
+      }
       const internalSourceLanguage = _Transmart.langMapReverse.get(
         sourceLanguage
       );
@@ -10174,9 +10705,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   };
   var Transmart = _Transmart;
-  Transmart.langMap = new Map(langMap4);
+  Transmart.langMap = new Map(langMap5);
   Transmart.langMapReverse = new Map(
-    langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+    langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // services/mock.ts
@@ -10211,6 +10742,1248 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   };
 
+  // services/openl.ts
+  var rawLangMap = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"],
+    ["de", "de"],
+    ["fr", "fr"],
+    ["it", "it"],
+    ["es", "es"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["pt", "pt"],
+    ["ru", "ru"]
+  ];
+  var langMap6 = new Map(rawLangMap);
+  var langMapReverse2 = new Map(
+    rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var _Openl = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.apikey = "";
+      this.codename = _Openl.DEFAULT_CODENAME;
+      this.isSupportList = false;
+      this.maxTextGroupLength = 1;
+      if (!serviceConfig || !serviceConfig.apikey) {
+        throw new Error("apikey are required");
+      }
+      this.apikey = serviceConfig.apikey;
+      if (serviceConfig.codename) {
+        this.codename = serviceConfig.codename;
+      }
+    }
+    static getAllProps() {
+      const props = _Openl.getProps();
+      return [
+        ...props,
+        {
+          type: "password",
+          name: "apikey",
+          required: true
+        }
+      ];
+    }
+    static getProps() {
+      return [{
+        type: "select",
+        name: "codename",
+        label: "translationEngine",
+        default: _Openl.DEFAULT_CODENAME,
+        required: false,
+        options: [
+          {
+            label: "translationServices.deepl",
+            value: "deepl"
+          },
+          {
+            label: "translationServices.youdao",
+            value: "youdao"
+          },
+          {
+            label: "translationServices.tencent",
+            value: "tencent"
+          },
+          {
+            label: "translationServices.aliyun",
+            value: "aliyun"
+          },
+          {
+            label: "translationServices.baidu",
+            value: "baidu"
+          },
+          {
+            label: "translationServices.caiyun",
+            value: "caiyun"
+          },
+          {
+            label: "translationServices.wechat",
+            value: "wechat"
+          },
+          {
+            label: "translationServices.azure",
+            value: "azure"
+          },
+          {
+            label: "translationServices.ibm",
+            value: "ibm"
+          },
+          {
+            label: "translationServices.aws",
+            value: "aws"
+          },
+          {
+            label: "translationServices.google",
+            value: "google"
+          }
+        ]
+      }];
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const response = await request2(
+        {
+          url: `https://api.openl.club/services/${this.codename}/translate`,
+          headers: {
+            "content-type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify({
+            apikey: this.apikey,
+            text,
+            source_lang: langMap6.get(from) || "auto",
+            target_lang: langMap6.get(to)
+          })
+        }
+      );
+      if (response.status) {
+        const result = response;
+        return {
+          text: result.result,
+          from: langMapReverse2.get(result.source_lang),
+          to: langMapReverse2.get(result.target_lang)
+        };
+      } else {
+        throw new Error(response.msg);
+      }
+    }
+  };
+  var Openl = _Openl;
+  Openl.DEFAULT_CODENAME = "deepl";
+  var openl_default = Openl;
+
+  // services/deepl.ts
+  var rawLangMap2 = [
+    ["auto", ""],
+    ["zh-CN", "ZH"],
+    ["zh-TW", "ZH"],
+    ["en", "EN"],
+    ["de", "DE"],
+    ["fr", "FR"],
+    ["it", "IT"],
+    ["ja", "JA"],
+    ["es", "ES"],
+    ["nl", "NL"],
+    ["pl", "PL"],
+    ["pt", "PT"],
+    ["ru", "RU"]
+  ];
+  var langMap7 = new Map(rawLangMap2);
+  var langMapReverse3 = new Map(
+    rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Deepl = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.authKey = "";
+      this.maxTextGroupLength = 10;
+      this.maxTextLength = 1200;
+      if (!serviceConfig || !serviceConfig.authKey) {
+        throw new Error("authKey are required");
+      }
+      this.authKey = serviceConfig.authKey;
+    }
+    static getAllProps() {
+      return [{
+        name: "authKey",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { from, to, text } = payload;
+      const bodyParams = {
+        ["source_lang"]: langMap7.get(from),
+        ["target_lang"]: langMap7.get(to)
+      };
+      const bodySearchParams = new URLSearchParams(bodyParams);
+      text.forEach((item) => {
+        bodySearchParams.append("text", item);
+      });
+      const body = bodySearchParams.toString();
+      let deeplEndpoint = "https://api-free.deepl.com/v2/translate";
+      if (!this.authKey.includes(":fx")) {
+        deeplEndpoint = "https://api.deepl.com/v2/translate";
+      }
+      const response = await request2(
+        {
+          url: deeplEndpoint,
+          method: "POST",
+          body,
+          headers: {
+            Authorization: "DeepL-Auth-Key " + this.authKey,
+            "content-type": "application/x-www-form-urlencoded"
+          }
+        }
+      );
+      const { translations: translations2 } = response;
+      const resultText = translations2.map((t18) => t18.text);
+      return {
+        text: resultText,
+        from: translations2[0] && langMapReverse3.get(translations2[0].detected_source_language) || from,
+        to
+      };
+    }
+  };
+  var deepl_default = Deepl;
+
+  // services/volc/sign.ts
+  var unsignableHeaders = [
+    "authorization",
+    "content-type",
+    "content-length",
+    "user-agent",
+    "presigned-expires",
+    "expect"
+  ];
+  var constant = {
+    algorithm: "HMAC-SHA256",
+    v4Identifier: "request",
+    dateHeader: "X-Date",
+    tokenHeader: "X-Security-Token",
+    contentSha256Header: "X-Content-Sha256",
+    notSignBody: "X-NotSignBody",
+    kDatePrefix: "",
+    credential: "X-Credential",
+    algorithmKey: "X-Algorithm",
+    signHeadersKey: "X-SignedHeaders",
+    signQueriesKey: "X-SignedQueries",
+    signatureKey: "X-Signature"
+  };
+  var uriEscape = (str) => {
+    try {
+      return encodeURIComponent(str).replace(/[^A-Za-z0-9_.~\-%]+/g, escape).replace(
+        /[*]/g,
+        (ch) => `%${ch.charCodeAt(0).toString(16).toUpperCase()}`
+      );
+    } catch (e19) {
+      return "";
+    }
+  };
+  var queryParamsToString = (params) => Object.keys(params).map((key) => {
+    const val = params[key];
+    if (typeof val === "undefined" || val === null) {
+      return;
+    }
+    const escapedKey = uriEscape(key);
+    if (!escapedKey) {
+      return;
+    }
+    if (Array.isArray(val)) {
+      return `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}`;
+    }
+    return `${escapedKey}=${uriEscape(val)}`;
+  }).filter((v7) => v7).join("&");
+  var Signer = class {
+    constructor(request3, serviceName, options) {
+      this.request = request3;
+      this.request.headers = request3.headers || {};
+      this.serviceName = serviceName;
+      options = options || {};
+      this.bodySha256 = options.bodySha256;
+      this.request.params = this.sortParams(this.request.params);
+    }
+    sortParams(params) {
+      const newParams = {};
+      if (params) {
+        Object.keys(params).filter((key) => {
+          const value = params[key];
+          return typeof value !== "undefined" && value !== null;
+        }).sort().map((key) => {
+          newParams[key] = params[key];
+        });
+      }
+      return newParams;
+    }
+    async addAuthorization(credentials, date) {
+      const datetime = this.getDateTime(date);
+      await this.addHeaders(credentials, datetime);
+      this.request.headers["Authorization"] = await this.authorization(
+        credentials,
+        datetime
+      );
+    }
+    async authorization(credentials, datetime) {
+      const parts = [];
+      const credString = this.credentialString(datetime);
+      parts.push(
+        `${constant.algorithm} Credential=${credentials.accessKeyId}/${credString}`
+      );
+      parts.push(`SignedHeaders=${this.signedHeaders()}`);
+      parts.push(`Signature=${await this.signature(credentials, datetime)}`);
+      return parts.join(", ");
+    }
+    async getSignUrl(credentials, date) {
+      const datetime = this.getDateTime(date);
+      let query = { ...this.request.params };
+      const params = this.request.params;
+      const headers2 = this.request.headers;
+      if (credentials.sessionToken) {
+        query[constant.tokenHeader] = credentials.sessionToken;
+      }
+      query[constant.dateHeader] = datetime;
+      query[constant.notSignBody] = "";
+      query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`;
+      query[constant.algorithmKey] = constant.algorithm;
+      query[constant.signHeadersKey] = "";
+      query[constant.signQueriesKey] = void 0;
+      query[constant.signatureKey] = void 0;
+      query = this.sortParams(query);
+      this.request.params = query;
+      this.request.headers = {};
+      const sig = await this.signature(credentials, datetime);
+      this.request.params = params;
+      this.request.headers = headers2;
+      query[constant.signQueriesKey] = Object.keys(query).sort().join(";");
+      query[constant.signatureKey] = sig;
+      return queryParamsToString(query);
+    }
+    getDateTime(date) {
+      return this.iso8601(date).replace(/[:\-]|\.\d{3}/g, "");
+    }
+    async addHeaders(credentials, datetime) {
+      this.request.headers[constant.dateHeader] = datetime;
+      if (credentials.sessionToken) {
+        this.request.headers[constant.tokenHeader] = credentials.sessionToken;
+      }
+      if (this.request.body) {
+        let body = this.request.body;
+        this.request.headers[constant.contentSha256Header] = await sha256(body);
+      }
+    }
+    async signature(credentials, datetime) {
+      const signingKey = await this.getSigningKey(
+        credentials,
+        datetime.substr(0, 8),
+        this.request.region,
+        this.serviceName
+      );
+      return hex(await hmacSha256(await this.stringToSign(datetime), signingKey));
+    }
+    async stringToSign(datetime) {
+      const parts = [];
+      parts.push(constant.algorithm);
+      parts.push(datetime);
+      parts.push(this.credentialString(datetime));
+      const x15 = await this.canonicalString();
+      parts.push(
+        await this.hexEncodedHash(x15)
+      );
+      const result = parts.join("\n");
+      return result;
+    }
+    async canonicalString() {
+      const parts = [], pathname = this.request.pathname || "/";
+      parts.push(this.request.method.toUpperCase());
+      parts.push(pathname);
+      const queryString = queryParamsToString(this.request.params) || "";
+      parts.push(queryString);
+      parts.push(`${this.canonicalHeaders()}
+`);
+      parts.push(this.signedHeaders());
+      parts.push(await this.hexEncodedBodyHash());
+      const result = parts.join("\n");
+      return result;
+    }
+    canonicalHeaders() {
+      const headers2 = [];
+      Object.keys(this.request.headers).forEach((key) => {
+        headers2.push([key, this.request.headers[key]]);
+      });
+      headers2.sort((a21, b11) => a21[0].toLowerCase() < b11[0].toLowerCase() ? -1 : 1);
+      const parts = [];
+      headers2.forEach((item) => {
+        const key = item[0].toLowerCase();
+        if (this.isSignableHeader(key)) {
+          const value = item[1];
+          if (typeof value === "undefined" || value === null || typeof value.toString !== "function") {
+            throw new Error(`Header ${key} contains invalid value`);
+          }
+          parts.push(`${key}:${this.canonicalHeaderValues(value.toString())}`);
+        }
+      });
+      return parts.join("\n");
+    }
+    canonicalHeaderValues(values) {
+      return values.replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "");
+    }
+    signedHeaders() {
+      const keys = [];
+      Object.keys(this.request.headers).forEach((key) => {
+        key = key.toLowerCase();
+        if (this.isSignableHeader(key)) {
+          keys.push(key);
+        }
+      });
+      return keys.sort().join(";");
+    }
+    signedQueries() {
+      return Object.keys(this.request.params).join(";");
+    }
+    credentialString(datetime) {
+      return this.createScope(
+        datetime.substr(0, 8),
+        this.request.region,
+        this.serviceName
+      );
+    }
+    async hexEncodedHash(str) {
+      return await sha256(str);
+    }
+    async hexEncodedBodyHash() {
+      if (this.request.headers[constant.contentSha256Header]) {
+        return this.request.headers[constant.contentSha256Header];
+      }
+      if (this.request.body) {
+        return await this.hexEncodedHash(queryParamsToString(this.request.body));
+      }
+      return await this.hexEncodedHash("");
+    }
+    isSignableHeader(key) {
+      return unsignableHeaders.indexOf(key) < 0;
+    }
+    iso8601(date) {
+      if (date === void 0) {
+        date = new Date();
+      }
+      return date.toISOString().replace(/\.\d{3}Z$/, "Z");
+    }
+    async getSigningKey(credentials, date, region, service) {
+      const kDate = await hmacSha256(
+        date,
+        `${constant.kDatePrefix}${credentials.secretKey}`
+      );
+      const kRegion = await hmacSha256(region, kDate);
+      const kService = await hmacSha256(service, kRegion);
+      return hmacSha256(constant.v4Identifier, kService);
+    }
+    createScope(date, region, serviceName) {
+      return [date.substr(0, 8), region, serviceName, constant.v4Identifier].join(
+        "/"
+      );
+    }
+  };
+
+  // services/volc/mod.ts
+  var rawLangMap3 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ];
+  var langMap8 = new Map(rawLangMap3);
+  var langMapReverse4 = new Map(
+    rawLangMap3.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Volc = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.accessKeyId = "";
+      this.secretAccessKey = "";
+      this.maxTextGroupLength = 8;
+      if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey) {
+        throw new Error("accessKeyId and secretAccessKey are required");
+      }
+      this.accessKeyId = serviceConfig.accessKeyId;
+      this.secretAccessKey = serviceConfig.secretAccessKey;
+    }
+    static getAllProps() {
+      return [{
+        name: "accessKeyId",
+        required: true,
+        type: "text"
+      }, {
+        name: "secretAccessKey",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { text, from, to } = payload;
+      const source = text;
+      const requestObj = {
+        region: "cn-north-1",
+        method: "POST",
+        params: {
+          "Action": "TranslateText",
+          "Version": "2020-06-01"
+        },
+        pathname: "/",
+        headers: {
+          "Content-Type": "application/json",
+          "host": "open.volcengineapi.com"
+        },
+        body: JSON.stringify({
+          "SourceLanguage": langMap8.get(from),
+          "TargetLanguage": "zh",
+          "TextList": text
+        })
+      };
+      const signer = new Signer(requestObj, "translate");
+      await signer.addAuthorization({
+        accessKeyId: this.accessKeyId,
+        secretKey: this.secretAccessKey
+      });
+      const urlSearchParams = new URLSearchParams(requestObj.params);
+      const response = await request2(
+        {
+          url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
+          headers: signer.request.headers,
+          method: requestObj.method,
+          body: requestObj.body
+        }
+      );
+      if (response.TranslationList) {
+        const resultText = response.TranslationList.map((item) => item.Translation);
+        let remoteFrom = from;
+        if (response.TranslationList.length > 0) {
+          if (response.TranslationList[0].DetectedSourceLanguage) {
+            remoteFrom = langMapReverse4.get(
+              response.TranslationList[0].DetectedSourceLanguage
+            ) || from;
+          }
+        }
+        return {
+          text: resultText,
+          from: remoteFrom,
+          to
+        };
+      } else {
+        const error = response.ResponseMetadata.Error;
+        throw new CommonError(error.Code, error.Message);
+      }
+    }
+  };
+  var mod_default = Volc;
+
+  // utils/md5.js
+  function safeAdd(x15, y11) {
+    var lsw = (x15 & 65535) + (y11 & 65535);
+    var msw = (x15 >> 16) + (y11 >> 16) + (lsw >> 16);
+    return msw << 16 | lsw & 65535;
+  }
+  function bitRotateLeft(num, cnt) {
+    return num << cnt | num >>> 32 - cnt;
+  }
+  function md5cmn(q7, a21, b11, x15, s21, t18) {
+    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a21, q7), safeAdd(x15, t18)), s21), b11);
+  }
+  function md5ff(a21, b11, c28, d17, x15, s21, t18) {
+    return md5cmn(b11 & c28 | ~b11 & d17, a21, b11, x15, s21, t18);
+  }
+  function md5gg(a21, b11, c28, d17, x15, s21, t18) {
+    return md5cmn(b11 & d17 | c28 & ~d17, a21, b11, x15, s21, t18);
+  }
+  function md5hh(a21, b11, c28, d17, x15, s21, t18) {
+    return md5cmn(b11 ^ c28 ^ d17, a21, b11, x15, s21, t18);
+  }
+  function md5ii(a21, b11, c28, d17, x15, s21, t18) {
+    return md5cmn(c28 ^ (b11 | ~d17), a21, b11, x15, s21, t18);
+  }
+  function binlMD5(x15, len) {
+    x15[len >> 5] |= 128 << len % 32;
+    x15[(len + 64 >>> 9 << 4) + 14] = len;
+    var i22;
+    var olda;
+    var oldb;
+    var oldc;
+    var oldd;
+    var a21 = 1732584193;
+    var b11 = -271733879;
+    var c28 = -1732584194;
+    var d17 = 271733878;
+    for (i22 = 0; i22 < x15.length; i22 += 16) {
+      olda = a21;
+      oldb = b11;
+      oldc = c28;
+      oldd = d17;
+      a21 = md5ff(a21, b11, c28, d17, x15[i22], 7, -680876936);
+      d17 = md5ff(d17, a21, b11, c28, x15[i22 + 1], 12, -389564586);
+      c28 = md5ff(c28, d17, a21, b11, x15[i22 + 2], 17, 606105819);
+      b11 = md5ff(b11, c28, d17, a21, x15[i22 + 3], 22, -1044525330);
+      a21 = md5ff(a21, b11, c28, d17, x15[i22 + 4], 7, -176418897);
+      d17 = md5ff(d17, a21, b11, c28, x15[i22 + 5], 12, 1200080426);
+      c28 = md5ff(c28, d17, a21, b11, x15[i22 + 6], 17, -1473231341);
+      b11 = md5ff(b11, c28, d17, a21, x15[i22 + 7], 22, -45705983);
+      a21 = md5ff(a21, b11, c28, d17, x15[i22 + 8], 7, 1770035416);
+      d17 = md5ff(d17, a21, b11, c28, x15[i22 + 9], 12, -1958414417);
+      c28 = md5ff(c28, d17, a21, b11, x15[i22 + 10], 17, -42063);
+      b11 = md5ff(b11, c28, d17, a21, x15[i22 + 11], 22, -1990404162);
+      a21 = md5ff(a21, b11, c28, d17, x15[i22 + 12], 7, 1804603682);
+      d17 = md5ff(d17, a21, b11, c28, x15[i22 + 13], 12, -40341101);
+      c28 = md5ff(c28, d17, a21, b11, x15[i22 + 14], 17, -1502002290);
+      b11 = md5ff(b11, c28, d17, a21, x15[i22 + 15], 22, 1236535329);
+      a21 = md5gg(a21, b11, c28, d17, x15[i22 + 1], 5, -165796510);
+      d17 = md5gg(d17, a21, b11, c28, x15[i22 + 6], 9, -1069501632);
+      c28 = md5gg(c28, d17, a21, b11, x15[i22 + 11], 14, 643717713);
+      b11 = md5gg(b11, c28, d17, a21, x15[i22], 20, -373897302);
+      a21 = md5gg(a21, b11, c28, d17, x15[i22 + 5], 5, -701558691);
+      d17 = md5gg(d17, a21, b11, c28, x15[i22 + 10], 9, 38016083);
+      c28 = md5gg(c28, d17, a21, b11, x15[i22 + 15], 14, -660478335);
+      b11 = md5gg(b11, c28, d17, a21, x15[i22 + 4], 20, -405537848);
+      a21 = md5gg(a21, b11, c28, d17, x15[i22 + 9], 5, 568446438);
+      d17 = md5gg(d17, a21, b11, c28, x15[i22 + 14], 9, -1019803690);
+      c28 = md5gg(c28, d17, a21, b11, x15[i22 + 3], 14, -187363961);
+      b11 = md5gg(b11, c28, d17, a21, x15[i22 + 8], 20, 1163531501);
+      a21 = md5gg(a21, b11, c28, d17, x15[i22 + 13], 5, -1444681467);
+      d17 = md5gg(d17, a21, b11, c28, x15[i22 + 2], 9, -51403784);
+      c28 = md5gg(c28, d17, a21, b11, x15[i22 + 7], 14, 1735328473);
+      b11 = md5gg(b11, c28, d17, a21, x15[i22 + 12], 20, -1926607734);
+      a21 = md5hh(a21, b11, c28, d17, x15[i22 + 5], 4, -378558);
+      d17 = md5hh(d17, a21, b11, c28, x15[i22 + 8], 11, -2022574463);
+      c28 = md5hh(c28, d17, a21, b11, x15[i22 + 11], 16, 1839030562);
+      b11 = md5hh(b11, c28, d17, a21, x15[i22 + 14], 23, -35309556);
+      a21 = md5hh(a21, b11, c28, d17, x15[i22 + 1], 4, -1530992060);
+      d17 = md5hh(d17, a21, b11, c28, x15[i22 + 4], 11, 1272893353);
+      c28 = md5hh(c28, d17, a21, b11, x15[i22 + 7], 16, -155497632);
+      b11 = md5hh(b11, c28, d17, a21, x15[i22 + 10], 23, -1094730640);
+      a21 = md5hh(a21, b11, c28, d17, x15[i22 + 13], 4, 681279174);
+      d17 = md5hh(d17, a21, b11, c28, x15[i22], 11, -358537222);
+      c28 = md5hh(c28, d17, a21, b11, x15[i22 + 3], 16, -722521979);
+      b11 = md5hh(b11, c28, d17, a21, x15[i22 + 6], 23, 76029189);
+      a21 = md5hh(a21, b11, c28, d17, x15[i22 + 9], 4, -640364487);
+      d17 = md5hh(d17, a21, b11, c28, x15[i22 + 12], 11, -421815835);
+      c28 = md5hh(c28, d17, a21, b11, x15[i22 + 15], 16, 530742520);
+      b11 = md5hh(b11, c28, d17, a21, x15[i22 + 2], 23, -995338651);
+      a21 = md5ii(a21, b11, c28, d17, x15[i22], 6, -198630844);
+      d17 = md5ii(d17, a21, b11, c28, x15[i22 + 7], 10, 1126891415);
+      c28 = md5ii(c28, d17, a21, b11, x15[i22 + 14], 15, -1416354905);
+      b11 = md5ii(b11, c28, d17, a21, x15[i22 + 5], 21, -57434055);
+      a21 = md5ii(a21, b11, c28, d17, x15[i22 + 12], 6, 1700485571);
+      d17 = md5ii(d17, a21, b11, c28, x15[i22 + 3], 10, -1894986606);
+      c28 = md5ii(c28, d17, a21, b11, x15[i22 + 10], 15, -1051523);
+      b11 = md5ii(b11, c28, d17, a21, x15[i22 + 1], 21, -2054922799);
+      a21 = md5ii(a21, b11, c28, d17, x15[i22 + 8], 6, 1873313359);
+      d17 = md5ii(d17, a21, b11, c28, x15[i22 + 15], 10, -30611744);
+      c28 = md5ii(c28, d17, a21, b11, x15[i22 + 6], 15, -1560198380);
+      b11 = md5ii(b11, c28, d17, a21, x15[i22 + 13], 21, 1309151649);
+      a21 = md5ii(a21, b11, c28, d17, x15[i22 + 4], 6, -145523070);
+      d17 = md5ii(d17, a21, b11, c28, x15[i22 + 11], 10, -1120210379);
+      c28 = md5ii(c28, d17, a21, b11, x15[i22 + 2], 15, 718787259);
+      b11 = md5ii(b11, c28, d17, a21, x15[i22 + 9], 21, -343485551);
+      a21 = safeAdd(a21, olda);
+      b11 = safeAdd(b11, oldb);
+      c28 = safeAdd(c28, oldc);
+      d17 = safeAdd(d17, oldd);
+    }
+    return [a21, b11, c28, d17];
+  }
+  function binl2rstr(input) {
+    var i22;
+    var output = "";
+    var length32 = input.length * 32;
+    for (i22 = 0; i22 < length32; i22 += 8) {
+      output += String.fromCharCode(input[i22 >> 5] >>> i22 % 32 & 255);
+    }
+    return output;
+  }
+  function rstr2binl(input) {
+    var i22;
+    var output = [];
+    output[(input.length >> 2) - 1] = void 0;
+    for (i22 = 0; i22 < output.length; i22 += 1) {
+      output[i22] = 0;
+    }
+    var length8 = input.length * 8;
+    for (i22 = 0; i22 < length8; i22 += 8) {
+      output[i22 >> 5] |= (input.charCodeAt(i22 / 8) & 255) << i22 % 32;
+    }
+    return output;
+  }
+  function rstrMD5(s21) {
+    return binl2rstr(binlMD5(rstr2binl(s21), s21.length * 8));
+  }
+  function rstrHMACMD5(key, data) {
+    var i22;
+    var bkey = rstr2binl(key);
+    var ipad = [];
+    var opad = [];
+    var hash;
+    ipad[15] = opad[15] = void 0;
+    if (bkey.length > 16) {
+      bkey = binlMD5(bkey, key.length * 8);
+    }
+    for (i22 = 0; i22 < 16; i22 += 1) {
+      ipad[i22] = bkey[i22] ^ 909522486;
+      opad[i22] = bkey[i22] ^ 1549556828;
+    }
+    hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8);
+    return binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
+  }
+  function rstr2hex(input) {
+    var hexTab = "0123456789abcdef";
+    var output = "";
+    var x15;
+    var i22;
+    for (i22 = 0; i22 < input.length; i22 += 1) {
+      x15 = input.charCodeAt(i22);
+      output += hexTab.charAt(x15 >>> 4 & 15) + hexTab.charAt(x15 & 15);
+    }
+    return output;
+  }
+  function str2rstrUTF8(input) {
+    return unescape(encodeURIComponent(input));
+  }
+  function rawMD5(s21) {
+    return rstrMD5(str2rstrUTF8(s21));
+  }
+  function hexMD5(s21) {
+    return rstr2hex(rawMD5(s21));
+  }
+  function rawHMACMD5(k8, d17) {
+    return rstrHMACMD5(str2rstrUTF8(k8), str2rstrUTF8(d17));
+  }
+  function hexHMACMD5(k8, d17) {
+    return rstr2hex(rawHMACMD5(k8, d17));
+  }
+  function md5(string, key, raw) {
+    if (!key) {
+      if (!raw) {
+        return hexMD5(string);
+      }
+      return rawMD5(string);
+    }
+    if (!raw) {
+      return hexHMACMD5(key, string);
+    }
+    return rawHMACMD5(key, string);
+  }
+
+  // services/bing/api.js
+  var TRANSLATE_API_ROOT = "https://{s}bing.com";
+  var TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator";
+  var TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3";
+  var TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3";
+  var globalConfigStorageKey = "bingGlobalConfig";
+  var rawLangMap4 = [
+    ["auto", "auto-detect"],
+    ["ar", "ar"],
+    ["ga", "ga"],
+    ["et", "et"],
+    ["bg", "bg"],
+    ["is", "is"],
+    ["pl", "pl"],
+    ["bs", "bs-Latn"],
+    ["fa", "fa"],
+    ["da", "da"],
+    ["de", "de"],
+    ["ru", "ru"],
+    ["fr", "fr"],
+    ["zh-TW", "zh-Hant"],
+    ["fil", "fil"],
+    ["fj", "fj"],
+    ["fi", "fi"],
+    ["gu", "gu"],
+    ["kk", "kk"],
+    ["ht", "ht"],
+    ["ko", "ko"],
+    ["nl", "nl"],
+    ["ca", "ca"],
+    ["zh-CN", "zh-Hans"],
+    ["cs", "cs"],
+    ["kn", "kn"],
+    ["otq", "otq"],
+    ["tlh", "tlh"],
+    ["hr", "hr"],
+    ["lv", "lv"],
+    ["lt", "lt"],
+    ["ro", "ro"],
+    ["mg", "mg"],
+    ["mt", "mt"],
+    ["mr", "mr"],
+    ["ml", "ml"],
+    ["ms", "ms"],
+    ["mi", "mi"],
+    ["bn", "bn-BD"],
+    ["hmn", "mww"],
+    ["af", "af"],
+    ["pa", "pa"],
+    ["pt", "pt"],
+    ["ps", "ps"],
+    ["ja", "ja"],
+    ["sv", "sv"],
+    ["sm", "sm"],
+    ["sr-Latn", "sr-Latn"],
+    ["sr-Cyrl", "sr-Cyrl"],
+    ["no", "nb"],
+    ["sk", "sk"],
+    ["sl", "sl"],
+    ["sw", "sw"],
+    ["ty", "ty"],
+    ["te", "te"],
+    ["ta", "ta"],
+    ["th", "th"],
+    ["to", "to"],
+    ["tr", "tr"],
+    ["cy", "cy"],
+    ["ur", "ur"],
+    ["uk", "uk"],
+    ["es", "es"],
+    ["he", "iw"],
+    ["el", "el"],
+    ["hu", "hu"],
+    ["it", "it"],
+    ["hi", "hi"],
+    ["id", "id"],
+    ["en", "en"],
+    ["yua", "yua"],
+    ["yue", "yua"],
+    ["vi", "vi"],
+    ["ku", "ku"],
+    ["km", "kmr"]
+  ];
+  var langMap9 = new Map(rawLangMap4);
+  var langMapReverse5 = new Map(
+    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var MAX_TEXT_LEN = 1e3;
+  var globalConfig;
+  var globalConfigPromise;
+  function replaceSubdomain(url, subdomain) {
+    return url.replace("{s}", subdomain ? subdomain + "." : "");
+  }
+  async function isTokenExpired() {
+    if (!globalConfig) {
+      const storageValue = await browserAPI.storage.local.get(
+        globalConfigStorageKey
+      );
+      if (storageValue) {
+        globalConfig = storageValue[globalConfigStorageKey];
+      }
+      return true;
+    }
+    const { tokenTs, tokenExpiryInterval } = globalConfig;
+    return Date.now() - tokenTs > tokenExpiryInterval;
+  }
+  async function fetchGlobalConfig() {
+    let subdomain;
+    let IG;
+    let IID;
+    let token;
+    let key;
+    let tokenExpiryInterval;
+    let isVertical;
+    let frontDoorBotClassification;
+    let isSignedInOrCorporateUser;
+    let cookie;
+    try {
+      const finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain);
+      const response = await request2({
+        url: finalUrl,
+        responseType: "raw"
+      });
+      const { body, headers: headers2, url } = response;
+      subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1];
+      cookie = headers2["set-cookie"];
+      IG = body.match(/IG:"([^"]+)"/)[1];
+      IID = body.match(/data-iid="([^"]+)"/)[1];
+      [
+        key,
+        token,
+        tokenExpiryInterval,
+        isVertical,
+        frontDoorBotClassification,
+        isSignedInOrCorporateUser
+      ] = JSON.parse(
+        body.match(/params_RichTranslateHelper\s?=\s?([^\]]+\])/)[1]
+      );
+    } catch (e19) {
+      console.error("failed to fetch global config", e19);
+      throw e19;
+    }
+    globalConfig = {
+      subdomain,
+      IG,
+      IID,
+      key,
+      token,
+      tokenTs: key,
+      tokenExpiryInterval,
+      isVertical,
+      frontDoorBotClassification,
+      isSignedInOrCorporateUser,
+      cookie,
+      count: 0
+    };
+    await browserAPI.storage.local.set({
+      [globalConfigStorageKey]: globalConfig
+    });
+    return globalConfig;
+  }
+  function makeRequestURL(isSpellCheck) {
+    const { IG, IID, subdomain, isVertical } = globalConfig;
+    return replaceSubdomain(
+      isSpellCheck ? TRANSLATE_SPELL_CHECK_API : TRANSLATE_API,
+      subdomain
+    ) + "?isVertical=" + +isVertical + (IG && IG.length ? "&IG=" + IG : "") + (IID && IID.length ? "&IID=" + IID + "." + globalConfig.count++ : "");
+  }
+  function makeRequestBody(isSpellCheck, text, fromLang, toLang) {
+    const { token, key } = globalConfig;
+    const body = {
+      fromLang,
+      text,
+      token,
+      key
+    };
+    if (!isSpellCheck && toLang) {
+      body.to = toLang;
+    }
+    return body;
+  }
+  async function translate2(text, from, to) {
+    if (!text || !(text = text.trim())) {
+      return;
+    }
+    if (text.length > MAX_TEXT_LEN) {
+      throw new Error(
+        `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
+      );
+    }
+    if (!globalConfigPromise) {
+      globalConfigPromise = fetchGlobalConfig();
+    }
+    await globalConfigPromise;
+    const isTokenExpiredValue = await isTokenExpired();
+    if (isTokenExpiredValue) {
+      globalConfigPromise = fetchGlobalConfig();
+      await globalConfigPromise;
+    }
+    from = from || "auto";
+    to = to || "zh-CN";
+    from = langMap9.get(from) || from;
+    to = langMap9.get(to) || to;
+    const requestURL = makeRequestURL(false);
+    const requestBody = makeRequestBody(
+      false,
+      text,
+      from,
+      to === "auto-detect" ? "zh-Hans" : to
+    );
+    const requestHeaders = {
+      referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
+      "content-type": "application/x-www-form-urlencoded"
+    };
+    const searchParams = new URLSearchParams(requestBody);
+    const finalUrl = requestURL;
+    const requestBodyString = searchParams.toString();
+    const body = await request2({
+      url: finalUrl,
+      headers: requestHeaders,
+      method: "POST",
+      body: requestBodyString
+    });
+    if (body.ShowCaptcha || body.StatusCode === 401 || body.statusCode) {
+      globalConfig = null;
+      globalConfigPromise = null;
+      await browserAPI.storage.local.remove(globalConfigStorageKey);
+      if (body.ShowCaptcha) {
+        throw new Error(`
+      Sorry that bing translator seems to be asking for the captcha,
+      Please take care not to request too frequently.
+      The response code is ${body.StatusCode}.
+    `);
+      }
+      if (body.StatusCode === 401) {
+        throw new Error(`
+      Max count of translation exceeded. Please try it again later.
+      The response code is 401.
+    `);
+      }
+      if (body.statusCode) {
+        throw new Error(
+          `Something went wrong! The response is ${JSON.stringify(body)}.`
+        );
+      }
+    }
+    const translation = body[0].translations[0];
+    const detectedLang = body[0].detectedLanguage;
+    const res = {
+      text: translation.text,
+      from: langMapReverse5.get(detectedLang.language),
+      to: langMapReverse5.get(translation.to)
+    };
+    return res;
+  }
+
+  // services/bing/mod.ts
+  var Bing = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.isSupportList = false;
+      this.maxTextLength = 1e3;
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      if (!text)
+        return { ...payload };
+      const result = await translate2(text, from, to);
+      return result;
+    }
+  };
+
+  // services/baidu.ts
+  var rawLangMap5 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["yue", "yue"],
+    ["wyw", "wyw"],
+    ["ja", "jp"],
+    ["ko", "kor"],
+    ["fr", "fra"],
+    ["es", "spa"],
+    ["th", "th"],
+    ["ar", "ara"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["de", "de"],
+    ["it", "it"],
+    ["el", "el"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["bg", "bul"],
+    ["et", "est"],
+    ["da", "dan"],
+    ["fi", "fin"],
+    ["cs", "cs"],
+    ["ro", "rom"],
+    ["sl", "slo"],
+    ["sv", "swe"],
+    ["hu", "hu"],
+    ["zh-TW", "cht"],
+    ["vi", "vie"]
+  ];
+  var langMap10 = new Map(rawLangMap5);
+  var langMapReverse6 = new Map(
+    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var Baidu = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.endpoint = "https://api.fanyi.baidu.com/api/trans/vip/translate";
+      this.appid = "";
+      this.key = "";
+      this.isSupportList = false;
+      if (!serviceConfig || !serviceConfig.appid || !serviceConfig.key) {
+        throw new Error("appid and key are required");
+      }
+      this.appid = serviceConfig.appid;
+      this.key = serviceConfig.key;
+    }
+    static getAllProps() {
+      return [{
+        name: "appid",
+        required: true,
+        type: "text"
+      }, {
+        name: "key",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translate(payload) {
+      const salt = Date.now().toString();
+      const { endpoint } = this;
+      const { appid, key } = this;
+      const { text, from, to } = payload;
+      const params = new URLSearchParams({
+        from: langMap10.get(from),
+        to: langMap10.get(to),
+        q: text,
+        salt,
+        appid,
+        sign: md5(appid + text + salt + key)
+      });
+      const urlObj = new URL(endpoint);
+      urlObj.search = params.toString();
+      const data = await request2(
+        {
+          url: urlObj.toString()
+        }
+      );
+      if (data.error_code) {
+        console.error(
+          new Error("[Baidu service]" + data.error_msg)
+        );
+        throw new CommonError("API_SERVER_ERROR", data.error_msg);
+      }
+      const {
+        trans_result: transResult,
+        from: langDetected
+      } = data;
+      const transParagraphs = transResult.map(({ dst }) => dst);
+      const detectedFrom = langMapReverse6.get(langDetected);
+      return {
+        from: detectedFrom,
+        to,
+        text: transParagraphs.join("\n")
+      };
+    }
+  };
+  var baidu_default = Baidu;
+
+  // services/caiyun.ts
+  var rawLangMap6 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ];
+  var langMap11 = new Map(rawLangMap6);
+  var Caiyun = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.token = "";
+      if (!serviceConfig || !serviceConfig.token) {
+        throw new Error("token are required");
+      }
+      this.token = serviceConfig.token;
+    }
+    static getAllProps() {
+      return [{
+        name: "token",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translateList(payload) {
+      const { text, from, to } = payload;
+      const source = text;
+      const response = await request2(
+        {
+          url: "https://api.interpreter.caiyunai.com/v1/translator",
+          headers: {
+            "content-type": "application/json",
+            "x-authorization": "token " + this.token
+          },
+          method: "POST",
+          body: JSON.stringify({
+            source,
+            trans_type: `${langMap11.get(from)}2${langMap11.get(to)}`
+          })
+        }
+      );
+      const result = response;
+      return {
+        text: result.target,
+        from,
+        to
+      };
+    }
+  };
+  var caiyun_default = Caiyun;
+
+  // services/youdao.ts
+  var rawLangMap7 = [
+    ["auto", "auto"],
+    ["en", "en"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["es", "es"],
+    ["zh-CN", "zh-CHS"],
+    ["ja", "ja"],
+    ["ko", "ko"],
+    ["fr", "fr"],
+    ["ar", "ar"],
+    ["id", "id"],
+    ["vi", "vi"],
+    ["it", "it"]
+  ];
+  var langMap12 = new Map(rawLangMap7);
+  var langMapReverse7 = new Map(
+    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  function truncate(q7) {
+    const len = q7.length;
+    if (len <= 20)
+      return q7;
+    return q7.substring(0, 10) + len + q7.substring(len - 10, len);
+  }
+  var Youdao = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.isSupportList = false;
+      this.appId = "";
+      this.appSecret = "";
+      if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret) {
+        throw new Error("appId and appSecret are required");
+      }
+      this.appId = serviceConfig.appId;
+      this.appSecret = serviceConfig.appSecret;
+    }
+    static getAllProps() {
+      return [{
+        name: "appId",
+        required: true,
+        type: "text"
+      }, {
+        name: "appSecret",
+        required: true,
+        type: "password"
+      }];
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const salt = new Date().getTime();
+      const curTime = Math.round(new Date().getTime() / 1e3);
+      const str1 = this.appId + truncate(text) + salt + curTime + this.appSecret;
+      const sign = await sha256(str1);
+      const params = {
+        q: text,
+        appKey: this.appId,
+        salt: salt.toString(),
+        from: langMap12.get(from),
+        to: langMap12.get(to),
+        sign,
+        signType: "v3",
+        curtime: curTime.toString()
+      };
+      const urlSearchParams = new URLSearchParams(params);
+      const res = await request2(
+        {
+          url: "https://openapi.youdao.com/api",
+          method: "POST",
+          body: urlSearchParams.toString(),
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        }
+      );
+      const result = res;
+      const l22 = result.l;
+      const [remoteFrom, _3] = l22.split("2");
+      return {
+        text: result.translation.join("\n"),
+        from: langMapReverse7.get(remoteFrom),
+        to
+      };
+    }
+  };
+  var youdao_default = Youdao;
+
   // services/mod.ts
   var TranslationServices = {
     mock: {
@@ -10218,20 +11991,55 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       name: "Mock",
       homepage: "https://www.google.com"
     },
-    tencent: {
-      class: Tencent,
-      name: "Tencent",
-      homepage: "https://fanyi.qq.com/"
-    },
     google: {
       class: Google,
       name: "Google",
       homepage: "https://translate.google.com/"
     },
+    deepl: {
+      class: deepl_default,
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator"
+    },
     transmart: {
       class: Transmart,
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
+    },
+    bing: {
+      class: Bing,
+      name: "Bing",
+      homepage: "https://www.bing.com/translator"
+    },
+    caiyun: {
+      class: caiyun_default,
+      name: "Caiyun",
+      homepage: "https://fanyi.caiyunapp.com/"
+    },
+    tencent: {
+      class: Tencent,
+      name: "Tencent",
+      homepage: "https://fanyi.qq.com/"
+    },
+    baidu: {
+      class: baidu_default,
+      name: "Baidu",
+      homepage: "https://fanyi.baidu.com/"
+    },
+    volc: {
+      class: mod_default,
+      name: "Volc",
+      homepage: "https://www.volcengine.com/"
+    },
+    openl: {
+      class: openl_default,
+      name: "Openl",
+      homepage: "https://openl.org/"
+    },
+    youdao: {
+      class: youdao_default,
+      name: "Youdao",
+      homepage: "https://fanyi.youdao.com/"
     },
     d: {
       class: D7,
@@ -10244,9 +12052,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const service = TranslationServices[key];
     const translationConfig = ctx.config.translationServices[key] || {};
     let ok = true;
-    if (key === "tencent") {
-      if (!translationConfig.secretId || !translationConfig.secretKey) {
-        ok = false;
+    const allProps = service.class.getAllProps();
+    if (allProps.length > 0) {
+      const requiredProps = allProps.filter((prop) => prop.required);
+      if (requiredProps.length > 0) {
+        for (const prop of requiredProps) {
+          if (!translationConfig[prop.name]) {
+            ok = false;
+            break;
+          }
+        }
       }
     }
     return {
@@ -10254,7 +12069,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       id: key,
       selected: ctx.translationService === key,
       ok,
-      config: translationConfig
+      config: translationConfig,
+      props: service.class.getProps(),
+      allProps
     };
   }
   var allServiceKeys = Object.keys(
@@ -10282,9 +12099,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (!sentence.text) {
       return sentence;
     }
-    if (sentence.from === "und") {
-      sentence.from = "auto";
-    }
     const result = await translateMultipleSentences(
       {
         sentences: [sentence]
@@ -10311,9 +12125,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const defaultTranslationEngine = translationService;
     const serviceConfig = services[defaultTranslationEngine] || {};
     payload.sentences = payload.sentences.map((sentence) => {
-      if (sentence.from === "und") {
-        sentence.from = "auto";
-      }
       return sentence;
     });
     const noCacheSentences = [];
@@ -10322,26 +12133,34 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     };
     const sourceLength = payload.sentences.length;
     let sentenceIndex = -1;
-    for (const sentence of payload.sentences) {
-      sentenceIndex++;
-      const res = await queryDb({
-        originalText: sentence.text,
-        from: sentence.from,
-        to: sentence.to,
-        service: defaultTranslationEngine
-      });
-      if (res) {
-        const result = {
-          ...sentence,
-          text: res.translatedText
-        };
-        finalResult.sentences[sentenceIndex] = result;
-        if (everySentenceCallback) {
-          everySentenceCallback(null, result);
+    if (config.cache) {
+      for (const sentence of payload.sentences) {
+        sentenceIndex++;
+        let cacheServiceKey = defaultTranslationEngine;
+        if (defaultTranslationEngine === "openl") {
+          cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME;
         }
-      } else {
-        noCacheSentences.push(sentence);
+        const res = await queryDb({
+          originalText: sentence.text,
+          from: sentence.from,
+          to: sentence.to,
+          service: cacheServiceKey
+        });
+        if (res) {
+          const result = {
+            ...sentence,
+            text: res.translatedText
+          };
+          finalResult.sentences[sentenceIndex] = result;
+          if (everySentenceCallback) {
+            everySentenceCallback(null, result);
+          }
+        } else {
+          noCacheSentences.push(sentence);
+        }
       }
+    } else {
+      noCacheSentences.push(...payload.sentences);
     }
     const resultLength = noCacheSentences.length;
     if (sourceLength - resultLength > 0) {
@@ -10364,15 +12183,19 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     let resultIndex = -1;
     for (const sentence of noCacheResult.sentences) {
       resultIndex++;
-      if (defaultTranslationEngine !== "mock") {
+      if (defaultTranslationEngine !== "mock" && config.cache) {
+        let cacheServiceKey = defaultTranslationEngine;
+        if (defaultTranslationEngine === "openl") {
+          cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME;
+        }
         await setDbStore(
           {
             translatedText: sentence.text,
             from: noCacheSentences[resultIndex].from,
             to: noCacheSentences[resultIndex].to,
             detectedFrom: sentence.from,
-            key: await stringToSHA1String(noCacheSentences[resultIndex].text),
-            service: defaultTranslationEngine
+            key: md5(noCacheSentences[resultIndex].text),
+            service: cacheServiceKey
           }
         );
       }
@@ -10403,6 +12226,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     const urlObj = new URL(rawUrl);
     urlObj.hash = "";
+    urlObj.search = "";
     const url = urlObj.href;
     const hostname2 = urlObj.hostname;
     if (matches && matches.length > 0) {
@@ -10439,15 +12263,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           const pathname = validUrlObj.pathname;
           const protocol = validUrlObj.protocol;
           const port = validUrlObj.port;
-          const regex2 = makeRegExp(
+          const regex = makeRegExp(
             scheme + ":",
             restorePlaceholderToWildcard(hostname3),
             restorePlaceholderToWildcard(pathname)
           );
-          if (regex2) {
+          if (regex) {
             const clonedUrl = new URL(url);
             clonedUrl.port = "";
-            return regex2.test(clonedUrl.href);
+            return regex.test(clonedUrl.href);
           } else {
             return false;
           }
@@ -10463,38 +12287,38 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return str.replace(placeholder, "*");
   }
   function makeRegExp(scheme, host, path) {
-    let regex2 = "^";
+    let regex = "^";
     if (scheme === "*:") {
-      regex2 += "(http:|https:|file:)";
+      regex += "(http:|https:|file:)";
     } else {
-      regex2 += scheme;
+      regex += scheme;
     }
-    regex2 += "//";
+    regex += "//";
     if (host) {
       if (host === "*") {
-        regex2 += "[^/]+?";
+        regex += "[^/]+?";
       } else {
         if (host.match(/^\*\./)) {
-          regex2 += "[^/]*?";
+          regex += "[^/]*?";
           host = host.substring(2);
         }
-        regex2 += host.replace(/\./g, "\\.").replace(/\*/g, "[^/]*");
+        regex += host.replace(/\./g, "\\.").replace(/\*/g, "[^/]*");
       }
     }
     if (path) {
       if (path === "*" || path === "/*") {
-        regex2 += "(/.*)?";
+        regex += "(/.*)?";
       } else if (path.includes("*")) {
-        regex2 += path.replace(/\*/g, ".*?");
-        regex2 += "/?";
+        regex += path.replace(/\*/g, ".*?");
+        regex += "/?";
       } else {
-        regex2 += "/?";
+        regex += "/?";
       }
     } else {
-      regex2 += "/?";
+      regex += "/?";
     }
-    regex2 += "$";
-    return new RegExp(regex2);
+    regex += "$";
+    return new RegExp(regex);
   }
   function isMatchUrl(url, rawMatches) {
     return getMatchedUrl(url, rawMatches) !== null;
@@ -10545,9 +12369,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     const defaultTargetLanguage = targetLanguage || "zh-CN";
     const hostname2 = urlObj.hostname;
-    const encryptedHostname = await sha2562(hostname2);
+    const encryptedHostname = await sha256(hostname2);
     const pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash;
-    const encryptedPath = await sha2562(pathAndQueryAndHash);
+    const encryptedPath = await sha256(pathAndQueryAndHash);
     const encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`;
     const ctx = {
       targetLanguage: defaultTargetLanguage,
@@ -10873,7 +12697,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       config: await getConfig2()
     };
     const ctx = await getContext(options);
-    const currentLang = getCurrentPageLanguage();
+    let currentLang = getCurrentPageLanguage();
+    if (ctx.isDetectParagraphLanguage) {
+      currentLang = await detectLanguage({ text: paragraph.text });
+    }
     const sentence = {
       id: paragraph.id,
       text: paragraph.text,
@@ -10894,7 +12721,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       const wrapper = document.getElementById(
         `${translationTargetElementWrapperClass}-${wrapperId}`
       );
-      const errorHtml = `<span class="${brandId}-error notranslate"> <button class="${brandId}-clickable-button notranslate" title="${err.message}">\u2757</button> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+      const errorMessage = err.message.replaceAll("\n", "");
+      const errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button><span class="immersive-translate-tooltip-text"">${errorMessage}</span></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
       if (wrapper) {
         wrapper.innerHTML = errorHtml;
       }
@@ -10922,7 +12750,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     const ids = [...currentParagraphIds];
     currentParagraphIds = [];
-    const currentLang = getCurrentPageLanguage();
+    const currentPageLang = getCurrentPageLanguage();
     const payload = {
       sentences: ids.filter((id) => getParagraph(id)).map((id) => {
         const paragraph = getParagraph(id);
@@ -10930,11 +12758,18 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           id: paragraph.id,
           url: ctx.encryptedUrl,
           text: paragraph.text,
-          from: currentLang,
+          from: currentPageLang,
           to: ctx.targetLanguage
         };
       })
     };
+    if (ctx.isDetectParagraphLanguage) {
+      for (let i22 = 0; i22 < payload.sentences.length; i22++) {
+        const sentence = payload.sentences[i22];
+        const lang = await detectLanguage({ text: sentence.text });
+        sentence.from = lang;
+      }
+    }
     const sentenceLength = payload.sentences.length;
     if (sentenceLength > 0) {
       pageStatus = "Translating";
@@ -11059,7 +12894,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       });
       allIntersectionObserver = [];
     });
-    let lang = "und";
+    let lang = "auto";
     if (!isMonkey()) {
       lang = await detectTabLanguage();
     } else {
@@ -11067,7 +12902,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         text: getMainText(document.body).slice(0, 1e3)
       });
     }
-    if (lang === "und") {
+    if (lang === "auto") {
       lang = await detectPageLanguage();
     }
     setCurrentPageLanguage(lang);
@@ -11101,13 +12936,50 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // content_message_listeners.ts
   function setupMessageListeners() {
-    toggleTranslateStream.subscribe(async () => {
+    toggleTranslateStream.subscribe(async ([_3, __, cb]) => {
       log_default.debug(`received toggleTranslate`);
-      await toggleTranslatePage();
+      try {
+        await toggleTranslatePage();
+        cb({
+          ok: true
+        });
+      } catch (e19) {
+        cb({
+          ok: false,
+          message: e19.message,
+          error: e19.name
+        });
+      }
     });
-    pageTranslateStream.subscribe(async () => {
+    pageTranslateStream.subscribe(async ([_3, __, cb]) => {
       log_default.debug(`received pageTranslate`);
-      await translatePage();
+      try {
+        await translatePage();
+        cb({
+          ok: true
+        });
+      } catch (e19) {
+        cb({
+          ok: false,
+          message: e19.message,
+          error: e19.name
+        });
+      }
+    });
+    pageRestoreStream.subscribe(([_3, __, cb]) => {
+      log_default.debug(`received pageRestore`);
+      try {
+        restorePage();
+        cb({
+          ok: true
+        });
+      } catch (e19) {
+        cb({
+          ok: false,
+          message: e19.message,
+          error: e19.name
+        });
+      }
     });
     getPageTranslatedStatusStream.subscribe(([_3, __, cb]) => {
       log_default.debug(`received getPageTranslatedStatus`);
@@ -11315,11 +13187,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       config,
       url: globalThis.location.href
     });
-    if (ctx.isTranslateExcludeUrl) {
-      if (isWebOptionsPage()) {
-        log_default.debug("detect web options page");
-        setupWebOptionsPage();
-      }
+    if (ctx.isTranslateExcludeUrl && isWebOptionsPage()) {
+      log_default.debug("detect web options page");
+      setupWebOptionsPage();
     } else {
       const isUserscript = isMonkey();
       if (!isUserscript) {
@@ -11335,14 +13205,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       } else {
         log_default.setLevel("info");
       }
-      checkCronAndRunOnce();
-      await initPage();
+      if (!ctx.isTranslateExcludeUrl) {
+        checkCronAndRunOnce();
+        await initPage();
+      }
     }
   }
 
   // libs/preact-translation/utils.ts
-  function getResourceUrl(root, lang) {
-    return [root, !root || root.endsWith("/") ? "" : "/", lang, ".json"].join("");
+  function getResourceUrl(root2, lang) {
+    return [root2, !root2 || root2.endsWith("/") ? "" : "/", lang, ".json"].join("");
   }
   function format(str, params) {
     let result = str;
@@ -11470,165 +13342,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
   };
 
-  // static/locales/zh-CN.json
-  var zh_CN_default = {
-    "general": "\u57FA\u672C\u8BBE\u7F6E",
-    "reset": "\u91CD\u7F6E",
-    "close": "\u5173\u95ED",
-    "homepage": "\u4E3B\u9875",
-    "options": "\u9009\u9879",
-    "about": "\u5173\u4E8E",
-    "service": "\u7FFB\u8BD1\u670D\u52A1",
-    "target": "\u76EE\u6807\u8BED\u8A00",
-    "add": "\u6DFB\u52A0",
-    "edit": "\u7F16\u8F91",
-    "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
-    "select translation service": "\u9009\u62E9\u4E00\u4E2A\u670D\u52A1\u4F5C\u4E3A\u7FFB\u8BD1\u670D\u52A1",
-    "language": "\u8BED\u8A00",
-    "show-original": "\u663E\u793A\u539F\u6587",
-    "translate": "\u7FFB\u8BD1",
-    "Translated": "\u5DF2\u7FFB\u8BD1",
-    "Translating": "\u7FFB\u8BD1\u4E2D",
-    "Error": "\u9519\u8BEF",
-    "translationServices": {
-      "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
-      "google": "\u8C37\u6B4C\u7FFB\u8BD1",
-      "mock": "\u6A21\u62DF\u7FFB\u8BD1",
-      "transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
-      "d": "Deepl(Alpha)"
-    },
-    "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
-    "always translated languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
-    "automatically translated to the target language when the language is the following": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
-    "always translated sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
-    "automatically translated to the target language when the domain name is the following": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
-    "never translated sites": "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u7F51\u5740",
-    "it will not be translated when the site is the following domain name": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
-    "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details": "\u7B2C\u4E09\u65B9\u7FFB\u8BD1\u670D\u52A1\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-    "confirm": "\u4FDD\u5B58",
-    "languages": {
-      "af": "\u5357\u975E\u8377\u5170\u8BED",
-      "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
-      "ar": "\u963F\u62C9\u4F2F\u8BED",
-      "auto": "\u68C0\u6D4B\u8BED\u8A00",
-      "und": "\u672A\u77E5\u8BED\u8A00",
-      "az": "\u963F\u585E\u62DC\u7586\u8BED",
-      "be": "\u767D\u4FC4\u7F57\u65AF\u8BED",
-      "bg": "\u4FDD\u52A0\u5229\u4E9A\u8BED",
-      "bn": "\u5B5F\u52A0\u62C9\u8BED",
-      "bs": "\u6CE2\u65AF\u5C3C\u4E9A\u8BED",
-      "ca": "\u52A0\u6CF0\u7F57\u5C3C\u4E9A\u8BED",
-      "ceb": "\u5BBF\u52A1\u8BED",
-      "co": "\u79D1\u897F\u5609\u8BED",
-      "cs": "\u6377\u514B\u8BED",
-      "cy": "\u5A01\u5C14\u58EB\u8BED",
-      "da": "\u4E39\u9EA6\u8BED",
-      "de": "\u5FB7\u8BED",
-      "el": "\u5E0C\u814A\u8BED",
-      "en": "\u82F1\u8BED",
-      "eo": "\u4E16\u754C\u8BED",
-      "es": "\u897F\u73ED\u7259\u8BED",
-      "et": "\u7231\u6C99\u5C3C\u4E9A\u8BED",
-      "eu": "\u5DF4\u65AF\u514B\u8BED",
-      "fa": "\u6CE2\u65AF\u8BED",
-      "fi": "\u82AC\u5170\u8BED",
-      "fil": "\u83F2\u5F8B\u5BBE\u8BED",
-      "fj": "\u6590\u6D4E\u8BED",
-      "fr": "\u6CD5\u8BED",
-      "fy": "\u5F17\u91CC\u65AF\u5170\u8BED",
-      "ga": "\u7231\u5C14\u5170\u8BED",
-      "gd": "\u82CF\u683C\u5170\u76D6\u5C14\u8BED",
-      "gl": "\u52A0\u5229\u897F\u4E9A\u8BED",
-      "gu": "\u53E4\u5409\u62C9\u7279\u8BED",
-      "ha": "\u8C6A\u8428\u8BED",
-      "haw": "\u590F\u5A01\u5937\u8BED",
-      "he": "\u5E0C\u4F2F\u6765\u8BED",
-      "hi": "\u5370\u5730\u8BED",
-      "hmn": "\u82D7\u8BED",
-      "hr": "\u514B\u7F57\u5730\u4E9A\u8BED",
-      "ht": "\u6D77\u5730\u514B\u91CC\u5965\u5C14\u8BED",
-      "hu": "\u5308\u7259\u5229\u8BED",
-      "hy": "\u4E9A\u7F8E\u5C3C\u4E9A\u8BED",
-      "id": "\u5370\u5EA6\u5C3C\u897F\u4E9A\u8BED",
-      "ig": "\u4F0A\u535A\u8BED",
-      "is": "\u51B0\u5C9B\u8BED",
-      "it": "\u610F\u5927\u5229\u8BED",
-      "ja": "\u65E5\u8BED",
-      "jw": "\u722A\u54C7\u8BED",
-      "ka": "\u683C\u9C81\u5409\u4E9A\u8BED",
-      "kk": "\u54C8\u8428\u514B\u8BED",
-      "km": "\u9AD8\u68C9\u8BED",
-      "kn": "\u5361\u7EB3\u8FBE\u8BED",
-      "ko": "\u97E9\u8BED",
-      "ku": "\u5E93\u5C14\u5FB7\u8BED",
-      "ky": "\u5409\u5C14\u5409\u65AF\u8BED",
-      "la": "\u62C9\u4E01\u8BED",
-      "lb": "\u5362\u68EE\u5821\u8BED",
-      "lo": "\u8001\u631D\u8BED",
-      "lt": "\u7ACB\u9676\u5B9B\u8BED",
-      "lv": "\u62C9\u8131\u7EF4\u4E9A\u8BED",
-      "mg": "\u9A6C\u5C14\u52A0\u4EC0\u8BED",
-      "mi": "\u6BDB\u5229\u8BED",
-      "mk": "\u9A6C\u5176\u987F\u8BED",
-      "ml": "\u9A6C\u62C9\u96C5\u62C9\u59C6\u8BED",
-      "mn": "\u8499\u53E4\u8BED",
-      "mr": "\u9A6C\u62C9\u5730\u8BED",
-      "ms": "\u9A6C\u6765\u8BED",
-      "mt": "\u9A6C\u8033\u4ED6\u8BED",
-      "mww": "\u767D\u82D7\u6587",
-      "my": "\u7F05\u7538\u8BED",
-      "ne": "\u5C3C\u6CCA\u5C14\u8BED",
-      "nl": "\u8377\u5170\u8BED",
-      "no": "\u632A\u5A01\u8BED",
-      "ny": "\u5C3C\u6768\u624E\u8BED\uFF08\u9F50\u5207\u74E6\u8BED\uFF09",
-      "otq": "\u514B\u96F7\u5854\u7F57\u5965\u6258\u7C73\u8BED",
-      "pa": "\u65C1\u906E\u666E\u8BED",
-      "pl": "\u6CE2\u5170\u8BED",
-      "ps": "\u666E\u4EC0\u56FE\u8BED",
-      "pt": "\u8461\u8404\u7259\u8BED\uFF08\u8461\u8404\u7259\u3001\u5DF4\u897F\uFF09",
-      "ro": "\u7F57\u9A6C\u5C3C\u4E9A\u8BED",
-      "ru": "\u4FC4\u8BED",
-      "sd": "\u4FE1\u5FB7\u8BED",
-      "si": "\u50E7\u4F3D\u7F57\u8BED",
-      "sk": "\u65AF\u6D1B\u4F10\u514B\u8BED",
-      "sl": "\u65AF\u6D1B\u6587\u5C3C\u4E9A\u8BED",
-      "sm": "\u8428\u6469\u4E9A\u8BED",
-      "sn": "\u4FEE\u7EB3\u8BED",
-      "so": "\u7D22\u9A6C\u91CC\u8BED",
-      "sq": "\u963F\u5C14\u5DF4\u5C3C\u4E9A\u8BED",
-      "sr": "\u585E\u5C14\u7EF4\u4E9A\u8BED",
-      "sr-Cyrl": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u897F\u91CC\u5C14\u6587)",
-      "sr-Latn": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u62C9\u4E01\u6587)",
-      "st": "\u585E\u7D22\u6258\u8BED",
-      "su": "\u5DFD\u4ED6\u8BED",
-      "sv": "\u745E\u5178\u8BED",
-      "sw": "\u65AF\u74E6\u5E0C\u91CC\u8BED",
-      "ta": "\u6CF0\u7C73\u5C14\u8BED",
-      "te": "\u6CF0\u5362\u56FA\u8BED",
-      "tg": "\u5854\u5409\u514B\u8BED",
-      "th": "\u6CF0\u8BED",
-      "tlh": "\u514B\u6797\u8D21\u8BED",
-      "tlh-Qaak": "\u514B\u6797\u8D21\u8BED(piqaD)",
-      "to": "\u6C64\u52A0\u8BED",
-      "tr": "\u571F\u8033\u5176\u8BED",
-      "ty": "\u5854\u5E0C\u63D0\u8BED",
-      "ug": "\u7EF4\u543E\u5C14\u8BED",
-      "uk": "\u4E4C\u514B\u5170\u8BED",
-      "ur": "\u4E4C\u5C14\u90FD\u8BED",
-      "uz": "\u4E4C\u5179\u522B\u514B\u8BED",
-      "vi": "\u8D8A\u5357\u8BED",
-      "wyw": "\u6587\u8A00\u6587",
-      "xh": "\u73ED\u56FE\u8BED",
-      "yi": "\u610F\u7B2C\u7EEA\u8BED",
-      "yo": "\u7EA6\u9C81\u5DF4\u8BED",
-      "yua": "\u5C24\u5361\u5766\u739B\u96C5\u8BED",
-      "yue": "\u7CA4\u8BED\uFF08\u7E41\u4F53\uFF09",
-      "zh-CN": "\u4E2D\u6587\uFF08\u7B80\u4F53\uFF09",
-      "zh-TW": "\u4E2D\u6587\uFF08\u7E41\u4F53\uFF09",
-      "zu": "\u7956\u9C81\u8BED"
-    }
-  };
-
   // utils/click-multiple-times.ts
   function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
     return (cb) => {
@@ -11668,16 +13381,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // hooks/use_outside_click.tsx
-  function useOutsideAlerter(ref, root, callback) {
+  function useOutsideAlerter(ref, root2, callback) {
     j3(() => {
       function handleClickOutside(event) {
         if (ref && ref.current && !ref.current.contains(event.target)) {
           callback();
         }
       }
-      root.addEventListener("mousedown", handleClickOutside);
+      root2.addEventListener("mousedown", handleClickOutside);
       return () => {
-        root.removeEventListener("mousedown", handleClickOutside);
+        root2.removeEventListener("mousedown", handleClickOutside);
       };
     }, [ref]);
   }
@@ -11685,11 +13398,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   // components/select_link.tsx
   function SelectLink(props) {
     const items = props.items;
-    const root = props.root;
+    const root2 = props.root;
+    let { size } = props;
+    if (!size) {
+      size = "sm";
+    }
     const [open, setOpen] = P2(false);
     const selectRef = w3(null);
     const aRef = w3(null);
-    useOutsideAlerter(selectRef, root || document, () => {
+    useOutsideAlerter(selectRef, root2 || document, () => {
       setOpen(false);
       if (aRef.current) {
         aRef.current.blur();
@@ -11708,27 +13425,26 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       setOpen(targetState);
     };
     return /* @__PURE__ */ p21("nav", {
-      class: "inline-block text-sm",
+      class: `inline-block text-${size}`,
       ref: selectRef,
       children: /* @__PURE__ */ p21("li", {
-        class: `py-0 select-link ${open ? "select-link-active" : ""}`,
+        class: `py-0 select-link text-${size} ${open ? "select-link-active" : ""}`,
         role: "list",
         children: [
           /* @__PURE__ */ p21("a", {
             ref: aRef,
+            class: `text-${size}`,
             href: "#",
             onClick: handleToggle,
             children: checkedItem.label
           }),
           /* @__PURE__ */ p21("ul", {
-            class: "select-link-ul max-h-28 overflow-y-scroll ",
+            class: "select-link-ul max-h-30 overflow-y-scroll ",
             role: "listbox",
-            children: items.filter((item) => {
-              return !item.selected;
-            }).map((item, index) => {
+            children: items.map((item, index) => {
               return /* @__PURE__ */ p21("li", {
                 children: /* @__PURE__ */ p21("a", {
-                  class: "text-sm",
+                  class: `text-${size} ${item.selected ? "select-link-selected" : ""}`,
                   href: "#",
                   onClick: (e19) => {
                     e19.preventDefault();
@@ -11750,6 +13466,44 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return M2(TranslateContext);
   }
 
+  // components/popup_field.tsx
+  function PopupField(props) {
+    let { size, field, root: root2, onChange, value } = props;
+    value = value || field.default || "";
+    const { t: t18 } = useI18n();
+    if (field.type === "select") {
+      return /* @__PURE__ */ p21("div", {
+        class: "flex justify-between mb-2",
+        children: [
+          /* @__PURE__ */ p21("label", {
+            class: "inline-block",
+            children: [
+              field.label ? t18(field.label) : field.name,
+              "\uFF1A"
+            ]
+          }),
+          /* @__PURE__ */ p21(SelectLink, {
+            root: root2,
+            size,
+            items: field.options.map(
+              (fieldOption) => {
+                return {
+                  label: `${fieldOption.label ? t18(fieldOption.label) : fieldOption.value}`,
+                  value,
+                  selected: value === fieldOption.value,
+                  onSelected: () => {
+                    onChange(fieldOption.value);
+                  }
+                };
+              }
+            )
+          })
+        ]
+      });
+    }
+    return null;
+  }
+
   // components/popup.tsx
   var version = getVersion();
   function Popup(props) {
@@ -11758,8 +13512,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       pageStatus: pageStatus2,
       config,
       onSetPageLanguage,
-      root,
+      root: root2,
       onToggleTranslate,
+      onRestorePage,
       ctx,
       currentUrl,
       currentLang,
@@ -11773,12 +13528,21 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     let isNeverTranslateUrl = null;
     let isAlwaysTranslateLang = null;
     let isNeverTranslateLang = null;
-    let curentTranslationService = null;
+    let curentTranslationServiceItem = null;
     let currentUrlObj = null;
+    let currentTranslationServiceConfig = null;
     if (config) {
-      const { translationService, translationUrlPattern } = config;
+      const { translationService, translationServices, translationUrlPattern } = config;
       if (TranslationServices[translationService]) {
-        curentTranslationService = TranslationServices[translationService];
+        curentTranslationServiceItem = formatTranslationService(
+          translationService,
+          ctx
+        );
+      }
+      if (translationServices && translationServices[translationService]) {
+        currentTranslationServiceConfig = translationServices[translationService] || {};
+      } else {
+        currentTranslationServiceConfig = {};
       }
       if (currentUrl && isValidHtmlUrl(currentUrl)) {
         currentUrlObj = new URL(currentUrl);
@@ -11795,7 +13559,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         }
       }
     }
-    if (config && currentLang !== "und") {
+    if (config && currentLang !== "auto") {
       const { translationLanguagePattern } = config;
       const { matches, excludeMatches } = translationLanguagePattern;
       if (matches.includes(currentLang)) {
@@ -11812,11 +13576,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     const handleOpenOptions = (e19) => {
       e19.preventDefault();
       browserAPI.runtime.openOptionsPage();
-      onClose();
-    };
-    const handleOpenHomepage = (e19) => {
-      e19.preventDefault();
-      globalThis.open(homepage, "_blank");
       onClose();
     };
     const handleToggleAlpha = (_e3) => {
@@ -11943,9 +13702,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     let translationServiceItems = [];
     if (ctx) {
-      translationServiceItems = getTranslationServices(ctx).filter(
-        (item) => item.ok
-      );
+      translationServiceItems = getTranslationServices(ctx);
     }
     const handleClosePopup = () => {
       onClose();
@@ -11964,7 +13721,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   children: "\u6E90\u8BED\u8A00\uFF1A"
                 }),
                 /* @__PURE__ */ p21(SelectLink, {
-                  root,
+                  root: root2,
                   items: languages.map((code2) => {
                     return {
                       label: t18(`languages.${code2}`),
@@ -11986,7 +13743,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   children: "\u76EE\u6807\u8BED\u8A00\uFF1A"
                 }),
                 /* @__PURE__ */ p21(SelectLink, {
-                  root,
+                  root: root2,
                   items: languages.map((code2) => {
                     return {
                       label: t18(`languages.${code2}`),
@@ -12005,40 +13762,90 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                 })
               ]
             }),
-            curentTranslationService && translationServiceItems.length > 0 && /* @__PURE__ */ p21("div", {
-              class: "flex justify-between mb-2",
+            curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p21(L, {
               children: [
-                /* @__PURE__ */ p21("label", {
-                  class: "inline-block",
-                  children: "\u7FFB\u8BD1\u670D\u52A1\uFF1A"
-                }),
-                /* @__PURE__ */ p21(SelectLink, {
-                  root,
-                  items: translationServiceItems.map(
-                    (translationServiceItem) => {
-                      return {
-                        label: `${t18("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : "(\u53BB\u8BBE\u7F6E)"}`,
-                        value: translationServiceItem.id,
-                        selected: translationServiceItem.selected,
-                        onSelected: (option) => {
-                          const selectedItem = translationServiceItems.find(
-                            (item) => item.id === option.value
-                          );
-                          if (selectedItem.ok) {
-                            setSettings((state) => {
-                              return {
-                                ...state,
-                                translationService: selectedItem.id
-                              };
-                            });
-                            setTimeout(() => {
-                              onTranslatePage();
-                            }, 1);
-                          }
+                /* @__PURE__ */ p21("div", {
+                  class: "flex justify-between mb-2",
+                  children: [
+                    /* @__PURE__ */ p21("label", {
+                      class: "inline-block",
+                      children: "\u7FFB\u8BD1\u670D\u52A1\uFF1A"
+                    }),
+                    /* @__PURE__ */ p21(SelectLink, {
+                      root: root2,
+                      items: translationServiceItems.map(
+                        (translationServiceItem) => {
+                          return {
+                            label: `${t18("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " (\u53BB\u8BBE\u7F6E)"}`,
+                            value: translationServiceItem.id,
+                            selected: translationServiceItem.selected,
+                            onSelected: (option) => {
+                              const selectedItem = translationServiceItems.find(
+                                (item) => item.id === option.value
+                              );
+                              if (selectedItem.ok) {
+                                setSettings((state) => {
+                                  return {
+                                    ...state,
+                                    translationService: selectedItem.id
+                                  };
+                                });
+                                setTimeout(() => {
+                                  onRestorePage();
+                                }, 1);
+                                if (selectedItem.props.length === 0) {
+                                  setTimeout(() => {
+                                    onTranslatePage();
+                                  }, 1);
+                                }
+                              } else {
+                                setSettings((state) => {
+                                  return {
+                                    ...state,
+                                    translationService: selectedItem.id
+                                  };
+                                });
+                                setTimeout(() => {
+                                  browserAPI.runtime.openOptionsPage();
+                                  onClose();
+                                }, 100);
+                              }
+                            }
+                          };
                         }
-                      };
-                    }
-                  )
+                      )
+                    })
+                  ]
+                }),
+                currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => {
+                  return /* @__PURE__ */ p21("div", {
+                    class: "pl-4 text-sm",
+                    children: /* @__PURE__ */ p21(PopupField, {
+                      root: root2,
+                      size: "sm",
+                      field: prop,
+                      value: currentTranslationServiceConfig[prop.name],
+                      onChange: (value) => {
+                        setSettings((state) => {
+                          const currentServices = state.translationServices || {};
+                          const currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
+                          setTimeout(() => {
+                            onRestorePage();
+                          }, 1);
+                          return {
+                            ...state,
+                            translationServices: {
+                              ...currentServices,
+                              [curentTranslationServiceItem.id]: {
+                                ...currentServiceConfig,
+                                [prop.name]: value
+                              }
+                            }
+                          };
+                        });
+                      }
+                    }, "field-" + index)
+                  });
                 })
               ]
             }),
@@ -12050,7 +13857,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   children: "\u5BF9\u4E8E\u8BE5\u7F51\u7AD9\uFF1A"
                 }),
                 /* @__PURE__ */ p21(SelectLink, {
-                  root,
+                  root: root2,
                   items: [{
                     label: "\u9ED8\u8BA4",
                     value: null,
@@ -12070,7 +13877,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                 })
               ]
             }),
-            isAlwaysTranslateLang !== null && isNeverTranslateLang !== null && currentLang !== "und" && currentLang !== "auto" && /* @__PURE__ */ p21("div", {
+            isAlwaysTranslateLang !== null && isNeverTranslateLang !== null && currentLang !== "auto" && /* @__PURE__ */ p21("div", {
               class: "flex justify-between mb-2",
               children: [
                 /* @__PURE__ */ p21("label", {
@@ -12082,7 +13889,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                   ]
                 }),
                 /* @__PURE__ */ p21(SelectLink, {
-                  root,
+                  root: root2,
                   items: [{
                     label: "\u9ED8\u8BA4",
                     value: null,
@@ -12233,14 +14040,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // userscript/popup_app.tsx
   function PopupApp(props) {
-    const { root, onClose } = props;
+    const { root: root2, onClose } = props;
     const [pageStatus2, setPageStatus] = P2("Original");
     const [settings, setSettings, _isPersistent, _error] = useUserConfig();
     const [config, setConfig] = P2(null);
     const [currentUrl, setCurrentUrl] = P2(
       globalThis.location.href
     );
-    const [currentLang, setCurrentLang] = P2("und");
+    const [currentLang, setCurrentLang] = P2("auto");
     const [ctx, setContext] = P2(null);
     const onToggleTranslate = (event) => {
       setPageStatus(event.detail);
@@ -12290,6 +14097,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       translatePage();
       onClose();
     };
+    const handleRestorePage = () => {
+      restorePage();
+    };
     const handleToggleTranslatePage = () => {
       toggleTranslatePage();
       onClose();
@@ -12301,10 +14111,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       return null;
     }
     return /* @__PURE__ */ p21(Popup, {
-      root,
+      root: root2,
       onClose: handleClose,
       onToggleTranslate: handleToggleTranslatePage,
       onTranslatePage: handleTranslatePage,
+      onRestorePage: handleRestorePage,
       onSetPageLanguage,
       onUserConfigChange: setSettings,
       config,
@@ -12315,13 +14126,189 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
   }
 
-  // userscript/popup_entry.tsx
+  // static/locales/zh-CN.json
+  var zh_CN_default = {
+    "general": "\u57FA\u672C\u8BBE\u7F6E",
+    "reset": "\u91CD\u7F6E",
+    "close": "\u5173\u95ED",
+    "homepage": "\u4E3B\u9875",
+    "options": "\u9009\u9879",
+    "about": "\u5173\u4E8E",
+    "service": "\u7FFB\u8BD1\u670D\u52A1",
+    "translationEngine": "\u5F15\u64CE\u9009\u9879",
+    "target": "\u76EE\u6807\u8BED\u8A00",
+    "add": "\u6DFB\u52A0",
+    "edit": "\u7F16\u8F91",
+    "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
+    "select translation service": "\u9009\u62E9\u4E00\u4E2A\u670D\u52A1\u4F5C\u4E3A\u7FFB\u8BD1\u670D\u52A1",
+    "language": "\u8BED\u8A00",
+    "show-original": "\u663E\u793A\u539F\u6587",
+    "translate": "\u7FFB\u8BD1",
+    "Translated": "\u5DF2\u7FFB\u8BD1",
+    "Translating": "\u7FFB\u8BD1\u4E2D",
+    "Error": "\u9519\u8BEF",
+    "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translationServices": {
+      "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
+      "google": "\u8C37\u6B4C\u7FFB\u8BD1",
+      "bai": "\u767E\u5EA6(Alpha)",
+      "baidu": "\u767E\u5EA6\u7FFB\u8BD1",
+      "aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
+      "volc": "\u706B\u5C71\u7FFB\u8BD1",
+      "bing": "\u5FC5\u5E94\u7FFB\u8BD1",
+      "deepl": "Deepl",
+      "wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
+      "azure": "\u5FAE\u8F6F\u7FFB\u8BD1",
+      "ibm": "IBM Watson",
+      "aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
+      "mock": "\u6A21\u62DF\u7FFB\u8BD1",
+      "caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+      "openl": "OpenL",
+      "youdao": "\u6709\u9053\u7FFB\u8BD1",
+      "transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
+      "d": "Deepl(Alpha)"
+    },
+    "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
+    "always translated languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
+    "automatically translated to the target language when the language is the following": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "always translated sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "automatically translated to the target language when the domain name is the following": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "never translated sites": "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "it will not be translated when the site is the following domain name": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
+    "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details": "\u7B2C\u4E09\u65B9\u7FFB\u8BD1\u670D\u52A1\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
+    "confirm": "\u4FDD\u5B58",
+    "languages": {
+      "af": "\u5357\u975E\u8377\u5170\u8BED",
+      "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
+      "ar": "\u963F\u62C9\u4F2F\u8BED",
+      "auto": "\u68C0\u6D4B\u8BED\u8A00",
+      "az": "\u963F\u585E\u62DC\u7586\u8BED",
+      "be": "\u767D\u4FC4\u7F57\u65AF\u8BED",
+      "bg": "\u4FDD\u52A0\u5229\u4E9A\u8BED",
+      "bn": "\u5B5F\u52A0\u62C9\u8BED",
+      "bs": "\u6CE2\u65AF\u5C3C\u4E9A\u8BED",
+      "ca": "\u52A0\u6CF0\u7F57\u5C3C\u4E9A\u8BED",
+      "ceb": "\u5BBF\u52A1\u8BED",
+      "co": "\u79D1\u897F\u5609\u8BED",
+      "cs": "\u6377\u514B\u8BED",
+      "cy": "\u5A01\u5C14\u58EB\u8BED",
+      "da": "\u4E39\u9EA6\u8BED",
+      "de": "\u5FB7\u8BED",
+      "el": "\u5E0C\u814A\u8BED",
+      "en": "\u82F1\u8BED",
+      "eo": "\u4E16\u754C\u8BED",
+      "es": "\u897F\u73ED\u7259\u8BED",
+      "et": "\u7231\u6C99\u5C3C\u4E9A\u8BED",
+      "eu": "\u5DF4\u65AF\u514B\u8BED",
+      "fa": "\u6CE2\u65AF\u8BED",
+      "fi": "\u82AC\u5170\u8BED",
+      "fil": "\u83F2\u5F8B\u5BBE\u8BED",
+      "fj": "\u6590\u6D4E\u8BED",
+      "fr": "\u6CD5\u8BED",
+      "fy": "\u5F17\u91CC\u65AF\u5170\u8BED",
+      "ga": "\u7231\u5C14\u5170\u8BED",
+      "gd": "\u82CF\u683C\u5170\u76D6\u5C14\u8BED",
+      "gl": "\u52A0\u5229\u897F\u4E9A\u8BED",
+      "gu": "\u53E4\u5409\u62C9\u7279\u8BED",
+      "ha": "\u8C6A\u8428\u8BED",
+      "haw": "\u590F\u5A01\u5937\u8BED",
+      "he": "\u5E0C\u4F2F\u6765\u8BED",
+      "hi": "\u5370\u5730\u8BED",
+      "hmn": "\u82D7\u8BED",
+      "hr": "\u514B\u7F57\u5730\u4E9A\u8BED",
+      "ht": "\u6D77\u5730\u514B\u91CC\u5965\u5C14\u8BED",
+      "hu": "\u5308\u7259\u5229\u8BED",
+      "hy": "\u4E9A\u7F8E\u5C3C\u4E9A\u8BED",
+      "id": "\u5370\u5EA6\u5C3C\u897F\u4E9A\u8BED",
+      "ig": "\u4F0A\u535A\u8BED",
+      "is": "\u51B0\u5C9B\u8BED",
+      "it": "\u610F\u5927\u5229\u8BED",
+      "ja": "\u65E5\u8BED",
+      "jw": "\u722A\u54C7\u8BED",
+      "ka": "\u683C\u9C81\u5409\u4E9A\u8BED",
+      "kk": "\u54C8\u8428\u514B\u8BED",
+      "km": "\u9AD8\u68C9\u8BED",
+      "kn": "\u5361\u7EB3\u8FBE\u8BED",
+      "ko": "\u97E9\u8BED",
+      "ku": "\u5E93\u5C14\u5FB7\u8BED",
+      "ky": "\u5409\u5C14\u5409\u65AF\u8BED",
+      "la": "\u62C9\u4E01\u8BED",
+      "lb": "\u5362\u68EE\u5821\u8BED",
+      "lo": "\u8001\u631D\u8BED",
+      "lt": "\u7ACB\u9676\u5B9B\u8BED",
+      "lv": "\u62C9\u8131\u7EF4\u4E9A\u8BED",
+      "mg": "\u9A6C\u5C14\u52A0\u4EC0\u8BED",
+      "mi": "\u6BDB\u5229\u8BED",
+      "mk": "\u9A6C\u5176\u987F\u8BED",
+      "ml": "\u9A6C\u62C9\u96C5\u62C9\u59C6\u8BED",
+      "mn": "\u8499\u53E4\u8BED",
+      "mr": "\u9A6C\u62C9\u5730\u8BED",
+      "ms": "\u9A6C\u6765\u8BED",
+      "mt": "\u9A6C\u8033\u4ED6\u8BED",
+      "mww": "\u767D\u82D7\u6587",
+      "my": "\u7F05\u7538\u8BED",
+      "ne": "\u5C3C\u6CCA\u5C14\u8BED",
+      "nl": "\u8377\u5170\u8BED",
+      "no": "\u632A\u5A01\u8BED",
+      "ny": "\u5C3C\u6768\u624E\u8BED\uFF08\u9F50\u5207\u74E6\u8BED\uFF09",
+      "otq": "\u514B\u96F7\u5854\u7F57\u5965\u6258\u7C73\u8BED",
+      "pa": "\u65C1\u906E\u666E\u8BED",
+      "pl": "\u6CE2\u5170\u8BED",
+      "ps": "\u666E\u4EC0\u56FE\u8BED",
+      "pt": "\u8461\u8404\u7259\u8BED\uFF08\u8461\u8404\u7259\u3001\u5DF4\u897F\uFF09",
+      "ro": "\u7F57\u9A6C\u5C3C\u4E9A\u8BED",
+      "ru": "\u4FC4\u8BED",
+      "sd": "\u4FE1\u5FB7\u8BED",
+      "si": "\u50E7\u4F3D\u7F57\u8BED",
+      "sk": "\u65AF\u6D1B\u4F10\u514B\u8BED",
+      "sl": "\u65AF\u6D1B\u6587\u5C3C\u4E9A\u8BED",
+      "sm": "\u8428\u6469\u4E9A\u8BED",
+      "sn": "\u4FEE\u7EB3\u8BED",
+      "so": "\u7D22\u9A6C\u91CC\u8BED",
+      "sq": "\u963F\u5C14\u5DF4\u5C3C\u4E9A\u8BED",
+      "sr": "\u585E\u5C14\u7EF4\u4E9A\u8BED",
+      "sr-Cyrl": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u897F\u91CC\u5C14\u6587)",
+      "sr-Latn": "\u585E\u5C14\u7EF4\u4E9A\u8BED(\u62C9\u4E01\u6587)",
+      "st": "\u585E\u7D22\u6258\u8BED",
+      "su": "\u5DFD\u4ED6\u8BED",
+      "sv": "\u745E\u5178\u8BED",
+      "sw": "\u65AF\u74E6\u5E0C\u91CC\u8BED",
+      "ta": "\u6CF0\u7C73\u5C14\u8BED",
+      "te": "\u6CF0\u5362\u56FA\u8BED",
+      "tg": "\u5854\u5409\u514B\u8BED",
+      "th": "\u6CF0\u8BED",
+      "tlh": "\u514B\u6797\u8D21\u8BED",
+      "tlh-Qaak": "\u514B\u6797\u8D21\u8BED(piqaD)",
+      "to": "\u6C64\u52A0\u8BED",
+      "tr": "\u571F\u8033\u5176\u8BED",
+      "ty": "\u5854\u5E0C\u63D0\u8BED",
+      "ug": "\u7EF4\u543E\u5C14\u8BED",
+      "uk": "\u4E4C\u514B\u5170\u8BED",
+      "ur": "\u4E4C\u5C14\u90FD\u8BED",
+      "uz": "\u4E4C\u5179\u522B\u514B\u8BED",
+      "vi": "\u8D8A\u5357\u8BED",
+      "wyw": "\u6587\u8A00\u6587",
+      "xh": "\u73ED\u56FE\u8BED",
+      "yi": "\u610F\u7B2C\u7EEA\u8BED",
+      "yo": "\u7EA6\u9C81\u5DF4\u8BED",
+      "yua": "\u5C24\u5361\u5766\u739B\u96C5\u8BED",
+      "yue": "\u7CA4\u8BED\uFF08\u7E41\u4F53\uFF09",
+      "zh-CN": "\u4E2D\u6587\uFF08\u7B80\u4F53\uFF09",
+      "zh-TW": "\u4E2D\u6587\uFF08\u7E41\u4F53\uFF09",
+      "zu": "\u7956\u9C81\u8BED"
+    }
+  };
+
+  // locales.ts
   var translations = {
     "zh-CN": zh_CN_default
   };
-  function addCSSLegacy(root, csses) {
+  var locales_default = translations;
+
+  // userscript/popup_entry.tsx
+  function addCSSLegacy(root2, csses) {
     for (const css of csses) {
-      root.appendChild(document.createElement("style")).innerHTML = css;
+      root2.appendChild(document.createElement("style")).innerHTML = css;
     }
   }
   function initPopup() {
@@ -12332,16 +14319,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     document.body.appendChild(popup);
     const shadow = popup.attachShadow({ mode: "open" });
     const csses = [
-      env2.TRANSLATE_PICO_CSS,
-      env2.TRANSLATE_COMMON_CSS,
-      env2.TRANSLATE_POPUP_CSS
+      env2.IMMERSIVE_TRANSLATE_PICO_CSS,
+      env2.IMMERSIVE_TRANSLATE_COMMON_CSS,
+      env2.IMMERSIVE_TRANSLATE_POPUP_CSS
     ];
     addCSSLegacy(shadow, csses);
     const mountRoot = document.createElement("div");
-    mountRoot.innerHTML = env2.TRANSLATE_POPUP_HTML;
+    mountRoot.innerHTML = env2.IMMERSIVE_TRANSLATE_POPUP_HTML;
     shadow.appendChild(mountRoot);
     const script = document.createElement("script");
-    script.textContent = env2.TRANSLATE_POPUP_JS;
+    script.textContent = env2.IMMERSIVE_TRANSLATE_POPUP_JS;
     shadow.appendChild(script);
     const btn = shadow.querySelector(
       "#immersive-translate-popup-btn"
@@ -12380,7 +14367,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         /* @__PURE__ */ p21(TranslateProvider, {
           lang: config.interfaceLanguage,
           fallbackLang: "zh-CN",
-          translations,
+          translations: locales_default,
           children: /* @__PURE__ */ p21(PopupApp, {
             onClose: handleOnClose,
             root: mountPoint
@@ -12422,7 +14409,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       log_default.debug("detect exclude url, do not inject anything.");
     } else {
       const env2 = getEnv();
-      const injectedCss = env2.TRANSLATE_INJECTED_CSS;
+      const injectedCss = env2.IMMERSIVE_TRANSLATE_INJECTED_CSS;
       if (injectedCss) {
         addCSS(injectedCss);
       }

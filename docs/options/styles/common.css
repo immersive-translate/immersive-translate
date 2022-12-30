@@ -29,3 +29,7 @@ ul.select-link-ul.select-link-ul {
   right: 0px;
   left: auto;
 }
+
+a.select-link-selected {
+  background-color: var(--primary-focus);
+}

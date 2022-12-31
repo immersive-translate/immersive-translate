@@ -15,7 +15,6 @@
       "mail.google.com",
       "google.com",
       "discord.com",
-      "detectParagraphLanguage",
       "web.telegram.org",
       "*.slack.com"
     ]
@@ -602,6 +601,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-31T10:02:53.392Z",
+  "buildinConfigUpdatedAt": "2022-12-31T14:36:00.281Z",
   "latestVersion": "0.0.20"
 }

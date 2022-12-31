@@ -58,26 +58,38 @@
 .immersive-translate-tooltip {
   position: relative;
   display: inline-block;
+  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */
 }
+.immersive-translate-tooltip:before {
+  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */
+  position: absolute;
+  z-index: 100000000000;
 
-.immersive-translate-tooltip .immersive-translate-tooltip-text {
-  display: inline-block;
-  visibility: hidden;
+  /* vertically center */
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* move to right */
+  left: 100%;
+  margin-left: 15px; /* and add a small left margin */
+
+  /* basic styles */
   width: max-content;
-  max-width: 300px;
-  background-color: black;
+  max-width: 250px;
+  word-wrap: break-word;
+  white-space: pre-line;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
   color: #fff;
   text-align: center;
-  padding: 5px 8px;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 10000000000;
+
+  display: none; /* hide by default */
+}
+.immersive-translate-tooltip:hover:before {
+  display: block;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {
-  visibility: visible;
-}
 @-webkit-keyframes immersive-translate-loading-animation {
   from {
     -webkit-transform: rotate(0deg);

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.21
+
+- Fix some span tag is block element
+
 ## 0.0.20
 
 - Support not translate hash tag like #hash , at tag like @xxx, $tag, like $APPL

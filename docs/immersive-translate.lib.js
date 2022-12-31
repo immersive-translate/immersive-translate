@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-31T10:03:08.135Z", VERSION: "0.0.20", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n.immersive-translate-tooltip .immersive-translate-tooltip-text {\n  display: inline-block;\n  visibility: hidden;\n  width: max-content;\n  max-width: 300px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 8px;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 10000000000;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {\n  visibility: visible;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-31T14:36:46.211Z", VERSION: "0.0.21", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7395,7 +7395,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         "mail.google.com",
         "google.com",
         "discord.com",
-        "detectParagraphLanguage",
         "web.telegram.org",
         "*.slack.com"
       ]
@@ -8422,6 +8421,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
             }
           }
         }
+        if (element.nodeName === "SPAN") {
+          const innerHTML = element.innerHTML;
+          if (innerHTML.includes(sourceAtomicBlockElementMarkAttributeName)) {
+            return false;
+          }
+        }
         return true;
       } else if (extraInlineElements.length > 0) {
         for (const extraInlineElement of extraInlineElements) {
@@ -8467,7 +8472,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       return false;
     }
     if (isAtTag(trimedText)) {
-      return true;
+      return false;
     }
     if (isUrl(trimedText)) {
       return false;
@@ -8476,6 +8481,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       return false;
     }
     if (stayInOriginalRegex.test(trimedText)) {
+      return false;
+    }
+    const wordCount = trimedText.split(" ").length;
+    if (wordCount <= 2 && trimedText.length <= 20) {
       return false;
     }
     return true;
@@ -8641,11 +8650,25 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // dom/current_language.ts
   var currentPageLanguage = "auto";
+  var currentPageLanguageByClient = "auto";
+  var currentPageLanguageByRemote = "auto";
   function setCurrentPageLanguage(lang) {
     currentPageLanguage = lang;
   }
+  function setCurrentPageLanguageByClient(lang) {
+    currentPageLanguageByClient = lang;
+  }
   function getCurrentPageLanguage() {
+    if (currentPageLanguageByClient !== "auto") {
+      return currentPageLanguageByClient;
+    }
+    if (currentPageLanguageByRemote !== "auto") {
+      return currentPageLanguageByRemote;
+    }
     return currentPageLanguage;
+  }
+  function getCurrentPageLanguageByClient() {
+    return currentPageLanguageByClient;
   }
 
   // dom/elements_to_paragraph.ts
@@ -9364,8 +9387,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var Translation = class {
     constructor(serviceConfig, generalConfig) {
       this.maxTextLength = 1800;
+      this.throttleLimit = 3;
       this.isSupportList = true;
-      this.maxTextGroupLength = 1e3;
+      this.maxTextGroupLength = 50;
       this.serviceConfig = serviceConfig;
       this.generalConfig = generalConfig;
     }
@@ -9401,10 +9425,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       );
       log_default.debug(`tempSentenceGroups`, tempSentenceGroups);
       const throttle = m15({
-        limit: 3,
+        limit: this.throttleLimit,
         interval: 1e3
       });
       let currentSentenceIndex = 0;
+      let globalError = null;
       for (let i22 = 0; i22 < tempSentenceGroups.length; i22++) {
         const tempSentenceGroup = tempSentenceGroups[i22];
         const url = tempSentenceGroup.url;
@@ -9446,9 +9471,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
             for (const sentence of sentences) {
               everySentenceCallback(e19, sentence);
             }
-            throw e19;
+            globalError = e19;
+            continue;
           } else {
-            throw e19;
+            globalError = e19;
+            continue;
           }
         }
         const { text: translatedTexts, from: detectedFrom } = result;
@@ -9480,9 +9507,27 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       if (everySentenceCallback) {
         everySentenceCallback(null, respondedSentences[currentSentenceIndex]);
       }
+      if (globalError) {
+        throw globalError;
+      }
       return {
         sentences: respondedSentences
       };
+    }
+    detectLanguageLocally(text) {
+      return detectLanguage({
+        text
+      });
+    }
+    detectLanguageRemotely(_text) {
+      return Promise.resolve("auto");
+    }
+    detectLanguage(text) {
+      if (text.length >= 32) {
+        return this.detectLanguageLocally(text);
+      } else {
+        return this.detectLanguageRemotely(text);
+      }
     }
   };
 
@@ -10668,23 +10713,21 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var _Transmart = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
-      this.maxTextGroupLength = 3;
+      this.maxTextGroupLength = 1;
+      this.throttleLimit = 500;
       this.clientKey = btoa(
         "transmart_crx_" + navigator.userAgent
       ).slice(0, 100);
     }
     async translate(payload) {
-      const { from, text, to } = payload;
-      const formatedTo = _Transmart.langMap.get(to);
-      let sourceLanguage = _Transmart.langMap.get(from);
-      if (!(from !== "auto" && sourceLanguage)) {
-        sourceLanguage = await this.detectLanguage(text);
-      }
-      const internalFrom = _Transmart.langMapReverse.get(sourceLanguage);
-      if (sourceLanguage === formatedTo) {
+      const { text, to } = payload;
+      const sourceLanguage = await this.detectLanguage(text);
+      const remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage;
+      const remoteTargetLanguage = _Transmart.langMap.get(to) || to;
+      if (sourceLanguage === to) {
         return {
           text,
-          from: _Transmart.langMapReverse.get(sourceLanguage),
+          from: sourceLanguage,
           to
         };
       }
@@ -10696,10 +10739,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           },
           "source": {
             "text_block": text,
-            "lang": sourceLanguage,
+            "lang": remoteSourceLanguage,
             "orig_url": payload.url
           },
-          "target": { "lang": formatedTo }
+          "target": { "lang": remoteTargetLanguage }
         }
       );
       const data = await request2({
@@ -10712,27 +10755,35 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       }
       return {
         text: data.auto_translation,
-        from: internalFrom || "auto",
+        from: sourceLanguage || "auto",
         to
       };
     }
     async translateList(payload) {
       const { from, text, to } = payload;
-      let sourceLanguage = _Transmart.langMap.get(from);
-      if (!(from !== "auto" && sourceLanguage)) {
-        sourceLanguage = await this.detectLanguage(text.join("\n"));
+      if (text.length === 1) {
+        const result = await this.translate({
+          from,
+          text: text[0],
+          to,
+          url: payload.url
+        });
+        return {
+          text: [result.text],
+          from: result.from,
+          to: result.to
+        };
       }
-      const internalSourceLanguage = _Transmart.langMapReverse.get(
-        sourceLanguage
-      );
-      const targetLanguage = _Transmart.langMap.get(to);
-      if (sourceLanguage === targetLanguage) {
+      const sourceLanguage = await this.detectLanguage(text.join("\n"));
+      if (sourceLanguage === to) {
         return {
           text,
-          from: internalSourceLanguage,
+          from: sourceLanguage,
           to
         };
       }
+      const remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage;
+      const remoteTargetLanguage = _Transmart.langMap.get(to) || to;
       const requestPayload = JSON.stringify(
         {
           "header": {
@@ -10741,10 +10792,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           },
           "source": {
             "text_list": text,
-            "lang": sourceLanguage,
+            "lang": remoteSourceLanguage,
             "orig_url": payload.url
           },
-          "target": { "lang": targetLanguage },
+          "target": { "lang": remoteTargetLanguage },
           "type": "plain"
         }
       );
@@ -10758,11 +10809,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       }
       return {
         text: data.auto_translation,
-        from: internalSourceLanguage,
+        from: sourceLanguage || "auto",
         to
       };
     }
-    async detectLanguage(text) {
+    detectLanguageLocally(text) {
+      return this.detectLanguageRemotely(text);
+    }
+    async detectLanguageRemotely(text) {
       const payload = {
         "header": {
           "fn": "text_analysis",
@@ -10778,7 +10832,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       if (response.header.ret_code !== "succ") {
         throw new Error(response.message || response.header.ret_code);
       }
-      return response.language;
+      const remoteLanguage = response.language;
+      const language = _Transmart.langMapReverse.get(remoteLanguage);
+      if (language) {
+        return language;
+      }
+      return remoteLanguage;
     }
   };
   var Transmart = _Transmart;
@@ -10786,6 +10845,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   Transmart.langMapReverse = new Map(
     langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
+
+  // utils/random.ts
+  function getRandomBoolean() {
+    return Math.random() >= 0.81;
+  }
 
   // services/mock.ts
   var Mock = class extends Translation {
@@ -10807,6 +10871,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     async translateList(payload) {
       const { text: textList, from, to } = payload;
       await new Promise((resolve) => setTimeout(resolve, 10));
+      if (!getRandomBoolean()) {
+        throw new Error("\u6A21\u62DF\u9519\u8BEF");
+      }
       return {
         from,
         to,
@@ -11452,7 +11519,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           to
         };
       } else {
-        const error = response.ResponseMetadata.Error;
+        const error = response.ResponseMetaData.Error;
         throw new CommonError(error.Code, error.Message);
       }
     }
@@ -12176,11 +12243,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       name: "Google",
       homepage: "https://translate.google.com/"
     },
-    deepl: {
-      class: deepl_default,
-      name: "DeepL",
-      homepage: "https://www.deepl.com/translator"
-    },
     transmart: {
       class: Transmart,
       name: "Transmart",
@@ -12191,10 +12253,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       name: "Bing",
       homepage: "https://www.bing.com/translator"
     },
-    caiyun: {
-      class: caiyun_default,
-      name: "Caiyun",
-      homepage: "https://fanyi.caiyunapp.com/"
+    deepl: {
+      class: deepl_default,
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator"
+    },
+    volc: {
+      class: mod_default,
+      name: "Volc",
+      homepage: "https://www.volcengine.com/"
     },
     tencent: {
       class: Tencent,
@@ -12206,10 +12273,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       name: "Baidu",
       homepage: "https://fanyi.baidu.com/"
     },
-    volc: {
-      class: mod_default,
-      name: "Volc",
-      homepage: "https://www.volcengine.com/"
+    caiyun: {
+      class: caiyun_default,
+      name: "Caiyun",
+      homepage: "https://fanyi.caiyunapp.com/"
     },
     openl: {
       class: openl_default,
@@ -12740,13 +12807,19 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
   async function translateTitle(ctx) {
     const pageTitle = document.title;
-    if (originalPageTitle !== pageTitle) {
-      originalPageTitle = pageTitle;
-    }
     if (!pageTitle) {
       return;
     }
-    const currentLang = getCurrentPageLanguage();
+    if (pageTitle.includes(titleDelimiters)) {
+      return;
+    }
+    if (originalPageTitle !== pageTitle) {
+      originalPageTitle = pageTitle;
+    }
+    let currentLang = "auto";
+    if (!ctx.isDetectParagraphLanguage) {
+      currentLang = getCurrentPageLanguageByClient();
+    }
     try {
       const result = await translateSingleSentence({
         text: pageTitle,
@@ -12915,14 +12988,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       config: await getConfig2()
     };
     const ctx = await getContext(options);
-    let currentLang = getCurrentPageLanguage();
+    let currentlangByClient = getCurrentPageLanguageByClient();
     if (ctx.isDetectParagraphLanguage) {
-      currentLang = await detectLanguage({ text: paragraph.text });
+      currentlangByClient = "auto";
     }
     const sentence = {
       id: paragraph.id,
       text: paragraph.text,
-      from: currentLang,
+      from: currentlangByClient,
       to: ctx.targetLanguage,
       url: ctx.encryptedUrl
     };
@@ -12939,8 +13012,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       const wrapper = document.getElementById(
         `${translationTargetElementWrapperClass}-${wrapperId}`
       );
-      const errorMessage = err.message.replaceAll("\n", "");
-      const errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button><span class="immersive-translate-tooltip-text"">${errorMessage}</span></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+      let errorMessage = err.message.replaceAll("\n", "");
+      errorMessage = errorMessage.replaceAll('"', "&quot;");
+      const errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
       if (wrapper) {
         wrapper.innerHTML = errorHtml;
       }
@@ -12968,7 +13042,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     const ids = [...currentParagraphIds];
     currentParagraphIds = [];
-    const currentPageLang = getCurrentPageLanguage();
+    let currentPageLang = "auto";
+    if (!ctx.isDetectParagraphLanguage) {
+      currentPageLang = getCurrentPageLanguageByClient();
+    }
     const payload = {
       sentences: ids.filter((id) => getParagraph(id)).map((id) => {
         const paragraph = getParagraph(id);
@@ -12981,13 +13058,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         };
       })
     };
-    if (ctx.isDetectParagraphLanguage) {
-      for (let i22 = 0; i22 < payload.sentences.length; i22++) {
-        const sentence = payload.sentences[i22];
-        const lang = await detectLanguage({ text: sentence.text });
-        sentence.from = lang;
-      }
-    }
     const sentenceLength = payload.sentences.length;
     if (sentenceLength > 0) {
       pageStatus = "Translating";
@@ -13209,7 +13279,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
     setPageLanguageStream.subscribe(([lang, __, cb]) => {
       log_default.debug(`received setPageLanguage`, lang);
-      setCurrentPageLanguage(lang);
+      setCurrentPageLanguageByClient(lang);
       cb({
         ok: true,
         data: lang
@@ -13858,6 +13928,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           return newState;
         });
       }
+      if (name === "matches" && pageStatus2 === "Original") {
+        setTimeout(() => {
+          onTranslatePage();
+          onClose();
+        }, 100);
+      }
     };
     const handleTranslationLanguagePatternSelected = (item) => {
       const value = item.value;
@@ -13908,6 +13984,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           };
           return newState;
         });
+      }
+      if (name === "matches" && pageStatus2 === "Original") {
+        setTimeout(() => {
+          onTranslatePage();
+          onClose();
+        }, 100);
       }
     };
     let buttonLabel = t18("translate");

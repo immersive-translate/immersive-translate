@@ -599,8 +599,26 @@
         "h1",
         ".article__subhead"
       ]
+    },
+    {
+      "matches": [
+        "*.pornhub.com",
+        "pornhub.com"
+      ],
+      "selectors": [
+        ".title >a",
+        ".title > span",
+        ".thumbnailTitle",
+        ".commentMessage > span"
+      ],
+      "detectParagraphLanguage": true,
+      "wrapperPrefix": "\n\n",
+      "wrapperSuffix": "\n",
+      "globalStyles": {
+        ".title": "height: unset; max-height: unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-31T14:36:00.281Z",
-  "latestVersion": "0.0.20"
+  "buildinConfigUpdatedAt": "2022-12-31T15:33:20.879Z",
+  "latestVersion": "0.0.21"
 }

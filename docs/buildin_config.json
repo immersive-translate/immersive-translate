@@ -1,5 +1,5 @@
 {
-  "minVersion": "0.0.4.2",
+  "minVersion": "0.0.20",
   "translationParagraphLanguagePattern": {
     "matches": [
       "www.reddit.com",
@@ -21,6 +21,7 @@
     ]
   },
   "generalRule": {
+    "_comment": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "urlChangeDelay": 10,
@@ -44,6 +45,16 @@
       ".summary",
       ".content",
       ".headline"
+    ],
+    "atomicBlockTags": [
+      "P",
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "H5",
+      "H6",
+      "LI"
     ],
     "excludeSelectors": [],
     "additionalExcludeSelectors": [
@@ -69,11 +80,13 @@
       "SUB",
       "SUP",
       "BR",
+      "HR",
       "PRE",
       "CODE",
       "KBD",
       "WBR",
-      "TT"
+      "TT",
+      "META"
     ],
     "additionalExcludeTags": [],
     "stayOriginalTags": [
@@ -107,7 +120,8 @@
       "IMG",
       "CODE",
       "SCRIPT",
-      "TIME"
+      "TIME",
+      "META"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -588,6 +602,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2022-12-30T20:29:33.401Z",
-  "latestVersion": "0.0.19"
+  "buildinConfigUpdatedAt": "2022-12-31T10:02:53.392Z",
+  "latestVersion": "0.0.20"
 }

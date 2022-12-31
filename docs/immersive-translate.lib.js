@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-30T20:29:54.214Z", VERSION: "0.0.19", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n.immersive-translate-tooltip .immersive-translate-tooltip-text {\n  display: inline-block;\n  visibility: hidden;\n  width: max-content;\n  max-width: 300px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 8px;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 10000000000;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {\n  visibility: visible;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2022-12-31T10:03:08.135Z", VERSION: "0.0.20", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n.immersive-translate-tooltip .immersive-translate-tooltip-text {\n  display: inline-block;\n  visibility: hidden;\n  width: max-content;\n  max-width: 300px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 8px;\n  border-radius: 6px;\n  position: absolute;\n  z-index: 10000000000;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.immersive-translate-tooltip:hover .immersive-translate-tooltip-text {\n  visibility: visible;\n}\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7379,7 +7379,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // buildin_config.json
   var buildin_config_default = {
-    "minVersion": "0.0.4.2",
+    "minVersion": "0.0.20",
     "translationParagraphLanguagePattern": {
       "matches": [
         "www.reddit.com",
@@ -7401,6 +7401,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       ]
     },
     "generalRule": {
+      "_comment": "",
       "wrapperPrefix": "smart",
       "wrapperSuffix": "smart",
       "urlChangeDelay": 10,
@@ -7424,6 +7425,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         ".summary",
         ".content",
         ".headline"
+      ],
+      "atomicBlockTags": [
+        "P",
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "LI"
       ],
       "excludeSelectors": [],
       "additionalExcludeSelectors": [
@@ -7449,11 +7460,13 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         "SUB",
         "SUP",
         "BR",
+        "HR",
         "PRE",
         "CODE",
         "KBD",
         "WBR",
-        "TT"
+        "TT",
+        "META"
       ],
       "additionalExcludeTags": [],
       "stayOriginalTags": [
@@ -7487,7 +7500,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         "IMG",
         "CODE",
         "SCRIPT",
-        "TIME"
+        "TIME",
+        "META"
       ],
       "additionalInlineTags": [],
       "extraInlineSelectors": [],
@@ -8001,19 +8015,22 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // utils/merge_rule.ts
   function mergeRule(generalRule, rule) {
-    const genericRuleKeys = [
-      "_comment",
-      "globalStyles",
-      "wrapperPrefix",
-      "wrapperSuffix",
-      "urlChangeDelay"
-    ];
+    const arrayKeys = [];
+    const allRuleKeys = Object.keys(
+      generalRule
+    );
+    for (const key of allRuleKeys) {
+      const value = generalRule[key];
+      if (Array.isArray(value)) {
+        arrayKeys.push(key);
+      }
+    }
     const finalRule = generalRule;
     const ruleKeys = Object.keys(rule);
     ruleKeys.forEach((key) => {
       const value = rule[key];
       if (value !== void 0) {
-        if (genericRuleKeys.includes(key)) {
+        if (!arrayKeys.includes(key)) {
           finalRule[key] = value;
         } else {
           if (key.startsWith("additional")) {
@@ -8203,6 +8220,15 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
             ...finalConfig[configKey]
           ];
         }
+        if (env.PROD === "0") {
+          if (env.DEV_RULES) {
+            const devRules = JSON.parse(env.DEV_RULES);
+            finalConfig[configKey] = [
+              ...devRules,
+              ...finalConfig[configKey]
+            ];
+          }
+        }
       } else {
         if (mergedUserConfig[configKey] !== void 0) {
           finalConfig[configKey] = mergedUserConfig[configKey];
@@ -8292,6 +8318,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   }
 
   // dom/util.ts
+  var stayInOriginalRegex = new RegExp(
+    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
+  );
   function duplicatedElements(root2, array) {
     const footers = root2.querySelectorAll("footer");
     const allHeaders = root2.querySelectorAll("header");
@@ -8437,7 +8466,16 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text)) {
       return false;
     }
-    if (isUrl(text)) {
+    if (isAtTag(trimedText)) {
+      return true;
+    }
+    if (isUrl(trimedText)) {
+      return false;
+    }
+    if (isHashTag(trimedText)) {
+      return false;
+    }
+    if (stayInOriginalRegex.test(trimedText)) {
       return false;
     }
     return true;
@@ -8453,6 +8491,30 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     } else {
       return false;
     }
+  }
+  function isHashTag(text) {
+    if (text && text.startsWith("#")) {
+      if (text.indexOf(" ") === -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function isAtTag(text) {
+    if (text && text.startsWith("@")) {
+      if (text.indexOf(" ") === -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function isStockTag(text) {
+    if (text && text.startsWith("$")) {
+      if (text.indexOf(" ") === -1) {
+        return true;
+      }
+    }
+    return false;
   }
   function isMarked(element, markedAttribute) {
     return element.hasAttribute(markedAttribute) && element.getAttribute(markedAttribute) === "1";
@@ -8618,7 +8680,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         const isStartWithSpace = rawText.startsWith(" ");
         const isEndWithSpace = rawText.endsWith(" ");
         const finalText = rawText.trim();
-        if (isUrl(finalText)) {
+        if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
           const variable = {
             type: element.nodeName.toLowerCase(),
             attributes: element.attributes,
@@ -11204,10 +11266,110 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // services/volc/mod.ts
   var rawLangMap3 = [
-    ["auto", "auto"],
-    ["zh-CN", "zh"],
+    ["af", "af"],
+    ["am", "am"],
+    ["ar", "ar"],
+    ["az", "az"],
+    ["be", "be"],
+    ["bg", "bg"],
+    ["bn", "bn"],
+    ["bs", "bs"],
+    ["ca", "ca"],
+    ["co", "co"],
+    ["cs", "cs"],
+    ["cy", "cy"],
+    ["da", "da"],
+    ["de", "de"],
+    ["el", "el"],
     ["en", "en"],
-    ["ja", "ja"]
+    ["eo", "eo"],
+    ["es", "es"],
+    ["et", "et"],
+    ["eu", "eu"],
+    ["fa", "fa"],
+    ["fi", "fi"],
+    ["fj", "fj"],
+    ["fr", "fr"],
+    ["fy", "fy"],
+    ["ga", "ga"],
+    ["gd", "gd"],
+    ["gl", "gl"],
+    ["gu", "gu"],
+    ["ha", "ha"],
+    ["he", "he"],
+    ["hi", "hi"],
+    ["hr", "hr"],
+    ["ht", "ht"],
+    ["hu", "hu"],
+    ["hy", "hy"],
+    ["id", "id"],
+    ["ig", "ig"],
+    ["is", "is"],
+    ["it", "it"],
+    ["ja", "ja"],
+    ["ka", "ka"],
+    ["kk", "kk"],
+    ["km", "km"],
+    ["kn", "kn"],
+    ["ko", "ko"],
+    ["ku", "ku"],
+    ["ky", "ky"],
+    ["la", "la"],
+    ["lb", "lb"],
+    ["lo", "lo"],
+    ["lt", "lt"],
+    ["lv", "lv"],
+    ["mg", "mg"],
+    ["mi", "mi"],
+    ["mk", "mk"],
+    ["ml", "ml"],
+    ["mn", "mn"],
+    ["mr", "mr"],
+    ["ms", "ms"],
+    ["mt", "mt"],
+    ["my", "my"],
+    ["ne", "ne"],
+    ["nl", "nl"],
+    ["no", "no"],
+    ["ny", "ny"],
+    ["pa", "pa"],
+    ["pl", "pl"],
+    ["ps", "ps"],
+    ["pt", "pt"],
+    ["ro", "ro"],
+    ["ru", "ru"],
+    ["sd", "sd"],
+    ["si", "si"],
+    ["sk", "sk"],
+    ["sl", "sl"],
+    ["sm", "sm"],
+    ["sn", "sn"],
+    ["so", "so"],
+    ["sq", "sq"],
+    ["sr", "sr"],
+    ["st", "st"],
+    ["su", "su"],
+    ["sv", "sv"],
+    ["sw", "sw"],
+    ["ta", "ta"],
+    ["te", "te"],
+    ["tg", "tg"],
+    ["th", "th"],
+    ["tn", "tn"],
+    ["to", "to"],
+    ["tr", "tr"],
+    ["ty", "ty"],
+    ["ug", "ug"],
+    ["uk", "uk"],
+    ["ur", "ur"],
+    ["uz", "uz"],
+    ["vi", "vi"],
+    ["xh", "xh"],
+    ["yi", "yi"],
+    ["yo", "yo"],
+    ["zh-CN", "zh"],
+    ["zh-TW", "zh-Hans"],
+    ["zu", "zu"]
   ];
   var langMap8 = new Map(rawLangMap3);
   var langMapReverse4 = new Map(
@@ -11238,7 +11400,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     async translateList(payload) {
       const { text, from, to } = payload;
-      const source = text;
+      const remoteFrom = langMap8.get(from);
+      const bodyParams = {
+        "TargetLanguage": "zh",
+        "TextList": text
+      };
+      if (remoteFrom) {
+        bodyParams.SourceLanguage = remoteFrom;
+      }
       const requestObj = {
         region: "cn-north-1",
         method: "POST",
@@ -11251,11 +11420,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           "Content-Type": "application/json",
           "host": "open.volcengineapi.com"
         },
-        body: JSON.stringify({
-          "SourceLanguage": langMap8.get(from),
-          "TargetLanguage": "zh",
-          "TextList": text
-        })
+        body: JSON.stringify(bodyParams)
       };
       const signer = new Signer(requestObj, "translate");
       await signer.addAuthorization({
@@ -11273,17 +11438,17 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       );
       if (response.TranslationList) {
         const resultText = response.TranslationList.map((item) => item.Translation);
-        let remoteFrom = from;
+        let remoteFrom2 = from;
         if (response.TranslationList.length > 0) {
           if (response.TranslationList[0].DetectedSourceLanguage) {
-            remoteFrom = langMapReverse4.get(
+            remoteFrom2 = langMapReverse4.get(
               response.TranslationList[0].DetectedSourceLanguage
             ) || from;
           }
         }
         return {
           text: resultText,
-          from: remoteFrom,
+          from: remoteFrom2,
           to
         };
       } else {
@@ -12612,7 +12777,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       additionalInlineSelectors,
       extraBlockSelectors,
       atomicBlockSelectors,
-      globalStyles
+      atomicBlockTags,
+      globalStyles,
+      stayOriginalTags
     } = rule;
     const globalStyleSelectors = Object.keys(globalStyles);
     if (globalStyleSelectors.length > 0) {
@@ -12639,6 +12806,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       ...additionalInlineSelectors
     ];
     const allAtomicBlockSelectors = [...atomicBlockSelectors];
+    const allAtomicBlockTagsSelectors = atomicBlockTags.map(
+      (item) => item.toLowerCase()
+    );
     const allBlockSelectos = extraBlockSelectors;
     const excludeElements = getElementsBySelectors(
       document.body,
@@ -12651,8 +12821,41 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         allAtomicBlockSelectors
       ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName));
     }
+    if (allAtomicBlockTagsSelectors.length > 0) {
+      const stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
+        (arr, item) => {
+          const tagLower = item.toLowerCase();
+          arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`);
+          return arr;
+        },
+        []
+      );
+      const httpLinkTags = [">http://", ">https://"];
+      stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
+      const atomicBlockTagsElements = getElementsBySelectors(
+        document.body,
+        allAtomicBlockTagsSelectors
+      ).filter((element) => {
+        const isMark = isMarked(
+          element,
+          sourceAtomicBlockElementMarkAttributeName
+        );
+        if (isMark) {
+          return false;
+        } else {
+          const htmlString = element.innerHTML;
+          const isStayOriginal = stayOriginalTagsHTMLStringArr.some(
+            (item) => htmlString.includes(item)
+          );
+          return !isStayOriginal;
+        }
+      });
+      atomicBlockElements.push(...atomicBlockTagsElements);
+    }
     atomicBlockElements.forEach((element) => {
-      element.setAttribute(sourceAtomicBlockElementMarkAttributeName, "1");
+      if (!isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
+        element.setAttribute(sourceAtomicBlockElementMarkAttributeName, "1");
+      }
     });
     const extraInlineElements = [];
     if (allInlineSelectors.length > 0) {
@@ -14200,6 +14403,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       "az": "\u963F\u585E\u62DC\u7586\u8BED",
       "be": "\u767D\u4FC4\u7F57\u65AF\u8BED",
       "bg": "\u4FDD\u52A0\u5229\u4E9A\u8BED",
+      "tn": "\u672D\u90A3\u8BED",
       "bn": "\u5B5F\u52A0\u62C9\u8BED",
       "bs": "\u6CE2\u65AF\u5C3C\u4E9A\u8BED",
       "ca": "\u52A0\u6CF0\u7F57\u5C3C\u4E9A\u8BED",

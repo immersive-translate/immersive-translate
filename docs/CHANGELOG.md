@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.20
+
+- Support not translate hash tag like #hash , at tag like @xxx, $tag, like $APPL
+- Support block element
+
 ## 0.0.18
 
 - Support deepl, bing,baidu,youdao, volc, openl, caiyun.

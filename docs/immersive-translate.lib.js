@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2022-12-31T14:36:46.211Z", VERSION: "0.0.21", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-01T07:53:26.365Z", VERSION: "0.0.22", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7979,6 +7979,24 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           "h1",
           ".article__subhead"
         ]
+      },
+      {
+        "matches": [
+          "*.pornhub.com",
+          "pornhub.com"
+        ],
+        "selectors": [
+          ".title >a",
+          ".title > span",
+          ".thumbnailTitle",
+          ".commentMessage > span"
+        ],
+        "detectParagraphLanguage": true,
+        "wrapperPrefix": "\n\n",
+        "wrapperSuffix": "\n",
+        "globalStyles": {
+          ".title": "height: unset; max-height: unset;"
+        }
       }
     ]
   };
@@ -10848,7 +10866,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
 
   // utils/random.ts
   function getRandomBoolean() {
-    return Math.random() >= 0.81;
+    return Math.random() >= 0;
   }
 
   // services/mock.ts
@@ -11719,13 +11737,76 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return rawHMACMD5(key, string);
   }
 
+  // services/deeplx.ts
+  var rawLangMap4 = [
+    ["auto", "auto"],
+    ["zh-CN", "ZH"],
+    ["zh-TW", "ZH"],
+    ["de", "DE"],
+    ["en", "EN"],
+    ["es", "ES"],
+    ["fr", "FR"],
+    ["it", "IT"],
+    ["ja", "JA"],
+    ["pt", "PT"],
+    ["ru", "RU"],
+    ["tr", "tr"]
+  ];
+  var langMap9 = new Map(rawLangMap4);
+  var Deeplx = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.url = "";
+      this.isSupportList = false;
+      this.maxTextGroupLength = 1;
+      if (!serviceConfig || !serviceConfig.url) {
+        throw new Error("url are required");
+      }
+      this.url = serviceConfig.url;
+    }
+    static getAllProps() {
+      return [{
+        name: "url",
+        required: true,
+        type: "text"
+      }];
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const response = await request2(
+        {
+          url: this.url,
+          headers: {
+            "content-type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify({
+            source_lang: langMap9.get(from) || from,
+            target_lang: langMap9.get(to) || to,
+            text
+          })
+        }
+      );
+      const result = response;
+      if (result.code === 200) {
+        return {
+          text: result.data,
+          from,
+          to
+        };
+      } else {
+        throw new Error(result.message || result.message || "API Error");
+      }
+    }
+  };
+
   // services/bing/api.js
   var TRANSLATE_API_ROOT = "https://{s}bing.com";
   var TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator";
   var TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3";
   var TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3";
   var globalConfigStorageKey = "bingGlobalConfig";
-  var rawLangMap4 = [
+  var rawLangMap5 = [
     ["auto", "auto-detect"],
     ["ar", "ar"],
     ["ga", "ga"],
@@ -11802,9 +11883,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     ["ku", "ku"],
     ["km", "kmr"]
   ];
-  var langMap9 = new Map(rawLangMap4);
+  var langMap10 = new Map(rawLangMap5);
   var langMapReverse5 = new Map(
-    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var MAX_TEXT_LEN = 1e3;
   var globalConfig;
@@ -11920,8 +12001,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
     from = from || "auto";
     to = to || "zh-CN";
-    from = langMap9.get(from) || from;
-    to = langMap9.get(to) || to;
+    from = langMap10.get(from) || from;
+    to = langMap10.get(to) || to;
     const requestURL = makeRequestURL(false);
     const requestBody = makeRequestBody(
       false,
@@ -11992,7 +12073,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   };
 
   // services/baidu.ts
-  var rawLangMap5 = [
+  var rawLangMap6 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
@@ -12023,9 +12104,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     ["zh-TW", "cht"],
     ["vi", "vie"]
   ];
-  var langMap10 = new Map(rawLangMap5);
+  var langMap11 = new Map(rawLangMap6);
   var langMapReverse6 = new Map(
-    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
+    rawLangMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -12057,8 +12138,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       const { appid, key } = this;
       const { text, from, to } = payload;
       const params = new URLSearchParams({
-        from: langMap10.get(from),
-        to: langMap10.get(to),
+        from: langMap11.get(from),
+        to: langMap11.get(to),
         q: text,
         salt,
         appid,
@@ -12093,13 +12174,13 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var baidu_default = Baidu;
 
   // services/caiyun.ts
-  var rawLangMap6 = [
+  var rawLangMap7 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
   ];
-  var langMap11 = new Map(rawLangMap6);
+  var langMap12 = new Map(rawLangMap7);
   var Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
@@ -12129,7 +12210,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           method: "POST",
           body: JSON.stringify({
             source,
-            trans_type: `${langMap11.get(from)}2${langMap11.get(to)}`
+            trans_type: `${langMap12.get(from)}2${langMap12.get(to)}`
           })
         }
       );
@@ -12144,7 +12225,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
   var caiyun_default = Caiyun;
 
   // services/youdao.ts
-  var rawLangMap7 = [
+  var rawLangMap8 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -12159,9 +12240,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     ["vi", "vi"],
     ["it", "it"]
   ];
-  var langMap12 = new Map(rawLangMap7);
+  var langMap13 = new Map(rawLangMap8);
   var langMapReverse7 = new Map(
-    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+    rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q7) {
     const len = q7.length;
@@ -12202,8 +12283,8 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap12.get(from),
-        to: langMap12.get(to),
+        from: langMap13.get(from),
+        to: langMap13.get(to),
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -12291,6 +12372,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     d: {
       class: D7,
       name: "Deepl(Alpha) ",
+      alpha: true,
+      homepage: "https://www.deepl.com/translator"
+    },
+    deeplx: {
+      class: Deeplx,
+      name: "DeepLX(Alpha)",
       alpha: true,
       homepage: "https://www.deepl.com/translator"
     }
@@ -12495,6 +12582,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           return false;
         } else {
           let scheme;
+          const rawMatch = match;
           if (match.includes("://")) {
             scheme = match.split("://")[0];
           } else {
@@ -12507,7 +12595,12 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           );
           const validUrlObj = new URL(validUrlMatch);
           const hostname3 = validUrlObj.hostname;
-          const pathname = validUrlObj.pathname;
+          let pathname = validUrlObj.pathname;
+          if (pathname === "/") {
+            if (!rawMatch.includes("/")) {
+              pathname = "/*";
+            }
+          }
           const protocol = validUrlObj.protocol;
           const port = validUrlObj.port;
           const regex = makeRegExp(
@@ -12534,6 +12627,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     return str.replace(placeholder, "*");
   }
   function makeRegExp(scheme, host, path) {
+    console.log("path", path);
     let regex = "^";
     if (scheme === "*:") {
       regex += "(http:|https:|file:)";
@@ -12666,6 +12760,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     }
   }
   function restorePage() {
+    clean();
     disableMutatinObserver();
     pageStatus = "Translating";
     sendPageTranslatedStatus2(pageStatus);
@@ -12773,10 +12868,10 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     });
   }
   async function translatePage() {
-    if (pageStatus === "Translated") {
-      restorePage();
-    } else if (pageStatus === "Translating") {
+    if (pageStatus === "Translating") {
       return;
+    } else if (pageStatus !== "Original") {
+      restorePage();
     }
     const options = {
       url: globalThis.location.href,
@@ -12792,9 +12887,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       const { rule } = ctx;
       if (containers.length > 0) {
         await translateContainers(containers, ctx);
-      } else {
-        pageStatus = "Original";
-        sendPageTranslatedStatus2(pageStatus);
       }
       translateTitle(ctx).catch((e19) => {
         log_default.error(`translateTitle error:`, e19.name, e19.message, e19.details || "");
@@ -12968,8 +13060,6 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       ctx
     );
     if (paragraphs.length === 0) {
-      pageStatus = "Original";
-      sendPageTranslatedStatus2(pageStatus);
       return;
     }
     log_default.debug("detect paragraphs", paragraphs);
@@ -13062,28 +13152,14 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
     if (sentenceLength > 0) {
       pageStatus = "Translating";
       sendPageTranslatedStatus2(pageStatus);
-      let index = -1;
       try {
-        await new Promise((resolve, reject) => {
-          translateMultipleSentences(
-            payload,
-            ctx,
-            (err, translatedSentence) => {
-              index++;
-              onParagraphTranslated(err, translatedSentence, ctx);
-              if (index === sentenceLength - 1) {
-                resolve(null);
-              }
-            }
-          ).catch((e19) => {
-            payload.sentences.forEach((sentence) => {
-              onParagraphTranslated(e19, sentence, ctx);
-            });
-            reject(e19);
-          });
-        });
-        pageStatus = "Translated";
-        sendPageTranslatedStatus2(pageStatus);
+        await translateMultipleSentences(
+          payload,
+          ctx,
+          (err, translatedSentence) => {
+            onParagraphTranslated(err, translatedSentence, ctx);
+          }
+        );
       } catch (e19) {
         pageStatus = "Error";
         sendPageTranslatedStatus2(pageStatus);
@@ -13093,12 +13169,11 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
           e19.message,
           e19.details || ""
         );
+        return;
       }
-      return Promise.resolve();
     }
     pageStatus = "Translated";
     sendPageTranslatedStatus2(pageStatus);
-    return Promise.resolve();
   }
   function enableMutatinObserver(rule, ctx) {
     disableMutatinObserver();
@@ -14090,12 +14165,13 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                                     translationService: selectedItem.id
                                   };
                                 });
-                                setTimeout(() => {
-                                  onRestorePage();
-                                }, 1);
                                 if (selectedItem.props.length === 0) {
                                   setTimeout(() => {
                                     onTranslatePage();
+                                  }, 1);
+                                } else {
+                                  setTimeout(() => {
+                                    onRestorePage();
                                   }, 1);
                                 }
                               } else {
@@ -14105,6 +14181,9 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
                                     translationService: selectedItem.id
                                   };
                                 });
+                                setTimeout(() => {
+                                  onRestorePage();
+                                }, 1);
                                 setTimeout(() => {
                                   browserAPI.runtime.openOptionsPage();
                                   onClose();
@@ -14455,6 +14534,7 @@ ${r14.map((n22, s21) => `${s21 + 1}) ${n22.toString()}`).join(`
       "baidu": "\u767E\u5EA6\u7FFB\u8BD1",
       "aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
       "volc": "\u706B\u5C71\u7FFB\u8BD1",
+      "deeplx": "DeeplX(Alpha)",
       "bing": "\u5FC5\u5E94\u7FFB\u8BD1",
       "deepl": "Deepl",
       "wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",

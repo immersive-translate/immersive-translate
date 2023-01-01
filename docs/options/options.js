@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-01T12:56:57.654Z", VERSION: "0.0.23", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-01T14:00:44.900Z", VERSION: "0.0.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -10626,7 +10626,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       const { text, from, to } = payload;
       const remoteFrom = langMap8.get(from);
       const bodyParams = {
-        "TargetLanguage": "zh",
+        "TargetLanguage": langMap8.get(to) || to,
         "TextList": text
       };
       if (remoteFrom) {
@@ -10682,6 +10682,160 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
   };
   var mod_default = Volc;
+
+  // services/volc_alpha.ts
+  var rawLangMap4 = [
+    ["auto", "detect"],
+    ["af", "af"],
+    ["am", "am"],
+    ["ar", "ar"],
+    ["az", "az"],
+    ["be", "be"],
+    ["bg", "bg"],
+    ["bn", "bn"],
+    ["bs", "bs"],
+    ["ca", "ca"],
+    ["co", "co"],
+    ["cs", "cs"],
+    ["cy", "cy"],
+    ["da", "da"],
+    ["de", "de"],
+    ["el", "el"],
+    ["en", "en"],
+    ["eo", "eo"],
+    ["es", "es"],
+    ["et", "et"],
+    ["eu", "eu"],
+    ["fa", "fa"],
+    ["fi", "fi"],
+    ["fj", "fj"],
+    ["fr", "fr"],
+    ["fy", "fy"],
+    ["ga", "ga"],
+    ["gd", "gd"],
+    ["gl", "gl"],
+    ["gu", "gu"],
+    ["ha", "ha"],
+    ["he", "he"],
+    ["hi", "hi"],
+    ["hr", "hr"],
+    ["ht", "ht"],
+    ["hu", "hu"],
+    ["hy", "hy"],
+    ["id", "id"],
+    ["ig", "ig"],
+    ["is", "is"],
+    ["it", "it"],
+    ["ja", "ja"],
+    ["ka", "ka"],
+    ["kk", "kk"],
+    ["km", "km"],
+    ["kn", "kn"],
+    ["ko", "ko"],
+    ["ku", "ku"],
+    ["ky", "ky"],
+    ["la", "la"],
+    ["lb", "lb"],
+    ["lo", "lo"],
+    ["lt", "lt"],
+    ["lv", "lv"],
+    ["mg", "mg"],
+    ["mi", "mi"],
+    ["mk", "mk"],
+    ["ml", "ml"],
+    ["mn", "mn"],
+    ["mr", "mr"],
+    ["ms", "ms"],
+    ["mt", "mt"],
+    ["my", "my"],
+    ["ne", "ne"],
+    ["nl", "nl"],
+    ["no", "no"],
+    ["ny", "ny"],
+    ["pa", "pa"],
+    ["pl", "pl"],
+    ["ps", "ps"],
+    ["pt", "pt"],
+    ["ro", "ro"],
+    ["ru", "ru"],
+    ["sd", "sd"],
+    ["si", "si"],
+    ["sk", "sk"],
+    ["sl", "sl"],
+    ["sm", "sm"],
+    ["sn", "sn"],
+    ["so", "so"],
+    ["sq", "sq"],
+    ["sr", "sr"],
+    ["st", "st"],
+    ["su", "su"],
+    ["sv", "sv"],
+    ["sw", "sw"],
+    ["ta", "ta"],
+    ["te", "te"],
+    ["tg", "tg"],
+    ["th", "th"],
+    ["tn", "tn"],
+    ["to", "to"],
+    ["tr", "tr"],
+    ["ty", "ty"],
+    ["ug", "ug"],
+    ["uk", "uk"],
+    ["ur", "ur"],
+    ["uz", "uz"],
+    ["vi", "vi"],
+    ["xh", "xh"],
+    ["yi", "yi"],
+    ["yo", "yo"],
+    ["zh-CN", "zh"],
+    ["zh-TW", "zh-Hans"],
+    ["zu", "zu"]
+  ];
+  var langMap9 = new Map(rawLangMap4);
+  var langMapReverse5 = new Map(
+    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+  var VolcAlpha = class extends Translation {
+    constructor() {
+      super(...arguments);
+      this.maxTextGroupLength = 8;
+      this.isSupportList = false;
+    }
+    async translate(payload) {
+      const { text, from, to } = payload;
+      const remoteFrom = langMap9.get(from) || "detect";
+      const bodyParams = {
+        "source_language": remoteFrom,
+        "target_language": "zh",
+        "text": text
+      };
+      const response = await request2(
+        {
+          url: "https://translate.volcengine.com/crx/translate/v1/",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(bodyParams)
+        }
+      );
+      if (response.base_resp && response.base_resp.status_code === 0) {
+        const resultText = response.translation;
+        let remoteFrom2 = from;
+        if (response.detected_language) {
+          remoteFrom2 = langMapReverse5.get(response.detected_language) || from;
+        }
+        return {
+          text: resultText,
+          from: remoteFrom2,
+          to
+        };
+      } else {
+        const error2 = response.ResponseMetaData.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      }
+    }
+  };
 
   // utils/md5.js
   function safeAdd(x15, y9) {
@@ -10877,7 +11031,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // services/deeplx.ts
-  var rawLangMap4 = [
+  var rawLangMap5 = [
     ["auto", "auto"],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -10891,7 +11045,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     ["ru", "RU"],
     ["tr", "tr"]
   ];
-  var langMap9 = new Map(rawLangMap4);
+  var langMap10 = new Map(rawLangMap5);
   var Deeplx = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
@@ -10920,8 +11074,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           },
           method: "POST",
           body: JSON.stringify({
-            source_lang: langMap9.get(from) || from,
-            target_lang: langMap9.get(to) || to,
+            source_lang: langMap10.get(from) || from,
+            target_lang: langMap10.get(to) || to,
             text
           })
         }
@@ -10945,7 +11099,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3";
   var TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3";
   var globalConfigStorageKey = "bingGlobalConfig";
-  var rawLangMap5 = [
+  var rawLangMap6 = [
     ["auto", "auto-detect"],
     ["ar", "ar"],
     ["ga", "ga"],
@@ -11022,9 +11176,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     ["ku", "ku"],
     ["km", "kmr"]
   ];
-  var langMap10 = new Map(rawLangMap5);
-  var langMapReverse5 = new Map(
-    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
+  var langMap11 = new Map(rawLangMap6);
+  var langMapReverse6 = new Map(
+    rawLangMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var MAX_TEXT_LEN = 1e3;
   var globalConfig;
@@ -11140,8 +11294,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
     from = from || "auto";
     to = to || "zh-CN";
-    from = langMap10.get(from) || from;
-    to = langMap10.get(to) || to;
+    from = langMap11.get(from) || from;
+    to = langMap11.get(to) || to;
     const requestURL = makeRequestURL(false);
     const requestBody = makeRequestBody(
       false,
@@ -11189,8 +11343,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const detectedLang = body[0].detectedLanguage;
     const res = {
       text: translation.text,
-      from: langMapReverse5.get(detectedLang.language),
-      to: langMapReverse5.get(translation.to)
+      from: langMapReverse6.get(detectedLang.language),
+      to: langMapReverse6.get(translation.to)
     };
     return res;
   }
@@ -11212,7 +11366,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
 
   // services/baidu.ts
-  var rawLangMap6 = [
+  var rawLangMap7 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
@@ -11243,9 +11397,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     ["zh-TW", "cht"],
     ["vi", "vie"]
   ];
-  var langMap11 = new Map(rawLangMap6);
-  var langMapReverse6 = new Map(
-    rawLangMap6.map(([translatorLang, lang]) => [lang, translatorLang])
+  var langMap12 = new Map(rawLangMap7);
+  var langMapReverse7 = new Map(
+    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -11277,8 +11431,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       const { appid, key } = this;
       const { text, from, to } = payload;
       const params = new URLSearchParams({
-        from: langMap11.get(from),
-        to: langMap11.get(to),
+        from: langMap12.get(from),
+        to: langMap12.get(to),
         q: text,
         salt,
         appid,
@@ -11302,7 +11456,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         from: langDetected
       } = data;
       const transParagraphs = transResult.map(({ dst }) => dst);
-      const detectedFrom = langMapReverse6.get(langDetected);
+      const detectedFrom = langMapReverse7.get(langDetected);
       return {
         from: detectedFrom,
         to,
@@ -11313,13 +11467,13 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var baidu_default = Baidu;
 
   // services/caiyun.ts
-  var rawLangMap7 = [
+  var rawLangMap8 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
   ];
-  var langMap12 = new Map(rawLangMap7);
+  var langMap13 = new Map(rawLangMap8);
   var Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
@@ -11349,7 +11503,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           method: "POST",
           body: JSON.stringify({
             source,
-            trans_type: `${langMap12.get(from)}2${langMap12.get(to)}`
+            trans_type: `${langMap13.get(from)}2${langMap13.get(to)}`
           })
         }
       );
@@ -11364,7 +11518,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var caiyun_default = Caiyun;
 
   // services/youdao.ts
-  var rawLangMap8 = [
+  var rawLangMap9 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -11379,9 +11533,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     ["vi", "vi"],
     ["it", "it"]
   ];
-  var langMap13 = new Map(rawLangMap8);
-  var langMapReverse7 = new Map(
-    rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
+  var langMap14 = new Map(rawLangMap9);
+  var langMapReverse8 = new Map(
+    rawLangMap9.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q6) {
     const len = q6.length;
@@ -11422,8 +11576,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap13.get(from),
-        to: langMap13.get(to),
+        from: langMap14.get(from),
+        to: langMap14.get(to),
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -11444,7 +11598,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       const [remoteFrom, _2] = l18.split("2");
       return {
         text: result.translation.join("\n"),
-        from: langMapReverse7.get(remoteFrom),
+        from: langMapReverse8.get(remoteFrom),
         to
       };
     }
@@ -11481,6 +11635,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     volc: {
       class: mod_default,
       name: "Volc",
+      homepage: "https://www.volcengine.com/"
+    },
+    volcAlpha: {
+      class: VolcAlpha,
+      name: "Volc Alpha",
+      alpha: true,
       homepage: "https://www.volcengine.com/"
     },
     tencent: {
@@ -13035,6 +13195,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       "aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
       "mock": "\u6A21\u62DF\u7FFB\u8BD1",
       "caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+      "volcAlpha": "\u706B\u5C71\u7FFB\u8BD1(Alpha)",
       "openl": "OpenL",
       "youdao": "\u6709\u9053\u7FFB\u8BD1",
       "transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",

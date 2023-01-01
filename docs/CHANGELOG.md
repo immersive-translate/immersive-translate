@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.23
+
+- Better for Chinese detect
+- Fix reddit innerText issue
+
 ## 0.0.22
 
 - Support deeplx

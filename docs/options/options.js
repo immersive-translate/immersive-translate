@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-01T07:53:26.365Z", VERSION: "0.0.22", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-01T12:56:57.654Z", VERSION: "0.0.23", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7294,6 +7294,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         ".articleTitle",
         ".Article__content",
         ".title",
+        ".abstract",
         ".titleLink",
         ".summary",
         ".content",
@@ -8453,6 +8454,49 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var [sendReady, readyStream, waitForReady] = H2("READY");
   var [sendUrlChange, urlChangeStream, waitForUrlChange] = H2("urlChange");
 
+  // utils/detect_chinese.ts
+  var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g;
+  var japaneseRegex = /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g;
+  var koreanRegex = /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g;
+  var punctuationRegex = /(\s+)|([\p{P}\p{S}])/gu;
+  var regexGroups = [
+    ["zh-CN", chineseRegex],
+    [
+      "ja",
+      japaneseRegex
+    ],
+    ["ko", koreanRegex]
+  ];
+  function detectChinese(text) {
+    if (!text) {
+      return "auto";
+    }
+    let maxCountLang = "auto";
+    let currentMaxCount = 0;
+    let punctuationMatchesLength = 0;
+    const punctuationMatches = text.match(punctuationRegex);
+    if (punctuationMatches) {
+      punctuationMatchesLength = punctuationMatches.reduce((sum, item) => {
+        return sum + item.length;
+      }, 0);
+    }
+    const allLettersLength = text.length - punctuationMatchesLength;
+    for (const group of regexGroups) {
+      const regex = group[1];
+      const lang = group[0];
+      const matches = text.match(regex);
+      const langLength = matches ? matches.length : 0;
+      if (langLength > currentMaxCount) {
+        currentMaxCount = langLength;
+        maxCountLang = lang;
+      }
+    }
+    if (currentMaxCount * 2.5 / allLettersLength > 0.5) {
+      return maxCountLang;
+    }
+    return "auto";
+  }
+
   // browser_proxy.ts
   async function sendMessage(fn, options) {
     try {
@@ -8478,6 +8522,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return sendMessage(sendFetch, options);
   }
   function detectLanguage(options) {
+    if (options.text) {
+      const chineseLike = detectChinese(options.text);
+      if (chineseLike !== "auto") {
+        return Promise.resolve(chineseLike);
+      }
+    } else {
+      return Promise.resolve("auto");
+    }
     if (isMonkey()) {
       const result = browserAPI.extra.detectLanguage(options.text);
       return Promise.resolve(result);
@@ -11602,7 +11654,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return str.replace(placeholder, "*");
   }
   function makeRegExp(scheme, host, path) {
-    console.log("path", path);
     let regex = "^";
     if (scheme === "*:") {
       regex += "(http:|https:|file:)";
@@ -12881,6 +12932,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           children: "About"
         }),
         /* @__PURE__ */ p19("p", {
+          onClick: onClickMultipleTimes(7)(handleToggleAlpha),
           class: "mb-2",
           children: [
             "V",

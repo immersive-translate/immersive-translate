@@ -623,8 +623,16 @@
       "globalStyles": {
         ".title": "height: unset; max-height: unset;"
       }
+    },
+    {
+      "matches": [
+        "weibo.com"
+      ],
+      "selectors": [
+        "div[class^='detail_wbtext']"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-01T15:16:14.619Z",
+  "buildinConfigUpdatedAt": "2023-01-01T15:27:59.682Z",
   "latestVersion": "0.0.24"
 }

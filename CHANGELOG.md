@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.22
+
+- Support deeplx
+- Fix multiple translation when switch service
+
 ## 0.0.21
 
 - Fix some span tag is block element

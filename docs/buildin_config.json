@@ -6,6 +6,8 @@
       "old.reddit.com",
       "twitter.com",
       "*.twitter.com",
+      "medium.com",
+      "*.medium.com",
       "github.com",
       "gist.github.com",
       "www.facebook.com",
@@ -17,7 +19,12 @@
       "discord.com",
       "web.telegram.org",
       "*.slack.com"
-    ]
+    ],
+    "excludeMatches": [],
+    "selectorMatches": [
+      "meta[property='al:ios:url'][content^='medium://']"
+    ],
+    "selectorExcludeMatches": []
   },
   "generalRule": {
     "_comment": "",
@@ -256,7 +263,8 @@
       "matches": "github.com",
       "selectors": [
         ".markdown-title",
-        ".markdown-body"
+        ".markdown-body",
+        ".Layout-sidebar p"
       ],
       "excludeSelectors": [
         ".css-truncate"
@@ -588,6 +596,9 @@
         "mastodon.world",
         "infosec.exchange"
       ],
+      "selectorMatches": [
+        "div#mastodon"
+      ],
       "selectors": [
         "div.status__content__text"
       ],
@@ -647,18 +658,35 @@
     {
       "matches": [
         "medium.com",
-        "*.medium.com",
-        "itnext.io"
+        "*.medium.com"
       ],
-      "additionalSelectors": [
-        "pre",
-        "h2"
+      "selectorMatches": [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      "selectors": [
+        "article section",
+        "h2",
+        "[aria-hidden='false'] pre",
+        "article p"
+      ],
+      "excludeSelectors": [
+        "[aria-label='Post Preview Reading Time']"
       ],
       "globalStyles": {
-        "h2": "-webkit-line-clamp: unset;max-height:unset;"
+        "h2": "-webkit-line-clamp: unset;max-height:unset;",
+        "article p": "-webkit-line-clamp: unset;max-height:unset;"
       }
+    },
+    {
+      "selectorMatches": [
+        "meta[property='og:site_name'][content='Nitter']"
+      ],
+      "selectors": [
+        ".tweet-content",
+        ".quote-text"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-02T10:06:12.601Z",
-  "latestVersion": "0.0.24"
+  "buildinConfigUpdatedAt": "2023-01-02T15:21:44.948Z",
+  "latestVersion": "0.0.26"
 }

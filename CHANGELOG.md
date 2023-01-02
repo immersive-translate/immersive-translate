@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.26
+
+- Fix volc alpha userscript connect permission.
+- Fix version clickable.
+
+## 0.0.25
+
+- Support selectorMatches, so we can match all manstondon now.
+- Fix Firefox userscript error.
+
 ## 0.0.23
 
 - Better for Chinese detect

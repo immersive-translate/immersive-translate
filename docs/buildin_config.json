@@ -26,10 +26,6 @@
     "urlChangeDelay": 10,
     "globalStyles": {},
     "selectors": [],
-    "preWhitespaceDetectedTags": [
-      "DIV",
-      "SPAN"
-    ],
     "additionalSelectors": [
       "h1",
       "section h2",
@@ -83,6 +79,7 @@
       "IMG",
       "SUB",
       "SUP",
+      "BR",
       "HR",
       "PRE",
       "CODE",
@@ -176,6 +173,11 @@
         "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
+      ],
+      "atomicBlockSelectors": [
+        "[data-testid=\"tweetText\"]",
+        ".tweet-text",
+        ".js-quoted-tweet-text"
       ],
       "extraInlineSelectors": [
         "[data-testid=\"tweetText\"] div"
@@ -366,6 +368,20 @@
         ".article_content"
       ],
       "detectParagraphLanguage": true
+    },
+    {
+      "matches": [
+        "scholar.google.com"
+      ],
+      "wrapperPrefix": "\n",
+      "selectors": [
+        "h3 a[data-clk]",
+        "div.gs_rs"
+      ],
+      "atomicBlockSelectors": [
+        ".gs_rs",
+        "h3 a[data-clk]"
+      ]
     },
     {
       "matches": "mail.google.com",
@@ -631,6 +647,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-01T16:34:27.719Z",
+  "buildinConfigUpdatedAt": "2023-01-02T08:56:48.658Z",
   "latestVersion": "0.0.24"
 }

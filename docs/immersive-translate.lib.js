@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-01T14:00:44.900Z", VERSION: "0.0.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-02T14:35:11.354Z", VERSION: "0.0.25", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -3558,6 +3558,7 @@ textarea,
   var brandName = "Next Translator";
   var brandId = "immersive-translate";
   var targetContainerElementAttributeName = `data-${brandId}-container`;
+  var specifiedTargetContainerElementAttributeName = `data-${brandId}-specified-container`;
   var buildinConfigStorageKey = "buildinConfig";
   var contextMenuId = `${brandId}-context-menu`;
   var contextOpenOptionsMenuId = `${brandId}-open-options-menu`;
@@ -3567,6 +3568,7 @@ textarea,
   var sourceElementMarkAttributeName = `data-${brandId}-mark`;
   var sourceElementParagraphAttributeName = `data-${brandId}-paragraph-id`;
   var sourceAtomicBlockElementMarkAttributeName = `data-${brandId}-atomic-block-mark`;
+  var sourcePreWhitespaceMarkAttributeName = `data-${brandId}-pre-whitespace-mark`;
   var sourceInlineElementMarkAttributeName = `data-${brandId}-inline-mark`;
   var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
   var lastRunTimeStorageKey = "lastRunTime";
@@ -7493,6 +7495,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "old.reddit.com",
         "twitter.com",
         "*.twitter.com",
+        "medium.com",
+        "*.medium.com",
         "github.com",
         "gist.github.com",
         "www.facebook.com",
@@ -7504,7 +7508,12 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "discord.com",
         "web.telegram.org",
         "*.slack.com"
-      ]
+      ],
+      "excludeMatches": [],
+      "selectorMatches": [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      "selectorExcludeMatches": []
     },
     "generalRule": {
       "_comment": "",
@@ -7513,6 +7522,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       "urlChangeDelay": 10,
       "globalStyles": {},
       "selectors": [],
+      "preWhitespaceDetectedTags": [
+        "DIV",
+        "SPAN"
+      ],
       "additionalSelectors": [
         "h1",
         "section h2",
@@ -7566,7 +7579,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "IMG",
         "SUB",
         "SUP",
-        "BR",
         "HR",
         "PRE",
         "CODE",
@@ -7740,7 +7752,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "matches": "github.com",
         "selectors": [
           ".markdown-title",
-          ".markdown-body"
+          ".markdown-body",
+          ".Layout-sidebar p"
         ],
         "excludeSelectors": [
           ".css-truncate"
@@ -7850,6 +7863,20 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           ".article_content"
         ],
         "detectParagraphLanguage": true
+      },
+      {
+        "matches": [
+          "scholar.google.com"
+        ],
+        "wrapperPrefix": "\n",
+        "selectors": [
+          "h3 a[data-clk]",
+          "div.gs_rs"
+        ],
+        "atomicBlockSelectors": [
+          ".gs_rs",
+          "h3 a[data-clk]"
+        ]
       },
       {
         "matches": "mail.google.com",
@@ -8058,6 +8085,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           "mastodon.world",
           "infosec.exchange"
         ],
+        "selectorMatches": [
+          "div#mastodon"
+        ],
         "selectors": [
           "div.status__content__text"
         ],
@@ -8105,6 +8135,45 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "globalStyles": {
           ".title": "height: unset; max-height: unset;"
         }
+      },
+      {
+        "matches": [
+          "weibo.com"
+        ],
+        "selectors": [
+          "div[class^='detail_wbtext']"
+        ]
+      },
+      {
+        "matches": [
+          "medium.com",
+          "*.medium.com"
+        ],
+        "selectorMatches": [
+          "meta[property='al:ios:url'][content^='medium://']"
+        ],
+        "selectors": [
+          "article section",
+          "h2",
+          "[aria-hidden='false'] pre",
+          "article p"
+        ],
+        "excludeSelectors": [
+          "[aria-label='Post Preview Reading Time']"
+        ],
+        "globalStyles": {
+          "h2": "-webkit-line-clamp: unset;max-height:unset;",
+          "article p": "-webkit-line-clamp: unset;max-height:unset;"
+        }
+      },
+      {
+        "selectorMatches": [
+          "meta[property='og:site_name'][content='Nitter']"
+        ],
+        "selectors": [
+          ".tweet-content",
+          ".quote-text"
+        ]
       }
     ]
   };
@@ -8293,7 +8362,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       translationThemePatterns: {},
       translationParagraphLanguagePattern: {
         matches: [],
-        excludeMatches: []
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
       },
       translationTheme: "none",
       translationService: "google",
@@ -8425,7 +8496,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       const event = new CustomEvent("pageTranslatedStatus", {
         detail: status
       });
-      globalThis.dispatchEvent(event);
+      document.dispatchEvent(event);
       return;
     }
     sendPageTranslatedStatus(status);
@@ -8525,9 +8596,13 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     return null;
   }
-  function getWhitespace(nextNode) {
+  function getWhitespace(nextNode, isPreWhitespace) {
     if (nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0) {
-      return " ";
+      if (isPreWhitespace) {
+        return nextNode.textContent;
+      } else {
+        return " ";
+      }
     } else {
       return null;
     }
@@ -8583,6 +8658,15 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     return false;
   }
   function isExcludeElement(element, excludeElements, rule) {
+    if (element.nodeType === Node.ELEMENT_NODE && element.isContentEditable) {
+      return true;
+    }
+    if (element.nodeType === Node.ELEMENT_NODE && isMarked(
+      element,
+      specifiedTargetContainerElementAttributeName
+    )) {
+      return false;
+    }
     const { excludeTags } = rule;
     if (excludeTags.includes(element.nodeName)) {
       return true;
@@ -8662,6 +8746,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   function isMarked(element, markedAttribute) {
     return element.hasAttribute(markedAttribute) && element.getAttribute(markedAttribute) === "1";
   }
+  function hasMark(element, markedAttribute) {
+    return element.hasAttribute(markedAttribute);
+  }
   function trimText(text) {
     return text.replace(/\s/g, " ");
   }
@@ -8685,6 +8772,24 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     text = trimText(root2.textContent || "");
     return text;
+  }
+  function isMatchSelectors(selectors) {
+    if (!selectors) {
+      return false;
+    }
+    if (typeof selectors === "string") {
+      return document.querySelector(selectors) !== null;
+    }
+    return selectors.some((selector) => {
+      return document.querySelector(selector);
+    });
+  }
+  function setAttribute(element, name, value) {
+    if (!element.isContentEditable) {
+      if (element.getAttribute(name) !== value) {
+        element.setAttribute(name, value);
+      }
+    }
   }
 
   // dom/detect_page_language.ts
@@ -8711,6 +8816,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     if (rule && rule.selectors.length > 0) {
       const containers = rule.selectors.map((selector) => {
         const elements = root2.querySelectorAll(selector);
+        for (const element of elements) {
+          if (!isMarked(element, specifiedTargetContainerElementAttributeName)) {
+            element.setAttribute(
+              specifiedTargetContainerElementAttributeName,
+              "1"
+            );
+          }
+        }
         return Array.from(elements);
       }).flat();
       contentContainers.push(...containers);
@@ -8720,6 +8833,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           root2,
           rule.additionalSelectors
         );
+        for (const element of additionalElements) {
+          if (!isMarked(element, specifiedTargetContainerElementAttributeName)) {
+            element.setAttribute(
+              specifiedTargetContainerElementAttributeName,
+              "1"
+            );
+          }
+        }
         contentContainers.push(...additionalElements);
       }
       const articleElements = getElementsBySelectors(root2, ["article"]);
@@ -8945,7 +9066,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   }
 
   // dom/elements_to_paragraph.ts
-  function elementsToParagraph(elements, excludeElements, ctx) {
+  function elementsToParagraph(elements, excludeElements, isPreWhitespace, ctx) {
     const variables = [];
     const { rule } = ctx;
     const { stayOriginalTags } = rule;
@@ -8956,13 +9077,13 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         text += element;
         continue;
       }
+      const rawText = element.innerText;
       if (isExcludeElement(element, excludeElements, rule)) {
         if (stayOriginalTags.includes(element.nodeName)) {
-          const codeText = element.innerText;
           const variable = {
             type: element.nodeName.toLowerCase(),
             attributes: element.attributes,
-            value: codeText
+            value: rawText
           };
           variables.push(variable);
           const index = variables.length - 1;
@@ -8972,10 +9093,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           continue;
         }
       } else {
-        const rawText = element.innerText;
         const isStartWithSpace = rawText.startsWith(" ");
         const isEndWithSpace = rawText.endsWith(" ");
-        const finalText = rawText.trim();
+        const finalText = isPreWhitespace ? rawText : rawText.trim();
         if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
           const variable = {
             type: element.nodeName.toLowerCase(),
@@ -8991,7 +9111,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         }
       }
       if (typeof element !== "string") {
-        const whitespace = getWhitespace(element.nextSibling);
+        const whitespace = getWhitespace(
+          element.nextSibling,
+          isPreWhitespace
+        );
         if (whitespace) {
           text += whitespace;
         }
@@ -8999,7 +9122,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     let inline = false;
     const wordCount = text.split(" ").length;
-    if (wordCount < 4 && text.length < 20) {
+    const lineCount = text.split("\n").length;
+    if (wordCount < 4 && text.length < 20 && lineCount < 2) {
       inline = true;
     }
     const paragraph = {
@@ -9054,8 +9178,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       };
       newParagraph.elements.forEach((element) => {
         if (element instanceof HTMLElement) {
-          element.setAttribute(sourceElementMarkAttributeName, "1");
-          element.setAttribute(
+          setAttribute(element, sourceElementMarkAttributeName, "1");
+          setAttribute(
+            element,
             sourceElementParagraphAttributeName,
             `${newParagraph.id}`
           );
@@ -9070,12 +9195,17 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     const { targetLanguage, rule, isDetectParagraphLanguage } = ctx;
     const { stayOriginalTags } = rule;
     for (const container of containers) {
+      const isPreWhitespaceContainer = isMarked(
+        container,
+        sourcePreWhitespaceMarkAttributeName
+      );
       let inlineElementGroups = [];
       if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
         if (!isMarkedByParagraph(container)) {
           const paragraph = elementsToParagraph(
             [container],
             excludeElements,
+            isPreWhitespaceContainer,
             ctx
           );
           if (paragraph) {
@@ -9092,13 +9222,17 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           )) {
             return NodeFilter.FILTER_REJECT;
           } else {
-            element.setAttribute(sourceElementMarkAttributeName, "1");
+            setAttribute(element, sourceElementMarkAttributeName, "1");
+          }
+          if (element.isContentEditable) {
+            return NodeFilter.FILTER_REJECT;
           }
           if (isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
             if (inlineElementGroups.length > 0) {
               const paragraph2 = elementsToParagraph(
                 inlineElementGroups,
                 excludeElements,
+                isPreWhitespaceContainer,
                 ctx
               );
               if (paragraph2) {
@@ -9110,6 +9244,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             const paragraph = elementsToParagraph(
               inlineElementGroups,
               excludeElements,
+              isPreWhitespaceContainer,
               ctx
             );
             if (paragraph) {
@@ -9135,6 +9270,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
               const paragraph = elementsToParagraph(
                 inlineElementGroups,
                 excludeElements,
+                isPreWhitespaceContainer,
                 ctx
               );
               if (paragraph) {
@@ -9168,6 +9304,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
               const paragraph = elementsToParagraph(
                 inlineElementGroups,
                 excludeElements,
+                isPreWhitespaceContainer,
                 ctx
               );
               if (paragraph) {
@@ -9180,7 +9317,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             const innerHTML = node2.innerHTML;
             if (innerHTML.includes("<code>") || innerHTML.includes("<tt>")) {
               inlineElementGroups.push(
-                ...getInlineElementsOfInlineElement(node2)
+                ...getInlineElementsOfInlineElement(
+                  node2,
+                  isPreWhitespaceContainer
+                )
               );
               return NodeFilter.FILTER_REJECT;
             } else {
@@ -9204,6 +9344,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           const paragraph = elementsToParagraph(
             inlineElementGroups,
             excludeElements,
+            isPreWhitespaceContainer,
             ctx
           );
           if (paragraph) {
@@ -9217,6 +9358,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         const paragraph = elementsToParagraph(
           inlineElementGroups,
           excludeElements,
+          isPreWhitespaceContainer,
           ctx
         );
         if (paragraph) {
@@ -9244,7 +9386,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     return allParagraphs;
   }
-  function getInlineElementsOfInlineElement(root2) {
+  function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer) {
     const elements = [];
     const treeWalker = document.createTreeWalker(
       root2,
@@ -9268,13 +9410,19 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     const lastElement = elements[elements.length - 1];
     if (lastElement && typeof lastElement !== "string") {
-      const whitespace = getWhitespace(lastElement.nextSibling);
+      const whitespace = getWhitespace(
+        lastElement.nextSibling,
+        isPreWhitespaceContainer
+      );
       if (whitespace) {
         elements.push(whitespace);
       }
     }
     if (typeof elements[elements.length - 1] !== "string") {
-      const whitespace = getWhitespace(root2.nextSibling);
+      const whitespace = getWhitespace(
+        root2.nextSibling,
+        isPreWhitespaceContainer
+      );
       if (whitespace) {
         elements.push(whitespace);
       }
@@ -9336,7 +9484,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         html = `${wrapperPrefix}${html}`;
       }
       if (wrapperPrefix === "smart") {
-        if (wordCount >= 20 && textLength >= 80) {
+        const textLine = text.split("\n").length;
+        if (textLine > 1 || wordCount >= 20 && textLength >= 80) {
           html = `<br>${html}`;
         }
       }
@@ -9362,9 +9511,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   function normalizeContainer(containers, excludeElements, extraInlineElements, extraBlockElements, rule) {
     for (const container of containers) {
       if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
-        return;
+        continue;
       }
-      container.setAttribute(targetContainerElementAttributeName, "1");
+      setAttribute(container, targetContainerElementAttributeName, "1");
       const isExcludePre = rule.excludeTags.includes("PRE") || rule.additionalExcludeTags.includes("PRE");
       if (!isExcludePre) {
         const preTags = container.querySelectorAll("pre");
@@ -9373,10 +9522,15 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           preTag.innerHTML = html.replace(/\n/g, "<br>");
         }
       }
-      if (container.tagName !== "PRE") {
-        if (isPreElementByStyle(container)) {
-          const html = container.innerHTML;
-          container.innerHTML = html.replace(/\n/g, "<br>");
+      if (rule.preWhitespaceDetectedTags.includes(container.tagName)) {
+        if (!hasMark(container, sourcePreWhitespaceMarkAttributeName)) {
+          if (isPreElementByStyle(container)) {
+            setAttribute(container, sourcePreWhitespaceMarkAttributeName, "1");
+            const html = container.innerHTML;
+            container.innerHTML = html.replace(/\n/g, "<br>");
+          } else {
+            setAttribute(container, sourcePreWhitespaceMarkAttributeName, "0");
+          }
         }
       }
       wrapTextNode(
@@ -12955,10 +13109,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       translationUrlPattern,
       targetLanguage
     } = config;
-    const isDetectParagraphLanguage = isMatchUrl(
+    let isDetectParagraphLanguage = isMatchUrl(
       url,
       translationParagraphLanguagePattern.matches
     );
+    if (!isDetectParagraphLanguage) {
+      const selectorMatches = translationParagraphLanguagePattern.selectorMatches;
+      isDetectParagraphLanguage = isMatchSelectors(selectorMatches);
+    }
     let defaultTranslationService = translationService;
     const services = Object.keys(translationServices);
     for (const service of services) {
@@ -13005,7 +13163,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     };
     const rules = config.rules;
     const rule = rules.find((rule2) => {
-      return isMatchUrl(url, rule2.matches);
+      let isMatched = isMatchUrl(url, rule2.matches);
+      if (!isMatched) {
+        const selectorMatches = rule2.selectorMatches;
+        if (selectorMatches && selectorMatches.length > 0) {
+          isMatched = isMatchSelectors(selectorMatches);
+        }
+      }
+      return isMatched;
     });
     const generalRule = config.generalRule;
     if (rule) {
@@ -13239,7 +13404,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         const elements = getElementsBySelectors(document.body, [selector]);
         for (const element of elements) {
           if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
-            element.setAttribute(
+            setAttribute(
+              element,
               sourceElementWithGlobalStyleMarkAttributeName,
               "1"
             );
@@ -13306,7 +13472,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     atomicBlockElements.forEach((element) => {
       if (!isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
-        element.setAttribute(sourceAtomicBlockElementMarkAttributeName, "1");
+        setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
       }
     });
     const extraInlineElements = [];
@@ -13318,7 +13484,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       }
     }
     extraInlineElements.forEach((element) => {
-      element.setAttribute(sourceInlineElementMarkAttributeName, "1");
+      setAttribute(element, sourceInlineElementMarkAttributeName, "1");
     });
     const extraBlockElements = [];
     if (allBlockSelectos.length > 0) {
@@ -13329,7 +13495,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       }
     }
     extraBlockElements.forEach((element) => {
-      element.setAttribute(sourceBlockElementMarkAttributeName, "1");
+      setAttribute(element, sourceBlockElementMarkAttributeName, "1");
     });
     normalizeContainer(
       containers,
@@ -13478,7 +13644,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             initPage();
           }, rule.urlChangeDelay);
           const event = new Event("urlChange");
-          globalThis.dispatchEvent(event);
+          document.dispatchEvent(event);
           return;
         }
         mutation.addedNodes.forEach((addedNode) => {
@@ -14725,7 +14891,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       setCurrentUrl(globalThis.location.href);
     };
     j3(() => {
-      globalThis.addEventListener(
+      document.addEventListener(
         "pageTranslatedStatus",
         onToggleTranslate,
         false
@@ -14738,10 +14904,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         setPageStatus(currentPageStatus);
         runCron(result.interval);
       });
-      globalThis.addEventListener("urlChange", onUrlChange);
+      document.addEventListener("urlChange", onUrlChange);
       return () => {
         document.removeEventListener("pageTranslatedStatus", onToggleTranslate);
-        globalThis.removeEventListener("urlChange", onUrlChange);
+        document.removeEventListener("urlChange", onUrlChange);
       };
     }, []);
     j3(() => {

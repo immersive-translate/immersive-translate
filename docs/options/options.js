@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-01T14:00:44.900Z", VERSION: "0.0.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-02T14:35:11.354Z", VERSION: "0.0.25", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -6925,6 +6925,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var brandName = "Next Translator";
   var brandId = "immersive-translate";
   var targetContainerElementAttributeName = `data-${brandId}-container`;
+  var specifiedTargetContainerElementAttributeName = `data-${brandId}-specified-container`;
   var buildinConfigStorageKey = "buildinConfig";
   var contextMenuId = `${brandId}-context-menu`;
   var contextOpenOptionsMenuId = `${brandId}-open-options-menu`;
@@ -6934,9 +6935,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var sourceElementMarkAttributeName = `data-${brandId}-mark`;
   var sourceElementParagraphAttributeName = `data-${brandId}-paragraph-id`;
   var sourceAtomicBlockElementMarkAttributeName = `data-${brandId}-atomic-block-mark`;
+  var sourcePreWhitespaceMarkAttributeName = `data-${brandId}-pre-whitespace-mark`;
   var sourceInlineElementMarkAttributeName = `data-${brandId}-inline-mark`;
   var sourceBlockElementMarkAttributeName = `data-${brandId}-block-mark`;
   var sourceElementWithGlobalStyleMarkAttributeName = `data-${brandId}-global-style-mark`;
+  var delimiters = ["@", "#"];
   var translationTextSeparator = "\n@\u{1F6A0}\n";
   var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
   var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
@@ -7260,6 +7263,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "old.reddit.com",
         "twitter.com",
         "*.twitter.com",
+        "medium.com",
+        "*.medium.com",
         "github.com",
         "gist.github.com",
         "www.facebook.com",
@@ -7271,7 +7276,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "discord.com",
         "web.telegram.org",
         "*.slack.com"
-      ]
+      ],
+      "excludeMatches": [],
+      "selectorMatches": [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      "selectorExcludeMatches": []
     },
     "generalRule": {
       "_comment": "",
@@ -7280,6 +7290,10 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       "urlChangeDelay": 10,
       "globalStyles": {},
       "selectors": [],
+      "preWhitespaceDetectedTags": [
+        "DIV",
+        "SPAN"
+      ],
       "additionalSelectors": [
         "h1",
         "section h2",
@@ -7333,7 +7347,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "IMG",
         "SUB",
         "SUP",
-        "BR",
         "HR",
         "PRE",
         "CODE",
@@ -7507,7 +7520,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "matches": "github.com",
         "selectors": [
           ".markdown-title",
-          ".markdown-body"
+          ".markdown-body",
+          ".Layout-sidebar p"
         ],
         "excludeSelectors": [
           ".css-truncate"
@@ -7617,6 +7631,20 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           ".article_content"
         ],
         "detectParagraphLanguage": true
+      },
+      {
+        "matches": [
+          "scholar.google.com"
+        ],
+        "wrapperPrefix": "\n",
+        "selectors": [
+          "h3 a[data-clk]",
+          "div.gs_rs"
+        ],
+        "atomicBlockSelectors": [
+          ".gs_rs",
+          "h3 a[data-clk]"
+        ]
       },
       {
         "matches": "mail.google.com",
@@ -7825,6 +7853,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "mastodon.world",
           "infosec.exchange"
         ],
+        "selectorMatches": [
+          "div#mastodon"
+        ],
         "selectors": [
           "div.status__content__text"
         ],
@@ -7872,6 +7903,45 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "globalStyles": {
           ".title": "height: unset; max-height: unset;"
         }
+      },
+      {
+        "matches": [
+          "weibo.com"
+        ],
+        "selectors": [
+          "div[class^='detail_wbtext']"
+        ]
+      },
+      {
+        "matches": [
+          "medium.com",
+          "*.medium.com"
+        ],
+        "selectorMatches": [
+          "meta[property='al:ios:url'][content^='medium://']"
+        ],
+        "selectors": [
+          "article section",
+          "h2",
+          "[aria-hidden='false'] pre",
+          "article p"
+        ],
+        "excludeSelectors": [
+          "[aria-label='Post Preview Reading Time']"
+        ],
+        "globalStyles": {
+          "h2": "-webkit-line-clamp: unset;max-height:unset;",
+          "article p": "-webkit-line-clamp: unset;max-height:unset;"
+        }
+      },
+      {
+        "selectorMatches": [
+          "meta[property='og:site_name'][content='Nitter']"
+        ],
+        "selectors": [
+          ".tweet-content",
+          ".quote-text"
+        ]
       }
     ]
   };
@@ -8042,7 +8112,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       translationThemePatterns: {},
       translationParagraphLanguagePattern: {
         matches: [],
-        excludeMatches: []
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
       },
       translationTheme: "none",
       translationService: "google",
@@ -11851,6 +11923,22 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return getMatchedUrl(url, rawMatches) !== null;
   }
 
+  // dom/util.ts
+  var stayInOriginalRegex = new RegExp(
+    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
+  );
+  function isMatchSelectors(selectors) {
+    if (!selectors) {
+      return false;
+    }
+    if (typeof selectors === "string") {
+      return document.querySelector(selectors) !== null;
+    }
+    return selectors.some((selector) => {
+      return document.querySelector(selector);
+    });
+  }
+
   // dom/context.ts
   async function getContext(options) {
     const { url, config } = options;
@@ -11864,10 +11952,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       translationUrlPattern,
       targetLanguage
     } = config;
-    const isDetectParagraphLanguage = isMatchUrl(
+    let isDetectParagraphLanguage = isMatchUrl(
       url,
       translationParagraphLanguagePattern.matches
     );
+    if (!isDetectParagraphLanguage) {
+      const selectorMatches = translationParagraphLanguagePattern.selectorMatches;
+      isDetectParagraphLanguage = isMatchSelectors(selectorMatches);
+    }
     let defaultTranslationService = translationService;
     const services = Object.keys(translationServices);
     for (const service of services) {
@@ -11914,7 +12006,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     };
     const rules = config.rules;
     const rule = rules.find((rule2) => {
-      return isMatchUrl(url, rule2.matches);
+      let isMatched = isMatchUrl(url, rule2.matches);
+      if (!isMatched) {
+        const selectorMatches = rule2.selectorMatches;
+        if (selectorMatches && selectorMatches.length > 0) {
+          isMatched = isMatchSelectors(selectorMatches);
+        }
+      }
+      return isMatched;
     });
     const generalRule = config.generalRule;
     if (rule) {

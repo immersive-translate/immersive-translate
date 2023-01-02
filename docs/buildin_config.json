@@ -647,7 +647,8 @@
     {
       "matches": [
         "medium.com",
-        "*.medium.com"
+        "*.medium.com",
+        "itnext.io"
       ],
       "additionalSelectors": [
         "pre",
@@ -658,6 +659,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-02T10:00:13.262Z",
+  "buildinConfigUpdatedAt": "2023-01-02T10:06:12.601Z",
   "latestVersion": "0.0.24"
 }

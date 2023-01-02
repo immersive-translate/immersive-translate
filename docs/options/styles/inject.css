@@ -5,6 +5,7 @@
   /* position: relative; */
   /* top: 16px; */
   white-space: pre-wrap !important;
+  display: inline-block;
 }
 
 .immersive-translate-target-translation-inline-wrapper {
@@ -14,6 +15,36 @@
   border-bottom: 1px solid #72ece9 !important;
 }
 
+.immersive-translate-target-translation-theme-highlight-inner {
+  background-color: #ead0b3 !important;
+}
+.immersive-translate-target-translation-theme-weakening {
+  opacity: 0.4 !important;
+}
+.immersive-translate-target-translation-theme-italic {
+  font-style: italic !important;
+}
+
+.immersive-translate-target-translation-theme-bold {
+  font-weight: bold !important;
+}
+
+.immersive-translate-target-translation-theme-blockquote {
+  border-left: 4px solid #cc3355 !important;
+  padding-left: 12px !important;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.immersive-translate-target-translation-theme-mask-inner {
+  filter: blur(5px) !important;
+  transition: filter 0.3s ease !important;
+}
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
 .immersive-translate-text {
   font-size: 15px !important;
 }

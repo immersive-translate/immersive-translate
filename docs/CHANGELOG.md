@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.27
+
+- Support translationTheme
+
 ## 0.0.26
 
 - Fix volc alpha userscript connect permission.

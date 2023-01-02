@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @namespace    https://immersive-translate.owenyoung.com/
-// @version      0.0.25
+// @version      0.0.26
 // @description  沉浸式网页翻译，支持多种翻译引擎，双语对照显示
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -39,9 +39,10 @@
 // @connect    api.deepl.com
 // @connect    api.openl.club
 // @connect    openapi.youdao.com
+// @connect    translate.volcengine.com
 // @noframes
 // @run-at       document-end
-// @require   https://unpkg.com/immersive-translate@0.0.25/immersive-translate.lib.js
+// @require   https://unpkg.com/immersive-translate@0.0.26/immersive-translate.lib.js
 // ==/UserScript==
 (function () {
   "use strict";

@@ -34,13 +34,45 @@
 
 其中，`rules` 里的规则字段，可以使用`generalRule`里的全部字段，`rules`的优先级最高，当匹配到特定网站的某一条`rule`时，会合并`generalRule`和该`rule`，通过 rule,我们可以对任意网站进行任意自定义配置。
 
-`translationService`, 为默认翻译引擎，当前仅支持：`google`,`tencent`， 其中`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://hcfy.app/docs/services/qq-api/) , 其中 可以在不同的服务下配置：`matches`, 这样可以指定某些网站使用指定的翻译服务。
+`translationService`, 为默认翻译引擎，当前支持：
+
+```
+| "tencent"
+| "google"
+| "deepl"
+| "baidu"
+| "volc"
+| "youdao"
+| "caiyun"
+| "openl"
+| "bing"
+| "transmart"
+```
+
+其中部分服务需要配置`apikey`等，不同服务需要的 token 不一样。
+
+比如`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://hcfy.app/docs/services/qq-api/)
+
+还可以在不同的服务下配置：`matches`, 这样可以指定某些网站使用指定的翻译服务。
 
 `translationUrlPattern`, 配置 总是翻译的网站，以及永不翻译的网站。其中`matches`配置总是翻译的网站， `excludeMatches`配置永不翻译的网站。配置的值可以是域名或者带有`*`的网址，比如：`www.google.com/mail/*`
 
 `tranlationLanguagePattern`,配置总是翻译的语言，以及永不翻译的语言。其中`matches`配置总是翻译的语言，比如`en`,`excludeMatches`配置永不翻译的语言。
 
-`translationTheme`为译文的显示格式:，当前仅支持： `underline`, `none`
+`translationTheme`为译文的显示格式:，当前支持以下样式：
+
+```
+{
+  "none": "无",
+  "underline": "下划线",
+  "highlight": "高亮",
+  "blockquote": "引用样式",
+  "weakening": "弱化",
+  "mask": "模糊效果",
+  "italic": "斜体",
+  "bold": "加粗"
+}
+```
 
 `translationThemePatterns` 下可以为不同网站配置不同的译文样式。
 

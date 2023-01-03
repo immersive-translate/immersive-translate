@@ -10,12 +10,43 @@
   border-bottom: 1px solid #72ece9 !important;
 }
 
-.immersive-translate-target-translation-theme-dashed-inner {
+.immersive-translate-target-translation-theme-thinDashed-inner {
   border-bottom: 1px dashed #ff374f !important;
 }
 
+.immersive-translate-target-translation-theme-dotted-inner {
+  background-repeat: repeat-x;
+  background-image: linear-gradient(
+    to right,
+    currentColor 10%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 5px 1px;
+  background-repeat: repeat-x;
+  padding-bottom: 3px;
+}
+
+.immersive-translate-target-translation-theme-dashed-inner {
+  background-repeat: repeat-x;
+  background: linear-gradient(
+      to right,
+      #59c1bd 0%,
+      #59c1bd 50%,
+      transparent 50%,
+      transparent 100%
+    )
+    repeat-x left bottom;
+  background-size: 10px 2px;
+  padding-bottom: 3px;
+}
 .immersive-translate-target-translation-theme-highlight-inner {
-  background-color: #ead0b3 !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='42' preserveAspectRatio='none' viewBox='0 0 480 42'%3E%3Cpath fill='%23FFE200' fill-opacity='.75' d='m.7884025 41.3449275c15.8171024-1.6206809 71.8777185-.9529412 87.8950374-1.5331327 16.0173191-.5801915 83.3901661-.745318 100.1082431-.667414 16.718076.0779039 83.089842-.0805484 99.607702.4720956s171.593663-4.1777204 188.411848-.5026041c3.203464.64141 4.604979-37.03709852 1.301407-37.67784118-16.217535-3.4897587-170.292256 1.04456951-186.710008.30189599s-84.391249-.1001373-101.509758.0139905c-17.11851.1141278-84.191033.7506573-101.2094341 1.7162471-17.0184014.9655898-47.6903594-.51449033-88.09525389.58732435-.90097419.38473091-.7007577 37.29511244.20021649 37.28943844z'/%3E%3C/svg%3E")
+      bottom center/97% 78% no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='479' height='47' preserveAspectRatio='none' viewBox='0 0 479 47'%3E%3Cpath fill='%23FFE200' fill-opacity='.3' d='m478.156709 8.7824162c-15.838938 1.2871448-71.877674-.56274795-87.900678-.3203145-16.023003.24243345-83.384536-1.01313476-100.097964-1.44357365-16.713429-.43043889-83.073982-1.67157136-99.579885-2.57252834-16.505903-.90095697-171.7612979-2.11020331-188.38083741-3.47061103-1.44382456 9.18867382-1.72962966 27.64863472-1.88448384 37.65056312 49.37498245 2.5658616 109.46343725.852584 186.67624025 3.6352676s84.372323 1.8796999 101.489075 2.126551 84.185321 1.0246833 101.215168.4179614 47.672574 1.5201394 88.086209 1.2703448c.906745-.365732 1.278032-37.28033554.377156-37.2936604z'/%3E%3C/svg%3E")
+      top left/96% 100% no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .immersive-translate-target-translation-theme-weakening {
   opacity: 0.4 !important;

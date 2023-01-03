@@ -6,7 +6,182 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-03T08:52:15.689Z", VERSION: "0.0.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-translation-block-wrapper {\n  white-space: pre-wrap !important;\n  display: inline-block;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline-inner {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-target-translation-theme-dashed-inner {\n  border-bottom: 1px dashed #ff374f !important;\n}\n\n.immersive-translate-target-translation-theme-highlight-inner {\n  background-color: #ead0b3 !important;\n}\n.immersive-translate-target-translation-theme-weakening {\n  opacity: 0.4 !important;\n}\n.immersive-translate-target-translation-theme-italic {\n  font-style: italic !important;\n}\n\n.immersive-translate-target-translation-theme-bold {\n  font-weight: bold !important;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-paper {\n  margin: 8px 0;\n  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;\n  padding: 16px 32px;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-blockquote {\n  border-left: 4px solid #cc3355 !important;\n  padding-left: 12px !important;\n  margin-top: 4px;\n  margin-bottom: 4px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\n\n.immersive-translate-target-translation-theme-mask-inner {\n  filter: blur(5px) !important;\n  transition: filter 0.3s ease !important;\n}\n.immersive-translate-target-translation-theme-mask-inner:hover {\n  filter: none !important;\n}\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-03T10:41:57.165Z", VERSION: "0.0.29", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
+  white-space: pre-wrap !important;
+  display: inline-block;
+}
+
+.immersive-translate-target-translation-inline-wrapper {
+  white-space: pre-wrap !important;
+}
+.immersive-translate-target-translation-theme-underline-inner {
+  border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-target-translation-theme-thinDashed-inner {
+  border-bottom: 1px dashed #ff374f !important;
+}
+
+.immersive-translate-target-translation-theme-dotted-inner {
+  background-repeat: repeat-x;
+  background-image: linear-gradient(
+    to right,
+    currentColor 10%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 5px 1px;
+  background-repeat: repeat-x;
+  padding-bottom: 3px;
+}
+
+.immersive-translate-target-translation-theme-dashed-inner {
+  background-repeat: repeat-x;
+  background: linear-gradient(
+      to right,
+      #59c1bd 0%,
+      #59c1bd 50%,
+      transparent 50%,
+      transparent 100%
+    )
+    repeat-x left bottom;
+  background-size: 10px 2px;
+  padding-bottom: 3px;
+}
+.immersive-translate-target-translation-theme-highlight-inner {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='42' preserveAspectRatio='none' viewBox='0 0 480 42'%3E%3Cpath fill='%23FFE200' fill-opacity='.75' d='m.7884025 41.3449275c15.8171024-1.6206809 71.8777185-.9529412 87.8950374-1.5331327 16.0173191-.5801915 83.3901661-.745318 100.1082431-.667414 16.718076.0779039 83.089842-.0805484 99.607702.4720956s171.593663-4.1777204 188.411848-.5026041c3.203464.64141 4.604979-37.03709852 1.301407-37.67784118-16.217535-3.4897587-170.292256 1.04456951-186.710008.30189599s-84.391249-.1001373-101.509758.0139905c-17.11851.1141278-84.191033.7506573-101.2094341 1.7162471-17.0184014.9655898-47.6903594-.51449033-88.09525389.58732435-.90097419.38473091-.7007577 37.29511244.20021649 37.28943844z'/%3E%3C/svg%3E")
+      bottom center/97% 78% no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='479' height='47' preserveAspectRatio='none' viewBox='0 0 479 47'%3E%3Cpath fill='%23FFE200' fill-opacity='.3' d='m478.156709 8.7824162c-15.838938 1.2871448-71.877674-.56274795-87.900678-.3203145-16.023003.24243345-83.384536-1.01313476-100.097964-1.44357365-16.713429-.43043889-83.073982-1.67157136-99.579885-2.57252834-16.505903-.90095697-171.7612979-2.11020331-188.38083741-3.47061103-1.44382456 9.18867382-1.72962966 27.64863472-1.88448384 37.65056312 49.37498245 2.5658616 109.46343725.852584 186.67624025 3.6352676s84.372323 1.8796999 101.489075 2.126551 84.185321 1.0246833 101.215168.4179614 47.672574 1.5201394 88.086209 1.2703448c.906745-.365732 1.278032-37.28033554.377156-37.2936604z'/%3E%3C/svg%3E")
+      top left/96% 100% no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.immersive-translate-target-translation-theme-weakening {
+  opacity: 0.4 !important;
+}
+.immersive-translate-target-translation-theme-italic {
+  font-style: italic !important;
+}
+
+.immersive-translate-target-translation-theme-bold {
+  font-weight: bold !important;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-paper {
+  margin: 8px 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 16px 32px;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-blockquote {
+  border-left: 4px solid #cc3355 !important;
+  padding-left: 12px !important;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.immersive-translate-target-translation-theme-mask-inner {
+  filter: blur(5px) !important;
+  transition: filter 0.3s ease !important;
+}
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
+.immersive-translate-text {
+  font-size: 15px !important;
+}
+
+.immersive-translate-error {
+  color: red;
+}
+.immersive-translate-clickable-button {
+  align-items: normal;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgb(0, 0, 238);
+  border-style: none;
+  box-sizing: content-box;
+  color: rgb(0, 0, 238);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  height: auto;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  transform-origin: 0 0;
+  width: auto;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
+  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
+}
+.immersive-translate-loading {
+  margin-left: 6px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border: 2px rgba(0, 0, 0, 0.25) solid;
+  border-top: 2px rgba(0, 0, 0, 1) solid;
+  border-radius: 50%;
+  -webkit-animation: spCircRot 0.6s infinite linear;
+  animation: immersive-translate-loading-animation 0.6s infinite linear;
+  position: relative;
+}
+.immersive-translate-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */
+}
+.immersive-translate-tooltip:before {
+  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */
+  position: absolute;
+  z-index: 100000000000;
+
+  /* vertically center */
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* move to right */
+  left: 100%;
+  margin-left: 15px; /* and add a small left margin */
+
+  /* basic styles */
+  width: max-content;
+  max-width: 250px;
+  word-wrap: break-word;
+  white-space: pre-line;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+
+  display: none; /* hide by default */
+}
+.immersive-translate-tooltip:hover:before {
+  display: block;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+`, IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7523,8 +7698,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       "urlChangeDelay": 10,
       "paragraphMinTextCount": 20,
       "paragraphMinWordCount": 3,
-      "blockMinTextCount": 100,
-      "blockMinWordCount": 10,
+      "blockMinTextCount": 32,
+      "blockMinWordCount": 5,
       "globalStyles": {},
       "selectors": [],
       "preWhitespaceDetectedTags": [
@@ -8734,13 +8909,13 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   }
   function isValidTextByCount(rawText, minTextCount, minWordCount) {
     const text = rawText.trim();
-    if (text.length < minTextCount) {
-      return false;
+    if (text.length >= minTextCount) {
+      return true;
     }
-    if (text.split(" ").length < minWordCount) {
-      return false;
+    if (text.split(" ").length >= minWordCount) {
+      return true;
     }
-    return true;
+    return false;
   }
   function isUrl(text) {
     if (text && text.includes("://")) {
@@ -9191,7 +9366,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     let inline = false;
     const wordCount = text.split(" ").length;
     const lineCount = text.split("\n").length;
-    if (wordCount < rule.blockMinWordCount && text.length < rule.blockMinTextCount && lineCount < 2) {
+    if (wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2) {
       inline = true;
     }
     const paragraph = {
@@ -15074,15 +15249,17 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
     "translationTheme": {
       "none": "\u65E0",
-      "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
       "dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
+      "dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
+      "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+      "mask": "\u6A21\u7CCA\u6548\u679C",
       "paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
       "highlight": "\u9AD8\u4EAE",
       "blockquote": "\u5F15\u7528\u6837\u5F0F",
       "weakening": "\u5F31\u5316",
-      "mask": "\u6A21\u7CCA\u6548\u679C",
       "italic": "\u659C\u4F53",
-      "bold": "\u52A0\u7C97"
+      "bold": "\u52A0\u7C97",
+      "thinDashed": "\u7EC6\u865A\u7EBF\u4E0B\u5212\u7EBF"
     },
     "translationServices": {
       "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",

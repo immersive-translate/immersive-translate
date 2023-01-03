@@ -703,8 +703,16 @@
       "additionalSelectors": [
         ".mcf-card-article__title"
       ]
+    },
+    {
+      "matches": [
+        "www.washingtonpost.com"
+      ],
+      "additionalSelectors": [
+        "[data-qa='article-body']"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T12:51:54.693Z",
+  "buildinConfigUpdatedAt": "2023-01-03T13:24:22.983Z",
   "latestVersion": "0.0.30"
 }

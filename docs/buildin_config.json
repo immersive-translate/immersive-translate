@@ -33,8 +33,8 @@
     "urlChangeDelay": 10,
     "paragraphMinTextCount": 20,
     "paragraphMinWordCount": 3,
-    "blockMinTextCount": 100,
-    "blockMinWordCount": 10,
+    "blockMinTextCount": 32,
+    "blockMinWordCount": 5,
     "globalStyles": {},
     "selectors": [],
     "preWhitespaceDetectedTags": [
@@ -700,6 +700,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T08:52:07.569Z",
+  "buildinConfigUpdatedAt": "2023-01-03T09:42:09.329Z",
   "latestVersion": "0.0.28"
 }

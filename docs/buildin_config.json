@@ -80,7 +80,10 @@
       ".breadcrumbs",
       ".post__footer",
       ".btn",
-      ".reference-citations"
+      ".reference-citations",
+      ".share-nav",
+      ".o-share",
+      "[data-toolbar=share]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -700,6 +703,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T11:02:29.151Z",
+  "buildinConfigUpdatedAt": "2023-01-03T11:22:41.047Z",
   "latestVersion": "0.0.30"
 }

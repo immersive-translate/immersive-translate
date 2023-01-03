@@ -31,6 +31,10 @@
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "urlChangeDelay": 10,
+    "paragraphMinTextCount": 20,
+    "paragraphMinWordCount": 3,
+    "blockMinTextCount": 100,
+    "blockMinWordCount": 10,
     "globalStyles": {},
     "selectors": [],
     "preWhitespaceDetectedTags": [
@@ -41,8 +45,10 @@
       "h1",
       "section h2",
       "section h3",
+      "section h4",
       "main h2",
       "main h3",
+      "main h4",
       ".article-title",
       ".article-subtitle",
       ".article_title",
@@ -55,7 +61,8 @@
       ".titleLink",
       ".summary",
       ".content",
-      ".headline"
+      ".headline",
+      ".page-content"
     ],
     "atomicBlockTags": [
       "P",
@@ -685,8 +692,14 @@
         ".tweet-content",
         ".quote-text"
       ]
+    },
+    {
+      "matches": "*.fandom.com",
+      "additionalSelectors": [
+        ".mcf-card-article__title"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-02T16:42:01.726Z",
-  "latestVersion": "0.0.27"
+  "buildinConfigUpdatedAt": "2023-01-03T08:52:07.569Z",
+  "latestVersion": "0.0.28"
 }

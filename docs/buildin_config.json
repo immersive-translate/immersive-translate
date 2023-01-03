@@ -30,12 +30,14 @@
     "_comment": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
-    "urlChangeDelay": 10,
+    "urlChangeDelay": 250,
     "paragraphMinTextCount": 20,
     "paragraphMinWordCount": 3,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
-    "globalStyles": {},
+    "globalStyles": {
+      ".sr-only": "display:none"
+    },
     "selectors": [],
     "preWhitespaceDetectedTags": [
       "DIV",
@@ -703,6 +705,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T11:22:41.047Z",
+  "buildinConfigUpdatedAt": "2023-01-03T12:51:54.693Z",
   "latestVersion": "0.0.30"
 }

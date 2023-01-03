@@ -19,6 +19,18 @@
   "Translating": "翻译中",
   "Error": "错误",
   "allowCacheTranslations": "开启本地翻译缓存（减少重复段落的翻译请求）",
+  "translationTheme": {
+    "none": "无",
+    "underline": "直线下划线",
+    "dashed": "虚线下划线",
+    "paper": "白纸阴影效果",
+    "highlight": "高亮",
+    "blockquote": "引用样式",
+    "weakening": "弱化",
+    "mask": "模糊效果",
+    "italic": "斜体",
+    "bold": "加粗"
+  },
   "translationServices": {
     "tencent": "腾讯翻译君",
     "google": "谷歌翻译",

@@ -1,9 +1,4 @@
-.immersive-translate-target-wrapper {
-  /* position: relative; */
-}
 .immersive-translate-target-translation-block-wrapper {
-  /* position: relative; */
-  /* top: 16px; */
   white-space: pre-wrap !important;
   display: inline-block;
 }
@@ -11,8 +6,12 @@
 .immersive-translate-target-translation-inline-wrapper {
   white-space: pre-wrap !important;
 }
-.immersive-translate-target-translation-theme-underline {
+.immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-target-translation-theme-dashed-inner {
+  border-bottom: 1px dashed #ff374f !important;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {
@@ -29,7 +28,13 @@
   font-weight: bold !important;
 }
 
-.immersive-translate-target-translation-theme-blockquote {
+.immersive-translate-target-translation-block-wrapper-theme-paper {
+  margin: 8px 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 16px 32px;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-blockquote {
   border-left: 4px solid #cc3355 !important;
   padding-left: 12px !important;
   margin-top: 4px;

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.28
+
+- Fix underline
+- Add dashed, paper theme
+- Fix header detected
+
 ## 0.0.27
 
 - Support translationTheme

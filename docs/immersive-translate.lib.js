@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-02T16:42:10.224Z", VERSION: "0.0.27", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n  display: inline-block;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-target-translation-theme-highlight-inner {\n  background-color: #ead0b3 !important;\n}\n.immersive-translate-target-translation-theme-weakening {\n  opacity: 0.4 !important;\n}\n.immersive-translate-target-translation-theme-italic {\n  font-style: italic !important;\n}\n\n.immersive-translate-target-translation-theme-bold {\n  font-weight: bold !important;\n}\n\n.immersive-translate-target-translation-theme-blockquote {\n  border-left: 4px solid #cc3355 !important;\n  padding-left: 12px !important;\n  margin-top: 4px;\n  margin-bottom: 4px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\n\n.immersive-translate-target-translation-theme-mask-inner {\n  filter: blur(5px) !important;\n  transition: filter 0.3s ease !important;\n}\n.immersive-translate-target-translation-theme-mask-inner:hover {\n  filter: none !important;\n}\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-03T08:52:15.689Z", VERSION: "0.0.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-translation-block-wrapper {\n  white-space: pre-wrap !important;\n  display: inline-block;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline-inner {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-target-translation-theme-dashed-inner {\n  border-bottom: 1px dashed #ff374f !important;\n}\n\n.immersive-translate-target-translation-theme-highlight-inner {\n  background-color: #ead0b3 !important;\n}\n.immersive-translate-target-translation-theme-weakening {\n  opacity: 0.4 !important;\n}\n.immersive-translate-target-translation-theme-italic {\n  font-style: italic !important;\n}\n\n.immersive-translate-target-translation-theme-bold {\n  font-weight: bold !important;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-paper {\n  margin: 8px 0;\n  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;\n  padding: 16px 32px;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-blockquote {\n  border-left: 4px solid #cc3355 !important;\n  padding-left: 12px !important;\n  margin-top: 4px;\n  margin-bottom: 4px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\n\n.immersive-translate-target-translation-theme-mask-inner {\n  filter: blur(5px) !important;\n  transition: filter 0.3s ease !important;\n}\n.immersive-translate-target-translation-theme-mask-inner:hover {\n  filter: none !important;\n}\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7521,6 +7521,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       "wrapperPrefix": "smart",
       "wrapperSuffix": "smart",
       "urlChangeDelay": 10,
+      "paragraphMinTextCount": 20,
+      "paragraphMinWordCount": 3,
+      "blockMinTextCount": 100,
+      "blockMinWordCount": 10,
       "globalStyles": {},
       "selectors": [],
       "preWhitespaceDetectedTags": [
@@ -7531,8 +7535,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "h1",
         "section h2",
         "section h3",
+        "section h4",
         "main h2",
         "main h3",
+        "main h4",
         ".article-title",
         ".article-subtitle",
         ".article_title",
@@ -7545,7 +7551,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         ".titleLink",
         ".summary",
         ".content",
-        ".headline"
+        ".headline",
+        ".page-content"
       ],
       "atomicBlockTags": [
         "P",
@@ -8175,6 +8182,12 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           ".tweet-content",
           ".quote-text"
         ]
+      },
+      {
+        "matches": "*.fandom.com",
+        "additionalSelectors": [
+          ".mcf-card-article__title"
+        ]
       }
     ]
   };
@@ -8526,7 +8539,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   var stayInOriginalRegex = new RegExp(
     `^${delimiters[0]}(\\d+)${delimiters[1]}$`
   );
-  function duplicatedElements(root2, array) {
+  function duplicatedElements(root2, array, rule) {
     const footers = root2.querySelectorAll("footer");
     const allHeaders = root2.querySelectorAll("header");
     const main3 = root2.querySelectorAll("main");
@@ -8538,9 +8551,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       }
     }
     for (let i21 = 0; i21 < array.length; i21++) {
-      const a21 = array[i21];
+      const a21 = array[i21].element;
       for (let j9 = i21 + 1; j9 < array.length; j9++) {
-        const b11 = array[j9];
+        const b11 = array[j9].element;
         if (a21.contains(b11)) {
           array.splice(j9, 1);
           j9--;
@@ -8554,7 +8567,11 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         }
       }
     }
-    const finalArray = array.filter((element) => {
+    const finalArray = array.filter((container) => {
+      const element = container.element;
+      if (container.reserve) {
+        return true;
+      }
       let isFooter = false;
       let isHeader = false;
       for (const footer of footers) {
@@ -8567,7 +8584,18 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         return false;
       }
       for (const header of headers2) {
-        if (element.nodeName !== "H1" && (element === header || header.contains(element))) {
+        if (element.nodeName === "H1") {
+          continue;
+        }
+        const h1Container = header.querySelector("h1");
+        if (h1Container && isValidTextByCount(
+          h1Container.textContent || "",
+          rule.paragraphMinTextCount,
+          rule.paragraphMinWordCount
+        )) {
+          continue;
+        }
+        if (element === header || header.contains(element)) {
           isHeader = true;
           break;
         }
@@ -8577,7 +8605,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       }
       return true;
     });
-    return finalArray;
+    return finalArray.map((container) => container.element);
   }
   function getLastHTMLElement(elements) {
     for (let i21 = elements.length - 1; i21 >= 0; i21--) {
@@ -8684,7 +8712,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     return false;
   }
-  function isNeedToTranslate(item) {
+  function isNeedToTranslate(item, minTextCount, minWordCount) {
     const text = item.text;
     const trimedText = text.trim();
     if (trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text)) {
@@ -8702,8 +8730,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     if (stayInOriginalRegex.test(trimedText)) {
       return false;
     }
-    const wordCount = trimedText.split(" ").length;
-    if (wordCount <= 2 && trimedText.length <= 20) {
+    return isValidTextByCount(text, minTextCount, minWordCount);
+  }
+  function isValidTextByCount(rawText, minTextCount, minWordCount) {
+    const text = rawText.trim();
+    if (text.length < minTextCount) {
+      return false;
+    }
+    if (text.split(" ").length < minWordCount) {
       return false;
     }
     return true;
@@ -8827,7 +8861,12 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         }
         return Array.from(elements);
       }).flat();
-      contentContainers.push(...containers);
+      contentContainers.push(
+        ...containers.map((container) => ({
+          element: container,
+          reserve: true
+        }))
+      );
     } else {
       if (rule && rule.additionalSelectors.length > 0) {
         const additionalElements = getElementsBySelectors(
@@ -8842,18 +8881,36 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             );
           }
         }
-        contentContainers.push(...additionalElements);
+        contentContainers.push(
+          ...additionalElements.map((element) => ({
+            element,
+            reserve: true
+          }))
+        );
       }
       const articleElements = getElementsBySelectors(root2, ["article"]);
-      contentContainers.push(...articleElements);
+      contentContainers.push(
+        ...articleElements.map((element) => ({
+          element,
+          reserve: true
+        }))
+      );
       const allPTags = root2.querySelectorAll("p");
       if (allPTags.length > 0) {
         allPTags.forEach((p21) => {
-          const myInnerText = p21.innerText.match(/\S+/g);
-          if (myInnerText && myInnerText.length > 3) {
-            if (p21.parentElement) {
-              if (!contentContainers.includes(p21.parentElement)) {
-                contentContainers.push(p21.parentElement);
+          const pContent = p21.textContent;
+          if (pContent) {
+            const myInnerText = pContent.match(/\S+/g);
+            if (myInnerText && myInnerText.length > 3) {
+              if (p21.parentElement) {
+                if (!contentContainers.map((item) => item.element).includes(
+                  p21.parentElement
+                )) {
+                  contentContainers.push({
+                    element: p21.parentElement,
+                    reserve: false
+                  });
+                }
               }
             }
           }
@@ -8866,8 +8923,13 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             const parent = br.parentElement;
             const myInnerText = parent.innerText.match(/\S+/g);
             if (myInnerText && myInnerText.length > 3) {
-              if (!contentContainers.includes(parent)) {
-                contentContainers.push(parent);
+              if (!contentContainers.map((item) => item.element).includes(
+                parent
+              )) {
+                contentContainers.push({
+                  element: parent,
+                  reserve: false
+                });
               }
             }
           }
@@ -8883,11 +8945,16 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         }
         if (mains.length > 0) {
           const mainsArray = Array.from(mains);
-          contentContainers = contentContainers.concat(mainsArray);
+          contentContainers = contentContainers.concat(
+            mainsArray.map((main3) => ({
+              element: main3,
+              reserve: true
+            }))
+          );
         }
       }
     }
-    const finalContainers = duplicatedElements(root2, contentContainers);
+    const finalContainers = duplicatedElements(root2, contentContainers, rule);
     finalContainers.sort(function(a21, b11) {
       return a21.compareDocumentPosition(b11) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
     });
@@ -9124,7 +9191,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     let inline = false;
     const wordCount = text.split(" ").length;
     const lineCount = text.split("\n").length;
-    if (wordCount < 4 && text.length < 20 && lineCount < 2) {
+    if (wordCount < rule.blockMinWordCount && text.length < rule.blockMinTextCount && lineCount < 2) {
       inline = true;
     }
     const paragraph = {
@@ -9133,7 +9200,11 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       variables,
       inline
     };
-    if (isNeedToTranslate(paragraph)) {
+    if (isNeedToTranslate(
+      paragraph,
+      rule.paragraphMinTextCount,
+      rule.paragraphMinWordCount
+    )) {
       return paragraph;
     }
     return null;
@@ -9476,16 +9547,25 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       innerClassList.push(
         `${brandId}-target-translation-theme-${translationTheme}-inner`
       );
+      if (sourceItem.inline) {
+        classList.push(
+          `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
+        );
+      } else {
+        classList.push(
+          `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
+        );
+      }
     }
     if (rule) {
       if (rule.translationClasses.length > 0) {
         classList.push(...rule.translationClasses);
       }
     }
-    if (!sourceItem.inline) {
-      classList.push(translationTargetTranslationElementBlockWrapperClass);
-    } else {
+    if (sourceItem.inline) {
       classList.push(translationTargetTranslationElementInlineWrapperClass);
+    } else {
+      classList.push(translationTargetTranslationElementBlockWrapperClass);
     }
     html = `<span class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`;
     if (!sourceItem.inline) {
@@ -14542,7 +14622,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     if (ctx) {
       translationServiceItems = getTranslationServices(ctx);
     }
-    const handleClosePopup = () => {
+    const handleClosePopup = (e18) => {
+      e18.preventDefault();
       onClose();
     };
     return /* @__PURE__ */ p20("div", {
@@ -14758,6 +14839,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           onClick: onToggleTranslate,
           children: buttonLabel
         }),
+        /* @__PURE__ */ p20("div", {
+          class: "text-sm",
+          children: message
+        }),
         /* @__PURE__ */ p20("footer", {
           className: "text-sm flex justify-between",
           children: [
@@ -14782,10 +14867,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
               children: t17("options")
             })
           ]
-        }),
-        /* @__PURE__ */ p20("div", {
-          class: "text-sm",
-          children: message
         })
       ]
     });
@@ -14991,6 +15072,18 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     "Translating": "\u7FFB\u8BD1\u4E2D",
     "Error": "\u9519\u8BEF",
     "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translationTheme": {
+      "none": "\u65E0",
+      "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+      "dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
+      "paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
+      "highlight": "\u9AD8\u4EAE",
+      "blockquote": "\u5F15\u7528\u6837\u5F0F",
+      "weakening": "\u5F31\u5316",
+      "mask": "\u6A21\u7CCA\u6548\u679C",
+      "italic": "\u659C\u4F53",
+      "bold": "\u52A0\u7C97"
+    },
     "translationServices": {
       "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
       "google": "\u8C37\u6B4C\u7FFB\u8BD1",

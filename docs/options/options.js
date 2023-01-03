@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-02T16:42:10.224Z", VERSION: "0.0.27", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-wrapper {\n  /* position: relative; */\n}\n.immersive-translate-target-translation-block-wrapper {\n  /* position: relative; */\n  /* top: 16px; */\n  white-space: pre-wrap !important;\n  display: inline-block;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-target-translation-theme-highlight-inner {\n  background-color: #ead0b3 !important;\n}\n.immersive-translate-target-translation-theme-weakening {\n  opacity: 0.4 !important;\n}\n.immersive-translate-target-translation-theme-italic {\n  font-style: italic !important;\n}\n\n.immersive-translate-target-translation-theme-bold {\n  font-weight: bold !important;\n}\n\n.immersive-translate-target-translation-theme-blockquote {\n  border-left: 4px solid #cc3355 !important;\n  padding-left: 12px !important;\n  margin-top: 4px;\n  margin-bottom: 4px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\n\n.immersive-translate-target-translation-theme-mask-inner {\n  filter: blur(5px) !important;\n  transition: filter 0.3s ease !important;\n}\n.immersive-translate-target-translation-theme-mask-inner:hover {\n  filter: none !important;\n}\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
+  var define_process_env_default = { BUILD_TIME: "2023-01-03T08:52:15.689Z", VERSION: "0.0.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: ".immersive-translate-target-translation-block-wrapper {\n  white-space: pre-wrap !important;\n  display: inline-block;\n}\n\n.immersive-translate-target-translation-inline-wrapper {\n  white-space: pre-wrap !important;\n}\n.immersive-translate-target-translation-theme-underline-inner {\n  border-bottom: 1px solid #72ece9 !important;\n}\n\n.immersive-translate-target-translation-theme-dashed-inner {\n  border-bottom: 1px dashed #ff374f !important;\n}\n\n.immersive-translate-target-translation-theme-highlight-inner {\n  background-color: #ead0b3 !important;\n}\n.immersive-translate-target-translation-theme-weakening {\n  opacity: 0.4 !important;\n}\n.immersive-translate-target-translation-theme-italic {\n  font-style: italic !important;\n}\n\n.immersive-translate-target-translation-theme-bold {\n  font-weight: bold !important;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-paper {\n  margin: 8px 0;\n  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;\n  padding: 16px 32px;\n}\n\n.immersive-translate-target-translation-block-wrapper-theme-blockquote {\n  border-left: 4px solid #cc3355 !important;\n  padding-left: 12px !important;\n  margin-top: 4px;\n  margin-bottom: 4px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\n\n.immersive-translate-target-translation-theme-mask-inner {\n  filter: blur(5px) !important;\n  transition: filter 0.3s ease !important;\n}\n.immersive-translate-target-translation-theme-mask-inner:hover {\n  filter: none !important;\n}\n.immersive-translate-text {\n  font-size: 15px !important;\n}\n\n.immersive-translate-error {\n  color: red;\n}\n.immersive-translate-clickable-button {\n  align-items: normal;\n  background-color: rgba(0, 0, 0, 0);\n  border-color: rgb(0, 0, 238);\n  border-style: none;\n  box-sizing: content-box;\n  color: rgb(0, 0, 238);\n  cursor: pointer;\n  display: inline;\n  font: inherit;\n  height: auto;\n  padding: 0;\n  perspective-origin: 0 0;\n  text-align: start;\n  transform-origin: 0 0;\n  width: auto;\n  -moz-appearance: none;\n  appearance: none;\n  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */\n  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */\n}\n.immersive-translate-loading {\n  margin-left: 6px;\n  top: 3px;\n  width: 10px;\n  height: 10px;\n  display: inline-block;\n  border: 2px rgba(0, 0, 0, 0.25) solid;\n  border-top: 2px rgba(0, 0, 0, 1) solid;\n  border-radius: 50%;\n  -webkit-animation: spCircRot 0.6s infinite linear;\n  animation: immersive-translate-loading-animation 0.6s infinite linear;\n  position: relative;\n}\n.immersive-translate-tooltip {\n  position: relative;\n  display: inline-block;\n  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */\n}\n.immersive-translate-tooltip:before {\n  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */\n  position: absolute;\n  z-index: 100000000000;\n\n  /* vertically center */\n  top: 50%;\n  transform: translateY(-50%);\n\n  /* move to right */\n  left: 100%;\n  margin-left: 15px; /* and add a small left margin */\n\n  /* basic styles */\n  width: max-content;\n  max-width: 250px;\n  word-wrap: break-word;\n  white-space: pre-line;\n  padding: 10px;\n  border-radius: 10px;\n  background: #000;\n  color: #fff;\n  text-align: center;\n\n  display: none; /* hide by default */\n}\n.immersive-translate-tooltip:hover:before {\n  display: block;\n}\n\n@-webkit-keyframes immersive-translate-loading-animation {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(359deg);\n  }\n}\n@keyframes immersive-translate-loading-animation {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n", IMMERSIVE_TRANSLATE_PICO_CSS: `@charset "UTF-8";
 /*!
  * Pico.css v1.5.6 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -7289,6 +7289,10 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       "wrapperPrefix": "smart",
       "wrapperSuffix": "smart",
       "urlChangeDelay": 10,
+      "paragraphMinTextCount": 20,
+      "paragraphMinWordCount": 3,
+      "blockMinTextCount": 100,
+      "blockMinWordCount": 10,
       "globalStyles": {},
       "selectors": [],
       "preWhitespaceDetectedTags": [
@@ -7299,8 +7303,10 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "h1",
         "section h2",
         "section h3",
+        "section h4",
         "main h2",
         "main h3",
+        "main h4",
         ".article-title",
         ".article-subtitle",
         ".article_title",
@@ -7313,7 +7319,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         ".titleLink",
         ".summary",
         ".content",
-        ".headline"
+        ".headline",
+        ".page-content"
       ],
       "atomicBlockTags": [
         "P",
@@ -7942,6 +7949,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "selectors": [
           ".tweet-content",
           ".quote-text"
+        ]
+      },
+      {
+        "matches": "*.fandom.com",
+        "additionalSelectors": [
+          ".mcf-card-article__title"
         ]
       }
     ]
@@ -13280,6 +13293,18 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "Translating": "\u7FFB\u8BD1\u4E2D",
     "Error": "\u9519\u8BEF",
     "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translationTheme": {
+      "none": "\u65E0",
+      "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+      "dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
+      "paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
+      "highlight": "\u9AD8\u4EAE",
+      "blockquote": "\u5F15\u7528\u6837\u5F0F",
+      "weakening": "\u5F31\u5316",
+      "mask": "\u6A21\u7CCA\u6548\u679C",
+      "italic": "\u659C\u4F53",
+      "bold": "\u52A0\u7C97"
+    },
     "translationServices": {
       "tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
       "google": "\u8C37\u6B4C\u7FFB\u8BD1",

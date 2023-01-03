@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.29
+
+- Fix paragraph valid.
+- Add dotted, thinDashed theme
+- Better for dashed, highlight theme
+
 ## 0.0.28
 
 - Fix underline

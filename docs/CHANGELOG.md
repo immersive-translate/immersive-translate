@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.30
+
+- Better for dashed theme
+
 ## 0.0.29
 
 - Fix paragraph valid.

@@ -36,7 +36,7 @@
 
 `translationService`, 为默认翻译引擎，当前支持：
 
-```
+```typescript
 | "tencent"
 | "google"
 | "deepl"
@@ -61,16 +61,37 @@
 
 `translationTheme`为译文的显示格式:，当前支持以下样式：
 
+```typescript
+| "none"
+| "dashed"
+| "dotted"
+| "underline"
+| "mask"
+| "paper"
+| "highlight"
+| "blockquote"
+| "weakening"
+| "italic"
+| "bold"
+| "thinDashed";
 ```
+
+对应的中文名：
+
+```json
 {
   "none": "无",
-  "underline": "下划线",
+  "dashed": "虚线下划线",
+  "dotted": "点状下划线",
+  "underline": "直线下划线",
+  "mask": "模糊效果",
+  "paper": "白纸阴影效果",
   "highlight": "高亮",
   "blockquote": "引用样式",
   "weakening": "弱化",
-  "mask": "模糊效果",
   "italic": "斜体",
-  "bold": "加粗"
+  "bold": "加粗",
+  "thinDashed": "细虚线下划线"
 }
 ```
 

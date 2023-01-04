@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-03T11:02:34.802Z", VERSION: "0.0.30", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
+  var define_process_env_default = { BUILD_TIME: "2023-01-04T21:56:27.583Z", VERSION: "0.0.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
   display: inline-block;
 }
@@ -16,6 +16,17 @@
 }
 .immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
+  border: 1px dashed rgb(148 163 184) !important;
+  padding: 6px;
+  margin-top: 2px;
+}
+
+.immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
+  border: 1px dashed rgb(148 163 184) !important;
+  padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
@@ -46,7 +57,7 @@
     )
     repeat-x left bottom;
   background-size: 8px 2px;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
 }
 .immersive-translate-target-translation-theme-highlight-inner {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='42' preserveAspectRatio='none' viewBox='0 0 480 42'%3E%3Cpath fill='%23FFE200' fill-opacity='.75' d='m.7884025 41.3449275c15.8171024-1.6206809 71.8777185-.9529412 87.8950374-1.5331327 16.0173191-.5801915 83.3901661-.745318 100.1082431-.667414 16.718076.0779039 83.089842-.0805484 99.607702.4720956s171.593663-4.1777204 188.411848-.5026041c3.203464.64141 4.604979-37.03709852 1.301407-37.67784118-16.217535-3.4897587-170.292256 1.04456951-186.710008.30189599s-84.391249-.1001373-101.509758.0139905c-17.11851.1141278-84.191033.7506573-101.2094341 1.7162471-17.0184014.9655898-47.6903594-.51449033-88.09525389.58732435-.90097419.38473091-.7007577 37.29511244.20021649 37.28943844z'/%3E%3C/svg%3E")
@@ -217,22 +228,22 @@
 }
 @media (min-width: 576px) {
   #mount {
-    --font-size: 16px;
+    --font-size: 17px;
   }
 }
 @media (min-width: 768px) {
   #mount {
-    --font-size: 16px;
+    --font-size: 18px;
   }
 }
 @media (min-width: 992px) {
   #mount {
-    --font-size: 17px;
+    --font-size: 19px;
   }
 }
 @media (min-width: 1200px) {
   #mount {
-    --font-size: 18px;
+    --font-size: 20px;
   }
 }
 
@@ -3143,7 +3154,7 @@ textarea,
 }
 
 /*# sourceMappingURL=custom.css.map */
-`, IMMERSIVE_TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n.immersive-translate-no-select {\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none; /* Safari */\n  -khtml-user-select: none; /* Konqueror HTML */\n  -moz-user-select: none; /* Old versions of Firefox */\n  -ms-user-select: none; /* Internet Explorer/Edge */\n  user-select: none;\n}\n", IMMERSIVE_TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, IMMERSIVE_TRANSLATE_COMMON_CSS: '#mount#mount {\n  /* --primary: rgb(227, 59, 126); */\n  --primary: #ea4c89;\n  --primary-hover: #f082ac;\n}\n\nli.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n.immersive-translate-no-select {\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none; /* Safari */\n  -khtml-user-select: none; /* Konqueror HTML */\n  -moz-user-select: none; /* Old versions of Firefox */\n  -ms-user-select: none; /* Internet Explorer/Edge */\n  user-select: none;\n}\n\n/* li[role="list"].no-arrow > a::after { */\n/*   background-image: none; */\n/*   width: 0; */\n/*   color: var(--color); */\n/* } */\nli[role="list"].no-arrow {\n  margin-left: 8px;\n  padding-right: 0;\n}\nli[role="list"] > a::after {\n  -webkit-margin-start: 0.2rem;\n  margin-inline-start: 0.2rem;\n}\n\nli[role="list"].no-arrow > a,\nli[role="list"].no-arrow > a:link,\nli[role="list"].no-arrow > a:visited {\n  color: var(--secondary);\n}\n\nselect.min-select {\n  --form-element-spacing-horizontal: 0;\n  margin-bottom: 0;\n  max-width: 128px;\n  color: var(--primary);\n  font-size: 14px;\n  border: none;\n  padding: 0;\n  padding-right: 24px;\n  background-position: center right 0;\n  text-overflow: ellipsis;\n  text-align: right;\n  color: var(--color);\n}\nselect.min-select-secondary {\n  color: var(--color);\n}\nselect.min-select:focus {\n  outline: none;\n  border: none;\n  --box-shadow: none;\n}\nselect.min-select-no-arrow {\n  background-image: none;\n  padding-right: 0;\n}\n\nselect.min-select-left {\n  padding-right: 0px;\n  padding-left: 24px;\n  background-position: center left 0;\n  text-overflow: ellipsis;\n  text-align: right;\n}\n\n.muted {\n  color: var(--muted-color);\n}\n', IMMERSIVE_TRANSLATE_POPUP_CSS: "body {\n  padding: 0;\n  margin: 0;\n  min-width: 250px;\n}\n#mount {\n  min-width: 250px;\n}\n.main-button {\n  font-size: 14px;\n  vertical-align: middle;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.p-2 {\n  padding: 8px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.p-0 {\n  padding: 0;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.mt-0 {\n  margin-top: 0;\n}\n\n.mb-1 {\n  margin-bottom: 4px;\n}\n.ml-4 {\n  margin-left: 24px;\n}\n.ml-3 {\n  margin-left: 16px;\n}\n.ml-2 {\n  margin-left: 8px;\n}\n.mr-1 {\n  margin-right: 4px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n\n.flex-1 {\n  flex: 1;\n}\n.items-center {\n  align-items: center;\n}\n.items-end {\n  align-items: flex-end;\n}\n.items-baseline {\n  align-items: baseline;\n}\n\n.my-5 {\n  margin-top: 48px;\n  margin-bottom: 48px;\n}\n.my-4 {\n  margin-top: 24px;\n  margin-bottom: 24px;\n}\n.my-3 {\n  margin-top: 16px;\n  margin-bottom: 16px;\n}\n.pt-3 {\n  padding-top: 12px;\n}\n.px-3 {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n.px-2 {\n  padding-left: 8px;\n  padding-right: 8px;\n}\n.pt-1 {\n  padding-top: 4px;\n}\n.px-1 {\n  padding-left: 4px;\n  padding-right: 4px;\n}\n.pb-2 {\n  padding-bottom: 8px;\n}\n.justify-end {\n  justify-content: flex-end;\n}\n.w-auto {\n  width: auto;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // https://esm.sh/v102/n-gram@2.0.2/deno/n-gram.js
   var c = o(2);
@@ -3730,7 +3741,7 @@ textarea,
   }
 
   // constant.ts
-  var brandName = "Next Translator";
+  var brandName = "Immersive Translator";
   var brandId = "immersive-translate";
   var targetContainerElementAttributeName = `data-${brandId}-container`;
   var specifiedTargetContainerElementAttributeName = `data-${brandId}-specified-container`;
@@ -3963,6 +3974,36 @@ textarea,
     browserAPI = mock_browser_default;
   } else {
     browserAPI = globalThis.browser;
+  }
+
+  // https://deno.land/std@0.167.0/async/delay.ts
+  function delay(ms, options2 = {}) {
+    const { signal, persistent } = options2;
+    if (signal?.aborted) {
+      return Promise.reject(new DOMException("Delay was aborted.", "AbortError"));
+    }
+    return new Promise((resolve, reject) => {
+      const abort = () => {
+        clearTimeout(i21);
+        reject(new DOMException("Delay was aborted.", "AbortError"));
+      };
+      const done = () => {
+        signal?.removeEventListener("abort", abort);
+        resolve();
+      };
+      const i21 = setTimeout(done, ms);
+      signal?.addEventListener("abort", abort, { once: true });
+      if (persistent === false) {
+        try {
+          Deno.unrefTimer(i21);
+        } catch (error) {
+          if (!(error instanceof ReferenceError)) {
+            throw error;
+          }
+          console.error("`persistent` option is only available in Deno");
+        }
+      }
+    });
   }
 
   // https://deno.land/std@0.167.0/fmt/colors.ts
@@ -7531,6 +7572,27 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   }
 
   // messages.ts
+  var [
+    sendContentRequest,
+    contentRequestStream,
+    waitContentRequest
+  ] = H2("contenteRequest", {
+    async: true
+  });
+  var [
+    sendPopupRequest,
+    popupRequestStream,
+    waitPopupRequest
+  ] = H2("popupRequest", {
+    async: true
+  });
+  var [
+    sendBackgroundRequest,
+    backgroundRequestStream,
+    waitBackgroundRequest
+  ] = H2("backgroundRequest", {
+    async: true
+  });
   var [sendDBStore, storeDBStream, waitDBStore] = H2(
     "db_store",
     {
@@ -7568,67 +7630,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       return sendFetchFromChrome(options2);
     }
   };
-  var [
-    sendToggleTranslate,
-    toggleTranslateStream,
-    waitForToggleTranslate
-  ] = H2(
-    "toggleTranslate",
-    {
-      async: true
-    }
-  );
-  var [
-    sendTranslatePage,
-    pageTranslateStream,
-    waitForPageTranslate
-  ] = H2(
-    "pageTranslate",
-    {
-      async: true
-    }
-  );
-  var [
-    sendRestorePage,
-    pageRestoreStream,
-    waitForPageRestore
-  ] = H2(
-    "restorePage",
-    {
-      async: true
-    }
-  );
-  var [
-    sendPageTranslatedStatus,
-    pageTranslatedStatusStream,
-    waitForPageTranslatedStatus
-  ] = H2(
-    "pageTranslatedStatus"
-  );
-  var [
-    sendGetPageTranslatedStatus,
-    getPageTranslatedStatusStream,
-    waitForGetPageTranslatedStatus
-  ] = H2(
-    "getPageTranslatedStatus",
-    { async: true }
-  );
-  var [
-    sendGetPageLanguage,
-    getPageLanguageStream,
-    waitForGetPageLanguage
-  ] = H2(
-    "getPageLanguage",
-    { async: true }
-  );
-  var [
-    sendSetPageLanguage,
-    setPageLanguageStream,
-    waitForSetPageLanguage
-  ] = H2(
-    "setThePageLanguage",
-    { async: true }
-  );
   var [sendDetectLanguage, detectLanguageStream, waitforDetectLanguage] = H2("detectLanguage", {
     async: true
   });
@@ -7695,12 +7696,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       "_comment": "",
       "wrapperPrefix": "smart",
       "wrapperSuffix": "smart",
-      "urlChangeDelay": 10,
+      "urlChangeDelay": 250,
       "paragraphMinTextCount": 20,
       "paragraphMinWordCount": 3,
       "blockMinTextCount": 32,
       "blockMinWordCount": 5,
-      "globalStyles": {},
+      "globalStyles": {
+        ".sr-only": "display:none"
+      },
       "selectors": [],
       "preWhitespaceDetectedTags": [
         "DIV",
@@ -7745,7 +7748,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         ".breadcrumbs",
         ".post__footer",
         ".btn",
-        ".reference-citations"
+        ".reference-citations",
+        ".share-nav",
+        ".o-share",
+        "[data-toolbar=share]"
       ],
       "translationClasses": [],
       "atomicBlockSelectors": [],
@@ -7759,6 +7765,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "INPUT",
         "BUTTON",
         "LABEL",
+        "SELECT",
+        "OPTION",
         "IMG",
         "SUB",
         "SUP",
@@ -8363,6 +8371,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         "additionalSelectors": [
           ".mcf-card-article__title"
         ]
+      },
+      {
+        "matches": [
+          "www.washingtonpost.com"
+        ],
+        "additionalSelectors": [
+          "[data-qa='article-body']"
+        ]
       }
     ]
   };
@@ -8680,7 +8696,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       null
     );
   }
-  function sendPageTranslatedStatus2(status) {
+  function sendPageTranslatedStatus(status) {
     if (isMonkey()) {
       const event = new CustomEvent("pageTranslatedStatus", {
         detail: status
@@ -8688,7 +8704,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       document.dispatchEvent(event);
       return;
     }
-    sendPageTranslatedStatus(status);
+    try {
+    } catch (_e3) {
+      console.log("eeeeee", _e3);
+    }
   }
   function queryDb(query) {
     if (isMonkey()) {
@@ -8707,6 +8726,18 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       sendDBStore,
       params
     );
+    return;
+  }
+  async function mockRequest() {
+    if (isMonkey()) {
+      return Promise.resolve();
+    }
+    try {
+      await sendMessage(sendFetch, {
+        url: "https://testtesttesttesttesttest.com"
+      });
+    } catch (_e3) {
+    }
     return;
   }
 
@@ -9021,8 +9052,11 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     if (!(root2 && root2.textContent && root2.textContent.trim())) {
       return [];
     }
-    const { rule } = ctx;
+    const { rule, translationArea } = ctx;
     let contentContainers = [];
+    if (translationArea === "body") {
+      return [root2];
+    }
     if (rule && rule.selectors.length > 0) {
       const containers = rule.selectors.map((selector) => {
         const elements = root2.querySelectorAll(selector);
@@ -9683,6 +9717,44 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   }
 
   // dom/paragraph_to_html.ts
+  function getTranslationWrapperClassNames(translationTheme, isInline, additonalClassNames = []) {
+    const classList = ["notranslate"];
+    if (translationTheme) {
+      classList.push(
+        `${brandId}-target-translation-theme-${translationTheme}`
+      );
+      if (isInline) {
+        classList.push(
+          `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
+        );
+      } else {
+        classList.push(
+          `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
+        );
+      }
+    }
+    if (additonalClassNames.length > 0) {
+      classList.push(...additonalClassNames);
+    }
+    if (isInline) {
+      classList.push(translationTargetTranslationElementInlineWrapperClass);
+    } else {
+      classList.push(translationTargetTranslationElementBlockWrapperClass);
+    }
+    return classList;
+  }
+  function getTranslationInnerClassNames(translationTheme) {
+    const innerClassList = [
+      "notranslate",
+      translationTargetInnerElementWrapperClass
+    ];
+    if (translationTheme) {
+      innerClassList.push(
+        `${brandId}-target-translation-theme-${translationTheme}-inner`
+      );
+    }
+    return innerClassList;
+  }
   function paragraphToHtml(sourceItem, sentence, ctx) {
     const { rule, translationTheme } = ctx;
     let { variables, text } = sourceItem;
@@ -9710,38 +9782,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         return match;
       });
     }
-    const classList = ["notranslate"];
-    const innerClassList = [
-      "notranslate",
-      translationTargetInnerElementWrapperClass
-    ];
-    if (translationTheme) {
-      classList.push(
-        `${brandId}-target-translation-theme-${translationTheme}`
-      );
-      innerClassList.push(
-        `${brandId}-target-translation-theme-${translationTheme}-inner`
-      );
-      if (sourceItem.inline) {
-        classList.push(
-          `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
-        );
-      } else {
-        classList.push(
-          `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
-        );
-      }
-    }
-    if (rule) {
-      if (rule.translationClasses.length > 0) {
-        classList.push(...rule.translationClasses);
-      }
-    }
-    if (sourceItem.inline) {
-      classList.push(translationTargetTranslationElementInlineWrapperClass);
-    } else {
-      classList.push(translationTargetTranslationElementBlockWrapperClass);
-    }
+    const classList = getTranslationWrapperClassNames(
+      translationTheme,
+      sourceItem.inline,
+      rule.translationClasses || []
+    );
+    const innerClassList = getTranslationInnerClassNames(
+      translationTheme
+    );
     html = `<span class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`;
     if (!sourceItem.inline) {
       const wordCount = text.split(" ").length;
@@ -9984,6 +10032,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         interval: 1e3
       });
       let currentSentenceIndex = 0;
+      let sent = /* @__PURE__ */ new Set();
       let globalError = null;
       for (let i21 = 0; i21 < tempSentenceGroups.length; i21++) {
         const tempSentenceGroup = tempSentenceGroups[i21];
@@ -10023,8 +10072,12 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           result = await throttled();
         } catch (e18) {
           if (everySentenceCallback) {
-            for (const sentence of sentences) {
-              everySentenceCallback(e18, sentence);
+            if (sent.has(currentSentenceIndex)) {
+              currentSentenceIndex++;
+            }
+            for (let i22 = currentSentenceIndex; i22 < sentences.length; i22++) {
+              const sentence = sentences[i22];
+              everySentenceCallback(e18, null, sentence);
             }
             globalError = e18;
             continue;
@@ -10033,7 +10086,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             continue;
           }
         }
-        const { text: translatedTexts, from: detectedFrom } = result;
+        const { text: translatedTexts } = result;
         for (let j9 = 0; j9 < translatedTexts.length; j9++) {
           const translatedText = translatedTexts[j9];
           const tempSentence = tempSentenceGroup.tempSentences[j9];
@@ -10050,17 +10103,23 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           }
           if (index !== currentSentenceIndex) {
             if (everySentenceCallback) {
+              sent.add(currentSentenceIndex);
               everySentenceCallback(
                 null,
-                respondedSentences[currentSentenceIndex]
+                respondedSentences[currentSentenceIndex],
+                sentences[currentSentenceIndex]
               );
             }
           }
           currentSentenceIndex = index;
         }
       }
-      if (everySentenceCallback) {
-        everySentenceCallback(null, respondedSentences[currentSentenceIndex]);
+      if (everySentenceCallback && !sent.has(currentSentenceIndex) && respondedSentences[currentSentenceIndex] && sentences[currentSentenceIndex]) {
+        everySentenceCallback(
+          null,
+          respondedSentences[currentSentenceIndex],
+          sentences[currentSentenceIndex]
+        );
       }
       if (globalError) {
         throw globalError;
@@ -11414,7 +11473,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     async translate(payload) {
       const { text } = payload;
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await mockRequest();
       const startSpaceLength = text.match(/^\s*/)[0].length;
       const mockText = text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength);
       return {
@@ -11425,7 +11484,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     }
     async translateList(payload) {
       const { text: textList, from, to } = payload;
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await mockRequest();
       if (!getRandomBoolean()) {
         throw new Error("\u6A21\u62DF\u9519\u8BEF");
       }
@@ -13184,7 +13243,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
           };
           finalResult.sentences[sentenceIndex] = result;
           if (everySentenceCallback) {
-            everySentenceCallback(null, result);
+            everySentenceCallback(null, result, sentence);
           }
         } else {
           noCacheSentences.push(sentence);
@@ -13362,6 +13421,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   }
 
   // dom/context.ts
+  var globalTranslationArea = "main";
   async function getContext(options2) {
     const { url, config } = options2;
     const urlObj = new URL(url);
@@ -13424,7 +13484,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       isTranslateExcludeUrl,
       rule: config.generalRule,
       url,
-      encryptedUrl
+      encryptedUrl,
+      translationArea: globalTranslationArea,
+      translationViewport: "current"
     };
     const rules = config.rules;
     const rule = rules.find((rule2) => {
@@ -13462,7 +13524,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   async function toggleTranslatePage() {
     if (pageStatus === "Original") {
       await translatePage();
-    } else if (pageStatus === "Translated") {
+    } else if (pageStatus === "Translated" || pageStatus === "Error") {
       restorePage();
     }
   }
@@ -13470,7 +13532,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     clean();
     disableMutatinObserver();
     pageStatus = "Translating";
-    sendPageTranslatedStatus2(pageStatus);
+    sendPageTranslatedStatus(pageStatus);
     if (originalPageTitle) {
       document.title = originalPageTitle;
     }
@@ -13503,7 +13565,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       element.removeAttribute(sourceAtomicBlockElementMarkAttributeName);
     });
     pageStatus = "Original";
-    sendPageTranslatedStatus2(pageStatus);
+    sendPageTranslatedStatus(pageStatus);
   }
   function onElementVisible(paragraph, callback) {
     let isCalled = false;
@@ -13558,36 +13620,48 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       log_default.error(`translateNewDynamicNodes error: ${e18.message}`);
     }
   }
-  function addParagraphToQueue(paragraph, ctx) {
-    onElementVisible(paragraph, (visibleParagraph) => {
-      const id = visibleParagraph.id;
-      const lastElement = getLastHTMLElement(visibleParagraph.elements);
-      let position = "afterend";
-      if (visibleParagraph.elements.length === 1 && lastElement) {
-        position = "beforeend";
-      }
-      lastElement.insertAdjacentHTML(
-        position,
-        `<span id="${translationTargetElementWrapperClass}-${id}" class="notranslate ${translationTargetElementWrapperClass}"><span class="${brandId}-loading notranslate"></span></span>`
-      );
-      currentParagraphIds.push(id);
-      debounceTranslateCurrentQueue(ctx);
-    });
+  function translationParagraph(visibleParagraph, ctx) {
+    const id = visibleParagraph.id;
+    const lastElement = getLastHTMLElement(visibleParagraph.elements);
+    let position = "afterend";
+    if (visibleParagraph.elements.length === 1 && lastElement) {
+      position = "beforeend";
+    }
+    lastElement.insertAdjacentHTML(
+      position,
+      `<span id="${translationTargetElementWrapperClass}-${id}" class="notranslate ${translationTargetElementWrapperClass}"><span class="${brandId}-loading notranslate"></span></span>`
+    );
+    currentParagraphIds.push(id);
+    debounceTranslateCurrentQueue(ctx);
   }
-  async function translatePage() {
+  function addParagraphToQueue(paragraph, ctx) {
+    if (ctx.translationViewport === "current") {
+      onElementVisible(paragraph, (visibleParagraph) => {
+        translationParagraph(visibleParagraph, ctx);
+      });
+    } else {
+      translationParagraph(paragraph, ctx);
+    }
+  }
+  async function translatePage(options2) {
     if (pageStatus === "Translating") {
       return;
     } else if (pageStatus !== "Original") {
       restorePage();
     }
-    const options2 = {
-      url: globalThis.location.href,
-      config: await getConfig2()
-    };
-    const ctx = await getContext(options2);
+    let ctx;
+    if (options2 && options2.ctx) {
+      ctx = options2.ctx;
+    } else {
+      const ctxOptions = {
+        url: globalThis.location.href,
+        config: await getConfig2()
+      };
+      ctx = await getContext(ctxOptions);
+    }
     log_default.debug("ctx", ctx);
     pageStatus = "Translating";
-    sendPageTranslatedStatus2(pageStatus);
+    sendPageTranslatedStatus(pageStatus);
     try {
       const containers = getContainers(document.body, ctx);
       log_default.debug("detect containers", containers);
@@ -13600,11 +13674,30 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       });
       enableMutatinObserver(rule, ctx);
       pageStatus = "Translated";
-      sendPageTranslatedStatus2(pageStatus);
+      sendPageTranslatedStatus(pageStatus);
     } catch (e18) {
       pageStatus = "Error";
       log_default.error(e18);
     }
+  }
+  async function translateTheWholePage() {
+    const options2 = {
+      url: globalThis.location.href,
+      config: await getConfig2()
+    };
+    const ctx = await getContext(options2);
+    ctx.translationArea = "body";
+    await translatePage({ ctx });
+  }
+  async function translateToThePageEndImmediatlly() {
+    const options2 = {
+      url: globalThis.location.href,
+      config: await getConfig2()
+    };
+    const ctx = await getContext(options2);
+    ctx.translationViewport = "all";
+    await translatePage({ ctx });
+    await translateNewDynamicNodes(ctx);
   }
   async function translateTitle(ctx) {
     const pageTitle = document.title;
@@ -13809,14 +13902,18 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     };
     try {
       const result = await translateSingleSentence(sentence, ctx);
-      onParagraphTranslated(null, result, ctx);
+      onParagraphTranslated(null, result, sentence, ctx);
     } catch (e18) {
-      onParagraphTranslated(e18, sentence, ctx);
+      onParagraphTranslated(e18, null, sentence, ctx);
     }
   }
-  function onParagraphTranslated(err, translatedSentence, ctx) {
-    if (err) {
-      const wrapperId = translatedSentence.id;
+  function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
+    if (err || !translatedSentence) {
+      if (!err) {
+        log_default.error(`translate error`, translatedSentence);
+        err = new Error("no response from server");
+      }
+      const wrapperId = sentenceRequest.id;
       const wrapper = document.getElementById(
         `${translationTargetElementWrapperClass}-${wrapperId}`
       );
@@ -13827,7 +13924,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         wrapper.innerHTML = errorHtml;
       }
     } else {
-      const paragraph = getParagraph(translatedSentence.id);
+      const paragraph = getParagraph(sentenceRequest.id);
       if (paragraph) {
         const targetItem = paragraphToHtml(
           paragraph,
@@ -13841,6 +13938,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
         if (wrapper) {
           wrapper.innerHTML = targetItem.html;
         }
+      } else {
       }
     }
   }
@@ -13869,29 +13967,29 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     const sentenceLength = payload.sentences.length;
     if (sentenceLength > 0) {
       pageStatus = "Translating";
-      sendPageTranslatedStatus2(pageStatus);
+      sendPageTranslatedStatus(pageStatus);
       try {
         await translateMultipleSentences(
           payload,
           ctx,
-          (err, translatedSentence) => {
-            onParagraphTranslated(err, translatedSentence, ctx);
+          (err, translatedSentence, sentenceRequest) => {
+            onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx);
           }
         );
       } catch (e18) {
         pageStatus = "Error";
-        sendPageTranslatedStatus2(pageStatus);
+        sendPageTranslatedStatus(pageStatus);
         log_default.error(
           `translateCurrentQueue error`,
           e18.name,
           e18.message,
-          e18.details || ""
+          e18.details || " "
         );
         return;
       }
     }
     pageStatus = "Translated";
-    sendPageTranslatedStatus2(pageStatus);
+    sendPageTranslatedStatus(pageStatus);
   }
   function enableMutatinObserver(rule, ctx) {
     disableMutatinObserver();
@@ -13962,12 +14060,16 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
   async function initPage() {
     clean();
     restorePage();
+    const config = await getConfig2();
     const options2 = {
       url: globalThis.location.href,
-      config: await getConfig2()
+      config
     };
     const ctx = await getContext(options2);
     log_default.debug(`context`, ctx);
+    if (ctx.rule.urlChangeDelay) {
+      await delay(ctx.rule.urlChangeDelay);
+    }
     addToUnmountQueue(() => {
       cleanParagraphs();
       allIntersectionObserver.forEach((observer) => {
@@ -14017,74 +14119,58 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
 
   // content_message_listeners.ts
   function setupMessageListeners() {
-    toggleTranslateStream.subscribe(async ([_2, __, cb]) => {
-      log_default.debug(`received toggleTranslate`);
-      try {
-        await toggleTranslatePage();
+    contentRequestStream.subscribe(
+      async ([payload, _sender, cb]) => {
+        try {
+          const { method, data } = payload;
+          log_default.debug(`received message: ${method}`, data ? data : " ");
+          if (method === "ping") {
+            cb({
+              ok: true,
+              data: "pong"
+            });
+            return;
+          } else if (method === "translateTheWholePage") {
+            await translateTheWholePage();
+          } else if (method === "translateToThePageEndImmediatlly") {
+            await translateToThePageEndImmediatlly();
+          } else if (method === "toggleTranslatePage") {
+            await toggleTranslatePage();
+          } else if (method === "translatePage") {
+            await translatePage();
+          } else if (method === "restorePage") {
+            restorePage();
+          } else if (method === "getPageStatus") {
+            const pageStatus2 = getPageStatus();
+            cb({
+              ok: true,
+              data: pageStatus2
+            });
+            return;
+          } else if (method === "setCurrentPageLanguageByClient") {
+            const { language } = data;
+            setCurrentPageLanguageByClient(language);
+          } else if (method === "getCurrentPageLanguage") {
+            const language = getCurrentPageLanguage();
+            cb({
+              ok: true,
+              data: language
+            });
+            return;
+          }
+        } catch (e18) {
+          cb({
+            ok: false,
+            error: e18.name,
+            message: e18.message
+          });
+          return;
+        }
         cb({
           ok: true
         });
-      } catch (e18) {
-        cb({
-          ok: false,
-          message: e18.message,
-          error: e18.name
-        });
       }
-    });
-    pageTranslateStream.subscribe(async ([_2, __, cb]) => {
-      log_default.debug(`received pageTranslate`);
-      try {
-        await translatePage();
-        cb({
-          ok: true
-        });
-      } catch (e18) {
-        cb({
-          ok: false,
-          message: e18.message,
-          error: e18.name
-        });
-      }
-    });
-    pageRestoreStream.subscribe(([_2, __, cb]) => {
-      log_default.debug(`received pageRestore`);
-      try {
-        restorePage();
-        cb({
-          ok: true
-        });
-      } catch (e18) {
-        cb({
-          ok: false,
-          message: e18.message,
-          error: e18.name
-        });
-      }
-    });
-    getPageTranslatedStatusStream.subscribe(([_2, __, cb]) => {
-      log_default.debug(`received getPageTranslatedStatus`);
-      const pageStatus2 = getPageStatus();
-      cb({
-        ok: true,
-        data: pageStatus2
-      });
-    });
-    setPageLanguageStream.subscribe(([lang, __, cb]) => {
-      log_default.debug(`received setPageLanguage`, lang);
-      setCurrentPageLanguageByClient(lang);
-      cb({
-        ok: true,
-        data: lang
-      });
-    });
-    getPageLanguageStream.subscribe(([_2, __, cb]) => {
-      log_default.debug(`received getPageLanguage`);
-      cb({
-        ok: true,
-        data: getCurrentPageLanguage()
-      });
-    });
+    );
   }
 
   // content_dom_listeners.ts
@@ -14278,7 +14364,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       }
       setupDomListeners();
       if (!isUserscript) {
-        sendReady();
+        try {
+          sendReady();
+        } catch (_e3) {
+        }
       }
       const isDebug = config.debug;
       if (isDebug) {
@@ -14461,84 +14550,62 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     return browserAPI.runtime.getManifest().version;
   }
 
-  // hooks/use_outside_click.tsx
-  function useOutsideAlerter(ref, root2, callback) {
-    j3(() => {
-      function handleClickOutside(event) {
-        if (ref && ref.current && !ref.current.contains(event.target)) {
-          callback();
-        }
-      }
-      root2.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        root2.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
-
   // components/select_link.tsx
   function SelectLink(props) {
-    const items = props.items;
-    const root2 = props.root;
-    let { size } = props;
-    if (!size) {
-      size = "sm";
-    }
-    const [open, setOpen] = P2(false);
-    const selectRef = w3(null);
-    const aRef = w3(null);
-    useOutsideAlerter(selectRef, root2 || document, () => {
-      setOpen(false);
-      if (aRef.current) {
-        aRef.current.blur();
-      }
+    let { items, maxWidth } = props;
+    maxWidth = maxWidth || 128;
+    return /* @__PURE__ */ p20("select", {
+      autoComplete: "off",
+      class: "min-select",
+      style: { maxWidth: `${maxWidth}px` },
+      value: items.find((item) => item.selected)?.value,
+      onChange: (e18) => {
+        const value = e18.target.value;
+        const item = items.find((item2) => item2.value === value);
+        if (item) {
+          item.onSelected(item);
+        }
+      },
+      children: items.map((item) => /* @__PURE__ */ p20("option", {
+        value: item.value,
+        selected: item.selected,
+        children: item.label
+      }))
     });
-    let checkedItem = items.find((item) => item.selected);
-    if (!checkedItem) {
-      checkedItem = items[0];
-    }
-    const handleToggle = (e18) => {
-      e18.preventDefault();
-      const targetState = !open;
-      if (!targetState && aRef.current) {
-        aRef.current.blur();
-      }
-      setOpen(targetState);
-    };
-    return /* @__PURE__ */ p20("nav", {
-      class: `inline-block text-${size}`,
-      ref: selectRef,
-      children: /* @__PURE__ */ p20("li", {
-        class: `py-0 select-link text-${size} ${open ? "select-link-active" : ""}`,
-        role: "list",
-        children: [
-          /* @__PURE__ */ p20("a", {
-            ref: aRef,
-            class: `text-${size}`,
-            href: "#",
-            onClick: handleToggle,
-            children: checkedItem.label
-          }),
-          /* @__PURE__ */ p20("ul", {
-            class: "select-link-ul max-h-30 overflow-y-scroll ",
-            role: "listbox",
-            children: items.map((item, index) => {
-              return /* @__PURE__ */ p20("li", {
-                children: /* @__PURE__ */ p20("a", {
-                  class: `text-${size} ${item.selected ? "select-link-selected" : ""}`,
-                  href: "#",
-                  onClick: (e18) => {
-                    e18.preventDefault();
-                    setOpen(false);
-                    item.onSelected(item);
-                  },
-                  children: item.label
-                })
-              }, `item-${index}`);
-            })
-          })
-        ]
-      })
+  }
+
+  // components/button_drop_down.tsx
+  var DEFAULT_VALUE = "DROP_DOWN_DEFAULT_VALUE";
+  function ButtonDropDown(props) {
+    let { showArrow, onSelected, menus, maxWidth } = props;
+    showArrow = showArrow ?? true;
+    maxWidth = maxWidth || 128;
+    const ref = w3(null);
+    return /* @__PURE__ */ p20("select", {
+      ref,
+      autoComplete: "off",
+      class: `min-select min-select-left min-select-secondary ${showArrow ? "" : "min-select-no-arrow"}`,
+      style: { maxWidth: `${maxWidth}px` },
+      value: DEFAULT_VALUE,
+      onChange: (e18) => {
+        e18.preventDefault();
+        const value = e18.target.value;
+        if (ref.current && value !== DEFAULT_VALUE) {
+          ref.current.value = DEFAULT_VALUE;
+          ref.current?.dispatchEvent(new Event("change"));
+          const item = menus.find((item2) => item2.value === value);
+          if (item) {
+            onSelected(item);
+          }
+        }
+      },
+      children: [{
+        value: DEFAULT_VALUE,
+        label: props.label
+      }].concat(menus).map((item) => /* @__PURE__ */ p20("option", {
+        value: item.value,
+        children: item.label
+      }))
     });
   }
 
@@ -14592,6 +14659,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       onUserConfigChange,
       pageStatus: pageStatus2,
       config,
+      onTranslateTheWholePage,
+      onTranslateToThePageEndImmediatlly,
       onSetPageLanguage,
       root: root2,
       onToggleTranslate,
@@ -14604,6 +14673,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     } = props;
     const setSettings = onUserConfigChange;
     const [message, setMessage] = P2("");
+    const [errorMessage, setErrorMessage] = P2("");
     const { t: t17 } = useI18n();
     let isAlwaysTranslateUrl = null;
     let isNeverTranslateUrl = null;
@@ -14677,7 +14747,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     };
     const handleTranslationUrlPatternSelected = (item) => {
       const value = item.value;
-      if (!value) {
+      if (value === "default") {
         setSettings((state) => {
           const translationUrlPattern = { ...state.translationUrlPattern };
           const newState = {
@@ -14802,7 +14872,7 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       onClose();
     };
     return /* @__PURE__ */ p20("div", {
-      className: "p-3",
+      className: "p-2",
       children: [
         /* @__PURE__ */ p20("div", {
           class: "text-sm",
@@ -14815,7 +14885,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
                   children: "\u6E90\u8BED\u8A00\uFF1A"
                 }),
                 /* @__PURE__ */ p20(SelectLink, {
-                  root: root2,
                   items: languages.map((code2) => {
                     return {
                       label: t17(`languages.${code2}`),
@@ -14837,7 +14906,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
                   children: "\u76EE\u6807\u8BED\u8A00\uFF1A"
                 }),
                 /* @__PURE__ */ p20(SelectLink, {
-                  root: root2,
                   items: languages.map((code2) => {
                     return {
                       label: t17(`languages.${code2}`),
@@ -14866,7 +14934,6 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
                       children: "\u7FFB\u8BD1\u670D\u52A1\uFF1A"
                     }),
                     /* @__PURE__ */ p20(SelectLink, {
-                      root: root2,
                       items: translationServiceItems.map(
                         (translationServiceItem) => {
                           return {
@@ -14952,22 +15019,25 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
               children: [
                 /* @__PURE__ */ p20("label", {
                   class: "inline-block",
-                  children: "\u5BF9\u4E8E\u8BE5\u7F51\u7AD9\uFF1A"
+                  children: t17("forThisSite")
                 }),
                 /* @__PURE__ */ p20(SelectLink, {
-                  root: root2,
                   items: [{
                     label: "\u9ED8\u8BA4",
-                    value: null,
+                    value: "default",
                     selected: isAlwaysTranslateUrl === false && isNeverTranslateUrl === false,
                     onSelected: handleTranslationUrlPatternSelected
                   }, {
-                    label: "\u603B\u662F\u7FFB\u8BD1",
+                    label: t17("alwaysTranslateSomeSite", {
+                      hostname: currentUrlObj.hostname
+                    }),
                     value: "matches",
                     selected: isAlwaysTranslateUrl,
                     onSelected: handleTranslationUrlPatternSelected
                   }, {
-                    label: "\u6C38\u4E0D\u7FFB\u8BD1",
+                    label: t17("neverTranslateSomeSite", {
+                      hostname: currentUrlObj.hostname
+                    }),
                     value: "excludeMatches",
                     selected: isNeverTranslateUrl,
                     onSelected: handleTranslationUrlPatternSelected
@@ -14980,26 +15050,25 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
               children: [
                 /* @__PURE__ */ p20("label", {
                   class: "inline-block",
-                  children: [
-                    "\u5BF9\u4E8E\u300C",
-                    t17(`languages.${currentLang}`),
-                    "\u300D\uFF1A"
-                  ]
+                  children: t17("forThisLanguage")
                 }),
                 /* @__PURE__ */ p20(SelectLink, {
-                  root: root2,
                   items: [{
-                    label: "\u9ED8\u8BA4",
-                    value: null,
+                    label: t17("default"),
+                    value: "default",
                     selected: isAlwaysTranslateLang === false && isNeverTranslateLang === false,
                     onSelected: handleTranslationLanguagePatternSelected
                   }, {
-                    label: "\u603B\u662F\u7FFB\u8BD1",
+                    label: t17("alwaysTranslateSomeLanguage", {
+                      language: t17(`languages.${currentLang}`)
+                    }),
                     value: "matches",
                     selected: isAlwaysTranslateLang,
                     onSelected: handleTranslationLanguagePatternSelected
                   }, {
-                    label: "\u6C38\u4E0D\u7FFB\u8BD1",
+                    label: t17("neverTranslateSomeLanguage", {
+                      language: t17(`languages.${currentLang}`)
+                    }),
                     value: "excludeMatches",
                     selected: isNeverTranslateLang,
                     onSelected: handleTranslationLanguagePatternSelected
@@ -15009,20 +15078,68 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
             })
           ]
         }),
-        /* @__PURE__ */ p20("button", {
-          class: "py-2 mt-2 mb-2",
-          onClick: onToggleTranslate,
-          children: buttonLabel
+        /* @__PURE__ */ p20("hr", {
+          class: "my-3"
+        }),
+        /* @__PURE__ */ p20("div", {
+          class: "flex justify-end",
+          children: [
+            /* @__PURE__ */ p20(ButtonDropDown, {
+              label: "\u66F4\u591A",
+              maxWidth: 52,
+              onSelected: (item) => {
+                if (item.value === "translateTheWholePage") {
+                  onTranslateTheWholePage();
+                } else if (item.value === "translateToThePageEndImmediatlly") {
+                  onTranslateToThePageEndImmediatlly();
+                }
+              },
+              menus: [{
+                label: t17("translateTheWholePage"),
+                value: "translateTheWholePage"
+              }, {
+                label: t17("translateToThePageEndImmediatlly"),
+                value: "translateToThePageEndImmediatlly"
+              }]
+            }),
+            /* @__PURE__ */ p20("button", {
+              class: "py-2 mt-0 mb-1 ml-3 w-auto main-button ",
+              onClick: onToggleTranslate,
+              children: [
+                /* @__PURE__ */ p20("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  width: "18",
+                  height: "18",
+                  class: "inline-block mr-1",
+                  children: [
+                    /* @__PURE__ */ p20("path", {
+                      fill: "none",
+                      d: "M0 0h24v24H0z"
+                    }),
+                    /* @__PURE__ */ p20("path", {
+                      d: "M5 15v2a2 2 0 0 0 1.85 1.995L7 19h3v2H7a4 4 0 0 1-4-4v-2h2zm13-5l4.4 11h-2.155l-1.201-3h-4.09l-1.199 3h-2.154L16 10h2zm-1 2.885L15.753 16h2.492L17 12.885zM8 2v2h4v7H8v3H6v-3H2V4h4V2h2zm9 1a4 4 0 0 1 4 4v2h-2V7a2 2 0 0 0-2-2h-3V3h3zM6 6H4v3h2V6zm4 0H8v3h2V6z"
+                    })
+                  ]
+                }),
+                buttonLabel
+              ]
+            })
+          ]
         }),
         /* @__PURE__ */ p20("div", {
           class: "text-sm",
           children: message
         }),
+        /* @__PURE__ */ p20("div", {
+          class: "text-sm",
+          children: errorMessage
+        }),
         /* @__PURE__ */ p20("footer", {
-          className: "text-sm flex justify-between",
+          className: "mt-2 text-xs flex justify-between",
           children: [
             /* @__PURE__ */ p20("span", {
-              class: "immersive-translate-no-select",
+              class: "immersive-translate-no-select muted",
               onClick: onClickMultipleTimes(7)(handleToggleAlpha),
               children: [
                 "V",
@@ -15203,6 +15320,14 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
       toggleTranslatePage();
       onClose();
     };
+    const handleTranslateTheWholePage = () => {
+      translateTheWholePage();
+      onClose();
+    };
+    const handleTranslateToThePageEndImmediatlly = () => {
+      translateToThePageEndImmediatlly();
+      onClose();
+    };
     const handleClose = () => {
       onClose();
     };
@@ -15212,7 +15337,9 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     return /* @__PURE__ */ p20(Popup, {
       root: root2,
       onClose: handleClose,
+      onTranslateTheWholePage: handleTranslateTheWholePage,
       onToggleTranslate: handleToggleTranslatePage,
+      onTranslateToThePageEndImmediatlly: handleTranslateToThePageEndImmediatlly,
       onTranslatePage: handleTranslatePage,
       onRestorePage: handleRestorePage,
       onSetPageLanguage,
@@ -15227,16 +15354,32 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
 
   // static/locales/zh-CN.json
   var zh_CN_default = {
+    "next immersive transalte": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
     "general": "\u57FA\u672C\u8BBE\u7F6E",
+    "interface language": "\u754C\u9762\u8BED\u8A00",
+    "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
+    "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
+    "modify": "\u4FEE\u6539\u5FEB\u6377\u952E",
     "reset": "\u91CD\u7F6E",
     "close": "\u5173\u95ED",
     "homepage": "\u4E3B\u9875",
+    "more": "\u66F4\u591A",
+    "translateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u5206\u4E8E\u53EA\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\uFF09",
+    "translateToThePageEndImmediatlly": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u5E95\u90E8\uFF08\u533A\u5206\u4E8E\u770B\u54EA\u8BD1\u54EA\uFF09",
     "options": "\u9009\u9879",
     "about": "\u5173\u4E8E",
     "service": "\u7FFB\u8BD1\u670D\u52A1",
     "translationEngine": "\u5F15\u64CE\u9009\u9879",
     "target": "\u76EE\u6807\u8BED\u8A00",
+    "forThisSite": "\u5BF9\u4E8E\u8BE5\u7F51\u7AD9\uFF1A",
+    "alwaysTranslateSomeLanguage": "\u603B\u662F\u7FFB\u8BD1{language}",
+    "neverTranslateSomeLanguage": "\u6C38\u4E0D\u7FFB\u8BD1{language}",
+    "alwaysTranslateSomeSite": "\u603B\u662F\u7FFB\u8BD1 {hostname}",
+    "neverTranslateSomeSite": "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
     "add": "\u6DFB\u52A0",
+    "default": "\u9ED8\u8BA4",
+    "forThisLanguage": "\u5BF9\u4E8E\u8BE5\u8BED\u8A00\uFF1A",
+    "add url": "\u8F93\u5165URL",
     "edit": "\u7F16\u8F91",
     "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
     "select translation service": "\u9009\u62E9\u4E00\u4E2A\u670D\u52A1\u4F5C\u4E3A\u7FFB\u8BD1\u670D\u52A1",
@@ -15247,10 +15390,15 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     "Translating": "\u7FFB\u8BD1\u4E2D",
     "Error": "\u9519\u8BEF",
     "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translation display": "\u8BD1\u6587\u663E\u793A\u6837\u5F0F",
+    "to distinguish the style of the translation, please refer to the following examples": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
+    "interface": "\u754C\u9762\u8BBE\u7F6E",
+    "import_export": "\u5BFC\u5165/\u5BFC\u51FA",
     "translationTheme": {
       "none": "\u65E0",
       "dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
       "dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
+      "dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
       "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
       "mask": "\u6A21\u7CCA\u6548\u679C",
       "paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
@@ -15292,6 +15440,8 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     "it will not be translated when the site is the following domain name": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
     "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details": "\u7B2C\u4E09\u65B9\u7FFB\u8BD1\u670D\u52A1\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
     "confirm": "\u4FDD\u5B58",
+    "cancel": "\u53D6\u6D88",
+    "delete": "\u5220\u9664",
     "languages": {
       "af": "\u5357\u975E\u8377\u5170\u8BED",
       "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
@@ -15434,6 +15584,10 @@ ${r14.map((n21, s21) => `${s21 + 1}) ${n21.toString()}`).join(`
     popup.setAttribute("style", "all: initial");
     document.body.appendChild(popup);
     const shadow = popup.attachShadow({ mode: "open" });
+    console.log(
+      "env.IMMERSIVE_TRANSLATE_COMMON_CSS",
+      env2.IMMERSIVE_TRANSLATE_COMMON_CSS
+    );
     const csses = [
       env2.IMMERSIVE_TRANSLATE_PICO_CSS,
       env2.IMMERSIVE_TRANSLATE_COMMON_CSS,

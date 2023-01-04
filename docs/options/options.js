@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-04T21:56:13.689Z", VERSION: "0.0.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
+  var define_process_env_default = { BUILD_TIME: "2023-01-04T21:56:27.583Z", VERSION: "0.0.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
   display: inline-block;
 }

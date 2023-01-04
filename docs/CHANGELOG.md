@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.0.31
+
+- Support Translate the Whole Page
+- Support Translate page immediatlly
+- More Config UI
+- Reflect the theme
+- Add new icon
+- Add new translation theme dashedBorder
+
 ## 0.0.30
 
 - Better for dashed theme

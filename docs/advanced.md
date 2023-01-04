@@ -28,7 +28,13 @@
       "matches": ["discord.com"]
     }
   },
-  "debug": false
+  "debug": false,
+  "rules": [
+    {
+      "matches": "www.google.com",
+      "selectors": [".class"]
+    }
+  ]
 }
 ```
 
@@ -98,3 +104,26 @@
 `translationThemePatterns` 下可以为不同网站配置不同的译文样式。
 
 `detectParagraphLanguagePattern`下可以为不同网站配置，按照段落检测语言，这样可以避免某些本来就是目标语言的段落被翻译。
+
+`rules`, 数组对象，可以配置针对特别网站的规则，比如对于推特可以只翻译某一部分区域:
+
+```json
+{
+  "rules": [
+    {
+      "matches": ["twitter.com", "mobile.twitter.com", "tweetdeck.twitter.com"],
+      "selectors": [
+        "[data-testid='tweetText']",
+        ".tweet-text",
+        ".js-quoted-tweet-text",
+        "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
+        "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
+        "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
+      ],
+      "extraInlineSelectors": ["[data-testid=\"tweetText\"] div"]
+    }
+  ]
+}
+```
+
+当前内置的`rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json) 找到。

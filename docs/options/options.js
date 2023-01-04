@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-03T11:02:34.802Z", VERSION: "0.0.30", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
+  var define_process_env_default = { BUILD_TIME: "2023-01-04T21:56:13.689Z", VERSION: "0.0.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
   display: inline-block;
 }
@@ -16,6 +16,17 @@
 }
 .immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
+  border: 1px dashed rgb(148 163 184) !important;
+  padding: 6px;
+  margin-top: 2px;
+}
+
+.immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
+  border: 1px dashed rgb(148 163 184) !important;
+  padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
@@ -46,7 +57,7 @@
     )
     repeat-x left bottom;
   background-size: 8px 2px;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
 }
 .immersive-translate-target-translation-theme-highlight-inner {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='42' preserveAspectRatio='none' viewBox='0 0 480 42'%3E%3Cpath fill='%23FFE200' fill-opacity='.75' d='m.7884025 41.3449275c15.8171024-1.6206809 71.8777185-.9529412 87.8950374-1.5331327 16.0173191-.5801915 83.3901661-.745318 100.1082431-.667414 16.718076.0779039 83.089842-.0805484 99.607702.4720956s171.593663-4.1777204 188.411848-.5026041c3.203464.64141 4.604979-37.03709852 1.301407-37.67784118-16.217535-3.4897587-170.292256 1.04456951-186.710008.30189599s-84.391249-.1001373-101.509758.0139905c-17.11851.1141278-84.191033.7506573-101.2094341 1.7162471-17.0184014.9655898-47.6903594-.51449033-88.09525389.58732435-.90097419.38473091-.7007577 37.29511244.20021649 37.28943844z'/%3E%3C/svg%3E")
@@ -217,22 +228,22 @@
 }
 @media (min-width: 576px) {
   #mount {
-    --font-size: 16px;
+    --font-size: 17px;
   }
 }
 @media (min-width: 768px) {
   #mount {
-    --font-size: 16px;
+    --font-size: 18px;
   }
 }
 @media (min-width: 992px) {
   #mount {
-    --font-size: 17px;
+    --font-size: 19px;
   }
 }
 @media (min-width: 1200px) {
   #mount {
-    --font-size: 18px;
+    --font-size: 20px;
   }
 }
 
@@ -3143,7 +3154,7 @@ textarea,
 }
 
 /*# sourceMappingURL=custom.css.map */
-`, IMMERSIVE_TRANSLATE_COMMON_CSS: "li.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n.immersive-translate-no-select {\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none; /* Safari */\n  -khtml-user-select: none; /* Konqueror HTML */\n  -moz-user-select: none; /* Old versions of Firefox */\n  -ms-user-select: none; /* Internet Explorer/Edge */\n  user-select: none;\n}\n", IMMERSIVE_TRANSLATE_POPUP_CSS: "#mount {\n  min-width: 250px;\n  height: auto;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, IMMERSIVE_TRANSLATE_COMMON_CSS: '#mount#mount {\n  /* --primary: rgb(227, 59, 126); */\n  --primary: #ea4c89;\n  --primary-hover: #f082ac;\n}\n\nli.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n.immersive-translate-no-select {\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none; /* Safari */\n  -khtml-user-select: none; /* Konqueror HTML */\n  -moz-user-select: none; /* Old versions of Firefox */\n  -ms-user-select: none; /* Internet Explorer/Edge */\n  user-select: none;\n}\n\n/* li[role="list"].no-arrow > a::after { */\n/*   background-image: none; */\n/*   width: 0; */\n/*   color: var(--color); */\n/* } */\nli[role="list"].no-arrow {\n  margin-left: 8px;\n  padding-right: 0;\n}\nli[role="list"] > a::after {\n  -webkit-margin-start: 0.2rem;\n  margin-inline-start: 0.2rem;\n}\n\nli[role="list"].no-arrow > a,\nli[role="list"].no-arrow > a:link,\nli[role="list"].no-arrow > a:visited {\n  color: var(--secondary);\n}\n\nselect.min-select {\n  --form-element-spacing-horizontal: 0;\n  margin-bottom: 0;\n  max-width: 128px;\n  color: var(--primary);\n  font-size: 14px;\n  border: none;\n  padding: 0;\n  padding-right: 24px;\n  background-position: center right 0;\n  text-overflow: ellipsis;\n  text-align: right;\n  color: var(--color);\n}\nselect.min-select-secondary {\n  color: var(--color);\n}\nselect.min-select:focus {\n  outline: none;\n  border: none;\n  --box-shadow: none;\n}\nselect.min-select-no-arrow {\n  background-image: none;\n  padding-right: 0;\n}\n\nselect.min-select-left {\n  padding-right: 0px;\n  padding-left: 24px;\n  background-position: center left 0;\n  text-overflow: ellipsis;\n  text-align: right;\n}\n\n.muted {\n  color: var(--muted-color);\n}\n', IMMERSIVE_TRANSLATE_POPUP_CSS: "body {\n  padding: 0;\n  margin: 0;\n  min-width: 250px;\n}\n#mount {\n  min-width: 250px;\n}\n.main-button {\n  font-size: 14px;\n  vertical-align: middle;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.p-2 {\n  padding: 8px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.p-0 {\n  padding: 0;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.mt-0 {\n  margin-top: 0;\n}\n\n.mb-1 {\n  margin-bottom: 4px;\n}\n.ml-4 {\n  margin-left: 24px;\n}\n.ml-3 {\n  margin-left: 16px;\n}\n.ml-2 {\n  margin-left: 8px;\n}\n.mr-1 {\n  margin-right: 4px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n\n.flex-1 {\n  flex: 1;\n}\n.items-center {\n  align-items: center;\n}\n.items-end {\n  align-items: flex-end;\n}\n.items-baseline {\n  align-items: baseline;\n}\n\n.my-5 {\n  margin-top: 48px;\n  margin-bottom: 48px;\n}\n.my-4 {\n  margin-top: 24px;\n  margin-bottom: 24px;\n}\n.my-3 {\n  margin-top: 16px;\n  margin-bottom: 16px;\n}\n.pt-3 {\n  padding-top: 12px;\n}\n.px-3 {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n.px-2 {\n  padding-left: 8px;\n  padding-right: 8px;\n}\n.pt-1 {\n  padding-top: 4px;\n}\n.px-1 {\n  padding-left: 4px;\n  padding-right: 4px;\n}\n.pb-2 {\n  padding-bottom: 8px;\n}\n.justify-end {\n  justify-content: flex-end;\n}\n.w-auto {\n  width: auto;\n}\n", IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    top: 100px;\n    right: 8px;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #fff;\n    font-size: 18px;\n    width: 36px;\n    height: 36px;\n    border-radius: 50%;\n    border: 1px solid #ccc;\n  }\n  #mount#mount {\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    \u8BD1\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', IMMERSIVE_TRANSLATE_POPUP_JS: 'const immersivePopupRoot = document.getElementById("immersive-translate-popup");\nconst shadowRoot = immersivePopupRoot.shadowRoot;\n\nconst root = shadowRoot.getElementById("immersive-translate-popup-container");\n\nconst btn = root.querySelector("#immersive-translate-popup-btn");\n\n// btn.addEventListener("click", handleButtonClick);\n\nconst mountContainer = root.querySelector("#mount");\n\nfunction showButton() {\n  // hidden mount container, and show btn\n  mountContainer.style.display = "none";\n  btn.style.display = "block";\n}\n\ndocument.addEventListener("click", (e) => {\n  if (e.target.id !== "immersive-translate-popup") {\n    showButton();\n  }\n});\n', OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // browser/web_polyfill.ts
   (function() {
@@ -7097,7 +7108,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   };
 
   // constant.ts
-  var brandName = "Next Translator";
+  var brandName = "Immersive Translator";
   var brandId = "immersive-translate";
   var targetContainerElementAttributeName = `data-${brandId}-container`;
   var specifiedTargetContainerElementAttributeName = `data-${brandId}-specified-container`;
@@ -7120,6 +7131,21 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var translationTargetInnerElementWrapperClass = `${brandId}-target-inner`;
   var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
   var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+  var translationThemes = [
+    "none",
+    "dashed",
+    "underline",
+    "dashedBorder",
+    "mask",
+    "dotted",
+    "highlight",
+    "blockquote",
+    "weakening",
+    "paper",
+    "italic",
+    "bold",
+    "thinDashed"
+  ];
   var languages = [
     "auto",
     "en",
@@ -7246,6 +7272,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "https://www.deepl.com/translator",
     "translate.google.com"
   ];
+  var sampleSourceText = `Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.`;
+  var sampleTargetText = `\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002`;
 
   // log.ts
   var Timing = class {
@@ -7463,12 +7491,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       "_comment": "",
       "wrapperPrefix": "smart",
       "wrapperSuffix": "smart",
-      "urlChangeDelay": 10,
+      "urlChangeDelay": 250,
       "paragraphMinTextCount": 20,
       "paragraphMinWordCount": 3,
       "blockMinTextCount": 32,
       "blockMinWordCount": 5,
-      "globalStyles": {},
+      "globalStyles": {
+        ".sr-only": "display:none"
+      },
       "selectors": [],
       "preWhitespaceDetectedTags": [
         "DIV",
@@ -7513,7 +7543,10 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         ".breadcrumbs",
         ".post__footer",
         ".btn",
-        ".reference-citations"
+        ".reference-citations",
+        ".share-nav",
+        ".o-share",
+        "[data-toolbar=share]"
       ],
       "translationClasses": [],
       "atomicBlockSelectors": [],
@@ -7527,6 +7560,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "INPUT",
         "BUTTON",
         "LABEL",
+        "SELECT",
+        "OPTION",
         "IMG",
         "SUB",
         "SUP",
@@ -8131,6 +8166,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         "additionalSelectors": [
           ".mcf-card-article__title"
         ]
+      },
+      {
+        "matches": [
+          "www.washingtonpost.com"
+        ],
+        "additionalSelectors": [
+          "[data-qa='article-body']"
+        ]
       }
     ]
   };
@@ -8144,6 +8187,24 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     } else {
       return [];
     }
+  }
+  function addToUniqueArray(item, array) {
+    if (!array) {
+      return [item];
+    }
+    if (!Array.isArray(array)) {
+      array = [array];
+    }
+    return Array.from(/* @__PURE__ */ new Set([...array, item]));
+  }
+  function removeFromArray(item, array) {
+    if (!array) {
+      return [];
+    }
+    if (!Array.isArray(array)) {
+      array = [array];
+    }
+    return array.filter((i20) => i20 !== item);
   }
 
   // utils/merge_rule.ts
@@ -8584,6 +8645,27 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // messages.ts
+  var [
+    sendContentRequest,
+    contentRequestStream,
+    waitContentRequest
+  ] = H2("contenteRequest", {
+    async: true
+  });
+  var [
+    sendPopupRequest,
+    popupRequestStream,
+    waitPopupRequest
+  ] = H2("popupRequest", {
+    async: true
+  });
+  var [
+    sendBackgroundRequest,
+    backgroundRequestStream,
+    waitBackgroundRequest
+  ] = H2("backgroundRequest", {
+    async: true
+  });
   var [sendDBStore, storeDBStream, waitDBStore] = H2(
     "db_store",
     {
@@ -8621,67 +8703,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       return sendFetchFromChrome(options);
     }
   };
-  var [
-    sendToggleTranslate,
-    toggleTranslateStream,
-    waitForToggleTranslate
-  ] = H2(
-    "toggleTranslate",
-    {
-      async: true
-    }
-  );
-  var [
-    sendTranslatePage,
-    pageTranslateStream,
-    waitForPageTranslate
-  ] = H2(
-    "pageTranslate",
-    {
-      async: true
-    }
-  );
-  var [
-    sendRestorePage,
-    pageRestoreStream,
-    waitForPageRestore
-  ] = H2(
-    "restorePage",
-    {
-      async: true
-    }
-  );
-  var [
-    sendPageTranslatedStatus,
-    pageTranslatedStatusStream,
-    waitForPageTranslatedStatus
-  ] = H2(
-    "pageTranslatedStatus"
-  );
-  var [
-    sendGetPageTranslatedStatus,
-    getPageTranslatedStatusStream,
-    waitForGetPageTranslatedStatus
-  ] = H2(
-    "getPageTranslatedStatus",
-    { async: true }
-  );
-  var [
-    sendGetPageLanguage,
-    getPageLanguageStream,
-    waitForGetPageLanguage
-  ] = H2(
-    "getPageLanguage",
-    { async: true }
-  );
-  var [
-    sendSetPageLanguage,
-    setPageLanguageStream,
-    waitForSetPageLanguage
-  ] = H2(
-    "setThePageLanguage",
-    { async: true }
-  );
   var [sendDetectLanguage, detectLanguageStream, waitforDetectLanguage] = H2("detectLanguage", {
     async: true
   });
@@ -8800,6 +8821,18 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       options
     );
   }
+  async function mockRequest() {
+    if (isMonkey()) {
+      return Promise.resolve();
+    }
+    try {
+      await sendMessage(sendFetch, {
+        url: "https://testtesttesttesttesttest.com"
+      });
+    } catch (_e3) {
+    }
+    return;
+  }
 
   // services/translation.ts
   var Translation = class {
@@ -8847,6 +8880,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         interval: 1e3
       });
       let currentSentenceIndex = 0;
+      let sent = /* @__PURE__ */ new Set();
       let globalError = null;
       for (let i20 = 0; i20 < tempSentenceGroups.length; i20++) {
         const tempSentenceGroup = tempSentenceGroups[i20];
@@ -8886,8 +8920,12 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           result = await throttled();
         } catch (e18) {
           if (everySentenceCallback) {
-            for (const sentence of sentences) {
-              everySentenceCallback(e18, sentence);
+            if (sent.has(currentSentenceIndex)) {
+              currentSentenceIndex++;
+            }
+            for (let i21 = currentSentenceIndex; i21 < sentences.length; i21++) {
+              const sentence = sentences[i21];
+              everySentenceCallback(e18, null, sentence);
             }
             globalError = e18;
             continue;
@@ -8896,7 +8934,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             continue;
           }
         }
-        const { text: translatedTexts, from: detectedFrom } = result;
+        const { text: translatedTexts } = result;
         for (let j8 = 0; j8 < translatedTexts.length; j8++) {
           const translatedText = translatedTexts[j8];
           const tempSentence = tempSentenceGroup.tempSentences[j8];
@@ -8913,17 +8951,23 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           }
           if (index !== currentSentenceIndex) {
             if (everySentenceCallback) {
+              sent.add(currentSentenceIndex);
               everySentenceCallback(
                 null,
-                respondedSentences[currentSentenceIndex]
+                respondedSentences[currentSentenceIndex],
+                sentences[currentSentenceIndex]
               );
             }
           }
           currentSentenceIndex = index;
         }
       }
-      if (everySentenceCallback) {
-        everySentenceCallback(null, respondedSentences[currentSentenceIndex]);
+      if (everySentenceCallback && !sent.has(currentSentenceIndex) && respondedSentences[currentSentenceIndex] && sentences[currentSentenceIndex]) {
+        everySentenceCallback(
+          null,
+          respondedSentences[currentSentenceIndex],
+          sentences[currentSentenceIndex]
+        );
       }
       if (globalError) {
         throw globalError;
@@ -9550,7 +9594,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       action,
       payload,
       service,
-      version
+      version: version2
     }) {
       const host = `${service}.tencentcloudapi.com`;
       const now = new Date();
@@ -9594,7 +9638,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           "X-TC-Action": action,
           "X-TC-Timestamp": timestamp,
           "X-TC-Region": "ap-beijing",
-          "X-TC-Version": version,
+          "X-TC-Version": version2,
           Authorization: `TC3-HMAC-SHA256 Credential=${secretId}/${datestamp}/${service}/tc3_request, SignedHeaders=content-type;host, Signature=${Signature}`
         },
         body: payload
@@ -9911,8 +9955,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // services/d/utils.ts
-  function createAbbreviationsDictionary(languages3 = SUPPORTED_LANGUAGES) {
-    return languages3.reduce((acc, lang) => {
+  function createAbbreviationsDictionary(languages4 = SUPPORTED_LANGUAGES) {
+    return languages4.reduce((acc, lang) => {
       acc[lang.code.toLowerCase()] = lang.code;
       acc[lang.language.toLowerCase()] = lang.code;
       return acc;
@@ -10277,7 +10321,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
     async translate(payload) {
       const { text } = payload;
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await mockRequest();
       const startSpaceLength = text.match(/^\s*/)[0].length;
       const mockText = text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength);
       return {
@@ -10288,7 +10332,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     }
     async translateList(payload) {
       const { text: textList, from, to } = payload;
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await mockRequest();
       if (!getRandomBoolean()) {
         throw new Error("\u6A21\u62DF\u9519\u8BEF");
       }
@@ -12129,6 +12173,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   }
 
   // dom/context.ts
+  var globalTranslationArea = "main";
   async function getContext(options) {
     const { url, config } = options;
     const urlObj = new URL(url);
@@ -12191,7 +12236,9 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       isTranslateExcludeUrl,
       rule: config.generalRule,
       url,
-      encryptedUrl
+      encryptedUrl,
+      translationArea: globalTranslationArea,
+      translationViewport: "current"
     };
     const rules = config.rules;
     const rule = rules.find((rule2) => {
@@ -12209,104 +12256,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       ctx.rule = mergeRule(generalRule, rule);
     }
     return ctx;
-  }
-
-  // components/nav_left.tsx
-  function NavLeft(props) {
-    return /* @__PURE__ */ p19("div", {
-      className: "nav-left",
-      children: [
-        /* @__PURE__ */ p19("div", {
-          className: "title",
-          children: props.title
-        }),
-        /* @__PURE__ */ p19("div", {
-          className: "description",
-          children: props.description
-        })
-      ]
-    });
-  }
-
-  // hooks/use_outside_click.tsx
-  function useOutsideAlerter(ref, root2, callback) {
-    j2(() => {
-      function handleClickOutside(event) {
-        if (ref && ref.current && !ref.current.contains(event.target)) {
-          callback();
-        }
-      }
-      root2.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        root2.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
-
-  // components/select_link.tsx
-  function SelectLink(props) {
-    const items = props.items;
-    const root2 = props.root;
-    let { size } = props;
-    if (!size) {
-      size = "sm";
-    }
-    const [open, setOpen] = P2(false);
-    const selectRef = w2(null);
-    const aRef = w2(null);
-    useOutsideAlerter(selectRef, root2 || document, () => {
-      setOpen(false);
-      if (aRef.current) {
-        aRef.current.blur();
-      }
-    });
-    let checkedItem = items.find((item) => item.selected);
-    if (!checkedItem) {
-      checkedItem = items[0];
-    }
-    const handleToggle = (e18) => {
-      e18.preventDefault();
-      const targetState = !open;
-      if (!targetState && aRef.current) {
-        aRef.current.blur();
-      }
-      setOpen(targetState);
-    };
-    return /* @__PURE__ */ p19("nav", {
-      class: `inline-block text-${size}`,
-      ref: selectRef,
-      children: /* @__PURE__ */ p19("li", {
-        class: `py-0 select-link text-${size} ${open ? "select-link-active" : ""}`,
-        role: "list",
-        children: [
-          /* @__PURE__ */ p19("a", {
-            ref: aRef,
-            class: `text-${size}`,
-            href: "#",
-            onClick: handleToggle,
-            children: checkedItem.label
-          }),
-          /* @__PURE__ */ p19("ul", {
-            class: "select-link-ul max-h-30 overflow-y-scroll ",
-            role: "listbox",
-            children: items.map((item, index) => {
-              return /* @__PURE__ */ p19("li", {
-                children: /* @__PURE__ */ p19("a", {
-                  class: `text-${size} ${item.selected ? "select-link-selected" : ""}`,
-                  href: "#",
-                  onClick: (e18) => {
-                    e18.preventDefault();
-                    setOpen(false);
-                    item.onSelected(item);
-                  },
-                  children: item.label
-                })
-              }, `item-${index}`);
-            })
-          })
-        ]
-      })
-    });
   }
 
   // libs/preact-translation/utils.ts
@@ -12431,11 +12380,95 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return M2(TranslateContext);
   }
 
+  // utils/languages.ts
+  var getLanguages = () => {
+    return languages.filter((lang) => {
+      return lang !== "auto";
+    });
+  };
+
+  // components/nav_left.tsx
+  function NavLeft(props) {
+    return /* @__PURE__ */ p19("div", {
+      className: "nav-left",
+      children: [
+        /* @__PURE__ */ p19("div", {
+          className: "title",
+          children: props.title
+        }),
+        /* @__PURE__ */ p19("div", {
+          className: "description",
+          children: props.description
+        })
+      ]
+    });
+  }
+
+  // components/select_link.tsx
+  function SelectLink(props) {
+    let { items, maxWidth } = props;
+    maxWidth = maxWidth || 128;
+    return /* @__PURE__ */ p19("select", {
+      autoComplete: "off",
+      class: "min-select",
+      style: { maxWidth: `${maxWidth}px` },
+      value: items.find((item) => item.selected)?.value,
+      onChange: (e18) => {
+        const value = e18.target.value;
+        const item = items.find((item2) => item2.value === value);
+        if (item) {
+          item.onSelected(item);
+        }
+      },
+      children: items.map((item) => /* @__PURE__ */ p19("option", {
+        value: item.value,
+        selected: item.selected,
+        children: item.label
+      }))
+    });
+  }
+
+  // components/input_row.tsx
+  function InputRow(props) {
+    const { t: t17 } = useI18n();
+    return /* @__PURE__ */ p19("div", {
+      className: "input-row",
+      children: [
+        /* @__PURE__ */ p19("div", {
+          className: "input-left",
+          children: /* @__PURE__ */ p19("label", {
+            for: props.field.name,
+            children: [
+              props.field.label ? t17(props.field.label) : props.field.name,
+              "\uFF1A"
+            ]
+          })
+        }),
+        /* @__PURE__ */ p19("div", {
+          className: "input-right",
+          children: /* @__PURE__ */ p19("input", {
+            required: props.field.required,
+            placeholder: props.field.name,
+            className: "input",
+            value: props.value,
+            type: props.type,
+            onChange: (e18) => {
+              props.onChange(e18.target.value);
+            }
+          })
+        })
+      ]
+    });
+  }
+
   // components/option_field.tsx
   function OptionField(props) {
-    let { field, root: root2, onChange, value } = props;
+    let { field, onChange, value } = props;
     value = value || field.default || "";
     const { t: t17 } = useI18n();
+    const handleSubmit = (e18) => {
+      e18.preventDefault();
+    };
     if (field.type === "select") {
       return /* @__PURE__ */ p19("div", {
         class: "flex justify-end mb-2",
@@ -12448,7 +12481,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             ]
           }),
           /* @__PURE__ */ p19(SelectLink, {
-            root: root2,
             items: field.options.map(
               (fieldOption) => {
                 return {
@@ -12466,60 +12498,29 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       });
     } else if (field.type === "text") {
       return /* @__PURE__ */ p19("div", {
-        className: "secretInput",
         children: [
           /* @__PURE__ */ p19("div", {
-            className: "secretLeft",
-            children: /* @__PURE__ */ p19("label", {
-              for: field.name,
-              children: [
-                field.label ? t17(field.label) : field.name,
-                "\uFF1A"
-              ]
-            })
+            className: "description pb-1",
+            children: t17(
+              "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details"
+            )
           }),
-          /* @__PURE__ */ p19("div", {
-            className: "secretRight",
-            children: /* @__PURE__ */ p19("input", {
-              required: field.required,
-              placeholder: field.name,
-              className: "input",
-              value,
-              onChange: (e18) => {
-                onChange(e18.target.value);
-              }
-            })
+          /* @__PURE__ */ p19(InputRow, {
+            field,
+            value,
+            type: field.type,
+            onChange
           })
         ]
       });
     } else if (field.type === "password") {
       return /* @__PURE__ */ p19("div", {
-        className: "secretInput",
-        children: [
-          /* @__PURE__ */ p19("div", {
-            className: "secretLeft",
-            children: /* @__PURE__ */ p19("label", {
-              for: field.name,
-              children: [
-                field.label ? t17(field.label) : field.name,
-                "\uFF1A"
-              ]
-            })
-          }),
-          /* @__PURE__ */ p19("div", {
-            className: "secretRight",
-            children: /* @__PURE__ */ p19("input", {
-              required: field.required,
-              placeholder: field.name,
-              value,
-              type: "password",
-              className: "input",
-              onChange: (e18) => {
-                onChange(e18.target.value);
-              }
-            })
-          })
-        ]
+        children: /* @__PURE__ */ p19(InputRow, {
+          field,
+          value,
+          type: field.type,
+          onChange
+        })
       });
     } else {
       return null;
@@ -12562,13 +12563,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     });
   }
 
-  // components/always_urls.tsx
-  function AlwaysLang2(props) {
+  // components/url_list.tsx
+  function UrlList(props) {
     const { t: t17 } = useI18n();
-    const onClickDot = (e18) => {
-    };
     return /* @__PURE__ */ p19("div", {
-      children: props.urls.map((item) => {
+      children: props.urls.map((item, i20) => {
         return /* @__PURE__ */ p19("div", {
           className: "url-list",
           children: [
@@ -12576,32 +12575,134 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
               className: "url-left",
               children: [
                 /* @__PURE__ */ p19("div", {
-                  className: "url-name",
+                  className: "url-name height-tight",
                   children: item
                 }),
                 /* @__PURE__ */ p19("div", {
-                  className: "description url-name",
+                  className: "description text-1 height-tight",
                   children: item
                 })
               ]
             }),
-            /* @__PURE__ */ p19("div", {
-              className: "url-dot",
-              onClick: onClickDot,
-              children: "..."
+            /* @__PURE__ */ p19("nav", {
+              children: /* @__PURE__ */ p19("ul", {
+                children: /* @__PURE__ */ p19("li", {
+                  children: /* @__PURE__ */ p19("details", {
+                    role: "list",
+                    dir: "rtl",
+                    children: [
+                      /* @__PURE__ */ p19("summary", {
+                        "aria-haspopup": "listbox",
+                        role: "link"
+                      }),
+                      /* @__PURE__ */ p19("ul", {
+                        class: "delete",
+                        role: "listbox",
+                        children: [
+                          /* @__PURE__ */ p19("li", {
+                            children: /* @__PURE__ */ p19("a", {
+                              onClick: (e18) => {
+                                props.onEditUrl(item, props.type);
+                              },
+                              children: t17("edit")
+                            })
+                          }),
+                          /* @__PURE__ */ p19("li", {
+                            children: /* @__PURE__ */ p19("a", {
+                              onClick: (e18) => {
+                                props.onDeleteUrl(item, props.type);
+                              },
+                              children: t17("delete")
+                            })
+                          })
+                        ]
+                      })
+                    ]
+                  })
+                })
+              })
             })
           ]
-        });
+        }, "menu" + i20);
       })
     });
   }
 
-  // utils/languages.ts
-  var getLanguages = () => {
-    return languages.filter((lang) => {
-      return lang !== "auto";
+  // components/add_url_modal.tsx
+  function AddUrlModal(props) {
+    const { t: t17 } = useI18n();
+    const textInput = w2(null);
+    const validURL = (str) => {
+    };
+    return /* @__PURE__ */ p19("dialog", {
+      id: "modal-example",
+      open: true,
+      children: /* @__PURE__ */ p19("article", {
+        class: "add-modal",
+        children: [
+          /* @__PURE__ */ p19("a", {
+            href: "#close",
+            "aria-label": "Close",
+            class: "close",
+            "data-target": "modal-example",
+            onClick: props.toggleModal
+          }),
+          /* @__PURE__ */ p19("div", {
+            class: "add-text",
+            children: t17("add url")
+          }),
+          /* @__PURE__ */ p19("input", {
+            placeholder: "url",
+            ref: textInput,
+            value: props.urlValue
+          }),
+          /* @__PURE__ */ p19("div", {
+            class: "flex",
+            children: [
+              /* @__PURE__ */ p19("div", {
+                class: "footer-button",
+                children: /* @__PURE__ */ p19("a", {
+                  href: "#cancel",
+                  role: "button",
+                  class: "full-button secondary margin-right",
+                  "data-target": "modal-example",
+                  onClick: props.toggleModal,
+                  children: t17("cancel")
+                })
+              }),
+              /* @__PURE__ */ p19("div", {
+                class: "footer-button",
+                children: /* @__PURE__ */ p19("a", {
+                  href: "#confirm",
+                  role: "button",
+                  class: "full-button margin-left",
+                  "data-target": "modal-example",
+                  onClick: (e18) => {
+                    e18.preventDefault();
+                    if (textInput.current && textInput.current.value) {
+                      if (props.urlValue !== "") {
+                        props.onSubmitAddUrl(
+                          textInput.current.value,
+                          props.type,
+                          "edit"
+                        );
+                      } else {
+                        props.onSubmitAddUrl(
+                          textInput.current.value,
+                          props.type
+                        );
+                      }
+                    }
+                  },
+                  children: t17("confirm")
+                })
+              })
+            ]
+          })
+        ]
+      })
     });
-  };
+  }
 
   // pages/general.tsx
   var languages2 = getLanguages();
@@ -12610,9 +12711,13 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const [settings, setSettings, _isPersistent, error2] = useUserConfig();
     const [config, setConfig] = P2(null);
     const [ctx, setContext] = P2(null);
-    const [isShowAlwaysLang, setIsShowAlwaysLang] = P2(
+    const [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
       false
     );
+    const [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
+      false
+    );
+    const [urlValue, setUrlValue] = P2("");
     const [serviceButtonText, setServiceButtonText] = P2("service");
     const [langsArr, setLangsArr] = P2([]);
     let translationServiceItems = [];
@@ -12678,10 +12783,6 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         });
       }
     }, [config]);
-    const toggleAlwaysLang = (e18) => {
-      e18.preventDefault();
-      setIsShowAlwaysLang(!isShowAlwaysLang);
-    };
     const selectService = (service) => {
       setSettings((state) => {
         return { ...state, translationService: service };
@@ -12705,18 +12806,15 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     };
     const onSelectAlwaysLangs = (item) => {
       let currentMatches = [];
-      if (settings.translationLanguagePattern && settings.translationLanguagePattern.matches) {
-        currentMatches = settings.translationLanguagePattern.matches;
+      const pattern = settings.translationLanguagePattern;
+      if (pattern && pattern.matches) {
+        currentMatches = pattern.matches;
       }
       let newMatches = [...currentMatches];
       if (item.checked) {
-        const newSet = new Set(newMatches);
-        newSet.delete(item.value);
-        newMatches = Array.from(newSet);
+        newMatches = removeFromArray(item.value, currentMatches);
       } else {
-        const newSet = new Set(newMatches);
-        newSet.add(item.value);
-        newMatches = Array.from(newSet);
+        newMatches = addToUniqueArray(item.value, currentMatches);
       }
       setLangsArr(() => {
         return [...newMatches];
@@ -12731,6 +12829,77 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         };
       });
     };
+    const toggleAddUrlModal = (type) => {
+      if (type === "matches") {
+        setIsShowAddUrlModal(!isShowAddUrlModal);
+      } else {
+        setIsShowNeverUrlModal(!isShowNeverUrlModal);
+      }
+    };
+    const onSubmitAddUrl = (url, type, action) => {
+      toggleAddUrlModal(type);
+      setSettings((state) => {
+        const pattern = settings.translationUrlPattern;
+        let currentMatches = [];
+        let currentExcludeMatches = [];
+        if (pattern && pattern.matches && pattern.excludeMatches) {
+          currentMatches = pattern.matches;
+          currentExcludeMatches = pattern.excludeMatches;
+        }
+        let newMatches = [...currentMatches];
+        let newExcludeMatches = [...currentExcludeMatches];
+        if (action === "edit") {
+          if (type === "matches") {
+            newMatches = removeFromArray(urlValue, currentMatches);
+          } else {
+            newExcludeMatches = removeFromArray(urlValue, currentExcludeMatches);
+          }
+        }
+        if (type === "matches") {
+          newMatches = addToUniqueArray(url, newMatches);
+          newExcludeMatches = removeFromArray(url, currentExcludeMatches);
+        } else {
+          newMatches = removeFromArray(url, currentMatches);
+          newExcludeMatches = addToUniqueArray(url, currentExcludeMatches);
+        }
+        return {
+          ...state,
+          translationUrlPattern: {
+            ...state.translationUrlPattern,
+            matches: newMatches,
+            excludeMatches: newExcludeMatches
+          }
+        };
+      });
+    };
+    const onDeleteUrl = (url, type) => {
+      setSettings((state) => {
+        const pattern = settings.translationUrlPattern;
+        let currentMatches = [];
+        if (type === "matches") {
+          if (pattern && pattern.matches) {
+            currentMatches = pattern.matches;
+          }
+        } else {
+          if (pattern && pattern.excludeMatches) {
+            currentMatches = pattern.excludeMatches;
+          }
+        }
+        let newMatches = [...currentMatches];
+        newMatches = removeFromArray(url, newMatches);
+        return {
+          ...state,
+          translationUrlPattern: {
+            ...state.translationUrlPattern,
+            [type]: newMatches
+          }
+        };
+      });
+    };
+    const onEditUrl = (url, type) => {
+      toggleAddUrlModal(type);
+      setUrlValue(url);
+    };
     if (!config) {
       return /* @__PURE__ */ p19("div", {
         children: "loading"
@@ -12742,10 +12911,11 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           className: "nav",
           children: [
             /* @__PURE__ */ p19("strong", {
-              className: "text-xl",
+              className: "text-lg",
               children: t17("general")
             }),
             /* @__PURE__ */ p19("a", {
+              className: "text-sm",
               onClick: handleReset,
               children: t17("reset")
             })
@@ -12761,6 +12931,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             /* @__PURE__ */ p19("select", {
               className: "select",
               onChange: (e18) => {
+                e18.preventDefault();
                 selectTargetLanguage(e18.target.value);
               },
               children: languages2.map((item) => {
@@ -12783,6 +12954,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
             /* @__PURE__ */ p19("select", {
               className: "select",
               onChange: (e18) => {
+                e18.preventDefault();
                 selectService(e18.target.value);
               },
               children: translationServiceItems.map((item) => {
@@ -12855,14 +13027,30 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
               children: /* @__PURE__ */ p19("a", {
                 href: "#",
                 role: "button",
-                className: "secondary outline",
+                className: "add-button secondary outline",
+                onClick: (e18) => {
+                  e18.preventDefault();
+                  toggleAddUrlModal("matches");
+                },
                 children: t17("add")
               })
-            })
+            }),
+            isShowAddUrlModal ? /* @__PURE__ */ p19(AddUrlModal, {
+              toggleModal: (e18) => {
+                e18.preventDefault();
+                toggleAddUrlModal("matches");
+              },
+              onSubmitAddUrl,
+              type: "matches",
+              urlValue
+            }) : null
           ]
         }),
-        /* @__PURE__ */ p19(AlwaysLang2, {
-          urls: config.translationUrlPattern.matches
+        /* @__PURE__ */ p19(UrlList, {
+          urls: config.translationUrlPattern.matches,
+          type: "matches",
+          onDeleteUrl,
+          onEditUrl
         }),
         /* @__PURE__ */ p19("div", {
           className: "nav",
@@ -12878,25 +13066,215 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
               children: /* @__PURE__ */ p19("a", {
                 href: "#",
                 role: "button",
-                className: "secondary outline",
+                className: "add-button secondary outline",
+                onClick: (e18) => {
+                  e18.preventDefault();
+                  toggleAddUrlModal("excludeMatches");
+                },
                 children: t17("add")
               })
-            })
+            }),
+            isShowNeverUrlModal ? /* @__PURE__ */ p19(AddUrlModal, {
+              toggleModal: (e18) => {
+                e18.preventDefault();
+                toggleAddUrlModal("excludeMatches");
+              },
+              onSubmitAddUrl,
+              type: "excludeMatches",
+              urlValue
+            }) : null
           ]
+        }),
+        /* @__PURE__ */ p19(UrlList, {
+          urls: config.translationUrlPattern.excludeMatches,
+          type: "excludeMatches",
+          onDeleteUrl,
+          onEditUrl
         })
       ]
     });
   }
 
-  // pages/advanced.tsx
+  // dom/paragraph_to_html.ts
+  function getTranslationWrapperClassNames(translationTheme, isInline, additonalClassNames = []) {
+    const classList = ["notranslate"];
+    if (translationTheme) {
+      classList.push(
+        `${brandId}-target-translation-theme-${translationTheme}`
+      );
+      if (isInline) {
+        classList.push(
+          `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
+        );
+      } else {
+        classList.push(
+          `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
+        );
+      }
+    }
+    if (additonalClassNames.length > 0) {
+      classList.push(...additonalClassNames);
+    }
+    if (isInline) {
+      classList.push(translationTargetTranslationElementInlineWrapperClass);
+    } else {
+      classList.push(translationTargetTranslationElementBlockWrapperClass);
+    }
+    return classList;
+  }
+  function getTranslationInnerClassNames(translationTheme) {
+    const innerClassList = [
+      "notranslate",
+      translationTargetInnerElementWrapperClass
+    ];
+    if (translationTheme) {
+      innerClassList.push(
+        `${brandId}-target-translation-theme-${translationTheme}-inner`
+      );
+    }
+    return innerClassList;
+  }
+
+  // pages/interface.tsx
+  var languages3 = getLanguages();
   function Options() {
+    const [settings, setSettings, _isPersistent, error2] = useUserConfig();
+    const [config, setConfig] = P2(null);
+    const { t: t17 } = useI18n();
+    j2(() => {
+      getConfig().then((config2) => {
+        setConfig(config2);
+      });
+    }, [settings]);
+    const selectDisplay = (theme) => {
+      setSettings((state) => {
+        return { ...state, translationTheme: theme };
+      });
+    };
+    if (!config) {
+      return /* @__PURE__ */ p19("div", {
+        children: "loading"
+      });
+    }
     return /* @__PURE__ */ p19("div", {
       children: [
-        /* @__PURE__ */ p19("h1", {
-          children: "Advanced"
+        /* @__PURE__ */ p19("div", {
+          className: "nav",
+          children: /* @__PURE__ */ p19("strong", {
+            className: "text-lg",
+            children: t17("interface")
+          })
         }),
-        /* @__PURE__ */ p19("p", {
-          children: "Coming soon..."
+        /* @__PURE__ */ p19("div", {
+          className: "nav",
+          children: [
+            /* @__PURE__ */ p19(NavLeft, {
+              title: t17("interface language")
+            }),
+            /* @__PURE__ */ p19("select", {
+              className: "select",
+              onChange: (e18) => {
+                selectDisplay(e18.target.value);
+              },
+              children: languages3.map((item) => {
+                return /* @__PURE__ */ p19("option", {
+                  value: item,
+                  selected: item === config.targetLanguage,
+                  children: t17(`languages.${item}`)
+                });
+              })
+            })
+          ]
+        }),
+        /* @__PURE__ */ p19("div", {
+          className: "nav !hidden",
+          children: [
+            /* @__PURE__ */ p19(NavLeft, {
+              title: t17("display both the original text and the translation"),
+              description: t17(
+                "to distinguish the style of the translation, please refer to the following examples"
+              )
+            }),
+            /* @__PURE__ */ p19("label", {
+              for: "switch",
+              children: /* @__PURE__ */ p19("input", {
+                type: "checkbox",
+                id: "switch",
+                name: "switch",
+                role: "switch",
+                checked: true
+              })
+            })
+          ]
+        }),
+        /* @__PURE__ */ p19("div", {
+          className: "nav",
+          children: [
+            /* @__PURE__ */ p19(NavLeft, {
+              title: t17("translation display"),
+              description: t17(
+                "to distinguish the style of the translation, please refer to the following examples"
+              )
+            }),
+            /* @__PURE__ */ p19("select", {
+              className: "select",
+              onChange: (e18) => {
+                selectDisplay(e18.target.value);
+              },
+              children: translationThemes.map((item) => {
+                return /* @__PURE__ */ p19("option", {
+                  value: item,
+                  selected: item === config.translationTheme,
+                  children: t17(`translationTheme.${item}`)
+                });
+              })
+            })
+          ]
+        }),
+        /* @__PURE__ */ p19("div", {
+          class: "pt-2 text-sm",
+          children: /* @__PURE__ */ p19("p", {
+            children: [
+              sampleSourceText,
+              /* @__PURE__ */ p19("br", {}),
+              /* @__PURE__ */ p19("br", {}),
+              /* @__PURE__ */ p19("span", {
+                class: getTranslationWrapperClassNames(
+                  config.translationTheme,
+                  false,
+                  []
+                ).join(
+                  " "
+                ),
+                children: /* @__PURE__ */ p19("span", {
+                  class: getTranslationInnerClassNames(
+                    config.translationTheme
+                  ).join(" "),
+                  children: sampleTargetText
+                })
+              })
+            ]
+          })
+        }),
+        /* @__PURE__ */ p19("div", {
+          className: "nav !hidden",
+          children: [
+            /* @__PURE__ */ p19(NavLeft, {
+              title: t17("keyboard shortcuts")
+            }),
+            /* @__PURE__ */ p19("div", {
+              className: "nav-right",
+              children: /* @__PURE__ */ p19("a", {
+                href: "#",
+                role: "button",
+                className: "add-button secondary outline",
+                onClick: (e18) => {
+                  e18.preventDefault();
+                },
+                children: t17("modify")
+              })
+            })
+          ]
         })
       ]
     });
@@ -12906,6 +13284,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   function ImportExport() {
     const [settings, setSettings, _isPersistent, error2] = useUserConfig();
     const [config, setConfig] = P2(null);
+    const { t: t17 } = useI18n();
     j2(() => {
       getConfig().then((config2) => {
         setConfig(config2);
@@ -12927,17 +13306,18 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       } catch (e19) {
       }
     };
-    const handleSync = (e18) => {
-      e18.preventDefault();
-    };
     const handleReset = (e18) => {
       e18.preventDefault();
       handleChangeValue(getEnvUserConfig());
     };
     return /* @__PURE__ */ p19("div", {
       children: [
-        /* @__PURE__ */ p19("h1", {
-          children: "Import/Export"
+        /* @__PURE__ */ p19("div", {
+          className: "nav",
+          children: /* @__PURE__ */ p19("strong", {
+            className: "text-lg",
+            children: t17("import_export")
+          })
         }),
         /* @__PURE__ */ p19("p", {
           children: error2
@@ -13023,8 +13403,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   async function openIndexedDB(dbName, _storageName) {
     return await new Promise((resolve, reject) => {
       const name = dbName;
-      const version = 1;
-      const request3 = indexedDB.open(name, version);
+      const version2 = 1;
+      const request3 = indexedDB.open(name, version2);
       request3.onsuccess = (_event) => {
         resolve(request3.result);
       };
@@ -13255,7 +13635,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     const [settings, setSettings, _isPersistent, _error] = useUserConfig();
     const { t: t17 } = useI18n();
     const [isCleaning, setIsCleaning] = P2(false);
-    const version = getVersion();
+    const version2 = getVersion();
     const handleSyncing = async () => {
       setSyncErrorMessage("");
       let finalRemoteConfig = remoteConfig;
@@ -13297,7 +13677,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
           url: buildinConfigSyncUrl
         }).then((data) => {
           const remoteMinVersion = data.minVersion;
-          const localVersion = version;
+          const localVersion = version2;
           setRemoteConfig(data);
           const remoteVersion = data.latestVersion;
           if (remoteVersion) {
@@ -13375,17 +13755,20 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     return /* @__PURE__ */ p19("div", {
       class: "text-sm",
       children: [
-        /* @__PURE__ */ p19("h1", {
-          onClick: onClickMultipleTimes(7)(handleToggleAlpha),
-          class: "immersive-translate-no-select",
-          children: "About"
+        /* @__PURE__ */ p19("div", {
+          className: "nav",
+          children: /* @__PURE__ */ p19("strong", {
+            onClick: onClickMultipleTimes(7)(handleToggleAlpha),
+            class: "text-lg immersive-translate-no-select",
+            children: t17("about")
+          })
         }),
         /* @__PURE__ */ p19("p", {
           onClick: onClickMultipleTimes(7)(handleToggleAlpha),
           class: "mb-2 immersive-translate-no-select",
           children: [
             "V",
-            version
+            version2
           ]
         }),
         isLatestVersion === false && /* @__PURE__ */ p19(NewVersion, {
@@ -13448,16 +13831,32 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
 
   // static/locales/zh-CN.json
   var zh_CN_default = {
+    "next immersive transalte": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
     "general": "\u57FA\u672C\u8BBE\u7F6E",
+    "interface language": "\u754C\u9762\u8BED\u8A00",
+    "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
+    "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
+    "modify": "\u4FEE\u6539\u5FEB\u6377\u952E",
     "reset": "\u91CD\u7F6E",
     "close": "\u5173\u95ED",
     "homepage": "\u4E3B\u9875",
+    "more": "\u66F4\u591A",
+    "translateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u5206\u4E8E\u53EA\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\uFF09",
+    "translateToThePageEndImmediatlly": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u5E95\u90E8\uFF08\u533A\u5206\u4E8E\u770B\u54EA\u8BD1\u54EA\uFF09",
     "options": "\u9009\u9879",
     "about": "\u5173\u4E8E",
     "service": "\u7FFB\u8BD1\u670D\u52A1",
     "translationEngine": "\u5F15\u64CE\u9009\u9879",
     "target": "\u76EE\u6807\u8BED\u8A00",
+    "forThisSite": "\u5BF9\u4E8E\u8BE5\u7F51\u7AD9\uFF1A",
+    "alwaysTranslateSomeLanguage": "\u603B\u662F\u7FFB\u8BD1{language}",
+    "neverTranslateSomeLanguage": "\u6C38\u4E0D\u7FFB\u8BD1{language}",
+    "alwaysTranslateSomeSite": "\u603B\u662F\u7FFB\u8BD1 {hostname}",
+    "neverTranslateSomeSite": "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
     "add": "\u6DFB\u52A0",
+    "default": "\u9ED8\u8BA4",
+    "forThisLanguage": "\u5BF9\u4E8E\u8BE5\u8BED\u8A00\uFF1A",
+    "add url": "\u8F93\u5165URL",
     "edit": "\u7F16\u8F91",
     "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
     "select translation service": "\u9009\u62E9\u4E00\u4E2A\u670D\u52A1\u4F5C\u4E3A\u7FFB\u8BD1\u670D\u52A1",
@@ -13468,10 +13867,15 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "Translating": "\u7FFB\u8BD1\u4E2D",
     "Error": "\u9519\u8BEF",
     "allowCacheTranslations": "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translation display": "\u8BD1\u6587\u663E\u793A\u6837\u5F0F",
+    "to distinguish the style of the translation, please refer to the following examples": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
+    "interface": "\u754C\u9762\u8BBE\u7F6E",
+    "import_export": "\u5BFC\u5165/\u5BFC\u51FA",
     "translationTheme": {
       "none": "\u65E0",
       "dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
       "dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
+      "dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
       "underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
       "mask": "\u6A21\u7CCA\u6548\u679C",
       "paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
@@ -13513,6 +13917,8 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
     "it will not be translated when the site is the following domain name": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
     "the third-party translation service needs to fill in the key before it is available, please refer to the 'Key Application and Configuration Tutorial' for details": "\u7B2C\u4E09\u65B9\u7FFB\u8BD1\u670D\u52A1\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
     "confirm": "\u4FDD\u5B58",
+    "cancel": "\u53D6\u6D88",
+    "delete": "\u5220\u9664",
     "languages": {
       "af": "\u5357\u975E\u8377\u5170\u8BED",
       "am": "\u963F\u59C6\u54C8\u62C9\u8BED",
@@ -13643,6 +14049,7 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
   var locales_default = translations;
 
   // pages/options.tsx
+  var version = getVersion();
   function main() {
     const mountPoint = document.getElementById("mount");
     if (mountPoint) {
@@ -13676,14 +14083,14 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
         }
       },
       {
-        name: "Advanced",
+        name: t17("interface"),
         props: {
-          href: "#advanced",
+          href: "#interface",
           className: "secondary"
         }
       },
       {
-        name: "Import/Export",
+        name: t17("import_export"),
         props: {
           href: "#import_export",
           className: "secondary"
@@ -13704,41 +14111,28 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
       }
     });
     return /* @__PURE__ */ p19(L, {
-      children: [
-        /* @__PURE__ */ p19("nav", {
-          class: "container-fluid",
-          children: [
-            /* @__PURE__ */ p19("ul", {
-              children: /* @__PURE__ */ p19("li", {
-                children: /* @__PURE__ */ p19("strong", {
-                  children: "Next Immersive Transalte"
-                })
-              })
-            }),
-            /* @__PURE__ */ p19("ul", {
+      children: /* @__PURE__ */ p19("main", {
+        class: "container-fluid",
+        children: [
+          /* @__PURE__ */ p19("aside", {
+            children: /* @__PURE__ */ p19("nav", {
               children: [
-                /* @__PURE__ */ p19("li", {
-                  children: /* @__PURE__ */ p19("a", {
-                    href: "#",
-                    children: "Link"
-                  })
+                /* @__PURE__ */ p19("hgroup", {
+                  children: [
+                    /* @__PURE__ */ p19("h4", {
+                      class: "cursor-pointer",
+                      onClick: () => {
+                        globalThis.location.hash = "#general";
+                      },
+                      children: t17("next immersive transalte")
+                    }),
+                    /* @__PURE__ */ p19("h6", {
+                      class: "!text-sm",
+                      children: version
+                    })
+                  ]
                 }),
-                /* @__PURE__ */ p19("li", {
-                  children: /* @__PURE__ */ p19("a", {
-                    href: "#",
-                    children: "Link"
-                  })
-                })
-              ]
-            })
-          ]
-        }),
-        /* @__PURE__ */ p19("main", {
-          class: "container-fluid",
-          children: [
-            /* @__PURE__ */ p19("aside", {
-              children: /* @__PURE__ */ p19("nav", {
-                children: /* @__PURE__ */ p19("ul", {
+                /* @__PURE__ */ p19("ul", {
                   children: navs.map((nav, index) => /* @__PURE__ */ p19("li", {
                     children: /* @__PURE__ */ p19("a", {
                       ...nav.props,
@@ -13746,24 +14140,24 @@ ${r13.map((n21, s19) => `${s19 + 1}) ${n21.toString()}`).join(`
                     })
                   }, `nav-${index}`))
                 })
-              })
-            }),
-            /* @__PURE__ */ p19("div", {
-              role: "main",
-              children: /* @__PURE__ */ p19(Switch, {
-                value: route,
-                defaultCase: /* @__PURE__ */ p19(General, {}),
-                cases: {
-                  "#general": /* @__PURE__ */ p19(General, {}),
-                  "#advanced": /* @__PURE__ */ p19(Options, {}),
-                  "#import_export": /* @__PURE__ */ p19(ImportExport, {}),
-                  "#about": /* @__PURE__ */ p19(About, {})
-                }
-              })
+              ]
             })
-          ]
-        })
-      ]
+          }),
+          /* @__PURE__ */ p19("div", {
+            role: "main",
+            children: /* @__PURE__ */ p19(Switch, {
+              value: route,
+              defaultCase: /* @__PURE__ */ p19(General, {}),
+              cases: {
+                "#general": /* @__PURE__ */ p19(General, {}),
+                "#interface": /* @__PURE__ */ p19(Options, {}),
+                "#import_export": /* @__PURE__ */ p19(ImportExport, {}),
+                "#about": /* @__PURE__ */ p19(About, {})
+              }
+            })
+          })
+        ]
+      })
     });
   }
 

@@ -99,6 +99,8 @@
       "INPUT",
       "BUTTON",
       "LABEL",
+      "SELECT",
+      "OPTION",
       "IMG",
       "SUB",
       "SUP",
@@ -713,6 +715,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T13:24:22.983Z",
+  "buildinConfigUpdatedAt": "2023-01-04T11:19:17.778Z",
   "latestVersion": "0.0.30"
 }

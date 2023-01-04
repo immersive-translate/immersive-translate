@@ -30,12 +30,14 @@
     "_comment": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
-    "urlChangeDelay": 10,
+    "urlChangeDelay": 250,
     "paragraphMinTextCount": 20,
     "paragraphMinWordCount": 3,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
-    "globalStyles": {},
+    "globalStyles": {
+      ".sr-only": "display:none"
+    },
     "selectors": [],
     "preWhitespaceDetectedTags": [
       "DIV",
@@ -80,7 +82,10 @@
       ".breadcrumbs",
       ".post__footer",
       ".btn",
-      ".reference-citations"
+      ".reference-citations",
+      ".share-nav",
+      ".o-share",
+      "[data-toolbar=share]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -94,6 +99,8 @@
       "INPUT",
       "BUTTON",
       "LABEL",
+      "SELECT",
+      "OPTION",
       "IMG",
       "SUB",
       "SUP",
@@ -698,8 +705,16 @@
       "additionalSelectors": [
         ".mcf-card-article__title"
       ]
+    },
+    {
+      "matches": [
+        "www.washingtonpost.com"
+      ],
+      "additionalSelectors": [
+        "[data-qa='article-body']"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-03T11:02:29.151Z",
+  "buildinConfigUpdatedAt": "2023-01-04T11:19:17.778Z",
   "latestVersion": "0.0.30"
 }

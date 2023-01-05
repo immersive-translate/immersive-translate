@@ -1,5 +1,8 @@
 {
   "minVersion": "0.0.20",
+  "immediateTranslationTextCount": 3000,
+  "interval": 3600000,
+  "cache": true,
   "translationParagraphLanguagePattern": {
     "matches": [
       "www.reddit.com",
@@ -31,8 +34,8 @@
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "urlChangeDelay": 250,
-    "paragraphMinTextCount": 20,
-    "paragraphMinWordCount": 3,
+    "paragraphMinTextCount": 8,
+    "paragraphMinWordCount": 2,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
     "globalStyles": {
@@ -714,6 +717,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-05T14:22:32.549Z",
+  "buildinConfigUpdatedAt": "2023-01-05T17:32:38.600Z",
   "latestVersion": "0.0.33"
 }

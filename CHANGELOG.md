@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.33
+
+- Support more languages, zh-TW, en
+
 ## 0.0.32
 
 - Fix translate local file after saved. Fixed [#1](https://github.com/immersive-translate/next-immersive-translate/issues/1)

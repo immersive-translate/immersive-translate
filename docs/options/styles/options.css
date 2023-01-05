@@ -149,6 +149,8 @@ label {
   flex-wrap: wrap;
 }
 .lang-card {
+  display: flex;
+  align-items: center;
   padding: 0.4rem 0.8rem;
   border: 1px solid rgba(233, 233, 233, 1);
   margin-right: 1.1rem;
@@ -157,6 +159,16 @@ label {
   border-radius: 0.15rem;
   font-size: 17px;
   /* background-color: rgba(249, 249, 249, 1); */
+}
+.close {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-left: 0.4rem;
+  background-image: var(--icon-close);
+  background-size: auto 0.8rem;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  transition: opacity var(--transition);
 }
 .url-list {
   display: flex;

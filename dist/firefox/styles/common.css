@@ -100,7 +100,7 @@ select.min-select-left {
   padding-left: 24px;
   background-position: center left 0;
   text-overflow: ellipsis;
-  text-align: right;
+  text-align: left;
 }
 
 .muted {

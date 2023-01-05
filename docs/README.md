@@ -6,3 +6,9 @@
 
 - [安装](installation.md)
 - [高级自定义配置](advanced.md)
+
+## 贡献
+
+你可以帮忙翻译[界面语言](https://crowdin.com/project/immersive-translate)
+
+或者加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能讨论。

@@ -1,0 +1,77 @@
+{
+  "manifest_version": 2,
+  "name": "Immersive Translate",
+  "description": "沉浸式网页翻译，支持多种翻译引擎，双语对照显示",
+  "version": "0.0.32",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "web_accessible_resources": [
+    "styles/inject.css"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>",
+        "file:///*",
+        "*://*/*"
+      ],
+      "js": [
+        "js/browser-polyfill.js",
+        "content_script.js"
+      ],
+      "css": [
+        "styles/inject.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "commands": {
+    "hotkey-toggle-translation": {
+      "suggested_key": {
+        "default": "Ctrl+T",
+        "mac": "MacCtrl+T"
+      },
+      "description": "Toggle Translate"
+    },
+    "hotkey-toggle-dual": {
+      "suggested_key": {
+        "default": "Ctrl+D",
+        "mac": "MacCtrl+D"
+      },
+      "description": "Toggle Dual"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true,
+    "browser_style": false
+  },
+  "permissions": [
+    "<all_urls>",
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "browser_action": {
+    "default_icon": "icons/32.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png",
+    "256": "icons/256.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{344b7391-6f01-466e-bbf6-888907a21b4d}",
+      "strict_min_version": "63.0"
+    }
+  }
+}

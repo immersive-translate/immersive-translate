@@ -73,8 +73,7 @@
       "H3",
       "H4",
       "H5",
-      "H6",
-      "LI"
+      "H6"
     ],
     "excludeSelectors": [],
     "additionalExcludeSelectors": [
@@ -715,6 +714,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-04T11:19:17.778Z",
-  "latestVersion": "0.0.30"
+  "buildinConfigUpdatedAt": "2023-01-05T11:07:58.802Z",
+  "latestVersion": "0.0.32"
 }

@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.0.32
+
+- Fix translate local file after saved. Fixed [#1](https://github.com/immersive-translate/next-immersive-translate/issues/1)
+- Add dist js file to public repo
+
+## 0.0.31
+
+- Support Translate the Whole Page
+- Support Translate page immediatlly
+- More Config UI
+- Reflect the theme
+- Add new icon
+- Add new translation theme dashedBorder
+
 ## 0.0.30
 
 - Better for dashed theme

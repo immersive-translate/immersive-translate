@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Immersive Translate",
   "description": "沉浸式网页翻译，支持多种翻译引擎，双语对照显示",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "background": {
     "service_worker": "background.js"
   },
@@ -34,19 +34,23 @@
     }
   ],
   "commands": {
-    "hotkey-toggle-translation": {
+    "toggleTranslatePage": {
       "suggested_key": {
-        "default": "Ctrl+T",
-        "mac": "MacCtrl+T"
+        "default": "Alt+A"
       },
       "description": "Toggle Translate"
     },
-    "hotkey-toggle-dual": {
+    "translateTheWholePage": {
       "suggested_key": {
-        "default": "Ctrl+D",
-        "mac": "MacCtrl+D"
+        "default": "Alt+W"
       },
-      "description": "Toggle Dual"
+      "description": "Translate the Whole Page"
+    },
+    "translateToThePageEndImmediately": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Translate to the Page End Immediately"
     }
   },
   "options_page": "options.html",

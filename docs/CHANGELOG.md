@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.0.34
+
+### Break Changes
+
+- The Default Hot Key to toggle translate has been changed to `alt+A`, cause it's the most convinient key to type.
+
+### Others
+
+- Support set immediate translation mode, so you can let the web page translate as quick as possible.
+- Support set page area that need to translate. so you can translate more area.
+- Support set the first x text count to translate immediately.
+- Fix translate duplicately when change translate
+- Better popup UI
+
 ## 0.0.33
 
 - Support more languages, zh-TW, en

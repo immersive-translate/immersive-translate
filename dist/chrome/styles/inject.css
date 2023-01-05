@@ -1,6 +1,5 @@
 .immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
-  display: inline-block;
 }
 
 .immersive-translate-target-translation-inline-wrapper {
@@ -14,6 +13,7 @@
   border: 1px dashed rgb(148 163 184) !important;
   padding: 6px;
   margin-top: 2px;
+  display: inline-block;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
@@ -74,6 +74,7 @@
   margin: 8px 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 16px 32px;
+  display: inline-block;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-blockquote {
@@ -83,6 +84,7 @@
   margin-bottom: 4px;
   padding-top: 4px;
   padding-bottom: 4px;
+  display: inline-block;
 }
 
 .immersive-translate-target-translation-theme-mask-inner {

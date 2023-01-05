@@ -123,6 +123,18 @@ body {
 .flex-1 {
   flex: 1;
 }
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-2 {
+  flex: 2;
+}
+.mt-3 {
+  margin-top: 16px;
+}
 .items-center {
   align-items: center;
 }

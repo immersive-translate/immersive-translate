@@ -1,4 +1,4 @@
-(()=>{var Gu=Object.defineProperty;var Ju=(e,t)=>{for(var r in t)Gu(e,r,{get:t[r],enumerable:!0})};var u={BUILD_TIME:"2023-01-06T20:17:18.844Z",VERSION:"0.0.34",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-block-wrapper {
+(()=>{var Gu=Object.defineProperty;var Ju=(e,t)=>{for(var r in t)Gu(e,r,{get:t[r],enumerable:!0})};var u={BUILD_TIME:"2023-01-06T21:58:49.147Z",VERSION:"0.0.35",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
 }
 
@@ -3490,8 +3490,13 @@ select.min-select-left {
     font-size: 18px;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: 9999999px;
     border: 1px solid #ccc;
+  }
+  .immersive-translate-popup-btn > img {
+    border-radius: 9999999px;
+    width: 100%;
+    height: 100%;
   }
   #mount#mount {
     display: none;

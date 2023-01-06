@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.35
+
+- Fix youtube go to next page
+- Support Youtube search page.
+- Fix options advanced switch.
+- Fix img tag , hiddent tag [#5](https://github.com/immersive-translate/next-immersive-translate/issues/5)
+- Fix Google Search Force refresh [#4](https://github.com/immersive-translate/next-immersive-translate/issues/4)
+- Support Table result of Google [#3](https://github.com/immersive-translate/next-immersive-translate/issues/3)
+- Fix Wikipedia blank [#2](https://github.com/immersive-translate/next-immersive-translate/issues/2)
+
 ## 0.0.34
 
 ### Break Changes

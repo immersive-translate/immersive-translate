@@ -736,12 +736,10 @@
       ]
     },
     {
-      "matches": "history.house.gov",
-      "additionalSelectors": [
-        ".inner"
-      ]
+      "matches": "www.economist.com",
+      "extraInlineSelectors": "span[data-caps='initial']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-07T15:27:43.194Z",
-  "latestVersion": "0.0.37"
+  "buildinConfigUpdatedAt": "2023-01-07T21:16:06.095Z",
+  "latestVersion": "0.0.38"
 }

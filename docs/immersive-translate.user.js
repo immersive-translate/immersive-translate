@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         沉浸式翻译
 // @description  沉浸式网页双语翻译扩展，完全免费使用，支持 Deepl/Google/腾讯/火山翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
+// @version      0.0.40
 // @name:en     Immersive Translate
-// @description:en     Immersive web bilingual translation extension, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao translation and many other translation services, supports Firefox/Chrome/Grease Monkey script, also works on iOS Safari.// @name:zh-TW     沉浸式翻譯
+// @description:en     Immersive web bilingual translation extension, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao translation and many other translation services, supports Firefox/Chrome/Grease Monkey script, also works on iOS Safari.
+// @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // @namespace    https://immersive-translate.owenyoung.com/
-// @version      0.0.39
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
 // @supportURL    https://github.com/immersive-translate/next-immersive-translate/
@@ -45,7 +46,7 @@
 // @connect    translate.volcengine.com
 // @noframes
 // @run-at       document-end
-// @require   https://unpkg.com/immersive-translate@0.0.39/immersive-translate.lib.js
+// @require   https://unpkg.com/immersive-translate@0.0.40/immersive-translate.lib.js
 // ==/UserScript==
 (function () {
   "use strict";

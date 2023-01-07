@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.36
+
+- Fix Wikipedia special character [#6](https://github.com/immersive-translate/next-immersive-translate/issues/6)
+- Fix userscript icon size.
+- enable all sites to detect paragraph language.
+
 ## 0.0.35
 
 - Fix youtube go to next page

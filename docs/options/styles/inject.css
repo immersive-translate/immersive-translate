@@ -39,7 +39,7 @@
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
-  background-repeat: repeat-x;
+  background-repeat: repeat-x !important;
   background: linear-gradient(
       to right,
       #59c1bd 0%,

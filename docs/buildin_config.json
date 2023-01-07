@@ -3,8 +3,11 @@
   "immediateTranslationTextCount": 3000,
   "interval": 3600000,
   "cache": true,
+  "donateUrl": "https://www.patreon.com/theowenyoung",
+  "feedbackUrl": "https://github.com/immersive-translate/next-immersive-translate/issues",
   "translationParagraphLanguagePattern": {
     "matches": [
+      "*",
       "www.reddit.com",
       "old.reddit.com",
       "twitter.com",
@@ -46,6 +49,7 @@
       "DIV",
       "SPAN"
     ],
+    "stayOriginalSelectors": [],
     "additionalSelectors": [
       "h1",
       "section h2",
@@ -69,15 +73,7 @@
       ".headline",
       ".page-content"
     ],
-    "atomicBlockTags": [
-      "P",
-      "H1",
-      "H2",
-      "H3",
-      "H4",
-      "H5",
-      "H6"
-    ],
+    "atomicBlockTags": [],
     "excludeSelectors": [],
     "additionalExcludeSelectors": [
       ".social-share",
@@ -98,6 +94,7 @@
       "TEXTAREA",
       "SVG",
       "svg",
+      "noscript",
       "INPUT",
       "BUTTON",
       "LABEL",
@@ -117,7 +114,8 @@
     "additionalExcludeTags": [],
     "stayOriginalTags": [
       "CODE",
-      "TT"
+      "TT",
+      "IMG"
     ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
@@ -184,6 +182,15 @@
       "excludeSelectors": [
         ".mw-editsection",
         ".mw-cite-backlink"
+      ],
+      "wrapperSuffix": "<br><br>",
+      "stayOriginalSelectors": [
+        ".chemf",
+        ".mwe-math-element"
+      ],
+      "extraInlineSelectors": [
+        ".chemf",
+        ".mwe-math-element"
       ]
     },
     {
@@ -245,6 +252,7 @@
         "[data-click-id=background] h3",
         "[data-testid=comment]",
         "[data-adclicklocation=media]",
+        ".PostContent",
         ".Comment__body",
         "faceplate-batch .md"
       ],
@@ -304,17 +312,18 @@
       "matches": "www.youtube.com",
       "selectors": [
         "yt-formatted-string[slot=content].ytd-comment-renderer",
+        "yt-formatted-string.ytd-video-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
-      "wrapperPrefix": "\n",
-      "wrapperSuffix": "\n",
+      "wrapperPrefix": "<br>",
+      "wrapperSuffix": "<br>",
       "globalStyles": {
         "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
         "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
         "yt-formatted-string#video-title": "-webkit-line-clamp: unset;max-height: unset;",
-        "span#video-title": "-webkit-line-clamp: unset;max-height: unset;"
+        "#video-title": "-webkit-line-clamp: unset;max-height: unset;"
       },
       "urlChangeDelay": 2000,
       "atomicBlockSelectors": [
@@ -470,8 +479,8 @@
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       "detectParagraphLanguage": true,
-      "wrapperPrefix": "\n",
-      "wrapperSuffix": "\n"
+      "wrapperPrefix": "<br>",
+      "wrapperSuffix": "<br><br>"
     },
     {
       "matches": "web.telegram.org/z/*",
@@ -523,12 +532,22 @@
       "selectors": [
         "h2",
         "a h3",
+        "table h3",
+        "table h3 + div",
         "div[data-content-feature='1'] > div",
         "a [aria-level='3']",
         "a [aria-level='3'] + div",
-        ".Uroaid"
+        ".Uroaid",
+        "div[style='-webkit-line-clamp:2']",
+        "div[style='-webkit-line-clamp: unset;max-height: unset;]"
       ],
-      "detectParagraphLanguage": true
+      "detectParagraphLanguage": true,
+      "wrapperSuffix": "",
+      "globalStyles": {
+        "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
+        "a h3 + div": "position: relative;",
+        "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       "matches": "lowendtalk.com",
@@ -715,8 +734,14 @@
       "additionalSelectors": [
         "[data-qa='article-body']"
       ]
+    },
+    {
+      "matches": "history.house.gov",
+      "additionalSelectors": [
+        ".inner"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-05T17:32:38.600Z",
-  "latestVersion": "0.0.33"
+  "buildinConfigUpdatedAt": "2023-01-07T15:27:43.194Z",
+  "latestVersion": "0.0.37"
 }

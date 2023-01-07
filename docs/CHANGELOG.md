@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.39
+
+- Fix translation service contains mock2
+
 ## 0.0.38
 
 - Support Cache result for userscript

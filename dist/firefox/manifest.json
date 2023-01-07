@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Immersive Translate",
   "description": "沉浸式网页翻译，支持多种翻译引擎，双语对照显示",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "background": {
     "scripts": [
       "background.js"

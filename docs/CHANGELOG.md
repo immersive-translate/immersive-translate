@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.38
+
+- Support Cache result for userscript
+- Add Options UI
+- Support detect more content containers
+
 ## 0.0.37
 
 - Fix change popup translation service not work

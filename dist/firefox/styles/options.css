@@ -80,6 +80,19 @@ main > aside nav {
     max-height: calc(100vh - 5.5rem);
   }
 }
+
+a.no-focus:focus,
+[role="link"]:focus {
+  --background-color: transparent;
+}
+
+hgroup.hgroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
 .nav {
   display: flex;
   justify-content: space-between;

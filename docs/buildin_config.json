@@ -144,6 +144,8 @@
       "IMG",
       "CODE",
       "SCRIPT",
+      "STYLE",
+      "LINK",
       "TIME",
       "META"
     ],
@@ -186,11 +188,15 @@
       "wrapperSuffix": "<br><br>",
       "stayOriginalSelectors": [
         ".chemf",
-        ".mwe-math-element"
+        ".mwe-math-element",
+        "[role=math]",
+        ".nowrap"
       ],
       "extraInlineSelectors": [
         ".chemf",
-        ".mwe-math-element"
+        ".mwe-math-element",
+        "[role=math]",
+        ".nowrap"
       ]
     },
     {
@@ -740,6 +746,6 @@
       "extraInlineSelectors": "span[data-caps='initial']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-07T21:16:06.095Z",
-  "latestVersion": "0.0.38"
+  "buildinConfigUpdatedAt": "2023-01-07T21:56:48.464Z",
+  "latestVersion": "0.0.39"
 }

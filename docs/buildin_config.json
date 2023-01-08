@@ -769,8 +769,12 @@
       "globalStyles": {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;"
       }
+    },
+    {
+      "matches": "www.bloomberg.com",
+      "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-08T14:41:43.289Z",
+  "buildinConfigUpdatedAt": "2023-01-08T15:59:43.333Z",
   "latestVersion": "0.0.41"
 }

@@ -5,6 +5,50 @@
   "cache": true,
   "donateUrl": "https://www.patreon.com/theowenyoung",
   "feedbackUrl": "https://github.com/immersive-translate/next-immersive-translate/issues",
+  "translationServices": {
+    "volcAlpha": {
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
+    },
+    "volc": {
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
+    },
+    "tencent": {
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
+    },
+    "transmart": {
+      "placeholderDelimiters": [
+        "#",
+        "#"
+      ]
+    },
+    "baidu": {
+      "placeholderDelimiters": [
+        "#",
+        "#"
+      ]
+    },
+    "caiyun": {
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
+    },
+    "youdao": {
+      "placeholderDelimiters": [
+        "🚠",
+        "🚠"
+      ]
+    }
+  },
   "translationParagraphLanguagePattern": {
     "matches": [
       "*",
@@ -95,7 +139,7 @@
       "TEXTAREA",
       "SVG",
       "svg",
-      "noscript",
+      "NOSCRIPT",
       "INPUT",
       "BUTTON",
       "LABEL",
@@ -112,11 +156,18 @@
       "TT",
       "META"
     ],
+    "metaTags": [
+      "META",
+      "SCRIPT",
+      "STYLE",
+      "NOSCRIPT"
+    ],
     "additionalExcludeTags": [],
     "stayOriginalTags": [
       "CODE",
       "TT",
-      "IMG"
+      "IMG",
+      "SUP"
     ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
@@ -829,6 +880,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-08T18:27:59.305Z",
-  "latestVersion": "0.0.43"
+  "buildinConfigUpdatedAt": "2023-01-08T22:44:41.592Z",
+  "latestVersion": "0.0.44"
 }

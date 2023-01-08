@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.41
+
+- Fix inline element check
+- Add developer debug log option
+
 ## 0.0.39
 
 - Fix translation service contains mock2

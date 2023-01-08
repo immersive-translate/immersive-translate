@@ -10,3 +10,6 @@ build:
 publish:
 	wrangler pages publish ./book --project-name immersive-translate
 
+.Phony: sync
+sync:
+	cp ./docs/README.md ./README.md

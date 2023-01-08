@@ -1,11 +1,22 @@
 # Next Immersive Translate
 
-Next immersive translator, only for release new version
+> 仍然属于开发阶段，可能会有严重 Bug，请谨慎使用。
 
-[下载最新版本](https://github.com/immersive-translate/next-immersive-translate/releases)
+## 目录
 
-> Note: This is still a very early version of the next immersive translate extension, use for caution.
+- [安装](https://immersive-translate.owenyoung.com/installation.html)
+- [如何使用](https://immersive-translate.owenyoung.com/usage.html)
+- [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
+- [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
+- [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
+- [☕️ 请开发者喝杯咖啡](https://www.patreon.com/theowenyoung)
 
-[查看在线文档](https://immersive-translate.owenyoung.com/)
+## 贡献
 
-[贡献界面语言翻译](https://crowdin.com/project/immersive-translate)
+你可以帮忙翻译[界面语言](https://crowdin.com/project/immersive-translate)
+
+或者加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能讨论。
+
+## Links
+
+- [Github](https://github.com/immersive-translate/next-immersive-translate/)

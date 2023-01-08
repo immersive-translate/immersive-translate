@@ -708,6 +708,7 @@
       "selectorMatches": [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
+      "urlChangeDelay": 2000,
       "selectors": [
         "article section",
         "h2",
@@ -770,6 +771,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-08T14:22:55.868Z",
+  "buildinConfigUpdatedAt": "2023-01-08T14:41:43.289Z",
   "latestVersion": "0.0.41"
 }

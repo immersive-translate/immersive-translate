@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.43
+
+- Fix tweet br
+- Fix global translate.
+
 ## 0.0.42
 
 - Fix BR tag

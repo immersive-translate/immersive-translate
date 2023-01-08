@@ -36,6 +36,7 @@
     "_comment": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
+    "isTransformPreTagNewLine": false,
     "urlChangeDelay": 250,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
@@ -160,6 +161,7 @@
     "extraBlockSelectors": [],
     "allBlockTags": [
       "HGROUP",
+      "CONTENT",
       "ADDRESS",
       "ARTICLE",
       "ASIDE",
@@ -811,7 +813,9 @@
         "h2 > a > span",
         "[data-a-expander-name='book_description_expander'] > div",
         "[data-feature-name='editorialReviews']",
-        "[data-a-expander-name=\"review_text_read_more\"] > div > span"
+        "[data-a-expander-name=\"review_text_read_more\"] > div > span",
+        "[data-feature-name=\"featurebullets\"]",
+        "[data-feature-name=\"aplus\""
       ],
       "excludeBlockSelectors": [
         "div.reviewText > span"
@@ -825,6 +829,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-08T16:35:57.868Z",
-  "latestVersion": "0.0.42"
+  "buildinConfigUpdatedAt": "2023-01-08T18:27:59.305Z",
+  "latestVersion": "0.0.43"
 }

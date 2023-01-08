@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.42
+
+- Fix BR tag
+- treat block tags to rules
+
 ## 0.0.41
 
 - Fix inline element check

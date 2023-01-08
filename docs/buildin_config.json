@@ -121,6 +121,7 @@
     "inlineTags": [
       "A",
       "ABBR",
+      "FONT",
       "ACRONYM",
       "B",
       "BDO",
@@ -553,7 +554,10 @@
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
         "a h3 + div": "position: relative;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
-      }
+      },
+      "extraBlockSelectors": [
+        ".MUFPAc"
+      ]
     },
     {
       "matches": "lowendtalk.com",
@@ -744,8 +748,28 @@
     {
       "matches": "www.economist.com",
       "extraInlineSelectors": "span[data-caps='initial']"
+    },
+    {
+      "matches": "www.healthline.com",
+      "excludeSelectors": ".icon-hl-trusted-source-after"
+    },
+    {
+      "matches": "www.amazon.com",
+      "selectors": [
+        "h1",
+        "h2 > a > span",
+        "[data-a-expander-name='book_description_expander'] > div",
+        "[data-feature-name='editorialReviews']",
+        "[data-a-expander-name=\"review_text_read_more\"] > div > span"
+      ],
+      "excludeBlockSelectors": [
+        "div.reviewText > span"
+      ],
+      "globalStyles": {
+        ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-07T21:56:48.464Z",
-  "latestVersion": "0.0.39"
+  "buildinConfigUpdatedAt": "2023-01-08T14:22:55.868Z",
+  "latestVersion": "0.0.41"
 }

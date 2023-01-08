@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.44
+
+- Fix split tencent error.
+- Fix inline sup element error.
+- Better for twitter
+
 ## 0.0.43
 
 - Fix tweet br

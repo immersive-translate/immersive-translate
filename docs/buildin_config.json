@@ -358,6 +358,7 @@
       "matches": "www.reddit.com",
       "selectors": [
         "h1",
+        ".PostHeader__post-title-line",
         "[data-click-id=body] h3",
         "[data-click-id=background] h3",
         "[data-testid=comment]",
@@ -367,6 +368,20 @@
         "faceplate-batch .md"
       ],
       "detectParagraphLanguage": true
+    },
+    {
+      "matches": [
+        "*.quora.com",
+        "quora.com"
+      ],
+      "additionalSelectors": [
+        ".puppeteer_test_question_title",
+        ".puppeteer_test_answer_content",
+        ".q-text"
+      ],
+      "globalStyles": {
+        ".qu-truncateLines--3": "-webkit-line-clamp: unset;"
+      }
     },
     {
       "matches": [
@@ -499,6 +514,9 @@
         "div[class^=\"_titleRow_\"]",
         "div[class^=\"_description_\"]",
         "#document-text-content"
+      ],
+      "atomicBlockSelectors": [
+        "p"
       ],
       "detectParagraphLanguage": true
     },
@@ -880,6 +898,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-08T22:44:41.592Z",
-  "latestVersion": "0.0.44"
+  "buildinConfigUpdatedAt": "2023-01-09T12:27:16.614Z",
+  "latestVersion": "0.0.46"
 }

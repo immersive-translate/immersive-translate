@@ -123,7 +123,9 @@ hgroup.hgroup {
 .description {
   color: rgb(148 163 184);
   font-size: 17px;
-  /* line-height: 1.6rem; */
+}
+.docUrl {
+  font-size: 17px;
 }
 
 .input-row {

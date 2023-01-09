@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.45
+
+- userscript use one file.
+- add timeout for cache request
+
 ## 0.0.44
 
 - Fix split tencent error.

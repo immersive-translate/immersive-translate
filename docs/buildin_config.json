@@ -515,9 +515,6 @@
         "div[class^=\"_description_\"]",
         "#document-text-content"
       ],
-      "atomicBlockSelectors": [
-        "p"
-      ],
       "detectParagraphLanguage": true
     },
     {
@@ -898,6 +895,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-09T12:27:16.614Z",
+  "buildinConfigUpdatedAt": "2023-01-09T20:15:50.910Z",
   "latestVersion": "0.0.46"
 }

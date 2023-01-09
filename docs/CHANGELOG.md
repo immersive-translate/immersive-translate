@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.46
+
+- Format userscript meta info
+
 ## 0.0.45
 
 - userscript use one file.

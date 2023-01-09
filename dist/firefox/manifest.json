@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "default_locale": "zh_CN",
   "background": {
     "scripts": [

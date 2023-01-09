@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         沉浸式翻译
 // @description  沉浸式网页双语翻译扩展，完全免费使用，支持 Deepl/Google/腾讯/火山翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
-// @version      0.0.45
+// @version      0.0.46
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -42,13 +42,12 @@
 // @connect    translate.volcengine.com
 // @noframes
 // @run-at       document-end
-
 // @name:en     Immersive Translate
 // @description:en     Immersive web bilingual translation extension, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao translation and many other translation services, supports Firefox/Chrome/Grease Monkey script, also works on iOS Safari.
 // @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // ==/UserScript==
-(()=>{var _c=Object.defineProperty;var Lc=(e,u)=>{for(var t in u)_c(e,t,{get:u[t],enumerable:!0})};var m={BUILD_TIME:"2023-01-09T00:25:44.134Z",VERSION:"0.0.45",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-block-wrapper {
+(()=>{var _c=Object.defineProperty;var Lc=(e,u)=>{for(var t in u)_c(e,t,{get:u[t],enumerable:!0})};var m={BUILD_TIME:"2023-01-09T00:48:01.017Z",VERSION:"0.0.46",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-block-wrapper {
   white-space: pre-wrap !important;
 }
 

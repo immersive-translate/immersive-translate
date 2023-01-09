@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.47
+
+- rewriting message with background, use connect instead of sendMessage
+- add reddit mobile support
+- fix pre white space for some article
+
 ## 0.0.46
 
 - Format userscript meta info

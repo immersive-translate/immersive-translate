@@ -1,9 +1,11 @@
-.immersive-translate-target-translation-block-wrapper {
+.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
+.immersive-translate-target-translation-block-wrapper {
+}
+
 .immersive-translate-target-translation-inline-wrapper {
-  white-space: pre-wrap !important;
 }
 .immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid #72ece9 !important;

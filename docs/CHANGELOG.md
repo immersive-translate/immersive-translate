@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.49
+
+- Fix firefox extension
+
 ## 0.0.48
 
 - Fix chrome extension

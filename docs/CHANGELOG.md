@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.50
+
+- Fix block img be translated.
+
 ## 0.0.49
 
 - Fix firefox extension

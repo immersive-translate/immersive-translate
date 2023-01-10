@@ -9,13 +9,13 @@
 桌面版和移动版都支持，需要配合油猴插件安装,以[Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)为例:
 
 1. 安装[Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) safari 插件([Github](https://github.com/quoid/userscripts))。
-2. 安装本扩展的[油猴脚本](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate)
+2. 安装本扩展的[油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 
 ## Android 安卓
 
 1. 下载[Firefox Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix&hl=en_US&gl=US)版本
 2. 在 Firefox 的附加组件推荐里找到[Tamper Monkey](https://www.tampermonkey.net/),安装
-3. 安装本扩展的[油猴脚本](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate)
+3. 安装本扩展的[油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 
 安装后，打开任意网页，会有该扩展的浮动窗口在右侧。
 
@@ -30,3 +30,7 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 ```
 
 扩展位于`dist/chrome`, `dist/firefox`, `dist/userscript` 中。
+
+## 油猴脚本 GreasyFork 地址
+
+你也可以通过[Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。

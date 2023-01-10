@@ -26,6 +26,10 @@
 html {
   scroll-behavior: smooth;
   /* background-color: rgba(242, 242, 242, 1); */
+  font-size: var(--font-size);
+}
+body {
+  font-size: var(--font-size);
 }
 
 #mount > main {

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.48
+
+- Fix chrome extension
+
 ## 0.0.47
 
 - rewriting message with background, use connect instead of sendMessage

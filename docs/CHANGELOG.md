@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.52
+
+- Do not translate the paragraph that only has placeholders elements, for [example](https://github.com/nank1ro/solidart), the first line.
+- Better for detect child elements.
+
 ## 0.0.51
 
 - Fix cache issue [#12](https://github.com/immersive-translate/next-immersive-translate/issues/12), [#7](https://github.com/immersive-translate/next-immersive-translate/issues/7)

@@ -1,6 +1,6 @@
 {
   "minVersion": "0.0.20",
-  "immediateTranslationTextCount": 3000,
+  "immediateTranslationTextCount": 5000,
   "interval": 3600000,
   "cache": true,
   "donateUrl": "https://www.patreon.com/theowenyoung",
@@ -81,11 +81,13 @@
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "isTransformPreTagNewLine": false,
-    "urlChangeDelay": 250,
+    "urlChangeDelay": 20,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
+    "containerMinTextCount": 50,
+    "lineBreakMaxTextCount": 0,
     "globalStyles": {
       ".sr-only": "display:none"
     },
@@ -416,7 +418,8 @@
         ".Layout-sidebar p"
       ],
       "excludeSelectors": [
-        ".css-truncate"
+        ".css-truncate",
+        "[data-test-selector='commit-tease-commit-message']"
       ],
       "detectParagraphLanguage": true
     },
@@ -893,8 +896,14 @@
     {
       "matches": "www.bloomberg.com",
       "urlChangeDelay": 2000
+    },
+    {
+      "matches": "xueshu.baidu.com",
+      "globalStyles": {
+        ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-09T20:15:50.910Z",
-  "latestVersion": "0.0.46"
+  "buildinConfigUpdatedAt": "2023-01-12T00:35:34.630Z",
+  "latestVersion": "0.0.54"
 }

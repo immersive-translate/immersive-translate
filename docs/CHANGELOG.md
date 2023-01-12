@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.0.54
+
+- Support line break for X characters.
+
+## 0.0.53
+
+- use sendMessage insteadof connect, cause chrome will disconnect the port after 5 minites
+- better for detect text containers
+
 ## 0.0.52
 
 - Do not translate the paragraph that only has placeholders elements, for [example](https://github.com/nank1ro/solidart), the first line.

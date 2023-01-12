@@ -2,6 +2,8 @@
 
 > 仍然属于开发阶段，可能会有严重 Bug，请谨慎使用。
 
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。成为[赞助者](https://immersive-translate.owenyoung.com/donate)
+
 ## 目录
 
 - [安装](https://immersive-translate.owenyoung.com/installation.html)
@@ -10,7 +12,6 @@
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
 - [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
-- [赞助者名单](https://immersive-translate.owenyoung.com/donate.html#sponsors)
 
 ## 说明
 

@@ -1,5 +1,7 @@
 # 捐赠支持
 
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks)
+
 ## 月度赞助链接
 
 点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，支持 Paypal，或任何信用卡。
@@ -23,13 +25,3 @@
 非常感谢你的支持，由于你的支持，可以让更多的“穷人”更平等的获取这些宝贵的知识。
 
 > PS. 我比预想中花了巨大的时间和精力开发[沉浸式双语翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我的工作非常重要，谢谢！
-
-## Sponsors
-
-感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。
-
-- yuranruo
-- Wing CHAN
-- Sebastiano Poggi
-- 扶苏
-- Ömer Faruk Aplak

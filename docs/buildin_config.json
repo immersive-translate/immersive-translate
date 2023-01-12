@@ -87,6 +87,7 @@
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
     "containerMinTextCount": 50,
+    "lineBreakMaxTextCount": 0,
     "globalStyles": {
       ".sr-only": "display:none"
     },
@@ -903,6 +904,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-11T15:50:30.077Z",
-  "latestVersion": "0.0.53"
+  "buildinConfigUpdatedAt": "2023-01-12T00:35:34.630Z",
+  "latestVersion": "0.0.54"
 }

@@ -9,7 +9,8 @@
 - [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
-- [☕️ 请开发者喝杯咖啡](https://www.patreon.com/theowenyoung)
+- [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
+- [赞助者名单](https://immersive-translate.owenyoung.com/donate.html#sponsors)
 
 ## 贡献
 

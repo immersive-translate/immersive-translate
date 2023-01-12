@@ -160,7 +160,7 @@ label {
 }
 
 .option-list {
-  max-height: 13rem;
+  max-height: 16rem;
   overflow: scroll;
 }
 .langs-list {

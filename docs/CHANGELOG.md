@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.54
+
+- Support line break for X characters.
+
 ## 0.0.53
 
 - use sendMessage insteadof connect, cause chrome will disconnect the port after 5 minites

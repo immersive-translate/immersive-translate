@@ -2,7 +2,7 @@
 
 > 仍然属于开发阶段，可能会有严重 Bug，请谨慎使用。
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。成为[赞助者](https://immersive-translate.owenyoung.com/donate)
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。点击成为[赞助者](https://immersive-translate.owenyoung.com/donate)。
 
 ## 目录
 

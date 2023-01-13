@@ -10,6 +10,22 @@
 
 点击[Ko-Fi](https://ko-fi.com/owenyoung) 进行一次性捐款，$2 起小额支持，支持 Paypal.
 
+## 加密货币一次性赞助
+
+1. USDT 或 USDC 或 ETH (ERC20): `0xA9e3dE8C304D907F92E6C73E21D07Cd3f2f2D708`
+
+<details>
+<summary>点击展开二维码</summary>
+<img src="./usdt-erc20-immersive-translate.jpg" alt="qrcode"></img>
+</details>
+
+2. USDT 或 USDC (TRC20): `TRWaYy8Z3Gnydm1mpKetX7ahwCbFqRszv6`
+
+<details>
+<summary>点击展开二维码</summary>
+<img src="./usdt-trc20-immersive-translate.jpg" alt="qrcode"></img>
+</details>
+
 ## 说明
 
 我喜欢为“穷人”创造工具，因为我在免费的互联网工具和内容中学到了很多，我从心底里相信平等地获取知识是每个人最应拥有的权利。

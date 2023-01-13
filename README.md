@@ -37,6 +37,22 @@
 
 点击[Ko-Fi](https://ko-fi.com/owenyoung) 进行一次性捐款，$2 起小额支持，支持 Paypal.
 
+## 加密货币一次性赞助
+
+1. USDT 或 USDC 或 ETH (ERC20): `0xA9e3dE8C304D907F92E6C73E21D07Cd3f2f2D708`
+
+<details>
+<summary>点击展开二维码</summary>
+<img src="https://immersive-translate.owenyoung.com/usdt-erc20-immersive-translate.jpg" alt="qrcode"></img>
+</details>
+
+2. USDT 或 USDC (TRC20): `TRWaYy8Z3Gnydm1mpKetX7ahwCbFqRszv6`
+
+<details>
+<summary>点击展开二维码</summary>
+<img src="https://immersive-translate.owenyoung.com/usdt-trc20-immersive-translate.jpg" alt="qrcode"></img>
+</details>
+
 ### 其他
 
 你还可以通过帮忙翻译[界面语言](https://crowdin.com/project/immersive-translate)来帮助这个项目

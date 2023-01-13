@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.56
+
+- Fix chrome timeout
+- Fix split sentence error.
+
 ## 0.0.55
 
 - Fix display none element show.

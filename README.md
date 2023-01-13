@@ -13,7 +13,7 @@
 - [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
 - [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
 
-## 说明
+## 赞助说明
 
 我喜欢为“穷人”创造工具，因为我相信平等地获得知识和教育是每个人都最应该拥有的权利。我很感谢我使用过的所有免费工具和文章，如果没有这些东西，我不可能成为今天的我。
 

@@ -7,5 +7,4 @@
 - [高级自定义配置](advanced.md)
 - [更新日志](CHANGELOG.md)
 - [☕️ 请开发者喝杯咖啡](donate.md)
-
-[🙏 感谢这些赞助者们](thanks.md)
+- [🙏 感谢这些赞助者们](thanks.md)

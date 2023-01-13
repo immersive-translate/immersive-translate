@@ -29,13 +29,13 @@
 
 > PS. 我比预想中花了巨大的时间和精力开发[沉浸式双语翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我的工作非常重要，谢谢！
 
-### 月度赞助链接
+## 月度赞助链接
 
-点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，支持 Paypal，或任何信用卡。
+点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，$1 起即可小额支持，支持 Paypal，或任何信用卡。
 
-### 一次性赞助
+## 一次性赞助
 
-点击[Ko-Fi](https://ko-fi.com/owenyoung) 进行一次性捐款，支持 Paypal.
+点击[Ko-Fi](https://ko-fi.com/owenyoung) 进行一次性捐款，$2 起小额支持，支持 Paypal.
 
 ### 其他
 

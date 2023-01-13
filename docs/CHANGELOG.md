@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.55
+
+- Fix display none element show.
+- refactor element mark
+
 ## 0.0.54
 
 - Support line break for X characters.

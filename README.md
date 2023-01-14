@@ -1,10 +1,20 @@
-# Next Immersive Translate
+# 沉浸式双语网页翻译扩展
 
 > 仍然属于开发阶段，可能会有严重 Bug，请谨慎使用。
 
-[iOS Safari 视频 Demo](https://www.youtube.com/watch?v=sQevumpUprc)
+## 主要特性
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。点击成为[赞助者](https://immersive-translate.owenyoung.com/donate)。
+- 智能识别网页主内容区，区别于同类插件翻译整个网页所有的区域，这极大的增强了翻译后的网页阅读体验。类似浏览器的沉浸式阅读模式，所以该扩展被命名为“沉浸式翻译”
+- 双语显示，中文/英文对照着看（按照段落分割，或者自定义段落长度，自动为长段落按照每句话换行）
+- 为常用网站做了定制优化，比如 Twitter，Reddit，Discord, Telegram, Youtube, Hacker News 等，这些网站并不是常规的内容网站，所以定制优化后，翻译的区域非常智能。
+- 支持 10+种常见的翻译服务，包括 Deepl, 谷歌, 腾讯翻译君,火山翻译，彩云小译等等.
+- PDF 文件双语翻译支持（正在添加中..）
+- 配合 epub 在线阅读网站<https://1paragraph.app/> 或 <https://readwise.io/read> 即可实现双语阅读国外电子书
+- 多种译文样式可选择，个性化你的翻译体验。
+
+该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能平等的获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️
+
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你也可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。
 
 ## 目录
 

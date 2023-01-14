@@ -29,7 +29,7 @@
 
 ## 截图
 
-![screenshot](https://immersive-translate.owenyoung.com/assets/twitter-screenshot.png)
+![screenshot](https://immersive-translate.owenyoung.com/assets/twitter.png)
 
 ## 安装
 

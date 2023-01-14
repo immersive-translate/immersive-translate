@@ -4,11 +4,11 @@
 
 ## 月度赞助链接
 
-点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，$1 起即可小额支持，支持 Paypal，或任何信用卡。
+点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
 ## 一次性赞助
 
-点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，由于是一次性订阅，所以订阅之后，再取消订阅即可。$1 起即可小额支持，支持 Paypal，或任何信用卡。
+点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，由于是一次性订阅，所以订阅之后，再取消订阅即可。$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
 ## 加密货币一次性赞助
 

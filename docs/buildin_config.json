@@ -51,7 +51,6 @@
   },
   "translationParagraphLanguagePattern": {
     "matches": [
-      "*",
       "www.reddit.com",
       "old.reddit.com",
       "twitter.com",
@@ -76,6 +75,7 @@
     ],
     "selectorExcludeMatches": []
   },
+  "sourceLanguageUrlPattern": {},
   "generalRule": {
     "_comment": "",
     "wrapperPrefix": "smart",
@@ -86,7 +86,7 @@
     "paragraphMinWordCount": 2,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
-    "containerMinTextCount": 50,
+    "containerMinTextCount": 25,
     "lineBreakMaxTextCount": 0,
     "globalStyles": {
       ".sr-only": "display:none"
@@ -912,6 +912,6 @@
       "extraBlockSelectors": "div"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-14T07:36:31.989Z",
-  "latestVersion": "0.0.56"
+  "buildinConfigUpdatedAt": "2023-01-14T11:58:30.359Z",
+  "latestVersion": "0.0.57"
 }

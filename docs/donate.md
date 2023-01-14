@@ -8,7 +8,7 @@
 
 ## 一次性赞助
 
-点击[Ko-Fi](https://ko-fi.com/owenyoung) 进行一次性捐款，$2 起小额支持，支持 Paypal.
+点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，由于是一次性订阅，所以订阅之后，再取消订阅即可。$1 起即可小额支持，支持 Paypal，或任何信用卡。
 
 ## 加密货币一次性赞助
 

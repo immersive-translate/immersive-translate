@@ -27,6 +27,10 @@
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [在线文档](https://immersive-translate.owenyoung.com/)
 
+## 截图
+
+![screenshot](https://immersive-translate.owenyoung.com/assets/twitter-screenshot.png)
+
 ## 安装
 
 ### Firefox/Chrome

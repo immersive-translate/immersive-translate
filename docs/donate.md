@@ -16,14 +16,14 @@
 
 <details>
 <summary>点击展开二维码</summary>
-<img src="https://immersive-translate.owenyoung.com/usdt-erc20-immersive-translate.jpg" alt="qrcode"></img>
+<img src="https://immersive-translate.owenyoung.com/usdt-erc20-immersive-translate-400.jpg" alt="qrcode"></img>
 </details>
 
 2. USDT 或 USDC (TRC20): `TRWaYy8Z3Gnydm1mpKetX7ahwCbFqRszv6`
 
 <details>
 <summary>点击展开二维码</summary>
-<img src="https://immersive-translate.owenyoung.com/usdt-trc20-immersive-translate.jpg" alt="qrcode"></img>
+<img src="https://immersive-translate.owenyoung.com/usdt-trc20-immersive-translate-400.jpg" alt="qrcode"></img>
 </details>
 
 ## 说明

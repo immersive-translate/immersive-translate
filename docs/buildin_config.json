@@ -1,9 +1,9 @@
 {
   "minVersion": "0.0.20",
-  "immediateTranslationTextCount": 5000,
+  "immediateTranslationTextCount": 4000,
   "interval": 3600000,
   "cache": true,
-  "donateUrl": "https://www.patreon.com/theowenyoung",
+  "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/next-immersive-translate/issues",
   "translationServices": {
     "volcAlpha": {
@@ -594,7 +594,7 @@
       ]
     },
     {
-      "matches": "discord.com",
+      "matches": "https://discord.com/channels/*",
       "selectors": [
         "li[id^=chat-messages] div[id^=message-content]",
         "h3[data-text-variant='heading-lg/semibold']"
@@ -902,8 +902,16 @@
       "globalStyles": {
         ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
       }
+    },
+    {
+      "matches": "www.sciencedirect.com",
+      "urlChangeDelay": 2000
+    },
+    {
+      "matches": "www.thehighestofthemountains.com",
+      "extraBlockSelectors": "div"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-12T00:35:34.630Z",
-  "latestVersion": "0.0.54"
+  "buildinConfigUpdatedAt": "2023-01-14T07:36:31.989Z",
+  "latestVersion": "0.0.56"
 }

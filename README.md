@@ -15,6 +15,7 @@
 - [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
 - [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [在线文档](https://immersive-translate.owenyoung.com/)
 
 ## 安装
 
@@ -73,15 +74,15 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 > PS. 我比预想中花了巨大的时间和精力开发[沉浸式双语翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我的工作非常重要，谢谢！
 
-## 月度赞助链接
+### 月度赞助链接
 
 点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
-## 一次性赞助
+### 一次性赞助
 
 点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，由于是一次性订阅，所以订阅之后，在`设置`->`会籍`里取消订阅即可。$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
-## 加密货币一次性赞助
+### 加密货币一次性赞助
 
 1. USDT 或 USDC 或 ETH (ERC20): `0xA9e3dE8C304D907F92E6C73E21D07Cd3f2f2D708`
 
@@ -106,3 +107,4 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 ## Links
 
 - [Github](https://github.com/immersive-translate/next-immersive-translate/)
+- [在线文档](https://immersive-translate.owenyoung.com/)

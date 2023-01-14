@@ -35,14 +35,6 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 比如 Kiwi 浏览器等等，只要支持油猴脚本的浏览器，都可以通过油猴脚本安装本扩展。
 
-## 或者通过 Github Repo 追踪更新
-
-```
-git clone https://github.com/immersive-translate/next-immersive-translate.git
-```
-
-扩展位于`dist/chrome`, `dist/firefox`, `dist/userscript` 中。
-
 ## 油猴脚本 GreasyFork 地址
 
 你也可以通过[Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。

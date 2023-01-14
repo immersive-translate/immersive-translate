@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.57
+
+- Change popup ui, for more easy use
+
 ## 0.0.56
 
 - Fix chrome timeout

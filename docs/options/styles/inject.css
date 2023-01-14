@@ -92,6 +92,7 @@
 .immersive-translate-target-translation-theme-mask-inner {
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
+  border-radius: 10px;
 }
 .immersive-translate-target-translation-theme-mask-inner:hover {
   filter: none !important;

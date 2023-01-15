@@ -14,7 +14,7 @@
 
 该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能平等的获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你也可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你也可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作，你也可以关注我的[推特](https://twitter.com/OwenYoungZh)获取最新更新。
 
 ## 目录
 

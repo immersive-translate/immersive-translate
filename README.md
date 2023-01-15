@@ -29,7 +29,13 @@
 
 ## 截图
 
+Twitter:
+
 ![screenshot](https://immersive-translate.owenyoung.com/assets/twitter.png)
+
+Reddit 高亮译文样式：
+
+![screenshot](https://immersive-translate.owenyoung.com/assets/reddit.png)
 
 ## 安装
 

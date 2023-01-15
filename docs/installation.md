@@ -16,10 +16,10 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 桌面版和移动版都支持，需要配合油猴插件安装,以[Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)为例:
 
-1. 安装[Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)
+1. 安装[Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)，并且授予其始终允许访问任何网站的权限。
 2. 安装本扩展的[油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 
-安装后，打开任意网页，刷新一下之后，会有沉浸式翻译扩展的浮动窗口在浮动在右侧。
+安装后，打开任意网页，刷新一下之后，会有沉浸式翻译扩展的浮动窗口在浮动在右侧。(safari 扩展首次安装之后，如果遇到没有出现浮窗的问题，建议多刷新一下网页，或者强制重启一下 Safari，以使其生效)
 
 如果你以前没有使用过油猴脚本，可以点击参考[视频教程](https://youtu.be/vOaCFjYmQNM)
 

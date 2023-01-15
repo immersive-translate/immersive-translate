@@ -2,6 +2,31 @@
   white-space: pre-wrap !important;
 }
 
+.immersive-translate-pdf-target-container {
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  top: 0;
+  width: 600px;
+  height: 100%;
+  z-index: 2;
+  line-height: 1.3;
+}
+.immersive-translate-pdf-target-container
+  span.immersive-translate-target-wrapper {
+  color: rgb(0, 0, 0);
+  white-space: normal;
+  position: absolute;
+}
+
+.immersive-translate-pdf-target-container
+  span.immersive-translate-target-wrapper
+  span {
+  color: inherit;
+  white-space: inherit;
+  position: unset;
+}
+
 .immersive-translate-target-translation-block-wrapper {
 }
 

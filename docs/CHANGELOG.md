@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.59
+
+- Initial Support for PDF
+
 ## 0.0.58
 
 - Edit translation theme description

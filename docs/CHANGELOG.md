@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.58
+
+- Edit translation theme description
+
 ## 0.0.57
 
 - Change popup ui, for more easy use

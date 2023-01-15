@@ -80,6 +80,7 @@
     "_comment": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
+    "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
     "paragraphMinTextCount": 8,
@@ -144,6 +145,7 @@
       "NOSCRIPT",
       "INPUT",
       "BUTTON",
+      "BASE",
       "LABEL",
       "SELECT",
       "OPTION",
@@ -419,7 +421,8 @@
       ],
       "excludeSelectors": [
         ".css-truncate",
-        "[data-test-selector='commit-tease-commit-message']"
+        "[data-test-selector='commit-tease-commit-message']",
+        "div.blob-wrapper-embedded"
       ],
       "detectParagraphLanguage": true
     },
@@ -898,6 +901,10 @@
       "urlChangeDelay": 2000
     },
     {
+      "matches": "https://mozilla.github.io/pdf.js/*",
+      "isPdf": true
+    },
+    {
       "matches": "xueshu.baidu.com",
       "globalStyles": {
         ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
@@ -910,8 +917,27 @@
     {
       "matches": "www.thehighestofthemountains.com",
       "extraBlockSelectors": "div"
+    },
+    {
+      "matches": [
+        "moz-extension://*/content/web/viewer.html*"
+      ],
+      "isPdf": true,
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
+      "urlChangeDelay": 2000,
+      "selectors": [
+        ".textLayer"
+      ],
+      "excludeSelectors": [
+        ".annotationLayer"
+      ],
+      "globalStyles": {
+        "div.page": "width: 95%;",
+        ".textLayer": "overflow:visible;opacity: 1;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-14T11:58:30.359Z",
-  "latestVersion": "0.0.57"
+  "buildinConfigUpdatedAt": "2023-01-15T23:42:40.376Z",
+  "latestVersion": "0.0.59"
 }

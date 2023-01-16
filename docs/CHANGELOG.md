@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.62
+
+- Fix pdf format, indent.
+- Fix telegra.ph prevent element change
+
 ## 0.0.61
 
 - Fix span element close.

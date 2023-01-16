@@ -5,6 +5,8 @@
 .immersive-translate-pdf-target-container {
   position: absolute;
   background-color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    sans-serif;
   top: 0;
   width: 600px;
   height: 100%;
@@ -28,7 +30,7 @@
 }
 
 .immersive-translate-target-translation-block-wrapper {
-  margin-top: 8px !important;
+  margin: 8px 0 !important;
   display: block;
 }
 

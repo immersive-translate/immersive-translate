@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.1.0
+// @version      0.1.1
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -47,7 +47,7 @@
 // @name:zh-CN     沉浸式翻译
 // @description:zh-CN     沉浸式网页双语翻译扩展，完全免费使用，支持 Deepl/Google/腾讯/火山翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
 // ==/UserScript==
-(()=>{var D4=Object.defineProperty;var C4=(u,e)=>{for(var t in e)D4(u,t,{get:e[t],enumerable:!0})};var h={BUILD_TIME:"2023-01-16T20:33:55.339Z",VERSION:"0.1.0",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
+(()=>{var D4=Object.defineProperty;var C4=(u,e)=>{for(var t in e)D4(u,t,{get:e[t],enumerable:!0})};var h={BUILD_TIME:"2023-01-16T21:09:56.232Z",VERSION:"0.1.1",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 

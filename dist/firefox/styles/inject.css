@@ -28,6 +28,8 @@
 }
 
 .immersive-translate-target-translation-block-wrapper {
+  margin-top: 8px !important;
+  display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper {

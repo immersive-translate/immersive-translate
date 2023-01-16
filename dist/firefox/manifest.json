@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -76,7 +76,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "{344b7391-6f01-466e-bbf6-888907a21b4d}",
+      "id": "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
       "strict_min_version": "63.0"
     }
   }

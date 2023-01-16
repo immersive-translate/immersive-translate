@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.61
+
+- Fix span element close.
+- Fix permission for early browser
+
 ## 0.0.60
 
 - Fix Chrome PDF

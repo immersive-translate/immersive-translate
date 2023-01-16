@@ -1,7 +1,5 @@
 # 沉浸式双语网页翻译扩展
 
-> 仍然属于开发阶段，可能会有严重 Bug，请谨慎使用。
-
 ## 主要特性
 
 - 智能识别网页主内容区，区别于同类插件翻译整个网页所有的区域，这极大的增强了翻译后的网页阅读体验。类似浏览器的沉浸式阅读模式，所以该扩展被命名为“沉浸式翻译”
@@ -14,7 +12,7 @@
 
 该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能平等的获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你也可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作，你也可以关注我的[推特](https://twitter.com/OwenYoungZh)获取最新更新。
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作，你也可以关注我的[推特](https://twitter.com/OwenYoungZh)获取最新更新。
 
 ## 目录
 
@@ -26,16 +24,6 @@
 - [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [在线文档](https://immersive-translate.owenyoung.com/)
-
-## 截图
-
-Twitter:
-
-![screenshot](https://immersive-translate.owenyoung.com/assets/twitter.png)
-
-Reddit 高亮译文样式：
-
-![screenshot](https://immersive-translate.owenyoung.com/assets/reddit.png)
 
 ## 安装
 
@@ -77,6 +65,12 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 ### 油猴脚本 GreasyFork 地址
 
 你也可以通过[Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
+
+## 截图
+
+![screenshot](https://immersive-translate.owenyoung.com/assets/twitter.png)
+
+[点这里](https://immersive-translate.owenyoung.com/usecase.html)查看更多截图
 
 ## 赞助我的工作
 
@@ -128,5 +122,5 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 ## Links
 
-- [Github](https://github.com/immersive-translate/next-immersive-translate/)
+- [Github](https://github.com/immersive-translate/immersive-translate/)
 - [在线文档](https://immersive-translate.owenyoung.com/)

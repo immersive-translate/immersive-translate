@@ -4,6 +4,7 @@
 
 - [安装](installation.md)
 - [如何使用](usage.md)
+- [截图/使用案例](usecase.md)
 - [高级自定义配置](advanced.md)
 - [更新日志](CHANGELOG.md)
 - [☕️ 请开发者喝杯咖啡](donate.md)

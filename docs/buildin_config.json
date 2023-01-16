@@ -78,6 +78,7 @@
   "sourceLanguageUrlPattern": {},
   "generalRule": {
     "_comment": "",
+    "normalizeBody": "",
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "isPdf": false,
@@ -936,9 +937,9 @@
     },
     {
       "matches": "telegra.ph",
-      "atomicBlockTags": "P"
+      "normalizeBody": "div.ql-editor[contenteditable='false']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-16T13:54:17.830Z",
-  "latestVersion": "0.0.60"
+  "buildinConfigUpdatedAt": "2023-01-16T19:45:14.637Z",
+  "latestVersion": "0.0.61"
 }

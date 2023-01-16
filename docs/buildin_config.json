@@ -940,6 +940,6 @@
       "normalizeBody": "div.ql-editor[contenteditable='false']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-16T19:45:14.637Z",
-  "latestVersion": "0.0.61"
+  "buildinConfigUpdatedAt": "2023-01-16T20:33:16.020Z",
+  "latestVersion": "0.1.0"
 }

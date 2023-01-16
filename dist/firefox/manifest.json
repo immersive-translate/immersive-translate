@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.0.59",
+  "version": "0.0.60",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -10,7 +10,8 @@
     ]
   },
   "web_accessible_resources": [
-    "styles/inject.css"
+    "styles/inject.css",
+    "content/web/viewer.html"
   ],
   "content_scripts": [
     {

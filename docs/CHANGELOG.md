@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.60
+
+- Fix Chrome PDF
+
 ## 0.0.59
 
 - Initial Support for PDF

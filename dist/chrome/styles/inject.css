@@ -33,6 +33,9 @@
   margin: 8px 0 !important;
   display: block;
 }
+.immersive-translate-target-translation-pdf-block-wrapper {
+  margin: 0 !important;
+}
 
 .immersive-translate-target-translation-inline-wrapper {
 }

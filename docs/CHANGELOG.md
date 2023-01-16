@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.1.2
+
+- Publish to Firefox addon
+- Publish to Edge
+- fix pdf margin.
+- Change sample pdf file
+
 ## 0.0.62
 
 - Fix pdf format, indent.

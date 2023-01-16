@@ -265,6 +265,25 @@
   "rules": [
     {
       "matches": [
+        "moz-extension://*/content/web/viewer.html*"
+      ],
+      "isPdf": true,
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
+      "urlChangeDelay": 0,
+      "selectors": [
+        ".textLayer"
+      ],
+      "excludeSelectors": [
+        ".annotationLayer"
+      ],
+      "globalStyles": {
+        "div.page": "width: 98%;",
+        ".textLayer": "overflow:visible;opacity: 1;"
+      }
+    },
+    {
+      "matches": [
         "mail.jabber.org",
         "antirez.com"
       ],
@@ -901,10 +920,6 @@
       "urlChangeDelay": 2000
     },
     {
-      "matches": "https://mozilla.github.io/pdf.js/*",
-      "isPdf": true
-    },
-    {
       "matches": "xueshu.baidu.com",
       "globalStyles": {
         ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
@@ -917,27 +932,8 @@
     {
       "matches": "www.thehighestofthemountains.com",
       "extraBlockSelectors": "div"
-    },
-    {
-      "matches": [
-        "moz-extension://*/content/web/viewer.html*"
-      ],
-      "isPdf": true,
-      "wrapperPrefix": "",
-      "wrapperSuffix": "",
-      "urlChangeDelay": 2000,
-      "selectors": [
-        ".textLayer"
-      ],
-      "excludeSelectors": [
-        ".annotationLayer"
-      ],
-      "globalStyles": {
-        "div.page": "width: 95%;",
-        ".textLayer": "overflow:visible;opacity: 1;"
-      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-15T23:42:40.376Z",
-  "latestVersion": "0.0.59"
+  "buildinConfigUpdatedAt": "2023-01-16T00:49:13.506Z",
+  "latestVersion": "0.0.60"
 }

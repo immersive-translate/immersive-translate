@@ -87,8 +87,9 @@
     "paragraphMinWordCount": 2,
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
-    "containerMinTextCount": 25,
+    "containerMinTextCount": 18,
     "lineBreakMaxTextCount": 0,
+    "globalAttributes": {},
     "globalStyles": {
       ".sr-only": "display:none"
     },
@@ -932,8 +933,12 @@
     {
       "matches": "www.thehighestofthemountains.com",
       "extraBlockSelectors": "div"
+    },
+    {
+      "matches": "telegra.ph",
+      "atomicBlockTags": "P"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-16T00:49:13.506Z",
+  "buildinConfigUpdatedAt": "2023-01-16T13:54:17.830Z",
   "latestVersion": "0.0.60"
 }

@@ -4,11 +4,13 @@
 
 ## 月度赞助链接
 
-点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
+我已开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击[这里](https://github.com/sponsors/theowenyoung?frequency=recurring)可以进行月度赞助，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
+
+> 你也可以选择[Patreon 平台](https://www.patreon.com/theowenyoung) 进行赞助，$1 起即可小额支持，同样支持 Paypal，以及信用卡。
 
 ## 一次性赞助
 
-点击[Patreon](https://www.patreon.com/theowenyoung) 进行捐赠，由于是一次性订阅，所以订阅之后，在`设置`->`会籍`里取消订阅即可。$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
+点击[我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=one-time) ，$2 起即可小额支持，支持 Paypal，以及信用卡支付。
 
 ## 加密货币一次性赞助
 

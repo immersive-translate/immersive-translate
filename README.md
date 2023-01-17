@@ -27,13 +27,21 @@
 
 ## 安装
 
-### Chrome/类 Chrome 浏览器
+### 类 Chrome 浏览器，暂时需要手动安装
 
-已上架 Chrome 扩展商店，点击[这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装即可。
+点击[这里](https://github.com/immersive-translate/immersive-translate/releases)下载最新版安装，或通过以下 Git 同步的方式安装：
 
-### Edge
+```
+git clone https://github.com/immersive-translate/next-immersive-translate.git
+```
 
-已上架 Edge 扩展商店，请点击[这里](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?hl=zh-CN&gl=CN)安装即可。
+扩展位于`dist/chrome`, `dist/firefox`, `dist/userscript` 中。
+
+**Chrome 手动安装**
+
+1. 打开扩展管理窗口，`chrome://extensions`
+2. 激活开发者模式
+3. 载入`dist/chrome`
 
 ### Firefox
 

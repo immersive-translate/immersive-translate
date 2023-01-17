@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.0
+
+- Fix PDF two column.
+- Fix Chrome/Edge Store version bug.
+- Fix [#21](https://github.com/immersive-translate/immersive-translate/issues/21)
+
 ## 0.1.2
 
 - Publish to Firefox addon

@@ -6,7 +6,7 @@
 - 双语显示，中文/英文对照着看（按照段落分割，或者自定义段落长度，自动为长段落按照每句话换行）
 - 为常用网站做了定制优化，比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等，这些网站并不是常规的内容网站，所以定制优化后，翻译的区域非常智能。
 - 支持 10+种常见的翻译服务，包括 Deepl, 谷歌, 腾讯翻译君,火山翻译，彩云小译等等.
-- PDF 文件双语翻译支持（正在添加中..）
+- PDF 文件双语翻译支持
 - 配合 epub 在线阅读网站<https://1paragraph.app/> 或 <https://readwise.io/read> 即可实现双语阅读国外电子书
 - 多种译文样式可选择，个性化你的翻译体验。
 
@@ -27,17 +27,17 @@
 
 ## 安装
 
-### Firefox/Chrome
+### Chrome/类 Chrome 浏览器
 
-目前还没上架应用商店，请点击[这里](https://github.com/immersive-translate/next-immersive-translate/releases)下载最新版本，下载后手动安装。
+已提交商店审核，应该马上会通过。 当前请参考下方`手动安装`的说明进行安装。
 
-> 为了方便追踪更新，你可以通过克隆 Github 项目来追踪目前开发阶段频繁的更新, 使用以下命令：
+### Edge
 
-```
-git clone https://github.com/immersive-translate/next-immersive-translate.git
-```
+已上架 Edge 扩展商店，请点击[这里](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?hl=zh-CN&gl=CN)安装即可。
 
-扩展位于`dist/chrome`, `dist/firefox`, `dist/userscript` 中。
+### Firefox
+
+已上架 Firefox Addon 商店，点击[这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
 
 ### Safari
 
@@ -65,6 +65,30 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 ### 油猴脚本 GreasyFork 地址
 
 你也可以通过[Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
+
+### 手动安装
+
+> 手动安装的话，无需等待商店审核，立即体验最新开发版本的功能。
+
+所有代码已经打包上传到 Github 仓库了, 使用以下命令加载到本地：
+
+```
+git clone https://github.com/immersive-translate/next-immersive-translate.git
+```
+
+扩展位于`dist/chrome`, `dist/firefox`, `dist/userscript` 中。
+
+**Chrome 手动安装**
+
+1. 打开扩展管理窗口，`chrome://extensions`
+2. 激活开发者模式
+3. 载入`dist/chrome`
+
+**Firefox 手动安装**
+
+1. 打开`about:debugging#/runtime/this-firefox`
+2. 临时载入附加组件
+3. 选择`dist/firefox/manifest.json`即可
 
 ## 截图
 

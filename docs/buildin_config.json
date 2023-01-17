@@ -61,6 +61,7 @@
       "gist.github.com",
       "www.facebook.com",
       "www.youtube.com",
+      "m.youtube.com",
       "read.readwise.io",
       "www.inoreader.com",
       "mail.google.com",
@@ -267,7 +268,7 @@
   "rules": [
     {
       "matches": [
-        "moz-extension://*/content/web/viewer.html*"
+        "moz-extension://*/pdf/index.html*"
       ],
       "isPdf": true,
       "wrapperPrefix": "",
@@ -380,21 +381,6 @@
       ]
     },
     {
-      "matches": "www.reddit.com",
-      "selectors": [
-        "h1",
-        ".PostHeader__post-title-line",
-        "[data-click-id=body] h3",
-        "[data-click-id=background] h3",
-        "[data-testid=comment]",
-        "[data-adclicklocation=media]",
-        ".PostContent",
-        ".Comment__body",
-        "faceplate-batch .md"
-      ],
-      "detectParagraphLanguage": true
-    },
-    {
       "matches": [
         "*.quora.com",
         "quora.com"
@@ -411,7 +397,9 @@
     {
       "matches": [
         "old.reddit.com/*/.compact",
-        "old.reddit.com/.compact"
+        "old.reddit.com/.compact",
+        "www.reddit.com/*/.compact",
+        "www.reddit.com/.compact"
       ],
       "selectors": [
         ".title > a",
@@ -424,6 +412,21 @@
       "selectors": [
         "p.title > a",
         "[role=main] .md-container"
+      ],
+      "detectParagraphLanguage": true
+    },
+    {
+      "matches": "www.reddit.com",
+      "selectors": [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".Comment__body",
+        "faceplate-batch .md"
       ],
       "detectParagraphLanguage": true
     },
@@ -459,6 +462,18 @@
       ],
       "translationClasses": "immersive-translate-text",
       "detectParagraphLanguage": true
+    },
+    {
+      "matches": "m.youtube.com",
+      "selectors": [
+        ".comment-text"
+      ],
+      "atomicBlockSelectors": [
+        ".comment-text"
+      ],
+      "globalStyles": {
+        ".comment-text": "max-height:unset;"
+      }
     },
     {
       "matches": "www.youtube.com",
@@ -914,7 +929,8 @@
         "div.reviewText > span"
       ],
       "globalStyles": {
-        ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;"
+        ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
+        "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
       }
     },
     {
@@ -940,6 +956,6 @@
       "normalizeBody": "div.ql-editor[contenteditable='false']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-16T20:33:16.020Z",
-  "latestVersion": "0.1.0"
+  "buildinConfigUpdatedAt": "2023-01-17T20:01:37.912Z",
+  "latestVersion": "0.2.0"
 }

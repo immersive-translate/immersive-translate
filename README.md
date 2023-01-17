@@ -84,7 +84,7 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 我还创建了一些其他的免费工具，你可以[点击这里](https://www.owenyoung.com/projects/)了解我所有的项目。
 
-非常感谢你的支持，由于你的支持，可以让更多的“穷人”更平等的获取这些宝贵的知识。
+非常感谢你的支持，由于你的支持，可以让更多的人平等的获取这些宝贵的知识。
 
 > PS. 我比预想中花了巨大的时间和精力开发[沉浸式双语翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我的工作非常重要，谢谢！
 

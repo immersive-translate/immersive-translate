@@ -29,7 +29,7 @@
 
 ### Chrome/类 Chrome 浏览器
 
-已提交商店审核，应该马上会通过。 当前请参考下方`手动安装`的说明进行安装。
+已上架 Chrome 扩展商店，点击[这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装即可。
 
 ### Edge
 
@@ -66,7 +66,7 @@
 
 你也可以通过[Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
 
-### 手动安装
+### 手动安装(追踪最新开发特性)
 
 > 手动安装的话，无需等待商店审核，立即体验最新开发版本的功能。
 

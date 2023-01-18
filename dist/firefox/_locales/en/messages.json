@@ -4,5 +4,23 @@
   },
   "brandDescription": {
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari."
+  },
+  "toggleTranslatePage": {
+    "message": "Toggle translate webpage "
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Toggle translate the whole page"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Toggle translate to the bottom of the page immediately"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Toggle translate the main page"
+  },
+  "openOptionsPage": {
+    "message": "Open Settings Page"
+  },
+  "translateLocalPdfFile": {
+    "message": "Translate local PDF files"
   }
 }

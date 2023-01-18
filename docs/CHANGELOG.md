@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.5
+
+- bump version for ci test
+
+## 0.2.4
+
+- catch message connection error for popup.
+
 ## 0.2.3
 
 - Fix [#26](https://github.com/immersive-translate/immersive-translate/issues/26) create context multiple times

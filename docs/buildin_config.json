@@ -49,6 +49,11 @@
       ]
     }
   },
+  "shortcuts": {
+    "toggleTranslatePage": "Alt+A",
+    "toggleTranslateTheWholePage": "Alt+W",
+    "toggleTranslateToThePageEndImmediately": "Alt+S"
+  },
   "translationParagraphLanguagePattern": {
     "matches": [
       "www.reddit.com",
@@ -956,6 +961,6 @@
       "normalizeBody": "div.ql-editor[contenteditable='false']"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-17T20:01:37.912Z",
-  "latestVersion": "0.2.0"
+  "buildinConfigUpdatedAt": "2023-01-18T02:02:41.175Z",
+  "latestVersion": "0.2.1"
 }

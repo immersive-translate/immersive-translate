@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.1
+
+- Support Grease Monkey Shortcuts manager.
+- Fix match regex
+- Fix youtube comments.
+- Fix reddit mobile compact version
+- Fix fulltext translate issue
+
 ## 0.2.0
 
 - Fix PDF two column.

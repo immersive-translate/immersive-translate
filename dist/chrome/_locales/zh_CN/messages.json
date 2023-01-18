@@ -4,5 +4,23 @@
   },
   "brandDescription": {
     "message": "沉浸式网页双语翻译扩展，完全免费使用，支持 Deepl/Google/腾讯/火山翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。"
+  },
+  "toggleTranslatePage": {
+    "message": "翻译网页/显示原文"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "翻译页面全部区域/显示原文"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "立即翻译到页面底部/显示原文"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "翻译页面主要区域/显示原文"
+  },
+  "openOptionsPage": {
+    "message": "打开设置页"
+  },
+  "translateLocalPdfFile": {
+    "message": "翻译本地 PDF 文件"
   }
 }

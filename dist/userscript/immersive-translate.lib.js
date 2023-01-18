@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.584Z", VERSION: "0.2.2", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-18T05:35:36.687Z", VERSION: "0.2.3", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -5647,6 +5647,20 @@ textarea,
       {
         "matches": "telegra.ph",
         "normalizeBody": "div.ql-editor[contenteditable='false']"
+      },
+      {
+        "matches": [
+          "*.annas-archive.org",
+          "annas-archive.org"
+        ],
+        "selectors": [
+          "div[class='truncate text-xl font-bold']",
+          "div[class='truncate text-sm']"
+        ],
+        "globalStyles": {
+          "div[id^='link-index-']": "height: unset; max-height: unset;"
+        },
+        "normalizeBody": "body"
       }
     ]
   };
@@ -14063,7 +14077,13 @@ textarea,
       const firstElement = getFirstHTMLElement(visibleParagraph.elements);
       const elementStyle = window.getComputedStyle(firstElement);
       const top = elementStyle.top;
-      const fontSize = elementStyle.fontSize;
+      let fontSize = elementStyle.fontSize;
+      const fontSizeNumber = parseFloat(fontSize.slice(0, -2));
+      if (!isNaN(fontSizeNumber)) {
+        if (fontSizeNumber > 28) {
+          fontSize = "28px";
+        }
+      }
       const targetContainer = visibleParagraph.targetContainer;
       const paragraphTarget = document.createElement("span");
       if (realElements.length === 1) {

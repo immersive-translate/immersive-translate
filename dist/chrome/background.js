@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:40.384Z", VERSION: "0.2.2", PROD: "1", MOCK: "0", DEBUG: "0" };
+var define_process_env_default = { BUILD_TIME: "2023-01-18T05:35:35.195Z", VERSION: "0.2.3", PROD: "1", MOCK: "0", DEBUG: "0" };
 
 // https://esm.sh/v103/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
 var __create = Object.create;
@@ -2006,6 +2006,20 @@ var buildin_config_default = {
     {
       "matches": "telegra.ph",
       "normalizeBody": "div.ql-editor[contenteditable='false']"
+    },
+    {
+      "matches": [
+        "*.annas-archive.org",
+        "annas-archive.org"
+      ],
+      "selectors": [
+        "div[class='truncate text-xl font-bold']",
+        "div[class='truncate text-sm']"
+      ],
+      "globalStyles": {
+        "div[id^='link-index-']": "height: unset; max-height: unset;"
+      },
+      "normalizeBody": "body"
     }
   ]
 };
@@ -6698,8 +6712,9 @@ var menus = [
     contexts: actions
   }
 ];
-function createContextMenu(config) {
+async function createContextMenu(config) {
   log_default.debug(`createContextMenu`, menus);
+  await browserAPI.contextMenus.removeAll();
   for (const menu of menus) {
     browserAPI.contextMenus.create({
       id: menu.id,
@@ -6708,7 +6723,7 @@ function createContextMenu(config) {
     }, () => browserAPI.runtime.lastError);
   }
 }
-function setupContextMenuListeners() {
+async function setupContextMenuListeners(config) {
   browserAPI.contextMenus.onClicked.addListener(
     (info) => {
       if (info.menuItemId === contextOpenOptionsMenuId) {
@@ -6725,6 +6740,7 @@ function setupContextMenuListeners() {
       }
     }
   );
+  await createContextMenu(config);
 }
 
 // browser_updated_listeners.ts
@@ -6755,8 +6771,10 @@ function setupOnInstalledListener() {
 async function main() {
   setupOnInstalledListener();
   setupCommandListeners();
-  setupContextMenuListeners();
   const config = await getConfig();
+  setupContextMenuListeners(config).catch((e3) => {
+    log_default.error(`setup context menu error`, e3);
+  });
   if (config.debug) {
     log_default.setLevel("debug");
   } else {

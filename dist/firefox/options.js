@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.149Z", VERSION: "0.2.2", PROD: "1", MOCK: "0", DEBUG: "0" };
+var define_process_env_default = { BUILD_TIME: "2023-01-18T05:35:36.207Z", VERSION: "0.2.3", PROD: "1", MOCK: "0", DEBUG: "0" };
 
 // https://deno.land/std@0.171.0/async/deferred.ts
 function deferred() {
@@ -4054,6 +4054,20 @@ var buildin_config_default = {
     {
       "matches": "telegra.ph",
       "normalizeBody": "div.ql-editor[contenteditable='false']"
+    },
+    {
+      "matches": [
+        "*.annas-archive.org",
+        "annas-archive.org"
+      ],
+      "selectors": [
+        "div[class='truncate text-xl font-bold']",
+        "div[class='truncate text-sm']"
+      ],
+      "globalStyles": {
+        "div[id^='link-index-']": "height: unset; max-height: unset;"
+      },
+      "normalizeBody": "body"
     }
   ]
 };
@@ -7855,7 +7869,13 @@ function translationParagraph(visibleParagraph, ctx) {
     const firstElement = getFirstHTMLElement(visibleParagraph.elements);
     const elementStyle = window.getComputedStyle(firstElement);
     const top = elementStyle.top;
-    const fontSize = elementStyle.fontSize;
+    let fontSize = elementStyle.fontSize;
+    const fontSizeNumber = parseFloat(fontSize.slice(0, -2));
+    if (!isNaN(fontSizeNumber)) {
+      if (fontSizeNumber > 28) {
+        fontSize = "28px";
+      }
+    }
     const targetContainer = visibleParagraph.targetContainer;
     const paragraphTarget = document.createElement("span");
     if (realElements.length === 1) {

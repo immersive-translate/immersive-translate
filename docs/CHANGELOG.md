@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.3
+
+- Fix [#26](https://github.com/immersive-translate/immersive-translate/issues/26) create context multiple times
+
 ## 0.2.2
 
 - Fix PDF sample file

@@ -4,7 +4,7 @@
   "interval": 3600000,
   "cache": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
-  "feedbackUrl": "https://github.com/immersive-translate/next-immersive-translate/issues",
+  "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -975,6 +975,6 @@
       "normalizeBody": "body"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-18T05:34:57.948Z",
-  "latestVersion": "0.2.3"
+  "buildinConfigUpdatedAt": "2023-01-18T13:47:15.431Z",
+  "latestVersion": "0.2.5"
 }

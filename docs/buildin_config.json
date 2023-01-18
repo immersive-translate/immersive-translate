@@ -959,8 +959,22 @@
     {
       "matches": "telegra.ph",
       "normalizeBody": "div.ql-editor[contenteditable='false']"
+    },
+    {
+      "matches": [
+        "*.annas-archive.org",
+        "annas-archive.org"
+      ],
+      "selectors": [
+        "div[class='truncate text-xl font-bold']",
+        "div[class='truncate text-sm']"
+      ],
+      "globalStyles": {
+        "div[id^='link-index-']": "height: unset; max-height: unset;"
+      },
+      "normalizeBody": "body"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-18T02:02:41.175Z",
-  "latestVersion": "0.2.1"
+  "buildinConfigUpdatedAt": "2023-01-18T05:34:57.948Z",
+  "latestVersion": "0.2.3"
 }

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-01-18T02:03:15.337Z", VERSION: "0.2.1", PROD: "1", MOCK: "0", DEBUG: "0" };
+var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.149Z", VERSION: "0.2.2", PROD: "1", MOCK: "0", DEBUG: "0" };
 
 // constant.ts
 var brandName = "Immersive Translate";

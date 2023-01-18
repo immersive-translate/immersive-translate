@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-18T02:03:15.737Z", VERSION: "0.2.1", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.584Z", VERSION: "0.2.2", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4605,8 +4605,35 @@ textarea,
   }
 
   // utils/platform.ts
+  var DENO = "DENO";
+  var CHROME = "CHROME";
+  var FIREFOX = "FIREFOX";
+  function isBrowser(toCheck) {
+    let currentBrowser = CHROME;
+    try {
+      const userAgent = navigator?.userAgent || "";
+      if (/firefox/i.test(userAgent)) {
+        currentBrowser = FIREFOX;
+      } else if (/deno/i.test(userAgent)) {
+        currentBrowser = DENO;
+      }
+    } catch (_2) {
+    }
+    if (!toCheck)
+      currentBrowser;
+    if (toCheck === CHROME && currentBrowser === CHROME)
+      return true;
+    if (toCheck === FIREFOX && currentBrowser === FIREFOX)
+      return true;
+    if (toCheck === DENO && currentBrowser === DENO)
+      return true;
+    return false;
+  }
   function isDeno2() {
     return typeof Deno !== "undefined";
+  }
+  function isFirefox() {
+    return isBrowser(FIREFOX);
   }
 
   // browser/mock_browser.ts
@@ -15344,7 +15371,11 @@ textarea,
       buttonLabel = t4("show-original");
     } else if (pageStatus2 === "Original") {
       if (isPdfUrl) {
-        buttonLabel = t4("translate-pdf");
+        if (isFirefox() && currentUrlObj.protocol === "file:") {
+          buttonLabel = t4("translate-firefox-local-pdf");
+        } else {
+          buttonLabel = t4("translate-pdf");
+        }
       } else {
         buttonLabel = t4("translate");
       }
@@ -15970,6 +16001,7 @@ textarea,
   var zh_CN_default = {
     "lineBreakMaxTextCount": "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
     "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+    "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
     "enableLineBreak": "\u662F\u5426\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
     "sponsorLabel": "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
     "help": "\u5E2E\u52A9",

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-01-18T02:03:15.337Z", VERSION: "0.2.1", PROD: "1", MOCK: "0", DEBUG: "0" };
+var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.149Z", VERSION: "0.2.2", PROD: "1", MOCK: "0", DEBUG: "0" };
 
 // https://deno.land/std@0.171.0/async/deferred.ts
 function deferred() {
@@ -2318,8 +2318,35 @@ function handleSourceLanguageUrlPattern(url, language, currentSourceLanguageUrlP
 }
 
 // utils/platform.ts
+var DENO = "DENO";
+var CHROME = "CHROME";
+var FIREFOX = "FIREFOX";
+function isBrowser(toCheck) {
+  let currentBrowser = CHROME;
+  try {
+    const userAgent = navigator?.userAgent || "";
+    if (/firefox/i.test(userAgent)) {
+      currentBrowser = FIREFOX;
+    } else if (/deno/i.test(userAgent)) {
+      currentBrowser = DENO;
+    }
+  } catch (_2) {
+  }
+  if (!toCheck)
+    currentBrowser;
+  if (toCheck === CHROME && currentBrowser === CHROME)
+    return true;
+  if (toCheck === FIREFOX && currentBrowser === FIREFOX)
+    return true;
+  if (toCheck === DENO && currentBrowser === DENO)
+    return true;
+  return false;
+}
 function isDeno() {
   return typeof Deno !== "undefined";
+}
+function isFirefox() {
+  return isBrowser(FIREFOX);
 }
 
 // browser/mock_browser.ts
@@ -2369,6 +2396,188 @@ if (isDeno()) {
   browserAPI = mock_browser_default;
 } else {
   browserAPI = globalThis.browser;
+}
+
+// constant.ts
+var brandName = "Immersive Translate";
+var brandId = "immersive-translate";
+var pdfViewerUrl = "pdf/index.html";
+var brandIdForJs = "immersiveTranslate";
+var targetContainerElementAttributeName = `${brandIdForJs}Container`;
+var specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`;
+var buildinConfigStorageKey = "buildinConfig";
+var hostname = "immersive-translate.owenyoung.com";
+var homepage = `https://${hostname}/`;
+var buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`;
+var sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
+var sourceElementEffectAttributeNameForJs = `immersiveTranslateEffect`;
+var elementMarkRootKey = `${brandIdForJs}Root`;
+var sourceElementEffectAttributeName = `data-${brandId}-effect`;
+var sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`;
+var sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`;
+var sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`;
+var sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`;
+var sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`;
+var sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`;
+var sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`;
+var sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`;
+var sourceElementLeft = `${brandIdForJs}Left`;
+var sourceElementRight = `${brandIdForJs}Right`;
+var sourceElementWidth = `${brandIdForJs}Width`;
+var sourceElementHeight = `${brandIdForJs}Height`;
+var sourceElementTop = `${brandIdForJs}Top`;
+var sourceElementFontSize = `${brandIdForJs}FontSize`;
+var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
+var defaultPlaceholderDelimiters = ["@", "#"];
+var titleDelimiters = " --- ";
+var translationTextSeparator = "\n";
+var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
+var translationPdfTargetContainerClass = `${brandId}-pdf-target-container`;
+var translationTargetInnerElementWrapperClass = `${brandId}-target-inner`;
+var translationSourceElementsWrapperClass = `${brandId}-source-wrapper`;
+var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
+var translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`;
+var translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`;
+var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+var languages = [
+  "auto",
+  "en",
+  "zh-CN",
+  "zh-TW",
+  "ja",
+  "af",
+  "am",
+  "ar",
+  "az",
+  "be",
+  "bg",
+  "bn",
+  "bs",
+  "ca",
+  "ceb",
+  "co",
+  "cs",
+  "cy",
+  "da",
+  "de",
+  "el",
+  "eo",
+  "es",
+  "et",
+  "eu",
+  "fa",
+  "fi",
+  "fil",
+  "fj",
+  "fr",
+  "fy",
+  "ga",
+  "gd",
+  "gl",
+  "gu",
+  "ha",
+  "haw",
+  "he",
+  "hi",
+  "hmn",
+  "hr",
+  "ht",
+  "hu",
+  "hy",
+  "id",
+  "ig",
+  "is",
+  "it",
+  "jw",
+  "ka",
+  "kk",
+  "km",
+  "kn",
+  "ko",
+  "ku",
+  "ky",
+  "la",
+  "lb",
+  "lo",
+  "lt",
+  "lv",
+  "mg",
+  "mi",
+  "mk",
+  "ml",
+  "mn",
+  "mr",
+  "ms",
+  "mt",
+  "mww",
+  "my",
+  "ne",
+  "nl",
+  "no",
+  "ny",
+  "otq",
+  "pa",
+  "pl",
+  "ps",
+  "pt",
+  "ro",
+  "ru",
+  "sd",
+  "si",
+  "sk",
+  "sl",
+  "sm",
+  "sn",
+  "so",
+  "sq",
+  "sr",
+  "sr-Cyrl",
+  "sr-Latn",
+  "st",
+  "su",
+  "sv",
+  "sw",
+  "ta",
+  "te",
+  "tg",
+  "th",
+  "tlh",
+  "tlh-Qaak",
+  "to",
+  "tr",
+  "ty",
+  "ug",
+  "uk",
+  "ur",
+  "uz",
+  "vi",
+  "wyw",
+  "xh",
+  "yi",
+  "yo",
+  "yua",
+  "yue",
+  "zu"
+];
+var buildinExcludeUrls = [
+  "https://immersive-translate.owenyoung.com/options/",
+  "http://localhost:8000/dist/userscript/options/",
+  "https://www.deepl.com/translator",
+  "translate.google.com"
+];
+var fallbackLanguage = "zh-CN";
+
+// utils/get_pdf_viewer_url.ts
+function formatToPdfViewerUrl(url) {
+  const pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl);
+  const pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
+  if (!isFirefox()) {
+    pdfViewUrlObj.searchParams.set(
+      "file",
+      url
+    );
+  }
+  return pdfViewUrlObj.href;
 }
 
 // utils/url_match.ts
@@ -3066,175 +3275,6 @@ function decodeHex(string) {
   });
   return new Uint8Array(bytes).buffer;
 }
-
-// constant.ts
-var brandName = "Immersive Translate";
-var brandId = "immersive-translate";
-var pdfViewerUrl = "pdf/index.html";
-var brandIdForJs = "immersiveTranslate";
-var targetContainerElementAttributeName = `${brandIdForJs}Container`;
-var specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`;
-var buildinConfigStorageKey = "buildinConfig";
-var hostname = "immersive-translate.owenyoung.com";
-var homepage = `https://${hostname}/`;
-var buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`;
-var sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
-var sourceElementEffectAttributeNameForJs = `immersiveTranslateEffect`;
-var elementMarkRootKey = `${brandIdForJs}Root`;
-var sourceElementEffectAttributeName = `data-${brandId}-effect`;
-var sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`;
-var sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`;
-var sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`;
-var sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`;
-var sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`;
-var sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`;
-var sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`;
-var sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`;
-var sourceElementLeft = `${brandIdForJs}Left`;
-var sourceElementRight = `${brandIdForJs}Right`;
-var sourceElementWidth = `${brandIdForJs}Width`;
-var sourceElementHeight = `${brandIdForJs}Height`;
-var sourceElementTop = `${brandIdForJs}Top`;
-var sourceElementFontSize = `${brandIdForJs}FontSize`;
-var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
-var defaultPlaceholderDelimiters = ["@", "#"];
-var titleDelimiters = " --- ";
-var translationTextSeparator = "\n";
-var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
-var translationPdfTargetContainerClass = `${brandId}-pdf-target-container`;
-var translationTargetInnerElementWrapperClass = `${brandId}-target-inner`;
-var translationSourceElementsWrapperClass = `${brandId}-source-wrapper`;
-var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
-var translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`;
-var translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`;
-var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
-var languages = [
-  "auto",
-  "en",
-  "zh-CN",
-  "zh-TW",
-  "ja",
-  "af",
-  "am",
-  "ar",
-  "az",
-  "be",
-  "bg",
-  "bn",
-  "bs",
-  "ca",
-  "ceb",
-  "co",
-  "cs",
-  "cy",
-  "da",
-  "de",
-  "el",
-  "eo",
-  "es",
-  "et",
-  "eu",
-  "fa",
-  "fi",
-  "fil",
-  "fj",
-  "fr",
-  "fy",
-  "ga",
-  "gd",
-  "gl",
-  "gu",
-  "ha",
-  "haw",
-  "he",
-  "hi",
-  "hmn",
-  "hr",
-  "ht",
-  "hu",
-  "hy",
-  "id",
-  "ig",
-  "is",
-  "it",
-  "jw",
-  "ka",
-  "kk",
-  "km",
-  "kn",
-  "ko",
-  "ku",
-  "ky",
-  "la",
-  "lb",
-  "lo",
-  "lt",
-  "lv",
-  "mg",
-  "mi",
-  "mk",
-  "ml",
-  "mn",
-  "mr",
-  "ms",
-  "mt",
-  "mww",
-  "my",
-  "ne",
-  "nl",
-  "no",
-  "ny",
-  "otq",
-  "pa",
-  "pl",
-  "ps",
-  "pt",
-  "ro",
-  "ru",
-  "sd",
-  "si",
-  "sk",
-  "sl",
-  "sm",
-  "sn",
-  "so",
-  "sq",
-  "sr",
-  "sr-Cyrl",
-  "sr-Latn",
-  "st",
-  "su",
-  "sv",
-  "sw",
-  "ta",
-  "te",
-  "tg",
-  "th",
-  "tlh",
-  "tlh-Qaak",
-  "to",
-  "tr",
-  "ty",
-  "ug",
-  "uk",
-  "ur",
-  "uz",
-  "vi",
-  "wyw",
-  "xh",
-  "yi",
-  "yo",
-  "yua",
-  "yue",
-  "zu"
-];
-var buildinExcludeUrls = [
-  "https://immersive-translate.owenyoung.com/options/",
-  "http://localhost:8000/dist/userscript/options/",
-  "https://www.deepl.com/translator",
-  "translate.google.com"
-];
-var fallbackLanguage = "zh-CN";
 
 // env.ts
 function getEnv() {
@@ -11456,7 +11496,11 @@ function Popup(props) {
     buttonLabel = t3("show-original");
   } else if (pageStatus2 === "Original") {
     if (isPdfUrl) {
-      buttonLabel = t3("translate-pdf");
+      if (isFirefox() && currentUrlObj.protocol === "file:") {
+        buttonLabel = t3("translate-firefox-local-pdf");
+      } else {
+        buttonLabel = t3("translate-pdf");
+      }
     } else {
       buttonLabel = t3("translate");
     }
@@ -12009,14 +12053,8 @@ function Popup2() {
   };
   const handleTranslatePdf = () => {
     if (currentUrl && currentTabId) {
-      const pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl);
-      const pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
-      pdfViewUrlObj.searchParams.set(
-        "file",
-        currentUrl
-      );
       browserAPI.tabs.update(currentTabId, {
-        url: pdfViewUrlObj.href
+        url: formatToPdfViewerUrl(currentUrl)
       });
       globalThis.close();
     }
@@ -12080,6 +12118,7 @@ function Popup2() {
 var zh_CN_default = {
   "lineBreakMaxTextCount": "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
   "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+  "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
   "enableLineBreak": "\u662F\u5426\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
   "sponsorLabel": "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
   "help": "\u5E2E\u52A9",

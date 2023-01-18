@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-01-18T02:03:15.337Z", VERSION: "0.2.1", PROD: "1", MOCK: "0", DEBUG: "0" };
+var define_process_env_default = { BUILD_TIME: "2023-01-18T03:05:41.149Z", VERSION: "0.2.2", PROD: "1", MOCK: "0", DEBUG: "0" };
 
 // https://esm.sh/v103/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
 var __create = Object.create;
@@ -2040,6 +2040,9 @@ function isChrome() {
 }
 function isDeno() {
   return typeof Deno !== "undefined";
+}
+function isFirefox() {
+  return isBrowser(FIREFOX);
 }
 
 // browser/mock_browser.ts
@@ -4713,6 +4716,25 @@ var Logger = class {
 };
 var log_default = new Logger();
 
+// utils/get_pdf_viewer_url.ts
+function formatToPdfViewerUrl(url) {
+  const pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl);
+  const pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
+  if (!isFirefox()) {
+    pdfViewUrlObj.searchParams.set(
+      "file",
+      url
+    );
+  }
+  return pdfViewUrlObj.href;
+}
+
+// utils/is_pdf_url.ts
+function isPdfUrl(url) {
+  const currentUrlObj = new URL(url);
+  return currentUrlObj?.pathname.toLowerCase().endsWith(".pdf");
+}
+
 // errors.ts
 var CommonError = class extends Error {
   constructor(name, message, details) {
@@ -5775,6 +5797,26 @@ function setupCommandListeners() {
   if (typeof browserAPI.commands !== "undefined") {
     browserAPI.commands.onCommand.addListener(async (command) => {
       log_default.debug(`received command: ${command}`);
+      if (command === "toggleTranslatePage") {
+        const tab = await browserAPI.tabs.query({
+          active: true,
+          currentWindow: true
+        });
+        if (tab.length === 0) {
+          return;
+        }
+        const tabId = tab[0].id;
+        if (typeof tabId === "undefined") {
+          return;
+        }
+        const tabUrl = tab[0].url;
+        if (isPdfUrl(tabUrl)) {
+          browserAPI.tabs.create({
+            url: formatToPdfViewerUrl(tabUrl)
+          });
+          return;
+        }
+      }
       await sendMessageToContent({
         method: command
       });
@@ -5797,6 +5839,7 @@ async function sendMessageToContent(request2) {
 var zh_CN_default = {
   "lineBreakMaxTextCount": "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
   "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+  "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
   "enableLineBreak": "\u662F\u5426\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
   "sponsorLabel": "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
   "help": "\u5E2E\u52A9",

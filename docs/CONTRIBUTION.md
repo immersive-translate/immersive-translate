@@ -1,7 +1,8 @@
 # 加入开发？
 
 - [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
-- [点击查看](immersive-translate.owenyoung.com/TODO.html)有意要完成，但是还没有开始规划的 Todo 项目
+- [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 一些未整理的待做功能项
+- [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
 
 ## 开始开发
 

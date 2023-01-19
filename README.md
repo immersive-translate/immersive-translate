@@ -94,7 +94,10 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 ```
 git pull
-```
+``
+
+然在在扩展管理页面选择 `Reload`
+`
 
 ## 截图
 
@@ -104,7 +107,7 @@ git pull
 
 ## 赞助我的工作
 
-你好，我是 Owen，喜欢为像我一样的 Poor Person 创建获取高质量信息的工具。
+你好，我是 Owen，喜欢为人们创建获取高质量信息的工具。
 
 在互联网冲浪的这些年里，得益于无数志愿者无私贡献的免费工具，我收获了许多让我受益终生的知识。这让我更加坚信平等地获取信息是每个人最应拥有的权利。就像诺贝尔经济学奖得主阿玛蒂亚·森说的：“考察一个人的判断力，主要考察他信息来源的多样性。有无数的可怜人，长期活在单一的信息里，而且是一种被扭曲，颠倒的信息，这是导致人们愚昧且自信最大的原因。”
 
@@ -166,3 +169,5 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - [赞助链接](https://immersive-translate.owenyoung.com/donate.html)
 - [Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
+```
+

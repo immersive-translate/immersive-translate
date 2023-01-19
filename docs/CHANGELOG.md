@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.2.10
+
+- Fix pdf lineheight distance
+
+## 0.2.9
+
+- Fix exclude elements mark
+- Fix deno type check
+- remove importmap
+- Fix context menus translation
+- restore page when never translate this site enabled
+- Add description for add url
+
 ## 0.2.8
 
 - Detect the user agent language for interface language

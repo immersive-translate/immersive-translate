@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.8
+
+- Detect the user agent language for interface language
+- Fix line break bug.
+
 ## 0.2.7
 
 - Fix grease monkey request

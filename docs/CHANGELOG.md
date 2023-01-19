@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.7
+
+- Fix grease monkey request
+
 ## 0.2.6
 
 - Fix [#30](https://github.com/immersive-translate/immersive-translate/issues/30), file url match issue

@@ -1,4 +1,4 @@
-(()=>{var Ag=Object.defineProperty;var Pg=(e,t)=>{for(var n in t)Ag(e,n,{get:t[n],enumerable:!0})};var y={BUILD_TIME:"2023-01-18T21:22:05.457Z",VERSION:"0.2.6",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
+(()=>{var Ag=Object.defineProperty;var Pg=(e,t)=>{for(var n in t)Ag(e,n,{get:t[n],enumerable:!0})};var y={BUILD_TIME:"2023-01-19T08:41:31.392Z",VERSION:"0.2.7",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 

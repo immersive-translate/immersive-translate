@@ -1,0 +1,61 @@
+# Todos
+
+[添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
+
+- [x] not split code element.
+- [x] test pre element, with \n split
+- [x] test dynamic nodes auto
+- [x] auto sync default rule, general rule, 自动同步远程配置文件，并且提供点击手动同步的按钮。
+- [x] detect language, 根据 rule 的配置，某些网站需要检测每一个段落的语言，并且按照检测到的语言去翻译不同的段落。 - @Owen 认领
+- [x] cache translation result， 缓存翻译的结果，减少 api 的调用。 - @Randomb1 认领
+- [x] regex match www.google.* ，支持后缀为*的 match 规则 - @Random 已 pr
+- [x] context menu，添加页面的右键翻译该网站，以及显示原文（根据当前页面的状态，自动切换）。 - @TheOwenYoung 认领
+- [x] 支持更多翻译 api，优先添加 deepl,yandex 的支持，同时研究微信翻译（似乎是免费的）。
+- [x] 移动版的适配
+- [x] config ui - 配置页面 UI @pop
+- [x] popup 页面 UI，等草图。 @pop
+- [x] 判断是否纯 URL，如果是的话，那保持原样，不翻译这个部分。
+- [x] 多语句翻译接口，分段重新测试。目前的似乎有问题。
+- [ ] valid config, is invalid, then use the default config.
+- [x] 用 ctrl 打开的页面，再次回到页面时，未翻译。偶现，待确认。 似乎是开发时重新安装插件导致。
+- [x] 国际化界面语言
+- [x] 确定 inject.js 的问题，避免发送没有监听的消息。
+- [x] nitter, mastodon adapter
+- [x] https://www.wking.dev/library/dont-design-your-database-like-a-frontend-developer content editable
+- [x] filter only self request. not third party.
+- [ ] 合并重复的翻译请求，减少请求数量
+- [x] fix cron task, save the latest sync time, for save the sync times
+- [ ] 支持自助选中一些网页的区域，支持指定的区域不翻译，或者要翻译。
+- [ ] 判断是否是目标语言或永不翻译的语言，如果是的话，不显示 popup 图标
+- [x] should I solve the web crypto?
+- [ ] inject error tooltip ui
+- [ ] add paragraph action icon, for show current paragraph from language, to langauge, and support to choose another language,or another translation engine to translate this paragraph.
+- [x] grease monkey add shortcut support, and shortcut config ui
+- [x] theme color: https://www.reddit.com/r/meirl/comments/zzd30n/meirl/
+- [ ] popup 添加报告不兼容的网页按钮。
+- [x] add 虚线框
+- [ ] 点击重试图标后，全部重试，而不是单个重试
+- [x] 全部翻译出现重复
+- [x] 优化谷歌搜索结果
+- [ ] 优化 pdf 翻译
+- [ ] change popup button error to translate
+- [x] reddit mobile description translate
+- [x] 设置页面添加 api 说明
+- [x] 开发者设置页面，添加 debug 模式
+- [ ] popup 图标设置颜色，透明度？
+- [ ] 设置页面添加永不翻译的语言功能
+- [x] popup add always translate \*.domain.com option.
+- [x] 遍历 show TEXT ,根据 text 的长度确定 container
+- [x] maybe we should switch back to onMessage, onConnect seems will disconnect on 5 minutes.
+- [ ] 油猴三指唤醒
+- [ ] 加一个 ---- 区分的原文和译文样式
+- [x] 优化全网页翻译体验，单元素翻译体验，单元素，寻找最里面的，最后的那个文本，然后插入。
+- [x] add 快捷键提示 to 翻译 button
+- [ ] add epub viewer
+- [ ] 加字数统计功能,年度报告
+- [x] 适配 https://www.reddit.com/.compact
+- [ ] 修复黑暗模式的 loading
+- [ ] 词典功能？（词典替换添加效果）
+- [ ] 自动检测用户浏览器语言，以设定默认的界面语言。
+- [ ] tampermonkey 的云同步就是用 google drive api 实现的，可以参考下
+- [ ] 支持用户自定义 popup 页面的快捷操作，比如快速切换当前的翻译模式，全区域翻译，还是智能识别。 该功能入口可以添加在设置页面对应的设置项旁边。... more, 在 popup 页面显示该选项。

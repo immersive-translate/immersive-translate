@@ -94,10 +94,9 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 ```
 git pull
-``
+```
 
 然在在扩展管理页面选择 `Reload`
-`
 
 ## 截图
 
@@ -167,4 +166,7 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - [赞助链接](https://immersive-translate.owenyoung.com/donate.html)
 - [Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
+
+```
+
 ```

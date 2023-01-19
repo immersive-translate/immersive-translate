@@ -68,3 +68,5 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 ```
 git pull
 ```
+
+然在在扩展管理页面选择 `Reload`

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.11
+
+- Fix [#28](https://github.com/immersive-translate/immersive-translate/issues/28) Annas archive 页面主要内容无法被翻译
+
 ## 0.2.10
 
 - Fix pdf lineheight distance

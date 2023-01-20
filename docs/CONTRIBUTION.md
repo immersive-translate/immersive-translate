@@ -3,6 +3,7 @@
 - [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
 - [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 一些未整理的待做功能项
 - [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
+- 在 Github 上[Watch 这个项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求
 
 ## 开始开发
 

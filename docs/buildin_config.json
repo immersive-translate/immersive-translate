@@ -90,6 +90,7 @@
     "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
+    "observeUrlChange": true,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
     "blockMinTextCount": 32,
@@ -568,12 +569,20 @@
       "detectParagraphLanguage": true
     },
     {
-      "matches": "www.inoreader.com",
-      "selectors": [
-        ".article_title_link",
-        ".article_content"
+      "matches": [
+        "www.inoreader.com",
+        "*.inoreader.com"
       ],
-      "detectParagraphLanguage": true
+      "selectors": [
+        ".article_header_title",
+        ".article_title_link",
+        ".article_content",
+        ".article_magazine_title_link"
+      ],
+      "observeUrlChange": false,
+      "globalStyles": {
+        ".article_title_link": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       "matches": [
@@ -989,6 +998,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-20T07:56:51.927Z",
-  "latestVersion": "0.2.10"
+  "buildinConfigUpdatedAt": "2023-01-20T11:24:59.180Z",
+  "latestVersion": "0.2.12"
 }

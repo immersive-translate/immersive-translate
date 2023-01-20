@@ -268,7 +268,10 @@
       "TD",
       "TH",
       "SOURCE"
-    ]
+    ],
+    "pdfNewParagraphLineHeight": 2.4,
+    "pdfNewParagraphIndent": 1.2,
+    "pdfNewParagraphIndentRightIndentPx": 130
   },
   "rules": [
     {
@@ -318,9 +321,9 @@
       "matches": "*.wikipedia.org",
       "excludeSelectors": [
         ".mw-editsection",
-        ".mw-cite-backlink"
+        ".mw-cite-backlink",
+        "#mw-panel-toc"
       ],
-      "wrapperSuffix": "<br><br>",
       "stayOriginalSelectors": [
         ".chemf",
         ".mwe-math-element",
@@ -972,9 +975,20 @@
       "globalStyles": {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
-      "normalizeBody": "body"
+      "normalizeBody": "body",
+      "extraBlockSelectors": [
+        "a.custom-a"
+      ]
+    },
+    {
+      "matches": [
+        "explainshell.com"
+      ],
+      "selectors": [
+        "[class='help-box']"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-18T13:47:15.431Z",
-  "latestVersion": "0.2.5"
+  "buildinConfigUpdatedAt": "2023-01-20T07:56:51.927Z",
+  "latestVersion": "0.2.10"
 }

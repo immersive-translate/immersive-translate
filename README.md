@@ -128,9 +128,9 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
 - 介绍这个扩展给有需要的朋友
-- 甚至，如果你有代码开发能力，你可以直接参与开发这个扩展，请加[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道了解。
+- 甚至，如果你有代码开发能力，你可以[直接参与开发](https://immersive-translate.owenyoung.com/CONTRIBUTION.html)这个扩展，请加[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道了解。
 
-> Psssss. 我比预想中花了更巨大的时间和精力开发这个[沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！
+> Ps. 我比预想中花了更巨大的时间和精力开发这个[沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！
 
 ### 月度赞助链接
 

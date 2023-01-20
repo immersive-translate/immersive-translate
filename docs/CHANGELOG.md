@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.12
+
+- Better for inoreader
+
 ## 0.2.11
 
 - Fix [#28](https://github.com/immersive-translate/immersive-translate/issues/28) Annas archive 页面主要内容无法被翻译

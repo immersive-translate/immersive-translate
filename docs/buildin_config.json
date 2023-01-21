@@ -998,8 +998,14 @@
       "selectors": [
         "[class='help-box']"
       ]
+    },
+    {
+      "matches": [
+        "apnews.com"
+      ],
+      "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-21T02:34:48.635Z",
-  "latestVersion": "0.2.14"
+  "buildinConfigUpdatedAt": "2023-01-21T14:01:02.299Z",
+  "latestVersion": "0.2.17"
 }

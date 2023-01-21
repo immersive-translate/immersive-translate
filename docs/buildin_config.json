@@ -274,7 +274,7 @@
     "pdfNewParagraphLineHeight": 2.4,
     "pdfNewParagraphIndent": 1.2,
     "pdfNewParagraphIndentRightIndentPx": 130,
-    "toggleTranslatePageWhenThreeFingersOnTheScreen": true
+    "fingerCountToToggleTranslagePageWhenTouching": 3
   },
   "rules": [
     {
@@ -1000,6 +1000,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-21T00:35:01.827Z",
-  "latestVersion": "0.2.12"
+  "buildinConfigUpdatedAt": "2023-01-21T02:34:48.635Z",
+  "latestVersion": "0.2.14"
 }

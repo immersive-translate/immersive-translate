@@ -274,7 +274,7 @@
     "pdfNewParagraphLineHeight": 2.4,
     "pdfNewParagraphIndent": 1.2,
     "pdfNewParagraphIndentRightIndentPx": 130,
-    "fingerCountToToggleTranslagePageWhenTouching": 3
+    "fingerCountToToggleTranslagePageWhenTouching": 4
   },
   "rules": [
     {
@@ -1006,6 +1006,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-21T14:01:02.299Z",
+  "buildinConfigUpdatedAt": "2023-01-21T15:53:03.610Z",
   "latestVersion": "0.2.17"
 }

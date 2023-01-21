@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.17
+
+- Change highlight to mark
+- Add hightlight translation theme
+
 ## 0.2.16
 
 - Macaque compatibility

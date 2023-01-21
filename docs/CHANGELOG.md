@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.15
+
+- Fix touch bounce issue
+
 ## 0.2.14
 
 - Fix safari globalThis.GM not working

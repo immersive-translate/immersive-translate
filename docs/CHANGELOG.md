@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.2.17
+
+- Change highlight to mark
+- Add hightlight translation theme
+
+## 0.2.16
+
+- Macaque compatibility
+
+## 0.2.15
+
+- Fix touch bounce issue
+
+## 0.2.14
+
+- Fix safari globalThis.GM not working
+
 ## 0.2.13
 
 - Support Userscript Popup Draging

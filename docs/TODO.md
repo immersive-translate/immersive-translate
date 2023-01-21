@@ -68,3 +68,4 @@
 - [ ] 测试油猴本地文件，indexdb 缓存问题
 - [x] add more register command
 - [x] 油猴图标防抖动
+- [ ] popup userscript 页面支持检测最新版本

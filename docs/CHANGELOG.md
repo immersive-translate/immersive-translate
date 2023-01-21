@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.16
+
+- Macaque compatibility
+
 ## 0.2.15
 
 - Fix touch bounce issue

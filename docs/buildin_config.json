@@ -90,6 +90,7 @@
     "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
+    "isShowUserscriptPagePopup": true,
     "observeUrlChange": true,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
@@ -272,7 +273,8 @@
     ],
     "pdfNewParagraphLineHeight": 2.4,
     "pdfNewParagraphIndent": 1.2,
-    "pdfNewParagraphIndentRightIndentPx": 130
+    "pdfNewParagraphIndentRightIndentPx": 130,
+    "toggleTranslatePageWhenThreeFingersOnTheScreen": true
   },
   "rules": [
     {
@@ -998,6 +1000,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-20T11:24:59.180Z",
+  "buildinConfigUpdatedAt": "2023-01-21T00:35:01.827Z",
   "latestVersion": "0.2.12"
 }

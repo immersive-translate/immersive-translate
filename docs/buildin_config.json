@@ -434,6 +434,7 @@
         "[data-click-id=body] h3",
         "[data-click-id=background] h3",
         "[data-testid=comment]",
+        "[data-adclicklocation='title']",
         "[data-adclicklocation=media]",
         ".PostContent",
         ".Comment__body",
@@ -1006,6 +1007,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-21T15:53:03.610Z",
+  "buildinConfigUpdatedAt": "2023-01-21T18:13:34.087Z",
   "latestVersion": "0.2.17"
 }

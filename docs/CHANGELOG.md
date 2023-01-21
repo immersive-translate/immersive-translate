@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.14
+
+- Fix safari globalThis.GM not working
+
 ## 0.2.13
 
 - Support Userscript Popup Draging

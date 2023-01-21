@@ -46,12 +46,12 @@
 - [x] 设置页面添加 api 说明
 - [x] 开发者设置页面，添加 debug 模式
 - [ ] popup 图标设置颜色，透明度？
-- [ ] 设置页面添加永不翻译的语言功能
+- [x] 设置页面添加永不翻译的语言功能
 - [x] popup add always translate \*.domain.com option.
 - [x] 遍历 show TEXT ,根据 text 的长度确定 container
 - [x] maybe we should switch back to onMessage, onConnect seems will disconnect on 5 minutes.
 - [ ] 油猴三指唤醒
-- [ ] 加一个 ---- 区分的原文和译文样式
+- [x] 加一个 ---- 区分的原文和译文样式
 - [x] 优化全网页翻译体验，单元素翻译体验，单元素，寻找最里面的，最后的那个文本，然后插入。
 - [x] add 快捷键提示 to 翻译 button
 - [ ] add epub viewer
@@ -64,5 +64,7 @@
 - [ ] 支持用户自定义 popup 页面的快捷操作，比如快速切换当前的翻译模式，全区域翻译，还是智能识别。 该功能入口可以添加在设置页面对应的设置项旁边。... more, 在 popup 页面显示该选项。
 - [ ] 修改商店描述，更易读
 - [ ] QQ 邮箱适配，iframe
-- [ ] 油猴增加注册菜单项
+- [x] 油猴增加注册菜单项
 - [ ] 测试油猴本地文件，indexdb 缓存问题
+- [x] add more register command
+- [x] 油猴图标防抖动

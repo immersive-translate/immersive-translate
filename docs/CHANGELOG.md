@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.13
+
+- Support Userscript Popup Draging
+- Support There Fingers on Touch device to trigger toogle translate pages
+- Support Hiding the userscript popup icon.
+
 ## 0.2.12
 
 - Better for inoreader

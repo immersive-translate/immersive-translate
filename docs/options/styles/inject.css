@@ -35,6 +35,7 @@
 }
 .immersive-translate-target-translation-pdf-block-wrapper {
   margin: 0 !important;
+  display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper {
@@ -171,6 +172,15 @@
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
   animation: immersive-translate-loading-animation 0.6s infinite linear !important;
 }
+/* dark mode for loading */
+
+@media only screen and (prefers-color-scheme: dark) {
+  .immersive-translate-loading {
+    border: 2px rgba(255, 255, 255, 0.25) solid !important;
+    border-top: 2px rgba(255, 255, 255, 1) solid !important;
+  }
+}
+
 .immersive-translate-tooltip {
   position: relative;
   display: inline-block;

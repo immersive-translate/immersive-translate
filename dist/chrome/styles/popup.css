@@ -10,6 +10,17 @@ body {
   min-width: 250px;
   border-radius: 10px;
 }
+.immersive-translate-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  touch-action: none;
+}
+.immersive-translate-popup-wrapper {
+  background: var(--background-color);
+}
 
 #mount#mount {
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",

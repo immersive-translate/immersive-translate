@@ -716,23 +716,14 @@
     },
     {
       "matches": "www.google.*/search*",
-      "selectors": [
-        "h2",
-        "a h3",
-        "table h3",
-        "table h3 + div",
-        "div[data-content-feature='1'] > div",
-        "a [aria-level='3']",
-        "a [aria-level='3'] + div",
-        ".Uroaid",
-        "div[style='-webkit-line-clamp:2']",
-        "div[style='-webkit-line-clamp: unset;max-height: unset;]"
-      ],
       "detectParagraphLanguage": true,
+      "excludeSelectors": [
+        "a h3 + div",
+        "div#sfooter"
+      ],
       "wrapperSuffix": "",
       "globalStyles": {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
-        "a h3 + div": "position: relative;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
       },
       "extraBlockSelectors": [
@@ -1007,6 +998,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-21T18:13:34.087Z",
+  "buildinConfigUpdatedAt": "2023-01-22T11:28:55.855Z",
   "latestVersion": "0.2.17"
 }

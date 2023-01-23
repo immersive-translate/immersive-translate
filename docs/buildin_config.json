@@ -494,7 +494,8 @@
         "yt-formatted-string.ytd-video-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
-        "span#video-title"
+        "span#video-title",
+        "a#video-title"
       ],
       "wrapperPrefix": "<br>",
       "wrapperSuffix": "<br>",
@@ -998,6 +999,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-22T11:28:55.855Z",
-  "latestVersion": "0.2.17"
+  "buildinConfigUpdatedAt": "2023-01-23T16:56:53.607Z",
+  "latestVersion": "0.2.18"
 }

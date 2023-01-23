@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.2.19
+
+- Fix tencent smart japanese
+- Fix haikuo world browser
+
+## 0.2.18
+
+- Fix client url change, auto remain the translate state.
+- Remove aside container as the translate container.
+- Refactor popup position.
+
 ## 0.2.17
 
 - Change highlight to mark

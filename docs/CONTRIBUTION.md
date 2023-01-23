@@ -78,7 +78,6 @@ UserScript header, like this:
 // @connect    www2.deepl.com
 // @connect    immersive-translate.owenyoung.com
 // @run-at       document-end
-// @require    file:///Users/username/project/translate/dist/userscript/immersive-translate.lib.js
 // @require    file:///Users/username/project/translate/dist/userscript/immersive-translate.user.js
 // ==/UserScript==
 ```

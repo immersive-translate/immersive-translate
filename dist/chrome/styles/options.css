@@ -77,12 +77,17 @@ main > aside nav {
   width: 100%;
   padding-bottom: var(--block-spacing-vertical);
 }
+
 @media (min-width: 992px) {
   main > aside nav {
     position: fixed;
     width: 250px;
     max-height: calc(100vh - 5.5rem);
   }
+}
+
+a[role="button"] {
+  padding: 0.4rem 1rem;
 }
 
 a.no-focus:focus,

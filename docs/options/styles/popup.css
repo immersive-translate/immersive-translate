@@ -20,6 +20,8 @@ body {
 }
 .immersive-translate-popup-wrapper {
   background: var(--background-color);
+  border-radius: 10px;
+  border: 1px solid var(--muted-border-color);
 }
 
 #mount#mount {

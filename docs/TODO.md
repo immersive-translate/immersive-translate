@@ -69,3 +69,4 @@
 - [x] add more register command
 - [x] 油猴图标防抖动
 - [ ] popup userscript 页面支持检测最新版本
+- [ ] 在页面中间开启翻译的时候，自动跳转到旧的位置？

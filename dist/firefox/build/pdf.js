@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * JavaScript code in this page
  *
- * Copyright 2022 Mozilla Foundation
+ * Copyright 2023 Mozilla Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -962,6 +962,7 @@ function getDocument(src) {
       data: src
     };
   } else if (src instanceof PDFDataRangeTransport) {
+    (0, _display_utils.deprecated)("`PDFDataRangeTransport`-instance, " + "please use a parameter object with `range`-property instead.");
     source = {
       range: src
     };
@@ -1127,7 +1128,7 @@ async function _fetchDocument(worker, source, pdfDataRangeTransport, docId) {
   const transfers = source.data ? [source.data.buffer] : null;
   const workerId = await worker.messageHandler.sendWithPromise("GetDocRequest", {
     docId,
-    apiVersion: '3.3.74',
+    apiVersion: '3.3.101',
     data: source.data,
     password: source.password,
     disableAutoFetch: source.disableAutoFetch,
@@ -2775,9 +2776,9 @@ class InternalRenderTask {
     }
   }
 }
-const version = '3.3.74';
+const version = '3.3.101';
 exports.version = version;
-const build = 'd8d5545e0';
+const build = '8ad1daf2e';
 exports.build = build;
 
 /***/ }),
@@ -15812,8 +15813,8 @@ var _annotation_layer = __w_pdfjs_require__(32);
 var _worker_options = __w_pdfjs_require__(14);
 var _svg = __w_pdfjs_require__(35);
 var _xfa_layer = __w_pdfjs_require__(34);
-const pdfjsVersion = '3.3.74';
-const pdfjsBuild = 'd8d5545e0';
+const pdfjsVersion = '3.3.101';
+const pdfjsBuild = '8ad1daf2e';
 })();
 
 /******/ 	return __webpack_exports__;

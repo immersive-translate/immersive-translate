@@ -497,8 +497,8 @@
         "span#video-title",
         "a#video-title"
       ],
-      "wrapperPrefix": "<br>",
-      "wrapperSuffix": "<br>",
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
       "globalStyles": {
         "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
         "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
@@ -999,6 +999,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-23T16:56:53.607Z",
-  "latestVersion": "0.2.18"
+  "buildinConfigUpdatedAt": "2023-01-23T22:32:00.056Z",
+  "latestVersion": "0.2.19"
 }

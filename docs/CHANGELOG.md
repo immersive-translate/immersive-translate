@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.21
+
+- Fix firefox online pdf translate
+
 ## 0.2.20
 
 - Fix macaque request issue

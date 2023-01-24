@@ -70,3 +70,4 @@
 - [x] 油猴图标防抖动
 - [ ] popup userscript 页面支持检测最新版本
 - [ ] 在页面中间开启翻译的时候，自动跳转到旧的位置？
+- [ ] 全局模式下，翻译 input， type = submit 的 value 属性

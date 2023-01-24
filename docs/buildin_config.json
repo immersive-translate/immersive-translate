@@ -269,7 +269,8 @@
       "TR",
       "TD",
       "TH",
-      "SOURCE"
+      "SOURCE",
+      "C-WIZ"
     ],
     "pdfNewParagraphLineHeight": 2.4,
     "pdfNewParagraphIndent": 1.2,
@@ -999,6 +1000,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-23T22:32:00.056Z",
-  "latestVersion": "0.2.19"
+  "buildinConfigUpdatedAt": "2023-01-24T13:29:24.824Z",
+  "latestVersion": "0.2.20"
 }

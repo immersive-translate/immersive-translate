@@ -1,4 +1,4 @@
-(()=>{var tg=Object.defineProperty;var ng=(e,t)=>{for(var n in t)tg(e,n,{get:t[n],enumerable:!0})};var y={BUILD_TIME:"2023-01-23T22:32:45.002Z",VERSION:"0.2.19",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
+(()=>{var tg=Object.defineProperty;var ng=(e,t)=>{for(var n in t)tg(e,n,{get:t[n],enumerable:!0})};var y={BUILD_TIME:"2023-01-24T11:08:43.958Z",VERSION:"0.2.20",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dividingLine::before {
-  content: '';
+  content: "";
   display: block;
   max-width: 80px;
   width: 10%;
@@ -101,10 +101,21 @@
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
+.immersive-translate-target-translation-block-wrapper-theme-marker {
+  line-height: 1.5em;
+}
 
 .immersive-translate-target-translation-theme-marker-inner {
   /* TODO: add more texture */
-  background: linear-gradient(to right, rgba(255,225,0,.1), rgba(251,218,65,0.9) 3%, rgba(252,210,23,0.9) 35%, rgba(251,218,65,0.9) 70%, rgba(251,218,65,.8) 95%, rgba(255,225,0,.3));
+  background: linear-gradient(
+    to right,
+    rgba(255, 225, 0, 0.1),
+    rgba(251, 218, 65, 0.9) 3%,
+    rgba(252, 210, 23, 0.9) 35%,
+    rgba(251, 218, 65, 0.9) 70%,
+    rgba(251, 218, 65, 0.8) 95%,
+    rgba(255, 225, 0, 0.3)
+  );
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -197,7 +208,13 @@
   }
 
   .immersive-translate-target-translation-theme-marker-inner {
-    background: linear-gradient(to right, rgba(255,225,0,.1), rgba(102,99,78,0.9) 3%, rgba(102,99,78,.8) 97%, rgba(255,225,0,.3));
+    background: linear-gradient(
+      to right,
+      rgba(255, 225, 0, 0.1),
+      rgba(102, 99, 78, 0.9) 3%,
+      rgba(102, 99, 78, 0.8) 97%,
+      rgba(255, 225, 0, 0.3)
+    );
   }
 }
 

@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.20
+
+- Fix macaque request issue
+- Fix mark highlihgt line heigh
+
 ## 0.2.19
 
 - Fix tencent smart japanese

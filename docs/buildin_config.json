@@ -998,8 +998,14 @@
         "apnews.com"
       ],
       "urlChangeDelay": 2000
+    },
+    {
+      "matches": "play.google.com",
+      "additionalSelectors": [
+        "header[data-review-id] + div"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-24T13:29:24.824Z",
+  "buildinConfigUpdatedAt": "2023-01-24T13:42:27.118Z",
   "latestVersion": "0.2.20"
 }

@@ -1039,7 +1039,8 @@
       "selectors": [
         "h1",
         "article > header + div",
-        "[data-testid=notes-root] p"
+        "[data-testid=notes-root] p",
+        "div.k31gt"
       ],
       "excludeSelectors": [
         "div.fAAi8",
@@ -1052,6 +1053,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T17:52:50.700Z",
+  "buildinConfigUpdatedAt": "2023-01-25T18:14:07.752Z",
   "latestVersion": "0.2.23"
 }

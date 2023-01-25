@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.23
+
+- Fix multiple language page translation
+
 ## 0.2.22
 
 - Fix userscript build

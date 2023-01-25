@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-25T12:27:03.214Z", VERSION: "0.2.22", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-25T15:49:07.970Z", VERSION: "0.2.23", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -7373,6 +7373,30 @@ body {
       toggleTranslateTheWholePage: "Alt+W",
       toggleTranslateToThePageEndImmediately: "Alt+S"
     },
+    immediateTranslationPattern: {
+      matches: [
+        "www.reddit.com",
+        "old.reddit.com",
+        "twitter.com",
+        "*.twitter.com",
+        "medium.com",
+        "*.medium.com",
+        "github.com",
+        "gist.github.com",
+        "www.facebook.com",
+        "www.youtube.com",
+        "m.youtube.com",
+        "mail.google.com",
+        "discord.com",
+        "web.telegram.org",
+        "*.slack.com"
+      ],
+      excludeMatches: [],
+      selectorMatches: [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      selectorExcludeMatches: []
+    },
     translationParagraphLanguagePattern: {
       matches: [
         "www.reddit.com",
@@ -8496,6 +8520,7 @@ body {
     let finalConfig = Object.assign(defaultConfig, finalBuildInConfig), configKeys = Object.keys(finalConfig), assignKeys = [
       "translationUrlPattern",
       "translationLanguagePattern",
+      "immediateTranslationPattern",
       "translationBodyAreaPattern",
       "translationParagraphLanguagePattern",
       "translationThemePatterns",
@@ -8561,6 +8586,7 @@ body {
   function splitSentences(sentences, maxLength, maxGroupLength) {
     let tempSentences = splitStentenceWithMaxLength(sentences, maxLength), tempSentenceGroups = [], tempGroup = {
       from: sentences[0].from,
+      fromByClient: sentences[0].fromByClient,
       to: sentences[0].to,
       tempSentences: [],
       url: sentences[0].url
@@ -8570,11 +8596,13 @@ body {
         (acc, cur) => acc + cur.text.length,
         0
       ) + tempSentence.text.length > maxLength || tempGroup.tempSentences.length >= maxGroupLength) && (tempSentenceGroups.push(tempGroup), tempGroup = {
+        fromByClient: tempGroup.fromByClient,
         from: tempSentence.from,
         to: tempSentence.to,
         tempSentences: [],
         url: tempSentence.url
       }), (tempGroup.from !== tempSentence.from || tempGroup.to !== tempSentence.to) && (tempGroup.tempSentences.length > 0 ? (tempSentenceGroups.push(tempGroup), tempGroup = {
+        fromByClient: tempGroup.fromByClient,
         from: tempSentence.from,
         to: tempSentence.to,
         tempSentences: [],
@@ -9553,7 +9581,9 @@ body {
   function addToParagraphs(paragraph, allParagraphs) {
     let newParagraph = {
       ...paragraph,
-      id: paragraphAutoIncreaceId++
+      id: paragraphAutoIncreaceId++,
+      languageByClient: "auto",
+      languageByLocal: "auto"
     };
     newParagraph.elements.forEach((element) => {
       element instanceof HTMLElement && (setAttribute(element, sourceElementMarkAttributeName, "1"), setAttribute(
@@ -9678,14 +9708,23 @@ body {
       return detectLanguage({
         text
       });
-    }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [];
+    }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
+    ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
+    let currentPageLanguageByLocal = getCurrentPageLanguage();
     return results.forEach((result, index) => {
+      let currentLanguageByLocal = result;
+      currentLanguageByLocal === "auto" && (currentLanguageByLocal = currentPageLanguageByLocal);
+      let newParagraph = {
+        ...allParagraphs[index],
+        languageByLocal: currentLanguageByLocal,
+        languageByClient: currentPageLanguageByClient2
+      };
       if (!isSameTargetLanguage(result, targetLanguage)) {
         if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
           return;
-        filterdParagraphs.push(allParagraphs[index]);
+        filterdParagraphs.push(newParagraph);
       }
-    }), allParagraphs = filterdParagraphs, allParagraphs;
+    }), filterdParagraphs;
   }
   function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer) {
     let elements = [], treeWalker = document.createTreeWalker(
@@ -10446,19 +10485,15 @@ body {
       translationThemePatterns,
       translationUrlPattern,
       targetLanguage,
-      sourceLanguageUrlPattern
-    } = config, isDetectParagraphLanguage = isMatchUrl(
+      sourceLanguageUrlPattern,
+      immediateTranslationPattern
+    } = config, isDetectParagraphLanguage = isMatched(
       url,
-      translationParagraphLanguagePattern.matches
-    );
-    if (!isDetectParagraphLanguage) {
-      let selectorMatches = translationParagraphLanguagePattern.selectorMatches;
-      isDetectParagraphLanguage = isMatchSelectors(selectorMatches);
-    }
-    let defaultTranslationService = translationService, services = Object.keys(translationServices);
+      translationParagraphLanguagePattern
+    ), isImmediateTranslate = isMatched(url, immediateTranslationPattern), defaultTranslationService = translationService, services = Object.keys(translationServices);
     for (let service of services) {
       let serviceConfig = translationServices[service];
-      if (isMatchUrl(url, serviceConfig.matches)) {
+      if (isMatched(url, serviceConfig)) {
         defaultTranslationService = service;
         break;
       }
@@ -10466,14 +10501,14 @@ body {
     let defaultTheme = translationTheme, themes = Object.keys(translationThemePatterns);
     for (let theme of themes) {
       let themeConfig = translationThemePatterns[theme];
-      if (isMatchUrl(url, themeConfig.matches)) {
+      if (isMatched(url, themeConfig)) {
         defaultTheme = theme;
         break;
       }
     }
-    let isTranslateUrl = isMatchUrl(url, translationUrlPattern.matches), isTranslateExcludeUrl = isMatchUrl(
+    let isTranslateUrl = isMatched(url, translationUrlPattern), isTranslateExcludeUrl = isMatchedExclude(
       url,
-      translationUrlPattern.excludeMatches
+      translationUrlPattern
     );
     isTranslateExcludeUrl || (isTranslateExcludeUrl = isMatchUrl(url, buildinExcludeUrls));
     let sourceConfigLanguages = Object.keys(sourceLanguageUrlPattern), sourceLanguageReverseMap = {};
@@ -10484,11 +10519,14 @@ body {
           sourceLanguageReverseMap[match] = language;
     }
     let sourceUrlMatches = Object.keys(sourceLanguageReverseMap), sourceUrlMatched = getMatchedUrl(url, sourceUrlMatches);
-    sourceUrlMatched && (sourceLanguage = sourceLanguageReverseMap[sourceUrlMatched] ?? "auto");
-    let defaultTargetLanguage = targetLanguage || "zh-CN", hostname2 = urlObj.hostname, encryptedHostname = await sha256(hostname2), pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash, encryptedPath = await sha256(pathAndQueryAndHash), encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`, localConfig = await getLocalConfig(), ctx = {
+    sourceUrlMatched && (sourceLanguage = sourceLanguageReverseMap[sourceUrlMatched] ?? "auto", sourceLanguageReverseMap[sourceUrlMatched] && sourceLanguageReverseMap[sourceUrlMatched] !== "auto" && setCurrentPageLanguageByClient(
+      sourceLanguageReverseMap[sourceUrlMatched]
+    ));
+    let defaultTargetLanguage = targetLanguage || "zh-CN", hostname2 = urlObj.hostname, encryptedHostname = await sha256(hostname2), pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash, encryptedPath = await sha256(pathAndQueryAndHash), encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`, localConfig = await getLocalConfig(), translationStartMode = config.translationStartMode;
+    translationStartMode === "dynamic" && isImmediateTranslate && (translationStartMode = "immediate");
+    let ctx = {
       targetLanguage: defaultTargetLanguage,
       config,
-      isDetectParagraphLanguage,
       translationService: defaultTranslationService,
       translationTheme: defaultTheme,
       isTranslateUrl,
@@ -10499,9 +10537,10 @@ body {
       encryptedUrl,
       state: state || {
         translationArea: config.translationArea,
-        translationStartMode: config.translationStartMode,
+        translationStartMode,
         isAutoTranslate: !1,
-        isNeedClean: !1
+        isNeedClean: !1,
+        isDetectParagraphLanguage
       },
       localConfig
     };
@@ -10509,16 +10548,21 @@ body {
       (selector) => selector !== ".btn"
     )), ctx.translationService === "d" && (config.immediateTranslationTextCount = 0);
     let rules = config.rules, rule;
-    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => {
-      let isMatched = isMatchUrl(url, rule2.matches);
-      if (!isMatched) {
-        let selectorMatches = rule2.selectorMatches;
-        selectorMatches && selectorMatches.length > 0 && (isMatched = isMatchSelectors(selectorMatches));
-      }
-      return isMatched;
-    });
+    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2));
     let generalRule = config.generalRule;
     return rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1), ctx;
+  }
+  function isMatched(url, matchPattern) {
+    if (!matchPattern)
+      return !1;
+    let { matches, excludeMatches, selectorMatches, excludeSelectorMatches } = matchPattern;
+    return excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) ? !1 : matches && matches.length > 0 && isMatchUrl(url, matches) ? !0 : excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches) ? !1 : !!(selectorMatches && selectorMatches.length > 0 && isMatchSelectors(selectorMatches));
+  }
+  function isMatchedExclude(url, matchPattern) {
+    if (!matchPattern)
+      return !1;
+    let { excludeMatches, excludeSelectorMatches } = matchPattern;
+    return !!(excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) || excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches));
   }
 
   // dom/translate_page.ts
@@ -10721,7 +10765,7 @@ body {
       return;
     originalPageTitle !== pageTitle && (originalPageTitle = pageTitle);
     let currentLang = "auto";
-    if (ctx.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
+    if (ctx.state.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
       let detectedLang = await detectLanguage({
         text: pageTitle
       });
@@ -10823,15 +10867,16 @@ body {
     let ids = [...currentParagraphIds];
     currentParagraphIds = [];
     let currentParagraphLang = "auto";
-    ctx.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
+    ctx.state.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
     let payload = {
       sentences: ids.filter((id) => getParagraph(id)).map((id) => {
-        let paragraph = getParagraph(id);
-        return {
+        let paragraph = getParagraph(id), from = paragraph.languageByLocal;
+        return from === "auto" && (from = currentParagraphLang), {
           id: paragraph.id,
           url: ctx.encryptedUrl,
           text: paragraph.text,
-          from: currentParagraphLang,
+          from,
+          fromByClient: paragraph.languageByClient,
           to: ctx.targetLanguage
         };
       })
@@ -11222,13 +11267,14 @@ body {
         return {
           sentences: []
         };
-      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null;
+      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, firstFrom = sentences[0].from, isMultipleLanguage = !1;
+      sentences.some((s4) => s4.from !== firstFrom) && (isMultipleLanguage = !0);
       try {
         tempSentenceGroups = splitSentences(
           sentences,
           this.maxTextLength,
           this.maxTextGroupLength
-        ), log_default.debug("tempSentenceGroups", tempSentenceGroups);
+        );
       } catch (e3) {
         if (everySentenceCallback) {
           sent.has(currentSentenceIndex) && currentSentenceIndex++;
@@ -11244,12 +11290,17 @@ body {
         limit: this.throttleLimit,
         interval: 1e3
       });
+      log_default.debug(
+        "tempSentenceGroups",
+        tempSentenceGroups.map((item) => item)
+      );
       for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
         let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = throttle(async () => {
-          if (this.isSupportList)
+          let finalFrom = tempSentenceGroup.from;
+          if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
             return await this.translateList({
               text: tempSentenceGroup.tempSentences.map((item) => item.text),
-              from: tempSentenceGroup.from,
+              from: finalFrom,
               to: tempSentenceGroup.to,
               url
             });
@@ -11258,7 +11309,7 @@ body {
               (item) => item.text
             ).join(translationTextSeparator), result2 = await this.translate({
               text: mergedText,
-              from: tempSentenceGroup.from,
+              from: finalFrom,
               to: tempSentenceGroup.to,
               url
             }), { text } = result2;

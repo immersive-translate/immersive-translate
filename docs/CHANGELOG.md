@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.22
+
+- Fix userscript build
+
 ## 0.2.21
 
 - Fix firefox online pdf translate

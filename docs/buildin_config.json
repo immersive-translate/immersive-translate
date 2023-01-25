@@ -54,11 +54,38 @@
     "toggleTranslateTheWholePage": "Alt+W",
     "toggleTranslateToThePageEndImmediately": "Alt+S"
   },
+  "tempTranslateDomainMinutes": 5,
+  "immediateTranslationPattern": {
+    "matches": [
+      "www.reddit.com",
+      "old.reddit.com",
+      "www.tumblr.com",
+      "twitter.com",
+      "*.twitter.com",
+      "medium.com",
+      "*.medium.com",
+      "github.com",
+      "gist.github.com",
+      "www.facebook.com",
+      "www.youtube.com",
+      "m.youtube.com",
+      "mail.google.com",
+      "discord.com",
+      "web.telegram.org",
+      "*.slack.com"
+    ],
+    "excludeMatches": [],
+    "selectorMatches": [
+      "meta[property='al:ios:url'][content^='medium://']"
+    ],
+    "selectorExcludeMatches": []
+  },
   "translationParagraphLanguagePattern": {
     "matches": [
       "www.reddit.com",
       "old.reddit.com",
       "twitter.com",
+      "www.tumblr.com",
       "*.twitter.com",
       "medium.com",
       "*.medium.com",
@@ -1004,8 +1031,23 @@
       "additionalSelectors": [
         "header[data-review-id] + div"
       ]
+    },
+    {
+      "matches": [
+        "www.tumblr.com"
+      ],
+      "selectors": [
+        "h1",
+        "article > header + div",
+        "[data-testid=notes-root] p"
+      ],
+      "preWhitespaceDetectedTags": [
+        "DIV",
+        "SPAN",
+        "P"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-24T13:42:27.118Z",
-  "latestVersion": "0.2.20"
+  "buildinConfigUpdatedAt": "2023-01-25T17:13:00.391Z",
+  "latestVersion": "0.2.23"
 }

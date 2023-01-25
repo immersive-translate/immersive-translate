@@ -1041,6 +1041,10 @@
         "article > header + div",
         "[data-testid=notes-root] p"
       ],
+      "excludeSelectors": [
+        "div.fAAi8",
+        "div.wvu3V"
+      ],
       "preWhitespaceDetectedTags": [
         "DIV",
         "SPAN",
@@ -1048,6 +1052,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T17:13:00.391Z",
+  "buildinConfigUpdatedAt": "2023-01-25T17:52:50.700Z",
   "latestVersion": "0.2.23"
 }

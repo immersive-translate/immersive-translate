@@ -54,11 +54,9 @@
     "toggleTranslateTheWholePage": "Alt+W",
     "toggleTranslateToThePageEndImmediately": "Alt+S"
   },
-  "tempTranslateDomainMinutes": 5,
+  "tempTranslateDomainMinutes": 0,
   "immediateTranslationPattern": {
     "matches": [
-      "www.reddit.com",
-      "old.reddit.com",
       "www.tumblr.com",
       "twitter.com",
       "*.twitter.com",
@@ -1062,6 +1060,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T18:52:24.802Z",
+  "buildinConfigUpdatedAt": "2023-01-25T20:38:47.597Z",
   "latestVersion": "0.2.23"
 }

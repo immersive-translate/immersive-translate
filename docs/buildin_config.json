@@ -1037,10 +1037,11 @@
         "www.tumblr.com"
       ],
       "selectors": [
-        "h1",
+        "article h1",
         "article > header + div",
         "[data-testid=notes-root] p",
-        "div.k31gt"
+        "div.k31gt",
+        "p"
       ],
       "excludeSelectors": [
         "div.fAAi8",
@@ -1053,6 +1054,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T18:14:07.752Z",
+  "buildinConfigUpdatedAt": "2023-01-25T18:17:28.212Z",
   "latestVersion": "0.2.23"
 }

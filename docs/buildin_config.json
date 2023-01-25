@@ -1041,7 +1041,9 @@
         "article > header + div",
         "[data-testid=notes-root] p",
         "div.k31gt",
-        "p"
+        "p",
+        "article ul",
+        "article h2"
       ],
       "excludeSelectors": [
         "div.fAAi8",
@@ -1054,6 +1056,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T18:17:28.212Z",
+  "buildinConfigUpdatedAt": "2023-01-25T18:49:36.847Z",
   "latestVersion": "0.2.23"
 }

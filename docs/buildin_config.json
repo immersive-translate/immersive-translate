@@ -1043,7 +1043,13 @@
         "div.k31gt",
         "p",
         "article ul",
-        "article h2"
+        "article h2",
+        "article h3",
+        "article h4",
+        "article h5",
+        "article h6",
+        "article blockquote",
+        "article ol"
       ],
       "excludeSelectors": [
         "div.fAAi8",
@@ -1056,6 +1062,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T18:49:36.847Z",
+  "buildinConfigUpdatedAt": "2023-01-25T18:52:24.802Z",
   "latestVersion": "0.2.23"
 }

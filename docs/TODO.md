@@ -63,11 +63,11 @@
 - [ ] tampermonkey 的云同步就是用 google drive api 实现的，可以参考下
 - [ ] 支持用户自定义 popup 页面的快捷操作，比如快速切换当前的翻译模式，全区域翻译，还是智能识别。 该功能入口可以添加在设置页面对应的设置项旁边。... more, 在 popup 页面显示该选项。
 - [ ] 修改商店描述，更易读
-- [ ] QQ 邮箱适配，iframe
+- [x] QQ 邮箱适配，iframe
 - [x] 油猴增加注册菜单项
 - [ ] 测试油猴本地文件，indexdb 缓存问题
 - [x] add more register command
 - [x] 油猴图标防抖动
 - [ ] popup userscript 页面支持检测最新版本
-- [ ] 在页面中间开启翻译的时候，自动跳转到旧的位置？
+- [x] 在页面中间开启翻译的时候，自动跳转到旧的位置？
 - [ ] 全局模式下，翻译 input， type = submit 的 value 属性

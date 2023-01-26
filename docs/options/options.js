@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-26T13:47:52.291Z", VERSION: "0.2.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-26T21:41:33.818Z", VERSION: "0.2.25", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -6754,7 +6754,7 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
+  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
   var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
     "none",
@@ -7693,7 +7693,8 @@ body {
         matches: [
           "twitter.com",
           "mobile.twitter.com",
-          "tweetdeck.twitter.com"
+          "tweetdeck.twitter.com",
+          "https://platform.twitter.com/embed*"
         ],
         selectors: [
           '[data-testid="tweetText"]',
@@ -8385,6 +8386,14 @@ body {
           "SPAN",
           "P"
         ]
+      },
+      {
+        matches: [
+          "mail.qq.com/cgi-bin/frame_html"
+        ],
+        selectors: [
+          "#thisiddoesnotexists"
+        ]
       }
     ]
   };
@@ -9037,6 +9046,15 @@ body {
     return currentMaxCount * 2.5 / allLettersLength > 0.5 ? maxCountLang : "auto";
   }
 
+  // utils/iframe.ts
+  function getIsInIframe() {
+    try {
+      return globalThis.self !== globalThis.top;
+    } catch {
+      return !0;
+    }
+  }
+
   // dom/util.ts
   var env2 = getEnv(), isProd = env2.PROD === "1";
   function duplicatedElements(root2, array, rule) {
@@ -9211,18 +9229,8 @@ body {
   function hasMark(element, markedAttribute) {
     return isProd ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
   }
-  function trimText(text) {
-    return text.replace(/\s/g, " ");
-  }
   function getMainText(root2) {
-    let main2 = root2.querySelector("main"), text = "";
-    if (main2 && (text = trimText(main2.innerText || main2.textContent || "")), text.length >= 10)
-      return text;
-    let article = root2.querySelectorAll("article");
-    if (article.length > 0)
-      for (let a4 of article)
-        text = trimText(a4.innerText || a4.textContent || "");
-    return text.length >= 10 || (text = trimText(root2.innerText || root2.textContent || "")), text;
+    return (root2.innerText || root2.textContent || "").trim();
   }
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
@@ -11045,10 +11053,12 @@ body {
     return !1;
   }
   async function initPage() {
-    let ctx = await getGlobalContext(globalThis.location.href);
+    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(globalThis.location.href);
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
     let lang = ctx.sourceLanguage;
     lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
+      text: getMainText(document.body).slice(0, 1e3)
+    }) : isInIframe ? lang = await detectLanguage({
       text: getMainText(document.body).slice(0, 1e3)
     }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
@@ -11076,11 +11086,9 @@ body {
             return !1;
           let parsedMessageFrom = parseType(from), connectionInfo = listeners2.get(toType).get(toName);
           if (!connectionInfo)
-            return this.logger.debug(`no message handler for ${toType}:${to}`), sendResponse({
-              ok: !1,
-              errorName: "notActive",
-              errorMessage: `${to} is not active, from ${from} ${message.payload.method}`
-            }), !1;
+            return this.logger.debug(
+              `no message handler for ${toType}:${to}, but it's ok`
+            ), !1;
           let { messageHandler, sync } = connectionInfo, messageAuthor = {
             type: fromType,
             name: parsedMessageFrom.name,

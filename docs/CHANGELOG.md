@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.25
+
+- Support iframe translate, like QQ mail, emebed tweet.
+
 ## 0.2.24
 
 - Add temp translate site for a while

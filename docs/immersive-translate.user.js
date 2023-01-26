@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.24
+// @version      0.2.25
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -40,7 +40,6 @@
 // @connect    api.openl.club
 // @connect    openapi.youdao.com
 // @connect    translate.volcengine.com
-// @noframes
 // @run-at       document-end
 // @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
@@ -55,7 +54,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-26T13:47:52.291Z", VERSION: "0.2.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-26T21:41:33.818Z", VERSION: "0.2.25", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4192,13 +4191,13 @@ body {
             _parsedRespHeaders
           );
           _parsedRespHeaders.set("X-Final-URL", finalUrl);
-          var options2 = {
+          var options3 = {
             status,
             statusText: resp.statusText,
             headers: _parsedRespHeaders,
             url: finalUrl
           }, body = resp.responseText;
-          let finalResponse = new Response(body, options2);
+          let finalResponse = new Response(body, options3);
           resolve(finalResponse);
         }, xhr_details.onerror = function(err) {
           reject(new TypeError("Network request failed"));
@@ -4714,7 +4713,7 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
+  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
   var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
@@ -5140,18 +5139,8 @@ body {
   function hasMark(element, markedAttribute) {
     return isProd ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
   }
-  function trimText(text) {
-    return text.replace(/\s/g, " ");
-  }
   function getMainText(root2) {
-    let main3 = root2.querySelector("main"), text = "";
-    if (main3 && (text = trimText(main3.innerText || main3.textContent || "")), text.length >= 10)
-      return text;
-    let article = root2.querySelectorAll("article");
-    if (article.length > 0)
-      for (let a6 of article)
-        text = trimText(a6.innerText || a6.textContent || "");
-    return text.length >= 10 || (text = trimText(root2.innerText || root2.textContent || "")), text;
+    return (root2.innerText || root2.textContent || "").trim();
   }
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
@@ -5860,7 +5849,8 @@ body {
         matches: [
           "twitter.com",
           "mobile.twitter.com",
-          "tweetdeck.twitter.com"
+          "tweetdeck.twitter.com",
+          "https://platform.twitter.com/embed*"
         ],
         selectors: [
           '[data-testid="tweetText"]',
@@ -6552,6 +6542,14 @@ body {
           "SPAN",
           "P"
         ]
+      },
+      {
+        matches: [
+          "mail.qq.com/cgi-bin/frame_html"
+        ],
+        selectors: [
+          "#thisiddoesnotexists"
+        ]
       }
     ]
   };
@@ -6833,8 +6831,8 @@ body {
   }
 
   // https://deno.land/std@0.171.0/async/delay.ts
-  function delay(ms, options2 = {}) {
-    let { signal, persistent } = options2;
+  function delay(ms, options3 = {}) {
+    let { signal, persistent } = options3;
     return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
       let abort = () => {
         clearTimeout(i3), reject(new DOMException("Delay was aborted.", "AbortError"));
@@ -9029,14 +9027,14 @@ body {
   };
 
   // browser/request.ts
-  async function request(options2) {
-    options2.body;
-    let { url, responseType, ...fetchOptions } = options2;
+  async function request(options3) {
+    options3.body;
+    let { url, responseType, ...fetchOptions } = options3;
     responseType || (responseType = "json"), fetchOptions = {
       mode: "cors",
       ...fetchOptions
     };
-    let response = await (options2.fetchPolyfill || fetch)(url, fetchOptions);
+    let response = await (options3.fetchPolyfill || fetch)(url, fetchOptions);
     if (response.ok && response.status >= 200 && response.status < 400) {
       if (responseType === "json")
         return await response.json();
@@ -9327,6 +9325,15 @@ body {
     }), dbNames;
   }
 
+  // utils/iframe.ts
+  function getIsInIframe() {
+    try {
+      return globalThis.self !== globalThis.top;
+    } catch {
+      return !0;
+    }
+  }
+
   // dom/current_language.ts
   var currentPageLanguage = "auto", currentPageLanguageByClient = "auto", currentPageLanguageByRemote = "auto";
   function setCurrentPageLanguage(lang) {
@@ -9357,11 +9364,9 @@ body {
             return !1;
           let parsedMessageFrom = parseType(from), connectionInfo = listeners2.get(toType).get(toName);
           if (!connectionInfo)
-            return this.logger.debug(`no message handler for ${toType}:${to}`), sendResponse({
-              ok: !1,
-              errorName: "notActive",
-              errorMessage: `${to} is not active, from ${from} ${message.payload.method}`
-            }), !1;
+            return this.logger.debug(
+              `no message handler for ${toType}:${to}, but it's ok`
+            ), !1;
           let { messageHandler, sync } = connectionInfo, messageAuthor = {
             type: fromType,
             name: parsedMessageFrom.name,
@@ -9410,9 +9415,9 @@ body {
         }
       ));
     }
-    getConnection(name, messageHandler, options2) {
+    getConnection(name, messageHandler, options3) {
       let sync = !1;
-      options2 && options2.sync && (sync = !0);
+      options3 && options3.sync && (sync = !0);
       let fromType = this.fromType, currentListeners = listeners2.get(fromType);
       if (currentListeners.has(name))
         return currentListeners.get(name).connectionInstance;
@@ -9521,7 +9526,7 @@ body {
   }, connection, syncConnection;
   function setupMessageListeners() {
     let asyncConnection = getConnection();
-    getSyncConnection(), asyncConnection.sendMessage("popup:main_sync", { method: "ready" }).catch(
+    getIsInIframe() || getSyncConnection(), asyncConnection.sendMessage("popup:main_sync", { method: "ready" }).catch(
       (_e3) => {
       }
     );
@@ -9536,16 +9541,16 @@ body {
   }
 
   // browser_proxy.ts
-  async function sendMessage(options2) {
+  async function sendMessage(options3) {
     return await getConnection().sendMessage(
       "background:main",
-      options2
+      options3
     );
   }
-  function request2(options2) {
-    return isMonkey() || isDeno() ? (options2.fetchPolyfill = globalThis.GM_fetch, request(options2)) : sendMessage({
+  function request2(options3) {
+    return isMonkey() || isDeno() ? (options3.fetchPolyfill = globalThis.GM_fetch, request(options3)) : sendMessage({
       method: "fetch",
-      data: options2
+      data: options3
     });
   }
   function getConfig2() {
@@ -9570,21 +9575,21 @@ body {
       }
     );
   }
-  function detectLanguage(options2) {
-    if (options2.text) {
-      let chineseLike = detectChinese(options2.text);
+  function detectLanguage(options3) {
+    if (options3.text) {
+      let chineseLike = detectChinese(options3.text);
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
     } else
       return Promise.resolve("auto");
     if (isMonkey()) {
-      let result = browserAPI.extra.detectLanguage(options2.text);
+      let result = browserAPI.extra.detectLanguage(options3.text);
       return Promise.resolve(result);
     }
     return sendMessage(
       {
         method: "detectLanguage",
-        data: options2
+        data: options3
       }
     );
   }
@@ -11827,8 +11832,8 @@ body {
     if (!!escapedKey)
       return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
   }).filter((v3) => v3).join("&"), Signer = class {
-    constructor(request3, serviceName, options2) {
-      this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options2 = options2 || {}, this.bodySha256 = options2.bodySha256, this.request.params = this.sortParams(this.request.params);
+    constructor(request3, serviceName, options3) {
+      this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options3 = options3 || {}, this.bodySha256 = options3.bodySha256, this.request.params = this.sortParams(this.request.params);
     }
     sortParams(params) {
       let newParams = {};
@@ -13049,8 +13054,8 @@ body {
   }
 
   // dom/context.ts
-  async function getContext(options2) {
-    let { url, config, state } = options2, urlObj = new URL(url), sourceLanguage = "auto", {
+  async function getContext(options3) {
+    let { url, config, state } = options3, urlObj = new URL(url), sourceLanguage = "auto", {
       translationParagraphLanguagePattern,
       translationService,
       translationServices,
@@ -13322,12 +13327,12 @@ body {
         config
       });
     else {
-      let options2 = {
+      let options3 = {
         url,
         config,
         state: globalContext.state
       };
-      globalContext = await getContext(options2);
+      globalContext = await getContext(options3);
     }
     return globalContext;
   }
@@ -13575,10 +13580,12 @@ body {
     return !1;
   }
   async function initPage() {
-    let ctx = await getGlobalContext(globalThis.location.href);
+    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(globalThis.location.href);
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
     let lang = ctx.sourceLanguage;
     lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
+      text: getMainText(document.body).slice(0, 1e3)
+    }) : isInIframe ? lang = await detectLanguage({
       text: getMainText(document.body).slice(0, 1e3)
     }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
@@ -13611,7 +13618,15 @@ body {
         });
         globalThis.document.dispatchEvent(event);
       }
-    });
+    }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
+      event && event.data && event.data.payload && event.data.author === iframeMessageIdentifier && asyncMessageHandler(event.data.payload, {
+        tab: {
+          id: 1,
+          url: "https://www.fake-iframe.com",
+          active: !0
+        }
+      });
+    }, !1);
   }
 
   // utils/compare_version.ts
@@ -13715,9 +13730,9 @@ body {
       `immersive-translate-${area}-storage`
     );
     if (storageInputElement) {
-      log_default.debug("init storage"), console.log("browserAPI", browserAPI);
+      log_default.debug("init storage");
       let browserStorageObj = await browserAPI.storage[area].get(null);
-      console.log("browserStorageObj", browserStorageObj), storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
+      storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
         try {
           let storageObj = JSON.parse(event.target.value);
           browserAPI.storage[area].set(storageObj);
@@ -13731,6 +13746,31 @@ body {
     }
   }
 
+  // userscript_message.ts
+  function sendMessageToContent(request3) {
+    asyncMessageHandler(request3, {
+      tab: {
+        id: 1,
+        url: "https://www.fake.com",
+        active: !0
+      }
+    }).catch((e3) => {
+      log_default.error("send content message request failed", request3, e3);
+    }), document.querySelectorAll("iframe").forEach((iframe) => {
+      iframe.contentWindow && iframe.contentWindow.postMessage(
+        {
+          author: iframeMessageIdentifier,
+          payload: request3
+        },
+        "*"
+      );
+    });
+    let event = new CustomEvent(userscriptCommandEventName, {
+      detail: request3
+    });
+    globalThis.document.dispatchEvent(event);
+  }
+
   // userscript_command_listeners.ts
   function setupCommandListeners(config) {
     let shortcuts = config.shortcuts || {}, keyMap = Object.keys(shortcuts).reduce((acc, key) => (acc[shortcuts[key]] = key, acc), {}), shortcutsKeys = Object.keys(keyMap);
@@ -13742,21 +13782,6 @@ body {
         });
       });
     }
-  }
-  function sendMessageToContent(request3) {
-    asyncMessageHandler(request3, {
-      tab: {
-        id: 1,
-        url: "https://www.fake.com",
-        active: !0
-      }
-    }).catch((e3) => {
-      log_default.error("send content message request failed", request3, e3);
-    });
-    let event = new CustomEvent(userscriptCommandEventName, {
-      detail: request3
-    });
-    globalThis.document.dispatchEvent(event);
   }
 
   // libs/preact-translation/utils.ts
@@ -13843,6 +13868,118 @@ body {
     return useOriginal ? langMap2[lang] || lang : translation !== `languages.${lang}` ? translation : langMap2[lang];
   };
 
+  // manifest.json
+  var manifest_default = {
+    manifest_version: 3,
+    name: "__MSG_brandName__",
+    description: "__MSG_brandDescription__",
+    version: "0.2.25",
+    default_locale: "en",
+    background: {
+      service_worker: "background.js"
+    },
+    web_accessible_resources: [
+      "styles/inject.css",
+      "pdf/index.html"
+    ],
+    content_scripts: [
+      {
+        matches: [
+          "<all_urls>",
+          "file:///*",
+          "*://*/*"
+        ],
+        js: [
+          "content_script.js"
+        ],
+        css: [
+          "styles/inject.css"
+        ],
+        run_at: "document_end",
+        all_frames: !0
+      }
+    ],
+    commands: {
+      toggleTranslatePage: {
+        suggested_key: {
+          default: "Alt+A"
+        },
+        description: "__MSG_toggleTranslatePage__"
+      },
+      toggleTranslateTheWholePage: {
+        suggested_key: {
+          default: "Alt+W"
+        },
+        description: "__MSG_toggleTranslateTheWholePage__"
+      },
+      toggleTranslateToThePageEndImmediately: {
+        suggested_key: {
+          default: "Alt+S"
+        },
+        description: "__MSG_toggleTranslateToThePageEndImmediately__"
+      },
+      toggleTranslateTheMainPage: {
+        description: "__MSG_toggleTranslateTheMainPage__"
+      }
+    },
+    options_page: "options.html",
+    options_ui: {
+      page: "options.html",
+      open_in_tab: !0,
+      browser_style: !1
+    },
+    permissions: [
+      "storage",
+      "activeTab",
+      "contextMenus",
+      "webRequest",
+      "webRequestBlocking",
+      "declarativeNetRequestWithHostAccess",
+      "declarativeNetRequestFeedback",
+      "declarativeNetRequest"
+    ],
+    host_permissions: [
+      "<all_urls>"
+    ],
+    declarative_net_request: {
+      rule_resources: [
+        {
+          id: "ruleset_1",
+          enabled: !0,
+          path: "rules/request_modifier_rule.json"
+        }
+      ]
+    },
+    action: {
+      default_popup: "popup.html",
+      default_icon: {
+        32: "icons/32.png",
+        48: "icons/48.png",
+        64: "icons/64.png",
+        128: "icons/128.png",
+        256: "icons/256.png"
+      }
+    },
+    browser_action: {
+      default_icon: "icons/32.png",
+      default_popup: "popup.html"
+    },
+    icons: {
+      32: "icons/32.png",
+      48: "icons/48.png",
+      64: "icons/64.png",
+      128: "icons/128.png",
+      256: "icons/256.png"
+    },
+    browser_specific_settings: {
+      gecko: {
+        id: "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
+        strict_min_version: "63.0"
+      }
+    },
+    key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
+  };
+
   // libs/preact-translation/useTranslate.tsx
   var cache = {}, defaultOptions = {
     root: "",
@@ -13850,31 +13987,31 @@ body {
     fallbackLang: "en"
   };
   function useTranslate(rawOptions, translations2) {
-    let options2 = Object.assign(
+    let options3 = Object.assign(
       {},
       defaultOptions,
       rawOptions
     );
     cache = translations2 || cache;
-    let [lang, setLang] = P2(options2.lang), [data, setData] = P2(cache), [isReady, setReady] = P2(!1), loadData = (langKey) => {
+    let [lang, setLang] = P2(options3.lang), [data, setData] = P2(cache), [isReady2, setReady] = P2(!1), loadData = (langKey) => {
       if (data.hasOwnProperty(langKey))
         return;
       setReady(!1);
-      let url = getResourceUrl(options2.root || "", langKey);
-      options2.getUrl && (url = options2.getUrl(options2.root || "", langKey), fetch(url).then((results) => results.json()).then((resource) => {
+      let url = getResourceUrl(options3.root || "", langKey);
+      options3.getUrl && (url = options3.getUrl(options3.root || "", langKey), fetch(url).then((results) => results.json()).then((resource) => {
         cache[langKey] = resource, setData({ ...cache }), setReady(!0);
       }).catch((error) => {
         setData({ ...cache }), setReady(!0);
       }));
     };
     return j3(() => {
-      loadData(options2.fallbackLang || "en"), loadData(lang);
+      loadData(options3.fallbackLang || "en"), loadData(lang);
     }, [lang]), { lang, setLang, t: (key, params) => {
       if (!data.hasOwnProperty(lang))
         return key;
       let value = getValue(data, lang, key);
-      return value === key && lang !== options2.fallbackLang && (value = getValue(data, options2.fallbackLang, key)), format(value, params);
-    }, isReady };
+      return value === key && lang !== options3.fallbackLang && (value = getValue(data, options3.fallbackLang, key)), format(value, params);
+    }, isReady: isReady2 };
   }
 
   // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
@@ -13896,7 +14033,7 @@ body {
     lang: "en",
     fallbackLang: "en"
   }, TranslateProvider = (props) => {
-    let { t: t5, setLang, lang, isReady } = useTranslate(
+    let { t: t5, setLang, lang, isReady: isReady2 } = useTranslate(
       {
         root: props.root || defaultOptions2.root,
         lang: props.lang || defaultOptions2.lang,
@@ -13910,7 +14047,7 @@ body {
         t: t5,
         setLang,
         lang,
-        isReady
+        isReady: isReady2
       },
       children: props.children
     });
@@ -14719,18 +14856,10 @@ body {
         setContext(ctx2);
       });
     }, [currentUrl, config]);
-    let handleTranslatePage = () => {
-      translatePage(), onClose();
-    }, handleRestorePage = () => {
-      restorePage();
-    }, handleToggleTranslatePage = () => {
-      toggleTranslatePage(), onClose();
-    }, handleTranslateTheWholePage = () => {
-      translateTheWholePage(), onClose();
-    }, handletranslateToThePageEndImmediately = () => {
-      translateToThePageEndImmediately(), onClose();
-    }, handleTranslateTheMainPage = () => {
-      translateTheMainPage(), onClose();
+    let handleSendMessageToContent = (method, isClose) => () => {
+      sendMessageToContent({
+        method
+      }), isClose && onClose();
     }, handleClose = () => {
       onClose();
     }, handleTranslatePdf = () => {
@@ -14742,13 +14871,25 @@ body {
     };
     return !config || !ctx ? null : /* @__PURE__ */ p6(Popup, {
       onClose: handleClose,
-      onTranslateTheWholePage: handleTranslateTheWholePage,
+      onTranslateTheWholePage: handleSendMessageToContent(
+        "translateTheWholePage",
+        !0
+      ),
       openOptionsPage: handleOpenOptionsPage,
-      onToggleTranslate: handleToggleTranslatePage,
-      onTranslateTheMainPage: handleTranslateTheMainPage,
-      ontranslateToThePageEndImmediately: handletranslateToThePageEndImmediately,
-      onTranslatePage: handleTranslatePage,
-      onRestorePage: handleRestorePage,
+      onToggleTranslate: handleSendMessageToContent(
+        "toggleTranslatePage",
+        !0
+      ),
+      onTranslateTheMainPage: handleSendMessageToContent(
+        "translateTheMainPage",
+        !0
+      ),
+      ontranslateToThePageEndImmediately: handleSendMessageToContent(
+        "translateToThePageEndImmediately",
+        !0
+      ),
+      onTranslatePage: handleSendMessageToContent("translatePage", !0),
+      onRestorePage: handleSendMessageToContent("restorePage", !1),
       onTranslatePdf: handleTranslatePdf,
       onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
       onSetPageLanguage,
@@ -14773,7 +14914,9 @@ body {
   }, positionChanged = !1, rootRef = null, btnRef = null, mountPointRef = null, shadowRef = null, timer = null, localConfig = null, delta = 6, startX, startY, lastBtnStyle = null, lastRootStyle = null;
   async function initPopup() {
     let env4 = getEnv();
-    localConfig = await getLocalConfig2(), currentPagePopupConfig = localConfig.pagePopupConfig || currentPagePopupConfig;
+    localConfig = await getLocalConfig2();
+    let config = await getConfig2();
+    registerCommands(config), currentPagePopupConfig = localConfig.pagePopupConfig || currentPagePopupConfig;
     let popup = document.createElement("div");
     popup.id = "immersive-translate-popup", popup.setAttribute("style", "all: initial"), document.documentElement.appendChild(popup);
     let shadow = popup.attachShadow({ mode: "open" });
@@ -14807,9 +14950,7 @@ body {
     }, 2e3);
   }
   function renderPopup(shadow) {
-    let mountPoint = shadow.querySelector("#mount"), btn = shadow.querySelector(
-      "#immersive-translate-popup-btn"
-    ), handleOnClose = () => {
+    let mountPoint = shadow.querySelector("#mount"), handleOnClose = () => {
       showButton();
     }, handleClickOverLay = (e3) => {
       e3 && e3.target && e3.target.id === "immersive-translate-popup-overlay" && handleOnClose();
@@ -14927,133 +15068,8 @@ body {
     let { position, ...rest } = positionConfig, screenSize = getScreenSize(), styleObj = {};
     return position === "left" ? (styleObj.left = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "right" ? (styleObj.right = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "top" ? (styleObj.top = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left) : position === "bottom" && (styleObj.bottom = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left), styleObj;
   }
-
-  // manifest.json
-  var manifest_default = {
-    manifest_version: 3,
-    name: "__MSG_brandName__",
-    description: "__MSG_brandDescription__",
-    version: "0.2.24",
-    default_locale: "en",
-    background: {
-      service_worker: "background.js"
-    },
-    web_accessible_resources: [
-      "styles/inject.css",
-      "pdf/index.html"
-    ],
-    content_scripts: [
-      {
-        matches: [
-          "<all_urls>",
-          "file:///*",
-          "*://*/*"
-        ],
-        js: [
-          "content_script.js"
-        ],
-        css: [
-          "styles/inject.css"
-        ],
-        run_at: "document_end"
-      }
-    ],
-    commands: {
-      toggleTranslatePage: {
-        suggested_key: {
-          default: "Alt+A"
-        },
-        description: "__MSG_toggleTranslatePage__"
-      },
-      toggleTranslateTheWholePage: {
-        suggested_key: {
-          default: "Alt+W"
-        },
-        description: "__MSG_toggleTranslateTheWholePage__"
-      },
-      toggleTranslateToThePageEndImmediately: {
-        suggested_key: {
-          default: "Alt+S"
-        },
-        description: "__MSG_toggleTranslateToThePageEndImmediately__"
-      },
-      toggleTranslateTheMainPage: {
-        description: "__MSG_toggleTranslateTheMainPage__"
-      }
-    },
-    options_page: "options.html",
-    options_ui: {
-      page: "options.html",
-      open_in_tab: !0,
-      browser_style: !1
-    },
-    permissions: [
-      "storage",
-      "activeTab",
-      "contextMenus",
-      "webRequest",
-      "webRequestBlocking",
-      "declarativeNetRequestWithHostAccess",
-      "declarativeNetRequestFeedback",
-      "declarativeNetRequest"
-    ],
-    host_permissions: [
-      "<all_urls>"
-    ],
-    declarative_net_request: {
-      rule_resources: [
-        {
-          id: "ruleset_1",
-          enabled: !0,
-          path: "rules/request_modifier_rule.json"
-        }
-      ]
-    },
-    action: {
-      default_popup: "popup.html",
-      default_icon: {
-        32: "icons/32.png",
-        48: "icons/48.png",
-        64: "icons/64.png",
-        128: "icons/128.png",
-        256: "icons/256.png"
-      }
-    },
-    browser_action: {
-      default_icon: "icons/32.png",
-      default_popup: "popup.html"
-    },
-    icons: {
-      32: "icons/32.png",
-      48: "icons/48.png",
-      64: "icons/64.png",
-      128: "icons/128.png",
-      256: "icons/256.png"
-    },
-    browser_specific_settings: {
-      gecko: {
-        id: "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
-        strict_min_version: "63.0"
-      }
-    },
-    key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
-  };
-
-  // page_popup.tsx
-  var isInit = !1, addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
-  async function main() {
-    let config = await getConfig2(), options2 = {
-      url: globalThis.location.href,
-      config
-    }, ctx = await getContext(options2);
-    if (config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
-      userscriptCommandEventName,
-      (_e3) => {
-        isInit || (isInit = !0, initPopup().catch((e3) => {
-          log_default.error("init popup error", e3);
-        }));
-      }
-    ), isMonkey() && typeof GM < "u" && GM && GM.registerMenuCommand) {
+  function registerCommands(config) {
+    if (isMonkey() && typeof GM < "u" && GM && GM.registerMenuCommand) {
       let commandsMap = manifest_default.commands, menus = [
         ...Object.keys(commandsMap).filter((item) => item === "toggleTranslatePage").map((command) => {
           let titlePlaceholder = commandsMap[command].description, title = titlePlaceholder;
@@ -15082,14 +15098,6 @@ body {
           menu.key
         );
     }
-    if (ctx.isTranslateExcludeUrl)
-      log_default.debug("detect exclude url, do not inject anything.");
-    else {
-      let injectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
-      injectedCss && addCSS(injectedCss), (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
-        log_default.error("init popup error", e3);
-      })));
-    }
   }
   function sendMessageToContent2(request3) {
     asyncMessageHandler(request3, {
@@ -15107,17 +15115,41 @@ body {
     globalThis.document.dispatchEvent(event);
   }
 
+  // page_popup.tsx
+  var isInit = !1;
+  async function main() {
+    let config = await getConfig2(), options3 = {
+      url: globalThis.location.href,
+      config
+    }, ctx = await getContext(options3);
+    config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
+      userscriptCommandEventName,
+      (_e3) => {
+        isInit || (isInit = !0, initPopup().catch((e3) => {
+          log_default.error("init popup error", e3);
+        }));
+      }
+    ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
+      log_default.error("init popup error", e3);
+    })));
+  }
+
+  // userscript/inject_css.ts
+  var addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
+  function injectCss() {
+    let injectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
+    injectedCss && addCSS(injectedCss);
+  }
+
   // dom/main.ts
   async function main2() {
-    if (globalThis.top != globalThis.self)
-      return;
     let config = await getConfig2(), ctx = await getContext({
       config,
       url: globalThis.location.href
     });
     if (ctx.isTranslateExcludeUrl && isWebOptionsPage())
       log_default.debug("detect web options page"), setupWebOptionsPage();
-    else if (setupDomListeners(ctx), isMonkey() ? setupCommandListeners(config) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), await main().catch((e3) => {
+    else if (setupDomListeners(ctx), isMonkey() ? (injectCss(), setupCommandListeners(config)) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e3) => {
       log_default.error(`init popup page error: ${e3}`);
     }), !ctx.isTranslateExcludeUrl) {
       if (ctx.rule.isPdf) {
@@ -15138,8 +15170,227 @@ body {
     }
   }
 
+  // dom/ready_state.js
+  var options2 = {
+    capture: !0,
+    once: !0,
+    passive: !0
+  }, isReady = () => document.readyState === "interactive" || document.readyState === "complete", isCurrentState = (state) => document.readyState === state, resolveState = (state, fn) => isCurrentState(state) || isReady() ? (fn(state), !0) : !1, loading = () => new Promise((resolve) => {
+    resolveState("loading", resolve) || document.addEventListener(
+      "readystatechange",
+      () => {
+        document.readyState === "loading" && resolve("loading");
+      },
+      options2
+    );
+  }), interactive = () => new Promise((resolve) => {
+    resolveState("interactive", resolve) || document.addEventListener(
+      "readystatechange",
+      () => {
+        document.readyState === "interactive" && resolve("interactive");
+      },
+      options2
+    );
+  }), complete = () => new Promise((resolve) => {
+    resolveState("complete", resolve) || document.addEventListener(
+      "readystatechange",
+      () => {
+        document.readyState === "complete" && resolve("complete");
+      },
+      options2
+    );
+  }), domready = () => new Promise((resolve) => {
+    resolveState("domready", resolve) || document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        resolve("domready");
+      },
+      options2
+    );
+  }), load = () => new Promise((resolve) => {
+    resolveState("load", resolve) || window.addEventListener(
+      "load",
+      () => {
+        resolve("load");
+      },
+      options2
+    );
+  }), readyState = {};
+  Object.defineProperties(readyState, {
+    state: {
+      get: function() {
+        return document.readyState;
+      }
+    },
+    loading: {
+      get: function() {
+        return loading();
+      }
+    },
+    interactive: {
+      get: function() {
+        return interactive();
+      }
+    },
+    complete: {
+      get: function() {
+        return complete();
+      }
+    },
+    window: {
+      get: function() {
+        return load();
+      }
+    },
+    load: {
+      get: function() {
+        return load();
+      }
+    },
+    domready: {
+      get: function() {
+        return domready();
+      }
+    },
+    dom: {
+      get: function() {
+        return domready();
+      }
+    },
+    ready: {
+      get: function() {
+        return isReady();
+      }
+    }
+  });
+  var ready_state_default = readyState;
+
+  // utils/wait_for.ts
+  var ERRORS = {
+    NOT_FUNCTION: "Your executor is not a function. functions and promises are valid.",
+    FAILED_TO_WAIT: "Failed to wait"
+  };
+  function promisify(fn) {
+    return async () => await fn();
+  }
+  function validateExecution(executeFn) {
+    if (typeof executeFn != "function")
+      throw new Error(ERRORS.NOT_FUNCTION);
+  }
+  var PollUntil = class {
+    constructor({
+      interval = 100,
+      timeout = 1e3,
+      stopOnFailure = !1,
+      verbose = !1,
+      backoffFactor = 1,
+      backoffMaxInterval,
+      message = ""
+    } = {}) {
+      this._interval = interval, this._timeout = timeout, this._stopOnFailure = stopOnFailure, this._isWaiting = !1, this._isResolved = !1, this._verbose = verbose, this._userMessage = message, this.originalStacktraceError = new Error(), this._Console = console, this._backoffFactor = backoffFactor, this._backoffMaxInterval = backoffMaxInterval || timeout, this.start = +Date.now();
+    }
+    tryEvery(interval) {
+      return this._interval = interval, this;
+    }
+    stopAfter(timeout) {
+      return this._timeout = timeout, this;
+    }
+    execute(executeFn) {
+      return this._applyPromiseHandlers(), validateExecution(executeFn), this._executeFn = promisify(executeFn), this.start = Date.now(), this._isWaiting = !0, this._log("starting to execute"), this._runFunction(), this.promise;
+    }
+    getPromise() {
+      return this.promise;
+    }
+    isResolved() {
+      return this._isResolved;
+    }
+    isWaiting() {
+      return this._isWaiting;
+    }
+    stopOnFailure(stop) {
+      return this._stopOnFailure = stop, this;
+    }
+    _applyPromiseHandlers() {
+      this.promise = new Promise((resolve, reject) => {
+        this.resolve = resolve, this.reject = reject;
+      });
+    }
+    _timeFromStart() {
+      return Date.now() - this.start;
+    }
+    _shouldStopTrying() {
+      return this._timeFromStart() > this._timeout;
+    }
+    _executeAgain() {
+      this._log("executing again");
+      let currentInterval = this._interval, nextInterval = currentInterval * this._backoffFactor;
+      this._interval = nextInterval > this._backoffMaxInterval ? this._backoffMaxInterval : nextInterval, setTimeout(this._runFunction.bind(this), currentInterval);
+    }
+    _failedToWait() {
+      let waitErrorText = `${ERRORS.FAILED_TO_WAIT} after ${this._timeFromStart()}ms`;
+      if (this._userMessage && (waitErrorText = `${waitErrorText}: ${this._userMessage}`), this._lastError) {
+        this._lastError.message = `${waitErrorText}
+${this._lastError.message}`;
+        let originalStack = this.originalStacktraceError.stack;
+        originalStack && (this._lastError.stack += originalStack.substring(
+          originalStack.indexOf(`
+`) + 1
+        ));
+      } else
+        this._lastError = this.originalStacktraceError, this._lastError.message = waitErrorText;
+      return this._log(this._lastError), this._lastError;
+    }
+    _runFunction() {
+      if (this._shouldStopTrying()) {
+        this._isWaiting = !1, this.reject?.(this._failedToWait());
+        return;
+      }
+      this._executeFn().then((result) => {
+        if (result === !1) {
+          this._log(`then execute again with result: ${result}`), this._executeAgain();
+          return;
+        }
+        this.resolve?.(result), this._isWaiting = !1, this._isResolved = !0, this._log(`then done waiting with result: ${result}`);
+      }).catch((err) => this._stopOnFailure ? (this._log(`stopped on failure with err: ${err}`), this.reject?.(err)) : (this._lastError = err, this._log(`catch with err: ${err}`), this._executeAgain()));
+    }
+    _log(message) {
+      this._verbose && this._Console && this._Console.log && this._Console.log(message);
+    }
+  }, waitFor = (waitForFunction, options3) => new PollUntil(options3).execute(waitForFunction);
+
+  // dom/wait_for_dom.ts
+  async function waitForDomElementReady() {
+    try {
+      return await waitFor(() => {
+        let mainText = getMainText(document.body);
+        if (mainText && mainText.length >= 10)
+          return !0;
+        throw new Error("there is no main text");
+      }, { timeout: 1e4 }), !0;
+    } catch (e3) {
+      throw e3;
+    }
+  }
+
   // content_main.ts
-  main2().catch((e3) => {
-    e3 && log_default.error("translate page error", e3.name, e3.message, e3.details || "", e3);
+  ready_state_default.domready.then(() => {
+    waitForDomElementReady().then(() => {
+      main2().catch((e3) => {
+        e3 && log_default.error(
+          "translate page error",
+          e3.name,
+          e3.message,
+          e3.details || "",
+          e3
+        );
+      });
+    }).catch((e3) => {
+      log_default.debug("can not detect a valid body: ", e3);
+    });
+  }).catch((e3) => {
+    e3 && log_default.error(
+      "translate dom ready detect error",
+      e3
+    );
   });
 })();

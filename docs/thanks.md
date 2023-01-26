@@ -18,3 +18,5 @@
 - Sebastiano Poggi
 - 扶苏
 - Ömer Faruk Aplak
+
+如果有遗漏，请在[Github Sponsors](https://github.com/sponsors/theowenyoung/)里查看，谢谢！

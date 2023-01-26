@@ -23,6 +23,8 @@
 
 如果你以前没有使用过油猴脚本，可以点击参考[视频教程](https://youtu.be/vOaCFjYmQNM)
 
+> 如果你使用 Stay.app , 需要在 Stay.app 的设置里，把该脚本的 Inject Mode 改为 Content, 因为目前 Stay 似乎有点问题，无法自动判断 inject 的模式。下个版本应该会修复。
+
 ### Android 安卓
 
 1. 下载[Firefox Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix&hl=en_US&gl=US)版本

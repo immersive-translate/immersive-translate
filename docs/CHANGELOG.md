@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.24
+
+- Add temp translate site for a while
+- Fix stay.app userscript browser API
+- Fix stay.app options page
+
 ## 0.2.23
 
 - Fix multiple language page translation

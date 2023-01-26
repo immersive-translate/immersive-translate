@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.23
+// @version      0.2.24
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
 // @supportURL    https://github.com/immersive-translate/immersive-translate/
 // @match      *://*/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=userscript.net
+// @icon        https://immersive-translate.owenyoung.com/favicon.png 
 // @downloadURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @updateURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @inject-into    content
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-25T15:49:07.970Z", VERSION: "0.2.23", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-26T13:47:52.291Z", VERSION: "0.2.24", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4015,7 +4015,9 @@ body {
   var storageApi = {
     get: async (key) => {
       if (key === null) {
-        let keys = await GM.listValues(), result2 = {};
+        let keys = await GM.listValues();
+        Array.isArray(keys) || keys && isObject(keys) && (keys = Object.keys(keys));
+        let result2 = {};
         for (let key2 of keys)
           result2[key2] = await GM.getValue(key2);
         return result2;
@@ -4076,7 +4078,10 @@ body {
       getAcceptLanguages
     }
   };
-  globalThis.browser = browser;
+  function isObject(obj) {
+    return obj !== null && typeof obj == "object";
+  }
+  globalThis.immersiveTranslateBrowserAPI = browser;
 
   // browser/userscript_fetch_polifill.js
   (function() {
@@ -4225,6 +4230,10 @@ body {
     "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
+    tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
+    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
+    xMinutes: "{count} \u5206\u949F",
+    disabled: "\u7981\u7528",
     changelog: "\u66F4\u65B0\u65E5\u5FD7",
     toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
@@ -5476,7 +5485,7 @@ body {
 
   // browser/browser.ts
   var browserAPI;
-  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.browser;
+  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
 
   // buildin_config.json
   var buildin_config_default = {
@@ -5535,10 +5544,10 @@ body {
       toggleTranslateTheWholePage: "Alt+W",
       toggleTranslateToThePageEndImmediately: "Alt+S"
     },
+    tempTranslateDomainMinutes: 0,
     immediateTranslationPattern: {
       matches: [
-        "www.reddit.com",
-        "old.reddit.com",
+        "www.tumblr.com",
         "twitter.com",
         "*.twitter.com",
         "medium.com",
@@ -5564,6 +5573,7 @@ body {
         "www.reddit.com",
         "old.reddit.com",
         "twitter.com",
+        "www.tumblr.com",
         "*.twitter.com",
         "medium.com",
         "*.medium.com",
@@ -6513,6 +6523,35 @@ body {
         additionalSelectors: [
           "header[data-review-id] + div"
         ]
+      },
+      {
+        matches: [
+          "www.tumblr.com"
+        ],
+        selectors: [
+          "article h1",
+          "article > header + div",
+          "[data-testid=notes-root] p",
+          "div.k31gt",
+          "p",
+          "article ul",
+          "article h2",
+          "article h3",
+          "article h4",
+          "article h5",
+          "article h6",
+          "article blockquote",
+          "article ol"
+        ],
+        excludeSelectors: [
+          "div.fAAi8",
+          "div.wvu3V"
+        ],
+        preWhitespaceDetectedTags: [
+          "DIV",
+          "SPAN",
+          "P"
+        ]
       }
     ]
   };
@@ -6608,7 +6647,20 @@ body {
   }
   async function getLocalConfig() {
     let localConfig2 = await browserAPI.storage.local.get(localConfigStorageKey);
-    return localConfig2[localConfigStorageKey] ? localConfig2[localConfigStorageKey] : {};
+    if (localConfig2[localConfigStorageKey]) {
+      let currentConfig = localConfig2[localConfigStorageKey], currentTempTranslationDomains = currentConfig.tempTranslationUrlMatches || [], newDomains = currentTempTranslationDomains.filter(
+        (item) => item.expiredAt > Date.now()
+      ), isChanged = !1;
+      newDomains.length !== currentTempTranslationDomains.length && (currentTempTranslationDomains = newDomains, isChanged = !0);
+      let newLocalConfig = {
+        ...currentConfig,
+        tempTranslationUrlMatches: [
+          ...currentTempTranslationDomains
+        ]
+      };
+      return isChanged && await setLocalConfig(newLocalConfig), newLocalConfig;
+    } else
+      return {};
   }
   async function setLocalConfig(localConfig2) {
     await browserAPI.storage.local.set({ [localConfigStorageKey]: localConfig2 });
@@ -6669,7 +6721,26 @@ body {
       generalRule: finalBuildInConfig.generalRule,
       translationGeneralConfig: { engine: "google" },
       rules: []
-    }, envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, mergedUserConfig = Object.assign(
+    }, envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
+    if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
+      let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
+        (urlMatch) => new Date(urlMatch.expiredAt) > now
+      );
+      if (validUrlMatches.length > 0) {
+        let currentMatches = userConfig.translationUrlPattern ? userConfig.translationUrlPattern?.matches || [] : [], currentMatchesArray = Array.isArray(currentMatches) ? currentMatches : [currentMatches], finalMatches = Array.from(
+          new Set(
+            currentMatchesArray.concat(
+              validUrlMatches.map((urlMatch) => urlMatch.match)
+            )
+          )
+        );
+        userConfig.translationUrlPattern = {
+          ...userConfig.translationUrlPattern,
+          matches: finalMatches
+        };
+      }
+    }
+    let mergedUserConfig = Object.assign(
       {},
       globalUserConfig,
       envUserConfig,
@@ -13208,6 +13279,20 @@ body {
       return;
     setPageTranslatedStatus("Translating");
     let ctx = await getGlobalContext(globalThis.location.href);
+    if (!ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+      let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
+        (item) => item.match === currentDomain && item.expiredAt > now
+      ), isChanged = !1;
+      index > -1 || (currentTempTranslationDomains.push({
+        match: currentDomain,
+        expiredAt: now + ctx.config.tempTranslateDomainMinutes * 60 * 1e3
+      }), isChanged = !0), isChanged && await setLocalConfig({
+        ...ctx.localConfig,
+        tempTranslationUrlMatches: [
+          ...currentTempTranslationDomains
+        ]
+      });
+    }
     ctx.state.isAutoTranslate = !0;
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
     currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
@@ -13497,7 +13582,7 @@ body {
       text: getMainText(document.body).slice(0, 1e3)
     }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-    !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage()) : log_default.debug("do not auto translate");
+    !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage()) : log_default.debug("do not auto translate", ctx);
   }
   function disableMutatinObserver() {
     mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords()), titleMutationObserver && (titleMutationObserver.disconnect(), titleMutationObserver.takeRecords());
@@ -13630,9 +13715,9 @@ body {
       `immersive-translate-${area}-storage`
     );
     if (storageInputElement) {
-      log_default.debug("init storage");
+      log_default.debug("init storage"), console.log("browserAPI", browserAPI);
       let browserStorageObj = await browserAPI.storage[area].get(null);
-      storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
+      console.log("browserStorageObj", browserStorageObj), storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
         try {
           let storageObj = JSON.parse(event.target.value);
           browserAPI.storage[area].set(storageObj);
@@ -14848,7 +14933,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.23",
+    version: "0.2.24",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -14865,7 +14950,6 @@ body {
           "*://*/*"
         ],
         js: [
-          "js/browser-polyfill.js",
           "content_script.js"
         ],
         css: [
@@ -15054,7 +15138,7 @@ body {
     }
   }
 
-  // content_script.ts
+  // content_main.ts
   main2().catch((e3) => {
     e3 && log_default.error("translate page error", e3.name, e3.message, e3.details || "", e3);
   });

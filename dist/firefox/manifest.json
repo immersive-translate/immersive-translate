@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -21,7 +21,6 @@
         "*://*/*"
       ],
       "js": [
-        "js/browser-polyfill.js",
         "content_script.js"
       ],
       "css": [

@@ -370,7 +370,8 @@
       "matches": [
         "twitter.com",
         "mobile.twitter.com",
-        "tweetdeck.twitter.com"
+        "tweetdeck.twitter.com",
+        "https://platform.twitter.com/embed*"
       ],
       "selectors": [
         "[data-testid=\"tweetText\"]",
@@ -1058,8 +1059,16 @@
         "SPAN",
         "P"
       ]
+    },
+    {
+      "matches": [
+        "mail.qq.com/cgi-bin/frame_html"
+      ],
+      "selectors": [
+        "#thisiddoesnotexists"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-25T20:38:47.597Z",
-  "latestVersion": "0.2.23"
+  "buildinConfigUpdatedAt": "2023-01-26T21:42:51.135Z",
+  "latestVersion": "0.2.25"
 }

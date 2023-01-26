@@ -11,3 +11,4 @@
 - [🙏 感谢这些赞助者们](thanks.md)
 - [加入开发?](CONTRIBUTION.md)
   - [Todo List](TODO.md)
+- [Privacy](PRIVACY.md)

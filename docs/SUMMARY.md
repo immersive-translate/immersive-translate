@@ -12,3 +12,4 @@
 - [加入开发?](CONTRIBUTION.md)
   - [Todo List](TODO.md)
 - [Privacy](PRIVACY.md)
+- [Terms](TERMS.md)

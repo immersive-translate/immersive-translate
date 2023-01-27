@@ -1,12 +1,18 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.26
+// @version      0.2.27
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
 // @supportURL    https://github.com/immersive-translate/immersive-translate/
 // @match      *://*/*
+// @match    *
+// @match    about:blank
+// @match    about:newtab
+// @match    about:home
+// @match    about:reader*
+// @match    about:srcdoc
 // @icon        https://immersive-translate.owenyoung.com/favicon.png 
 // @downloadURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @updateURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
@@ -54,7 +60,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-27T00:31:19.470Z", VERSION: "0.2.26", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-27T15:18:29.175Z", VERSION: "0.2.27", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4969,6 +4975,15 @@ body {
   ];
   var fallbackLanguage = "zh-CN";
 
+  // utils/iframe.ts
+  function getIsInIframe() {
+    try {
+      return globalThis.self !== globalThis.top;
+    } catch {
+      return !0;
+    }
+  }
+
   // dom/util.ts
   var env2 = getEnv(), isProd = env2.PROD === "1";
   function duplicatedElements(root2, array, rule) {
@@ -5194,6 +5209,26 @@ body {
     for (; treeWalker.nextNode(); )
       lastTextNode = treeWalker.currentNode;
     return lastTextNode ? lastTextNode.parentElement : null;
+  }
+  function getRealUrl() {
+    if (!getIsInIframe())
+      return globalThis.location.href;
+    try {
+      let currentUrl = globalThis.location.href;
+      if (new URL(currentUrl).protocol === "about:") {
+        if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
+          return globalThis.location.ancestorOrigins[0];
+        let href = "";
+        try {
+          href = globalThis.parent.location.href;
+        } catch {
+        }
+        return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
+      } else
+        return currentUrl;
+    } catch {
+    }
+    return globalThis.location.href;
   }
 
   // dom/mark_containers.ts
@@ -5963,7 +5998,9 @@ body {
         selectors: [
           ".markdown-title",
           ".markdown-body",
-          ".Layout-sidebar p"
+          ".Layout-sidebar p",
+          "div > span.search-match",
+          "#responsive-meta-container p"
         ],
         excludeSelectors: [
           ".css-truncate",
@@ -9339,15 +9376,6 @@ body {
     }), dbNames;
   }
 
-  // utils/iframe.ts
-  function getIsInIframe() {
-    try {
-      return globalThis.self !== globalThis.top;
-    } catch {
-      return !0;
-    }
-  }
-
   // dom/current_language.ts
   var currentPageLanguage = "auto", currentPageLanguageByClient = "auto", currentPageLanguageByRemote = "auto";
   function setCurrentPageLanguage(lang) {
@@ -10028,7 +10056,11 @@ body {
         languageByLocal: currentLanguageByLocal,
         languageByClient: currentPageLanguageByClient2
       };
-      if (!isSameTargetLanguage(result, targetLanguage)) {
+      if (paragraphEntities.set(newParagraph.id, {
+        ...newParagraph,
+        state: "Original",
+        observers: []
+      }), !isSameTargetLanguage(result, targetLanguage)) {
         if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
           return;
         filterdParagraphs.push(newParagraph);
@@ -12907,9 +12939,7 @@ body {
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
-    payload.sentences = payload.sentences.map((sentence) => sentence);
-    let noCacheSentences = [], finalResult = {
+    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
     if (config.cache)
@@ -13158,7 +13188,7 @@ body {
   }
 
   // dom/translate_page.ts
-  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = globalThis.location.href.split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = debounce(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
+  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = debounce(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
     translateNewDynamicNodes,
     200
   ), env3 = getEnv(), isProd2 = env3.PROD === "1", mutationObserver, titleMutationObserver, originalPageTitle = "";
@@ -13297,7 +13327,7 @@ body {
     if (pageStatus === "Translating")
       return;
     setPageTranslatedStatus("Translating");
-    let ctx = await getGlobalContext(globalThis.location.href);
+    let ctx = await getGlobalContext(getRealUrl());
     if (!ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
@@ -13351,19 +13381,19 @@ body {
     return globalContext;
   }
   async function toggleTranslateTheMainPage() {
-    getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(globalThis.location.href), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
+    getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
   }
   async function translateTheMainPage() {
-    globalContext = await getGlobalContext(globalThis.location.href), globalContext.state.translationArea = "main", await translatePage();
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "main", await translatePage();
   }
   async function translateTheWholePage() {
-    globalContext = await getGlobalContext(globalThis.location.href), globalContext.state.translationArea = "body", await translatePage();
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", await translatePage();
   }
   async function toggleTranslateTheWholePage() {
-    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(globalThis.location.href), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", await translatePage()) : restorePage());
+    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", await translatePage()) : restorePage());
   }
   async function translateToThePageEndImmediately() {
-    globalContext = await getGlobalContext(globalThis.location.href), globalContext.state.translationArea = "body", globalContext.state.translationStartMode = "immediate", await translatePage(), await translateNewDynamicNodes(globalContext);
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", globalContext.state.translationStartMode = "immediate", await translatePage(), await translateNewDynamicNodes(globalContext);
   }
   async function translateTitle(ctx) {
     let pageTitle = document.title;
@@ -13443,7 +13473,7 @@ body {
     if (!paragraph)
       throw new Error("paragraph not found");
     setLoadingToParagraph(id);
-    let ctx = await getGlobalContext(globalThis.location.href), sentence = {
+    let ctx = await getGlobalContext(getRealUrl()), sentence = {
       id: paragraph.id,
       text: paragraph.text,
       from: paragraph.languageByLocal,
@@ -13543,7 +13573,7 @@ body {
     let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR");
     mutationObserver = new MutationObserver(function(mutations) {
       mutations.forEach((mutation) => {
-        let currentUrl = globalThis.location.href;
+        let currentUrl = getRealUrl();
         if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
           oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(), setTimeout(() => {
             log_default.debug("url changed, reinit page"), initPage();
@@ -13594,7 +13624,7 @@ body {
     return !1;
   }
   async function initPage() {
-    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(globalThis.location.href);
+    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl());
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
     let lang = ctx.sourceLanguage;
     lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
@@ -13700,7 +13730,7 @@ body {
 
   // web-options/is_web_options_page.ts
   function isWebOptionsPage() {
-    let optionsHostnames = ["localhost", hostname], optionsPaths = ["/dist/userscript/options/", "/options/", "/options"], url = globalThis.location.href, urlObj = new URL(url), currentHostname = urlObj.hostname, currentPath = urlObj.pathname;
+    let optionsHostnames = ["localhost", hostname], optionsPaths = ["/dist/userscript/options/", "/options/", "/options"], url = getRealUrl(), urlObj = new URL(url), currentHostname = urlObj.hostname, currentPath = urlObj.pathname;
     if ((optionsHostnames.includes(currentHostname) || currentHostname.startsWith("192.168")) && optionsPaths.includes(currentPath)) {
       let optionsMetaElement = document.querySelector(
         "meta[name=immersive-translate-options]"
@@ -13887,7 +13917,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.26",
+    version: "0.2.27",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -13910,7 +13940,8 @@ body {
           "styles/inject.css"
         ],
         run_at: "document_end",
-        all_frames: !0
+        all_frames: !0,
+        match_about_blank: !0
       }
     ],
     commands: {
@@ -15159,7 +15190,7 @@ body {
   async function main2() {
     let config = await getConfig2(), ctx = await getContext({
       config,
-      url: globalThis.location.href
+      url: getRealUrl()
     });
     if (ctx.isTranslateExcludeUrl && isWebOptionsPage())
       log_default.debug("detect web options page"), setupWebOptionsPage();

@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.27
+
+- Support inline iframe translation. (Only for extension, not avaliable for userscript)
+- Fix multiple language translation
+
 ## 0.2.26
 
 - Fix firefox android addon

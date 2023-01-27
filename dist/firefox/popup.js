@@ -1,4 +1,4 @@
-var Gu=Object.defineProperty;var Ju=(e,t)=>{for(var n in t)Gu(e,n,{get:t[n],enumerable:!0})};var x={BUILD_TIME:"2023-01-27T15:18:28.748Z",VERSION:"0.2.27",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
+var Gu=Object.defineProperty;var Ju=(e,t)=>{for(var n in t)Gu(e,n,{get:t[n],enumerable:!0})};var x={BUILD_TIME:"2023-01-27T16:07:28.150Z",VERSION:"0.2.28",PROD:"1",IMMERSIVE_TRANSLATE_INJECTED_CSS:`.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 

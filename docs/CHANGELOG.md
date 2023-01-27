@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.28
+
+- Remove not standard match for userscript
+
 ## 0.2.27
 
 - Support inline iframe translation. (Only for extension, not avaliable for userscript)

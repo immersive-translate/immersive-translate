@@ -1,18 +1,13 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.27
+// @version      0.2.28
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
 // @supportURL    https://github.com/immersive-translate/immersive-translate/
 // @match      *://*/*
-// @match    *
-// @match    about:blank
-// @match    about:newtab
-// @match    about:home
-// @match    about:reader*
-// @match    about:srcdoc
+// @include    *
 // @icon        https://immersive-translate.owenyoung.com/favicon.png 
 // @downloadURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @updateURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
@@ -60,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-27T15:18:29.175Z", VERSION: "0.2.27", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-27T16:07:28.559Z", VERSION: "0.2.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -13917,7 +13912,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.27",
+    version: "0.2.28",
     default_locale: "en",
     background: {
       service_worker: "background.js"

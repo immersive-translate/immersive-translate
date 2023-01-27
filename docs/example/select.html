@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <article>
+      <p>test</p>
+      <select id="selected" value="1" autocomplete="off">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </article>
+    <script>
+      const select = document.getElementById("selected");
+      select.addEventListener("change", (e) => {
+        if (e.target.value !== "1") {
+          select.value = "1";
+          select.dispatchEvent(new Event("change"));
+          console.log(select.value);
+        }
+      });
+    </script>
+  </body>
+</html>

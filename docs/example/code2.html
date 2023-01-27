@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      code {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <p>
+        This double loading could occur since a <code>.css</code> file will be
+        emitted and it's likely that the CSS string will also be used by the
+        application code — for example, injected by the framework runtime. From
+        Vite 4, the <code>.css</code> default export
+        <a
+          href="https://github.com/vitejs/vite/issues/11094"
+          target="_blank"
+          rel="noreferrer"
+          >has been deprecated</a
+        >. The <code>?inline</code> query suffix modifier needs to be used in
+        this case, as that doesn't emit the imported <code>.css</code> styles.
+      </p>
+    </article>
+  </body>
+</html>

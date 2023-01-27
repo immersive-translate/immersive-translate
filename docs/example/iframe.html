@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>iframe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <article>
+      <p>This is a parent iframe</p>
+    </article>
+    <iframe src="frame.html" title="This is a child iframe"></iframe>
+
+    <iframe
+      srcdoc="<html><body><p>This is inline child frame,</p></html>"
+      title="This is a child iframe"
+    ></iframe>
+  </body>
+</html>

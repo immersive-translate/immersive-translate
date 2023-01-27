@@ -1,0 +1,27 @@
+{
+  "translationService": "tencent",
+  "translationServices": {
+    "tencent": {
+      "secretId": "xxx",
+      "secretKey": "xxx"
+    }
+  },
+  "translationUrlPattern": {
+    "excludeMatches": ["www.google.com", "*.buzzing.cc"]
+  },
+  "translationLanguagePattern": {
+    "matches": [
+      "en"
+    ]
+  },
+  "detectParagraphLanguagePattern": {
+    "matches": ["twitter.com", "github.com"]
+  },
+  "translationTheme": "none",
+  "translationThemePatterns": {
+    "underline": {
+      "matches": ["discord.com"]
+    }
+  },
+  "debug": false
+}

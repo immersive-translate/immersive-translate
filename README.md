@@ -9,6 +9,7 @@
 - PDF 文件双语翻译支持
 - 配合 epub 在线阅读网站<https://1paragraph.app/> 或 <https://readwise.io/read> 即可实现双语阅读国外电子书
 - 多种译文样式可选择，个性化你的翻译体验。
+- 市面唯一可支持 kaggle notebook，和 GitHub 仓库中 Jupyter Notebook 的翻译工具。
 
 该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能更加容易且愉悦地获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️
 

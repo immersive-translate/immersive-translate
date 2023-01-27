@@ -71,3 +71,5 @@
 - [ ] popup userscript 页面支持检测最新版本
 - [x] 在页面中间开启翻译的时候，自动跳转到旧的位置？
 - [ ] 全局模式下，翻译 input， type = submit 的 value 属性
+- [ ] 安卓 firefox 原生扩展
+- [ ] landing 页面，用户喜欢该扩展（用户的评论）

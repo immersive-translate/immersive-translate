@@ -162,6 +162,12 @@ make pdf
 
 This will build the pdf project, and copy the build files to the translate project
 
+## Firefox Android
+
+```bash
+web-ext run -s dist/firefox -t firefox-android --android-device=xxxxx --firefox-apk org.mozilla.fenix
+```
+
 ## 有用的链接
 
 - [preact typescript](https://preactjs.com/guide/v10/typescript)

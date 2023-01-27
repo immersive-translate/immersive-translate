@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.25
+// @version      0.2.26
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -54,7 +54,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-26T21:41:33.818Z", VERSION: "0.2.25", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-27T00:31:19.470Z", VERSION: "0.2.26", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4229,6 +4229,10 @@ body {
     "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
+    translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
+    smartLineBreak: "\u667A\u80FD\u6362\u884C",
+    alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u8FDB\u884C\u6362\u884C\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
     xMinutes: "{count} \u5206\u949F",
@@ -6574,7 +6578,9 @@ body {
       let value = generalRule[key];
       Array.isArray(value) && arrayKeys.push(key);
     }
-    let finalRule = generalRule;
+    let finalRule = {
+      ...generalRule
+    };
     return Object.keys(rule).forEach((key) => {
       let value = rule[key];
       if (value !== void 0)
@@ -6679,47 +6685,12 @@ body {
       storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
     }
     let shortcutsFromBrowser = {};
-    if (!isMonkey()) {
+    if (!isMonkey() && browserAPI.commands && browserAPI.commands.getAll) {
       let commandResult = await browserAPI.commands.getAll();
       for (let command of commandResult)
         command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
     }
-    let defaultConfig = {
-      ...finalBuildInConfig,
-      targetLanguage: fallbackLanguage,
-      interfaceLanguage: "en",
-      debug: !1,
-      alpha: !1,
-      translationUrlPattern: {
-        matches: [],
-        excludeMatches: []
-      },
-      translationLanguagePattern: {
-        matches: [],
-        excludeMatches: []
-      },
-      translationThemePatterns: {},
-      translationParagraphLanguagePattern: {
-        matches: [],
-        excludeMatches: [],
-        selectorMatches: [],
-        excludeSelectorMatches: []
-      },
-      translationBodyAreaPattern: {
-        matches: [],
-        excludeMatches: [],
-        selectorMatches: [],
-        excludeSelectorMatches: []
-      },
-      translationTheme: "none",
-      translationService: "google",
-      translationArea: "main",
-      translationStartMode: "dynamic",
-      translationServices: {},
-      generalRule: finalBuildInConfig.generalRule,
-      translationGeneralConfig: { engine: "google" },
-      rules: []
-    }, envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
     if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
       let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
         (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -6802,6 +6773,49 @@ body {
   var getBrowserIntefaceLanguage = async () => {
     let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
     return defaultInterfaceLanguage || "en";
+  }, getBuildInConfig = () => {
+    let finalBuildInConfig = {
+      ...buildin_config_default,
+      buildinConfigUpdatedAt: env.BUILD_TIME
+    };
+    return {
+      ...finalBuildInConfig,
+      targetLanguage: fallbackLanguage,
+      interfaceLanguage: "en",
+      debug: !1,
+      alpha: !1,
+      translationUrlPattern: {
+        matches: [],
+        excludeMatches: []
+      },
+      translationLanguagePattern: {
+        matches: [],
+        excludeMatches: []
+      },
+      translationThemePatterns: {},
+      translationParagraphLanguagePattern: {
+        matches: [],
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
+      },
+      translationBodyAreaPattern: {
+        matches: [],
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
+      },
+      translationTheme: "none",
+      translationService: "google",
+      translationArea: "main",
+      translationStartMode: "dynamic",
+      translationServices: {},
+      generalRule: {
+        ...finalBuildInConfig.generalRule
+      },
+      translationGeneralConfig: { engine: "google" },
+      rules: []
+    };
   };
 
   // https://deno.land/std@0.171.0/async/deferred.ts
@@ -13873,7 +13887,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.25",
+    version: "0.2.26",
     default_locale: "en",
     background: {
       service_worker: "background.js"

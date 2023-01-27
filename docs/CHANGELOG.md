@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.26
+
+- Fix firefox android addon
+- Add advanced settings for translation newline
+
 ## 0.2.25
 
 - Support iframe translate, like QQ mail, emebed tweet.

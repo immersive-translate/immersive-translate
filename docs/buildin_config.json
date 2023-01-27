@@ -480,7 +480,9 @@
       "selectors": [
         ".markdown-title",
         ".markdown-body",
-        ".Layout-sidebar p"
+        ".Layout-sidebar p",
+        "div > span.search-match",
+        "#responsive-meta-container p"
       ],
       "excludeSelectors": [
         ".css-truncate",
@@ -1069,6 +1071,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-26T21:42:51.135Z",
-  "latestVersion": "0.2.25"
+  "buildinConfigUpdatedAt": "2023-01-27T12:57:05.301Z",
+  "latestVersion": "0.2.26"
 }

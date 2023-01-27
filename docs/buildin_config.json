@@ -482,6 +482,7 @@
         ".markdown-body",
         ".Layout-sidebar p",
         "div > span.search-match",
+        "li.repo-list-item p",
         "#responsive-meta-container p"
       ],
       "excludeSelectors": [
@@ -1071,6 +1072,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-27T12:57:05.301Z",
-  "latestVersion": "0.2.26"
+  "buildinConfigUpdatedAt": "2023-01-27T19:12:14.838Z",
+  "latestVersion": "0.2.28"
 }

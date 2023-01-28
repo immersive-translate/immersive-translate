@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.28
+// @version      0.2.29
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-27T16:07:28.559Z", VERSION: "0.2.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-28T13:52:36.933Z", VERSION: "0.2.29", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4387,7 +4387,8 @@ body {
     confirm: "\u4FDD\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u5220\u9664",
-    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00"
+    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
+    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355"
   };
 
   // locales/zh-TW.json
@@ -5518,6 +5519,7 @@ body {
     cache: !0,
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
+    isShowContextMenu: !0,
     translationServices: {
       volcAlpha: {
         placeholderDelimiters: [
@@ -5628,6 +5630,7 @@ body {
       isPdf: !1,
       isTransformPreTagNewLine: !1,
       urlChangeDelay: 20,
+      translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
       observeUrlChange: !0,
       paragraphMinTextCount: 8,
@@ -5995,6 +5998,7 @@ body {
           ".markdown-body",
           ".Layout-sidebar p",
           "div > span.search-match",
+          "li.repo-list-item p",
           "#responsive-meta-container p"
         ],
         excludeSelectors: [
@@ -6011,10 +6015,25 @@ body {
           "div[dir=auto][class]",
           "span[lang]"
         ],
+        atomicBlockSelectors: [
+          "div[dir=auto][style]",
+          "div[dir=auto][class]",
+          "span[lang]"
+        ],
+        insertPosition: "afterend",
+        preWhitespaceDetectedTags: [
+          "DIV",
+          "SPAN"
+        ],
+        extraBlockSelectors: [
+          "span.x1vvkbs"
+        ],
         excludeSelectors: [
           "[role=button]"
         ],
-        translationClasses: "immersive-translate-text",
+        translationClasses: [
+          "immersive-translate-text"
+        ],
         detectParagraphLanguage: !0
       },
       {
@@ -9942,7 +9961,7 @@ body {
         if (!isMarkedByParagraph(container)) {
           let paragraph = elementsToParagraph(
             [container],
-            isPreWhitespaceContainer,
+            !0,
             ctx
           );
           paragraph && addToParagraphs(paragraph, allParagraphs);
@@ -10288,8 +10307,8 @@ body {
       ctx.rule.isPdf
     ), innerClassList = getTranslationInnerClassNames(
       translationTheme
-    );
-    return html = `<span class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
+    ), blockStyleStr = "";
+    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
       html,
       position
     };
@@ -13298,7 +13317,7 @@ body {
       visibleParagraph.elements.length > 0 && lastElement && (realElements.length === 1 ? position = "beforeend" : isInlineElement(
         visibleParagraph.elements[0],
         ctx.rule
-      ) || (position = "beforeend"));
+      ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
       let targetTranslationWrapper = document.createElement("span");
       if (targetTranslationWrapper.classList.add(
         "notranslate",
@@ -13912,7 +13931,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.28",
+    version: "0.2.29",
     default_locale: "en",
     background: {
       service_worker: "background.js"

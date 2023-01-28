@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.29
+
+- Fix Facebook translation
+- Support show context menu option.
+
 ## 0.2.28
 
 - Remove not standard match for userscript

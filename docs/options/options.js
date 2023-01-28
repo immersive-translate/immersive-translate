@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-27T16:07:28.559Z", VERSION: "0.2.28", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-28T13:52:36.933Z", VERSION: "0.2.29", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -6427,7 +6427,8 @@ body {
     confirm: "\u4FDD\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u5220\u9664",
-    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00"
+    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
+    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355"
   };
 
   // locales/zh-TW.json
@@ -7332,6 +7333,7 @@ body {
     cache: !0,
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
+    isShowContextMenu: !0,
     translationServices: {
       volcAlpha: {
         placeholderDelimiters: [
@@ -7442,6 +7444,7 @@ body {
       isPdf: !1,
       isTransformPreTagNewLine: !1,
       urlChangeDelay: 20,
+      translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
       observeUrlChange: !0,
       paragraphMinTextCount: 8,
@@ -7809,6 +7812,7 @@ body {
           ".markdown-body",
           ".Layout-sidebar p",
           "div > span.search-match",
+          "li.repo-list-item p",
           "#responsive-meta-container p"
         ],
         excludeSelectors: [
@@ -7825,10 +7829,25 @@ body {
           "div[dir=auto][class]",
           "span[lang]"
         ],
+        atomicBlockSelectors: [
+          "div[dir=auto][style]",
+          "div[dir=auto][class]",
+          "span[lang]"
+        ],
+        insertPosition: "afterend",
+        preWhitespaceDetectedTags: [
+          "DIV",
+          "SPAN"
+        ],
+        extraBlockSelectors: [
+          "span.x1vvkbs"
+        ],
         excludeSelectors: [
           "[role=button]"
         ],
-        translationClasses: "immersive-translate-text",
+        translationClasses: [
+          "immersive-translate-text"
+        ],
         detectParagraphLanguage: !0
       },
       {
@@ -9723,7 +9742,7 @@ body {
         if (!isMarkedByParagraph(container)) {
           let paragraph = elementsToParagraph(
             [container],
-            isPreWhitespaceContainer,
+            !0,
             ctx
           );
           paragraph && addToParagraphs(paragraph, allParagraphs);
@@ -10069,8 +10088,8 @@ body {
       ctx.rule.isPdf
     ), innerClassList = getTranslationInnerClassNames(
       translationTheme
-    );
-    return html = `<span class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
+    ), blockStyleStr = "";
+    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
       html,
       position
     };
@@ -10798,7 +10817,7 @@ body {
       visibleParagraph.elements.length > 0 && lastElement && (realElements.length === 1 ? position = "beforeend" : isInlineElement(
         visibleParagraph.elements[0],
         ctx.rule
-      ) || (position = "beforeend"));
+      ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
       let targetTranslationWrapper = document.createElement("span");
       if (targetTranslationWrapper.classList.add(
         "notranslate",
@@ -14528,6 +14547,44 @@ body {
     });
   }
 
+  // menu.ts
+  var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
+    {
+      id: "toggleTranslatePage",
+      contexts: ["page", ...actions]
+    },
+    {
+      id: contextOpenOptionsMenuId,
+      contexts: actions
+    },
+    {
+      id: contextTranslateLocalPdfFileMenuId,
+      contexts: actions
+    }
+  ];
+  async function createContextMenu(config) {
+    log_default.debug("createContextMenu", menus), await browserAPI.contextMenus.removeAll();
+    for (let menu of menus)
+      config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (menu.contexts = menu.contexts.filter((item) => item !== "page")), browserAPI.contextMenus.create({
+        id: menu.id,
+        title: t4(`browser.${menu.id}`, config.interfaceLanguage),
+        contexts: menu.contexts
+      }, () => browserAPI.runtime.lastError);
+  }
+  async function updateContextMenu() {
+    let config = await getConfig();
+    log_default.debug("update ContextMenu", config);
+    for (let menu of menus) {
+      let newTitle = t4(`browser.${menu.id}`, config.interfaceLanguage);
+      browserAPI.contextMenus.update(
+        menu.id,
+        {
+          title: newTitle
+        }
+      );
+    }
+  }
+
   // components/shortcuts.tsx
   function ShortcutsModal(props) {
     let { t: t5 } = useI18n(), {
@@ -14666,35 +14723,6 @@ body {
         ]
       })
     });
-  }
-
-  // menu.ts
-  var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
-    {
-      id: "toggleTranslatePage",
-      contexts: ["page", "frame", ...actions]
-    },
-    {
-      id: contextOpenOptionsMenuId,
-      contexts: actions
-    },
-    {
-      id: contextTranslateLocalPdfFileMenuId,
-      contexts: actions
-    }
-  ];
-  async function updateContextMenu() {
-    let config = await getConfig();
-    log_default.debug("update ContextMenu", config);
-    for (let menu of menus) {
-      let newTitle = t4(`browser.${menu.id}`, config.interfaceLanguage);
-      browserAPI.contextMenus.update(
-        menu.id,
-        {
-          title: newTitle
-        }
-      );
-    }
   }
 
   // pages/interface.tsx
@@ -14858,6 +14886,34 @@ body {
                   e3.preventDefault(), setIsShowShortcutsModal(!isShowShortcutsModal);
                 },
                 children: t5("modify")
+              })
+            })
+          ]
+        }),
+        !isMonkey() && /* @__PURE__ */ p5("div", {
+          class: "nav",
+          children: [
+            /* @__PURE__ */ p5(NavLeft, {
+              title: t5("isShowContextMenu")
+            }),
+            /* @__PURE__ */ p5("label", {
+              for: "switch",
+              children: /* @__PURE__ */ p5("input", {
+                type: "checkbox",
+                onChange: (e3) => {
+                  let checked = e3.target.checked;
+                  createContextMenu({
+                    ...ctx.config,
+                    isShowContextMenu: checked
+                  }), setSettings((state) => ({
+                    ...state,
+                    isShowContextMenu: checked
+                  }));
+                },
+                checked: ctx.config.isShowContextMenu === !0,
+                id: "switch",
+                name: "switch",
+                role: "switch"
               })
             })
           ]

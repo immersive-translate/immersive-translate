@@ -121,6 +121,7 @@
     "observeUrlChange": true,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
+    "shadowRootSelectors": [],
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
     "containerMinTextCount": 18,
@@ -1093,8 +1094,21 @@
       "selectors": [
         "#thisiddoesnotexists"
       ]
+    },
+    {
+      "matches": "www.foxnews.com",
+      "shadowRootSelectors": [
+        "[data-spot-im-module-default-area='conversation'] > div"
+      ],
+      "excludeSelectors": [
+        ".components-MessageDetails-index__message-details-wrapper",
+        "div[class^=SlideDown__container]",
+        ".components-MessageActions-index__messageActionsWrapper",
+        "span[data-openweb-allow-amp]",
+        "div.spcv_typing-users"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-28T16:32:56.350Z",
-  "latestVersion": "0.2.29"
+  "buildinConfigUpdatedAt": "2023-01-28T22:08:24.140Z",
+  "latestVersion": "0.2.30"
 }

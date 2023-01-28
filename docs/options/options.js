@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-28T13:52:36.933Z", VERSION: "0.2.29", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-28T22:09:04.401Z", VERSION: "0.2.30", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4552,12 +4552,12 @@ body {
     return typeof t5 == "function" ? t5(_3) : t5;
   }
 
-  // https://esm.sh/v104/memoize-one@6.0.0/deno/memoize-one.js
+  // https://esm.sh/v106/memoize-one@6.0.0/deno/memoize-one.js
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v104/p-throttle@5.0.0/deno/p-throttle.js
+  // https://esm.sh/v106/p-throttle@5.0.0/deno/p-throttle.js
   var a2 = class extends Error {
     constructor() {
       super("Throttled function aborted"), this.name = "AbortError";
@@ -4601,7 +4601,7 @@ body {
     };
   }
 
-  // https://esm.sh/v104/@twind/core@1.0.1/deno/core.js
+  // https://esm.sh/v106/@twind/core@1.0.1/deno/core.js
   var F3;
   function lt(t5) {
     return [...t5.v, (t5.i ? "!" : "") + t5.n].join(":");
@@ -5154,7 +5154,7 @@ body {
     } };
   }
 
-  // https://esm.sh/v104/style-vendorizer@2.2.3/deno/style-vendorizer.js
+  // https://esm.sh/v106/style-vendorizer@2.2.3/deno/style-vendorizer.js
   var t2 = /* @__PURE__ */ new Map([["align-self", "-ms-grid-row-align"], ["color-adjust", "-webkit-print-color-adjust"], ["column-gap", "grid-column-gap"], ["forced-color-adjust", "-ms-high-contrast-adjust"], ["gap", "grid-gap"], ["grid-template-columns", "-ms-grid-columns"], ["grid-template-rows", "-ms-grid-rows"], ["justify-self", "-ms-grid-column-align"], ["margin-inline-end", "-webkit-margin-end"], ["margin-inline-start", "-webkit-margin-start"], ["mask-border", "-webkit-mask-box-image"], ["mask-border-outset", "-webkit-mask-box-image-outset"], ["mask-border-slice", "-webkit-mask-box-image-slice"], ["mask-border-source", "-webkit-mask-box-image-source"], ["mask-border-repeat", "-webkit-mask-box-image-repeat"], ["mask-border-width", "-webkit-mask-box-image-width"], ["overflow-wrap", "word-wrap"], ["padding-inline-end", "-webkit-padding-end"], ["padding-inline-start", "-webkit-padding-start"], ["print-color-adjust", "color-adjust"], ["row-gap", "grid-row-gap"], ["scroll-margin-bottom", "scroll-snap-margin-bottom"], ["scroll-margin-left", "scroll-snap-margin-left"], ["scroll-margin-right", "scroll-snap-margin-right"], ["scroll-margin-top", "scroll-snap-margin-top"], ["scroll-margin", "scroll-snap-margin"], ["text-combine-upright", "-ms-text-combine-horizontal"]]);
   function e(r) {
     return t2.get(r);
@@ -5168,7 +5168,7 @@ body {
     return a4 ? a4[1] ? /^sti/i.test(i2) ? 1 : 0 : a4[2] ? /^pat/i.test(i2) ? 1 : 0 : a4[3] ? /^image-/i.test(i2) ? 1 : 0 : a4[4] ? i2[3] === "-" ? 2 : 0 : /^(?:inline-)?grid$/i.test(i2) ? 4 : 0 : 0;
   }
 
-  // https://esm.sh/v104/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.js
+  // https://esm.sh/v106/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.js
   var c = [["-webkit-", 1], ["-moz-", 2], ["-ms-", 4]];
   function y() {
     return ({ stringify: t5 }) => ({ stringify(r, s4, e3) {
@@ -5181,7 +5181,7 @@ body {
     } });
   }
 
-  // https://esm.sh/v104/@twind/core@1.1.2/deno/core.js
+  // https://esm.sh/v106/@twind/core@1.1.3/deno/core.js
   var B4;
   function ae2(e3) {
     return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -5277,47 +5277,47 @@ body {
   }
   function de(e3, t5, r, i2, n3 = []) {
     return function l2(o3, { n: s4, p: f4, r: a4 = [], i: c4 }, u3) {
-      let p6 = [], g5 = "", h2 = 0, $4 = 0;
-      for (let y3 in o3 || {}) {
+      let p6 = [], g5 = "", y3 = 0, $4 = 0;
+      for (let h2 in o3 || {}) {
         var A4, R5;
-        let d3 = o3[y3];
-        if (y3[0] == "@") {
+        let d3 = o3[h2];
+        if (h2[0] == "@") {
           if (!d3)
             continue;
-          if (y3[1] == "a") {
+          if (h2[1] == "a") {
             p6.push(...ge(s4, f4, I2("" + d3), u3, f4, a4, c4, !0));
             continue;
           }
-          if (y3[1] == "l") {
+          if (h2[1] == "l") {
             for (let w4 of b2(d3))
-              p6.push(...l2(w4, { n: s4, p: (A4 = S3[y3[7]], f4 & ~S3.o | A4), r: a4, i: c4 }, u3));
+              p6.push(...l2(w4, { n: s4, p: (A4 = S3[h2[7]], f4 & ~S3.o | A4), r: h2[7] == "d" ? [] : a4, i: c4 }, u3));
             continue;
           }
-          if (y3[1] == "i") {
-            p6.push(...b2(d3).map((w4) => ({ p: -1, o: 0, r: [], d: y3 + " " + w4 })));
+          if (h2[1] == "i") {
+            p6.push(...b2(d3).map((w4) => ({ p: -1, o: 0, r: [], d: h2 + " " + w4 })));
             continue;
           }
-          if (y3[1] == "k") {
-            p6.push({ p: S3.d, o: 0, r: [y3], d: l2(d3, { p: S3.d }, u3).map(ne3).join("") });
+          if (h2[1] == "k") {
+            p6.push({ p: S3.d, o: 0, r: [h2], d: l2(d3, { p: S3.d }, u3).map(ne3).join("") });
             continue;
           }
-          if (y3[1] == "f") {
-            p6.push(...b2(d3).map((w4) => ({ p: S3.d, o: 0, r: [y3], d: l2(w4, { p: S3.d }, u3).map(ne3).join("") })));
+          if (h2[1] == "f") {
+            p6.push(...b2(d3).map((w4) => ({ p: S3.d, o: 0, r: [h2], d: l2(w4, { p: S3.d }, u3).map(ne3).join("") })));
             continue;
           }
         }
         if (typeof d3 != "object" || Array.isArray(d3))
-          y3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f4, c4, o3])) : (d3 || d3 === 0) && (y3 = y3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, h2 = Math.max(h2, (R5 = y3)[0] == "-" ? 0 : Ee(R5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(y3, he("" + w4, u3.theme) + (c4 ? " !important" : ""))).join(";"));
-        else if (y3[0] == "@" || y3.includes("&")) {
+          h2 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f4, c4, o3])) : (d3 || d3 === 0) && (h2 = h2.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R5 = h2)[0] == "-" ? 0 : Ee(R5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h2, he("" + w4, u3.theme) + (c4 ? " !important" : ""))).join(";"));
+        else if (h2[0] == "@" || h2.includes("&")) {
           let w4 = f4;
-          y3[0] == "@" && (y3 = y3.replace(/\bscreen\(([^)]+)\)/g, (j5, M5) => {
+          h2[0] == "@" && (h2 = h2.replace(/\bscreen\(([^)]+)\)/g, (j5, M5) => {
             let N7 = u3.theme("screens", M5);
             return N7 ? (w4 |= 67108864, Ce(N7, "")) : j5;
-          }), w4 |= re3(y3)), p6.push(...l2(d3, { n: s4, p: w4, r: [...a4, y3], i: c4 }, u3));
+          }), w4 |= re3(h2)), p6.push(...l2(d3, { n: s4, p: w4, r: [...a4, h2], i: c4 }, u3));
         } else
-          p6.push(...l2(d3, { p: f4, r: [...a4, y3] }, u3));
+          p6.push(...l2(d3, { p: f4, r: [...a4, h2] }, u3));
       }
-      return p6.unshift({ n: s4, p: f4, o: Math.max(0, 15 - $4) + 1.5 * Math.min(h2 || 15, 15), r: a4, d: g5 }), p6.sort(Ne);
+      return p6.unshift({ n: s4, p: f4, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a4, d: g5 }), p6.sort(Ne);
     }(e3, ce3(t5, r, i2, n3), r);
   }
   function he(e3, t5) {
@@ -5337,13 +5337,13 @@ body {
     for (let o3 of e3)
       for (let s4 of function(f4, a4, c4, u3, p6) {
         f4 = { ...f4, i: f4.i || p6 };
-        let g5 = function(h2, $4) {
-          let A4 = pe.get(h2.n);
-          return A4 ? A4(h2, $4) : $4.r(h2.n, h2.v[0] == "dark");
+        let g5 = function(y3, $4) {
+          let A4 = pe.get(y3.n);
+          return A4 ? A4(y3, $4) : $4.r(y3.n, y3.v[0] == "dark");
         }(f4, a4);
-        return g5 ? typeof g5 == "string" ? ({ r: u3, p: c4 } = ce3(f4, a4, c4, u3), ye(W3(I2(g5), a4, c4, u3, f4.i), f4.n)) : Array.isArray(g5) ? g5.map((h2) => {
+        return g5 ? typeof g5 == "string" ? ({ r: u3, p: c4 } = ce3(f4, a4, c4, u3), ye(W3(I2(g5), a4, c4, u3, f4.i), f4.n)) : Array.isArray(g5) ? g5.map((y3) => {
           var $4, A4;
-          return { o: 0, ...h2, r: [...b2(u3), ...b2(h2.r)], p: ($4 = c4, A4 = h2.p ?? c4, $4 & ~S3.o | A4) };
+          return { o: 0, ...y3, r: [...b2(u3), ...b2(y3.r)], p: ($4 = c4, A4 = y3.p ?? c4, $4 & ~S3.o | A4) };
         }) : de(g5, f4, a4, c4, u3) : [{ c: ae2(f4), p: 0, o: 0, r: [] }];
       }(o3, t5, r, i2, n3))
         l2.splice(Me(l2, s4), 0, s4);
@@ -5406,8 +5406,8 @@ body {
               let p6 = i2.shift();
               r.length = c4, K3([...r, "#"], i2);
               let { v: g5 } = i2[0].pop();
-              for (let h2 of p6)
-                h2.v.splice(+(h2.v[0] == "dark") - +(g5[0] == "dark"), g5.length);
+              for (let y3 of p6)
+                y3.v.splice(+(y3.v[0] == "dark") - +(g5[0] == "dark"), g5.length);
               K3([...r, _e2(u3.length > 1 ? u3.slice(0, -1) + T3(JSON.stringify([u3, p6])) : u3 + "(" + ue2(p6) + ")", S3.a, p6, /@$/.test(u3))], i2);
             }
             c4 = r.lastIndexOf("(", c4 - 1);
@@ -5516,12 +5516,12 @@ body {
         return u3 ? { [u3]: A4 } : A4;
       });
       r._ = { value: P3(s4, { opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }), color: ($4) => P3(s4, $4), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 };
-      let h2 = g5(r, i2);
+      let y3 = g5(r, i2);
       if (!r.dark) {
         let $4 = i2.d(n3, l2, s4);
-        $4 && $4 !== s4 && (r._ = { value: P3($4, { opacityVariable: f4 || void 0, opacityValue: p6 || "1" }), color: (A4) => P3($4, A4), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }, h2 = { "&": h2, [i2.v("dark")]: g5(r, i2) });
+        $4 && $4 !== s4 && (r._ = { value: P3($4, { opacityVariable: f4 || void 0, opacityValue: p6 || "1" }), color: (A4) => P3($4, A4), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
       }
-      return h2;
+      return y3;
     };
   }
   function Ze(e3) {
@@ -5570,7 +5570,7 @@ body {
     } };
   }
 
-  // https://esm.sh/v104/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
+  // https://esm.sh/v106/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
   var L3 = "inherit", U3 = "currentColor", j3 = "transparent", V4 = "#000", B5 = "#fff", H4 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P4 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G4 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le2 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L3, current: U3, transparent: j3, black: V4, white: B5, slate: H4, gray: I3, zinc: M3, neutral: P4, stone: N4, red: G4, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe3, indigo: re4, violet: ae3, purple: ie3, fuchsia: ne4, pink: le2, rose: se2 }, h = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
   function x3(e3, r) {
     let a4 = {};
@@ -5669,7 +5669,7 @@ body {
     return { preflight: e3 ? void 0 : C3, theme: h, variants: _, rules: O2 };
   }
 
-  // https://esm.sh/v104/notie@4.3.1/deno/notie.js
+  // https://esm.sh/v106/notie@4.3.1/deno/notie.js
   var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropertyDescriptor, Se2 = Object.getOwnPropertyNames, we2 = Object.getPrototypeOf, Oe = Object.prototype.hasOwnProperty, Ae2 = (y3, o3) => () => (o3 || y3((o3 = { exports: {} }).exports, o3), o3.exports), De = (y3, o3, v2, b4) => {
     if (o3 && typeof o3 == "object" || typeof o3 == "function")
       for (let m4 of Se2(o3))
@@ -5979,11 +5979,11 @@ body {
     });
   }), je = Ie(ye2()), { default: Le, ...Ne2 } = je, Fe = Le !== void 0 ? Le : Ne2;
 
-  // https://esm.sh/v104/nanostores@0.7.1/deno/nanostores.js
+  // https://esm.sh/v106/nanostores@0.7.1/deno/nanostores.js
   var S5 = Symbol("clean");
   var c3 = Symbol();
 
-  // https://esm.sh/v104/@nanostores/i18n@0.7.1/deno/i18n.js
+  // https://esm.sh/v106/@nanostores/i18n@0.7.1/deno/i18n.js
   function g3(r, n3) {
     if (typeof r == "string")
       return n3(r);
@@ -6017,7 +6017,7 @@ body {
     return t5 in n3 || (t5 = "many"), g3(n3[t5], (o3) => o3.replace(/{count}/g, e3));
   });
 
-  // https://esm.sh/v104/hotkeys-js@3.10.1/deno/hotkeys-js.js
+  // https://esm.sh/v106/hotkeys-js@3.10.1/deno/hotkeys-js.js
   var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P5(e3, t5, i2, r) {
     e3.addEventListener ? e3.addEventListener(t5, i2, r) : e3.attachEvent && e3.attachEvent("on".concat(t5), function() {
@@ -6273,7 +6273,7 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-    translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u8FDB\u884C\u6362\u884C\uFF09",
+    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
     xMinutes: "{count} \u5206\u949F",
@@ -7449,6 +7449,7 @@ body {
       observeUrlChange: !0,
       paragraphMinTextCount: 8,
       paragraphMinWordCount: 2,
+      shadowRootSelectors: [],
       blockMinTextCount: 32,
       blockMinWordCount: 5,
       containerMinTextCount: 18,
@@ -7886,6 +7887,12 @@ body {
           "h1 > yt-formatted-string.ytd-watch-metadata",
           "yt-formatted-string#video-title",
           "span#video-title"
+        ],
+        excludeSelectors: [
+          "[class^='lln-']"
+        ],
+        extraBlockSelector: [
+          ".ytd-transcript-segment-renderer"
         ],
         detectParagraphLanguage: !0
       },
@@ -8419,6 +8426,19 @@ body {
         selectors: [
           "#thisiddoesnotexists"
         ]
+      },
+      {
+        matches: "www.foxnews.com",
+        shadowRootSelectors: [
+          "[data-spot-im-module-default-area='conversation'] > div"
+        ],
+        excludeSelectors: [
+          ".components-MessageDetails-index__message-details-wrapper",
+          "div[class^=SlideDown__container]",
+          ".components-MessageActions-index__messageActionsWrapper",
+          "span[data-openweb-allow-amp]",
+          "div.spcv_typing-users"
+        ]
       }
     ]
   };
@@ -8534,6 +8554,9 @@ body {
   async function setLocalConfig(localConfig) {
     await browserAPI.storage.local.set({ [localConfigStorageKey]: localConfig });
   }
+  async function clearBuildinConfig() {
+    await browserAPI.storage.local.set({ [buildinConfigStorageKey]: {} });
+  }
   async function clearLocalConfig() {
     await browserAPI.storage.local.set({ [localConfigStorageKey]: {} });
   }
@@ -8545,12 +8568,15 @@ body {
       buildinConfigUpdatedAt: env.BUILD_TIME
     };
     if (storageBuildInConfig[buildinConfigStorageKey]) {
-      let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey], storageBuildinConfigUpdatedAt = new Date(
-        storageBuildInConfigValue.buildinConfigUpdatedAt
-      ), buildinConfigUpdatedAt = new Date(
-        finalBuildInConfig.buildinConfigUpdatedAt
-      );
-      storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
+      let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
+      if (storageBuildInConfigValue && storageBuildInConfigValue.buildinConfigUpdatedAt) {
+        let storageBuildinConfigUpdatedAt = new Date(
+          storageBuildInConfigValue.buildinConfigUpdatedAt
+        ), buildinConfigUpdatedAt = new Date(
+          finalBuildInConfig.buildinConfigUpdatedAt
+        );
+        storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
+      }
     }
     let shortcutsFromBrowser = {};
     if (!isMonkey() && browserAPI.commands && browserAPI.commands.getAll) {
@@ -9336,6 +9362,12 @@ body {
     }
     return globalThis.location.href;
   }
+  function injectCSS(rootDocument, css) {
+    rootDocument.head.appendChild(rootDocument.createElement("style")).innerHTML = css;
+  }
+  function isInlineIframe(frame) {
+    return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+  }
 
   // dom/mark_containers.ts
   function markContainers(containers, rule) {
@@ -9487,7 +9519,9 @@ body {
     if (rule && rule.selectors.length > 0) {
       let containers = rule.selectors.map((selector) => {
         let isMatch = root2.matches(selector), elements = [];
-        isMatch ? elements = [root2] : elements = root2.querySelectorAll(selector);
+        isMatch ? elements = [root2] : elements = root2.querySelectorAll(
+          selector
+        );
         for (let element of elements)
           isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
             element,
@@ -9591,7 +9625,7 @@ body {
   }
 
   // dom/elements_to_paragraph.ts
-  function elementsToParagraph(elements, isPreWhitespace, ctx) {
+  function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
     let variables = [], { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
     if (elements.length === 0)
       return null;
@@ -9652,6 +9686,7 @@ body {
 `).length;
     wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2 && (inline = !0);
     let paragraph = {
+      rootFrame,
       elements: elements.map((element) => element.element),
       text,
       variables,
@@ -9729,7 +9764,7 @@ body {
       observers: []
     });
   }
-  async function getParagraphs(_root, containers, ctx) {
+  async function getParagraphs(rootFrame, containers, ctx) {
     let allParagraphs = [], { targetLanguage, rule } = ctx;
     for (let container of containers) {
       if (isExcludeElement(container, rule, !1))
@@ -9743,6 +9778,7 @@ body {
           let paragraph = elementsToParagraph(
             [container],
             !0,
+            rootFrame,
             ctx
           );
           paragraph && addToParagraphs(paragraph, allParagraphs);
@@ -9763,6 +9799,7 @@ body {
               let paragraph2 = elementsToParagraph(
                 [...inlineElementGroups],
                 isPreWhitespaceContainer,
+                rootFrame,
                 ctx
               );
               paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
@@ -9771,6 +9808,7 @@ body {
             let paragraph = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
+              rootFrame,
               ctx
             );
             return paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0, NodeFilter.FILTER_REJECT;
@@ -9788,12 +9826,14 @@ body {
               inlineElementGroups,
               allParagraphs,
               isPreWhitespaceContainer,
+              rootFrame,
               ctx
             ), NodeFilter.FILTER_REJECT;
           if (inlineElementGroups.length > 0) {
             let paragraph = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
+              rootFrame,
               ctx
             );
             paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
@@ -9808,6 +9848,7 @@ body {
           inlineElementGroups,
           allParagraphs,
           isPreWhitespaceContainer,
+          rootFrame,
           ctx
         ), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT;
       }, elementIter = document.createTreeWalker(
@@ -9820,6 +9861,7 @@ body {
           let paragraph = elementsToParagraph(
             [...inlineElementGroups],
             isPreWhitespaceContainer,
+            rootFrame,
             ctx
           );
           paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
@@ -9830,6 +9872,7 @@ body {
         let paragraph = elementsToParagraph(
           [...inlineElementGroups],
           isPreWhitespaceContainer,
+          rootFrame,
           ctx
         );
         paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
@@ -9893,7 +9936,7 @@ body {
     }
     return elements;
   }
-  function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, ctx) {
+  function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, rootFrame, ctx) {
     let previouseElement = node.previousElementSibling;
     if (previouseElement && !isInlineElement(
       previouseElement,
@@ -9902,6 +9945,7 @@ body {
       let paragraph = elementsToParagraph(
         [...inlineElementGroups],
         isPreWhitespaceContainer,
+        rootFrame,
         ctx
       );
       paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
@@ -9919,7 +9963,7 @@ body {
   }
 
   // dom/get_pdf_paragraphs.ts
-  async function getParagraphs2(_root, containers, ctx, targetContainers) {
+  async function getParagraphs2(rootFrame, containers, ctx, targetContainers) {
     let allParagraphs = [], { rule } = ctx;
     for (let i2 = 0; i2 < containers.length; i2++) {
       let container = containers[i2], targetContainer = targetContainers[i2];
@@ -9960,6 +10004,7 @@ body {
             ) - lastElementInfo.right > rule.pdfNewParagraphIndentRightIndentPx && (isNewParagraph = !0), isFirstElementOfParagraph && (lastLineFirstElementInfo = currentElementInfo, isFirstElementOfParagraph = !1), isNewParagraph || (isNewParagraph = getIsNewParagraph(distanceInfo, rule)), isNewParagraph && tryToAddToParagraph(
               inlineElementGroups,
               allParagraphs,
+              rootFrame,
               ctx,
               targetContainer
             ), inlineElementGroups.push(formatElement(element, currentElementStyle)), inlineElementGroups.push(" ");
@@ -9977,17 +10022,19 @@ body {
       tryToAddToParagraph(
         inlineElementGroups,
         allParagraphs,
+        rootFrame,
         ctx,
         targetContainer
       );
     }
     return allParagraphs;
   }
-  function tryToAddToParagraph(inlineElementGroups, allParagraphs, ctx, targetContainer) {
+  function tryToAddToParagraph(inlineElementGroups, allParagraphs, rootFrame, ctx, targetContainer) {
     if (inlineElementGroups.length > 0) {
       let paragraph = elementsToParagraph(
         [...inlineElementGroups],
         !1,
+        rootFrame,
         ctx
       );
       paragraph && (paragraph.isPdf = !0, paragraph.targetContainer = targetContainer, paragraph.inline = !1, addToParagraphs(paragraph, allParagraphs)), inlineElementGroups.length = 0;
@@ -10705,38 +10752,38 @@ body {
   var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = debounce(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
     translateNewDynamicNodes,
     200
-  ), env3 = getEnv(), isProd2 = env3.PROD === "1", mutationObserver, titleMutationObserver, originalPageTitle = "";
+  ), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     getPageStatus() === "Original" ? await translatePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
   }
-  function showTranslationOnly() {
-    let allTranslatedElements = document.querySelectorAll(
-      `[${sourceElementTranslatedMarkAttributeName}="1"]`
-    );
-    for (let element of allTranslatedElements)
-      element.style.display = "none";
-  }
   function restorePage() {
-    clean(), disableMutatinObserver(), setPageTranslatedStatus("Translating"), originalPageTitle && (document.title = originalPageTitle), document.querySelectorAll(
-      "." + translationTargetElementWrapperClass
-    ).forEach((element) => {
-      element.remove();
-    }), document.querySelectorAll(
-      "." + translationPdfTargetContainerClass
-    ).forEach((element) => {
-      element.remove();
-    }), document.querySelectorAll(
-      "[" + sourceElementEffectAttributeName + "]"
-    ).forEach((element) => {
-      if (isProd2)
-        delete element[elementMarkRootKey];
-      else {
-        let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
-        for (let key of keys)
-          delete element.dataset[key];
-      }
-      element.removeAttribute(sourceElementEffectAttributeName);
-    }), setPageTranslatedStatus("Original");
+    clean();
+    let allFrames = [
+      document.body,
+      ...mutationObserverMap.keys()
+    ];
+    for (let rootFrame of allFrames)
+      disableMutatinObserver(rootFrame), rootFrame.querySelectorAll(
+        "." + translationTargetElementWrapperClass
+      ).forEach((element) => {
+        element.remove();
+      }), rootFrame.querySelectorAll(
+        "." + translationPdfTargetContainerClass
+      ).forEach((element) => {
+        element.remove();
+      }), rootFrame.querySelectorAll(
+        "[" + sourceElementEffectAttributeName + "]"
+      ).forEach((element) => {
+        if (isProd2)
+          delete element[elementMarkRootKey];
+        else {
+          let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
+          for (let key of keys)
+            delete element.dataset[key];
+        }
+        element.removeAttribute(sourceElementEffectAttributeName);
+      });
+    disableTitleMutationObserver(), setPageTranslatedStatus("Translating"), originalPageTitle && (document.title = originalPageTitle), setPageTranslatedStatus("Original");
   }
   function onElementVisible(paragraph, callback) {
     let isCalled = !1, firstElement = getFirstHTMLElement(paragraph.elements), lastElement = getLastHTMLElement(paragraph.elements);
@@ -10773,19 +10820,27 @@ body {
   async function translateNewDynamicNodes(ctx) {
     let currentNewDynamicNodes = [...currentNewDynamicElements];
     currentNewDynamicElements = [];
-    try {
-      let allContainers = [];
-      for (let element of currentNewDynamicNodes) {
-        let rawContainers = getContainers(element, ctx);
-        if (rawContainers.length === 0)
-          continue;
-        let containers = rawContainers;
-        allContainers.push(...containers);
+    let frameMap = /* @__PURE__ */ new Map();
+    currentNewDynamicNodes.forEach((node) => {
+      frameMap.has(node.rootFrame) || frameMap.set(node.rootFrame, []), frameMap.get(node.rootFrame)?.push(node.element);
+    });
+    for (let [rootFrame, elements] of frameMap)
+      try {
+        let allContainers = [];
+        for (let element of elements) {
+          let rawContainers = getContainers(
+            element,
+            ctx
+          );
+          if (rawContainers.length === 0)
+            continue;
+          let containers = rawContainers;
+          allContainers.push(...containers);
+        }
+        await translateContainers(allContainers, rootFrame, ctx);
+      } catch (e3) {
+        log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
       }
-      await translateContainers(allContainers, ctx);
-    } catch (e3) {
-      log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
-    }
   }
   function translationParagraph(visibleParagraph, ctx) {
     waitToTranslateParagraphIds.delete(visibleParagraph.id);
@@ -10866,16 +10921,39 @@ body {
       }), allIntersectionObserver = [], waitToTranslateParagraphIds.clear();
     }), setPageTranslatedStatus("Translating");
     try {
-      markContainers([document.body], ctx.rule);
-      let containers = getContainers(document.body, ctx);
-      log_default.debug("detect containers", containers), setPageTranslatedStatus("Translating");
-      let { rule } = ctx;
-      containers.length > 0 && await translateContainers(containers, ctx), translateTitle(ctx).catch((e3) => {
-        log_default.error("translateTitle error:", e3.name, e3.message, e3.details || "");
-      }), enableMutatinObserver(rule, ctx), containers.length === 0 && setPageTranslatedStatus("Translated");
+      let allFrames = [document.body];
+      document.querySelectorAll("iframe").forEach((frame) => {
+        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
+      }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
+        document.body,
+        ctx.rule.shadowRootSelectors
+      ).forEach((host) => {
+        host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
+      });
+      let containersCount = 0;
+      setPageTranslatedStatus("Translating");
+      for (let rootFrame of allFrames)
+        containersCount += await translateFrame(rootFrame, ctx);
+      containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
+        log_default.error(
+          "translateTitle error:",
+          e3.name,
+          e3.message,
+          e3.details || ""
+        );
+      }), enableTitleMutationObserver(ctx);
     } catch (e3) {
       setPageTranslatedStatus("Error"), log_default.error(e3);
     }
+  }
+  async function translateFrame(rootFrame, ctx) {
+    markContainers([rootFrame], ctx.rule);
+    let containers = getContainers(rootFrame, ctx);
+    log_default.debug("detect containers", containers);
+    let { rule } = ctx;
+    containers.length > 0 && await translateContainers(containers, rootFrame, ctx);
+    let observer = enableMutatinObserver(rootFrame, rule, ctx);
+    return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
   }
   async function getGlobalContext(url) {
     let config = await getConfig2();
@@ -10936,7 +11014,7 @@ body {
   function getLoadingHTML() {
     return `&nbsp;<span class="${brandId}-loading notranslate"></span>`;
   }
-  async function translateContainers(containers, ctx) {
+  async function translateContainers(containers, rootFrame, ctx) {
     let { rule } = ctx;
     markContainers(containers, rule);
     let targetContainers = [];
@@ -10953,18 +11031,18 @@ body {
       ), { hiddenElements } = normalizeResult;
       for (let element of hiddenElements)
         onHiddenElementVisible(element, () => {
-          removeAttribute(element, sourceElementExcludeAttributeName), translateContainers([element], ctx);
+          removeAttribute(element, sourceElementExcludeAttributeName), translateContainers([element], rootFrame, ctx);
         });
       setPageTranslatedStatus("Translating");
     }
     let paragraphs = [];
     if (ctx.rule.isPdf ? paragraphs = await getParagraphs2(
-      document.body,
+      rootFrame,
       containers,
       ctx,
       targetContainers
     ) : (containers = containers.filter((container) => !isExcludeElement(container, rule, !1)), paragraphs = await getParagraphs(
-      document.body,
+      rootFrame,
       containers,
       ctx
     )), setPageTranslatedStatus("Translating"), paragraphs.length === 0) {
@@ -10978,10 +11056,10 @@ body {
   }
   function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
     let paragraphWithState = getParagraph(sentenceRequest.id);
-    if (err || !translatedSentence) {
+    if (paragraphWithState && (err || !translatedSentence)) {
       err || (log_default.error("translate error", translatedSentence), err = new Error("no response from server"));
-      let wrapperId = sentenceRequest.id, wrapper = document.getElementById(
-        `${translationTargetElementWrapperClass}-${wrapperId}`
+      let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+        `#${translationTargetElementWrapperClass}-${wrapperId}`
       ), errorMessage = err.message.replaceAll(`
 `, "");
       errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
@@ -10995,10 +11073,10 @@ body {
           paragraph,
           translatedSentence,
           ctx
-        ), wrapperId = translatedSentence.id, wrapper = document.getElementById(
-          `${translationTargetElementWrapperClass}-${wrapperId}`
+        ), wrapperId = translatedSentence.id, wrapper = paragraph.rootFrame.querySelector(
+          `#${translationTargetElementWrapperClass}-${wrapperId}`
         );
-        wrapper && (wrapper.innerHTML = targetItem.html, document.querySelectorAll(
+        wrapper && (wrapper.innerHTML = targetItem.html, paragraph.rootFrame.querySelectorAll(
           `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
         ).forEach((element) => {
           setAttribute(
@@ -11056,37 +11134,57 @@ body {
   function setPageTranslatedStatus(_pageStatus) {
     pageStatus = _pageStatus, sendPageTranslatedStatus(pageStatus);
   }
-  function enableMutatinObserver(rule, ctx) {
-    log_default.debug("enableMutatinObserver"), disableMutatinObserver(), allNewDynamicElements = [], currentNewDynamicElements = [];
-    let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR");
-    mutationObserver = new MutationObserver(function(mutations) {
+  function enableMutatinObserver(rootFrame, rule, ctx) {
+    log_default.debug("enableMutatinObserver for ", rootFrame), disableMutatinObserver(rootFrame), allNewDynamicElements = [], currentNewDynamicElements = [];
+    let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR"), mutationObserver = new MutationObserver(function(mutations) {
       mutations.forEach((mutation) => {
-        let currentUrl = getRealUrl();
-        if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
-          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(), setTimeout(() => {
-            log_default.debug("url changed, reinit page"), initPage();
-          }, rule.urlChangeDelay);
-          let event = new Event(pageUrlChangedEventName);
-          document.dispatchEvent(event);
-          return;
+        if (rootFrame === document.body) {
+          let currentUrl = getRealUrl();
+          if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
+            oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), setTimeout(() => {
+              log_default.debug("url changed, reinit page"), initPage();
+            }, rule.urlChangeDelay);
+            let event = new Event(pageUrlChangedEventName);
+            document.dispatchEvent(event);
+            return;
+          }
         }
         mutation.addedNodes.forEach((addedNode) => {
           if (addedNode.nodeType === Node.ELEMENT_NODE) {
             let element = addedNode;
-            if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
+            if (element.nodeName === "IFRAME")
+              isInlineIframe(element) && setTimeout(() => {
+                translateFrame(
+                  element.contentDocument.body,
+                  ctx
+                ).catch((e3) => {
+                  log_default.error(
+                    "translateFrame error",
+                    e3.details || " ",
+                    e3
+                  );
+                });
+              }, ctx.rule.urlChangeDelay);
+            else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
               element.nodeName
             )) {
               if (element.classList.contains("notranslate"))
                 return;
-              isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push(element), allNewDynamicElements.push(element), debounceTranslateNewDynamicNodes(ctx));
+              isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push({
+                element,
+                rootFrame
+              }), allNewDynamicElements.push(element), debounceTranslateNewDynamicNodes(ctx));
             }
           }
         });
       });
-    }), mutationObserver.observe(document.body, {
+    });
+    return mutationObserver.observe(rootFrame, {
       childList: !0,
       subtree: !0
-    });
+    }), mutationObserver;
+  }
+  function enableTitleMutationObserver(ctx) {
     let titleElement = document.querySelector("title");
     titleElement && (titleMutationObserver = new MutationObserver(function(mutations) {
       mutations.length > 0 && (mutations[0].target.text.includes(titleDelimiters) || translateTitle(ctx).catch((e3) => {
@@ -11123,8 +11221,17 @@ body {
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
     !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage()) : log_default.debug("do not auto translate", ctx);
   }
-  function disableMutatinObserver() {
-    mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords()), titleMutationObserver && (titleMutationObserver.disconnect(), titleMutationObserver.takeRecords());
+  function disableMutatinObserver(rootFrame) {
+    if (mutationObserverMap.has(rootFrame)) {
+      let mutationObserver = mutationObserverMap.get(rootFrame);
+      mutationObserver.disconnect(), mutationObserver.takeRecords(), mutationObserverMap.delete(rootFrame);
+    } else if (rootFrame === document.body) {
+      let mutationObserver = mainMutaionObserver;
+      mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords());
+    }
+  }
+  function disableTitleMutationObserver() {
+    titleMutationObserver && (titleMutationObserver.disconnect(), titleMutationObserver.takeRecords(), titleMutationObserver = void 0);
   }
   function getPageStatus() {
     return pageStatus;
@@ -11292,7 +11399,7 @@ body {
   // content_message_listeners.ts
   var asyncMessageHandler = async function(payload, _author) {
     let { method, data } = payload;
-    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? showTranslationOnly() : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
+    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
   };
   var connection;
   function getConnection() {
@@ -15649,7 +15756,11 @@ body {
         };
       });
     }, handleCleanCache = (e3) => {
-      e3.preventDefault(), e3.stopPropagation(), setIsCleaning(!0), cleanCache().then(() => {
+      e3.preventDefault(), e3.stopPropagation(), setIsCleaning(!0), clearBuildinConfig().catch((e4) => {
+        log_default.error("clear build config failed:", e4);
+      }), clearLocalConfig().catch((e4) => {
+        log_default.error("clear local config failed:", e4);
+      }), cleanCache().then(() => {
         setIsCleaning(!1), success("\u6E05\u7406\u6210\u529F"), setCacheSize("0 B");
       }).catch((e4) => {
         setIsCleaning(!1), error(e4.message);

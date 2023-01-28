@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.30
+
+- Support userscript inline iframe translation.
+- Support shadowroot translation. For example: <https://www.foxnews.com/politics/minnesota-senate-passes-abortion-bill-opponents-call-most-extreme-nation> Conversation area.
+- also check sync rule on popup
+
 ## 0.2.29
 
 - Fix Facebook translation

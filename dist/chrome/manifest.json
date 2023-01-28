@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.29",
+  "version": "0.2.30",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -34,8 +34,7 @@
         "styles/inject.css"
       ],
       "run_at": "document_end",
-      "all_frames": true,
-      "match_about_blank": true
+      "all_frames": true
     }
   ],
   "commands": {

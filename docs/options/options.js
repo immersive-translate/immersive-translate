@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-28T22:09:04.401Z", VERSION: "0.2.30", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-28T22:56:01.517Z", VERSION: "0.2.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -11154,7 +11154,10 @@ body {
             let element = addedNode;
             if (element.nodeName === "IFRAME")
               isInlineIframe(element) && setTimeout(() => {
-                translateFrame(
+                injectCSS(
+                  element.contentDocument,
+                  env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
+                ), translateFrame(
                   element.contentDocument.body,
                   ctx
                 ).catch((e3) => {

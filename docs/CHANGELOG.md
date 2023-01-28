@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.31
+
+- Fix dynamic iframe css inject
+
 ## 0.2.30
 
 - Support userscript inline iframe translation.

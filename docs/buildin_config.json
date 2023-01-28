@@ -559,6 +559,12 @@
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
+      "excludeSelectors": [
+        "[class^='lln-']"
+      ],
+      "extraBlockSelector": [
+        ".ytd-transcript-segment-renderer"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -1089,6 +1095,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-28T13:51:51.348Z",
+  "buildinConfigUpdatedAt": "2023-01-28T16:32:56.350Z",
   "latestVersion": "0.2.29"
 }

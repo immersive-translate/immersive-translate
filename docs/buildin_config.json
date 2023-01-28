@@ -5,6 +5,7 @@
   "cache": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
+  "isShowContextMenu": true,
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -115,6 +116,7 @@
     "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
+    "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": true,
     "paragraphMinTextCount": 8,
@@ -499,10 +501,25 @@
         "div[dir=auto][class]",
         "span[lang]"
       ],
+      "atomicBlockSelectors": [
+        "div[dir=auto][style]",
+        "div[dir=auto][class]",
+        "span[lang]"
+      ],
+      "insertPosition": "afterend",
+      "preWhitespaceDetectedTags": [
+        "DIV",
+        "SPAN"
+      ],
+      "extraBlockSelectors": [
+        "span.x1vvkbs"
+      ],
       "excludeSelectors": [
         "[role=button]"
       ],
-      "translationClasses": "immersive-translate-text",
+      "translationClasses": [
+        "immersive-translate-text"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -1072,6 +1089,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-27T19:12:14.838Z",
-  "latestVersion": "0.2.28"
+  "buildinConfigUpdatedAt": "2023-01-28T13:51:51.348Z",
+  "latestVersion": "0.2.29"
 }

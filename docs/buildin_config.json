@@ -196,6 +196,8 @@
       "KBD",
       "WBR",
       "TT",
+      "RT",
+      "RP",
       "META"
     ],
     "metaTags": [
@@ -220,9 +222,12 @@
       "B",
       "INS",
       "DEL",
+      "RUBY",
+      "RP",
       "BDO",
       "MARK",
       "BIG",
+      "RT",
       "NOBR",
       "CITE",
       "DFN",
@@ -1109,6 +1114,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-28T22:08:24.140Z",
-  "latestVersion": "0.2.30"
+  "buildinConfigUpdatedAt": "2023-01-29T20:20:33.808Z",
+  "latestVersion": "0.2.32"
 }

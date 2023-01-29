@@ -168,6 +168,16 @@ This will build the pdf project, and copy the build files to the translate proje
 web-ext run -s dist/firefox -t firefox-android --android-device=xxxxx --firefox-apk org.mozilla.fenix
 ```
 
+## Log
+
+为了方便临时打印一些东西，我添加了 2 个函数，方便最后提交的时候，直接搜索`log.v`, `log.l` 即可删除。
+
+```typescript
+import _log from "./log.ts";
+_log.v("test"); // debug level
+_log.l("test2"); // info level
+```
+
 ## 有用的链接
 
 - [preact typescript](https://preactjs.com/guide/v10/typescript)

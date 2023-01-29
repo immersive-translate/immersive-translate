@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.33
+
+- Support vertical writing mode, like Japanese.
+- Add 3 themes
+- Add Niu translation service
+
 ## 0.2.32
 
 - Fix PDF basic translation

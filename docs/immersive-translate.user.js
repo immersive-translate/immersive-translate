@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.32
+// @version      0.2.33
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-29T16:55:16.842Z", VERSION: "0.2.32", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-29T20:30:35.788Z", VERSION: "0.2.33", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -90,6 +90,7 @@
   margin: 8px 0 !important;
   display: block;
 }
+
 .immersive-translate-target-translation-pdf-block-wrapper {
   margin: 0 !important;
   display: block;
@@ -99,6 +100,10 @@
 }
 .immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid #72ece9 !important;
+}
+
+.immersive-translate-target-translation-theme-nativeUnderline-inner {
+  text-decoration: underline #72ece9 !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
@@ -111,6 +116,10 @@
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed rgb(148 163 184) !important;
   padding: 2px;
+}
+
+.immersive-translate-target-translation-theme-nativeDashed-inner {
+  text-decoration: dashed underline #72ece9 !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
@@ -128,6 +137,13 @@
   background-size: 5px 1px;
   background-repeat: repeat-x;
   padding-bottom: 3px;
+}
+.immersive-translate-target-translation-theme-nativeDotted-inner {
+  text-decoration: dotted underline #72ece9 !important;
+}
+
+.immersive-translate-target-translation-theme-wavy-inner {
+  text-decoration: wavy underline #59c1bd !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
@@ -214,6 +230,12 @@
 .immersive-translate-target-translation-theme-mask-inner:hover {
   filter: none !important;
 }
+
+/* vertical css , please remain it in the last one. */
+.immersive-translate-target-translation-vertical-block-wrapper {
+  margin: 0px 8px !important;
+}
+
 .immersive-translate-text {
   font-size: 15px !important;
 }
@@ -4348,6 +4370,10 @@ body {
     "translationTheme.italic": "\u659C\u4F53",
     "translationTheme.bold": "\u52A0\u7C97",
     "translationTheme.thinDashed": "\u7EC6\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.wavy": "\u6CE2\u6D6A\u7EBF",
     "translationServices.tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
     "translationServices.google": "\u8C37\u6B4C\u7FFB\u8BD1",
     "translationServices.bai": "\u767E\u5EA6(Alpha)",
@@ -4368,6 +4394,7 @@ body {
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
     "translationServices.transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
+    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8BD1",
     "translationServices.d": "Deepl(Alpha)",
     "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
     "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
@@ -4528,6 +4555,7 @@ body {
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
     "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
+    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
     "translationServices.d": "Deepl(Alpha)",
     "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
     "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
@@ -4684,6 +4712,7 @@ body {
     "translationServices.youdao": "Youdao Translation",
     "translationServices.transmart": "Tencent Smart Translation",
     "translationServices.d": "DeeplX (Alpha)",
+    "translationServices.niu": "Niu Translation",
     "translate title": "Translate page title",
     "always languages": "Always translate the following languages",
     "always translate the following languages": "The following languages will always be translated",
@@ -4721,7 +4750,7 @@ body {
   var brandName = "Immersive Translate", brandId = "immersive-translate";
   var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
   var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
-`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
     "auto",
     "en",
@@ -5716,6 +5745,8 @@ body {
         "KBD",
         "WBR",
         "TT",
+        "RT",
+        "RP",
         "META"
       ],
       metaTags: [
@@ -5740,9 +5771,12 @@ body {
         "B",
         "INS",
         "DEL",
+        "RUBY",
+        "RP",
         "BDO",
         "MARK",
         "BIG",
+        "RT",
         "NOBR",
         "CITE",
         "DFN",
@@ -9096,8 +9130,14 @@ body {
     debug(...args) {
       this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
     }
+    v(...args) {
+      this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " VERBOSE:"), ...args);
+    }
     info(...args) {
       this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " INFO:"), ...args);
+    }
+    l(...args) {
+      this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " TEMP INFO:"), ...args);
     }
     warn(...args) {
       this.#level <= 2 /* Warn */ && console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
@@ -9912,9 +9952,17 @@ body {
     let inline = !1, wordCount = text.split(" ").length, lineCount = text.split(`
 `).length;
     wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2 && (inline = !0);
+    let finalElements = elements.map(
+      (element) => element.element
+    ), lastElement = getLastHTMLElement(elements), isVertical = !1;
+    if (lastElement) {
+      let writtingMode = globalThis.getComputedStyle(lastElement).writingMode;
+      isVertical = writtingMode ? writtingMode.includes("vertical") : !1;
+    }
     let paragraph = {
       rootFrame,
-      elements: elements.map((element) => element.element),
+      isVertical,
+      elements: finalElements,
       text,
       variables,
       inline,
@@ -10342,7 +10390,7 @@ body {
     ), innerClassList;
   }
   function paragraphToHtml(sourceItem, sentence, ctx) {
-    let { rule, translationTheme } = ctx, { variables } = sourceItem;
+    let { rule, translationTheme } = ctx, { variables, isVertical } = sourceItem;
     variables = variables || [];
     let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), matchIndex = 0, html = escapeHTML(targetText);
     variables.length > 0 && (html = html.replace(regex, (match) => {
@@ -10360,7 +10408,9 @@ body {
       rule.translationClasses || [],
       sourceItem.preWhitespace,
       ctx.rule.isPdf
-    ), innerClassList = getTranslationInnerClassNames(
+    );
+    isVertical && classList.push(translationTargetTranslationElementVerticalBlockClass);
+    let innerClassList = getTranslationInnerClassNames(
       translationTheme
     ), blockStyleStr = "";
     return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
@@ -11912,6 +11962,63 @@ body {
     }
   }, deepl_default = Deepl;
 
+  // services/niu.ts
+  var rawLangMap3 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["zh-TW", "cht"],
+    ["en", "en"],
+    ["ja", "ja"],
+    ["ru", "ru"],
+    ["es", "es"],
+    ["de", "de"],
+    ["ko", "ko"],
+    ["fr", "fr"]
+  ], langMap10 = new Map(rawLangMap3), Niu = class extends Translation {
+    constructor(serviceConfig, generalConfig) {
+      super(serviceConfig, generalConfig);
+      this.APIKEY = "";
+      this.isSupportList = !1;
+      if (!serviceConfig || !serviceConfig.APIKEY)
+        throw new Error("APIKEY are required");
+      this.APIKEY = serviceConfig.APIKEY;
+    }
+    static getAllProps() {
+      return [{
+        name: "APIKEY",
+        required: !0,
+        type: "password"
+      }];
+    }
+    async translate(payload) {
+      let { text, from, to } = payload, src_text = text, options3 = {
+        url: "https:///api.niutrans.com/NiuTransServer/translation",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+          src_text,
+          from: langMap10.get(from) || from,
+          to: langMap10.get(to) || to,
+          apikey: this.APIKEY
+        })
+      }, response = await request2(
+        options3
+      );
+      if (response.tgt_text) {
+        let result = response.tgt_text;
+        return result.endsWith(`
+`) && (result = result.slice(0, -1)), {
+          text: result,
+          from,
+          to
+        };
+      } else
+        throw new Error(JSON.stringify(response));
+    }
+  }, niu_default = Niu;
+
   // services/volc/sign.ts
   var unsignableHeaders = [
     "authorization",
@@ -12079,7 +12186,7 @@ body {
   };
 
   // services/volc/mod.ts
-  var rawLangMap3 = [
+  var rawLangMap4 = [
     ["af", "af"],
     ["am", "am"],
     ["ar", "ar"],
@@ -12184,8 +12291,8 @@ body {
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap10 = new Map(rawLangMap3), langMapReverse4 = new Map(
-    rawLangMap3.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap11 = new Map(rawLangMap4), langMapReverse4 = new Map(
+    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Volc = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
@@ -12208,8 +12315,8 @@ body {
       }];
     }
     async translateList(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap10.get(from), bodyParams = {
-        TargetLanguage: langMap10.get(to) || to,
+      let { text, from, to } = payload, remoteFrom = langMap11.get(from), bodyParams = {
+        TargetLanguage: langMap11.get(to) || to,
         TextList: text
       };
       remoteFrom && (bodyParams.SourceLanguage = remoteFrom);
@@ -12256,7 +12363,7 @@ body {
   }, mod_default = Volc;
 
   // services/volc_alpha.ts
-  var rawLangMap4 = [
+  var rawLangMap5 = [
     ["auto", "detect"],
     ["af", "af"],
     ["am", "am"],
@@ -12362,8 +12469,8 @@ body {
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap11 = new Map(rawLangMap4), langMapReverse5 = new Map(
-    rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap12 = new Map(rawLangMap5), langMapReverse5 = new Map(
+    rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   ), VolcAlpha = class extends Translation {
     constructor() {
       super(...arguments);
@@ -12372,7 +12479,7 @@ body {
     }
     async translate(payload) {
       let { text, from, to } = payload, bodyParams = {
-        source_language: langMap11.get(from) || "detect",
+        source_language: langMap12.get(from) || "detect",
         target_language: "zh",
         text
       }, response = await request2(
@@ -12400,7 +12507,7 @@ body {
   };
 
   // services/deeplx.ts
-  var rawLangMap5 = [
+  var rawLangMap6 = [
     ["auto", "auto"],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -12413,7 +12520,7 @@ body {
     ["pt", "PT"],
     ["ru", "RU"],
     ["tr", "tr"]
-  ], langMap12 = new Map(rawLangMap5), Deeplx = class extends Translation {
+  ], langMap13 = new Map(rawLangMap6), Deeplx = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
       this.url = "";
@@ -12441,8 +12548,8 @@ body {
           },
           method: "POST",
           body: JSON.stringify({
-            source_lang: langMap12.get(from) || from,
-            target_lang: langMap12.get(to) || to,
+            source_lang: langMap13.get(from) || from,
+            target_lang: langMap13.get(to) || to,
             text
           })
         }
@@ -12458,7 +12565,7 @@ body {
   };
 
   // services/bing/api.js
-  var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap6 = [
+  var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap7 = [
     ["auto", "auto-detect"],
     ["ar", "ar"],
     ["ga", "ga"],
@@ -12534,8 +12641,8 @@ body {
     ["vi", "vi"],
     ["ku", "ku"],
     ["km", "kmr"]
-  ], langMap13 = new Map(rawLangMap6), langMapReverse6 = new Map(
-    rawLangMap6.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap14 = new Map(rawLangMap7), langMapReverse6 = new Map(
+    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
   ), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
   function replaceSubdomain(url, subdomain) {
     return url.replace("{s}", subdomain ? subdomain + "." : "");
@@ -12610,7 +12717,7 @@ body {
       throw new Error(
         `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
       );
-    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap13.get(from) || from, to = langMap13.get(to) || to;
+    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap14.get(from) || from, to = langMap14.get(to) || to;
     let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
       !1,
       text,
@@ -12664,7 +12771,7 @@ body {
   };
 
   // services/baidu.ts
-  var rawLangMap7 = [
+  var rawLangMap8 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
@@ -12694,8 +12801,8 @@ body {
     ["hu", "hu"],
     ["zh-TW", "cht"],
     ["vi", "vie"]
-  ], langMap14 = new Map(rawLangMap7), langMapReverse7 = new Map(
-    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap15 = new Map(rawLangMap8), langMapReverse7 = new Map(
+    rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
@@ -12720,8 +12827,8 @@ body {
     }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-        from: langMap14.get(from),
-        to: langMap14.get(to),
+        from: langMap15.get(from),
+        to: langMap15.get(to),
         q: text,
         salt,
         appid,
@@ -12754,12 +12861,12 @@ body {
   }, baidu_default = Baidu;
 
   // services/caiyun.ts
-  var rawLangMap8 = [
+  var rawLangMap9 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
-  ], langMap15 = new Map(rawLangMap8), Caiyun = class extends Translation {
+  ], langMap16 = new Map(rawLangMap9), Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
       this.token = "";
@@ -12789,7 +12896,7 @@ body {
             method: "POST",
             body: JSON.stringify({
               source,
-              trans_type: `${langMap15.get(from)}2${langMap15.get(to)}`
+              trans_type: `${langMap16.get(from)}2${langMap16.get(to)}`
             })
           }
         )).target,
@@ -12800,7 +12907,7 @@ body {
   }, caiyun_default = Caiyun;
 
   // services/youdao.ts
-  var rawLangMap9 = [
+  var rawLangMap10 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -12814,8 +12921,8 @@ body {
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap16 = new Map(rawLangMap9), langMapReverse8 = new Map(
-    rawLangMap9.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap17 = new Map(rawLangMap10), langMapReverse8 = new Map(
+    rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q6) {
     let len = q6.length;
@@ -12847,8 +12954,8 @@ body {
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap16.get(from),
-        to: langMap16.get(to),
+        from: langMap17.get(from),
+        to: langMap17.get(to),
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -12957,6 +13064,12 @@ body {
       name: "DeepLX(Alpha)",
       alpha: !0,
       homepage: "https://www.deepl.com/translator"
+    },
+    niu: {
+      class: niu_default,
+      name: "niutrans",
+      homepage: "https://niutrans.com/",
+      docUrl: "https://niutrans.com/documents/contents/beginning_guide/6"
     }
   };
   function formatTranslationService(key, ctx) {
@@ -13363,7 +13476,7 @@ body {
     currentTranslatedTextLength += visibleParagraph.text.length;
     let realElements = getHTMLElements(visibleParagraph.elements);
     if (visibleParagraph.isPdf) {
-      let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = window.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
+      let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
       isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
       let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
       realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
@@ -15296,7 +15409,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.32",
+    version: "0.2.33",
     default_locale: "en",
     background: {
       service_worker: "background.js"

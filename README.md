@@ -7,7 +7,7 @@
 - 为常见主流网站做了定制优化，比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等，我相信经过这些优化后，你会爱上阅读外语信息。
 - 支持 10+ 种常见的翻译服务，包括 Deepl, 谷歌, 腾讯翻译君,火山翻译，彩云小译等.
 - PDF 文件双语翻译支持
-- 配合 epub 在线阅读网站<https://1paragraph.app/> 或 <https://readwise.io/read> 即可实现双语阅读国外电子书
+- 配合 epub 在线阅读网站<https://epub-reader.online/> 或 <https://readwise.io/read> 即可实现双语阅读国外电子书
 - 多种译文样式可选择，个性化你的翻译体验。
 
 该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能更加容易且愉悦地获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️

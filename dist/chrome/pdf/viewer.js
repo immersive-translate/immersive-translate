@@ -401,14 +401,13 @@ function normalizeWheelEventDirection(evt) {
   return delta;
 }
 function normalizeWheelEventDelta(evt) {
+  const deltaMode = evt.deltaMode;
   let delta = normalizeWheelEventDirection(evt);
-  const MOUSE_DOM_DELTA_PIXEL_MODE = 0;
-  const MOUSE_DOM_DELTA_LINE_MODE = 1;
   const MOUSE_PIXELS_PER_LINE = 30;
   const MOUSE_LINES_PER_PAGE = 30;
-  if (evt.deltaMode === MOUSE_DOM_DELTA_PIXEL_MODE) {
+  if (deltaMode === WheelEvent.DOM_DELTA_PIXEL) {
     delta /= MOUSE_PIXELS_PER_LINE * MOUSE_LINES_PER_PAGE;
-  } else if (evt.deltaMode === MOUSE_DOM_DELTA_LINE_MODE) {
+  } else if (deltaMode === WheelEvent.DOM_DELTA_LINE) {
     delta /= MOUSE_LINES_PER_PAGE;
   }
   return delta;
@@ -438,9 +437,11 @@ class ProgressBar {
   #classList = null;
   #disableAutoFetchTimeout = null;
   #percent = 0;
+  #style = null;
   #visible = true;
   constructor(bar) {
     this.#classList = bar.classList;
+    this.#style = bar.style;
   }
   get percent() {
     return this.#percent;
@@ -452,7 +453,7 @@ class ProgressBar {
       return;
     }
     this.#classList.remove("indeterminate");
-    docStyle.setProperty("--progressBar-percent", `${this.#percent}%`);
+    this.#style.setProperty("--progressBar-percent", `${this.#percent}%`);
   }
   setWidth(viewer) {
     if (!viewer) {
@@ -461,7 +462,7 @@ class ProgressBar {
     const container = viewer.parentNode;
     const scrollbarWidth = container.offsetWidth - viewer.offsetWidth;
     if (scrollbarWidth > 0) {
-      docStyle.setProperty("--progressBar-end-offset", `${scrollbarWidth}px`);
+      this.#style.setProperty("--progressBar-end-offset", `${scrollbarWidth}px`);
     }
   }
   setDisableAutoFetch(delay = 5000) {
@@ -1891,7 +1892,22 @@ const PDFViewerApplication = {
     this._PDFBug?.cleanup();
     await Promise.all(promises);
   },
-  async open(file, args) {
+  async open(args) {
+    let deprecatedArgs = false;
+    if (typeof args === "string") {
+      args = {
+        url: args
+      };
+      deprecatedArgs = true;
+    } else if (args?.byteLength) {
+      args = {
+        data: args
+      };
+      deprecatedArgs = true;
+    }
+    if (deprecatedArgs) {
+      console.error("The `PDFViewerApplication.open` signature was updated, please use an object instead.");
+    }
     if (this.pdfLoadingTask) {
       await this.close();
     }
@@ -1900,25 +1916,22 @@ const PDFViewerApplication = {
       _pdfjsLib.GlobalWorkerOptions[key] = workerParameters[key];
     }
     const parameters = Object.create(null);
-    if (typeof file === "string") {
-      this.setTitleUsingUrl(file, file);
-      parameters.url = file;
-    } else if (file && "byteLength" in file) {
-      parameters.data = file;
-    } else if (file.url && file.originalUrl) {
-      this.setTitleUsingUrl(file.originalUrl, file.url);
-      parameters.url = file.url;
+    if (args.url) {
+      if (args.originalUrl) {
+        this.setTitleUsingUrl(args.originalUrl, args.url);
+        delete args.originalUrl;
+      } else {
+        this.setTitleUsingUrl(args.url, args.url);
+      }
     }
     const apiParameters = _app_options.AppOptions.getAll(_app_options.OptionKind.API);
     for (const key in apiParameters) {
       let value = apiParameters[key];
-      if (key === "docBaseUrl" && !value) {}
+      if (key === "docBaseUrl") {}
       parameters[key] = value;
     }
-    if (args) {
-      for (const key in args) {
-        parameters[key] = args[key];
-      }
+    for (const key in args) {
+      parameters[key] = args[key];
     }
     const loadingTask = (0, _pdfjsLib.getDocument)(parameters);
     this.pdfLoadingTask = loadingTask;
@@ -2857,7 +2870,9 @@ function webViewerInitialized() {
   }, true);
   try {
     if (file) {
-      PDFViewerApplication.open(file);
+      PDFViewerApplication.open({
+        url: file
+      });
     } else {
       PDFViewerApplication._hideViewBookmark();
     }
@@ -3012,14 +3027,10 @@ function webViewerHashchange(evt) {
       return;
     }
     const file = evt.fileInput.files[0];
-    let url = URL.createObjectURL(file);
-    if (file.name) {
-      url = {
-        url,
-        originalUrl: file.name
-      };
-    }
-    PDFViewerApplication.open(url);
+    PDFViewerApplication.open({
+      url: URL.createObjectURL(file),
+      originalUrl: file.name
+    });
   };
   var webViewerOpenFile = function (evt) {
     const fileInput = PDFViewerApplication.appConfig.openFileInput;
@@ -3184,7 +3195,9 @@ function webViewerWheel(evt) {
   if (pdfViewer.isInPresentationMode) {
     return;
   }
-  const isPinchToZoom = evt.ctrlKey && !PDFViewerApplication._isCtrlKeyDown;
+  const deltaMode = evt.deltaMode;
+  let scaleFactor = Math.exp(-evt.deltaY / 100);
+  const isPinchToZoom = evt.ctrlKey && !PDFViewerApplication._isCtrlKeyDown && deltaMode === WheelEvent.DOM_DELTA_PIXEL && evt.deltaX === 0 && Math.abs(scaleFactor - 1) < 0.05 && evt.deltaZ === 0;
   if (isPinchToZoom || evt.ctrlKey && supportedMouseWheelZoomModifierKeys.ctrlKey || evt.metaKey && supportedMouseWheelZoomModifierKeys.metaKey) {
     evt.preventDefault();
     if (zoomDisabledTimeout || document.visibilityState === "hidden") {
@@ -3192,7 +3205,6 @@ function webViewerWheel(evt) {
     }
     const previousScale = pdfViewer.currentScale;
     if (isPinchToZoom && supportsPinchToZoom) {
-      let scaleFactor = Math.exp(-evt.deltaY / 100);
       scaleFactor = PDFViewerApplication._accumulateFactor(previousScale, scaleFactor, "_wheelUnusedFactor");
       if (scaleFactor < 1) {
         PDFViewerApplication.zoomOut(null, scaleFactor);
@@ -3202,7 +3214,6 @@ function webViewerWheel(evt) {
         return;
       }
     } else {
-      const deltaMode = evt.deltaMode;
       const delta = (0, _ui_utils.normalizeWheelEventDirection)(evt);
       let ticks = 0;
       if (deltaMode === WheelEvent.DOM_DELTA_LINE || deltaMode === WheelEvent.DOM_DELTA_PAGE) {

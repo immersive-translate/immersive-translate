@@ -951,47 +951,46 @@ let createPDFNetworkStream;
   }
 }
 function getDocument(src) {
-  const task = new PDFDocumentLoadingTask();
-  let source;
   if (typeof src === "string" || src instanceof URL) {
-    source = {
+    src = {
       url: src
     };
   } else if ((0, _util.isArrayBuffer)(src)) {
-    source = {
+    src = {
       data: src
     };
   } else if (src instanceof PDFDataRangeTransport) {
     (0, _display_utils.deprecated)("`PDFDataRangeTransport`-instance, " + "please use a parameter object with `range`-property instead.");
-    source = {
+    src = {
       range: src
     };
   } else {
     if (typeof src !== "object") {
       throw new Error("Invalid parameter in getDocument, " + "need either string, URL, TypedArray, or parameter object.");
     }
-    if (!src.url && !src.data && !src.range) {
-      throw new Error("Invalid parameter object: need either .data, .range or .url");
-    }
-    source = src;
   }
+  if (!src.url && !src.data && !src.range) {
+    throw new Error("Invalid parameter object: need either .data, .range or .url");
+  }
+  const task = new PDFDocumentLoadingTask();
   const params = Object.create(null);
   let rangeTransport = null,
     worker = null;
-  for (const key in source) {
-    const val = source[key];
+  for (const key in src) {
+    const val = src[key];
     switch (key) {
       case "url":
-        if (typeof window !== "undefined") {
-          try {
-            params[key] = new URL(val, window.location).href;
-            continue;
-          } catch (ex) {
-            (0, _util.warn)(`Cannot create valid URL: "${ex}".`);
-          }
-        } else if (typeof val === "string" || val instanceof URL) {
-          params[key] = val.toString();
+        if (val instanceof URL) {
+          params[key] = val.href;
           continue;
+        }
+        try {
+          params[key] = new URL(val, window.location).href;
+          continue;
+        } catch (ex) {
+          if (_is_node.isNodeJS && typeof val === "string") {
+            break;
+          }
         }
         throw new Error("Invalid PDF url data: " + "either string or URL-object is expected in the url property.");
       case "range":
@@ -4931,13 +4930,12 @@ var _util = __w_pdfjs_require__(1);
 var _display_utils = __w_pdfjs_require__(6);
 var _pattern_helper = __w_pdfjs_require__(12);
 var _image_utils = __w_pdfjs_require__(13);
-var _is_node = __w_pdfjs_require__(10);
 const MIN_FONT_SIZE = 16;
 const MAX_FONT_SIZE = 100;
 const MAX_GROUP_SIZE = 4096;
 const EXECUTION_TIME = 15;
 const EXECUTION_STEPS = 10;
-const MAX_SIZE_TO_COMPILE = _is_node.isNodeJS && typeof Path2D === "undefined" ? -1 : 1000;
+const MAX_SIZE_TO_COMPILE = 1000;
 const FULL_CHUNK_HEIGHT = 16;
 function mirrorContextOperations(ctx, destCtx) {
   if (ctx._removeMirroring) {
@@ -7173,7 +7171,6 @@ exports.TilingPattern = exports.PathType = void 0;
 exports.getShadingPattern = getShadingPattern;
 var _util = __w_pdfjs_require__(1);
 var _display_utils = __w_pdfjs_require__(6);
-var _is_node = __w_pdfjs_require__(10);
 const PathType = {
   FILL: "Fill",
   STROKE: "Stroke",
@@ -7181,7 +7178,7 @@ const PathType = {
 };
 exports.PathType = PathType;
 function applyBoundingBox(ctx, bbox) {
-  if (!bbox || _is_node.isNodeJS) {
+  if (!bbox) {
     return;
   }
   const width = bbox[2] - bbox[0];
@@ -7684,8 +7681,8 @@ Object.defineProperty(exports, "__esModule", ({
 exports.GlobalWorkerOptions = void 0;
 const GlobalWorkerOptions = Object.create(null);
 exports.GlobalWorkerOptions = GlobalWorkerOptions;
-GlobalWorkerOptions.workerPort = GlobalWorkerOptions.workerPort === undefined ? null : GlobalWorkerOptions.workerPort;
-GlobalWorkerOptions.workerSrc = GlobalWorkerOptions.workerSrc === undefined ? "" : GlobalWorkerOptions.workerSrc;
+GlobalWorkerOptions.workerPort = null;
+GlobalWorkerOptions.workerSrc = "";
 
 /***/ }),
 /* 15 */

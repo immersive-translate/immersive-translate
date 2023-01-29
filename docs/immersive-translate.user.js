@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.31
+// @version      0.2.32
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-28T22:56:01.517Z", VERSION: "0.2.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-29T16:55:16.842Z", VERSION: "0.2.32", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3967,7 +3967,7 @@ body {
     ["yor", "yo"],
     ["cmn", "zh-CN"],
     ["zul", "zu"]
-  ]), options = { minLength: 1, whitelist: [...langMap.keys()] };
+  ]), options = { minLength: 10, whitelist: [...langMap.keys()] };
   function languageDetect(text) {
     if (!text)
       return "auto";
@@ -4054,7 +4054,7 @@ body {
   function openOptionsPage() {
     let optionsUrl = getEnv().OPTIONS_URL;
     if (optionsUrl)
-      globalThis.open(optionsUrl, "_blank");
+      window.location.href = optionsUrl;
     else
       throw new Error("options url not found");
   }
@@ -10119,7 +10119,7 @@ body {
       let newParagraph = {
         ...allParagraphs[index],
         languageByLocal: currentLanguageByLocal,
-        languageByClient: currentPageLanguageByClient2
+        languageByClient: currentPageLanguageByClient2 || "auto"
       };
       if (paragraphEntities.set(newParagraph.id, {
         ...newParagraph,
@@ -10216,7 +10216,7 @@ body {
             ), currentElementInfo = getElementInfoByComputedStyle(
               currentElementStyle
             ), distanceInfo = getDistance(currentElementInfo, lastElementInfo), isNewParagraph = !1;
-            if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.2 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
+            if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.5 && lastLineFirstElementInfo.left > -3 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
               let trimedText = (element.innerText || element.textContent || "").trim();
               (trimedText.startsWith("\u2022") || trimedText.charCodeAt(0) === 61623 || /^\d+\./.test(trimedText)) && (isNewParagraph = !0);
             }
@@ -10276,7 +10276,7 @@ body {
     };
   }
   function getIsNewParagraph(distance, rule) {
-    return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top < 0;
+    return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top <= rule.pdfNewParagraphLineHeight * -1;
   }
   function getDistance(elementInfo1, elementInfo2) {
     let elementBasedFontSize = elementInfo2.fontSize, currentElementFontSize = elementInfo1.fontSize;
@@ -10535,7 +10535,7 @@ body {
       for (; walk.nextNode(); )
         ;
       let realWidth = maxRight - minLeft;
-      realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = realWidth + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
+      realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = maxRight + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
     }
     return { targetContainers };
   }
@@ -10571,8 +10571,11 @@ body {
         return {
           sentences: []
         };
-      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, firstFrom = sentences[0].from, isMultipleLanguage = !1;
-      sentences.some((s6) => s6.from !== firstFrom) && (isMultipleLanguage = !0);
+      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, languages2 = /* @__PURE__ */ new Set();
+      for (let sentence of sentences)
+        sentence.from && sentence.from !== "auto" && languages2.add(sentence.from);
+      let isMultipleLanguage = !1;
+      languages2.size > 1 && (isMultipleLanguage = !0);
       try {
         tempSentenceGroups = splitSentences(
           sentences,
@@ -10601,7 +10604,7 @@ body {
       for (let i3 = 0; i3 < tempSentenceGroups.length; i3++) {
         let tempSentenceGroup = tempSentenceGroups[i3], url = tempSentenceGroup.url, throttled = throttle(async () => {
           let finalFrom = tempSentenceGroup.from;
-          if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
+          if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient && tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
             return await this.translateList({
               text: tempSentenceGroup.tempSentences.map((item) => item.text),
               from: finalFrom,
@@ -13361,7 +13364,7 @@ body {
     let realElements = getHTMLElements(visibleParagraph.elements);
     if (visibleParagraph.isPdf) {
       let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = window.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
-      isNaN(fontSizeNumber) || fontSizeNumber > 28 && (fontSize = "28px");
+      isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
       let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
       realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
       let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
@@ -13371,7 +13374,7 @@ body {
         let right = getAttribute(current, sourceElementRight);
         return right && right > prev ? right : prev;
       }, 0) - minLeft;
-      width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${firstElementLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
+      width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${minLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
         "notranslate",
         `${translationTargetElementWrapperClass}`
       ), targetContainer.appendChild(paragraphTarget);
@@ -13439,7 +13442,7 @@ body {
         host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
       });
       let containersCount = 0;
-      setPageTranslatedStatus("Translating");
+      setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
       for (let rootFrame of allFrames)
         containersCount += await translateFrame(rootFrame, ctx);
       containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
@@ -13510,9 +13513,12 @@ body {
     }
     try {
       let result = await translateSingleSentence({
+        id: 0,
+        url: ctx.url,
         text: pageTitle,
         from: currentLang,
-        to: ctx.targetLanguage
+        to: ctx.targetLanguage,
+        fromByClient: currentLang
       }, ctx);
       result && result.text && (document.title = originalPageTitle + titleDelimiters + result.text);
     } catch (e3) {
@@ -14433,7 +14439,7 @@ body {
       matches.includes(currentLang) ? isAlwaysTranslateLang = !0 : isAlwaysTranslateLang = !1;
     }
     let handleOpenOptions = (e3) => {
-      e3.preventDefault(), openOptionsPage3(), onClose();
+      e3.preventDefault(), openOptionsPage3();
     }, handleToggleAlpha = (_e3) => {
       setSettings((settings) => (settings.alpha ? setMessage("Success disable alpha!") : setMessage("Success enable alpha!"), {
         ...settings,
@@ -14635,9 +14641,7 @@ body {
                               ...state,
                               translationService: selectedItem.id
                             })), setTimeout(() => {
-                              onRestorePage();
-                            }, 1), setTimeout(() => {
-                              openOptionsPage3(), onClose();
+                              openOptionsPage3();
                             }, 100));
                           }
                         })
@@ -15056,7 +15060,9 @@ body {
     }, handleTranslateLocalPdfFile = () => {
       globalThis.alert("Not implemented yet"), onClose();
     }, handleOpenOptionsPage = () => {
-      openOptionsPage2(), onClose();
+      openOptionsPage2(), setTimeout(() => {
+        onClose();
+      }, 50);
     };
     return !config || !ctx ? null : /* @__PURE__ */ p6(Popup, {
       request: request2,
@@ -15290,7 +15296,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.31",
+    version: "0.2.32",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15425,6 +15431,13 @@ body {
       checkCronAndRunOnce();
     }
   }
+  var debounceOpenOptionsPage = debounce(async () => {
+    await openOptionsPage2();
+  }, 50), debounceToggleTranslatePage = debounce((id) => {
+    sendMessageToContent2({
+      method: id
+    });
+  }, 50);
   function registerCommands(config) {
     if (isMonkey() && typeof GM < "u" && GM && GM.registerMenuCommand) {
       let commandsMap = manifest_default.commands, menus = [
@@ -15448,9 +15461,7 @@ body {
         GM.registerMenuCommand(
           menu.title,
           () => {
-            menu.id === contextOpenOptionsMenuId ? openOptionsPage2() : sendMessageToContent2({
-              method: menu.id
-            });
+            menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : debounceToggleTranslatePage(menu.id);
           },
           menu.key
         );

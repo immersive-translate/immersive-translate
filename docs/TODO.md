@@ -50,7 +50,7 @@
 - [x] popup add always translate \*.domain.com option.
 - [x] 遍历 show TEXT ,根据 text 的长度确定 container
 - [x] maybe we should switch back to onMessage, onConnect seems will disconnect on 5 minutes.
-- [ ] 油猴三指唤醒
+- [x] 油猴三指唤醒
 - [x] 加一个 ---- 区分的原文和译文样式
 - [x] 优化全网页翻译体验，单元素翻译体验，单元素，寻找最里面的，最后的那个文本，然后插入。
 - [x] add 快捷键提示 to 翻译 button

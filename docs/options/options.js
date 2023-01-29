@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-28T22:56:01.517Z", VERSION: "0.2.31", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-29T16:55:16.842Z", VERSION: "0.2.32", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -9892,7 +9892,7 @@ body {
       let newParagraph = {
         ...allParagraphs[index],
         languageByLocal: currentLanguageByLocal,
-        languageByClient: currentPageLanguageByClient2
+        languageByClient: currentPageLanguageByClient2 || "auto"
       };
       if (paragraphEntities.set(newParagraph.id, {
         ...newParagraph,
@@ -9989,7 +9989,7 @@ body {
             ), currentElementInfo = getElementInfoByComputedStyle(
               currentElementStyle
             ), distanceInfo = getDistance(currentElementInfo, lastElementInfo), isNewParagraph = !1;
-            if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.2 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
+            if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.5 && lastLineFirstElementInfo.left > -3 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
               let trimedText = (element.innerText || element.textContent || "").trim();
               (trimedText.startsWith("\u2022") || trimedText.charCodeAt(0) === 61623 || /^\d+\./.test(trimedText)) && (isNewParagraph = !0);
             }
@@ -10049,7 +10049,7 @@ body {
     };
   }
   function getIsNewParagraph(distance, rule) {
-    return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top < 0;
+    return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top <= rule.pdfNewParagraphLineHeight * -1;
   }
   function getDistance(elementInfo1, elementInfo2) {
     let elementBasedFontSize = elementInfo2.fontSize, currentElementFontSize = elementInfo1.fontSize;
@@ -10308,7 +10308,7 @@ body {
       for (; walk.nextNode(); )
         ;
       let realWidth = maxRight - minLeft;
-      realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = realWidth + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
+      realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = maxRight + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
     }
     return { targetContainers };
   }
@@ -10853,7 +10853,7 @@ body {
     let realElements = getHTMLElements(visibleParagraph.elements);
     if (visibleParagraph.isPdf) {
       let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = window.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
-      isNaN(fontSizeNumber) || fontSizeNumber > 28 && (fontSize = "28px");
+      isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
       let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
       realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
       let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
@@ -10863,7 +10863,7 @@ body {
         let right = getAttribute(current, sourceElementRight);
         return right && right > prev ? right : prev;
       }, 0) - minLeft;
-      width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${firstElementLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
+      width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${minLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
         "notranslate",
         `${translationTargetElementWrapperClass}`
       ), targetContainer.appendChild(paragraphTarget);
@@ -10931,7 +10931,7 @@ body {
         host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
       });
       let containersCount = 0;
-      setPageTranslatedStatus("Translating");
+      setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
       for (let rootFrame of allFrames)
         containersCount += await translateFrame(rootFrame, ctx);
       containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
@@ -11002,9 +11002,12 @@ body {
     }
     try {
       let result = await translateSingleSentence({
+        id: 0,
+        url: ctx.url,
         text: pageTitle,
         from: currentLang,
-        to: ctx.targetLanguage
+        to: ctx.targetLanguage,
+        fromByClient: currentLang
       }, ctx);
       result && result.text && (document.title = originalPageTitle + titleDelimiters + result.text);
     } catch (e3) {
@@ -11527,8 +11530,11 @@ body {
         return {
           sentences: []
         };
-      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, firstFrom = sentences[0].from, isMultipleLanguage = !1;
-      sentences.some((s4) => s4.from !== firstFrom) && (isMultipleLanguage = !0);
+      let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, languages3 = /* @__PURE__ */ new Set();
+      for (let sentence of sentences)
+        sentence.from && sentence.from !== "auto" && languages3.add(sentence.from);
+      let isMultipleLanguage = !1;
+      languages3.size > 1 && (isMultipleLanguage = !0);
       try {
         tempSentenceGroups = splitSentences(
           sentences,
@@ -11557,7 +11563,7 @@ body {
       for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
         let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = throttle(async () => {
           let finalFrom = tempSentenceGroup.from;
-          if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
+          if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient && tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
             return await this.translateList({
               text: tempSentenceGroup.tempSentences.map((item) => item.text),
               from: finalFrom,

@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.32
+
+- Fix PDF basic translation
+- Fix popup select a not configed service, go to options page.
+- Fix stay open settings.
+- Fix multiple language detect speed
+
 ## 0.2.31
 
 - Fix dynamic iframe css inject

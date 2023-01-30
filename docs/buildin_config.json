@@ -1112,8 +1112,14 @@
         "span[data-openweb-allow-amp]",
         "div.spcv_typing-users"
       ]
+    },
+    {
+      "matches": "www.afreecatv.com",
+      "globalStyles": {
+        "a.title": "max-height:unset;-webkit-line-clamp:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-29T20:20:33.808Z",
-  "latestVersion": "0.2.32"
+  "buildinConfigUpdatedAt": "2023-01-30T11:57:06.633Z",
+  "latestVersion": "0.2.34"
 }

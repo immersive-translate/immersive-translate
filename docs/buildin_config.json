@@ -71,7 +71,14 @@
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
-      "*.slack.com"
+      "*.slack.com",
+      "https://old.reddit.com/",
+      "https://www.reddit.com/r/popular/",
+      "https://www.reddit.com/",
+      "https://www.reddit.com/hot/",
+      "https://www.reddit.com/new/",
+      "https://www.reddit.com/top/",
+      "https://www.reddit.com/.compact"
     ],
     "excludeMatches": [],
     "selectorMatches": [
@@ -224,6 +231,7 @@
       "DEL",
       "RUBY",
       "RP",
+      "RB",
       "BDO",
       "MARK",
       "BIG",
@@ -1120,6 +1128,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-30T11:57:06.633Z",
+  "buildinConfigUpdatedAt": "2023-01-30T14:16:24.461Z",
   "latestVersion": "0.2.34"
 }

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.34
+
+- Fix multiple language speed
+
 ## 0.2.33
 
 - Support vertical writing mode, like Japanese.

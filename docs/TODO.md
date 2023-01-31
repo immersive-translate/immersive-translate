@@ -60,7 +60,7 @@
 - [ ] 修复黑暗模式的 loading
 - [ ] 词典功能？（词典替换添加效果）
 - [x] 自动检测用户浏览器语言，以设定默认的界面语言。
-- [ ] tampermonkey 的云同步就是用 google drive api 实现的，可以参考下
+- [x] tampermonkey 的云同步就是用 google drive api 实现的，可以参考下
 - [ ] 支持用户自定义 popup 页面的快捷操作，比如快速切换当前的翻译模式，全区域翻译，还是智能识别。 该功能入口可以添加在设置页面对应的设置项旁边。... more, 在 popup 页面显示该选项。
 - [ ] 修改商店描述，更易读
 - [x] QQ 邮箱适配，iframe
@@ -81,3 +81,4 @@
 - [ ] add toggle mask to clear shortcuts
 - [x] aside issue <https://marginalrevolution.com/>
 - [x] rp, rt ignore
+- [ ] custom dictionary

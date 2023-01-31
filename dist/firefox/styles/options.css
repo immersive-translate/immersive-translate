@@ -23,6 +23,27 @@
   --transition: 0.2s ease-in-out;
   --modal-overlay-backdrop-filter: blur(0.25rem);
 }
+
+@media (min-width: 576px) {
+  :root {
+    --font-size: 17px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --font-size: 17px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --font-size: 18px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --font-size: 18px;
+  }
+}
 html {
   scroll-behavior: smooth;
   /* background-color: rgba(242, 242, 242, 1); */

@@ -168,6 +168,10 @@ This will build the pdf project, and copy the build files to the translate proje
 web-ext run -s dist/firefox -t firefox-android --android-device=xxxxx --firefox-apk org.mozilla.fenix
 ```
 
+## Develope with Options Page
+
+Uncomment the `background.ts` open options page line. and when it's done, comment it.
+
 ## Log
 
 为了方便临时打印一些东西，我添加了 2 个函数，方便最后提交的时候，直接搜索`log.v`, `log.l` 即可删除。

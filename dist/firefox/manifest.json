@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.35",
+  "version": "0.2.36",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -64,7 +64,10 @@
     "activeTab",
     "contextMenus",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "tabs",
+    "identity",
+    "alarms"
   ],
   "browser_action": {
     "default_icon": "icons/32.png",

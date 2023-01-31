@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.36
+
+- Support sync to Google Drive
+
 ## 0.2.35
 
 - Fix japanese rb, rt tag ignore.

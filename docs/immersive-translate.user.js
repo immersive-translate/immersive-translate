@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.35
+// @version      0.2.36
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
 // @supportURL    https://github.com/immersive-translate/immersive-translate/
 // @match      *://*/*
 // @include    *
-// @icon        https://immersive-translate.owenyoung.com/favicon.png 
+// @icon        https://immersive-translate.owenyoung.com/favicon.png
 // @downloadURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @updateURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
 // @inject-into    content
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-31T09:25:54.948Z", VERSION: "0.2.35", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-31T15:49:41.894Z", VERSION: "0.2.36", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3737,7 +3737,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // https://esm.sh/v106/n-gram@2.0.2/deno/n-gram.js
   var c = o(2), f = o(3);
@@ -4106,6 +4106,9 @@ body {
     },
     i18n: {
       getAcceptLanguages
+    },
+    identity: {
+      getRedirectURL: () => getEnv().REDIRECT_URL
     }
   };
   function isObject(obj) {
@@ -4263,7 +4266,7 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
+    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
     xMinutes: "{count} \u5206\u949F",
@@ -4273,7 +4276,7 @@ body {
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8BBE\u7F6E",
     clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
+    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165",
     export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
     toggleDebug: "\u5728\u63A7\u5236\u53F0\u6253\u5370\u8C03\u8BD5\u65E5\u5FD7",
     "fingers.0": "\u5173\u95ED",
@@ -4336,6 +4339,7 @@ body {
     service: "\u7FFB\u8BD1\u670D\u52A1",
     needAction: "(\u53BB\u8BBE\u7F6E)",
     goSettings: "\u53BB\u8BBE\u7F6E",
+    needActionForOptions: "(\u9700\u8BBE\u7F6E)",
     translationEngine: "\u5F15\u64CE\u9009\u9879",
     sourceLanguage: "\u539F\u6587\u8BED\u8A00",
     target: "\u76EE\u6807\u8BED\u8A00",
@@ -4365,6 +4369,8 @@ body {
     "select diplay style": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
     interface: "\u754C\u9762\u8BBE\u7F6E",
     import_export: "\u5BFC\u5165/\u5BFC\u51FA",
+    import_export_title: "\u5BFC\u5165/\u5BFC\u51FA\u914D\u7F6E",
+    syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
     "translationTheme.none": "\u65E0",
     "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
@@ -4426,12 +4432,35 @@ body {
     delete: "\u5220\u9664",
     "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
     isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
+    syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
+    syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+    authFail: "\u6388\u6743\u5931\u8D25",
+    syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
+    import_hint: "\u5BFC\u5165",
+    upload: "\u4E0A\u4F20",
+    revokeAuth: "\u64A4\u9500\u6388\u6743",
+    uploadFail: "\u4E0A\u4F20\u5931\u8D25",
+    download: "\u4E0B\u8F7D",
+    importSuccess: "\u5BFC\u5165\u6210\u529F",
+    importFail: "\u5BFC\u5165\u5931\u8D25",
+    deleteFail: "\u5220\u9664\u5931\u8D25",
+    backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
+    create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
+    backupToCloudDescription: "\u624B\u52A8\u4E0A\u4F20\u6216\u6062\u590D\u5907\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8BB83\u4E2A\u4E0D\u540C\u7684\u5907\u4EFD",
+    successSyncConfig: "\u6210\u529F\u4E0E\u4E91\u7AEF\u4FDD\u6301\u540C\u6B65",
+    syncFail: "\u540C\u6B65\u5931\u8D25",
+    updatedAt: "\u66F4\u65B0\u4E8E {date}",
+    lastSyncedAt: "\u4E0A\u6B21\u68C0\u67E5\u4E8E {date}",
+    downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
+    clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
     aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
     "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
     aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u9891\u9053</4>\u83B7\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
-    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4"
+    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
+    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65"
   };
 
   // locales/zh-TW.json
@@ -4587,7 +4616,17 @@ body {
     confirm: "\u5132\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u522A\u9664",
-    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00"
+    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
+    syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
+    authFail: "\u6388\u6B0A\u5931\u6557",
+    syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
+    import_hint: "\u5C0E\u5165",
+    upload: "\u4E0A\u50B3",
+    revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
+    uploadFail: "\u4E0A\u50B3\u5931\u6557",
+    importSuccess: "\u5C0E\u5165\u6210\u529F",
+    importFail: "\u5C0E\u5165\u5931\u6557",
+    deleteFail: "\u522A\u9664\u5931\u6557"
   };
 
   // locales/en.json
@@ -4743,7 +4782,17 @@ body {
     confirm: "Save",
     cancel: "Cancel",
     delete: "Delete",
-    "languages.auto": "Detect Language"
+    "languages.auto": "Detect Language",
+    syncToCloud: "Sync to cloud",
+    authFail: "Authorization Failed",
+    syncTitle: "Please select a file operation",
+    import_hint: "Import",
+    upload: "Upload",
+    revokeAuth: "Revoke Authorization",
+    uploadFail: "Upload Failed",
+    importSuccess: "Upload Success",
+    importFail: "Import Failed",
+    deleteFail: "Delete Failed"
   };
 
   // constant.ts
@@ -4764,7 +4813,9 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
+  var brandIdForJs = "immersiveTranslate";
+  var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
+  var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
   var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
@@ -5009,7 +5060,9 @@ body {
   };
   var buildinExcludeUrls = [
     "https://immersive-translate.owenyoung.com/options/",
+    "https://immersive-translate.owenyoung.com/auth-done/",
     "http://localhost:8000/dist/userscript/options/",
+    "http://localhost:8000/auth-done/",
     "http://192.168.50.9:8000/dist/userscript/options/",
     "https://www.deepl.com/translator",
     "translate.google.com"
@@ -5436,1537 +5489,6 @@ body {
     else
       return languages[indexOfLanguages];
   }
-
-  // utils/is_mobile.ts
-  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
-  function createMatch(userAgent) {
-    return (regex) => regex.test(userAgent);
-  }
-  function isMobile(param) {
-    let nav = {
-      userAgent: "",
-      platform: "",
-      maxTouchPoints: 0
-    };
-    !param && typeof navigator < "u" ? nav = {
-      userAgent: navigator.userAgent,
-      platform: navigator.platform,
-      maxTouchPoints: navigator.maxTouchPoints || 0
-    } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
-      userAgent: param.userAgent,
-      platform: param.platform,
-      maxTouchPoints: param.maxTouchPoints || 0
-    });
-    let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
-    typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
-    let match = createMatch(userAgent), result = {
-      apple: {
-        phone: match(appleIphone) && !match(windowsPhone),
-        ipod: match(appleIpod),
-        tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
-        universal: match(appleUniversal),
-        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
-      },
-      amazon: {
-        phone: match(amazonPhone),
-        tablet: !match(amazonPhone) && match(amazonTablet),
-        device: match(amazonPhone) || match(amazonTablet)
-      },
-      android: {
-        phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
-        tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
-        device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
-      },
-      windows: {
-        phone: match(windowsPhone),
-        tablet: match(windowsTablet),
-        device: match(windowsPhone) || match(windowsTablet)
-      },
-      other: {
-        blackberry: match(otherBlackBerry),
-        blackberry10: match(otherBlackBerry10),
-        opera: match(otherOpera),
-        firefox: match(otherFirefox),
-        chrome: match(otherChrome),
-        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
-      },
-      any: !1,
-      phone: !1,
-      tablet: !1
-    };
-    return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
-  }
-
-  // utils/platform.ts
-  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
-  function isBrowser(toCheck) {
-    let currentBrowser = CHROME;
-    try {
-      let userAgent = navigator?.userAgent || "";
-      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-    } catch {
-    }
-    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
-  }
-  function isDeno2() {
-    return typeof Deno < "u";
-  }
-  function isFirefox() {
-    return isBrowser(FIREFOX);
-  }
-  function isTouchDevice() {
-    return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
-  }
-
-  // browser/mock_browser.ts
-  var listeners = {
-    addListener: () => {
-    },
-    removeListener: () => {
-    },
-    hasListener: () => {
-    }
-  }, mock_browser_default = {
-    permissions: {
-      contains: () => {
-      },
-      request: () => {
-      }
-    },
-    runtime: {
-      onMessage: listeners,
-      openOptionsPage: () => {
-      },
-      lastError: {
-        message: ""
-      }
-    },
-    storage: {
-      sync: {
-        get: () => {
-        },
-        set: () => {
-        }
-      }
-    },
-    tabs: {
-      onUpdated: listeners,
-      query: () => {
-      },
-      sendMessage: () => {
-      }
-    }
-  };
-
-  // browser/browser.ts
-  var browserAPI;
-  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
-
-  // buildin_config.json
-  var buildin_config_default = {
-    minVersion: "0.0.20",
-    immediateTranslationTextCount: 4e3,
-    interval: 36e5,
-    cache: !0,
-    donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
-    feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
-    isShowContextMenu: !0,
-    translationServices: {
-      volcAlpha: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
-      },
-      volc: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
-      },
-      tencent: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
-      },
-      transmart: {
-        placeholderDelimiters: [
-          "#",
-          "#"
-        ]
-      },
-      baidu: {
-        placeholderDelimiters: [
-          "#",
-          "#"
-        ]
-      },
-      caiyun: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
-      },
-      youdao: {
-        placeholderDelimiters: [
-          "\u{1F6A0}",
-          "\u{1F6A0}"
-        ]
-      }
-    },
-    shortcuts: {
-      toggleTranslatePage: "Alt+A",
-      toggleTranslateTheWholePage: "Alt+W",
-      toggleTranslateToThePageEndImmediately: "Alt+S"
-    },
-    tempTranslateDomainMinutes: 0,
-    immediateTranslationPattern: {
-      matches: [
-        "www.tumblr.com",
-        "twitter.com",
-        "*.twitter.com",
-        "medium.com",
-        "*.medium.com",
-        "github.com",
-        "gist.github.com",
-        "www.facebook.com",
-        "www.youtube.com",
-        "m.youtube.com",
-        "mail.google.com",
-        "discord.com",
-        "web.telegram.org",
-        "*.slack.com",
-        "https://old.reddit.com/",
-        "https://www.reddit.com/r/popular/",
-        "https://www.reddit.com/",
-        "https://www.reddit.com/hot/",
-        "https://www.reddit.com/new/",
-        "https://www.reddit.com/top/",
-        "https://www.reddit.com/.compact"
-      ],
-      excludeMatches: [],
-      selectorMatches: [
-        "meta[property='al:ios:url'][content^='medium://']"
-      ],
-      selectorExcludeMatches: []
-    },
-    translationParagraphLanguagePattern: {
-      matches: [
-        "www.reddit.com",
-        "old.reddit.com",
-        "twitter.com",
-        "www.tumblr.com",
-        "*.twitter.com",
-        "medium.com",
-        "*.medium.com",
-        "github.com",
-        "gist.github.com",
-        "www.facebook.com",
-        "www.youtube.com",
-        "m.youtube.com",
-        "read.readwise.io",
-        "www.inoreader.com",
-        "mail.google.com",
-        "google.com",
-        "discord.com",
-        "web.telegram.org",
-        "*.slack.com"
-      ],
-      excludeMatches: [],
-      selectorMatches: [
-        "meta[property='al:ios:url'][content^='medium://']"
-      ],
-      selectorExcludeMatches: []
-    },
-    sourceLanguageUrlPattern: {},
-    generalRule: {
-      _comment: "",
-      normalizeBody: "",
-      wrapperPrefix: "smart",
-      wrapperSuffix: "smart",
-      isPdf: !1,
-      isTransformPreTagNewLine: !1,
-      urlChangeDelay: 20,
-      translationBlockStyle: "",
-      isShowUserscriptPagePopup: !0,
-      observeUrlChange: !0,
-      paragraphMinTextCount: 8,
-      paragraphMinWordCount: 2,
-      shadowRootSelectors: [],
-      blockMinTextCount: 32,
-      blockMinWordCount: 5,
-      containerMinTextCount: 18,
-      lineBreakMaxTextCount: 0,
-      globalAttributes: {},
-      globalStyles: {
-        ".sr-only": "display:none"
-      },
-      selectors: [],
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN"
-      ],
-      stayOriginalSelectors: [],
-      additionalSelectors: [
-        "h1",
-        "section h2",
-        "section h3",
-        "section h4",
-        "main h2",
-        "main h3",
-        "main h4",
-        ".article-title",
-        ".article-subtitle",
-        ".article_title",
-        ".article_subtitle",
-        ".article__title",
-        ".articleTitle",
-        ".Article__content",
-        ".title",
-        ".abstract",
-        ".titleLink",
-        ".summary",
-        ".content",
-        ".headline",
-        ".page-content"
-      ],
-      atomicBlockTags: [],
-      excludeSelectors: [],
-      additionalExcludeSelectors: [
-        ".social-share",
-        ".breadcrumbs",
-        ".post__footer",
-        ".btn",
-        ".reference-citations",
-        ".share-nav",
-        ".o-share",
-        "[data-toolbar=share]",
-        "rp",
-        "rt"
-      ],
-      translationClasses: [],
-      atomicBlockSelectors: [],
-      excludeTags: [
-        "TITLE",
-        "SCRIPT",
-        "STYLE",
-        "TEXTAREA",
-        "SVG",
-        "svg",
-        "NOSCRIPT",
-        "INPUT",
-        "BUTTON",
-        "BASE",
-        "LABEL",
-        "SELECT",
-        "OPTION",
-        "IMG",
-        "SUB",
-        "SUP",
-        "HR",
-        "PRE",
-        "CODE",
-        "KBD",
-        "WBR",
-        "TT",
-        "RT",
-        "RP",
-        "META",
-        "ASIDE"
-      ],
-      metaTags: [
-        "META",
-        "SCRIPT",
-        "STYLE",
-        "NOSCRIPT"
-      ],
-      additionalExcludeTags: [],
-      stayOriginalTags: [
-        "CODE",
-        "TT",
-        "IMG",
-        "SUP"
-      ],
-      additionalStayOriginalTags: [],
-      inlineTags: [
-        "A",
-        "ABBR",
-        "FONT",
-        "ACRONYM",
-        "B",
-        "INS",
-        "DEL",
-        "RUBY",
-        "RP",
-        "RB",
-        "BDO",
-        "MARK",
-        "BIG",
-        "RT",
-        "NOBR",
-        "CITE",
-        "DFN",
-        "EM",
-        "I",
-        "LABEL",
-        "Q",
-        "S",
-        "SMALL",
-        "SPAN",
-        "STRONG",
-        "SUB",
-        "SUP",
-        "U",
-        "KBD",
-        "TT",
-        "VAR",
-        "IMG",
-        "CODE",
-        "SCRIPT",
-        "STYLE",
-        "LINK",
-        "TIME",
-        "META"
-      ],
-      additionalInlineTags: [],
-      extraInlineSelectors: [],
-      additionalInlineSelectors: [],
-      extraBlockSelectors: [],
-      allBlockTags: [
-        "HGROUP",
-        "CONTENT",
-        "ADDRESS",
-        "ARTICLE",
-        "ASIDE",
-        "BLOCKQUOTE",
-        "CANVAS",
-        "DD",
-        "DL",
-        "DT",
-        "FIELDSET",
-        "FIGCAPTION",
-        "FIGURE",
-        "FOOTER",
-        "HEADER",
-        "FORM",
-        "HR",
-        "MAIN",
-        "NAV",
-        "OL",
-        "NOSCRIPT",
-        "PRE",
-        "SECTION",
-        "TABLE",
-        "TFOOT",
-        "UL",
-        "VIDEO",
-        "P",
-        "DIV",
-        "H1",
-        "H2",
-        "H3",
-        "H4",
-        "H5",
-        "H6",
-        "UL",
-        "LI",
-        "OL",
-        "BR",
-        "PICTURE",
-        "TBODY",
-        "TR",
-        "TD",
-        "TH",
-        "SOURCE",
-        "C-WIZ"
-      ],
-      pdfNewParagraphLineHeight: 2.4,
-      pdfNewParagraphIndent: 1.2,
-      pdfNewParagraphIndentRightIndentPx: 130,
-      fingerCountToToggleTranslagePageWhenTouching: 4
-    },
-    rules: [
-      {
-        matches: [
-          "moz-extension://*/pdf/index.html*"
-        ],
-        isPdf: !0,
-        wrapperPrefix: "",
-        wrapperSuffix: "",
-        urlChangeDelay: 0,
-        selectors: [
-          ".textLayer"
-        ],
-        excludeSelectors: [
-          ".annotationLayer"
-        ],
-        globalStyles: {
-          "div.page": "width: 98%;",
-          ".textLayer": "overflow:visible;opacity: 1;"
-        }
-      },
-      {
-        matches: [
-          "mail.jabber.org",
-          "antirez.com"
-        ],
-        excludeTags: [
-          "TITLE",
-          "SCRIPT",
-          "STYLE",
-          "TEXTAREA",
-          "SVG",
-          "svg",
-          "INPUT",
-          "LABEL",
-          "IMG",
-          "SUB",
-          "SUP",
-          "BR",
-          "CODE",
-          "KBD",
-          "WBR",
-          "TT"
-        ]
-      },
-      {
-        matches: "*.wikipedia.org",
-        excludeSelectors: [
-          ".mw-editsection",
-          ".mw-cite-backlink",
-          "#mw-panel-toc"
-        ],
-        stayOriginalSelectors: [
-          ".chemf",
-          ".mwe-math-element",
-          "[role=math]",
-          ".nowrap"
-        ],
-        extraInlineSelectors: [
-          ".chemf",
-          ".mwe-math-element",
-          "[role=math]",
-          ".nowrap"
-        ]
-      },
-      {
-        matches: [
-          "twitter.com",
-          "mobile.twitter.com",
-          "tweetdeck.twitter.com",
-          "https://platform.twitter.com/embed*"
-        ],
-        selectors: [
-          '[data-testid="tweetText"]',
-          ".tweet-text",
-          ".js-quoted-tweet-text",
-          "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
-          "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
-          "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
-        ],
-        extraInlineSelectors: [
-          '[data-testid="tweetText"] div'
-        ]
-      },
-      {
-        matches: [
-          "stackoverflow.com",
-          "*.stackexchange.com",
-          "superuser.com",
-          "askubuntu.com",
-          "serverfault.com"
-        ],
-        additionalSelectors: [
-          ".comment-copy"
-        ]
-      },
-      {
-        matches: "developer.apple.com/documentation/*",
-        selectors: [
-          ".container",
-          "h3.title"
-        ]
-      },
-      {
-        matches: "news.ycombinator.com",
-        selectors: [
-          ".titleline > a",
-          ".comment > .commtext",
-          ".toptext",
-          "a.hn-item-title",
-          ".hn-comment-text",
-          ".hn-story-title"
-        ],
-        excludeSelectors: [
-          ".reply"
-        ]
-      },
-      {
-        matches: [
-          "*.quora.com",
-          "quora.com"
-        ],
-        additionalSelectors: [
-          ".puppeteer_test_question_title",
-          ".puppeteer_test_answer_content",
-          ".q-text"
-        ],
-        globalStyles: {
-          ".qu-truncateLines--3": "-webkit-line-clamp: unset;"
-        }
-      },
-      {
-        matches: [
-          "old.reddit.com/*/.compact",
-          "old.reddit.com/.compact",
-          "www.reddit.com/*/.compact",
-          "www.reddit.com/.compact"
-        ],
-        selectors: [
-          ".title > a",
-          ".usertext-body"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "old.reddit.com",
-        selectors: [
-          "p.title > a",
-          "[role=main] .md-container"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "www.reddit.com",
-        selectors: [
-          "h1",
-          ".PostHeader__post-title-line",
-          "[data-click-id=body] h3",
-          "[data-click-id=background] h3",
-          "[data-testid=comment]",
-          "[data-adclicklocation='title']",
-          "[data-adclicklocation=media]",
-          ".PostContent",
-          ".Comment__body",
-          "faceplate-batch .md"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "www.reuters.com/",
-        excludeSelectors: [
-          "header"
-        ]
-      },
-      {
-        matches: "github.com",
-        selectors: [
-          ".markdown-title",
-          ".markdown-body",
-          ".Layout-sidebar p",
-          "div > span.search-match",
-          "li.repo-list-item p",
-          "#responsive-meta-container p"
-        ],
-        excludeSelectors: [
-          ".css-truncate",
-          "[data-test-selector='commit-tease-commit-message']",
-          "div.blob-wrapper-embedded"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "www.facebook.com",
-        selectors: [
-          "div[dir=auto][style]",
-          "div[dir=auto][class]",
-          "span[lang]"
-        ],
-        atomicBlockSelectors: [
-          "div[dir=auto][style]",
-          "div[dir=auto][class]",
-          "span[lang]"
-        ],
-        insertPosition: "afterend",
-        preWhitespaceDetectedTags: [
-          "DIV",
-          "SPAN"
-        ],
-        extraBlockSelectors: [
-          "span.x1vvkbs"
-        ],
-        excludeSelectors: [
-          "[role=button]"
-        ],
-        translationClasses: [
-          "immersive-translate-text"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "m.youtube.com",
-        selectors: [
-          ".comment-text"
-        ],
-        atomicBlockSelectors: [
-          ".comment-text"
-        ],
-        globalStyles: {
-          ".comment-text": "max-height:unset;"
-        }
-      },
-      {
-        matches: "www.youtube.com",
-        selectors: [
-          "yt-formatted-string[slot=content].ytd-comment-renderer",
-          "yt-formatted-string.ytd-video-renderer",
-          "h1 > yt-formatted-string.ytd-watch-metadata",
-          "yt-formatted-string#video-title",
-          "span#video-title",
-          "a#video-title"
-        ],
-        wrapperPrefix: "",
-        wrapperSuffix: "",
-        globalStyles: {
-          "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
-          "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
-          "yt-formatted-string#video-title": "-webkit-line-clamp: unset;max-height: unset;",
-          "#video-title": "-webkit-line-clamp: unset;max-height: unset;"
-        },
-        urlChangeDelay: 2e3,
-        atomicBlockSelectors: [
-          "yt-formatted-string[slot=content].ytd-comment-renderer",
-          "h1 > yt-formatted-string.ytd-watch-metadata",
-          "yt-formatted-string#video-title",
-          "span#video-title"
-        ],
-        excludeSelectors: [
-          "[class^='lln-']"
-        ],
-        extraBlockSelector: [
-          ".ytd-transcript-segment-renderer"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "1paragraph.app",
-        selectors: "#book"
-      },
-      {
-        matches: [
-          "*.substack.com",
-          "newsletter.rootsofprogress.org"
-        ],
-        selectors: [
-          ".post-preview-title",
-          ".post-preview-description",
-          ".post",
-          ".comment-body"
-        ],
-        excludeSelectors: [
-          ".captioned-button-wrap",
-          ".subscription-widget-wrap",
-          ".tweet-header",
-          ".tweet-link-bottom",
-          ".expanded-link",
-          ".meta-subheader"
-        ],
-        extraBlockSelectors: [
-          ".tweet-link-top",
-          ".tweet-link-bottom",
-          ".expanded-link"
-        ]
-      },
-      {
-        matches: [
-          "seekingalpha.com/article/*",
-          "seekingalpha.com/news/*"
-        ],
-        selectors: [
-          "[data-test-id=card-container]"
-        ],
-        excludeSelectors: [
-          "[data-test-id=post-page-meta]",
-          "header > div:first-child"
-        ]
-      },
-      {
-        matches: "hn.algolia.com",
-        selectors: [
-          ".Story_title > a:first-child",
-          ".Story_comment > span"
-        ]
-      },
-      {
-        matches: "read.readwise.io",
-        selectors: [
-          'div[class^="_titleRow_"]',
-          'div[class^="_description_"]',
-          "#document-text-content"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: [
-          "www.inoreader.com",
-          "*.inoreader.com"
-        ],
-        selectors: [
-          ".article_header_title",
-          ".article_title_link",
-          ".article_content",
-          ".article_magazine_title_link"
-        ],
-        observeUrlChange: !1,
-        globalStyles: {
-          ".article_title_link": "-webkit-line-clamp: unset;max-height: unset;"
-        }
-      },
-      {
-        matches: [
-          "scholar.google.com"
-        ],
-        wrapperPrefix: `
-`,
-        selectors: [
-          "h3 a[data-clk]",
-          "div.gs_rs"
-        ],
-        atomicBlockSelectors: [
-          ".gs_rs",
-          "h3 a[data-clk]"
-        ]
-      },
-      {
-        matches: "mail.google.com",
-        selectors: [
-          "h2[data-thread-perm-id]",
-          "span[data-thread-id]",
-          "div[data-message-id] div[class='']"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "www.producthunt.com",
-        selectors: [
-          "h2",
-          "div[class^='styles_htmlText__']",
-          "[class^='styles_tagline']",
-          "a[href^='/discussions/'].fontWeight-600",
-          "button[class^='styles_textButton'] > div > span"
-        ],
-        excludeTags: [
-          "TITLE",
-          "SCRIPT",
-          "STYLE",
-          "TEXTAREA",
-          "SVG",
-          "svg",
-          "INPUT",
-          "LABEL",
-          "IMG",
-          "SUB",
-          "SUP",
-          "BR",
-          "CODE",
-          "KBD",
-          "WBR",
-          "TT"
-        ]
-      },
-      {
-        matches: "*.gitbook.io",
-        additionalSelectors: [
-          "main"
-        ],
-        _comment: "https://midjourney.gitbook.io/docs/user-manual"
-      },
-      {
-        matches: "arxiv.org",
-        additionalSelectors: [
-          "h1",
-          "blockquote.abstract"
-        ]
-      },
-      {
-        matches: "https://discord.com/channels/*",
-        selectors: [
-          "li[id^=chat-messages] div[id^=message-content]",
-          "h3[data-text-variant='heading-lg/semibold']"
-        ],
-        excludeSelectors: [
-          "div[class^='repliedTextContent']"
-        ],
-        globalStyles: {
-          "div[class^=headerText]": "max-height: unset;",
-          "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
-        },
-        detectParagraphLanguage: !0,
-        wrapperPrefix: "<br>",
-        wrapperSuffix: "<br><br>"
-      },
-      {
-        matches: "web.telegram.org/z/*",
-        selectors: [
-          ".text-content"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: [
-          "web.telegram.org/k/*",
-          "web.telegram.org/k/"
-        ],
-        selectors: [
-          ".message"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "gist.github.com",
-        selectors: [
-          ".markdown-body",
-          ".readme"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "lobste.rs",
-        selectors: [
-          ".u-repost-of",
-          ".comment_text"
-        ]
-      },
-      {
-        matches: "*.slack.com",
-        selectors: [
-          ".p-rich_text_section"
-        ],
-        detectParagraphLanguage: !0
-      },
-      {
-        matches: "1paragraph.app",
-        additionalSelectors: [
-          "#book"
-        ]
-      },
-      {
-        matches: "www.google.*/search*",
-        detectParagraphLanguage: !0,
-        excludeSelectors: [
-          "a h3 + div",
-          "div#sfooter"
-        ],
-        wrapperSuffix: "",
-        globalStyles: {
-          "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
-          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
-        },
-        extraBlockSelectors: [
-          ".MUFPAc"
-        ]
-      },
-      {
-        matches: "lowendtalk.com",
-        selectors: [
-          "[role=heading]",
-          "h1",
-          ".userContent"
-        ]
-      },
-      {
-        matches: "www.linkedin.com/jobs/*",
-        selectors: [
-          "#job-details > span"
-        ]
-      },
-      {
-        matches: "www.linkedin.com",
-        addtionalSelectors: [
-          "span.break-words > span > span[dir=ltr]"
-        ]
-      },
-      {
-        matches: "www.indiehackers.com",
-        selectors: [
-          ".content",
-          "h1",
-          ".feed-item__title-link"
-        ]
-      },
-      {
-        matches: "libreddit.de",
-        selectors: [
-          "h2.post_title",
-          ".comment_body > .md"
-        ]
-      },
-      {
-        matches: [
-          "notion.site",
-          "www.notion.so"
-        ],
-        selectors: [
-          "div[data-block-id]"
-        ]
-      },
-      {
-        matches: "www.newyorker.com",
-        additionalSelectors: [
-          "h1",
-          "[data-testid=SummaryItemHed]"
-        ]
-      },
-      {
-        matches: "start.me",
-        selectors: [
-          ".rss-article__title",
-          ".rss-articles-list__article-link",
-          ".rss-showcase__title",
-          ".rss-showcase__text"
-        ]
-      },
-      {
-        matches: "www.scmp.com",
-        additionalSelectors: [
-          ".info__subHeadline",
-          ".section-content h2"
-        ]
-      },
-      {
-        matches: "www.lesswrong.com",
-        extraBlockSelectors: [
-          "span.commentOnSelection"
-        ]
-      },
-      {
-        matches: [
-          "mastodon.social",
-          "mastodon.online",
-          "kolektiva.social",
-          "indieweb.social",
-          "mastodon.world",
-          "infosec.exchange"
-        ],
-        selectorMatches: [
-          "div#mastodon"
-        ],
-        selectors: [
-          "div.status__content__text"
-        ],
-        detectLanguage: !0
-      },
-      {
-        matches: "www.cnbc.com",
-        additionalSelectors: [
-          "div.RenderKeyPoints-list"
-        ]
-      },
-      {
-        matches: "app.daily.dev",
-        selectors: [
-          "h1",
-          ".typo-body",
-          "article h3",
-          "[class^=markdown_markdown]"
-        ],
-        globalStyles: {
-          ".line-clamp-3": "-webkit-line-clamp: unset"
-        }
-      },
-      {
-        matches: "www.aljazeera.com",
-        addtionalSelectors: [
-          "h1",
-          ".article__subhead"
-        ]
-      },
-      {
-        matches: [
-          "*.pornhub.com",
-          "pornhub.com"
-        ],
-        selectors: [
-          ".title >a",
-          ".title > span",
-          ".thumbnailTitle",
-          ".commentMessage > span"
-        ],
-        detectParagraphLanguage: !0,
-        wrapperPrefix: `
-
-`,
-        wrapperSuffix: `
-`,
-        globalStyles: {
-          ".title": "height: unset; max-height: unset;"
-        }
-      },
-      {
-        matches: [
-          "weibo.com"
-        ],
-        selectors: [
-          "div[class^='detail_wbtext']"
-        ]
-      },
-      {
-        matches: [
-          "medium.com",
-          "*.medium.com"
-        ],
-        selectorMatches: [
-          "meta[property='al:ios:url'][content^='medium://']"
-        ],
-        urlChangeDelay: 2e3,
-        selectors: [
-          "article section",
-          "h2",
-          "[aria-hidden='false'] pre",
-          "article p"
-        ],
-        excludeSelectors: [
-          "[aria-label='Post Preview Reading Time']"
-        ],
-        globalStyles: {
-          h2: "-webkit-line-clamp: unset;max-height:unset;",
-          "article p": "-webkit-line-clamp: unset;max-height:unset;"
-        }
-      },
-      {
-        selectorMatches: [
-          "meta[property='og:site_name'][content='Nitter']"
-        ],
-        selectors: [
-          ".tweet-content",
-          ".quote-text"
-        ]
-      },
-      {
-        matches: "*.fandom.com",
-        additionalSelectors: [
-          ".mcf-card-article__title"
-        ]
-      },
-      {
-        matches: [
-          "www.washingtonpost.com"
-        ],
-        additionalSelectors: [
-          "[data-qa='article-body']"
-        ]
-      },
-      {
-        matches: "www.economist.com",
-        extraInlineSelectors: "span[data-caps='initial']"
-      },
-      {
-        matches: "www.healthline.com",
-        excludeSelectors: ".icon-hl-trusted-source-after"
-      },
-      {
-        matches: "www.amazon.com",
-        selectors: [
-          "h1",
-          "h2 > a > span",
-          "[data-a-expander-name='book_description_expander'] > div",
-          "[data-feature-name='editorialReviews']",
-          '[data-a-expander-name="review_text_read_more"] > div > span',
-          '[data-feature-name="featurebullets"]',
-          '[data-feature-name="aplus"'
-        ],
-        excludeBlockSelectors: [
-          "div.reviewText > span"
-        ],
-        globalStyles: {
-          ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
-          "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
-        }
-      },
-      {
-        matches: "www.bloomberg.com",
-        urlChangeDelay: 2e3
-      },
-      {
-        matches: "xueshu.baidu.com",
-        globalStyles: {
-          ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
-        }
-      },
-      {
-        matches: "www.sciencedirect.com",
-        urlChangeDelay: 2e3
-      },
-      {
-        matches: "www.thehighestofthemountains.com",
-        extraBlockSelectors: "div"
-      },
-      {
-        matches: "telegra.ph",
-        normalizeBody: "div.ql-editor[contenteditable='false']"
-      },
-      {
-        matches: [
-          "*.annas-archive.org",
-          "annas-archive.org"
-        ],
-        selectors: [
-          "div[class='truncate text-xl font-bold']",
-          "div[class='truncate text-sm']"
-        ],
-        globalStyles: {
-          "div[id^='link-index-']": "height: unset; max-height: unset;"
-        },
-        normalizeBody: "body",
-        extraBlockSelectors: [
-          "a.custom-a"
-        ]
-      },
-      {
-        matches: [
-          "explainshell.com"
-        ],
-        selectors: [
-          "[class='help-box']"
-        ]
-      },
-      {
-        matches: [
-          "apnews.com"
-        ],
-        urlChangeDelay: 2e3
-      },
-      {
-        matches: "play.google.com",
-        additionalSelectors: [
-          "header[data-review-id] + div"
-        ]
-      },
-      {
-        matches: [
-          "www.tumblr.com"
-        ],
-        selectors: [
-          "article h1",
-          "article > header + div",
-          "[data-testid=notes-root] p",
-          "div.k31gt",
-          "p",
-          "article ul",
-          "article h2",
-          "article h3",
-          "article h4",
-          "article h5",
-          "article h6",
-          "article blockquote",
-          "article ol"
-        ],
-        excludeSelectors: [
-          "div.fAAi8",
-          "div.wvu3V"
-        ],
-        preWhitespaceDetectedTags: [
-          "DIV",
-          "SPAN",
-          "P"
-        ]
-      },
-      {
-        matches: [
-          "mail.qq.com/cgi-bin/frame_html"
-        ],
-        selectors: [
-          "#thisiddoesnotexists"
-        ]
-      },
-      {
-        matches: "www.foxnews.com",
-        shadowRootSelectors: [
-          "[data-spot-im-module-default-area='conversation'] > div"
-        ],
-        excludeSelectors: [
-          ".components-MessageDetails-index__message-details-wrapper",
-          "div[class^=SlideDown__container]",
-          ".components-MessageActions-index__messageActionsWrapper",
-          "span[data-openweb-allow-amp]",
-          "div.spcv_typing-users"
-        ]
-      },
-      {
-        matches: "www.afreecatv.com",
-        globalStyles: {
-          "a.title": "max-height:unset;-webkit-line-clamp:unset;"
-        }
-      }
-    ]
-  };
-
-  // utils/array.ts
-  function arrayOrGenericToArray(arrayOrGeneric) {
-    return Array.isArray(arrayOrGeneric) ? arrayOrGeneric : arrayOrGeneric ? [arrayOrGeneric] : [];
-  }
-  function addToUniqueArray(item, array) {
-    return array ? (Array.isArray(array) || (array = [array]), Array.from(/* @__PURE__ */ new Set([...array, item]))) : [item];
-  }
-  function removeFromArray(item, array) {
-    return array ? (Array.isArray(item) || (item = [item]), Array.isArray(array) || (array = [array]), array.filter((i3) => !item.includes(i3))) : [];
-  }
-
-  // utils/merge_rule.ts
-  function mergeRule(generalRule, rule) {
-    let arrayKeys = [], allRuleKeys = Object.keys(
-      generalRule
-    );
-    for (let key of allRuleKeys) {
-      let value = generalRule[key];
-      Array.isArray(value) && arrayKeys.push(key);
-    }
-    let finalRule = {
-      ...generalRule
-    };
-    return Object.keys(rule).forEach((key) => {
-      let value = rule[key];
-      if (value !== void 0)
-        if (!arrayKeys.includes(key))
-          finalRule[key] = value;
-        else if (key.startsWith("additional")) {
-          let userValue = arrayOrGenericToArray(value);
-          finalRule[key] = Array.from(
-            /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
-          );
-        } else
-          finalRule[key] = arrayOrGenericToArray(value);
-    }), finalRule;
-  }
-
-  // config.ts
-  function getEnvUserConfig() {
-    if (env.PROD === "1")
-      return {};
-    let defaultUserConfig = {};
-    if (env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID && env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
-      let tencentAuthConfig = {
-        secretId: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID,
-        secretKey: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY
-      };
-      defaultUserConfig.translationServices = {}, defaultUserConfig.translationServices.tencent = tencentAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID && env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY) {
-      let baiduAuthConfig = {
-        appid: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID,
-        key: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.baidu = baiduAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN) {
-      let caiyunAuthConfig = {
-        token: env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY) {
-      let openlAuthConfig = {
-        apikey: env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.openl = openlAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID && env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET) {
-      let youdaoAuthConfig = {
-        appId: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID,
-        appSecret: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID && env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY) {
-      let volcAuthConfig = {
-        accessKeyId: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID,
-        secretAccessKey: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.volc = volcAuthConfig;
-    }
-    if (env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY) {
-      let deeplAuthConfig = {
-        authKey: env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY
-      };
-      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
-    }
-    return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
-  }
-  async function getLocalConfig() {
-    let localConfig2 = await browserAPI.storage.local.get(localConfigStorageKey);
-    if (localConfig2[localConfigStorageKey]) {
-      let currentConfig = localConfig2[localConfigStorageKey], currentTempTranslationDomains = currentConfig.tempTranslationUrlMatches || [], newDomains = currentTempTranslationDomains.filter(
-        (item) => item.expiredAt > Date.now()
-      ), isChanged = !1;
-      newDomains.length !== currentTempTranslationDomains.length && (currentTempTranslationDomains = newDomains, isChanged = !0);
-      let newLocalConfig = {
-        ...currentConfig,
-        tempTranslationUrlMatches: [
-          ...currentTempTranslationDomains
-        ]
-      };
-      return isChanged && await setLocalConfig(newLocalConfig), newLocalConfig;
-    } else
-      return {};
-  }
-  async function setLocalConfig(localConfig2) {
-    await browserAPI.storage.local.set({ [localConfigStorageKey]: localConfig2 });
-  }
-  async function setBuildinConfig(buildinConfig) {
-    await browserAPI.storage.local.set({ [buildinConfigStorageKey]: buildinConfig });
-  }
-  async function getConfig() {
-    let storageBuildInConfig = await browserAPI.storage.local.get(
-      buildinConfigStorageKey
-    ), finalBuildInConfig = {
-      ...buildin_config_default,
-      buildinConfigUpdatedAt: env.BUILD_TIME
-    };
-    if (storageBuildInConfig[buildinConfigStorageKey]) {
-      let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
-      if (storageBuildInConfigValue && storageBuildInConfigValue.buildinConfigUpdatedAt) {
-        let storageBuildinConfigUpdatedAt = new Date(
-          storageBuildInConfigValue.buildinConfigUpdatedAt
-        ), buildinConfigUpdatedAt = new Date(
-          finalBuildInConfig.buildinConfigUpdatedAt
-        );
-        storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
-      }
-    }
-    let shortcutsFromBrowser = {};
-    if (!isMonkey() && browserAPI.commands && browserAPI.commands.getAll) {
-      let commandResult = await browserAPI.commands.getAll();
-      for (let command of commandResult)
-        command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
-    }
-    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
-    if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
-      let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
-        (urlMatch) => new Date(urlMatch.expiredAt) > now
-      );
-      if (validUrlMatches.length > 0) {
-        let currentMatches = userConfig.translationUrlPattern ? userConfig.translationUrlPattern?.matches || [] : [], currentMatchesArray = Array.isArray(currentMatches) ? currentMatches : [currentMatches], finalMatches = Array.from(
-          new Set(
-            currentMatchesArray.concat(
-              validUrlMatches.map((urlMatch) => urlMatch.match)
-            )
-          )
-        );
-        userConfig.translationUrlPattern = {
-          ...userConfig.translationUrlPattern,
-          matches: finalMatches
-        };
-      }
-    }
-    let mergedUserConfig = Object.assign(
-      {},
-      globalUserConfig,
-      envUserConfig,
-      userConfig
-    );
-    if (!mergedUserConfig.interfaceLanguage) {
-      let defaultInterfaceLanguage = await getBrowserIntefaceLanguage();
-      mergedUserConfig.interfaceLanguage = defaultInterfaceLanguage;
-    }
-    let finalConfig = Object.assign(defaultConfig, finalBuildInConfig), configKeys = Object.keys(finalConfig), assignKeys = [
-      "translationUrlPattern",
-      "translationLanguagePattern",
-      "immediateTranslationPattern",
-      "translationBodyAreaPattern",
-      "translationParagraphLanguagePattern",
-      "translationThemePatterns",
-      "translationGeneralConfig",
-      "shortcuts"
-    ];
-    for (let key of configKeys) {
-      let configKey = key;
-      if (configKey === "generalRule")
-        typeof mergedUserConfig[configKey] == "object" && (finalConfig[configKey] = mergeRule(
-          defaultConfig[configKey],
-          mergedUserConfig[configKey]
-        ));
-      else if (configKey === "translationServices") {
-        let userConfigValue = mergedUserConfig[configKey] || {}, buildInConfigValue = finalBuildInConfig[configKey] || {}, buildInConfigKeys = Object.keys(buildInConfigValue), userConfigKeys = Object.keys(userConfigValue), allUniqueKeys = [
-          .../* @__PURE__ */ new Set([...buildInConfigKeys, ...userConfigKeys])
-        ], finalConfigValue = {};
-        for (let key2 of allUniqueKeys)
-          finalConfigValue[key2] = {
-            ...buildInConfigValue[key2],
-            ...userConfigValue[key2]
-          };
-        finalConfig[configKey] = finalConfigValue;
-      } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
-        mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
-          finalConfig[configKey],
-          mergedUserConfig[configKey]
-        )), configKey === "shortcuts" && (finalConfig[configKey] = {
-          ...finalConfig[configKey],
-          ...shortcutsFromBrowser
-        });
-      else if (configKey === "rules") {
-        if (Array.isArray(mergedUserConfig[configKey]) && (finalConfig[configKey] = [
-          ...mergedUserConfig[configKey],
-          ...finalConfig[configKey]
-        ]), env.PROD === "0" && env.DEV_RULES) {
-          let devRules = JSON.parse(env.DEV_RULES);
-          finalConfig[configKey] = [
-            ...devRules,
-            ...finalConfig[configKey]
-          ];
-        }
-      } else
-        mergedUserConfig[configKey] !== void 0 && (finalConfig[configKey] = mergedUserConfig[configKey]);
-    }
-    return finalConfig.donateUrl = finalBuildInConfig.donateUrl, finalConfig.minVersion = finalBuildInConfig.minVersion, finalConfig.feedbackUrl = finalBuildInConfig.feedbackUrl, finalConfig;
-  }
-  var getBrowserIntefaceLanguage = async () => {
-    let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
-    return defaultInterfaceLanguage || "en";
-  }, getBuildInConfig = () => {
-    let finalBuildInConfig = {
-      ...buildin_config_default,
-      buildinConfigUpdatedAt: env.BUILD_TIME
-    };
-    return {
-      ...finalBuildInConfig,
-      targetLanguage: fallbackLanguage,
-      interfaceLanguage: "en",
-      debug: !1,
-      alpha: !1,
-      translationUrlPattern: {
-        matches: [],
-        excludeMatches: []
-      },
-      translationLanguagePattern: {
-        matches: [],
-        excludeMatches: []
-      },
-      translationThemePatterns: {},
-      translationParagraphLanguagePattern: {
-        matches: [],
-        excludeMatches: [],
-        selectorMatches: [],
-        excludeSelectorMatches: []
-      },
-      translationBodyAreaPattern: {
-        matches: [],
-        excludeMatches: [],
-        selectorMatches: [],
-        excludeSelectorMatches: []
-      },
-      translationTheme: "none",
-      translationService: "google",
-      translationArea: "main",
-      translationStartMode: "dynamic",
-      translationServices: {},
-      generalRule: {
-        ...finalBuildInConfig.generalRule
-      },
-      translationGeneralConfig: { engine: "google" },
-      rules: []
-    };
-  };
 
   // https://deno.land/std@0.171.0/async/deferred.ts
   function deferred() {
@@ -9188,6 +7710,1544 @@ body {
     }
   }, log_default = new Logger();
 
+  // utils/is_mobile.ts
+  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+  function createMatch(userAgent) {
+    return (regex) => regex.test(userAgent);
+  }
+  function isMobile(param) {
+    let nav = {
+      userAgent: "",
+      platform: "",
+      maxTouchPoints: 0
+    };
+    !param && typeof navigator < "u" ? nav = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      maxTouchPoints: navigator.maxTouchPoints || 0
+    } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
+      userAgent: param.userAgent,
+      platform: param.platform,
+      maxTouchPoints: param.maxTouchPoints || 0
+    });
+    let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
+    typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
+    let match = createMatch(userAgent), result = {
+      apple: {
+        phone: match(appleIphone) && !match(windowsPhone),
+        ipod: match(appleIpod),
+        tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
+        universal: match(appleUniversal),
+        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
+      },
+      amazon: {
+        phone: match(amazonPhone),
+        tablet: !match(amazonPhone) && match(amazonTablet),
+        device: match(amazonPhone) || match(amazonTablet)
+      },
+      android: {
+        phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
+        tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
+        device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
+      },
+      windows: {
+        phone: match(windowsPhone),
+        tablet: match(windowsTablet),
+        device: match(windowsPhone) || match(windowsTablet)
+      },
+      other: {
+        blackberry: match(otherBlackBerry),
+        blackberry10: match(otherBlackBerry10),
+        opera: match(otherOpera),
+        firefox: match(otherFirefox),
+        chrome: match(otherChrome),
+        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
+      },
+      any: !1,
+      phone: !1,
+      tablet: !1
+    };
+    return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
+  }
+
+  // utils/platform.ts
+  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+  function isBrowser(toCheck) {
+    let currentBrowser = CHROME;
+    try {
+      let userAgent = navigator?.userAgent || "";
+      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
+    } catch {
+    }
+    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+  }
+  function isDeno2() {
+    return typeof Deno < "u";
+  }
+  function isFirefox() {
+    return isBrowser(FIREFOX);
+  }
+  function isTouchDevice() {
+    return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+  }
+
+  // browser/mock_browser.ts
+  var listeners = {
+    addListener: () => {
+    },
+    removeListener: () => {
+    },
+    hasListener: () => {
+    }
+  }, mock_browser_default = {
+    permissions: {
+      contains: () => {
+      },
+      request: () => {
+      }
+    },
+    runtime: {
+      onMessage: listeners,
+      openOptionsPage: () => {
+      },
+      lastError: {
+        message: ""
+      }
+    },
+    storage: {
+      sync: {
+        get: () => {
+        },
+        set: () => {
+        }
+      }
+    },
+    tabs: {
+      onUpdated: listeners,
+      query: () => {
+      },
+      sendMessage: () => {
+      }
+    },
+    identity: {
+      getRedirectURL: (path) => path || "",
+      launchWebAuthFlow: (details) => Promise.resolve(details.url)
+    }
+  };
+
+  // browser/browser.ts
+  var browserAPI;
+  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
+
+  // buildin_config.json
+  var buildin_config_default = {
+    minVersion: "0.0.20",
+    immediateTranslationTextCount: 4e3,
+    interval: 36e5,
+    cache: !0,
+    donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
+    feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
+    isShowContextMenu: !0,
+    translationServices: {
+      volcAlpha: {
+        placeholderDelimiters: [
+          "{",
+          "}"
+        ]
+      },
+      volc: {
+        placeholderDelimiters: [
+          "{",
+          "}"
+        ]
+      },
+      tencent: {
+        placeholderDelimiters: [
+          "{",
+          "}"
+        ]
+      },
+      transmart: {
+        placeholderDelimiters: [
+          "#",
+          "#"
+        ]
+      },
+      baidu: {
+        placeholderDelimiters: [
+          "#",
+          "#"
+        ]
+      },
+      caiyun: {
+        placeholderDelimiters: [
+          "{",
+          "}"
+        ]
+      },
+      youdao: {
+        placeholderDelimiters: [
+          "\u{1F6A0}",
+          "\u{1F6A0}"
+        ]
+      }
+    },
+    shortcuts: {
+      toggleTranslatePage: "Alt+A",
+      toggleTranslateTheWholePage: "Alt+W",
+      toggleTranslateToThePageEndImmediately: "Alt+S"
+    },
+    tempTranslateDomainMinutes: 0,
+    immediateTranslationPattern: {
+      matches: [
+        "www.tumblr.com",
+        "twitter.com",
+        "*.twitter.com",
+        "medium.com",
+        "*.medium.com",
+        "github.com",
+        "gist.github.com",
+        "www.facebook.com",
+        "www.youtube.com",
+        "m.youtube.com",
+        "mail.google.com",
+        "discord.com",
+        "web.telegram.org",
+        "*.slack.com",
+        "https://old.reddit.com/",
+        "https://www.reddit.com/r/popular/",
+        "https://www.reddit.com/",
+        "https://www.reddit.com/hot/",
+        "https://www.reddit.com/new/",
+        "https://www.reddit.com/top/",
+        "https://www.reddit.com/.compact"
+      ],
+      excludeMatches: [],
+      selectorMatches: [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      selectorExcludeMatches: []
+    },
+    translationParagraphLanguagePattern: {
+      matches: [
+        "www.reddit.com",
+        "old.reddit.com",
+        "twitter.com",
+        "www.tumblr.com",
+        "*.twitter.com",
+        "medium.com",
+        "*.medium.com",
+        "github.com",
+        "gist.github.com",
+        "www.facebook.com",
+        "www.youtube.com",
+        "m.youtube.com",
+        "read.readwise.io",
+        "www.inoreader.com",
+        "mail.google.com",
+        "google.com",
+        "discord.com",
+        "web.telegram.org",
+        "*.slack.com"
+      ],
+      excludeMatches: [],
+      selectorMatches: [
+        "meta[property='al:ios:url'][content^='medium://']"
+      ],
+      selectorExcludeMatches: []
+    },
+    sourceLanguageUrlPattern: {},
+    generalRule: {
+      _comment: "",
+      normalizeBody: "",
+      wrapperPrefix: "smart",
+      wrapperSuffix: "smart",
+      isPdf: !1,
+      isTransformPreTagNewLine: !1,
+      urlChangeDelay: 20,
+      translationBlockStyle: "",
+      isShowUserscriptPagePopup: !0,
+      observeUrlChange: !0,
+      paragraphMinTextCount: 8,
+      paragraphMinWordCount: 2,
+      shadowRootSelectors: [],
+      blockMinTextCount: 32,
+      blockMinWordCount: 5,
+      containerMinTextCount: 18,
+      lineBreakMaxTextCount: 0,
+      globalAttributes: {},
+      globalStyles: {
+        ".sr-only": "display:none"
+      },
+      selectors: [],
+      preWhitespaceDetectedTags: [
+        "DIV",
+        "SPAN"
+      ],
+      stayOriginalSelectors: [],
+      additionalSelectors: [
+        "h1",
+        "section h2",
+        "section h3",
+        "section h4",
+        "main h2",
+        "main h3",
+        "main h4",
+        ".article-title",
+        ".article-subtitle",
+        ".article_title",
+        ".article_subtitle",
+        ".article__title",
+        ".articleTitle",
+        ".Article__content",
+        ".title",
+        ".abstract",
+        ".titleLink",
+        ".summary",
+        ".content",
+        ".headline",
+        ".page-content"
+      ],
+      atomicBlockTags: [],
+      excludeSelectors: [],
+      additionalExcludeSelectors: [
+        ".social-share",
+        ".breadcrumbs",
+        ".post__footer",
+        ".btn",
+        ".reference-citations",
+        ".share-nav",
+        ".o-share",
+        "[data-toolbar=share]",
+        "rp",
+        "rt"
+      ],
+      translationClasses: [],
+      atomicBlockSelectors: [],
+      excludeTags: [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "LABEL",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "PRE",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE"
+      ],
+      metaTags: [
+        "META",
+        "SCRIPT",
+        "STYLE",
+        "NOSCRIPT"
+      ],
+      additionalExcludeTags: [],
+      stayOriginalTags: [
+        "CODE",
+        "TT",
+        "IMG",
+        "SUP"
+      ],
+      additionalStayOriginalTags: [],
+      inlineTags: [
+        "A",
+        "ABBR",
+        "FONT",
+        "ACRONYM",
+        "B",
+        "INS",
+        "DEL",
+        "RUBY",
+        "RP",
+        "RB",
+        "BDO",
+        "MARK",
+        "BIG",
+        "RT",
+        "NOBR",
+        "CITE",
+        "DFN",
+        "EM",
+        "I",
+        "LABEL",
+        "Q",
+        "S",
+        "SMALL",
+        "SPAN",
+        "STRONG",
+        "SUB",
+        "SUP",
+        "U",
+        "KBD",
+        "TT",
+        "VAR",
+        "IMG",
+        "CODE",
+        "SCRIPT",
+        "STYLE",
+        "LINK",
+        "TIME",
+        "META"
+      ],
+      additionalInlineTags: [],
+      extraInlineSelectors: [],
+      additionalInlineSelectors: [],
+      extraBlockSelectors: [],
+      allBlockTags: [
+        "HGROUP",
+        "CONTENT",
+        "ADDRESS",
+        "ARTICLE",
+        "ASIDE",
+        "BLOCKQUOTE",
+        "CANVAS",
+        "DD",
+        "DL",
+        "DT",
+        "FIELDSET",
+        "FIGCAPTION",
+        "FIGURE",
+        "FOOTER",
+        "HEADER",
+        "FORM",
+        "HR",
+        "MAIN",
+        "NAV",
+        "OL",
+        "NOSCRIPT",
+        "PRE",
+        "SECTION",
+        "TABLE",
+        "TFOOT",
+        "UL",
+        "VIDEO",
+        "P",
+        "DIV",
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "UL",
+        "LI",
+        "OL",
+        "BR",
+        "PICTURE",
+        "TBODY",
+        "TR",
+        "TD",
+        "TH",
+        "SOURCE",
+        "C-WIZ"
+      ],
+      pdfNewParagraphLineHeight: 2.4,
+      pdfNewParagraphIndent: 1.2,
+      pdfNewParagraphIndentRightIndentPx: 130,
+      fingerCountToToggleTranslagePageWhenTouching: 4
+    },
+    rules: [
+      {
+        matches: [
+          "moz-extension://*/pdf/index.html*"
+        ],
+        isPdf: !0,
+        wrapperPrefix: "",
+        wrapperSuffix: "",
+        urlChangeDelay: 0,
+        selectors: [
+          ".textLayer"
+        ],
+        excludeSelectors: [
+          ".annotationLayer"
+        ],
+        globalStyles: {
+          "div.page": "width: 98%;",
+          ".textLayer": "overflow:visible;opacity: 1;"
+        }
+      },
+      {
+        matches: [
+          "mail.jabber.org",
+          "antirez.com"
+        ],
+        excludeTags: [
+          "TITLE",
+          "SCRIPT",
+          "STYLE",
+          "TEXTAREA",
+          "SVG",
+          "svg",
+          "INPUT",
+          "LABEL",
+          "IMG",
+          "SUB",
+          "SUP",
+          "BR",
+          "CODE",
+          "KBD",
+          "WBR",
+          "TT"
+        ]
+      },
+      {
+        matches: "*.wikipedia.org",
+        excludeSelectors: [
+          ".mw-editsection",
+          ".mw-cite-backlink",
+          "#mw-panel-toc"
+        ],
+        stayOriginalSelectors: [
+          ".chemf",
+          ".mwe-math-element",
+          "[role=math]",
+          ".nowrap"
+        ],
+        extraInlineSelectors: [
+          ".chemf",
+          ".mwe-math-element",
+          "[role=math]",
+          ".nowrap"
+        ]
+      },
+      {
+        matches: [
+          "twitter.com",
+          "mobile.twitter.com",
+          "tweetdeck.twitter.com",
+          "https://platform.twitter.com/embed*"
+        ],
+        selectors: [
+          '[data-testid="tweetText"]',
+          ".tweet-text",
+          ".js-quoted-tweet-text",
+          "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
+          "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
+          "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
+        ],
+        extraInlineSelectors: [
+          '[data-testid="tweetText"] div'
+        ]
+      },
+      {
+        matches: [
+          "stackoverflow.com",
+          "*.stackexchange.com",
+          "superuser.com",
+          "askubuntu.com",
+          "serverfault.com"
+        ],
+        additionalSelectors: [
+          ".comment-copy"
+        ]
+      },
+      {
+        matches: "developer.apple.com/documentation/*",
+        selectors: [
+          ".container",
+          "h3.title"
+        ]
+      },
+      {
+        matches: "news.ycombinator.com",
+        selectors: [
+          ".titleline > a",
+          ".comment > .commtext",
+          ".toptext",
+          "a.hn-item-title",
+          ".hn-comment-text",
+          ".hn-story-title"
+        ],
+        excludeSelectors: [
+          ".reply"
+        ]
+      },
+      {
+        matches: [
+          "*.quora.com",
+          "quora.com"
+        ],
+        additionalSelectors: [
+          ".puppeteer_test_question_title",
+          ".puppeteer_test_answer_content",
+          ".q-text"
+        ],
+        globalStyles: {
+          ".qu-truncateLines--3": "-webkit-line-clamp: unset;"
+        }
+      },
+      {
+        matches: [
+          "old.reddit.com/*/.compact",
+          "old.reddit.com/.compact",
+          "www.reddit.com/*/.compact",
+          "www.reddit.com/.compact"
+        ],
+        selectors: [
+          ".title > a",
+          ".usertext-body"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "old.reddit.com",
+        selectors: [
+          "p.title > a",
+          "[role=main] .md-container"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "www.reddit.com",
+        selectors: [
+          "h1",
+          ".PostHeader__post-title-line",
+          "[data-click-id=body] h3",
+          "[data-click-id=background] h3",
+          "[data-testid=comment]",
+          "[data-adclicklocation='title']",
+          "[data-adclicklocation=media]",
+          ".PostContent",
+          ".Comment__body",
+          "faceplate-batch .md"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "www.reuters.com/",
+        excludeSelectors: [
+          "header"
+        ]
+      },
+      {
+        matches: "github.com",
+        selectors: [
+          ".markdown-title",
+          ".markdown-body",
+          ".Layout-sidebar p",
+          "div > span.search-match",
+          "li.repo-list-item p",
+          "#responsive-meta-container p"
+        ],
+        excludeSelectors: [
+          ".css-truncate",
+          "[data-test-selector='commit-tease-commit-message']",
+          "div.blob-wrapper-embedded"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "www.facebook.com",
+        selectors: [
+          "div[dir=auto][style]",
+          "div[dir=auto][class]",
+          "span[lang]"
+        ],
+        atomicBlockSelectors: [
+          "div[dir=auto][style]",
+          "div[dir=auto][class]",
+          "span[lang]"
+        ],
+        insertPosition: "afterend",
+        preWhitespaceDetectedTags: [
+          "DIV",
+          "SPAN"
+        ],
+        extraBlockSelectors: [
+          "span.x1vvkbs"
+        ],
+        excludeSelectors: [
+          "[role=button]"
+        ],
+        translationClasses: [
+          "immersive-translate-text"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "m.youtube.com",
+        selectors: [
+          ".comment-text"
+        ],
+        atomicBlockSelectors: [
+          ".comment-text"
+        ],
+        globalStyles: {
+          ".comment-text": "max-height:unset;"
+        }
+      },
+      {
+        matches: "www.youtube.com",
+        selectors: [
+          "yt-formatted-string[slot=content].ytd-comment-renderer",
+          "yt-formatted-string.ytd-video-renderer",
+          "h1 > yt-formatted-string.ytd-watch-metadata",
+          "yt-formatted-string#video-title",
+          "span#video-title",
+          "a#video-title"
+        ],
+        wrapperPrefix: "",
+        wrapperSuffix: "",
+        globalStyles: {
+          "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
+          "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
+          "yt-formatted-string#video-title": "-webkit-line-clamp: unset;max-height: unset;",
+          "#video-title": "-webkit-line-clamp: unset;max-height: unset;"
+        },
+        urlChangeDelay: 2e3,
+        atomicBlockSelectors: [
+          "yt-formatted-string[slot=content].ytd-comment-renderer",
+          "h1 > yt-formatted-string.ytd-watch-metadata",
+          "yt-formatted-string#video-title",
+          "span#video-title"
+        ],
+        excludeSelectors: [
+          "[class^='lln-']"
+        ],
+        extraBlockSelector: [
+          ".ytd-transcript-segment-renderer"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "1paragraph.app",
+        selectors: "#book"
+      },
+      {
+        matches: [
+          "*.substack.com",
+          "newsletter.rootsofprogress.org"
+        ],
+        selectors: [
+          ".post-preview-title",
+          ".post-preview-description",
+          ".post",
+          ".comment-body"
+        ],
+        excludeSelectors: [
+          ".captioned-button-wrap",
+          ".subscription-widget-wrap",
+          ".tweet-header",
+          ".tweet-link-bottom",
+          ".expanded-link",
+          ".meta-subheader"
+        ],
+        extraBlockSelectors: [
+          ".tweet-link-top",
+          ".tweet-link-bottom",
+          ".expanded-link"
+        ]
+      },
+      {
+        matches: [
+          "seekingalpha.com/article/*",
+          "seekingalpha.com/news/*"
+        ],
+        selectors: [
+          "[data-test-id=card-container]"
+        ],
+        excludeSelectors: [
+          "[data-test-id=post-page-meta]",
+          "header > div:first-child"
+        ]
+      },
+      {
+        matches: "hn.algolia.com",
+        selectors: [
+          ".Story_title > a:first-child",
+          ".Story_comment > span"
+        ]
+      },
+      {
+        matches: "read.readwise.io",
+        selectors: [
+          'div[class^="_titleRow_"]',
+          'div[class^="_description_"]',
+          "#document-text-content"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: [
+          "www.inoreader.com",
+          "*.inoreader.com"
+        ],
+        selectors: [
+          ".article_header_title",
+          ".article_title_link",
+          ".article_content",
+          ".article_magazine_title_link"
+        ],
+        observeUrlChange: !1,
+        globalStyles: {
+          ".article_title_link": "-webkit-line-clamp: unset;max-height: unset;"
+        }
+      },
+      {
+        matches: [
+          "scholar.google.com"
+        ],
+        wrapperPrefix: `
+`,
+        selectors: [
+          "h3 a[data-clk]",
+          "div.gs_rs"
+        ],
+        atomicBlockSelectors: [
+          ".gs_rs",
+          "h3 a[data-clk]"
+        ]
+      },
+      {
+        matches: "mail.google.com",
+        selectors: [
+          "h2[data-thread-perm-id]",
+          "span[data-thread-id]",
+          "div[data-message-id] div[class='']"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "www.producthunt.com",
+        selectors: [
+          "h2",
+          "div[class^='styles_htmlText__']",
+          "[class^='styles_tagline']",
+          "a[href^='/discussions/'].fontWeight-600",
+          "button[class^='styles_textButton'] > div > span"
+        ],
+        excludeTags: [
+          "TITLE",
+          "SCRIPT",
+          "STYLE",
+          "TEXTAREA",
+          "SVG",
+          "svg",
+          "INPUT",
+          "LABEL",
+          "IMG",
+          "SUB",
+          "SUP",
+          "BR",
+          "CODE",
+          "KBD",
+          "WBR",
+          "TT"
+        ]
+      },
+      {
+        matches: "*.gitbook.io",
+        additionalSelectors: [
+          "main"
+        ],
+        _comment: "https://midjourney.gitbook.io/docs/user-manual"
+      },
+      {
+        matches: "arxiv.org",
+        additionalSelectors: [
+          "h1",
+          "blockquote.abstract"
+        ]
+      },
+      {
+        matches: "https://discord.com/channels/*",
+        selectors: [
+          "li[id^=chat-messages] div[id^=message-content]",
+          "h3[data-text-variant='heading-lg/semibold']"
+        ],
+        excludeSelectors: [
+          "div[class^='repliedTextContent']"
+        ],
+        globalStyles: {
+          "div[class^=headerText]": "max-height: unset;",
+          "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
+        },
+        detectParagraphLanguage: !0,
+        wrapperPrefix: "<br>",
+        wrapperSuffix: "<br><br>"
+      },
+      {
+        matches: "web.telegram.org/z/*",
+        selectors: [
+          ".text-content"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: [
+          "web.telegram.org/k/*",
+          "web.telegram.org/k/"
+        ],
+        selectors: [
+          ".message"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "gist.github.com",
+        selectors: [
+          ".markdown-body",
+          ".readme"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "lobste.rs",
+        selectors: [
+          ".u-repost-of",
+          ".comment_text"
+        ]
+      },
+      {
+        matches: "*.slack.com",
+        selectors: [
+          ".p-rich_text_section"
+        ],
+        detectParagraphLanguage: !0
+      },
+      {
+        matches: "1paragraph.app",
+        additionalSelectors: [
+          "#book"
+        ]
+      },
+      {
+        matches: "www.google.*/search*",
+        detectParagraphLanguage: !0,
+        excludeSelectors: [
+          "a h3 + div",
+          "div#sfooter"
+        ],
+        wrapperSuffix: "",
+        globalStyles: {
+          "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
+          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
+        },
+        extraBlockSelectors: [
+          ".MUFPAc"
+        ]
+      },
+      {
+        matches: "lowendtalk.com",
+        selectors: [
+          "[role=heading]",
+          "h1",
+          ".userContent"
+        ]
+      },
+      {
+        matches: "www.linkedin.com/jobs/*",
+        selectors: [
+          "#job-details > span"
+        ]
+      },
+      {
+        matches: "www.linkedin.com",
+        addtionalSelectors: [
+          "span.break-words > span > span[dir=ltr]"
+        ]
+      },
+      {
+        matches: "www.indiehackers.com",
+        selectors: [
+          ".content",
+          "h1",
+          ".feed-item__title-link"
+        ]
+      },
+      {
+        matches: "libreddit.de",
+        selectors: [
+          "h2.post_title",
+          ".comment_body > .md"
+        ]
+      },
+      {
+        matches: [
+          "notion.site",
+          "www.notion.so"
+        ],
+        selectors: [
+          "div[data-block-id]"
+        ]
+      },
+      {
+        matches: "www.newyorker.com",
+        additionalSelectors: [
+          "h1",
+          "[data-testid=SummaryItemHed]"
+        ]
+      },
+      {
+        matches: "start.me",
+        selectors: [
+          ".rss-article__title",
+          ".rss-articles-list__article-link",
+          ".rss-showcase__title",
+          ".rss-showcase__text"
+        ]
+      },
+      {
+        matches: "www.scmp.com",
+        additionalSelectors: [
+          ".info__subHeadline",
+          ".section-content h2"
+        ]
+      },
+      {
+        matches: "www.lesswrong.com",
+        extraBlockSelectors: [
+          "span.commentOnSelection"
+        ]
+      },
+      {
+        matches: [
+          "mastodon.social",
+          "mastodon.online",
+          "kolektiva.social",
+          "indieweb.social",
+          "mastodon.world",
+          "infosec.exchange"
+        ],
+        selectorMatches: [
+          "div#mastodon"
+        ],
+        selectors: [
+          "div.status__content__text"
+        ],
+        detectLanguage: !0
+      },
+      {
+        matches: "www.cnbc.com",
+        additionalSelectors: [
+          "div.RenderKeyPoints-list"
+        ]
+      },
+      {
+        matches: "app.daily.dev",
+        selectors: [
+          "h1",
+          ".typo-body",
+          "article h3",
+          "[class^=markdown_markdown]"
+        ],
+        globalStyles: {
+          ".line-clamp-3": "-webkit-line-clamp: unset"
+        }
+      },
+      {
+        matches: "www.aljazeera.com",
+        addtionalSelectors: [
+          "h1",
+          ".article__subhead"
+        ]
+      },
+      {
+        matches: [
+          "*.pornhub.com",
+          "pornhub.com"
+        ],
+        selectors: [
+          ".title >a",
+          ".title > span",
+          ".thumbnailTitle",
+          ".commentMessage > span"
+        ],
+        detectParagraphLanguage: !0,
+        wrapperPrefix: `
+
+`,
+        wrapperSuffix: `
+`,
+        globalStyles: {
+          ".title": "height: unset; max-height: unset;"
+        }
+      },
+      {
+        matches: [
+          "weibo.com"
+        ],
+        selectors: [
+          "div[class^='detail_wbtext']"
+        ]
+      },
+      {
+        matches: [
+          "medium.com",
+          "*.medium.com"
+        ],
+        selectorMatches: [
+          "meta[property='al:ios:url'][content^='medium://']"
+        ],
+        urlChangeDelay: 2e3,
+        selectors: [
+          "article section",
+          "h2",
+          "[aria-hidden='false'] pre",
+          "article p"
+        ],
+        excludeSelectors: [
+          "[aria-label='Post Preview Reading Time']"
+        ],
+        globalStyles: {
+          h2: "-webkit-line-clamp: unset;max-height:unset;",
+          "article p": "-webkit-line-clamp: unset;max-height:unset;"
+        }
+      },
+      {
+        selectorMatches: [
+          "meta[property='og:site_name'][content='Nitter']"
+        ],
+        selectors: [
+          ".tweet-content",
+          ".quote-text"
+        ]
+      },
+      {
+        matches: "*.fandom.com",
+        additionalSelectors: [
+          ".mcf-card-article__title"
+        ]
+      },
+      {
+        matches: [
+          "www.washingtonpost.com"
+        ],
+        additionalSelectors: [
+          "[data-qa='article-body']"
+        ]
+      },
+      {
+        matches: "www.economist.com",
+        extraInlineSelectors: "span[data-caps='initial']"
+      },
+      {
+        matches: "www.healthline.com",
+        excludeSelectors: ".icon-hl-trusted-source-after"
+      },
+      {
+        matches: "www.amazon.com",
+        selectors: [
+          "h1",
+          "h2 > a > span",
+          "[data-a-expander-name='book_description_expander'] > div",
+          "[data-feature-name='editorialReviews']",
+          '[data-a-expander-name="review_text_read_more"] > div > span',
+          '[data-feature-name="featurebullets"]',
+          '[data-feature-name="aplus"'
+        ],
+        excludeBlockSelectors: [
+          "div.reviewText > span"
+        ],
+        globalStyles: {
+          ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
+          "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
+        }
+      },
+      {
+        matches: "www.bloomberg.com",
+        urlChangeDelay: 2e3
+      },
+      {
+        matches: "xueshu.baidu.com",
+        globalStyles: {
+          ".abstract_wr": "height: unset; overflow: visible; max-height:unset;"
+        }
+      },
+      {
+        matches: "www.sciencedirect.com",
+        urlChangeDelay: 2e3
+      },
+      {
+        matches: "www.thehighestofthemountains.com",
+        extraBlockSelectors: "div"
+      },
+      {
+        matches: "telegra.ph",
+        normalizeBody: "div.ql-editor[contenteditable='false']"
+      },
+      {
+        matches: [
+          "*.annas-archive.org",
+          "annas-archive.org"
+        ],
+        selectors: [
+          "div[class='truncate text-xl font-bold']",
+          "div[class='truncate text-sm']"
+        ],
+        globalStyles: {
+          "div[id^='link-index-']": "height: unset; max-height: unset;"
+        },
+        normalizeBody: "body",
+        extraBlockSelectors: [
+          "a.custom-a"
+        ]
+      },
+      {
+        matches: [
+          "explainshell.com"
+        ],
+        selectors: [
+          "[class='help-box']"
+        ]
+      },
+      {
+        matches: [
+          "apnews.com"
+        ],
+        urlChangeDelay: 2e3
+      },
+      {
+        matches: "play.google.com",
+        additionalSelectors: [
+          "header[data-review-id] + div"
+        ]
+      },
+      {
+        matches: [
+          "www.tumblr.com"
+        ],
+        selectors: [
+          "article h1",
+          "article > header + div",
+          "[data-testid=notes-root] p",
+          "div.k31gt",
+          "p",
+          "article ul",
+          "article h2",
+          "article h3",
+          "article h4",
+          "article h5",
+          "article h6",
+          "article blockquote",
+          "article ol"
+        ],
+        excludeSelectors: [
+          "div.fAAi8",
+          "div.wvu3V"
+        ],
+        preWhitespaceDetectedTags: [
+          "DIV",
+          "SPAN",
+          "P"
+        ]
+      },
+      {
+        matches: [
+          "mail.qq.com/cgi-bin/frame_html"
+        ],
+        selectors: [
+          "#thisiddoesnotexists"
+        ]
+      },
+      {
+        matches: "www.foxnews.com",
+        shadowRootSelectors: [
+          "[data-spot-im-module-default-area='conversation'] > div"
+        ],
+        excludeSelectors: [
+          ".components-MessageDetails-index__message-details-wrapper",
+          "div[class^=SlideDown__container]",
+          ".components-MessageActions-index__messageActionsWrapper",
+          "span[data-openweb-allow-amp]",
+          "div.spcv_typing-users"
+        ]
+      },
+      {
+        matches: "www.afreecatv.com",
+        globalStyles: {
+          "a.title": "max-height:unset;-webkit-line-clamp:unset;"
+        }
+      }
+    ]
+  };
+
+  // utils/array.ts
+  function arrayOrGenericToArray(arrayOrGeneric) {
+    return Array.isArray(arrayOrGeneric) ? arrayOrGeneric : arrayOrGeneric ? [arrayOrGeneric] : [];
+  }
+  function addToUniqueArray(item, array) {
+    return array ? (Array.isArray(array) || (array = [array]), Array.from(/* @__PURE__ */ new Set([...array, item]))) : [item];
+  }
+  function removeFromArray(item, array) {
+    return array ? (Array.isArray(item) || (item = [item]), Array.isArray(array) || (array = [array]), array.filter((i3) => !item.includes(i3))) : [];
+  }
+
+  // utils/merge_rule.ts
+  function mergeRule(generalRule, rule) {
+    let arrayKeys = [], allRuleKeys = Object.keys(
+      generalRule
+    );
+    for (let key of allRuleKeys) {
+      let value = generalRule[key];
+      Array.isArray(value) && arrayKeys.push(key);
+    }
+    let finalRule = {
+      ...generalRule
+    };
+    return Object.keys(rule).forEach((key) => {
+      let value = rule[key];
+      if (value !== void 0)
+        if (!arrayKeys.includes(key))
+          finalRule[key] = value;
+        else if (key.startsWith("additional")) {
+          let userValue = arrayOrGenericToArray(value);
+          finalRule[key] = Array.from(
+            /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
+          );
+        } else
+          finalRule[key] = arrayOrGenericToArray(value);
+    }), finalRule;
+  }
+
+  // config.ts
+  function getEnvUserConfig() {
+    if (env.PROD === "1")
+      return {};
+    let defaultUserConfig = {};
+    if (env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID && env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
+      let tencentAuthConfig = {
+        secretId: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID,
+        secretKey: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY
+      };
+      defaultUserConfig.translationServices = {}, defaultUserConfig.translationServices.tencent = tencentAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID && env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY) {
+      let baiduAuthConfig = {
+        appid: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID,
+        key: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.baidu = baiduAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN) {
+      let caiyunAuthConfig = {
+        token: env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY) {
+      let openlAuthConfig = {
+        apikey: env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.openl = openlAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID && env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET) {
+      let youdaoAuthConfig = {
+        appId: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID,
+        appSecret: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID && env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY) {
+      let volcAuthConfig = {
+        accessKeyId: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID,
+        secretAccessKey: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.volc = volcAuthConfig;
+    }
+    if (env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY) {
+      let deeplAuthConfig = {
+        authKey: env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
+    }
+    return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+  }
+  async function getLocalConfig() {
+    let localConfig2 = await browserAPI.storage.local.get(localConfigStorageKey);
+    if (localConfig2[localConfigStorageKey]) {
+      let currentConfig = localConfig2[localConfigStorageKey], currentTempTranslationDomains = currentConfig.tempTranslationUrlMatches || [], newDomains = currentTempTranslationDomains.filter(
+        (item) => item.expiredAt > Date.now()
+      ), isChanged = !1;
+      newDomains.length !== currentTempTranslationDomains.length && (currentTempTranslationDomains = newDomains, isChanged = !0);
+      let newLocalConfig = {
+        ...currentConfig,
+        tempTranslationUrlMatches: [
+          ...currentTempTranslationDomains
+        ]
+      };
+      return isChanged && await setLocalConfig(newLocalConfig), newLocalConfig;
+    } else
+      return {};
+  }
+  async function setLocalConfig(localConfig2) {
+    await browserAPI.storage.local.set({ [localConfigStorageKey]: localConfig2 });
+  }
+  async function setBuildinConfig(buildinConfig) {
+    await browserAPI.storage.local.set({ [buildinConfigStorageKey]: buildinConfig });
+  }
+  async function getConfig() {
+    let storageBuildInConfig = await browserAPI.storage.local.get(
+      buildinConfigStorageKey
+    ), finalBuildInConfig = {
+      ...buildin_config_default,
+      buildinConfigUpdatedAt: env.BUILD_TIME
+    };
+    if (storageBuildInConfig[buildinConfigStorageKey]) {
+      let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
+      if (storageBuildInConfigValue && storageBuildInConfigValue.buildinConfigUpdatedAt) {
+        let storageBuildinConfigUpdatedAt = new Date(
+          storageBuildInConfigValue.buildinConfigUpdatedAt
+        ), buildinConfigUpdatedAt = new Date(
+          finalBuildInConfig.buildinConfigUpdatedAt
+        );
+        storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
+      }
+    }
+    let shortcutsFromBrowser = {};
+    if (!isMonkey() && browserAPI.commands && browserAPI.commands.getAll) {
+      let commandResult = await browserAPI.commands.getAll();
+      for (let command of commandResult)
+        command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
+    }
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
+    if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
+      let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
+        (urlMatch) => new Date(urlMatch.expiredAt) > now
+      );
+      if (validUrlMatches.length > 0) {
+        let currentMatches = userConfig.translationUrlPattern ? userConfig.translationUrlPattern?.matches || [] : [], currentMatchesArray = Array.isArray(currentMatches) ? currentMatches : [currentMatches], finalMatches = Array.from(
+          new Set(
+            currentMatchesArray.concat(
+              validUrlMatches.map((urlMatch) => urlMatch.match)
+            )
+          )
+        );
+        userConfig.translationUrlPattern = {
+          ...userConfig.translationUrlPattern,
+          matches: finalMatches
+        };
+      }
+    }
+    let mergedUserConfig = Object.assign(
+      {},
+      globalUserConfig,
+      envUserConfig,
+      userConfig
+    );
+    if (!mergedUserConfig.interfaceLanguage) {
+      let defaultInterfaceLanguage = await getBrowserIntefaceLanguage();
+      mergedUserConfig.interfaceLanguage = defaultInterfaceLanguage;
+    }
+    let finalConfig = Object.assign(defaultConfig, finalBuildInConfig), configKeys = Object.keys(finalConfig), assignKeys = [
+      "translationUrlPattern",
+      "translationLanguagePattern",
+      "immediateTranslationPattern",
+      "translationBodyAreaPattern",
+      "translationParagraphLanguagePattern",
+      "translationThemePatterns",
+      "translationGeneralConfig",
+      "shortcuts"
+    ];
+    for (let key of configKeys) {
+      let configKey = key;
+      if (configKey === "generalRule")
+        typeof mergedUserConfig[configKey] == "object" && (finalConfig[configKey] = mergeRule(
+          defaultConfig[configKey],
+          mergedUserConfig[configKey]
+        ));
+      else if (configKey === "translationServices") {
+        let userConfigValue = mergedUserConfig[configKey] || {}, buildInConfigValue = finalBuildInConfig[configKey] || {}, buildInConfigKeys = Object.keys(buildInConfigValue), userConfigKeys = Object.keys(userConfigValue), allUniqueKeys = [
+          .../* @__PURE__ */ new Set([...buildInConfigKeys, ...userConfigKeys])
+        ], finalConfigValue = {};
+        for (let key2 of allUniqueKeys)
+          finalConfigValue[key2] = {
+            ...buildInConfigValue[key2],
+            ...userConfigValue[key2]
+          };
+        finalConfig[configKey] = finalConfigValue;
+      } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
+        mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
+          finalConfig[configKey],
+          mergedUserConfig[configKey]
+        )), configKey === "shortcuts" && (finalConfig[configKey] = {
+          ...finalConfig[configKey],
+          ...shortcutsFromBrowser
+        });
+      else if (configKey === "rules") {
+        if (Array.isArray(mergedUserConfig[configKey]) && (finalConfig[configKey] = [
+          ...mergedUserConfig[configKey],
+          ...finalConfig[configKey]
+        ]), env.PROD === "0" && env.DEV_RULES) {
+          let devRules = JSON.parse(env.DEV_RULES);
+          finalConfig[configKey] = [
+            ...devRules,
+            ...finalConfig[configKey]
+          ];
+        }
+      } else
+        mergedUserConfig[configKey] !== void 0 && (finalConfig[configKey] = mergedUserConfig[configKey]);
+    }
+    return finalConfig.donateUrl = finalBuildInConfig.donateUrl, finalConfig.minVersion = finalBuildInConfig.minVersion, finalConfig.feedbackUrl = finalBuildInConfig.feedbackUrl, finalConfig;
+  }
+  async function getUserConfig() {
+    return (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {};
+  }
+  var getBrowserIntefaceLanguage = async () => {
+    let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
+    return defaultInterfaceLanguage || "en";
+  }, getBuildInConfig = () => {
+    let finalBuildInConfig = {
+      ...buildin_config_default,
+      buildinConfigUpdatedAt: env.BUILD_TIME
+    };
+    return {
+      ...finalBuildInConfig,
+      targetLanguage: fallbackLanguage,
+      interfaceLanguage: "en",
+      debug: !1,
+      alpha: !1,
+      translationUrlPattern: {
+        matches: [],
+        excludeMatches: []
+      },
+      translationLanguagePattern: {
+        matches: [],
+        excludeMatches: []
+      },
+      translationThemePatterns: {},
+      translationParagraphLanguagePattern: {
+        matches: [],
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
+      },
+      translationBodyAreaPattern: {
+        matches: [],
+        excludeMatches: [],
+        selectorMatches: [],
+        excludeSelectorMatches: []
+      },
+      translationTheme: "none",
+      translationService: "google",
+      translationArea: "main",
+      translationStartMode: "dynamic",
+      translationServices: {},
+      generalRule: {
+        ...finalBuildInConfig.generalRule
+      },
+      translationGeneralConfig: { engine: "google" },
+      rules: []
+    };
+  };
+
   // errors.ts
   var CommonError = class extends Error {
     constructor(name, message, details) {
@@ -9818,6 +9878,11 @@ body {
   function openAboutPage2() {
     return isMonkey() ? (browserAPI.extra.openAboutPage(), Promise.resolve()) : sendMessage({
       method: "openAboutPage"
+    });
+  }
+  function autoSyncLatestConfig() {
+    return isMonkey() ? (log_default.warn("autoSyncLatestConfig is not support in monkey"), Promise.resolve()) : sendMessage({
+      method: "autoSyncLatestConfig"
     });
   }
 
@@ -14143,7 +14208,7 @@ body {
         new Date(now.getTime() + interval).toLocaleString()
       ), await browserAPI.storage.local.set({
         [lastRunTimeStorageKey]: now.toISOString()
-      }), await syncRules();
+      }), await syncRules(), isMonkey() || await autoSyncLatestConfig();
     } catch (e3) {
       log_default.error("run cron task failed", e3);
     }
@@ -14218,7 +14283,23 @@ body {
       log_default.error("Could not find manifest element");
       return;
     }
-    manifestElement.value = JSON.stringify(browserAPI.runtime.getManifest()), manifestElement.dispatchEvent(new Event("change"));
+    manifestElement.value = JSON.stringify(browserAPI.runtime.getManifest()), manifestElement.dispatchEvent(new Event("change")), document.getElementById(
+      "immersive-translate-message"
+    ).addEventListener(
+      "change",
+      (event) => {
+        try {
+          let messageObj = JSON.parse(
+            event.target.value
+          );
+          messageObj && messageObj.method === "removeStorageKey" && messageObj.data && messageObj.data.area && messageObj.data.keys && browserAPI.storage[messageObj.data.area].remove(
+            messageObj.data.keys
+          );
+        } catch (e3) {
+          log_default.error("parse message error", e3);
+        }
+      }
+    );
   }
   async function initStorage(area) {
     let statusElement = document.getElementById(
@@ -15132,10 +15213,6 @@ body {
                   value: "translateLocalPdfFile"
                 },
                 {
-                  label: "\u2699\uFE0F " + t5("browser.openOptionsPage"),
-                  value: "options"
-                },
-                {
                   label: "\u2764\uFE0F " + t5("aboutLabel"),
                   value: "about"
                 }
@@ -15247,10 +15324,17 @@ body {
   }
 
   // hooks/use_user_config.ts
-  var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, useUserConfig = createChromeStorageStateHookSync(
+  var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, rawUseUserConfig = createChromeStorageStateHookSync(
     SETTINGS_KEY,
     INITIAL_VALUE
   );
+  function useUserConfig() {
+    let [value, setValue, isPersistent, error] = rawUseUserConfig();
+    return [value, function(newValue) {
+      let toStore = typeof newValue == "function" ? newValue(value) : newValue;
+      toStore && (toStore.updatedAt = new Date().toISOString()), setValue(toStore);
+    }, isPersistent, error, setValue];
+  }
 
   // userscript/popup_app.tsx
   function PopupApp(props) {
@@ -15517,6 +15601,12 @@ body {
     return position === "left" ? (styleObj.left = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "right" ? (styleObj.right = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "top" ? (styleObj.top = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left) : position === "bottom" && (styleObj.bottom = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left), styleObj;
   }
 
+  // sync/authorize.ts
+  function extractAccessToken(redirectUri) {
+    let m6 = redirectUri.match(/[#?](.*)/);
+    return !m6 || m6.length < 1 ? "" : new URLSearchParams(m6[1].split("#")[0]).get("access_token");
+  }
+
   // page_popup.tsx
   var isInit = !1;
   async function main() {
@@ -15524,7 +15614,7 @@ body {
       url: globalThis.location.href,
       config
     }, ctx = await getContext(options3);
-    config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
+    handleAuthDone(globalThis.location.href), config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
       (_e3) => {
         isInit || (isInit = !0, initPopup().catch((e3) => {
@@ -15534,6 +15624,14 @@ body {
     ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
       log_default.error("init popup error", e3);
     })));
+  }
+  function handleAuthDone(urlStr) {
+    if (new URL(urlStr).pathname.startsWith("/auth-done"))
+      try {
+        let token = extractAccessToken(urlStr);
+        token && browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token });
+      } catch {
+      }
   }
 
   // userscript/inject_css.ts
@@ -15548,7 +15646,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.35",
+    version: "0.2.36",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15611,7 +15709,10 @@ body {
       "webRequestBlocking",
       "declarativeNetRequestWithHostAccess",
       "declarativeNetRequestFeedback",
-      "declarativeNetRequest"
+      "declarativeNetRequest",
+      "tabs",
+      "identity",
+      "alarms"
     ],
     host_permissions: [
       "<all_urls>"

@@ -176,7 +176,9 @@
       ".reference-citations",
       ".share-nav",
       ".o-share",
-      "[data-toolbar=share]"
+      "[data-toolbar=share]",
+      "rp",
+      "rt"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -205,7 +207,8 @@
       "TT",
       "RT",
       "RP",
-      "META"
+      "META",
+      "ASIDE"
     ],
     "metaTags": [
       "META",
@@ -1128,6 +1131,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-30T14:16:24.461Z",
-  "latestVersion": "0.2.34"
+  "buildinConfigUpdatedAt": "2023-01-31T09:25:04.753Z",
+  "latestVersion": "0.2.35"
 }

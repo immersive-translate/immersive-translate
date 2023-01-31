@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-31T09:25:54.948Z", VERSION: "0.2.35", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-31T15:49:24.800Z", VERSION: "0.2.36", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3688,7 +3688,26 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+
+  // env.ts
+  function getEnv() {
+    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+  }
+  var env = getEnv();
+  function isMonkey() {
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isDeno() {
+    return typeof Deno < "u";
+  }
+  function isUserscriptRuntime() {
+    if (typeof globalThis.immersiveTranslateBrowserAPI < "u" && globalThis.immersiveTranslateBrowserAPI.runtime && globalThis.immersiveTranslateBrowserAPI.runtime.getManifest) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && manifest._isUserscript);
+    } else
+      return !1;
+  }
 
   // browser/web_polyfill.ts
   (function() {
@@ -3730,27 +3749,39 @@ body {
           );
           if (!storageElement || !storageLocalElement)
             throw new Error("Storage element not found");
-          storageElement.value = JSON.stringify(storageJson);
-          let event = new Event("change");
-          return storageElement.dispatchEvent(event), manifest._isUserscript && (storageLocalElement.value = JSON.stringify(storageJson), storageLocalElement.dispatchEvent(new Event("change"))), Promise.resolve();
+          if (area === "sync" || manifest._isUserscript) {
+            storageElement.value = JSON.stringify(storageJson);
+            let event = new Event("change");
+            storageElement.dispatchEvent(event);
+          }
+          return (area === "local" || manifest._isUserscript) && (storageLocalElement.value = JSON.stringify(storageJson), storageLocalElement.dispatchEvent(new Event("change"))), Promise.resolve();
         },
         remove: (key) => {
-          let manifest = getManifest(), storageJson = getStorageJson(area);
-          if (typeof key == "string")
-            delete storageJson[key];
-          else if (Array.isArray(key))
-            for (let k4 of key)
-              delete storageJson[k4];
-          let storageElement = document.getElementById(
-            "immersive-translate-sync-storage"
-          ), storageLocalElement = document.getElementById(
-            "immersive-translate-local-storage"
+          let manifest = getManifest(), messageElement = document.getElementById(
+            "immersive-translate-message"
           );
-          if (!storageElement || !storageLocalElement)
-            throw new Error("Storage element not found");
-          storageElement.value = JSON.stringify(storageJson);
-          let event = new Event("change");
-          return storageElement.dispatchEvent(event), manifest._isUserscript && (storageLocalElement.value = JSON.stringify(storageJson), storageLocalElement.dispatchEvent(new Event("change"))), Promise.resolve();
+          if (!messageElement)
+            throw new Error("Message element not found");
+          let options = {
+            method: "removeStorageKey",
+            data: {
+              area,
+              keys: key
+            }
+          };
+          return new Promise((resolve, reject) => {
+            messageElement.value = JSON.stringify(options);
+            let event = new Event("change");
+            messageElement.dispatchEvent(event), manifest._isUserscript ? setTimeout(() => {
+              messageElement.value = JSON.stringify({
+                ...options,
+                data: {
+                  ...options.data,
+                  area: options.data.area === "sync" ? "local" : "sync"
+                }
+              }), messageElement.dispatchEvent(new Event("change")), resolve(null);
+            }, 10) : resolve(null);
+          });
         }
       };
     }
@@ -3790,6 +3821,9 @@ body {
       },
       i18n: {
         getAcceptLanguages
+      },
+      identity: {
+        getRedirectURL: () => getEnv().REDIRECT_URL
       }
     };
     globalThis.immersiveTranslateBrowserAPI = browser;
@@ -6257,19 +6291,137 @@ body {
     }, []), route;
   }
 
-  // dom/toast.ts
-  function success(text) {
-    toast({
-      type: "success",
-      text
-    });
+  // utils/is_mobile.ts
+  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+  function createMatch(userAgent) {
+    return (regex) => regex.test(userAgent);
   }
-  function error(text) {
-    toast({
-      type: "error",
-      text
+  function isMobile(param) {
+    let nav = {
+      userAgent: "",
+      platform: "",
+      maxTouchPoints: 0
+    };
+    !param && typeof navigator < "u" ? nav = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      maxTouchPoints: navigator.maxTouchPoints || 0
+    } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
+      userAgent: param.userAgent,
+      platform: param.platform,
+      maxTouchPoints: param.maxTouchPoints || 0
     });
+    let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
+    typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
+    let match = createMatch(userAgent), result = {
+      apple: {
+        phone: match(appleIphone) && !match(windowsPhone),
+        ipod: match(appleIpod),
+        tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
+        universal: match(appleUniversal),
+        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
+      },
+      amazon: {
+        phone: match(amazonPhone),
+        tablet: !match(amazonPhone) && match(amazonTablet),
+        device: match(amazonPhone) || match(amazonTablet)
+      },
+      android: {
+        phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
+        tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
+        device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
+      },
+      windows: {
+        phone: match(windowsPhone),
+        tablet: match(windowsTablet),
+        device: match(windowsPhone) || match(windowsTablet)
+      },
+      other: {
+        blackberry: match(otherBlackBerry),
+        blackberry10: match(otherBlackBerry10),
+        opera: match(otherOpera),
+        firefox: match(otherFirefox),
+        chrome: match(otherChrome),
+        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
+      },
+      any: !1,
+      phone: !1,
+      tablet: !1
+    };
+    return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
   }
+
+  // utils/platform.ts
+  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+  function isBrowser(toCheck) {
+    let currentBrowser = CHROME;
+    try {
+      let userAgent = navigator?.userAgent || "";
+      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
+    } catch {
+    }
+    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+  }
+  function isChrome() {
+    return isBrowser(CHROME);
+  }
+  function isDeno2() {
+    return typeof Deno < "u";
+  }
+  function isFirefox() {
+    return isBrowser(FIREFOX);
+  }
+  function isTouchDevice() {
+    return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+  }
+
+  // browser/mock_browser.ts
+  var listeners = {
+    addListener: () => {
+    },
+    removeListener: () => {
+    },
+    hasListener: () => {
+    }
+  }, mock_browser_default = {
+    permissions: {
+      contains: () => {
+      },
+      request: () => {
+      }
+    },
+    runtime: {
+      onMessage: listeners,
+      openOptionsPage: () => {
+      },
+      lastError: {
+        message: ""
+      }
+    },
+    storage: {
+      sync: {
+        get: () => {
+        },
+        set: () => {
+        }
+      }
+    },
+    tabs: {
+      onUpdated: listeners,
+      query: () => {
+      },
+      sendMessage: () => {
+      }
+    },
+    identity: {
+      getRedirectURL: (path) => path || "",
+      launchWebAuthFlow: (details) => Promise.resolve(details.url)
+    }
+  };
+
+  // browser/browser.ts
+  var browserAPI;
+  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
 
   // locales/zh-CN.json
   var zh_CN_default = {
@@ -6295,7 +6447,7 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
+    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
     xMinutes: "{count} \u5206\u949F",
@@ -6305,7 +6457,7 @@ body {
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8BBE\u7F6E",
     clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
+    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165",
     export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
     toggleDebug: "\u5728\u63A7\u5236\u53F0\u6253\u5370\u8C03\u8BD5\u65E5\u5FD7",
     "fingers.0": "\u5173\u95ED",
@@ -6368,6 +6520,7 @@ body {
     service: "\u7FFB\u8BD1\u670D\u52A1",
     needAction: "(\u53BB\u8BBE\u7F6E)",
     goSettings: "\u53BB\u8BBE\u7F6E",
+    needActionForOptions: "(\u9700\u8BBE\u7F6E)",
     translationEngine: "\u5F15\u64CE\u9009\u9879",
     sourceLanguage: "\u539F\u6587\u8BED\u8A00",
     target: "\u76EE\u6807\u8BED\u8A00",
@@ -6397,6 +6550,8 @@ body {
     "select diplay style": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
     interface: "\u754C\u9762\u8BBE\u7F6E",
     import_export: "\u5BFC\u5165/\u5BFC\u51FA",
+    import_export_title: "\u5BFC\u5165/\u5BFC\u51FA\u914D\u7F6E",
+    syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
     "translationTheme.none": "\u65E0",
     "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
@@ -6458,12 +6613,35 @@ body {
     delete: "\u5220\u9664",
     "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
     isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
+    syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
+    syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+    authFail: "\u6388\u6743\u5931\u8D25",
+    syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
+    import_hint: "\u5BFC\u5165",
+    upload: "\u4E0A\u4F20",
+    revokeAuth: "\u64A4\u9500\u6388\u6743",
+    uploadFail: "\u4E0A\u4F20\u5931\u8D25",
+    download: "\u4E0B\u8F7D",
+    importSuccess: "\u5BFC\u5165\u6210\u529F",
+    importFail: "\u5BFC\u5165\u5931\u8D25",
+    deleteFail: "\u5220\u9664\u5931\u8D25",
+    backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
+    create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
+    backupToCloudDescription: "\u624B\u52A8\u4E0A\u4F20\u6216\u6062\u590D\u5907\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8BB83\u4E2A\u4E0D\u540C\u7684\u5907\u4EFD",
+    successSyncConfig: "\u6210\u529F\u4E0E\u4E91\u7AEF\u4FDD\u6301\u540C\u6B65",
+    syncFail: "\u540C\u6B65\u5931\u8D25",
+    updatedAt: "\u66F4\u65B0\u4E8E {date}",
+    lastSyncedAt: "\u4E0A\u6B21\u68C0\u67E5\u4E8E {date}",
+    downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
+    clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
     aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
     "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
     aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u9891\u9053</4>\u83B7\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
-    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4"
+    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
+    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65"
   };
 
   // locales/zh-TW.json
@@ -6619,7 +6797,17 @@ body {
     confirm: "\u5132\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u522A\u9664",
-    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00"
+    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
+    syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
+    authFail: "\u6388\u6B0A\u5931\u6557",
+    syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
+    import_hint: "\u5C0E\u5165",
+    upload: "\u4E0A\u50B3",
+    revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
+    uploadFail: "\u4E0A\u50B3\u5931\u6557",
+    importSuccess: "\u5C0E\u5165\u6210\u529F",
+    importFail: "\u5C0E\u5165\u5931\u6557",
+    deleteFail: "\u522A\u9664\u5931\u6557"
   };
 
   // locales/en.json
@@ -6775,7 +6963,17 @@ body {
     confirm: "Save",
     cancel: "Cancel",
     delete: "Delete",
-    "languages.auto": "Detect Language"
+    "languages.auto": "Detect Language",
+    syncToCloud: "Sync to cloud",
+    authFail: "Authorization Failed",
+    syncTitle: "Please select a file operation",
+    import_hint: "Import",
+    upload: "Upload",
+    revokeAuth: "Revoke Authorization",
+    uploadFail: "Upload Failed",
+    importSuccess: "Upload Success",
+    importFail: "Import Failed",
+    deleteFail: "Delete Failed"
   };
 
   // constant.ts
@@ -6796,7 +6994,7 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
+  var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
   var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
   var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
@@ -7066,11 +7264,27 @@ body {
     "toggleTranslateTheMainPage"
   ], buildinExcludeUrls = [
     "https://immersive-translate.owenyoung.com/options/",
+    "https://immersive-translate.owenyoung.com/auth-done/",
     "http://localhost:8000/dist/userscript/options/",
+    "http://localhost:8000/auth-done/",
     "http://192.168.50.9:8000/dist/userscript/options/",
     "https://www.deepl.com/translator",
     "translate.google.com"
   ], sampleSourceText = "Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.", sampleTargetText = "\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002", fallbackLanguage = "zh-CN";
+
+  // dom/toast.ts
+  function success(text) {
+    toast({
+      type: "success",
+      text
+    });
+  }
+  function error(text) {
+    toast({
+      type: "error",
+      text
+    });
+  }
 
   // log.ts
   var Timing = class {
@@ -7139,134 +7353,6 @@ body {
     }
   }, log_default = new Logger();
 
-  // utils/is_mobile.ts
-  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
-  function createMatch(userAgent) {
-    return (regex) => regex.test(userAgent);
-  }
-  function isMobile(param) {
-    let nav = {
-      userAgent: "",
-      platform: "",
-      maxTouchPoints: 0
-    };
-    !param && typeof navigator < "u" ? nav = {
-      userAgent: navigator.userAgent,
-      platform: navigator.platform,
-      maxTouchPoints: navigator.maxTouchPoints || 0
-    } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
-      userAgent: param.userAgent,
-      platform: param.platform,
-      maxTouchPoints: param.maxTouchPoints || 0
-    });
-    let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
-    typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
-    let match = createMatch(userAgent), result = {
-      apple: {
-        phone: match(appleIphone) && !match(windowsPhone),
-        ipod: match(appleIpod),
-        tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
-        universal: match(appleUniversal),
-        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
-      },
-      amazon: {
-        phone: match(amazonPhone),
-        tablet: !match(amazonPhone) && match(amazonTablet),
-        device: match(amazonPhone) || match(amazonTablet)
-      },
-      android: {
-        phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
-        tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
-        device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
-      },
-      windows: {
-        phone: match(windowsPhone),
-        tablet: match(windowsTablet),
-        device: match(windowsPhone) || match(windowsTablet)
-      },
-      other: {
-        blackberry: match(otherBlackBerry),
-        blackberry10: match(otherBlackBerry10),
-        opera: match(otherOpera),
-        firefox: match(otherFirefox),
-        chrome: match(otherChrome),
-        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
-      },
-      any: !1,
-      phone: !1,
-      tablet: !1
-    };
-    return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
-  }
-
-  // utils/platform.ts
-  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
-  function isBrowser(toCheck) {
-    let currentBrowser = CHROME;
-    try {
-      let userAgent = navigator?.userAgent || "";
-      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-    } catch {
-    }
-    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
-  }
-  function isChrome() {
-    return isBrowser(CHROME);
-  }
-  function isDeno() {
-    return typeof Deno < "u";
-  }
-  function isFirefox() {
-    return isBrowser(FIREFOX);
-  }
-  function isTouchDevice() {
-    return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
-  }
-
-  // browser/mock_browser.ts
-  var listeners = {
-    addListener: () => {
-    },
-    removeListener: () => {
-    },
-    hasListener: () => {
-    }
-  }, mock_browser_default = {
-    permissions: {
-      contains: () => {
-      },
-      request: () => {
-      }
-    },
-    runtime: {
-      onMessage: listeners,
-      openOptionsPage: () => {
-      },
-      lastError: {
-        message: ""
-      }
-    },
-    storage: {
-      sync: {
-        get: () => {
-        },
-        set: () => {
-        }
-      }
-    },
-    tabs: {
-      onUpdated: listeners,
-      query: () => {
-      },
-      sendMessage: () => {
-      }
-    }
-  };
-
-  // browser/browser.ts
-  var browserAPI;
-  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
-
   // libs/use-chrome-storage/storage.ts
   var storage = {
     get: (key, defaultValue, storageArea) => {
@@ -7329,10 +7415,17 @@ body {
   }
 
   // hooks/use_user_config.ts
-  var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, useUserConfig = createChromeStorageStateHookSync(
+  var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, rawUseUserConfig = createChromeStorageStateHookSync(
     SETTINGS_KEY,
     INITIAL_VALUE
   );
+  function useUserConfig() {
+    let [value, setValue, isPersistent, error2] = rawUseUserConfig();
+    return [value, function(newValue) {
+      let toStore = typeof newValue == "function" ? newValue(value) : newValue;
+      toStore && (toStore.updatedAt = new Date().toISOString()), setValue(toStore);
+    }, isPersistent, error2, setValue];
+  }
 
   // utils/format_language.ts
   function formatLanguage(rawLangCode) {
@@ -7359,18 +7452,6 @@ body {
         return "auto";
     else
       return languages[indexOfLanguages];
-  }
-
-  // env.ts
-  function getEnv() {
-    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
-  }
-  var env = getEnv();
-  function isMonkey() {
-    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
-  }
-  function isDeno2() {
-    return typeof Deno < "u";
   }
 
   // buildin_config.json
@@ -8654,7 +8735,7 @@ body {
       for (let command of commandResult)
         command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
     }
-    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {}, globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = new Date();
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = new Date();
     if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
       let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
         (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -8734,6 +8815,9 @@ body {
     }
     return finalConfig.donateUrl = finalBuildInConfig.donateUrl, finalConfig.minVersion = finalBuildInConfig.minVersion, finalConfig.feedbackUrl = finalBuildInConfig.feedbackUrl, finalConfig;
   }
+  async function getUserConfig() {
+    return (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {};
+  }
   var getBrowserIntefaceLanguage = async () => {
     let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
     return defaultInterfaceLanguage || "en";
@@ -8783,9 +8867,9 @@ body {
   };
 
   // services/util.ts
-  async function humanReadableSize(bytes) {
+  function humanReadableSize(bytes) {
     if (Math.abs(bytes) < 1024)
-      return bytes + " B";
+      return bytes + " Byte";
     let units = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"], u3 = -1;
     do
       bytes /= 1024, ++u3;
@@ -11504,7 +11588,7 @@ body {
     );
   }
   function request2(options) {
-    return isMonkey() || isDeno2() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
+    return isMonkey() || isDeno() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
       method: "fetch",
       data: options
     });
@@ -14470,7 +14554,7 @@ body {
   // pages/general.tsx
   var languages2 = getLanguages();
   function General() {
-    let { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), [ctx, setContext] = P2(null), [matchesIndex, setMatchesIndex] = P2(0), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
+    let { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [ctx, setContext] = P2(null), [matchesIndex, setMatchesIndex] = P2(0), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
       !1
     ), [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
       !1
@@ -14499,7 +14583,7 @@ body {
     j2(() => (v("esc", () => {
       setIsShowAddUrlModal(!1), setIsShowNeverUrlModal(!1);
     }), getConfig().then((config2) => {
-      setConfig(config2), log_default.debug(config2);
+      setConfig(config2), log_default.debug("current config", config2);
     }), () => {
       v.unbind("esc");
     }), []), j2(() => {
@@ -14521,7 +14605,7 @@ body {
         ...value
       }));
     }, handleReset = (e3) => {
-      e3.preventDefault(), confirm(t5("confirmResetConfig")) && (handleChangeValue(getEnvUserConfig()), clearLocalConfig().catch((e4) => {
+      e3.preventDefault(), confirm(t5("confirmResetConfig")) && (rawSetValue(getEnvUserConfig()), browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), clearLocalConfig().catch((e4) => {
         log_default.error("clean local config error", e4);
       }), success(t5("resetSuccess")));
     }, selectTargetLanguage = (lang) => {
@@ -14666,7 +14750,7 @@ body {
               children: translationServiceItems.map((item) => /* @__PURE__ */ p5("option", {
                 value: item.id,
                 selected: item.id === config.translationService,
-                children: `${t5("translationServices." + item.id)}`
+                children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
               }))
             })
           ]
@@ -15024,6 +15108,222 @@ body {
         ]
       })
     });
+  }
+
+  // sync/authorize.ts
+  var VALIDATION_BASE_URL = "https://www.googleapis.com/oauth2/v3/tokeninfo", CLIENT_ID = GOOGLE_CLIENT_ID;
+  async function getAuthUrl(state) {
+    let REDIRECT_URL = browserAPI?.identity?.getRedirectURL();
+    if (log_default.debug("REDIRECT_URL", REDIRECT_URL), typeof browserAPI?.runtime?.getBrowserInfo == "function") {
+      let browserInfo = await browserAPI?.runtime?.getBrowserInfo();
+      browserInfo && browserInfo.name === "Firefox" && (browserInfo.version.split(".")[0] || 0) >= 86 && (REDIRECT_URL = "http://127.0.0.1/mozoauth2/" + REDIRECT_URL.split(".")[0].replace(/https?:\/\//, ""), log_default.debug("browserInfo", browserInfo), log_default.debug("Firefox detected, using loopback addresses " + REDIRECT_URL));
+    }
+    if (!REDIRECT_URL)
+      throw new Error("Redirect URL is not available");
+    let SCOPES = ["https://www.googleapis.com/auth/drive.appdata"];
+    return `https://accounts.google.com/o/oauth2/auth?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URL)}&scope=${encodeURIComponent(SCOPES.join(" "))}&state=${encodeURIComponent(JSON.stringify(state))}`;
+  }
+  function extractAccessToken(redirectUri) {
+    let m4 = redirectUri.match(/[#?](.*)/);
+    return !m4 || m4.length < 1 ? "" : new URLSearchParams(m4[1].split("#")[0]).get("access_token");
+  }
+  function validate(accessToken) {
+    if (!accessToken)
+      throw "Authorization failure";
+    let validationURL = `${VALIDATION_BASE_URL}?access_token=${accessToken}`, validationRequest = new Request(validationURL, {
+      method: "GET"
+    });
+    function checkResponse(response) {
+      return new Promise((resolve, reject) => {
+        response.status != 200 && reject("Token validation error"), response.json().then((json) => {
+          json.aud && json.aud === CLIENT_ID ? resolve(accessToken) : reject("Token validation error");
+        });
+      });
+    }
+    return fetch(validationRequest).then(checkResponse);
+  }
+  async function authorize(state) {
+    let AUTH_URL = await getAuthUrl(state);
+    return log_default.debug("redirect url", AUTH_URL), browserAPI.identity.launchWebAuthFlow({
+      interactive: !0,
+      url: AUTH_URL
+    });
+  }
+  async function getAccessToken(state) {
+    let AUTH_URL = await getAuthUrl(state);
+    if (isUserscriptRuntime()) {
+      let tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
+      if (log_default.debug("google drive token", tokenIndex), tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
+        let token = tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
+        return await validate(token).catch(
+          (_error) => globalThis.open(AUTH_URL, "_self")
+        ), token;
+      }
+      return log_default.debug("AUTH_URL", AUTH_URL), globalThis.open(AUTH_URL, "_self"), null;
+    } else
+      return authorize(state).then((redirectURL) => extractAccessToken(redirectURL)).then(validate);
+  }
+
+  // sync/google_drive_api.ts
+  var GoogleDriveAPI = class {
+    constructor(accessToken) {
+      this.accessToken = accessToken;
+    }
+    wrap(res, toJson = !0) {
+      return new Promise((resolve, reject) => {
+        if (res.ok)
+          toJson ? res.json().then((json) => resolve(json)) : res.text().then((text) => resolve(text));
+        else
+          try {
+            res.json().then((obj) => {
+              reject(new Error(obj.error.message));
+            });
+          } catch {
+            res.text().then((text) => reject(new Error(text)));
+          }
+      });
+    }
+    async upload(metadata, blob) {
+      let data = new FormData();
+      data.append(
+        "metadata",
+        new Blob([JSON.stringify(metadata)], {
+          type: "application/json; charset=UTF-8"
+        })
+      ), data.append("file", blob);
+      let response = await fetch(
+        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: data
+        }
+      );
+      return this.wrap(response);
+    }
+    async list(pageToken, query) {
+      let url = new URL("https://www.googleapis.com/drive/v3/files");
+      pageToken && url.searchParams.append("pageToken", pageToken), query && url.searchParams.append("q", query), url.searchParams.append("spaces", "appDataFolder"), url.searchParams.append(
+        "fields",
+        "files(id,name,createdTime,modifiedTime,size)"
+      ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
+      let response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`
+        }
+      });
+      return this.wrap(response);
+    }
+    async listAll() {
+      let result = [], pageToken = "";
+      do {
+        let { nextPageToken, files } = await this.list(pageToken).catch(
+          (error2) => {
+            throw error2;
+          }
+        );
+        result.push(...files), pageToken = nextPageToken || "";
+      } while (pageToken);
+      return result;
+    }
+    async getConfig(id) {
+      let response = await fetch(
+        `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
+        {
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          }
+        }
+      );
+      return this.wrap(response);
+    }
+    async delete(id) {
+      let response = await fetch(
+        `https://www.googleapis.com/drive/v3/files/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          }
+        }
+      );
+      return this.wrap(response, !1);
+    }
+    findByName(fileName) {
+      return this.list(void 0, `name = '${fileName}'`);
+    }
+    uploadConfig(settings) {
+      let blob = new Blob([JSON.stringify(settings, null, 2)], {
+        type: "application/json"
+      });
+      return this.upload(
+        { name: LATEST_FILE_NAME, parents: ["appDataFolder"] },
+        blob
+      );
+    }
+    updateConfig(id, settings) {
+      let blob = new Blob([JSON.stringify(settings, null, 2)], {
+        type: "application/json"
+      });
+      return this.updateContent(id, blob);
+    }
+    async updateContent(id, blob) {
+      let response = await fetch(
+        `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: blob
+        }
+      );
+      return this.wrap(response);
+    }
+  };
+
+  // sync/util.ts
+  function revokeGoogleAuthToken(token) {
+    let url = "https://oauth2.googleapis.com/revoke?token=" + token;
+    return fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    });
+  }
+  async function autoSyncStrategy(accessToken, settings, handleChangeValue, handleUpdateLocalConfigLastSyncedAt, handleUpdateSettingUpdateAt, handleSuccess, handleFail) {
+    let api = new GoogleDriveAPI(accessToken);
+    try {
+      let latestFileId = (await api.findByName(LATEST_FILE_NAME)).files[0]?.id, latestRemoteConfigResult = null;
+      if (latestFileId && (latestRemoteConfigResult = await api.getConfig(latestFileId).then((config) => ({
+        fileId: latestFileId,
+        config
+      }))), latestRemoteConfigResult) {
+        let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : new Date(0);
+        if (log_default.debug(
+          "remoteUpdatedAt",
+          remoteUpdatedAt,
+          "localUpdatedAt",
+          localUpdatedAt
+        ), remoteUpdatedAt > localUpdatedAt)
+          log_default.debug("remote is newer, update local config"), handleChangeValue(latestRemoteConfig);
+        else if (remoteUpdatedAt.getTime() === localUpdatedAt.getTime())
+          log_default.debug("remote and local are the same, do nothing");
+        else if (remoteUpdatedAt < localUpdatedAt)
+          log_default.debug("local is newer, update remote config"), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess();
+        else {
+          handleFail && handleFail(": unknown error");
+          return;
+        }
+        handleUpdateLocalConfigLastSyncedAt(new Date().toISOString());
+      } else
+        latestRemoteConfigResult === null ? settings ? (settings.updatedAt || (handleUpdateSettingUpdateAt(new Date().toISOString()), settings.updatedAt = new Date().toISOString()), await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess()) : handleFail && handleFail(": Local Config is empty") : handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
+    } catch (e3) {
+      log_default.error("syncLatestWithDrive error", e3), handleFail && handleFail(": " + e3.message);
+    }
   }
 
   // menu.ts
@@ -15460,10 +15760,14 @@ body {
 
   // pages/developer.tsx
   function Options2() {
-    let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n();
+    let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n(), [allStorageObjects, setAllStorageObjects] = P2({}), [allLocalStorageObjects, setAllLocalStorageObjects] = P2({});
     j2(() => {
       getConfig().then((config2) => {
         setConfig(config2);
+      }), browserAPI.storage.sync.get(null).then((allStorageObjects2) => {
+        setAllStorageObjects(allStorageObjects2), browserAPI.storage.local.get(null).then((allLocalStorageObjects2) => {
+          setAllLocalStorageObjects(allLocalStorageObjects2);
+        });
       });
     }, [settings]);
     let handleToggleDebug = (value) => {
@@ -15634,6 +15938,32 @@ body {
               })
             })
           ]
+        }),
+        /* @__PURE__ */ p5("details", {
+          class: "py-2",
+          children: [
+            /* @__PURE__ */ p5("summary", {
+              children: "Click to expand the sync storage object"
+            }),
+            /* @__PURE__ */ p5("pre", {
+              children: /* @__PURE__ */ p5("code", {
+                children: JSON.stringify(allStorageObjects, null, 2)
+              })
+            })
+          ]
+        }),
+        /* @__PURE__ */ p5("details", {
+          class: "py-2",
+          children: [
+            /* @__PURE__ */ p5("summary", {
+              children: "Click to expand the local storage object"
+            }),
+            /* @__PURE__ */ p5("pre", {
+              children: /* @__PURE__ */ p5("code", {
+                children: JSON.stringify(allLocalStorageObjects, null, 2)
+              })
+            })
+          ]
         })
       ]
     }) : /* @__PURE__ */ p5("div", {
@@ -15641,27 +15971,198 @@ body {
     });
   }
 
+  // utils/date.ts
+  function formatFileNameDate() {
+    let now = new Date();
+    return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}_${now.getHours()}-${now.getMinutes()}-${now.getSeconds()}`;
+  }
+
+  // components/config_sync.tsx
+  function DeleteButton(prop) {
+    let { t: t5 } = useI18n(), { accessToken, id, listAllFiles } = prop, [deleteLoading, setDeleteLoading] = P2(!1);
+    function deleteConfig(e3, id2) {
+      e3.preventDefault(), setDeleteLoading(!0), new GoogleDriveAPI(accessToken).delete(id2).catch((error2) => {
+        console.error(error2), error(t5("delete"));
+      }).then(() => listAllFiles()).finally(() => setDeleteLoading(!1));
+    }
+    return /* @__PURE__ */ p5("a", {
+      href: "#",
+      className: "secondary margin-left text-sm",
+      onClick: (e3) => deleteConfig(e3, id),
+      "aria-busy": deleteLoading,
+      children: t5("delete")
+    });
+  }
+  function ConfigSyncModal(prop) {
+    let {
+      onClose,
+      accessToken,
+      authExpire
+    } = prop, { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [files, setFiles] = P2([]), [firstLoad, setFirstLoad] = P2(!0), [exportLoading, setExportLoading] = P2(!1), [importLoadings, setImportLoadings] = P2({});
+    j2(() => {
+      accessToken && listAllFiles().then(() => setFirstLoad(!1));
+    }, [accessToken]);
+    let handleClickOverlay = (e3) => {
+      e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
+    };
+    function listAllFiles() {
+      return new GoogleDriveAPI(accessToken).listAll().then((files2) => {
+        log_default.v("listAllFiles", files2), setFiles(files2);
+      }).catch((_e3) => authExpire());
+    }
+    function exportConfig(e3) {
+      if (e3.preventDefault(), files.length >= 10)
+        return error(t5("maxBackupFiles", {
+          count: 10
+        }));
+      setExportLoading(!0);
+      let filename = "immersive-translate-config-" + formatFileNameDate() + ".json", blob = new Blob([JSON.stringify(settings, null, 2)], {
+        type: "application/json"
+      });
+      new GoogleDriveAPI(accessToken).upload({ name: filename, parents: ["appDataFolder"] }, blob).catch((error2) => {
+        console.error(error2), error(t5("uploadFail"));
+      }).then(() => listAllFiles()).finally(() => setExportLoading(!1));
+    }
+    function importConfig(e3, id, index) {
+      e3.preventDefault(), setImportLoadings({
+        [index]: !0
+      }), new GoogleDriveAPI(accessToken).getConfig(id).then((config) => {
+        setSettings(() => ({ ...config })), success(t5("importSuccess"));
+      }).catch((error2) => {
+        log_default.error(error2), error(t5("importFail"));
+      }).finally(() => setImportLoadings({}));
+    }
+    function downloadConfig(id, name) {
+      new GoogleDriveAPI(accessToken).getConfig(id).then((config) => {
+        let element = document.createElement("a");
+        element.setAttribute(
+          "href",
+          "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(config, null, 2))
+        ), element.setAttribute("download", name), element.style.display = "none", document.body.appendChild(element), element.click(), document.body.removeChild(element);
+      }).catch((error2) => {
+        log_default.error("download google config file failed", error2), error(t5("downloadFail") + ": " + error2.message);
+      });
+    }
+    function revoke(e3) {
+      e3.preventDefault(), setSettings({
+        ...settings,
+        autoSync: !1
+      }), browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), revokeGoogleAuthToken(accessToken).then(() => onClose());
+    }
+    return /* @__PURE__ */ p5("dialog", {
+      id: "immersive-translate-overlay",
+      onClick: handleClickOverlay,
+      open: !0,
+      children: /* @__PURE__ */ p5("article", {
+        class: "md:w-[32rem] px-4",
+        children: [
+          /* @__PURE__ */ p5("a", {
+            href: "#",
+            title: t5("clickToDownload"),
+            "aria-label": "Close",
+            className: "close",
+            "data-target": "modal-example",
+            onClick: (e3) => {
+              e3.preventDefault(), onClose();
+            }
+          }),
+          /* @__PURE__ */ p5("h4", {
+            children: t5("syncTitle")
+          }),
+          /* @__PURE__ */ p5("div", {
+            className: "mb-4",
+            children: files.map((file, index) => /* @__PURE__ */ p5("div", {
+              class: "flex flex-wrap justify-between",
+              children: [
+                /* @__PURE__ */ p5("div", {
+                  class: "mr-2 mb-2",
+                  children: [
+                    /* @__PURE__ */ p5("div", {
+                      children: /* @__PURE__ */ p5("a", {
+                        href: "#",
+                        onClick: (e3) => {
+                          e3.preventDefault(), downloadConfig(file.id, file.name);
+                        },
+                        children: file.name.replace("immersive-translate-", "")
+                      })
+                    }),
+                    /* @__PURE__ */ p5("div", {
+                      class: "text-xs text-gray-500",
+                      children: [
+                        new Date(file.modifiedTime).toLocaleString(),
+                        ",\xA0",
+                        humanReadableSize(
+                          parseInt(file.size)
+                        )
+                      ]
+                    })
+                  ]
+                }),
+                /* @__PURE__ */ p5("div", {
+                  children: [
+                    /* @__PURE__ */ p5("a", {
+                      href: "#",
+                      role: "button",
+                      className: "margin-right secondary",
+                      "aria-busy": importLoadings[index],
+                      disabled: importLoadings[index],
+                      onClick: (e3) => importConfig(e3, file.id, index),
+                      children: t5("import_hint")
+                    }),
+                    /* @__PURE__ */ p5(DeleteButton, {
+                      accessToken,
+                      id: file.id,
+                      listAllFiles
+                    })
+                  ]
+                })
+              ]
+            }))
+          }),
+          /* @__PURE__ */ p5("div", {
+            className: "flex items-center",
+            children: [
+              /* @__PURE__ */ p5("a", {
+                href: "#",
+                role: "button",
+                className: "mr-4",
+                "data-target": "modal-example",
+                "aria-busy": exportLoading,
+                onClick: exportConfig,
+                disabled: firstLoad,
+                children: t5("create_new_backup")
+              }),
+              /* @__PURE__ */ p5("a", {
+                href: "#",
+                className: "secondary text-sm",
+                "data-target": "modal-example",
+                onClick: revoke,
+                disabled: firstLoad,
+                children: t5("revokeAuth")
+              })
+            ]
+          })
+        ]
+      })
+    });
+  }
+
   // pages/import_export.tsx
   function ImportExport() {
-    let [settings, setSettings, _isPersistent, error2] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n();
+    let [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [localConfig, setLocalConfigState] = P2(null), setLocalConfig2 = (localConfig2) => {
+      setLocalConfigState(localConfig2), setLocalConfig(localConfig2);
+    }, { t: t5 } = useI18n();
     j2(() => {
       getConfig().then((config2) => {
         setConfig(config2);
+      }), getLocalConfig().then((localConfig2) => {
+        setLocalConfig2(localConfig2);
       });
     }, []);
     let handleChangeValue = (value) => {
       setSettings(() => ({
         ...value
       }));
-    }, handleChange = (e3) => {
-      try {
-        let newSettings = JSON.parse(
-          e3.target.value
-        );
-        handleChangeValue(newSettings);
-      } catch (e4) {
-        error(`Invalid JSON ${e4.message}`);
-      }
     }, handleImportFile = (e3) => {
       e3.preventDefault();
       let element = document.createElement("input");
@@ -15677,26 +16178,102 @@ body {
         }, reader.readAsText(input.files[0]);
       }, element.click(), document.body.removeChild(element);
     }, handleReset = (e3) => {
-      e3.preventDefault(), confirm(t5("confirmResetConfig")) && (handleChangeValue(getEnvUserConfig()), success(t5("resetSuccess")), setTimeout(() => {
-        clearLocalConfig().catch((e4) => {
+      e3.preventDefault(), confirm(t5("confirmResetConfig")) && (rawSetValue(getEnvUserConfig()), success(t5("resetSuccess")), setTimeout(() => {
+        browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), clearLocalConfig().catch((e4) => {
           log_default.error("clean local config error", e4);
         });
       }, 500));
-    };
-    return /* @__PURE__ */ p5("div", {
+    }, [showSyncModal, setShowSyncModal] = P2(!1), [authLoading, setAuthLoading] = P2(!1), [manualAuthLoading, setManualAuthLoading] = P2(!1), [accessToken, setAccessToken] = P2("");
+    if (isUserscriptRuntime() && globalThis.localStorage.getItem(AUTH_FLOW_FLAG) === "true") {
+      globalThis.localStorage.setItem(AUTH_FLOW_FLAG, "false");
+      let stateStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
+      log_default.debug("stateStr", stateStr);
+      let state = {};
+      if (stateStr) {
+        globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
+        try {
+          state = JSON.parse(stateStr);
+        } catch (e3) {
+          log_default.error("parse state error", e3);
+        }
+      }
+      browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY).then((tokenIndex) => {
+        if (log_default.debug(
+          "import_export",
+          "Google OAuth:" + tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]
+        ), tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
+          let token = tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
+          state.mode === "auto" ? syncLatestWithDrive(token) : afterAuthSuccess(token);
+        } else
+          browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
+      });
+    }
+    function handlerDriveAuth() {
+      setAuthLoading(!0), getAccessToken({
+        source: globalThis.location.href,
+        mode: "auto"
+      }).then((token) => {
+        log_default.debug("import_export", "Google OAuth:" + token), token !== null && syncLatestWithDrive(token);
+      }).catch((error2) => afterAuthFail(error2));
+    }
+    function handlerManualDriveAuth() {
+      setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken({
+        source: globalThis.location.href,
+        mode: "manual"
+      }).then((token) => {
+        log_default.debug("import_export", "Google OAuth:" + token), token !== null && afterAuthSuccess(token);
+      }).catch((error2) => {
+        afterAuthFail(error2);
+      });
+    }
+    function authExpire() {
+      setAccessToken(""), isUserscriptRuntime() && localStorage.removeItem("token"), handlerDriveAuth();
+    }
+    function afterAuthSuccess(accessToken2) {
+      setAccessToken(accessToken2), setManualAuthLoading(!1), setShowSyncModal(!0);
+    }
+    function afterAuthFail(error2) {
+      setAuthLoading(!1), setManualAuthLoading(!1), setShowSyncModal(!1), setSettings({
+        ...settings,
+        autoSync: !1
+      }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
+    }
+    function syncLatestWithDrive(accessToken2) {
+      setAccessToken(accessToken2), autoSyncStrategy(
+        accessToken2,
+        settings,
+        handleChangeValue,
+        (isoDate) => setLocalConfig2({
+          ...localConfig,
+          lastSyncedAt: isoDate
+        }),
+        (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
+        () => success(t5("successSyncConfig")),
+        (reason) => error(t5("syncFail") + reason)
+      ).finally(() => {
+        setAuthLoading(!1);
+      });
+    }
+    function toggleAutoSync(e3) {
+      setSettings({
+        ...settings,
+        autoSync: e3.checked
+      }), e3.checked && handlerDriveAuth();
+    }
+    return config ? /* @__PURE__ */ p5("div", {
       children: [
         /* @__PURE__ */ p5("div", {
           class: "nav",
           children: /* @__PURE__ */ p5("strong", {
             class: "text-lg",
-            children: t5("import_export")
+            children: t5("import_export_title")
           })
         }),
         /* @__PURE__ */ p5("div", {
           class: "pb-2",
           children: [
             /* @__PURE__ */ p5("a", {
-              class: "mr-2 secondary",
+              class: "mr-2 secondary mb-2 !text-sm",
               onClick: handleImportFile,
               href: "#",
               role: "button",
@@ -15705,8 +16282,8 @@ body {
                   class: "inline mr-1",
                   xmlns: "http://www.w3.org/2000/svg",
                   viewBox: "0 0 24 24",
-                  width: "24",
-                  height: "24",
+                  width: "18",
+                  height: "18",
                   children: [
                     /* @__PURE__ */ p5("path", {
                       fill: "none",
@@ -15722,16 +16299,16 @@ body {
             }),
             /* @__PURE__ */ p5("a", {
               href: "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(settings, null, 2)),
-              download: "immersive-translate-backup-" + new Date().toISOString().replace(/T/, "_").replace(/\..+/, "").replace(/\:/g, ".") + ".txt",
-              class: "secondary mr-4",
+              download: "immersive-translate-config-" + formatFileNameDate() + ".txt",
+              class: "secondary mr-2  mb-2 !text-sm",
               role: "button",
               children: [
                 /* @__PURE__ */ p5("svg", {
                   class: "inline mr-1",
                   xmlns: "http://www.w3.org/2000/svg",
                   viewBox: "0 0 24 24",
-                  width: "24",
-                  height: "24",
+                  width: "18",
+                  height: "18",
                   children: [
                     /* @__PURE__ */ p5("path", {
                       fill: "none",
@@ -15754,7 +16331,7 @@ body {
           ]
         }),
         /* @__PURE__ */ p5("details", {
-          class: "pt-4",
+          class: "mt-4 mb-6",
           children: [
             /* @__PURE__ */ p5("summary", {
               children: t5("clickToExpandConfig")
@@ -15765,9 +16342,89 @@ body {
               })
             })
           ]
-        })
+        }),
+        /* @__PURE__ */ p5("hgroup", {
+          class: "my-2",
+          children: [
+            /* @__PURE__ */ p5("h5", {
+              children: t5("syncToCloud")
+            }),
+            /* @__PURE__ */ p5("h6", {
+              class: "!text-sm",
+              children: t5("syncToCloudDescription")
+            })
+          ]
+        }),
+        !isMonkey() && /* @__PURE__ */ p5("div", {
+          class: "my-3",
+          children: /* @__PURE__ */ p5("label", {
+            htmlFor: "autoSync",
+            children: [
+              /* @__PURE__ */ p5("input", {
+                type: "checkbox",
+                id: "autoSync",
+                role: "switch",
+                onClick: (e3) => {
+                  e3.preventDefault(), toggleAutoSync(e3.target);
+                },
+                checked: settings.autoSync
+              }),
+              t5("autoSync")
+            ]
+          })
+        }),
+        /* @__PURE__ */ p5("div", {
+          children: [
+            /* @__PURE__ */ p5("a", {
+              className: "mr-4 secondary  mb-2 !text-sm ",
+              onClick: (e3) => {
+                e3.preventDefault(), handlerDriveAuth();
+              },
+              "aria-busy": authLoading,
+              href: "#",
+              role: "button",
+              children: [
+                authLoading ? /* @__PURE__ */ p5(L, {}) : /* @__PURE__ */ p5("svg", {
+                  class: "inline mr-1",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "18",
+                  height: "18",
+                  viewBox: "0 0 24 24",
+                  children: /* @__PURE__ */ p5("path", {
+                    fill: "currentColor",
+                    d: "M15.375 19.25q-.525.25-.95-.038q-.425-.287-.425-.937q0-.25.163-.487q.162-.238.412-.363q1.575-.75 2.5-2.225T18 11.95q0-1.125-.425-2.188Q17.15 8.7 16.25 7.8L16 7.55V9q0 .425-.287.712Q15.425 10 15 10t-.712-.288Q14 9.425 14 9V5q0-.425.288-.713Q14.575 4 15 4h4q.425 0 .712.287Q20 4.575 20 5t-.288.713Q19.425 6 19 6h-1.75l.4.35q1.225 1.225 1.788 2.662Q20 10.45 20 11.95q0 2.4-1.25 4.362q-1.25 1.963-3.375 2.938ZM5 20q-.425 0-.713-.288Q4 19.425 4 19t.287-.712Q4.575 18 5 18h1.75l-.4-.35q-1.225-1.225-1.788-2.662Q4 13.55 4 12.05q0-2.4 1.25-4.363Q6.5 5.725 8.625 4.75q.525-.25.95.037q.425.288.425.938q0 .25-.162.487q-.163.238-.413.363q-1.575.75-2.5 2.225T6 12.05q0 1.125.425 2.187Q6.85 15.3 7.75 16.2l.25.25V15q0-.425.288-.713Q8.575 14 9 14t.713.287Q10 14.575 10 15v4q0 .425-.287.712Q9.425 20 9 20Z"
+                  })
+                }),
+                t5("syncToGoogleDrive")
+              ]
+            }),
+            /* @__PURE__ */ p5("a", {
+              href: "#",
+              "aria-busy": manualAuthLoading,
+              onClick: (e3) => {
+                e3.preventDefault(), handlerManualDriveAuth();
+              },
+              class: "secondary text-sm",
+              children: t5("backupToCloud")
+            })
+          ]
+        }),
+        /* @__PURE__ */ p5("div", {
+          class: "text-xs text-gray-500",
+          children: localConfig?.lastSyncedAt && t5("lastSyncedAt", {
+            date: new Date(localConfig.lastSyncedAt).toLocaleString()
+          })
+        }),
+        localConfig?.lastSyncErrorMessage && /* @__PURE__ */ p5("p", {
+          class: "mt-2 text-xs text-red-500"
+        }),
+        showSyncModal ? /* @__PURE__ */ p5(ConfigSyncModal, {
+          onClose: () => setShowSyncModal(!1),
+          authExpire,
+          accessToken
+        }) : null
       ]
-    });
+    }) : null;
   }
 
   // browser/version.ts
@@ -16088,7 +16745,7 @@ body {
             /* @__PURE__ */ p5("li", {
               children: /* @__PURE__ */ p5("a", {
                 class: "secondary",
-                href: "immersive-translate.owenyoung.com/donate.html",
+                href: "https://immersive-translate.owenyoung.com/donate.html",
                 children: t5("sponsorLabel")
               })
             })

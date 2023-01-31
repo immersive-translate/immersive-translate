@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.34
+// @version      0.2.35
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-30T03:28:49.300Z", VERSION: "0.2.34", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-31T09:25:54.948Z", VERSION: "0.2.35", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4080,6 +4080,13 @@ body {
     else
       throw new Error("options url not found");
   }
+  function openAboutPage() {
+    let optionsUrl = getEnv().OPTIONS_URL;
+    if (optionsUrl)
+      window.location.href = optionsUrl + "#about";
+    else
+      throw new Error("options url not found");
+  }
   function getAcceptLanguages() {
     return globalThis.navigator.languages || [globalThis.navigator.language || globalThis.navigator.userLanguage];
   }
@@ -4094,7 +4101,8 @@ body {
       openOptionsPage
     },
     extra: {
-      detectLanguage: languageDetect
+      detectLanguage: languageDetect,
+      openAboutPage
     },
     i18n: {
       getAcceptLanguages
@@ -4278,6 +4286,7 @@ body {
     saved: "\u4FDD\u5B58\u6210\u529F",
     successImportConfig: "\u6210\u529F\u5BFC\u5165\u914D\u7F6E",
     goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
+    goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
     advanced: "\u8FDB\u9636\u8BBE\u7F6E",
     advancedDescription: "\u4E00\u4E9B\u96BE\u4EE5\u7406\u89E3\u7684\u8BBE\u7F6E\u9879\uFF08\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\uFF09",
     developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
@@ -4298,15 +4307,16 @@ body {
     homepage: "\u4E3B\u9875",
     more: "\u66F4\u591A",
     translateTheWholePage: "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u522B\u4E8E\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\uFF09",
-    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF(\u5F53\u524D\u4E3A\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF)",
-    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF(\u5F53\u524D\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF)",
-    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF08\u533A\u522B\u4E8E\u6EDA\u52A8\u7FFB\u8BD1\uFF09",
+    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u6240\u6709\u533A\u57DF",
+    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8",
     translateTheMainPage: "\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
     "The local rules are up to date": "\u672C\u5730\u9002\u914D\u89C4\u5219\u5DF2\u662F\u6700\u65B0:",
     "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
     "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
     "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
     localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u4E4B\u540E\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+    badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
     foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
     theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
     failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -4415,7 +4425,13 @@ body {
     cancel: "\u53D6\u6D88",
     delete: "\u5220\u9664",
     "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355"
+    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
+    aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
+    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
+    aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u9891\u9053</4>\u83B7\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+    projectHomepage: "\u9879\u76EE\u4E3B\u9875",
+    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
+    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4"
   };
 
   // locales/zh-TW.json
@@ -4748,8 +4764,8 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
-  var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
+  var brandIdForJs = "immersiveTranslate", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
+  var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
     "auto",
@@ -5140,7 +5156,7 @@ body {
     if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
       return !0;
     let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && isMarked(element, sourceElementExcludeAttributeName) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && isMarked(element, sourceElementExcludeAttributeName, !0) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
       element,
       specifiedTargetContainerElementAttributeName
     ) ? !1 : !!finalExcludeTags.includes(element.nodeName);
@@ -5174,14 +5190,14 @@ body {
   function isStockTag(text) {
     return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
   }
-  function isMarked(element, markedAttribute) {
-    return isMarkedWith(element, markedAttribute, "1");
+  function isMarked(element, markedAttribute, explicit = !1) {
+    return isMarkedWith(element, markedAttribute, "1", explicit);
   }
-  function isMarkedWith(element, markedAttribute, value) {
-    return isProd ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute] === value) : !1 : element.dataset[markedAttribute] === value;
+  function isMarkedWith(element, markedAttribute, value, explicit = !1) {
+    return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute] === value) : !1 : element.dataset[markedAttribute] === value;
   }
-  function hasMark(element, markedAttribute) {
-    return isProd ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
+  function hasMark(element, markedAttribute, explicit = !1) {
+    return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
   }
   function getMainText(root2) {
     return (root2.innerText || root2.textContent || "").trim();
@@ -5189,19 +5205,19 @@ body {
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
-  function setAttribute(element, name, value) {
-    element.isContentEditable || (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), isProd ? (element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : element.dataset[name] !== value && (element.dataset[name] = value));
+  function setAttribute(element, name, value, explicit = !1) {
+    element.isContentEditable || (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), isProd && !explicit ? (element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : element.dataset[name] !== value && (element.dataset[name] = value));
   }
-  function removeAttribute(element, name) {
-    if (isProd) {
+  function removeAttribute(element, name, explicit = !1) {
+    if (isProd && !explicit) {
       if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
         return;
       delete element[elementMarkRootKey][name];
     } else
       delete element.dataset[name];
   }
-  function getAttribute(element, name) {
-    return isProd ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
+  function getAttribute(element, name, explicit = !1) {
+    return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
   }
   function isStayOriginalElement(element, rule) {
     let isStayOriginal = !1;
@@ -5314,7 +5330,7 @@ body {
       document.body,
       allExcludeSelectors
     ).forEach((element) => {
-      isMarked(element, sourceElementExcludeAttributeName) || setAttribute(element, sourceElementExcludeAttributeName, "1");
+      isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
     });
     let atomicBlockElements = [];
     if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
@@ -5620,7 +5636,14 @@ body {
         "mail.google.com",
         "discord.com",
         "web.telegram.org",
-        "*.slack.com"
+        "*.slack.com",
+        "https://old.reddit.com/",
+        "https://www.reddit.com/r/popular/",
+        "https://www.reddit.com/",
+        "https://www.reddit.com/hot/",
+        "https://www.reddit.com/new/",
+        "https://www.reddit.com/top/",
+        "https://www.reddit.com/.compact"
       ],
       excludeMatches: [],
       selectorMatches: [
@@ -5718,7 +5741,9 @@ body {
         ".reference-citations",
         ".share-nav",
         ".o-share",
-        "[data-toolbar=share]"
+        "[data-toolbar=share]",
+        "rp",
+        "rt"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -5747,7 +5772,8 @@ body {
         "TT",
         "RT",
         "RP",
-        "META"
+        "META",
+        "ASIDE"
       ],
       metaTags: [
         "META",
@@ -5773,6 +5799,7 @@ body {
         "DEL",
         "RUBY",
         "RP",
+        "RB",
         "BDO",
         "MARK",
         "BIG",
@@ -6665,6 +6692,12 @@ body {
           "span[data-openweb-allow-amp]",
           "div.spcv_typing-users"
         ]
+      },
+      {
+        matches: "www.afreecatv.com",
+        globalStyles: {
+          "a.title": "max-height:unset;-webkit-line-clamp:unset;"
+        }
       }
     ]
   };
@@ -9782,6 +9815,11 @@ body {
       method: "openOptionsPage"
     });
   }
+  function openAboutPage2() {
+    return isMonkey() ? (browserAPI.extra.openAboutPage(), Promise.resolve()) : sendMessage({
+      method: "openAboutPage"
+    });
+  }
 
   // dom/detect_page_language.ts
   async function detectPageLanguage() {
@@ -9909,7 +9947,10 @@ body {
         continue;
       }
       let rawText = "";
-      isContainsSelectors(element, `[${sourceElementExcludeAttributeName}]`) ? rawText = getTextWithExcludeElement(element) : rawText = element.innerText;
+      isContainsSelectors(
+        element,
+        `[${sourceElementExcludeAttributeNameForSelector}]`
+      ) ? rawText = getTextWithExcludeElement(element) : rawText = element.innerText;
       let isStartWithSpace = rawText.startsWith(" "), isEndWithSpace = rawText.endsWith(" ");
       element.tagName === "A" && (isStartWithSpace = !0, isEndWithSpace = !0);
       let isStayOriginal = isStayOriginalElement(element, rule);
@@ -9976,7 +10017,7 @@ body {
     ) ? paragraph : null;
   }
   function getTextWithExcludeElement(element) {
-    let finalText = "", filterExcludeElement = (node) => node.nodeType === Node.ELEMENT_NODE ? isMarked(node, sourceElementExcludeAttributeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : node.nodeType === Node.TEXT_NODE ? (node.textContent && node.textContent.trim() !== "" && (finalText += node.textContent.replace(/\s+/g, " ")), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT, treeWalker = document.createTreeWalker(
+    let finalText = "", filterExcludeElement = (node) => node.nodeType === Node.ELEMENT_NODE ? isMarked(node, sourceElementExcludeAttributeName, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : node.nodeType === Node.TEXT_NODE ? (node.textContent && node.textContent.trim() !== "" && (finalText += node.textContent.replace(/\s+/g, " ")), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT, treeWalker = document.createTreeWalker(
       element,
       NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
       filterExcludeElement
@@ -10485,7 +10526,8 @@ body {
               setAttribute(
                 node,
                 sourceElementExcludeAttributeName,
-                "1"
+                "1",
+                !0
               );
               continue;
             } else {
@@ -12314,12 +12356,55 @@ body {
         type: "password"
       }];
     }
+    async remoteDetectLanguage(text) {
+      let bodyParams = {
+        TextList: [text]
+      }, requestObj = {
+        region: "cn-north-1",
+        method: "POST",
+        params: {
+          Action: "LangDetect",
+          Version: "2020-06-01"
+        },
+        pathname: "/",
+        headers: {
+          "Content-Type": "application/json",
+          host: "open.volcengineapi.com"
+        },
+        body: JSON.stringify(bodyParams)
+      }, signer = new Signer(requestObj, "translate");
+      await signer.addAuthorization({
+        accessKeyId: this.accessKeyId,
+        secretKey: this.secretAccessKey
+      });
+      let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
+        {
+          url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
+          headers: signer.request.headers,
+          method: requestObj.method,
+          body: requestObj.body
+        }
+      );
+      if (response.DetectedLanguageList && response.DetectedLanguageList.length > 0)
+        return response.DetectedLanguageList[0].Language;
+      if (response.ResponseMetadata && response.ResponseMetadata.Error) {
+        let error = response.ResponseMetadata.Error;
+        throw new CommonError(error.Code, error.Message);
+      } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
+        let error = response.ResponseMetaData.Error;
+        throw new CommonError(error.Code, error.Message);
+      } else
+        throw new Error("response: " + JSON.stringify(response));
+    }
     async translateList(payload) {
       let { text, from, to } = payload, remoteFrom = langMap11.get(from), bodyParams = {
         TargetLanguage: langMap11.get(to) || to,
         TextList: text
       };
-      remoteFrom && (bodyParams.SourceLanguage = remoteFrom);
+      remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
+        text.join(`
+`).slice(0, 1e3)
+      );
       let requestObj = {
         region: "cn-north-1",
         method: "POST",
@@ -12355,10 +12440,14 @@ body {
           from: remoteFrom2,
           to
         };
-      } else {
+      } else if (response.ResponseMetadata && response.ResponseMetadata.Error) {
+        let error = response.ResponseMetadata.Error;
+        throw new CommonError(error.Code, error.Message);
+      } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
         let error = response.ResponseMetaData.Error;
         throw new CommonError(error.Code, error.Message);
-      }
+      } else
+        throw new Error("response: " + JSON.stringify(response));
     }
   }, mod_default = Volc;
 
@@ -13664,7 +13753,7 @@ body {
       ), { hiddenElements } = normalizeResult;
       for (let element of hiddenElements)
         onHiddenElementVisible(element, () => {
-          removeAttribute(element, sourceElementExcludeAttributeName), translateContainers([element], rootFrame, ctx);
+          removeAttribute(element, sourceElementExcludeAttributeName, !0), translateContainers([element], rootFrame, ctx);
         });
       setPageTranslatedStatus("Translating");
     }
@@ -13900,8 +13989,28 @@ body {
   function format(str, params) {
     let result = str;
     return params && Object.keys(params).forEach((key) => {
-      let value = params[key], template = new RegExp("{" + key + "}", "gm");
-      result = result.replace(template, value.toString());
+      let rawValue = params[key], keyIsNumber = isNumber(key);
+      if (typeof rawValue == "object" || keyIsNumber) {
+        let value = rawValue;
+        keyIsNumber && typeof value == "string" && (value = {
+          tag: "a",
+          href: value
+        });
+        let tag = `<${key}>`, tagIndex = result.indexOf(tag);
+        if (tagIndex !== -1) {
+          let actualTag = value.tag || "a", endIndex = result.indexOf(`</${key}>`);
+          if (endIndex !== -1) {
+            let html = result.substring(tagIndex + tag.length, endIndex), attrs = Object.keys(value).filter((attr) => attr !== "tag").map((attr) => `${attr}="${value[attr]}"`).join(" ");
+            result = result.replace(
+              `${tag}${html}</${key}>`,
+              `<${actualTag} ${attrs}>${html}</${actualTag}>`
+            );
+          }
+        }
+      } else {
+        let template = new RegExp("{" + key + "}", "gm");
+        result = result.replace(template, rawValue.toString());
+      }
     }), result;
   }
   function getValue(languageData, lang, key) {
@@ -13921,6 +14030,15 @@ body {
       return key;
     let value = getValue(data, lang, key);
     return value === key && lang !== fallbackLang && (value = getValue(data, fallbackLang, key)), format(value, params);
+  }
+  function isNumber(value) {
+    if (typeof value == "number")
+      return !0;
+    if (value) {
+      let num = parseInt(value);
+      return !isNaN(num);
+    } else
+      return !1;
   }
 
   // locales.ts
@@ -14429,6 +14547,19 @@ body {
         }
       )
     });
+  }, BadUserscriptBrowser = () => {
+    let { t: t5 } = useI18n();
+    return /* @__PURE__ */ p6("p", {
+      class: "text-sm",
+      dangerouslySetInnerHTML: {
+        __html: t5(
+          "badUserscriptBrowser",
+          {
+            1: "https://immersive-translate.owenyoung.com/installation.html"
+          }
+        )
+      }
+    });
   }, SyncFailed = ({ message, handleSyncing, date }) => {
     let { t: t5 } = useI18n();
     return /* @__PURE__ */ p6("p", {
@@ -14454,6 +14585,8 @@ body {
   function SyncLatest(props) {
     let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
       !1
+    ), [isBadUserscriptBrowser, setIsBadUserscriptBrowser] = P2(
+      !1
     ), [config, setConfig] = P2(null), [_isLatestVersion, setIsLatestVersion] = P2(null), version = getVersion(), handleSyncing = async () => {
       setSyncErrorMessage("");
       let finalRemoteConfig = remoteConfig;
@@ -14474,7 +14607,11 @@ body {
         let localConfigUpdatedAtIsoString = localConfig2.buildinConfigUpdatedAt;
         setConfig(localConfig2);
         let localConfigUpdatedAt = new Date(localConfigUpdatedAtIsoString);
-        setLocalBuildinConfigUpdatedAt(localConfigUpdatedAtIsoString), request3({
+        if (setLocalBuildinConfigUpdatedAt(localConfigUpdatedAtIsoString), version === "0.0.0") {
+          setIsBadUserscriptBrowser(!0);
+          return;
+        }
+        request3({
           url: buildinConfigSyncUrl
         }).then((response) => {
           let data = response, remoteMinVersion = data.minVersion, localVersion = version;
@@ -14496,7 +14633,7 @@ body {
     }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p6("div", {
       class: "text-sm mt-2",
       style: { maxWidth: 218 },
-      children: syncErrorMessage ? /* @__PURE__ */ p6(SyncFailed, {
+      children: isBadUserscriptBrowser ? /* @__PURE__ */ p6(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p6(SyncFailed, {
         handleSyncing,
         message: syncErrorMessage,
         date: localBuildinConfigUpdatedAt || ""
@@ -14517,6 +14654,7 @@ body {
       onSetBuildinConfig,
       pageStatus: pageStatus2,
       config,
+      openAboutPage: openAboutPage3,
       onTranslateTheWholePage,
       openOptionsPage: openOptionsPage3,
       ontranslateToThePageEndImmediately,
@@ -14974,36 +15112,32 @@ body {
               label: t5("more"),
               showArrow: !0,
               onSelected: (item) => {
-                item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" && handleChangeToTranslateTheMainPage());
+                item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage3());
               },
               menus: [
                 config.translationArea === "main" && {
-                  label: t5("changeToTranslateTheWholePage"),
+                  label: "\u{1F480} " + t5("changeToTranslateTheWholePage"),
                   value: "changeToTranslateTheWholePage"
                 },
                 config.translationArea === "body" && {
-                  label: t5("changeToTranslateTheMainPage"),
+                  label: "\u{1F4D6} " + t5("changeToTranslateTheMainPage"),
                   value: "changeToTranslateTheMainPage"
                 },
                 {
-                  label: translateToThePageEndImmediatelyLabel,
+                  label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
                   value: "translateToThePageEndImmediately"
                 },
                 !isMonkey() && {
-                  label: t5("browser.translateLocalPdfFile"),
+                  label: "\u{1F4C1} " + t5("browser.translateLocalPdfFile"),
                   value: "translateLocalPdfFile"
-                },
-                {
-                  label: "\u2615\uFE0F " + t5("sponsorLabel"),
-                  value: "donate"
-                },
-                {
-                  label: "\u{1F41B} " + t5("feedback"),
-                  value: "feedback"
                 },
                 {
                   label: "\u2699\uFE0F " + t5("browser.openOptionsPage"),
                   value: "options"
+                },
+                {
+                  label: "\u2764\uFE0F " + t5("aboutLabel"),
+                  value: "about"
                 }
               ].filter(Boolean)
             })
@@ -15176,6 +15310,10 @@ body {
       openOptionsPage2(), setTimeout(() => {
         onClose();
       }, 50);
+    }, handleOpenAboutPage = () => {
+      openAboutPage2(), setTimeout(() => {
+        onClose();
+      }, 50);
     };
     return !config || !ctx ? null : /* @__PURE__ */ p6(Popup, {
       request: request2,
@@ -15200,6 +15338,7 @@ body {
       onTranslatePage: handleSendMessageToContent("translatePage", !0),
       onRestorePage: handleSendMessageToContent("restorePage", !1),
       onTranslatePdf: handleTranslatePdf,
+      openAboutPage: handleOpenAboutPage,
       onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
       onSetPageLanguage,
       onUserConfigChange: setSettings,
@@ -15409,7 +15548,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.34",
+    version: "0.2.35",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15546,6 +15685,8 @@ body {
   }
   var debounceOpenOptionsPage = debounce(async () => {
     await openOptionsPage2();
+  }, 50), debounceOpenAboutPage = debounce(async () => {
+    await openAboutPage2();
   }, 50), debounceToggleTranslatePage = debounce((id) => {
     sendMessageToContent2({
       method: id
@@ -15568,13 +15709,18 @@ body {
           id: contextOpenOptionsMenuId,
           title: t4("browser.openOptionsPage", config.interfaceLanguage),
           key: "o"
+        },
+        {
+          id: contextOpenAboutMenuId,
+          title: t4("browser.openAboutPage", config.interfaceLanguage),
+          key: "o"
         }
       ];
       for (let menu of menus)
         GM.registerMenuCommand(
           menu.title,
           () => {
-            menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : debounceToggleTranslatePage(menu.id);
+            menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : menu.id === contextOpenAboutMenuId ? debounceOpenAboutPage() : debounceToggleTranslatePage(menu.id);
           },
           menu.key
         );

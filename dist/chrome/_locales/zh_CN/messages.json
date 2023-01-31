@@ -22,5 +22,8 @@
   },
   "translateLocalPdfFile": {
     "message": "翻译本地 PDF 文件"
+  },
+  "openAboutPage": {
+    "message": "关于/反馈/赞助"
   }
 }

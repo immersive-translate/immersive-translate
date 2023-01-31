@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.35
+
+- Fix japanese rb, rt tag ignore.
+- Better for popup ui more
+- Better for bad userscript tips
+- Add contribution to about page
+- Fix volc translate for auto detect language
+
 ## 0.2.34
 
 - Fix multiple language speed

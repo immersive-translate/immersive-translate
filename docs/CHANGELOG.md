@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.37
+
+- Fix frame exclude mark
+
 ## 0.2.36
 
 - Support sync to Google Drive

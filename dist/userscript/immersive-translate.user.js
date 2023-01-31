@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.36
+// @version      0.2.37
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -55,7 +55,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-31T15:49:41.894Z", VERSION: "0.2.36", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-01-31T16:22:30.340Z", VERSION: "0.2.37", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -5332,7 +5332,7 @@ body {
   }
 
   // dom/mark_containers.ts
-  function markContainers(containers, rule) {
+  function markContainers(container, rule) {
     let {
       excludeSelectors,
       additionalExcludeSelectors,
@@ -5348,7 +5348,7 @@ body {
     } = rule, globalStyleSelectors = Object.keys(globalStyles);
     if (globalStyleSelectors.length > 0)
       for (let selector of globalStyleSelectors) {
-        let elements = getElementsBySelectors(document.body, [selector]);
+        let elements = getElementsBySelectors(container, [selector]);
         for (let element of elements)
           if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
             setAttribute(
@@ -5363,7 +5363,7 @@ body {
     let globalAttributesSelectors = Object.keys(globalAttributes);
     if (globalAttributesSelectors.length > 0)
       for (let selector of globalAttributesSelectors) {
-        let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(document.body, [selector]);
+        let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
         for (let element of elements)
           for (let key of attributesKeys) {
             let value = attributes[key];
@@ -5380,14 +5380,14 @@ body {
       (item) => item.toLowerCase()
     ), allBlockSelectos = extraBlockSelectors;
     getElementsBySelectors(
-      document.body,
+      container,
       allExcludeSelectors
     ).forEach((element) => {
       isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
     });
     let atomicBlockElements = [];
     if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
-      document.body,
+      container,
       allAtomicBlockSelectors
     ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
       let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
@@ -5399,7 +5399,7 @@ body {
       ), httpLinkTags = [">http://", ">https://"];
       stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
       let atomicBlockTagsElements = getElementsBySelectors(
-        document.body,
+        container,
         allAtomicBlockTagsSelectors
       ).filter((element) => {
         if (isMarked(
@@ -5420,30 +5420,21 @@ body {
       isMarked(element, sourceAtomicBlockElementMarkAttributeName) || setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
     });
     let extraInlineElements = [];
-    if (allInlineSelectors.length > 0)
-      for (let container of containers)
-        extraInlineElements.push(
-          ...getElementsBySelectors(container, allInlineSelectors)
-        );
-    extraInlineElements.forEach((element) => {
+    allInlineSelectors.length > 0 && extraInlineElements.push(
+      ...getElementsBySelectors(container, allInlineSelectors)
+    ), extraInlineElements.forEach((element) => {
       setAttribute(element, sourceInlineElementMarkAttributeName, "1");
     });
     let extraBlockElements = [];
-    if (allBlockSelectos.length > 0)
-      for (let container of containers)
-        extraBlockElements.push(
-          ...getElementsBySelectors(container, allBlockSelectos)
-        );
-    extraBlockElements.forEach((element) => {
+    allBlockSelectos.length > 0 && extraBlockElements.push(
+      ...getElementsBySelectors(container, allBlockSelectos)
+    ), extraBlockElements.forEach((element) => {
       setAttribute(element, sourceBlockElementMarkAttributeName, "1");
     });
     let stayOriginalElements = [];
-    if (stayOriginalSelectors.length > 0)
-      for (let container of containers)
-        stayOriginalElements.push(
-          ...getElementsBySelectors(container, stayOriginalSelectors)
-        );
-    stayOriginalElements.forEach((element) => {
+    stayOriginalSelectors.length > 0 && stayOriginalElements.push(
+      ...getElementsBySelectors(container, stayOriginalSelectors)
+    ), stayOriginalElements.forEach((element) => {
       setAttribute(element, sourceElementStayOriginalAttributeName, "1");
     });
   }
@@ -13725,7 +13716,7 @@ body {
     }
   }
   async function translateFrame(rootFrame, ctx) {
-    markContainers([rootFrame], ctx.rule);
+    markContainers(rootFrame, ctx.rule);
     let containers = getContainers(rootFrame, ctx);
     log_default.debug("detect containers", containers);
     let { rule } = ctx;
@@ -13803,7 +13794,8 @@ body {
   }
   async function translateContainers(containers, rootFrame, ctx) {
     let { rule } = ctx;
-    markContainers(containers, rule);
+    for (let container of containers)
+      markContainers(container, rule);
     let targetContainers = [];
     if (ctx.rule.isPdf)
       containers.length > 0 && (setPageTranslatedStatus("Translating"), targetContainers = normalizeContainer2(
@@ -15646,7 +15638,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.36",
+    version: "0.2.37",
     default_locale: "en",
     background: {
       service_worker: "background.js"

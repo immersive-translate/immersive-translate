@@ -12,6 +12,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    concurrency: build-web
     steps:
       - uses: actions/checkout@v3
       - name: Setup mdBook

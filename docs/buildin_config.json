@@ -6,6 +6,7 @@
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
+  "loadingTheme": "text",
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -208,7 +209,8 @@
       "RT",
       "RP",
       "META",
-      "ASIDE"
+      "ASIDE",
+      "FOOTER"
     ],
     "metaTags": [
       "META",
@@ -1129,8 +1131,50 @@
       "globalStyles": {
         "a.title": "max-height:unset;-webkit-line-clamp:unset;"
       }
+    },
+    {
+      "matches": "opennet.ru",
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "LABEL",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "PRE",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META"
+      ]
+    },
+    {
+      "matches": "getpocket.com",
+      "selectors": [
+        "h2.title",
+        "div.excerpt p",
+        "main > article"
+      ],
+      "globalStyles": {
+        "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
+        "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-01-31T09:25:04.753Z",
-  "latestVersion": "0.2.35"
+  "buildinConfigUpdatedAt": "2023-02-01T11:46:43.332Z",
+  "latestVersion": "0.2.37"
 }

@@ -12,7 +12,7 @@
 
 该扩展完全免费使用，[点击查看视频介绍](https://www.youtube.com/watch?v=sQevumpUprc)，希望我们都能更加容易且愉悦地获取互联网上巨大的外语信息，不要让语言成为障碍 ❤️
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作，你也可以关注我的[推特](https://twitter.com/OwenYoungZh)或[Telegram 频道](https://t.me/owenyoungzh)获取最新更新,还可以[加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，你可以[点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作，你也可以关注我的[推特](https://twitter.com/OwenYoungZh)或[Telegram 频道](https://t.me/owenyoungzh)获取最新更新,还可以加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论或者加入该扩展的[Telegram 频道](https://t.me/immersivetranslate)接收最新更新。
 
 ## 目录
 

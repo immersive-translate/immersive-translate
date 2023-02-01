@@ -21,9 +21,10 @@
 - [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
-- [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [在线文档](https://immersive-translate.owenyoung.com/)
+- [☕️ 请开发者喝杯咖啡](https://immersive-translate.owenyoung.com/donate.html)
 
 ## 安装
 

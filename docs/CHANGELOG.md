@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.38
+
+- Support loading theme
+- Fix getpocket.com
+- Fix aside footer for body area
+- Fix import/export icon
+
 ## 0.2.37
 
 - Fix frame exclude mark

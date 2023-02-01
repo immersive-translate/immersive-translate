@@ -1,0 +1,29 @@
+{
+  "brandName": {
+    "message": "ترجمه همه‌جانبه"
+  },
+  "brandDescription": {
+    "message": "افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود."
+  },
+  "toggleTranslatePage": {
+    "message": "ترجمه تارنما/نمایش متن اصلی"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "ترجمه تمام برگه/نمایش متن اصلی"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "از انتهای برگه ترجمه کنید/نمایش متن اصلی"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "ترجمه قسمت‌های اصلی برگه/نمایش متن اصلی"
+  },
+  "openOptionsPage": {
+    "message": "برگه تنظیمات را باز کنید"
+  },
+  "translateLocalPdfFile": {
+    "message": "ترجمه پرونده PDF محلی"
+  },
+  "openAboutPage": {
+    "message": "关于/反馈/赞助"
+  }
+}

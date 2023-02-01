@@ -82,3 +82,4 @@
 - [x] aside issue <https://marginalrevolution.com/>
 - [x] rp, rt ignore
 - [ ] custom dictionary
+- [ ] toggle mask and clear

@@ -22,5 +22,8 @@
   },
   "translateLocalPdfFile": {
     "message": "Translate local PDF files"
+  },
+  "openAboutPage": {
+    "message": "About / Feedback/Sponsor"
   }
 }

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-01-31T16:22:30.340Z", VERSION: "0.2.37", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-01T12:19:36.817Z", VERSION: "0.2.38", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -216,7 +216,7 @@
   -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
 }
 
-.immersive-translate-loading {
+.immersive-translate-loading-spinner {
   vertical-align: middle !important;
   width: 10px !important;
   height: 10px !important;
@@ -228,6 +228,13 @@
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
   animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+.immersive-translate-loading-text:before {
+  content: "...";
+}
+
+.immersive-translate-loading-none {
 }
 /* dark mode for loading */
 
@@ -6614,7 +6621,7 @@ body {
     "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
     isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
     syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
-    syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+    syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
     authFail: "\u6388\u6743\u5931\u8D25",
     syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
     import_hint: "\u5BFC\u5165",
@@ -6641,7 +6648,12 @@ body {
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
     feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
-    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65"
+    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
+    loadingThemeTitle: "Loading \u6837\u5F0F",
+    loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
+    "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
+    "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
+    "loadingTheme.none": "\u4E0D\u663E\u793A"
   };
 
   // locales/zh-TW.json
@@ -6664,13 +6676,34 @@ body {
     "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
     "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
     "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
+    confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8F09\u8A2D\u7F6E\u55CE?",
+    translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
+    smartLineBreak: "\u667A\u80FD\u6362\u884C",
+    alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
+    tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
+    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
+    xMinutes: "{count} \u5206\u949F",
+    disabled: "\u505C\u7528",
     changelog: "\u66F4\u65B0\u65E5\u8A8C",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8A2D\u7F6E",
+    clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
+    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
+    export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
     toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
+    "fingers.0": "\u5173\u95ED",
+    "fingers.2": "\u53CC\u6307\u89E6\u6478",
+    "fingers.3": "\u4E09\u6307\u89E6\u6478",
+    "fingers.4": "\u56DB\u6307\u89E6\u6478",
+    "fingers.5": "\u4E94\u6307\u89E6\u6478",
     document: "\u6587\u6A94",
     resetSuccess: "\u885D\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+    saved: "\u6210\u529F\u5132\u5B58",
+    successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
     goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
+    goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
     advanced: "\u9032\u968E\u8A2D\u7F6E",
     advancedDescription: "\u4E00\u4E9B\u96E3\u4EE5\u7406\u89E3\u7684\u8A2D\u7F6E\u9805\uFF08\u4E00\u822C\u7121\u9700\u8A2D\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8A8D\u5373\u53EF\uFF09",
     developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
@@ -6691,6 +6724,8 @@ body {
     homepage: "\u4E3B\u9801",
     more: "\u66F4\u591A",
     translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
+    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
+    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
     translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
     translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
     "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
@@ -6698,6 +6733,7 @@ body {
     "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
     "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
     localVersionIsTooOld: "\u672C\u5730\u64F4\u5C55\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u64F4\u5C55\u5230{minVersion} \u6216\u4E4B\u5F8C\u7684\u7248\u672C\u5F8C\u518D\u5617\u8A66\u540C\u6B65",
+    badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
     foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
     theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
     failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
@@ -6717,6 +6753,7 @@ body {
     service: "\u7FFB\u8B6F\u670D\u52D9",
     needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
     goSettings: "\u53BB\u8A2D\u7F6E",
+    needActionForOptions: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
     translationEngine: "\u5F15\u64CE\u9078\u9805",
     sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
     target: "\u76EE\u6A19\u8A9E\u8A00",
@@ -6746,6 +6783,8 @@ body {
     "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u793A\u4F8B",
     interface: "\u754C\u9762\u8A2D\u7F6E",
     import_export: "\u5C0E\u5165/\u5C0E\u51FA",
+    import_export_title: "\u5C0E\u5165/\u5C0E\u51FA",
+    syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
     "translationTheme.none": "\u7121",
     "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
     "translationTheme.dotted": "\u9EDE\u72C0\u4E0B\u5283\u7DDA",
@@ -6761,6 +6800,10 @@ body {
     "translationTheme.italic": "\u659C\u9AD4",
     "translationTheme.bold": "\u7C97\u9AD4",
     "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
+    "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
     "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
     "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
     "translationServices.bai": "\u767E\u5EA6\uFF08Alpha\uFF09",
@@ -6785,6 +6828,10 @@ body {
     "translationServices.d": "Deepl(Alpha)",
     "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
     "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
+    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
+    neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+    enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
+    enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
     "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
     "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
     "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -6793,21 +6840,46 @@ body {
     "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
     KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
     useAboveStyleForTheseSites: "\u7576\u524D\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\u70BA\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8A2D\u7F6E\u70BA\u8B93\u67D0\u4E9B\u7DB2\u7AD9\u4F7F\u7528\u8A72\u6A23\u5F0F\uFF0C\u9EDE\u64CA\u53F3\u908A\u7684\u6309\u9215\u6DFB\u52A0\u5F8C\uFF0C\u518D\u5207\u63DB\u5230\u53E6\u4E00\u7A2E\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\uFF0C\u9019\u6A23\u5373\u53EF\u5BE6\u73FE\u4E0D\u540C\u7DB2\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8B6F\u6587\u6A23\u5F0F\u3002",
-    currentUrl: "\u5F53\u524D\u7F51\u5740",
+    currentUrl: "\u7576\u524D\u7DB2\u5740",
     confirm: "\u5132\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u522A\u9664",
     "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
+    isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
     syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
+    syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
     authFail: "\u6388\u6B0A\u5931\u6557",
     syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
     import_hint: "\u5C0E\u5165",
     upload: "\u4E0A\u50B3",
     revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
     uploadFail: "\u4E0A\u50B3\u5931\u6557",
+    download: "\u4E0B\u8F09",
     importSuccess: "\u5C0E\u5165\u6210\u529F",
     importFail: "\u5C0E\u5165\u5931\u6557",
-    deleteFail: "\u522A\u9664\u5931\u6557"
+    deleteFail: "\u522A\u9664\u5931\u6557",
+    backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6587\u4EF6",
+    create_new_backup: "\u65B0\u589E\u5099\u4EFD\u7BC0\u9EDE",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE, \u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
+    backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u6062\u5FA9\u5099\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8A313\u500B\u4E0D\u540C\u7684\u5099\u4EFD",
+    successSyncConfig: "\u6210\u529F\u8207\u96F2\u7AEF\u4FDD\u6301\u540C\u6B65",
+    syncFail: "\u540C\u6B65\u5931\u6557",
+    updatedAt: "\u66F4\u65B0\u65BC {date}",
+    lastSyncedAt: "\u4E0A\u6B21\u6AA2\u67E5\u65BC {date}",
+    downloadFail: "\u4E0B\u8F09\u5931\u6557",
+    clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
+    aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
+    "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
+    aboutIntro: "\u8A72\u64F4\u5C55\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u4E92\u806F\u7DB2\u4E0A\u5DE8\u5927\u7684\u5916\u8A9E\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u8D0A\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u983B\u9053</4>\u7372\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+    projectHomepage: "\u9805\u76EE\u4E3B\u9801",
+    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+    feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
+    autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
+    loadingThemeTitle: "Loading \u6A23\u5F0F",
+    loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
+    "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
+    "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
+    "loadingTheme.none": "\u4E0D\u986F\u793A"
   };
 
   // locales/en.json
@@ -6830,13 +6902,34 @@ body {
     "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
     "browser.openOptionsPage": "Open Settings Page",
     "browser.translateLocalPdfFile": "Translate local PDF files",
+    confirmResetConfig: "Are you sure you want to reset the settings?",
+    translationLineBreakSettingTitle: "Line break setting",
+    smartLineBreak: "Smart Wrap",
+    alwaysLineBreak: "Always Wrap",
+    translationLineBreakSettingDescription: "The position of the translation\uFF1AAlways wrap / smart wrap (the translation is displayed only when the paragraph is more than {count} characters)",
+    tempTranslateDomainTitle: "Open the translation time temporarily",
+    tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
+    xMinutes: "{count} minutes",
+    disabled: "Disable",
     changelog: "Change Log",
-    addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "General",
+    clickToExpandConfig: "Expand current configuration",
+    import: "Import configuration from file",
+    export: "Export to file",
     toggleDebug: "Print debug logs on the console",
+    "fingers.0": "Close",
+    "fingers.2": "Two-finger touch",
+    "fingers.3": "Three-finger touch",
+    "fingers.4": "Four-finger touch",
+    "fingers.5": "Five-finger touch",
     document: "Document",
     resetSuccess: "All settings reset successful",
+    saved: "Saved successfully",
+    successImportConfig: "Configuration imported successfully",
     goAdvancedSettings: "Go to Advanced Settings Page",
+    goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
     advanced: "Advanced",
     advancedDescription: "Some unintelligible settings (normally set without setting to default)",
     developer: "Developer settings",
@@ -6857,6 +6950,8 @@ body {
     homepage: "Home Page",
     more: "More",
     translateTheWholePage: "Translate the whole page area (different from only the main area)",
+    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
+    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
     translateToThePageEndImmediately: "Immediately translate to the bottom (different from translating the current visible area)",
     translateTheMainPage: "Main areas of intelligent translation",
     "The local rules are up to date": "Local  rules are up to date:",
@@ -6864,6 +6959,7 @@ body {
     "Checking for updates": "Checking for update",
     "Rules are being synchronized": "Syncing official rules",
     localVersionIsTooOld: "The local extension is too old. Please upgrade to {minVersion} or then try syncing again",
+    badUserscriptBrowser: "This browser does not correctly implement the interface of Tampermonkey. Please use other < 1 > browsers that support Tampermonkey < / 1 >, such as (Firefox Nightly version)",
     foundNewVersion: "New version available",
     theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
     failToSyncRules: "Failed to sync latest adaptive rules",
@@ -6883,12 +6979,13 @@ body {
     service: "Translation Service",
     needAction: "(to set up)",
     goSettings: "to set up",
+    needActionForOptions: "(need to set)",
     translationEngine: "Engine Options",
     sourceLanguage: "Original language",
-    popupTarget: "Target",
-    popupService: "Service",
     target: "Target Language",
     popupSourceLanguage: "Source",
+    popupTarget: "Target",
+    popupService: "Service",
     forThisSite: "For This Site:",
     alwaysTranslateSomeLanguage: "Always translate {language}",
     neverTranslateSomeLanguage: "Never translate {language}",
@@ -6912,6 +7009,8 @@ body {
     "select diplay style": "Please refer to the following examples",
     interface: "Interface Settings",
     import_export: "Import/Export",
+    import_export_title: "Import/Export Configuration",
+    syncToGoogleDrive: "Sync Now with Google Drive",
     "translationTheme.none": "None",
     "translationTheme.dashed": "Dashed underline",
     "translationTheme.dotted": "Dotted Underline",
@@ -6927,6 +7026,10 @@ body {
     "translationTheme.italic": "Italic",
     "translationTheme.bold": "Bold",
     "translationTheme.thinDashed": "Thin dashed underline",
+    "translationTheme.nativeDashed": "System Dash Underline",
+    "translationTheme.nativeDotted": "System Dotted Underline",
+    "translationTheme.nativeUnderline": "System Straight Line Underline",
+    "translationTheme.wavy": "Squiggle",
     "translationServices.tencent": "Tencent Translator",
     "translationServices.google": "Google Translate",
     "translationServices.bai": "Baidu (Alpha)",
@@ -6947,10 +7050,14 @@ body {
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "Youdao Translation",
     "translationServices.transmart": "Tencent Smart Translation",
-    "translationServices.d": "DeeplX (Alpha)",
     "translationServices.niu": "Niu Translation",
+    "translationServices.d": "DeeplX (Alpha)",
     "translate title": "Translate page title",
     "always languages": "Always translate the following languages",
+    neverTranslateLanguagesLabel: "Never Translated Languages",
+    neverTranslateTheFollowingLanguagesDescription: "Automatically skip translating the paragraph when languages are the followings",
+    enableUserscriptPagePopup: "Always show Popup windows on the page",
+    enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
     "always translate the following languages": "The following languages will always be translated",
     "always sites": "Always translate the following sites",
     "always translate the following sites": "The following sites will always be translated",
@@ -6964,16 +7071,42 @@ body {
     cancel: "Cancel",
     delete: "Delete",
     "languages.auto": "Detect Language",
+    isShowContextMenu: "Create right button menu",
     syncToCloud: "Sync to cloud",
+    syncToCloudDescription: "When syncing it will compare the last modification time of the local and cloud configurations, whichever is the last.",
     authFail: "Authorization Failed",
     syncTitle: "Please select a file operation",
     import_hint: "Import",
     upload: "Upload",
     revokeAuth: "Revoke Authorization",
     uploadFail: "Upload Failed",
+    download: "Download",
     importSuccess: "Upload Success",
     importFail: "Import Failed",
-    deleteFail: "Delete Failed"
+    deleteFail: "Delete Failed",
+    backupToCloud: "Manage backup files manually",
+    create_new_backup: "Add backup node",
+    maxBackupFiles: "Up to{count}different nodes can be backed up. Please delete unneeded nodes",
+    backupToCloudDescription: "Upload or restore backup files manually, up to 3 different backups",
+    successSyncConfig: "Successfully synced with cloud",
+    syncFail: "Synchronization failed",
+    updatedAt: "Updated at {date}",
+    lastSyncedAt: "Last checked at {date}",
+    downloadFail: "Download failed",
+    clickToDownload: "Click to download",
+    aboutLabel: "About - Feedback - Sponsor",
+    "browser.openAboutPage": "About / Feedback/Sponsor",
+    aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these < 1 > sponsors < / 1 >, more people can use this tool completely free of charge because of their support. 
+If you have spare time, you can click here to sponsor < / 2 > my work, and you can follow my < 3 > Twitter < / 3 > and < 4 > Telegram channels < / 4 > for the latest updates.`,
+    projectHomepage: "Project Homepage",
+    joinTelegramGroup: "Join Telegram group for feature discussion",
+    feedbackAndJoin: "Issue feedback/group",
+    autoSync: "Auto-Time Sync",
+    loadingThemeTitle: "Loading Style",
+    loadingThemeDescription: "Set the style of waiting for the translation to load",
+    "loadingTheme.spinner": "Animate Spinner",
+    "loadingTheme.text": "Static Text... ",
+    "loadingTheme.none": "Disabled"
   };
 
   // constant.ts
@@ -7463,6 +7596,7 @@ body {
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
+    loadingTheme: "text",
     translationServices: {
       volcAlpha: {
         placeholderDelimiters: [
@@ -7665,7 +7799,8 @@ body {
         "RT",
         "RP",
         "META",
-        "ASIDE"
+        "ASIDE",
+        "FOOTER"
       ],
       metaTags: [
         "META",
@@ -8590,6 +8725,48 @@ body {
         globalStyles: {
           "a.title": "max-height:unset;-webkit-line-clamp:unset;"
         }
+      },
+      {
+        matches: "opennet.ru",
+        excludeTags: [
+          "TITLE",
+          "SCRIPT",
+          "STYLE",
+          "TEXTAREA",
+          "SVG",
+          "svg",
+          "NOSCRIPT",
+          "INPUT",
+          "BUTTON",
+          "BASE",
+          "LABEL",
+          "SELECT",
+          "OPTION",
+          "IMG",
+          "SUB",
+          "SUP",
+          "HR",
+          "PRE",
+          "CODE",
+          "KBD",
+          "WBR",
+          "TT",
+          "RT",
+          "RP",
+          "META"
+        ]
+      },
+      {
+        matches: "getpocket.com",
+        selectors: [
+          "h2.title",
+          "div.excerpt p",
+          "main > article"
+        ],
+        globalStyles: {
+          "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
+          "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
+        }
       }
     ]
   };
@@ -9273,7 +9450,7 @@ body {
   // dom/util.ts
   var env2 = getEnv(), isProd = env2.PROD === "1";
   function duplicatedElements(root2, array, rule) {
-    let rawFooters = root2.querySelectorAll("footer"), aside = root2.querySelectorAll("aside"), footers = Array.from(rawFooters).concat(Array.from(aside)), allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
+    let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
     for (let header of allHeaders)
       main2.length > 0 && main2[0].contains(header) || headers2.push(header);
     for (let i2 = 0; i2 < array.length; i2++) {
@@ -9293,14 +9470,7 @@ body {
       let element = container.element;
       if (container.reserve)
         return !0;
-      let isFooter = !1, isHeader = !1;
-      for (let footer of footers)
-        if (element === footer || footer.contains(element)) {
-          isFooter = !0;
-          break;
-        }
-      if (isFooter)
-        return !1;
+      let isHeader = !1;
       for (let header of headers2) {
         if (element.nodeName === "H1")
           continue;
@@ -10890,9 +11060,9 @@ body {
       (selector) => selector !== ".btn"
     )), ctx.translationService === "d" && (config.immediateTranslationTextCount = 0);
     let rules = config.rules, rule;
-    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2));
+    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
     let generalRule = config.generalRule;
-    return rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1), ctx;
+    return rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => tag !== "LABEL" && tag !== "BUTTON" && tag !== "ASIDE" && tag !== "OPTION")), ctx;
   }
   function isMatched(url, matchPattern) {
     if (!matchPattern)
@@ -11036,7 +11206,9 @@ body {
       if (targetTranslationWrapper.classList.add(
         "notranslate",
         translationTargetElementWrapperClass
-      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.innerHTML = getLoadingHTML(), position === "beforeend") {
+      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.innerHTML = getLoadingHTML(
+        ctx.config.loadingTheme
+      ), position === "beforeend") {
         let innerElement = getTheLastTextNodeParentElement(lastElement);
         innerElement ? innerElement.appendChild(targetTranslationWrapper) : lastElement.appendChild(targetTranslationWrapper);
       } else if (position === "afterend")
@@ -11173,8 +11345,8 @@ body {
       throw e3;
     }
   }
-  function getLoadingHTML() {
-    return `&nbsp;<span class="${brandId}-loading notranslate"></span>`;
+  function getLoadingHTML(theme) {
+    return `&nbsp;<span class="${brandId}-loading-${theme} notranslate"></span>`;
   }
   async function translateContainers(containers, rootFrame, ctx) {
     let { rule } = ctx;
@@ -16282,7 +16454,7 @@ body {
                       d: "M0 0h24v24H0z"
                     }),
                     /* @__PURE__ */ p5("path", {
-                      d: "M3 19h18v2H3v-2zM13 5.828V17h-2V5.828L4.929 11.9l-1.414-1.414L12 2l8.485 8.485-1.414 1.414L13 5.83z"
+                      d: "M3 19h18v2H3v-2zm10-5.828L19.071 7.1l1.414 1.414L12 17 3.515 8.515 4.929 7.1 11 13.17V2h2v11.172z"
                     })
                   ]
                 }),
@@ -16307,7 +16479,7 @@ body {
                       d: "M0 0h24v24H0z"
                     }),
                     /* @__PURE__ */ p5("path", {
-                      d: "M3 19h18v2H3v-2zm10-5.828L19.071 7.1l1.414 1.414L12 17 3.515 8.515 4.929 7.1 11 13.17V2h2v11.172z"
+                      d: "M3 19h18v2H3v-2zM13 5.828V17h-2V5.828L4.929 11.9l-1.414-1.414L12 2l8.485 8.485-1.414 1.414L13 5.83z"
                     })
                   ]
                 }),
@@ -16867,6 +17039,43 @@ body {
                 name: "switch",
                 role: "switch"
               })
+            })
+          ]
+        }),
+        /* @__PURE__ */ p5("div", {
+          class: "nav",
+          children: [
+            /* @__PURE__ */ p5(NavLeft, {
+              title: t5("loadingThemeTitle"),
+              description: t5(
+                "loadingThemeDescription"
+              )
+            }),
+            /* @__PURE__ */ p5("select", {
+              class: "select",
+              onChange: (e3) => {
+                setSettings((state) => ({
+                  ...state,
+                  loadingTheme: e3.target.value
+                }));
+              },
+              children: [
+                /* @__PURE__ */ p5("option", {
+                  value: "spinner",
+                  selected: config.loadingTheme === "spinner",
+                  children: t5("loadingTheme.spinner")
+                }),
+                /* @__PURE__ */ p5("option", {
+                  value: "text",
+                  selected: config.loadingTheme === "text",
+                  children: t5("loadingTheme.text")
+                }),
+                /* @__PURE__ */ p5("option", {
+                  value: "none",
+                  selected: config.loadingTheme === "none",
+                  children: t5("loadingTheme.none")
+                })
+              ]
             })
           ]
         }),

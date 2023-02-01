@@ -208,7 +208,7 @@
   -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
 }
 
-.immersive-translate-loading {
+.immersive-translate-loading-spinner {
   vertical-align: middle !important;
   width: 10px !important;
   height: 10px !important;
@@ -220,6 +220,13 @@
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
   animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+.immersive-translate-loading-text:before {
+  content: "...";
+}
+
+.immersive-translate-loading-none {
 }
 /* dark mode for loading */
 

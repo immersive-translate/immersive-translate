@@ -10,7 +10,8 @@
   "translationServices": {
     "tencent": {
       "secretId": "xxx",
-      "secretKey": "xxx"
+      "secretKey": "xxx",
+      "matches":["*.twitter.com"]
     }
   },
   "translationUrlPattern": {

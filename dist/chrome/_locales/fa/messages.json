@@ -20,6 +20,9 @@
   "openOptionsPage": {
     "message": "برگه تنظیمات را باز کنید"
   },
+  "toggleTranslationMask": {
+    "message": "显示/隐藏译文模糊效果"
+  },
   "translateLocalPdfFile": {
     "message": "ترجمه پرونده PDF محلی"
   },

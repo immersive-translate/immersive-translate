@@ -11,9 +11,6 @@
   "toggleTranslateTheWholePage": {
     "message": "翻譯頁面全部區域/顯示原文"
   },
-  "toggleTranslationMask": {
-    "message": "显示/隐藏译文模糊效果"
-  },
   "toggleTranslateToThePageEndImmediately": {
     "message": "立即翻譯到頁面底部/顯示原文"
   },
@@ -22,6 +19,9 @@
   },
   "openOptionsPage": {
     "message": "打開設置頁"
+  },
+  "toggleTranslationMask": {
+    "message": "显示/隐藏译文模糊效果"
   },
   "translateLocalPdfFile": {
     "message": "翻譯本地 PDF 文件"

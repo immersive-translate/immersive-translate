@@ -8,9 +8,6 @@
   "toggleTranslatePage": {
     "message": "Toggle translate webpage "
   },
-  "toggleTranslationMask": {
-    "message": "Toggle translation mask style"
-  },
   "toggleTranslateTheWholePage": {
     "message": "Toggle translate the whole page"
   },
@@ -22,6 +19,9 @@
   },
   "openOptionsPage": {
     "message": "Open Settings Page"
+  },
+  "toggleTranslationMask": {
+    "message": "Toggle translation mask style"
   },
   "translateLocalPdfFile": {
     "message": "Translate local PDF files"

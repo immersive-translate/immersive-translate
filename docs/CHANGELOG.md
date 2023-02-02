@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.41
+
+- Fix userscript niu translation
+
 ## 0.2.40
 
 - Fix beta feature show

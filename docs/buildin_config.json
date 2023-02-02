@@ -2,6 +2,7 @@
   "minVersion": "0.0.20",
   "immediateTranslationTextCount": 4000,
   "interval": 3600000,
+  "beta": false,
   "cache": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
@@ -54,7 +55,8 @@
   "shortcuts": {
     "toggleTranslatePage": "Alt+A",
     "toggleTranslateTheWholePage": "Alt+W",
-    "toggleTranslateToThePageEndImmediately": "Alt+S"
+    "toggleTranslateToThePageEndImmediately": "Alt+S",
+    "toggleTranslationMask": "Alt+D"
   },
   "tempTranslateDomainMinutes": 0,
   "immediateTranslationPattern": {
@@ -739,8 +741,8 @@
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       "detectParagraphLanguage": true,
-      "wrapperPrefix": "<br>",
-      "wrapperSuffix": "<br><br>"
+      "wrapperPrefix": "<br />",
+      "wrapperSuffix": "<br /><br />"
     },
     {
       "matches": "web.telegram.org/z/*",
@@ -1175,6 +1177,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-02T01:22:50.068Z",
-  "latestVersion": "0.2.38"
+  "buildinConfigUpdatedAt": "2023-02-02T19:43:41.401Z",
+  "latestVersion": "0.2.40"
 }

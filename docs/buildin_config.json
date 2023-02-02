@@ -6,7 +6,7 @@
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
-  "loadingTheme": "text",
+  "loadingTheme": "spinner",
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -1175,6 +1175,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-01T11:46:43.332Z",
-  "latestVersion": "0.2.37"
+  "buildinConfigUpdatedAt": "2023-02-02T01:22:50.068Z",
+  "latestVersion": "0.2.38"
 }

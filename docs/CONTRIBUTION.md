@@ -1,5 +1,9 @@
 # 加入开发？
 
+- 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
+- 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言,注册后即可在线翻译。
+- 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
 - [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 一些未整理的待做功能项
 - [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)

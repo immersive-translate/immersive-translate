@@ -8,6 +8,9 @@
   "toggleTranslatePage": {
     "message": "Toggle translate webpage "
   },
+  "toggleTranslationMask": {
+    "message": "Toggle translation mask style"
+  },
   "toggleTranslateTheWholePage": {
     "message": "Toggle translate the whole page"
   },

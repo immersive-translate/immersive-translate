@@ -57,7 +57,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-01T12:19:36.817Z", VERSION: "0.2.38", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-02T13:21:39.015Z", VERSION: "0.2.38", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -231,6 +231,17 @@
 }
 .immersive-translate-target-translation-theme-mask-inner:hover {
   filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="none"]
+  .immersive-translate-target-translation-theme-mask-inner {
+  filter: none !important;
+}
+[data-immersive-translate-root-translation-theme="mask"]
+  .immersive-translate-target-inner {
+  filter: blur(5px) !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
 }
 
 /* vertical css , please remain it in the last one. */
@@ -4270,6 +4281,7 @@ body {
     "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
     "browser.toggleTranslateTheMainPage": "\u7FFB\u8BD1\u9875\u9762\u4E3B\u8981\u533A\u57DF/\u663E\u793A\u539F\u6587",
     "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
+    "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
@@ -4474,7 +4486,8 @@ body {
     loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
     "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
     "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
-    "loadingTheme.none": "\u4E0D\u663E\u793A"
+    "loadingTheme.none": "\u4E0D\u663E\u793A",
+    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
   };
 
   // locales/zh-TW.json
@@ -4493,6 +4506,7 @@ body {
     "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
     "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
     "browser.toggleTranslateTheWholePage": "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF/\u986F\u793A\u539F\u6587",
+    "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
     "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
     "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
@@ -4718,6 +4732,7 @@ body {
     "browser.brandName": "Immersive Translate",
     "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
     "browser.toggleTranslatePage": "Toggle translate webpage ",
+    "browser.toggleTranslationMask": "Toggle translation mask style",
     "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
     "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
     "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
@@ -4952,7 +4967,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
   var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
   var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
-`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var languages = [
     "auto",
     "en",
@@ -5337,7 +5352,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
       return !0;
     let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && isMarked(element, sourceElementExcludeAttributeName, !0) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
       element,
       specifiedTargetContainerElementAttributeName
     ) ? !1 : !!finalExcludeTags.includes(element.nodeName);
@@ -5387,7 +5402,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
   function setAttribute(element, name, value, explicit = !1) {
-    element.isContentEditable || (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), isProd && !explicit ? (element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : element.dataset[name] !== value && (element.dataset[name] = value));
+    element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : element.dataset[name] !== value && (element.dataset[name] = value));
   }
   function removeAttribute(element, name, explicit = !1) {
     if (isProd && !explicit) {
@@ -7967,7 +7982,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
-    loadingTheme: "text",
+    loadingTheme: "spinner",
     translationServices: {
       volcAlpha: {
         placeholderDelimiters: [
@@ -9895,7 +9910,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   // content_message_listeners.ts
   var asyncMessageHandler = async function(payload, _author) {
     let { method, data } = payload;
-    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
+    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
   }, syncMessageHandler = function(payload, _author) {
     let { method, data } = payload;
     if (log_default.debug(
@@ -10659,7 +10674,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ), innerClassList;
   }
   function paragraphToHtml(sourceItem, sentence, ctx) {
-    let { rule, translationTheme } = ctx, { variables, isVertical } = sourceItem;
+    let { rule, state } = ctx, { translationTheme } = state, { variables, isVertical } = sourceItem;
     variables = variables || [];
     let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), matchIndex = 0, html = escapeHTML(targetText);
     variables.length > 0 && (html = html.replace(regex, (match) => {
@@ -13652,7 +13667,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       targetLanguage: defaultTargetLanguage,
       config,
       translationService: defaultTranslationService,
-      translationTheme: defaultTheme,
       isTranslateUrl,
       sourceLanguage,
       isTranslateExcludeUrl,
@@ -13664,7 +13678,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         translationStartMode,
         isAutoTranslate: !1,
         isNeedClean: !1,
-        isDetectParagraphLanguage
+        isDetectParagraphLanguage,
+        translationTheme: defaultTheme
       },
       localConfig: localConfig2
     };
@@ -13696,6 +13711,44 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   ), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     getPageStatus() === "Original" ? await translatePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
+  }
+  async function toggleTranslationMask() {
+    if (log_default.v("toggleTranslationMask"), getPageStatus() === "Original")
+      globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationTheme = "mask", await translatePage();
+    else if (getPageStatus() === "Translated") {
+      let allFrames = [
+        document.body,
+        ...mutationObserverMap.keys()
+      ], currentTranslationTheme = globalContext?.state.translationTheme;
+      for (let frame of allFrames) {
+        let currentRootTheme = getAttribute(
+          frame,
+          translationFrameRootThemeAttributeNameForJs,
+          !0
+        );
+        currentTranslationTheme === "mask" ? currentRootTheme !== "none" ? setAttribute(
+          frame,
+          translationFrameRootThemeAttributeNameForJs,
+          "none",
+          !0
+        ) : setAttribute(
+          frame,
+          translationFrameRootThemeAttributeNameForJs,
+          "mask",
+          !0
+        ) : currentRootTheme !== "mask" ? setAttribute(
+          frame,
+          translationFrameRootThemeAttributeNameForJs,
+          "mask",
+          !0
+        ) : setAttribute(
+          frame,
+          translationFrameRootThemeAttributeNameForJs,
+          "none",
+          !0
+        );
+      }
+    }
   }
   function restorePage() {
     clean();
@@ -14145,7 +14198,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
               element.nodeName
             )) {
-              if (element.classList.contains("notranslate"))
+              if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
                 return;
               isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push({
                 element,
@@ -15860,6 +15913,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       },
       toggleTranslateTheMainPage: {
         description: "__MSG_toggleTranslateTheMainPage__"
+      },
+      toggleTranslationMask: {
+        description: "__MSG_toggleTranslationMask__"
       }
     },
     options_page: "options.html",

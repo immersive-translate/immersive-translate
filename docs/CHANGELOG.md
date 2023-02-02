@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.39
+
+- Support shortcuts for show mask translation
+
 ## 0.2.38
 
 - Support loading theme

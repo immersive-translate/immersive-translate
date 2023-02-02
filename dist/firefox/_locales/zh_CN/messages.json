@@ -20,6 +20,9 @@
   "openOptionsPage": {
     "message": "打开设置页"
   },
+  "toggleTranslationMask": {
+    "message": "显示/隐藏译文模糊效果"
+  },
   "translateLocalPdfFile": {
     "message": "翻译本地 PDF 文件"
   },

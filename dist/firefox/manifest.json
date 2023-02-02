@@ -51,6 +51,9 @@
     },
     "toggleTranslateTheMainPage": {
       "description": "__MSG_toggleTranslateTheMainPage__"
+    },
+    "toggleTranslationMask": {
+      "description": "__MSG_toggleTranslationMask__"
     }
   },
   "options_ui": {

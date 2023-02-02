@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.38
+// @version      0.2.39
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -57,7 +57,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-02T13:21:39.015Z", VERSION: "0.2.38", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-02T14:29:49.940Z", VERSION: "0.2.39", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4287,6 +4287,8 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
+    betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
     translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
@@ -7978,6 +7980,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     minVersion: "0.0.20",
     immediateTranslationTextCount: 4e3,
     interval: 36e5,
+    beta: !1,
     cache: !0,
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
@@ -8030,7 +8033,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     shortcuts: {
       toggleTranslatePage: "Alt+A",
       toggleTranslateTheWholePage: "Alt+W",
-      toggleTranslateToThePageEndImmediately: "Alt+S"
+      toggleTranslateToThePageEndImmediately: "Alt+S",
+      toggleTranslationMask: "Alt+D"
     },
     tempTranslateDomainMinutes: 0,
     immediateTranslationPattern: {
@@ -13394,7 +13398,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     deeplx: {
       class: Deeplx,
       name: "DeepLX(Alpha)",
-      alpha: !0,
+      beta: !0,
       homepage: "https://www.deepl.com/translator"
     },
     niu: {
@@ -13429,10 +13433,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var allServiceKeys = Object.keys(
     TranslationServices
   ), getTranslationServices = (ctx) => {
-    let { config } = ctx, alpha = config.alpha, debug = config.debug;
+    let { config } = ctx, alpha = config.alpha, beta = config.beta, debug = config.debug;
     return allServiceKeys.filter((key) => {
       let service = TranslationServices[key];
-      return key.startsWith("mock") ? !!debug : !service.alpha || alpha || key === ctx.translationService;
+      if (key.startsWith("mock"))
+        return !!debug;
+      let isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
+      return isAlphaFeature && alpha || isBetaFeature && (beta || alpha) || key === ctx.translationService ? !0 : !isAlphaFeature;
     }).map((key) => formatTranslationService(key, ctx));
   };
   async function translateSingleSentence(sentence, ctx) {
@@ -15866,7 +15873,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.38",
+    version: "0.2.39",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15915,6 +15922,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         description: "__MSG_toggleTranslateTheMainPage__"
       },
       toggleTranslationMask: {
+        suggested_key: {
+          default: "Alt+D"
+        },
         description: "__MSG_toggleTranslationMask__"
       }
     },

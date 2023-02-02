@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.38",
+  "version": "0.2.39",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -60,6 +60,9 @@
       "description": "__MSG_toggleTranslateTheMainPage__"
     },
     "toggleTranslationMask": {
+      "suggested_key": {
+        "default": "Alt+D"
+      },
       "description": "__MSG_toggleTranslationMask__"
     }
   },

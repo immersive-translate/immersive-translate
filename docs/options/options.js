@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-02T13:21:39.015Z", VERSION: "0.2.38", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-02T14:29:49.940Z", VERSION: "0.2.39", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -6466,6 +6466,8 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
+    betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
     translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
@@ -7409,7 +7411,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     "toggleTranslatePage",
     "toggleTranslateTheWholePage",
     "toggleTranslateToThePageEndImmediately",
-    "toggleTranslateTheMainPage"
+    "toggleTranslateTheMainPage",
+    "toggleTranslationMask"
   ], buildinExcludeUrls = [
     "https://immersive-translate.owenyoung.com/options/",
     "https://immersive-translate.owenyoung.com/auth-done/",
@@ -7418,7 +7421,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     "http://192.168.50.9:8000/dist/userscript/options/",
     "https://www.deepl.com/translator",
     "translate.google.com"
-  ], sampleSourceText = "Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.", sampleTargetText = "\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002", fallbackLanguage = "zh-CN";
+  ], sampleSourceText = "Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.", sampleTargetText = "\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002", fallbackLanguage = "zh-CN", telegramGroupLink = "https://t.me/+rq848Z09nehlOTgx";
 
   // dom/toast.ts
   function success(text) {
@@ -7607,6 +7610,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     minVersion: "0.0.20",
     immediateTranslationTextCount: 4e3,
     interval: 36e5,
+    beta: !1,
     cache: !0,
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
@@ -7659,7 +7663,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     shortcuts: {
       toggleTranslatePage: "Alt+A",
       toggleTranslateTheWholePage: "Alt+W",
-      toggleTranslateToThePageEndImmediately: "Alt+S"
+      toggleTranslateToThePageEndImmediately: "Alt+S",
+      toggleTranslationMask: "Alt+D"
     },
     tempTranslateDomainMinutes: 0,
     immediateTranslationPattern: {
@@ -14134,7 +14139,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     deeplx: {
       class: Deeplx,
       name: "DeepLX(Alpha)",
-      alpha: !0,
+      beta: !0,
       homepage: "https://www.deepl.com/translator"
     },
     niu: {
@@ -14169,10 +14174,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var allServiceKeys = Object.keys(
     TranslationServices
   ), getTranslationServices = (ctx) => {
-    let { config } = ctx, alpha = config.alpha, debug = config.debug;
+    let { config } = ctx, alpha = config.alpha, beta = config.beta, debug = config.debug;
     return allServiceKeys.filter((key) => {
       let service = TranslationServices[key];
-      return key.startsWith("mock") ? !!debug : !service.alpha || alpha || key === ctx.translationService;
+      if (key.startsWith("mock"))
+        return !!debug;
+      let isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
+      return isAlphaFeature && alpha || isBetaFeature && (beta || alpha) || key === ctx.translationService ? !0 : !isAlphaFeature;
     }).map((key) => formatTranslationService(key, ctx));
   };
   async function translateSingleSentence(sentence, ctx) {
@@ -15256,6 +15264,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                 ref: toggleTranslatePageWhenThreeFingersOnTheScreenRef,
                 onChange: (e3) => {
                   e3.preventDefault();
+                  let value = e3.target.value, finalValue = {
+                    fingerCountToToggleTranslagePageWhenTouching: parseInt(
+                      value
+                    )
+                  };
+                  onChange(finalValue);
                 },
                 children: [
                   0,
@@ -15296,7 +15310,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                   class: "full-button margin-left",
                   "data-target": "modal-example",
                   onClick: (e3) => {
-                    e3.preventDefault();
+                    if (e3.preventDefault(), !isMonkey()) {
+                      onChange(null);
+                      return;
+                    }
                     let newShortcuts = [];
                     for (let i2 = 0; i2 < shortcuts.length; i2++) {
                       let item = shortcuts[i2], inputRef = inputRefs[item.name];
@@ -15947,25 +15964,37 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             disabled: !isMonkey()
           })),
           onChange: (changedValue) => {
-            let {
-              shortcuts,
-              fingerCountToToggleTranslagePageWhenTouching
-            } = changedValue;
-            isMonkey() ? setSettings((state) => {
-              let shortcutsMap = shortcuts.reduce(
-                (acc, item) => (acc[item.name] = item.shortcut, acc),
-                { ...state.shortcuts }
-              ), newState = {
-                ...state,
-                shortcuts: shortcutsMap
-              };
-              return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
-                ...newState.generalRule,
+            if (changedValue) {
+              let {
+                shortcuts,
                 fingerCountToToggleTranslagePageWhenTouching
-              }), newState;
-            }) : browserAPI.tabs.create({
-              url: "chrome://extensions/shortcuts"
-            }), setIsShowShortcutsModal(!1);
+              } = changedValue;
+              isMonkey() ? setSettings((state) => {
+                shortcuts = shortcuts || [];
+                let shortcutsMap = shortcuts.reduce(
+                  (acc, item) => (acc[item.name] = item.shortcut, acc),
+                  { ...state.shortcuts }
+                ), newState = {
+                  ...state,
+                  shortcuts: shortcutsMap
+                };
+                return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
+                  ...newState.generalRule,
+                  fingerCountToToggleTranslagePageWhenTouching
+                }), newState;
+              }) : fingerCountToToggleTranslagePageWhenTouching !== void 0 && setSettings((state) => {
+                let newState = {
+                  ...state
+                };
+                return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
+                  ...newState.generalRule,
+                  fingerCountToToggleTranslagePageWhenTouching
+                }), newState;
+              }), setIsShowShortcutsModal(!1);
+            } else
+              browserAPI.tabs.create({
+                url: "chrome://extensions/shortcuts"
+              });
           },
           onClose: () => {
             setIsShowShortcutsModal(!1);
@@ -15991,6 +16020,11 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       setSettings((state) => ({
         ...state,
         debug: value
+      }));
+    }, handleToggleBeta = (value) => {
+      setSettings((state) => ({
+        ...state,
+        beta: value
       }));
     }, handleChangeValue = (value) => {
       setSettings(() => ({
@@ -16073,6 +16107,34 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               t5("toggleDebug")
             ]
           })
+        }),
+        /* @__PURE__ */ p5("fieldset", {
+          children: [
+            /* @__PURE__ */ p5("label", {
+              for: "switch",
+              children: [
+                /* @__PURE__ */ p5("input", {
+                  type: "checkbox",
+                  id: "beta",
+                  name: "beta",
+                  role: "switch",
+                  onChange: () => {
+                    handleToggleBeta(!config.beta);
+                  },
+                  checked: !!config.beta
+                }),
+                t5("toggleBeta")
+              ]
+            }),
+            /* @__PURE__ */ p5("small", {
+              class: "text-gray-500",
+              dangerouslySetInnerHTML: {
+                __html: t5("betaDescription", {
+                  1: telegramGroupLink
+                })
+              }
+            })
+          ]
         }),
         /* @__PURE__ */ p5("details", {
           class: "py-2",
@@ -16580,24 +16642,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             })
           ]
         }),
-        !isMonkey() && /* @__PURE__ */ p5("div", {
-          class: "my-3",
-          children: /* @__PURE__ */ p5("label", {
-            htmlFor: "autoSync",
-            children: [
-              /* @__PURE__ */ p5("input", {
-                type: "checkbox",
-                id: "autoSync",
-                role: "switch",
-                onClick: (e3) => {
-                  e3.preventDefault(), toggleAutoSync(e3.target);
-                },
-                checked: settings.autoSync
-              }),
-              t5("autoSync")
-            ]
-          })
-        }),
+        !isMonkey() && !1,
         /* @__PURE__ */ p5("div", {
           children: [
             /* @__PURE__ */ p5("a", {
@@ -16942,7 +16987,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             /* @__PURE__ */ p5("li", {
               children: /* @__PURE__ */ p5("a", {
                 class: "secondary",
-                href: "https://t.me/+rq848Z09nehlOTgx",
+                href: telegramGroupLink,
                 children: t5("joinTelegramGroup")
               })
             }),

@@ -82,8 +82,9 @@
 - [x] aside issue <https://marginalrevolution.com/>
 - [x] rp, rt ignore
 - [ ] custom dictionary
-- [ ] toggle mask and clear
+- [x] toggle mask and clear
 - [ ] google 也有开放的 api key, 增加 google api 翻译
 - [ ] 增加阿里云翻译。
 - [ ] 扩展移动版， 支持修改快捷键
-- [ ] 添加 beta 功能按钮，在开发者设置里开启。
+- [x] 添加 beta 功能按钮，在开发者设置里开启。
+- [ ] all links move to buildin config

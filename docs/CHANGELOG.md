@@ -3,6 +3,8 @@
 ## 0.2.39
 
 - Support shortcuts for show mask translation
+- Support enable beta feature at develper panel
+- Fix shortcuts in mobile extension
 
 ## 0.2.38
 

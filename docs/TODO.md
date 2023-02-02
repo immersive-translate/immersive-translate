@@ -85,6 +85,11 @@
 - [x] toggle mask and clear
 - [ ] google 也有开放的 api key, 增加 google api 翻译
 - [ ] 增加阿里云翻译。
-- [ ] 扩展移动版， 支持修改快捷键
+- [x] 扩展移动版， 支持修改快捷键
 - [x] 添加 beta 功能按钮，在开发者设置里开启。
 - [ ] all links move to buildin config
+- [x] fix beta service
+- [ ] fix alook
+- [x] fix popup settings link
+- [x] xhtml 文档翻译。
+- [ ] 换行识别更智能一点，比如 U.S. 1. 这个需要识别为非段落

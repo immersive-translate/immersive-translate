@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-02T14:29:49.940Z", VERSION: "0.2.39", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-02T19:42:07.847Z", VERSION: "0.2.40", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -6467,7 +6467,7 @@ body {
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
     toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-    betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
+    betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
     translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
@@ -8350,8 +8350,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
         },
         detectParagraphLanguage: !0,
-        wrapperPrefix: "<br>",
-        wrapperSuffix: "<br><br>"
+        wrapperPrefix: "<br />",
+        wrapperSuffix: "<br /><br />"
       },
       {
         matches: "web.telegram.org/z/*",
@@ -9492,7 +9492,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         return !0;
       let isHeader = !1;
       for (let header of headers2) {
-        if (element.nodeName === "H1")
+        if (isMatchTags(element.nodeName, ["H1"]))
           continue;
         let h1Container = header.querySelector("h1");
         if (!(h1Container && isValidTextByCount(
@@ -9562,7 +9562,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             return !0;
           continue;
         }
-        if (!rule.inlineTags.includes(node.nodeName))
+        if (!isMatchTags(node.nodeName, rule.inlineTags))
           return !1;
       }
     }
@@ -9570,10 +9570,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
   function isInlineElement(element, rule) {
     let inlineTags = rule.inlineTags;
-    return element.nodeType === Node.ELEMENT_NODE ? inlineTags.includes(element.nodeName) ? isMarked(
+    return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
       element,
       sourceBlockElementMarkAttributeName
-    ) || element.nodeName === "BR" ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
+    ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
       element,
       sourceInlineElementMarkAttributeName
     ) : !1;
@@ -9585,7 +9585,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return !1;
   }
   function isMetaElement(element, rule) {
-    return !!rule.metaTags.includes(element.nodeName);
+    return !!isMatchTags(element.nodeName, rule.metaTags);
   }
   function isExcludeElement(element, rule, includeStayElements) {
     if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
@@ -9594,7 +9594,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
       element,
       specifiedTargetContainerElementAttributeName
-    ) ? !1 : !!finalExcludeTags.includes(element.nodeName);
+    ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
   }
   function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
     let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
@@ -9656,12 +9656,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
   function isStayOriginalElement(element, rule) {
     let isStayOriginal = !1;
-    return (rule.stayOriginalTags.includes(element.nodeName) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+    return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
   }
   function isUnknowTag(element, rule) {
-    return !rule.allBlockTags.concat(rule.inlineTags).concat(
+    let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
       rule.excludeTags
-    ).includes(element.nodeName);
+    );
+    return !isMatchTags(element.nodeName, allKnowTags);
   }
   function getPlaceholderDelimiters(ctx) {
     let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
@@ -9711,6 +9712,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
   function isInlineIframe(frame) {
     return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+  }
+  function isMatchTags(nodeName, tags) {
+    if (!nodeName || !tags)
+      return !1;
+    Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
+    for (let tag of tags)
+      if (nodeName === tag)
+        return !0;
+    return !1;
   }
 
   // dom/mark_containers.ts
@@ -10161,7 +10171,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           }
         }
         if (isExcludeElement(node2, rule, !0)) {
-          if ((node2.nodeName === "CODE" || node2.nodeName === "TT") && node2.parentNode?.nodeName === "PRE")
+          if (isMatchTags(node2.nodeName, ["CODE", "TT"]) && isMatchTags(node2.parentNode?.nodeName, ["PRE"]))
             return NodeFilter.FILTER_REJECT;
           if (isInlineElement(
             node2,
@@ -10186,7 +10196,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           }
           return NodeFilter.FILTER_REJECT;
         }
-        return node2.nodeName === "PRE" ? (node2.classList.contains("code"), NodeFilter.FILTER_REJECT) : isInlineElement(
+        return isMatchTags(node2.nodeName, ["PRE"]) ? (node2.classList.contains("code"), NodeFilter.FILTER_REJECT) : isInlineElement(
           node2,
           rule
         ) ? (handleInlineElement(
@@ -10317,7 +10327,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         throw new Error("targetContainer is null");
       let inlineElementGroups = [], isFirstElementOfParagraph = !0, lastLineFirstElementInfo = null, pdfContainerFilter = function(node2) {
         let element = node2;
-        if (["DIV", "BR"].includes(element.nodeName))
+        if (isMatchTags(element.nodeName, ["DIV", "BR"]))
           return isFirstElementOfParagraph = !0, NodeFilter.FILTER_REJECT;
         if (element.classList.contains("markedContent"))
           return NodeFilter.FILTER_ACCEPT;
@@ -10463,14 +10473,20 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   function paragraphToHtml(sourceItem, sentence, ctx) {
     let { rule, state } = ctx, { translationTheme } = state, { variables, isVertical } = sourceItem;
     variables = variables || [];
-    let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), matchIndex = 0, html = escapeHTML(targetText);
+    let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), html = escapeHTML(targetText);
     variables.length > 0 && (html = html.replace(regex, (match) => {
-      let matchPositonAtHtml = html.indexOf(match), isStartWhiteSpace = html[matchPositonAtHtml - 1] === " ", isEndWhiteSpace = html[matchPositonAtHtml + match.length] === " ", variable = variables[Number(matchIndex)];
-      if (matchIndex++, variable.type === "element") {
+      let matchPositonAtHtml = html.indexOf(match), isStartWhiteSpace = html[matchPositonAtHtml - 1] === " ", isEndWhiteSpace = html[matchPositonAtHtml + match.length] === " ", matchNumberStr = match.slice(
+        delimiters[0].length,
+        -delimiters[1].length
+      ), matchNumber = Number(matchNumberStr);
+      if (isNaN(matchNumber))
+        return match;
+      let variable = variables[Number(matchNumber)];
+      if (variable && variable.type === "element") {
         let variableHtml = variable.value.outerHTML;
         return isStartWhiteSpace || (variableHtml = " " + variableHtml), isEndWhiteSpace || (variableHtml = variableHtml + " "), variableHtml;
       } else
-        log_default.error("variable type not supported", variable);
+        log_default.error("variable type not supported", variable, match);
       return match;
     }));
     let classList = getTranslationWrapperClassNames(
@@ -10484,7 +10500,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let innerClassList = getTranslationInnerClassNames(
       translationTheme
     ), blockStyleStr = "";
-    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br>${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&nbsp;</span>${html}`), {
+    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
       html,
       position
     };
@@ -10561,7 +10577,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               );
               continue;
             } else {
-              if (node.nodeName === "DIV" || isUnknowTag(node, rule)) {
+              if (isMatchTags(node.nodeName, ["DIV"]) || isUnknowTag(node, rule)) {
                 if ((computedStyle.display === "inline" || computedStyle.display === "inline-flex") && !isMarked(
                   node,
                   sourceBlockElementMarkAttributeName
@@ -10573,7 +10589,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                   );
                   continue;
                 }
-              } else if ((node.nodeName === "SPAN" || node.nodeName === "A") && !computedStyle.display.startsWith("inline")) {
+              } else if (isMatchTags(node.nodeName, ["SPAN", "A"]) && !computedStyle.display.startsWith("inline")) {
                 isMarked(
                   node,
                   sourceInlineElementMarkAttributeName
@@ -10613,7 +10629,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return style.whiteSpace.startsWith("pre") || style.whiteSpace === "break-spaces";
   }
   function formatPreHtml(preElement) {
-    let newHtml = preElement.innerHTML.replace(/\n/g, "<br>");
+    let newHtml = preElement.innerHTML.replace(/\n/g, "<br />");
     preElement.innerHTML = newHtml;
   }
   function addLineBreakToText(textNode, maxLength) {
@@ -10635,16 +10651,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
 
   // dom/normalize_pdf_container.ts
-  function normalizeContainer2(containers, rule) {
+  function normalizeContainer2(containers, _rule) {
     let targetContainers = [];
     for (let container of containers) {
       let maxRight = 0, minLeft = 1e5, rightContainer = document.createElement("div"), treeFilter = (node) => {
         let element = node;
-        if (["DIV", "BR"].includes(element.nodeName))
+        if (isMatchTags(element.nodeName, ["DIV", "BR"]))
           return NodeFilter.FILTER_REJECT;
         if (element.classList.contains("markedContent"))
           return NodeFilter.FILTER_ACCEPT;
-        if (element.nodeName === "SPAN") {
+        if (isMatchTags(element.nodeName, ["SPAN"])) {
           let rect = element.getBoundingClientRect(), style = globalThis.getComputedStyle(element), right = rect.right, left = rect.left, top = style.top.slice(0, -2), fontsize = style.fontSize.slice(0, -2);
           return right > maxRight && (maxRight = right), left < minLeft && (minLeft = left), setAttribute(element, sourceElementLeft, `${left}`), setAttribute(element, sourceElementRight, `${right}`), setAttribute(element, sourceElementTop, top), setAttribute(element, sourceElementFontSize, fontsize), NodeFilter.FILTER_ACCEPT;
         } else
@@ -11106,7 +11122,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     getPageStatus() === "Original" ? await translatePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
   }
   async function toggleTranslationMask() {
-    if (log_default.v("toggleTranslationMask"), getPageStatus() === "Original")
+    if (getPageStatus() === "Original")
       globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationTheme = "mask", await translatePage();
     else if (getPageStatus() === "Translated") {
       let allFrames = [
@@ -11261,12 +11277,14 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         ctx.rule
       ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
       let targetTranslationWrapper = document.createElement("span");
-      if (targetTranslationWrapper.classList.add(
+      targetTranslationWrapper.classList.add(
         "notranslate",
         translationTargetElementWrapperClass
-      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.innerHTML = getLoadingHTML(
+      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`;
+      let loadingHtml = getLoadingHTML(
         ctx.config.loadingTheme
-      ), position === "beforeend") {
+      );
+      if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
         let innerElement = getTheLastTextNodeParentElement(lastElement);
         innerElement ? innerElement.appendChild(targetTranslationWrapper) : lastElement.appendChild(targetTranslationWrapper);
       } else if (position === "afterend")
@@ -11404,7 +11422,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
   }
   function getLoadingHTML(theme) {
-    return `&nbsp;<span class="${brandId}-loading-${theme} notranslate"></span>`;
+    return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
   }
   async function translateContainers(containers, rootFrame, ctx) {
     let { rule } = ctx;
@@ -14180,7 +14198,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       if (key.startsWith("mock"))
         return !!debug;
       let isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
-      return isAlphaFeature && alpha || isBetaFeature && (beta || alpha) || key === ctx.translationService ? !0 : !isAlphaFeature;
+      return isAlphaFeature && alpha || isBetaFeature && (beta || alpha) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature;
     }).map((key) => formatTranslationService(key, ctx));
   };
   async function translateSingleSentence(sentence, ctx) {
@@ -16109,6 +16127,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           })
         }),
         /* @__PURE__ */ p5("fieldset", {
+          class: "mt-2",
           children: [
             /* @__PURE__ */ p5("label", {
               for: "switch",
@@ -16294,7 +16313,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     };
     function listAllFiles() {
       return new GoogleDriveAPI(accessToken).listAll().then((files2) => {
-        log_default.v("listAllFiles", files2), setFiles(files2);
+        setFiles(files2);
       }).catch((_e3) => authExpire());
     }
     function exportConfig(e3) {

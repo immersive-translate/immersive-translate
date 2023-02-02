@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.40
+
+- Fix beta feature show
+- Fix popup setting page on new tab page
+- Fix translation placeholder replace
+
 ## 0.2.39
 
 - Support shortcuts for show mask translation

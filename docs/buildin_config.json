@@ -8,6 +8,7 @@
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
   "loadingTheme": "spinner",
+  "canary": false,
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -1178,6 +1179,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-03T01:32:48.168Z",
+  "buildinConfigUpdatedAt": "2023-02-03T01:48:37.243Z",
   "latestVersion": "0.2.41"
 }

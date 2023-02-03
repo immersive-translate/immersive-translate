@@ -1048,7 +1048,7 @@
         "annas-archive.org"
       ],
       "selectors": [
-        "div[class='truncate text-xl font-bold']",
+        "h3.text-xl.font-bold",
         "div[class='truncate text-sm']"
       ],
       "globalStyles": {
@@ -1178,6 +1178,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-03T00:56:46.305Z",
+  "buildinConfigUpdatedAt": "2023-02-03T01:32:48.168Z",
   "latestVersion": "0.2.41"
 }

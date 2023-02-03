@@ -1,0 +1,40 @@
+<html>
+  <head></head>
+  <body>
+    <div id="message">Loading...</div>
+    <script>
+      function extractAccessToken(redirectUri) {
+        let m = redirectUri.match(/[#?](.*)/);
+        if (!m || m.length < 1) return null;
+        let params = new URLSearchParams(m[1].split("#")[0]);
+        let stateStr = params.get("state");
+        let state = {};
+        try {
+          const decodedState = decodeURIComponent(stateStr);
+          state = JSON.parse(decodedState);
+        } catch (e) {
+          console.error("parse state error", e);
+        }
+        const info = {
+          token: params.get("access_token"),
+          state: state,
+          source:
+            state.source ||
+            "https://immersive-translate.owenyoung.com/options/#import_export",
+        };
+        return info;
+      }
+      (function () {
+        "use strict";
+        localStorage.setItem("immersiveTranslateAuthFlow", "true");
+        const info = extractAccessToken(window.location.href);
+        localStorage.setItem(
+          "immersiveTranslateAuthState",
+          JSON.stringify(info.state)
+        );
+        // everything is ok
+        globalThis.location.href = info.source;
+      })();
+    </script>
+  </body>
+</html>

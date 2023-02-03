@@ -213,7 +213,8 @@
       "RP",
       "META",
       "ASIDE",
-      "FOOTER"
+      "FOOTER",
+      "MATH"
     ],
     "metaTags": [
       "META",
@@ -226,8 +227,7 @@
       "CODE",
       "TT",
       "IMG",
-      "SUP",
-      "MATH"
+      "SUP"
     ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
@@ -1033,7 +1033,10 @@
     },
     {
       "matches": "www.sciencedirect.com",
-      "urlChangeDelay": 2000
+      "urlChangeDelay": 2000,
+      "stayOriginalSelectors": [
+        "span.display"
+      ]
     },
     {
       "matches": "www.thehighestofthemountains.com",
@@ -1179,6 +1182,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-03T01:48:37.243Z",
+  "buildinConfigUpdatedAt": "2023-02-03T02:11:17.939Z",
   "latestVersion": "0.2.41"
 }

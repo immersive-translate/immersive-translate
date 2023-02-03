@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-03T01:49:11.546Z", VERSION: "0.2.41", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-03T02:26:48.461Z", VERSION: "0.2.41", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -7828,7 +7828,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "RP",
         "META",
         "ASIDE",
-        "FOOTER"
+        "FOOTER",
+        "MATH"
       ],
       metaTags: [
         "META",
@@ -7841,8 +7842,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "CODE",
         "TT",
         "IMG",
-        "SUP",
-        "MATH"
+        "SUP"
       ],
       additionalStayOriginalTags: [],
       inlineTags: [
@@ -8652,7 +8652,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       },
       {
         matches: "www.sciencedirect.com",
-        urlChangeDelay: 2e3
+        urlChangeDelay: 2e3,
+        stayOriginalSelectors: [
+          "span.display"
+        ]
       },
       {
         matches: "www.thehighestofthemountains.com",

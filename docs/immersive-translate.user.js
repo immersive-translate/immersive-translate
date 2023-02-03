@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.41
+// @version      0.2.42
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -44,6 +44,7 @@
 // @connect    api.niutrans.com 
 // @connect    immersivetranslate.com
 // @connect    api.immersivetranslate.com
+// @connect    www.googleapis.com
 // @run-at       document-end
 // @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
@@ -60,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-03T02:26:48.461Z", VERSION: "0.2.41", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-03T20:16:38.915Z", VERSION: "0.2.42", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -232,9 +233,6 @@
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }
-.immersive-translate-target-translation-theme-mask-inner:hover {
-  filter: none !important;
-}
 
 [data-immersive-translate-root-translation-theme="none"]
   .immersive-translate-target-translation-theme-mask-inner {
@@ -245,6 +243,15 @@
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="mask"]:hover
+  .immersive-translate-target-inner {
+  filter: none !important;
 }
 
 /* vertical css , please remain it in the last one. */
@@ -4154,8 +4161,12 @@ body {
       httpRequest = GM_xmlhttpRequest;
     else if (typeof GM < "u" && GM.xmlHttpRequest)
       httpRequest = GM.xmlHttpRequest;
-    else
-      throw new Error("GM_xmlhttpRequest or GM.xmlHttpRequest not found");
+    else {
+      console.error(
+        "GM_xmlhttpRequest or GM.xmlHttpRequest not found, do not use it"
+      );
+      return;
+    }
     function normalizeName(name) {
       if (typeof name != "string" && (name = name.toString()), /[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name))
         throw new TypeError("Invalid character in header field name");
@@ -4257,7 +4268,7 @@ body {
           let finalResponse = new Response(body, options3);
           resolve(finalResponse);
         }, xhr_details.onerror = function(err) {
-          reject(new TypeError("Network request failed"));
+          console.error("fetch error", err), reject(new TypeError("Network request failed"));
         }, xhr_details.headers = {}, request3.headers.forEach(function(value, name) {
           xhr_details.headers[name] = value;
         }), theFinalBody && (xhr_details.data = theFinalBody), httpRequest(xhr_details);
@@ -4299,6 +4310,7 @@ body {
     disabled: "\u7981\u7528",
     changelog: "\u66F4\u65B0\u65E5\u5FD7",
     toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5219\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8BBE\u7F6E",
     clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
@@ -4493,7 +4505,8 @@ body {
     "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
     "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u663E\u793A",
-    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
+    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
   };
 
   // locales/zh-TW.json
@@ -5998,6 +6011,34 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }, Object.defineProperty(debounced, "pending", {
       get: () => typeof timeout == "number"
     }), debounced;
+  }
+
+  // https://deno.land/std@0.170.0/async/retry.ts
+  var RetryError = class extends Error {
+    constructor(cause, count2) {
+      super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+    }
+  }, defaultRetryOptions = {
+    multiplier: 2,
+    maxTimeout: 6e4,
+    maxAttempts: 5,
+    minTimeout: 1e3
+  };
+  async function retry(fn, opts) {
+    let options3 = {
+      ...defaultRetryOptions,
+      ...opts
+    };
+    if (options3.maxTimeout >= 0 && options3.minTimeout > options3.maxTimeout)
+      throw new RangeError("minTimeout is greater than maxTimeout");
+    let timeout = options3.minTimeout, error;
+    for (let i3 = 0; i3 < options3.maxAttempts; i3++)
+      try {
+        return await fn();
+      } catch (err) {
+        await new Promise((r2) => setTimeout(r2, timeout)), timeout *= options3.multiplier, timeout = Math.max(timeout, options3.minTimeout), options3.maxTimeout >= 0 && (timeout = Math.min(timeout, options3.maxTimeout)), error = err;
+      }
+    throw new RetryError(error, options3.maxAttempts);
   }
 
   // https://esm.sh/stable/preact@10.11.0/deno/preact.js
@@ -8323,7 +8364,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       pdfNewParagraphLineHeight: 2.4,
       pdfNewParagraphIndent: 1.2,
       pdfNewParagraphIndentRightIndentPx: 130,
-      fingerCountToToggleTranslagePageWhenTouching: 4
+      fingerCountToToggleTranslagePageWhenTouching: 4,
+      fingerCountToToggleTranslationMaskWhenTouching: 0
     },
     rules: [
       {
@@ -8732,7 +8774,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         matches: "https://discord.com/channels/*",
         selectors: [
           "li[id^=chat-messages] div[id^=message-content]",
-          "h3[data-text-variant='heading-lg/semibold']"
+          "h3[data-text-variant='heading-lg/semibold']",
+          "section[aria-label='Search Results'] div[id^=message-content]"
         ],
         excludeSelectors: [
           "div[class^='repliedTextContent']"
@@ -8743,7 +8786,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         },
         detectParagraphLanguage: !0,
         wrapperPrefix: "<br />",
-        wrapperSuffix: "<br /><br />"
+        wrapperSuffix: ""
       },
       {
         matches: "web.telegram.org/z/*",
@@ -9465,6 +9508,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
 
   // browser/request.ts
   async function request(options3) {
+    let response;
+    return options3 && options3.retry && options3.retry > 0 ? response = await retry(rawRequest.bind(null, options3), {
+      multiplier: 2,
+      maxAttempts: options3.retry
+    }) : response = await rawRequest(options3), response;
+  }
+  async function rawRequest(options3) {
     options3.body;
     let { url, responseType, ...fetchOptions } = options3;
     responseType || (responseType = "json"), fetchOptions = {
@@ -9496,7 +9546,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       } catch (_e3) {
         log_default.error("parse response failed", _e3);
       }
-      throw new CommonError(
+      throw details && log_default.error("fail response", details), new CommonError(
         "fetchError",
         response.status + ": " + response.statusText || "",
         details
@@ -11451,6 +11501,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         StringToSign,
         SecretSigning
       ), response = await request2({
+        retry: 2,
         url: `https://${service}.tencentcloudapi.com`,
         method: "POST",
         headers: {
@@ -11615,6 +11666,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         q: text
       }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
       return { data: await request2({
+        retry: 2,
         url
       }) };
     }
@@ -11784,6 +11836,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     );
     return await request2(
       {
+        retry: 2,
         method: "POST",
         url: API_URL2 + "?method=LMT_split_text",
         headers,
@@ -11810,6 +11863,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return delete newJob._index, newJob;
     });
     let response = await request2({
+      retry: 2,
       method: "POST",
       url: API_URL2 + "?method=LMT_handle_jobs",
       body: stringifyJson(data),
@@ -11941,7 +11995,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       ), data = await request2({
         url: API,
         body: requestPayload,
-        method: "POST"
+        method: "POST",
+        retry: 2
       });
       if (data.header.ret_code !== "succ")
         throw new Error(data.message || data.header.ret_code);
@@ -12161,6 +12216,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, response = await request2(
         {
+          retry: 2,
           url: `https://api.openl.club/services/${this.codename}/translate`,
           headers: {
             "content-type": "application/json"
@@ -12234,6 +12290,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       this.authKey.includes(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
       let response = await request2(
         {
+          retry: 2,
           url: deeplEndpoint,
           method: "POST",
           body,
@@ -12282,6 +12339,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, src_text = text, options3 = {
         url: "https://api.niutrans.com/NiuTransServer/translation",
+        retry: 2,
         headers: {
           "content-type": "application/json"
         },
@@ -12626,6 +12684,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -12672,6 +12731,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -12878,6 +12938,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, result = await request2(
         {
+          retry: 2,
           url: this.url,
           headers: {
             "content-type": "application/json"
@@ -12997,6 +13058,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let subdomain, IG, IID, token, key, tokenExpiryInterval, isVertical, frontDoorBotClassification, isSignedInOrCorporateUser, cookie;
     try {
       let finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain), response = await request2({
+        retry: 2,
         url: finalUrl,
         responseType: "raw"
       }), { body, headers: headers2, url } = response;
@@ -13063,6 +13125,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
       "content-type": "application/x-www-form-urlencoded"
     }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
+      retry: 2,
       url: finalUrl,
       headers: requestHeaders,
       method: "POST",
@@ -13224,6 +13287,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return {
         text: (await request2(
           {
+            retry: 2,
             url: "https://api.interpreter.caiyunai.com/v1/translator",
             headers: {
               "content-type": "application/json",
@@ -14413,6 +14477,14 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         let event = new CustomEvent(userscriptCommandEventName, {
           detail: {
             method: "toggleTranslatePage"
+          }
+        });
+        globalThis.document.dispatchEvent(event);
+      } else if (e3.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching) {
+        toggleTranslationMask();
+        let event = new CustomEvent(userscriptCommandEventName, {
+          detail: {
+            method: "toggleTranslationMask"
           }
         });
         globalThis.document.dispatchEvent(event);
@@ -15838,12 +15910,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return position === "left" ? (styleObj.left = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "right" ? (styleObj.right = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "top" ? (styleObj.top = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left) : position === "bottom" && (styleObj.bottom = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left), styleObj;
   }
 
-  // sync/authorize.ts
-  function extractAccessToken(redirectUri) {
-    let m6 = redirectUri.match(/[#?](.*)/);
-    return !m6 || m6.length < 1 ? "" : new URLSearchParams(m6[1].split("#")[0]).get("access_token");
-  }
-
   // page_popup.tsx
   var isInit = !1;
   async function main() {
@@ -15851,7 +15917,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       url: globalThis.location.href,
       config
     }, ctx = await getContext(options3);
-    handleAuthDone(globalThis.location.href), config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
+    config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
       (_e3) => {
         isInit || (isInit = !0, initPopup().catch((e3) => {
@@ -15861,14 +15927,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
       log_default.error("init popup error", e3);
     })));
-  }
-  function handleAuthDone(urlStr) {
-    if (new URL(urlStr).pathname.startsWith("/auth-done"))
-      try {
-        let token = extractAccessToken(urlStr);
-        token && browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token });
-      } catch {
-      }
   }
 
   // userscript/inject_css.ts
@@ -15883,7 +15941,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.41",
+    version: "0.2.42",
     default_locale: "en",
     background: {
       service_worker: "background.js"

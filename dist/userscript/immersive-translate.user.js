@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.41
+// @version      0.2.42
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -44,6 +44,7 @@
 // @connect    api.niutrans.com 
 // @connect    immersivetranslate.com
 // @connect    api.immersivetranslate.com
+// @connect    www.googleapis.com
 // @run-at       document-end
 // @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
@@ -60,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-02T20:06:21.150Z", VERSION: "0.2.41", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-03T20:16:38.915Z", VERSION: "0.2.42", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -232,9 +233,6 @@
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }
-.immersive-translate-target-translation-theme-mask-inner:hover {
-  filter: none !important;
-}
 
 [data-immersive-translate-root-translation-theme="none"]
   .immersive-translate-target-translation-theme-mask-inner {
@@ -245,6 +243,15 @@
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="mask"]:hover
+  .immersive-translate-target-inner {
+  filter: none !important;
 }
 
 /* vertical css , please remain it in the last one. */
@@ -4154,8 +4161,12 @@ body {
       httpRequest = GM_xmlhttpRequest;
     else if (typeof GM < "u" && GM.xmlHttpRequest)
       httpRequest = GM.xmlHttpRequest;
-    else
-      throw new Error("GM_xmlhttpRequest or GM.xmlHttpRequest not found");
+    else {
+      console.error(
+        "GM_xmlhttpRequest or GM.xmlHttpRequest not found, do not use it"
+      );
+      return;
+    }
     function normalizeName(name) {
       if (typeof name != "string" && (name = name.toString()), /[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name))
         throw new TypeError("Invalid character in header field name");
@@ -4257,7 +4268,7 @@ body {
           let finalResponse = new Response(body, options3);
           resolve(finalResponse);
         }, xhr_details.onerror = function(err) {
-          reject(new TypeError("Network request failed"));
+          console.error("fetch error", err), reject(new TypeError("Network request failed"));
         }, xhr_details.headers = {}, request3.headers.forEach(function(value, name) {
           xhr_details.headers[name] = value;
         }), theFinalBody && (xhr_details.data = theFinalBody), httpRequest(xhr_details);
@@ -4299,6 +4310,7 @@ body {
     disabled: "\u7981\u7528",
     changelog: "\u66F4\u65B0\u65E5\u5FD7",
     toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5219\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8BBE\u7F6E",
     clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
@@ -4422,7 +4434,7 @@ body {
     "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8BD1",
     "translationServices.aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
     "translationServices.volc": "\u706B\u5C71\u7FFB\u8BD1",
-    "translationServices.deeplx": "DeeplX(Alpha)",
+    "translationServices.deeplx": "DeeplX(Beta)",
     "translationServices.bing": "\u5FC5\u5E94\u7FFB\u8BD1",
     "translationServices.deepl": "Deepl",
     "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
@@ -4432,12 +4444,13 @@ body {
     "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
     "translationServices.mock2": "\u6A21\u62DF\u7FFB\u8BD12",
     "translationServices.caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
-    "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8BD1(Alpha)",
+    "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
     "translationServices.transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
     "translationServices.niu": "\u5C0F\u725B\u7FFB\u8BD1",
-    "translationServices.d": "Deepl(Alpha)",
+    "translationServices.d": "D (Alpha)",
+    "translationServices.dpro": "D Pro (Canary)",
     "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
     "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
@@ -4492,7 +4505,8 @@ body {
     "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
     "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u663E\u793A",
-    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
+    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
   };
 
   // locales/zh-TW.json
@@ -5997,6 +6011,34 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }, Object.defineProperty(debounced, "pending", {
       get: () => typeof timeout == "number"
     }), debounced;
+  }
+
+  // https://deno.land/std@0.170.0/async/retry.ts
+  var RetryError = class extends Error {
+    constructor(cause, count2) {
+      super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+    }
+  }, defaultRetryOptions = {
+    multiplier: 2,
+    maxTimeout: 6e4,
+    maxAttempts: 5,
+    minTimeout: 1e3
+  };
+  async function retry(fn, opts) {
+    let options3 = {
+      ...defaultRetryOptions,
+      ...opts
+    };
+    if (options3.maxTimeout >= 0 && options3.minTimeout > options3.maxTimeout)
+      throw new RangeError("minTimeout is greater than maxTimeout");
+    let timeout = options3.minTimeout, error;
+    for (let i3 = 0; i3 < options3.maxAttempts; i3++)
+      try {
+        return await fn();
+      } catch (err) {
+        await new Promise((r2) => setTimeout(r2, timeout)), timeout *= options3.multiplier, timeout = Math.max(timeout, options3.minTimeout), options3.maxTimeout >= 0 && (timeout = Math.min(timeout, options3.maxTimeout)), error = err;
+      }
+    throw new RetryError(error, options3.maxAttempts);
   }
 
   // https://esm.sh/stable/preact@10.11.0/deno/preact.js
@@ -8005,6 +8047,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
     loadingTheme: "spinner",
+    canary: !1,
     translationServices: {
       volcAlpha: {
         placeholderDelimiters: [
@@ -8209,7 +8252,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "RP",
         "META",
         "ASIDE",
-        "FOOTER"
+        "FOOTER",
+        "MATH"
       ],
       metaTags: [
         "META",
@@ -8320,7 +8364,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       pdfNewParagraphLineHeight: 2.4,
       pdfNewParagraphIndent: 1.2,
       pdfNewParagraphIndentRightIndentPx: 130,
-      fingerCountToToggleTranslagePageWhenTouching: 4
+      fingerCountToToggleTranslagePageWhenTouching: 4,
+      fingerCountToToggleTranslationMaskWhenTouching: 0
     },
     rules: [
       {
@@ -8729,7 +8774,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         matches: "https://discord.com/channels/*",
         selectors: [
           "li[id^=chat-messages] div[id^=message-content]",
-          "h3[data-text-variant='heading-lg/semibold']"
+          "h3[data-text-variant='heading-lg/semibold']",
+          "section[aria-label='Search Results'] div[id^=message-content]"
         ],
         excludeSelectors: [
           "div[class^='repliedTextContent']"
@@ -8740,7 +8786,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         },
         detectParagraphLanguage: !0,
         wrapperPrefix: "<br />",
-        wrapperSuffix: "<br /><br />"
+        wrapperSuffix: ""
       },
       {
         matches: "web.telegram.org/z/*",
@@ -9032,7 +9078,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       },
       {
         matches: "www.sciencedirect.com",
-        urlChangeDelay: 2e3
+        urlChangeDelay: 2e3,
+        stayOriginalSelectors: [
+          "span.display"
+        ]
       },
       {
         matches: "www.thehighestofthemountains.com",
@@ -9048,7 +9097,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "annas-archive.org"
         ],
         selectors: [
-          "div[class='truncate text-xl font-bold']",
+          "h3.text-xl.font-bold",
           "div[class='truncate text-sm']"
         ],
         globalStyles: {
@@ -9459,6 +9508,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
 
   // browser/request.ts
   async function request(options3) {
+    let response;
+    return options3 && options3.retry && options3.retry > 0 ? response = await retry(rawRequest.bind(null, options3), {
+      multiplier: 2,
+      maxAttempts: options3.retry
+    }) : response = await rawRequest(options3), response;
+  }
+  async function rawRequest(options3) {
     options3.body;
     let { url, responseType, ...fetchOptions } = options3;
     responseType || (responseType = "json"), fetchOptions = {
@@ -9490,7 +9546,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       } catch (_e3) {
         log_default.error("parse response failed", _e3);
       }
-      throw new CommonError(
+      throw details && log_default.error("fail response", details), new CommonError(
         "fetchError",
         response.status + ": " + response.statusText || "",
         details
@@ -11445,6 +11501,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         StringToSign,
         SecretSigning
       ), response = await request2({
+        retry: 2,
         url: `https://${service}.tencentcloudapi.com`,
         method: "POST",
         headers: {
@@ -11609,6 +11666,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         q: text
       }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
       return { data: await request2({
+        retry: 2,
         url
       }) };
     }
@@ -11757,7 +11815,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var headers = {
     Accept: "*/*",
     "Accept-Language": "en-US;q=0.8,en;q=0.7",
-    Authority: "www2.deepl.com",
     "Content-Type": "application/json",
     Origin: "https://www.deepl.com",
     Referer: "https://www.deepl.com/translator",
@@ -11771,7 +11828,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return (self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
     });
   }
-  async function splitSentences2(text, sourceLanguage, identifier) {
+  async function splitSentences2(API_URL2, text, sourceLanguage, identifier) {
     let data = generateSplitSentencesRequestData(
       text,
       sourceLanguage,
@@ -11779,15 +11836,17 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     );
     return await request2(
       {
+        retry: 2,
         method: "POST",
-        url: API_URL + "?method=LMT_split_text",
+        url: API_URL2 + "?method=LMT_split_text",
         headers,
         body: stringifyJson(data)
       }
     );
   }
-  async function requestTranslation(text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
+  async function requestTranslation(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
     let splitResult = await splitSentences2(
+      API_URL2,
       text,
       sourceLanguage,
       identifier
@@ -11804,8 +11863,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return delete newJob._index, newJob;
     });
     let response = await request2({
+      retry: 2,
       method: "POST",
-      url: API_URL + "?method=LMT_handle_jobs",
+      url: API_URL2 + "?method=LMT_handle_jobs",
       body: stringifyJson(data),
       headers
     }), finalResult = {
@@ -11820,12 +11880,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       finalResult.text[jobIndex] = finalResult.text[jobIndex] + originalSentencePrefix + translation.beams[0].sentences[0].text;
     }), finalResult;
   }
-  async function translate(text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
+  async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
     return text ? text && text.length === 1 && text[0] === "" ? {
       text: [""],
       from: sourceLanguage,
       to: targetLanguage
     } : requestTranslation(
+      API_URL2,
       text,
       abbreviateLanguage(targetLanguage),
       abbreviateLanguage(sourceLanguage) ?? "auto",
@@ -11859,9 +11920,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       this.maxTextGroupLength = 3;
       this.maxTextLength = 800;
       this.isSupportList = !0;
+      this.API_URL = API_URL;
+      serviceConfig && serviceConfig.API_URL && (this.API_URL = serviceConfig.API_URL);
     }
     async translateList(payload) {
       let { text, to, from } = payload, result = await translate(
+        this.API_URL,
         text,
         _D.langMap.get(to),
         _D.langMap.get(from)
@@ -11877,43 +11941,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
-  // services/bai.ts
-  var RAW_LANGUAGES = [
-    ["auto", "auto"],
-    ["zh-CN", "zh"],
-    ["en", "en"],
-    ["yue", "yue"],
-    ["wyw", "wyw"],
-    ["ja", "jp"],
-    ["ko", "kor"],
-    ["fr", "fra"],
-    ["es", "spa"],
-    ["th", "th"],
-    ["ar", "ara"],
-    ["ru", "ru"],
-    ["pt", "pt"],
-    ["de", "de"],
-    ["it", "it"],
-    ["el", "el"],
-    ["nl", "nl"],
-    ["pl", "pl"],
-    ["bg", "bul"],
-    ["et", "est"],
-    ["da", "dan"],
-    ["fi", "fin"],
-    ["cs", "cs"],
-    ["ro", "rom"],
-    ["sl", "slo"],
-    ["sv", "swe"],
-    ["hu", "hu"],
-    ["zh-TW", "cht"],
-    ["vi", "vie"]
-  ], langMap6 = new Map(RAW_LANGUAGES), langMapReverse = new Map(
-    RAW_LANGUAGES.map(([translatorLang, lang]) => [lang, translatorLang])
-  );
-
   // services/transmart.ts
-  var langMap7 = [
+  var langMap6 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["zh-TW", "zh-TW"],
@@ -11966,7 +11995,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       ), data = await request2({
         url: API,
         body: requestPayload,
-        method: "POST"
+        method: "POST",
+        retry: 2
       });
       if (data.header.ret_code !== "succ")
         throw new Error(data.message || data.header.ret_code);
@@ -12047,8 +12077,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return language || remoteLanguage;
     }
   }, Transmart = _Transmart;
-  Transmart.langMap = new Map(langMap7), Transmart.langMapReverse = new Map(
-    langMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+  Transmart.langMap = new Map(langMap6), Transmart.langMapReverse = new Map(
+    langMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // utils/random.ts
@@ -12105,7 +12135,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["pl", "pl"],
     ["pt", "pt"],
     ["ru", "ru"]
-  ], langMap8 = new Map(rawLangMap), langMapReverse2 = new Map(
+  ], langMap7 = new Map(rawLangMap), langMapReverse = new Map(
     rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
   ), _Openl = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -12186,6 +12216,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, response = await request2(
         {
+          retry: 2,
           url: `https://api.openl.club/services/${this.codename}/translate`,
           headers: {
             "content-type": "application/json"
@@ -12194,8 +12225,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           body: JSON.stringify({
             apikey: this.apikey,
             text,
-            source_lang: langMap8.get(from) || "auto",
-            target_lang: langMap8.get(to)
+            source_lang: langMap7.get(from) || "auto",
+            target_lang: langMap7.get(to)
           })
         }
       );
@@ -12203,8 +12234,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         let result = response;
         return {
           text: result.result,
-          from: langMapReverse2.get(result.source_lang),
-          to: langMapReverse2.get(result.target_lang)
+          from: langMapReverse.get(result.source_lang),
+          to: langMapReverse.get(result.target_lang)
         };
       } else
         throw new Error(response.msg);
@@ -12228,7 +12259,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["pl", "PL"],
     ["pt", "PT"],
     ["ru", "RU"]
-  ], langMap9 = new Map(rawLangMap2), langMapReverse3 = new Map(
+  ], langMap8 = new Map(rawLangMap2), langMapReverse2 = new Map(
     rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Deepl = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -12249,8 +12280,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translateList(payload) {
       let { from, to, text } = payload, bodyParams = {
-        source_lang: langMap9.get(from),
-        target_lang: langMap9.get(to)
+        source_lang: langMap8.get(from),
+        target_lang: langMap8.get(to)
       }, bodySearchParams = new URLSearchParams(bodyParams);
       text.forEach((item) => {
         bodySearchParams.append("text", item);
@@ -12259,6 +12290,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       this.authKey.includes(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
       let response = await request2(
         {
+          retry: 2,
           url: deeplEndpoint,
           method: "POST",
           body,
@@ -12270,7 +12302,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       ), { translations: translations2 } = response;
       return {
         text: translations2.map((t5) => t5.text),
-        from: translations2[0] && langMapReverse3.get(translations2[0].detected_source_language) || from,
+        from: translations2[0] && langMapReverse2.get(translations2[0].detected_source_language) || from,
         to
       };
     }
@@ -12288,7 +12320,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["de", "de"],
     ["ko", "ko"],
     ["fr", "fr"]
-  ], langMap10 = new Map(rawLangMap3), Niu = class extends Translation {
+  ], langMap9 = new Map(rawLangMap3), Niu = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
       this.APIKEY = "";
@@ -12307,14 +12339,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, src_text = text, options3 = {
         url: "https://api.niutrans.com/NiuTransServer/translation",
+        retry: 2,
         headers: {
           "content-type": "application/json"
         },
         method: "POST",
         body: JSON.stringify({
           src_text,
-          from: langMap10.get(from) || from,
-          to: langMap10.get(to) || to,
+          from: langMap9.get(from) || from,
+          to: langMap9.get(to) || to,
           apikey: this.APIKEY
         })
       }, response = await request2(
@@ -12605,7 +12638,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap11 = new Map(rawLangMap4), langMapReverse4 = new Map(
+  ], langMap10 = new Map(rawLangMap4), langMapReverse3 = new Map(
     rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Volc = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -12651,6 +12684,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -12669,8 +12703,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         throw new Error("response: " + JSON.stringify(response));
     }
     async translateList(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap11.get(from), bodyParams = {
-        TargetLanguage: langMap11.get(to) || to,
+      let { text, from, to } = payload, remoteFrom = langMap10.get(from), bodyParams = {
+        TargetLanguage: langMap10.get(to) || to,
         TextList: text
       };
       remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
@@ -12697,6 +12731,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -12705,7 +12740,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       );
       if (response.TranslationList) {
         let resultText = response.TranslationList.map((item) => item.Translation), remoteFrom2 = from;
-        return response.TranslationList.length > 0 && response.TranslationList[0].DetectedSourceLanguage && (remoteFrom2 = langMapReverse4.get(
+        return response.TranslationList.length > 0 && response.TranslationList[0].DetectedSourceLanguage && (remoteFrom2 = langMapReverse3.get(
           response.TranslationList[0].DetectedSourceLanguage
         ) || from), {
           text: resultText,
@@ -12830,7 +12865,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap12 = new Map(rawLangMap5), langMapReverse5 = new Map(
+  ], langMap11 = new Map(rawLangMap5), langMapReverse4 = new Map(
     rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   ), VolcAlpha = class extends Translation {
     constructor() {
@@ -12840,7 +12875,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translate(payload) {
       let { text, from, to } = payload, bodyParams = {
-        source_language: langMap12.get(from) || "detect",
+        source_language: langMap11.get(from) || "detect",
         target_language: "zh",
         text
       }, response = await request2(
@@ -12855,7 +12890,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       );
       if (response.base_resp && response.base_resp.status_code === 0) {
         let resultText = response.translation, remoteFrom2 = from;
-        return response.detected_language && (remoteFrom2 = langMapReverse5.get(response.detected_language) || from), {
+        return response.detected_language && (remoteFrom2 = langMapReverse4.get(response.detected_language) || from), {
           text: resultText,
           from: remoteFrom2,
           to
@@ -12881,7 +12916,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["pt", "PT"],
     ["ru", "RU"],
     ["tr", "tr"]
-  ], langMap13 = new Map(rawLangMap6), Deeplx = class extends Translation {
+  ], langMap12 = new Map(rawLangMap6), Deeplx = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
       this.url = "";
@@ -12903,14 +12938,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, result = await request2(
         {
+          retry: 2,
           url: this.url,
           headers: {
             "content-type": "application/json"
           },
           method: "POST",
           body: JSON.stringify({
-            source_lang: langMap13.get(from) || from,
-            target_lang: langMap13.get(to) || to,
+            source_lang: langMap12.get(from) || from,
+            target_lang: langMap12.get(to) || to,
             text
           })
         }
@@ -13002,7 +13038,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["vi", "vi"],
     ["ku", "ku"],
     ["km", "kmr"]
-  ], langMap14 = new Map(rawLangMap7), langMapReverse6 = new Map(
+  ], langMap13 = new Map(rawLangMap7), langMapReverse5 = new Map(
     rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
   ), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
   function replaceSubdomain(url, subdomain) {
@@ -13022,6 +13058,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let subdomain, IG, IID, token, key, tokenExpiryInterval, isVertical, frontDoorBotClassification, isSignedInOrCorporateUser, cookie;
     try {
       let finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain), response = await request2({
+        retry: 2,
         url: finalUrl,
         responseType: "raw"
       }), { body, headers: headers2, url } = response;
@@ -13078,7 +13115,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       throw new Error(
         `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
       );
-    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap14.get(from) || from, to = langMap14.get(to) || to;
+    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap13.get(from) || from, to = langMap13.get(to) || to;
     let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
       !1,
       text,
@@ -13088,6 +13125,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
       "content-type": "application/x-www-form-urlencoded"
     }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
+      retry: 2,
       url: finalUrl,
       headers: requestHeaders,
       method: "POST",
@@ -13113,8 +13151,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let translation = body[0].translations[0], detectedLang = body[0].detectedLanguage;
     return {
       text: translation.text,
-      from: langMapReverse6.get(detectedLang.language),
-      to: langMapReverse6.get(translation.to)
+      from: langMapReverse5.get(detectedLang.language),
+      to: langMapReverse5.get(translation.to)
     };
   }
 
@@ -13162,7 +13200,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["hu", "hu"],
     ["zh-TW", "cht"],
     ["vi", "vie"]
-  ], langMap15 = new Map(rawLangMap8), langMapReverse7 = new Map(
+  ], langMap14 = new Map(rawLangMap8), langMapReverse6 = new Map(
     rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig) {
@@ -13188,8 +13226,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-        from: langMap15.get(from),
-        to: langMap15.get(to),
+        from: langMap14.get(from),
+        to: langMap14.get(to),
         q: text,
         salt,
         appid,
@@ -13213,7 +13251,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         from: langDetected
       } = data, transParagraphs = transResult.map(({ dst }) => dst);
       return {
-        from: langMapReverse7.get(langDetected),
+        from: langMapReverse6.get(langDetected),
         to,
         text: transParagraphs.join(`
 `)
@@ -13227,7 +13265,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
-  ], langMap16 = new Map(rawLangMap9), Caiyun = class extends Translation {
+  ], langMap15 = new Map(rawLangMap9), Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig) {
       super(serviceConfig, generalConfig);
       this.token = "";
@@ -13249,6 +13287,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return {
         text: (await request2(
           {
+            retry: 2,
             url: "https://api.interpreter.caiyunai.com/v1/translator",
             headers: {
               "content-type": "application/json",
@@ -13257,7 +13296,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             method: "POST",
             body: JSON.stringify({
               source,
-              trans_type: `${langMap16.get(from)}2${langMap16.get(to)}`
+              trans_type: `${langMap15.get(from)}2${langMap15.get(to)}`
             })
           }
         )).target,
@@ -13282,7 +13321,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap17 = new Map(rawLangMap10), langMapReverse8 = new Map(
+  ], langMap16 = new Map(rawLangMap10), langMapReverse7 = new Map(
     rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q6) {
@@ -13315,8 +13354,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap17.get(from),
-        to: langMap17.get(to),
+        from: langMap16.get(from),
+        to: langMap16.get(to),
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -13333,14 +13372,14 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return {
         text: result.translation.join(`
 `),
-        from: langMapReverse8.get(remoteFrom),
+        from: langMapReverse7.get(remoteFrom),
         to
       };
     }
   }, youdao_default = Youdao;
 
   // services/mod.ts
-  var TranslationServices = {
+  var DPRO_URL = "https://api.deepl.com/jsonrpc", TranslationServices = {
     mock: {
       class: Mock,
       name: "Mock",
@@ -13416,13 +13455,19 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     },
     d: {
       class: D8,
-      name: "Deepl(Alpha) ",
+      name: "D (Alpha) ",
       alpha: !0,
+      homepage: "https://www.deepl.com/translator"
+    },
+    dpro: {
+      class: D8,
+      name: "DPro (Canary) ",
+      canary: !0,
       homepage: "https://www.deepl.com/translator"
     },
     deeplx: {
       class: Deeplx,
-      name: "DeepLX(Alpha)",
+      name: "DeepLX (Beta)",
       beta: !0,
       homepage: "https://www.deepl.com/translator"
     },
@@ -13458,13 +13503,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var allServiceKeys = Object.keys(
     TranslationServices
   ), getTranslationServices = (ctx) => {
-    let { config } = ctx, alpha = config.alpha, beta = config.beta, debug = config.debug;
+    let { config } = ctx, alpha = config.alpha, beta = config.beta, canary = config.canary, debug = config.debug;
     return allServiceKeys.filter((key) => {
       let service = TranslationServices[key];
       if (key.startsWith("mock"))
         return !!debug;
-      let isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
-      return isAlphaFeature && alpha || isBetaFeature && (beta || alpha) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature;
+      let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
+      return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
     }).map((key) => formatTranslationService(key, ctx));
   };
   async function translateSingleSentence(sentence, ctx) {
@@ -13488,7 +13533,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
+    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+    defaultTranslationEngine === "dpro" && (serviceConfig.API_URL = DPRO_URL);
+    let noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
     if (config.cache)
@@ -14430,6 +14477,14 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         let event = new CustomEvent(userscriptCommandEventName, {
           detail: {
             method: "toggleTranslatePage"
+          }
+        });
+        globalThis.document.dispatchEvent(event);
+      } else if (e3.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching) {
+        toggleTranslationMask();
+        let event = new CustomEvent(userscriptCommandEventName, {
+          detail: {
+            method: "toggleTranslationMask"
           }
         });
         globalThis.document.dispatchEvent(event);
@@ -15855,12 +15910,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     return position === "left" ? (styleObj.left = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "right" ? (styleObj.right = 0, rest.top > screenSize.height ? styleObj.top = screenSize.height - 100 : styleObj.top = rest.top) : position === "top" ? (styleObj.top = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left) : position === "bottom" && (styleObj.bottom = 0, rest.left > screenSize.width ? styleObj.left = screenSize.width - 100 : styleObj.left = rest.left), styleObj;
   }
 
-  // sync/authorize.ts
-  function extractAccessToken(redirectUri) {
-    let m6 = redirectUri.match(/[#?](.*)/);
-    return !m6 || m6.length < 1 ? "" : new URLSearchParams(m6[1].split("#")[0]).get("access_token");
-  }
-
   // page_popup.tsx
   var isInit = !1;
   async function main() {
@@ -15868,7 +15917,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       url: globalThis.location.href,
       config
     }, ctx = await getContext(options3);
-    handleAuthDone(globalThis.location.href), config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
+    config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
       (_e3) => {
         isInit || (isInit = !0, initPopup().catch((e3) => {
@@ -15878,14 +15927,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
       log_default.error("init popup error", e3);
     })));
-  }
-  function handleAuthDone(urlStr) {
-    if (new URL(urlStr).pathname.startsWith("/auth-done"))
-      try {
-        let token = extractAccessToken(urlStr);
-        token && browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token });
-      } catch {
-      }
   }
 
   // userscript/inject_css.ts
@@ -15900,7 +15941,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.41",
+    version: "0.2.42",
     default_locale: "en",
     background: {
       service_worker: "background.js"

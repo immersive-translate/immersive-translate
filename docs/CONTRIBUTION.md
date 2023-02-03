@@ -186,6 +186,38 @@ _log.v("test"); // debug level
 _log.l("test2"); // info level
 ```
 
+## 移动端调试谷歌 drive 授权
+
+移动端无法访问 localhost, googke 不允许设置 ip 为跳转域名。
+
+可以在电脑上使用 Whistle 代理软件(或者其他类似软件):
+
+<https://wproxy.org/whistle/install.html>
+
+```bash
+w2 start --socksPort 8889
+```
+
+手机配置 socks5 代理到 `192.168.x.x:8889`
+
+配置[https 证书](https://wproxy.org/whistle/webui/https.html)
+
+加入规则：
+
+```bash
+immersive-translate.owenyoung.com 127.0.0.1:8000
+```
+
+启动 userscript 开发：
+
+```bash
+make https-userscript
+```
+
+## 注意！！
+
+添加新域名必须要在油猴加 connect 才行
+
 ## 有用的链接
 
 - [preact typescript](https://preactjs.com/guide/v10/typescript)

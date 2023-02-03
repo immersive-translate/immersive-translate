@@ -1,8 +1,17 @@
 # Change Log
 
+## 0.2.42
+
+- Fix mask hover when toggle mask again.
+- Add mask shortcuts for mobile
+- Fix userscript cloud sync issue
+- Move advanced option page to left menu.
+- Add retry logic to translation service
+
 ## 0.2.41
 
 - Fix userscript niu translation
+- Fix xhtml translate
 
 ## 0.2.40
 

@@ -30,7 +30,7 @@
         const info = extractAccessToken(window.location.href);
         localStorage.setItem(
           "immersiveTranslateAuthState",
-          JSON.stringify(info.state)
+          JSON.stringify(info)
         );
         // everything is ok
         globalThis.location.href = info.source;

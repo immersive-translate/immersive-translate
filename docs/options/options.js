@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-03T02:26:48.461Z", VERSION: "0.2.41", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-03T20:16:38.915Z", VERSION: "0.2.42", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -178,9 +178,6 @@
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }
-.immersive-translate-target-translation-theme-mask-inner:hover {
-  filter: none !important;
-}
 
 [data-immersive-translate-root-translation-theme="none"]
   .immersive-translate-target-translation-theme-mask-inner {
@@ -191,6 +188,15 @@
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="mask"]:hover
+  .immersive-translate-target-inner {
+  filter: none !important;
 }
 
 /* vertical css , please remain it in the last one. */
@@ -4201,6 +4207,34 @@ body {
     }), debounced;
   }
 
+  // https://deno.land/std@0.170.0/async/retry.ts
+  var RetryError = class extends Error {
+    constructor(cause, count2) {
+      super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+    }
+  }, defaultRetryOptions = {
+    multiplier: 2,
+    maxTimeout: 6e4,
+    maxAttempts: 5,
+    minTimeout: 1e3
+  };
+  async function retry(fn, opts) {
+    let options = {
+      ...defaultRetryOptions,
+      ...opts
+    };
+    if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
+      throw new RangeError("minTimeout is greater than maxTimeout");
+    let timeout = options.minTimeout, error2;
+    for (let i2 = 0; i2 < options.maxAttempts; i2++)
+      try {
+        return await fn();
+      } catch (err) {
+        await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error2 = err;
+      }
+    throw new RetryError(error2, options.maxAttempts);
+  }
+
   // https://esm.sh/stable/preact@10.11.0/deno/preact.js
   var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
   function k(e3, t5) {
@@ -6475,6 +6509,7 @@ body {
     disabled: "\u7981\u7528",
     changelog: "\u66F4\u65B0\u65E5\u5FD7",
     toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5219\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8BBE\u7F6E",
     clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
@@ -6669,7 +6704,8 @@ body {
     "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
     "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u663E\u793A",
-    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
+    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
   };
 
   // locales/zh-TW.json
@@ -7940,7 +7976,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       pdfNewParagraphLineHeight: 2.4,
       pdfNewParagraphIndent: 1.2,
       pdfNewParagraphIndentRightIndentPx: 130,
-      fingerCountToToggleTranslagePageWhenTouching: 4
+      fingerCountToToggleTranslagePageWhenTouching: 4,
+      fingerCountToToggleTranslationMaskWhenTouching: 0
     },
     rules: [
       {
@@ -8349,7 +8386,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         matches: "https://discord.com/channels/*",
         selectors: [
           "li[id^=chat-messages] div[id^=message-content]",
-          "h3[data-text-variant='heading-lg/semibold']"
+          "h3[data-text-variant='heading-lg/semibold']",
+          "section[aria-label='Search Results'] div[id^=message-content]"
         ],
         excludeSelectors: [
           "div[class^='repliedTextContent']"
@@ -8360,7 +8398,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         },
         detectParagraphLanguage: !0,
         wrapperPrefix: "<br />",
-        wrapperSuffix: "<br /><br />"
+        wrapperSuffix: ""
       },
       {
         matches: "web.telegram.org/z/*",
@@ -9195,6 +9233,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
 
   // browser/request.ts
   async function request(options) {
+    let response;
+    return options && options.retry && options.retry > 0 ? response = await retry(rawRequest.bind(null, options), {
+      multiplier: 2,
+      maxAttempts: options.retry
+    }) : response = await rawRequest(options), response;
+  }
+  async function rawRequest(options) {
     options.body;
     let { url, responseType, ...fetchOptions } = options;
     responseType || (responseType = "json"), fetchOptions = {
@@ -9226,7 +9271,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       } catch (_e3) {
         log_default.error("parse response failed", _e3);
       }
-      throw new CommonError(
+      throw details && log_default.error("fail response", details), new CommonError(
         "fetchError",
         response.status + ": " + response.statusText || "",
         details
@@ -12191,6 +12236,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         StringToSign,
         SecretSigning
       ), response = await request2({
+        retry: 2,
         url: `https://${service}.tencentcloudapi.com`,
         method: "POST",
         headers: {
@@ -12355,6 +12401,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         q: text
       }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
       return { data: await request2({
+        retry: 2,
         url
       }) };
     }
@@ -12524,6 +12571,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     );
     return await request2(
       {
+        retry: 2,
         method: "POST",
         url: API_URL2 + "?method=LMT_split_text",
         headers,
@@ -12550,6 +12598,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return delete newJob._index, newJob;
     });
     let response = await request2({
+      retry: 2,
       method: "POST",
       url: API_URL2 + "?method=LMT_handle_jobs",
       body: stringifyJson(data),
@@ -12681,7 +12730,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       ), data = await request2({
         url: API,
         body: requestPayload,
-        method: "POST"
+        method: "POST",
+        retry: 2
       });
       if (data.header.ret_code !== "succ")
         throw new Error(data.message || data.header.ret_code);
@@ -12901,6 +12951,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, response = await request2(
         {
+          retry: 2,
           url: `https://api.openl.club/services/${this.codename}/translate`,
           headers: {
             "content-type": "application/json"
@@ -12974,6 +13025,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       this.authKey.includes(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
       let response = await request2(
         {
+          retry: 2,
           url: deeplEndpoint,
           method: "POST",
           body,
@@ -13022,6 +13074,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, src_text = text, options = {
         url: "https://api.niutrans.com/NiuTransServer/translation",
+        retry: 2,
         headers: {
           "content-type": "application/json"
         },
@@ -13366,6 +13419,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -13412,6 +13466,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       });
       let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
         {
+          retry: 2,
           url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
           headers: signer.request.headers,
           method: requestObj.method,
@@ -13618,6 +13673,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, result = await request2(
         {
+          retry: 2,
           url: this.url,
           headers: {
             "content-type": "application/json"
@@ -13737,6 +13793,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let subdomain, IG, IID, token, key, tokenExpiryInterval, isVertical, frontDoorBotClassification, isSignedInOrCorporateUser, cookie;
     try {
       let finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain), response = await request2({
+        retry: 2,
         url: finalUrl,
         responseType: "raw"
       }), { body, headers: headers2, url } = response;
@@ -13803,6 +13860,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
       "content-type": "application/x-www-form-urlencoded"
     }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
+      retry: 2,
       url: finalUrl,
       headers: requestHeaders,
       method: "POST",
@@ -13964,6 +14022,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return {
         text: (await request2(
           {
+            retry: 2,
             url: "https://api.interpreter.caiyunai.com/v1/translator",
             headers: {
               "content-type": "application/json",
@@ -14632,16 +14691,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         children: [
           /* @__PURE__ */ p5("div", {
             class: "url-left",
-            children: [
-              /* @__PURE__ */ p5("div", {
-                class: "url-name height-tight",
-                children: item
-              }),
-              /* @__PURE__ */ p5("div", {
-                class: "description text-1 height-tight",
-                children: item
-              })
-            ]
+            children: /* @__PURE__ */ p5("div", {
+              class: "url-name height-tight",
+              children: item
+            })
           }),
           /* @__PURE__ */ p5("nav", {
             children: /* @__PURE__ */ p5("ul", {
@@ -15181,22 +15234,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           type: "excludeMatches",
           onDeleteUrl,
           onEditUrl
-        }),
-        /* @__PURE__ */ p5("div", {
-          class: "nav",
-          children: [
-            /* @__PURE__ */ p5(NavLeft, {
-              title: t5("advanced"),
-              description: t5(
-                "advancedDescription"
-              )
-            }),
-            /* @__PURE__ */ p5("a", {
-              class: "text-sm",
-              href: "#advanced",
-              children: t5("goAdvancedSettings")
-            })
-          ]
         })
       ]
     });
@@ -15207,6 +15244,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let { t: t5 } = useI18n(), {
       corfirmText,
       fingerCountToToggleTranslagePageWhenTouching,
+      fingerCountToToggleTranslationMaskWhenTouching,
       onChange,
       onClose,
       shortcuts
@@ -15292,6 +15330,39 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               })
             ]
           }),
+          isTouchDevice() && /* @__PURE__ */ p5("div", {
+            class: "mt-2 flex justify-between items-center",
+            children: [
+              /* @__PURE__ */ p5("label", {
+                for: "switch",
+                class: "text-sm mb-2",
+                children: t5("toggleTranslationMaskWhenThreeFingersOnTheScreen")
+              }),
+              /* @__PURE__ */ p5("select", {
+                class: "select !w-36",
+                onChange: (e3) => {
+                  e3.preventDefault();
+                  let value = e3.target.value, finalValue = {
+                    fingerCountToToggleTranslationMaskWhenTouching: parseInt(
+                      value
+                    )
+                  };
+                  onChange(finalValue);
+                },
+                children: [
+                  0,
+                  2,
+                  3,
+                  4,
+                  5
+                ].map((item) => /* @__PURE__ */ p5("option", {
+                  value: item,
+                  selected: item === fingerCountToToggleTranslationMaskWhenTouching,
+                  children: `${t5("fingers." + item)}`
+                }))
+              })
+            ]
+          }),
           props.note && /* @__PURE__ */ p5(props.note, {}),
           /* @__PURE__ */ p5("div", {
             class: "flex",
@@ -15339,7 +15410,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                       let value = toggleTranslatePageWhenThreeFingersOnTheScreenRef.current.value;
                       finalValue.fingerCountToToggleTranslagePageWhenTouching = parseInt(value);
                     }
-                    onChange(finalValue);
+                    finalValue.isClose = !0, onChange(finalValue);
                   },
                   children: corfirmText
                 })
@@ -15410,31 +15481,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     constructor(accessToken) {
       this.accessToken = accessToken;
     }
-    wrap(res, toJson = !0) {
-      return new Promise((resolve, reject) => {
-        if (res.ok)
-          toJson ? res.json().then((json) => resolve(json)) : res.text().then((text) => resolve(text));
-        else
-          try {
-            res.json().then((obj) => {
-              reject(new Error(obj.error.message));
-            });
-          } catch {
-            res.text().then((text) => reject(new Error(text)));
-          }
-      });
-    }
     async upload(metadata, blob) {
       let data = new FormData();
-      data.append(
+      return data.append(
         "metadata",
         new Blob([JSON.stringify(metadata)], {
           type: "application/json; charset=UTF-8"
         })
-      ), data.append("file", blob);
-      let response = await fetch(
-        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
+      ), data.append("file", blob), await request2(
         {
+          url: "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
           method: "POST",
           headers: {
             Authorization: `Bearer ${this.accessToken}`
@@ -15442,7 +15498,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           body: data
         }
       );
-      return this.wrap(response);
     }
     async list(pageToken, query) {
       let url = new URL("https://www.googleapis.com/drive/v3/files");
@@ -15450,12 +15505,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "fields",
         "files(id,name,createdTime,modifiedTime,size)"
       ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
-      let response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${this.accessToken}`
-        }
-      });
-      return this.wrap(response);
+      try {
+        return log_default.debug("list api:", url.toString(), this.accessToken), await request2({
+          url: url.toString(),
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          }
+        });
+      } catch (e3) {
+        throw log_default.error("fetch google ip error", e3), e3;
+      }
     }
     async listAll() {
       let result = [], pageToken = "";
@@ -15470,27 +15529,26 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return result;
     }
     async getConfig(id) {
-      let response = await fetch(
-        `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
+      return await request2(
         {
+          url: `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
           headers: {
             Authorization: `Bearer ${this.accessToken}`
           }
         }
       );
-      return this.wrap(response);
     }
     async delete(id) {
-      let response = await fetch(
-        `https://www.googleapis.com/drive/v3/files/${id}`,
+      await request2(
         {
+          responseType: "text",
+          url: `https://www.googleapis.com/drive/v3/files/${id}`,
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${this.accessToken}`
           }
         }
       );
-      return this.wrap(response, !1);
     }
     findByName(fileName) {
       return this.list(void 0, `name = '${fileName}'`);
@@ -15511,9 +15569,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return this.updateContent(id, blob);
     }
     async updateContent(id, blob) {
-      let response = await fetch(
-        `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
+      return await request2(
         {
+          url: `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
           method: "PATCH",
           headers: {
             Authorization: `Bearer ${this.accessToken}`
@@ -15521,7 +15579,6 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           body: blob
         }
       );
-      return this.wrap(response);
     }
   };
 
@@ -15536,9 +15593,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     });
   }
   async function autoSyncStrategy(accessToken, settings, handleChangeValue, handleUpdateLocalConfigLastSyncedAt, handleUpdateSettingUpdateAt, handleSuccess, handleFail) {
+    log_default.debug(`autoSyncStrategy accessToken: ${accessToken}`);
     let api = new GoogleDriveAPI(accessToken);
     try {
-      let latestFileId = (await api.findByName(LATEST_FILE_NAME)).files[0]?.id, latestRemoteConfigResult = null;
+      let files = (await api.findByName(LATEST_FILE_NAME)).files;
+      log_default.debug("files", files);
+      let latestFileId = files[0]?.id, latestRemoteConfigResult = null;
       if (latestFileId && (latestRemoteConfigResult = await api.getConfig(latestFileId).then((config) => ({
         fileId: latestFileId,
         config
@@ -15550,18 +15610,18 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "localUpdatedAt",
           localUpdatedAt
         ), remoteUpdatedAt > localUpdatedAt)
-          log_default.debug("remote is newer, update local config"), handleChangeValue(latestRemoteConfig);
+          log_default.debug("remote is newer, update local config"), handleChangeValue(latestRemoteConfig), handleSuccess && handleSuccess(!0);
         else if (remoteUpdatedAt.getTime() === localUpdatedAt.getTime())
-          log_default.debug("remote and local are the same, do nothing");
+          log_default.debug("remote and local are the same, do nothing"), handleSuccess && handleSuccess(!1);
         else if (remoteUpdatedAt < localUpdatedAt)
-          log_default.debug("local is newer, update remote config"), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess();
+          log_default.debug("local is newer, update remote config"), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess(!0);
         else {
           handleFail && handleFail(": unknown error");
           return;
         }
         handleUpdateLocalConfigLastSyncedAt(new Date().toISOString());
       } else
-        latestRemoteConfigResult === null ? settings ? (settings.updatedAt || (handleUpdateSettingUpdateAt(new Date().toISOString()), settings.updatedAt = new Date().toISOString()), await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess()) : handleFail && handleFail(": Local Config is empty") : handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
+        latestRemoteConfigResult === null ? settings ? (settings.updatedAt || (handleUpdateSettingUpdateAt(new Date().toISOString()), settings.updatedAt = new Date().toISOString()), await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess(!0)) : handleFail && handleFail(": Local Config is empty") : handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
     } catch (e3) {
       log_default.error("syncLatestWithDrive error", e3), handleFail && handleFail(": " + e3.message);
     }
@@ -15964,6 +16024,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           note,
           corfirmText,
           fingerCountToToggleTranslagePageWhenTouching: config.generalRule.fingerCountToToggleTranslagePageWhenTouching,
+          fingerCountToToggleTranslationMaskWhenTouching: config.generalRule.fingerCountToToggleTranslationMaskWhenTouching,
           shortcuts: allSupportedShortcuts.map((item) => ({
             name: item,
             shortcut: config.shortcuts[item],
@@ -15974,7 +16035,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             if (changedValue) {
               let {
                 shortcuts,
-                fingerCountToToggleTranslagePageWhenTouching
+                fingerCountToToggleTranslagePageWhenTouching,
+                fingerCountToToggleTranslationMaskWhenTouching
               } = changedValue;
               isMonkey() ? setSettings((state) => {
                 shortcuts = shortcuts || [];
@@ -15988,18 +16050,24 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                 return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
                   ...newState.generalRule,
                   fingerCountToToggleTranslagePageWhenTouching
+                }), fingerCountToToggleTranslationMaskWhenTouching !== void 0 && (newState.generalRule = {
+                  ...newState.generalRule,
+                  fingerCountToToggleTranslationMaskWhenTouching
                 }), newState;
-              }) : fingerCountToToggleTranslagePageWhenTouching !== void 0 && setSettings((state) => {
+              }) : (fingerCountToToggleTranslagePageWhenTouching !== void 0 || fingerCountToToggleTranslationMaskWhenTouching !== void 0) && setSettings((state) => {
                 let newState = {
                   ...state
                 };
                 return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
                   ...newState.generalRule,
                   fingerCountToToggleTranslagePageWhenTouching
+                }), fingerCountToToggleTranslationMaskWhenTouching !== void 0 && (newState.generalRule = {
+                  ...newState.generalRule,
+                  fingerCountToToggleTranslationMaskWhenTouching
                 }), newState;
-              }), setIsShowShortcutsModal(!1);
+              }), changedValue && changedValue.isClose && setIsShowShortcutsModal(!1);
             } else
-              browserAPI.tabs.create({
+              setIsShowShortcutsModal(!1), browserAPI.tabs.create({
                 url: "chrome://extensions/shortcuts"
               });
           },
@@ -16481,27 +16549,22 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }, [showSyncModal, setShowSyncModal] = P2(!1), [authLoading, setAuthLoading] = P2(!1), [manualAuthLoading, setManualAuthLoading] = P2(!1), [accessToken, setAccessToken] = P2("");
     if (isUserscriptRuntime() && globalThis.localStorage.getItem(AUTH_FLOW_FLAG) === "true") {
       globalThis.localStorage.setItem(AUTH_FLOW_FLAG, "false");
-      let stateStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
-      log_default.debug("stateStr", stateStr);
-      let state = {};
-      if (stateStr) {
+      let rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
+      log_default.debug("rawAuthInfoStr", rawAuthInfoStr);
+      let info = {}, state = {}, token = "";
+      if (rawAuthInfoStr) {
         globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
         try {
-          state = JSON.parse(stateStr);
+          info = JSON.parse(rawAuthInfoStr), state = info.state || {}, token = info.token || "";
         } catch (e3) {
           log_default.error("parse state error", e3);
         }
       }
-      browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY).then((tokenIndex) => {
-        if (log_default.debug(
-          "import_export",
-          "Google OAuth:" + tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]
-        ), tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
-          let token = tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
-          state.mode === "auto" ? syncLatestWithDrive(token) : afterAuthSuccess(token);
-        } else
-          browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
-      });
+      token && state && (browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token }).catch(
+        (e3) => {
+          log_default.error("set access token error", e3);
+        }
+      ), state.mode === "auto" ? syncLatestWithDrive(token) : afterAuthSuccess(token));
     }
     function handlerDriveAuth() {
       setAuthLoading(!0), getAccessToken({
@@ -16534,7 +16597,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
     }
     function syncLatestWithDrive(accessToken2) {
-      setAccessToken(accessToken2), autoSyncStrategy(
+      log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), autoSyncStrategy(
         accessToken2,
         settings,
         handleChangeValue,
@@ -16543,7 +16606,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           lastSyncedAt: isoDate
         }),
         (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
-        () => success(t5("successSyncConfig")),
+        (isChanged) => {
+          isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
+        },
         (reason) => error(t5("syncFail") + reason)
       ).finally(() => {
         setAuthLoading(!1);
@@ -17358,6 +17423,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         name: t5("interface"),
         props: {
           href: "#interface",
+          className: "secondary"
+        }
+      },
+      {
+        name: t5("advanced"),
+        props: {
+          href: "#advanced",
           className: "secondary"
         }
       },

@@ -225,7 +225,8 @@
       "CODE",
       "TT",
       "IMG",
-      "SUP"
+      "SUP",
+      "MATH"
     ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
@@ -1177,6 +1178,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-02T19:43:41.401Z",
-  "latestVersion": "0.2.40"
+  "buildinConfigUpdatedAt": "2023-02-03T00:56:46.305Z",
+  "latestVersion": "0.2.41"
 }

@@ -1,6 +1,6 @@
 # 捐赠支持
 
-感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。你也可以关注我的[推特](https://twitter.com/OwenYoungZh)或[Telegram 频道](https://t.me/owenyoungzh)获取最新更新,还可以加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论或者加入该扩展的[Telegram 频道](https://t.me/immersivetranslate)接收最新更新。
+感谢这些[赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。你也可以关注我的[推特](https://twitter.com/OwenYoungZh)或[Telegram 频道](https://t.me/owenyoungzh)获取最新更新,还可以加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论或者加入该扩展的[Telegram 频道](https://t.me/immersivetranslate)接收最新更新。如果你在赞助方面遇到任何问题，请通过[这里](https://www.owenyoung.com/contact/)提供的联系方式联系我。
 
 ## 月度赞助链接
 

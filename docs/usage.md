@@ -14,6 +14,10 @@
 
 ## PDF 文件翻译
 
+> 目前只支持简单的单列 PDF 翻译。
+>
+> 复杂的 PDF 请使用相关工具转为 HTML 后，再由插件翻译。比如推荐一个超级好用，免费的软件[calibre](https://calibre-ebook.com/), 可以把 pdf 转为 epub 或者 html, 效果非常赞。
+
 1. 如果是在线的 PDF 文件，在浏览器打开后，点击扩展的图标，然后点击翻译该文件即可，如下图所示。
 
 ![pdf icon](https://immersive-translate.owenyoung.com/assets/pdf-browser-action.png)

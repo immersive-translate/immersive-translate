@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.45
+
+- Fix element innerText is undefined
+- Fix caiyun translation undefined source language
+
 ## 0.2.44
 
 - Fix userscript toggle mask

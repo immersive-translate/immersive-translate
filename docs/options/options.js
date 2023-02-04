@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-04T05:07:51.908Z", VERSION: "0.2.44", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-04T06:27:43.097Z", VERSION: "0.2.45", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -8015,7 +8015,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       additionalInlineTags: [],
       extraInlineSelectors: [],
       additionalInlineSelectors: [],
-      extraBlockSelectors: [],
+      extraBlockSelectors: [
+        "turbo-frame",
+        "readme-toc"
+      ],
       allBlockTags: [
         "HGROUP",
         "CONTENT",
@@ -8035,6 +8038,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "FORM",
         "HR",
         "MAIN",
+        "SUMMARY",
         "NAV",
         "OL",
         "NOSCRIPT",
@@ -8062,7 +8066,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         "TD",
         "TH",
         "SOURCE",
-        "C-WIZ"
+        "C-WIZ",
+        "BUTTON",
+        "TURBO-FRAME",
+        "README-TOC"
       ],
       pdfNewParagraphLineHeight: 2.4,
       pdfNewParagraphIndent: 1.2,
@@ -9325,10 +9332,18 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   // browser/request.ts
   async function request(options) {
     let response;
-    return options && options.retry && options.retry > 0 ? response = await retry(rawRequest.bind(null, options), {
-      multiplier: 2,
-      maxAttempts: options.retry
-    }) : response = await rawRequest(options), response;
+    if (options && options.retry && options.retry > 0)
+      try {
+        response = await retry(rawRequest.bind(null, options), {
+          multiplier: 2,
+          maxAttempts: options.retry
+        });
+      } catch (e3) {
+        throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
+      }
+    else
+      response = await rawRequest(options);
+    return response;
   }
   async function rawRequest(options) {
     options.body;
@@ -10138,7 +10153,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       isContainsSelectors(
         element,
         `[${sourceElementExcludeAttributeNameForSelector}]`
-      ) ? rawText = getTextWithExcludeElement(element) : rawText = element.innerText;
+      ) ? rawText = getTextWithExcludeElement(element) || "" : rawText = element.innerText || "";
       let isStartWithSpace = rawText.startsWith(" "), isEndWithSpace = rawText.endsWith(" ");
       element.tagName === "A" && (isStartWithSpace = !0, isEndWithSpace = !0);
       let isStayOriginal = isStayOriginalElement(element, rule);
@@ -10726,13 +10741,25 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               continue;
             } else {
               if (isMatchTags(node.nodeName, ["DIV"]) || isUnknowTag(node, rule)) {
-                if ((computedStyle.display === "inline" || computedStyle.display === "inline-flex") && !isMarked(
+                if (isUnknowTag(node, rule) && console.log("unknwo", node, computedStyle.display), computedStyle.display === "inline" || computedStyle.display === "inline-flex") {
+                  if (!isMarked(
+                    node,
+                    sourceBlockElementMarkAttributeName
+                  )) {
+                    setAttribute(
+                      node,
+                      sourceInlineElementMarkAttributeName,
+                      "1"
+                    );
+                    continue;
+                  }
+                } else if ((computedStyle.display === "block" || computedStyle.display === "flex") && !isMarked(
                   node,
-                  sourceBlockElementMarkAttributeName
+                  sourceInlineElementMarkAttributeName
                 )) {
                   setAttribute(
                     node,
-                    sourceInlineElementMarkAttributeName,
+                    sourceBlockElementMarkAttributeName,
                     "1"
                   );
                   continue;
@@ -12258,9 +12285,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translate(payload) {
       let { text, from, to } = payload, RequestPayload = JSON.stringify({
         ProjectId: 0,
-        Source: _Tencent.langMap.get(from),
+        Source: _Tencent.langMap.get(from) || "auto",
         SourceText: text,
-        Target: _Tencent.langMap.get(to)
+        Target: _Tencent.langMap.get(to) || to
       }), data = await this.signedRequest({
         secretId: this.secretId,
         secretKey: this.secretKey,
@@ -12278,9 +12305,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     async translateList(payload) {
       let { text, from, to } = payload, RequestPayload = JSON.stringify({
         ProjectId: 0,
-        Source: _Tencent.langMap.get(from),
+        Source: _Tencent.langMap.get(from) || "auto",
         SourceTextList: text,
-        Target: _Tencent.langMap.get(to)
+        Target: _Tencent.langMap.get(to) || to
       }), data = await this.signedRequest({
         secretId: this.secretId,
         secretKey: this.secretKey,
@@ -12474,7 +12501,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       let { text, from, to } = payload;
       if (!text)
         return { ...payload };
-      let adaptedFrom = _Google.langMap.get(from) || "auto", adaptedTo = _Google.langMap.get(to) || "zh-CN", result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
+      let adaptedFrom = _Google.langMap.get(from) || "auto", adaptedTo = _Google.langMap.get(to) || to, result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
       if (!result)
         throw new Error("google translate NETWORK_ERROR");
       if (!result.data[0] || result.data[0].length <= 0)
@@ -12755,8 +12782,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       let { text, to, from } = payload, result = await translate(
         this.API_URL,
         text,
-        _D.langMap.get(to),
-        _D.langMap.get(from)
+        _D.langMap.get(to) || to,
+        _D.langMap.get(from) || "auto"
       );
       return {
         text: result.text,
@@ -13054,7 +13081,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             apikey: this.apikey,
             text,
             source_lang: langMap6.get(from) || "auto",
-            target_lang: langMap6.get(to)
+            target_lang: langMap6.get(to) || to
           })
         }
       );
@@ -13108,8 +13135,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translateList(payload) {
       let { from, to, text } = payload, bodyParams = {
-        source_lang: langMap7.get(from),
-        target_lang: langMap7.get(to)
+        source_lang: langMap7.get(from) || "",
+        target_lang: langMap7.get(to) || to
       }, bodySearchParams = new URLSearchParams(bodyParams);
       text.forEach((item) => {
         bodySearchParams.append("text", item);
@@ -13702,9 +13729,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       this.isSupportList = !1;
     }
     async translate(payload) {
-      let { text, from, to } = payload, bodyParams = {
-        source_language: langMap10.get(from) || "detect",
-        target_language: "zh",
+      let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, bodyParams = {
+        source_language: remoteFrom,
+        target_language: remoteTo,
         text
       }, response = await request2(
         {
@@ -14054,8 +14081,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-        from: langMap13.get(from),
-        to: langMap13.get(to),
+        from: langMap13.get(from) || "auto",
+        to: langMap13.get(to) || to,
         q: text,
         salt,
         appid,
@@ -14079,7 +14106,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         from: langDetected
       } = data, transParagraphs = transResult.map(({ dst }) => dst);
       return {
-        from: langMapReverse6.get(langDetected),
+        from: langMapReverse6.get(langDetected) || langDetected,
         to,
         text: transParagraphs.join(`
 `)
@@ -14110,6 +14137,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     async translateList(payload) {
       let { text, from, to } = payload;
+      if (!langMap14.get(to))
+        throw new Error(`Unsupported language: ${to}`);
       from === "auto" && (from = await detectLanguage({ text: text.join(" ") }));
       let source = text;
       return {
@@ -14124,7 +14153,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             method: "POST",
             body: JSON.stringify({
               source,
-              trans_type: `${langMap14.get(from)}2${langMap14.get(to)}`
+              trans_type: `${langMap14.get(from) || "auto"}2${langMap14.get(to)}`
             })
           }
         )).target,
@@ -14182,8 +14211,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap15.get(from),
-        to: langMap15.get(to),
+        from: langMap15.get(from) || "auto",
+        to: langMap15.get(to) || to,
         sign,
         signType: "v3",
         curtime: curTime.toString()

@@ -102,3 +102,4 @@
 - [ ] 拦截 100
 - [ ] 油猴提示有新的更新？
 - [x] 优化重试逻辑，自动重试 1 次？
+- [ ] translation service lang map should be from config?

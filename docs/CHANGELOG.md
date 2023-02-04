@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.46
+
+- fix block mark
+
 ## 0.2.45
 
 - Fix element innerText is undefined
@@ -87,7 +91,9 @@
 ## 0.2.30
 
 - Support userscript inline iframe translation.
-- Support shadowroot translation. For example: <https://www.foxnews.com/politics/minnesota-senate-passes-abortion-bill-opponents-call-most-extreme-nation> Conversation area.
+- Support shadowroot translation. For example:
+  <https://www.foxnews.com/politics/minnesota-senate-passes-abortion-bill-opponents-call-most-extreme-nation>
+  Conversation area.
 - also check sync rule on popup
 
 ## 0.2.29
@@ -101,7 +107,8 @@
 
 ## 0.2.27
 
-- Support inline iframe translation. (Only for extension, not avaliable for userscript)
+- Support inline iframe translation. (Only for extension, not avaliable for
+  userscript)
 - Fix multiple language translation
 
 ## 0.2.26
@@ -176,7 +183,9 @@
 
 ## 0.2.11
 
-- Fix [#28](https://github.com/immersive-translate/immersive-translate/issues/28) Annas archive 页面主要内容无法被翻译
+- Fix
+  [#28](https://github.com/immersive-translate/immersive-translate/issues/28)
+  Annas archive 页面主要内容无法被翻译
 
 ## 0.2.10
 
@@ -202,7 +211,9 @@
 
 ## 0.2.6
 
-- Fix [#30](https://github.com/immersive-translate/immersive-translate/issues/30), file url match issue
+- Fix
+  [#30](https://github.com/immersive-translate/immersive-translate/issues/30),
+  file url match issue
 
 ## 0.2.5
 
@@ -214,7 +225,9 @@
 
 ## 0.2.3
 
-- Fix [#26](https://github.com/immersive-translate/immersive-translate/issues/26) create context multiple times
+- Fix
+  [#26](https://github.com/immersive-translate/immersive-translate/issues/26)
+  create context multiple times
 
 ## 0.2.2
 
@@ -234,7 +247,8 @@
 
 - Fix PDF two column.
 - Fix Chrome/Edge Store version bug.
-- Fix [#21](https://github.com/immersive-translate/immersive-translate/issues/21)
+- Fix
+  [#21](https://github.com/immersive-translate/immersive-translate/issues/21)
 
 ## 0.1.2
 
@@ -285,17 +299,21 @@
 
 ## 0.0.53
 
-- use sendMessage insteadof connect, cause chrome will disconnect the port after 5 minites
+- use sendMessage insteadof connect, cause chrome will disconnect the port after
+  5 minites
 - better for detect text containers
 
 ## 0.0.52
 
-- Do not translate the paragraph that only has placeholders elements, for [example](https://github.com/nank1ro/solidart), the first line.
+- Do not translate the paragraph that only has placeholders elements, for
+  [example](https://github.com/nank1ro/solidart), the first line.
 - Better for detect child elements.
 
 ## 0.0.51
 
-- Fix cache issue [#12](https://github.com/immersive-translate/next-immersive-translate/issues/12), [#7](https://github.com/immersive-translate/next-immersive-translate/issues/7)
+- Fix cache issue
+  [#12](https://github.com/immersive-translate/next-immersive-translate/issues/12),
+  [#7](https://github.com/immersive-translate/next-immersive-translate/issues/7)
 - Fix options UI font size
 
 ## 0.0.50
@@ -363,7 +381,8 @@
 
 ## 0.0.36
 
-- Fix Wikipedia special character [#6](https://github.com/immersive-translate/next-immersive-translate/issues/6)
+- Fix Wikipedia special character
+  [#6](https://github.com/immersive-translate/next-immersive-translate/issues/6)
 - Fix userscript icon size.
 - enable all sites to detect paragraph language.
 
@@ -372,20 +391,26 @@
 - Fix youtube go to next page
 - Support Youtube search page.
 - Fix options advanced switch.
-- Fix img tag , hiddent tag [#5](https://github.com/immersive-translate/next-immersive-translate/issues/5)
-- Fix Google Search Force refresh [#4](https://github.com/immersive-translate/next-immersive-translate/issues/4)
-- Support Table result of Google [#3](https://github.com/immersive-translate/next-immersive-translate/issues/3)
-- Fix Wikipedia blank [#2](https://github.com/immersive-translate/next-immersive-translate/issues/2)
+- Fix img tag , hiddent tag
+  [#5](https://github.com/immersive-translate/next-immersive-translate/issues/5)
+- Fix Google Search Force refresh
+  [#4](https://github.com/immersive-translate/next-immersive-translate/issues/4)
+- Support Table result of Google
+  [#3](https://github.com/immersive-translate/next-immersive-translate/issues/3)
+- Fix Wikipedia blank
+  [#2](https://github.com/immersive-translate/next-immersive-translate/issues/2)
 
 ## 0.0.34
 
 ### Break Changes
 
-- The Default Hot Key to toggle translate has been changed to `alt+A`, cause it's the most convinient key to type.
+- The Default Hot Key to toggle translate has been changed to `alt+A`, cause
+  it's the most convinient key to type.
 
 ### Others
 
-- Support set immediate translation mode, so you can let the web page translate as quick as possible.
+- Support set immediate translation mode, so you can let the web page translate
+  as quick as possible.
 - Support set page area that need to translate. so you can translate more area.
 - Support set the first x text count to translate immediately.
 - Fix translate duplicately when change translate
@@ -397,7 +422,8 @@
 
 ## 0.0.32
 
-- Fix translate local file after saved. Fixed [#1](https://github.com/immersive-translate/next-immersive-translate/issues/1)
+- Fix translate local file after saved. Fixed
+  [#1](https://github.com/immersive-translate/next-immersive-translate/issues/1)
 - Add dist js file to public repo
 
 ## 0.0.31

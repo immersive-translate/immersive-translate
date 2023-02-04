@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-04T06:27:43.097Z", VERSION: "0.2.45", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-04T07:11:41.656Z", VERSION: "0.2.46", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -10740,8 +10740,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               );
               continue;
             } else {
-              if (isMatchTags(node.nodeName, ["DIV"]) || isUnknowTag(node, rule)) {
-                if (isUnknowTag(node, rule) && console.log("unknwo", node, computedStyle.display), computedStyle.display === "inline" || computedStyle.display === "inline-flex") {
+              if (isMatchTags(node.nodeName, ["DIV"]) || isUnknowTag(node, rule))
+                if (computedStyle.display === "inline" || computedStyle.display === "inline-flex") {
                   if (!isMarked(
                     node,
                     sourceBlockElementMarkAttributeName
@@ -10753,18 +10753,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
                     );
                     continue;
                   }
-                } else if ((computedStyle.display === "block" || computedStyle.display === "flex") && !isMarked(
-                  node,
-                  sourceInlineElementMarkAttributeName
-                )) {
-                  setAttribute(
-                    node,
-                    sourceBlockElementMarkAttributeName,
-                    "1"
-                  );
-                  continue;
-                }
-              } else if (isMatchTags(node.nodeName, ["SPAN", "A"]) && !computedStyle.display.startsWith("inline")) {
+                } else
+                  computedStyle.display === "block" || computedStyle.display;
+              else if (isMatchTags(node.nodeName, ["SPAN", "A"]) && !computedStyle.display.startsWith("inline")) {
                 isMarked(
                   node,
                   sourceInlineElementMarkAttributeName

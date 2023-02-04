@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.43
+
+- Fix userscript toggle mask with touch event.
+- Fix speed (by remove sleep(300))
+
 ## 0.2.42
 
 - Fix mask hover when toggle mask again.

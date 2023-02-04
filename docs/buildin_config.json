@@ -1189,8 +1189,14 @@
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
         "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
       }
+    },
+    {
+      "matches": "huggingface.co",
+      "globalStyles": {
+        ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-04T06:29:07.599Z",
-  "latestVersion": "0.2.45"
+  "buildinConfigUpdatedAt": "2023-02-04T17:12:07.983Z",
+  "latestVersion": "0.2.46"
 }

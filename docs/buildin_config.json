@@ -273,7 +273,10 @@
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
     "additionalInlineSelectors": [],
-    "extraBlockSelectors": [],
+    "extraBlockSelectors": [
+      "turbo-frame",
+      "readme-toc"
+    ],
     "allBlockTags": [
       "HGROUP",
       "CONTENT",
@@ -293,6 +296,7 @@
       "FORM",
       "HR",
       "MAIN",
+      "SUMMARY",
       "NAV",
       "OL",
       "NOSCRIPT",
@@ -320,12 +324,16 @@
       "TD",
       "TH",
       "SOURCE",
-      "C-WIZ"
+      "C-WIZ",
+      "BUTTON",
+      "TURBO-FRAME",
+      "README-TOC"
     ],
     "pdfNewParagraphLineHeight": 2.4,
     "pdfNewParagraphIndent": 1.2,
     "pdfNewParagraphIndentRightIndentPx": 130,
-    "fingerCountToToggleTranslagePageWhenTouching": 4
+    "fingerCountToToggleTranslagePageWhenTouching": 4,
+    "fingerCountToToggleTranslationMaskWhenTouching": 0
   },
   "rules": [
     {
@@ -733,7 +741,8 @@
       "matches": "https://discord.com/channels/*",
       "selectors": [
         "li[id^=chat-messages] div[id^=message-content]",
-        "h3[data-text-variant='heading-lg/semibold']"
+        "h3[data-text-variant='heading-lg/semibold']",
+        "section[aria-label='Search Results'] div[id^=message-content]"
       ],
       "excludeSelectors": [
         "div[class^='repliedTextContent']"
@@ -744,7 +753,7 @@
       },
       "detectParagraphLanguage": true,
       "wrapperPrefix": "<br />",
-      "wrapperSuffix": "<br /><br />"
+      "wrapperSuffix": ""
     },
     {
       "matches": "web.telegram.org/z/*",
@@ -1182,6 +1191,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-03T02:11:17.939Z",
-  "latestVersion": "0.2.41"
+  "buildinConfigUpdatedAt": "2023-02-04T06:29:07.599Z",
+  "latestVersion": "0.2.45"
 }

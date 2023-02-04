@@ -121,18 +121,6 @@ git pull
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你[**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
-Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
-
-- 帮助我在[Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN), [Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)， [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate)里评价该扩展。
-- [Star](https://github.com/immersive-translate/immersive-translate/)这个 Github 项目。
-- 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
-- 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
-- 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
-- 介绍这个扩展给有需要的朋友
-- 甚至，如果你有代码开发能力，你可以[直接参与开发](https://immersive-translate.owenyoung.com/CONTRIBUTION.html)这个扩展，请加[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道了解。
-
-> Ps. 我比预想中花了更巨大的时间和精力开发这个[沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！
-
 ### 月度赞助链接
 
 我已开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击[这里](https://github.com/sponsors/theowenyoung?frequency=recurring)可以进行月度赞助，$1 起即可小额支持，支持 Paypal 中国版，信用卡等。
@@ -144,6 +132,10 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 ### 一次性赞助
 
 点击[我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=one-time) ，$2 起即可小额支持，支持 Paypal，以及信用卡支付。
+
+### 品牌赞助
+
+沉浸式翻译目前正处于高速发展阶段，每天都有成千上万的用户访问该扩展的主页，如果你有想宣传或者推广的产品，可以[点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式，可以在主页显眼位置放置你的产品，你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！ （目前每月 [$25 刀](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263194) 即可成为品牌赞助商）
 
 ### 加密货币一次性赞助
 
@@ -160,6 +152,18 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 <summary>点击展开二维码</summary>
 <img src="https://immersive-translate.owenyoung.com/usdt-trc20-immersive-translate-400.jpg" alt="qrcode"></img>
 </details>
+
+Ps. 我完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
+
+- 帮助我在[Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN), [Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)， [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate)里评价该扩展。
+- [Star](https://github.com/immersive-translate/immersive-translate/)这个 Github 项目。
+- 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
+- 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
+- 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
+- 介绍这个扩展给有需要的朋友
+- 甚至，如果你有代码开发能力，你可以[直接参与开发](https://immersive-translate.owenyoung.com/CONTRIBUTION.html)这个扩展，请加[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道了解。
+
+> Ps. 我比预想中花了更巨大的时间和精力开发这个[沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！
 
 ## Links
 

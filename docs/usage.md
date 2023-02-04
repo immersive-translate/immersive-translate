@@ -44,10 +44,10 @@
 ## 密钥申请和配置教程
 
 1. [Deepl](./deepL.md)
-2. [Volcano Translation](./volcano.md)
-3. [Tencent Translator](./tencent.md)
-4. [Baidu translation](./baidu.md)
-5. [Caiyun Translation](./caiyun.md)
+2. [火山翻译](./volcano.md)
+3. [腾讯翻译君](./tencent.md)
+4. [百度翻译](./baidu.md)
+5. [彩云小译](./caiyun.md)
 6. [OpenL](https://docs.openl.club/#/)
-7. [Youdao Translation](./youdao.md)
-8. [Niu Translation](https://niutrans.com/documents/contents/beginning_guide/6)
+7. [有道翻译](./youdao.md)
+8. [小牛翻译](https://niutrans.com/documents/contents/beginning_guide/6)

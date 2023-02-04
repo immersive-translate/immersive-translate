@@ -29,14 +29,11 @@ DeepL 的订阅类型分为两种：针对个人和团队和研发人员（DeepL
 
 当你有了开通过 DeepL API 的账号后：
 
-- 打开 https://www.deepl.com/docs-api/simulator/
+- 打开 [deepl](https://www.deepl.com/docs-api/simulator/)
 - 如果你没有登录，那么点击右上角的【登录】并登录你的账号。注意：可能需要关闭代理软件才能登录成功。
 - 登录账号后，Authentication Key for DeepL API 里出现的文本就是沉浸式翻译需要的 Authentication Key 了。
 
 ### 第三步：将 Authentication Key 填写进沉浸式翻译
 
-打开沉浸式翻译的【基本设置】-【翻译服务】，找到【DeepL】然后点击【管理密钥】按钮即可填写。
+打开沉浸式翻译的【基本设置】-【翻译服务】，找到【DeepL】填写。
 
-## 术语表
-
-DeepL 虽然支持术语表，但需要沉浸式翻译写代码做接入。如果你需要用到 DeepL 的术语表，可以联系我添加此功能。

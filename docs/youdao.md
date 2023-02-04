@@ -2,8 +2,6 @@
 
 > 💡 提示
 > 
-> 文档内容可能会过时，请以有道翻译官网说明为准。
-> 
 > 相关链接：[有道智云 AI 开放平台](http://ai.youdao.com/) [有道文本翻译服务定价文档](https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7.html)
 
 ## 价格

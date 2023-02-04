@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-04T02:05:25.751Z", VERSION: "0.2.43", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-04T05:07:51.908Z", VERSION: "0.2.44", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -194,8 +194,8 @@
   filter: none !important;
 }
 
-[data-immersive-translate-root-translation-theme="mask"]:hover
-  .immersive-translate-target-inner {
+[data-immersive-translate-root-translation-theme="mask"]
+  .immersive-translate-target-inner:hover {
   filter: none !important;
 }
 
@@ -11267,11 +11267,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     200
   ), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
-    getPageStatus() === "Original" ? await translatePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
+    if (getPageStatus() === "Original") {
+      let ctx = await getGlobalContext(getRealUrl());
+      ctx.state.translationTheme = ctx.config.translationTheme, await translatePage(globalContext);
+    } else
+      (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
   }
   async function toggleTranslationMask() {
     if (getPageStatus() === "Original")
-      globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationTheme = "mask", await translatePage();
+      globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationTheme = "mask", await translatePage(globalContext);
     else if (getPageStatus() === "Translated") {
       let allFrames = [
         document.body,
@@ -11447,12 +11451,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       translationParagraph(visibleParagraph, ctx);
     }) : translationParagraph(paragraph, ctx);
   }
-  async function translatePage() {
+  async function translatePage(ctx) {
     if (pageStatus === "Translating")
       return;
-    setPageTranslatedStatus("Translating");
-    let ctx = await getGlobalContext(getRealUrl());
-    if (!ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl())), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;
@@ -11531,16 +11533,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
   }
   async function translateTheMainPage() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "main", await translatePage();
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "main", await translatePage(globalContext);
   }
   async function translateTheWholePage() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", await translatePage();
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", await translatePage(globalContext);
   }
   async function toggleTranslateTheWholePage() {
-    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", await translatePage()) : restorePage());
+    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", await translatePage(globalContext)) : restorePage());
   }
   async function translateToThePageEndImmediately() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", globalContext.state.translationStartMode = "immediate", await translatePage(), await translateNewDynamicNodes(globalContext);
+    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", globalContext.state.translationStartMode = "immediate", await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
   }
   async function translateTitle(ctx) {
     let pageTitle = document.title;
@@ -11781,7 +11783,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       text: getMainText(document.body).slice(0, 1e3)
     }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-    !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage()) : log_default.debug("do not auto translate", ctx);
+    !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage(globalContext)) : log_default.debug("do not auto translate", ctx);
   }
   function disableMutatinObserver(rootFrame) {
     if (mutationObserverMap.has(rootFrame)) {

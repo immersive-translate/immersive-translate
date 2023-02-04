@@ -186,8 +186,8 @@
   filter: none !important;
 }
 
-[data-immersive-translate-root-translation-theme="mask"]:hover
-  .immersive-translate-target-inner {
+[data-immersive-translate-root-translation-theme="mask"]
+  .immersive-translate-target-inner:hover {
   filter: none !important;
 }
 

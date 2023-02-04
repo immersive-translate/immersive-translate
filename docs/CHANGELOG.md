@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.44
+
+- Fix userscript toggle mask
+- Fix toggle mask logic
+
 ## 0.2.43
 
 - Fix userscript toggle mask with touch event.

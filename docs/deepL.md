@@ -1,9 +1,9 @@
 # DeepL
 
-> 💡 提示 
-> 
+> 💡 提示
+>
 > 文档内容可能会过时，请以 DeepL 官网说明为准。
-> 
+>
 > 相关链接：[DeepL API 说明](https://www.deepl.com/zh/pro#developer)
 
 ## 价格
@@ -19,7 +19,7 @@ DeepL 的订阅类型分为两种：针对个人和团队和研发人员（DeepL
 
 ### 第一步：获取开通过 DeepL API 的账号
 
-如果你想自己注册 DeepL 账号并开通 DeepL API，那么首先你需要有一张在 DeepL 支持的国家或地区发行的 VISA / MASTER 信用卡。**DeepL 目前不支持使用国内发行的信用卡开通 DeepL API**，鉴于此，我建议直接在网上购买开通了 DeepL API Free 的账号。
+如果你想自己注册 DeepL 账号并开通 DeepL API，那么首先你需要有一张在 DeepL 支持的国家或地区发行的 VISA / MASTER 信用卡。**DeepL 目前不支持使用国内发行的任何信用卡（包括双币，外币）开通 DeepL API**，鉴于此，我建议直接在网上购买开通了 DeepL API Free 的账号。
 
 再次提醒，请确认你购买的是开通了研发人员（DeepL API）的账号，一般会标有“程序员”、“API Free”这样的字眼。
 

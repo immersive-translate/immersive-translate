@@ -1,9 +1,18 @@
 # Summary
 
-[介绍](../README.md)
+[介绍](.README.md)
 
 - [安装](installation.md)
 - [如何使用](usage.md)
+  - [密钥申请和配置教程](usage.md)
+    - [Deepl](deepL.md)
+    - [火山翻译](volcano.md)
+    - [腾讯翻译君](tencent.md)
+    - [百度翻译](baidu.md)
+    - [彩云小译](caiyun.md)
+    - [OpenL](openL.md)
+    - [有道翻译](youdao.md)
+    - [小牛翻译](niu.md)
 - [截图/使用案例](usecase.md)
 - [高级自定义配置](advanced.md)
 - [更新日志](CHANGELOG.md)

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.46
+// @version      0.2.47
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-04T07:11:41.656Z", VERSION: "0.2.46", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-05T02:13:56.505Z", VERSION: "0.2.47", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -9323,6 +9323,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
         }
+      },
+      {
+        matches: "huggingface.co",
+        globalStyles: {
+          ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
+        }
       }
     ]
   };
@@ -12354,7 +12360,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var openl_default = Openl;
 
   // services/deepl.ts
-  var rawLangMap2 = [
+  var env3 = getEnv(), rawLangMap2 = [
     ["auto", ""],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -12396,7 +12402,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         bodySearchParams.append("text", item);
       });
       let body = bodySearchParams.toString(), deeplEndpoint = "https://api-free.deepl.com/v2/translate";
-      this.authKey.includes(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
+      this.authKey.endsWith(":im") ? deeplEndpoint = env3.DEEPL_PROXY_ENDPOINT : this.authKey.endsWith(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
       let response = await request2(
         {
           retry: 2,
@@ -13898,7 +13904,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = le(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
     translateNewDynamicNodes,
     200
-  ), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+  ), env4 = getEnv(), isProd2 = env4.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     if (getPageStatus() === "Original") {
       let ctx = await getGlobalContext(getRealUrl());
@@ -14113,7 +14119,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     try {
       let allFrames = [document.body];
       document.querySelectorAll("iframe").forEach((frame) => {
-        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
+        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env4.IMMERSIVE_TRANSLATE_INJECTED_CSS));
       }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
         document.body,
         ctx.rule.shadowRootSelectors
@@ -14377,7 +14383,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
               isInlineIframe(element) && setTimeout(() => {
                 injectCSS(
                   element.contentDocument,
-                  env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
+                  env4.IMMERSIVE_TRANSLATE_INJECTED_CSS
                 ), translateFrame(
                   element.contentDocument.body,
                   ctx
@@ -15870,20 +15876,20 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     top: 335
   }, positionChanged = !1, rootRef = null, btnRef = null, mountPointRef = null, shadowRef = null, timer = null, localConfig = null, delta = 6, startX, startY, lastBtnStyle = null, lastRootStyle = null;
   async function initPopup() {
-    let env4 = getEnv();
+    let env5 = getEnv();
     localConfig = await getLocalConfig2(), currentPagePopupConfig = localConfig.pagePopupConfig || currentPagePopupConfig;
     let popup = document.createElement("div");
     popup.id = "immersive-translate-popup", popup.setAttribute("style", "all: initial"), document.documentElement.appendChild(popup);
     let shadow = popup.attachShadow({ mode: "open" });
     shadowRef = shadow;
     let csses = [
-      env4.IMMERSIVE_TRANSLATE_PICO_CSS,
-      env4.IMMERSIVE_TRANSLATE_COMMON_CSS,
-      env4.IMMERSIVE_TRANSLATE_POPUP_CSS
+      env5.IMMERSIVE_TRANSLATE_PICO_CSS,
+      env5.IMMERSIVE_TRANSLATE_COMMON_CSS,
+      env5.IMMERSIVE_TRANSLATE_POPUP_CSS
     ];
     addCSSLegacy(shadow, csses);
     let mountRoot = document.createElement("div");
-    mountRoot.innerHTML = env4.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
+    mountRoot.innerHTML = env5.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
       "#immersive-translate-popup-container"
     );
     let btn = shadow.querySelector(
@@ -16055,7 +16061,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.46",
+    version: "0.2.47",
     default_locale: "en",
     background: {
       service_worker: "background.js"

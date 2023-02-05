@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.47
+
+- Fix deepl api
+
 ## 0.2.46
 
 - fix block mark

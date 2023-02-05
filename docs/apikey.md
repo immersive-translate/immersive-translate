@@ -12,3 +12,13 @@
 6. [OpenL](https://docs.openl.club/#/)
 7. [有道翻译](./services/youdao.md)
 8. [小牛翻译](https://niutrans.com/documents/contents/beginning_guide/6)
+
+- [密钥申请和配置教程](apikey.md)
+  - [Deepl](./services/deepL.md)
+  - [火山翻译](./services/volcano.md)
+  - [腾讯翻译君](./services/tencent.md)
+  - [百度翻译](./services/baidu.md)
+  - [彩云小译](./services/caiyun.md)
+  - [OpenL](./services/openL.md)
+  - [有道翻译](./services/youdao.md)
+  - [小牛翻译](./services/niu.md)

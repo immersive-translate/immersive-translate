@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-04T07:11:41.656Z", VERSION: "0.2.46", PROD: "1", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-05T02:13:56.505Z", VERSION: "0.2.47", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -8935,6 +8935,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
         }
+      },
+      {
+        matches: "huggingface.co",
+        globalStyles: {
+          ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
+        }
       }
     ]
   };
@@ -13091,7 +13097,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   var openl_default = Openl;
 
   // services/deepl.ts
-  var rawLangMap2 = [
+  var env4 = getEnv(), rawLangMap2 = [
     ["auto", ""],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -13133,7 +13139,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         bodySearchParams.append("text", item);
       });
       let body = bodySearchParams.toString(), deeplEndpoint = "https://api-free.deepl.com/v2/translate";
-      this.authKey.includes(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
+      this.authKey.endsWith(":im") ? deeplEndpoint = env4.DEEPL_PROXY_ENDPOINT : this.authKey.endsWith(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
       let response = await request2(
         {
           retry: 2,

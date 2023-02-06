@@ -228,7 +228,8 @@
       "CODE",
       "TT",
       "IMG",
-      "SUP"
+      "SUP",
+      "SUB"
     ],
     "additionalStayOriginalTags": [],
     "inlineTags": [
@@ -1206,6 +1207,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-06T03:33:01.030Z",
+  "buildinConfigUpdatedAt": "2023-02-06T03:55:09.996Z",
   "latestVersion": "0.2.48"
 }

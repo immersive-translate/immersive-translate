@@ -8,12 +8,14 @@
 - 支持 10 余种常见的翻译服务。包括 Deepl，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
 - 支持 PDF 文件双语翻译。
 - 支持 EPUB 电子书双语阅读。需配合 epub 在线阅读网站使用：<https://epub-reader.online/> 或 <https://readwise.io/read>
-- 提供多种译文样式选择。包括弱化、模糊、下划线、分隔线等样式。
+- 提供多种译文样式选择。包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
 
 该扩展完全免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
 
-感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，可以让我更好地专注于开发工作，让更多的人能免费使用这个工具，如果你有余力，可以 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。
-你也可以关注我的 [推特](https://twitter.com/OwenYoungZh) 或 [Telegram 频道](https://t.me/immersivetranslate) 获取扩展的最新更新，还可以加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论与使用反馈。
+感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。
+还可以加入加入该扩展的[Telegram 频道](https://t.me/immersivetranslate)获取最新更新，或加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论与使用反馈。
+
+你可以通过[推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh)或[其他方式](https://www.owenyoung.com/contact/)和我保持联系。
 
 ## 目录
 

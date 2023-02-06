@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-06T01:27:15.012Z", VERSION: "0.2.48", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-06T07:57:20.595Z", VERSION: "0.2.49", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -7970,7 +7970,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         "CODE",
         "TT",
         "IMG",
-        "SUP"
+        "SUP",
+        "SUB"
       ],
       additionalStayOriginalTags: [],
       inlineTags: [
@@ -8011,7 +8012,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         "STYLE",
         "LINK",
         "TIME",
-        "META"
+        "META",
+        "WBR"
       ],
       additionalInlineTags: [],
       extraInlineSelectors: [],
@@ -15616,10 +15618,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       this.accessToken = accessToken;
     }
     async upload(metadata, blob) {
-      let data = new FormData();
+      let data = new FormData(), temp = { ...metadata, mimeType: "application/json" };
       return data.append(
         "metadata",
-        new Blob([JSON.stringify(metadata)], {
+        new Blob([JSON.stringify(temp)], {
           type: "application/json; charset=UTF-8"
         })
       ), data.append("file", blob), await request2(

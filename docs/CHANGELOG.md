@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.49
+
+- Remove shortcuts alt+d, alt+s cause may conflict with native shortcuts.
+- Fix google drive upload issue [#81](https://github.com/immersive-translate/immersive-translate/issues/81)
+
 ## 0.2.48
 
 - Better for speed, by add minLength to 50 for language detecting.

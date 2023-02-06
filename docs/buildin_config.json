@@ -269,7 +269,8 @@
       "STYLE",
       "LINK",
       "TIME",
-      "META"
+      "META",
+      "WBR"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -1205,6 +1206,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-06T01:26:28.853Z",
+  "buildinConfigUpdatedAt": "2023-02-06T03:33:01.030Z",
   "latestVersion": "0.2.48"
 }

@@ -12,10 +12,7 @@
 
 该扩展完全免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
 
-感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。
-还可以加入加入该扩展的[Telegram 频道](https://t.me/immersivetranslate)获取最新更新，或加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论与使用反馈。
-
-你可以通过[推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh)或[其他方式](https://www.owenyoung.com/contact/)和我保持联系。
+感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过[推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh)或[其他方式](https://www.owenyoung.com/contact/)和我保持联系。
 
 ## 目录
 
@@ -23,11 +20,15 @@
 - [如何使用](https://immersive-translate.owenyoung.com/usage.html)
 - [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
-- [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
-- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
-- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [在线文档](https://immersive-translate.owenyoung.com/)
 - [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
+
+## 保持联系
+
+- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和(福利)。
+- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
+- [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
 
 ## 安装
 
@@ -166,13 +167,20 @@ Ps. 我完全理解暂时还没有余力的用户（因为我就是这样过来�
 
 > Ps. 我比预想中花了更巨大的时间和精力开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我非常重要，感谢你的支持！
 
+## 通过邮件获取最新更新
+
+<iframe src="https://immersivetranslate.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
 ## Links
 
 - [Github](https://github.com/immersive-translate/immersive-translate/)
 - [在线文档](https://immersive-translate.owenyoung.com/)
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - [赞助链接](https://immersive-translate.owenyoung.com/donate.html)
-- [Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
+- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和(福利)。
+- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
+- [反馈问题](https://github.com/immersive-translate/next-immersive-translate/issues)
 
 ## Star History
 

@@ -1,6 +1,6 @@
 {
   "minVersion": "0.0.20",
-  "immediateTranslationTextCount": 4000,
+  "immediateTranslationTextCount": 5000,
   "interval": 3600000,
   "beta": false,
   "cache": true,
@@ -122,6 +122,7 @@
   "generalRule": {
     "_comment": "",
     "normalizeBody": "",
+    "languageDetectMinTextCount": 50,
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "isPdf": false,
@@ -1195,8 +1196,15 @@
       "globalStyles": {
         ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
       }
+    },
+    {
+      "matches": "www.statista.com",
+      "globalStyles": {
+        ".itemContent__text": "height:unset;max-height:unset;",
+        ".itemContent__subline": "height:unset;max-height:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-04T17:12:07.983Z",
-  "latestVersion": "0.2.46"
+  "buildinConfigUpdatedAt": "2023-02-06T01:26:28.853Z",
+  "latestVersion": "0.2.48"
 }

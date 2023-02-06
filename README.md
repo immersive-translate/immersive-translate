@@ -167,10 +167,6 @@ Ps. 我完全理解暂时还没有余力的用户（因为我就是这样过来�
 
 > Ps. 我比预想中花了更巨大的时间和精力开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我非常重要，感谢你的支持！
 
-## 通过邮件获取最新更新
-
-<iframe src="https://immersivetranslate.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
-
 ## Links
 
 - [Github](https://github.com/immersive-translate/immersive-translate/)

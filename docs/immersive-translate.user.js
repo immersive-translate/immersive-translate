@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.47
+// @version      0.2.48
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-05T02:13:56.505Z", VERSION: "0.2.47", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-06T01:27:15.012Z", VERSION: "0.2.48", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4019,14 +4019,15 @@ body {
     ["yor", "yo"],
     ["cmn", "zh-CN"],
     ["zul", "zu"]
-  ]), options = { minLength: 10, whitelist: [...langMap.keys()] };
-  function languageDetect(text) {
+  ]);
+  function languageDetect(text, minLength) {
     if (!text)
       return "auto";
+    !minLength && minLength !== 0 && (minLength = 50);
     let chineseLike = detectChinese(text);
     if (chineseLike !== "auto")
       return chineseLike;
-    let result = c2(text, options);
+    let options2 = { minLength, whitelist: [...langMap.keys()] }, result = c2(text, options2);
     if (result && result.length > 0) {
       if (result.length > 1 && result[0][0] !== "eng" && result[1][0] === "eng" && result[1][1] > 0.6)
         return "en";
@@ -4135,7 +4136,8 @@ body {
       openAboutPage
     },
     i18n: {
-      getAcceptLanguages
+      getAcceptLanguages,
+      detectLanguage: languageDetect
     },
     identity: {
       getRedirectURL: () => getEnv().REDIRECT_URL
@@ -4259,13 +4261,13 @@ body {
             _parsedRespHeaders
           );
           _parsedRespHeaders.set("X-Final-URL", finalUrl);
-          var options3 = {
+          var options2 = {
             status,
             statusText: resp.statusText,
             headers: _parsedRespHeaders,
             url: finalUrl
           }, body = resp.responseText;
-          let finalResponse = new Response(body, options3);
+          let finalResponse = new Response(body, options2);
           resolve(finalResponse);
         }, xhr_details.onerror = function(err) {
           console.error("fetch error", err), reject(new TypeError("Network request failed"));
@@ -4956,8 +4958,8 @@ body {
     clickToDownload: "Click to download",
     aboutLabel: "About - Feedback - Sponsor",
     "browser.openAboutPage": "About / Feedback/Sponsor",
-    aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these < 1 > sponsors < / 1 >, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to sponsor < / 2 > my work, and you can follow my < 3 > Twitter < / 3 > and < 4 > Telegram channels < / 4 > for the latest updates.`,
+    aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
+If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
     projectHomepage: "Project Homepage",
     joinTelegramGroup: "Join Telegram group for feature discussion",
     feedbackAndJoin: "Issue feedback/group",
@@ -5686,8 +5688,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
 
   // https://deno.land/std@0.171.0/async/delay.ts
-  function delay(ms, options3 = {}) {
-    let { signal, persistent } = options3;
+  function delay(ms, options2 = {}) {
+    let { signal, persistent } = options2;
     return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
       let abort = () => {
         clearTimeout(i3), reject(new DOMException("Delay was aborted.", "AbortError"));
@@ -6025,20 +6027,20 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     minTimeout: 1e3
   };
   async function retry(fn, opts) {
-    let options3 = {
+    let options2 = {
       ...defaultRetryOptions,
       ...opts
     };
-    if (options3.maxTimeout >= 0 && options3.minTimeout > options3.maxTimeout)
+    if (options2.maxTimeout >= 0 && options2.minTimeout > options2.maxTimeout)
       throw new RangeError("minTimeout is greater than maxTimeout");
-    let timeout = options3.minTimeout, error;
-    for (let i3 = 0; i3 < options3.maxAttempts; i3++)
+    let timeout = options2.minTimeout, error;
+    for (let i3 = 0; i3 < options2.maxAttempts; i3++)
       try {
         return await fn();
       } catch (err) {
-        await new Promise((r2) => setTimeout(r2, timeout)), timeout *= options3.multiplier, timeout = Math.max(timeout, options3.minTimeout), options3.maxTimeout >= 0 && (timeout = Math.min(timeout, options3.maxTimeout)), error = err;
+        await new Promise((r2) => setTimeout(r2, timeout)), timeout *= options2.multiplier, timeout = Math.max(timeout, options2.minTimeout), options2.maxTimeout >= 0 && (timeout = Math.min(timeout, options2.maxTimeout)), error = err;
       }
-    throw new RetryError(error, options3.maxAttempts);
+    throw new RetryError(error, options2.maxAttempts);
   }
 
   // https://esm.sh/stable/preact@10.11.0/deno/preact.js
@@ -8130,7 +8132,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   // buildin_config.json
   var buildin_config_default = {
     minVersion: "0.0.20",
-    immediateTranslationTextCount: 4e3,
+    immediateTranslationTextCount: 5e3,
     interval: 36e5,
     beta: !1,
     cache: !0,
@@ -8252,6 +8254,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     generalRule: {
       _comment: "",
       normalizeBody: "",
+      languageDetectMinTextCount: 50,
       wrapperPrefix: "smart",
       wrapperSuffix: "smart",
       isPdf: !1,
@@ -9329,6 +9332,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         globalStyles: {
           ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
         }
+      },
+      {
+        matches: "www.statista.com",
+        globalStyles: {
+          ".itemContent__text": "height:unset;max-height:unset;",
+          ".itemContent__subline": "height:unset;max-height:unset;"
+        }
       }
     ]
   };
@@ -9611,29 +9621,29 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   };
 
   // browser/request.ts
-  async function request(options3) {
+  async function request(options2) {
     let response;
-    if (options3 && options3.retry && options3.retry > 0)
+    if (options2 && options2.retry && options2.retry > 0)
       try {
-        response = await retry(rawRequest.bind(null, options3), {
+        response = await retry(rawRequest.bind(null, options2), {
           multiplier: 2,
-          maxAttempts: options3.retry
+          maxAttempts: options2.retry
         });
       } catch (e3) {
         throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
       }
     else
-      response = await rawRequest(options3);
+      response = await rawRequest(options2);
     return response;
   }
-  async function rawRequest(options3) {
-    options3.body;
-    let { url, responseType, ...fetchOptions } = options3;
+  async function rawRequest(options2) {
+    options2.body;
+    let { url, responseType, ...fetchOptions } = options2;
     responseType || (responseType = "json"), fetchOptions = {
       mode: "cors",
       ...fetchOptions
     };
-    let response = await (options3.fetchPolyfill || fetch)(url, fetchOptions);
+    let response = await (options2.fetchPolyfill || fetch)(url, fetchOptions);
     if (response.ok && response.status >= 200 && response.status < 400) {
       if (responseType === "json")
         return await response.json();
@@ -10005,9 +10015,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         }
       ));
     }
-    getConnection(name, messageHandler, options3) {
+    getConnection(name, messageHandler, options2) {
       let sync = !1;
-      options3 && options3.sync && (sync = !0);
+      options2 && options2.sync && (sync = !0);
       let fromType = this.fromType, currentListeners = listeners2.get(fromType);
       if (currentListeners.has(name))
         return currentListeners.get(name).connectionInstance;
@@ -10131,16 +10141,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
 
   // browser_proxy.ts
-  async function sendMessage(options3) {
+  async function sendMessage(options2) {
     return await getConnection().sendMessage(
       "background:main",
-      options3
+      options2
     );
   }
-  function request2(options3) {
-    return isMonkey() || isDeno() ? (options3.fetchPolyfill = globalThis.GM_fetch, request(options3)) : sendMessage({
+  function request2(options2) {
+    return isMonkey() || isDeno() ? (options2.fetchPolyfill = globalThis.GM_fetch, request(options2)) : sendMessage({
       method: "fetch",
-      data: options3
+      data: options2
     });
   }
   function getConfig2() {
@@ -10173,21 +10183,23 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       }
     );
   }
-  function detectLanguage(options3) {
-    if (options3.text) {
-      let chineseLike = detectChinese(options3.text);
+  function detectLanguage(options2) {
+    if (log_default.v("options", options2), options2.text) {
+      let chineseLike = detectChinese(options2.text);
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
-    } else
-      return Promise.resolve("auto");
+    }
     if (isMonkey()) {
-      let result = browserAPI.extra.detectLanguage(options3.text);
+      let result = browserAPI.extra.detectLanguage(
+        options2.text,
+        options2.minLength
+      );
       return Promise.resolve(result);
     }
     return sendMessage(
       {
         method: "detectLanguage",
-        data: options3
+        data: options2
       }
     );
   }
@@ -10631,7 +10643,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let promises = allParagraphs.map((paragraph) => {
       let { text } = paragraph;
       return detectLanguage({
-        text
+        text,
+        minLength: ctx.rule.languageDetectMinTextCount
       });
     }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
     ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
@@ -11218,14 +11231,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     detectLanguageLocally(text) {
       return detectLanguage({
-        text
+        text,
+        minLength: 18
       });
     }
     detectLanguageRemotely(_text) {
       return Promise.resolve("auto");
     }
     detectLanguage(text) {
-      return text.length >= 32 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
+      return text.length >= 50 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
     }
   };
 
@@ -12452,7 +12466,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       }];
     }
     async translate(payload) {
-      let { text, from, to } = payload, src_text = text, options3 = {
+      let { text, from, to } = payload, src_text = text, options2 = {
         url: "https://api.niutrans.com/NiuTransServer/translation",
         retry: 2,
         headers: {
@@ -12466,7 +12480,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           apikey: this.APIKEY
         })
       }, response = await request2(
-        options3
+        options2
       );
       if (response.tgt_text) {
         let result = response.tgt_text;
@@ -12519,8 +12533,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     if (!!escapedKey)
       return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
   }).filter((v3) => v3).join("&"), Signer = class {
-    constructor(request3, serviceName, options3) {
-      this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options3 = options3 || {}, this.bodySha256 = options3.bodySha256, this.request.params = this.sortParams(this.request.params);
+    constructor(request3, serviceName, options2) {
+      this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options2 = options2 || {}, this.bodySha256 = options2.bodySha256, this.request.params = this.sortParams(this.request.params);
     }
     sortParams(params) {
       let newParams = {};
@@ -13399,7 +13413,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       let { text, from, to } = payload;
       if (!langMap15.get(to))
         throw new Error(`Unsupported language: ${to}`);
-      from === "auto" && (from = await detectLanguage({ text: text.join(" ") }));
+      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
       let source = text;
       return {
         text: (await request2(
@@ -13811,8 +13825,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
 
   // dom/context.ts
-  async function getContext(options3) {
-    let { url, config, state } = options3, urlObj = new URL(url), sourceLanguage = "auto", {
+  async function getContext(options2) {
+    let { url, config, state } = options2, urlObj = new URL(url), sourceLanguage = "auto", {
       translationParagraphLanguagePattern,
       translationService,
       translationServices,
@@ -14159,12 +14173,12 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         config
       });
     else {
-      let options3 = {
+      let options2 = {
         url,
         config,
         state: globalContext.state
       };
-      globalContext = await getContext(options3);
+      globalContext = await getContext(options2);
     }
     return globalContext;
   }
@@ -14191,7 +14205,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let currentLang = "auto";
     if (ctx.state.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
       let detectedLang = await detectLanguage({
-        text: pageTitle
+        text: pageTitle,
+        minLength: 10
       });
       if (isSameTargetLanguage(detectedLang, ctx.targetLanguage))
         return;
@@ -14798,30 +14813,30 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     fallbackLang: "en"
   };
   function useTranslate(rawOptions, translations2) {
-    let options3 = Object.assign(
+    let options2 = Object.assign(
       {},
       defaultOptions,
       rawOptions
     );
     cache = translations2 || cache;
-    let [lang, setLang] = P2(options3.lang), [data, setData] = P2(cache), [isReady2, setReady] = P2(!1), loadData = (langKey) => {
+    let [lang, setLang] = P2(options2.lang), [data, setData] = P2(cache), [isReady2, setReady] = P2(!1), loadData = (langKey) => {
       if (data.hasOwnProperty(langKey))
         return;
       setReady(!1);
-      let url = getResourceUrl(options3.root || "", langKey);
-      options3.getUrl && (url = options3.getUrl(options3.root || "", langKey), fetch(url).then((results) => results.json()).then((resource) => {
+      let url = getResourceUrl(options2.root || "", langKey);
+      options2.getUrl && (url = options2.getUrl(options2.root || "", langKey), fetch(url).then((results) => results.json()).then((resource) => {
         cache[langKey] = resource, setData({ ...cache }), setReady(!0);
       }).catch((error) => {
         setData({ ...cache }), setReady(!0);
       }));
     };
     return j3(() => {
-      loadData(options3.fallbackLang || "en"), loadData(lang);
+      loadData(options2.fallbackLang || "en"), loadData(lang);
     }, [lang]), { lang, setLang, t: (key, params) => {
       if (!data.hasOwnProperty(lang))
         return key;
       let value = getValue(data, lang, key);
-      return value === key && lang !== options3.fallbackLang && (value = getValue(data, options3.fallbackLang, key)), format(value, params);
+      return value === key && lang !== options2.fallbackLang && (value = getValue(data, options2.fallbackLang, key)), format(value, params);
     }, isReady: isReady2 };
   }
 
@@ -16033,10 +16048,10 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   // page_popup.tsx
   var isInit = !1;
   async function main() {
-    let config = await getConfig2(), options3 = {
+    let config = await getConfig2(), options2 = {
       url: globalThis.location.href,
       config
-    }, ctx = await getContext(options3);
+    }, ctx = await getContext(options2);
     config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
       (_e3) => {
@@ -16061,7 +16076,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.47",
+    version: "0.2.48",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -16265,7 +16280,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   }
 
   // dom/ready_state.js
-  var options2 = {
+  var options = {
     capture: !0,
     once: !0,
     passive: !0
@@ -16275,7 +16290,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       () => {
         document.readyState === "loading" && resolve("loading");
       },
-      options2
+      options
     );
   }), interactive = () => new Promise((resolve) => {
     resolveState("interactive", resolve) || document.addEventListener(
@@ -16283,7 +16298,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       () => {
         document.readyState === "interactive" && resolve("interactive");
       },
-      options2
+      options
     );
   }), complete = () => new Promise((resolve) => {
     resolveState("complete", resolve) || document.addEventListener(
@@ -16291,7 +16306,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       () => {
         document.readyState === "complete" && resolve("complete");
       },
-      options2
+      options
     );
   }), domready = () => new Promise((resolve) => {
     resolveState("domready", resolve) || document.addEventListener(
@@ -16299,7 +16314,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       () => {
         resolve("domready");
       },
-      options2
+      options
     );
   }), load = () => new Promise((resolve) => {
     resolveState("load", resolve) || window.addEventListener(
@@ -16307,7 +16322,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       () => {
         resolve("load");
       },
-      options2
+      options
     );
   }), readyState = {};
   Object.defineProperties(readyState, {
@@ -16450,7 +16465,7 @@ ${this._lastError.message}`;
     _log(message) {
       this._verbose && this._Console && this._Console.log && this._Console.log(message);
     }
-  }, waitFor = (waitForFunction, options3) => new PollUntil(options3).execute(waitForFunction);
+  }, waitFor = (waitForFunction, options2) => new PollUntil(options2).execute(waitForFunction);
 
   // dom/wait_for_dom.ts
   async function waitForDomElementReady() {

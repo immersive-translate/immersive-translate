@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.48
+
+- Better for speed, by add minLength to 50 for language detecting.
+- Fix Google Drive token validate.
+
 ## 0.2.47
 
 - Fix deepl api

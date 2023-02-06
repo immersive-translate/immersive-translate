@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-05T02:13:56.505Z", VERSION: "0.2.47", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-06T01:27:15.012Z", VERSION: "0.2.48", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -7246,8 +7246,8 @@ body {
     clickToDownload: "Click to download",
     aboutLabel: "About - Feedback - Sponsor",
     "browser.openAboutPage": "About / Feedback/Sponsor",
-    aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these < 1 > sponsors < / 1 >, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to sponsor < / 2 > my work, and you can follow my < 3 > Twitter < / 3 > and < 4 > Telegram channels < / 4 > for the latest updates.`,
+    aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
+If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
     projectHomepage: "Project Homepage",
     joinTelegramGroup: "Join Telegram group for feature discussion",
     feedbackAndJoin: "Issue feedback/group",
@@ -7742,7 +7742,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
   // buildin_config.json
   var buildin_config_default = {
     minVersion: "0.0.20",
-    immediateTranslationTextCount: 4e3,
+    immediateTranslationTextCount: 5e3,
     interval: 36e5,
     beta: !1,
     cache: !0,
@@ -7864,6 +7864,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     generalRule: {
       _comment: "",
       normalizeBody: "",
+      languageDetectMinTextCount: 50,
       wrapperPrefix: "smart",
       wrapperSuffix: "smart",
       isPdf: !1,
@@ -8940,6 +8941,13 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         matches: "huggingface.co",
         globalStyles: {
           ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
+        }
+      },
+      {
+        matches: "www.statista.com",
+        globalStyles: {
+          ".itemContent__text": "height:unset;max-height:unset;",
+          ".itemContent__subline": "height:unset;max-height:unset;"
         }
       }
     ]
@@ -10406,7 +10414,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let promises = allParagraphs.map((paragraph) => {
       let { text } = paragraph;
       return detectLanguage({
-        text
+        text,
+        minLength: ctx.rule.languageDetectMinTextCount
       });
     }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
     ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
@@ -11576,7 +11585,8 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     let currentLang = "auto";
     if (ctx.state.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
       let detectedLang = await detectLanguage({
-        text: pageTitle
+        text: pageTitle,
+        minLength: 10
       });
       if (isSameTargetLanguage(detectedLang, ctx.targetLanguage))
         return;
@@ -12015,14 +12025,16 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     );
   }
   function detectLanguage(options) {
-    if (options.text) {
+    if (log_default.v("options", options), options.text) {
       let chineseLike = detectChinese(options.text);
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
-    } else
-      return Promise.resolve("auto");
+    }
     if (isMonkey()) {
-      let result = browserAPI.extra.detectLanguage(options.text);
+      let result = browserAPI.extra.detectLanguage(
+        options.text,
+        options.minLength
+      );
       return Promise.resolve(result);
     }
     return sendMessage(
@@ -12224,14 +12236,15 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
     }
     detectLanguageLocally(text) {
       return detectLanguage({
-        text
+        text,
+        minLength: 18
       });
     }
     detectLanguageRemotely(_text) {
       return Promise.resolve("auto");
     }
     detectLanguage(text) {
-      return text.length >= 32 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
+      return text.length >= 50 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
     }
   };
 
@@ -14136,7 +14149,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       let { text, from, to } = payload;
       if (!langMap14.get(to))
         throw new Error(`Unsupported language: ${to}`);
-      from === "auto" && (from = await detectLanguage({ text: text.join(" ") }));
+      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
       let source = text;
       return {
         text: (await request2(
@@ -15162,6 +15175,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         curentTranslationServiceItem && curentTranslationServiceItem.docUrl ? /* @__PURE__ */ p5("div", {
           children: [
             /* @__PURE__ */ p5("a", {
+              target: "_blank",
               class: "pb-1 docUrl",
               href: curentTranslationServiceItem.homepage,
               children: t5(`translationServices.${curentTranslationServiceItem.id}`)
@@ -15173,6 +15187,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
             }),
             "\xA0",
             /* @__PURE__ */ p5("a", {
+              target: "_blank",
               class: "pb-1 docUrl",
               href: curentTranslationServiceItem.docUrl,
               children: t5("KeyAndConfigurationTutorial")
@@ -15586,9 +15601,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       let tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
       if (log_default.debug("google drive token", tokenIndex), tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
         let token = tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
-        return await validate(token).catch(
-          (_error) => globalThis.open(AUTH_URL, "_self")
-        ), token;
+        return await validate(token).catch((_error) => {
+          throw globalThis.open(AUTH_URL, "_self"), new Error("tokenValidateErrorRedirectToAuthUrl");
+        }), token;
       }
       return log_default.debug("AUTH_URL", AUTH_URL), globalThis.open(AUTH_URL, "_self"), null;
     } else
@@ -15648,14 +15663,18 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       return result;
     }
     async getConfig(id) {
-      return await request2(
-        {
-          url: `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
-          headers: {
-            Authorization: `Bearer ${this.accessToken}`
+      try {
+        return await request2(
+          {
+            url: `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
+            headers: {
+              Authorization: `Bearer ${this.accessToken}`
+            }
           }
-        }
-      );
+        );
+      } catch (_e3) {
+        return log_default.error("get config error, use default", _e3), {};
+      }
     }
     async delete(id) {
       await request2(
@@ -15729,11 +15748,11 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
           "localUpdatedAt",
           localUpdatedAt
         ), remoteUpdatedAt > localUpdatedAt)
-          log_default.debug("remote is newer, update local config"), handleChangeValue(latestRemoteConfig), handleSuccess && handleSuccess(!0);
+          log_default.debug("remote is newer, update local config", latestRemoteConfig), handleChangeValue(latestRemoteConfig), handleSuccess && handleSuccess(!0);
         else if (remoteUpdatedAt.getTime() === localUpdatedAt.getTime())
           log_default.debug("remote and local are the same, do nothing"), handleSuccess && handleSuccess(!1);
         else if (remoteUpdatedAt < localUpdatedAt)
-          log_default.debug("local is newer, update remote config"), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess(!0);
+          log_default.debug("local is newer, update remote config", settings), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess(!0);
         else {
           handleFail && handleFail(": unknown error");
           return;
@@ -16691,7 +16710,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
         mode: "auto"
       }).then((token) => {
         log_default.debug("import_export", "Google OAuth:" + token), token !== null && syncLatestWithDrive(token);
-      }).catch((error2) => afterAuthFail(error2));
+      }).catch((error2) => {
+        error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
+      });
     }
     function handlerManualDriveAuth() {
       setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken({
@@ -16700,11 +16721,11 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       }).then((token) => {
         log_default.debug("import_export", "Google OAuth:" + token), token !== null && afterAuthSuccess(token);
       }).catch((error2) => {
-        afterAuthFail(error2);
+        error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
       });
     }
     function authExpire() {
-      setAccessToken(""), isUserscriptRuntime() && localStorage.removeItem("token"), handlerDriveAuth();
+      setAccessToken(""), handlerDriveAuth();
     }
     function afterAuthSuccess(accessToken2) {
       setAccessToken(accessToken2), setManualAuthLoading(!1), setShowSyncModal(!0);
@@ -16719,7 +16740,9 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), autoSyncStrategy(
         accessToken2,
         settings,
-        handleChangeValue,
+        (newSettings) => {
+          rawSetValue(newSettings);
+        },
         (isoDate) => setLocalConfig2({
           ...localConfig,
           lastSyncedAt: isoDate
@@ -16740,6 +16763,7 @@ If you have spare time, you can click here to sponsor < / 2 > my work, and you c
       }), e3.checked && handlerDriveAuth();
     }
     return config ? /* @__PURE__ */ p5("div", {
+      class: "pb-4",
       children: [
         /* @__PURE__ */ p5("div", {
           class: "nav",

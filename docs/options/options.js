@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-07T00:31:46.169Z", VERSION: "0.2.50", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:15.065Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3712,26 +3712,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
-
-  // env.ts
-  function getEnv() {
-    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
-  }
-  var env = getEnv();
-  function isMonkey() {
-    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
-  }
-  function isDeno() {
-    return typeof Deno < "u";
-  }
-  function isUserscriptRuntime() {
-    if (typeof globalThis.immersiveTranslateBrowserAPI < "u" && globalThis.immersiveTranslateBrowserAPI.runtime && globalThis.immersiveTranslateBrowserAPI.runtime.getManifest) {
-      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-      return !!(manifest && manifest._isUserscript);
-    } else
-      return !1;
-  }
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // browser/web_polyfill.ts
   (function() {
@@ -3845,9 +3826,6 @@ body {
       },
       i18n: {
         getAcceptLanguages
-      },
-      identity: {
-        getRedirectURL: () => getEnv().REDIRECT_URL
       }
     };
     globalThis.immersiveTranslateBrowserAPI = browser;
@@ -6508,7 +6486,7 @@ body {
   function isChrome() {
     return isBrowser(CHROME);
   }
-  function isDeno2() {
+  function isDeno() {
     return typeof Deno < "u";
   }
   function isFirefox() {
@@ -6555,16 +6533,12 @@ body {
       },
       sendMessage: () => {
       }
-    },
-    identity: {
-      getRedirectURL: (path) => path || "",
-      launchWebAuthFlow: (details) => Promise.resolve(details.url)
     }
   };
 
   // browser/browser.ts
   var browserAPI;
-  isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
+  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
 
   // locales/zh-CN.json
   var zh_CN_default = {
@@ -7739,6 +7713,25 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return languages[indexOfLanguages];
   }
 
+  // env.ts
+  function getEnv() {
+    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+  }
+  var env = getEnv();
+  function isMonkey() {
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isDeno2() {
+    return typeof Deno < "u";
+  }
+  function isUserscriptRuntime() {
+    if (typeof globalThis.immersiveTranslateBrowserAPI < "u" && globalThis.immersiveTranslateBrowserAPI.runtime && globalThis.immersiveTranslateBrowserAPI.runtime.getManifest) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && manifest._isUserscript);
+    } else
+      return !1;
+  }
+
   // buildin_config.json
   var buildin_config_default = {
     minVersion: "0.0.20",
@@ -8268,6 +8261,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "[data-test-selector='commit-tease-commit-message']",
           "div.blob-wrapper-embedded"
         ],
+        extraBlockSelectors: [
+          "task-lists"
+        ],
         detectParagraphLanguage: !0
       },
       {
@@ -8338,7 +8334,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         excludeSelectors: [
           "[class^='lln-']"
         ],
-        extraBlockSelector: [
+        extraBlockSelectors: [
           ".ytd-transcript-segment-renderer"
         ],
         detectParagraphLanguage: !0
@@ -8951,6 +8947,30 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           ".itemContent__text": "height:unset;max-height:unset;",
           ".itemContent__subline": "height:unset;max-height:unset;"
         }
+      },
+      {
+        matches: "epub-reader.online",
+        globalStyles: {
+          "span.slide-contents-item-label": "overflow:visible;max-height:unset;white-space:normal;"
+        },
+        atomicBlockSelectors: "div.slide-contents-item"
+      },
+      {
+        matches: "https://you.com/search",
+        globalStyles: {
+          h3: "max-height:unset;-webkit-line-clamp:unset;",
+          ".caKYaC": "max-height:unset;-webkit-line-clamp:unset;",
+          ".dDwDsu": "max-height:unset;-webkit-line-clamp:unset;"
+        },
+        excludeSelectors: "div.hpIWZO"
+      },
+      {
+        matches: "chat.openai.com",
+        excludeSelectors: [
+          "div.absolute.bottom-0.left-0.w-full",
+          "h1",
+          "div#headlessui-portal-root"
+        ]
       }
     ]
   };
@@ -10417,7 +10437,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       let { text } = paragraph;
       return detectLanguage({
         text,
-        minLength: ctx.rule.languageDetectMinTextCount
+        minLength: 10
       });
     }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
     ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
@@ -10430,7 +10450,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         languageByLocal: currentLanguageByLocal,
         languageByClient: currentPageLanguageByClient2 || "auto"
       };
-      if (paragraphEntities.set(newParagraph.id, {
+      if (newParagraph.text.length < ctx.rule.languageDetectMinTextCount && (newParagraph.languageByLocal = "auto"), paragraphEntities.set(newParagraph.id, {
         ...newParagraph,
         state: "Original",
         observers: []
@@ -12014,7 +12034,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     );
   }
   function request2(options) {
-    return isMonkey() || isDeno() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
+    return isMonkey() || isDeno2() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
       method: "fetch",
       data: options
     });
@@ -12027,7 +12047,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     );
   }
   function detectLanguage(options) {
-    if (log_default.v("options", options), options.text) {
+    if (options.text) {
       let chineseLike = detectChinese(options.text);
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
@@ -14273,13 +14293,13 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: deepl_default,
       name: "DeepL",
       homepage: "https://www.deepl.com/translator",
-      docUrl: "https://hcfy.app/docs/services/deepl"
+      docUrl: "https://immersive-translate.owenyoung.com/services/deepL"
     },
     volc: {
       class: mod_default,
       name: "Volc",
       homepage: "https://www.volcengine.com/",
-      docUrl: "https://hcfy.app/docs/services/hs-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/volcano"
     },
     volcAlpha: {
       class: VolcAlpha,
@@ -14296,35 +14316,35 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: Tencent,
       name: "Tencent",
       homepage: "https://fanyi.qq.com/",
-      docUrl: "https://hcfy.app/docs/services/qq-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/tencent"
     },
     baidu: {
       class: baidu_default,
       name: "Baidu",
       homepage: "https://fanyi.baidu.com/",
-      docUrl: "https://hcfy.app/docs/services/baidu-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/baidu"
     },
     caiyun: {
       class: caiyun_default,
       name: "Caiyun",
       homepage: "https://fanyi.caiyunapp.com/",
-      docUrl: "https://hcfy.app/docs/services/caiyun-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/caiyun"
     },
     openl: {
       class: openl_default,
       name: "Openl",
       homepage: "https://openl.club/",
-      docUrl: "https://docs.openl.club/"
+      docUrl: "https://immersive-translate.owenyoung.com/services/openL"
     },
     youdao: {
       class: youdao_default,
       name: "Youdao",
-      homepage: "https://fanyi.youdao.com/",
+      homepage: "https://immersive-translate.owenyoung.com/services/youdao",
       docUrl: "https://hcfy.app/docs/services/youdao-api"
     },
     d: {
       class: D8,
-      name: "D (Alpha) ",
+      name: "D () ",
       alpha: !0,
       homepage: "https://www.deepl.com/translator"
     },
@@ -14344,7 +14364,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: niu_default,
       name: "niutrans",
       homepage: "https://niutrans.com/",
-      docUrl: "https://niutrans.com/documents/contents/beginning_guide/6"
+      docUrl: "https://immersive-translate.owenyoung.com/services/niu"
     }
   };
   function formatTranslationService(key, ctx) {
@@ -15558,99 +15578,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     });
   }
 
-  // sync/authorize.ts
-  var VALIDATION_BASE_URL = "https://www.googleapis.com/oauth2/v3/tokeninfo", CLIENT_ID = GOOGLE_CLIENT_ID;
-  async function getAuthUrl(state) {
-    let REDIRECT_URL = browserAPI?.identity?.getRedirectURL();
-    if (log_default.debug("REDIRECT_URL", REDIRECT_URL), typeof browserAPI?.runtime?.getBrowserInfo == "function") {
-      let browserInfo = await browserAPI?.runtime?.getBrowserInfo();
-      browserInfo && browserInfo.name === "Firefox" && (browserInfo.version.split(".")[0] || 0) >= 86 && (REDIRECT_URL = "http://127.0.0.1/mozoauth2/" + REDIRECT_URL.split(".")[0].replace(/https?:\/\//, ""), log_default.debug("browserInfo", browserInfo), log_default.debug("Firefox detected, using loopback addresses " + REDIRECT_URL));
-    }
-    if (!REDIRECT_URL)
-      throw new Error("Redirect URL is not available");
-    let SCOPES = ["https://www.googleapis.com/auth/drive.appdata"];
-    return `https://accounts.google.com/o/oauth2/auth?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URL)}&scope=${encodeURIComponent(SCOPES.join(" "))}&state=${encodeURIComponent(JSON.stringify(state))}`;
-  }
-  function extractAccessToken(redirectUri) {
-    let m4 = redirectUri.match(/[#?](.*)/);
-    return !m4 || m4.length < 1 ? "" : new URLSearchParams(m4[1].split("#")[0]).get("access_token");
-  }
-  function validate(accessToken) {
-    if (!accessToken)
-      throw "Authorization failure";
-    let validationURL = `${VALIDATION_BASE_URL}?access_token=${accessToken}`, validationRequest = new Request(validationURL, {
-      method: "GET"
-    });
-    function checkResponse(response) {
-      return new Promise((resolve, reject) => {
-        response.status != 200 && reject("Token validation error"), response.json().then((json) => {
-          json.aud && json.aud === CLIENT_ID ? resolve(accessToken) : reject("Token validation error");
-        });
-      });
-    }
-    return fetch(validationRequest).then(checkResponse);
-  }
-  async function authorize(state) {
-    let AUTH_URL = await getAuthUrl(state);
-    return log_default.debug("redirect url", AUTH_URL), browserAPI.identity.launchWebAuthFlow({
-      interactive: !0,
-      url: AUTH_URL
-    });
-  }
-  async function getAccessToken(state) {
-    let AUTH_URL = await getAuthUrl(state);
-    if (isUserscriptRuntime()) {
-      let tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
-      if (log_default.debug("google drive token", tokenIndex), tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
-        let token = tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
-        return await validate(token).catch((_error) => {
-          throw globalThis.open(AUTH_URL, "_self"), new Error("tokenValidateErrorRedirectToAuthUrl");
-        }), token;
-      }
-      return log_default.debug("AUTH_URL", AUTH_URL), globalThis.open(AUTH_URL, "_self"), null;
-    } else
-      return authorize(state).then((redirectURL) => (log_default.debug("google drive callback redirectURL", redirectURL), extractAccessToken(redirectURL))).then(validate);
-  }
-
   // sync/google_drive_api.ts
   var GoogleDriveAPI = class {
     constructor(accessToken) {
       this.accessToken = accessToken;
-    }
-    async upload(metadata, blob) {
-      let data = new FormData(), temp = { ...metadata, mimeType: "application/json" };
-      return log_default.debug("metadata", temp, this.accessToken), data.append(
-        "metadata",
-        new Blob([JSON.stringify(temp)], {
-          type: "application/json; charset=UTF-8"
-        })
-      ), data.append("file", blob), await request(
-        {
-          url: "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${this.accessToken}`
-          },
-          body: data
-        }
-      );
-    }
-    async list(pageToken, query) {
-      let url = new URL("https://www.googleapis.com/drive/v3/files");
-      pageToken && url.searchParams.append("pageToken", pageToken), query && url.searchParams.append("q", query), url.searchParams.append("spaces", "appDataFolder"), url.searchParams.append(
-        "fields",
-        "files(id,name,createdTime,modifiedTime,size)"
-      ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
-      try {
-        return log_default.debug("list api:", url.toString(), this.accessToken), await request({
-          url: url.toString(),
-          headers: {
-            Authorization: `Bearer ${this.accessToken}`
-          }
-        });
-      } catch (e3) {
-        throw log_default.error("fetch google ip error", e3), e3;
-      }
     }
     async listAll() {
       let result = [], pageToken = "";
@@ -15666,39 +15597,39 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     }
     async getConfig(id) {
       try {
-        return await request(
+        return await (await fetch(
+          `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
           {
-            url: `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
             headers: {
               Authorization: `Bearer ${this.accessToken}`
             }
           }
-        );
+        )).json();
       } catch (_e3) {
         return log_default.error("get config error, use default", _e3), {};
       }
     }
     async delete(id) {
-      await request(
-        {
-          responseType: "text",
-          url: `https://www.googleapis.com/drive/v3/files/${id}`,
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${this.accessToken}`
-          }
+      await fetch(`https://www.googleapis.com/drive/v3/files/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`
         }
-      );
+      });
     }
     findByName(fileName) {
       return this.list(void 0, `name = '${fileName}'`);
     }
-    uploadConfig(settings) {
+    uploadConfig(settings, filename = LATEST_FILE_NAME) {
       let blob = new Blob([JSON.stringify(settings, null, 2)], {
         type: "application/json"
       });
       return this.upload(
-        { name: LATEST_FILE_NAME, parents: ["appDataFolder"] },
+        {
+          name: filename,
+          parents: ["appDataFolder"],
+          mimeType: "application/json"
+        },
         blob
       );
     }
@@ -15708,30 +15639,66 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       });
       return this.updateContent(id, blob);
     }
-    async updateContent(id, blob) {
-      return await request(
+    async upload(metadata, blob) {
+      let data = new FormData();
+      data.append(
+        "metadata",
+        new Blob([JSON.stringify(metadata)], {
+          type: "application/json; charset=UTF-8"
+        })
+      ), data.append("file", blob);
+      let res = await fetch(
+        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
         {
-          url: `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: data
+        }
+      );
+      return res.ok ? await res.json() : Promise.reject(res.text());
+    }
+    async list(pageToken, query) {
+      let url = new URL("https://www.googleapis.com/drive/v3/files");
+      pageToken && url.searchParams.append("pageToken", pageToken), query && url.searchParams.append("q", query), url.searchParams.append("spaces", "appDataFolder"), url.searchParams.append(
+        "fields",
+        "files(id,name,createdTime,modifiedTime,size)"
+      ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
+      try {
+        return log_default.debug("list api:", url.toString(), this.accessToken), await (await fetch(url.toString(), {
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          }
+        })).json();
+      } catch (e3) {
+        throw log_default.error("fetch google ip error", e3), e3;
+      }
+    }
+    async updateContent(id, blob) {
+      return await (await fetch(
+        `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
+        {
           method: "PATCH",
           headers: {
             Authorization: `Bearer ${this.accessToken}`
           },
           body: blob
         }
-      );
+      )).text();
     }
   };
 
   // sync/util.ts
-  function revokeGoogleAuthToken(token) {
-    browserAPI && browserAPI.identity && browserAPI.identity.removeCachedAuthToken && browserAPI.identity.clearAllCachedAuthTokens();
-    let url = "https://oauth2.googleapis.com/revoke?token=" + token;
-    return fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    });
+  function getAuthUrl(state, redirect_url) {
+    let SCOPES = ["https://www.googleapis.com/auth/drive.appdata"];
+    return `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(redirect_url)}&scope=${encodeURIComponent(SCOPES.join(" "))}&state=${encodeURIComponent(JSON.stringify(state))}`;
+  }
+  function extractAccessToken(redirectUri) {
+    let m4 = redirectUri.match(/[#?](.*)/);
+    return !m4 || m4.length < 1 ? null : {
+      access_token: new URLSearchParams(m4[1].split("#")[0]).get("access_token")
+    };
   }
   async function autoSyncStrategy(accessToken, settings, handleChangeValue, handleUpdateLocalConfigLastSyncedAt, handleUpdateSettingUpdateAt, handleSuccess, handleFail) {
     log_default.debug(`autoSyncStrategy accessToken: ${accessToken}`);
@@ -15775,6 +15742,103 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     } catch (e3) {
       log_default.error("syncLatestWithDrive error", e3), handleFail && handleFail(": " + e3.message);
     }
+  }
+
+  // sync/google_auth.ts
+  var GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke", GoogleAuth = class {
+    constructor(state, redirectUrl) {
+      this.CLASSNAME = "GoogleAuth";
+      this._state = state, this._redirectUrl = redirectUrl;
+    }
+    static revoke(token) {
+      let url = `${GOOGLE_REVOKE_URL}?token=${token}`;
+      return fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }).then(async (res) => (await GoogleAuth.removeAuthInfo(), isUserscriptRuntime() && globalThis.location.reload(), res));
+    }
+    static async getAuthInfo() {
+      let tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
+      if (tokenIndex[GOOGLE_ACCESS_TOKEN_KEY])
+        return tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
+    }
+    static async removeAuthInfo() {
+      return await browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
+    }
+    static setAuthInfo(authInfo) {
+      return browserAPI.storage.local.set({
+        [GOOGLE_ACCESS_TOKEN_KEY]: authInfo
+      });
+    }
+    async auth(userscriptSyncPageStartAuthFlow = !1) {
+      let authInfo = await GoogleAuth.getAuthInfo();
+      if (log_default.debug(this.CLASSNAME, "token from cache:", authInfo), authInfo && authInfo.access_token && await validate(authInfo.access_token).then((_token) => !0).catch((_err) => !1))
+        return Promise.resolve(authInfo);
+      let authUrlWithState = getAuthUrl(
+        this._state,
+        this._redirectUrl
+      );
+      return log_default.debug(this.CLASSNAME, "auth url: " + authUrlWithState), isUserscriptRuntime() ? this.userscriptAuthWorkflow(
+        authUrlWithState,
+        userscriptSyncPageStartAuthFlow
+      ) : this.extensionAuthWorkflow(authUrlWithState).then((res) => (GoogleAuth.setAuthInfo(res), res));
+    }
+    async userscriptAuthWorkflow(authUrl, syncPageStartAuthFlow) {
+      return syncPageStartAuthFlow && await browserAPI.storage.local.set({ [AUTH_FLOW_FLAG]: !0 }), globalThis.open(authUrl, "_self"), Promise.resolve({});
+    }
+    extensionAuthWorkflow(authUrl) {
+      let _tabId, _success = !1;
+      return new Promise((resolve, reject) => {
+        let cleanup = () => {
+          browserAPI.tabs.onUpdated.removeListener(tabUpdateListener), browserAPI.tabs.onRemoved.removeListener(tabRemovedListener);
+        }, tabUpdateListener = (tabId, _changeInfo, tab) => {
+          if (log_default.debug(this.CLASSNAME, "create tab onUpdated: " + tab.url), _tabId === tabId) {
+            let url = new URL(tab.url || ""), authInfo = extractAccessToken(tab.url);
+            url.pathname.startsWith("/auth-done") && authInfo?.access_token && (log_default.debug(this.CLASSNAME, "auth done: " + tab.url), resolve({ access_token: authInfo.access_token }), _success = !0, browserAPI.tabs.remove(tabId), cleanup());
+          }
+        }, tabRemovedListener = (tabId, _removeInfo) => {
+          log_default.debug(this.CLASSNAME, "create tab onRemoved: " + tabId), (tabId === _tabId || !_success) && (cleanup(), reject(new Error("auth failed")));
+        }, width = Math.min(500, screen.availWidth), height = Math.min(650, screen.availHeight);
+        browserAPI.windows.create({
+          url: authUrl,
+          type: "popup",
+          width,
+          height,
+          left: Math.round((screen.width - width) / 2),
+          top: Math.round((screen.height - height) / 2)
+        }).then((window2) => {
+          _tabId = window2.tabs[0].id, browserAPI.tabs.onUpdated.addListener(tabUpdateListener), browserAPI.tabs.onRemoved.addListener(tabRemovedListener);
+        }).catch((error2) => {
+          log_default.debug(this.CLASSNAME, "create tab failed: " + error2), reject(error2);
+        });
+      });
+    }
+  };
+
+  // sync/authorize.ts
+  var VALIDATION_BASE_URL = "https://www.googleapis.com/oauth2/v3/tokeninfo", CLIENT_ID = GOOGLE_CLIENT_ID, REDIRECT_URL = getEnv().REDIRECT_URL;
+  function validate(accessToken) {
+    if (!accessToken)
+      throw "Authorization failure";
+    let validationURL = `${VALIDATION_BASE_URL}?access_token=${accessToken}`, validationRequest = new Request(validationURL, {
+      method: "GET"
+    });
+    function checkResponse(response) {
+      return new Promise((resolve, reject) => {
+        response.status != 200 && reject("Token validation error"), response.json().then((json) => {
+          json.aud && json.aud === CLIENT_ID ? resolve(accessToken) : reject("Token validation error");
+        });
+      });
+    }
+    return fetch(validationRequest).then(checkResponse);
+  }
+  function getAuthInfo(state, userscriptSyncStartAuthFlow = !1) {
+    return new GoogleAuth(state, REDIRECT_URL).auth(userscriptSyncStartAuthFlow);
+  }
+  function getAccessToken(state, userscriptSyncStartAuthFlow = !1) {
+    return getAuthInfo(state, userscriptSyncStartAuthFlow).then((authInfo) => authInfo.access_token || null);
   }
 
   // menu.ts
@@ -16529,10 +16593,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           count: 10
         }));
       setExportLoading(!0);
-      let filename = "immersive-translate-config-" + formatFileNameDate() + ".json", blob = new Blob([JSON.stringify(settings, null, 2)], {
-        type: "application/json"
-      });
-      new GoogleDriveAPI(accessToken).upload({ name: filename, parents: ["appDataFolder"] }, blob).catch((error2) => {
+      let filename = "immersive-translate-config-" + formatFileNameDate() + ".json";
+      new GoogleDriveAPI(accessToken).uploadConfig(settings, filename).catch((error2) => {
         console.error(error2), error(t5("uploadFail"));
       }).then(() => listAllFiles()).finally(() => setExportLoading(!1));
     }
@@ -16560,7 +16622,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       e3.preventDefault(), setSettings({
         ...settings,
         autoSync: !1
-      }), browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), revokeGoogleAuthToken(accessToken).then(() => onClose());
+      }), GoogleAuth.revoke(accessToken).then(() => onClose());
     }
     return /* @__PURE__ */ p5("dialog", {
       id: "immersive-translate-overlay",
@@ -16697,30 +16759,37 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         });
       }, 500));
     }, [showSyncModal, setShowSyncModal] = P2(!1), [authLoading, setAuthLoading] = P2(!1), [manualAuthLoading, setManualAuthLoading] = P2(!1), [accessToken, setAccessToken] = P2("");
-    if (isUserscriptRuntime() && globalThis.localStorage.getItem(AUTH_FLOW_FLAG) === "true") {
-      globalThis.localStorage.setItem(AUTH_FLOW_FLAG, "false");
-      let rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
-      log_default.debug("rawAuthInfoStr", rawAuthInfoStr);
-      let info = {}, state = {}, token = "";
-      if (rawAuthInfoStr) {
-        globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
-        try {
-          info = JSON.parse(rawAuthInfoStr), state = info.state || {}, token = info.token || "";
-        } catch (e3) {
-          log_default.error("parse state error", e3);
+    j2(() => {
+      if (isUserscriptRuntime()) {
+        let check = localStorage.getItem(AUTH_FLOW_FLAG);
+        if (localStorage.removeItem(AUTH_FLOW_FLAG), check) {
+          let rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
+          log_default.debug("rawAuthInfoStr", rawAuthInfoStr);
+          let authInfo = {}, state = {}, token = "";
+          if (rawAuthInfoStr) {
+            globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
+            try {
+              authInfo = JSON.parse(rawAuthInfoStr), state = authInfo.state || {}, token = authInfo.access_token || "";
+            } catch (e3) {
+              log_default.error("parse state error", e3);
+            }
+          }
+          if (token && state && (browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token }).catch(
+            (e3) => {
+              log_default.error("set access token error", e3);
+            }
+          ), log_default.debug("import_export", "Google OAuth:" + authInfo), authInfo)) {
+            let state2 = authInfo.state;
+            log_default.debug("state", state2), state2?.mode === "auto" ? (setAuthLoading(!0), syncLatestWithDrive(token)) : (setManualAuthLoading(!0), afterAuthSuccess(token));
+          }
         }
       }
-      token && state && (browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token }).catch(
-        (e3) => {
-          log_default.error("set access token error", e3);
-        }
-      ), state.mode === "auto" ? syncLatestWithDrive(token) : afterAuthSuccess(token));
-    }
+    }, []);
     function handlerDriveAuth() {
       setAuthLoading(!0), getAccessToken({
         source: globalThis.location.href,
         mode: "auto"
-      }).then((token) => {
+      }, !0).then((token) => {
         log_default.debug("import_export", "Google OAuth:" + token), token !== null && syncLatestWithDrive(token);
       }).catch((error2) => {
         error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
@@ -16730,7 +16799,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken({
         source: globalThis.location.href,
         mode: "manual"
-      }).then((token) => {
+      }, !0).then((token) => {
         log_default.debug("import_export", "Google OAuth:" + token), token !== null && afterAuthSuccess(token);
       }).catch((error2) => {
         error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
@@ -16870,7 +16939,6 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
             })
           ]
         }),
-        !isMonkey() && !1,
         /* @__PURE__ */ p5("div", {
           children: [
             /* @__PURE__ */ p5("a", {
@@ -17259,6 +17327,17 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               4: "https://t.me/owenyoungzh"
             })
           }
+        }),
+        /* @__PURE__ */ p5("div", {
+          class: "text-center",
+          children: /* @__PURE__ */ p5("iframe", {
+            src: "https://immersivetranslate.substack.com/embed",
+            width: "480",
+            height: "320",
+            style: "border:1px solid #EEE; background:white;",
+            frameBorder: 0,
+            scrolling: "no"
+          })
         })
       ]
     }) : null;

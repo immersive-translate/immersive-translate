@@ -110,3 +110,5 @@
 - [ ] https://fanyi.xfyun.cn/console/trans/text 支持讯飞翻译引擎
 - [ ] 还好，作者可不可以加一个译文可以编辑的功能呀，想要一个
 - [ ] 添加 usecase
+- [ ] 边缘情况，不翻译纯符号： https://github.com/m-bain/whisperX/issues/56
+- [ ] 多雨雨检测，好吧，我知道了. 上次变更了最小检测字数，比较少的文字，好像就不会被检测了和翻译了。本地识别的时候按照最小字符数识别。但是传给服务器的时候用 auto.

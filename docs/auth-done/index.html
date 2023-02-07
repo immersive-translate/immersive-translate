@@ -1,5 +1,7 @@
-<html>
-  <head></head>
+<html lang="en">
+  <head>
+    <title>Auth WorkFlow</title>
+  </head>
   <body>
     <div id="message">Loading...</div>
     <script>
@@ -15,14 +17,13 @@
         } catch (e) {
           console.error("parse state error", e);
         }
-        const info = {
-          token: params.get("access_token"),
+        return {
+          access_token: params.get("access_token"),
           state: state,
           source:
             state.source ||
             "https://immersive-translate.owenyoung.com/options/#import_export",
         };
-        return info;
       }
       (function () {
         "use strict";

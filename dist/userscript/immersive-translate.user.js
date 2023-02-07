@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.50
+// @version      0.2.51
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -41,7 +41,7 @@
 // @connect    api.openl.club
 // @connect    openapi.youdao.com
 // @connect    translate.volcengine.com
-// @connect    api.niutrans.com 
+// @connect    api.niutrans.com
 // @connect    immersivetranslate.com
 // @connect    api.immersivetranslate.com
 // @connect    www.googleapis.com
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-07T00:31:46.169Z", VERSION: "0.2.50", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:15.065Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3767,7 +3767,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // https://esm.sh/v106/n-gram@2.0.2/deno/n-gram.js
   var c = o(2), f = o(3);
@@ -4138,9 +4138,6 @@ body {
     i18n: {
       getAcceptLanguages,
       detectLanguage: languageDetect
-    },
-    identity: {
-      getRedirectURL: () => getEnv().REDIRECT_URL
     }
   };
   function isObject(obj) {
@@ -8118,10 +8115,6 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       sendMessage: () => {
       }
-    },
-    identity: {
-      getRedirectURL: (path) => path || "",
-      launchWebAuthFlow: (details) => Promise.resolve(details.url)
     }
   };
 
@@ -8658,6 +8651,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "[data-test-selector='commit-tease-commit-message']",
           "div.blob-wrapper-embedded"
         ],
+        extraBlockSelectors: [
+          "task-lists"
+        ],
         detectParagraphLanguage: !0
       },
       {
@@ -8728,7 +8724,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         excludeSelectors: [
           "[class^='lln-']"
         ],
-        extraBlockSelector: [
+        extraBlockSelectors: [
           ".ytd-transcript-segment-renderer"
         ],
         detectParagraphLanguage: !0
@@ -9341,6 +9337,30 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           ".itemContent__text": "height:unset;max-height:unset;",
           ".itemContent__subline": "height:unset;max-height:unset;"
         }
+      },
+      {
+        matches: "epub-reader.online",
+        globalStyles: {
+          "span.slide-contents-item-label": "overflow:visible;max-height:unset;white-space:normal;"
+        },
+        atomicBlockSelectors: "div.slide-contents-item"
+      },
+      {
+        matches: "https://you.com/search",
+        globalStyles: {
+          h3: "max-height:unset;-webkit-line-clamp:unset;",
+          ".caKYaC": "max-height:unset;-webkit-line-clamp:unset;",
+          ".dDwDsu": "max-height:unset;-webkit-line-clamp:unset;"
+        },
+        excludeSelectors: "div.hpIWZO"
+      },
+      {
+        matches: "chat.openai.com",
+        excludeSelectors: [
+          "div.absolute.bottom-0.left-0.w-full",
+          "h1",
+          "div#headlessui-portal-root"
+        ]
       }
     ]
   };
@@ -10186,7 +10206,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     );
   }
   function detectLanguage(options2) {
-    if (log_default.v("options", options2), options2.text) {
+    if (options2.text) {
       let chineseLike = detectChinese(options2.text);
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
@@ -10646,7 +10666,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       let { text } = paragraph;
       return detectLanguage({
         text,
-        minLength: ctx.rule.languageDetectMinTextCount
+        minLength: 10
       });
     }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
     ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
@@ -10659,7 +10679,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         languageByLocal: currentLanguageByLocal,
         languageByClient: currentPageLanguageByClient2 || "auto"
       };
-      if (paragraphEntities.set(newParagraph.id, {
+      if (newParagraph.text.length < ctx.rule.languageDetectMinTextCount && (newParagraph.languageByLocal = "auto"), paragraphEntities.set(newParagraph.id, {
         ...newParagraph,
         state: "Original",
         observers: []
@@ -13537,13 +13557,13 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: deepl_default,
       name: "DeepL",
       homepage: "https://www.deepl.com/translator",
-      docUrl: "https://hcfy.app/docs/services/deepl"
+      docUrl: "https://immersive-translate.owenyoung.com/services/deepL"
     },
     volc: {
       class: mod_default,
       name: "Volc",
       homepage: "https://www.volcengine.com/",
-      docUrl: "https://hcfy.app/docs/services/hs-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/volcano"
     },
     volcAlpha: {
       class: VolcAlpha,
@@ -13560,35 +13580,35 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: Tencent,
       name: "Tencent",
       homepage: "https://fanyi.qq.com/",
-      docUrl: "https://hcfy.app/docs/services/qq-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/tencent"
     },
     baidu: {
       class: baidu_default,
       name: "Baidu",
       homepage: "https://fanyi.baidu.com/",
-      docUrl: "https://hcfy.app/docs/services/baidu-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/baidu"
     },
     caiyun: {
       class: caiyun_default,
       name: "Caiyun",
       homepage: "https://fanyi.caiyunapp.com/",
-      docUrl: "https://hcfy.app/docs/services/caiyun-api"
+      docUrl: "https://immersive-translate.owenyoung.com/services/caiyun"
     },
     openl: {
       class: openl_default,
       name: "Openl",
       homepage: "https://openl.club/",
-      docUrl: "https://docs.openl.club/"
+      docUrl: "https://immersive-translate.owenyoung.com/services/openL"
     },
     youdao: {
       class: youdao_default,
       name: "Youdao",
-      homepage: "https://fanyi.youdao.com/",
+      homepage: "https://immersive-translate.owenyoung.com/services/youdao",
       docUrl: "https://hcfy.app/docs/services/youdao-api"
     },
     d: {
       class: D9,
-      name: "D (Alpha) ",
+      name: "D () ",
       alpha: !0,
       homepage: "https://www.deepl.com/translator"
     },
@@ -13608,7 +13628,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       class: niu_default,
       name: "niutrans",
       homepage: "https://niutrans.com/",
-      docUrl: "https://niutrans.com/documents/contents/beginning_guide/6"
+      docUrl: "https://immersive-translate.owenyoung.com/services/niu"
     }
   };
   function formatTranslationService(key, ctx) {
@@ -16078,7 +16098,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.50",
+    version: "0.2.51",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -16142,9 +16162,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       "declarativeNetRequestWithHostAccess",
       "declarativeNetRequestFeedback",
       "declarativeNetRequest",
-      "tabs",
-      "identity",
-      "alarms"
+      "tabs"
     ],
     host_permissions: [
       "<all_urls>"

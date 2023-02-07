@@ -8,6 +8,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+
+# obsidian
+.obsidian/
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -110,7 +114,8 @@ typings/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

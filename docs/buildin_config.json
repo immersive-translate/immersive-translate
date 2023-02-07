@@ -1210,6 +1210,22 @@
       }
     },
     {
+      "matches": "epub-reader.online",
+      "globalStyles": {
+        "span.slide-contents-item-label": "overflow:visible;max-height:unset;white-space:normal;"
+      },
+      "atomicBlockSelectors": "div.slide-contents-item"
+    },
+    {
+      "matches": "https://you.com/search",
+      "globalStyles": {
+        "h3": "max-height:unset;-webkit-line-clamp:unset;",
+        ".caKYaC": "max-height:unset;-webkit-line-clamp:unset;",
+        ".dDwDsu": "max-height:unset;-webkit-line-clamp:unset;"
+      },
+      "excludeSelectors": "div.hpIWZO"
+    },
+    {
       "matches": "chat.openai.com",
       "excludeSelectors": [
         "div.absolute.bottom-0.left-0.w-full",
@@ -1218,6 +1234,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-07T08:07:03.990Z",
-  "latestVersion": "0.2.50"
+  "buildinConfigUpdatedAt": "2023-02-07T15:38:48.365Z",
+  "latestVersion": "0.2.51"
 }

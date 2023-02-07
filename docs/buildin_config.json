@@ -526,6 +526,9 @@
         "[data-test-selector='commit-tease-commit-message']",
         "div.blob-wrapper-embedded"
       ],
+      "excludeBlockSelectors": [
+        "task-lists"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -1205,8 +1208,16 @@
         ".itemContent__text": "height:unset;max-height:unset;",
         ".itemContent__subline": "height:unset;max-height:unset;"
       }
+    },
+    {
+      "matches": "chat.openai.com",
+      "excludeSelectors": [
+        "div.absolute.bottom-0.left-0.w-full",
+        "h1",
+        "div#headlessui-portal-root"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-06T03:55:09.996Z",
-  "latestVersion": "0.2.48"
+  "buildinConfigUpdatedAt": "2023-02-07T07:36:55.883Z",
+  "latestVersion": "0.2.50"
 }

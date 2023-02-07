@@ -1,9 +1,9 @@
-
 # 腾讯翻译君
 
-> 💡 提示 
-> 
-> 相关链接：[腾讯云机器翻译服务介绍](https://cloud.tencent.com/product/tmt) [腾讯云机器翻译服务定价文档](https://cloud.tencent.com/document/product/551/35017)
+## 相关链接
+
+- [腾讯云机器翻译服务介绍](https://cloud.tencent.com/product/tmt)
+- [腾讯云机器翻译服务定价文档](https://cloud.tencent.com/document/product/551/35017)
 
 ## 价格
 
@@ -39,25 +39,24 @@
 
 ### 第三步：创建访问密钥
 
-开通之后，将鼠标悬停在网页右上角的头像上，然后选择[访问管理](https://console.cloud.tencent.com/cam/overview)，然后在左侧菜单选择[访问密钥 - API密钥管理](https://console.cloud.tencent.com/cam/capi)，进入之后会有一个弹窗提示：
+开通之后，将鼠标悬停在网页右上角的头像上，然后选择[访问管理](https://console.cloud.tencent.com/cam/overview)，然后在左侧菜单选择[访问密钥 - API 密钥管理](https://console.cloud.tencent.com/cam/capi)，进入之后会有一个弹窗提示：
 
 ![](./assets/tencent-3.png "tencent-3")
 
 简单点说就是在这里创建的密钥可以调用你账号里的所有腾讯云资源，为了保险起见，最好是创建一个子账号，然后只给这个子账号分配机器翻译服务，最后使用子账号创建密钥，这样会更安全。
 
 1. 使用主账号创建密钥（更便捷，但不太保险）
-   
+
 选择【继续使用】，然后点击【新建密钥】按钮，表格里就会添加新的密钥，如下图：
 
 ![](./assets/tencent-4.png "tencent-4")
 
-
 2. 使用子账号创建密钥（更安全，但步骤繁琐）
-   
+
 选择【切换使用子账号密钥】，会跳转到新建用户页面，选择自定义创建，接下来有四个步骤。
 
 第一步：选择类型
-    
+
 选择【可访问资源并接收消息】，然后点击【下一步】。
 
 第二步：填写用户信息
@@ -69,7 +68,7 @@
 完成之后点击【下一步】。
 
 第三步：设置用户权限
-    
+
 搜索“机器翻译”，勾选【QcloudTMTFullAccess（机器翻译（TMT）全读写访问权限）】这一项即可，然后点击【下一步】。
 
 第四步：审阅信息
@@ -81,3 +80,10 @@
 
 将刚才创建的【SecretId】和【SecretKey】填写进沉浸式翻译的【基本设置】-【翻译服务】-【腾讯翻译君】里即可。
 
+## 参考
+
+本文参考以下文章：
+
+- [划词翻译文档：腾讯翻译君](https://hcfy.app/docs/services/qq-api)
+- [腾讯云机器翻译服务介绍](https://cloud.tencent.com/product/tmt)
+- [腾讯云机器翻译服务定价文档](https://cloud.tencent.com/document/product/551/35017)

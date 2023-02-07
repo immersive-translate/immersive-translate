@@ -1,8 +1,9 @@
 # 有道翻译
 
-> 💡 提示
-> 
-> 相关链接：[有道智云 AI 开放平台](http://ai.youdao.com/) [有道文本翻译服务定价文档](https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7.html)
+相关链接：
+
+- [有道智云 AI 开放平台](http://ai.youdao.com/)
+- [有道文本翻译服务定价文档](https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7.html)
 
 ## 价格
 
@@ -32,3 +33,11 @@
 ### 第三步：在沉浸式翻译中填写有道翻译的应用 ID 和应用密钥
 
 打开[「应用总览」页面](https://ai.youdao.com/console/#/app-overview)，在应用列表中找到刚才创建的「应用名称」为「沉浸式翻译」的应用，然后就会看到「应用 ID」和「密钥/包名/Bundle ID」，将它们填进沉浸式翻译的【基本设置】-【翻译服务】-【有道翻译】中（v7.6.0 之前的用户填进【基本设置】-【翻译服务】-【有道翻译】中）。
+
+## 参考
+
+本文参考以下文章：
+
+- [划词翻译文档：有道翻译](https://hcfy.app/docs/services/youdao-api)
+- [有道智云 AI 开放平台](http://ai.youdao.com/)
+- [有道文本翻译服务定价文档](https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BB%B7.html)

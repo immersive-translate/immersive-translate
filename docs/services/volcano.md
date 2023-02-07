@@ -1,8 +1,9 @@
 # 火山翻译
 
-> 💡 提示
-> 
-> 相关链接：[火山翻译介绍](https://www.volcengine.com/product/machine-translation) [火山翻译定价文档](https://www.volcengine.com/docs/4640/68515)
+相关链接：
+
+- [火山翻译介绍](https://www.volcengine.com/product/machine-translation)
+- [火山翻译定价文档](https://www.volcengine.com/docs/4640/68515)
 
 ## 价格
 
@@ -17,11 +18,17 @@
 然后，在第四步的【获取密钥】中，点击【新建密钥】按钮后，火山引擎提供了两个选项：
 
 1. 继续创建（使用主账号创建密钥，更便捷，但不保险）
-   
+
    选择【继续创建】后，表格里会出现一条新的数据，其中就包含我们要用到的【Access Key ID】和【Secret Access Key】。
 
 2. 去新建子用户（使用子用户创建密钥，更安全，但步骤繁琐）
 
-   待补充
-
 获取到【Access Key ID】和【Secret Access Key】之后，打开沉浸式翻译的【基本设置】-【翻译服务】，找到【火山翻译】填写。
+
+## 参考
+
+本文参考以下文章：
+
+- [划词翻译文档：火山翻译](https://hcfy.app/docs/services/hs-api)
+- [火山翻译介绍](https://www.volcengine.com/product/machine-translation)
+- [火山翻译定价文档](https://www.volcengine.com/docs/4640/68515)

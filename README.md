@@ -14,14 +14,24 @@
 
 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
+(此位置正在等待[品牌赞助](https://immersive-translate.owenyoung.com/#%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
+
 ## 目录
 
 - [安装](https://immersive-translate.owenyoung.com/installation.html)
 - [如何使用](https://immersive-translate.owenyoung.com/usage.html)
-- [翻译服务申请](https://immersive-translate.owenyoung.com/translation-services.html)
+- [翻译服务申请](https://immersive-translate.owenyoung.com/services.html)
 - [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [在线文档](https://immersive-translate.owenyoung.com/)
+- [Github](https://github.com/immersive-translate/immersive-translate/)
+
+## 保持联系
+
+- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
+- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
+- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
 
 ## 安装
@@ -123,7 +133,7 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 
 ### 品牌赞助
 
-沉浸式翻译扩展目前正处于高速发展阶段，每天都有成千上万的用户访问，如果你有好的产品想要宣传或者推广，可以 [点击这里](https://www.owenyoung.com/contact/) 联系我，我可以在主页为你推荐。你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！目前每月 [$25 刀](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263194) 即可成为品牌赞助商。
+沉浸式翻译扩展目前正处于高速发展阶段，每天都有成千上万的用户访问，如果你有好的产品想要宣传或者推广，可以 [点击这里](https://www.owenyoung.com/contact/) 联系我，我可以在主页为你推荐。你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商。
 
 ### 加密货币一次性赞助
 
@@ -160,16 +170,6 @@ Ps. 我完全理解暂时还没有余力的用户（因为我就是这样过来�
 - 甚至，如果你有代码开发能力，你可以 [直接参与开发](https://immersive-translate.owenyoung.com/CONTRIBUTION.html) 这个扩展，请加 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解。
 
 > Ps. 我比预想中花了更巨大的时间和精力开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我非常重要，感谢你的支持！
-
-## Links
-
-- [Github](https://github.com/immersive-translate/immersive-translate/)
-- [在线文档](https://immersive-translate.owenyoung.com/)
-- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- [赞助链接](https://immersive-translate.owenyoung.com/donate.html)
-- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
-- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
-- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 
 ## Star History
 

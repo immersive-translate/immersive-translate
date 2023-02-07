@@ -1,36 +1,8 @@
 # DeepL
 
-> 💡 提示
->
-> 相关链接：[DeepL API 说明](https://www.deepl.com/zh/pro#developer)
+## 简要说明
 
-## 价格
-
-DeepL 的订阅类型分为两种：针对个人和团队和[研发人员（DeepL API）](https://www.deepl.com/zh/pro#developer)，**沉浸式翻译能且只能使用研发人员（DeepL API）**。
-
-研发人员（DeepL API）又分为两种：
-
-- Free：每个月提供 50 万免费字符，超出后则不能再使用，直到下个月刷新免费额度。
-- Pro：25 美元 / 一百万字符，且每月还需要额外缴纳 5.49 美元的订阅费。
-
-## 申请步骤
-
-### 第一步：获取开通过 DeepL API 的账号
-
-如果你想自己注册 [DeepL](https://www.deepl.com/docs-api/simulator/) 账号并开通 DeepL API，那么首先你需要有一张在 DeepL 支持的国家或地区发行的 VISA / MASTER 信用卡。**DeepL 目前不支持使用国内发行的任何信用卡（包括双币，外币）开通 DeepL API**，鉴于此，我建议直接在网上购买开通了 DeepL API Free 的账号。
-
-再次提醒，请确认你购买的是开通了研发人员（DeepL API）的账号，一般会标有“程序员”、“API Free”这样的字眼。
-
-如果你有符合条件的信用卡，那么你可以自行在 DeepL 官网注册账号并开通 DeepL API。
-
-### 第二步：获取 Authentication Key
-
-当你有了开通过 DeepL API 的账号后：
-
-- 打开 [DeepL](https://www.deepl.com/docs-api/simulator/)
-- 如果你没有登录，那么点击右上角的【登录】并登录你的账号。注意：可能需要关闭代理软件才能登录成功。
-- 登录账号后，Authentication Key for DeepL API 里出现的文本就是沉浸式翻译需要的 Authentication Key 了。
-
-### 第三步：将 Authentication Key 填写进沉浸式翻译
-
-打开沉浸式翻译的【基本设置】-【翻译服务】，找到【DeepL】填写。
+1. 官方介绍：[DeepL Pro](https://www.deepl.com/zh/pro/select-country#developer)
+2. 注册 [DeepL](https://www.deepl.com/docs-api/simulator/) 账号并开通 DeepL API，需要你有一张在 DeepL 支持的国家或地区发行的 VISA 或 MASTER 信用卡，目前并不支持国内发行的任何信用卡，包括双币卡和外币卡，如果没有那就注册不了。
+3. 也可以直接在网络上购买开通了 DeepL API Free 的账号，每月提供 50 万免费字符翻译。
+4. 当你购买了账号后，除了账号密码外，卖家一般也会把 authkey 给你，直接把 authkey 填入到本扩展的 deepl 翻译中即可。

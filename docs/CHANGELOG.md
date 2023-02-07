@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.50
+
+- Fix google drive upload issue (really) [#81](https://github.com/immersive-translate/immersive-translate/issues/81)
+
 ## 0.2.49
 
 - Remove shortcuts alt+d, alt+s cause may conflict with native shortcuts.

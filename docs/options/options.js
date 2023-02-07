@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-06T07:57:20.595Z", VERSION: "0.2.49", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-07T00:31:46.169Z", VERSION: "0.2.50", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -15609,7 +15609,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }
       return log_default.debug("AUTH_URL", AUTH_URL), globalThis.open(AUTH_URL, "_self"), null;
     } else
-      return authorize(state).then((redirectURL) => extractAccessToken(redirectURL)).then(validate);
+      return authorize(state).then((redirectURL) => (log_default.debug("google drive callback redirectURL", redirectURL), extractAccessToken(redirectURL))).then(validate);
   }
 
   // sync/google_drive_api.ts
@@ -15619,12 +15619,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     }
     async upload(metadata, blob) {
       let data = new FormData(), temp = { ...metadata, mimeType: "application/json" };
-      return data.append(
+      return log_default.debug("metadata", temp, this.accessToken), data.append(
         "metadata",
         new Blob([JSON.stringify(temp)], {
           type: "application/json; charset=UTF-8"
         })
-      ), data.append("file", blob), await request2(
+      ), data.append("file", blob), await request(
         {
           url: "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
           method: "POST",
@@ -15642,7 +15642,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         "files(id,name,createdTime,modifiedTime,size)"
       ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
       try {
-        return log_default.debug("list api:", url.toString(), this.accessToken), await request2({
+        return log_default.debug("list api:", url.toString(), this.accessToken), await request({
           url: url.toString(),
           headers: {
             Authorization: `Bearer ${this.accessToken}`
@@ -15666,7 +15666,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     }
     async getConfig(id) {
       try {
-        return await request2(
+        return await request(
           {
             url: `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
             headers: {
@@ -15679,7 +15679,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }
     }
     async delete(id) {
-      await request2(
+      await request(
         {
           responseType: "text",
           url: `https://www.googleapis.com/drive/v3/files/${id}`,
@@ -15709,7 +15709,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return this.updateContent(id, blob);
     }
     async updateContent(id, blob) {
-      return await request2(
+      return await request(
         {
           url: `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
           method: "PATCH",
@@ -15724,6 +15724,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
 
   // sync/util.ts
   function revokeGoogleAuthToken(token) {
+    browserAPI && browserAPI.identity && browserAPI.identity.removeCachedAuthToken && browserAPI.identity.clearAllCachedAuthTokens();
     let url = "https://oauth2.googleapis.com/revoke?token=" + token;
     return fetch(url, {
       method: "POST",
@@ -15760,8 +15761,17 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           return;
         }
         handleUpdateLocalConfigLastSyncedAt(new Date().toISOString());
-      } else
-        latestRemoteConfigResult === null ? settings ? (settings.updatedAt || (handleUpdateSettingUpdateAt(new Date().toISOString()), settings.updatedAt = new Date().toISOString()), await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess(!0)) : handleFail && handleFail(": Local Config is empty") : handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
+      } else if (latestRemoteConfigResult === null)
+        if (settings) {
+          if (!settings.updatedAt) {
+            let newDate = new Date().toISOString();
+            handleUpdateSettingUpdateAt(newDate), settings.updatedAt = newDate;
+          }
+          await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess(!0);
+        } else
+          handleFail && handleFail(": Local Config is empty");
+      else
+        handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
     } catch (e3) {
       log_default.error("syncLatestWithDrive error", e3), handleFail && handleFail(": " + e3.message);
     }
@@ -16739,7 +16749,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
     }
     function syncLatestWithDrive(accessToken2) {
-      log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), autoSyncStrategy(
+      setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), autoSyncStrategy(
         accessToken2,
         settings,
         (newSettings) => {

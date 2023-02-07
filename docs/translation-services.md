@@ -38,6 +38,17 @@
 
 ***
 
+## DeepL
+
+### 简要说明
+
+1. 官方介绍：[DeepL Pro](https://www.deepl.com/zh/pro/select-country#developer)
+2. 注册 [DeepL](https://www.deepl.com/docs-api/simulator/) 账号并开通 DeepL API，需要你有一张在 DeepL 支持的国家或地区发行的 VISA 或 MASTER 信用卡，目前并不支持国内发行的任何信用卡，包括双币卡和外币卡。如果你没有那就注册不了。
+3. 如果你真的需要，建议直接在网上购买开通了 DeepL API Free 的账号。
+4. 当你购买了账号后，除了账号密码外，卖家一般会把 key 也给你，直接把 Key 填入到本扩展中即可。
+
+***
+
 ## 免责声明
 
 以上所有翻译服务均由自己申请，所需费用完全由该服务商收取，与本扩展无关。  

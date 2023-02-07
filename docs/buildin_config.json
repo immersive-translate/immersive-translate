@@ -526,7 +526,7 @@
         "[data-test-selector='commit-tease-commit-message']",
         "div.blob-wrapper-embedded"
       ],
-      "excludeBlockSelectors": [
+      "extraBlockSelectors": [
         "task-lists"
       ],
       "detectParagraphLanguage": true
@@ -599,7 +599,7 @@
       "excludeSelectors": [
         "[class^='lln-']"
       ],
-      "extraBlockSelector": [
+      "extraBlockSelectors": [
         ".ytd-transcript-segment-renderer"
       ],
       "detectParagraphLanguage": true
@@ -1218,6 +1218,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-07T07:36:55.883Z",
+  "buildinConfigUpdatedAt": "2023-02-07T08:07:03.990Z",
   "latestVersion": "0.2.50"
 }

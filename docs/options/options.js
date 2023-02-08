@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T09:51:08.148Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T16:23:50.695Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -7628,7 +7628,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
 
   // libs/use-chrome-storage/useChromeStorage.ts
   function useChromeStorage(key, initialValue, storageArea) {
-    let [INITIAL_VALUE3] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE3), [isPersistent, setIsPersistent] = P2(!0), [error2, setError] = P2("");
+    let [INITIAL_VALUE3] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE3), [isPersistent, setIsPersistent] = P2(!1), [error2, setError] = P2("");
     j2(() => {
       storage.get(key, INITIAL_VALUE3, STORAGE_AREA).then((res) => {
         res[key] && setState(res[key]), setIsPersistent(!0), setError("");
@@ -16410,6 +16410,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               onClick: (e3) => {
                 e3.preventDefault(), downloadConfig(file.id, file.name);
               },
+              class: "block truncate w-40 sm:w-auto",
               children: file.name.replace("immersive-translate-", "")
             }
           ) }),
@@ -16475,9 +16476,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
 
   // pages/import_export.tsx
   function ImportExport() {
-    let [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [localConfig, setLocalConfigState] = P2(null), setLocalConfig2 = (localConfig2) => {
+    let [settings, setSettings, isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [localConfig, setLocalConfigState] = P2(null), setLocalConfig2 = (localConfig2) => {
       setLocalConfigState(localConfig2), setLocalConfig(localConfig2);
-    }, { t: t5 } = useI18n();
+    }, { t: t5, setLang } = useI18n();
     j2(() => {
       getConfig().then((config2) => {
         setConfig(config2);
@@ -16511,11 +16512,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }, 500));
     }, [showSyncModal, setShowSyncModal] = P2(!1), [authLoading, setAuthLoading] = P2(!1), [manualAuthLoading, setManualAuthLoading] = P2(!1), [accessToken, setAccessToken] = P2("");
     j2(() => {
-      if (isUserscriptRuntime()) {
+      if (isUserscriptRuntime() && isPersistent) {
         let check = localStorage.getItem(AUTH_FLOW_FLAG);
         if (localStorage.removeItem(AUTH_FLOW_FLAG), check) {
           let rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
-          log_default.debug("rawAuthInfoStr", rawAuthInfoStr);
+          log_default.debug("import_export", "rawAuthInfoStr", rawAuthInfoStr);
           let authInfo = {}, state = {}, token = "";
           if (rawAuthInfoStr) {
             globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
@@ -16525,17 +16526,13 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               log_default.error("parse state error", e3);
             }
           }
-          if (token && state && (browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token }).catch(
-            (e3) => {
-              log_default.error("set access token error", e3);
-            }
-          ), log_default.debug("import_export", "Google OAuth:" + authInfo), authInfo)) {
+          if (token && state && (GoogleAuth.setAuthInfo({ access_token: token }), log_default.debug("import_export", "Google OAuth:", authInfo), authInfo)) {
             let state2 = authInfo.state;
             log_default.debug("state", state2), state2?.mode === "auto" ? (setAuthLoading(!0), syncLatestWithDrive(token)) : (setManualAuthLoading(!0), afterAuthSuccess(token));
           }
         }
       }
-    }, []);
+    }, [isPersistent]);
     function handlerDriveAuth() {
       setAuthLoading(!0), getAccessToken({
         source: globalThis.location.href,
@@ -16569,27 +16566,23 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
     }
     function syncLatestWithDrive(accessToken2) {
-      setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), getUserConfig().then((userSettings) => {
-        autoSyncStrategy(
-          accessToken2,
-          userSettings,
-          (newSettings) => {
-            rawSetValue(newSettings);
-          },
-          (isoDate) => setLocalConfig2({
-            ...localConfig,
-            lastSyncedAt: isoDate
-          }),
-          (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
-          (isChanged) => {
-            isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
-          },
-          (reason) => error(t5("syncFail") + reason)
-        ).finally(() => {
-          setAuthLoading(!1);
-        });
-      }).catch((e3) => {
-        error(t5("syncFail")), log_default.error("sync latest with drive error", e3), setAuthLoading(!1);
+      setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2, settings), setAccessToken(accessToken2), autoSyncStrategy(
+        accessToken2,
+        settings,
+        (newSettings) => {
+          newSettings.interfaceLanguage && setLang(newSettings.interfaceLanguage), rawSetValue(newSettings);
+        },
+        (isoDate) => setLocalConfig2({
+          ...localConfig,
+          lastSyncedAt: isoDate
+        }),
+        (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
+        (isChanged) => {
+          isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
+        },
+        (reason) => error(t5("syncFail") + reason)
+      ).finally(() => {
+        setAuthLoading(!1);
       });
     }
     function toggleAutoSync(e3) {
@@ -17413,7 +17406,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
             ),
             /* @__PURE__ */ p5("h6", { class: "!text-sm", children: version })
           ] }),
-          /* @__PURE__ */ p5("ul", { children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
+          /* @__PURE__ */ p5("ul", { class: "flex flex-wrap  justify-between md:block", children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
         ] }),
         /* @__PURE__ */ p5("div", { class: "m-0 p-0 flex flex-col", children: [
           /* @__PURE__ */ p5(

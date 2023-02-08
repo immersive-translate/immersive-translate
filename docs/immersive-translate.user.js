@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T09:51:08.148Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T16:23:50.695Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -15610,7 +15610,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
 
   // libs/use-chrome-storage/useChromeStorage.ts
   function useChromeStorage(key, initialValue, storageArea) {
-    let [INITIAL_VALUE2] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE2), [isPersistent, setIsPersistent] = P2(!0), [error, setError] = P2("");
+    let [INITIAL_VALUE2] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE2), [isPersistent, setIsPersistent] = P2(!1), [error, setError] = P2("");
     j3(() => {
       storage.get(key, INITIAL_VALUE2, STORAGE_AREA).then((res) => {
         res[key] && setState(res[key]), setIsPersistent(!0), setError("");

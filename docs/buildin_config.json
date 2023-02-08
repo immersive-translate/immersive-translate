@@ -51,6 +51,10 @@
         "🚠",
         "🚠"
       ]
+    },
+    "deepl": {},
+    "dpro": {
+      "apiUrl": "https://api.deepl.com/jsonrpc"
     }
   },
   "shortcuts": {
@@ -130,7 +134,7 @@
     "urlChangeDelay": 20,
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
-    "observeUrlChange": true,
+    "observeUrlChange": false,
     "paragraphMinTextCount": 8,
     "paragraphMinWordCount": 2,
     "shadowRootSelectors": [],
@@ -198,7 +202,6 @@
       "INPUT",
       "BUTTON",
       "BASE",
-      "LABEL",
       "SELECT",
       "OPTION",
       "IMG",
@@ -417,6 +420,7 @@
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
+      "observeUrlChange": false,
       "extraInlineSelectors": [
         "[data-testid=\"tweetText\"] div"
       ]
@@ -564,6 +568,7 @@
       "selectors": [
         ".comment-text"
       ],
+      "observeUrlChange": true,
       "atomicBlockSelectors": [
         ".comment-text"
       ],
@@ -573,6 +578,7 @@
     },
     {
       "matches": "www.youtube.com",
+      "observeUrlChange": true,
       "selectors": [
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "yt-formatted-string.ytd-video-renderer",
@@ -703,13 +709,18 @@
     },
     {
       "matches": "www.producthunt.com",
+      "excludeMatches": "https://www.producthunt.com/stories/*",
       "selectors": [
         "h2",
         "div[class^='styles_htmlText__']",
         "[class^='styles_tagline']",
         "a[href^='/discussions/'].fontWeight-600",
-        "button[class^='styles_textButton'] > div > span"
+        "button[class^='styles_textButton'] > div > span",
+        "h5 + p"
       ],
+      "globalStyles": {
+        "h5 + p": "height:unset;"
+      },
       "excludeTags": [
         "TITLE",
         "SCRIPT",
@@ -1238,8 +1249,15 @@
       "excludeSelectors": [
         ".home_overview_list_content_wrapper"
       ]
+    },
+    {
+      "matches": "developer.chrome.com",
+      "excludeSelectors": [
+        "web-tabs",
+        "ul.code-sections--summary"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-08T02:29:05.546Z",
-  "latestVersion": "0.2.52"
+  "buildinConfigUpdatedAt": "2023-02-08T07:11:04.149Z",
+  "latestVersion": "0.2.54"
 }

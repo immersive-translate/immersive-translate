@@ -533,6 +533,17 @@
       "extraBlockSelectors": [
         "task-lists"
       ],
+      "extraInlineSelectors": [
+        "g-emoji"
+      ],
+      "stayOriginalTags": [
+        "CODE",
+        "TT",
+        "G-EMOJI",
+        "IMG",
+        "SUP",
+        "SUB"
+      ],
       "detectParagraphLanguage": true
     },
     {
@@ -1258,6 +1269,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-08T07:11:04.149Z",
+  "buildinConfigUpdatedAt": "2023-02-08T07:45:27.527Z",
   "latestVersion": "0.2.54"
 }

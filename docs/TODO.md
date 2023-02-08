@@ -11,7 +11,7 @@
 - [x] auto sync default rule, general rule, 自动同步远程配置文件，并且提供点击手动同步的按钮。
 - [x] detect language, 根据 rule 的配置，某些网站需要检测每一个段落的语言，并且按照检测到的语言去翻译不同的段落。 - @Owen 认领
 - [x] cache translation result， 缓存翻译的结果，减少 api 的调用。 - @Randomb1 认领
-- [x] regex match www.google.* ，支持后缀为 * 的 match 规则 - @Random 已 pr
+- [x] regex match www.google.* ，支持后缀为*的 match 规则 - @Random 已 pr
 - [x] context menu，添加页面的右键翻译该网站，以及显示原文（根据当前页面的状态，自动切换）。 - @TheOwenYoung 认领
 - [x] 支持更多翻译 api，优先添加 deepl,yandex 的支持，同时研究微信翻译（似乎是免费的）。
 - [x] 移动版的适配
@@ -113,3 +113,4 @@
 - [ ] 边缘情况，不翻译纯符号： https://github.com/m-bain/whisperX/issues/56
 - [x] 多语言检测，好吧，我知道了. 上次变更了最小检测字数，比较少的文字，好像就不会被检测了和翻译了。本地识别的时候按照最小字符数识别。但是传给服务器的时候用 auto.
 - [ ] https://www.lookintobitcoin.com/charts/bitcoin-investor-tool/ 切换翻译服务后，左侧有一些菜单不再翻译
+- [ ] 开头网络卡了，导致翻译不出结果，第一次看到这个界面，这让我想到可否在此基础上优化一下显示的图标，作为另外一种翻译模式呢？即在需要的翻译的段落旁点按钮，插入显示翻译结果。它有点类似模糊翻译，但可以带来两个好处：1.没有大量的模糊内容干扰阅读视线，2.不需要自动请求大量网络翻译，减少网络压力，节省 API 请求次数,还有第三个好处是在阅读中段时，启动插件，也不会有位移的问题了

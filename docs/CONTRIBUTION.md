@@ -1,19 +1,19 @@
 # 加入开发？
 
-- 帮忙 [贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
-- 帮忙 [翻译](https://crowdin.com/project/immersive-translate) 该扩展的界面语言,注册后即可在线翻译。
-- 帮忙解答用户在 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 和 [Github Issue](https://github.com/immersive-translate/immersive-translate/issues) 里的提问。
+- 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
+- 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言,注册后即可在线翻译。
+- 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
 - [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
 - [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 一些未整理的待做功能项
 - [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
-- 在 Github 上 [Watch 这个项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求
+- 在 Github 上[Watch 这个项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求
 
 ## 开始开发
 
 当前该项目处于闭源开发状态，你需要先申请加入我们的 Github 团队。项目采用 Typescript 开发，使用 Deno 编译。
 
-请有意贡献或者想调试的同学加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道，然后私聊管理员申请加入 Github 团队。
+请有意贡献或者想调试的同学加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道，然后私聊管理员申请加入 Github 团队。
 
 ## Requirements
 
@@ -132,12 +132,12 @@ More and more unit tests
 name
 
 如果有需要用到 css
-的地方，我们使用 [twind](https://twind.style/) 工具引入了 [tailwind](https://tailwindcss.com/) 的工具类
+的地方，我们使用[twind](https://twind.style/)工具引入了[tailwind](https://tailwindcss.com/)的工具类
 css 的支持
 
 直接在 jsx 元素上写：`<div class="p-4"></div>`
 
-或者 html 元素上： `<div class="p-4"></div>` 即可。
+或者 html 元素上： `<div class="p-4"></div>`即可。
 
 ## PDF
 
@@ -178,7 +178,7 @@ Uncomment the `background.ts` open options page line. and when it's done, commen
 
 ## Log
 
-为了方便临时打印一些东西，我添加了 2 个函数，方便最后提交的时候，直接搜索 `log.v`, `log.l` 即可删除。
+为了方便临时打印一些东西，我添加了 2 个函数，方便最后提交的时候，直接搜索`log.v`, `log.l` 即可删除。
 
 ```typescript
 import _log from "./log.ts";
@@ -190,7 +190,7 @@ _log.l("test2"); // info level
 
 移动端无法访问 localhost, googke 不允许设置 ip 为跳转域名。
 
-可以在电脑上使用 Whistle 代理软件 (或者其他类似软件):
+可以在电脑上使用 Whistle 代理软件(或者其他类似软件):
 
 <https://wproxy.org/whistle/install.html>
 
@@ -200,7 +200,7 @@ w2 start --socksPort 8889
 
 手机配置 socks5 代理到 `192.168.x.x:8889`
 
-配置 [https 证书](https://wproxy.org/whistle/webui/https.html)
+配置[https 证书](https://wproxy.org/whistle/webui/https.html)
 
 加入规则：
 

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.55
+
+- Try fix deepl api charset
+
 ## 0.2.54
 
 - Remove tabs permission for chrome store rejection

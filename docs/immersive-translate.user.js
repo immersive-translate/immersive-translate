@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.54
+// @version      0.2.55
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T06:31:01.382Z", VERSION: "0.2.54", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T09:51:08.148Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4250,7 +4250,9 @@ body {
     self.Headers = Headers, self.Request = Request, self.Response = Response, self.GM_fetch = function(input, init) {
       var request3, theFinalBody;
       return init || (typeof input == "string" ? init = {} : input = init.url), Request && Request.prototype && Request.prototype.isPrototypeOf && Request.prototype.isPrototypeOf(init) ? request3 = init : (init.body && (theFinalBody = init.body), request3 = new Request(input, init)), new Promise2(function(resolve, reject) {
-        var xhr_details = {}, _parsedRespHeaders;
+        var xhr_details = {};
+        init && init.extra && (xhr_details = init.extra);
+        var _parsedRespHeaders;
         function responseURL(finalUrl, respHeaders) {
           if (finalUrl)
             return finalUrl;
@@ -8622,6 +8624,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         extraBlockSelectors: [
           "task-lists"
         ],
+        extraInlineSelectors: [
+          "g-emoji"
+        ],
+        stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
         detectParagraphLanguage: !0
       },
       {
@@ -8770,13 +8776,18 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.producthunt.com",
+        excludeMatches: "https://www.producthunt.com/stories/*",
         selectors: [
           "h2",
           "div[class^='styles_htmlText__']",
           "[class^='styles_tagline']",
           "a[href^='/discussions/'].fontWeight-600",
-          "button[class^='styles_textButton'] > div > span"
+          "button[class^='styles_textButton'] > div > span",
+          "h5 + p"
         ],
+        globalStyles: {
+          "h5 + p": "height:unset;"
+        },
         excludeTags: [
           "TITLE",
           "SCRIPT",
@@ -9344,7 +9355,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       for (let command of commandResult)
         command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
     }
-    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = /* @__PURE__ */ new Date();
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig();
+    log_default.v("envUserConfig", envUserConfig);
+    let userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = /* @__PURE__ */ new Date();
     if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
       let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
         (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -12315,7 +12328,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           body,
           headers: {
             Authorization: "DeepL-Auth-Key " + this.authKey,
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
+          extra: {
+            overrideMimeType: "application/json; charset=utf-8"
           }
         }
       ), { translations: translations2 } = response;
@@ -15960,7 +15976,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.54",
+    version: "0.2.55",
     default_locale: "en",
     background: {
       service_worker: "background.js"

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T06:31:01.382Z", VERSION: "0.2.54", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T09:51:08.148Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -8217,6 +8217,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         extraBlockSelectors: [
           "task-lists"
         ],
+        extraInlineSelectors: [
+          "g-emoji"
+        ],
+        stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
         detectParagraphLanguage: !0
       },
       {
@@ -8365,13 +8369,18 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.producthunt.com",
+        excludeMatches: "https://www.producthunt.com/stories/*",
         selectors: [
           "h2",
           "div[class^='styles_htmlText__']",
           "[class^='styles_tagline']",
           "a[href^='/discussions/'].fontWeight-600",
-          "button[class^='styles_textButton'] > div > span"
+          "button[class^='styles_textButton'] > div > span",
+          "h5 + p"
         ],
+        globalStyles: {
+          "h5 + p": "height:unset;"
+        },
         excludeTags: [
           "TITLE",
           "SCRIPT",
@@ -8942,7 +8951,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       for (let command of commandResult)
         command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
     }
-    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig();
+    log_default.v("envUserConfig", envUserConfig);
+    let userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
     if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
       let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
         (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -13066,7 +13077,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           body,
           headers: {
             Authorization: "DeepL-Auth-Key " + this.authKey,
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
+          extra: {
+            overrideMimeType: "application/json; charset=utf-8"
           }
         }
       ), { translations: translations2 } = response;

@@ -11,7 +11,7 @@
 - [x] auto sync default rule, general rule, 自动同步远程配置文件，并且提供点击手动同步的按钮。
 - [x] detect language, 根据 rule 的配置，某些网站需要检测每一个段落的语言，并且按照检测到的语言去翻译不同的段落。 - @Owen 认领
 - [x] cache translation result， 缓存翻译的结果，减少 api 的调用。 - @Randomb1 认领
-- [x] regex match www.google.* ，支持后缀为*的 match 规则 - @Random 已 pr
+- [x] regex match www.google.* ，支持后缀为 * 的 match 规则 - @Random 已 pr
 - [x] context menu，添加页面的右键翻译该网站，以及显示原文（根据当前页面的状态，自动切换）。 - @TheOwenYoung 认领
 - [x] 支持更多翻译 api，优先添加 deepl,yandex 的支持，同时研究微信翻译（似乎是免费的）。
 - [x] 移动版的适配

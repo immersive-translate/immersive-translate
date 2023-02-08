@@ -1232,8 +1232,14 @@
         "h1",
         "div#headlessui-portal-root"
       ]
+    },
+    {
+      "matches": "glasp.co",
+      "excludeSelectors": [
+        ".home_overview_list_content_wrapper"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-07T15:38:48.365Z",
-  "latestVersion": "0.2.51"
+  "buildinConfigUpdatedAt": "2023-02-08T02:29:05.546Z",
+  "latestVersion": "0.2.52"
 }

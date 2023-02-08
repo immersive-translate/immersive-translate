@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.51
+// @version      0.2.52
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:15.065Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T00:45:10.191Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4051,17 +4051,28 @@ body {
   }
 
   // browser/userscript_polyfill.ts
-  if (typeof GM > "u" && typeof GM_info < "u" && typeof GM_getValue < "u") {
+  if (
+    // @ts-ignore: it's ok
+    typeof GM > "u" && typeof GM_info < "u" && // @ts-ignore: it's ok
+    typeof GM_getValue < "u"
+  ) {
     let xmlHttpRequest = null;
     typeof GM_xmlhttpRequest < "u" ? xmlHttpRequest = GM_xmlhttpRequest : typeof GM_xmlHttpRequest < "u" && (xmlHttpRequest = GM_xmlHttpRequest);
     let registerMenuCommand = null;
     typeof GM_registerMenuCommand < "u" && (registerMenuCommand = GM_registerMenuCommand), globalThis.GM = {
+      // @ts-ignore: it's ok
       info: GM_info,
+      // @ts-ignore: it's ok
       getValue: GM_getValue,
+      // @ts-ignore: it's ok
       setValue: GM_setValue,
+      // @ts-ignore: it's ok
       deleteValue: GM_deleteValue,
+      // @ts-ignore: it's ok
       listValues: GM_listValues,
+      // @ts-ignore: it's ok
       xmlHttpRequest,
+      // @ts-ignore: it's ok
       registerMenuCommand
     };
   }
@@ -4119,7 +4130,8 @@ body {
       throw new Error("options url not found");
   }
   function getAcceptLanguages() {
-    return globalThis.navigator.languages || [globalThis.navigator.language || globalThis.navigator.userLanguage];
+    return globalThis.navigator.languages || // @ts-ignore: it's ok
+    [globalThis.navigator.language || globalThis.navigator.userLanguage];
   }
   var browser = {
     storage: {
@@ -4469,7 +4481,6 @@ body {
     cancel: "\u53D6\u6D88",
     delete: "\u5220\u9664",
     "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
     syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
     syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
     authFail: "\u6388\u6743\u5931\u8D25",
@@ -4482,6 +4493,7 @@ body {
     importSuccess: "\u5BFC\u5165\u6210\u529F",
     importFail: "\u5BFC\u5165\u5931\u8D25",
     deleteFail: "\u5220\u9664\u5931\u8D25",
+    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
     backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
     create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
     maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -5414,10 +5426,18 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     return isMarkedWith(element, markedAttribute, "1", explicit);
   }
   function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-    return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute] === value) : !1 : element.dataset[markedAttribute] === value;
+    return isProd && !explicit ? element[elementMarkRootKey] ? (
+      // @ts-ignore: it's ok
+      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute] === value)
+    ) : !1 : element.dataset[markedAttribute] === value;
   }
   function hasMark(element, markedAttribute, explicit = !1) {
-    return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
+    return isProd && !explicit ? element[elementMarkRootKey] ? (
+      // @ts-ignore: it's ok
+      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute])
+    ) : !1 : element.dataset[markedAttribute] !== void 0;
   }
   function getMainText(root2) {
     return (root2.innerText || root2.textContent || "").trim();
@@ -5665,6 +5685,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         async resolve(value) {
           await value, state = "fulfilled", resolve(value);
         },
+        // deno-lint-ignore no-explicit-any
         reject(reason) {
           state = "rejected", reject(reason);
         }
@@ -5708,6 +5729,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   var MuxAsyncIterator = class {
     #iteratorCount = 0;
     #yields = [];
+    // deno-lint-ignore no-explicit-any
     #throws = [];
     #signal = deferred();
     add(iterable) {
@@ -7636,7 +7658,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
                   ee4(r2) && n3.click();
                 }, K6(p7, h4), te2(p7, h4);
               }, Te = u5.date = function(t5, c5, s6) {
-                var d4 = t5.value, i3 = d4 === void 0 ? new Date() : d4, k5 = t5.submitText, H7 = k5 === void 0 ? "OK" : k5, S7 = t5.cancelText, h4 = S7 === void 0 ? "Cancel" : S7, p7 = t5.submitCallback, l5 = t5.cancelCallback, f7 = t5.position, n3 = f7 === void 0 ? e3.positions.date || n3.top : f7;
+                var d4 = t5.value, i3 = d4 === void 0 ? /* @__PURE__ */ new Date() : d4, k5 = t5.submitText, H7 = k5 === void 0 ? "OK" : k5, S7 = t5.cancelText, h4 = S7 === void 0 ? "Cancel" : S7, p7 = t5.submitCallback, l5 = t5.cancelCallback, f7 = t5.position, n3 = f7 === void 0 ? e3.positions.date || n3.top : f7;
                 R6(), F9();
                 var r2 = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a6 = document.createElement("div"), E3 = function(L6) {
                   C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a6.innerHTML = L6.getFullYear();
@@ -7998,7 +8020,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   }, log_default = new Logger();
 
   // utils/is_mobile.ts
-  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+  var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
+  navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
   function createMatch(userAgent) {
     return (regex) => regex.test(userAgent);
   }
@@ -8136,46 +8159,25 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     canary: !1,
     translationServices: {
       volcAlpha: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
+        placeholderDelimiters: ["{", "}"]
       },
       volc: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
+        placeholderDelimiters: ["{", "}"]
       },
       tencent: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
+        placeholderDelimiters: ["{", "}"]
       },
       transmart: {
-        placeholderDelimiters: [
-          "#",
-          "#"
-        ]
+        placeholderDelimiters: ["#", "#"]
       },
       baidu: {
-        placeholderDelimiters: [
-          "#",
-          "#"
-        ]
+        placeholderDelimiters: ["#", "#"]
       },
       caiyun: {
-        placeholderDelimiters: [
-          "{",
-          "}"
-        ]
+        placeholderDelimiters: ["{", "}"]
       },
       youdao: {
-        placeholderDelimiters: [
-          "\u{1F6A0}",
-          "\u{1F6A0}"
-        ]
+        placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
       }
     },
     shortcuts: {
@@ -8268,10 +8270,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         ".sr-only": "display:none"
       },
       selectors: [],
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN"
-      ],
+      preWhitespaceDetectedTags: ["DIV", "SPAN"],
       stayOriginalSelectors: [],
       additionalSelectors: [
         "h1",
@@ -8349,13 +8348,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         "NOSCRIPT"
       ],
       additionalExcludeTags: [],
-      stayOriginalTags: [
-        "CODE",
-        "TT",
-        "IMG",
-        "SUP",
-        "SUB"
-      ],
+      stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
       additionalStayOriginalTags: [],
       inlineTags: [
         "A",
@@ -8401,10 +8394,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       additionalInlineTags: [],
       extraInlineSelectors: [],
       additionalInlineSelectors: [],
-      extraBlockSelectors: [
-        "turbo-frame",
-        "readme-toc"
-      ],
+      extraBlockSelectors: ["turbo-frame", "readme-toc"],
       allBlockTags: [
         "HGROUP",
         "CONTENT",
@@ -8472,22 +8462,15 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         wrapperPrefix: "",
         wrapperSuffix: "",
         urlChangeDelay: 0,
-        selectors: [
-          ".textLayer"
-        ],
-        excludeSelectors: [
-          ".annotationLayer"
-        ],
+        selectors: [".textLayer"],
+        excludeSelectors: [".annotationLayer"],
         globalStyles: {
           "div.page": "width: 98%;",
           ".textLayer": "overflow:visible;opacity: 1;"
         }
       },
       {
-        matches: [
-          "mail.jabber.org",
-          "antirez.com"
-        ],
+        matches: ["mail.jabber.org", "antirez.com"],
         excludeTags: [
           "TITLE",
           "SCRIPT",
@@ -8542,9 +8525,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
           "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
         ],
-        extraInlineSelectors: [
-          '[data-testid="tweetText"] div'
-        ]
+        extraInlineSelectors: ['[data-testid="tweetText"] div']
       },
       {
         matches: [
@@ -8554,16 +8535,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "askubuntu.com",
           "serverfault.com"
         ],
-        additionalSelectors: [
-          ".comment-copy"
-        ]
+        additionalSelectors: [".comment-copy"]
       },
       {
         matches: "developer.apple.com/documentation/*",
-        selectors: [
-          ".container",
-          "h3.title"
-        ]
+        selectors: [".container", "h3.title"]
       },
       {
         matches: "news.ycombinator.com",
@@ -8575,15 +8551,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           ".hn-comment-text",
           ".hn-story-title"
         ],
-        excludeSelectors: [
-          ".reply"
-        ]
+        excludeSelectors: [".reply"]
       },
       {
-        matches: [
-          "*.quora.com",
-          "quora.com"
-        ],
+        matches: ["*.quora.com", "quora.com"],
         additionalSelectors: [
           ".puppeteer_test_question_title",
           ".puppeteer_test_answer_content",
@@ -8600,18 +8571,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "www.reddit.com/*/.compact",
           "www.reddit.com/.compact"
         ],
-        selectors: [
-          ".title > a",
-          ".usertext-body"
-        ],
+        selectors: [".title > a", ".usertext-body"],
         detectParagraphLanguage: !0
       },
       {
         matches: "old.reddit.com",
-        selectors: [
-          "p.title > a",
-          "[role=main] .md-container"
-        ],
+        selectors: ["p.title > a", "[role=main] .md-container"],
         detectParagraphLanguage: !0
       },
       {
@@ -8632,9 +8597,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.reuters.com/",
-        excludeSelectors: [
-          "header"
-        ]
+        excludeSelectors: ["header"]
       },
       {
         matches: "github.com",
@@ -8669,16 +8632,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "span[lang]"
         ],
         insertPosition: "afterend",
-        preWhitespaceDetectedTags: [
-          "DIV",
-          "SPAN"
-        ],
-        extraBlockSelectors: [
-          "span.x1vvkbs"
-        ],
-        excludeSelectors: [
-          "[role=button]"
-        ],
+        preWhitespaceDetectedTags: ["DIV", "SPAN"],
+        extraBlockSelectors: ["span.x1vvkbs"],
+        excludeSelectors: ["[role=button]"],
         translationClasses: [
           "immersive-translate-text"
         ],
@@ -8734,10 +8690,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         selectors: "#book"
       },
       {
-        matches: [
-          "*.substack.com",
-          "newsletter.rootsofprogress.org"
-        ],
+        matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
         selectors: [
           ".post-preview-title",
           ".post-preview-description",
@@ -8759,13 +8712,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         ]
       },
       {
-        matches: [
-          "seekingalpha.com/article/*",
-          "seekingalpha.com/news/*"
-        ],
-        selectors: [
-          "[data-test-id=card-container]"
-        ],
+        matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
+        selectors: ["[data-test-id=card-container]"],
         excludeSelectors: [
           "[data-test-id=post-page-meta]",
           "header > div:first-child"
@@ -8773,10 +8721,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "hn.algolia.com",
-        selectors: [
-          ".Story_title > a:first-child",
-          ".Story_comment > span"
-        ]
+        selectors: [".Story_title > a:first-child", ".Story_comment > span"]
       },
       {
         matches: "read.readwise.io",
@@ -8788,10 +8733,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         detectParagraphLanguage: !0
       },
       {
-        matches: [
-          "www.inoreader.com",
-          "*.inoreader.com"
-        ],
+        matches: ["www.inoreader.com", "*.inoreader.com"],
         selectors: [
           ".article_header_title",
           ".article_title_link",
@@ -8804,19 +8746,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         }
       },
       {
-        matches: [
-          "scholar.google.com"
-        ],
+        matches: ["scholar.google.com"],
         wrapperPrefix: `
 `,
-        selectors: [
-          "h3 a[data-clk]",
-          "div.gs_rs"
-        ],
-        atomicBlockSelectors: [
-          ".gs_rs",
-          "h3 a[data-clk]"
-        ]
+        selectors: ["h3 a[data-clk]", "div.gs_rs"],
+        atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
       },
       {
         matches: "mail.google.com",
@@ -8857,17 +8791,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "*.gitbook.io",
-        additionalSelectors: [
-          "main"
-        ],
+        additionalSelectors: ["main"],
         _comment: "https://midjourney.gitbook.io/docs/user-manual"
       },
       {
         matches: "arxiv.org",
-        additionalSelectors: [
-          "h1",
-          "blockquote.abstract"
-        ]
+        additionalSelectors: ["h1", "blockquote.abstract"]
       },
       {
         matches: "https://discord.com/channels/*",
@@ -8889,56 +8818,36 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "web.telegram.org/z/*",
-        selectors: [
-          ".text-content"
-        ],
+        selectors: [".text-content"],
         detectParagraphLanguage: !0
       },
       {
-        matches: [
-          "web.telegram.org/k/*",
-          "web.telegram.org/k/"
-        ],
-        selectors: [
-          ".message"
-        ],
+        matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
+        selectors: [".message"],
         detectParagraphLanguage: !0
       },
       {
         matches: "gist.github.com",
-        selectors: [
-          ".markdown-body",
-          ".readme"
-        ],
+        selectors: [".markdown-body", ".readme"],
         detectParagraphLanguage: !0
       },
       {
         matches: "lobste.rs",
-        selectors: [
-          ".u-repost-of",
-          ".comment_text"
-        ]
+        selectors: [".u-repost-of", ".comment_text"]
       },
       {
         matches: "*.slack.com",
-        selectors: [
-          ".p-rich_text_section"
-        ],
+        selectors: [".p-rich_text_section"],
         detectParagraphLanguage: !0
       },
       {
         matches: "1paragraph.app",
-        additionalSelectors: [
-          "#book"
-        ]
+        additionalSelectors: ["#book"]
       },
       {
         matches: "www.google.*/search*",
         detectParagraphLanguage: !0,
-        excludeSelectors: [
-          "a h3 + div",
-          "div#sfooter"
-        ],
+        excludeSelectors: ["a h3 + div", "div#sfooter"],
         wrapperSuffix: "",
         globalStyles: {
           "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
@@ -8950,54 +8859,31 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "lowendtalk.com",
-        selectors: [
-          "[role=heading]",
-          "h1",
-          ".userContent"
-        ]
+        selectors: ["[role=heading]", "h1", ".userContent"]
       },
       {
         matches: "www.linkedin.com/jobs/*",
-        selectors: [
-          "#job-details > span"
-        ]
+        selectors: ["#job-details > span"]
       },
       {
         matches: "www.linkedin.com",
-        addtionalSelectors: [
-          "span.break-words > span > span[dir=ltr]"
-        ]
+        addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
       },
       {
         matches: "www.indiehackers.com",
-        selectors: [
-          ".content",
-          "h1",
-          ".feed-item__title-link"
-        ]
+        selectors: [".content", "h1", ".feed-item__title-link"]
       },
       {
         matches: "libreddit.de",
-        selectors: [
-          "h2.post_title",
-          ".comment_body > .md"
-        ]
+        selectors: ["h2.post_title", ".comment_body > .md"]
       },
       {
-        matches: [
-          "notion.site",
-          "www.notion.so"
-        ],
-        selectors: [
-          "div[data-block-id]"
-        ]
+        matches: ["notion.site", "www.notion.so"],
+        selectors: ["div[data-block-id]"]
       },
       {
         matches: "www.newyorker.com",
-        additionalSelectors: [
-          "h1",
-          "[data-testid=SummaryItemHed]"
-        ]
+        additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
       },
       {
         matches: "start.me",
@@ -9010,16 +8896,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.scmp.com",
-        additionalSelectors: [
-          ".info__subHeadline",
-          ".section-content h2"
-        ]
+        additionalSelectors: [".info__subHeadline", ".section-content h2"]
       },
       {
         matches: "www.lesswrong.com",
-        extraBlockSelectors: [
-          "span.commentOnSelection"
-        ]
+        extraBlockSelectors: ["span.commentOnSelection"]
       },
       {
         matches: [
@@ -9030,19 +8911,13 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "mastodon.world",
           "infosec.exchange"
         ],
-        selectorMatches: [
-          "div#mastodon"
-        ],
-        selectors: [
-          "div.status__content__text"
-        ],
+        selectorMatches: ["div#mastodon"],
+        selectors: ["div.status__content__text"],
         detectLanguage: !0
       },
       {
         matches: "www.cnbc.com",
-        additionalSelectors: [
-          "div.RenderKeyPoints-list"
-        ]
+        additionalSelectors: ["div.RenderKeyPoints-list"]
       },
       {
         matches: "app.daily.dev",
@@ -9058,16 +8933,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.aljazeera.com",
-        addtionalSelectors: [
-          "h1",
-          ".article__subhead"
-        ]
+        addtionalSelectors: ["h1", ".article__subhead"]
       },
       {
-        matches: [
-          "*.pornhub.com",
-          "pornhub.com"
-        ],
+        matches: ["*.pornhub.com", "pornhub.com"],
         selectors: [
           ".title >a",
           ".title > span",
@@ -9085,18 +8954,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         }
       },
       {
-        matches: [
-          "weibo.com"
-        ],
-        selectors: [
-          "div[class^='detail_wbtext']"
-        ]
+        matches: ["weibo.com"],
+        selectors: ["div[class^='detail_wbtext']"]
       },
       {
-        matches: [
-          "medium.com",
-          "*.medium.com"
-        ],
+        matches: ["medium.com", "*.medium.com"],
         selectorMatches: [
           "meta[property='al:ios:url'][content^='medium://']"
         ],
@@ -9107,9 +8969,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "[aria-hidden='false'] pre",
           "article p"
         ],
-        excludeSelectors: [
-          "[aria-label='Post Preview Reading Time']"
-        ],
+        excludeSelectors: ["[aria-label='Post Preview Reading Time']"],
         globalStyles: {
           h2: "-webkit-line-clamp: unset;max-height:unset;",
           "article p": "-webkit-line-clamp: unset;max-height:unset;"
@@ -9119,24 +8979,15 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         selectorMatches: [
           "meta[property='og:site_name'][content='Nitter']"
         ],
-        selectors: [
-          ".tweet-content",
-          ".quote-text"
-        ]
+        selectors: [".tweet-content", ".quote-text"]
       },
       {
         matches: "*.fandom.com",
-        additionalSelectors: [
-          ".mcf-card-article__title"
-        ]
+        additionalSelectors: [".mcf-card-article__title"]
       },
       {
-        matches: [
-          "www.washingtonpost.com"
-        ],
-        additionalSelectors: [
-          "[data-qa='article-body']"
-        ]
+        matches: ["www.washingtonpost.com"],
+        additionalSelectors: ["[data-qa='article-body']"]
       },
       {
         matches: "www.economist.com",
@@ -9178,9 +9029,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       {
         matches: "www.sciencedirect.com",
         urlChangeDelay: 2e3,
-        stayOriginalSelectors: [
-          "span.display"
-        ]
+        stayOriginalSelectors: ["span.display"]
       },
       {
         matches: "www.thehighestofthemountains.com",
@@ -9191,10 +9040,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         normalizeBody: "div.ql-editor[contenteditable='false']"
       },
       {
-        matches: [
-          "*.annas-archive.org",
-          "annas-archive.org"
-        ],
+        matches: ["*.annas-archive.org", "annas-archive.org"],
         selectors: [
           "h3.text-xl.font-bold",
           "div[class='truncate text-sm']"
@@ -9203,9 +9049,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "div[id^='link-index-']": "height: unset; max-height: unset;"
         },
         normalizeBody: "body",
-        extraBlockSelectors: [
-          "a.custom-a"
-        ]
+        extraBlockSelectors: ["a.custom-a"]
       },
       {
         matches: [
@@ -9216,21 +9060,15 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         ]
       },
       {
-        matches: [
-          "apnews.com"
-        ],
+        matches: ["apnews.com"],
         urlChangeDelay: 2e3
       },
       {
         matches: "play.google.com",
-        additionalSelectors: [
-          "header[data-review-id] + div"
-        ]
+        additionalSelectors: ["header[data-review-id] + div"]
       },
       {
-        matches: [
-          "www.tumblr.com"
-        ],
+        matches: ["www.tumblr.com"],
         selectors: [
           "article h1",
           "article > header + div",
@@ -9246,23 +9084,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "article blockquote",
           "article ol"
         ],
-        excludeSelectors: [
-          "div.fAAi8",
-          "div.wvu3V"
-        ],
-        preWhitespaceDetectedTags: [
-          "DIV",
-          "SPAN",
-          "P"
-        ]
+        excludeSelectors: ["div.fAAi8", "div.wvu3V"],
+        preWhitespaceDetectedTags: ["DIV", "SPAN", "P"]
       },
       {
-        matches: [
-          "mail.qq.com/cgi-bin/frame_html"
-        ],
-        selectors: [
-          "#thisiddoesnotexists"
-        ]
+        matches: ["mail.qq.com/cgi-bin/frame_html"],
+        selectors: ["#thisiddoesnotexists"]
       },
       {
         matches: "www.foxnews.com",
@@ -9315,11 +9142,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "getpocket.com",
-        selectors: [
-          "h2.title",
-          "div.excerpt p",
-          "main > article"
-        ],
+        selectors: ["h2.title", "div.excerpt p", "main > article"],
         globalStyles: {
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -9396,6 +9219,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         else if (key.startsWith("additional")) {
           let userValue = arrayOrGenericToArray(value);
           finalRule[key] = Array.from(
+            // @ts-ignore: ignore type error
             /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
           );
         } else
@@ -9503,7 +9327,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       for (let command of commandResult)
         command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
     }
-    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = new Date();
+    let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig2 = await getLocalConfig(), now = /* @__PURE__ */ new Date();
     if (localConfig2 && localConfig2.tempTranslationUrlMatches && localConfig2.tempTranslationUrlMatches.length > 0) {
       let validUrlMatches = localConfig2.tempTranslationUrlMatches.filter(
         (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -9555,12 +9379,14 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         ], finalConfigValue = {};
         for (let key2 of allUniqueKeys)
           finalConfigValue[key2] = {
+            // @ts-ignore: it's ok
             ...buildInConfigValue[key2],
             ...userConfigValue[key2]
           };
         finalConfig[configKey] = finalConfigValue;
       } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
         mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
+          // @ts-ignore: ignore type error
           finalConfig[configKey],
           mergedUserConfig[configKey]
         )), configKey === "shortcuts" && (finalConfig[configKey] = {
@@ -9975,6 +9801,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
     constructor(fromType, debug = !1) {
       this.logger = new Logger(), debug && this.logger.setLevel("debug"), this.fromType = fromType, listeners2.has(fromType) || (listeners2.set(fromType, /* @__PURE__ */ new Map()), browserAPI.runtime.onMessage.addListener(
+        // @ts-ignore: it's ok
         (message, sender, sendResponse) => {
           let from = message.from, to = message.to, tabId, tabUrl, tabActive;
           sender.tab && sender.tab.id && (tabId = sender.tab.id, from = `${from}:${tabId}`, tabUrl = sender.tab.url, tabActive = sender.tab.active), this.logger.debug(
@@ -11626,7 +11453,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       service,
       version
     }) {
-      let host = `${service}.tencentcloudapi.com`, now = new Date(), timestamp = `${new Date().valueOf()}`.slice(0, 10), CanonicalRequest = [
+      let host = `${service}.tencentcloudapi.com`, now = /* @__PURE__ */ new Date(), timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10), CanonicalRequest = [
         "POST",
         "/",
         "",
@@ -11675,7 +11502,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return response;
     }
   }, Tencent = _Tencent;
-  Tencent.langMap = new Map(langMap3), Tencent.langMapReverse = new Map(
+  /** Translator lang to custom lang */
+  Tencent.langMap = new Map(langMap3), /** Custom lang to translator lang */
+  Tencent.langMapReverse = new Map(
     langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
@@ -11809,13 +11638,13 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       };
     }
     async fetchWithoutToken(text, from, to) {
-      let params = new URLSearchParams({
+      let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
         client: "gtx",
         dt: "t",
         sl: from,
         tl: to,
         q: text
-      }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
+      }).toString();
       return { data: await request2({
         retry: 2,
         url
@@ -11904,6 +11733,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         jobs.push({
           kind: "default",
           _index: i3,
+          // raw_en_sentence: sentence,
           sentences: [{
             id,
             text: chunk.sentences[0].text,
@@ -12088,7 +11918,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       };
     }
   }, D9 = _D;
-  D9.langMap = new Map(langMap5), D9.langMapReverse = new Map(
+  /** Translator lang to custom lang */
+  D9.langMap = new Map(langMap5), /** Custom lang to translator lang */
+  D9.langMapReverse = new Map(
     langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
@@ -12228,7 +12060,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return language || remoteLanguage;
     }
   }, Transmart = _Transmart;
-  Transmart.langMap = new Map(langMap6), Transmart.langMapReverse = new Map(
+  /** Translator lang to custom lang */
+  Transmart.langMap = new Map(langMap6), /** Custom lang to translator lang */
+  Transmart.langMapReverse = new Map(
     langMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
@@ -12488,7 +12322,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }];
     }
     async translate(payload) {
-      let { text, from, to } = payload, src_text = text, options2 = {
+      let { text, from, to } = payload, options2 = {
         url: "https://api.niutrans.com/NiuTransServer/translation",
         retry: 2,
         headers: {
@@ -12496,7 +12330,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         },
         method: "POST",
         body: JSON.stringify({
-          src_text,
+          src_text: text,
           from: langMap9.get(from) || from,
           to: langMap9.get(to) || to,
           apikey: this.APIKEY
@@ -12552,7 +12386,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     if (typeof val > "u" || val === null)
       return;
     let escapedKey = uriEscape(key);
-    if (!!escapedKey)
+    if (escapedKey)
       return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
   }).filter((v3) => v3).join("&"), Signer = class {
     constructor(request3, serviceName, options2) {
@@ -12667,7 +12501,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return unsignableHeaders.indexOf(key) < 0;
     }
     iso8601(date) {
-      return date === void 0 && (date = new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
+      return date === void 0 && (date = /* @__PURE__ */ new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
     }
     async getSigningKey(credentials, date, region, service) {
       let kDate = await hmacSha256(
@@ -12813,9 +12647,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }];
     }
     async remoteDetectLanguage(text) {
-      let bodyParams = {
-        TextList: [text]
-      }, requestObj = {
+      let requestObj = {
         region: "cn-north-1",
         method: "POST",
         params: {
@@ -12827,7 +12659,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "Content-Type": "application/json",
           host: "open.volcengineapi.com"
         },
-        body: JSON.stringify(bodyParams)
+        body: JSON.stringify({
+          TextList: [text]
+        })
       }, signer = new Signer(requestObj, "translate");
       await signer.addAuthorization({
         accessKeyId: this.accessKeyId,
@@ -13025,18 +12859,18 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       this.isSupportList = !1;
     }
     async translate(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap11.get(from) || "detect", remoteTo = langMap11.get(to) || to, bodyParams = {
-        source_language: remoteFrom,
-        target_language: remoteTo,
-        text
-      }, response = await request2(
+      let { text, from, to } = payload, remoteFrom = langMap11.get(from) || "detect", remoteTo = langMap11.get(to) || to, response = await request2(
         {
           url: "https://translate.volcengine.com/crx/translate/v1/",
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(bodyParams)
+          body: JSON.stringify({
+            source_language: remoteFrom,
+            target_language: remoteTo,
+            text
+          })
         }
       );
       if (response.base_resp && response.base_resp.status_code === 0) {
@@ -13238,6 +13072,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       frontDoorBotClassification,
       isSignedInOrCorporateUser,
       cookie,
+      // PENDING: reset count if count value is large?
       count: 0
     }, await browserAPI.storage.local.set({
       [globalConfigStorageKey]: globalConfig
@@ -13274,6 +13109,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       to === "auto-detect" ? "zh-Hans" : to
     ), requestHeaders = {
       referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
+      // cookie: globalConfig.cookie,
       "content-type": "application/x-www-form-urlencoded"
     }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
       retry: 2,
@@ -13503,7 +13339,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }];
     }
     async translate(payload) {
-      let { text, from, to } = payload, salt = new Date().getTime(), curTime = Math.round(new Date().getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
+      let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
@@ -13576,6 +13412,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       name: "Bing",
       homepage: "https://www.bing.com/translator"
     },
+    // bai: {
+    //   class: Bai,
+    //   name: "Baidu(Alapa)",
+    //   homepage: "https://fanyi.baidu.com/",
+    //   alpha: true,
+    // },
     tencent: {
       class: Tencent,
       name: "Tencent",
@@ -14164,8 +14006,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       });
       let containersCount = 0;
       setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
-      for (let rootFrame of allFrames)
-        containersCount += await translateFrame(rootFrame, ctx);
+      for (let rootFrame of allFrames) {
+        let containerCount = await translateFrame(rootFrame, ctx);
+        containersCount += containerCount;
+      }
       containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
         log_default.error(
           "translateTitle error:",
@@ -14648,6 +14492,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       e3.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e3.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
     }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
       event && event.data && event.data.payload && event.data.author === iframeMessageIdentifier && asyncMessageHandler(event.data.payload, {
+        // @ts-ignore: it's ok
         tab: {
           id: 1,
           url: "https://www.fake-iframe.com",
@@ -14668,7 +14513,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   // cron.ts
   async function runCron(interval) {
     try {
-      let now = new Date();
+      let now = /* @__PURE__ */ new Date();
       log_default.debug(
         "cron task start, next will run at",
         new Date(now.getTime() + interval).toLocaleString()
@@ -14793,6 +14638,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   // userscript_message.ts
   function sendMessageToContent(request3) {
     asyncMessageHandler(request3, {
+      // @ts-ignore: it's ok
       tab: {
         id: 1,
         url: "https://www.fake.com",
@@ -14890,15 +14736,18 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       props.translations
     );
-    return /* @__PURE__ */ p6(TranslateContext.Provider, {
-      value: {
-        t: t5,
-        setLang,
-        lang,
-        isReady: isReady2
-      },
-      children: props.children
-    });
+    return /* @__PURE__ */ p6(
+      TranslateContext.Provider,
+      {
+        value: {
+          t: t5,
+          setLang,
+          lang,
+          isReady: isReady2
+        },
+        children: props.children
+      }
+    );
   };
 
   // utils/source_language_url_pattern.ts
@@ -14946,6 +14795,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return (e3) => {
         ++clicked == requiredClicks && (cb(e3), clicked = 0), clearTimeout(timer2), timer2 = setTimeout(
           () => clicked = 0,
+          // reset the number of clicks after a traditional 300ms duration
           timeLimit
         );
       };
@@ -14984,21 +14834,20 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   // components/select_link.tsx
   function SelectLink(props) {
     let { items, maxWidth } = props;
-    return maxWidth = maxWidth || 128, /* @__PURE__ */ p6("select", {
-      autoComplete: "off",
-      class: "min-select",
-      style: { maxWidth: `${maxWidth}px` },
-      value: items.find((item) => item.selected)?.value,
-      onChange: (e3) => {
-        let value = e3.target.value, item = items.find((item2) => item2.value === value);
-        item && item.onSelected(item);
-      },
-      children: items.map((item) => /* @__PURE__ */ p6("option", {
-        value: item.value,
-        selected: item.selected,
-        children: item.label
-      }))
-    });
+    return maxWidth = maxWidth || 128, /* @__PURE__ */ p6(
+      "select",
+      {
+        autoComplete: "off",
+        class: "min-select",
+        style: { maxWidth: `${maxWidth}px` },
+        value: items.find((item) => item.selected)?.value,
+        onChange: (e3) => {
+          let value = e3.target.value, item = items.find((item2) => item2.value === value);
+          item && item.onSelected(item);
+        },
+        children: items.map((item) => /* @__PURE__ */ p6("option", { value: item.value, selected: item.selected, children: item.label }))
+      }
+    );
   }
 
   // components/button_drop_down.tsx
@@ -15007,29 +14856,29 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let { showArrow, onSelected, className, menus, maxWidth } = props;
     className = className || "", showArrow = showArrow ?? !0, maxWidth = maxWidth || 60;
     let ref = w3(null);
-    return /* @__PURE__ */ p6("select", {
-      ref,
-      autoComplete: "off",
-      class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
-      value: DEFAULT_VALUE,
-      style: { maxWidth: `${maxWidth}px` },
-      onChange: (e3) => {
-        e3.preventDefault();
-        let value = e3.target.value;
-        if (ref.current && value !== DEFAULT_VALUE) {
-          ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
-          let item = menus.find((item2) => item2.value === value);
-          item && onSelected(item);
-        }
-      },
-      children: [{
+    return /* @__PURE__ */ p6(
+      "select",
+      {
+        ref,
+        autoComplete: "off",
+        class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
         value: DEFAULT_VALUE,
-        label: props.label
-      }].concat(menus).map((item) => /* @__PURE__ */ p6("option", {
-        value: item.value,
-        children: item.label
-      }))
-    });
+        style: { maxWidth: `${maxWidth}px` },
+        onChange: (e3) => {
+          e3.preventDefault();
+          let value = e3.target.value;
+          if (ref.current && value !== DEFAULT_VALUE) {
+            ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
+            let item = menus.find((item2) => item2.value === value);
+            item && onSelected(item);
+          }
+        },
+        children: [{
+          value: DEFAULT_VALUE,
+          label: props.label
+        }].concat(menus).map((item) => /* @__PURE__ */ p6("option", { value: item.value, children: item.label }))
+      }
+    );
   }
 
   // hooks/use_i18n.ts
@@ -15042,17 +14891,14 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let { field, onChange, value } = props;
     value = value || field.default || "";
     let { t: t5 } = useI18n();
-    return field.type === "select" ? /* @__PURE__ */ p6("div", {
-      class: "flex justify-between mb-2",
-      children: [
-        /* @__PURE__ */ p6("label", {
-          class: "inline-block",
-          children: [
-            field.label ? t5(field.label) : field.name,
-            "\uFF1A"
-          ]
-        }),
-        /* @__PURE__ */ p6(SelectLink, {
+    return field.type === "select" ? /* @__PURE__ */ p6("div", { class: "flex justify-between mb-2", children: [
+      /* @__PURE__ */ p6("label", { class: "inline-block", children: [
+        field.label ? t5(field.label) : field.name,
+        "\uFF1A"
+      ] }),
+      /* @__PURE__ */ p6(
+        SelectLink,
+        {
           items: field.options.map(
             (fieldOption) => ({
               label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
@@ -15063,9 +14909,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               }
             })
           )
-        })
-      ]
-    }) : null;
+        }
+      )
+    ] }) : null;
   }
 
   // components/sync_latest.tsx
@@ -15075,59 +14921,50 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       setTimeout(() => {
         setIsHide(!0);
       }, 5e3);
-    }, []), isHide ? null : /* @__PURE__ */ p6("p", {
-      class: "text-sm",
-      children: [
-        t5("Successfully synchronized with the latest official rules:"),
-        " ",
-        new Date(date).toLocaleString()
-      ]
-    });
+    }, []), isHide ? null : /* @__PURE__ */ p6("p", { class: "text-sm", children: [
+      t5("Successfully synchronized with the latest official rules:"),
+      " ",
+      new Date(date).toLocaleString()
+    ] });
   }, LocalVersionIsTooOld = ({ minVersion }) => {
     let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p6("p", {
-      class: "text-sm",
-      children: t5(
-        "localVersionIsTooOld",
-        {
-          minVersion
-        }
-      )
-    });
+    return /* @__PURE__ */ p6("p", { class: "text-sm", children: t5(
+      "localVersionIsTooOld",
+      {
+        minVersion
+      }
+    ) });
   }, BadUserscriptBrowser = () => {
     let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p6("p", {
-      class: "text-sm",
-      dangerouslySetInnerHTML: {
-        __html: t5(
-          "badUserscriptBrowser",
-          {
-            1: "https://immersive-translate.owenyoung.com/installation.html"
-          }
-        )
+    return /* @__PURE__ */ p6(
+      "p",
+      {
+        class: "text-sm",
+        dangerouslySetInnerHTML: {
+          __html: t5(
+            "badUserscriptBrowser",
+            {
+              1: "https://immersive-translate.owenyoung.com/installation.html"
+            }
+          )
+        }
       }
-    });
+    );
   }, SyncFailed = ({ message, handleSyncing, date }) => {
     let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p6("p", {
-      class: "text-sm",
-      children: [
-        t5("failToSyncRules"),
-        " ",
-        /* @__PURE__ */ p6("a", {
-          onClick: handleSyncing,
-          children: t5("retry")
-        }),
-        /* @__PURE__ */ p6("br", {}),
-        t5("failedReason"),
-        "\uFF1A",
-        message,
-        /* @__PURE__ */ p6("br", {}),
-        t5("currentRuleVersion"),
-        "\uFF1A",
-        date
-      ]
-    });
+    return /* @__PURE__ */ p6("p", { class: "text-sm", children: [
+      t5("failToSyncRules"),
+      " ",
+      /* @__PURE__ */ p6("a", { onClick: handleSyncing, children: t5("retry") }),
+      /* @__PURE__ */ p6("br", {}),
+      t5("failedReason"),
+      "\uFF1A",
+      message,
+      /* @__PURE__ */ p6("br", {}),
+      t5("currentRuleVersion"),
+      "\uFF1A",
+      date
+    ] });
   };
   function SyncLatest(props) {
     let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
@@ -15177,19 +15014,14 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       getConfig().then((config2) => {
         setConfig(config2);
       });
-    }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p6("div", {
-      class: "text-sm mt-2",
-      style: { maxWidth: 218 },
-      children: isBadUserscriptBrowser ? /* @__PURE__ */ p6(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p6(SyncFailed, {
+    }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p6("div", { class: "text-sm mt-2", style: { maxWidth: 218 }, children: isBadUserscriptBrowser ? /* @__PURE__ */ p6(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p6(
+      SyncFailed,
+      {
         handleSyncing,
         message: syncErrorMessage,
         date: localBuildinConfigUpdatedAt || ""
-      }) : isInvalidLocalVersion ? /* @__PURE__ */ p6(LocalVersionIsTooOld, {
-        minVersion: remoteConfig.minVersion
-      }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p6(SyncSuccess, {
-        date: localBuildinConfigUpdatedAt
-      }) : null
-    }) : null;
+      }
+    ) : isInvalidLocalVersion ? /* @__PURE__ */ p6(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p6(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : null }) : null;
   }
 
   // components/popup.tsx
@@ -15353,382 +15185,347 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let handleClosePopup = (e3) => {
       e3.preventDefault(), onClose();
     };
-    return /* @__PURE__ */ p6("div", {
-      class: "p-3",
-      children: [
-        /* @__PURE__ */ p6("div", {
-          class: "text-sm",
-          children: [
-            /* @__PURE__ */ p6("div", {
-              class: "flex justify-between mb-2",
-              children: [
-                /* @__PURE__ */ p6("label", {
-                  class: "inline-block",
-                  children: [
-                    t5("popupSourceLanguage"),
-                    "\uFF1A"
-                  ]
-                }),
-                /* @__PURE__ */ p6(SelectLink, {
-                  items: languages.map((code2) => ({
-                    label: getLanguageName(code2, config.interfaceLanguage),
-                    value: code2,
-                    selected: code2 === currentLang,
-                    onSelected: (item) => {
-                      onSetPageLanguage(item.value);
-                    }
-                  }))
-                })
-              ]
-            }),
-            config && config.targetLanguage && /* @__PURE__ */ p6("div", {
-              class: "flex justify-between mb-2",
-              children: [
-                /* @__PURE__ */ p6("label", {
-                  class: "inline-block",
-                  children: [
-                    t5("popupTarget"),
-                    "\uFF1A"
-                  ]
-                }),
-                /* @__PURE__ */ p6(SelectLink, {
-                  items: languages.filter((code2) => code2 !== "auto").map((code2) => ({
-                    label: getLanguageName(code2, config.interfaceLanguage),
-                    value: code2,
-                    selected: code2 === config.targetLanguage,
-                    onSelected: (item) => {
-                      setSettings((state) => ({
+    return /* @__PURE__ */ p6("div", { class: "p-3", children: [
+      /* @__PURE__ */ p6("div", { class: "text-sm", children: [
+        /* @__PURE__ */ p6("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p6("label", { class: "inline-block", children: [
+            t5("popupSourceLanguage"),
+            "\uFF1A"
+          ] }),
+          /* @__PURE__ */ p6(
+            SelectLink,
+            {
+              items: languages.map((code2) => ({
+                label: getLanguageName(code2, config.interfaceLanguage),
+                value: code2,
+                selected: code2 === currentLang,
+                onSelected: (item) => {
+                  onSetPageLanguage(item.value);
+                }
+              }))
+            }
+          )
+        ] }),
+        config && config.targetLanguage && /* @__PURE__ */ p6("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p6("label", { class: "inline-block", children: [
+            t5("popupTarget"),
+            "\uFF1A"
+          ] }),
+          /* @__PURE__ */ p6(
+            SelectLink,
+            {
+              items: languages.filter((code2) => code2 !== "auto").map((code2) => ({
+                label: getLanguageName(code2, config.interfaceLanguage),
+                value: code2,
+                selected: code2 === config.targetLanguage,
+                onSelected: (item) => {
+                  setSettings((state) => ({
+                    ...state,
+                    targetLanguage: item.value
+                  }));
+                }
+              }))
+            }
+          )
+        ] }),
+        curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p6(L, { children: [
+          /* @__PURE__ */ p6("div", { class: "flex justify-between mb-2", children: [
+            /* @__PURE__ */ p6("label", { class: "inline-block", children: [
+              t5("popupService"),
+              "\uFF1A"
+            ] }),
+            /* @__PURE__ */ p6(
+              SelectLink,
+              {
+                items: translationServiceItems.map(
+                  (translationServiceItem) => ({
+                    label: `${t5("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " " + t5("needAction")}`,
+                    value: translationServiceItem.id,
+                    selected: translationServiceItem.selected,
+                    onSelected: (option) => {
+                      let selectedItem = translationServiceItems.find(
+                        (item) => item.id === option.value
+                      );
+                      selectedItem.ok ? (setSettings((state) => ({
                         ...state,
-                        targetLanguage: item.value
-                      }));
+                        translationService: selectedItem.id
+                      })), selectedItem.props.length === 0 ? setTimeout(() => {
+                        onTranslatePage();
+                      }, 1) : setTimeout(() => {
+                        onRestorePage();
+                      }, 1)) : (setSettings((state) => ({
+                        ...state,
+                        translationService: selectedItem.id
+                      })), setTimeout(() => {
+                        openOptionsPage3();
+                      }, 100));
                     }
-                  }))
-                })
-              ]
-            }),
-            curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p6(L, {
-              children: [
-                /* @__PURE__ */ p6("div", {
-                  class: "flex justify-between mb-2",
-                  children: [
-                    /* @__PURE__ */ p6("label", {
-                      class: "inline-block",
-                      children: [
-                        t5("popupService"),
-                        "\uFF1A"
-                      ]
-                    }),
-                    /* @__PURE__ */ p6(SelectLink, {
-                      items: translationServiceItems.map(
-                        (translationServiceItem) => ({
-                          label: `${t5("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " " + t5("needAction")}`,
-                          value: translationServiceItem.id,
-                          selected: translationServiceItem.selected,
-                          onSelected: (option) => {
-                            let selectedItem = translationServiceItems.find(
-                              (item) => item.id === option.value
-                            );
-                            selectedItem.ok ? (setSettings((state) => ({
-                              ...state,
-                              translationService: selectedItem.id
-                            })), selectedItem.props.length === 0 ? setTimeout(() => {
-                              onTranslatePage();
-                            }, 1) : setTimeout(() => {
-                              onRestorePage();
-                            }, 1)) : (setSettings((state) => ({
-                              ...state,
-                              translationService: selectedItem.id
-                            })), setTimeout(() => {
-                              openOptionsPage3();
-                            }, 100));
-                          }
-                        })
-                      )
-                    })
-                  ]
-                }),
-                currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p6("div", {
-                  class: "pl-4 text-sm",
-                  children: /* @__PURE__ */ p6(PopupField, {
-                    field: prop,
-                    value: currentTranslationServiceConfig[prop.name],
-                    onChange: (value) => {
-                      setSettings((state) => {
-                        let currentServices = state.translationServices || {}, currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
-                        return setTimeout(() => {
-                          onRestorePage();
-                        }, 1), {
-                          ...state,
-                          translationServices: {
-                            ...currentServices,
-                            [curentTranslationServiceItem.id]: {
-                              ...currentServiceConfig,
-                              [prop.name]: value
-                            }
-                          }
-                        };
-                      });
-                    }
-                  }, "field-" + index)
-                }))
-              ]
-            }),
-            currentUrlObj && /* @__PURE__ */ p6("div", {
-              class: "flex justify-between mb-2",
-              children: [
-                /* @__PURE__ */ p6("label", {
-                  class: "inline-block",
-                  children: t5("forThisSite")
-                }),
-                /* @__PURE__ */ p6(SelectLink, {
-                  items: [
-                    {
-                      label: t5("default"),
-                      value: "default",
-                      selected: isAlwaysTranslateDomain === !1 && isNeverTranslaateDomain === !1 && !isAlwaysTranslateWildDomain && !isNeverTranslateWildDomain && !isAlwaysTranslateUrl && !isNeverTranslateUrl,
-                      onSelected: () => {
-                        handleTranslationUrlPatternSelected(
-                          "default",
-                          currentUrlObj.hostname,
-                          [],
-                          []
-                        );
-                        let currentDomain = currentUrlObj.hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], filteredDomains = currentTempTranslationDomains.filter(
-                          (item) => item.match !== currentDomain
-                        ), isChanged = !1;
-                        filteredDomains.length !== currentTempTranslationDomains.length && (isChanged = !0), isChanged && onSetLocalConfig({
-                          ...ctx.localConfig,
-                          tempTranslationUrlMatches: [
-                            ...filteredDomains
-                          ]
-                        });
-                      }
-                    },
-                    currentUrlWithoutHash && {
-                      label: t5("alwaysTranslateSomeSite", {
-                        hostname: t5("currentUrl")
-                      }),
-                      value: "matchesUrl",
-                      selected: isAlwaysTranslateUrl,
-                      onSelected: () => {
-                        handleTranslationUrlPatternSelected(
-                          "matches",
-                          currentUrlWithoutHash,
-                          [currentUrlWithoutHash],
-                          []
-                        );
-                      }
-                    },
-                    {
-                      label: t5("alwaysTranslateSomeSite", {
-                        hostname: currentUrlObj.hostname
-                      }),
-                      value: "matches",
-                      selected: isAlwaysTranslateDomain,
-                      onSelected: (item) => {
-                        handleTranslationUrlPatternSelected(
-                          item.value,
-                          currentUrlObj.hostname,
-                          [
-                            currentUrlObj.hostname,
-                            currentWildHostname,
-                            currentUrlWithoutHash
-                          ],
-                          [currentWildHostname]
-                        );
-                      }
-                    },
-                    currentWildHostname && {
-                      label: t5("alwaysTranslateSomeSite", {
-                        hostname: currentWildHostname
-                      }),
-                      value: "matchesWild",
-                      selected: isAlwaysTranslateWildDomain,
-                      onSelected: () => {
-                        handleTranslationUrlPatternSelected(
-                          "matches",
-                          currentWildHostname,
-                          [
-                            currentUrlWithoutHash,
-                            currentUrlObj.hostname,
-                            currentWildHostname
-                          ],
-                          [currentUrlObj.hostname]
-                        );
-                      }
-                    },
-                    currentUrlWithoutHash && {
-                      label: t5("neverTranslateSomeSite", {
-                        hostname: t5("currentUrl")
-                      }),
-                      value: "excludeMatchesUrl",
-                      selected: isNeverTranslateUrl,
-                      onSelected: () => {
-                        handleTranslationUrlPatternSelected(
-                          "excludeMatches",
-                          currentUrlWithoutHash,
-                          [currentUrlWithoutHash],
-                          []
-                        );
-                      }
-                    },
-                    {
-                      label: t5("neverTranslateSomeSite", {
-                        hostname: currentUrlObj.hostname
-                      }),
-                      value: "excludeMatches",
-                      selected: isNeverTranslaateDomain,
-                      onSelected: (item) => {
-                        handleTranslationUrlPatternSelected(
-                          item.value,
-                          currentUrlObj.hostname,
-                          [
-                            currentUrlObj.hostname,
-                            currentWildHostname,
-                            currentUrlWithoutHash
-                          ],
-                          [currentWildHostname]
-                        );
-                      }
-                    },
-                    currentWildHostname && {
-                      label: t5("neverTranslateSomeSite", {
-                        hostname: currentWildHostname
-                      }),
-                      value: "excludeMatchesWild",
-                      selected: isNeverTranslateWildDomain,
-                      onSelected: () => {
-                        handleTranslationUrlPatternSelected(
-                          "excludeMatches",
-                          currentWildHostname,
-                          [
-                            currentUrlObj.hostname,
-                            currentUrlWithoutHash,
-                            currentWildHostname
-                          ],
-                          [currentUrlObj.hostname]
-                        );
+                  })
+                )
+              }
+            )
+          ] }),
+          currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p6("div", { class: "pl-4 text-sm", children: /* @__PURE__ */ p6(
+            PopupField,
+            {
+              field: prop,
+              value: currentTranslationServiceConfig[prop.name],
+              onChange: (value) => {
+                setSettings((state) => {
+                  let currentServices = state.translationServices || {}, currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
+                  return setTimeout(() => {
+                    onRestorePage();
+                  }, 1), {
+                    ...state,
+                    translationServices: {
+                      ...currentServices,
+                      [curentTranslationServiceItem.id]: {
+                        ...currentServiceConfig,
+                        [prop.name]: value
                       }
                     }
-                  ].filter(Boolean)
-                })
-              ]
-            })
-          ]
-        }),
-        /* @__PURE__ */ p6("div", {
-          class: "",
-          children: /* @__PURE__ */ p6("button", {
-            class: "py-2 mt-1 mb-2 main-button ",
-            onClick: () => {
-              isPdfUrl ? onTranslatePdf && onTranslatePdf() : onToggleTranslate();
+                  };
+                });
+              }
             },
-            "aria-busy": pageStatus2 === "Translating",
-            disabled: pageStatus2 === "Translating",
-            children: buttonLabel
-          })
-        }),
-        /* @__PURE__ */ p6("div", {
-          class: "flex justify-between",
-          children: [
-            currentLang && currentLang !== "auto" ? /* @__PURE__ */ p6("label", {
-              for: "alwaysTranslateThisLanugage",
-              class: "text-sm",
-              children: [
-                /* @__PURE__ */ p6("input", {
-                  type: "checkbox",
-                  id: "alwaysTranslateThisLanugage",
-                  name: "alwaysTranslateThisLanugage",
-                  checked: !!isAlwaysTranslateLang,
-                  onChange: (e3) => {
-                    let checked = e3.target.checked;
-                    handleTranslationLanguagePatternSelected(
-                      checked ? "matches" : void 0
+            "field-" + index
+          ) }))
+        ] }),
+        currentUrlObj && /* @__PURE__ */ p6("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p6("label", { class: "inline-block", children: t5("forThisSite") }),
+          /* @__PURE__ */ p6(
+            SelectLink,
+            {
+              items: [
+                {
+                  label: t5("default"),
+                  value: "default",
+                  selected: isAlwaysTranslateDomain === !1 && isNeverTranslaateDomain === !1 && !isAlwaysTranslateWildDomain && !isNeverTranslateWildDomain && !isAlwaysTranslateUrl && !isNeverTranslateUrl,
+                  onSelected: () => {
+                    handleTranslationUrlPatternSelected(
+                      "default",
+                      currentUrlObj.hostname,
+                      [],
+                      []
+                    );
+                    let currentDomain = currentUrlObj.hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], filteredDomains = currentTempTranslationDomains.filter(
+                      (item) => item.match !== currentDomain
+                    ), isChanged = !1;
+                    filteredDomains.length !== currentTempTranslationDomains.length && (isChanged = !0), isChanged && onSetLocalConfig({
+                      ...ctx.localConfig,
+                      tempTranslationUrlMatches: [
+                        ...filteredDomains
+                      ]
+                    });
+                  }
+                },
+                currentUrlWithoutHash && {
+                  label: t5("alwaysTranslateSomeSite", {
+                    hostname: t5("currentUrl")
+                  }),
+                  value: "matchesUrl",
+                  selected: isAlwaysTranslateUrl,
+                  onSelected: () => {
+                    handleTranslationUrlPatternSelected(
+                      "matches",
+                      currentUrlWithoutHash,
+                      [currentUrlWithoutHash],
+                      []
                     );
                   }
-                }),
-                t5("alwaysTranslateSomeLanguage", {
-                  language: getLanguageName(
-                    currentLang,
-                    config.interfaceLanguage
-                  )
-                })
-              ]
-            }) : /* @__PURE__ */ p6("span", {}),
-            /* @__PURE__ */ p6(SelectDropDown, {
-              label: t5("more"),
-              showArrow: !0,
-              onSelected: (item) => {
-                item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage3());
-              },
-              menus: [
-                config.translationArea === "main" && {
-                  label: "\u{1F480} " + t5("changeToTranslateTheWholePage"),
-                  value: "changeToTranslateTheWholePage"
-                },
-                config.translationArea === "body" && {
-                  label: "\u{1F4D6} " + t5("changeToTranslateTheMainPage"),
-                  value: "changeToTranslateTheMainPage"
                 },
                 {
-                  label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
-                  value: "translateToThePageEndImmediately"
+                  label: t5("alwaysTranslateSomeSite", {
+                    hostname: currentUrlObj.hostname
+                  }),
+                  value: "matches",
+                  selected: isAlwaysTranslateDomain,
+                  onSelected: (item) => {
+                    handleTranslationUrlPatternSelected(
+                      item.value,
+                      currentUrlObj.hostname,
+                      [
+                        currentUrlObj.hostname,
+                        currentWildHostname,
+                        currentUrlWithoutHash
+                      ],
+                      [currentWildHostname]
+                    );
+                  }
                 },
-                !isMonkey() && {
-                  label: "\u{1F4C1} " + t5("browser.translateLocalPdfFile"),
-                  value: "translateLocalPdfFile"
+                currentWildHostname && {
+                  label: t5("alwaysTranslateSomeSite", {
+                    hostname: currentWildHostname
+                  }),
+                  value: "matchesWild",
+                  selected: isAlwaysTranslateWildDomain,
+                  onSelected: () => {
+                    handleTranslationUrlPatternSelected(
+                      "matches",
+                      currentWildHostname,
+                      [
+                        currentUrlWithoutHash,
+                        currentUrlObj.hostname,
+                        currentWildHostname
+                      ],
+                      [currentUrlObj.hostname]
+                    );
+                  }
+                },
+                currentUrlWithoutHash && {
+                  label: t5("neverTranslateSomeSite", {
+                    hostname: t5("currentUrl")
+                  }),
+                  value: "excludeMatchesUrl",
+                  selected: isNeverTranslateUrl,
+                  onSelected: () => {
+                    handleTranslationUrlPatternSelected(
+                      "excludeMatches",
+                      currentUrlWithoutHash,
+                      [currentUrlWithoutHash],
+                      []
+                    );
+                  }
                 },
                 {
-                  label: "\u2764\uFE0F " + t5("aboutLabel"),
-                  value: "about"
+                  label: t5("neverTranslateSomeSite", {
+                    hostname: currentUrlObj.hostname
+                  }),
+                  value: "excludeMatches",
+                  selected: isNeverTranslaateDomain,
+                  onSelected: (item) => {
+                    handleTranslationUrlPatternSelected(
+                      item.value,
+                      currentUrlObj.hostname,
+                      [
+                        currentUrlObj.hostname,
+                        currentWildHostname,
+                        currentUrlWithoutHash
+                      ],
+                      [currentWildHostname]
+                    );
+                  }
+                },
+                currentWildHostname && {
+                  label: t5("neverTranslateSomeSite", {
+                    hostname: currentWildHostname
+                  }),
+                  value: "excludeMatchesWild",
+                  selected: isNeverTranslateWildDomain,
+                  onSelected: () => {
+                    handleTranslationUrlPatternSelected(
+                      "excludeMatches",
+                      currentWildHostname,
+                      [
+                        currentUrlObj.hostname,
+                        currentUrlWithoutHash,
+                        currentWildHostname
+                      ],
+                      [currentUrlObj.hostname]
+                    );
+                  }
                 }
               ].filter(Boolean)
-            })
-          ]
-        }),
-        /* @__PURE__ */ p6("div", {
-          class: "text-sm",
-          children: message
-        }),
-        /* @__PURE__ */ p6("div", {
-          class: "text-sm",
-          children: errorMessage
-        }),
-        /* @__PURE__ */ p6("footer", {
-          children: [
-            /* @__PURE__ */ p6(SyncLatest, {
-              request: request3,
-              setStorageBuildinConfig: onSetBuildinConfig
-            }),
-            /* @__PURE__ */ p6("div", {
-              class: "mt-3 text-sm flex justify-between",
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ p6("div", { class: "", children: /* @__PURE__ */ p6(
+        "button",
+        {
+          class: "py-2 mt-1 mb-2 main-button ",
+          onClick: () => {
+            isPdfUrl ? onTranslatePdf && onTranslatePdf() : onToggleTranslate();
+          },
+          "aria-busy": pageStatus2 === "Translating",
+          disabled: pageStatus2 === "Translating",
+          children: buttonLabel
+        }
+      ) }),
+      /* @__PURE__ */ p6("div", { class: "flex justify-between", children: [
+        currentLang && currentLang !== "auto" ? /* @__PURE__ */ p6("label", { for: "alwaysTranslateThisLanugage", class: "text-sm", children: [
+          /* @__PURE__ */ p6(
+            "input",
+            {
+              type: "checkbox",
+              id: "alwaysTranslateThisLanugage",
+              name: "alwaysTranslateThisLanugage",
+              checked: !!isAlwaysTranslateLang,
+              onChange: (e3) => {
+                let checked = e3.target.checked;
+                handleTranslationLanguagePatternSelected(
+                  checked ? "matches" : void 0
+                );
+              }
+            }
+          ),
+          t5("alwaysTranslateSomeLanguage", {
+            language: getLanguageName(
+              currentLang,
+              config.interfaceLanguage
+            )
+          })
+        ] }) : /* @__PURE__ */ p6("span", {}),
+        /* @__PURE__ */ p6(
+          SelectDropDown,
+          {
+            label: t5("more"),
+            showArrow: !0,
+            onSelected: (item) => {
+              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage3());
+            },
+            menus: [
+              config.translationArea === "main" && {
+                label: "\u{1F480} " + t5("changeToTranslateTheWholePage"),
+                value: "changeToTranslateTheWholePage"
+              },
+              config.translationArea === "body" && {
+                label: "\u{1F4D6} " + t5("changeToTranslateTheMainPage"),
+                value: "changeToTranslateTheMainPage"
+              },
+              {
+                label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
+                value: "translateToThePageEndImmediately"
+              },
+              !isMonkey() && {
+                label: "\u{1F4C1} " + t5("browser.translateLocalPdfFile"),
+                value: "translateLocalPdfFile"
+              },
+              {
+                label: "\u2764\uFE0F " + t5("aboutLabel"),
+                value: "about"
+              }
+            ].filter(Boolean)
+          }
+        )
+      ] }),
+      /* @__PURE__ */ p6("div", { class: "text-sm", children: message }),
+      /* @__PURE__ */ p6("div", { class: "text-sm", children: errorMessage }),
+      /* @__PURE__ */ p6("footer", { children: [
+        /* @__PURE__ */ p6(
+          SyncLatest,
+          {
+            request: request3,
+            setStorageBuildinConfig: onSetBuildinConfig
+          }
+        ),
+        /* @__PURE__ */ p6("div", { class: "mt-3 text-sm flex justify-between", children: [
+          /* @__PURE__ */ p6("a", { href: "#", class: "secondary", onClick: handleOpenOptions, children: t5("options") }),
+          isMonkey() && /* @__PURE__ */ p6("a", { href: "#", class: "secondary", onClick: handleClosePopup, children: t5("close") }),
+          /* @__PURE__ */ p6(
+            "span",
+            {
+              class: "immersive-translate-no-select muted",
+              onClick: onClickMultipleTimes(7)(handleToggleAlpha),
               children: [
-                /* @__PURE__ */ p6("a", {
-                  href: "#",
-                  class: "secondary",
-                  onClick: handleOpenOptions,
-                  children: t5("options")
-                }),
-                isMonkey() && /* @__PURE__ */ p6("a", {
-                  href: "#",
-                  class: "secondary",
-                  onClick: handleClosePopup,
-                  children: t5("close")
-                }),
-                /* @__PURE__ */ p6("span", {
-                  class: "immersive-translate-no-select muted",
-                  onClick: onClickMultipleTimes(7)(handleToggleAlpha),
-                  children: [
-                    "V",
-                    version
-                  ]
-                })
+                "V",
+                version
               ]
-            })
-          ]
-        })
-      ]
-    });
+            }
+          )
+        ] })
+      ] })
+    ] });
   }
 
   // libs/use-chrome-storage/storage.ts
@@ -15753,6 +15550,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       });
     }, [key, INITIAL_VALUE2, STORAGE_AREA]);
     let updateValue = L2(
+      // @ts-ignore: npm package is not typed
       (newValue) => {
         let toStore = typeof newValue == "function" ? newValue(state) : newValue;
         log_default.debug("new settings", toStore), storage.set(key, toStore, STORAGE_AREA).then(() => {
@@ -15798,7 +15596,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let [value, setValue, isPersistent, error] = rawUseUserConfig();
     return [value, function(newValue) {
       let toStore = typeof newValue == "function" ? newValue(value) : newValue;
-      toStore && (toStore.updatedAt = new Date().toISOString()), setValue(toStore);
+      toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
     }, isPersistent, error, setValue];
   }
 
@@ -15865,41 +15663,44 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         onClose();
       }, 50);
     };
-    return !config || !ctx ? null : /* @__PURE__ */ p6(Popup, {
-      request: request2,
-      onClose: handleClose,
-      onTranslateTheWholePage: handleSendMessageToContent(
-        "translateTheWholePage",
-        !0
-      ),
-      openOptionsPage: handleOpenOptionsPage,
-      onToggleTranslate: handleSendMessageToContent(
-        "toggleTranslatePage",
-        !0
-      ),
-      onTranslateTheMainPage: handleSendMessageToContent(
-        "translateTheMainPage",
-        !0
-      ),
-      ontranslateToThePageEndImmediately: handleSendMessageToContent(
-        "translateToThePageEndImmediately",
-        !0
-      ),
-      onTranslatePage: handleSendMessageToContent("translatePage", !0),
-      onRestorePage: handleSendMessageToContent("restorePage", !1),
-      onTranslatePdf: handleTranslatePdf,
-      openAboutPage: handleOpenAboutPage,
-      onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
-      onSetPageLanguage,
-      onUserConfigChange: setSettings,
-      config,
-      pageStatus: pageStatus2,
-      ctx,
-      currentUrl,
-      currentLang,
-      onSetLocalConfig: setLocalConfig2,
-      onSetBuildinConfig: setBuildinConfig2
-    });
+    return !config || !ctx ? null : /* @__PURE__ */ p6(
+      Popup,
+      {
+        request: request2,
+        onClose: handleClose,
+        onTranslateTheWholePage: handleSendMessageToContent(
+          "translateTheWholePage",
+          !0
+        ),
+        openOptionsPage: handleOpenOptionsPage,
+        onToggleTranslate: handleSendMessageToContent(
+          "toggleTranslatePage",
+          !0
+        ),
+        onTranslateTheMainPage: handleSendMessageToContent(
+          "translateTheMainPage",
+          !0
+        ),
+        ontranslateToThePageEndImmediately: handleSendMessageToContent(
+          "translateToThePageEndImmediately",
+          !0
+        ),
+        onTranslatePage: handleSendMessageToContent("translatePage", !0),
+        onRestorePage: handleSendMessageToContent("restorePage", !1),
+        onTranslatePdf: handleTranslatePdf,
+        openAboutPage: handleOpenAboutPage,
+        onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
+        onSetPageLanguage,
+        onUserConfigChange: setSettings,
+        config,
+        pageStatus: pageStatus2,
+        ctx,
+        currentUrl,
+        currentLang,
+        onSetLocalConfig: setLocalConfig2,
+        onSetBuildinConfig: setBuildinConfig2
+      }
+    );
   }
 
   // userscript/popup_entry.tsx
@@ -15956,23 +15757,30 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     (async () => {
       let config = await getConfig2();
       re(
-        /* @__PURE__ */ p6(TranslateProvider, {
-          lang: config.interfaceLanguage,
-          fallbackLang: "zh-CN",
-          translations: locales_default,
-          children: /* @__PURE__ */ p6("div", {
-            onClick: handleClickOverLay,
-            id: "immersive-translate-popup-overlay",
-            class: "immersive-translate-popup-overlay",
-            children: /* @__PURE__ */ p6("div", {
-              class: "immersive-translate-popup-wrapper",
-              style: calculateMountPointPosition(),
-              children: /* @__PURE__ */ p6(PopupApp, {
-                onClose: handleOnClose
-              })
-            })
-          })
-        }),
+        /* @__PURE__ */ p6(
+          TranslateProvider,
+          {
+            lang: config.interfaceLanguage,
+            fallbackLang: "zh-CN",
+            translations: locales_default,
+            children: /* @__PURE__ */ p6(
+              "div",
+              {
+                onClick: handleClickOverLay,
+                id: "immersive-translate-popup-overlay",
+                class: "immersive-translate-popup-overlay",
+                children: /* @__PURE__ */ p6(
+                  "div",
+                  {
+                    class: "immersive-translate-popup-wrapper",
+                    style: calculateMountPointPosition(),
+                    children: /* @__PURE__ */ p6(PopupApp, { onClose: handleOnClose })
+                  }
+                )
+              }
+            )
+          }
+        ),
         mountPoint
       );
     })().then(() => {
@@ -16076,6 +15884,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     }, ctx = await getContext(options2);
     config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
+      // @ts-ignore: hard to type
       (_e3) => {
         isInit || (isInit = !0, initPopup().catch((e3) => {
           log_default.error("init popup error", e3);
@@ -16098,15 +15907,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.51",
+    version: "0.2.52",
     default_locale: "en",
     background: {
       service_worker: "background.js"
     },
-    web_accessible_resources: [
-      "styles/inject.css",
-      "pdf/index.html"
-    ],
+    web_accessible_resources: ["styles/inject.css", "pdf/index.html"],
     content_scripts: [
       {
         matches: [
@@ -16117,9 +15923,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         js: [
           "content_script.js"
         ],
-        css: [
-          "styles/inject.css"
-        ],
+        css: ["styles/inject.css"],
         run_at: "document_end",
         all_frames: !0
       }
@@ -16168,22 +15972,20 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       "<all_urls>"
     ],
     declarative_net_request: {
-      rule_resources: [
-        {
-          id: "ruleset_1",
-          enabled: !0,
-          path: "rules/request_modifier_rule.json"
-        }
-      ]
+      rule_resources: [{
+        id: "ruleset_1",
+        enabled: !0,
+        path: "rules/request_modifier_rule.json"
+      }]
     },
     action: {
       default_popup: "popup.html",
       default_icon: {
-        32: "icons/32.png",
-        48: "icons/48.png",
-        64: "icons/64.png",
-        128: "icons/128.png",
-        256: "icons/256.png"
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png",
+        "128": "icons/128.png",
+        "256": "icons/256.png"
       }
     },
     browser_action: {
@@ -16191,11 +15993,11 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       default_popup: "popup.html"
     },
     icons: {
-      32: "icons/32.png",
-      48: "icons/48.png",
-      64: "icons/64.png",
-      128: "icons/128.png",
-      256: "icons/256.png"
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png",
+      "256": "icons/256.png"
     },
     browser_specific_settings: {
       gecko: {
@@ -16279,6 +16081,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   }
   function sendMessageToContent2(request3) {
     asyncMessageHandler(request3, {
+      // @ts-ignore: it's ok
       tab: {
         id: 1,
         url: "https://www.fake.com",

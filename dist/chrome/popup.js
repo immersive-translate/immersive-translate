@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:13.555Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-08T00:45:08.650Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3722,6 +3722,10 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
       !__hasOwnProp.call(to, key) && key !== except && __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   return to;
 }, __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
@@ -4629,6 +4633,7 @@ function deferred() {
       async resolve(value) {
         await value, state = "fulfilled", resolve(value);
       },
+      // deno-lint-ignore no-explicit-any
       reject(reason) {
         state = "rejected", reject(reason);
       }
@@ -4672,6 +4677,7 @@ function delay(ms, options = {}) {
 var MuxAsyncIterator = class {
   #iteratorCount = 0;
   #yields = [];
+  // deno-lint-ignore no-explicit-any
   #throws = [];
   #signal = deferred();
   add(iterable) {
@@ -6600,7 +6606,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee4(r) && n3.click();
               }, K6(p6, h3), te2(p6, h3);
             }, Te = u3.date = function(t3, c3, s4) {
-              var d3 = t3.value, i2 = d3 === void 0 ? new Date() : d3, k4 = t3.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t3.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t3.submitCallback, l2 = t3.cancelCallback, f4 = t3.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
+              var d3 = t3.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t3.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t3.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t3.submitCallback, l2 = t3.cancelCallback, f4 = t3.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
               R6(), F8();
               var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a4 = document.createElement("div"), E3 = function(L6) {
                 C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a4.innerHTML = L6.getFullYear();
@@ -7191,7 +7197,6 @@ var zh_CN_default = {
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
   syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
@@ -7204,6 +7209,7 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
+  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -8148,6 +8154,7 @@ function mergeRule(generalRule, rule) {
       else if (key.startsWith("additional")) {
         let userValue = arrayOrGenericToArray(value);
         finalRule[key] = Array.from(
+          // @ts-ignore: ignore type error
           /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
         );
       } else
@@ -8607,10 +8614,18 @@ function isMarked(element, markedAttribute, explicit = !1) {
   return isMarkedWith(element, markedAttribute, "1", explicit);
 }
 function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute] === value) : !1 : element.dataset[markedAttribute] === value;
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute] === value)
+  ) : !1 : element.dataset[markedAttribute] === value;
 }
 function hasMark(element, markedAttribute, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute])
+  ) : !1 : element.dataset[markedAttribute] !== void 0;
 }
 function getMainText(root2) {
   return (root2.innerText || root2.textContent || "").trim();
@@ -8742,46 +8757,25 @@ var buildin_config_default = {
   canary: !1,
   translationServices: {
     volcAlpha: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     volc: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     tencent: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     transmart: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     baidu: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     caiyun: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     youdao: {
-      placeholderDelimiters: [
-        "\u{1F6A0}",
-        "\u{1F6A0}"
-      ]
+      placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
     }
   },
   shortcuts: {
@@ -8874,10 +8868,7 @@ var buildin_config_default = {
       ".sr-only": "display:none"
     },
     selectors: [],
-    preWhitespaceDetectedTags: [
-      "DIV",
-      "SPAN"
-    ],
+    preWhitespaceDetectedTags: ["DIV", "SPAN"],
     stayOriginalSelectors: [],
     additionalSelectors: [
       "h1",
@@ -8955,13 +8946,7 @@ var buildin_config_default = {
       "NOSCRIPT"
     ],
     additionalExcludeTags: [],
-    stayOriginalTags: [
-      "CODE",
-      "TT",
-      "IMG",
-      "SUP",
-      "SUB"
-    ],
+    stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
     inlineTags: [
       "A",
@@ -9007,10 +8992,7 @@ var buildin_config_default = {
     additionalInlineTags: [],
     extraInlineSelectors: [],
     additionalInlineSelectors: [],
-    extraBlockSelectors: [
-      "turbo-frame",
-      "readme-toc"
-    ],
+    extraBlockSelectors: ["turbo-frame", "readme-toc"],
     allBlockTags: [
       "HGROUP",
       "CONTENT",
@@ -9078,22 +9060,15 @@ var buildin_config_default = {
       wrapperPrefix: "",
       wrapperSuffix: "",
       urlChangeDelay: 0,
-      selectors: [
-        ".textLayer"
-      ],
-      excludeSelectors: [
-        ".annotationLayer"
-      ],
+      selectors: [".textLayer"],
+      excludeSelectors: [".annotationLayer"],
       globalStyles: {
         "div.page": "width: 98%;",
         ".textLayer": "overflow:visible;opacity: 1;"
       }
     },
     {
-      matches: [
-        "mail.jabber.org",
-        "antirez.com"
-      ],
+      matches: ["mail.jabber.org", "antirez.com"],
       excludeTags: [
         "TITLE",
         "SCRIPT",
@@ -9148,9 +9123,7 @@ var buildin_config_default = {
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
-      extraInlineSelectors: [
-        '[data-testid="tweetText"] div'
-      ]
+      extraInlineSelectors: ['[data-testid="tweetText"] div']
     },
     {
       matches: [
@@ -9160,16 +9133,11 @@ var buildin_config_default = {
         "askubuntu.com",
         "serverfault.com"
       ],
-      additionalSelectors: [
-        ".comment-copy"
-      ]
+      additionalSelectors: [".comment-copy"]
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [
-        ".container",
-        "h3.title"
-      ]
+      selectors: [".container", "h3.title"]
     },
     {
       matches: "news.ycombinator.com",
@@ -9181,15 +9149,10 @@ var buildin_config_default = {
         ".hn-comment-text",
         ".hn-story-title"
       ],
-      excludeSelectors: [
-        ".reply"
-      ]
+      excludeSelectors: [".reply"]
     },
     {
-      matches: [
-        "*.quora.com",
-        "quora.com"
-      ],
+      matches: ["*.quora.com", "quora.com"],
       additionalSelectors: [
         ".puppeteer_test_question_title",
         ".puppeteer_test_answer_content",
@@ -9206,18 +9169,12 @@ var buildin_config_default = {
         "www.reddit.com/*/.compact",
         "www.reddit.com/.compact"
       ],
-      selectors: [
-        ".title > a",
-        ".usertext-body"
-      ],
+      selectors: [".title > a", ".usertext-body"],
       detectParagraphLanguage: !0
     },
     {
       matches: "old.reddit.com",
-      selectors: [
-        "p.title > a",
-        "[role=main] .md-container"
-      ],
+      selectors: ["p.title > a", "[role=main] .md-container"],
       detectParagraphLanguage: !0
     },
     {
@@ -9238,9 +9195,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.reuters.com/",
-      excludeSelectors: [
-        "header"
-      ]
+      excludeSelectors: ["header"]
     },
     {
       matches: "github.com",
@@ -9275,16 +9230,9 @@ var buildin_config_default = {
         "span[lang]"
       ],
       insertPosition: "afterend",
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN"
-      ],
-      extraBlockSelectors: [
-        "span.x1vvkbs"
-      ],
-      excludeSelectors: [
-        "[role=button]"
-      ],
+      preWhitespaceDetectedTags: ["DIV", "SPAN"],
+      extraBlockSelectors: ["span.x1vvkbs"],
+      excludeSelectors: ["[role=button]"],
       translationClasses: [
         "immersive-translate-text"
       ],
@@ -9340,10 +9288,7 @@ var buildin_config_default = {
       selectors: "#book"
     },
     {
-      matches: [
-        "*.substack.com",
-        "newsletter.rootsofprogress.org"
-      ],
+      matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
       selectors: [
         ".post-preview-title",
         ".post-preview-description",
@@ -9365,13 +9310,8 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "seekingalpha.com/article/*",
-        "seekingalpha.com/news/*"
-      ],
-      selectors: [
-        "[data-test-id=card-container]"
-      ],
+      matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
+      selectors: ["[data-test-id=card-container]"],
       excludeSelectors: [
         "[data-test-id=post-page-meta]",
         "header > div:first-child"
@@ -9379,10 +9319,7 @@ var buildin_config_default = {
     },
     {
       matches: "hn.algolia.com",
-      selectors: [
-        ".Story_title > a:first-child",
-        ".Story_comment > span"
-      ]
+      selectors: [".Story_title > a:first-child", ".Story_comment > span"]
     },
     {
       matches: "read.readwise.io",
@@ -9394,10 +9331,7 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "www.inoreader.com",
-        "*.inoreader.com"
-      ],
+      matches: ["www.inoreader.com", "*.inoreader.com"],
       selectors: [
         ".article_header_title",
         ".article_title_link",
@@ -9410,19 +9344,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "scholar.google.com"
-      ],
+      matches: ["scholar.google.com"],
       wrapperPrefix: `
 `,
-      selectors: [
-        "h3 a[data-clk]",
-        "div.gs_rs"
-      ],
-      atomicBlockSelectors: [
-        ".gs_rs",
-        "h3 a[data-clk]"
-      ]
+      selectors: ["h3 a[data-clk]", "div.gs_rs"],
+      atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
     },
     {
       matches: "mail.google.com",
@@ -9463,17 +9389,12 @@ var buildin_config_default = {
     },
     {
       matches: "*.gitbook.io",
-      additionalSelectors: [
-        "main"
-      ],
+      additionalSelectors: ["main"],
       _comment: "https://midjourney.gitbook.io/docs/user-manual"
     },
     {
       matches: "arxiv.org",
-      additionalSelectors: [
-        "h1",
-        "blockquote.abstract"
-      ]
+      additionalSelectors: ["h1", "blockquote.abstract"]
     },
     {
       matches: "https://discord.com/channels/*",
@@ -9495,56 +9416,36 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
-      selectors: [
-        ".text-content"
-      ],
+      selectors: [".text-content"],
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "web.telegram.org/k/*",
-        "web.telegram.org/k/"
-      ],
-      selectors: [
-        ".message"
-      ],
+      matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
+      selectors: [".message"],
       detectParagraphLanguage: !0
     },
     {
       matches: "gist.github.com",
-      selectors: [
-        ".markdown-body",
-        ".readme"
-      ],
+      selectors: [".markdown-body", ".readme"],
       detectParagraphLanguage: !0
     },
     {
       matches: "lobste.rs",
-      selectors: [
-        ".u-repost-of",
-        ".comment_text"
-      ]
+      selectors: [".u-repost-of", ".comment_text"]
     },
     {
       matches: "*.slack.com",
-      selectors: [
-        ".p-rich_text_section"
-      ],
+      selectors: [".p-rich_text_section"],
       detectParagraphLanguage: !0
     },
     {
       matches: "1paragraph.app",
-      additionalSelectors: [
-        "#book"
-      ]
+      additionalSelectors: ["#book"]
     },
     {
       matches: "www.google.*/search*",
       detectParagraphLanguage: !0,
-      excludeSelectors: [
-        "a h3 + div",
-        "div#sfooter"
-      ],
+      excludeSelectors: ["a h3 + div", "div#sfooter"],
       wrapperSuffix: "",
       globalStyles: {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
@@ -9556,54 +9457,31 @@ var buildin_config_default = {
     },
     {
       matches: "lowendtalk.com",
-      selectors: [
-        "[role=heading]",
-        "h1",
-        ".userContent"
-      ]
+      selectors: ["[role=heading]", "h1", ".userContent"]
     },
     {
       matches: "www.linkedin.com/jobs/*",
-      selectors: [
-        "#job-details > span"
-      ]
+      selectors: ["#job-details > span"]
     },
     {
       matches: "www.linkedin.com",
-      addtionalSelectors: [
-        "span.break-words > span > span[dir=ltr]"
-      ]
+      addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
     },
     {
       matches: "www.indiehackers.com",
-      selectors: [
-        ".content",
-        "h1",
-        ".feed-item__title-link"
-      ]
+      selectors: [".content", "h1", ".feed-item__title-link"]
     },
     {
       matches: "libreddit.de",
-      selectors: [
-        "h2.post_title",
-        ".comment_body > .md"
-      ]
+      selectors: ["h2.post_title", ".comment_body > .md"]
     },
     {
-      matches: [
-        "notion.site",
-        "www.notion.so"
-      ],
-      selectors: [
-        "div[data-block-id]"
-      ]
+      matches: ["notion.site", "www.notion.so"],
+      selectors: ["div[data-block-id]"]
     },
     {
       matches: "www.newyorker.com",
-      additionalSelectors: [
-        "h1",
-        "[data-testid=SummaryItemHed]"
-      ]
+      additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
     },
     {
       matches: "start.me",
@@ -9616,16 +9494,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.scmp.com",
-      additionalSelectors: [
-        ".info__subHeadline",
-        ".section-content h2"
-      ]
+      additionalSelectors: [".info__subHeadline", ".section-content h2"]
     },
     {
       matches: "www.lesswrong.com",
-      extraBlockSelectors: [
-        "span.commentOnSelection"
-      ]
+      extraBlockSelectors: ["span.commentOnSelection"]
     },
     {
       matches: [
@@ -9636,19 +9509,13 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
-      selectorMatches: [
-        "div#mastodon"
-      ],
-      selectors: [
-        "div.status__content__text"
-      ],
+      selectorMatches: ["div#mastodon"],
+      selectors: ["div.status__content__text"],
       detectLanguage: !0
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: [
-        "div.RenderKeyPoints-list"
-      ]
+      additionalSelectors: ["div.RenderKeyPoints-list"]
     },
     {
       matches: "app.daily.dev",
@@ -9664,16 +9531,10 @@ var buildin_config_default = {
     },
     {
       matches: "www.aljazeera.com",
-      addtionalSelectors: [
-        "h1",
-        ".article__subhead"
-      ]
+      addtionalSelectors: ["h1", ".article__subhead"]
     },
     {
-      matches: [
-        "*.pornhub.com",
-        "pornhub.com"
-      ],
+      matches: ["*.pornhub.com", "pornhub.com"],
       selectors: [
         ".title >a",
         ".title > span",
@@ -9691,18 +9552,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "weibo.com"
-      ],
-      selectors: [
-        "div[class^='detail_wbtext']"
-      ]
+      matches: ["weibo.com"],
+      selectors: ["div[class^='detail_wbtext']"]
     },
     {
-      matches: [
-        "medium.com",
-        "*.medium.com"
-      ],
+      matches: ["medium.com", "*.medium.com"],
       selectorMatches: [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
@@ -9713,9 +9567,7 @@ var buildin_config_default = {
         "[aria-hidden='false'] pre",
         "article p"
       ],
-      excludeSelectors: [
-        "[aria-label='Post Preview Reading Time']"
-      ],
+      excludeSelectors: ["[aria-label='Post Preview Reading Time']"],
       globalStyles: {
         h2: "-webkit-line-clamp: unset;max-height:unset;",
         "article p": "-webkit-line-clamp: unset;max-height:unset;"
@@ -9725,24 +9577,15 @@ var buildin_config_default = {
       selectorMatches: [
         "meta[property='og:site_name'][content='Nitter']"
       ],
-      selectors: [
-        ".tweet-content",
-        ".quote-text"
-      ]
+      selectors: [".tweet-content", ".quote-text"]
     },
     {
       matches: "*.fandom.com",
-      additionalSelectors: [
-        ".mcf-card-article__title"
-      ]
+      additionalSelectors: [".mcf-card-article__title"]
     },
     {
-      matches: [
-        "www.washingtonpost.com"
-      ],
-      additionalSelectors: [
-        "[data-qa='article-body']"
-      ]
+      matches: ["www.washingtonpost.com"],
+      additionalSelectors: ["[data-qa='article-body']"]
     },
     {
       matches: "www.economist.com",
@@ -9784,9 +9627,7 @@ var buildin_config_default = {
     {
       matches: "www.sciencedirect.com",
       urlChangeDelay: 2e3,
-      stayOriginalSelectors: [
-        "span.display"
-      ]
+      stayOriginalSelectors: ["span.display"]
     },
     {
       matches: "www.thehighestofthemountains.com",
@@ -9797,10 +9638,7 @@ var buildin_config_default = {
       normalizeBody: "div.ql-editor[contenteditable='false']"
     },
     {
-      matches: [
-        "*.annas-archive.org",
-        "annas-archive.org"
-      ],
+      matches: ["*.annas-archive.org", "annas-archive.org"],
       selectors: [
         "h3.text-xl.font-bold",
         "div[class='truncate text-sm']"
@@ -9809,9 +9647,7 @@ var buildin_config_default = {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
       normalizeBody: "body",
-      extraBlockSelectors: [
-        "a.custom-a"
-      ]
+      extraBlockSelectors: ["a.custom-a"]
     },
     {
       matches: [
@@ -9822,21 +9658,15 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "apnews.com"
-      ],
+      matches: ["apnews.com"],
       urlChangeDelay: 2e3
     },
     {
       matches: "play.google.com",
-      additionalSelectors: [
-        "header[data-review-id] + div"
-      ]
+      additionalSelectors: ["header[data-review-id] + div"]
     },
     {
-      matches: [
-        "www.tumblr.com"
-      ],
+      matches: ["www.tumblr.com"],
       selectors: [
         "article h1",
         "article > header + div",
@@ -9852,23 +9682,12 @@ var buildin_config_default = {
         "article blockquote",
         "article ol"
       ],
-      excludeSelectors: [
-        "div.fAAi8",
-        "div.wvu3V"
-      ],
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN",
-        "P"
-      ]
+      excludeSelectors: ["div.fAAi8", "div.wvu3V"],
+      preWhitespaceDetectedTags: ["DIV", "SPAN", "P"]
     },
     {
-      matches: [
-        "mail.qq.com/cgi-bin/frame_html"
-      ],
-      selectors: [
-        "#thisiddoesnotexists"
-      ]
+      matches: ["mail.qq.com/cgi-bin/frame_html"],
+      selectors: ["#thisiddoesnotexists"]
     },
     {
       matches: "www.foxnews.com",
@@ -9921,11 +9740,7 @@ var buildin_config_default = {
     },
     {
       matches: "getpocket.com",
-      selectors: [
-        "h2.title",
-        "div.excerpt p",
-        "main > article"
-      ],
+      selectors: ["h2.title", "div.excerpt p", "main > article"],
       globalStyles: {
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
         "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -10071,7 +9886,7 @@ async function getConfig() {
     for (let command of commandResult)
       command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
   }
-  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = new Date();
+  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
   if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
     let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
       (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -10123,12 +9938,14 @@ async function getConfig() {
       ], finalConfigValue = {};
       for (let key2 of allUniqueKeys)
         finalConfigValue[key2] = {
+          // @ts-ignore: it's ok
           ...buildInConfigValue[key2],
           ...userConfigValue[key2]
         };
       finalConfig[configKey] = finalConfigValue;
     } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
       mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
+        // @ts-ignore: ignore type error
         finalConfig[configKey],
         mergedUserConfig[configKey]
       )), configKey === "shortcuts" && (finalConfig[configKey] = {
@@ -10341,6 +10158,7 @@ function useChromeStorage(key, initialValue, storageArea) {
     });
   }, [key, INITIAL_VALUE2, STORAGE_AREA]);
   let updateValue = L2(
+    // @ts-ignore: npm package is not typed
     (newValue) => {
       let toStore = typeof newValue == "function" ? newValue(state) : newValue;
       log_default.debug("new settings", toStore), storage.set(key, toStore, STORAGE_AREA).then(() => {
@@ -10386,7 +10204,7 @@ function useUserConfig() {
   let [value, setValue, isPersistent, error] = rawUseUserConfig();
   return [value, function(newValue) {
     let toStore = typeof newValue == "function" ? newValue(value) : newValue;
-    toStore && (toStore.updatedAt = new Date().toISOString()), setValue(toStore);
+    toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
   }, isPersistent, error, setValue];
 }
 
@@ -10402,6 +10220,7 @@ var CommonError = class extends Error {
 var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
   constructor(fromType, debug = !1) {
     this.logger = new Logger(), debug && this.logger.setLevel("debug"), this.fromType = fromType, listeners2.has(fromType) || (listeners2.set(fromType, /* @__PURE__ */ new Map()), browserAPI.runtime.onMessage.addListener(
+      // @ts-ignore: it's ok
       (message, sender, sendResponse) => {
         let from = message.from, to = message.to, tabId, tabUrl, tabActive;
         sender.tab && sender.tab.id && (tabId = sender.tab.id, from = `${from}:${tabId}`, tabUrl = sender.tab.url, tabActive = sender.tab.active), this.logger.debug(
@@ -10585,6 +10404,7 @@ function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
     return (e3) => {
       ++clicked == requiredClicks && (cb(e3), clicked = 0), clearTimeout(timer), timer = setTimeout(
         () => clicked = 0,
+        // reset the number of clicks after a traditional 300ms duration
         timeLimit
       );
     };
@@ -10624,21 +10444,20 @@ function p5(n3, s4, t3, f4, u3) {
 // components/select_link.tsx
 function SelectLink(props) {
   let { items, maxWidth } = props;
-  return maxWidth = maxWidth || 128, /* @__PURE__ */ p5("select", {
-    autoComplete: "off",
-    class: "min-select",
-    style: { maxWidth: `${maxWidth}px` },
-    value: items.find((item) => item.selected)?.value,
-    onChange: (e3) => {
-      let value = e3.target.value, item = items.find((item2) => item2.value === value);
-      item && item.onSelected(item);
-    },
-    children: items.map((item) => /* @__PURE__ */ p5("option", {
-      value: item.value,
-      selected: item.selected,
-      children: item.label
-    }))
-  });
+  return maxWidth = maxWidth || 128, /* @__PURE__ */ p5(
+    "select",
+    {
+      autoComplete: "off",
+      class: "min-select",
+      style: { maxWidth: `${maxWidth}px` },
+      value: items.find((item) => item.selected)?.value,
+      onChange: (e3) => {
+        let value = e3.target.value, item = items.find((item2) => item2.value === value);
+        item && item.onSelected(item);
+      },
+      children: items.map((item) => /* @__PURE__ */ p5("option", { value: item.value, selected: item.selected, children: item.label }))
+    }
+  );
 }
 
 // components/button_drop_down.tsx
@@ -10647,29 +10466,29 @@ function SelectDropDown(props) {
   let { showArrow, onSelected, className, menus, maxWidth } = props;
   className = className || "", showArrow = showArrow ?? !0, maxWidth = maxWidth || 60;
   let ref = w2(null);
-  return /* @__PURE__ */ p5("select", {
-    ref,
-    autoComplete: "off",
-    class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
-    value: DEFAULT_VALUE,
-    style: { maxWidth: `${maxWidth}px` },
-    onChange: (e3) => {
-      e3.preventDefault();
-      let value = e3.target.value;
-      if (ref.current && value !== DEFAULT_VALUE) {
-        ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
-        let item = menus.find((item2) => item2.value === value);
-        item && onSelected(item);
-      }
-    },
-    children: [{
+  return /* @__PURE__ */ p5(
+    "select",
+    {
+      ref,
+      autoComplete: "off",
+      class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
       value: DEFAULT_VALUE,
-      label: props.label
-    }].concat(menus).map((item) => /* @__PURE__ */ p5("option", {
-      value: item.value,
-      children: item.label
-    }))
-  });
+      style: { maxWidth: `${maxWidth}px` },
+      onChange: (e3) => {
+        e3.preventDefault();
+        let value = e3.target.value;
+        if (ref.current && value !== DEFAULT_VALUE) {
+          ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
+          let item = menus.find((item2) => item2.value === value);
+          item && onSelected(item);
+        }
+      },
+      children: [{
+        value: DEFAULT_VALUE,
+        label: props.label
+      }].concat(menus).map((item) => /* @__PURE__ */ p5("option", { value: item.value, children: item.label }))
+    }
+  );
 }
 
 // libs/preact-translation/utils.ts
@@ -10780,15 +10599,18 @@ var TranslateContext = ce(null), defaultOptions2 = {
     },
     props.translations
   );
-  return /* @__PURE__ */ p5(TranslateContext.Provider, {
-    value: {
-      t: t3,
-      setLang,
-      lang,
-      isReady
-    },
-    children: props.children
-  });
+  return /* @__PURE__ */ p5(
+    TranslateContext.Provider,
+    {
+      value: {
+        t: t3,
+        setLang,
+        lang,
+        isReady
+      },
+      children: props.children
+    }
+  );
 };
 
 // hooks/use_i18n.ts
@@ -10801,17 +10623,14 @@ function PopupField(props) {
   let { field, onChange, value } = props;
   value = value || field.default || "";
   let { t: t3 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p5("div", {
-    class: "flex justify-between mb-2",
-    children: [
-      /* @__PURE__ */ p5("label", {
-        class: "inline-block",
-        children: [
-          field.label ? t3(field.label) : field.name,
-          "\uFF1A"
-        ]
-      }),
-      /* @__PURE__ */ p5(SelectLink, {
+  return field.type === "select" ? /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
+    /* @__PURE__ */ p5("label", { class: "inline-block", children: [
+      field.label ? t3(field.label) : field.name,
+      "\uFF1A"
+    ] }),
+    /* @__PURE__ */ p5(
+      SelectLink,
+      {
         items: field.options.map(
           (fieldOption) => ({
             label: `${fieldOption.label ? t3(fieldOption.label) : fieldOption.value}`,
@@ -10822,9 +10641,9 @@ function PopupField(props) {
             }
           })
         )
-      })
-    ]
-  }) : null;
+      }
+    )
+  ] }) : null;
 }
 
 // services/util.ts
@@ -12335,8 +12154,10 @@ async function translatePage(ctx) {
     });
     let containersCount = 0;
     setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
-    for (let rootFrame of allFrames)
-      containersCount += await translateFrame(rootFrame, ctx);
+    for (let rootFrame of allFrames) {
+      let containerCount = await translateFrame(rootFrame, ctx);
+      containersCount += containerCount;
+    }
     containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
       log_default.error(
         "translateTitle error:",
@@ -12994,7 +12815,7 @@ var langMap2 = [
     service,
     version
   }) {
-    let host = `${service}.tencentcloudapi.com`, now = new Date(), timestamp = `${new Date().valueOf()}`.slice(0, 10), CanonicalRequest = [
+    let host = `${service}.tencentcloudapi.com`, now = /* @__PURE__ */ new Date(), timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10), CanonicalRequest = [
       "POST",
       "/",
       "",
@@ -13043,7 +12864,9 @@ var langMap2 = [
     return response;
   }
 }, Tencent = _Tencent;
-Tencent.langMap = new Map(langMap2), Tencent.langMapReverse = new Map(
+/** Translator lang to custom lang */
+Tencent.langMap = new Map(langMap2), /** Custom lang to translator lang */
+Tencent.langMapReverse = new Map(
   langMap2.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13177,13 +13000,13 @@ var langMap3 = [
     };
   }
   async fetchWithoutToken(text, from, to) {
-    let params = new URLSearchParams({
+    let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
       client: "gtx",
       dt: "t",
       sl: from,
       tl: to,
       q: text
-    }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
+    }).toString();
     return { data: await request2({
       retry: 2,
       url
@@ -13272,6 +13095,7 @@ function generateJobs(sentences, beams = 1) {
       jobs.push({
         kind: "default",
         _index: i2,
+        // raw_en_sentence: sentence,
         sentences: [{
           id,
           text: chunk.sentences[0].text,
@@ -13456,7 +13280,9 @@ var langMap4 = [
     };
   }
 }, D8 = _D;
-D8.langMap = new Map(langMap4), D8.langMapReverse = new Map(
+/** Translator lang to custom lang */
+D8.langMap = new Map(langMap4), /** Custom lang to translator lang */
+D8.langMapReverse = new Map(
   langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13596,7 +13422,9 @@ var langMap5 = [
     return language || remoteLanguage;
   }
 }, Transmart = _Transmart;
-Transmart.langMap = new Map(langMap5), Transmart.langMapReverse = new Map(
+/** Translator lang to custom lang */
+Transmart.langMap = new Map(langMap5), /** Custom lang to translator lang */
+Transmart.langMapReverse = new Map(
   langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13856,7 +13684,7 @@ var rawLangMap3 = [
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, src_text = text, options = {
+    let { text, from, to } = payload, options = {
       url: "https://api.niutrans.com/NiuTransServer/translation",
       retry: 2,
       headers: {
@@ -13864,7 +13692,7 @@ var rawLangMap3 = [
       },
       method: "POST",
       body: JSON.stringify({
-        src_text,
+        src_text: text,
         from: langMap8.get(from) || from,
         to: langMap8.get(to) || to,
         apikey: this.APIKEY
@@ -13920,7 +13748,7 @@ var unsignableHeaders = [
   if (typeof val > "u" || val === null)
     return;
   let escapedKey = uriEscape(key);
-  if (!!escapedKey)
+  if (escapedKey)
     return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
 }).filter((v2) => v2).join("&"), Signer = class {
   constructor(request3, serviceName, options) {
@@ -14035,7 +13863,7 @@ var unsignableHeaders = [
     return unsignableHeaders.indexOf(key) < 0;
   }
   iso8601(date) {
-    return date === void 0 && (date = new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
+    return date === void 0 && (date = /* @__PURE__ */ new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
   }
   async getSigningKey(credentials, date, region, service) {
     let kDate = await hmacSha256(
@@ -14181,9 +14009,7 @@ var rawLangMap4 = [
     }];
   }
   async remoteDetectLanguage(text) {
-    let bodyParams = {
-      TextList: [text]
-    }, requestObj = {
+    let requestObj = {
       region: "cn-north-1",
       method: "POST",
       params: {
@@ -14195,7 +14021,9 @@ var rawLangMap4 = [
         "Content-Type": "application/json",
         host: "open.volcengineapi.com"
       },
-      body: JSON.stringify(bodyParams)
+      body: JSON.stringify({
+        TextList: [text]
+      })
     }, signer = new Signer(requestObj, "translate");
     await signer.addAuthorization({
       accessKeyId: this.accessKeyId,
@@ -14393,18 +14221,18 @@ var rawLangMap5 = [
     this.isSupportList = !1;
   }
   async translate(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, bodyParams = {
-      source_language: remoteFrom,
-      target_language: remoteTo,
-      text
-    }, response = await request2(
+    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, response = await request2(
       {
         url: "https://translate.volcengine.com/crx/translate/v1/",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(bodyParams)
+        body: JSON.stringify({
+          source_language: remoteFrom,
+          target_language: remoteTo,
+          text
+        })
       }
     );
     if (response.base_resp && response.base_resp.status_code === 0) {
@@ -14606,6 +14434,7 @@ async function fetchGlobalConfig() {
     frontDoorBotClassification,
     isSignedInOrCorporateUser,
     cookie,
+    // PENDING: reset count if count value is large?
     count: 0
   }, await browserAPI.storage.local.set({
     [globalConfigStorageKey]: globalConfig
@@ -14642,6 +14471,7 @@ async function translate2(text, from, to) {
     to === "auto-detect" ? "zh-Hans" : to
   ), requestHeaders = {
     referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
+    // cookie: globalConfig.cookie,
     "content-type": "application/x-www-form-urlencoded"
   }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
     retry: 2,
@@ -14871,7 +14701,7 @@ var Youdao = class extends Translation {
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, salt = new Date().getTime(), curTime = Math.round(new Date().getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
+    let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
       q: text,
       appKey: this.appId,
       salt: salt.toString(),
@@ -14944,6 +14774,12 @@ var DPRO_URL = "https://api.deepl.com/jsonrpc", TranslationServices = {
     name: "Bing",
     homepage: "https://www.bing.com/translator"
   },
+  // bai: {
+  //   class: Bai,
+  //   name: "Baidu(Alapa)",
+  //   homepage: "https://fanyi.baidu.com/",
+  //   alpha: true,
+  // },
   tencent: {
     class: Tencent,
     name: "Tencent",
@@ -15198,59 +15034,50 @@ var SyncSuccess = ({ date }) => {
     setTimeout(() => {
       setIsHide(!0);
     }, 5e3);
-  }, []), isHide ? null : /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t3("Successfully synchronized with the latest official rules:"),
-      " ",
-      new Date(date).toLocaleString()
-    ]
-  });
+  }, []), isHide ? null : /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t3("Successfully synchronized with the latest official rules:"),
+    " ",
+    new Date(date).toLocaleString()
+  ] });
 }, LocalVersionIsTooOld = ({ minVersion }) => {
   let { t: t3 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: t3(
-      "localVersionIsTooOld",
-      {
-        minVersion
-      }
-    )
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: t3(
+    "localVersionIsTooOld",
+    {
+      minVersion
+    }
+  ) });
 }, BadUserscriptBrowser = () => {
   let { t: t3 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    dangerouslySetInnerHTML: {
-      __html: t3(
-        "badUserscriptBrowser",
-        {
-          1: "https://immersive-translate.owenyoung.com/installation.html"
-        }
-      )
+  return /* @__PURE__ */ p5(
+    "p",
+    {
+      class: "text-sm",
+      dangerouslySetInnerHTML: {
+        __html: t3(
+          "badUserscriptBrowser",
+          {
+            1: "https://immersive-translate.owenyoung.com/installation.html"
+          }
+        )
+      }
     }
-  });
+  );
 }, SyncFailed = ({ message, handleSyncing, date }) => {
   let { t: t3 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t3("failToSyncRules"),
-      " ",
-      /* @__PURE__ */ p5("a", {
-        onClick: handleSyncing,
-        children: t3("retry")
-      }),
-      /* @__PURE__ */ p5("br", {}),
-      t3("failedReason"),
-      "\uFF1A",
-      message,
-      /* @__PURE__ */ p5("br", {}),
-      t3("currentRuleVersion"),
-      "\uFF1A",
-      date
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t3("failToSyncRules"),
+    " ",
+    /* @__PURE__ */ p5("a", { onClick: handleSyncing, children: t3("retry") }),
+    /* @__PURE__ */ p5("br", {}),
+    t3("failedReason"),
+    "\uFF1A",
+    message,
+    /* @__PURE__ */ p5("br", {}),
+    t3("currentRuleVersion"),
+    "\uFF1A",
+    date
+  ] });
 };
 function SyncLatest(props) {
   let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t3 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
@@ -15300,19 +15127,14 @@ function SyncLatest(props) {
     getConfig().then((config2) => {
       setConfig(config2);
     });
-  }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p5("div", {
-    class: "text-sm mt-2",
-    style: { maxWidth: 218 },
-    children: isBadUserscriptBrowser ? /* @__PURE__ */ p5(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p5(SyncFailed, {
+  }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p5("div", { class: "text-sm mt-2", style: { maxWidth: 218 }, children: isBadUserscriptBrowser ? /* @__PURE__ */ p5(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p5(
+    SyncFailed,
+    {
       handleSyncing,
       message: syncErrorMessage,
       date: localBuildinConfigUpdatedAt || ""
-    }) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, {
-      minVersion: remoteConfig.minVersion
-    }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, {
-      date: localBuildinConfigUpdatedAt
-    }) : null
-  }) : null;
+    }
+  ) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : null }) : null;
 }
 
 // components/popup.tsx
@@ -15476,382 +15298,347 @@ function Popup(props) {
   let handleClosePopup = (e3) => {
     e3.preventDefault(), onClose();
   };
-  return /* @__PURE__ */ p5("div", {
-    class: "p-3",
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "text-sm",
-        children: [
-          /* @__PURE__ */ p5("div", {
-            class: "flex justify-between mb-2",
-            children: [
-              /* @__PURE__ */ p5("label", {
-                class: "inline-block",
-                children: [
-                  t3("popupSourceLanguage"),
-                  "\uFF1A"
-                ]
-              }),
-              /* @__PURE__ */ p5(SelectLink, {
-                items: languages.map((code2) => ({
-                  label: getLanguageName(code2, config.interfaceLanguage),
-                  value: code2,
-                  selected: code2 === currentLang,
-                  onSelected: (item) => {
-                    onSetPageLanguage(item.value);
-                  }
-                }))
-              })
-            ]
-          }),
-          config && config.targetLanguage && /* @__PURE__ */ p5("div", {
-            class: "flex justify-between mb-2",
-            children: [
-              /* @__PURE__ */ p5("label", {
-                class: "inline-block",
-                children: [
-                  t3("popupTarget"),
-                  "\uFF1A"
-                ]
-              }),
-              /* @__PURE__ */ p5(SelectLink, {
-                items: languages.filter((code2) => code2 !== "auto").map((code2) => ({
-                  label: getLanguageName(code2, config.interfaceLanguage),
-                  value: code2,
-                  selected: code2 === config.targetLanguage,
-                  onSelected: (item) => {
-                    setSettings((state) => ({
+  return /* @__PURE__ */ p5("div", { class: "p-3", children: [
+    /* @__PURE__ */ p5("div", { class: "text-sm", children: [
+      /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
+        /* @__PURE__ */ p5("label", { class: "inline-block", children: [
+          t3("popupSourceLanguage"),
+          "\uFF1A"
+        ] }),
+        /* @__PURE__ */ p5(
+          SelectLink,
+          {
+            items: languages.map((code2) => ({
+              label: getLanguageName(code2, config.interfaceLanguage),
+              value: code2,
+              selected: code2 === currentLang,
+              onSelected: (item) => {
+                onSetPageLanguage(item.value);
+              }
+            }))
+          }
+        )
+      ] }),
+      config && config.targetLanguage && /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
+        /* @__PURE__ */ p5("label", { class: "inline-block", children: [
+          t3("popupTarget"),
+          "\uFF1A"
+        ] }),
+        /* @__PURE__ */ p5(
+          SelectLink,
+          {
+            items: languages.filter((code2) => code2 !== "auto").map((code2) => ({
+              label: getLanguageName(code2, config.interfaceLanguage),
+              value: code2,
+              selected: code2 === config.targetLanguage,
+              onSelected: (item) => {
+                setSettings((state) => ({
+                  ...state,
+                  targetLanguage: item.value
+                }));
+              }
+            }))
+          }
+        )
+      ] }),
+      curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p5(L, { children: [
+        /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p5("label", { class: "inline-block", children: [
+            t3("popupService"),
+            "\uFF1A"
+          ] }),
+          /* @__PURE__ */ p5(
+            SelectLink,
+            {
+              items: translationServiceItems.map(
+                (translationServiceItem) => ({
+                  label: `${t3("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " " + t3("needAction")}`,
+                  value: translationServiceItem.id,
+                  selected: translationServiceItem.selected,
+                  onSelected: (option) => {
+                    let selectedItem = translationServiceItems.find(
+                      (item) => item.id === option.value
+                    );
+                    selectedItem.ok ? (setSettings((state) => ({
                       ...state,
-                      targetLanguage: item.value
-                    }));
+                      translationService: selectedItem.id
+                    })), selectedItem.props.length === 0 ? setTimeout(() => {
+                      onTranslatePage();
+                    }, 1) : setTimeout(() => {
+                      onRestorePage();
+                    }, 1)) : (setSettings((state) => ({
+                      ...state,
+                      translationService: selectedItem.id
+                    })), setTimeout(() => {
+                      openOptionsPage();
+                    }, 100));
                   }
-                }))
-              })
-            ]
-          }),
-          curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p5(L, {
-            children: [
-              /* @__PURE__ */ p5("div", {
-                class: "flex justify-between mb-2",
-                children: [
-                  /* @__PURE__ */ p5("label", {
-                    class: "inline-block",
-                    children: [
-                      t3("popupService"),
-                      "\uFF1A"
-                    ]
-                  }),
-                  /* @__PURE__ */ p5(SelectLink, {
-                    items: translationServiceItems.map(
-                      (translationServiceItem) => ({
-                        label: `${t3("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " " + t3("needAction")}`,
-                        value: translationServiceItem.id,
-                        selected: translationServiceItem.selected,
-                        onSelected: (option) => {
-                          let selectedItem = translationServiceItems.find(
-                            (item) => item.id === option.value
-                          );
-                          selectedItem.ok ? (setSettings((state) => ({
-                            ...state,
-                            translationService: selectedItem.id
-                          })), selectedItem.props.length === 0 ? setTimeout(() => {
-                            onTranslatePage();
-                          }, 1) : setTimeout(() => {
-                            onRestorePage();
-                          }, 1)) : (setSettings((state) => ({
-                            ...state,
-                            translationService: selectedItem.id
-                          })), setTimeout(() => {
-                            openOptionsPage();
-                          }, 100));
-                        }
-                      })
-                    )
-                  })
-                ]
-              }),
-              currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p5("div", {
-                class: "pl-4 text-sm",
-                children: /* @__PURE__ */ p5(PopupField, {
-                  field: prop,
-                  value: currentTranslationServiceConfig[prop.name],
-                  onChange: (value) => {
-                    setSettings((state) => {
-                      let currentServices = state.translationServices || {}, currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
-                      return setTimeout(() => {
-                        onRestorePage();
-                      }, 1), {
-                        ...state,
-                        translationServices: {
-                          ...currentServices,
-                          [curentTranslationServiceItem.id]: {
-                            ...currentServiceConfig,
-                            [prop.name]: value
-                          }
-                        }
-                      };
-                    });
-                  }
-                }, "field-" + index)
-              }))
-            ]
-          }),
-          currentUrlObj && /* @__PURE__ */ p5("div", {
-            class: "flex justify-between mb-2",
-            children: [
-              /* @__PURE__ */ p5("label", {
-                class: "inline-block",
-                children: t3("forThisSite")
-              }),
-              /* @__PURE__ */ p5(SelectLink, {
-                items: [
-                  {
-                    label: t3("default"),
-                    value: "default",
-                    selected: isAlwaysTranslateDomain === !1 && isNeverTranslaateDomain === !1 && !isAlwaysTranslateWildDomain && !isNeverTranslateWildDomain && !isAlwaysTranslateUrl && !isNeverTranslateUrl,
-                    onSelected: () => {
-                      handleTranslationUrlPatternSelected(
-                        "default",
-                        currentUrlObj.hostname,
-                        [],
-                        []
-                      );
-                      let currentDomain = currentUrlObj.hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], filteredDomains = currentTempTranslationDomains.filter(
-                        (item) => item.match !== currentDomain
-                      ), isChanged = !1;
-                      filteredDomains.length !== currentTempTranslationDomains.length && (isChanged = !0), isChanged && onSetLocalConfig({
-                        ...ctx.localConfig,
-                        tempTranslationUrlMatches: [
-                          ...filteredDomains
-                        ]
-                      });
-                    }
-                  },
-                  currentUrlWithoutHash && {
-                    label: t3("alwaysTranslateSomeSite", {
-                      hostname: t3("currentUrl")
-                    }),
-                    value: "matchesUrl",
-                    selected: isAlwaysTranslateUrl,
-                    onSelected: () => {
-                      handleTranslationUrlPatternSelected(
-                        "matches",
-                        currentUrlWithoutHash,
-                        [currentUrlWithoutHash],
-                        []
-                      );
-                    }
-                  },
-                  {
-                    label: t3("alwaysTranslateSomeSite", {
-                      hostname: currentUrlObj.hostname
-                    }),
-                    value: "matches",
-                    selected: isAlwaysTranslateDomain,
-                    onSelected: (item) => {
-                      handleTranslationUrlPatternSelected(
-                        item.value,
-                        currentUrlObj.hostname,
-                        [
-                          currentUrlObj.hostname,
-                          currentWildHostname,
-                          currentUrlWithoutHash
-                        ],
-                        [currentWildHostname]
-                      );
-                    }
-                  },
-                  currentWildHostname && {
-                    label: t3("alwaysTranslateSomeSite", {
-                      hostname: currentWildHostname
-                    }),
-                    value: "matchesWild",
-                    selected: isAlwaysTranslateWildDomain,
-                    onSelected: () => {
-                      handleTranslationUrlPatternSelected(
-                        "matches",
-                        currentWildHostname,
-                        [
-                          currentUrlWithoutHash,
-                          currentUrlObj.hostname,
-                          currentWildHostname
-                        ],
-                        [currentUrlObj.hostname]
-                      );
-                    }
-                  },
-                  currentUrlWithoutHash && {
-                    label: t3("neverTranslateSomeSite", {
-                      hostname: t3("currentUrl")
-                    }),
-                    value: "excludeMatchesUrl",
-                    selected: isNeverTranslateUrl,
-                    onSelected: () => {
-                      handleTranslationUrlPatternSelected(
-                        "excludeMatches",
-                        currentUrlWithoutHash,
-                        [currentUrlWithoutHash],
-                        []
-                      );
-                    }
-                  },
-                  {
-                    label: t3("neverTranslateSomeSite", {
-                      hostname: currentUrlObj.hostname
-                    }),
-                    value: "excludeMatches",
-                    selected: isNeverTranslaateDomain,
-                    onSelected: (item) => {
-                      handleTranslationUrlPatternSelected(
-                        item.value,
-                        currentUrlObj.hostname,
-                        [
-                          currentUrlObj.hostname,
-                          currentWildHostname,
-                          currentUrlWithoutHash
-                        ],
-                        [currentWildHostname]
-                      );
-                    }
-                  },
-                  currentWildHostname && {
-                    label: t3("neverTranslateSomeSite", {
-                      hostname: currentWildHostname
-                    }),
-                    value: "excludeMatchesWild",
-                    selected: isNeverTranslateWildDomain,
-                    onSelected: () => {
-                      handleTranslationUrlPatternSelected(
-                        "excludeMatches",
-                        currentWildHostname,
-                        [
-                          currentUrlObj.hostname,
-                          currentUrlWithoutHash,
-                          currentWildHostname
-                        ],
-                        [currentUrlObj.hostname]
-                      );
+                })
+              )
+            }
+          )
+        ] }),
+        currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p5("div", { class: "pl-4 text-sm", children: /* @__PURE__ */ p5(
+          PopupField,
+          {
+            field: prop,
+            value: currentTranslationServiceConfig[prop.name],
+            onChange: (value) => {
+              setSettings((state) => {
+                let currentServices = state.translationServices || {}, currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
+                return setTimeout(() => {
+                  onRestorePage();
+                }, 1), {
+                  ...state,
+                  translationServices: {
+                    ...currentServices,
+                    [curentTranslationServiceItem.id]: {
+                      ...currentServiceConfig,
+                      [prop.name]: value
                     }
                   }
-                ].filter(Boolean)
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "",
-        children: /* @__PURE__ */ p5("button", {
-          class: "py-2 mt-1 mb-2 main-button ",
-          onClick: () => {
-            isPdfUrl ? onTranslatePdf && onTranslatePdf() : onToggleTranslate();
+                };
+              });
+            }
           },
-          "aria-busy": pageStatus2 === "Translating",
-          disabled: pageStatus2 === "Translating",
-          children: buttonLabel
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "flex justify-between",
-        children: [
-          currentLang && currentLang !== "auto" ? /* @__PURE__ */ p5("label", {
-            for: "alwaysTranslateThisLanugage",
-            class: "text-sm",
-            children: [
-              /* @__PURE__ */ p5("input", {
-                type: "checkbox",
-                id: "alwaysTranslateThisLanugage",
-                name: "alwaysTranslateThisLanugage",
-                checked: !!isAlwaysTranslateLang,
-                onChange: (e3) => {
-                  let checked = e3.target.checked;
-                  handleTranslationLanguagePatternSelected(
-                    checked ? "matches" : void 0
+          "field-" + index
+        ) }))
+      ] }),
+      currentUrlObj && /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
+        /* @__PURE__ */ p5("label", { class: "inline-block", children: t3("forThisSite") }),
+        /* @__PURE__ */ p5(
+          SelectLink,
+          {
+            items: [
+              {
+                label: t3("default"),
+                value: "default",
+                selected: isAlwaysTranslateDomain === !1 && isNeverTranslaateDomain === !1 && !isAlwaysTranslateWildDomain && !isNeverTranslateWildDomain && !isAlwaysTranslateUrl && !isNeverTranslateUrl,
+                onSelected: () => {
+                  handleTranslationUrlPatternSelected(
+                    "default",
+                    currentUrlObj.hostname,
+                    [],
+                    []
+                  );
+                  let currentDomain = currentUrlObj.hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], filteredDomains = currentTempTranslationDomains.filter(
+                    (item) => item.match !== currentDomain
+                  ), isChanged = !1;
+                  filteredDomains.length !== currentTempTranslationDomains.length && (isChanged = !0), isChanged && onSetLocalConfig({
+                    ...ctx.localConfig,
+                    tempTranslationUrlMatches: [
+                      ...filteredDomains
+                    ]
+                  });
+                }
+              },
+              currentUrlWithoutHash && {
+                label: t3("alwaysTranslateSomeSite", {
+                  hostname: t3("currentUrl")
+                }),
+                value: "matchesUrl",
+                selected: isAlwaysTranslateUrl,
+                onSelected: () => {
+                  handleTranslationUrlPatternSelected(
+                    "matches",
+                    currentUrlWithoutHash,
+                    [currentUrlWithoutHash],
+                    []
                   );
                 }
-              }),
-              t3("alwaysTranslateSomeLanguage", {
-                language: getLanguageName(
-                  currentLang,
-                  config.interfaceLanguage
-                )
-              })
-            ]
-          }) : /* @__PURE__ */ p5("span", {}),
-          /* @__PURE__ */ p5(SelectDropDown, {
-            label: t3("more"),
-            showArrow: !0,
-            onSelected: (item) => {
-              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage());
-            },
-            menus: [
-              config.translationArea === "main" && {
-                label: "\u{1F480} " + t3("changeToTranslateTheWholePage"),
-                value: "changeToTranslateTheWholePage"
-              },
-              config.translationArea === "body" && {
-                label: "\u{1F4D6} " + t3("changeToTranslateTheMainPage"),
-                value: "changeToTranslateTheMainPage"
               },
               {
-                label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
-                value: "translateToThePageEndImmediately"
+                label: t3("alwaysTranslateSomeSite", {
+                  hostname: currentUrlObj.hostname
+                }),
+                value: "matches",
+                selected: isAlwaysTranslateDomain,
+                onSelected: (item) => {
+                  handleTranslationUrlPatternSelected(
+                    item.value,
+                    currentUrlObj.hostname,
+                    [
+                      currentUrlObj.hostname,
+                      currentWildHostname,
+                      currentUrlWithoutHash
+                    ],
+                    [currentWildHostname]
+                  );
+                }
               },
-              !isMonkey() && {
-                label: "\u{1F4C1} " + t3("browser.translateLocalPdfFile"),
-                value: "translateLocalPdfFile"
+              currentWildHostname && {
+                label: t3("alwaysTranslateSomeSite", {
+                  hostname: currentWildHostname
+                }),
+                value: "matchesWild",
+                selected: isAlwaysTranslateWildDomain,
+                onSelected: () => {
+                  handleTranslationUrlPatternSelected(
+                    "matches",
+                    currentWildHostname,
+                    [
+                      currentUrlWithoutHash,
+                      currentUrlObj.hostname,
+                      currentWildHostname
+                    ],
+                    [currentUrlObj.hostname]
+                  );
+                }
+              },
+              currentUrlWithoutHash && {
+                label: t3("neverTranslateSomeSite", {
+                  hostname: t3("currentUrl")
+                }),
+                value: "excludeMatchesUrl",
+                selected: isNeverTranslateUrl,
+                onSelected: () => {
+                  handleTranslationUrlPatternSelected(
+                    "excludeMatches",
+                    currentUrlWithoutHash,
+                    [currentUrlWithoutHash],
+                    []
+                  );
+                }
               },
               {
-                label: "\u2764\uFE0F " + t3("aboutLabel"),
-                value: "about"
+                label: t3("neverTranslateSomeSite", {
+                  hostname: currentUrlObj.hostname
+                }),
+                value: "excludeMatches",
+                selected: isNeverTranslaateDomain,
+                onSelected: (item) => {
+                  handleTranslationUrlPatternSelected(
+                    item.value,
+                    currentUrlObj.hostname,
+                    [
+                      currentUrlObj.hostname,
+                      currentWildHostname,
+                      currentUrlWithoutHash
+                    ],
+                    [currentWildHostname]
+                  );
+                }
+              },
+              currentWildHostname && {
+                label: t3("neverTranslateSomeSite", {
+                  hostname: currentWildHostname
+                }),
+                value: "excludeMatchesWild",
+                selected: isNeverTranslateWildDomain,
+                onSelected: () => {
+                  handleTranslationUrlPatternSelected(
+                    "excludeMatches",
+                    currentWildHostname,
+                    [
+                      currentUrlObj.hostname,
+                      currentUrlWithoutHash,
+                      currentWildHostname
+                    ],
+                    [currentUrlObj.hostname]
+                  );
+                }
               }
             ].filter(Boolean)
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "text-sm",
-        children: message
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "text-sm",
-        children: errorMessage
-      }),
-      /* @__PURE__ */ p5("footer", {
-        children: [
-          /* @__PURE__ */ p5(SyncLatest, {
-            request: request3,
-            setStorageBuildinConfig: onSetBuildinConfig
-          }),
-          /* @__PURE__ */ p5("div", {
-            class: "mt-3 text-sm flex justify-between",
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "", children: /* @__PURE__ */ p5(
+      "button",
+      {
+        class: "py-2 mt-1 mb-2 main-button ",
+        onClick: () => {
+          isPdfUrl ? onTranslatePdf && onTranslatePdf() : onToggleTranslate();
+        },
+        "aria-busy": pageStatus2 === "Translating",
+        disabled: pageStatus2 === "Translating",
+        children: buttonLabel
+      }
+    ) }),
+    /* @__PURE__ */ p5("div", { class: "flex justify-between", children: [
+      currentLang && currentLang !== "auto" ? /* @__PURE__ */ p5("label", { for: "alwaysTranslateThisLanugage", class: "text-sm", children: [
+        /* @__PURE__ */ p5(
+          "input",
+          {
+            type: "checkbox",
+            id: "alwaysTranslateThisLanugage",
+            name: "alwaysTranslateThisLanugage",
+            checked: !!isAlwaysTranslateLang,
+            onChange: (e3) => {
+              let checked = e3.target.checked;
+              handleTranslationLanguagePatternSelected(
+                checked ? "matches" : void 0
+              );
+            }
+          }
+        ),
+        t3("alwaysTranslateSomeLanguage", {
+          language: getLanguageName(
+            currentLang,
+            config.interfaceLanguage
+          )
+        })
+      ] }) : /* @__PURE__ */ p5("span", {}),
+      /* @__PURE__ */ p5(
+        SelectDropDown,
+        {
+          label: t3("more"),
+          showArrow: !0,
+          onSelected: (item) => {
+            item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage());
+          },
+          menus: [
+            config.translationArea === "main" && {
+              label: "\u{1F480} " + t3("changeToTranslateTheWholePage"),
+              value: "changeToTranslateTheWholePage"
+            },
+            config.translationArea === "body" && {
+              label: "\u{1F4D6} " + t3("changeToTranslateTheMainPage"),
+              value: "changeToTranslateTheMainPage"
+            },
+            {
+              label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
+              value: "translateToThePageEndImmediately"
+            },
+            !isMonkey() && {
+              label: "\u{1F4C1} " + t3("browser.translateLocalPdfFile"),
+              value: "translateLocalPdfFile"
+            },
+            {
+              label: "\u2764\uFE0F " + t3("aboutLabel"),
+              value: "about"
+            }
+          ].filter(Boolean)
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "text-sm", children: message }),
+    /* @__PURE__ */ p5("div", { class: "text-sm", children: errorMessage }),
+    /* @__PURE__ */ p5("footer", { children: [
+      /* @__PURE__ */ p5(
+        SyncLatest,
+        {
+          request: request3,
+          setStorageBuildinConfig: onSetBuildinConfig
+        }
+      ),
+      /* @__PURE__ */ p5("div", { class: "mt-3 text-sm flex justify-between", children: [
+        /* @__PURE__ */ p5("a", { href: "#", class: "secondary", onClick: handleOpenOptions, children: t3("options") }),
+        isMonkey() && /* @__PURE__ */ p5("a", { href: "#", class: "secondary", onClick: handleClosePopup, children: t3("close") }),
+        /* @__PURE__ */ p5(
+          "span",
+          {
+            class: "immersive-translate-no-select muted",
+            onClick: onClickMultipleTimes(7)(handleToggleAlpha),
             children: [
-              /* @__PURE__ */ p5("a", {
-                href: "#",
-                class: "secondary",
-                onClick: handleOpenOptions,
-                children: t3("options")
-              }),
-              isMonkey() && /* @__PURE__ */ p5("a", {
-                href: "#",
-                class: "secondary",
-                onClick: handleClosePopup,
-                children: t3("close")
-              }),
-              /* @__PURE__ */ p5("span", {
-                class: "immersive-translate-no-select muted",
-                onClick: onClickMultipleTimes(7)(handleToggleAlpha),
-                children: [
-                  "V",
-                  version
-                ]
-              })
+              "V",
+              version
             ]
-          })
-        ]
-      })
-    ]
-  });
+          }
+        )
+      ] })
+    ] })
+  ] });
 }
 
 // pages/popup.tsx
@@ -15988,35 +15775,38 @@ function Popup2() {
       globalThis.close();
     }, 50);
   };
-  return !config || !ctx ? null : /* @__PURE__ */ p5(Popup, {
-    onClose: handleClose,
-    onToggleTranslate: handleSendMessageToContent("toggleTranslatePage"),
-    openOptionsPage: handleOpenOptionsPage,
-    openAboutPage: handleOpenAboutPage,
-    onTranslatePdf: handleTranslatePdf,
-    onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
-    onTranslateTheMainPage: handleSendMessageToContent(
-      "translateTheMainPage"
-    ),
-    onTranslateTheWholePage: handleSendMessageToContent(
-      "translateTheWholePage"
-    ),
-    ontranslateToThePageEndImmediately: handleSendMessageToContent(
-      "translateToThePageEndImmediately"
-    ),
-    onTranslatePage: handleSendMessageToContent("translatePage"),
-    onRestorePage: handleSendMessageToContent("restorePage", !1),
-    onSetPageLanguage: handleSetPageLanguage,
-    onUserConfigChange: setSettings,
-    config,
-    pageStatus: pageStatus2,
-    ctx,
-    currentUrl,
-    currentLang,
-    onSetLocalConfig: setLocalConfig,
-    onSetBuildinConfig: setBuildinConfig,
-    request
-  });
+  return !config || !ctx ? null : /* @__PURE__ */ p5(
+    Popup,
+    {
+      onClose: handleClose,
+      onToggleTranslate: handleSendMessageToContent("toggleTranslatePage"),
+      openOptionsPage: handleOpenOptionsPage,
+      openAboutPage: handleOpenAboutPage,
+      onTranslatePdf: handleTranslatePdf,
+      onTranslateLocalPdfFile: handleTranslateLocalPdfFile,
+      onTranslateTheMainPage: handleSendMessageToContent(
+        "translateTheMainPage"
+      ),
+      onTranslateTheWholePage: handleSendMessageToContent(
+        "translateTheWholePage"
+      ),
+      ontranslateToThePageEndImmediately: handleSendMessageToContent(
+        "translateToThePageEndImmediately"
+      ),
+      onTranslatePage: handleSendMessageToContent("translatePage"),
+      onRestorePage: handleSendMessageToContent("restorePage", !1),
+      onSetPageLanguage: handleSetPageLanguage,
+      onUserConfigChange: setSettings,
+      config,
+      pageStatus: pageStatus2,
+      ctx,
+      currentUrl,
+      currentLang,
+      onSetLocalConfig: setLocalConfig,
+      onSetBuildinConfig: setBuildinConfig,
+      request
+    }
+  );
 }
 
 // popup.tsx
@@ -16025,12 +15815,15 @@ setupMessageListeners();
 mountPoint && (async () => {
   let config = await getConfig();
   config.debug && log_default.setLevel("debug"), re(
-    /* @__PURE__ */ p5(TranslateProvider, {
-      lang: config.interfaceLanguage,
-      translations: locales_default,
-      fallbackLang: "zh-CN",
-      children: /* @__PURE__ */ p5(Popup2, {})
-    }),
+    /* @__PURE__ */ p5(
+      TranslateProvider,
+      {
+        lang: config.interfaceLanguage,
+        translations: locales_default,
+        fallbackLang: "zh-CN",
+        children: /* @__PURE__ */ p5(Popup2, {})
+      }
+    ),
     mountPoint
   );
 })();

@@ -11,6 +11,7 @@ function deferred() {
       async resolve(value) {
         await value, state = "fulfilled", resolve(value);
       },
+      // deno-lint-ignore no-explicit-any
       reject(reason) {
         state = "rejected", reject(reason);
       }
@@ -23,6 +24,7 @@ function deferred() {
 var MuxAsyncIterator = class {
   #iteratorCount = 0;
   #yields = [];
+  // deno-lint-ignore no-explicit-any
   #throws = [];
   #signal = deferred();
   add(iterable) {
@@ -1796,7 +1798,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee4(r) && n3.click();
               }, K5(p6, h3), te2(p6, h3);
             }, Te = u3.date = function(t2, c3, s4) {
-              var d3 = t2.value, i2 = d3 === void 0 ? new Date() : d3, k4 = t2.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t2.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t2.submitCallback, l2 = t2.cancelCallback, f4 = t2.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
+              var d3 = t2.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t2.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t2.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t2.submitCallback, l2 = t2.cancelCallback, f4 = t2.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
               R6(), F8();
               var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a3 = document.createElement("div"), E3 = function(L6) {
                 C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a3.innerHTML = L6.getFullYear();
@@ -2284,7 +2286,6 @@ var zh_CN_default = {
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
   syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
@@ -2297,6 +2298,7 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
+  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -2896,29 +2898,29 @@ function SelectDropDown(props) {
   let { showArrow, onSelected, className, menus, maxWidth } = props;
   className = className || "", showArrow = showArrow ?? !0, maxWidth = maxWidth || 60;
   let ref = w2(null);
-  return /* @__PURE__ */ p5("select", {
-    ref,
-    autoComplete: "off",
-    class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
-    value: DEFAULT_VALUE,
-    style: { maxWidth: `${maxWidth}px` },
-    onChange: (e3) => {
-      e3.preventDefault();
-      let value = e3.target.value;
-      if (ref.current && value !== DEFAULT_VALUE) {
-        ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
-        let item = menus.find((item2) => item2.value === value);
-        item && onSelected(item);
-      }
-    },
-    children: [{
+  return /* @__PURE__ */ p5(
+    "select",
+    {
+      ref,
+      autoComplete: "off",
+      class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
       value: DEFAULT_VALUE,
-      label: props.label
-    }].concat(menus).map((item) => /* @__PURE__ */ p5("option", {
-      value: item.value,
-      children: item.label
-    }))
-  });
+      style: { maxWidth: `${maxWidth}px` },
+      onChange: (e3) => {
+        e3.preventDefault();
+        let value = e3.target.value;
+        if (ref.current && value !== DEFAULT_VALUE) {
+          ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
+          let item = menus.find((item2) => item2.value === value);
+          item && onSelected(item);
+        }
+      },
+      children: [{
+        value: DEFAULT_VALUE,
+        label: props.label
+      }].concat(menus).map((item) => /* @__PURE__ */ p5("option", { value: item.value, children: item.label }))
+    }
+  );
 }
 
 // example/demo.tsx
@@ -2930,33 +2932,25 @@ function main() {
   ));
 }
 function App() {
-  return /* @__PURE__ */ p5(L, {
-    children: /* @__PURE__ */ p5("main", {
-      class: "container-fluid",
-      children: /* @__PURE__ */ p5("div", {
-        class: "flex",
-        children: [
-          /* @__PURE__ */ p5("button", {
-            class: "secondary flex-3",
-            children: "Hi"
-          }),
-          /* @__PURE__ */ p5(SelectDropDown, {
-            label: "\u66F4\u591A",
-            showArrow: !1,
-            maxWidth: 60,
-            onSelected: (item) => {
-            },
-            menus: [{
-              label: "translateTheWholePage",
-              value: "translateTheWholePage"
-            }, {
-              label: "translateToThePageEndImmediately",
-              value: "translateToThePageEndImmediately"
-            }]
-          })
-        ]
-      })
-    })
-  });
+  return /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: /* @__PURE__ */ p5("div", { class: "flex", children: [
+    /* @__PURE__ */ p5("button", { class: "secondary flex-3", children: "Hi" }),
+    /* @__PURE__ */ p5(
+      SelectDropDown,
+      {
+        label: "\u66F4\u591A",
+        showArrow: !1,
+        maxWidth: 60,
+        onSelected: (item) => {
+        },
+        menus: [{
+          label: "translateTheWholePage",
+          value: "translateTheWholePage"
+        }, {
+          label: "translateToThePageEndImmediately",
+          value: "translateToThePageEndImmediately"
+        }]
+      }
+    )
+  ] }) }) });
 }
 main();

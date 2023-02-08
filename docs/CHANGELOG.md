@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.52
+
+### Code
+
+- Use the latest esbuild
+- Use the latest deno version
+- CI: submit source code to firefox
+
 ## 0.2.51
 
 - Fix Google Auth Need Login on Chrome/Firefox

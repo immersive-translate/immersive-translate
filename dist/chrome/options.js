@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:13.555Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-08T00:45:08.650Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3722,6 +3722,10 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
       !__hasOwnProp.call(to, key) && key !== except && __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   return to;
 }, __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
@@ -4629,6 +4633,7 @@ function deferred() {
       async resolve(value) {
         await value, state = "fulfilled", resolve(value);
       },
+      // deno-lint-ignore no-explicit-any
       reject(reason) {
         state = "rejected", reject(reason);
       }
@@ -4672,6 +4677,7 @@ function delay(ms, options = {}) {
 var MuxAsyncIterator = class {
   #iteratorCount = 0;
   #yields = [];
+  // deno-lint-ignore no-explicit-any
   #throws = [];
   #signal = deferred();
   add(iterable) {
@@ -6878,7 +6884,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee5(r) && n3.click();
               }, K6(p6, h3), te3(p6, h3);
             }, Te = u3.date = function(t5, c4, s4) {
-              var d3 = t5.value, i2 = d3 === void 0 ? new Date() : d3, k4 = t5.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t5.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t5.submitCallback, l2 = t5.cancelCallback, f4 = t5.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
+              var d3 = t5.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t5.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t5.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t5.submitCallback, l2 = t5.cancelCallback, f4 = t5.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
               R6(), F8();
               var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a4 = document.createElement("div"), E3 = function(L6) {
                 C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a4.innerHTML = L6.getFullYear();
@@ -7187,9 +7193,7 @@ function p5(n3, s4, t5, f4, u3) {
 
 // components/switch.tsx
 function Switch({ value, defaultCase = null, cases }) {
-  return value == null ? null : /* @__PURE__ */ p5(L, {
-    children: cases[value] != null ? cases[value] : defaultCase
-  });
+  return value == null ? null : /* @__PURE__ */ p5(L, { children: cases[value] != null ? cases[value] : defaultCase });
 }
 
 // hooks/use_route.ts
@@ -7204,7 +7208,8 @@ function useRoute() {
 }
 
 // utils/is_mobile.ts
-var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
+navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
 function createMatch(userAgent) {
   return (regex) => regex.test(userAgent);
 }
@@ -7525,7 +7530,6 @@ var zh_CN_default = {
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
   syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
@@ -7538,6 +7542,7 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
+  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -8425,6 +8430,7 @@ function useChromeStorage(key, initialValue, storageArea) {
     });
   }, [key, INITIAL_VALUE3, STORAGE_AREA]);
   let updateValue = L2(
+    // @ts-ignore: npm package is not typed
     (newValue) => {
       let toStore = typeof newValue == "function" ? newValue(state) : newValue;
       log_default.debug("new settings", toStore), storage.set(key, toStore, STORAGE_AREA).then(() => {
@@ -8473,7 +8479,7 @@ function useUserConfig() {
   let [value, setValue, isPersistent, error2] = rawUseUserConfig();
   return [value, function(newValue) {
     let toStore = typeof newValue == "function" ? newValue(value) : newValue;
-    toStore && (toStore.updatedAt = new Date().toISOString()), setValue(toStore);
+    toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
   }, isPersistent, error2, setValue];
 }
 
@@ -8516,7 +8522,12 @@ function isDeno2() {
   return typeof Deno < "u";
 }
 function isUserscriptRuntime() {
-  if (typeof globalThis.immersiveTranslateBrowserAPI < "u" && globalThis.immersiveTranslateBrowserAPI.runtime && globalThis.immersiveTranslateBrowserAPI.runtime.getManifest) {
+  if (
+    // @ts-ignore: it's ok
+    typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+  ) {
     let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
     return !!(manifest && manifest._isUserscript);
   } else
@@ -8537,46 +8548,25 @@ var buildin_config_default = {
   canary: !1,
   translationServices: {
     volcAlpha: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     volc: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     tencent: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     transmart: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     baidu: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     caiyun: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     youdao: {
-      placeholderDelimiters: [
-        "\u{1F6A0}",
-        "\u{1F6A0}"
-      ]
+      placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
     }
   },
   shortcuts: {
@@ -8669,10 +8659,7 @@ var buildin_config_default = {
       ".sr-only": "display:none"
     },
     selectors: [],
-    preWhitespaceDetectedTags: [
-      "DIV",
-      "SPAN"
-    ],
+    preWhitespaceDetectedTags: ["DIV", "SPAN"],
     stayOriginalSelectors: [],
     additionalSelectors: [
       "h1",
@@ -8750,13 +8737,7 @@ var buildin_config_default = {
       "NOSCRIPT"
     ],
     additionalExcludeTags: [],
-    stayOriginalTags: [
-      "CODE",
-      "TT",
-      "IMG",
-      "SUP",
-      "SUB"
-    ],
+    stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
     inlineTags: [
       "A",
@@ -8802,10 +8783,7 @@ var buildin_config_default = {
     additionalInlineTags: [],
     extraInlineSelectors: [],
     additionalInlineSelectors: [],
-    extraBlockSelectors: [
-      "turbo-frame",
-      "readme-toc"
-    ],
+    extraBlockSelectors: ["turbo-frame", "readme-toc"],
     allBlockTags: [
       "HGROUP",
       "CONTENT",
@@ -8873,22 +8851,15 @@ var buildin_config_default = {
       wrapperPrefix: "",
       wrapperSuffix: "",
       urlChangeDelay: 0,
-      selectors: [
-        ".textLayer"
-      ],
-      excludeSelectors: [
-        ".annotationLayer"
-      ],
+      selectors: [".textLayer"],
+      excludeSelectors: [".annotationLayer"],
       globalStyles: {
         "div.page": "width: 98%;",
         ".textLayer": "overflow:visible;opacity: 1;"
       }
     },
     {
-      matches: [
-        "mail.jabber.org",
-        "antirez.com"
-      ],
+      matches: ["mail.jabber.org", "antirez.com"],
       excludeTags: [
         "TITLE",
         "SCRIPT",
@@ -8943,9 +8914,7 @@ var buildin_config_default = {
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
-      extraInlineSelectors: [
-        '[data-testid="tweetText"] div'
-      ]
+      extraInlineSelectors: ['[data-testid="tweetText"] div']
     },
     {
       matches: [
@@ -8955,16 +8924,11 @@ var buildin_config_default = {
         "askubuntu.com",
         "serverfault.com"
       ],
-      additionalSelectors: [
-        ".comment-copy"
-      ]
+      additionalSelectors: [".comment-copy"]
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [
-        ".container",
-        "h3.title"
-      ]
+      selectors: [".container", "h3.title"]
     },
     {
       matches: "news.ycombinator.com",
@@ -8976,15 +8940,10 @@ var buildin_config_default = {
         ".hn-comment-text",
         ".hn-story-title"
       ],
-      excludeSelectors: [
-        ".reply"
-      ]
+      excludeSelectors: [".reply"]
     },
     {
-      matches: [
-        "*.quora.com",
-        "quora.com"
-      ],
+      matches: ["*.quora.com", "quora.com"],
       additionalSelectors: [
         ".puppeteer_test_question_title",
         ".puppeteer_test_answer_content",
@@ -9001,18 +8960,12 @@ var buildin_config_default = {
         "www.reddit.com/*/.compact",
         "www.reddit.com/.compact"
       ],
-      selectors: [
-        ".title > a",
-        ".usertext-body"
-      ],
+      selectors: [".title > a", ".usertext-body"],
       detectParagraphLanguage: !0
     },
     {
       matches: "old.reddit.com",
-      selectors: [
-        "p.title > a",
-        "[role=main] .md-container"
-      ],
+      selectors: ["p.title > a", "[role=main] .md-container"],
       detectParagraphLanguage: !0
     },
     {
@@ -9033,9 +8986,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.reuters.com/",
-      excludeSelectors: [
-        "header"
-      ]
+      excludeSelectors: ["header"]
     },
     {
       matches: "github.com",
@@ -9070,16 +9021,9 @@ var buildin_config_default = {
         "span[lang]"
       ],
       insertPosition: "afterend",
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN"
-      ],
-      extraBlockSelectors: [
-        "span.x1vvkbs"
-      ],
-      excludeSelectors: [
-        "[role=button]"
-      ],
+      preWhitespaceDetectedTags: ["DIV", "SPAN"],
+      extraBlockSelectors: ["span.x1vvkbs"],
+      excludeSelectors: ["[role=button]"],
       translationClasses: [
         "immersive-translate-text"
       ],
@@ -9135,10 +9079,7 @@ var buildin_config_default = {
       selectors: "#book"
     },
     {
-      matches: [
-        "*.substack.com",
-        "newsletter.rootsofprogress.org"
-      ],
+      matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
       selectors: [
         ".post-preview-title",
         ".post-preview-description",
@@ -9160,13 +9101,8 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "seekingalpha.com/article/*",
-        "seekingalpha.com/news/*"
-      ],
-      selectors: [
-        "[data-test-id=card-container]"
-      ],
+      matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
+      selectors: ["[data-test-id=card-container]"],
       excludeSelectors: [
         "[data-test-id=post-page-meta]",
         "header > div:first-child"
@@ -9174,10 +9110,7 @@ var buildin_config_default = {
     },
     {
       matches: "hn.algolia.com",
-      selectors: [
-        ".Story_title > a:first-child",
-        ".Story_comment > span"
-      ]
+      selectors: [".Story_title > a:first-child", ".Story_comment > span"]
     },
     {
       matches: "read.readwise.io",
@@ -9189,10 +9122,7 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "www.inoreader.com",
-        "*.inoreader.com"
-      ],
+      matches: ["www.inoreader.com", "*.inoreader.com"],
       selectors: [
         ".article_header_title",
         ".article_title_link",
@@ -9205,19 +9135,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "scholar.google.com"
-      ],
+      matches: ["scholar.google.com"],
       wrapperPrefix: `
 `,
-      selectors: [
-        "h3 a[data-clk]",
-        "div.gs_rs"
-      ],
-      atomicBlockSelectors: [
-        ".gs_rs",
-        "h3 a[data-clk]"
-      ]
+      selectors: ["h3 a[data-clk]", "div.gs_rs"],
+      atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
     },
     {
       matches: "mail.google.com",
@@ -9258,17 +9180,12 @@ var buildin_config_default = {
     },
     {
       matches: "*.gitbook.io",
-      additionalSelectors: [
-        "main"
-      ],
+      additionalSelectors: ["main"],
       _comment: "https://midjourney.gitbook.io/docs/user-manual"
     },
     {
       matches: "arxiv.org",
-      additionalSelectors: [
-        "h1",
-        "blockquote.abstract"
-      ]
+      additionalSelectors: ["h1", "blockquote.abstract"]
     },
     {
       matches: "https://discord.com/channels/*",
@@ -9290,56 +9207,36 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
-      selectors: [
-        ".text-content"
-      ],
+      selectors: [".text-content"],
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "web.telegram.org/k/*",
-        "web.telegram.org/k/"
-      ],
-      selectors: [
-        ".message"
-      ],
+      matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
+      selectors: [".message"],
       detectParagraphLanguage: !0
     },
     {
       matches: "gist.github.com",
-      selectors: [
-        ".markdown-body",
-        ".readme"
-      ],
+      selectors: [".markdown-body", ".readme"],
       detectParagraphLanguage: !0
     },
     {
       matches: "lobste.rs",
-      selectors: [
-        ".u-repost-of",
-        ".comment_text"
-      ]
+      selectors: [".u-repost-of", ".comment_text"]
     },
     {
       matches: "*.slack.com",
-      selectors: [
-        ".p-rich_text_section"
-      ],
+      selectors: [".p-rich_text_section"],
       detectParagraphLanguage: !0
     },
     {
       matches: "1paragraph.app",
-      additionalSelectors: [
-        "#book"
-      ]
+      additionalSelectors: ["#book"]
     },
     {
       matches: "www.google.*/search*",
       detectParagraphLanguage: !0,
-      excludeSelectors: [
-        "a h3 + div",
-        "div#sfooter"
-      ],
+      excludeSelectors: ["a h3 + div", "div#sfooter"],
       wrapperSuffix: "",
       globalStyles: {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
@@ -9351,54 +9248,31 @@ var buildin_config_default = {
     },
     {
       matches: "lowendtalk.com",
-      selectors: [
-        "[role=heading]",
-        "h1",
-        ".userContent"
-      ]
+      selectors: ["[role=heading]", "h1", ".userContent"]
     },
     {
       matches: "www.linkedin.com/jobs/*",
-      selectors: [
-        "#job-details > span"
-      ]
+      selectors: ["#job-details > span"]
     },
     {
       matches: "www.linkedin.com",
-      addtionalSelectors: [
-        "span.break-words > span > span[dir=ltr]"
-      ]
+      addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
     },
     {
       matches: "www.indiehackers.com",
-      selectors: [
-        ".content",
-        "h1",
-        ".feed-item__title-link"
-      ]
+      selectors: [".content", "h1", ".feed-item__title-link"]
     },
     {
       matches: "libreddit.de",
-      selectors: [
-        "h2.post_title",
-        ".comment_body > .md"
-      ]
+      selectors: ["h2.post_title", ".comment_body > .md"]
     },
     {
-      matches: [
-        "notion.site",
-        "www.notion.so"
-      ],
-      selectors: [
-        "div[data-block-id]"
-      ]
+      matches: ["notion.site", "www.notion.so"],
+      selectors: ["div[data-block-id]"]
     },
     {
       matches: "www.newyorker.com",
-      additionalSelectors: [
-        "h1",
-        "[data-testid=SummaryItemHed]"
-      ]
+      additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
     },
     {
       matches: "start.me",
@@ -9411,16 +9285,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.scmp.com",
-      additionalSelectors: [
-        ".info__subHeadline",
-        ".section-content h2"
-      ]
+      additionalSelectors: [".info__subHeadline", ".section-content h2"]
     },
     {
       matches: "www.lesswrong.com",
-      extraBlockSelectors: [
-        "span.commentOnSelection"
-      ]
+      extraBlockSelectors: ["span.commentOnSelection"]
     },
     {
       matches: [
@@ -9431,19 +9300,13 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
-      selectorMatches: [
-        "div#mastodon"
-      ],
-      selectors: [
-        "div.status__content__text"
-      ],
+      selectorMatches: ["div#mastodon"],
+      selectors: ["div.status__content__text"],
       detectLanguage: !0
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: [
-        "div.RenderKeyPoints-list"
-      ]
+      additionalSelectors: ["div.RenderKeyPoints-list"]
     },
     {
       matches: "app.daily.dev",
@@ -9459,16 +9322,10 @@ var buildin_config_default = {
     },
     {
       matches: "www.aljazeera.com",
-      addtionalSelectors: [
-        "h1",
-        ".article__subhead"
-      ]
+      addtionalSelectors: ["h1", ".article__subhead"]
     },
     {
-      matches: [
-        "*.pornhub.com",
-        "pornhub.com"
-      ],
+      matches: ["*.pornhub.com", "pornhub.com"],
       selectors: [
         ".title >a",
         ".title > span",
@@ -9486,18 +9343,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "weibo.com"
-      ],
-      selectors: [
-        "div[class^='detail_wbtext']"
-      ]
+      matches: ["weibo.com"],
+      selectors: ["div[class^='detail_wbtext']"]
     },
     {
-      matches: [
-        "medium.com",
-        "*.medium.com"
-      ],
+      matches: ["medium.com", "*.medium.com"],
       selectorMatches: [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
@@ -9508,9 +9358,7 @@ var buildin_config_default = {
         "[aria-hidden='false'] pre",
         "article p"
       ],
-      excludeSelectors: [
-        "[aria-label='Post Preview Reading Time']"
-      ],
+      excludeSelectors: ["[aria-label='Post Preview Reading Time']"],
       globalStyles: {
         h2: "-webkit-line-clamp: unset;max-height:unset;",
         "article p": "-webkit-line-clamp: unset;max-height:unset;"
@@ -9520,24 +9368,15 @@ var buildin_config_default = {
       selectorMatches: [
         "meta[property='og:site_name'][content='Nitter']"
       ],
-      selectors: [
-        ".tweet-content",
-        ".quote-text"
-      ]
+      selectors: [".tweet-content", ".quote-text"]
     },
     {
       matches: "*.fandom.com",
-      additionalSelectors: [
-        ".mcf-card-article__title"
-      ]
+      additionalSelectors: [".mcf-card-article__title"]
     },
     {
-      matches: [
-        "www.washingtonpost.com"
-      ],
-      additionalSelectors: [
-        "[data-qa='article-body']"
-      ]
+      matches: ["www.washingtonpost.com"],
+      additionalSelectors: ["[data-qa='article-body']"]
     },
     {
       matches: "www.economist.com",
@@ -9579,9 +9418,7 @@ var buildin_config_default = {
     {
       matches: "www.sciencedirect.com",
       urlChangeDelay: 2e3,
-      stayOriginalSelectors: [
-        "span.display"
-      ]
+      stayOriginalSelectors: ["span.display"]
     },
     {
       matches: "www.thehighestofthemountains.com",
@@ -9592,10 +9429,7 @@ var buildin_config_default = {
       normalizeBody: "div.ql-editor[contenteditable='false']"
     },
     {
-      matches: [
-        "*.annas-archive.org",
-        "annas-archive.org"
-      ],
+      matches: ["*.annas-archive.org", "annas-archive.org"],
       selectors: [
         "h3.text-xl.font-bold",
         "div[class='truncate text-sm']"
@@ -9604,9 +9438,7 @@ var buildin_config_default = {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
       normalizeBody: "body",
-      extraBlockSelectors: [
-        "a.custom-a"
-      ]
+      extraBlockSelectors: ["a.custom-a"]
     },
     {
       matches: [
@@ -9617,21 +9449,15 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "apnews.com"
-      ],
+      matches: ["apnews.com"],
       urlChangeDelay: 2e3
     },
     {
       matches: "play.google.com",
-      additionalSelectors: [
-        "header[data-review-id] + div"
-      ]
+      additionalSelectors: ["header[data-review-id] + div"]
     },
     {
-      matches: [
-        "www.tumblr.com"
-      ],
+      matches: ["www.tumblr.com"],
       selectors: [
         "article h1",
         "article > header + div",
@@ -9647,23 +9473,12 @@ var buildin_config_default = {
         "article blockquote",
         "article ol"
       ],
-      excludeSelectors: [
-        "div.fAAi8",
-        "div.wvu3V"
-      ],
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN",
-        "P"
-      ]
+      excludeSelectors: ["div.fAAi8", "div.wvu3V"],
+      preWhitespaceDetectedTags: ["DIV", "SPAN", "P"]
     },
     {
-      matches: [
-        "mail.qq.com/cgi-bin/frame_html"
-      ],
-      selectors: [
-        "#thisiddoesnotexists"
-      ]
+      matches: ["mail.qq.com/cgi-bin/frame_html"],
+      selectors: ["#thisiddoesnotexists"]
     },
     {
       matches: "www.foxnews.com",
@@ -9716,11 +9531,7 @@ var buildin_config_default = {
     },
     {
       matches: "getpocket.com",
-      selectors: [
-        "h2.title",
-        "div.excerpt p",
-        "main > article"
-      ],
+      selectors: ["h2.title", "div.excerpt p", "main > article"],
       globalStyles: {
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
         "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -9797,6 +9608,7 @@ function mergeRule(generalRule, rule) {
       else if (key.startsWith("additional")) {
         let userValue = arrayOrGenericToArray(value);
         finalRule[key] = Array.from(
+          // @ts-ignore: ignore type error
           /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
         );
       } else
@@ -9907,7 +9719,7 @@ async function getConfig() {
     for (let command of commandResult)
       command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
   }
-  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = new Date();
+  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
   if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
     let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
       (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -9959,12 +9771,14 @@ async function getConfig() {
       ], finalConfigValue = {};
       for (let key2 of allUniqueKeys)
         finalConfigValue[key2] = {
+          // @ts-ignore: it's ok
           ...buildInConfigValue[key2],
           ...userConfigValue[key2]
         };
       finalConfig[configKey] = finalConfigValue;
     } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
       mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
+        // @ts-ignore: ignore type error
         finalConfig[configKey],
         mergedUserConfig[configKey]
       )), configKey === "shortcuts" && (finalConfig[configKey] = {
@@ -10400,8 +10214,8 @@ async function getTableSize(db, storageName) {
     transaction.onsuccess = (_event) => {
       let cursor = transaction.result;
       if (cursor) {
-        let storedObject = cursor.value;
-        size += JSON.stringify(storedObject).length, cursor.continue();
+        let storedObject = cursor.value, json = JSON.stringify(storedObject);
+        size += json.length, cursor.continue();
       } else
         resolve(size);
     }, transaction.onerror = (err) => reject("error in " + storageName + ": " + err);
@@ -10619,10 +10433,18 @@ function isMarked(element, markedAttribute, explicit = !1) {
   return isMarkedWith(element, markedAttribute, "1", explicit);
 }
 function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute] === value) : !1 : element.dataset[markedAttribute] === value;
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute] === value)
+  ) : !1 : element.dataset[markedAttribute] === value;
 }
 function hasMark(element, markedAttribute, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? !!(element[elementMarkRootKey] && element[elementMarkRootKey][markedAttribute]) : !1 : element.dataset[markedAttribute] !== void 0;
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute])
+  ) : !1 : element.dataset[markedAttribute] !== void 0;
 }
 function getMainText(root2) {
   return (root2.innerText || root2.textContent || "").trim();
@@ -12335,8 +12157,10 @@ async function translatePage(ctx) {
     });
     let containersCount = 0;
     setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
-    for (let rootFrame of allFrames)
-      containersCount += await translateFrame(rootFrame, ctx);
+    for (let rootFrame of allFrames) {
+      let containerCount = await translateFrame(rootFrame, ctx);
+      containersCount += containerCount;
+    }
     containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
       log_default.error(
         "translateTitle error:",
@@ -12652,6 +12476,7 @@ function getPageStatus() {
 var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
   constructor(fromType, debug = !1) {
     this.logger = new Logger(), debug && this.logger.setLevel("debug"), this.fromType = fromType, listeners2.has(fromType) || (listeners2.set(fromType, /* @__PURE__ */ new Map()), browserAPI.runtime.onMessage.addListener(
+      // @ts-ignore: it's ok
       (message, sender, sendResponse) => {
         let from = message.from, to = message.to, tabId, tabUrl, tabActive;
         sender.tab && sender.tab.id && (tabId = sender.tab.id, from = `${from}:${tabId}`, tabUrl = sender.tab.url, tabActive = sender.tab.active), this.logger.debug(
@@ -13153,7 +12978,7 @@ var langMap2 = [
     service,
     version
   }) {
-    let host = `${service}.tencentcloudapi.com`, now = new Date(), timestamp = `${new Date().valueOf()}`.slice(0, 10), CanonicalRequest = [
+    let host = `${service}.tencentcloudapi.com`, now = /* @__PURE__ */ new Date(), timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10), CanonicalRequest = [
       "POST",
       "/",
       "",
@@ -13202,7 +13027,9 @@ var langMap2 = [
     return response;
   }
 }, Tencent = _Tencent;
-Tencent.langMap = new Map(langMap2), Tencent.langMapReverse = new Map(
+/** Translator lang to custom lang */
+Tencent.langMap = new Map(langMap2), /** Custom lang to translator lang */
+Tencent.langMapReverse = new Map(
   langMap2.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13336,13 +13163,13 @@ var langMap3 = [
     };
   }
   async fetchWithoutToken(text, from, to) {
-    let params = new URLSearchParams({
+    let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
       client: "gtx",
       dt: "t",
       sl: from,
       tl: to,
       q: text
-    }), url = "https://translate.googleapis.com/translate_a/single?" + params.toString();
+    }).toString();
     return { data: await request2({
       retry: 2,
       url
@@ -13431,6 +13258,7 @@ function generateJobs(sentences, beams = 1) {
       jobs.push({
         kind: "default",
         _index: i2,
+        // raw_en_sentence: sentence,
         sentences: [{
           id,
           text: chunk.sentences[0].text,
@@ -13615,7 +13443,9 @@ var langMap4 = [
     };
   }
 }, D8 = _D;
-D8.langMap = new Map(langMap4), D8.langMapReverse = new Map(
+/** Translator lang to custom lang */
+D8.langMap = new Map(langMap4), /** Custom lang to translator lang */
+D8.langMapReverse = new Map(
   langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13755,7 +13585,9 @@ var langMap5 = [
     return language || remoteLanguage;
   }
 }, Transmart = _Transmart;
-Transmart.langMap = new Map(langMap5), Transmart.langMapReverse = new Map(
+/** Translator lang to custom lang */
+Transmart.langMap = new Map(langMap5), /** Custom lang to translator lang */
+Transmart.langMapReverse = new Map(
   langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -14015,7 +13847,7 @@ var rawLangMap3 = [
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, src_text = text, options = {
+    let { text, from, to } = payload, options = {
       url: "https://api.niutrans.com/NiuTransServer/translation",
       retry: 2,
       headers: {
@@ -14023,7 +13855,7 @@ var rawLangMap3 = [
       },
       method: "POST",
       body: JSON.stringify({
-        src_text,
+        src_text: text,
         from: langMap8.get(from) || from,
         to: langMap8.get(to) || to,
         apikey: this.APIKEY
@@ -14079,7 +13911,7 @@ var unsignableHeaders = [
   if (typeof val > "u" || val === null)
     return;
   let escapedKey = uriEscape(key);
-  if (!!escapedKey)
+  if (escapedKey)
     return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
 }).filter((v2) => v2).join("&"), Signer = class {
   constructor(request3, serviceName, options) {
@@ -14194,7 +14026,7 @@ var unsignableHeaders = [
     return unsignableHeaders.indexOf(key) < 0;
   }
   iso8601(date) {
-    return date === void 0 && (date = new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
+    return date === void 0 && (date = /* @__PURE__ */ new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
   }
   async getSigningKey(credentials, date, region, service) {
     let kDate = await hmacSha256(
@@ -14340,9 +14172,7 @@ var rawLangMap4 = [
     }];
   }
   async remoteDetectLanguage(text) {
-    let bodyParams = {
-      TextList: [text]
-    }, requestObj = {
+    let requestObj = {
       region: "cn-north-1",
       method: "POST",
       params: {
@@ -14354,7 +14184,9 @@ var rawLangMap4 = [
         "Content-Type": "application/json",
         host: "open.volcengineapi.com"
       },
-      body: JSON.stringify(bodyParams)
+      body: JSON.stringify({
+        TextList: [text]
+      })
     }, signer = new Signer(requestObj, "translate");
     await signer.addAuthorization({
       accessKeyId: this.accessKeyId,
@@ -14552,18 +14384,18 @@ var rawLangMap5 = [
     this.isSupportList = !1;
   }
   async translate(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, bodyParams = {
-      source_language: remoteFrom,
-      target_language: remoteTo,
-      text
-    }, response = await request2(
+    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, response = await request2(
       {
         url: "https://translate.volcengine.com/crx/translate/v1/",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(bodyParams)
+        body: JSON.stringify({
+          source_language: remoteFrom,
+          target_language: remoteTo,
+          text
+        })
       }
     );
     if (response.base_resp && response.base_resp.status_code === 0) {
@@ -14765,6 +14597,7 @@ async function fetchGlobalConfig() {
     frontDoorBotClassification,
     isSignedInOrCorporateUser,
     cookie,
+    // PENDING: reset count if count value is large?
     count: 0
   }, await browserAPI.storage.local.set({
     [globalConfigStorageKey]: globalConfig
@@ -14801,6 +14634,7 @@ async function translate2(text, from, to) {
     to === "auto-detect" ? "zh-Hans" : to
   ), requestHeaders = {
     referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
+    // cookie: globalConfig.cookie,
     "content-type": "application/x-www-form-urlencoded"
   }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
     retry: 2,
@@ -15030,7 +14864,7 @@ var Youdao = class extends Translation {
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, salt = new Date().getTime(), curTime = Math.round(new Date().getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
+    let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
       q: text,
       appKey: this.appId,
       salt: salt.toString(),
@@ -15103,6 +14937,12 @@ var DPRO_URL = "https://api.deepl.com/jsonrpc", TranslationServices = {
     name: "Bing",
     homepage: "https://www.bing.com/translator"
   },
+  // bai: {
+  //   class: Bai,
+  //   name: "Baidu(Alapa)",
+  //   homepage: "https://fanyi.baidu.com/",
+  //   alpha: true,
+  // },
   tencent: {
     class: Tencent,
     name: "Tencent",
@@ -15405,15 +15245,18 @@ var TranslateContext = ce(null), defaultOptions2 = {
     },
     props.translations
   );
-  return /* @__PURE__ */ p5(TranslateContext.Provider, {
-    value: {
-      t: t5,
-      setLang,
-      lang,
-      isReady
-    },
-    children: props.children
-  });
+  return /* @__PURE__ */ p5(
+    TranslateContext.Provider,
+    {
+      value: {
+        t: t5,
+        setLang,
+        lang,
+        isReady
+      },
+      children: props.children
+    }
+  );
 };
 
 // hooks/use_i18n.ts
@@ -15423,72 +15266,53 @@ function useI18n() {
 
 // components/nav_left.tsx
 function NavLeft(props) {
-  return /* @__PURE__ */ p5("div", {
-    class: "nav-left",
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "title",
-        children: props.title
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "description",
-        children: props.description
-      })
-    ]
-  });
+  return /* @__PURE__ */ p5("div", { class: "nav-left", children: [
+    /* @__PURE__ */ p5("div", { class: "title", children: props.title }),
+    /* @__PURE__ */ p5("div", { class: "description", children: props.description })
+  ] });
 }
 
 // components/select_link.tsx
 function SelectLink(props) {
   let { items, maxWidth } = props;
-  return maxWidth = maxWidth || 128, /* @__PURE__ */ p5("select", {
-    autoComplete: "off",
-    class: "min-select",
-    style: { maxWidth: `${maxWidth}px` },
-    value: items.find((item) => item.selected)?.value,
-    onChange: (e3) => {
-      let value = e3.target.value, item = items.find((item2) => item2.value === value);
-      item && item.onSelected(item);
-    },
-    children: items.map((item) => /* @__PURE__ */ p5("option", {
-      value: item.value,
-      selected: item.selected,
-      children: item.label
-    }))
-  });
+  return maxWidth = maxWidth || 128, /* @__PURE__ */ p5(
+    "select",
+    {
+      autoComplete: "off",
+      class: "min-select",
+      style: { maxWidth: `${maxWidth}px` },
+      value: items.find((item) => item.selected)?.value,
+      onChange: (e3) => {
+        let value = e3.target.value, item = items.find((item2) => item2.value === value);
+        item && item.onSelected(item);
+      },
+      children: items.map((item) => /* @__PURE__ */ p5("option", { value: item.value, selected: item.selected, children: item.label }))
+    }
+  );
 }
 
 // components/input_row.tsx
 function InputRow(props) {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("div", {
-    class: "input-row",
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "input-left",
-        children: /* @__PURE__ */ p5("label", {
-          for: props.field.name,
-          children: [
-            props.field.label ? t5(props.field.label) : props.field.name,
-            "\uFF1A"
-          ]
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "input-right",
-        children: /* @__PURE__ */ p5("input", {
-          required: props.field.required,
-          placeholder: props.field.name,
-          class: "input",
-          value: props.value,
-          type: props.type,
-          onChange: (e3) => {
-            props.onChange(e3.target.value);
-          }
-        })
-      })
-    ]
-  });
+  return /* @__PURE__ */ p5("div", { class: "input-row", children: [
+    /* @__PURE__ */ p5("div", { class: "input-left", children: /* @__PURE__ */ p5("label", { for: props.field.name, children: [
+      props.field.label ? t5(props.field.label) : props.field.name,
+      "\uFF1A"
+    ] }) }),
+    /* @__PURE__ */ p5("div", { class: "input-right", children: /* @__PURE__ */ p5(
+      "input",
+      {
+        required: props.field.required,
+        placeholder: props.field.name,
+        class: "input",
+        value: props.value,
+        type: props.type,
+        onChange: (e3) => {
+          props.onChange(e3.target.value);
+        }
+      }
+    ) })
+  ] });
 }
 
 // components/option_field.tsx
@@ -15496,17 +15320,14 @@ function OptionField(props) {
   let { field, root: root2, onChange, value } = props;
   value = value || field.default || "";
   let { t: t5 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p5("div", {
-    class: "flex justify-end mb-2",
-    children: [
-      /* @__PURE__ */ p5("label", {
-        class: "engine",
-        children: [
-          field.label ? t5(field.label) : field.name,
-          "\uFF1A"
-        ]
-      }),
-      /* @__PURE__ */ p5(SelectLink, {
+  return field.type === "select" ? /* @__PURE__ */ p5("div", { class: "flex justify-end mb-2", children: [
+    /* @__PURE__ */ p5("label", { class: "engine", children: [
+      field.label ? t5(field.label) : field.name,
+      "\uFF1A"
+    ] }),
+    /* @__PURE__ */ p5(
+      SelectLink,
+      {
         items: field.options.map(
           (fieldOption) => ({
             label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
@@ -15517,23 +15338,25 @@ function OptionField(props) {
             }
           })
         )
-      })
-    ]
-  }) : field.type === "text" ? /* @__PURE__ */ p5("div", {
-    children: /* @__PURE__ */ p5(InputRow, {
+      }
+    )
+  ] }) : field.type === "text" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+    InputRow,
+    {
       field,
       value,
       type: field.type,
       onChange
-    })
-  }) : field.type === "password" ? /* @__PURE__ */ p5("div", {
-    children: /* @__PURE__ */ p5(InputRow, {
+    }
+  ) }) : field.type === "password" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+    InputRow,
+    {
       field,
       value,
       type: field.type,
       onChange
-    })
-  }) : null;
+    }
+  ) }) : null;
 }
 
 // locales.ts
@@ -15593,192 +15416,141 @@ var getLanguages = () => languages.filter((lang) => lang !== "auto"), getLanguag
 // components/always_lang.tsx
 function AlwaysLang(props) {
   let { t: t5, lang } = useI18n();
-  return /* @__PURE__ */ p5("details", {
-    role: "list",
-    class: "nav-right",
-    children: [
-      /* @__PURE__ */ p5("summary", {
-        "aria-haspopup": "listbox",
-        children: t5("edit")
-      }),
-      /* @__PURE__ */ p5("ul", {
-        role: "listbox",
-        class: "option-list",
-        children: props.options.map((item) => {
-          let label = getLanguageName(item.value, lang);
-          return /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("label", {
-              children: [
-                /* @__PURE__ */ p5("input", {
-                  type: "checkbox",
-                  onChange: () => {
-                    props.onToggleAlwaysLangs(!item.checked, item.value);
-                  },
-                  value: item.value,
-                  checked: item.checked
-                }),
-                label
-              ]
-            })
-          });
-        })
-      })
-    ]
-  });
+  return /* @__PURE__ */ p5("details", { role: "list", class: "nav-right", children: [
+    /* @__PURE__ */ p5("summary", { "aria-haspopup": "listbox", children: t5("edit") }),
+    /* @__PURE__ */ p5("ul", { role: "listbox", class: "option-list", children: props.options.map((item) => {
+      let label = getLanguageName(item.value, lang);
+      return /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5("label", { children: [
+        /* @__PURE__ */ p5(
+          "input",
+          {
+            type: "checkbox",
+            onChange: () => {
+              props.onToggleAlwaysLangs(!item.checked, item.value);
+            },
+            value: item.value,
+            checked: item.checked
+          }
+        ),
+        label
+      ] }) });
+    }) })
+  ] });
 }
 
 // components/url_list.tsx
 function UrlList(props) {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("div", {
-    children: props.urls.map((item, i2) => /* @__PURE__ */ p5("div", {
-      class: "url-list",
-      children: [
-        /* @__PURE__ */ p5("div", {
-          class: "url-left",
-          children: /* @__PURE__ */ p5("div", {
-            class: "url-name height-tight",
-            children: item
-          })
-        }),
-        /* @__PURE__ */ p5("nav", {
-          children: /* @__PURE__ */ p5("ul", {
-            children: /* @__PURE__ */ p5("li", {
-              children: /* @__PURE__ */ p5("details", {
-                role: "list",
-                dir: "rtl",
-                children: [
-                  /* @__PURE__ */ p5("summary", {
-                    "aria-haspopup": "listbox",
-                    role: "link"
-                  }),
-                  /* @__PURE__ */ p5("ul", {
-                    class: "delete",
-                    role: "listbox",
-                    children: [
-                      /* @__PURE__ */ p5("li", {
-                        children: /* @__PURE__ */ p5("a", {
-                          onClick: (e3) => {
-                            props.onEditUrl(item, props.type, i2);
-                          },
-                          children: t5("edit")
-                        })
-                      }),
-                      /* @__PURE__ */ p5("li", {
-                        children: /* @__PURE__ */ p5("a", {
-                          onClick: (e3) => {
-                            props.onDeleteUrl(item, props.type);
-                          },
-                          children: t5("delete")
-                        })
-                      })
-                    ]
-                  })
-                ]
-              })
-            })
-          })
-        })
-      ]
-    }, "menu" + i2))
-  });
+  return /* @__PURE__ */ p5("div", { children: props.urls.map((item, i2) => /* @__PURE__ */ p5("div", { class: "url-list", children: [
+    /* @__PURE__ */ p5("div", { class: "url-left", children: /* @__PURE__ */ p5("div", { class: "url-name height-tight", children: item }) }),
+    /* @__PURE__ */ p5("nav", { children: /* @__PURE__ */ p5("ul", { children: /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5("details", { role: "list", dir: "rtl", children: [
+      /* @__PURE__ */ p5("summary", { "aria-haspopup": "listbox", role: "link" }),
+      /* @__PURE__ */ p5("ul", { class: "delete", role: "listbox", children: [
+        /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+          "a",
+          {
+            onClick: (e3) => {
+              props.onEditUrl(item, props.type, i2);
+            },
+            children: t5("edit")
+          }
+        ) }),
+        /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+          "a",
+          {
+            onClick: (e3) => {
+              props.onDeleteUrl(item, props.type);
+            },
+            children: t5("delete")
+          }
+        ) })
+      ] })
+    ] }) }) }) })
+  ] }, "menu" + i2)) });
 }
 
 // components/add_url_modal.tsx
 function AddUrlModal(props) {
   let { t: t5 } = useI18n(), textInput = w2(null), { toggleModal } = props;
-  return /* @__PURE__ */ p5("dialog", {
-    id: "immersive-translate-overlay",
-    onClick: (e3) => {
-      e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && toggleModal(e3);
-    },
-    open: !0,
-    children: /* @__PURE__ */ p5("article", {
-      class: "add-modal",
-      children: [
-        /* @__PURE__ */ p5("a", {
-          href: "#close",
-          "aria-label": "Close",
-          class: "close",
+  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: (e3) => {
+    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && toggleModal(e3);
+  }, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
+    /* @__PURE__ */ p5(
+      "a",
+      {
+        href: "#close",
+        "aria-label": "Close",
+        class: "close",
+        "data-target": "modal-example",
+        onClick: props.toggleModal
+      }
+    ),
+    /* @__PURE__ */ p5("div", { class: "add-text", children: t5("add url") }),
+    /* @__PURE__ */ p5(
+      "input",
+      {
+        placeholder: "URL",
+        ref: textInput,
+        value: props.urlValue
+      }
+    ),
+    /* @__PURE__ */ p5("blockquote", { children: /* @__PURE__ */ p5("p", { class: "text-sm", children: t5("addUrlDescription") }) }),
+    /* @__PURE__ */ p5("div", { class: "flex", children: [
+      /* @__PURE__ */ p5("div", { class: "footer-button", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#cancel",
+          role: "button",
+          class: "full-button secondary margin-right",
           "data-target": "modal-example",
-          onClick: props.toggleModal
-        }),
-        /* @__PURE__ */ p5("div", {
-          class: "add-text",
-          children: t5("add url")
-        }),
-        /* @__PURE__ */ p5("input", {
-          placeholder: "URL",
-          ref: textInput,
-          value: props.urlValue
-        }),
-        /* @__PURE__ */ p5("blockquote", {
-          children: /* @__PURE__ */ p5("p", {
-            class: "text-sm",
-            children: t5("addUrlDescription")
-          })
-        }),
-        /* @__PURE__ */ p5("div", {
-          class: "flex",
-          children: [
-            /* @__PURE__ */ p5("div", {
-              class: "footer-button",
-              children: /* @__PURE__ */ p5("a", {
-                href: "#cancel",
-                role: "button",
-                class: "full-button secondary margin-right",
-                "data-target": "modal-example",
-                onClick: props.toggleModal,
-                children: t5("cancel")
-              })
-            }),
-            /* @__PURE__ */ p5("div", {
-              class: "footer-button",
-              children: /* @__PURE__ */ p5("a", {
-                href: "#confirm",
-                role: "button",
-                class: "full-button margin-left",
-                "data-target": "modal-example",
-                onClick: (e3) => {
-                  if (e3.preventDefault(), textInput.current && textInput.current.value) {
-                    if (props.onSubmitAddUrl) {
-                      if (props.urlValue !== "") {
-                        props.onSubmitAddUrl(
-                          textInput.current.value,
-                          props.index,
-                          props.type,
-                          "edit"
-                        );
-                        return;
-                      }
-                      props.onSubmitAddUrl(
-                        textInput.current.value,
-                        props.index,
-                        props.type
-                      );
-                      return;
-                    } else if (props.onAddInterfaceUrl) {
-                      if (props.urlValue !== "") {
-                        props.onAddInterfaceUrl(
-                          textInput.current.value,
-                          "edit"
-                        );
-                        return;
-                      }
-                      props.onAddInterfaceUrl(
-                        textInput.current.value
-                      );
-                    }
-                  }
-                },
-                children: t5("confirm")
-              })
-            })
-          ]
-        })
-      ]
-    })
-  });
+          onClick: props.toggleModal,
+          children: t5("cancel")
+        }
+      ) }),
+      /* @__PURE__ */ p5("div", { class: "footer-button", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#confirm",
+          role: "button",
+          class: "full-button margin-left",
+          "data-target": "modal-example",
+          onClick: (e3) => {
+            if (e3.preventDefault(), textInput.current && textInput.current.value) {
+              if (props.onSubmitAddUrl) {
+                if (props.urlValue !== "") {
+                  props.onSubmitAddUrl(
+                    textInput.current.value,
+                    props.index,
+                    props.type,
+                    "edit"
+                  );
+                  return;
+                }
+                props.onSubmitAddUrl(
+                  textInput.current.value,
+                  props.index,
+                  props.type
+                );
+                return;
+              } else if (props.onAddInterfaceUrl) {
+                if (props.urlValue !== "") {
+                  props.onAddInterfaceUrl(
+                    textInput.current.value,
+                    "edit"
+                  );
+                  return;
+                }
+                props.onAddInterfaceUrl(
+                  textInput.current.value
+                );
+              }
+            }
+          },
+          children: t5("confirm")
+        }
+      ) })
+    ] })
+  ] }) });
 }
 
 // pages/general.tsx
@@ -15922,92 +15694,93 @@ function General() {
     toggleAddUrlModal(type), setUrlValue(url), setMatchesIndex(index);
   };
   if (!config)
-    return /* @__PURE__ */ p5("div", {
-      children: "loading"
-    });
+    return /* @__PURE__ */ p5("div", { children: "loading" });
   let langsArr = [];
   config && config.translationLanguagePattern && config.translationLanguagePattern.matches && (langsArr = config.translationLanguagePattern.matches);
   let neverLangArr = [];
-  return config && config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && (neverLangArr = config.translationLanguagePattern.excludeMatches), /* @__PURE__ */ p5("div", {
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5("strong", {
-            class: "text-lg",
-            children: t5("general")
-          }),
-          /* @__PURE__ */ p5("a", {
-            class: "text-sm",
-            href: "#",
-            onClick: handleReset,
-            children: t5("reset")
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("target"),
-            description: t5("translate other languages into specific language")
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              e3.preventDefault(), selectTargetLanguage(e3.target.value);
-            },
-            children: languages2.filter((lang) => lang !== "auto").map((lang) => /* @__PURE__ */ p5("option", {
+  return config && config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && (neverLangArr = config.translationLanguagePattern.excludeMatches), /* @__PURE__ */ p5("div", { children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("general") }),
+      /* @__PURE__ */ p5("a", { class: "text-sm", href: "#", onClick: handleReset, children: t5("reset") })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("target"),
+          description: t5("translate other languages into specific language")
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            e3.preventDefault(), selectTargetLanguage(e3.target.value);
+          },
+          children: languages2.filter((lang) => lang !== "auto").map((lang) => /* @__PURE__ */ p5(
+            "option",
+            {
               value: lang,
               selected: lang === config.targetLanguage,
               children: getLanguageName(lang, config.interfaceLanguage)
-            }))
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("service"),
-            description: t5("select translation service")
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              e3.preventDefault(), selectService(e3.target.value);
-            },
-            children: translationServiceItems.map((item) => /* @__PURE__ */ p5("option", {
+            }
+          ))
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("service"),
+          description: t5("select translation service")
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            e3.preventDefault(), selectService(e3.target.value);
+          },
+          children: translationServiceItems.map((item) => /* @__PURE__ */ p5(
+            "option",
+            {
               value: item.id,
               selected: item.id === config.translationService,
               children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
-            }))
-          })
-        ]
-      }),
-      curentTranslationServiceItem && curentTranslationServiceItem.docUrl ? /* @__PURE__ */ p5("div", {
-        children: [
-          /* @__PURE__ */ p5("a", {
-            target: "_blank",
-            class: "pb-1 docUrl",
-            href: curentTranslationServiceItem.homepage,
-            children: t5(`translationServices.${curentTranslationServiceItem.id}`)
-          }),
-          "\xA0",
-          /* @__PURE__ */ p5("span", {
-            class: "description pb-1",
-            children: t5("please refer to")
-          }),
-          "\xA0",
-          /* @__PURE__ */ p5("a", {
-            target: "_blank",
-            class: "pb-1 docUrl",
-            href: curentTranslationServiceItem.docUrl,
-            children: t5("KeyAndConfigurationTutorial")
-          })
-        ]
-      }) : null,
-      currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => /* @__PURE__ */ p5(OptionField, {
+            }
+          ))
+        }
+      )
+    ] }),
+    curentTranslationServiceItem && curentTranslationServiceItem.docUrl ? /* @__PURE__ */ p5("div", { children: [
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          target: "_blank",
+          class: "pb-1 docUrl",
+          href: curentTranslationServiceItem.homepage,
+          children: t5(`translationServices.${curentTranslationServiceItem.id}`)
+        }
+      ),
+      "\xA0",
+      /* @__PURE__ */ p5("span", { class: "description pb-1", children: t5("please refer to") }),
+      "\xA0",
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          target: "_blank",
+          class: "pb-1 docUrl",
+          href: curentTranslationServiceItem.docUrl,
+          children: t5("KeyAndConfigurationTutorial")
+        }
+      )
+    ] }) : null,
+    currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => /* @__PURE__ */ p5(
+      OptionField,
+      {
         field: prop,
         value: currentTranslationServiceConfig[prop.name],
         onChange: (value) => {
@@ -16025,165 +15798,171 @@ function General() {
             };
           });
         }
-      })),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("always languages"),
-            description: t5(
-              "always translate the following languages"
-            )
-          }),
-          /* @__PURE__ */ p5(AlwaysLang, {
-            options: alwaysTranslatedLangs,
-            onToggleAlwaysLangs
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "langs-list",
-        children: langsArr.map((item, i2) => /* @__PURE__ */ p5("div", {
-          class: "lang-card",
-          children: [
-            /* @__PURE__ */ p5("div", {
-              id: `${item}`,
-              children: getLanguageName(
-                item,
-                config.interfaceLanguage
-              )
-            }),
-            /* @__PURE__ */ p5("a", {
-              href: "#close",
-              class: "close",
-              target: "_blank",
-              "aria-label": "Close",
-              "data-target": `${item}`,
-              onClick: (e3) => {
-                e3.preventDefault(), onToggleAlwaysLangs(!1, langsArr[i2]);
-              }
-            })
-          ]
-        }))
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("neverTranslateLanguagesLabel"),
-            description: t5(
-              "neverTranslateTheFollowingLanguagesDescription"
-            )
-          }),
-          /* @__PURE__ */ p5(AlwaysLang, {
-            options: neverTranslatedLangs,
-            onToggleAlwaysLangs: onToggleNeverLangs
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "langs-list",
-        children: neverLangArr.map((item, i2) => /* @__PURE__ */ p5("div", {
-          class: "lang-card",
-          children: [
-            /* @__PURE__ */ p5("div", {
-              id: `${item}`,
-              children: getLanguageName(
-                item,
-                config.interfaceLanguage
-              )
-            }),
-            /* @__PURE__ */ p5("a", {
-              href: "#close",
-              class: "close",
-              target: "_blank",
-              "aria-label": "Close",
-              "data-target": `${item}`,
-              onClick: (e3) => {
-                e3.preventDefault(), onToggleNeverLangs(!1, neverLangArr[i2]);
-              }
-            })
-          ]
-        }))
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("always sites"),
-            description: t5(
-              "always translate the following sites"
-            )
-          }),
-          /* @__PURE__ */ p5("div", {
-            class: "nav-right",
-            children: /* @__PURE__ */ p5("a", {
-              href: "#",
-              role: "button",
-              class: "add-button secondary outline",
-              onClick: (e3) => {
-                e3.preventDefault(), toggleAddUrlModal("matches");
-              },
-              children: t5("add")
-            })
-          }),
-          isShowAddUrlModal ? /* @__PURE__ */ p5(AddUrlModal, {
-            toggleModal: (e3) => {
-              e3.preventDefault(), toggleAddUrlModal("matches");
-            },
-            onSubmitAddUrl,
-            type: "matches",
-            urlValue,
-            index: matchesIndex
-          }) : null
-        ]
-      }),
-      /* @__PURE__ */ p5(UrlList, {
+      }
+    )),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("always languages"),
+          description: t5(
+            "always translate the following languages"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        AlwaysLang,
+        {
+          options: alwaysTranslatedLangs,
+          onToggleAlwaysLangs
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "langs-list", children: langsArr.map((item, i2) => /* @__PURE__ */ p5("div", { class: "lang-card", children: [
+      /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
+        item,
+        config.interfaceLanguage
+      ) }),
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#close",
+          class: "close",
+          target: "_blank",
+          "aria-label": "Close",
+          "data-target": `${item}`,
+          onClick: (e3) => {
+            e3.preventDefault(), onToggleAlwaysLangs(!1, langsArr[i2]);
+          }
+        }
+      )
+    ] })) }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("neverTranslateLanguagesLabel"),
+          description: t5(
+            "neverTranslateTheFollowingLanguagesDescription"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        AlwaysLang,
+        {
+          options: neverTranslatedLangs,
+          onToggleAlwaysLangs: onToggleNeverLangs
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "langs-list", children: neverLangArr.map((item, i2) => /* @__PURE__ */ p5("div", { class: "lang-card", children: [
+      /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
+        item,
+        config.interfaceLanguage
+      ) }),
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#close",
+          class: "close",
+          target: "_blank",
+          "aria-label": "Close",
+          "data-target": `${item}`,
+          onClick: (e3) => {
+            e3.preventDefault(), onToggleNeverLangs(!1, neverLangArr[i2]);
+          }
+        }
+      )
+    ] })) }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("always sites"),
+          description: t5(
+            "always translate the following sites"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5("div", { class: "nav-right", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          role: "button",
+          class: "add-button secondary outline",
+          onClick: (e3) => {
+            e3.preventDefault(), toggleAddUrlModal("matches");
+          },
+          children: t5("add")
+        }
+      ) }),
+      isShowAddUrlModal ? /* @__PURE__ */ p5(
+        AddUrlModal,
+        {
+          toggleModal: (e3) => {
+            e3.preventDefault(), toggleAddUrlModal("matches");
+          },
+          onSubmitAddUrl,
+          type: "matches",
+          urlValue,
+          index: matchesIndex
+        }
+      ) : null
+    ] }),
+    /* @__PURE__ */ p5(
+      UrlList,
+      {
         urls: config.translationUrlPattern.matches,
         type: "matches",
         onDeleteUrl,
         onEditUrl
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("never sites"),
-            description: t5(
-              "never translate the following sites"
-            )
-          }),
-          /* @__PURE__ */ p5("div", {
-            class: "nav-right",
-            children: /* @__PURE__ */ p5("a", {
-              href: "#",
-              role: "button",
-              class: "add-button secondary outline",
-              onClick: (e3) => {
-                e3.preventDefault(), toggleAddUrlModal("excludeMatches");
-              },
-              children: t5("add")
-            })
-          }),
-          isShowNeverUrlModal ? /* @__PURE__ */ p5(AddUrlModal, {
-            toggleModal: (e3) => {
-              e3.preventDefault(), toggleAddUrlModal("excludeMatches");
-            },
-            onSubmitAddUrl,
-            type: "excludeMatches",
-            urlValue,
-            index: matchesIndex
-          }) : null
-        ]
-      }),
-      /* @__PURE__ */ p5(UrlList, {
+      }
+    ),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("never sites"),
+          description: t5(
+            "never translate the following sites"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5("div", { class: "nav-right", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          role: "button",
+          class: "add-button secondary outline",
+          onClick: (e3) => {
+            e3.preventDefault(), toggleAddUrlModal("excludeMatches");
+          },
+          children: t5("add")
+        }
+      ) }),
+      isShowNeverUrlModal ? /* @__PURE__ */ p5(
+        AddUrlModal,
+        {
+          toggleModal: (e3) => {
+            e3.preventDefault(), toggleAddUrlModal("excludeMatches");
+          },
+          onSubmitAddUrl,
+          type: "excludeMatches",
+          urlValue,
+          index: matchesIndex
+        }
+      ) : null
+    ] }),
+    /* @__PURE__ */ p5(
+      UrlList,
+      {
         urls: config.translationUrlPattern.excludeMatches,
         type: "excludeMatches",
         onDeleteUrl,
         onEditUrl
-      })
-    ]
-  });
+      }
+    )
+  ] });
 }
 
 // components/shortcuts.tsx
@@ -16202,171 +15981,157 @@ function ShortcutsModal(props) {
     e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
   };
   return j2(() => {
-  }, []), /* @__PURE__ */ p5("dialog", {
-    id: "immersive-translate-overlay",
-    onClick: handleClickOverlay,
-    open: !0,
-    children: /* @__PURE__ */ p5("article", {
-      class: "add-modal",
-      children: [
-        /* @__PURE__ */ p5("a", {
-          href: "#close",
-          "aria-label": "Close",
-          class: "close",
+  }, []), /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
+    /* @__PURE__ */ p5(
+      "a",
+      {
+        href: "#close",
+        "aria-label": "Close",
+        class: "close",
+        "data-target": "modal-example",
+        onClick: (e3) => {
+          e3.preventDefault(), onClose();
+        }
+      }
+    ),
+    shortcuts.map((item, index) => {
+      let { name, description, shortcut } = item;
+      return /* @__PURE__ */ p5("div", { class: "flex justify-between items-center", children: [
+        /* @__PURE__ */ p5("label", { class: "mb-2 text-sm", for: name, children: [
+          description,
+          ":"
+        ] }),
+        /* @__PURE__ */ p5(
+          "input",
+          {
+            type: "text",
+            class: "!w-36",
+            ref: inputRefs[name],
+            disabled: item.disabled,
+            id: name,
+            name,
+            value: shortcut
+          }
+        )
+      ] }, `key-${index}`);
+    }),
+    isTouchDevice() && /* @__PURE__ */ p5("div", { class: "flex justify-between items-center", children: [
+      /* @__PURE__ */ p5("label", { for: "switch", class: "text-sm mb-2", children: t5("toggleTranslatePageWhenThreeFingersOnTheScreen") }),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select !w-36",
+          ref: toggleTranslatePageWhenThreeFingersOnTheScreenRef,
+          onChange: (e3) => {
+            e3.preventDefault();
+            let value = e3.target.value, finalValue = {
+              fingerCountToToggleTranslagePageWhenTouching: parseInt(
+                value
+              )
+            };
+            onChange(finalValue);
+          },
+          children: [
+            0,
+            2,
+            3,
+            4,
+            5
+          ].map((item) => /* @__PURE__ */ p5(
+            "option",
+            {
+              value: item,
+              selected: item === fingerCountToToggleTranslagePageWhenTouching,
+              children: `${t5("fingers." + item)}`
+            }
+          ))
+        }
+      )
+    ] }),
+    isTouchDevice() && /* @__PURE__ */ p5("div", { class: "mt-2 flex justify-between items-center", children: [
+      /* @__PURE__ */ p5("label", { for: "switch", class: "text-sm mb-2", children: t5("toggleTranslationMaskWhenThreeFingersOnTheScreen") }),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select !w-36",
+          onChange: (e3) => {
+            e3.preventDefault();
+            let value = e3.target.value, finalValue = {
+              fingerCountToToggleTranslationMaskWhenTouching: parseInt(
+                value
+              )
+            };
+            onChange(finalValue);
+          },
+          children: [
+            0,
+            2,
+            3,
+            4,
+            5
+          ].map((item) => /* @__PURE__ */ p5(
+            "option",
+            {
+              value: item,
+              selected: item === fingerCountToToggleTranslationMaskWhenTouching,
+              children: `${t5("fingers." + item)}`
+            }
+          ))
+        }
+      )
+    ] }),
+    props.note && /* @__PURE__ */ p5(props.note, {}),
+    /* @__PURE__ */ p5("div", { class: "flex", children: [
+      /* @__PURE__ */ p5("div", { class: "footer-button", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#cancel",
+          role: "button",
+          class: "full-button secondary margin-right",
           "data-target": "modal-example",
           onClick: (e3) => {
             e3.preventDefault(), onClose();
-          }
-        }),
-        shortcuts.map((item, index) => {
-          let { name, description, shortcut } = item;
-          return /* @__PURE__ */ p5("div", {
-            class: "flex justify-between items-center",
-            children: [
-              /* @__PURE__ */ p5("label", {
-                class: "mb-2 text-sm",
-                for: name,
-                children: [
-                  description,
-                  ":"
-                ]
-              }),
-              /* @__PURE__ */ p5("input", {
-                type: "text",
-                class: "!w-36",
-                ref: inputRefs[name],
-                disabled: item.disabled,
-                id: name,
-                name,
-                value: shortcut
-              })
-            ]
-          }, `key-${index}`);
-        }),
-        isTouchDevice() && /* @__PURE__ */ p5("div", {
-          class: "flex justify-between items-center",
-          children: [
-            /* @__PURE__ */ p5("label", {
-              for: "switch",
-              class: "text-sm mb-2",
-              children: t5("toggleTranslatePageWhenThreeFingersOnTheScreen")
-            }),
-            /* @__PURE__ */ p5("select", {
-              class: "select !w-36",
-              ref: toggleTranslatePageWhenThreeFingersOnTheScreenRef,
-              onChange: (e3) => {
-                e3.preventDefault();
-                let value = e3.target.value, finalValue = {
-                  fingerCountToToggleTranslagePageWhenTouching: parseInt(
-                    value
-                  )
-                };
-                onChange(finalValue);
-              },
-              children: [
-                0,
-                2,
-                3,
-                4,
-                5
-              ].map((item) => /* @__PURE__ */ p5("option", {
-                value: item,
-                selected: item === fingerCountToToggleTranslagePageWhenTouching,
-                children: `${t5("fingers." + item)}`
-              }))
-            })
-          ]
-        }),
-        isTouchDevice() && /* @__PURE__ */ p5("div", {
-          class: "mt-2 flex justify-between items-center",
-          children: [
-            /* @__PURE__ */ p5("label", {
-              for: "switch",
-              class: "text-sm mb-2",
-              children: t5("toggleTranslationMaskWhenThreeFingersOnTheScreen")
-            }),
-            /* @__PURE__ */ p5("select", {
-              class: "select !w-36",
-              onChange: (e3) => {
-                e3.preventDefault();
-                let value = e3.target.value, finalValue = {
-                  fingerCountToToggleTranslationMaskWhenTouching: parseInt(
-                    value
-                  )
-                };
-                onChange(finalValue);
-              },
-              children: [
-                0,
-                2,
-                3,
-                4,
-                5
-              ].map((item) => /* @__PURE__ */ p5("option", {
-                value: item,
-                selected: item === fingerCountToToggleTranslationMaskWhenTouching,
-                children: `${t5("fingers." + item)}`
-              }))
-            })
-          ]
-        }),
-        props.note && /* @__PURE__ */ p5(props.note, {}),
-        /* @__PURE__ */ p5("div", {
-          class: "flex",
-          children: [
-            /* @__PURE__ */ p5("div", {
-              class: "footer-button",
-              children: /* @__PURE__ */ p5("a", {
-                href: "#cancel",
-                role: "button",
-                class: "full-button secondary margin-right",
-                "data-target": "modal-example",
-                onClick: (e3) => {
-                  e3.preventDefault(), onClose();
-                },
-                children: t5("cancel")
-              })
-            }),
-            corfirmText && /* @__PURE__ */ p5("div", {
-              class: "footer-button",
-              children: /* @__PURE__ */ p5("a", {
-                href: "#confirm",
-                role: "button",
-                class: "full-button margin-left",
-                "data-target": "modal-example",
-                onClick: (e3) => {
-                  if (e3.preventDefault(), !isMonkey()) {
-                    onChange(null);
-                    return;
-                  }
-                  let newShortcuts = [];
-                  for (let i2 = 0; i2 < shortcuts.length; i2++) {
-                    let item = shortcuts[i2], inputRef = inputRefs[item.name];
-                    if (inputRef.current) {
-                      let value = inputRef.current.value;
-                      newShortcuts.push({
-                        ...item,
-                        shortcut: value
-                      });
-                    }
-                  }
-                  let finalValue = {
-                    shortcuts: newShortcuts
-                  };
-                  if (toggleTranslatePageWhenThreeFingersOnTheScreenRef.current) {
-                    let value = toggleTranslatePageWhenThreeFingersOnTheScreenRef.current.value;
-                    finalValue.fingerCountToToggleTranslagePageWhenTouching = parseInt(value);
-                  }
-                  finalValue.isClose = !0, onChange(finalValue);
-                },
-                children: corfirmText
-              })
-            })
-          ]
-        })
-      ]
-    })
-  });
+          },
+          children: t5("cancel")
+        }
+      ) }),
+      corfirmText && /* @__PURE__ */ p5("div", { class: "footer-button", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#confirm",
+          role: "button",
+          class: "full-button margin-left",
+          "data-target": "modal-example",
+          onClick: (e3) => {
+            if (e3.preventDefault(), !isMonkey()) {
+              onChange(null);
+              return;
+            }
+            let newShortcuts = [];
+            for (let i2 = 0; i2 < shortcuts.length; i2++) {
+              let item = shortcuts[i2], inputRef = inputRefs[item.name];
+              if (inputRef.current) {
+                let value = inputRef.current.value;
+                newShortcuts.push({
+                  ...item,
+                  shortcut: value
+                });
+              }
+            }
+            let finalValue = {
+              shortcuts: newShortcuts
+            };
+            if (toggleTranslatePageWhenThreeFingersOnTheScreenRef.current) {
+              let value = toggleTranslatePageWhenThreeFingersOnTheScreenRef.current.value;
+              finalValue.fingerCountToToggleTranslagePageWhenTouching = parseInt(value);
+            }
+            finalValue.isClose = !0, onChange(finalValue);
+          },
+          children: corfirmText
+        }
+      ) })
+    ] })
+  ] }) });
 }
 
 // sync/google_drive_api.ts
@@ -16502,7 +16267,7 @@ async function autoSyncStrategy(accessToken, settings, handleChangeValue, handle
       fileId: latestFileId,
       config
     }))), latestRemoteConfigResult) {
-      let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : new Date(0);
+      let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : /* @__PURE__ */ new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : /* @__PURE__ */ new Date(0);
       if (log_default.debug(
         "remoteUpdatedAt",
         remoteUpdatedAt,
@@ -16518,14 +16283,14 @@ async function autoSyncStrategy(accessToken, settings, handleChangeValue, handle
         handleFail && handleFail(": unknown error");
         return;
       }
-      handleUpdateLocalConfigLastSyncedAt(new Date().toISOString());
+      handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString());
     } else if (latestRemoteConfigResult === null)
       if (settings) {
         if (!settings.updatedAt) {
-          let newDate = new Date().toISOString();
+          let newDate = (/* @__PURE__ */ new Date()).toISOString();
           handleUpdateSettingUpdateAt(newDate), settings.updatedAt = newDate;
         }
-        await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess(!0);
+        await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString()), handleSuccess && handleSuccess(!0);
       } else
         handleFail && handleFail(": Local Config is empty");
     else
@@ -16731,79 +16496,52 @@ function Options() {
     setIsShowAddUrlModal(!isShowAddUrlModal), setUrlValue(url), setMatchesIndex(index);
   };
   if (!ctx)
-    return /* @__PURE__ */ p5("div", {
-      children: "loading"
-    });
-  let config = ctx.config, corfirmText = t5("confirm"), note = () => /* @__PURE__ */ p5("blockquote", {
-    class: "text-sm",
-    children: [
-      t5("browserShortcutsSucks"),
-      " ",
-      /* @__PURE__ */ p5("kbd", {
-        children: "Ctrl+A"
-      }),
-      "\xA0",
-      /* @__PURE__ */ p5("kbd", {
-        children: "Alt+B"
-      }),
-      "\xA0",
-      /* @__PURE__ */ p5("kbd", {
-        children: "Command+C"
-      }),
-      "\xA0 ",
-      /* @__PURE__ */ p5("kbd", {
-        children: "Ctrl+Shift+D"
-      }),
-      " ",
-      /* @__PURE__ */ p5("a", {
-        href: "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values",
-        children: [
-          t5("help"),
-          "?"
-        ]
-      })
-    ]
-  });
-  return isMonkey() || (isFirefox() ? (note = () => /* @__PURE__ */ p5("blockquote", {
-    class: "text-sm",
-    children: [
-      t5("browserShortcutsNoteForFirefox"),
-      "  ",
-      /* @__PURE__ */ p5("a", {
-        href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F",
-        children: [
-          t5("help"),
-          "?"
-        ]
-      }),
-      " "
-    ]
-  }), corfirmText = "") : (note = () => /* @__PURE__ */ p5("blockquote", {
-    class: "text-sm",
-    children: t5("browserShortcutsNoteForChrome")
-  }), corfirmText = t5("goSettings"))), /* @__PURE__ */ p5("div", {
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: /* @__PURE__ */ p5("strong", {
-          class: "text-lg",
-          children: t5("interface")
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("interface language")
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              setLang(e3.target.value), selectInterfaceLanguage(e3.target.value), isMonkey() || setTimeout(() => {
-                updateContextMenu();
-              }, 200);
-            },
-            children: allLocales.map((item) => /* @__PURE__ */ p5("option", {
+    return /* @__PURE__ */ p5("div", { children: "loading" });
+  let config = ctx.config, corfirmText = t5("confirm"), note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
+    t5("browserShortcutsSucks"),
+    " ",
+    /* @__PURE__ */ p5("kbd", { children: "Ctrl+A" }),
+    "\xA0",
+    /* @__PURE__ */ p5("kbd", { children: "Alt+B" }),
+    "\xA0",
+    /* @__PURE__ */ p5("kbd", { children: "Command+C" }),
+    "\xA0 ",
+    /* @__PURE__ */ p5("kbd", { children: "Ctrl+Shift+D" }),
+    " ",
+    /* @__PURE__ */ p5("a", { href: "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values", children: [
+      t5("help"),
+      "?"
+    ] })
+  ] });
+  return isMonkey() || (isFirefox() ? (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
+    t5("browserShortcutsNoteForFirefox"),
+    "  ",
+    /* @__PURE__ */ p5("a", { href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F", children: [
+      t5("help"),
+      "?"
+    ] }),
+    " "
+  ] }), corfirmText = "") : (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: t5("browserShortcutsNoteForChrome") }), corfirmText = t5("goSettings"))), /* @__PURE__ */ p5("div", { children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("interface") }) }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("interface language")
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            setLang(e3.target.value), selectInterfaceLanguage(e3.target.value), isMonkey() || setTimeout(() => {
+              updateContextMenu();
+            }, 200);
+          },
+          children: allLocales.map((item) => /* @__PURE__ */ p5(
+            "option",
+            {
               value: item,
               selected: item === config.interfaceLanguage,
               children: getLanguageName(
@@ -16811,203 +16549,214 @@ function Options() {
                 config.interfaceLanguage,
                 !0
               )
-            }))
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("keyboard shortcuts")
-          }),
-          /* @__PURE__ */ p5("div", {
-            class: "nav-right",
-            children: /* @__PURE__ */ p5("a", {
-              href: "#",
-              role: "button",
-              class: "add-button secondary outline",
-              onClick: (e3) => {
-                e3.preventDefault(), setIsShowShortcutsModal(!isShowShortcutsModal);
-              },
-              children: t5("modify")
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("enableLineBreak"),
-            description: t5("enableLineBreakDescription")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              onChange: (e3) => {
-                let checked = e3.target.checked;
-                setSettings((state) => {
-                  let currentGeneralRule = state.generalRule || {};
-                  return {
-                    ...state,
-                    generalRule: {
-                      ...currentGeneralRule,
-                      lineBreakMaxTextCount: checked ? 280 : 0
-                    }
-                  };
-                });
-              },
-              checked: ctx.rule.lineBreakMaxTextCount > 0,
-              id: "switch",
-              name: "switch",
-              role: "switch"
-            })
-          })
-        ]
-      }),
-      ctx.rule.lineBreakMaxTextCount > 0 && /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("lineBreakMaxTextCount")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "count",
-            children: /* @__PURE__ */ p5("input", {
-              type: "number",
-              id: "count",
-              onChange: (e3) => {
-                let count2 = e3.target.value;
-                setSettings((state) => {
-                  let currentGeneralRule = state.generalRule || {};
-                  return {
-                    ...state,
-                    generalRule: {
-                      ...currentGeneralRule,
-                      lineBreakMaxTextCount: parseInt(count2)
-                    }
-                  };
-                });
-              },
-              name: "count",
-              value: ctx.rule.lineBreakMaxTextCount,
-              placeholder: "Text Length",
-              required: !0
-            })
-          })
-        ]
-      }),
-      (isMobile().any || isMonkey()) && /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("enableUserscriptPagePopup"),
-            description: t5("enableUserscriptPagePopupDescription", {
-              touch: t5(
-                "fingers." + config.generalRule.fingerCountToToggleTranslagePageWhenTouching
-              )
-            })
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              onChange: (e3) => {
-                let checked = e3.target.checked;
-                setSettings((state) => {
-                  let currentGeneralRule = state.generalRule || {};
-                  return {
-                    ...state,
-                    generalRule: {
-                      ...currentGeneralRule,
-                      isShowUserscriptPagePopup: checked
-                    }
-                  };
-                });
-              },
-              checked: ctx.rule.isShowUserscriptPagePopup,
-              id: "switch",
-              name: "switch",
-              role: "switch"
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("translation display"),
-            description: t5(
-              "select diplay style"
+            }
+          ))
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("keyboard shortcuts")
+        }
+      ),
+      /* @__PURE__ */ p5("div", { class: "nav-right", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          role: "button",
+          class: "add-button secondary outline",
+          onClick: (e3) => {
+            e3.preventDefault(), setIsShowShortcutsModal(!isShowShortcutsModal);
+          },
+          children: t5("modify")
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("enableLineBreak"),
+          description: t5("enableLineBreakDescription")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "switch", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            setSettings((state) => {
+              let currentGeneralRule = state.generalRule || {};
+              return {
+                ...state,
+                generalRule: {
+                  ...currentGeneralRule,
+                  lineBreakMaxTextCount: checked ? 280 : 0
+                }
+              };
+            });
+          },
+          checked: ctx.rule.lineBreakMaxTextCount > 0,
+          id: "switch",
+          name: "switch",
+          role: "switch"
+        }
+      ) })
+    ] }),
+    ctx.rule.lineBreakMaxTextCount > 0 && /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("lineBreakMaxTextCount")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "count", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "number",
+          id: "count",
+          onChange: (e3) => {
+            let count2 = e3.target.value;
+            setSettings((state) => {
+              let currentGeneralRule = state.generalRule || {};
+              return {
+                ...state,
+                generalRule: {
+                  ...currentGeneralRule,
+                  lineBreakMaxTextCount: parseInt(count2)
+                }
+              };
+            });
+          },
+          name: "count",
+          value: ctx.rule.lineBreakMaxTextCount,
+          placeholder: "Text Length",
+          required: !0
+        }
+      ) })
+    ] }),
+    // @ts-ignore it's ok
+    (isMobile().any || isMonkey()) && /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("enableUserscriptPagePopup"),
+          description: t5("enableUserscriptPagePopupDescription", {
+            touch: t5(
+              "fingers." + config.generalRule.fingerCountToToggleTranslagePageWhenTouching
             )
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              selectDisplay(e3.target.value);
-            },
-            children: translationThemes.map((item) => /* @__PURE__ */ p5("option", {
+          })
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "switch", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            setSettings((state) => {
+              let currentGeneralRule = state.generalRule || {};
+              return {
+                ...state,
+                generalRule: {
+                  ...currentGeneralRule,
+                  isShowUserscriptPagePopup: checked
+                }
+              };
+            });
+          },
+          checked: ctx.rule.isShowUserscriptPagePopup,
+          id: "switch",
+          name: "switch",
+          role: "switch"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("translation display"),
+          description: t5(
+            "select diplay style"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            selectDisplay(e3.target.value);
+          },
+          children: translationThemes.map((item) => /* @__PURE__ */ p5(
+            "option",
+            {
               value: item,
               selected: item === config.translationTheme,
               children: t5(`translationTheme.${item}`)
-            }))
+            }
+          ))
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "pt-2 text-sm", children: /* @__PURE__ */ p5("p", { children: [
+      sampleSourceText,
+      /* @__PURE__ */ p5("br", {}),
+      /* @__PURE__ */ p5("br", {}),
+      /* @__PURE__ */ p5(
+        "span",
+        {
+          class: getTranslationWrapperClassNames(
+            config.translationTheme,
+            !1,
+            [],
+            !1,
+            !1
+          ).join(
+            " "
+          ),
+          children: /* @__PURE__ */ p5(
+            "span",
+            {
+              class: getTranslationInnerClassNames(
+                config.translationTheme
+              ).join(" "),
+              children: sampleTargetText
+            }
+          )
+        }
+      )
+    ] }) }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: "",
+          description: t5("useAboveStyleForTheseSites", {
+            theme: t5(`translationTheme.${config.translationTheme}`)
           })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "pt-2 text-sm",
-        children: /* @__PURE__ */ p5("p", {
-          children: [
-            sampleSourceText,
-            /* @__PURE__ */ p5("br", {}),
-            /* @__PURE__ */ p5("br", {}),
-            /* @__PURE__ */ p5("span", {
-              class: getTranslationWrapperClassNames(
-                config.translationTheme,
-                !1,
-                [],
-                !1,
-                !1
-              ).join(
-                " "
-              ),
-              children: /* @__PURE__ */ p5("span", {
-                class: getTranslationInnerClassNames(
-                  config.translationTheme
-                ).join(" "),
-                children: sampleTargetText
-              })
-            })
-          ]
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: "",
-            description: t5("useAboveStyleForTheseSites", {
-              theme: t5(`translationTheme.${config.translationTheme}`)
-            })
-          }),
-          /* @__PURE__ */ p5("div", {
-            class: "nav-right",
-            children: /* @__PURE__ */ p5("a", {
-              href: "#",
-              role: "button",
-              class: "add-button secondary outline",
-              onClick: (e3) => {
-                e3.preventDefault(), setIsShowAddUrlModal(!isShowAddUrlModal);
-              },
-              children: t5("add")
-            })
-          })
-        ]
-      }),
-      isShowAddUrlModal ? /* @__PURE__ */ p5(AddUrlModal, {
+        }
+      ),
+      /* @__PURE__ */ p5("div", { class: "nav-right", children: /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          role: "button",
+          class: "add-button secondary outline",
+          onClick: (e3) => {
+            e3.preventDefault(), setIsShowAddUrlModal(!isShowAddUrlModal);
+          },
+          children: t5("add")
+        }
+      ) })
+    ] }),
+    isShowAddUrlModal ? /* @__PURE__ */ p5(
+      AddUrlModal,
+      {
         toggleModal: (e3) => {
           e3.preventDefault(), setIsShowAddUrlModal(!isShowAddUrlModal);
         },
@@ -17016,16 +16765,22 @@ function Options() {
         },
         urlValue,
         index: matchesIndex
-      }) : null,
-      /* @__PURE__ */ p5(UrlList, {
+      }
+    ) : null,
+    /* @__PURE__ */ p5(
+      UrlList,
+      {
         urls: getUrlArr(config),
         type: "matches",
         onDeleteUrl: (url) => {
           onDeleteUrl(url, config.translationTheme);
         },
         onEditUrl
-      }),
-      isShowShortcutsModal ? /* @__PURE__ */ p5(ShortcutsModal, {
+      }
+    ),
+    isShowShortcutsModal ? /* @__PURE__ */ p5(
+      ShortcutsModal,
+      {
         note,
         corfirmText,
         fingerCountToToggleTranslagePageWhenTouching: config.generalRule.fingerCountToToggleTranslagePageWhenTouching,
@@ -17079,9 +16834,9 @@ function Options() {
         onClose: () => {
           setIsShowShortcutsModal(!1);
         }
-      }) : null
-    ]
-  });
+      }
+    ) : null
+  ] });
 }
 
 // pages/developer.tsx
@@ -17153,195 +16908,135 @@ function Options2() {
   "selectors": [".text"],
   "excludeSelectors": ["footer"]
 }]`;
-  return config ? /* @__PURE__ */ p5("div", {
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: /* @__PURE__ */ p5("strong", {
-          class: "text-lg",
-          children: t5("developer")
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
+  return config ? /* @__PURE__ */ p5("div", { children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("developer") }) }),
+    /* @__PURE__ */ p5(
+      "div",
+      {
         dangerouslySetInnerHTML: {
           __html: t5("developerDescription", {
             1: "https://immersive-translate.owenyoung.com/advanced"
           })
         },
         class: "secondary text-xs text-gray-500 mb-4"
-      }),
-      /* @__PURE__ */ p5("fieldset", {
-        children: /* @__PURE__ */ p5("label", {
-          for: "switch",
-          children: [
-            /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              id: "cache",
-              name: "cache",
-              role: "switch",
-              onChange: () => {
-                handleToggleDebug(!config.debug);
-              },
-              checked: config.debug
-            }),
-            t5("toggleDebug")
-          ]
-        })
-      }),
-      /* @__PURE__ */ p5("fieldset", {
-        class: "mt-2",
-        children: [
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: [
-              /* @__PURE__ */ p5("input", {
-                type: "checkbox",
-                id: "beta",
-                name: "beta",
-                role: "switch",
-                onChange: () => {
-                  handleToggleBeta(!config.beta);
-                },
-                checked: !!config.beta
-              }),
-              t5("toggleBeta")
-            ]
-          }),
-          /* @__PURE__ */ p5("small", {
-            class: "text-gray-500",
-            dangerouslySetInnerHTML: {
-              __html: t5("betaDescription", {
-                1: telegramGroupLink
-              })
-            }
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "py-2",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: "Edit User Rules"
-          }),
-          /* @__PURE__ */ p5("textarea", {
-            rows: 10,
-            onChange: handleChangeRules,
-            placeholder: defaultUserRulePlaceholder,
-            value: settings.rules ? JSON.stringify(settings.rules || [], null, 2) : ""
-          }),
-          /* @__PURE__ */ p5("div", {
-            children: [
-              /* @__PURE__ */ p5("a", {
-                href: "#",
-                class: "mr-3 !py-2",
-                onClick: handleSave,
-                role: "button",
-                children: t5("save")
-              }),
-              /* @__PURE__ */ p5("a", {
-                class: "secondary text-sm mr-3",
-                href: "https://immersive-translate.owenyoung.com/advanced",
-                children: [
-                  t5("help"),
-                  "?"
-                ]
-              }),
-              /* @__PURE__ */ p5("a", {
-                href: "#",
-                onClick: handleResetRules,
-                class: "text-sm secondary mr-2",
-                children: t5("reset")
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "py-2",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: "Edit User Config"
-          }),
-          /* @__PURE__ */ p5("textarea", {
-            rows: 10,
-            onChange: handleChange,
-            value: JSON.stringify(settings, null, 2)
-          }),
-          /* @__PURE__ */ p5("div", {
-            children: [
-              /* @__PURE__ */ p5("a", {
-                href: "#",
-                class: "mr-3 !py-2",
-                onClick: handleSave,
-                role: "button",
-                children: t5("save")
-              }),
-              /* @__PURE__ */ p5("a", {
-                class: "secondary text-sm mr-3",
-                href: "https://immersive-translate.owenyoung.com/advanced",
-                children: [
-                  t5("help"),
-                  "?"
-                ]
-              }),
-              /* @__PURE__ */ p5("a", {
-                href: "#",
-                onClick: handleReset,
-                class: "text-sm secondary mr-2",
-                children: t5("reset")
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "py-2",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: "Click to expand the final config"
-          }),
-          /* @__PURE__ */ p5("pre", {
-            children: /* @__PURE__ */ p5("code", {
-              children: JSON.stringify(config, null, 2)
+      }
+    ),
+    /* @__PURE__ */ p5("fieldset", { children: /* @__PURE__ */ p5("label", { for: "switch", children: [
+      /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          id: "cache",
+          name: "cache",
+          role: "switch",
+          onChange: () => {
+            handleToggleDebug(!config.debug);
+          },
+          checked: config.debug
+        }
+      ),
+      t5("toggleDebug")
+    ] }) }),
+    /* @__PURE__ */ p5("fieldset", { class: "mt-2", children: [
+      /* @__PURE__ */ p5("label", { for: "switch", children: [
+        /* @__PURE__ */ p5(
+          "input",
+          {
+            type: "checkbox",
+            id: "beta",
+            name: "beta",
+            role: "switch",
+            onChange: () => {
+              handleToggleBeta(!config.beta);
+            },
+            checked: !!config.beta
+          }
+        ),
+        t5("toggleBeta")
+      ] }),
+      /* @__PURE__ */ p5(
+        "small",
+        {
+          class: "text-gray-500",
+          dangerouslySetInnerHTML: {
+            __html: t5("betaDescription", {
+              1: telegramGroupLink
             })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "py-2",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: "Click to expand the sync storage object"
-          }),
-          /* @__PURE__ */ p5("pre", {
-            children: /* @__PURE__ */ p5("code", {
-              children: JSON.stringify(allStorageObjects, null, 2)
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "py-2",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: "Click to expand the local storage object"
-          }),
-          /* @__PURE__ */ p5("pre", {
-            children: /* @__PURE__ */ p5("code", {
-              children: JSON.stringify(allLocalStorageObjects, null, 2)
-            })
-          })
-        ]
-      })
-    ]
-  }) : /* @__PURE__ */ p5("div", {
-    children: "loading"
-  });
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Edit User Rules" }),
+      /* @__PURE__ */ p5(
+        "textarea",
+        {
+          rows: 10,
+          onChange: handleChangeRules,
+          placeholder: defaultUserRulePlaceholder,
+          value: settings.rules ? JSON.stringify(settings.rules || [], null, 2) : ""
+        }
+      ),
+      /* @__PURE__ */ p5("div", { children: [
+        /* @__PURE__ */ p5("a", { href: "#", class: "mr-3 !py-2", onClick: handleSave, role: "button", children: t5("save") }),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "secondary text-sm mr-3",
+            href: "https://immersive-translate.owenyoung.com/advanced",
+            children: [
+              t5("help"),
+              "?"
+            ]
+          }
+        ),
+        /* @__PURE__ */ p5("a", { href: "#", onClick: handleResetRules, class: "text-sm secondary mr-2", children: t5("reset") })
+      ] })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Edit User Config" }),
+      /* @__PURE__ */ p5(
+        "textarea",
+        {
+          rows: 10,
+          onChange: handleChange,
+          value: JSON.stringify(settings, null, 2)
+        }
+      ),
+      /* @__PURE__ */ p5("div", { children: [
+        /* @__PURE__ */ p5("a", { href: "#", class: "mr-3 !py-2", onClick: handleSave, role: "button", children: t5("save") }),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "secondary text-sm mr-3",
+            href: "https://immersive-translate.owenyoung.com/advanced",
+            children: [
+              t5("help"),
+              "?"
+            ]
+          }
+        ),
+        /* @__PURE__ */ p5("a", { href: "#", onClick: handleReset, class: "text-sm secondary mr-2", children: t5("reset") })
+      ] })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Click to expand the final config" }),
+      /* @__PURE__ */ p5("pre", { children: /* @__PURE__ */ p5("code", { children: JSON.stringify(config, null, 2) }) })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Click to expand the sync storage object" }),
+      /* @__PURE__ */ p5("pre", { children: /* @__PURE__ */ p5("code", { children: JSON.stringify(allStorageObjects, null, 2) }) })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Click to expand the local storage object" }),
+      /* @__PURE__ */ p5("pre", { children: /* @__PURE__ */ p5("code", { children: JSON.stringify(allLocalStorageObjects, null, 2) }) })
+    ] })
+  ] }) : /* @__PURE__ */ p5("div", { children: "loading" });
 }
 
 // utils/date.ts
 function formatFileNameDate() {
-  let now = new Date();
+  let now = /* @__PURE__ */ new Date();
   return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}_${now.getHours()}-${now.getMinutes()}-${now.getSeconds()}`;
 }
 
@@ -17353,13 +17048,16 @@ function DeleteButton(prop) {
       console.error(error2), error(t5("delete"));
     }).then(() => listAllFiles()).finally(() => setDeleteLoading(!1));
   }
-  return /* @__PURE__ */ p5("a", {
-    href: "#",
-    className: "secondary margin-left text-sm",
-    onClick: (e3) => deleteConfig(e3, id),
-    "aria-busy": deleteLoading,
-    children: t5("delete")
-  });
+  return /* @__PURE__ */ p5(
+    "a",
+    {
+      href: "#",
+      className: "secondary margin-left text-sm",
+      onClick: (e3) => deleteConfig(e3, id),
+      "aria-busy": deleteLoading,
+      children: t5("delete")
+    }
+  );
 }
 function ConfigSyncModal(prop) {
   let {
@@ -17415,102 +17113,91 @@ function ConfigSyncModal(prop) {
       autoSync: !1
     }), GoogleAuth.revoke(accessToken).then(() => onClose());
   }
-  return /* @__PURE__ */ p5("dialog", {
-    id: "immersive-translate-overlay",
-    onClick: handleClickOverlay,
-    open: !0,
-    children: /* @__PURE__ */ p5("article", {
-      class: "md:w-[32rem] px-4",
-      children: [
-        /* @__PURE__ */ p5("a", {
-          href: "#",
-          title: t5("clickToDownload"),
-          "aria-label": "Close",
-          className: "close",
-          "data-target": "modal-example",
-          onClick: (e3) => {
-            e3.preventDefault(), onClose();
+  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: !0, children: /* @__PURE__ */ p5("article", { class: "md:w-[32rem] px-4", children: [
+    /* @__PURE__ */ p5(
+      "a",
+      {
+        href: "#",
+        title: t5("clickToDownload"),
+        "aria-label": "Close",
+        className: "close",
+        "data-target": "modal-example",
+        onClick: (e3) => {
+          e3.preventDefault(), onClose();
+        }
+      }
+    ),
+    /* @__PURE__ */ p5("h4", { children: t5("syncTitle") }),
+    /* @__PURE__ */ p5("div", { className: "mb-4", children: files.map((file, index) => /* @__PURE__ */ p5("div", { class: "flex flex-wrap justify-between", children: [
+      /* @__PURE__ */ p5("div", { class: "mr-2 mb-2", children: [
+        /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+          "a",
+          {
+            href: "#",
+            onClick: (e3) => {
+              e3.preventDefault(), downloadConfig(file.id, file.name);
+            },
+            children: file.name.replace("immersive-translate-", "")
           }
-        }),
-        /* @__PURE__ */ p5("h4", {
-          children: t5("syncTitle")
-        }),
-        /* @__PURE__ */ p5("div", {
-          className: "mb-4",
-          children: files.map((file, index) => /* @__PURE__ */ p5("div", {
-            class: "flex flex-wrap justify-between",
-            children: [
-              /* @__PURE__ */ p5("div", {
-                class: "mr-2 mb-2",
-                children: [
-                  /* @__PURE__ */ p5("div", {
-                    children: /* @__PURE__ */ p5("a", {
-                      href: "#",
-                      onClick: (e3) => {
-                        e3.preventDefault(), downloadConfig(file.id, file.name);
-                      },
-                      children: file.name.replace("immersive-translate-", "")
-                    })
-                  }),
-                  /* @__PURE__ */ p5("div", {
-                    class: "text-xs text-gray-500",
-                    children: [
-                      new Date(file.modifiedTime).toLocaleString(),
-                      ",\xA0",
-                      humanReadableSize(
-                        parseInt(file.size)
-                      )
-                    ]
-                  })
-                ]
-              }),
-              /* @__PURE__ */ p5("div", {
-                children: [
-                  /* @__PURE__ */ p5("a", {
-                    href: "#",
-                    role: "button",
-                    className: "margin-right secondary",
-                    "aria-busy": importLoadings[index],
-                    disabled: importLoadings[index],
-                    onClick: (e3) => importConfig(e3, file.id, index),
-                    children: t5("import_hint")
-                  }),
-                  /* @__PURE__ */ p5(DeleteButton, {
-                    accessToken,
-                    id: file.id,
-                    listAllFiles
-                  })
-                ]
-              })
-            ]
-          }))
-        }),
-        /* @__PURE__ */ p5("div", {
-          className: "flex items-center",
-          children: [
-            /* @__PURE__ */ p5("a", {
-              href: "#",
-              role: "button",
-              className: "mr-4",
-              "data-target": "modal-example",
-              "aria-busy": exportLoading,
-              onClick: exportConfig,
-              disabled: firstLoad,
-              children: t5("create_new_backup")
-            }),
-            /* @__PURE__ */ p5("a", {
-              href: "#",
-              className: "secondary text-sm",
-              "data-target": "modal-example",
-              onClick: revoke,
-              disabled: firstLoad,
-              children: t5("revokeAuth")
-            })
-          ]
-        })
-      ]
-    })
-  });
+        ) }),
+        /* @__PURE__ */ p5("div", { class: "text-xs text-gray-500", children: [
+          new Date(file.modifiedTime).toLocaleString(),
+          ",\xA0",
+          humanReadableSize(
+            parseInt(file.size)
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ p5("div", { children: [
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            href: "#",
+            role: "button",
+            className: "margin-right secondary",
+            "aria-busy": importLoadings[index],
+            disabled: importLoadings[index],
+            onClick: (e3) => importConfig(e3, file.id, index),
+            children: t5("import_hint")
+          }
+        ),
+        /* @__PURE__ */ p5(
+          DeleteButton,
+          {
+            accessToken,
+            id: file.id,
+            listAllFiles
+          }
+        )
+      ] })
+    ] })) }),
+    /* @__PURE__ */ p5("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          role: "button",
+          className: "mr-4",
+          "data-target": "modal-example",
+          "aria-busy": exportLoading,
+          onClick: exportConfig,
+          disabled: firstLoad,
+          children: t5("create_new_backup")
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          className: "secondary text-sm",
+          "data-target": "modal-example",
+          onClick: revoke,
+          disabled: firstLoad,
+          children: t5("revokeAuth")
+        }
+      )
+    ] })
+  ] }) });
 }
 
 // pages/import_export.tsx
@@ -17634,154 +17321,130 @@ function ImportExport() {
       autoSync: e3.checked
     }), e3.checked && handlerDriveAuth();
   }
-  return config ? /* @__PURE__ */ p5("div", {
-    class: "pb-4",
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: /* @__PURE__ */ p5("strong", {
-          class: "text-lg",
-          children: t5("import_export_title")
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "pb-2",
-        children: [
-          /* @__PURE__ */ p5("a", {
-            class: "mr-2 secondary mb-2 !text-sm",
-            onClick: handleImportFile,
-            href: "#",
-            role: "button",
-            children: [
-              /* @__PURE__ */ p5("svg", {
+  return config ? /* @__PURE__ */ p5("div", { class: "pb-4", children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("import_export_title") }) }),
+    /* @__PURE__ */ p5("div", { class: "pb-2", children: [
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "mr-2 secondary mb-2 !text-sm",
+          onClick: handleImportFile,
+          href: "#",
+          role: "button",
+          children: [
+            /* @__PURE__ */ p5(
+              "svg",
+              {
                 class: "inline mr-1",
                 xmlns: "http://www.w3.org/2000/svg",
                 viewBox: "0 0 24 24",
                 width: "18",
                 height: "18",
                 children: [
-                  /* @__PURE__ */ p5("path", {
-                    fill: "none",
-                    d: "M0 0h24v24H0z"
-                  }),
-                  /* @__PURE__ */ p5("path", {
-                    d: "M3 19h18v2H3v-2zm10-5.828L19.071 7.1l1.414 1.414L12 17 3.515 8.515 4.929 7.1 11 13.17V2h2v11.172z"
-                  })
+                  /* @__PURE__ */ p5("path", { fill: "none", d: "M0 0h24v24H0z" }),
+                  /* @__PURE__ */ p5("path", { d: "M3 19h18v2H3v-2zm10-5.828L19.071 7.1l1.414 1.414L12 17 3.515 8.515 4.929 7.1 11 13.17V2h2v11.172z" })
                 ]
-              }),
-              t5("import")
-            ]
-          }),
-          /* @__PURE__ */ p5("a", {
-            href: "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(settings, null, 2)),
-            download: "immersive-translate-config-" + formatFileNameDate() + ".txt",
-            class: "secondary mr-2  mb-2 !text-sm",
-            role: "button",
-            children: [
-              /* @__PURE__ */ p5("svg", {
+              }
+            ),
+            t5("import")
+          ]
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(settings, null, 2)),
+          download: "immersive-translate-config-" + formatFileNameDate() + ".txt",
+          class: "secondary mr-2  mb-2 !text-sm",
+          role: "button",
+          children: [
+            /* @__PURE__ */ p5(
+              "svg",
+              {
                 class: "inline mr-1",
                 xmlns: "http://www.w3.org/2000/svg",
                 viewBox: "0 0 24 24",
                 width: "18",
                 height: "18",
                 children: [
-                  /* @__PURE__ */ p5("path", {
-                    fill: "none",
-                    d: "M0 0h24v24H0z"
-                  }),
-                  /* @__PURE__ */ p5("path", {
-                    d: "M3 19h18v2H3v-2zM13 5.828V17h-2V5.828L4.929 11.9l-1.414-1.414L12 2l8.485 8.485-1.414 1.414L13 5.83z"
-                  })
+                  /* @__PURE__ */ p5("path", { fill: "none", d: "M0 0h24v24H0z" }),
+                  /* @__PURE__ */ p5("path", { d: "M3 19h18v2H3v-2zM13 5.828V17h-2V5.828L4.929 11.9l-1.414-1.414L12 2l8.485 8.485-1.414 1.414L13 5.83z" })
                 ]
-              }),
-              t5("export")
-            ]
-          }),
-          /* @__PURE__ */ p5("a", {
-            href: "#",
-            onClick: handleReset,
-            class: "secondary text-sm",
-            children: t5("reset")
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("details", {
-        class: "mt-4 mb-6",
-        children: [
-          /* @__PURE__ */ p5("summary", {
-            children: t5("clickToExpandConfig")
-          }),
-          /* @__PURE__ */ p5("pre", {
-            children: /* @__PURE__ */ p5("code", {
-              children: JSON.stringify(settings, null, 2)
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("hgroup", {
-        class: "my-2",
-        children: [
-          /* @__PURE__ */ p5("h5", {
-            children: t5("syncToCloud")
-          }),
-          /* @__PURE__ */ p5("h6", {
-            class: "!text-sm",
-            children: t5("syncToCloudDescription")
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        children: [
-          /* @__PURE__ */ p5("a", {
-            className: "mr-4 secondary  mb-2 !text-sm ",
-            onClick: (e3) => {
-              e3.preventDefault(), handlerDriveAuth();
-            },
-            "aria-busy": authLoading,
-            href: "#",
-            role: "button",
-            children: [
-              authLoading ? /* @__PURE__ */ p5(L, {}) : /* @__PURE__ */ p5("svg", {
+              }
+            ),
+            t5("export")
+          ]
+        }
+      ),
+      /* @__PURE__ */ p5("a", { href: "#", onClick: handleReset, class: "secondary text-sm", children: t5("reset") })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "mt-4 mb-6", children: [
+      /* @__PURE__ */ p5("summary", { children: t5("clickToExpandConfig") }),
+      /* @__PURE__ */ p5("pre", { children: /* @__PURE__ */ p5("code", { children: JSON.stringify(settings, null, 2) }) })
+    ] }),
+    /* @__PURE__ */ p5("hgroup", { class: "my-2", children: [
+      /* @__PURE__ */ p5("h5", { children: t5("syncToCloud") }),
+      /* @__PURE__ */ p5("h6", { class: "!text-sm", children: t5("syncToCloudDescription") })
+    ] }),
+    /* @__PURE__ */ p5("div", { children: [
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          className: "mr-4 secondary  mb-2 !text-sm ",
+          onClick: (e3) => {
+            e3.preventDefault(), handlerDriveAuth();
+          },
+          "aria-busy": authLoading,
+          href: "#",
+          role: "button",
+          children: [
+            authLoading ? /* @__PURE__ */ p5(L, {}) : /* @__PURE__ */ p5(
+              "svg",
+              {
                 class: "inline mr-1",
                 xmlns: "http://www.w3.org/2000/svg",
                 width: "18",
                 height: "18",
                 viewBox: "0 0 24 24",
-                children: /* @__PURE__ */ p5("path", {
-                  fill: "currentColor",
-                  d: "M15.375 19.25q-.525.25-.95-.038q-.425-.287-.425-.937q0-.25.163-.487q.162-.238.412-.363q1.575-.75 2.5-2.225T18 11.95q0-1.125-.425-2.188Q17.15 8.7 16.25 7.8L16 7.55V9q0 .425-.287.712Q15.425 10 15 10t-.712-.288Q14 9.425 14 9V5q0-.425.288-.713Q14.575 4 15 4h4q.425 0 .712.287Q20 4.575 20 5t-.288.713Q19.425 6 19 6h-1.75l.4.35q1.225 1.225 1.788 2.662Q20 10.45 20 11.95q0 2.4-1.25 4.362q-1.25 1.963-3.375 2.938ZM5 20q-.425 0-.713-.288Q4 19.425 4 19t.287-.712Q4.575 18 5 18h1.75l-.4-.35q-1.225-1.225-1.788-2.662Q4 13.55 4 12.05q0-2.4 1.25-4.363Q6.5 5.725 8.625 4.75q.525-.25.95.037q.425.288.425.938q0 .25-.162.487q-.163.238-.413.363q-1.575.75-2.5 2.225T6 12.05q0 1.125.425 2.187Q6.85 15.3 7.75 16.2l.25.25V15q0-.425.288-.713Q8.575 14 9 14t.713.287Q10 14.575 10 15v4q0 .425-.287.712Q9.425 20 9 20Z"
-                })
-              }),
-              t5("syncToGoogleDrive")
-            ]
-          }),
-          /* @__PURE__ */ p5("a", {
-            href: "#",
-            "aria-busy": manualAuthLoading,
-            onClick: (e3) => {
-              e3.preventDefault(), handlerManualDriveAuth();
-            },
-            class: "secondary text-sm",
-            children: t5("backupToCloud")
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "text-xs text-gray-500",
-        children: localConfig?.lastSyncedAt && t5("lastSyncedAt", {
-          date: new Date(localConfig.lastSyncedAt).toLocaleString()
-        })
-      }),
-      localConfig?.lastSyncErrorMessage && /* @__PURE__ */ p5("p", {
-        class: "mt-2 text-xs text-red-500"
-      }),
-      showSyncModal ? /* @__PURE__ */ p5(ConfigSyncModal, {
+                children: /* @__PURE__ */ p5(
+                  "path",
+                  {
+                    fill: "currentColor",
+                    d: "M15.375 19.25q-.525.25-.95-.038q-.425-.287-.425-.937q0-.25.163-.487q.162-.238.412-.363q1.575-.75 2.5-2.225T18 11.95q0-1.125-.425-2.188Q17.15 8.7 16.25 7.8L16 7.55V9q0 .425-.287.712Q15.425 10 15 10t-.712-.288Q14 9.425 14 9V5q0-.425.288-.713Q14.575 4 15 4h4q.425 0 .712.287Q20 4.575 20 5t-.288.713Q19.425 6 19 6h-1.75l.4.35q1.225 1.225 1.788 2.662Q20 10.45 20 11.95q0 2.4-1.25 4.362q-1.25 1.963-3.375 2.938ZM5 20q-.425 0-.713-.288Q4 19.425 4 19t.287-.712Q4.575 18 5 18h1.75l-.4-.35q-1.225-1.225-1.788-2.662Q4 13.55 4 12.05q0-2.4 1.25-4.363Q6.5 5.725 8.625 4.75q.525-.25.95.037q.425.288.425.938q0 .25-.162.487q-.163.238-.413.363q-1.575.75-2.5 2.225T6 12.05q0 1.125.425 2.187Q6.85 15.3 7.75 16.2l.25.25V15q0-.425.288-.713Q8.575 14 9 14t.713.287Q10 14.575 10 15v4q0 .425-.287.712Q9.425 20 9 20Z"
+                  }
+                )
+              }
+            ),
+            t5("syncToGoogleDrive")
+          ]
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "a",
+        {
+          href: "#",
+          "aria-busy": manualAuthLoading,
+          onClick: (e3) => {
+            e3.preventDefault(), handlerManualDriveAuth();
+          },
+          class: "secondary text-sm",
+          children: t5("backupToCloud")
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "text-xs text-gray-500", children: localConfig?.lastSyncedAt && t5("lastSyncedAt", {
+      date: new Date(localConfig.lastSyncedAt).toLocaleString()
+    }) }),
+    localConfig?.lastSyncErrorMessage && /* @__PURE__ */ p5("p", { class: "mt-2 text-xs text-red-500" }),
+    showSyncModal ? /* @__PURE__ */ p5(
+      ConfigSyncModal,
+      {
         onClose: () => setShowSyncModal(!1),
         authExpire,
         accessToken
-      }) : null
-    ]
-  }) : null;
+      }
+    ) : null
+  ] }) : null;
 }
 
 // browser/version.ts
@@ -17810,6 +17473,7 @@ function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
     return (e3) => {
       ++clicked == requiredClicks && (cb(e3), clicked = 0), clearTimeout(timer), timer = setTimeout(
         () => clicked = 0,
+        // reset the number of clicks after a traditional 300ms duration
         timeLimit
       );
     };
@@ -17830,95 +17494,64 @@ function getCacheSize() {
 // pages/about.tsx
 var AlreadyLatest = ({ date }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t5("The local rules are up to date"),
-      " ",
-      new Date(date).toLocaleString()
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t5("The local rules are up to date"),
+    " ",
+    new Date(date).toLocaleString()
+  ] });
 }, SyncSuccess = ({ date }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t5("Successfully synchronized with the latest official rules:"),
-      " ",
-      new Date(date).toLocaleString()
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t5("Successfully synchronized with the latest official rules:"),
+    " ",
+    new Date(date).toLocaleString()
+  ] });
 }, Checking = () => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    "aria-busy": !0,
-    children: [
-      t5("Checking for updates"),
-      "..."
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", "aria-busy": !0, children: [
+    t5("Checking for updates"),
+    "..."
+  ] });
 }, Syncing = () => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t5("Rules are being synchronized"),
-      "..."
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t5("Rules are being synchronized"),
+    "..."
+  ] });
 }, LocalVersionIsTooOld = ({ minVersion }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: t5(
-      "localVersionIsTooOld",
-      {
-        minVersion
-      }
-    )
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: t5(
+    "localVersionIsTooOld",
+    {
+      minVersion
+    }
+  ) });
 }, NewVersion = ({ latestVersion }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t5("foundNewVersion"),
-      ":",
-      " ",
-      /* @__PURE__ */ p5("a", {
-        href: "https://github.com/immersive-translate/immersive-translate/releases",
-        children: latestVersion
-      })
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t5("foundNewVersion"),
+    ":",
+    " ",
+    /* @__PURE__ */ p5("a", { href: "https://github.com/immersive-translate/immersive-translate/releases", children: latestVersion })
+  ] });
 }, CurrentLatestVersion = () => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: t5("theLocalExtensionIsUpToUpdate")
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: t5("theLocalExtensionIsUpToUpdate") });
 }, SyncFailed = ({ message, handleSyncing, date }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", {
-    class: "text-sm",
-    children: [
-      t5("failToSyncRules"),
-      " ",
-      /* @__PURE__ */ p5("a", {
-        onClick: handleSyncing,
-        children: t5("retry")
-      }),
-      /* @__PURE__ */ p5("br", {}),
-      t5("failedReason"),
-      "\uFF1A",
-      message,
-      /* @__PURE__ */ p5("br", {}),
-      t5("currentRuleVersion"),
-      "\uFF1A",
-      date
-    ]
-  });
+  return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+    t5("failToSyncRules"),
+    " ",
+    /* @__PURE__ */ p5("a", { onClick: handleSyncing, children: t5("retry") }),
+    /* @__PURE__ */ p5("br", {}),
+    t5("failedReason"),
+    "\uFF1A",
+    message,
+    /* @__PURE__ */ p5("br", {}),
+    t5("currentRuleVersion"),
+    "\uFF1A",
+    date
+  ] });
 };
 function About() {
   let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_3, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
@@ -17989,126 +17622,115 @@ function About() {
       cache: checked
     }));
   };
-  return config ? /* @__PURE__ */ p5("div", {
-    class: "text-sm",
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: /* @__PURE__ */ p5("strong", {
-          onClick: onClickMultipleTimes(7)(handleToggleAlpha),
-          class: "text-lg immersive-translate-no-select",
-          children: t5("about")
-        })
-      }),
-      /* @__PURE__ */ p5("p", {
+  return config ? /* @__PURE__ */ p5("div", { class: "text-sm", children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5(
+      "strong",
+      {
+        onClick: onClickMultipleTimes(7)(handleToggleAlpha),
+        class: "text-lg immersive-translate-no-select",
+        children: t5("about")
+      }
+    ) }),
+    /* @__PURE__ */ p5(
+      "p",
+      {
         onClick: onClickMultipleTimes(7)(handleToggleAlpha),
         class: "mb-2 immersive-translate-no-select",
         children: [
           "V",
           version
         ]
-      }),
-      isLatestVersion === !1 && /* @__PURE__ */ p5(NewVersion, {
-        latestVersion: remoteConfig?.latestVersion
-      }),
-      isLatestVersion === !0 && /* @__PURE__ */ p5(CurrentLatestVersion, {}),
-      /* @__PURE__ */ p5("fieldset", {
-        children: /* @__PURE__ */ p5("label", {
-          for: "switch",
-          children: [
-            /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              id: "cache",
-              name: "cache",
-              role: "switch",
-              onChange: () => {
-                handleCacheOption(!config.cache);
-              },
-              checked: config.cache
-            }),
-            t5("allowCacheTranslations")
-          ]
-        })
-      }),
-      !isMonkey() && cacheSize && /* @__PURE__ */ p5("p", {
-        class: "text-sm",
-        children: [
-          t5("cacheSize"),
-          "\xA0",
-          cacheSize,
-          " \xA0 ",
-          isCleaning ? /* @__PURE__ */ p5("span", {
-            children: [
-              t5("cleaning"),
-              "..."
-            ]
-          }) : /* @__PURE__ */ p5("a", {
-            class: "text-sm",
-            href: "#",
-            onClick: handleCleanCache,
-            children: t5("cleanCache")
-          })
-        ]
-      }),
-      syncErrorMessage ? /* @__PURE__ */ p5(SyncFailed, {
+      }
+    ),
+    isLatestVersion === !1 && /* @__PURE__ */ p5(NewVersion, { latestVersion: remoteConfig?.latestVersion }),
+    isLatestVersion === !0 && /* @__PURE__ */ p5(CurrentLatestVersion, {}),
+    /* @__PURE__ */ p5("fieldset", { children: /* @__PURE__ */ p5("label", { for: "switch", children: [
+      /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          id: "cache",
+          name: "cache",
+          role: "switch",
+          onChange: () => {
+            handleCacheOption(!config.cache);
+          },
+          checked: config.cache
+        }
+      ),
+      t5("allowCacheTranslations")
+    ] }) }),
+    !isMonkey() && cacheSize && /* @__PURE__ */ p5("p", { class: "text-sm", children: [
+      t5("cacheSize"),
+      "\xA0",
+      cacheSize,
+      " \xA0 ",
+      isCleaning ? /* @__PURE__ */ p5("span", { children: [
+        t5("cleaning"),
+        "..."
+      ] }) : /* @__PURE__ */ p5("a", { class: "text-sm", href: "#", onClick: handleCleanCache, children: t5("cleanCache") })
+    ] }),
+    syncErrorMessage ? /* @__PURE__ */ p5(
+      SyncFailed,
+      {
         handleSyncing,
         message: syncErrorMessage,
         date: localBuildinConfigUpdatedAt || ""
-      }) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, {
-        minVersion: remoteConfig.minVersion
-      }) : isNeedUpdate === null ? /* @__PURE__ */ p5(Checking, {}) : isNeedUpdate === !0 ? /* @__PURE__ */ p5(Syncing, {}) : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, {
-        date: localBuildinConfigUpdatedAt
-      }) : /* @__PURE__ */ p5(AlreadyLatest, {
-        date: localBuildinConfigUpdatedAt
-      }),
-      /* @__PURE__ */ p5("ul", {
-        class: "text-sm ml-4",
-        children: [
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: "https://github.com/immersive-translate/immersive-translate/issues",
-              children: t5("feedback")
-            })
-          }),
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: telegramGroupLink,
-              children: t5("joinTelegramGroup")
-            })
-          }),
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: "https://immersive-translate.owenyoung.com/CHANGELOG.html",
-              children: t5("changelog")
-            })
-          }),
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: "https://immersive-translate.owenyoung.com/",
-              children: t5("projectHomepage")
-            })
-          }),
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: "https://github.com/immersive-translate/immersive-translate/",
-              children: t5("Github")
-            })
-          }),
-          /* @__PURE__ */ p5("li", {
-            children: /* @__PURE__ */ p5("a", {
-              class: "secondary",
-              href: "https://immersive-translate.owenyoung.com/donate.html",
-              children: t5("sponsorLabel")
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("blockquote", {
+      }
+    ) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null ? /* @__PURE__ */ p5(Checking, {}) : isNeedUpdate === !0 ? /* @__PURE__ */ p5(Syncing, {}) : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : /* @__PURE__ */ p5(AlreadyLatest, { date: localBuildinConfigUpdatedAt }),
+    /* @__PURE__ */ p5("ul", { class: "text-sm ml-4", children: [
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: "https://github.com/immersive-translate/immersive-translate/issues",
+          children: t5("feedback")
+        }
+      ) }),
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: telegramGroupLink,
+          children: t5("joinTelegramGroup")
+        }
+      ) }),
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: "https://immersive-translate.owenyoung.com/CHANGELOG.html",
+          children: t5("changelog")
+        }
+      ) }),
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: "https://immersive-translate.owenyoung.com/",
+          children: t5("projectHomepage")
+        }
+      ) }),
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: "https://github.com/immersive-translate/immersive-translate/",
+          children: t5("Github")
+        }
+      ) }),
+      /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        "a",
+        {
+          class: "secondary",
+          href: "https://immersive-translate.owenyoung.com/donate.html",
+          children: t5("sponsorLabel")
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5(
+      "blockquote",
+      {
         class: "text-sm",
         dangerouslySetInnerHTML: {
           __html: t5("aboutIntro", {
@@ -18118,20 +17740,20 @@ function About() {
             4: "https://t.me/owenyoungzh"
           })
         }
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "text-center",
-        children: /* @__PURE__ */ p5("iframe", {
-          src: "https://immersivetranslate.substack.com/embed",
-          width: "480",
-          height: "320",
-          style: "border:1px solid #EEE; background:white;",
-          frameBorder: 0,
-          scrolling: "no"
-        })
-      })
-    ]
-  }) : null;
+      }
+    ),
+    /* @__PURE__ */ p5("div", { class: "text-center", children: /* @__PURE__ */ p5(
+      "iframe",
+      {
+        src: "https://immersivetranslate.substack.com/embed",
+        width: "480",
+        height: "320",
+        style: "border:1px solid #EEE; background:white;",
+        frameBorder: 0,
+        scrolling: "no"
+      }
+    ) })
+  ] }) : null;
 }
 
 // pages/advanced.tsx
@@ -18153,262 +17775,276 @@ function Options3() {
     setSettings((state) => ({ ...state, interfaceLanguage: lang }));
   };
   if (!ctx)
-    return /* @__PURE__ */ p5("div", {
-      children: "loading"
-    });
+    return /* @__PURE__ */ p5("div", { children: "loading" });
   let config = ctx.config;
-  return /* @__PURE__ */ p5("div", {
-    children: [
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: /* @__PURE__ */ p5("strong", {
-          class: "text-lg",
-          children: t5("advanced")
-        })
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("translate all areas of the page"),
-            description: t5("translationAreaDescription")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              id: "switch",
-              name: "switch",
-              role: "switch",
-              onChange: (e3) => {
-                let checked = e3.target.checked;
-                setSettings((state) => ({
-                  ...state,
-                  translationArea: checked ? "body" : "main"
-                }));
-              },
-              checked: config.translationArea === "body"
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("translate to the bottom of the page"),
-            description: t5("translateToThePageEndImmediatelyDescription")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              onChange: (e3) => {
-                let checked = e3.target.checked;
-                setSettings((state) => ({
-                  ...state,
-                  translationStartMode: checked ? "immediate" : "dynamic"
-                }));
-              },
-              checked: config.translationStartMode === "immediate",
-              id: "switch",
-              name: "switch",
-              role: "switch"
-            })
-          })
-        ]
-      }),
-      !isMonkey() && /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("isShowContextMenu")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "switch",
-            children: /* @__PURE__ */ p5("input", {
-              type: "checkbox",
-              onChange: (e3) => {
-                let checked = e3.target.checked;
-                createContextMenu({
-                  ...ctx.config,
-                  isShowContextMenu: checked
-                }), setSettings((state) => ({
-                  ...state,
-                  isShowContextMenu: checked
-                }));
-              },
-              checked: ctx.config.isShowContextMenu === !0,
-              id: "switch",
-              name: "switch",
-              role: "switch"
-            })
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("loadingThemeTitle"),
-            description: t5(
-              "loadingThemeDescription"
-            )
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              setSettings((state) => ({
-                ...state,
-                loadingTheme: e3.target.value
-              }));
-            },
-            children: [
-              /* @__PURE__ */ p5("option", {
+  return /* @__PURE__ */ p5("div", { children: [
+    /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("advanced") }) }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("translate all areas of the page"),
+          description: t5("translationAreaDescription")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "switch", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          id: "switch",
+          name: "switch",
+          role: "switch",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            setSettings((state) => ({
+              ...state,
+              translationArea: checked ? "body" : "main"
+            }));
+          },
+          checked: config.translationArea === "body"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("translate to the bottom of the page"),
+          description: t5("translateToThePageEndImmediatelyDescription")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "switch", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            setSettings((state) => ({
+              ...state,
+              translationStartMode: checked ? "immediate" : "dynamic"
+            }));
+          },
+          checked: config.translationStartMode === "immediate",
+          id: "switch",
+          name: "switch",
+          role: "switch"
+        }
+      ) })
+    ] }),
+    !isMonkey() && /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("isShowContextMenu")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "switch", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            createContextMenu({
+              ...ctx.config,
+              isShowContextMenu: checked
+            }), setSettings((state) => ({
+              ...state,
+              isShowContextMenu: checked
+            }));
+          },
+          checked: ctx.config.isShowContextMenu === !0,
+          id: "switch",
+          name: "switch",
+          role: "switch"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("loadingThemeTitle"),
+          description: t5(
+            "loadingThemeDescription"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            setSettings((state) => ({
+              ...state,
+              loadingTheme: e3.target.value
+            }));
+          },
+          children: [
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: "spinner",
                 selected: config.loadingTheme === "spinner",
                 children: t5("loadingTheme.spinner")
-              }),
-              /* @__PURE__ */ p5("option", {
+              }
+            ),
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: "text",
                 selected: config.loadingTheme === "text",
                 children: t5("loadingTheme.text")
-              }),
-              /* @__PURE__ */ p5("option", {
-                value: "none",
-                selected: config.loadingTheme === "none",
-                children: t5("loadingTheme.none")
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("translationLineBreakSettingTitle"),
-            description: t5(
-              "translationLineBreakSettingDescription",
-              {
-                count: buildInConfig.generalRule.blockMinTextCount
               }
-            )
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              setSettings((state) => {
-                let currentGeneralRule = state.generalRule || {};
-                return parseInt(
-                  e3.target.value
-                ) === 0 ? currentGeneralRule = {
-                  ...currentGeneralRule,
-                  blockMinTextCount: 0,
-                  blockMinWordCount: 0
-                } : currentGeneralRule = {
-                  ...currentGeneralRule,
-                  blockMinTextCount: buildInConfig.generalRule.blockMinTextCount,
-                  blockMinWordCount: buildInConfig.generalRule.blockMinWordCount
-                }, {
-                  ...state,
-                  generalRule: currentGeneralRule
-                };
-              });
-            },
-            children: [
-              /* @__PURE__ */ p5("option", {
+            ),
+            /* @__PURE__ */ p5("option", { value: "none", selected: config.loadingTheme === "none", children: t5("loadingTheme.none") })
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("translationLineBreakSettingTitle"),
+          description: t5(
+            "translationLineBreakSettingDescription",
+            {
+              count: buildInConfig.generalRule.blockMinTextCount
+            }
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            setSettings((state) => {
+              let currentGeneralRule = state.generalRule || {};
+              return parseInt(
+                e3.target.value
+              ) === 0 ? currentGeneralRule = {
+                ...currentGeneralRule,
+                blockMinTextCount: 0,
+                blockMinWordCount: 0
+              } : currentGeneralRule = {
+                ...currentGeneralRule,
+                blockMinTextCount: buildInConfig.generalRule.blockMinTextCount,
+                blockMinWordCount: buildInConfig.generalRule.blockMinWordCount
+              }, {
+                ...state,
+                generalRule: currentGeneralRule
+              };
+            });
+          },
+          children: [
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 32,
                 selected: config.generalRule.blockMinTextCount > 0,
                 children: t5("smartLineBreak")
-              }),
-              /* @__PURE__ */ p5("option", {
+              }
+            ),
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 0,
                 selected: config.generalRule.blockMinTextCount === 0,
                 children: t5("alwaysLineBreak")
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("tempTranslateDomainTitle"),
-            description: t5(
-              "tempTranslateDomainDescription"
+              }
             )
-          }),
-          /* @__PURE__ */ p5("select", {
-            class: "select",
-            onChange: (e3) => {
-              setSettings((state) => ({
-                ...state,
-                tempTranslateDomainMinutes: parseInt(
-                  e3.target.value
-                )
-              }));
-            },
-            children: [
-              /* @__PURE__ */ p5("option", {
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("tempTranslateDomainTitle"),
+          description: t5(
+            "tempTranslateDomainDescription"
+          )
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "select",
+        {
+          class: "select",
+          onChange: (e3) => {
+            setSettings((state) => ({
+              ...state,
+              tempTranslateDomainMinutes: parseInt(
+                e3.target.value
+              )
+            }));
+          },
+          children: [
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 0,
                 selected: config.tempTranslateDomainMinutes === 0,
                 children: t5("disabled")
-              }),
-              /* @__PURE__ */ p5("option", {
+              }
+            ),
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 5,
                 selected: config.tempTranslateDomainMinutes === 5,
                 children: t5("xMinutes", {
                   count: 5
                 })
-              }),
-              /* @__PURE__ */ p5("option", {
+              }
+            ),
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 10,
                 selected: config.tempTranslateDomainMinutes === 10,
                 children: t5("xMinutes", {
                   count: 10
                 })
-              }),
-              /* @__PURE__ */ p5("option", {
+              }
+            ),
+            /* @__PURE__ */ p5(
+              "option",
+              {
                 value: 30,
                 selected: config.tempTranslateDomainMinutes === 30,
                 children: t5("xMinutes", {
                   count: 30
                 })
-              })
-            ]
-          })
-        ]
-      }),
-      /* @__PURE__ */ p5("div", {
-        class: "nav",
-        children: [
-          /* @__PURE__ */ p5(NavLeft, {
-            title: t5("the number of characters to be translated first")
-          }),
-          /* @__PURE__ */ p5("label", {
-            for: "count",
-            children: /* @__PURE__ */ p5("input", {
-              type: "number",
-              id: "count",
-              onChange: (e3) => {
-                let count2 = e3.target.value;
-                setSettings((state) => ({
-                  ...state,
-                  immediateTranslationTextCount: parseInt(count2)
-                }));
-              },
-              name: "count",
-              value: config.immediateTranslationTextCount,
-              placeholder: "Text Length",
-              required: !0
-            })
-          })
-        ]
-      })
-    ]
-  });
+              }
+            )
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(NavLeft, { title: t5("the number of characters to be translated first") }),
+      /* @__PURE__ */ p5("label", { for: "count", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "number",
+          id: "count",
+          onChange: (e3) => {
+            let count2 = e3.target.value;
+            setSettings((state) => ({
+              ...state,
+              immediateTranslationTextCount: parseInt(count2)
+            }));
+          },
+          name: "count",
+          value: config.immediateTranslationTextCount,
+          placeholder: "Text Length",
+          required: !0
+        }
+      ) })
+    ] })
+  ] });
 }
 
 // twind_config.ts
@@ -18423,14 +18059,15 @@ function main() {
     $e(twind_config_default);
     let config = await getConfig();
     config.debug && log_default.setLevel("debug"), re(
-      /* @__PURE__ */ p5(TranslateProvider, {
-        lang: config.interfaceLanguage,
-        fallbackLang: "zh-CN",
-        translations: locales_default,
-        children: /* @__PURE__ */ p5(App, {
-          donateUrl: config.donateUrl
-        })
-      }),
+      /* @__PURE__ */ p5(
+        TranslateProvider,
+        {
+          lang: config.interfaceLanguage,
+          fallbackLang: "zh-CN",
+          translations: locales_default,
+          children: /* @__PURE__ */ p5(App, { donateUrl: config.donateUrl })
+        }
+      ),
       mountPoint
     );
   })();
@@ -18475,91 +18112,78 @@ function App(props) {
   ];
   return navs.forEach((nav) => {
     route === nav.props.href && (nav.props.className = "primary", nav.props["aria-current"] = "page");
-  }), /* @__PURE__ */ p5(L, {
-    children: /* @__PURE__ */ p5("main", {
-      class: "container-fluid",
-      children: [
-        /* @__PURE__ */ p5("aside", {
-          children: /* @__PURE__ */ p5("nav", {
-            class: "flex flex-col h-full justify-between",
-            children: [
-              /* @__PURE__ */ p5("div", {
-                children: [
-                  /* @__PURE__ */ p5("hgroup", {
-                    children: [
-                      /* @__PURE__ */ p5("h4", {
-                        class: "cursor-pointer p-0 m-0",
-                        onClick: () => {
-                          globalThis.location.hash = "#general";
-                        },
-                        children: t5("browser.brandName")
-                      }),
-                      /* @__PURE__ */ p5("h6", {
-                        class: "!text-sm",
-                        children: version
-                      })
-                    ]
-                  }),
-                  /* @__PURE__ */ p5("ul", {
-                    children: navs.map((nav, index) => /* @__PURE__ */ p5("li", {
-                      class: "li",
-                      children: /* @__PURE__ */ p5("a", {
-                        ...nav.props,
-                        children: nav.name
-                      })
-                    }, `nav-${index}`))
-                  })
-                ]
-              }),
-              /* @__PURE__ */ p5("div", {
-                class: "m-0 p-0 flex flex-col",
-                children: [
-                  /* @__PURE__ */ p5("a", {
-                    class: "py-3 text-xs no-focus secondary",
-                    href: props.donateUrl,
-                    children: [
-                      t5("donateCafe"),
-                      "\u2615\uFE0F"
-                    ]
-                  }),
-                  /* @__PURE__ */ p5("a", {
-                    class: "py-3 text-xs no-focus secondary",
-                    href: "#about",
-                    children: t5("feedbackAndJoin")
-                  }),
-                  /* @__PURE__ */ p5("a", {
-                    class: "py-3 text-xs no-focus secondary",
-                    href: "https://immersive-translate.owenyoung.com/",
-                    children: t5("document")
-                  }),
-                  /* @__PURE__ */ p5("a", {
-                    class: "py-3 text-xs no-focus secondary",
-                    href: "#developer",
-                    children: t5("developer")
-                  })
-                ]
-              })
-            ]
-          })
-        }),
-        /* @__PURE__ */ p5("div", {
-          role: "main",
-          children: /* @__PURE__ */ p5(Switch, {
-            value: route,
-            defaultCase: /* @__PURE__ */ p5(General, {}),
-            cases: {
-              "#general": /* @__PURE__ */ p5(General, {}),
-              "#interface": /* @__PURE__ */ p5(Options, {}),
-              "#import_export": /* @__PURE__ */ p5(ImportExport, {}),
-              "#about": /* @__PURE__ */ p5(About, {}),
-              "#advanced": /* @__PURE__ */ p5(Options3, {}),
-              "#developer": /* @__PURE__ */ p5(Options2, {})
+  }), /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
+    /* @__PURE__ */ p5("aside", { children: /* @__PURE__ */ p5("nav", { class: "flex flex-col h-full justify-between", children: [
+      /* @__PURE__ */ p5("div", { children: [
+        /* @__PURE__ */ p5("hgroup", { children: [
+          /* @__PURE__ */ p5(
+            "h4",
+            {
+              class: "cursor-pointer p-0 m-0",
+              onClick: () => {
+                globalThis.location.hash = "#general";
+              },
+              children: t5("browser.brandName")
             }
-          })
-        })
-      ]
-    })
-  });
+          ),
+          /* @__PURE__ */ p5("h6", { class: "!text-sm", children: version })
+        ] }),
+        /* @__PURE__ */ p5("ul", { children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
+      ] }),
+      /* @__PURE__ */ p5("div", { class: "m-0 p-0 flex flex-col", children: [
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "py-3 text-xs no-focus secondary",
+            href: props.donateUrl,
+            children: [
+              t5("donateCafe"),
+              "\u2615\uFE0F"
+            ]
+          }
+        ),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "py-3 text-xs no-focus secondary",
+            href: "#about",
+            children: t5("feedbackAndJoin")
+          }
+        ),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "py-3 text-xs no-focus secondary",
+            href: "https://immersive-translate.owenyoung.com/",
+            children: t5("document")
+          }
+        ),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "py-3 text-xs no-focus secondary",
+            href: "#developer",
+            children: t5("developer")
+          }
+        )
+      ] })
+    ] }) }),
+    /* @__PURE__ */ p5("div", { role: "main", children: /* @__PURE__ */ p5(
+      Switch,
+      {
+        value: route,
+        defaultCase: /* @__PURE__ */ p5(General, {}),
+        cases: {
+          "#general": /* @__PURE__ */ p5(General, {}),
+          "#interface": /* @__PURE__ */ p5(Options, {}),
+          "#import_export": /* @__PURE__ */ p5(ImportExport, {}),
+          "#about": /* @__PURE__ */ p5(About, {}),
+          "#advanced": /* @__PURE__ */ p5(Options3, {}),
+          "#developer": /* @__PURE__ */ p5(Options2, {})
+        }
+      }
+    ) })
+  ] }) });
 }
 
 // options.tsx

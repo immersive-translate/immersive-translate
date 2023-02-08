@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-07T15:37:14.486Z", VERSION: "0.2.51", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-08T00:45:09.593Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3722,6 +3722,10 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
       !__hasOwnProp.call(to, key) && key !== except && __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   return to;
 }, __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
@@ -4816,7 +4820,6 @@ var zh_CN_default = {
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
   syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
@@ -4829,6 +4832,7 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
+  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -5496,7 +5500,12 @@ function isMonkey() {
   return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
 }
 function isUserscriptRuntime() {
-  if (typeof globalThis.immersiveTranslateBrowserAPI < "u" && globalThis.immersiveTranslateBrowserAPI.runtime && globalThis.immersiveTranslateBrowserAPI.runtime.getManifest) {
+  if (
+    // @ts-ignore: it's ok
+    typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+  ) {
     let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
     return !!(manifest && manifest._isUserscript);
   } else
@@ -5517,46 +5526,25 @@ var buildin_config_default = {
   canary: !1,
   translationServices: {
     volcAlpha: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     volc: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     tencent: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     transmart: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     baidu: {
-      placeholderDelimiters: [
-        "#",
-        "#"
-      ]
+      placeholderDelimiters: ["#", "#"]
     },
     caiyun: {
-      placeholderDelimiters: [
-        "{",
-        "}"
-      ]
+      placeholderDelimiters: ["{", "}"]
     },
     youdao: {
-      placeholderDelimiters: [
-        "\u{1F6A0}",
-        "\u{1F6A0}"
-      ]
+      placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
     }
   },
   shortcuts: {
@@ -5649,10 +5637,7 @@ var buildin_config_default = {
       ".sr-only": "display:none"
     },
     selectors: [],
-    preWhitespaceDetectedTags: [
-      "DIV",
-      "SPAN"
-    ],
+    preWhitespaceDetectedTags: ["DIV", "SPAN"],
     stayOriginalSelectors: [],
     additionalSelectors: [
       "h1",
@@ -5730,13 +5715,7 @@ var buildin_config_default = {
       "NOSCRIPT"
     ],
     additionalExcludeTags: [],
-    stayOriginalTags: [
-      "CODE",
-      "TT",
-      "IMG",
-      "SUP",
-      "SUB"
-    ],
+    stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
     inlineTags: [
       "A",
@@ -5782,10 +5761,7 @@ var buildin_config_default = {
     additionalInlineTags: [],
     extraInlineSelectors: [],
     additionalInlineSelectors: [],
-    extraBlockSelectors: [
-      "turbo-frame",
-      "readme-toc"
-    ],
+    extraBlockSelectors: ["turbo-frame", "readme-toc"],
     allBlockTags: [
       "HGROUP",
       "CONTENT",
@@ -5853,22 +5829,15 @@ var buildin_config_default = {
       wrapperPrefix: "",
       wrapperSuffix: "",
       urlChangeDelay: 0,
-      selectors: [
-        ".textLayer"
-      ],
-      excludeSelectors: [
-        ".annotationLayer"
-      ],
+      selectors: [".textLayer"],
+      excludeSelectors: [".annotationLayer"],
       globalStyles: {
         "div.page": "width: 98%;",
         ".textLayer": "overflow:visible;opacity: 1;"
       }
     },
     {
-      matches: [
-        "mail.jabber.org",
-        "antirez.com"
-      ],
+      matches: ["mail.jabber.org", "antirez.com"],
       excludeTags: [
         "TITLE",
         "SCRIPT",
@@ -5923,9 +5892,7 @@ var buildin_config_default = {
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
-      extraInlineSelectors: [
-        '[data-testid="tweetText"] div'
-      ]
+      extraInlineSelectors: ['[data-testid="tweetText"] div']
     },
     {
       matches: [
@@ -5935,16 +5902,11 @@ var buildin_config_default = {
         "askubuntu.com",
         "serverfault.com"
       ],
-      additionalSelectors: [
-        ".comment-copy"
-      ]
+      additionalSelectors: [".comment-copy"]
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [
-        ".container",
-        "h3.title"
-      ]
+      selectors: [".container", "h3.title"]
     },
     {
       matches: "news.ycombinator.com",
@@ -5956,15 +5918,10 @@ var buildin_config_default = {
         ".hn-comment-text",
         ".hn-story-title"
       ],
-      excludeSelectors: [
-        ".reply"
-      ]
+      excludeSelectors: [".reply"]
     },
     {
-      matches: [
-        "*.quora.com",
-        "quora.com"
-      ],
+      matches: ["*.quora.com", "quora.com"],
       additionalSelectors: [
         ".puppeteer_test_question_title",
         ".puppeteer_test_answer_content",
@@ -5981,18 +5938,12 @@ var buildin_config_default = {
         "www.reddit.com/*/.compact",
         "www.reddit.com/.compact"
       ],
-      selectors: [
-        ".title > a",
-        ".usertext-body"
-      ],
+      selectors: [".title > a", ".usertext-body"],
       detectParagraphLanguage: !0
     },
     {
       matches: "old.reddit.com",
-      selectors: [
-        "p.title > a",
-        "[role=main] .md-container"
-      ],
+      selectors: ["p.title > a", "[role=main] .md-container"],
       detectParagraphLanguage: !0
     },
     {
@@ -6013,9 +5964,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.reuters.com/",
-      excludeSelectors: [
-        "header"
-      ]
+      excludeSelectors: ["header"]
     },
     {
       matches: "github.com",
@@ -6050,16 +5999,9 @@ var buildin_config_default = {
         "span[lang]"
       ],
       insertPosition: "afterend",
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN"
-      ],
-      extraBlockSelectors: [
-        "span.x1vvkbs"
-      ],
-      excludeSelectors: [
-        "[role=button]"
-      ],
+      preWhitespaceDetectedTags: ["DIV", "SPAN"],
+      extraBlockSelectors: ["span.x1vvkbs"],
+      excludeSelectors: ["[role=button]"],
       translationClasses: [
         "immersive-translate-text"
       ],
@@ -6115,10 +6057,7 @@ var buildin_config_default = {
       selectors: "#book"
     },
     {
-      matches: [
-        "*.substack.com",
-        "newsletter.rootsofprogress.org"
-      ],
+      matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
       selectors: [
         ".post-preview-title",
         ".post-preview-description",
@@ -6140,13 +6079,8 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "seekingalpha.com/article/*",
-        "seekingalpha.com/news/*"
-      ],
-      selectors: [
-        "[data-test-id=card-container]"
-      ],
+      matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
+      selectors: ["[data-test-id=card-container]"],
       excludeSelectors: [
         "[data-test-id=post-page-meta]",
         "header > div:first-child"
@@ -6154,10 +6088,7 @@ var buildin_config_default = {
     },
     {
       matches: "hn.algolia.com",
-      selectors: [
-        ".Story_title > a:first-child",
-        ".Story_comment > span"
-      ]
+      selectors: [".Story_title > a:first-child", ".Story_comment > span"]
     },
     {
       matches: "read.readwise.io",
@@ -6169,10 +6100,7 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "www.inoreader.com",
-        "*.inoreader.com"
-      ],
+      matches: ["www.inoreader.com", "*.inoreader.com"],
       selectors: [
         ".article_header_title",
         ".article_title_link",
@@ -6185,19 +6113,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "scholar.google.com"
-      ],
+      matches: ["scholar.google.com"],
       wrapperPrefix: `
 `,
-      selectors: [
-        "h3 a[data-clk]",
-        "div.gs_rs"
-      ],
-      atomicBlockSelectors: [
-        ".gs_rs",
-        "h3 a[data-clk]"
-      ]
+      selectors: ["h3 a[data-clk]", "div.gs_rs"],
+      atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
     },
     {
       matches: "mail.google.com",
@@ -6238,17 +6158,12 @@ var buildin_config_default = {
     },
     {
       matches: "*.gitbook.io",
-      additionalSelectors: [
-        "main"
-      ],
+      additionalSelectors: ["main"],
       _comment: "https://midjourney.gitbook.io/docs/user-manual"
     },
     {
       matches: "arxiv.org",
-      additionalSelectors: [
-        "h1",
-        "blockquote.abstract"
-      ]
+      additionalSelectors: ["h1", "blockquote.abstract"]
     },
     {
       matches: "https://discord.com/channels/*",
@@ -6270,56 +6185,36 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
-      selectors: [
-        ".text-content"
-      ],
+      selectors: [".text-content"],
       detectParagraphLanguage: !0
     },
     {
-      matches: [
-        "web.telegram.org/k/*",
-        "web.telegram.org/k/"
-      ],
-      selectors: [
-        ".message"
-      ],
+      matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
+      selectors: [".message"],
       detectParagraphLanguage: !0
     },
     {
       matches: "gist.github.com",
-      selectors: [
-        ".markdown-body",
-        ".readme"
-      ],
+      selectors: [".markdown-body", ".readme"],
       detectParagraphLanguage: !0
     },
     {
       matches: "lobste.rs",
-      selectors: [
-        ".u-repost-of",
-        ".comment_text"
-      ]
+      selectors: [".u-repost-of", ".comment_text"]
     },
     {
       matches: "*.slack.com",
-      selectors: [
-        ".p-rich_text_section"
-      ],
+      selectors: [".p-rich_text_section"],
       detectParagraphLanguage: !0
     },
     {
       matches: "1paragraph.app",
-      additionalSelectors: [
-        "#book"
-      ]
+      additionalSelectors: ["#book"]
     },
     {
       matches: "www.google.*/search*",
       detectParagraphLanguage: !0,
-      excludeSelectors: [
-        "a h3 + div",
-        "div#sfooter"
-      ],
+      excludeSelectors: ["a h3 + div", "div#sfooter"],
       wrapperSuffix: "",
       globalStyles: {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
@@ -6331,54 +6226,31 @@ var buildin_config_default = {
     },
     {
       matches: "lowendtalk.com",
-      selectors: [
-        "[role=heading]",
-        "h1",
-        ".userContent"
-      ]
+      selectors: ["[role=heading]", "h1", ".userContent"]
     },
     {
       matches: "www.linkedin.com/jobs/*",
-      selectors: [
-        "#job-details > span"
-      ]
+      selectors: ["#job-details > span"]
     },
     {
       matches: "www.linkedin.com",
-      addtionalSelectors: [
-        "span.break-words > span > span[dir=ltr]"
-      ]
+      addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
     },
     {
       matches: "www.indiehackers.com",
-      selectors: [
-        ".content",
-        "h1",
-        ".feed-item__title-link"
-      ]
+      selectors: [".content", "h1", ".feed-item__title-link"]
     },
     {
       matches: "libreddit.de",
-      selectors: [
-        "h2.post_title",
-        ".comment_body > .md"
-      ]
+      selectors: ["h2.post_title", ".comment_body > .md"]
     },
     {
-      matches: [
-        "notion.site",
-        "www.notion.so"
-      ],
-      selectors: [
-        "div[data-block-id]"
-      ]
+      matches: ["notion.site", "www.notion.so"],
+      selectors: ["div[data-block-id]"]
     },
     {
       matches: "www.newyorker.com",
-      additionalSelectors: [
-        "h1",
-        "[data-testid=SummaryItemHed]"
-      ]
+      additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
     },
     {
       matches: "start.me",
@@ -6391,16 +6263,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.scmp.com",
-      additionalSelectors: [
-        ".info__subHeadline",
-        ".section-content h2"
-      ]
+      additionalSelectors: [".info__subHeadline", ".section-content h2"]
     },
     {
       matches: "www.lesswrong.com",
-      extraBlockSelectors: [
-        "span.commentOnSelection"
-      ]
+      extraBlockSelectors: ["span.commentOnSelection"]
     },
     {
       matches: [
@@ -6411,19 +6278,13 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
-      selectorMatches: [
-        "div#mastodon"
-      ],
-      selectors: [
-        "div.status__content__text"
-      ],
+      selectorMatches: ["div#mastodon"],
+      selectors: ["div.status__content__text"],
       detectLanguage: !0
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: [
-        "div.RenderKeyPoints-list"
-      ]
+      additionalSelectors: ["div.RenderKeyPoints-list"]
     },
     {
       matches: "app.daily.dev",
@@ -6439,16 +6300,10 @@ var buildin_config_default = {
     },
     {
       matches: "www.aljazeera.com",
-      addtionalSelectors: [
-        "h1",
-        ".article__subhead"
-      ]
+      addtionalSelectors: ["h1", ".article__subhead"]
     },
     {
-      matches: [
-        "*.pornhub.com",
-        "pornhub.com"
-      ],
+      matches: ["*.pornhub.com", "pornhub.com"],
       selectors: [
         ".title >a",
         ".title > span",
@@ -6466,18 +6321,11 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "weibo.com"
-      ],
-      selectors: [
-        "div[class^='detail_wbtext']"
-      ]
+      matches: ["weibo.com"],
+      selectors: ["div[class^='detail_wbtext']"]
     },
     {
-      matches: [
-        "medium.com",
-        "*.medium.com"
-      ],
+      matches: ["medium.com", "*.medium.com"],
       selectorMatches: [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
@@ -6488,9 +6336,7 @@ var buildin_config_default = {
         "[aria-hidden='false'] pre",
         "article p"
       ],
-      excludeSelectors: [
-        "[aria-label='Post Preview Reading Time']"
-      ],
+      excludeSelectors: ["[aria-label='Post Preview Reading Time']"],
       globalStyles: {
         h2: "-webkit-line-clamp: unset;max-height:unset;",
         "article p": "-webkit-line-clamp: unset;max-height:unset;"
@@ -6500,24 +6346,15 @@ var buildin_config_default = {
       selectorMatches: [
         "meta[property='og:site_name'][content='Nitter']"
       ],
-      selectors: [
-        ".tweet-content",
-        ".quote-text"
-      ]
+      selectors: [".tweet-content", ".quote-text"]
     },
     {
       matches: "*.fandom.com",
-      additionalSelectors: [
-        ".mcf-card-article__title"
-      ]
+      additionalSelectors: [".mcf-card-article__title"]
     },
     {
-      matches: [
-        "www.washingtonpost.com"
-      ],
-      additionalSelectors: [
-        "[data-qa='article-body']"
-      ]
+      matches: ["www.washingtonpost.com"],
+      additionalSelectors: ["[data-qa='article-body']"]
     },
     {
       matches: "www.economist.com",
@@ -6559,9 +6396,7 @@ var buildin_config_default = {
     {
       matches: "www.sciencedirect.com",
       urlChangeDelay: 2e3,
-      stayOriginalSelectors: [
-        "span.display"
-      ]
+      stayOriginalSelectors: ["span.display"]
     },
     {
       matches: "www.thehighestofthemountains.com",
@@ -6572,10 +6407,7 @@ var buildin_config_default = {
       normalizeBody: "div.ql-editor[contenteditable='false']"
     },
     {
-      matches: [
-        "*.annas-archive.org",
-        "annas-archive.org"
-      ],
+      matches: ["*.annas-archive.org", "annas-archive.org"],
       selectors: [
         "h3.text-xl.font-bold",
         "div[class='truncate text-sm']"
@@ -6584,9 +6416,7 @@ var buildin_config_default = {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
       normalizeBody: "body",
-      extraBlockSelectors: [
-        "a.custom-a"
-      ]
+      extraBlockSelectors: ["a.custom-a"]
     },
     {
       matches: [
@@ -6597,21 +6427,15 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "apnews.com"
-      ],
+      matches: ["apnews.com"],
       urlChangeDelay: 2e3
     },
     {
       matches: "play.google.com",
-      additionalSelectors: [
-        "header[data-review-id] + div"
-      ]
+      additionalSelectors: ["header[data-review-id] + div"]
     },
     {
-      matches: [
-        "www.tumblr.com"
-      ],
+      matches: ["www.tumblr.com"],
       selectors: [
         "article h1",
         "article > header + div",
@@ -6627,23 +6451,12 @@ var buildin_config_default = {
         "article blockquote",
         "article ol"
       ],
-      excludeSelectors: [
-        "div.fAAi8",
-        "div.wvu3V"
-      ],
-      preWhitespaceDetectedTags: [
-        "DIV",
-        "SPAN",
-        "P"
-      ]
+      excludeSelectors: ["div.fAAi8", "div.wvu3V"],
+      preWhitespaceDetectedTags: ["DIV", "SPAN", "P"]
     },
     {
-      matches: [
-        "mail.qq.com/cgi-bin/frame_html"
-      ],
-      selectors: [
-        "#thisiddoesnotexists"
-      ]
+      matches: ["mail.qq.com/cgi-bin/frame_html"],
+      selectors: ["#thisiddoesnotexists"]
     },
     {
       matches: "www.foxnews.com",
@@ -6696,11 +6509,7 @@ var buildin_config_default = {
     },
     {
       matches: "getpocket.com",
-      selectors: [
-        "h2.title",
-        "div.excerpt p",
-        "main > article"
-      ],
+      selectors: ["h2.title", "div.excerpt p", "main > article"],
       globalStyles: {
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
         "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -6836,6 +6645,7 @@ function mergeRule(generalRule, rule) {
       else if (key.startsWith("additional")) {
         let userValue = arrayOrGenericToArray(value);
         finalRule[key] = Array.from(
+          // @ts-ignore: ignore type error
           /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
         );
       } else
@@ -6940,7 +6750,7 @@ async function getConfig() {
     for (let command of commandResult)
       command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
   }
-  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = new Date();
+  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig(), userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
   if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
     let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
       (urlMatch) => new Date(urlMatch.expiredAt) > now
@@ -6992,12 +6802,14 @@ async function getConfig() {
       ], finalConfigValue = {};
       for (let key2 of allUniqueKeys)
         finalConfigValue[key2] = {
+          // @ts-ignore: it's ok
           ...buildInConfigValue[key2],
           ...userConfigValue[key2]
         };
       finalConfig[configKey] = finalConfigValue;
     } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
       mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
+        // @ts-ignore: ignore type error
         finalConfig[configKey],
         mergedUserConfig[configKey]
       )), configKey === "shortcuts" && (finalConfig[configKey] = {
@@ -7081,6 +6893,7 @@ function deferred() {
       async resolve(value) {
         await value, state = "fulfilled", resolve(value);
       },
+      // deno-lint-ignore no-explicit-any
       reject(reason) {
         state = "rejected", reject(reason);
       }
@@ -7113,6 +6926,7 @@ function delay(ms, options = {}) {
 var MuxAsyncIterator = class {
   #iteratorCount = 0;
   #yields = [];
+  // deno-lint-ignore no-explicit-any
   #throws = [];
   #signal = deferred();
   add(iterable) {
@@ -8883,7 +8697,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee4(r) && n3.click();
               }, K5(p5, h3), te2(p5, h3);
             }, Te = u3.date = function(t4, c3, s4) {
-              var d3 = t4.value, i2 = d3 === void 0 ? new Date() : d3, k4 = t4.submitText, H6 = k4 === void 0 ? "OK" : k4, S7 = t4.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p5 = t4.submitCallback, l2 = t4.cancelCallback, f3 = t4.position, n3 = f3 === void 0 ? e3.positions.date || n3.top : f3;
+              var d3 = t4.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t4.submitText, H6 = k4 === void 0 ? "OK" : k4, S7 = t4.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p5 = t4.submitCallback, l2 = t4.cancelCallback, f3 = t4.position, n3 = f3 === void 0 ? e3.positions.date || n3.top : f3;
               R6(), F8();
               var r = "&#9662", C5 = document.createElement("div"), x4 = document.createElement("div"), a = document.createElement("div"), E3 = function(L6) {
                 C5.innerHTML = e3.dateMonths[L6.getMonth()], x4.innerHTML = L6.getDate(), a.innerHTML = L6.getFullYear();
@@ -9531,7 +9345,7 @@ async function autoSyncStrategy(accessToken, settings, handleChangeValue, handle
       fileId: latestFileId,
       config
     }))), latestRemoteConfigResult) {
-      let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : new Date(0);
+      let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : /* @__PURE__ */ new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : /* @__PURE__ */ new Date(0);
       if (log_default.debug(
         "remoteUpdatedAt",
         remoteUpdatedAt,
@@ -9547,14 +9361,14 @@ async function autoSyncStrategy(accessToken, settings, handleChangeValue, handle
         handleFail && handleFail(": unknown error");
         return;
       }
-      handleUpdateLocalConfigLastSyncedAt(new Date().toISOString());
+      handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString());
     } else if (latestRemoteConfigResult === null)
       if (settings) {
         if (!settings.updatedAt) {
-          let newDate = new Date().toISOString();
+          let newDate = (/* @__PURE__ */ new Date()).toISOString();
           handleUpdateSettingUpdateAt(newDate), settings.updatedAt = newDate;
         }
-        await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt(new Date().toISOString()), handleSuccess && handleSuccess(!0);
+        await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString()), handleSuccess && handleSuccess(!0);
       } else
         handleFail && handleFail(": Local Config is empty");
     else
@@ -9688,187 +9502,169 @@ function formatHeadersByRule(requestHeaders, rules) {
 }
 
 // static/rules/request_modifier_rule.json
-var request_modifier_rule_default = [
-  {
-    id: 1,
-    priority: 1,
-    action: {
-      type: "modifyHeaders",
-      requestHeaders: [
-        {
-          header: "Referer",
-          operation: "set",
-          value: "https://httpstat.us/429"
-        },
-        {
-          header: "origin",
-          operation: "set",
-          value: "https://httpstat.us/429"
-        },
-        {
-          header: "DNT",
-          operation: "set",
-          value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
-        }
-      ]
-    },
-    condition: {
-      urlFilter: "https://httpstat.us/429",
-      resourceTypes: [
-        "xmlhttprequest"
-      ],
-      domainType: "thirdParty",
-      initiatorDomains: [
-        "cfhamdkdjgoelclgllcoikbckcfpaklj",
-        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
-      ]
-    }
+var request_modifier_rule_default = [{
+  id: 1,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "Referer",
+        operation: "set",
+        value: "https://httpstat.us/429"
+      },
+      {
+        header: "origin",
+        operation: "set",
+        value: "https://httpstat.us/429"
+      },
+      {
+        header: "DNT",
+        operation: "set",
+        value: "1"
+      },
+      {
+        header: "sec-fetch-site",
+        operation: "set",
+        value: "same-site"
+      }
+    ]
   },
-  {
-    id: 2,
-    priority: 1,
-    action: {
-      type: "modifyHeaders",
-      requestHeaders: [
-        {
-          header: "Referer",
-          operation: "set",
-          value: "https://www.deepl.com/"
-        },
-        {
-          header: "origin",
-          operation: "set",
-          value: "https://www.deepl.com"
-        },
-        {
-          header: "DNT",
-          operation: "set",
-          value: "1"
-        },
-        {
-          header: "cookie",
-          operation: "remove"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
-        }
-      ]
-    },
-    condition: {
-      urlFilter: "https://www2.deepl.com/jsonrpc*",
-      resourceTypes: [
-        "xmlhttprequest"
-      ],
-      domainType: "thirdParty",
-      initiatorDomains: [
-        "cfhamdkdjgoelclgllcoikbckcfpaklj",
-        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
-      ]
-    }
-  },
-  {
-    id: 200,
-    priority: 1,
-    action: {
-      type: "modifyHeaders",
-      requestHeaders: [
-        {
-          header: "Referer",
-          operation: "set",
-          value: "https://www.deepl.com/"
-        },
-        {
-          header: "origin",
-          operation: "set",
-          value: "https://www.deepl.com"
-        },
-        {
-          header: "DNT",
-          operation: "set",
-          value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
-        }
-      ]
-    },
-    condition: {
-      urlFilter: "https://api.deepl.com/jsonrpc*",
-      resourceTypes: [
-        "xmlhttprequest"
-      ],
-      domainType: "thirdParty",
-      initiatorDomains: [
-        "cfhamdkdjgoelclgllcoikbckcfpaklj",
-        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
-      ]
-    }
-  },
-  {
-    id: 3,
-    priority: 1,
-    action: {
-      type: "modifyHeaders",
-      requestHeaders: [
-        {
-          header: "origin",
-          operation: "set",
-          value: "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
-        }
-      ]
-    },
-    condition: {
-      urlFilter: "https://transmart.qq.com/api/imt",
-      resourceTypes: [
-        "xmlhttprequest"
-      ],
-      domainType: "thirdParty",
-      initiatorDomains: [
-        "cfhamdkdjgoelclgllcoikbckcfpaklj",
-        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
-      ]
-    }
-  },
-  {
-    id: 4,
-    priority: 1,
-    action: {
-      type: "modifyHeaders",
-      requestHeaders: [
-        {
-          header: "origin",
-          operation: "set",
-          value: "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
-        }
-      ]
-    },
-    condition: {
-      urlFilter: "https://translate.volcengine.com/crx/translate/v1/",
-      resourceTypes: [
-        "xmlhttprequest"
-      ],
-      domainType: "thirdParty",
-      initiatorDomains: [
-        "cfhamdkdjgoelclgllcoikbckcfpaklj",
-        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
-      ]
-    }
+  condition: {
+    urlFilter: "https://httpstat.us/429",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
   }
-];
+}, {
+  id: 2,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "Referer",
+        operation: "set",
+        value: "https://www.deepl.com/"
+      },
+      {
+        header: "origin",
+        operation: "set",
+        value: "https://www.deepl.com"
+      },
+      {
+        header: "DNT",
+        operation: "set",
+        value: "1"
+      },
+      { header: "cookie", operation: "remove" },
+      {
+        header: "sec-fetch-site",
+        operation: "set",
+        value: "same-site"
+      }
+    ]
+  },
+  condition: {
+    urlFilter: "https://www2.deepl.com/jsonrpc*",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  id: 200,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "Referer",
+        operation: "set",
+        value: "https://www.deepl.com/"
+      },
+      {
+        header: "origin",
+        operation: "set",
+        value: "https://www.deepl.com"
+      },
+      {
+        header: "DNT",
+        operation: "set",
+        value: "1"
+      },
+      {
+        header: "sec-fetch-site",
+        operation: "set",
+        value: "same-site"
+      }
+    ]
+  },
+  condition: {
+    urlFilter: "https://api.deepl.com/jsonrpc*",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  id: 3,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "origin",
+        operation: "set",
+        value: "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
+      }
+    ]
+  },
+  condition: {
+    urlFilter: "https://transmart.qq.com/api/imt",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  id: 4,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "origin",
+        operation: "set",
+        value: "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
+      }
+    ]
+  },
+  condition: {
+    urlFilter: "https://translate.volcengine.com/crx/translate/v1/",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}];
 
 // messager.ts
 var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
   constructor(fromType, debug = !1) {
     this.logger = new Logger(), debug && this.logger.setLevel("debug"), this.fromType = fromType, listeners2.has(fromType) || (listeners2.set(fromType, /* @__PURE__ */ new Map()), browserAPI.runtime.onMessage.addListener(
+      // @ts-ignore: it's ok
       (message, sender, sendResponse) => {
         let from = message.from, to = message.to, tabId, tabUrl, tabActive;
         sender.tab && sender.tab.id && (tabId = sender.tab.id, from = `${from}:${tabId}`, tabUrl = sender.tab.url, tabActive = sender.tab.active), this.logger.debug(
@@ -10223,8 +10019,8 @@ async function getTableSize(db, storageName) {
     transaction.onsuccess = (_event) => {
       let cursor = transaction.result;
       if (cursor) {
-        let storedObject = cursor.value;
-        size += JSON.stringify(storedObject).length, cursor.continue();
+        let storedObject = cursor.value, json = JSON.stringify(storedObject);
+        size += json.length, cursor.continue();
       } else
         resolve(size);
     }, transaction.onerror = (err) => reject("error in " + storageName + ": " + err);
@@ -10301,7 +10097,7 @@ function steupMessageListeners() {
     }), acc), []);
     browserAPI.webRequest.onBeforeSendHeaders.addListener(
       function(details) {
-        if (!(details.originUrl && details.originUrl.startsWith("http")) && !!details.originUrl && details.requestHeaders)
+        if (!(details.originUrl && details.originUrl.startsWith("http")) && details.originUrl && details.requestHeaders)
           for (let i2 = 0; i2 < urlsFilter.length; i2++) {
             let rule = request_modifier_rule_default[i2];
             if (rule.condition.urlFilter && isMatchUrl(details.url, rule.condition.urlFilter))
@@ -10311,6 +10107,7 @@ function steupMessageListeners() {
               ) };
           }
       },
+      // @ts-ignore: it's ok
       { urls: urlsFilter, types },
       ["blocking", "requestHeaders"]
     );

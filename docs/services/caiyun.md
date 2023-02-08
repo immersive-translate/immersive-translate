@@ -12,3 +12,4 @@
 2. 应用类别选择彩云小译 API，应用名填写沉浸式翻译，应用链接填写 immersive-translate，应用开发情况填写浏览器扩展程序，已开发完成。
 3. 填写完成之后点击提交按钮，彩云小译会审核你提交的信息，一般两个工作日内就会审核通过。
 4. 审核通过后，进入 [我的令牌 - 令牌](https://dashboard.caiyunapp.com/v1/token/) 列表，查看你的“Token”，将此 Token 填入本扩展即可。
+5. 完成！撒花 🎉，如有问题，请在 [这里](https://github.com/immersive-translate/immersive-translate/issues/) 反馈。

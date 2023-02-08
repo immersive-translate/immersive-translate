@@ -1,6 +1,6 @@
 # 赞助者们
 
-非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为[赞助者](https://immersive-translate.owenyoung.com/donate)
+非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 - yetone
 - laosh1
@@ -43,4 +43,4 @@
 - 扶苏
 - Ömer Faruk Aplak
 
-如果有遗漏，请在[Github Sponsors](https://github.com/sponsors/theowenyoung/)里查看，谢谢！
+如果有遗漏，请在 [Github Sponsors](https://github.com/sponsors/theowenyoung/) 里查看，谢谢！

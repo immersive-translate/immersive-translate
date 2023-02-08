@@ -1,12 +1,12 @@
 # 使用案例
 
-## Medium 普通文章，译文无样式：
+## 普通文章，译文无样式：
 
-![medium article](https://s2.loli.net/2023/02/07/uU52ZRIvjqwYDEy.png)
+![](./assets/microsoft.png)
 
 ## 技术文档，译文无样式
 
-![typescript doc.png](https://s2.loli.net/2023/02/07/VsETlOGdi1SPuz9.png)
+![](./assets/typescript.png)
 
 ## 推特，译文弱化样式
 
@@ -16,6 +16,6 @@
 
 ![pdf](https://immersive-translate.owenyoung.com/assets/pdf.png)
 
-## Reddit 译文高亮样式：
+## 更多样式请查看设置界面
 
-![screenshot](https://immersive-translate.owenyoung.com/assets/reddit.png)
+![](./assets/config.png)

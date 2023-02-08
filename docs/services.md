@@ -5,10 +5,10 @@
 ## 翻译服务
 
 1. [Deepl](./services/deepL.md)
-2. [火山引擎](./services/volcano.md)
+2. [彩云小译](./services/caiyun.md)
 3. [腾讯翻译君](./services/tencent.md)
-4. [百度翻译](./services/baidu.md)
-5. [彩云小译](./services/caiyun.md)
+4. [火山引擎](./services/volcano.md)
+5. [百度翻译](./services/baidu.md)
 6. [OpenL](./services/openL.md)
 7. [有道翻译](./services/youdao.md)
 8. [小牛翻译](./services/niu.md)
@@ -17,7 +17,7 @@
 
 ## 免责声明
 
-以上所有翻译服务均由自己申请，所需费用完全由该服务商收取，与本扩展无关。
+以上所有翻译服务费用，完全由该服务商收取，与本扩展无关。
 
 请大家注意各个服务商的免费额度，避免意外扣费。
 

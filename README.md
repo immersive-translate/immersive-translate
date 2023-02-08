@@ -2,19 +2,19 @@
 
 ## 主要特性
 
-- 智能识别网页主内容区进行翻译。区别于同类插件翻译网页所有区域的行为，降低对原网页的“侵入性”，增强译文的阅读体验，所以该扩展被命名为“沉浸式翻译”。
-- 双语显示。中文/英文对照（按照段落自然分割，或可设置为“将段落以句子分割”，实现每句话对照翻译）
-- 定制优化了常见的主流网站。比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
-- 支持 10 余种常见的翻译服务。包括 Deepl，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
+- 智能识别网页主内容区进行翻译，区别于同类插件翻译网页所有区域的行为，降低对原网页的“侵入性”，增强译文的阅读体验，所以该扩展被命名为“沉浸式翻译”。
+- 双语显示，中文/英文对照（按照段落自然分割，或可设置为“将段落以句子分割”，实现每句话对照翻译）
+- 定制优化了常见的主流网站，比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
+- 支持 10 余种常见的翻译服务，包括 Deepl，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
 - 支持 PDF 文件双语翻译。
-- 支持 EPUB 电子书双语阅读。需配合 epub 在线阅读网站使用：<https://epub-reader.online/> 或 <https://readwise.io/read>
-- 提供多种译文样式选择。包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
+- 支持 EPUB 电子书双语阅读，需配合 epub 在线阅读网站使用：<https://epub-reader.online/> 或 <https://readwise.io/read>
+- 提供多种译文样式选择，包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
 
 该扩展完全免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
 
 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
-(此位置正在等待[品牌赞助](https://immersive-translate.owenyoung.com/#%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
+(此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
 
 ## 目录
 
@@ -33,6 +33,11 @@
 - [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
+
+## 使用案例
+
+- [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
+- [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看截图
 
 ## 安装
 
@@ -99,11 +104,6 @@ git clone https://github.com/immersive-translate/next-immersive-translate.git
 3. 选择 `dist/firefox/manifest.json` 即可
 
 **更新：** 使用 `git pull` 拉取最新文件，然后在扩展管理页面选择 `Reload`
-
-## 使用案例
-
-- [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
-- [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看更多截图 ![screenshot|500](https://immersive-translate.owenyoung.com/assets/twitter.png)
 
 ## 赞助我的工作
 

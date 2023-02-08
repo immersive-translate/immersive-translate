@@ -101,7 +101,7 @@
 
 其中部分服务需要配置`apikey`等，不同服务需要的 token 不一样。
 
-比如`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://hcfy.app/docs/services/qq-api/)
+比如`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
 
 还可以在不同的服务下配置：`matches`, 这样可以指定某些网站使用指定的翻译服务。
 

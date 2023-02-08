@@ -37,7 +37,7 @@
 ## 使用案例
 
 - [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
-- [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看截图
+- [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
 
 ## 安装
 

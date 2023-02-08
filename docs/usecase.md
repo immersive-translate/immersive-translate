@@ -2,11 +2,11 @@
 
 ## 普通文章，译文无样式：
 
-![](microsoft.png)
+![](./assets/microsoft.png)
 
 ## 技术文档，译文无样式
 
-![](typescript.png)
+![](./assets/typescript.png)
 
 ## 推特，译文弱化样式
 
@@ -18,4 +18,4 @@
 
 ## 更多样式请查看设置界面
 
-![](config.png)
+![](./assets/config.png)

@@ -1,5 +1,9 @@
 # 常见问题
 
+## 如何更新最新规则
+
+扩展本身会在使用的时候定时同步官方最新对网站适配的规则，你也可以手动立即同步最新的规则，浏览器点击扩展图标，打开弹窗后会自动检测最新适配规则并同步，油猴脚本同理。
+
 ## 油猴脚本之间已知冲突问题
 
-1. [AC-baidu](https://greasyfork.org/zh-CN/scripts/368418-ac-baidu-%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6-%E6%90%9C%E7%8B%97-%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E4%B9%8B%E5%85%B3%E9%94%AE%E8%AF%8D%E8%87%AA%E5%8A%A8%E9%AB%98%E4%BA%AE)
+1. 与[AC-baidu](https://greasyfork.org/zh-CN/scripts/368418-ac-baidu-%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6-%E6%90%9C%E7%8B%97-%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E4%B9%8B%E5%85%B3%E9%94%AE%E8%AF%8D%E8%87%AA%E5%8A%A8%E9%AB%98%E4%BA%AE)冲突

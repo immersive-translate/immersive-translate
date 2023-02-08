@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.53
+// @version      0.2.54
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T02:48:48.063Z", VERSION: "0.2.53", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T06:31:01.382Z", VERSION: "0.2.54", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -4506,9 +4506,10 @@ body {
     clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
     aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
     "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-    aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u9891\u9053</4>\u83B7\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+    aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
+    joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
     feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
     autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
     loadingThemeTitle: "Loading \u6837\u5F0F",
@@ -5446,7 +5447,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
   function setAttribute(element, name, value, explicit = !1) {
-    element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : element.dataset[name] !== value && (element.dataset[name] = value));
+    element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
   }
   function removeAttribute(element, name, explicit = !1) {
     if (isProd && !explicit) {
@@ -8178,6 +8179,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       youdao: {
         placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
+      },
+      deepl: {},
+      dpro: {
+        apiUrl: "https://api.deepl.com/jsonrpc"
       }
     },
     shortcuts: {
@@ -8257,7 +8262,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       urlChangeDelay: 20,
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
-      observeUrlChange: !0,
+      observeUrlChange: !1,
       paragraphMinTextCount: 8,
       paragraphMinWordCount: 2,
       shadowRootSelectors: [],
@@ -8322,7 +8327,6 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         "INPUT",
         "BUTTON",
         "BASE",
-        "LABEL",
         "SELECT",
         "OPTION",
         "IMG",
@@ -8525,6 +8529,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
           "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
         ],
+        observeUrlChange: !1,
         extraInlineSelectors: ['[data-testid="tweetText"] div']
       },
       {
@@ -8645,6 +8650,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         selectors: [
           ".comment-text"
         ],
+        observeUrlChange: !0,
         atomicBlockSelectors: [
           ".comment-text"
         ],
@@ -8654,6 +8660,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       {
         matches: "www.youtube.com",
+        observeUrlChange: !0,
         selectors: [
           "yt-formatted-string[slot=content].ytd-comment-renderer",
           "yt-formatted-string.ytd-video-renderer",
@@ -9190,6 +9197,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
         excludeSelectors: [
           ".home_overview_list_content_wrapper"
         ]
+      },
+      {
+        matches: "developer.chrome.com",
+        excludeSelectors: ["web-tabs", "ul.code-sections--summary"]
       }
     ]
   };
@@ -9284,7 +9295,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       };
       defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
     }
-    return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+    return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
   }
   async function getLocalConfig() {
     let localConfig2 = await browserAPI.storage.local.get(localConfigStorageKey);
@@ -9708,6 +9719,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }), boundaryIndex + 1 < text.length && splitSentence(text.slice(boundaryIndex + 1), maxLength, sentences);
     }
     return sentences;
+  }
+  function mergeUrl(defaultUrl, customUrl) {
+    let defaultUrlObj = new URL(defaultUrl);
+    customUrl.startsWith("http") || (customUrl = "https://" + customUrl);
+    let customUrlObj = new URL(customUrl);
+    return customUrlObj.pathname !== "/" ? customUrlObj.toString() : (defaultUrlObj.host = customUrlObj.host, customUrlObj.port && (defaultUrlObj.port = customUrlObj.port), customUrlObj.protocol && (defaultUrlObj.protocol = customUrlObj.protocol), customUrlObj.username && (defaultUrlObj.username = customUrlObj.username), customUrlObj.password && (defaultUrlObj.password = customUrlObj.password), defaultUrlObj.toString());
   }
 
   // services/cache.ts
@@ -10969,7 +10986,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     translateList(_payload) {
       throw new Error("Not implemented");
     }
-    async multipleTranslate(payload, everySentenceCallback) {
+    async multipleTranslate(payload, options2, everySentenceCallback) {
       if (payload.sentences.length === 0)
         return {
           sentences: []
@@ -11012,7 +11029,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               text: tempSentenceGroup.tempSentences.map((item) => item.text),
               from: finalFrom,
               to: tempSentenceGroup.to,
-              url
+              url,
+              options: options2
             });
           {
             let mergedText = tempSentenceGroup.tempSentences.map(
@@ -11021,7 +11039,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               text: mergedText,
               from: finalFrom,
               to: tempSentenceGroup.to,
-              url
+              url,
+              options: options2
             }), { text } = result2;
             return {
               text: text.split(
@@ -11627,6 +11646,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       super(serviceConfig, generalConfig);
       this.isSupportList = !1;
       this.throttleLimit = 100;
+      this.apiUrl = "https://translate.googleapis.com/translate_a/single";
+      serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
     }
     async translate(payload) {
       let { text, from, to } = payload;
@@ -11908,7 +11929,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       this.maxTextLength = 800;
       this.isSupportList = !0;
       this.API_URL = API_URL;
-      serviceConfig && serviceConfig.API_URL && (this.API_URL = serviceConfig.API_URL);
+      serviceConfig && serviceConfig.apiUrl && (this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl));
     }
     async translateList(payload) {
       let { text, to, from } = payload, result = await translate(
@@ -12002,7 +12023,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           from,
           text: text[0],
           to,
-          url: payload.url
+          url: payload.url,
+          options: payload.options
         });
         return {
           text: [result.text],
@@ -12236,7 +12258,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   var openl_default = Openl;
 
   // services/deepl.ts
-  var env3 = getEnv(), rawLangMap2 = [
+  var rawLangMap2 = [
     ["auto", ""],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -12258,9 +12280,15 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       this.authKey = "";
       this.maxTextGroupLength = 10;
       this.maxTextLength = 1200;
+      this.freeApiUrl = "https://api-free.deepl.com/v2/translate";
+      this.proApiUrl = "https://api.deepl.com/v2/translate";
+      this.immersiveTranslateApiUrl = "https://deepl.immersivetranslate.com/v2/translate";
       if (!serviceConfig || !serviceConfig.authKey)
         throw new Error("authKey are required");
-      this.authKey = serviceConfig.authKey;
+      serviceConfig && serviceConfig.freeApiUrl && (this.freeApiUrl = mergeUrl(this.freeApiUrl, serviceConfig.freeApiUrl)), serviceConfig && serviceConfig.proApiUrl && (this.proApiUrl = mergeUrl(this.proApiUrl, serviceConfig.proApiUrl)), serviceConfig && serviceConfig.immersiveTranslateApiUrl && (this.immersiveTranslateApiUrl = mergeUrl(
+        this.immersiveTranslateApiUrl,
+        serviceConfig.immersiveTranslateApiUrl
+      )), this.authKey = serviceConfig.authKey;
     }
     static getAllProps() {
       return [{
@@ -12277,8 +12305,8 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       text.forEach((item) => {
         bodySearchParams.append("text", item);
       });
-      let body = bodySearchParams.toString(), deeplEndpoint = "https://api-free.deepl.com/v2/translate";
-      this.authKey.endsWith(":im") ? deeplEndpoint = env3.DEEPL_PROXY_ENDPOINT : this.authKey.endsWith(":fx") || (deeplEndpoint = "https://api.deepl.com/v2/translate");
+      let body = bodySearchParams.toString(), deeplEndpoint = this.freeApiUrl;
+      this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
       let response = await request2(
         {
           retry: 2,
@@ -12287,7 +12315,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           body,
           headers: {
             Authorization: "DeepL-Auth-Key " + this.authKey,
-            "content-type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         }
       ), { translations: translations2 } = response;
@@ -13374,7 +13402,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   }, youdao_default = Youdao;
 
   // services/mod.ts
-  var DPRO_URL = "https://api.deepl.com/jsonrpc", TranslationServices = {
+  var TranslationServices = {
     mock: {
       class: Mock,
       name: "Mock",
@@ -13534,9 +13562,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
-    defaultTranslationEngine === "dpro" && (serviceConfig.API_URL = DPRO_URL);
-    let noCacheSentences = [], finalResult = {
+    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
     if (config.cache)
@@ -13588,6 +13614,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       {
         sentences: noCacheSentences
       },
+      serviceConfig,
       (err, a6, b4) => {
         if (everySentenceCallback && (everySentenceCallback(err, a6, b4), !err && a6 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
           let cacheServiceKey = defaultTranslationEngine;
@@ -13753,7 +13780,14 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       rule: config.generalRule,
       url,
       encryptedUrl,
-      state: state || {
+      state: state ? Object.assign({
+        translationArea: config.translationArea,
+        translationStartMode,
+        isAutoTranslate: !1,
+        isNeedClean: !1,
+        isDetectParagraphLanguage,
+        translationTheme: defaultTheme
+      }, state) : {
         translationArea: config.translationArea,
         translationStartMode,
         isAutoTranslate: !1,
@@ -13763,7 +13797,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       },
       localConfig: localConfig2
     };
-    ctx.state.translationArea === "body" && (ctx.config.generalRule.excludeTags = ctx.config.generalRule.excludeTags.filter((tag) => tag !== "BUTTON" && tag !== "LABEL"), ctx.config.generalRule.additionalExcludeSelectors = ctx.config.generalRule.additionalExcludeSelectors.filter(
+    ctx.state.translationArea === "body" && (ctx.config.generalRule.excludeTags = ctx.config.generalRule.excludeTags.filter((tag) => tag !== "BUTTON" && tag !== "FOOTER" && tag !== "ASIDE"), ctx.config.generalRule.additionalExcludeSelectors = ctx.config.generalRule.additionalExcludeSelectors.filter(
       (selector) => selector !== ".btn"
     )), ctx.translationService === "d" && (config.immediateTranslationTextCount = 0);
     let rules = config.rules, rule;
@@ -13788,17 +13822,19 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = le(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
     translateNewDynamicNodes,
     200
-  ), env4 = getEnv(), isProd2 = env4.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+  ), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     if (getPageStatus() === "Original") {
-      let ctx = await getGlobalContext(getRealUrl());
-      ctx.state.translationTheme = ctx.config.translationTheme, await translatePage(globalContext);
+      let ctx = await getGlobalContext(getRealUrl(), {});
+      ctx.state.translationTheme = ctx.config.translationTheme, ctx = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext);
     } else
       (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
   }
   async function toggleTranslationMask() {
     if (getPageStatus() === "Original")
-      globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationTheme = "mask", await translatePage(globalContext);
+      globalContext = await getGlobalContext(getRealUrl(), {
+        translationTheme: "mask"
+      }), await translatePage(globalContext);
     else if (getPageStatus() === "Translated") {
       let allFrames = [
         document.body,
@@ -13852,9 +13888,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }), rootFrame.querySelectorAll(
         "[" + sourceElementEffectAttributeName + "]"
       ).forEach((element) => {
-        if (isProd2)
+        if (isProd2) {
           delete element[elementMarkRootKey];
-        else {
+          let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
+          for (let key of keys)
+            delete element.dataset[key];
+        } else {
           let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
           for (let key of keys)
             delete element.dataset[key];
@@ -13977,7 +14016,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   async function translatePage(ctx) {
     if (pageStatus === "Translating")
       return;
-    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl())), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;
@@ -14003,7 +14042,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     try {
       let allFrames = [document.body];
       document.querySelectorAll("iframe").forEach((frame) => {
-        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env4.IMMERSIVE_TRANSLATE_INJECTED_CSS));
+        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
       }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
         document.body,
         ctx.rule.shadowRootSelectors
@@ -14037,37 +14076,45 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let observer = enableMutatinObserver(rootFrame, rule, ctx);
     return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
   }
-  async function getGlobalContext(url) {
+  async function getGlobalContext(url, state) {
     let config = await getConfig2();
     if (!globalContext)
       globalContext = await getContext({
         url,
-        config
+        config,
+        state
       });
     else {
       let options2 = {
         url,
         config,
-        state: globalContext.state
+        state: { ...globalContext.state, ...state }
       };
       globalContext = await getContext(options2);
     }
     return globalContext;
   }
   async function toggleTranslateTheMainPage() {
-    getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
+    getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
   }
   async function translateTheMainPage() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "main", await translatePage(globalContext);
+    globalContext = await getGlobalContext(getRealUrl(), {
+      translationArea: "main"
+    }), await translatePage(globalContext);
   }
   async function translateTheWholePage() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", await translatePage(globalContext);
+    globalContext = await getGlobalContext(getRealUrl(), {
+      translationArea: "body"
+    }), await translatePage(globalContext);
   }
   async function toggleTranslateTheWholePage() {
-    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", await translatePage(globalContext)) : restorePage());
+    getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", globalContext = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext)) : restorePage());
   }
   async function translateToThePageEndImmediately() {
-    globalContext = await getGlobalContext(getRealUrl()), globalContext.state.translationArea = "body", globalContext.state.translationStartMode = "immediate", await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
+    globalContext = await getGlobalContext(getRealUrl(), {
+      translationArea: "body",
+      translationStartMode: "immediate"
+    }), await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
   }
   async function translateTitle(ctx) {
     let pageTitle = document.title;
@@ -14151,7 +14198,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let paragraph = getParagraph(id);
     if (!paragraph)
       throw new Error("paragraph not found");
-    let ctx = await getGlobalContext(getRealUrl());
+    let ctx = await getGlobalContext(getRealUrl(), {});
     setLoadingToParagraph(paragraph.rootFrame, id, ctx);
     let sentence = {
       id: paragraph.id,
@@ -14270,7 +14317,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
               isInlineIframe(element) && setTimeout(() => {
                 injectCSS(
                   element.contentDocument,
-                  env4.IMMERSIVE_TRANSLATE_INJECTED_CSS
+                  env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
                 ), translateFrame(
                   element.contentDocument.body,
                   ctx
@@ -14327,7 +14374,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     return !1;
   }
   async function initPage() {
-    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl());
+    let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl(), {});
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
     let lang = ctx.sourceLanguage;
     lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
@@ -15720,20 +15767,20 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     top: 335
   }, positionChanged = !1, rootRef = null, btnRef = null, mountPointRef = null, shadowRef = null, timer = null, localConfig = null, delta = 6, startX, startY, lastBtnStyle = null, lastRootStyle = null;
   async function initPopup() {
-    let env5 = getEnv();
+    let env4 = getEnv();
     localConfig = await getLocalConfig2(), currentPagePopupConfig = localConfig.pagePopupConfig || currentPagePopupConfig;
     let popup = document.createElement("div");
     popup.id = "immersive-translate-popup", popup.setAttribute("style", "all: initial"), document.documentElement.appendChild(popup);
     let shadow = popup.attachShadow({ mode: "open" });
     shadowRef = shadow;
     let csses = [
-      env5.IMMERSIVE_TRANSLATE_PICO_CSS,
-      env5.IMMERSIVE_TRANSLATE_COMMON_CSS,
-      env5.IMMERSIVE_TRANSLATE_POPUP_CSS
+      env4.IMMERSIVE_TRANSLATE_PICO_CSS,
+      env4.IMMERSIVE_TRANSLATE_COMMON_CSS,
+      env4.IMMERSIVE_TRANSLATE_POPUP_CSS
     ];
     addCSSLegacy(shadow, csses);
     let mountRoot = document.createElement("div");
-    mountRoot.innerHTML = env5.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
+    mountRoot.innerHTML = env4.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
       "#immersive-translate-popup-container"
     );
     let btn = shadow.querySelector(
@@ -15913,7 +15960,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.53",
+    version: "0.2.54",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15971,8 +16018,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       "webRequestBlocking",
       "declarativeNetRequestWithHostAccess",
       "declarativeNetRequestFeedback",
-      "declarativeNetRequest",
-      "tabs"
+      "declarativeNetRequest"
     ],
     host_permissions: [
       "<all_urls>"

@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.54
+
+- Remove tabs permission for chrome store rejection
+- Fix translate the whole page, footer is ignored
+- Add notes to about page
+- Support custom url from buildin Config
+
 ## 0.2.53
 
 - Fix userscript google drive sync error.

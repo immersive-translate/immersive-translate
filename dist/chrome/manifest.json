@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.53",
+  "version": "0.2.54",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -68,8 +68,7 @@
     "webRequest",
     "declarativeNetRequestWithHostAccess",
     "declarativeNetRequestFeedback",
-    "declarativeNetRequest",
-    "tabs"
+    "declarativeNetRequest"
   ],
   "host_permissions": [
     "<all_urls>"

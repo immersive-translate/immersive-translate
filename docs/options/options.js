@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T00:54:14.275Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T02:48:48.063Z", VERSION: "0.2.53", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -8779,6 +8779,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "h1",
           "div#headlessui-portal-root"
         ]
+      },
+      {
+        matches: "glasp.co",
+        excludeSelectors: [
+          ".home_overview_list_content_wrapper"
+        ]
       }
     ]
   };
@@ -16502,23 +16508,27 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
     }
     function syncLatestWithDrive(accessToken2) {
-      setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), autoSyncStrategy(
-        accessToken2,
-        settings,
-        (newSettings) => {
-          rawSetValue(newSettings);
-        },
-        (isoDate) => setLocalConfig2({
-          ...localConfig,
-          lastSyncedAt: isoDate
-        }),
-        (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
-        (isChanged) => {
-          isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
-        },
-        (reason) => error(t5("syncFail") + reason)
-      ).finally(() => {
-        setAuthLoading(!1);
+      setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), getUserConfig().then((userSettings) => {
+        autoSyncStrategy(
+          accessToken2,
+          userSettings,
+          (newSettings) => {
+            rawSetValue(newSettings);
+          },
+          (isoDate) => setLocalConfig2({
+            ...localConfig,
+            lastSyncedAt: isoDate
+          }),
+          (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
+          (isChanged) => {
+            isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
+          },
+          (reason) => error(t5("syncFail") + reason)
+        ).finally(() => {
+          setAuthLoading(!1);
+        });
+      }).catch((e3) => {
+        error(t5("syncFail")), log_default.error("sync latest with drive error", e3), setAuthLoading(!1);
       });
     }
     function toggleAutoSync(e3) {

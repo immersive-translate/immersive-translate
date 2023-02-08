@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.53
+
+- Fix userscript google drive sync error.
+
 ## 0.2.52
 
 ### Code

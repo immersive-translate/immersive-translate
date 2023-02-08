@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.52
+// @version      0.2.53
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -61,7 +61,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-08T00:54:14.275Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-08T02:48:48.063Z", VERSION: "0.2.53", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -9184,6 +9184,12 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "h1",
           "div#headlessui-portal-root"
         ]
+      },
+      {
+        matches: "glasp.co",
+        excludeSelectors: [
+          ".home_overview_list_content_wrapper"
+        ]
       }
     ]
   };
@@ -15907,7 +15913,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.52",
+    version: "0.2.53",
     default_locale: "en",
     background: {
       service_worker: "background.js"

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-08T00:54:12.856Z", VERSION: "0.2.52", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-08T02:48:46.642Z", VERSION: "0.2.53", PROD: "1", DEEPL_PROXY_ENDPOINT: "https://deepl.immersivetranslate.com/v2/translate", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -9535,6 +9535,12 @@ var buildin_config_default = {
         "h1",
         "div#headlessui-portal-root"
       ]
+    },
+    {
+      matches: "glasp.co",
+      excludeSelectors: [
+        ".home_overview_list_content_wrapper"
+      ]
     }
   ]
 };
@@ -16280,7 +16286,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.52",
+  version: "0.2.53",
   default_locale: "en",
   background: {
     service_worker: "background.js"

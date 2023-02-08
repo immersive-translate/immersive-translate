@@ -18,6 +18,7 @@
   - [OpenL](./services/openL.md)
   - [有道翻译](./services/youdao.md)
   - [小牛翻译](./services/niu.md)
+- [用户评价](review.md)
 - [加入开发?](CONTRIBUTION.md)
   - [Todo List](TODO.md)
 - [Privacy](PRIVACY.md)

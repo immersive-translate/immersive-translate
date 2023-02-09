@@ -1305,15 +1305,22 @@
       ]
     },
     {
-      "matches": "rarbg.to/*",
+      "matches": "https://rarbg.to/*",
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
+      "globalStyles": {
+        ".lista2 h2": "line-height: 14px;"
+      },
       "selectors": [
-        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
-      ],
-      "atomicBlockSelectors": [
-        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
+        "#news_content",
+        "#top_news > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td > table > tbody > tr > td",
+        "#top_news > table > tbody > tr > td > table > tbody > tr > td > h2",
+        "body > table > tbody > tr > td > div > table > tbody > tr > td > b",
+        "#newsRight > table> tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td",
+        "#newsRight > table > tbody > tr > td:nth-child(2) > table > tbody > tr > td > span > b"
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-09T05:43:33.905Z",
+  "buildinConfigUpdatedAt": "2023-02-09T05:58:04.954Z",
   "latestVersion": "0.2.55"
 }

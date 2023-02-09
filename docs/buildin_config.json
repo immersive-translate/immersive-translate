@@ -219,7 +219,6 @@
       "RP",
       "META",
       "ASIDE",
-      "NAV",
       "FOOTER",
       "MATH"
     ],
@@ -514,6 +513,7 @@
         "[data-adclicklocation='title']",
         "[data-adclicklocation=media]",
         ".PostContent",
+        ".post-content",
         ".Comment__body",
         "faceplate-batch .md"
       ],
@@ -606,7 +606,8 @@
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
         "span#video-title",
-        "a#video-title"
+        "a#video-title",
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -627,7 +628,7 @@
         "[class^='lln-']"
       ],
       "extraBlockSelectors": [
-        ".ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
       "detectParagraphLanguage": true
     },
@@ -654,6 +655,13 @@
     {
       "matches": "1paragraph.app",
       "selectors": "#book"
+    },
+    {
+      "matches": "https://poeditor.com/projects/*",
+      "selectors": [
+        ".comment-body",
+        ".reference_language .source-string"
+      ]
     },
     {
       "matches": [
@@ -1299,15 +1307,22 @@
       ]
     },
     {
-      "matches": "rarbg.to/*",
+      "matches": "https://rarbg.to/*",
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
+      "globalStyles": {
+        ".lista2 h2": "line-height: 14px;"
+      },
       "selectors": [
-        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
-      ],
-      "atomicBlockSelectors": [
-        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
+        "#news_content",
+        "#top_news > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td > table > tbody > tr > td",
+        "#top_news > table > tbody > tr > td > table > tbody > tr > td > h2",
+        "body > table > tbody > tr > td > div > table > tbody > tr > td > b",
+        "#newsRight > table> tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td",
+        "#newsRight > table > tbody > tr > td:nth-child(2) > table > tbody > tr > td > span > b"
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-09T05:14:17.662Z",
+  "buildinConfigUpdatedAt": "2023-02-09T09:58:31.587Z",
   "latestVersion": "0.2.55"
 }

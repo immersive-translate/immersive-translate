@@ -203,7 +203,7 @@ export interface Rule {
   globalAttributes?: Record<string, Record<string, string>>; // 修改全局元素的属性
   wrapperPrefix?: string; // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
   wrapperSuffix?: string; // 译文区域的后缀
-  urlChangeDelay?: number; // 延迟多少秒才开始翻译，为了等网页的初始化，目前默认为250ms
+  urlChangeDelay?: number; // 延迟多少毫秒才开始翻译，为了等网页的初始化，目前默认为250ms
   observeUrlChange?: boolean; // 是否检测url change事件，默认为true，部分网站不检测体验更好，比如inoreader
   paragraphMinTextCount?: number; // 要翻译的段落的最小字符数
   paragraphMinWordCount?: number; // 要翻译的段落的最小word数

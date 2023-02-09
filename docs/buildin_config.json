@@ -219,6 +219,7 @@
       "RP",
       "META",
       "ASIDE",
+      "NAV",
       "FOOTER",
       "MATH"
     ],
@@ -435,8 +436,15 @@
         "askubuntu.com",
         "serverfault.com"
       ],
-      "additionalSelectors": [
-        ".comment-copy"
+      "extraBlockSelectors": [
+        "span.comment-copy"
+      ],
+      "excludeSelectors": [
+        "a.comment-user",
+        "span.comment-date",
+        "div.s-prose.js-post-body + div",
+        ".bottom-notice",
+        "div[data-campaign-name=stk]"
       ]
     },
     {
@@ -1289,8 +1297,17 @@
         "web-tabs",
         "ul.code-sections--summary"
       ]
+    },
+    {
+      "matches": "rarbg.to/*",
+      "selectors": [
+        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
+      ],
+      "atomicBlockSelectors": [
+        "#newsRight > table > tbody > tr > td > table > tbody > tr > td"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-09T02:56:15.402Z",
+  "buildinConfigUpdatedAt": "2023-02-09T05:14:17.662Z",
   "latestVersion": "0.2.55"
 }

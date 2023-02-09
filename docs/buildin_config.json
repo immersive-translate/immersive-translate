@@ -513,6 +513,7 @@
         "[data-adclicklocation='title']",
         "[data-adclicklocation=media]",
         ".PostContent",
+        ".post-content",
         ".Comment__body",
         "faceplate-batch .md"
       ],
@@ -1321,6 +1322,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-09T05:58:04.954Z",
+  "buildinConfigUpdatedAt": "2023-02-09T09:42:46.170Z",
   "latestVersion": "0.2.55"
 }

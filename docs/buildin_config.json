@@ -606,7 +606,8 @@
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
         "span#video-title",
-        "a#video-title"
+        "a#video-title",
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -627,7 +628,7 @@
         "[class^='lln-']"
       ],
       "extraBlockSelectors": [
-        ".ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
       "detectParagraphLanguage": true
     },
@@ -1322,6 +1323,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-09T09:42:46.170Z",
+  "buildinConfigUpdatedAt": "2023-02-09T09:58:31.587Z",
   "latestVersion": "0.2.55"
 }

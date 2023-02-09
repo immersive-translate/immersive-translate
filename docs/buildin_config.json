@@ -76,10 +76,10 @@
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
-      "instagram.com",
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
+      "instagram.com",
       "*.slack.com",
       "https://old.reddit.com/",
       "https://www.reddit.com/r/popular/",
@@ -109,12 +109,12 @@
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
-      "instagram.com",
       "read.readwise.io",
       "www.inoreader.com",
       "mail.google.com",
       "google.com",
       "discord.com",
+      "instagram.com",
       "web.telegram.org",
       "*.slack.com"
     ],
@@ -440,26 +440,6 @@
       ]
     },
     {
-    "matches": "https://www.instagram.com/*",
-    "globalStyles": {
-      "._ab05": "min-height:150px"
-    },
-    "wrapperPrefix": "",
-    "wrapperSuffix": "",
-    "selectors": [
-      "div._aa_c h1",
-      "div._a9zs h1",
-      "div._a9zr > div._a9zs > span",
-      "div._ab5z._ab5_",
-      "div._ac72 div[role=\"button\"] > div:last-child",
-      "li._acaz div[role=\"menuitem\"]"
-    ],
-    "atomicBlockSelectors": [
-      "div._aa_c h1",
-      "li._acaz div[role=\"menuitem\"]"
-    ]
-    },
-    {
       "matches": "developer.apple.com/documentation/*",
       "selectors": [
         ".container",
@@ -642,6 +622,26 @@
         ".ytd-transcript-segment-renderer"
       ],
       "detectParagraphLanguage": true
+    },
+    {
+      "matches": "https://www.instagram.com/*",
+      "globalStyles": {
+        "._ab05": "min-height:150px"
+      },
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
+      "selectors": [
+        "div._aa_c h1",
+        "div._a9zs h1",
+        "div._a9zr > div._a9zs > span",
+        "div._ab5z._ab5_",
+        "div._ac72 div[role=\"button\"] > div:last-child",
+        "li._acaz div[role=\"menuitem\"]"
+      ],
+      "atomicBlockSelectors": [
+        "div._aa_c h1",
+        "li._acaz div[role=\"menuitem\"]"
+      ]
     },
     {
       "matches": "1paragraph.app",
@@ -1291,6 +1291,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-08T07:45:27.527Z",
-  "latestVersion": "0.2.54"
+  "buildinConfigUpdatedAt": "2023-02-09T02:56:15.402Z",
+  "latestVersion": "0.2.55"
 }

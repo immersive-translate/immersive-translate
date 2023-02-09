@@ -13,7 +13,7 @@
 该扩展完全免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
-(此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
+(此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
 
 ## 目录
 

@@ -168,7 +168,7 @@
 
 `detectParagraphLanguagePattern` 为不同网站配置，按照段落检测语言，这样可以避免某些本来就是目标语言的段落被翻译。
 
-```
+```json
 "detectParagraphLanguagePattern": {
   "matches": ["twitter.com", "github.com"]
 }
@@ -253,61 +253,59 @@
 ```typescript
 export interface Rule {
   // url
-  matches?: string | string[]; // url匹配规则。设置后，该条rule将仅匹配该url。支持通配符, 如 `*.google.com`, `www.google.com/test/*`, `file:///*`
-  excludeMatches?: string | string[]; // url排除规则，不匹配特定的url
-  
-  selectorMatches?: string | string[]; // url选择器匹配规则，如数量众多的 mastodon实例就可以用选择器来判断，无需指定所有url
+  matches?: string | string[];                // url匹配规则。设置后，该条rule将仅匹配该url。支持通配符, 如 `*.google.com`, `www.google.com/test/*`, `file:///*`
+  excludeMatches?: string | string[];         // url排除规则，不匹配特定的url
+  selectorMatches?: string | string[];        // url选择器匹配规则，如数量众多的 mastodon实例就可以用选择器来判断，无需指定所有url
   excludeSelectorMatches?: string | string[]; // url选择器排除规则
-  
-  // css selectors
-  selectors?: string | string[]; // 该选择器匹配的元素将被翻译
-  excludeSelectors?: string | string[]; // 排除元素，不翻译选择器匹配的元素
-  excludeTags?: string | string[]; // 排除Tags，不翻译匹配的Tag
-  
-  // 保持原样
-  stayOriginalSelectors?: string | string[]; // 该选择器匹配的元素将保持原样
-  stayOriginalTags?: string | string[]; // 匹配到的Tag 将保持原样，比如 `code`
-  
-  // 追加翻译范围，而不是替代
-  additionalSelectors?: string | string[]; // 额外的css选择器。除智能判断的区域外，这里匹配的元素也会被翻译
-  additionalExcludeSelectors?: string | string[]; // 额外排除元素
-  additionalExcludeTags?: string | string[]; // 额外排除Tags
-  
-  // Block / Inline ?
-  inlineTags?: string | string[]; // 匹配的 Tag 将作为 inline 元素
-  extraBlockSelectors?: string | string[]; // 额外的选择器，该选择器匹配的元素将作为 block 元素
-  extraInlineSelectors?: string | string[]; // 额外的选择器，该选择器匹配的元素将作为 inline 元素
-  
-  // 长段落换行
-  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
-  lineBreakMaxTextCount?: number; // 翻译长段落时，强制进行分行的段落最大字符数。
-  
-  blockMinTextCount?: number; // 将译文作为 block 的最小字符数，否则译文为 inline 元素. 
-  blockMinWordCount?: number; // 同上
 
+  // css selectors
+  selectors?: string | string[];              // 该选择器匹配的元素将被翻译
+  excludeSelectors?: string | string[];       // 排除元素，不翻译选择器匹配的元素
+  excludeTags?: string | string[];            // 排除Tags，不翻译匹配的Tag
+
+  // 保持原样
+  stayOriginalSelectors?: string | string[];  // 该选择器匹配的元素将保持原样
+  stayOriginalTags?: string | string[];       // 匹配到的Tag 将保持原样，比如 `code`
   // 分段换行
-  atomicBlockSelectors?: string | string[]; // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段.
-  atomicBlockTags?: string | string[]; // 原子Tag选择器,  同上
-  
-  // 样式
-  globalStyles?: Record<string, string>; // 修改全局样式. 如果译文导致页面排版错乱，这个很有用。`
-  globalAttributes?: Record<string, Record<string, string>>; // 修改全局元素的属性
-  translationClasses?: string | string | string[]; // 为译文添加额外的 Class
-  
-  wrapperPrefix?: string; // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
-  wrapperSuffix?: string; // 译文区域的后缀
-  
-  // 翻译开启条件
+  atomicBlockSelectors?: string | string[];   // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段.
+  atomicBlockTags?: string | string[];        // 原子Tag选择器,  同上
+
+  // 追加翻译范围，而不是替代
+  additionalSelectors?: string | string[];        // 额外的css选择器。除智能判断的区域外，这里匹配的元素也会被翻译
+  additionalExcludeSelectors?: string | string[]; // 额外排除元素
+  additionalExcludeTags?: string | string[];      // 额外排除Tags
+
+  // Block / Inline ?
+  inlineTags?: string | string[];              // 匹配的 Tag 将作为 inline 元素
+  extraBlockSelectors?: string | string[];     // 额外的选择器，该选择器匹配的元素将作为 block 元素
+  extraInlineSelectors?: string | string[];    // 额外的选择器，该选择器匹配的元素将作为 inline 元素
+
+  // 长段落换行
+  containerMinTextCount?: number;     // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
+  lineBreakMaxTextCount?: number;     // 翻译长段落时，强制进行分行的段落最大字符数。
+
+  blockMinTextCount?: number;         // 将译文作为 block 的最小字符数，否则译文为 inline 元素.
+  blockMinWordCount?: number;         // 同上
+
+  // 全局样式
+  globalStyles?: Record<string, string>;                     // 修改页面样式，如果译文导致页面排版错乱，这个很有用。`
+  globalAttributes?: Record<string, Record<string, string>>; // 修改页面元素的属性
+
+  // 译文样式
+  translationClasses?: string | string | string[];           // 为译文添加额外的 Class
+  wrapperPrefix?: string;   // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
+  wrapperSuffix?: string;   // 译文区域的后缀
+
+  // 翻译触发条件
   paragraphMinTextCount?: number; // 要翻译的段落的最小字符数, 大于数字的内容将被翻译
   paragraphMinWordCount?: number; // 要翻译的段落的最小单词数
-  
-  urlChangeDelay?: number; // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
-  observeUrlChange?: boolean; // 检测链接地址变动，地址发生变化时，再次触发翻译。默认为true。部分网站不检测体验更好，比如 inoreader
-  
-  // 移动端 
-  isShowUserscriptPagePopup?: boolean; // 在移动设备上展示页面内的浮窗, 默认为true.
-  fingerCountToToggleTranslagePageWhenTouching?: number; // 四指触摸则翻译，可以设置为 0，2，3，4，5
-  
+  urlChangeDelay?: number;        // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
+  observeUrlChange?: boolean;     // 检测链接地址变动，地址发生变化时，再次触发翻译。默认为true。部分网站不检测体验更好，比如 inoreader
+
+  // 移动端
+  isShowUserscriptPagePopup?: boolean;                    // 在移动设备上展示页面内的浮窗, 默认为true.
+  fingerCountToToggleTranslagePageWhenTouching?: number;  // 四指触摸则翻译，可以设置为 0，2，3，4，5
+
   // 其他
   preWhitespaceDetectedTags?: string | string[]; // 检测是否是 preWhiteSpace 的tag
 }
@@ -323,7 +321,7 @@ Block 和 inline 的区别，如果想了解更多可以看[这里](https://deve
 
 修改全局样式，如果译文会导致页面错位，可以用它修复。比如 youtube 的标题，用来移除原网页的一些最大高度。
 
-```
+```json
 "globalStyles": {
     ".title":"max-height: unset;"
 }

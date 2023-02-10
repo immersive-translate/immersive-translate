@@ -299,7 +299,7 @@ export interface Rule {
   
   // 执行时机
   urlChangeDelay?: number;        // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
-  observeUrlChange?: boolean;     // 检测链接地址变动，地址发生变化时，再次触发翻译。默认为true。部分网站不检测体验更好，比如 inoreader
+  observeUrlChange?: boolean;     // 检测url地址发生变化时，再次启动翻译，默认为true。
 
   // 移动端
   isShowUserscriptPagePopup?: boolean;                    // 在移动设备上展示页面内的浮窗, 默认为true.

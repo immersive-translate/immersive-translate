@@ -318,8 +318,8 @@ url通配符，即 `*` 符号，可以添加在url中，代替任意字符。
 
 Block 和 inline 的区别，如果想了解更多可以看[这里](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#inline)
 
-    block 元素会独占一行，多个相邻的 block 元素会各自新起一行.
-    inline 元素不会独占一行，多个相邻的 inline 元素会排列在同一行里,直到一行排列不下才会新换一行。
+- block 元素会独占一行，多个相邻的 block 元素会各自新起一行.
+- inline 元素不会独占一行，多个相邻的 inline 元素会排列在同一行里,直到一行排列不下才会新换一行。
 
 修改全局样式，如果译文会导致页面错位，可以用它修复。比如 youtube 的标题，用来移除原网页的一些最大高度。
 

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-10T09:47:06.975Z", VERSION: "0.2.56", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSION: "0.2.57", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -16490,7 +16490,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.56",
+  version: "0.2.57",
   default_locale: "en",
   background: {
     service_worker: "background.js"

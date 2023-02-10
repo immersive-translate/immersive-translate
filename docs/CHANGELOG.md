@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.57
+
+- No changes, rebuild
+
 ## 0.2.56
 
 - Fix duplicate translate for inline elements with code element.

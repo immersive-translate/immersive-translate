@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [ ] discord 新消息蹦出来不会自动翻译
 - [ ] valid config, is invalid, then use the default config.
 - [ ] 合并重复的翻译请求，减少请求数量
 - [ ] 支持自助选中一些网页的区域，支持指定的区域不翻译，或者要翻译。
@@ -57,30 +58,10 @@
 - [ ] 开头网络卡了，导致翻译不出结果，第一次看到这个界面，这让我想到可否在此基础上优化一下显示的图标，作为另外一种翻译模式呢？即在需要的翻译的段落旁点按钮，插入显示翻译结果。它有点类似模糊翻译，但可以带来两个好处：1.没有大量的模糊内容干扰阅读视线，2.不需要自动请求大量网络翻译，减少网络压力，节省 API 请求次数,还有第三个好处是在阅读中段时，启动插件，也不会有位移的问题了
 - [ ] 关于 Firefox 版本，后续可以将按钮放在地址栏当中嘛，像 TWP 那样
 - [ ] 同步到，能不能加一个 onedrive 的选项。Google drive 也行但是不太方便。暴力猴都支持好几种，包括 webdev。以后能考虑下吗
-
+- [ ] discord 新消息蹦出来不会自动翻译
 
 ## Done
 
-- [x] not split code element.
-- [x] test pre element, with \n split
-- [x] test dynamic nodes auto
-- [x] auto sync default rule, general rule, 自动同步远程配置文件，并且提供点击手动同步的按钮。
-- [x] detect language, 根据 rule 的配置，某些网站需要检测每一个段落的语言，并且按照检测到的语言去翻译不同的段落。 - @Owen 认领
-- [x] cache translation result， 缓存翻译的结果，减少 api 的调用。 - @Randomb1 认领
-- [x] regex match www.google.* ，支持后缀为*的 match 规则 - @Random 已 pr
-- [x] context menu，添加页面的右键翻译该网站，以及显示原文（根据当前页面的状态，自动切换）。 - @TheOwenYoung 认领
-- [x] 支持更多翻译 api，优先添加 deepl,yandex 的支持，同时研究微信翻译（似乎是免费的）。
-- [x] 移动版的适配
-- [x] config ui - 配置页面 UI @pop
-- [x] popup 页面 UI，等草图。 @pop
-- [x] 判断是否纯 URL，如果是的话，那保持原样，不翻译这个部分。
-- [x] 多语句翻译接口，分段重新测试。目前的似乎有问题。
-- [x] 用 ctrl 打开的页面，再次回到页面时，未翻译。偶现，待确认。 似乎是开发时重新安装插件导致。
-- [x] 国际化界面语言
-- [x] 确定 inject.js 的问题，避免发送没有监听的消息。
-- [x] nitter, mastodon adapter
-- [x] https://www.wking.dev/library/dont-design-your-database-like-a-frontend-developer content editable
-- [x] filter only self request. not third party.
 - [x] fix cron task, save the latest sync time, for save the sync times
 - [x] should I solve the web crypto?
 - [x] grease monkey add shortcut support, and shortcut config ui
@@ -117,7 +98,26 @@
 - [x] fix beta service
 - [x] fix popup settings link
 - [x] xhtml 文档翻译。
-- [x] discord 搜索页面适配
-- [x] 优化重试逻辑，自动重试 1 次？
+- [x] not split code element.
+- [x] test pre element, with \n split
+- [x] test dynamic nodes auto
+- [x] auto sync default rule, general rule, 自动同步远程配置文件，并且提供点击手动同步的按钮。
+- [x] detect language, 根据 rule 的配置，某些网站需要检测每一个段落的语言，并且按照检测到的语言去翻译不同的段落。 - @Owen 认领
+- [x] cache translation result， 缓存翻译的结果，减少 api 的调用。 - @Randomb1 认领
+- [x] regex match www.google.* ，支持后缀为*的 match 规则 - @Random 已 pr
+- [x] context menu，添加页面的右键翻译该网站，以及显示原文（根据当前页面的状态，自动切换）。 - @TheOwenYoung 认领
+- [x] 支持更多翻译 api，优先添加 deepl,yandex 的支持，同时研究微信翻译（似乎是免费的）。
+- [x] 移动版的适配
+- [x] config ui - 配置页面 UI @pop
+- [x] popup 页面 UI，等草图。 @pop
+- [x] 判断是否纯 URL，如果是的话，那保持原样，不翻译这个部分。
+- [x] 多语句翻译接口，分段重新测试。目前的似乎有问题。
+- [x] 用 ctrl 打开的页面，再次回到页面时，未翻译。偶现，待确认。 似乎是开发时重新安装插件导致。
+- [x] 国际化界面语言
+- [x] 确定 inject.js 的问题，避免发送没有监听的消息。
+- [x] nitter, mastodon adapter
+- [x] https://www.wking.dev/library/dont-design-your-database-like-a-frontend-developer content editable
+- [x] filter only self request. not third party.
 - [x] 多语言检测，好吧，我知道了. 上次变更了最小检测字数，比较少的文字，好像就不会被检测了和翻译了。本地识别的时候按照最小字符数识别。但是传给服务器的时候用 auto.
-
+- [x] discord 搜索页面适配
+- [x] 优化重试逻辑，自动重试 1 次

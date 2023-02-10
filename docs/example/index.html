@@ -4,13 +4,30 @@
     <title></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      code {
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
     <header>
       <div>Title need to translate</div>
     </header>
     <article>
-      <p>Hello World!</p>
+      <p class="note">
+        <strong>Note:</strong
+        ><span>
+          The explicit order helps you to reason about how different modifiers
+          will interact. Compare this to the view-based system where you had to
+          learn the box model, that margins applied "outside" the element but
+          padding "inside" it, and a background element would be sized
+          accordingly. The modifier design makes this kind of behavior explicit
+          and predictable, and gives you more control to achieve the exact
+          behavior you want. It also explains why there is not a margin modifier
+          but only a <code translate="no" dir="ltr">padding</code> one.</span
+        >
+      </p>
     </article>
   </body>
 </html>

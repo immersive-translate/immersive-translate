@@ -48,6 +48,10 @@ html {
   scroll-behavior: smooth;
   /* background-color: rgba(242, 242, 242, 1); */
   font-size: var(--font-size);
+  /* if not add the following two styles, in interface setting page, when clicking more themes, */
+  /* the page will jitter because the scrollbar occupies some width space */
+  width: 100vw;
+  overflow-x: hidden;
 }
 body {
   font-size: var(--font-size);

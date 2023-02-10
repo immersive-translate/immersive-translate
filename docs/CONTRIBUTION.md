@@ -1,4 +1,4 @@
-# 帮助开发?
+# 帮助我们?
 
 - 帮忙完善[使用文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言,注册后即可在线翻译。
@@ -31,6 +31,8 @@ scoop install gcc gow -u
 scoop install unxutils
 ```
 
+注：makefile 文件对 powershell 的兼容不同，参数跟命令需要放在同一行中，否则运行会报错。例如在 makefile 中对 make dev 的配置。
+
 ### Linux
 
 安装 Deno 需要最低 glibc_2.18。低版本需要下载源码包编译安装。
@@ -59,14 +61,14 @@ git clone git@github.com:immersive-translate/next-translator.git
 
 > This will start build, and watch files updates and reload the extension on firefox
 
-建议使用 Firefox 浏览器开发测试，web-ext 的工作效果比 Chrome 更好。
+> Firefox is recommended, cause web-ext is more effective than chrome
 
 ## Start dev with chrome
 
     make devchrome
     make debugchrome
 
-打开[Chrome 扩展程序页面](chrome://extensions/)，勾选右上角的开发者模式，加载已解压的扩展程序，选择项目路径的 `dist/chrome` 文件夹，并启用扩展程序。修改代码会自动更新扩展的内容。
+打开[Chrome 扩展程序页面](chrome://extensions/)，勾选右上角开发者模式，加载已解压的扩展程序，选择项目路径下的 `dist/chrome` 文件夹，并启用扩展程序。
 
 ## Start dev with userscript
 
@@ -80,29 +82,29 @@ UserScript header, like this:
 
 ```
 // ==UserScript==
-// @name            Immersive Translate
-// @namespace       https://immersive-translate.owenyoung.com/
-// @version         0.0.10
-// @description     沉浸式网页翻译，支持多种翻译引擎，双语对照显示
-// @author          Owen Young
-// @homepageURL     https://immersive-translate.owenyoung.com/
-// @supportURL      https://github.com/immersive-translate/immersive-translate/
-// @match           *://*/*
-// @icon            https://www.google.com/s2/favicons?sz=64&domain=userscript.net
-// @downloadURL     https://immersive-translate.owenyoung.com/immersive-translate.user.js
-// @updateURL       https://immersive-translate.owenyoung.com/immersive-translate.user.js
-// @inject-into     content
-// @grant           GM.getValue
-// @grant           GM.setValue
-// @grant           GM.xmlHttpRequest
-// @grant           GM.registerMenuCommand
-// @connect         translate.googleapis.com
-// @connect         transmart.qq.com
-// @connect         tmt.tencentcloudapi.com
-// @connect         www2.deepl.com
-// @connect         immersive-translate.owenyoung.com
-// @run-at          document-end
-// @require         file:///Users/username/project/translate/dist/userscript/immersive-translate.user.js
+// @name         Immersive Translate
+// @namespace    https://immersive-translate.owenyoung.com/
+// @version      0.0.10
+// @description  沉浸式网页翻译，支持多种翻译引擎，双语对照显示
+// @author       Owen Young
+// @homepageURL    https://immersive-translate.owenyoung.com/
+// @supportURL    https://github.com/immersive-translate/immersive-translate/
+// @match      *://*/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=userscript.net
+// @downloadURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
+// @updateURL https://immersive-translate.owenyoung.com/immersive-translate.user.js
+// @inject-into    content
+// @grant       GM.getValue
+// @grant       GM.setValue
+// @grant       GM.xmlHttpRequest
+// @grant       GM.registerMenuCommand
+// @connect    translate.googleapis.com
+// @connect    transmart.qq.com
+// @connect    tmt.tencentcloudapi.com
+// @connect    www2.deepl.com
+// @connect    immersive-translate.owenyoung.com
+// @run-at       document-end
+// @require    file:///Users/username/project/translate/dist/userscript/immersive-translate.user.js
 // ==/UserScript==
 ```
 

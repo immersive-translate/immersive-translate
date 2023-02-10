@@ -1,11 +1,11 @@
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {
   for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: !0 });
+    __defProp(target, name, { get: all[name], enumerable: true });
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-08T09:51:07.740Z", VERSION: "0.2.55", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-10T09:14:58.155Z", VERSION: "0.2.56", PROD: "0", REDIRECT_URL: "http://localhost:8000/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -3284,1216 +3284,850 @@ textarea,
 }
 
 /*# sourceMappingURL=custom.css.map */
-`, IMMERSIVE_TRANSLATE_COMMON_CSS: `#mount#mount {
-  /* --primary: rgb(227, 59, 126); */
-  --primary: #ea4c89;
-  --primary-hover: #f082ac;
-}
-
-li.select-link.select-link:hover > ul {
-  display: none;
-}
-li.select-link.select-link > ul {
-  display: none;
-}
-li.select-link.select-link a:focus ~ ul {
-  display: none;
-}
-
-li.select-link.select-link a:active ~ ul {
-  display: none;
-}
-li.select-link-active.select-link-active > ul {
-  display: flex;
-}
-li.select-link-active.select-link-active:hover > ul {
-  display: flex;
-}
-
-li.select-link-active.select-link-active a:focus ~ ul {
-  display: flex;
-}
-
-li.select-link-active.select-link-active a:active ~ ul {
-  display: flex;
-}
-ul.select-link-ul.select-link-ul {
-  right: 0px;
-  left: auto;
-}
-
-a.select-link-selected {
-  background-color: var(--primary-focus);
-}
-.immersive-translate-no-select {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
-}
-
-/* li[role="list"].no-arrow > a::after { */
-/*   background-image: none; */
-/*   width: 0; */
-/*   color: var(--color); */
-/* } */
-li[role="list"].no-arrow {
-  margin-left: 8px;
-  padding-right: 0;
-}
-li[role="list"] > a::after {
-  -webkit-margin-start: 0.2rem;
-  margin-inline-start: 0.2rem;
-}
-
-li[role="list"].no-arrow > a,
-li[role="list"].no-arrow > a:link,
-li[role="list"].no-arrow > a:visited {
-  color: var(--secondary);
-}
-
-select.min-select {
-  --form-element-spacing-horizontal: 0;
-  margin-bottom: 0;
-  max-width: 128px;
-  color: var(--primary);
-  font-size: 14px;
-  border: none;
-  padding: 0;
-  padding-right: 20px;
-  background-position: center right 0;
-  background-size: 16px auto;
-  text-overflow: ellipsis;
-  text-align: right;
-  color: var(--color);
-}
-select.min-select-secondary {
-  color: var(--color);
-}
-select.min-select:focus {
-  outline: none;
-  border: none;
-  --box-shadow: none;
-}
-select.min-select-no-arrow {
-  background-image: none;
-  padding-right: 0;
-}
-
-select.min-select-left {
-  padding-right: 0px;
-  /* padding-left: 24px; */
-  /* background-position: center left 0; */
-  text-overflow: ellipsis;
-  text-align: left;
-}
-
-.muted {
-  color: var(--muted-color);
-}
-
-.select.button-select {
-  --background-color: var(--secondary-hover);
-  --border-color: var(--secondary-hover);
-  --color: var(--secondary-inverse);
-  cursor: pointer;
-  --box-shadow: var(--button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
-  padding: var(--form-element-spacing-vertical)
-    var(--form-element-spacing-horizontal);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: var(--border-radius);
-  outline: none;
-  background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  color: var(--color);
-  font-weight: var(--font-weight);
-  font-size: 16px;
-  line-height: var(--line-height);
-  text-align: center;
-  cursor: pointer;
-  transition: background-color var(--transition), border-color var(--transition),
-    color var(--transition), box-shadow var(--transition);
-  -webkit-appearance: button;
-  margin: 0;
-  margin-bottom: 0px;
-  overflow: visible;
-  font-family: inherit;
-  text-transform: none;
-}
-`, IMMERSIVE_TRANSLATE_POPUP_CSS: `html {
-  font-size: 17px;
-  --font-size: 17px;
-}
-
-body {
-  max-width: 100%;
-  padding: 0;
-  margin: 0;
-  min-width: 250px;
-  border-radius: 10px;
-}
-.immersive-translate-popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  touch-action: none;
-}
-.immersive-translate-popup-wrapper {
-  background: var(--background-color);
-  border-radius: 10px;
-  border: 1px solid var(--muted-border-color);
-}
-
-#mount#mount {
-  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
-    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  --line-height: 1.5;
-  --font-weight: 400;
-  --font-size: 16px;
-  --border-radius: 4px;
-  --border-width: 1px;
-  --outline-width: 3px;
-  --spacing: 16px;
-  --typography-spacing-vertical: 24px;
-  --block-spacing-vertical: calc(var(--spacing) * 2);
-  --block-spacing-horizontal: var(--spacing);
-  --grid-spacing-vertical: 0;
-  --grid-spacing-horizontal: var(--spacing);
-  --form-element-spacing-vertical: 12px;
-  --form-element-spacing-horizontal: 16px;
-  --nav-element-spacing-vertical: 16px;
-  --nav-element-spacing-horizontal: 8px;
-  --nav-link-spacing-vertical: 8px;
-  --nav-link-spacing-horizontal: 8px;
-  --form-label-font-weight: var(--font-weight);
-  --transition: 0.2s ease-in-out;
-  --modal-overlay-backdrop-filter: blur(4px);
-}
-#mount {
-  min-width: 250px;
-}
-.main-button {
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-.pt-4 {
-  padding-top: 24px;
-}
-.p-2 {
-  padding: 8px;
-}
-.pl-5 {
-  padding-left: 48px;
-}
-.p-0 {
-  padding: 0;
-}
-.pl-2 {
-  padding-left: 8px;
-}
-.pl-4 {
-  padding-left: 24px;
-}
-.pt-2 {
-  padding-top: 8px;
-}
-
-.pb-2 {
-  padding-bottom: 8px;
-}
-
-.pr-5 {
-  padding-right: 48px;
-}
-.text-sm {
-  font-size: 14px;
-}
-
-.flex {
-  display: flex;
-}
-.justify-between {
-  justify-content: space-between;
-}
-
-.mb-2 {
-  margin-bottom: 8px;
-}
-.inline-block {
-  display: inline-block;
-}
-
-.py-2 {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.mt-2 {
-  margin-top: 8px;
-}
-.mt-0 {
-  margin-top: 0;
-}
-
-.mb-1 {
-  margin-bottom: 4px;
-}
-.ml-4 {
-  margin-left: 24px;
-}
-.ml-3 {
-  margin-left: 16px;
-}
-.ml-2 {
-  margin-left: 8px;
-}
-.mr-1 {
-  margin-right: 4px;
-}
-.pl-3 {
-  padding-left: 12px;
-}
-.pr-3 {
-  padding-right: 12px;
-}
-.p-3 {
-  padding: 12px;
-}
-.mt-4 {
-  margin-top: 24px;
-}
-.py-0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.left-auto {
-  left: auto !important;
-}
-
-.max-h-28 {
-  max-height: 112px;
-}
-.max-h-30 {
-  max-height: 120px;
-}
-.overflow-y-scroll {
-  overflow-y: scroll;
-}
-.text-xs {
-  font-size: 12px;
-}
-
-.flex-1 {
-  flex: 1;
-}
-.flex-3 {
-  flex: 3;
-}
-.flex-4 {
-  flex: 4;
-}
-.flex-2 {
-  flex: 2;
-}
-.mt-3 {
-  margin-top: 16px;
-}
-.items-center {
-  align-items: center;
-}
-.items-end {
-  align-items: flex-end;
-}
-.items-baseline {
-  align-items: baseline;
-}
-
-.my-5 {
-  margin-top: 48px;
-  margin-bottom: 48px;
-}
-.my-4 {
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-.my-3 {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-.pt-3 {
-  padding-top: 12px;
-}
-.px-3 {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.pt-2 {
-  padding-top: 8px;
-}
-.px-2 {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.pt-1 {
-  padding-top: 4px;
-}
-.px-1 {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-.pb-2 {
-  padding-bottom: 8px;
-}
-.justify-end {
-  justify-content: flex-end;
-}
-.w-auto {
-  width: auto;
-}
-`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<style>
-  html {
-    font-size: 17px;
-  }
-  .immersive-translate-popup-container {
-    position: fixed;
-    padding: 0;
-    z-index: 999999;
-  }
-  .immersive-translate-popup-btn {
-    background-color: #ea4c89;
-    font-size: 18px;
-    opacity: 0.5;
-    width: 36px;
-    height: 36px;
-    border-radius: 9999999px;
-  }
-  .immersive-translate-popup-btn > svg {
-  }
-  #mount#mount {
-    position: absolute;
-    display: none;
-    min-width: 250px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    --font-size: 17px;
-    font-size: 17px;
-  }
-</style>
-
-<div
-  id="immersive-translate-popup-container"
-  class="immersive-translate-popup-container"
->
-  <button
-    id="immersive-translate-popup-btn"
-    class="immersive-translate-popup-btn"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-    >
-      <path fill="none" d="M0 0h24v24H0z" />
-      <path
-        d="M5 15v2a2 2 0 0 0 1.85 1.995L7 19h3v2H7a4 4 0 0 1-4-4v-2h2zm13-5l4.4 11h-2.155l-1.201-3h-4.09l-1.199 3h-2.154L16 10h2zm-1 2.885L15.753 16h2.492L17 12.885zM8 2v2h4v7H8v3H6v-3H2V4h4V2h2zm9 1a4 4 0 0 1 4 4v2h-2V7a2 2 0 0 0-2-2h-3V3h3zM6 6H4v3h2V6zm4 0H8v3h2V6z"
-        fill="rgba(255,255,255,1)"
-      />
-    </svg>
-  </button>
-  <div class="immersive-translate-popup-mount" id="mount"></div>
-</div>
-`, MOCK: "0", DEBUG: "0" };
+`, IMMERSIVE_TRANSLATE_COMMON_CSS: '#mount#mount {\n  /* --primary: rgb(227, 59, 126); */\n  --primary: #ea4c89;\n  --primary-hover: #f082ac;\n}\n\nli.select-link.select-link:hover > ul {\n  display: none;\n}\nli.select-link.select-link > ul {\n  display: none;\n}\nli.select-link.select-link a:focus ~ ul {\n  display: none;\n}\n\nli.select-link.select-link a:active ~ ul {\n  display: none;\n}\nli.select-link-active.select-link-active > ul {\n  display: flex;\n}\nli.select-link-active.select-link-active:hover > ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:focus ~ ul {\n  display: flex;\n}\n\nli.select-link-active.select-link-active a:active ~ ul {\n  display: flex;\n}\nul.select-link-ul.select-link-ul {\n  right: 0px;\n  left: auto;\n}\n\na.select-link-selected {\n  background-color: var(--primary-focus);\n}\n.immersive-translate-no-select {\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none; /* Safari */\n  -khtml-user-select: none; /* Konqueror HTML */\n  -moz-user-select: none; /* Old versions of Firefox */\n  -ms-user-select: none; /* Internet Explorer/Edge */\n  user-select: none;\n}\n\n/* li[role="list"].no-arrow > a::after { */\n/*   background-image: none; */\n/*   width: 0; */\n/*   color: var(--color); */\n/* } */\nli[role="list"].no-arrow {\n  margin-left: 8px;\n  padding-right: 0;\n}\nli[role="list"] > a::after {\n  -webkit-margin-start: 0.2rem;\n  margin-inline-start: 0.2rem;\n}\n\nli[role="list"].no-arrow > a,\nli[role="list"].no-arrow > a:link,\nli[role="list"].no-arrow > a:visited {\n  color: var(--secondary);\n}\n\nselect.min-select {\n  --form-element-spacing-horizontal: 0;\n  margin-bottom: 0;\n  max-width: 128px;\n  color: var(--primary);\n  font-size: 14px;\n  border: none;\n  padding: 0;\n  padding-right: 20px;\n  background-position: center right 0;\n  background-size: 16px auto;\n  text-overflow: ellipsis;\n  text-align: right;\n  color: var(--color);\n}\nselect.min-select-secondary {\n  color: var(--color);\n}\nselect.min-select:focus {\n  outline: none;\n  border: none;\n  --box-shadow: none;\n}\nselect.min-select-no-arrow {\n  background-image: none;\n  padding-right: 0;\n}\n\nselect.min-select-left {\n  padding-right: 0px;\n  /* padding-left: 24px; */\n  /* background-position: center left 0; */\n  text-overflow: ellipsis;\n  text-align: left;\n}\n\n.muted {\n  color: var(--muted-color);\n}\n\n.select.button-select {\n  --background-color: var(--secondary-hover);\n  --border-color: var(--secondary-hover);\n  --color: var(--secondary-inverse);\n  cursor: pointer;\n  --box-shadow: var(--button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));\n  padding: var(--form-element-spacing-vertical)\n    var(--form-element-spacing-horizontal);\n  border: var(--border-width) solid var(--border-color);\n  border-radius: var(--border-radius);\n  outline: none;\n  background-color: var(--background-color);\n  box-shadow: var(--box-shadow);\n  color: var(--color);\n  font-weight: var(--font-weight);\n  font-size: 16px;\n  line-height: var(--line-height);\n  text-align: center;\n  cursor: pointer;\n  transition: background-color var(--transition), border-color var(--transition),\n    color var(--transition), box-shadow var(--transition);\n  -webkit-appearance: button;\n  margin: 0;\n  margin-bottom: 0px;\n  overflow: visible;\n  font-family: inherit;\n  text-transform: none;\n}\n', IMMERSIVE_TRANSLATE_POPUP_CSS: 'html {\n  font-size: 17px;\n  --font-size: 17px;\n}\n\nbody {\n  max-width: 100%;\n  padding: 0;\n  margin: 0;\n  min-width: 250px;\n  border-radius: 10px;\n}\n.immersive-translate-popup-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  touch-action: none;\n}\n.immersive-translate-popup-wrapper {\n  background: var(--background-color);\n  border-radius: 10px;\n  border: 1px solid var(--muted-border-color);\n}\n\n#mount#mount {\n  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",\n    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",\n    "Segoe UI Symbol", "Noto Color Emoji";\n  --line-height: 1.5;\n  --font-weight: 400;\n  --font-size: 16px;\n  --border-radius: 4px;\n  --border-width: 1px;\n  --outline-width: 3px;\n  --spacing: 16px;\n  --typography-spacing-vertical: 24px;\n  --block-spacing-vertical: calc(var(--spacing) * 2);\n  --block-spacing-horizontal: var(--spacing);\n  --grid-spacing-vertical: 0;\n  --grid-spacing-horizontal: var(--spacing);\n  --form-element-spacing-vertical: 12px;\n  --form-element-spacing-horizontal: 16px;\n  --nav-element-spacing-vertical: 16px;\n  --nav-element-spacing-horizontal: 8px;\n  --nav-link-spacing-vertical: 8px;\n  --nav-link-spacing-horizontal: 8px;\n  --form-label-font-weight: var(--font-weight);\n  --transition: 0.2s ease-in-out;\n  --modal-overlay-backdrop-filter: blur(4px);\n}\n#mount {\n  min-width: 250px;\n}\n.main-button {\n  font-size: 14px;\n  vertical-align: middle;\n}\n\n.pt-4 {\n  padding-top: 24px;\n}\n.p-2 {\n  padding: 8px;\n}\n.pl-5 {\n  padding-left: 48px;\n}\n.p-0 {\n  padding: 0;\n}\n.pl-2 {\n  padding-left: 8px;\n}\n.pl-4 {\n  padding-left: 24px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n\n.pb-2 {\n  padding-bottom: 8px;\n}\n\n.pr-5 {\n  padding-right: 48px;\n}\n.text-sm {\n  font-size: 14px;\n}\n\n.flex {\n  display: flex;\n}\n.justify-between {\n  justify-content: space-between;\n}\n\n.mb-2 {\n  margin-bottom: 8px;\n}\n.inline-block {\n  display: inline-block;\n}\n\n.py-2 {\n  padding-top: 8px;\n  padding-bottom: 8px;\n}\n\n.mt-2 {\n  margin-top: 8px;\n}\n.mt-0 {\n  margin-top: 0;\n}\n\n.mb-1 {\n  margin-bottom: 4px;\n}\n.ml-4 {\n  margin-left: 24px;\n}\n.ml-3 {\n  margin-left: 16px;\n}\n.ml-2 {\n  margin-left: 8px;\n}\n.mr-1 {\n  margin-right: 4px;\n}\n.pl-3 {\n  padding-left: 12px;\n}\n.pr-3 {\n  padding-right: 12px;\n}\n.p-3 {\n  padding: 12px;\n}\n.mt-4 {\n  margin-top: 24px;\n}\n.py-0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.left-auto {\n  left: auto !important;\n}\n\n.max-h-28 {\n  max-height: 112px;\n}\n.max-h-30 {\n  max-height: 120px;\n}\n.overflow-y-scroll {\n  overflow-y: scroll;\n}\n.text-xs {\n  font-size: 12px;\n}\n\n.flex-1 {\n  flex: 1;\n}\n.flex-3 {\n  flex: 3;\n}\n.flex-4 {\n  flex: 4;\n}\n.flex-2 {\n  flex: 2;\n}\n.mt-3 {\n  margin-top: 16px;\n}\n.items-center {\n  align-items: center;\n}\n.items-end {\n  align-items: flex-end;\n}\n.items-baseline {\n  align-items: baseline;\n}\n\n.my-5 {\n  margin-top: 48px;\n  margin-bottom: 48px;\n}\n.my-4 {\n  margin-top: 24px;\n  margin-bottom: 24px;\n}\n.my-3 {\n  margin-top: 16px;\n  margin-bottom: 16px;\n}\n.pt-3 {\n  padding-top: 12px;\n}\n.px-3 {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n.pt-2 {\n  padding-top: 8px;\n}\n.px-2 {\n  padding-left: 8px;\n  padding-right: 8px;\n}\n.pt-1 {\n  padding-top: 4px;\n}\n.px-1 {\n  padding-left: 4px;\n  padding-right: 4px;\n}\n.pb-2 {\n  padding-bottom: 8px;\n}\n.justify-end {\n  justify-content: flex-end;\n}\n.w-auto {\n  width: auto;\n}\n', IMMERSIVE_TRANSLATE_POPUP_HTML: '<style>\n  html {\n    font-size: 17px;\n  }\n  .immersive-translate-popup-container {\n    position: fixed;\n    padding: 0;\n    z-index: 999999;\n  }\n  .immersive-translate-popup-btn {\n    background-color: #ea4c89;\n    font-size: 18px;\n    opacity: 0.5;\n    width: 36px;\n    height: 36px;\n    border-radius: 9999999px;\n  }\n  .immersive-translate-popup-btn > svg {\n  }\n  #mount#mount {\n    position: absolute;\n    display: none;\n    min-width: 250px;\n    height: auto;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    --font-size: 17px;\n    font-size: 17px;\n  }\n</style>\n\n<div\n  id="immersive-translate-popup-container"\n  class="immersive-translate-popup-container"\n>\n  <button\n    id="immersive-translate-popup-btn"\n    class="immersive-translate-popup-btn"\n  >\n    <svg\n      xmlns="http://www.w3.org/2000/svg"\n      viewBox="0 0 24 24"\n      width="24"\n      height="24"\n    >\n      <path fill="none" d="M0 0h24v24H0z" />\n      <path\n        d="M5 15v2a2 2 0 0 0 1.85 1.995L7 19h3v2H7a4 4 0 0 1-4-4v-2h2zm13-5l4.4 11h-2.155l-1.201-3h-4.09l-1.199 3h-2.154L16 10h2zm-1 2.885L15.753 16h2.492L17 12.885zM8 2v2h4v7H8v3H6v-3H2V4h4V2h2zm9 1a4 4 0 0 1 4 4v2h-2V7a2 2 0 0 0-2-2h-3V3h3zM6 6H4v3h2V6zm4 0H8v3h2V6z"\n        fill="rgba(255,255,255,1)"\n      />\n    </svg>\n  </button>\n  <div class="immersive-translate-popup-mount" id="mount"></div>\n</div>\n', DEEPL_PROXY_ENDPOINT: "http://localhost:8001/v2/translate", MOCK: "0", DEBUG: "0" };
 
 // https://esm.sh/v106/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
-var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
+var __create = Object.create;
+var __defProp2 = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-}, __copyProps = (to, from, except, desc) => {
-  if (from && typeof from == "object" || typeof from == "function")
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
-      !__hasOwnProp.call(to, key) && key !== except && __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
   return to;
-}, __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
   // If the importer is in node compatibility mode or this is not an ESM
   // file that has been converted to a CommonJS file using a Babel-
   // compatible transform (i.e. "__esModule" has not been set), then set
   // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
+  isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: true }) : target,
   mod
-)), require_browser_polyfill = __commonJS({
+));
+var require_browser_polyfill = __commonJS({
   "esm-build-3120606719048d5175703f3b3f8812d3453a0d07-9fbf1061/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
     (function(global2, factory) {
-      if (typeof define == "function" && define.amd)
+      if (typeof define === "function" && define.amd) {
         define("webextension-polyfill", ["module"], factory);
-      else if (typeof exports2 < "u")
+      } else if (typeof exports2 !== "undefined") {
         factory(module2);
-      else {
+      } else {
         var mod = {
           exports: {}
         };
-        factory(mod), global2.browser = mod.exports;
+        factory(mod);
+        global2.browser = mod.exports;
       }
-    })(typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : exports2, function(module22) {
+    })(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : exports2, function(module22) {
       "use strict";
-      if (!globalThis.chrome?.runtime?.id)
+      if (!globalThis.chrome?.runtime?.id) {
         throw new Error("This script should only be loaded in a browser extension.");
-      if (typeof globalThis.browser > "u" || Object.getPrototypeOf(globalThis.browser) !== Object.prototype) {
-        let CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE = "The message port closed before a response was received.", wrapAPIs = (extensionAPIs) => {
-          let apiMetadata = {
-            alarms: {
-              clear: {
-                minArgs: 0,
-                maxArgs: 1
+      }
+      if (typeof globalThis.browser === "undefined" || Object.getPrototypeOf(globalThis.browser) !== Object.prototype) {
+        const CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE = "The message port closed before a response was received.";
+        const wrapAPIs = (extensionAPIs) => {
+          const apiMetadata = {
+            "alarms": {
+              "clear": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              clearAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "clearAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              get: {
-                minArgs: 0,
-                maxArgs: 1
+              "get": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              getAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            bookmarks: {
-              create: {
-                minArgs: 1,
-                maxArgs: 1
+            "bookmarks": {
+              "create": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              get: {
-                minArgs: 1,
-                maxArgs: 1
+              "get": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getChildren: {
-                minArgs: 1,
-                maxArgs: 1
+              "getChildren": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getRecent: {
-                minArgs: 1,
-                maxArgs: 1
+              "getRecent": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getSubTree: {
-                minArgs: 1,
-                maxArgs: 1
+              "getSubTree": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getTree: {
-                minArgs: 0,
-                maxArgs: 0
+              "getTree": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              move: {
-                minArgs: 2,
-                maxArgs: 2
+              "move": {
+                "minArgs": 2,
+                "maxArgs": 2
               },
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeTree: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeTree": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              search: {
-                minArgs: 1,
-                maxArgs: 1
+              "search": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              update: {
-                minArgs: 2,
-                maxArgs: 2
+              "update": {
+                "minArgs": 2,
+                "maxArgs": 2
               }
             },
-            browserAction: {
-              disable: {
-                minArgs: 0,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+            "browserAction": {
+              "disable": {
+                "minArgs": 0,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              enable: {
-                minArgs: 0,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "enable": {
+                "minArgs": 0,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              getBadgeBackgroundColor: {
-                minArgs: 1,
-                maxArgs: 1
+              "getBadgeBackgroundColor": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getBadgeText: {
-                minArgs: 1,
-                maxArgs: 1
+              "getBadgeText": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getPopup: {
-                minArgs: 1,
-                maxArgs: 1
+              "getPopup": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getTitle: {
-                minArgs: 1,
-                maxArgs: 1
+              "getTitle": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              openPopup: {
-                minArgs: 0,
-                maxArgs: 0
+              "openPopup": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              setBadgeBackgroundColor: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setBadgeBackgroundColor": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              setBadgeText: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setBadgeText": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              setIcon: {
-                minArgs: 1,
-                maxArgs: 1
+              "setIcon": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              setPopup: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setPopup": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              setTitle: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setTitle": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               }
             },
-            browsingData: {
-              remove: {
-                minArgs: 2,
-                maxArgs: 2
+            "browsingData": {
+              "remove": {
+                "minArgs": 2,
+                "maxArgs": 2
               },
-              removeCache: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeCache": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeCookies: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeCookies": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeDownloads: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeDownloads": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeFormData: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeFormData": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeHistory: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeHistory": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeLocalStorage: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeLocalStorage": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removePasswords: {
-                minArgs: 1,
-                maxArgs: 1
+              "removePasswords": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removePluginData: {
-                minArgs: 1,
-                maxArgs: 1
+              "removePluginData": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              settings: {
-                minArgs: 0,
-                maxArgs: 0
+              "settings": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            commands: {
-              getAll: {
-                minArgs: 0,
-                maxArgs: 0
+            "commands": {
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            contextMenus: {
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+            "contextMenus": {
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "removeAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              update: {
-                minArgs: 2,
-                maxArgs: 2
+              "update": {
+                "minArgs": 2,
+                "maxArgs": 2
               }
             },
-            cookies: {
-              get: {
-                minArgs: 1,
-                maxArgs: 1
+            "cookies": {
+              "get": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getAll: {
-                minArgs: 1,
-                maxArgs: 1
+              "getAll": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getAllCookieStores: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAllCookieStores": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              set: {
-                minArgs: 1,
-                maxArgs: 1
+              "set": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            devtools: {
-              inspectedWindow: {
-                eval: {
-                  minArgs: 1,
-                  maxArgs: 2,
-                  singleCallbackArg: !1
+            "devtools": {
+              "inspectedWindow": {
+                "eval": {
+                  "minArgs": 1,
+                  "maxArgs": 2,
+                  "singleCallbackArg": false
                 }
               },
-              panels: {
-                create: {
-                  minArgs: 3,
-                  maxArgs: 3,
-                  singleCallbackArg: !0
+              "panels": {
+                "create": {
+                  "minArgs": 3,
+                  "maxArgs": 3,
+                  "singleCallbackArg": true
                 },
-                elements: {
-                  createSidebarPane: {
-                    minArgs: 1,
-                    maxArgs: 1
+                "elements": {
+                  "createSidebarPane": {
+                    "minArgs": 1,
+                    "maxArgs": 1
                   }
                 }
               }
             },
-            downloads: {
-              cancel: {
-                minArgs: 1,
-                maxArgs: 1
+            "downloads": {
+              "cancel": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              download: {
-                minArgs: 1,
-                maxArgs: 1
+              "download": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              erase: {
-                minArgs: 1,
-                maxArgs: 1
+              "erase": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getFileIcon: {
-                minArgs: 1,
-                maxArgs: 2
+              "getFileIcon": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              open: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "open": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              pause: {
-                minArgs: 1,
-                maxArgs: 1
+              "pause": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeFile: {
-                minArgs: 1,
-                maxArgs: 1
+              "removeFile": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              resume: {
-                minArgs: 1,
-                maxArgs: 1
+              "resume": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              search: {
-                minArgs: 1,
-                maxArgs: 1
+              "search": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              show: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "show": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               }
             },
-            extension: {
-              isAllowedFileSchemeAccess: {
-                minArgs: 0,
-                maxArgs: 0
+            "extension": {
+              "isAllowedFileSchemeAccess": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              isAllowedIncognitoAccess: {
-                minArgs: 0,
-                maxArgs: 0
+              "isAllowedIncognitoAccess": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            history: {
-              addUrl: {
-                minArgs: 1,
-                maxArgs: 1
+            "history": {
+              "addUrl": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              deleteAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "deleteAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              deleteRange: {
-                minArgs: 1,
-                maxArgs: 1
+              "deleteRange": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              deleteUrl: {
-                minArgs: 1,
-                maxArgs: 1
+              "deleteUrl": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getVisits: {
-                minArgs: 1,
-                maxArgs: 1
+              "getVisits": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              search: {
-                minArgs: 1,
-                maxArgs: 1
+              "search": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            i18n: {
-              detectLanguage: {
-                minArgs: 1,
-                maxArgs: 1
+            "i18n": {
+              "detectLanguage": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getAcceptLanguages: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAcceptLanguages": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            identity: {
-              launchWebAuthFlow: {
-                minArgs: 1,
-                maxArgs: 1
+            "identity": {
+              "launchWebAuthFlow": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            idle: {
-              queryState: {
-                minArgs: 1,
-                maxArgs: 1
+            "idle": {
+              "queryState": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            management: {
-              get: {
-                minArgs: 1,
-                maxArgs: 1
+            "management": {
+              "get": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              getSelf: {
-                minArgs: 0,
-                maxArgs: 0
+              "getSelf": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              setEnabled: {
-                minArgs: 2,
-                maxArgs: 2
+              "setEnabled": {
+                "minArgs": 2,
+                "maxArgs": 2
               },
-              uninstallSelf: {
-                minArgs: 0,
-                maxArgs: 1
+              "uninstallSelf": {
+                "minArgs": 0,
+                "maxArgs": 1
               }
             },
-            notifications: {
-              clear: {
-                minArgs: 1,
-                maxArgs: 1
+            "notifications": {
+              "clear": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              create: {
-                minArgs: 1,
-                maxArgs: 2
+              "create": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              getAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              getPermissionLevel: {
-                minArgs: 0,
-                maxArgs: 0
+              "getPermissionLevel": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              update: {
-                minArgs: 2,
-                maxArgs: 2
+              "update": {
+                "minArgs": 2,
+                "maxArgs": 2
               }
             },
-            pageAction: {
-              getPopup: {
-                minArgs: 1,
-                maxArgs: 1
+            "pageAction": {
+              "getPopup": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getTitle: {
-                minArgs: 1,
-                maxArgs: 1
+              "getTitle": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              hide: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "hide": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              setIcon: {
-                minArgs: 1,
-                maxArgs: 1
+              "setIcon": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              setPopup: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setPopup": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              setTitle: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "setTitle": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               },
-              show: {
-                minArgs: 1,
-                maxArgs: 1,
-                fallbackToNoCallback: !0
+              "show": {
+                "minArgs": 1,
+                "maxArgs": 1,
+                "fallbackToNoCallback": true
               }
             },
-            permissions: {
-              contains: {
-                minArgs: 1,
-                maxArgs: 1
+            "permissions": {
+              "contains": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getAll: {
-                minArgs: 0,
-                maxArgs: 0
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              request: {
-                minArgs: 1,
-                maxArgs: 1
+              "request": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            runtime: {
-              getBackgroundPage: {
-                minArgs: 0,
-                maxArgs: 0
+            "runtime": {
+              "getBackgroundPage": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              getPlatformInfo: {
-                minArgs: 0,
-                maxArgs: 0
+              "getPlatformInfo": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              openOptionsPage: {
-                minArgs: 0,
-                maxArgs: 0
+              "openOptionsPage": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              requestUpdateCheck: {
-                minArgs: 0,
-                maxArgs: 0
+              "requestUpdateCheck": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              sendMessage: {
-                minArgs: 1,
-                maxArgs: 3
+              "sendMessage": {
+                "minArgs": 1,
+                "maxArgs": 3
               },
-              sendNativeMessage: {
-                minArgs: 2,
-                maxArgs: 2
+              "sendNativeMessage": {
+                "minArgs": 2,
+                "maxArgs": 2
               },
-              setUninstallURL: {
-                minArgs: 1,
-                maxArgs: 1
+              "setUninstallURL": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            sessions: {
-              getDevices: {
-                minArgs: 0,
-                maxArgs: 1
+            "sessions": {
+              "getDevices": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              getRecentlyClosed: {
-                minArgs: 0,
-                maxArgs: 1
+              "getRecentlyClosed": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              restore: {
-                minArgs: 0,
-                maxArgs: 1
+              "restore": {
+                "minArgs": 0,
+                "maxArgs": 1
               }
             },
-            storage: {
-              local: {
-                clear: {
-                  minArgs: 0,
-                  maxArgs: 0
+            "storage": {
+              "local": {
+                "clear": {
+                  "minArgs": 0,
+                  "maxArgs": 0
                 },
-                get: {
-                  minArgs: 0,
-                  maxArgs: 1
+                "get": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 },
-                getBytesInUse: {
-                  minArgs: 0,
-                  maxArgs: 1
+                "getBytesInUse": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 },
-                remove: {
-                  minArgs: 1,
-                  maxArgs: 1
+                "remove": {
+                  "minArgs": 1,
+                  "maxArgs": 1
                 },
-                set: {
-                  minArgs: 1,
-                  maxArgs: 1
+                "set": {
+                  "minArgs": 1,
+                  "maxArgs": 1
                 }
               },
-              managed: {
-                get: {
-                  minArgs: 0,
-                  maxArgs: 1
+              "managed": {
+                "get": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 },
-                getBytesInUse: {
-                  minArgs: 0,
-                  maxArgs: 1
+                "getBytesInUse": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 }
               },
-              sync: {
-                clear: {
-                  minArgs: 0,
-                  maxArgs: 0
+              "sync": {
+                "clear": {
+                  "minArgs": 0,
+                  "maxArgs": 0
                 },
-                get: {
-                  minArgs: 0,
-                  maxArgs: 1
+                "get": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 },
-                getBytesInUse: {
-                  minArgs: 0,
-                  maxArgs: 1
+                "getBytesInUse": {
+                  "minArgs": 0,
+                  "maxArgs": 1
                 },
-                remove: {
-                  minArgs: 1,
-                  maxArgs: 1
+                "remove": {
+                  "minArgs": 1,
+                  "maxArgs": 1
                 },
-                set: {
-                  minArgs: 1,
-                  maxArgs: 1
+                "set": {
+                  "minArgs": 1,
+                  "maxArgs": 1
                 }
               }
             },
-            tabs: {
-              captureVisibleTab: {
-                minArgs: 0,
-                maxArgs: 2
+            "tabs": {
+              "captureVisibleTab": {
+                "minArgs": 0,
+                "maxArgs": 2
               },
-              create: {
-                minArgs: 1,
-                maxArgs: 1
+              "create": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              detectLanguage: {
-                minArgs: 0,
-                maxArgs: 1
+              "detectLanguage": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              discard: {
-                minArgs: 0,
-                maxArgs: 1
+              "discard": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              duplicate: {
-                minArgs: 1,
-                maxArgs: 1
+              "duplicate": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              executeScript: {
-                minArgs: 1,
-                maxArgs: 2
+              "executeScript": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              get: {
-                minArgs: 1,
-                maxArgs: 1
+              "get": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getCurrent: {
-                minArgs: 0,
-                maxArgs: 0
+              "getCurrent": {
+                "minArgs": 0,
+                "maxArgs": 0
               },
-              getZoom: {
-                minArgs: 0,
-                maxArgs: 1
+              "getZoom": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              getZoomSettings: {
-                minArgs: 0,
-                maxArgs: 1
+              "getZoomSettings": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              goBack: {
-                minArgs: 0,
-                maxArgs: 1
+              "goBack": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              goForward: {
-                minArgs: 0,
-                maxArgs: 1
+              "goForward": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              highlight: {
-                minArgs: 1,
-                maxArgs: 1
+              "highlight": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              insertCSS: {
-                minArgs: 1,
-                maxArgs: 2
+              "insertCSS": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              move: {
-                minArgs: 2,
-                maxArgs: 2
+              "move": {
+                "minArgs": 2,
+                "maxArgs": 2
               },
-              query: {
-                minArgs: 1,
-                maxArgs: 1
+              "query": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              reload: {
-                minArgs: 0,
-                maxArgs: 2
+              "reload": {
+                "minArgs": 0,
+                "maxArgs": 2
               },
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              removeCSS: {
-                minArgs: 1,
-                maxArgs: 2
+              "removeCSS": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              sendMessage: {
-                minArgs: 2,
-                maxArgs: 3
+              "sendMessage": {
+                "minArgs": 2,
+                "maxArgs": 3
               },
-              setZoom: {
-                minArgs: 1,
-                maxArgs: 2
+              "setZoom": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              setZoomSettings: {
-                minArgs: 1,
-                maxArgs: 2
+              "setZoomSettings": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              update: {
-                minArgs: 1,
-                maxArgs: 2
+              "update": {
+                "minArgs": 1,
+                "maxArgs": 2
               }
             },
-            topSites: {
-              get: {
-                minArgs: 0,
-                maxArgs: 0
+            "topSites": {
+              "get": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            webNavigation: {
-              getAllFrames: {
-                minArgs: 1,
-                maxArgs: 1
+            "webNavigation": {
+              "getAllFrames": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              getFrame: {
-                minArgs: 1,
-                maxArgs: 1
+              "getFrame": {
+                "minArgs": 1,
+                "maxArgs": 1
               }
             },
-            webRequest: {
-              handlerBehaviorChanged: {
-                minArgs: 0,
-                maxArgs: 0
+            "webRequest": {
+              "handlerBehaviorChanged": {
+                "minArgs": 0,
+                "maxArgs": 0
               }
             },
-            windows: {
-              create: {
-                minArgs: 0,
-                maxArgs: 1
+            "windows": {
+              "create": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              get: {
-                minArgs: 1,
-                maxArgs: 2
+              "get": {
+                "minArgs": 1,
+                "maxArgs": 2
               },
-              getAll: {
-                minArgs: 0,
-                maxArgs: 1
+              "getAll": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              getCurrent: {
-                minArgs: 0,
-                maxArgs: 1
+              "getCurrent": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              getLastFocused: {
-                minArgs: 0,
-                maxArgs: 1
+              "getLastFocused": {
+                "minArgs": 0,
+                "maxArgs": 1
               },
-              remove: {
-                minArgs: 1,
-                maxArgs: 1
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
               },
-              update: {
-                minArgs: 2,
-                maxArgs: 2
+              "update": {
+                "minArgs": 2,
+                "maxArgs": 2
               }
             }
           };
-          if (Object.keys(apiMetadata).length === 0)
+          if (Object.keys(apiMetadata).length === 0) {
             throw new Error("api-metadata.json has not been included in browser-polyfill");
+          }
           class DefaultWeakMap extends WeakMap {
             constructor(createItem, items = void 0) {
-              super(items), this.createItem = createItem;
+              super(items);
+              this.createItem = createItem;
             }
             get(key) {
-              return this.has(key) || this.set(key, this.createItem(key)), super.get(key);
+              if (!this.has(key)) {
+                this.set(key, this.createItem(key));
+              }
+              return super.get(key);
             }
           }
-          let isThenable = (value) => value && typeof value == "object" && typeof value.then == "function", makeCallback = (promise, metadata) => (...callbackArgs) => {
-            extensionAPIs.runtime.lastError ? promise.reject(new Error(extensionAPIs.runtime.lastError.message)) : metadata.singleCallbackArg || callbackArgs.length <= 1 && metadata.singleCallbackArg !== !1 ? promise.resolve(callbackArgs[0]) : promise.resolve(callbackArgs);
-          }, pluralizeArguments = (numArgs) => numArgs == 1 ? "argument" : "arguments", wrapAsyncFunction = (name, metadata) => function(target, ...args) {
-            if (args.length < metadata.minArgs)
-              throw new Error(`Expected at least ${metadata.minArgs} ${pluralizeArguments(metadata.minArgs)} for ${name}(), got ${args.length}`);
-            if (args.length > metadata.maxArgs)
-              throw new Error(`Expected at most ${metadata.maxArgs} ${pluralizeArguments(metadata.maxArgs)} for ${name}(), got ${args.length}`);
-            return new Promise((resolve, reject) => {
-              if (metadata.fallbackToNoCallback)
-                try {
+          const isThenable = (value) => {
+            return value && typeof value === "object" && typeof value.then === "function";
+          };
+          const makeCallback = (promise, metadata) => {
+            return (...callbackArgs) => {
+              if (extensionAPIs.runtime.lastError) {
+                promise.reject(new Error(extensionAPIs.runtime.lastError.message));
+              } else if (metadata.singleCallbackArg || callbackArgs.length <= 1 && metadata.singleCallbackArg !== false) {
+                promise.resolve(callbackArgs[0]);
+              } else {
+                promise.resolve(callbackArgs);
+              }
+            };
+          };
+          const pluralizeArguments = (numArgs) => numArgs == 1 ? "argument" : "arguments";
+          const wrapAsyncFunction = (name, metadata) => {
+            return function asyncFunctionWrapper(target, ...args) {
+              if (args.length < metadata.minArgs) {
+                throw new Error(`Expected at least ${metadata.minArgs} ${pluralizeArguments(metadata.minArgs)} for ${name}(), got ${args.length}`);
+              }
+              if (args.length > metadata.maxArgs) {
+                throw new Error(`Expected at most ${metadata.maxArgs} ${pluralizeArguments(metadata.maxArgs)} for ${name}(), got ${args.length}`);
+              }
+              return new Promise((resolve, reject) => {
+                if (metadata.fallbackToNoCallback) {
+                  try {
+                    target[name](...args, makeCallback({
+                      resolve,
+                      reject
+                    }, metadata));
+                  } catch (cbError) {
+                    console.warn(`${name} API method doesn't seem to support the callback parameter, falling back to call it without a callback: `, cbError);
+                    target[name](...args);
+                    metadata.fallbackToNoCallback = false;
+                    metadata.noCallback = true;
+                    resolve();
+                  }
+                } else if (metadata.noCallback) {
+                  target[name](...args);
+                  resolve();
+                } else {
                   target[name](...args, makeCallback({
                     resolve,
                     reject
                   }, metadata));
-                } catch (cbError) {
-                  console.warn(`${name} API method doesn't seem to support the callback parameter, falling back to call it without a callback: `, cbError), target[name](...args), metadata.fallbackToNoCallback = !1, metadata.noCallback = !0, resolve();
                 }
-              else
-                metadata.noCallback ? (target[name](...args), resolve()) : target[name](...args, makeCallback({
-                  resolve,
-                  reject
-                }, metadata));
+              });
+            };
+          };
+          const wrapMethod = (target, method, wrapper) => {
+            return new Proxy(method, {
+              apply(targetMethod, thisObj, args) {
+                return wrapper.call(thisObj, target, ...args);
+              }
             });
-          }, wrapMethod = (target, method, wrapper) => new Proxy(method, {
-            apply(targetMethod, thisObj, args) {
-              return wrapper.call(thisObj, target, ...args);
-            }
-          }), hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty), wrapObject = (target, wrappers = {}, metadata = {}) => {
-            let cache2 = /* @__PURE__ */ Object.create(null), handlers = {
+          };
+          let hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty);
+          const wrapObject = (target, wrappers = {}, metadata = {}) => {
+            let cache2 = /* @__PURE__ */ Object.create(null);
+            let handlers = {
               has(proxyTarget2, prop) {
                 return prop in target || prop in cache2;
               },
               get(proxyTarget2, prop, receiver) {
-                if (prop in cache2)
+                if (prop in cache2) {
                   return cache2[prop];
-                if (!(prop in target))
-                  return;
+                }
+                if (!(prop in target)) {
+                  return void 0;
+                }
                 let value = target[prop];
-                if (typeof value == "function")
-                  if (typeof wrappers[prop] == "function")
+                if (typeof value === "function") {
+                  if (typeof wrappers[prop] === "function") {
                     value = wrapMethod(target, target[prop], wrappers[prop]);
-                  else if (hasOwnProperty(metadata, prop)) {
+                  } else if (hasOwnProperty(metadata, prop)) {
                     let wrapper = wrapAsyncFunction(prop, metadata[prop]);
                     value = wrapMethod(target, target[prop], wrapper);
-                  } else
+                  } else {
                     value = value.bind(target);
-                else if (typeof value == "object" && value !== null && (hasOwnProperty(wrappers, prop) || hasOwnProperty(metadata, prop)))
+                  }
+                } else if (typeof value === "object" && value !== null && (hasOwnProperty(wrappers, prop) || hasOwnProperty(metadata, prop))) {
                   value = wrapObject(value, wrappers[prop], metadata[prop]);
-                else if (hasOwnProperty(metadata, "*"))
+                } else if (hasOwnProperty(metadata, "*")) {
                   value = wrapObject(value, wrappers[prop], metadata["*"]);
-                else
-                  return Object.defineProperty(cache2, prop, {
-                    configurable: !0,
-                    enumerable: !0,
+                } else {
+                  Object.defineProperty(cache2, prop, {
+                    configurable: true,
+                    enumerable: true,
                     get() {
                       return target[prop];
                     },
                     set(value2) {
                       target[prop] = value2;
                     }
-                  }), value;
-                return cache2[prop] = value, value;
+                  });
+                  return value;
+                }
+                cache2[prop] = value;
+                return value;
               },
               set(proxyTarget2, prop, value, receiver) {
-                return prop in cache2 ? cache2[prop] = value : target[prop] = value, !0;
+                if (prop in cache2) {
+                  cache2[prop] = value;
+                } else {
+                  target[prop] = value;
+                }
+                return true;
               },
               defineProperty(proxyTarget2, prop, desc) {
                 return Reflect.defineProperty(cache2, prop, desc);
@@ -4501,9 +4135,11 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
               deleteProperty(proxyTarget2, prop) {
                 return Reflect.deleteProperty(cache2, prop);
               }
-            }, proxyTarget = Object.create(target);
+            };
+            let proxyTarget = Object.create(target);
             return new Proxy(proxyTarget, handlers);
-          }, wrapEvent = (wrapperMap) => ({
+          };
+          const wrapEvent = (wrapperMap) => ({
             addListener(target, listener, ...args) {
               target.addListener(wrapperMap.get(listener), ...args);
             },
@@ -4513,64 +4149,107 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
             removeListener(target, listener) {
               target.removeListener(wrapperMap.get(listener));
             }
-          }), onRequestFinishedWrappers = new DefaultWeakMap((listener) => typeof listener != "function" ? listener : function(req) {
-            let wrappedReq = wrapObject(
-              req,
-              {},
-              {
-                getContent: {
-                  minArgs: 0,
-                  maxArgs: 0
-                }
-              }
-            );
-            listener(wrappedReq);
-          }), onMessageWrappers = new DefaultWeakMap((listener) => typeof listener != "function" ? listener : function(message, sender, sendResponse) {
-            let didCallSendResponse = !1, wrappedSendResponse, sendResponsePromise = new Promise((resolve) => {
-              wrappedSendResponse = function(response) {
-                didCallSendResponse = !0, resolve(response);
-              };
-            }), result;
-            try {
-              result = listener(message, sender, wrappedSendResponse);
-            } catch (err) {
-              result = Promise.reject(err);
+          });
+          const onRequestFinishedWrappers = new DefaultWeakMap((listener) => {
+            if (typeof listener !== "function") {
+              return listener;
             }
-            let isResultThenable = result !== !0 && isThenable(result);
-            if (result !== !0 && !isResultThenable && !didCallSendResponse)
-              return !1;
-            let sendPromisedResult = (promise) => {
-              promise.then((msg) => {
-                sendResponse(msg);
-              }, (error2) => {
-                let message2;
-                error2 && (error2 instanceof Error || typeof error2.message == "string") ? message2 = error2.message : message2 = "An unexpected error occurred", sendResponse({
-                  __mozWebExtensionPolyfillReject__: !0,
-                  message: message2
-                });
-              }).catch((err) => {
-                console.error("Failed to send onMessage rejected reply", err);
-              });
+            return function onRequestFinished(req) {
+              const wrappedReq = wrapObject(
+                req,
+                {},
+                {
+                  getContent: {
+                    minArgs: 0,
+                    maxArgs: 0
+                  }
+                }
+              );
+              listener(wrappedReq);
             };
-            return sendPromisedResult(isResultThenable ? result : sendResponsePromise), !0;
-          }), wrappedSendMessageCallback = ({
+          });
+          const onMessageWrappers = new DefaultWeakMap((listener) => {
+            if (typeof listener !== "function") {
+              return listener;
+            }
+            return function onMessage(message, sender, sendResponse) {
+              let didCallSendResponse = false;
+              let wrappedSendResponse;
+              let sendResponsePromise = new Promise((resolve) => {
+                wrappedSendResponse = function(response) {
+                  didCallSendResponse = true;
+                  resolve(response);
+                };
+              });
+              let result;
+              try {
+                result = listener(message, sender, wrappedSendResponse);
+              } catch (err) {
+                result = Promise.reject(err);
+              }
+              const isResultThenable = result !== true && isThenable(result);
+              if (result !== true && !isResultThenable && !didCallSendResponse) {
+                return false;
+              }
+              const sendPromisedResult = (promise) => {
+                promise.then((msg) => {
+                  sendResponse(msg);
+                }, (error2) => {
+                  let message2;
+                  if (error2 && (error2 instanceof Error || typeof error2.message === "string")) {
+                    message2 = error2.message;
+                  } else {
+                    message2 = "An unexpected error occurred";
+                  }
+                  sendResponse({
+                    __mozWebExtensionPolyfillReject__: true,
+                    message: message2
+                  });
+                }).catch((err) => {
+                  console.error("Failed to send onMessage rejected reply", err);
+                });
+              };
+              if (isResultThenable) {
+                sendPromisedResult(result);
+              } else {
+                sendPromisedResult(sendResponsePromise);
+              }
+              return true;
+            };
+          });
+          const wrappedSendMessageCallback = ({
             reject,
             resolve
           }, reply) => {
-            extensionAPIs.runtime.lastError ? extensionAPIs.runtime.lastError.message === CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE ? resolve() : reject(new Error(extensionAPIs.runtime.lastError.message)) : reply && reply.__mozWebExtensionPolyfillReject__ ? reject(new Error(reply.message)) : resolve(reply);
-          }, wrappedSendMessage = (name, metadata, apiNamespaceObj, ...args) => {
-            if (args.length < metadata.minArgs)
+            if (extensionAPIs.runtime.lastError) {
+              if (extensionAPIs.runtime.lastError.message === CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE) {
+                resolve();
+              } else {
+                reject(new Error(extensionAPIs.runtime.lastError.message));
+              }
+            } else if (reply && reply.__mozWebExtensionPolyfillReject__) {
+              reject(new Error(reply.message));
+            } else {
+              resolve(reply);
+            }
+          };
+          const wrappedSendMessage = (name, metadata, apiNamespaceObj, ...args) => {
+            if (args.length < metadata.minArgs) {
               throw new Error(`Expected at least ${metadata.minArgs} ${pluralizeArguments(metadata.minArgs)} for ${name}(), got ${args.length}`);
-            if (args.length > metadata.maxArgs)
+            }
+            if (args.length > metadata.maxArgs) {
               throw new Error(`Expected at most ${metadata.maxArgs} ${pluralizeArguments(metadata.maxArgs)} for ${name}(), got ${args.length}`);
+            }
             return new Promise((resolve, reject) => {
-              let wrappedCb = wrappedSendMessageCallback.bind(null, {
+              const wrappedCb = wrappedSendMessageCallback.bind(null, {
                 resolve,
                 reject
               });
-              args.push(wrappedCb), apiNamespaceObj.sendMessage(...args);
+              args.push(wrappedCb);
+              apiNamespaceObj.sendMessage(...args);
             });
-          }, staticWrappers = {
+          };
+          const staticWrappers = {
             devtools: {
               network: {
                 onRequestFinished: wrapEvent(onRequestFinishedWrappers)
@@ -4590,7 +4269,8 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
                 maxArgs: 3
               })
             }
-          }, settingMetadata = {
+          };
+          const settingMetadata = {
             clear: {
               minArgs: 1,
               maxArgs: 1
@@ -4604,7 +4284,7 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
               maxArgs: 1
             }
           };
-          return apiMetadata.privacy = {
+          apiMetadata.privacy = {
             network: {
               "*": settingMetadata
             },
@@ -4614,62 +4294,85 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
             websites: {
               "*": settingMetadata
             }
-          }, wrapObject(extensionAPIs, staticWrappers, apiMetadata);
+          };
+          return wrapObject(extensionAPIs, staticWrappers, apiMetadata);
         };
         module22.exports = wrapAPIs(chrome);
-      } else
+      } else {
         module22.exports = globalThis.browser;
+      }
     });
   }
-}), __module = __toESM(require_browser_polyfill()), { default: __default, ...__rest } = __module, mod_default = __default !== void 0 ? __default : __rest;
+});
+var __module = __toESM(require_browser_polyfill());
+var { default: __default, ...__rest } = __module;
+var mod_default = __default !== void 0 ? __default : __rest;
 
 // browser/import_browser_polyfill.ts
 globalThis.immersiveTranslateBrowserAPI = mod_default;
 
 // https://deno.land/std@0.171.0/async/deferred.ts
 function deferred() {
-  let methods, state = "pending", promise = new Promise((resolve, reject) => {
+  let methods;
+  let state = "pending";
+  const promise = new Promise((resolve, reject) => {
     methods = {
       async resolve(value) {
-        await value, state = "fulfilled", resolve(value);
+        await value;
+        state = "fulfilled";
+        resolve(value);
       },
       // deno-lint-ignore no-explicit-any
       reject(reason) {
-        state = "rejected", reject(reason);
+        state = "rejected";
+        reject(reason);
       }
     };
   });
-  return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
+  Object.defineProperty(promise, "state", { get: () => state });
+  return Object.assign(promise, methods);
 }
 
 // https://deno.land/std@0.171.0/async/deadline.ts
 var DeadlineError = class extends Error {
   constructor() {
-    super("Deadline"), this.name = "DeadlineError";
+    super("Deadline");
+    this.name = "DeadlineError";
   }
 };
 function deadline(p6, delay2) {
-  let d3 = deferred(), t5 = setTimeout(() => d3.reject(new DeadlineError()), delay2);
+  const d3 = deferred();
+  const t5 = setTimeout(() => d3.reject(new DeadlineError()), delay2);
   return Promise.race([p6, d3]).finally(() => clearTimeout(t5));
 }
 
 // https://deno.land/std@0.171.0/async/delay.ts
 function delay(ms, options = {}) {
-  let { signal, persistent } = options;
-  return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
-    let abort = () => {
-      clearTimeout(i2), reject(new DOMException("Delay was aborted.", "AbortError"));
-    }, i2 = setTimeout(() => {
-      signal?.removeEventListener("abort", abort), resolve();
-    }, ms);
-    if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
+  const { signal, persistent } = options;
+  if (signal?.aborted) {
+    return Promise.reject(new DOMException("Delay was aborted.", "AbortError"));
+  }
+  return new Promise((resolve, reject) => {
+    const abort = () => {
+      clearTimeout(i2);
+      reject(new DOMException("Delay was aborted.", "AbortError"));
+    };
+    const done = () => {
+      signal?.removeEventListener("abort", abort);
+      resolve();
+    };
+    const i2 = setTimeout(done, ms);
+    signal?.addEventListener("abort", abort, { once: true });
+    if (persistent === false) {
       try {
         Deno.unrefTimer(i2);
       } catch (error2) {
-        if (!(error2 instanceof ReferenceError))
+        if (!(error2 instanceof ReferenceError)) {
           throw error2;
+        }
         console.error("`persistent` option is only available in Deno");
       }
+    }
   });
 }
 
@@ -4681,30 +4384,38 @@ var MuxAsyncIterator = class {
   #throws = [];
   #signal = deferred();
   add(iterable) {
-    ++this.#iteratorCount, this.#callIteratorNext(iterable[Symbol.asyncIterator]());
+    ++this.#iteratorCount;
+    this.#callIteratorNext(iterable[Symbol.asyncIterator]());
   }
   async #callIteratorNext(iterator) {
     try {
-      let { value, done } = await iterator.next();
-      done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
+      const { value, done } = await iterator.next();
+      if (done) {
+        --this.#iteratorCount;
+      } else {
+        this.#yields.push({ iterator, value });
+      }
     } catch (e3) {
       this.#throws.push(e3);
     }
     this.#signal.resolve();
   }
   async *iterate() {
-    for (; this.#iteratorCount > 0; ) {
+    while (this.#iteratorCount > 0) {
       await this.#signal;
       for (let i2 = 0; i2 < this.#yields.length; i2++) {
-        let { iterator, value } = this.#yields[i2];
-        yield value, this.#callIteratorNext(iterator);
+        const { iterator, value } = this.#yields[i2];
+        yield value;
+        this.#callIteratorNext(iterator);
       }
       if (this.#throws.length) {
-        for (let e3 of this.#throws)
+        for (const e3 of this.#throws) {
           throw e3;
+        }
         this.#throws.length = 0;
       }
-      this.#yields.length = 0, this.#signal = deferred();
+      this.#yields.length = 0;
+      this.#signal = deferred();
     }
   }
   [Symbol.asyncIterator]() {
@@ -4764,9 +4475,14 @@ __export(colors_exports, {
   white: () => white,
   yellow: () => yellow
 });
-var { Deno: Deno2 } = globalThis, noColor = typeof Deno2?.noColor == "boolean" ? Deno2.noColor : !0, enabled = !noColor;
+var { Deno: Deno2 } = globalThis;
+var noColor = typeof Deno2?.noColor === "boolean" ? Deno2.noColor : true;
+var enabled = !noColor;
 function setColorEnabled(value) {
-  noColor || (enabled = value);
+  if (noColor) {
+    return;
+  }
+  enabled = value;
 }
 function getColorEnabled() {
   return enabled;
@@ -4914,13 +4630,16 @@ function bgRgb8(str, color) {
   return run(str, code([48, 5, clampAndTruncate(color)], 49));
 }
 function rgb24(str, color) {
-  return typeof color == "number" ? run(
-    str,
-    code(
-      [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-      39
-    )
-  ) : run(
+  if (typeof color === "number") {
+    return run(
+      str,
+      code(
+        [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+        39
+      )
+    );
+  }
+  return run(
     str,
     code(
       [
@@ -4935,13 +4654,16 @@ function rgb24(str, color) {
   );
 }
 function bgRgb24(str, color) {
-  return typeof color == "number" ? run(
-    str,
-    code(
-      [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-      49
-    )
-  ) : run(
+  if (typeof color === "number") {
+    return run(
+      str,
+      code(
+        [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+        49
+      )
+    );
+  }
+  return run(
     str,
     code(
       [
@@ -4968,50 +4690,83 @@ function stripColor(string) {
 
 // https://deno.land/std@0.167.0/async/debounce.ts
 function debounce(fn, wait) {
-  let timeout = null, flush = null, debounced = (...args) => {
-    debounced.clear(), flush = () => {
-      debounced.clear(), fn.call(debounced, ...args);
-    }, timeout = setTimeout(flush, wait);
+  let timeout = null;
+  let flush = null;
+  const debounced = (...args) => {
+    debounced.clear();
+    flush = () => {
+      debounced.clear();
+      fn.call(debounced, ...args);
+    };
+    timeout = setTimeout(flush, wait);
   };
-  return debounced.clear = () => {
-    typeof timeout == "number" && (clearTimeout(timeout), timeout = null, flush = null);
-  }, debounced.flush = () => {
+  debounced.clear = () => {
+    if (typeof timeout === "number") {
+      clearTimeout(timeout);
+      timeout = null;
+      flush = null;
+    }
+  };
+  debounced.flush = () => {
     flush?.();
-  }, Object.defineProperty(debounced, "pending", {
-    get: () => typeof timeout == "number"
-  }), debounced;
+  };
+  Object.defineProperty(debounced, "pending", {
+    get: () => typeof timeout === "number"
+  });
+  return debounced;
 }
 
 // https://deno.land/std@0.170.0/async/retry.ts
 var RetryError = class extends Error {
   constructor(cause, count2) {
-    super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+    super(`Exceeded max retry count (${count2})`);
+    this.name = "RetryError";
+    this.cause = cause;
   }
-}, defaultRetryOptions = {
+};
+var defaultRetryOptions = {
   multiplier: 2,
   maxTimeout: 6e4,
   maxAttempts: 5,
   minTimeout: 1e3
 };
 async function retry(fn, opts) {
-  let options = {
+  const options = {
     ...defaultRetryOptions,
     ...opts
   };
-  if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
+  if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout) {
     throw new RangeError("minTimeout is greater than maxTimeout");
-  let timeout = options.minTimeout, error2;
-  for (let i2 = 0; i2 < options.maxAttempts; i2++)
+  }
+  let timeout = options.minTimeout;
+  let error2;
+  for (let i2 = 0; i2 < options.maxAttempts; i2++) {
     try {
       return await fn();
     } catch (err) {
-      await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error2 = err;
+      await new Promise((r) => setTimeout(r, timeout));
+      timeout *= options.multiplier;
+      timeout = Math.max(timeout, options.minTimeout);
+      if (options.maxTimeout >= 0) {
+        timeout = Math.min(timeout, options.maxTimeout);
+      }
+      error2 = err;
     }
+  }
   throw new RetryError(error2, options.maxAttempts);
 }
 
 // https://esm.sh/stable/preact@10.11.0/deno/preact.js
-var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
+var P;
+var d;
+var $;
+var Y;
+var S;
+var F;
+var B;
+var T = {};
+var V = [];
+var Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function k(e3, t5) {
   for (var _3 in t5)
     e3[_3] = t5[_3];
@@ -5060,7 +4815,7 @@ function z(e3) {
   }
 }
 function M(e3) {
-  (!e3.__d && (e3.__d = !0) && S.push(e3) && !D.__r++ || F !== d.debounceRendering) && ((F = d.debounceRendering) || setTimeout)(D);
+  (!e3.__d && (e3.__d = true) && S.push(e3) && !D.__r++ || F !== d.debounceRendering) && ((F = d.debounceRendering) || setTimeout)(D);
 }
 function D() {
   for (var e3; D.__r = S.length; )
@@ -5149,14 +4904,14 @@ function N(e3, t5, _3, r, l2) {
           break e;
         } catch {
         }
-      typeof _3 == "function" || (_3 != null && (_3 !== !1 || t5[0] === "a" && t5[1] === "r") ? e3.setAttribute(t5, _3) : e3.removeAttribute(t5));
+      typeof _3 == "function" || (_3 != null && (_3 !== false || t5[0] === "a" && t5[1] === "r") ? e3.setAttribute(t5, _3) : e3.removeAttribute(t5));
     }
 }
 function O(e3) {
-  this.l[e3.type + !1](d.event ? d.event(e3) : e3);
+  this.l[e3.type + false](d.event ? d.event(e3) : e3);
 }
 function R(e3) {
-  this.l[e3.type + !0](d.event ? d.event(e3) : e3);
+  this.l[e3.type + true](d.event ? d.event(e3) : e3);
 }
 function W(e3, t5, _3, r, l2, o3, s4, f4, p6) {
   var a4, n3, h3, c4, i2, u3, b4, v2, y3, g5, x5, H7, E3, m4 = t5.type;
@@ -5166,11 +4921,11 @@ function W(e3, t5, _3, r, l2, o3, s4, f4, p6) {
   try {
     e:
       if (typeof m4 == "function") {
-        if (v2 = t5.props, y3 = (a4 = m4.contextType) && r[a4.__c], g5 = a4 ? y3 ? y3.props.value : a4.__ : r, _3.__c ? b4 = (n3 = t5.__c = _3.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t5.__c = n3 = new m4(v2, g5) : (t5.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c4 = n3.props, i2 = n3.state, h3)
+        if (v2 = t5.props, y3 = (a4 = m4.contextType) && r[a4.__c], g5 = a4 ? y3 ? y3.props.value : a4.__ : r, _3.__c ? b4 = (n3 = t5.__c = _3.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t5.__c = n3 = new m4(v2, g5) : (t5.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = true, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c4 = n3.props, i2 = n3.state, h3)
           m4.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
         else {
-          if (m4.getDerivedStateFromProps == null && v2 !== c4 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t5.__v === _3.__v) {
-            n3.props = v2, n3.state = n3.__s, t5.__v !== _3.__v && (n3.__d = !1), n3.__v = t5, t5.__e = _3.__e, t5.__k = _3.__k, t5.__k.forEach(function(A5) {
+          if (m4.getDerivedStateFromProps == null && v2 !== c4 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === false || t5.__v === _3.__v) {
+            n3.props = v2, n3.state = n3.__s, t5.__v !== _3.__v && (n3.__d = false), n3.__v = t5, t5.__e = _3.__e, t5.__k = _3.__k, t5.__k.forEach(function(A5) {
               A5 && (A5.__ = t5);
             }), n3.__h.length && s4.push(n3);
             break e;
@@ -5180,12 +4935,12 @@ function W(e3, t5, _3, r, l2, o3, s4, f4, p6) {
           });
         }
         if (n3.context = g5, n3.props = v2, n3.__v = t5, n3.__P = e3, x5 = d.__r, H7 = 0, "prototype" in m4 && m4.prototype.render)
-          n3.state = n3.__s, n3.__d = !1, x5 && x5(t5), a4 = n3.render(n3.props, n3.state, n3.context);
+          n3.state = n3.__s, n3.__d = false, x5 && x5(t5), a4 = n3.render(n3.props, n3.state, n3.context);
         else
           do
-            n3.__d = !1, x5 && x5(t5), a4 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
+            n3.__d = false, x5 && x5(t5), a4 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
           while (n3.__d && ++H7 < 25);
-        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c4, i2)), E3 = a4 != null && a4.type === L && a4.key == null ? a4.props.children : a4, G(e3, Array.isArray(E3) ? E3 : [E3], t5, _3, r, l2, o3, s4, f4, p6), n3.base = t5.__e, t5.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
+        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c4, i2)), E3 = a4 != null && a4.type === L && a4.key == null ? a4.props.children : a4, G(e3, Array.isArray(E3) ? E3 : [E3], t5, _3, r, l2, o3, s4, f4, p6), n3.base = t5.__e, t5.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = false;
       } else
         o3 == null && t5.__v === _3.__v ? (t5.__k = _3.__k, t5.__e = _3.__e) : t5.__e = ne(_3.__e, t5, _3, r, l2, o3, s4, p6);
     (a4 = d.diffed) && a4(t5);
@@ -5206,7 +4961,7 @@ function K(e3, t5) {
 }
 function ne(e3, t5, _3, r, l2, o3, s4, f4) {
   var p6, a4, n3, h3 = _3.props, c4 = t5.props, i2 = t5.type, u3 = 0;
-  if (i2 === "svg" && (l2 = !0), o3 != null) {
+  if (i2 === "svg" && (l2 = true), o3 != null) {
     for (; u3 < o3.length; u3++)
       if ((p6 = o3[u3]) && "setAttribute" in p6 == !!i2 && (i2 ? p6.localName === i2 : p6.nodeType === 3)) {
         e3 = p6, o3[u3] = null;
@@ -5216,7 +4971,7 @@ function ne(e3, t5, _3, r, l2, o3, s4, f4) {
   if (e3 == null) {
     if (i2 === null)
       return document.createTextNode(c4);
-    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c4.is && c4), o3 = null, f4 = !1;
+    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c4.is && c4), o3 = null, f4 = false;
   }
   if (i2 === null)
     h3 === c4 || f4 && e3.data === c4 || (e3.data = c4);
@@ -5232,7 +4987,7 @@ function ne(e3, t5, _3, r, l2, o3, s4, f4) {
     else if (u3 = t5.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t5, _3, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _3.__k && C(_3, 0), f4), o3 != null)
       for (u3 = o3.length; u3--; )
         o3[u3] != null && j(o3[u3]);
-    f4 || ("value" in c4 && (u3 = c4.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c4 && (u3 = c4.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
+    f4 || ("value" in c4 && (u3 = c4.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, false), "checked" in c4 && (u3 = c4.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, false));
   }
   return e3;
 }
@@ -5301,11 +5056,22 @@ P = V.slice, d = { __e: function(e3, t5, _3, r) {
   var _3;
   _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _3), this.props)), e3 && k(_3, e3), e3 != null && this.__v && (t5 && this.__h.push(t5), M(this));
 }, U.prototype.forceUpdate = function(e3) {
-  this.__v && (this.__e = !0, e3 && this.__h.push(e3), M(this));
+  this.__v && (this.__e = true, e3 && this.__h.push(e3), M(this));
 }, U.prototype.render = L, S = [], D.__r = 0, B = 0;
 
 // https://esm.sh/stable/preact@10.11.0/deno/hooks.js
-var i, n, d2, N2, f = 0, q2 = [], l = [], V2 = d.__b, g = d.__r, b = d.diffed, C2 = d.__c, A = d.unmount;
+var i;
+var n;
+var d2;
+var N2;
+var f = 0;
+var q2 = [];
+var l = [];
+var V2 = d.__b;
+var g = d.__r;
+var b = d.diffed;
+var C2 = d.__c;
+var A = d.unmount;
 function a(_3, t5) {
   d.__h && d.__h(n, _3, f || t5), f = 0;
   var u3 = n.__H || (n.__H = { __: [], __h: [] });
@@ -5320,11 +5086,11 @@ function B2(_3, t5, u3) {
     var s4 = o3.__N ? o3.__N[0] : o3.__[0], h3 = o3.t(s4, v2);
     s4 !== h3 && (o3.__N = [h3, o3.__[1]], o3.__c.setState({}));
   }], o3.__c = n, !n.u)) {
-    n.u = !0;
+    n.u = true;
     var r = n.shouldComponentUpdate;
     n.shouldComponentUpdate = function(v2, s4, h3) {
       if (!o3.__c.__H)
-        return !0;
+        return true;
       var y3 = o3.__c.__H.__.filter(function(c4) {
         return c4.__c;
       });
@@ -5332,11 +5098,11 @@ function B2(_3, t5, u3) {
         return !c4.__N;
       }))
         return !r || r.call(this, v2, s4, h3);
-      var E3 = !1;
+      var E3 = false;
       return y3.forEach(function(c4) {
         if (c4.__N) {
           var k4 = c4.__[0];
-          c4.__ = c4.__N, c4.__N = void 0, k4 !== c4.__[0] && (E3 = !0);
+          c4.__ = c4.__N, c4.__N = void 0, k4 !== c4.__[0] && (E3 = true);
         }
       }), !!E3 && (!r || r.call(this, v2, s4, h3));
     };
@@ -5363,7 +5129,7 @@ function L2(_3, t5) {
 }
 function M2(_3) {
   var t5 = n.context[_3.__c], u3 = a(i++, 9);
-  return u3.c = _3, t5 ? (u3.__ == null && (u3.__ = !0, t5.sub(n)), t5.props.value) : _3.__;
+  return u3.c = _3, t5 ? (u3.__ == null && (u3.__ = true, t5.sub(n)), t5.props.value) : _3.__;
 }
 function R2() {
   for (var _3; _3 = q2.shift(); )
@@ -5480,22 +5246,32 @@ function m2({ limit: i2, interval: s4, strict: f4 }) {
       for (let o3 of r.keys())
         clearTimeout(o3), r.get(o3)(new a2());
       r.clear(), n3.splice(0, n3.length);
-    }, t5.isEnabled = !0, t5;
+    }, t5.isEnabled = true, t5;
   };
 }
 
 // https://esm.sh/v106/lodash.throttle@4.1.1/deno/lodash.throttle.js
-var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B3 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P3 = Object.prototype.hasOwnProperty, D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t5, f4) => {
+var __global$ = globalThis || (typeof window !== "undefined" ? window : self);
+var A2 = Object.create;
+var h = Object.defineProperty;
+var B3 = Object.getOwnPropertyDescriptor;
+var F3 = Object.getOwnPropertyNames;
+var R3 = Object.getPrototypeOf;
+var P3 = Object.prototype.hasOwnProperty;
+var D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports);
+var G2 = (e3, n3, t5, f4) => {
   if (n3 && typeof n3 == "object" || typeof n3 == "function")
     for (let i2 of F3(n3))
       !P3.call(e3, i2) && i2 !== t5 && h(e3, i2, { get: () => n3[i2], enumerable: !(f4 = B3(n3, i2)) || f4.enumerable });
   return e3;
-}, H2 = (e3, n3, t5) => (t5 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t5, "default", { value: e3, enumerable: !0 }) : t5, e3)), L3 = D3((ce4, k4) => {
+};
+var H2 = (e3, n3, t5) => (t5 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t5, "default", { value: e3, enumerable: true }) : t5, e3));
+var L3 = D3((ce4, k4) => {
   var _3 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z4 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K6 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z5 = Object.prototype, w4 = Z5.toString, ee5 = Math.max, ne5 = Math.min, j5 = function() {
     return Y6.Date.now();
   };
   function te3(e3, n3, t5) {
-    var f4, i2, g5, c4, a4, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
+    var f4, i2, g5, c4, a4, u3, l2 = 0, v2 = false, s4 = false, y3 = true;
     if (typeof e3 != "function")
       throw new TypeError(_3);
     n3 = E3(n3) || 0, b4(t5) && (v2 = !!t5.leading, s4 = "maxWait" in t5, g5 = s4 ? ee5(E3(t5.maxWait) || 0, n3) : g5, y3 = "trailing" in t5 ? !!t5.trailing : y3);
@@ -5542,7 +5318,7 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     return T6.cancel = N7, T6.flush = $4, T6;
   }
   function re5(e3, n3, t5) {
-    var f4 = !0, i2 = !0;
+    var f4 = true, i2 = true;
     if (typeof e3 != "function")
       throw new TypeError(_3);
     return b4(t5) && (f4 = "leading" in t5 ? !!t5.leading : f4, i2 = "trailing" in t5 ? !!t5.trailing : i2), te3(e3, n3, { leading: f4, maxWait: n3, trailing: i2 });
@@ -5573,7 +5349,10 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     return t5 || J4.test(e3) ? K6(e3.slice(2), t5 ? 2 : 8) : q6.test(e3) ? S7 : +e3;
   }
   k4.exports = re5;
-}), ae = H2(L3()), { default: W2, ...oe2 } = ae, le = W2 !== void 0 ? W2 : oe2;
+});
+var ae = H2(L3());
+var { default: W2, ...oe2 } = ae;
+var le = W2 !== void 0 ? W2 : oe2;
 
 // https://esm.sh/v106/@twind/core@1.0.1/deno/core.js
 var F4;
@@ -5639,7 +5418,7 @@ function Y2(t5, e3) {
 function Z2(t5, e3) {
   return t5.replace(/&/g, e3);
 }
-var Dt = new Intl.Collator("en", { numeric: !0 });
+var Dt = new Intl.Collator("en", { numeric: true });
 function St(t5, e3) {
   for (var r = 0, n3 = t5.length; r < n3; ) {
     let i2 = n3 + r >> 1;
@@ -5676,7 +5455,7 @@ function ct(t5, e3, r, n3, i2 = []) {
         if (!b4)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ht(a4, s4, N3("" + b4), c4, s4, u3, f4, !0));
+          p6.push(...ht(a4, s4, N3("" + b4), c4, s4, u3, f4, true));
           continue;
         }
         if (h3[1] == "l") {
@@ -5753,7 +5532,7 @@ function Ot(t5, e3, r, n3) {
 }
 function K2(t5, e3) {
   if (t5[t5.length - 1] != "(") {
-    let r = [], n3 = !1, i2 = !1, l2 = "";
+    let r = [], n3 = false, i2 = false, l2 = "";
     for (let o3 of t5)
       if (!(o3 == "(" || /[~@]$/.test(o3))) {
         if (o3[0] == "!" && (o3 = o3.slice(1), n3 = !n3), o3.endsWith(":")) {
@@ -5788,9 +5567,9 @@ function N3(t5) {
       else if (u3 == "(")
         s4(), r.push(u3);
       else if (u3 == ":")
-        t5[a4 + 1] != ":" && s4(!1, 1);
+        t5[a4 + 1] != ":" && s4(false, 1);
       else if (/[\s,)]/.test(u3)) {
-        s4(!0);
+        s4(true);
         let f4 = r.lastIndexOf("(");
         if (u3 == ")") {
           let c4 = r[f4 - 1];
@@ -5808,7 +5587,7 @@ function N3(t5) {
       } else
         /[~@]/.test(u3) && t5[a4 + 1] == "(" && n3.unshift([]);
     }
-    s4(!0), yt.set(t5, e3 = n3[0]);
+    s4(true), yt.set(t5, e3 = n3[0]);
   }
   return e3;
 }
@@ -5830,7 +5609,8 @@ function Q2(t5) {
     t5 != null && typeof t5 != "boolean" && (r += " " + t5);
   return r;
 }
-var ae2 = Et("@"), ue = Et("~");
+var ae2 = Et("@");
+var ue = Et("~");
 function Et(t5) {
   return new Proxy(function(r, ...n3) {
     return e3("", r, n3);
@@ -5868,10 +5648,10 @@ function bt(t5, e3, r) {
 }
 var Ut = Symbol();
 function Rt({ presets: t5 = [], ...e3 }) {
-  let r = { preflight: e3.preflight !== !1 && [], darkMode: void 0, darkColor: void 0, theme: {}, variants: x2(e3.variants), rules: x2(e3.rules), ignorelist: x2(e3.ignorelist), hash: e3.hash, stringify: e3.stringify || Wt };
-  for (let n3 of x2([...t5, { darkMode: e3.darkMode, darkColor: e3.darkColor, preflight: e3.preflight !== !1 && x2(e3.preflight), theme: e3.theme, hash: e3.hash, stringify: e3.stringify }])) {
+  let r = { preflight: e3.preflight !== false && [], darkMode: void 0, darkColor: void 0, theme: {}, variants: x2(e3.variants), rules: x2(e3.rules), ignorelist: x2(e3.ignorelist), hash: e3.hash, stringify: e3.stringify || Wt };
+  for (let n3 of x2([...t5, { darkMode: e3.darkMode, darkColor: e3.darkColor, preflight: e3.preflight !== false && x2(e3.preflight), theme: e3.theme, hash: e3.hash, stringify: e3.stringify }])) {
     let { preflight: i2, darkMode: l2 = r.darkMode, darkColor: o3 = r.darkColor, theme: a4, variants: s4, rules: u3, ignorelist: f4, hash: c4 = r.hash, stringify: p6 = r.stringify } = typeof n3 == "function" ? n3(r) : n3;
-    r = { preflight: r.preflight !== !1 && i2 !== !1 && [...r.preflight, ...x2(i2)], darkMode: l2, darkColor: o3, theme: { ...r.theme, ...a4, extend: { ...r.theme.extend, ...a4?.extend } }, variants: [...r.variants, ...x2(s4)], rules: [...r.rules, ...x2(u3)], ignorelist: [...r.ignorelist, ...x2(f4)], hash: c4, stringify: p6 };
+    r = { preflight: r.preflight !== false && i2 !== false && [...r.preflight, ...x2(i2)], darkMode: l2, darkColor: o3, theme: { ...r.theme, ...a4, extend: { ...r.theme.extend, ...a4?.extend } }, variants: [...r.variants, ...x2(s4)], rules: [...r.rules, ...x2(u3)], ignorelist: [...r.ignorelist, ...x2(f4)], hash: c4, stringify: p6 };
   }
   return r;
 }
@@ -5993,7 +5773,7 @@ function Xt(t5, e3) {
   }), Object.defineProperties(function(s4) {
     if (!i2.size)
       for (let f4 of x2(r.preflight))
-        typeof f4 == "function" && (f4 = f4(n3)), f4 && (typeof f4 == "string" ? ht("", w3.b, N3(f4), n3, w3.b, [], !1, !0) : ct(f4, {}, n3, w3.b)).forEach(a4);
+        typeof f4 == "function" && (f4 = f4(n3)), f4 && (typeof f4 == "string" ? ht("", w3.b, N3(f4), n3, w3.b, [], false, true) : ct(f4, {}, n3, w3.b)).forEach(a4);
     s4 = "" + s4;
     let u3 = i2.get(s4);
     if (!u3) {
@@ -6023,7 +5803,7 @@ function te(t5 = z2, e3 = document.documentElement) {
   if (!e3)
     return t5;
   let r = new MutationObserver(i2);
-  r.observe(e3, { attributeFilter: ["class"], subtree: !0, childList: !0 }), l2(e3), i2([{ target: e3, type: "" }]);
+  r.observe(e3, { attributeFilter: ["class"], subtree: true, childList: true }), l2(e3), i2([{ target: e3, type: "" }]);
   let { destroy: n3 } = t5;
   return t5.destroy = () => {
     r.disconnect(), n3.call(t5);
@@ -6109,7 +5889,7 @@ var z2 = new Proxy(D4, { apply: (t5, e3, r) => F4(r[0]), get(t5, e3) {
 function ie(t5 = {}, e3 = Pt, r) {
   return F4?.destroy(), F4 = te(Xt(t5, typeof e3 == "function" ? e3() : e3), r);
 }
-function $e(t5, e3 = !0) {
+function $e(t5, e3 = true) {
   var r;
   let n3 = Rt(t5);
   return ie({ ...n3, hash: (r = n3.hash) != null ? r : e3 }, () => Pt(!e3));
@@ -6216,7 +5996,7 @@ function H4(e3, t5) {
 function Q3(e3, t5) {
   return e3.replace(/&/g, t5);
 }
-var $e2 = new Intl.Collator("en", { numeric: !0 });
+var $e2 = new Intl.Collator("en", { numeric: true });
 function Me(e3, t5) {
   for (var r = 0, i2 = e3.length; r < i2; ) {
     let n3 = i2 + r >> 1;
@@ -6259,7 +6039,7 @@ function de(e3, t5, r, i2, n3 = []) {
         if (!d3)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ge(s4, f4, I2("" + d3), u3, f4, a4, c4, !0));
+          p6.push(...ge(s4, f4, I2("" + d3), u3, f4, a4, c4, true));
           continue;
         }
         if (h3[1] == "l") {
@@ -6335,7 +6115,7 @@ function _e2(e3, t5, r, i2) {
 }
 function K3(e3, t5, r) {
   if (e3[e3.length - 1] != "(") {
-    let i2 = [], n3 = !1, l2 = !1, o3 = "";
+    let i2 = [], n3 = false, l2 = false, o3 = "";
     for (let s4 of e3)
       if (!(s4 == "(" || /[~@]$/.test(s4))) {
         if (s4[0] == "!" && (s4 = s4.slice(1), n3 = !n3), s4.endsWith(":")) {
@@ -6370,9 +6150,9 @@ function I2(e3) {
       else if (a4 == "(")
         f4(), r.push(a4);
       else if (a4 == ":")
-        e3[s4 + 1] != ":" && f4(!1, 1);
+        e3[s4 + 1] != ":" && f4(false, 1);
       else if (/[\s,)]/.test(a4)) {
-        f4(!0);
+        f4(true);
         let c4 = r.lastIndexOf("(");
         if (a4 == ")") {
           let u3 = r[c4 - 1];
@@ -6390,7 +6170,7 @@ function I2(e3) {
       } else
         /[~@]/.test(a4) && e3[s4 + 1] == "(" && i2.unshift([]);
     }
-    f4(!0), Se.set(e3, t5 = i2[0]);
+    f4(true), Se.set(e3, t5 = i2[0]);
   }
   return t5;
 }
@@ -6412,7 +6192,8 @@ function ee3(e3) {
     e3 != null && typeof e3 != "boolean" && (r += " " + e3);
   return r;
 }
-var pt2 = ze("@"), dt2 = ze("~");
+var pt2 = ze("@");
+var dt2 = ze("~");
 function ze(e3) {
   return new Proxy(function(i2, ...n3) {
     return t5("", i2, n3);
@@ -6545,7 +6326,35 @@ function xe2(e3, t5, r, i2) {
 }
 
 // https://esm.sh/v106/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
-var L4 = "inherit", U3 = "currentColor", j3 = "transparent", V4 = "#000", B6 = "#fff", H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe4 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae4 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L4, current: U3, transparent: j3, black: V4, white: B6, slate: H5, gray: I3, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe4, indigo: re4, violet: ae4, purple: ie3, fuchsia: ne4, pink: le3, rose: se2 }, h2 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
+var L4 = "inherit";
+var U3 = "currentColor";
+var j3 = "transparent";
+var V4 = "#000";
+var B6 = "#fff";
+var H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" };
+var I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" };
+var M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" };
+var P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" };
+var N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" };
+var G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" };
+var q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" };
+var Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" };
+var X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" };
+var J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" };
+var K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" };
+var Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" };
+var Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" };
+var ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" };
+var te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" };
+var oe4 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" };
+var re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" };
+var ae4 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" };
+var ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" };
+var ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" };
+var le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" };
+var se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" };
+var S4 = { __proto__: null, inherit: L4, current: U3, transparent: j3, black: V4, white: B6, slate: H5, gray: I3, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe4, indigo: re4, violet: ae4, purple: ie3, fuchsia: ne4, pink: le3, rose: se2 };
+var h2 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
 function x3(e3, r) {
   let a4 = {};
   do
@@ -6568,7 +6377,8 @@ function c2(e3, r = "", a4 = 1, i2 = 0, l2 = 1, d3 = {}) {
 function n2(e3) {
   return ({ theme: r }) => r(e3);
 }
-var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a4) => ({ "@layer overrides": { "&": { [e3]: oe3(`[${r}]`, e3, a4) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
+var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } };
+var O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a4) => ({ "@layer overrides": { "&": { [e3]: oe3(`[${r}]`, e3, a4) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
   let { screens: a4 = r("screens"), center: i2, padding: l2 } = r("container"), d3 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
   for (let w4 in a4) {
     let b4 = a4[w4];
@@ -6580,16 +6390,16 @@ var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", bo
     if (b4)
       return { paddingRight: b4, paddingLeft: b4 };
   }
-}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W5), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W5), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a4 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a4 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
+}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W5), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W5), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a4 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a4 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: false, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: false, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: false, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: false, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: false, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
   let a4 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
   return { [`border-${g2(a4[0])}-radius`]: r, [`border-${g2(a4[1])}-radius`]: r };
 }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: e3, _: r }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (e3 || "-x")]: r, ["--tw-border-spacing" + (e3 || "-y")]: r, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, u("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", u("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": e3 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: e3 } })), yt2("divide-([xy]-reverse)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + e3]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: e3, _: r }) => {
   let a4 = { x: "lr", y: "tb" }[e3];
   return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g2(a4[0])}Width`]: `calc(${r} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g2(a4[1])}Width`]: `calc(${r} * var(--tw-divide-${e3}-reverse))` } };
-}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A3(), ...A3("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a4 }) => {
+}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: false }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: false, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A3(), ...A3("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a4 }) => {
   let i2 = p2(e3), l2 = i2.split(" "), d3 = r("keyframes", l2[0]);
   return d3 ? { ["@keyframes " + (l2[0] = a4(l2[0]))]: d3, animation: l2.join(" ") } : { animation: i2 };
-}), "(transform)-(none)", yt2("transform", $2), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$2() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a4 }) => ({ [`--tw-${r ? "pan-x" : a4 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
+}), "(transform)-(none)", yt2("transform", $2), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$2() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a4 }) => ({ [`--tw-${r ? "pan-x" : a4 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: false, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: false, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: false, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
 function y2(e3) {
   return (typeof e3 == "string" ? e3 : e3[1]).replace(/-/g, " ").trim();
 }
@@ -6644,12 +6454,21 @@ function Ce2({ disablePreflight: e3 } = {}) {
 }
 
 // https://esm.sh/v106/notie@4.3.1/deno/notie.js
-var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropertyDescriptor, Se2 = Object.getOwnPropertyNames, we2 = Object.getPrototypeOf, Oe = Object.prototype.hasOwnProperty, Ae2 = (y3, o3) => () => (o3 || y3((o3 = { exports: {} }).exports, o3), o3.exports), De = (y3, o3, v2, b4) => {
+var Me2 = Object.create;
+var xe3 = Object.defineProperty;
+var He2 = Object.getOwnPropertyDescriptor;
+var Se2 = Object.getOwnPropertyNames;
+var we2 = Object.getPrototypeOf;
+var Oe = Object.prototype.hasOwnProperty;
+var Ae2 = (y3, o3) => () => (o3 || y3((o3 = { exports: {} }).exports, o3), o3.exports);
+var De = (y3, o3, v2, b4) => {
   if (o3 && typeof o3 == "object" || typeof o3 == "function")
     for (let m4 of Se2(o3))
       !Oe.call(y3, m4) && m4 !== v2 && xe3(y3, m4, { get: () => o3[m4], enumerable: !(b4 = He2(o3, m4)) || b4.enumerable });
   return y3;
-}, Ie = (y3, o3, v2) => (v2 = y3 != null ? Me2(we2(y3)) : {}, De(o3 || !y3 || !y3.__esModule ? xe3(v2, "default", { value: y3, enumerable: !0 }) : v2, y3)), ye2 = Ae2((ie4, pe2) => {
+};
+var Ie = (y3, o3, v2) => (v2 = y3 != null ? Me2(we2(y3)) : {}, De(o3 || !y3 || !y3.__esModule ? xe3(v2, "default", { value: y3, enumerable: true }) : v2, y3));
+var ye2 = Ae2((ie4, pe2) => {
   (function(y3, o3) {
     typeof ie4 == "object" && typeof pe2 == "object" ? pe2.exports = o3() : typeof define == "function" && define.amd ? define([], o3) : typeof ie4 == "object" ? ie4.notie = o3() : y3.notie = o3();
   })(ie4, function() {
@@ -6657,14 +6476,14 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
       function o3(b4) {
         if (v2[b4])
           return v2[b4].exports;
-        var m4 = v2[b4] = { i: b4, l: !1, exports: {} };
-        return y3[b4].call(m4.exports, m4, m4.exports, o3), m4.l = !0, m4.exports;
+        var m4 = v2[b4] = { i: b4, l: false, exports: {} };
+        return y3[b4].call(m4.exports, m4, m4.exports, o3), m4.l = true, m4.exports;
       }
       var v2 = {};
       return o3.m = y3, o3.c = v2, o3.i = function(b4) {
         return b4;
       }, o3.d = function(b4, m4, ce4) {
-        o3.o(b4, m4) || Object.defineProperty(b4, m4, { configurable: !1, enumerable: !0, get: ce4 });
+        o3.o(b4, m4) || Object.defineProperty(b4, m4, { configurable: false, enumerable: true, get: ce4 });
       }, o3.n = function(b4) {
         var m4 = b4 && b4.__esModule ? function() {
           return b4.default;
@@ -6678,9 +6497,9 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
     }([function(y3, o3) {
       y3.exports = function(v2) {
         return v2.webpackPolyfill || (v2.deprecate = function() {
-        }, v2.paths = [], v2.children || (v2.children = []), Object.defineProperty(v2, "loaded", { enumerable: !0, get: function() {
+        }, v2.paths = [], v2.children || (v2.children = []), Object.defineProperty(v2, "loaded", { enumerable: true, get: function() {
           return v2.l;
-        } }), Object.defineProperty(v2, "id", { enumerable: !0, get: function() {
+        } }), Object.defineProperty(v2, "id", { enumerable: true, get: function() {
           return v2.i;
         } }), v2.webpackPolyfill = 1), v2;
       };
@@ -6699,14 +6518,14 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
             function u3(g5) {
               if (X6[g5])
                 return X6[g5].exports;
-              var T6 = X6[g5] = { i: g5, l: !1, exports: {} };
-              return A5[g5].call(T6.exports, T6, T6.exports, u3), T6.l = !0, T6.exports;
+              var T6 = X6[g5] = { i: g5, l: false, exports: {} };
+              return A5[g5].call(T6.exports, T6, T6.exports, u3), T6.l = true, T6.exports;
             }
             var X6 = {};
             return u3.m = A5, u3.c = X6, u3.i = function(g5) {
               return g5;
             }, u3.d = function(g5, T6, B8) {
-              u3.o(g5, T6) || Object.defineProperty(g5, T6, { configurable: !1, enumerable: !0, get: B8 });
+              u3.o(g5, T6) || Object.defineProperty(g5, T6, { configurable: false, enumerable: true, get: B8 });
             }, u3.n = function(g5) {
               var T6 = g5 && g5.__esModule ? function() {
                 return g5.default;
@@ -6724,7 +6543,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 c4.indexOf(d3) >= 0 || Object.prototype.hasOwnProperty.call(t5, d3) && (s4[d3] = t5[d3]);
               return s4;
             }
-            Object.defineProperty(u3, "__esModule", { value: !0 });
+            Object.defineProperty(u3, "__esModule", { value: true });
             var T6 = typeof Symbol == "function" && V6(Symbol.iterator) === "symbol" ? function(t5) {
               return typeof t5 > "u" ? "undefined" : V6(t5);
             } : function(t5) {
@@ -6736,7 +6555,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                   Object.prototype.hasOwnProperty.call(s4, d3) && (t5[d3] = s4[d3]);
               }
               return t5;
-            }, J4 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: J4.top, force: J4.top, confirm: J4.top, input: J4.top, select: J4.bottom, date: J4.top } }, ge2 = u3.setOptions = function(t5) {
+            }, J4 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: true, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: J4.top, force: J4.top, confirm: J4.top, input: J4.top, select: J4.bottom, date: J4.top } }, ge2 = u3.setOptions = function(t5) {
               e3 = B8({}, e3, t5, { classes: B8({}, e3.classes, t5.classes), ids: B8({}, e3.ids, t5.ids), positions: B8({}, e3.positions, t5.positions) });
             }, fe = function() {
               return new Promise(function(t5) {
@@ -6915,7 +6734,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               var q6 = document.createElement("div");
               q6.classList.add(e3.classes.button), q6.classList.add(e3.classes.elementThird), q6.classList.add(e3.classes.dateSelectorUp), q6.innerHTML = r;
               var G7 = document.createElement("div");
-              G7.classList.add(e3.classes.button), G7.classList.add(e3.classes.elementThird), G7.classList.add(e3.classes.dateSelectorUp), G7.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x5.classList.add(e3.classes.element), x5.classList.add(e3.classes.elementThird), x5.setAttribute("contentEditable", !0), x5.addEventListener("input", D9), x5.addEventListener("blur", w4), x5.innerHTML = i2.getDate(), a4.classList.add(e3.classes.element), a4.classList.add(e3.classes.elementThird), a4.setAttribute("contentEditable", !0), a4.addEventListener("input", M5), a4.addEventListener("blur", w4), a4.innerHTML = i2.getFullYear();
+              G7.classList.add(e3.classes.button), G7.classList.add(e3.classes.elementThird), G7.classList.add(e3.classes.dateSelectorUp), G7.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x5.classList.add(e3.classes.element), x5.classList.add(e3.classes.elementThird), x5.setAttribute("contentEditable", true), x5.addEventListener("input", D9), x5.addEventListener("blur", w4), x5.innerHTML = i2.getDate(), a4.classList.add(e3.classes.element), a4.classList.add(e3.classes.elementThird), a4.setAttribute("contentEditable", true), a4.addEventListener("input", M5), a4.addEventListener("blur", w4), a4.innerHTML = i2.getFullYear();
               var ne5 = document.createElement("div");
               ne5.classList.add(e3.classes.button), ne5.classList.add(e3.classes.elementThird), ne5.innerHTML = r;
               var se3 = document.createElement("div");
@@ -6951,7 +6770,10 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
       }).call(o3, v2(0)(y3));
     }]);
   });
-}), je = Ie(ye2()), { default: Le, ...Ne2 } = je, Fe = Le !== void 0 ? Le : Ne2;
+});
+var je = Ie(ye2());
+var { default: Le, ...Ne2 } = je;
+var Fe = Le !== void 0 ? Le : Ne2;
 
 // https://esm.sh/v106/nanostores@0.7.1/deno/nanostores.js
 var S5 = Symbol("clean");
@@ -6986,13 +6808,14 @@ var N5 = p4((r, n3, e3) => g3(n3, (t5) => {
   for (let o3 in e3)
     t5 = t5.replace(new RegExp(`{${o3}}`, "g"), e3[o3]);
   return t5;
-})), R4 = p4((r, n3, e3) => {
+}));
+var R4 = p4((r, n3, e3) => {
   let t5 = new Intl.PluralRules(r).select(e3);
   return t5 in n3 || (t5 = "many"), g3(n3[t5], (o3) => o3.replace(/{count}/g, e3));
 });
 
 // https://esm.sh/v106/hotkeys-js@3.10.1/deno/hotkeys-js.js
-var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
+var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : false;
 function P6(e3, t5, i2, r) {
   e3.addEventListener ? e3.addEventListener(t5, i2, r) : e3.attachEvent && e3.attachEvent("on".concat(t5), function() {
     i2(window.event);
@@ -7010,20 +6833,31 @@ function U4(e3) {
   return t5;
 }
 function G6(e3, t5) {
-  for (var i2 = e3.length >= t5.length ? e3 : t5, r = e3.length >= t5.length ? t5 : e3, n3 = !0, a4 = 0; a4 < i2.length; a4++)
-    r.indexOf(i2[a4]) === -1 && (n3 = !1);
+  for (var i2 = e3.length >= t5.length ? e3 : t5, r = e3.length >= t5.length ? t5 : e3, n3 = true, a4 = 0; a4 < i2.length; a4++)
+    r.indexOf(i2[a4]) === -1 && (n3 = false);
   return n3;
 }
-var b3 = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M4 ? 173 : 189, "=": M4 ? 61 : 187, ";": M4 ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g4 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L5 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u2 = { 16: !1, 18: !1, 17: !1, 91: !1 }, s3 = {};
+var b3 = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M4 ? 173 : 189, "=": M4 ? 61 : 187, ";": M4 ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 };
+var g4 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 };
+var L5 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 };
+var u2 = { 16: false, 18: false, 17: false, 91: false };
+var s3 = {};
 for (O3 = 1; O3 < 20; O3++)
   b3["f".concat(O3)] = 111 + O3;
-var O3, f3 = [], A4 = !1, D7 = "all", H6 = [], C4 = function(t5) {
+var O3;
+var f3 = [];
+var A4 = false;
+var D7 = "all";
+var H6 = [];
+var C4 = function(t5) {
   return b3[t5.toLowerCase()] || g4[t5.toLowerCase()] || t5.toUpperCase().charCodeAt(0);
-}, R5 = function(t5) {
+};
+var R5 = function(t5) {
   return Object.keys(b3).find(function(i2) {
     return b3[i2] === t5;
   });
-}, V5 = function(t5) {
+};
+var V5 = function(t5) {
   return Object.keys(g4).find(function(i2) {
     return g4[i2] === t5;
   });
@@ -7043,8 +6877,8 @@ function $3() {
   });
 }
 function q5(e3) {
-  var t5 = e3.target || e3.srcElement, i2 = t5.tagName, r = !0;
-  return (t5.isContentEditable || (i2 === "INPUT" || i2 === "TEXTAREA" || i2 === "SELECT") && !t5.readOnly) && (r = !1), r;
+  var t5 = e3.target || e3.srcElement, i2 = t5.tagName, r = true;
+  return (t5.isContentEditable || (i2 === "INPUT" || i2 === "TEXTAREA" || i2 === "SELECT") && !t5.readOnly) && (r = false), r;
 }
 function z3(e3) {
   return typeof e3 == "string" && (e3 = C4(e3)), f3.indexOf(e3) !== -1;
@@ -7061,9 +6895,9 @@ function J3(e3, t5) {
 function N6(e3) {
   var t5 = e3.keyCode || e3.which || e3.charCode, i2 = f3.indexOf(t5);
   if (i2 >= 0 && f3.splice(i2, 1), e3.key && e3.key.toLowerCase() === "meta" && f3.splice(0, f3.length), (t5 === 93 || t5 === 224) && (t5 = 91), t5 in u2) {
-    u2[t5] = !1;
+    u2[t5] = false;
     for (var r in g4)
-      g4[r] === t5 && (v[r] = !1);
+      g4[r] === t5 && (v[r] = false);
   }
 }
 function Q5(e3) {
@@ -7092,7 +6926,7 @@ var S6 = function(t5) {
       r || (r = E2());
       var K6 = m4 > 1 ? T5(g4, p6) : [];
       s3[d3] = s3[d3].filter(function(h3) {
-        var w4 = n3 ? h3.method === n3 : !0;
+        var w4 = n3 ? h3.method === n3 : true;
         return !(w4 && h3.scope === r && G6(h3.mods, K6));
       });
     }
@@ -7104,8 +6938,8 @@ function _2(e3, t5, i2, r) {
     if (t5.scope === i2 || t5.scope === "all") {
       n3 = t5.mods.length > 0;
       for (var a4 in u2)
-        Object.prototype.hasOwnProperty.call(u2, a4) && (!u2[a4] && t5.mods.indexOf(+a4) > -1 || u2[a4] && t5.mods.indexOf(+a4) === -1) && (n3 = !1);
-      (t5.mods.length === 0 && !u2[16] && !u2[18] && !u2[17] && !u2[91] || n3 || t5.shortcut === "*") && t5.method(e3, t5) === !1 && (e3.preventDefault ? e3.preventDefault() : e3.returnValue = !1, e3.stopPropagation && e3.stopPropagation(), e3.cancelBubble && (e3.cancelBubble = !0));
+        Object.prototype.hasOwnProperty.call(u2, a4) && (!u2[a4] && t5.mods.indexOf(+a4) > -1 || u2[a4] && t5.mods.indexOf(+a4) === -1) && (n3 = false);
+      (t5.mods.length === 0 && !u2[16] && !u2[18] && !u2[17] && !u2[91] || n3 || t5.shortcut === "*") && t5.method(e3, t5) === false && (e3.preventDefault ? e3.preventDefault() : e3.returnValue = false, e3.stopPropagation && e3.stopPropagation(), e3.cancelBubble && (e3.cancelBubble = true));
     }
   }
 }
@@ -7116,15 +6950,15 @@ function k3(e3, t5) {
       var w4 = L5[h3];
       e3[h3] && f3.indexOf(w4) === -1 ? f3.push(w4) : !e3[h3] && f3.indexOf(w4) > -1 ? f3.splice(f3.indexOf(w4), 1) : h3 === "metaKey" && e3[h3] && f3.length === 3 && (e3.ctrlKey || e3.shiftKey || e3.altKey || (f3 = f3.slice(f3.indexOf(w4))));
     }), r in u2) {
-      u2[r] = !0;
+      u2[r] = true;
       for (var n3 in g4)
-        g4[n3] === r && (v[n3] = !0);
+        g4[n3] === r && (v[n3] = true);
       if (!i2)
         return;
     }
     for (var a4 in u2)
       Object.prototype.hasOwnProperty.call(u2, a4) && (u2[a4] = e3[L5[a4]]);
-    e3.getModifierState && !(e3.altKey && !e3.ctrlKey) && e3.getModifierState("AltGraph") && (f3.indexOf(17) === -1 && f3.push(17), f3.indexOf(18) === -1 && f3.push(18), u2[17] = !0, u2[18] = !0);
+    e3.getModifierState && !(e3.altKey && !e3.ctrlKey) && e3.getModifierState("AltGraph") && (f3.indexOf(17) === -1 && f3.push(17), f3.indexOf(18) === -1 && f3.push(18), u2[17] = true, u2[18] = true);
     var o3 = E2();
     if (i2)
       for (var l2 = 0; l2 < i2.length; l2++)
@@ -7144,12 +6978,12 @@ function W6(e3) {
 }
 function v(e3, t5, i2) {
   f3 = [];
-  var r = U4(e3), n3 = [], a4 = "all", o3 = document, l2 = 0, c4 = !1, p6 = !0, m4 = "+", y3 = !1;
+  var r = U4(e3), n3 = [], a4 = "all", o3 = document, l2 = 0, c4 = false, p6 = true, m4 = "+", y3 = false;
   for (i2 === void 0 && typeof t5 == "function" && (i2 = t5), Object.prototype.toString.call(t5) === "[object Object]" && (t5.scope && (a4 = t5.scope), t5.element && (o3 = t5.element), t5.keyup && (c4 = t5.keyup), t5.keydown !== void 0 && (p6 = t5.keydown), t5.capture !== void 0 && (y3 = t5.capture), typeof t5.splitKey == "string" && (m4 = t5.splitKey)), typeof t5 == "string" && (a4 = t5); l2 < r.length; l2++)
     e3 = r[l2].split(m4), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s3 || (s3[e3] = []), s3[e3].push({ keyup: c4, keydown: p6, scope: a4, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m4, element: o3 });
   typeof o3 < "u" && !W6(o3) && window && (H6.push(o3), P6(o3, "keydown", function(d3) {
     k3(d3, o3);
-  }, y3), A4 || (A4 = !0, P6(window, "focus", function() {
+  }, y3), A4 || (A4 = true, P6(window, "focus", function() {
     f3 = [];
   }, y3)), P6(o3, "keyup", function(d3) {
     k3(d3, o3), N6(d3);
@@ -7193,23 +7027,44 @@ function p5(n3, s4, t5, f4, u3) {
 
 // components/switch.tsx
 function Switch({ value, defaultCase = null, cases }) {
-  return value == null ? null : /* @__PURE__ */ p5(L, { children: cases[value] != null ? cases[value] : defaultCase });
+  if (value == null)
+    return null;
+  return /* @__PURE__ */ p5(L, { children: cases[value] != null ? cases[value] : defaultCase });
 }
 
 // hooks/use_route.ts
 function useRoute() {
-  let [route, setRoute] = P2(location.hash);
-  return j2(() => {
-    let updateRoute = () => setRoute(location.hash);
-    return globalThis.addEventListener("hashchange", updateRoute, !1), () => {
+  const [route, setRoute] = P2(location.hash);
+  j2(() => {
+    const updateRoute = () => setRoute(location.hash);
+    globalThis.addEventListener("hashchange", updateRoute, false);
+    return () => {
       globalThis.removeEventListener("hashchange", updateRoute);
     };
-  }, []), route;
+  }, []);
+  return route;
 }
 
 // utils/is_mobile.ts
-var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
-navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+var appleIphone = /iPhone/i;
+var appleIpod = /iPod/i;
+var appleTablet = /iPad/i;
+var appleUniversal = /\biOS-universal(?:.+)Mac\b/i;
+var androidPhone = /\bAndroid(?:.+)Mobile\b/i;
+var androidTablet = /Android/i;
+var amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i;
+var amazonTablet = /Silk/i;
+var windowsPhone = /Windows Phone/i;
+var windowsTablet = /\bWindows(?:.+)ARM\b/i;
+var otherBlackBerry = /BlackBerry/i;
+var otherBlackBerry10 = /BB10/i;
+var otherOpera = /Opera Mini/i;
+var otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i;
+var otherFirefox = /Mobile(?:.+)Firefox\b/i;
+var isAppleTabletOnIos13 = (navigator2) => {
+  return typeof navigator2 !== "undefined" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints === "number" && // @ts-ignore: it's ok
+  navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream === "undefined";
+};
 function createMatch(userAgent) {
   return (regex) => regex.test(userAgent);
 }
@@ -7219,18 +7074,32 @@ function isMobile(param) {
     platform: "",
     maxTouchPoints: 0
   };
-  !param && typeof navigator < "u" ? nav = {
-    userAgent: navigator.userAgent,
-    platform: navigator.platform,
-    maxTouchPoints: navigator.maxTouchPoints || 0
-  } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
-    userAgent: param.userAgent,
-    platform: param.platform,
-    maxTouchPoints: param.maxTouchPoints || 0
-  });
-  let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
-  typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
-  let match = createMatch(userAgent), result = {
+  if (!param && typeof navigator !== "undefined") {
+    nav = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      maxTouchPoints: navigator.maxTouchPoints || 0
+    };
+  } else if (typeof param === "string") {
+    nav.userAgent = param;
+  } else if (param && param.userAgent) {
+    nav = {
+      userAgent: param.userAgent,
+      platform: param.platform,
+      maxTouchPoints: param.maxTouchPoints || 0
+    };
+  }
+  let userAgent = nav.userAgent;
+  let tmp = userAgent.split("[FBAN");
+  if (typeof tmp[1] !== "undefined") {
+    userAgent = tmp[0];
+  }
+  tmp = userAgent.split("Twitter");
+  if (typeof tmp[1] !== "undefined") {
+    userAgent = tmp[0];
+  }
+  const match = createMatch(userAgent);
+  const result = {
     apple: {
       phone: match(appleIphone) && !match(windowsPhone),
       ipod: match(appleIpod),
@@ -7261,29 +7130,46 @@ function isMobile(param) {
       chrome: match(otherChrome),
       device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
     },
-    any: !1,
-    phone: !1,
-    tablet: !1
+    any: false,
+    phone: false,
+    tablet: false
   };
-  return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
+  result.any = result.apple.device || result.android.device || result.windows.device || result.other.device;
+  result.phone = result.apple.phone || result.android.phone || result.windows.phone;
+  result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet;
+  return result;
 }
 
 // utils/platform.ts
-var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+var DENO = "DENO";
+var CHROME = "CHROME";
+var FIREFOX = "FIREFOX";
 function isBrowser(toCheck) {
   let currentBrowser = CHROME;
   try {
-    let userAgent = navigator?.userAgent || "";
-    /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-  } catch {
+    const userAgent = navigator?.userAgent || "";
+    if (/firefox/i.test(userAgent)) {
+      currentBrowser = FIREFOX;
+    } else if (/deno/i.test(userAgent)) {
+      currentBrowser = DENO;
+    }
+  } catch (_3) {
   }
-  return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+  if (!toCheck)
+    currentBrowser;
+  if (toCheck === CHROME && currentBrowser === CHROME)
+    return true;
+  if (toCheck === FIREFOX && currentBrowser === FIREFOX)
+    return true;
+  if (toCheck === DENO && currentBrowser === DENO)
+    return true;
+  return false;
 }
 function isChrome() {
   return isBrowser(CHROME);
 }
 function isDeno() {
-  return typeof Deno < "u";
+  return typeof Deno !== "undefined";
 }
 function isFirefox() {
   return isBrowser(FIREFOX);
@@ -7300,7 +7186,8 @@ var listeners = {
   },
   hasListener: () => {
   }
-}, mock_browser_default = {
+};
+var mock_browser_default = {
   permissions: {
     contains: () => {
     },
@@ -7334,7 +7221,11 @@ var listeners = {
 
 // browser/browser.ts
 var browserAPI;
-isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
+if (isDeno()) {
+  browserAPI = mock_browser_default;
+} else {
+  browserAPI = globalThis.immersiveTranslateBrowserAPI;
+}
 
 // locales/zh-CN.json
 var zh_CN_default = {
@@ -7349,7 +7240,7 @@ var zh_CN_default = {
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
   enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
-  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u817E\u8BAF/\u706B\u5C71\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u817E\u8BAF/\u706B\u5C71\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
   "browser.toggleTranslateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF/\u663E\u793A\u539F\u6587",
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
@@ -7384,6 +7275,7 @@ var zh_CN_default = {
   "fingers.5": "\u4E94\u6307\u89E6\u6478",
   document: "\u6587\u6863",
   resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
+  resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
   saved: "\u4FDD\u5B58\u6210\u529F",
   successImportConfig: "\u6210\u529F\u5BFC\u5165\u914D\u7F6E",
   goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
@@ -7469,6 +7361,7 @@ var zh_CN_default = {
   import_export: "\u5BFC\u5165/\u5BFC\u51FA",
   import_export_title: "\u5BFC\u5165/\u5BFC\u51FA\u914D\u7F6E",
   syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+  previewAllThemes: "\u9884\u89C8\u5168\u90E8\u6837\u5F0F",
   "translationTheme.none": "\u65E0",
   "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
   "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
@@ -7555,7 +7448,7 @@ var zh_CN_default = {
   clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
   aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
   "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u5B8C\u5168\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9879\u76EE\u4E3B\u9875",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
   joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -7702,6 +7595,7 @@ var zh_TW_default = {
   import_export: "\u5C0E\u5165/\u5C0E\u51FA",
   import_export_title: "\u5C0E\u5165/\u5C0E\u51FA",
   syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+  previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
   "translationTheme.none": "\u7121",
   "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
   "translationTheme.dotted": "\u9EDE\u72C0\u4E0B\u5283\u7DDA",
@@ -7932,6 +7826,7 @@ var en_default = {
   import_export: "Import/Export",
   import_export_title: "Import/Export Configuration",
   syncToGoogleDrive: "Sync Now with Google Drive",
+  previewAllThemes: "Preview all themes",
   "translationTheme.none": "None",
   "translationTheme.dashed": "Dashed underline",
   "translationTheme.dotted": "Dotted Underline",
@@ -8017,8 +7912,7 @@ var en_default = {
   clickToDownload: "Click to download",
   aboutLabel: "About - Feedback - Sponsor",
   "browser.openAboutPage": "About / Feedback/Sponsor",
-  aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
+  aboutIntro: "This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. \nIf you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.",
   projectHomepage: "Project Homepage",
   joinTelegramGroup: "Join Telegram group for feature discussion",
   feedbackAndJoin: "Issue feedback/group",
@@ -8045,14 +7939,68 @@ var interfaceTranslations = [
     code: "en",
     messages: en_default
   }
-], translations = {};
-for (let translation of interfaceTranslations)
+];
+var translations = {};
+for (const translation of interfaceTranslations) {
   translations[translation.code] = translation.messages;
-var brandName = "Immersive Translate", brandId = "immersive-translate";
-var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
-var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
-var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
-`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
+}
+var brandName = "Immersive Translate";
+var brandId = "immersive-translate";
+var brandIdForJs = "immersiveTranslate";
+var GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com";
+var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken";
+var AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
+var LATEST_FILE_NAME = "immersive-translate-config-latest.json";
+var AUTH_STATE_FLAG = brandIdForJs + "AuthState";
+var iframeMessageIdentifier = brandIdForJs + "IframeMessage";
+var targetContainerElementAttributeName = `${brandIdForJs}Container`;
+var specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`;
+var buildinConfigStorageKey = "buildinConfig";
+var localConfigStorageKey = "localConfig";
+var contextOpenOptionsMenuId = `openOptionsPage`;
+var contextTranslateLocalPdfFileMenuId = `translateLocalPdfFile`;
+var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`;
+var pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`;
+var userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`;
+var popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`;
+var hostname = "immersive-translate.owenyoung.com";
+var homepage = `https://${hostname}/`;
+var buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`;
+var sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
+var sourceElementEffectAttributeNameForJs = `immersiveTranslateEffect`;
+var elementMarkRootKey = `${brandIdForJs}Root`;
+var sourceElementEffectAttributeName = `data-${brandId}-effect`;
+var sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`;
+var sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`;
+var sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`;
+var sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`;
+var sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`;
+var sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`;
+var sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`;
+var sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`;
+var sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`;
+var sourceElementLeft = `${brandIdForJs}Left`;
+var sourceElementRight = `${brandIdForJs}Right`;
+var sourceElementWidth = `${brandIdForJs}Width`;
+var sourceElementHeight = `${brandIdForJs}Height`;
+var sourceElementTop = `${brandIdForJs}Top`;
+var sourceElementFontSize = `${brandIdForJs}FontSize`;
+var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
+var defaultPlaceholderDelimiters = ["@", "#"];
+var titleDelimiters = " --- ";
+var translationTextSeparator = "\n";
+var translationTargetElementWrapperClass = `${brandId}-target-wrapper`;
+var translationPdfTargetContainerClass = `${brandId}-pdf-target-container`;
+var translationTargetInnerElementWrapperClass = `${brandId}-target-inner`;
+var translationSourceElementsWrapperClass = `${brandId}-source-wrapper`;
+var translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`;
+var translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`;
+var translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`;
+var translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`;
+var translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`;
+var translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`;
+var translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+var translationThemes = [
   "none",
   "dashed",
   "underline",
@@ -8072,7 +8020,8 @@ var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleM
   "nativeDotted",
   "nativeDashed",
   "nativeUnderline"
-], languages = [
+];
+var languages = [
   "auto",
   "en",
   "zh-CN",
@@ -8191,126 +8140,127 @@ var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleM
   "yua",
   "yue",
   "zu"
-], langMap = {
-  af: "Afrikaans",
-  am: "Amharic",
-  ar: "Arabic",
-  auto: "Detect Language",
-  az: "Azerbaijani",
-  be: "Belarusian",
-  bg: "Bulgarian",
-  tn: "Zana",
-  bn: "Bengali",
-  bs: "Bosnian",
-  ca: "Catalan",
-  ceb: "Cebuano",
-  co: "Corsican",
-  cs: "Czech",
-  cy: "Welsh",
-  da: "Danish",
-  de: "German",
-  el: "Greek",
-  en: "English",
-  eo: "Esperanto",
-  es: "Spanish",
-  et: "Estonian",
-  eu: "Basque",
-  fa: "Farsi",
-  fi: "Finnish",
-  fil: "Filipino",
-  fj: "Fijian",
-  fr: "French",
-  fy: "Frisian",
-  ga: "Irish",
-  gd: "Scottish Gaelic",
-  gl: "Galician",
-  gu: "Gujarati",
-  ha: "Hausa",
-  haw: "Hawaiian",
-  he: "Hebrew",
-  hi: "Hindi",
-  hmn: "Hmong",
-  hr: "Croatian",
-  ht: "Haitian Creole",
-  hu: "Hungarian",
-  hy: "Armenian",
-  id: "Indonesian",
-  ig: "Igbo",
-  is: "Icelandic",
-  it: "Italian",
-  ja: "\u65E5\u672C\u8A9E",
-  jw: "Javanese",
-  ka: "Georgian",
-  kk: "Kazakh",
-  km: "Khmer",
-  kn: "Kannada",
-  ko: "Korean",
-  ku: "Kurdish",
-  ky: "Kyrgyz",
-  la: "Latin",
-  lb: "Luxembourgish",
-  lo: "Lao",
-  lt: "Lithuanian",
-  lv: "Latvian",
-  mg: "Malagash",
-  mi: "Maori",
-  mk: "Macedonian",
-  ml: "Malayalam",
-  mn: "Mongolian",
-  mr: "Marathi",
-  ms: "Malay",
-  mt: "Maltese",
-  mww: "Bai Miao",
-  my: "Burmese",
-  ne: "Nepali",
-  nl: "Dutch",
-  no: "Norwegian",
-  ny: "Nyanza (Chichewa)",
-  otq: "Quer\xE9taro Otomi",
-  pa: "Punjabi",
-  pl: "Polish",
-  ps: "Pashto",
-  pt: "Portuguese (Portugal, Brazil)",
-  ro: "Romanian",
-  ru: "Russian",
-  sd: "Sindhi",
-  si: "Sinhala",
-  sk: "Slovak",
-  sl: "Slovenian",
-  sm: "Samoan",
-  sn: "Shona",
-  so: "Somali",
-  sq: "Albanian",
-  sr: "Serbian",
+];
+var langMap = {
+  "af": "Afrikaans",
+  "am": "Amharic",
+  "ar": "Arabic",
+  "auto": "Detect Language",
+  "az": "Azerbaijani",
+  "be": "Belarusian",
+  "bg": "Bulgarian",
+  "tn": "Zana",
+  "bn": "Bengali",
+  "bs": "Bosnian",
+  "ca": "Catalan",
+  "ceb": "Cebuano",
+  "co": "Corsican",
+  "cs": "Czech",
+  "cy": "Welsh",
+  "da": "Danish",
+  "de": "German",
+  "el": "Greek",
+  "en": "English",
+  "eo": "Esperanto",
+  "es": "Spanish",
+  "et": "Estonian",
+  "eu": "Basque",
+  "fa": "Farsi",
+  "fi": "Finnish",
+  "fil": "Filipino",
+  "fj": "Fijian",
+  "fr": "French",
+  "fy": "Frisian",
+  "ga": "Irish",
+  "gd": "Scottish Gaelic",
+  "gl": "Galician",
+  "gu": "Gujarati",
+  "ha": "Hausa",
+  "haw": "Hawaiian",
+  "he": "Hebrew",
+  "hi": "Hindi",
+  "hmn": "Hmong",
+  "hr": "Croatian",
+  "ht": "Haitian Creole",
+  "hu": "Hungarian",
+  "hy": "Armenian",
+  "id": "Indonesian",
+  "ig": "Igbo",
+  "is": "Icelandic",
+  "it": "Italian",
+  "ja": "\u65E5\u672C\u8A9E",
+  "jw": "Javanese",
+  "ka": "Georgian",
+  "kk": "Kazakh",
+  "km": "Khmer",
+  "kn": "Kannada",
+  "ko": "Korean",
+  "ku": "Kurdish",
+  "ky": "Kyrgyz",
+  "la": "Latin",
+  "lb": "Luxembourgish",
+  "lo": "Lao",
+  "lt": "Lithuanian",
+  "lv": "Latvian",
+  "mg": "Malagash",
+  "mi": "Maori",
+  "mk": "Macedonian",
+  "ml": "Malayalam",
+  "mn": "Mongolian",
+  "mr": "Marathi",
+  "ms": "Malay",
+  "mt": "Maltese",
+  "mww": "Bai Miao",
+  "my": "Burmese",
+  "ne": "Nepali",
+  "nl": "Dutch",
+  "no": "Norwegian",
+  "ny": "Nyanza (Chichewa)",
+  "otq": "Quer\xE9taro Otomi",
+  "pa": "Punjabi",
+  "pl": "Polish",
+  "ps": "Pashto",
+  "pt": "Portuguese (Portugal, Brazil)",
+  "ro": "Romanian",
+  "ru": "Russian",
+  "sd": "Sindhi",
+  "si": "Sinhala",
+  "sk": "Slovak",
+  "sl": "Slovenian",
+  "sm": "Samoan",
+  "sn": "Shona",
+  "so": "Somali",
+  "sq": "Albanian",
+  "sr": "Serbian",
   "sr-Cyrl": "Serbian (Cyrillic)",
   "sr-Latn": "Serbian (Latin)",
-  st: "Sesotho",
-  su: "Sundanese",
-  sv: "Swedish",
-  sw: "Swahili",
-  ta: "Tamil",
-  te: "Telugu",
-  tg: "Tajik",
-  th: "Thai",
-  tlh: "Klingon",
+  "st": "Sesotho",
+  "su": "Sundanese",
+  "sv": "Swedish",
+  "sw": "Swahili",
+  "ta": "Tamil",
+  "te": "Telugu",
+  "tg": "Tajik",
+  "th": "Thai",
+  "tlh": "Klingon",
   "tlh-Qaak": "Klingon (piqaD)",
-  to: "Tongan",
-  tr: "Turkish",
-  ty: "Tahiti",
-  ug: "Uyghur",
-  uk: "Ukrainian",
-  ur: "Urdu",
-  uz: "Uzbek",
-  vi: "Vietnamese",
-  wyw: "Classical Chinese",
-  xh: "Bantu",
-  yi: "Yiddish",
-  yo: "Yoruba",
-  yua: "Yucatan Mayan",
-  yue: "Cantonese (Traditional)",
+  "to": "Tongan",
+  "tr": "Turkish",
+  "ty": "Tahiti",
+  "ug": "Uyghur",
+  "uk": "Ukrainian",
+  "ur": "Urdu",
+  "uz": "Uzbek",
+  "vi": "Vietnamese",
+  "wyw": "Classical Chinese",
+  "xh": "Bantu",
+  "yi": "Yiddish",
+  "yo": "Yoruba",
+  "yua": "Yucatan Mayan",
+  "yue": "Cantonese (Traditional)",
   "zh-CN": "\u7B80\u4F53\u4E2D\u6587",
   "zh-TW": "\u7E41\u9AD4\u4E2D\u6587",
-  zu: "Zulu"
+  "zu": "Zulu"
 };
 var allSupportedShortcuts = [
   "toggleTranslatePage",
@@ -8318,7 +8268,8 @@ var allSupportedShortcuts = [
   "toggleTranslateToThePageEndImmediately",
   "toggleTranslateTheMainPage",
   "toggleTranslationMask"
-], buildinExcludeUrls = [
+];
+var buildinExcludeUrls = [
   "https://immersive-translate.owenyoung.com/options/",
   "https://immersive-translate.owenyoung.com/auth-done/",
   "http://localhost:8000/dist/userscript/options/",
@@ -8326,7 +8277,11 @@ var allSupportedShortcuts = [
   "http://192.168.50.9:8000/dist/userscript/options/",
   "https://www.deepl.com/translator",
   "translate.google.com"
-], sampleSourceText = "Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.", sampleTargetText = "\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002", fallbackLanguage = "zh-CN", telegramGroupLink = "https://t.me/+rq848Z09nehlOTgx";
+];
+var sampleSourceText = `Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.`;
+var sampleTargetText = `\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002`;
+var fallbackLanguage = "zh-CN";
+var telegramGroupLink = "https://t.me/+rq848Z09nehlOTgx";
 
 // dom/toast.ts
 function success(text) {
@@ -8349,15 +8304,24 @@ var Timing = class {
     this.#t = performance.now();
   }
   stop(message) {
-    let now = performance.now(), d3 = Math.round(now - this.#t), cf = colors_exports.green;
-    d3 > 1e4 ? cf = colors_exports.red : d3 > 1e3 && (cf = colors_exports.yellow), console.debug(
+    const now = performance.now();
+    const d3 = Math.round(now - this.#t);
+    let cf = colors_exports.green;
+    if (d3 > 1e4) {
+      cf = colors_exports.red;
+    } else if (d3 > 1e3) {
+      cf = colors_exports.yellow;
+    }
+    console.debug(
       colors_exports.dim(brandName + " TIMING:"),
       message,
       "in",
       cf(d3 + "ms")
-    ), this.#t = now;
+    );
+    this.#t = now;
   }
-}, Logger = class {
+};
+var Logger = class {
   #level = 1 /* Info */;
   get level() {
     return this.#level;
@@ -8382,62 +8346,98 @@ var Timing = class {
     }
   }
   debug(...args) {
-    this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
+    if (this.#level <= 0 /* Debug */) {
+      console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
+    }
   }
   v(...args) {
-    this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " VERBOSE:"), ...args);
+    if (this.#level <= 0 /* Debug */) {
+      console.log(colors_exports.dim(brandName + " VERBOSE:"), ...args);
+    }
   }
   info(...args) {
-    this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " INFO:"), ...args);
+    if (this.#level <= 1 /* Info */) {
+      console.log(colors_exports.green(brandName + " INFO:"), ...args);
+    }
   }
   l(...args) {
-    this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " TEMP INFO:"), ...args);
+    if (this.#level <= 1 /* Info */) {
+      console.log(colors_exports.green(brandName + " TEMP INFO:"), ...args);
+    }
   }
   warn(...args) {
-    this.#level <= 2 /* Warn */ && console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
+    if (this.#level <= 2 /* Warn */) {
+      console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
+    }
   }
   error(...args) {
-    this.#level <= 3 /* Error */ && console.error(colors_exports.red(brandName + " ERROR:"), ...args);
+    if (this.#level <= 3 /* Error */) {
+      console.error(colors_exports.red(brandName + " ERROR:"), ...args);
+    }
   }
   fatal(...args) {
-    this.#level <= 4 /* Fatal */ && console.error(colors_exports.red(brandName + " FATAL:"), ...args);
+    if (this.#level <= 4 /* Fatal */) {
+      console.error(colors_exports.red(brandName + " FATAL:"), ...args);
+    }
   }
   timing() {
-    return this.level === 0 /* Debug */ ? new Timing() : { reset: () => {
+    if (this.level === 0 /* Debug */) {
+      return new Timing();
+    }
+    return { reset: () => {
     }, stop: () => {
     } };
   }
-}, log_default = new Logger();
+};
+var log_default = new Logger();
 
 // libs/use-chrome-storage/storage.ts
 var storage = {
   get: (key, defaultValue, storageArea) => {
-    let keyObj = defaultValue === void 0 ? key : { [key]: defaultValue };
+    const keyObj = defaultValue === void 0 ? key : { [key]: defaultValue };
     return browserAPI.storage[storageArea].get(
       keyObj
     );
   },
-  set: (key, value, storageArea) => browserAPI.storage[storageArea].set({ [key]: value })
+  set: (key, value, storageArea) => {
+    return browserAPI.storage[storageArea].set({ [key]: value });
+  }
 };
 
 // libs/use-chrome-storage/useChromeStorage.ts
 function useChromeStorage(key, initialValue, storageArea) {
-  let [INITIAL_VALUE3] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE3), [isPersistent, setIsPersistent] = P2(!0), [error2, setError] = P2("");
+  const [INITIAL_VALUE3] = P2(() => {
+    return typeof initialValue === "function" ? initialValue() : initialValue;
+  });
+  const [STORAGE_AREA] = P2(storageArea);
+  const [state, setState] = P2(INITIAL_VALUE3);
+  const [isPersistent, setIsPersistent] = P2(false);
+  const [error2, setError] = P2("");
   j2(() => {
     storage.get(key, INITIAL_VALUE3, STORAGE_AREA).then((res) => {
-      res[key] && setState(res[key]), setIsPersistent(!0), setError("");
+      if (res[key]) {
+        setState(res[key]);
+      }
+      setIsPersistent(true);
+      setError("");
     }).catch((error3) => {
-      setIsPersistent(!1), setError(error3);
+      setIsPersistent(false);
+      setError(error3);
     });
   }, [key, INITIAL_VALUE3, STORAGE_AREA]);
-  let updateValue = L2(
+  const updateValue = L2(
     // @ts-ignore: npm package is not typed
     (newValue) => {
-      let toStore = typeof newValue == "function" ? newValue(state) : newValue;
-      log_default.debug("new settings", toStore), storage.set(key, toStore, STORAGE_AREA).then(() => {
-        setState(toStore), setIsPersistent(!0), setError("");
+      const toStore = typeof newValue === "function" ? newValue(state) : newValue;
+      log_default.debug(`new settings`, toStore);
+      storage.set(key, toStore, STORAGE_AREA).then(() => {
+        setState(toStore);
+        setIsPersistent(true);
+        setError("");
       }).catch((error3) => {
-        setState(toStore), setIsPersistent(!1), setError(error3);
+        setState(toStore);
+        setIsPersistent(false);
+        setError(error3);
       });
     },
     [STORAGE_AREA, key, state]
@@ -8447,19 +8447,25 @@ function useChromeStorage(key, initialValue, storageArea) {
 
 // libs/use-chrome-storage/createChromeStorageStateHook.ts
 function createChromeStorageStateHook(key, initialValue, storageArea) {
-  let consumers = [];
-  return function() {
-    let [value, setValue, isPersistent, error2] = useChromeStorage(
+  const consumers = [];
+  return function useCreateChromeStorageHook() {
+    const [value, setValue, isPersistent, error2] = useChromeStorage(
       key,
       initialValue,
       storageArea
-    ), setValueAll = L2((newValue) => {
-      for (let consumer of consumers)
+    );
+    const setValueAll = L2((newValue) => {
+      for (const consumer of consumers) {
         consumer(newValue);
+      }
     }, []);
-    return j2(() => (consumers.push(setValue), () => {
-      consumers.splice(consumers.indexOf(setValue), 1);
-    }), [setValue]), [value, setValueAll, isPersistent, error2];
+    j2(() => {
+      consumers.push(setValue);
+      return () => {
+        consumers.splice(consumers.indexOf(setValue), 1);
+      };
+    }, [setValue]);
+    return [value, setValueAll, isPersistent, error2];
   };
 }
 
@@ -8472,67 +8478,93 @@ function createChromeStorageStateHookSync(key, initialValue) {
 }
 
 // hooks/use_user_config.ts
-var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, rawUseUserConfig = createChromeStorageStateHookSync(
+var SETTINGS_KEY = "userConfig";
+var INITIAL_VALUE = {};
+var rawUseUserConfig = createChromeStorageStateHookSync(
   SETTINGS_KEY,
   INITIAL_VALUE
 );
 function useUserConfig() {
-  let [value, setValue, isPersistent, error2] = rawUseUserConfig();
-  return [value, function(newValue) {
-    let toStore = typeof newValue == "function" ? newValue(value) : newValue;
-    toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
-  }, isPersistent, error2, setValue];
+  const [value, setValue, isPersistent, error2] = rawUseUserConfig();
+  const formatSetValue = function(newValue) {
+    const toStore = typeof newValue === "function" ? newValue(value) : newValue;
+    if (toStore) {
+      toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString();
+    }
+    setValue(toStore);
+  };
+  return [value, formatSetValue, isPersistent, error2, setValue];
 }
 
 // utils/format_language.ts
 function formatLanguage(rawLangCode) {
-  if (typeof rawLangCode != "string")
+  if (typeof rawLangCode !== "string")
     return "auto";
   let lowerCaseLangCode = rawLangCode.toLowerCase();
-  if (lowerCaseLangCode === "zh" || lowerCaseLangCode === "zh-hans")
+  if (lowerCaseLangCode === "zh" || lowerCaseLangCode === "zh-hans") {
     return "zh-CN";
-  if (lowerCaseLangCode === "zh-hant" || lowerCaseLangCode === "zh-hk")
+  } else if (lowerCaseLangCode === "zh-hant" || lowerCaseLangCode === "zh-hk") {
     return "zh-TW";
-  if (lowerCaseLangCode === "iw")
+  } else if (lowerCaseLangCode === "iw") {
     return "he";
-  if (lowerCaseLangCode === "jv")
+  } else if (lowerCaseLangCode === "jv") {
     return "jw";
-  let lowerCaseLanguages = languages.map((lang) => lang.toLowerCase()), indexOfLanguages = lowerCaseLanguages.indexOf(
+  }
+  const lowerCaseLanguages = languages.map((lang) => lang.toLowerCase());
+  const indexOfLanguages = lowerCaseLanguages.indexOf(
     lowerCaseLangCode
   );
-  if (indexOfLanguages === -1)
+  if (indexOfLanguages === -1) {
     if (lowerCaseLangCode.indexOf("-") >= 0) {
       lowerCaseLangCode = lowerCaseLangCode.split("-")[0];
-      let firstPartIndex = lowerCaseLanguages.indexOf(lowerCaseLangCode);
-      return firstPartIndex === -1 ? "auto" : languages[firstPartIndex];
-    } else
+      const firstPartIndex = lowerCaseLanguages.indexOf(lowerCaseLangCode);
+      if (firstPartIndex === -1) {
+        return "auto";
+      } else {
+        return languages[firstPartIndex];
+      }
+    } else {
       return "auto";
-  else
+    }
+  } else {
     return languages[indexOfLanguages];
+  }
 }
 
 // env.ts
 function getEnv() {
-  return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+  if (typeof process === "undefined") {
+    if (typeof Deno !== "undefined") {
+      const denoEnv = Deno.env.toObject();
+      return denoEnv;
+    }
+  }
+  const injectEnv = define_process_env_default;
+  return injectEnv;
 }
 var env = getEnv();
 function isMonkey() {
   return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
 }
 function isDeno2() {
-  return typeof Deno < "u";
+  return typeof Deno !== "undefined";
 }
 function isUserscriptRuntime() {
   if (
     // @ts-ignore: it's ok
-    typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+    typeof globalThis.immersiveTranslateBrowserAPI !== "undefined" && // @ts-ignore: it's ok
     globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
     globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
   ) {
-    let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-    return !!(manifest && manifest._isUserscript);
-  } else
-    return !1;
+    const manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+    if (manifest && manifest._isUserscript) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 
 // buildin_config.json
@@ -8540,13 +8572,13 @@ var buildin_config_default = {
   minVersion: "0.0.20",
   immediateTranslationTextCount: 5e3,
   interval: 36e5,
-  beta: !1,
-  cache: !0,
+  beta: false,
+  cache: true,
   donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
   feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
-  isShowContextMenu: !0,
+  isShowContextMenu: true,
   loadingTheme: "spinner",
-  canary: !1,
+  canary: false,
   translationServices: {
     volcAlpha: {
       placeholderDelimiters: ["{", "}"]
@@ -8596,6 +8628,7 @@ var buildin_config_default = {
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
+      "instagram.com",
       "*.slack.com",
       "https://old.reddit.com/",
       "https://www.reddit.com/r/popular/",
@@ -8630,6 +8663,7 @@ var buildin_config_default = {
       "mail.google.com",
       "google.com",
       "discord.com",
+      "instagram.com",
       "web.telegram.org",
       "*.slack.com"
     ],
@@ -8643,15 +8677,17 @@ var buildin_config_default = {
   generalRule: {
     _comment: "",
     normalizeBody: "",
+    injectedCss: [],
+    additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
     wrapperSuffix: "smart",
-    isPdf: !1,
-    isTransformPreTagNewLine: !1,
+    isPdf: false,
+    isTransformPreTagNewLine: false,
     urlChangeDelay: 20,
     translationBlockStyle: "",
-    isShowUserscriptPagePopup: !0,
-    observeUrlChange: !1,
+    isShowUserscriptPagePopup: true,
+    observeUrlChange: false,
     paragraphMinTextCount: 8,
     paragraphMinWordCount: 2,
     shadowRootSelectors: [],
@@ -8734,6 +8770,13 @@ var buildin_config_default = {
       "FOOTER",
       "MATH"
     ],
+    bodyTranslateTags: [
+      "FOOTER",
+      "ADIDE",
+      "BUTTON",
+      "NAV"
+    ],
+    forceTranslateTags: [],
     metaTags: [
       "META",
       "SCRIPT",
@@ -8851,7 +8894,7 @@ var buildin_config_default = {
       matches: [
         "moz-extension://*/pdf/index.html*"
       ],
-      isPdf: !0,
+      isPdf: true,
       wrapperPrefix: "",
       wrapperSuffix: "",
       urlChangeDelay: 0,
@@ -8918,7 +8961,7 @@ var buildin_config_default = {
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
       ],
-      observeUrlChange: !1,
+      observeUrlChange: false,
       extraInlineSelectors: ['[data-testid="tweetText"] div']
     },
     {
@@ -8929,7 +8972,14 @@ var buildin_config_default = {
         "askubuntu.com",
         "serverfault.com"
       ],
-      additionalSelectors: [".comment-copy"]
+      extraBlockSelectors: ["span.comment-copy"],
+      excludeSelectors: [
+        "a.comment-user",
+        "span.comment-date",
+        "div.s-prose.js-post-body + div",
+        ".bottom-notice",
+        "div[data-campaign-name=stk]"
+      ]
     },
     {
       matches: "developer.apple.com/documentation/*",
@@ -8966,12 +9016,12 @@ var buildin_config_default = {
         "www.reddit.com/.compact"
       ],
       selectors: [".title > a", ".usertext-body"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "old.reddit.com",
       selectors: ["p.title > a", "[role=main] .md-container"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "www.reddit.com",
@@ -8984,10 +9034,14 @@ var buildin_config_default = {
         "[data-adclicklocation='title']",
         "[data-adclicklocation=media]",
         ".PostContent",
+        ".post-content",
         ".Comment__body",
         "faceplate-batch .md"
       ],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      }
     },
     {
       matches: "www.reuters.com/",
@@ -9006,16 +9060,15 @@ var buildin_config_default = {
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
-        "div.blob-wrapper-embedded"
+        "div.blob-wrapper-embedded",
+        "div.Box.Box--condensed.my-2"
       ],
-      extraBlockSelectors: [
-        "task-lists"
-      ],
+      extraBlockSelectors: [],
       extraInlineSelectors: [
         "g-emoji"
       ],
       stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "www.facebook.com",
@@ -9036,31 +9089,35 @@ var buildin_config_default = {
       translationClasses: [
         "immersive-translate-text"
       ],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "m.youtube.com",
       selectors: [
         ".comment-text"
       ],
-      observeUrlChange: !0,
+      observeUrlChange: true,
       atomicBlockSelectors: [
         ".comment-text"
       ],
       globalStyles: {
         ".comment-text": "max-height:unset;"
-      }
+      },
+      injectedCss: [
+        ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+      ]
     },
     {
       matches: "www.youtube.com",
-      observeUrlChange: !0,
+      observeUrlChange: true,
       selectors: [
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "yt-formatted-string.ytd-video-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
         "span#video-title",
-        "a#video-title"
+        "a#video-title",
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -9081,13 +9138,43 @@ var buildin_config_default = {
         "[class^='lln-']"
       ],
       extraBlockSelectors: [
-        ".ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true,
+      injectedCss: [
+        ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+      ]
+    },
+    {
+      matches: "https://www.instagram.com/*",
+      globalStyles: {
+        "._ab05": "min-height:150px"
+      },
+      wrapperPrefix: "",
+      wrapperSuffix: "",
+      selectors: [
+        "div._aa_c h1",
+        "div._a9zs h1",
+        "div._a9zr > div._a9zs > span",
+        "div._ab5z._ab5_",
+        'div._ac72 div[role="button"] > div:last-child',
+        'li._acaz div[role="menuitem"]'
+      ],
+      atomicBlockSelectors: [
+        "div._aa_c h1",
+        'li._acaz div[role="menuitem"]'
+      ]
     },
     {
       matches: "1paragraph.app",
       selectors: "#book"
+    },
+    {
+      matches: "https://poeditor.com/projects/*",
+      selectors: [
+        ".comment-body",
+        ".reference_language .source-string"
+      ]
     },
     {
       matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
@@ -9130,7 +9217,7 @@ var buildin_config_default = {
         'div[class^="_description_"]',
         "#document-text-content"
       ],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: ["www.inoreader.com", "*.inoreader.com"],
@@ -9140,15 +9227,14 @@ var buildin_config_default = {
         ".article_content",
         ".article_magazine_title_link"
       ],
-      observeUrlChange: !1,
+      observeUrlChange: false,
       globalStyles: {
         ".article_title_link": "-webkit-line-clamp: unset;max-height: unset;"
       }
     },
     {
       matches: ["scholar.google.com"],
-      wrapperPrefix: `
-`,
+      wrapperPrefix: "\n",
       selectors: ["h3 a[data-clk]", "div.gs_rs"],
       atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
     },
@@ -9159,7 +9245,7 @@ var buildin_config_default = {
         "span[data-thread-id]",
         "div[data-message-id] div[class='']"
       ],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "www.producthunt.com",
@@ -9217,24 +9303,24 @@ var buildin_config_default = {
         "div[class^=headerText]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
-      detectParagraphLanguage: !0,
+      detectParagraphLanguage: true,
       wrapperPrefix: "<br />",
       wrapperSuffix: ""
     },
     {
       matches: "web.telegram.org/z/*",
       selectors: [".text-content"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
       selectors: [".message"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "gist.github.com",
       selectors: [".markdown-body", ".readme"],
-      detectParagraphLanguage: !0
+      detectParagraphLanguage: true
     },
     {
       matches: "lobste.rs",
@@ -9242,8 +9328,8 @@ var buildin_config_default = {
     },
     {
       matches: "*.slack.com",
-      selectors: [".p-rich_text_section"],
-      detectParagraphLanguage: !0
+      selectors: [".p-rich_text_block"],
+      detectParagraphLanguage: true
     },
     {
       matches: "1paragraph.app",
@@ -9251,7 +9337,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.google.*/search*",
-      detectParagraphLanguage: !0,
+      detectParagraphLanguage: true,
       excludeSelectors: ["a h3 + div", "div#sfooter"],
       wrapperSuffix: "",
       globalStyles: {
@@ -9318,7 +9404,7 @@ var buildin_config_default = {
       ],
       selectorMatches: ["div#mastodon"],
       selectors: ["div.status__content__text"],
-      detectLanguage: !0
+      detectLanguage: true
     },
     {
       matches: "www.cnbc.com",
@@ -9348,12 +9434,9 @@ var buildin_config_default = {
         ".thumbnailTitle",
         ".commentMessage > span"
       ],
-      detectParagraphLanguage: !0,
-      wrapperPrefix: `
-
-`,
-      wrapperSuffix: `
-`,
+      detectParagraphLanguage: true,
+      wrapperPrefix: "\n\n",
+      wrapperSuffix: "\n",
       globalStyles: {
         ".title": "height: unset; max-height: unset;"
       }
@@ -9599,118 +9682,218 @@ var buildin_config_default = {
     {
       matches: "developer.chrome.com",
       excludeSelectors: ["web-tabs", "ul.code-sections--summary"]
+    },
+    {
+      matches: "https://rarbg.to/*",
+      wrapperPrefix: "",
+      wrapperSuffix: "",
+      globalStyles: {
+        ".lista2 h2": "line-height: 14px;"
+      },
+      selectors: [
+        "#news_content",
+        "#top_news > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td > table > tbody > tr > td",
+        "#top_news > table > tbody > tr > td > table > tbody > tr > td > h2",
+        "body > table > tbody > tr > td > div > table > tbody > tr > td > b",
+        "#newsRight > table> tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td",
+        "#newsRight > table > tbody > tr > td:nth-child(2) > table > tbody > tr > td > span > b"
+      ]
+    },
+    {
+      matches: ["developer.android.google.cn", "developer.android.com"],
+      additionalSelectors: ["aside.note"]
     }
   ]
 };
 
 // utils/array.ts
 function arrayOrGenericToArray(arrayOrGeneric) {
-  return Array.isArray(arrayOrGeneric) ? arrayOrGeneric : arrayOrGeneric ? [arrayOrGeneric] : [];
+  if (Array.isArray(arrayOrGeneric)) {
+    return arrayOrGeneric;
+  } else if (arrayOrGeneric) {
+    return [arrayOrGeneric];
+  } else {
+    return [];
+  }
 }
 function addToUniqueArray(item, array) {
-  return array ? (Array.isArray(array) || (array = [array]), Array.from(/* @__PURE__ */ new Set([...array, item]))) : [item];
+  if (!array) {
+    return [item];
+  }
+  if (!Array.isArray(array)) {
+    array = [array];
+  }
+  return Array.from(/* @__PURE__ */ new Set([...array, item]));
 }
 function removeFromArray(item, array) {
-  return array ? (Array.isArray(item) || (item = [item]), Array.isArray(array) || (array = [array]), array.filter((i2) => !item.includes(i2))) : [];
+  if (!array) {
+    return [];
+  }
+  if (!Array.isArray(item)) {
+    item = [item];
+  }
+  if (!Array.isArray(array)) {
+    array = [array];
+  }
+  return array.filter((i2) => !item.includes(i2));
 }
 
 // utils/merge_rule.ts
 function mergeRule(generalRule, rule) {
-  let arrayKeys = [], allRuleKeys = Object.keys(
+  const arrayKeys = [];
+  const allRuleKeys = Object.keys(
     generalRule
   );
-  for (let key of allRuleKeys) {
-    let value = generalRule[key];
-    Array.isArray(value) && arrayKeys.push(key);
+  for (const key of allRuleKeys) {
+    const value = generalRule[key];
+    if (Array.isArray(value)) {
+      arrayKeys.push(key);
+    }
   }
-  let finalRule = {
+  const finalRule = {
     ...generalRule
   };
-  return Object.keys(rule).forEach((key) => {
-    let value = rule[key];
-    if (value !== void 0)
-      if (!arrayKeys.includes(key))
+  const ruleKeys = Object.keys(rule);
+  ruleKeys.forEach((key) => {
+    const value = rule[key];
+    if (value !== void 0) {
+      if (!arrayKeys.includes(key)) {
         finalRule[key] = value;
-      else if (key.startsWith("additional")) {
-        let userValue = arrayOrGenericToArray(value);
-        finalRule[key] = Array.from(
-          // @ts-ignore: ignore type error
-          /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
-        );
-      } else
-        finalRule[key] = arrayOrGenericToArray(value);
-  }), finalRule;
+      } else {
+        if (key.startsWith("additional")) {
+          const userValue = arrayOrGenericToArray(value);
+          finalRule[key] = Array.from(
+            // @ts-ignore: ignore type error
+            /* @__PURE__ */ new Set([...finalRule[key], ...userValue])
+          );
+        } else {
+          finalRule[key] = arrayOrGenericToArray(value);
+        }
+      }
+    }
+  });
+  return finalRule;
 }
 
 // config.ts
 function getEnvUserConfig() {
-  if (env.PROD === "1")
+  if (env.PROD === "1") {
     return {};
-  let defaultUserConfig = {};
+  }
+  const defaultUserConfig = {};
   if (env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID && env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY) {
-    let tencentAuthConfig = {
+    const tencentAuthConfig = {
       secretId: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_ID,
       secretKey: env.IMMERSIVE_TRANSLATE_SECRET_TENCENT_SECRET_KEY
     };
-    defaultUserConfig.translationServices = {}, defaultUserConfig.translationServices.tencent = tencentAuthConfig;
+    defaultUserConfig.translationServices = {};
+    defaultUserConfig.translationServices.tencent = tencentAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID && env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY) {
-    let baiduAuthConfig = {
+    const baiduAuthConfig = {
       appid: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_APPID,
       key: env.IMMERSIVE_TRANSLATE_SECRET_BAIDU_KEY
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.baidu = baiduAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.baidu = baiduAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN) {
-    let caiyunAuthConfig = {
+    const caiyunAuthConfig = {
       token: env.IMMERSIVE_TRANSLATE_SECRET_CAIYUN_TOKEN
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.caiyun = caiyunAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY) {
-    let openlAuthConfig = {
+    const openlAuthConfig = {
       apikey: env.IMMERSIVE_TRANSLATE_SECRET_OPENL_APIKEY
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.openl = openlAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.openl = openlAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID && env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET) {
-    let youdaoAuthConfig = {
+    const youdaoAuthConfig = {
       appId: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_ID,
       appSecret: env.IMMERSIVE_TRANSLATE_SECRET_YOUDAO_APP_SECRET
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.youdao = youdaoAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID && env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY) {
-    let volcAuthConfig = {
+    const volcAuthConfig = {
       accessKeyId: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_ACCESS_KEY_ID,
       secretAccessKey: env.IMMERSIVE_TRANSLATE_SECRET_VOLC_SECRET_ACCESS_KEY
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.volc = volcAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.volc = volcAuthConfig;
   }
   if (env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY) {
-    let deeplAuthConfig = {
+    const deeplAuthConfig = {
       authKey: env.IMMERSIVE_TRANSLATE_SECRET_DEEPL_AUTH_KEY
     };
-    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    defaultUserConfig.translationServices.deepl = deeplAuthConfig;
   }
-  return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+  if (env.IMMERSIVE_TRANSLATE_SERVICE) {
+    defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE;
+  }
+  if (env.DEEPL_PROXY_ENDPOINT) {
+    if (!defaultUserConfig.translationServices) {
+      defaultUserConfig.translationServices = {};
+    }
+    if (!defaultUserConfig.translationServices.deepl) {
+      defaultUserConfig.translationServices.deepl = {};
+    }
+    defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT;
+  }
+  if (env.DEBUG === "1") {
+    defaultUserConfig.debug = true;
+    defaultUserConfig.cache = false;
+    defaultUserConfig.alpha = true;
+  }
+  if (env.MOCK === "1") {
+    defaultUserConfig.translationService = "mock";
+  }
+  return defaultUserConfig;
 }
 async function getLocalConfig() {
-  let localConfig = await browserAPI.storage.local.get(localConfigStorageKey);
+  const localConfig = await browserAPI.storage.local.get(localConfigStorageKey);
   if (localConfig[localConfigStorageKey]) {
-    let currentConfig = localConfig[localConfigStorageKey], currentTempTranslationDomains = currentConfig.tempTranslationUrlMatches || [], newDomains = currentTempTranslationDomains.filter(
+    const currentConfig = localConfig[localConfigStorageKey];
+    let currentTempTranslationDomains = currentConfig.tempTranslationUrlMatches || [];
+    const newDomains = currentTempTranslationDomains.filter(
       (item) => item.expiredAt > Date.now()
-    ), isChanged = !1;
-    newDomains.length !== currentTempTranslationDomains.length && (currentTempTranslationDomains = newDomains, isChanged = !0);
-    let newLocalConfig = {
+    );
+    let isChanged = false;
+    if (newDomains.length !== currentTempTranslationDomains.length) {
+      currentTempTranslationDomains = newDomains;
+      isChanged = true;
+    }
+    const newLocalConfig = {
       ...currentConfig,
       tempTranslationUrlMatches: [
         ...currentTempTranslationDomains
       ]
     };
-    return isChanged && await setLocalConfig(newLocalConfig), newLocalConfig;
-  } else
+    if (isChanged) {
+      await setLocalConfig(newLocalConfig);
+    }
+    return newLocalConfig;
+  } else {
     return {};
+  }
 }
 async function setLocalConfig(localConfig) {
   await browserAPI.storage.local.set({ [localConfigStorageKey]: localConfig });
@@ -9722,38 +9905,53 @@ async function clearLocalConfig() {
   await browserAPI.storage.local.set({ [localConfigStorageKey]: {} });
 }
 async function getConfig() {
-  let storageBuildInConfig = await browserAPI.storage.local.get(
+  const storageBuildInConfig = await browserAPI.storage.local.get(
     buildinConfigStorageKey
-  ), finalBuildInConfig = {
+  );
+  let finalBuildInConfig = {
     ...buildin_config_default,
     buildinConfigUpdatedAt: env.BUILD_TIME
   };
   if (storageBuildInConfig[buildinConfigStorageKey]) {
-    let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
+    const storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
     if (storageBuildInConfigValue && storageBuildInConfigValue.buildinConfigUpdatedAt) {
-      let storageBuildinConfigUpdatedAt = new Date(
+      const storageBuildinConfigUpdatedAt = new Date(
         storageBuildInConfigValue.buildinConfigUpdatedAt
-      ), buildinConfigUpdatedAt = new Date(
+      );
+      const buildinConfigUpdatedAt = new Date(
         finalBuildInConfig.buildinConfigUpdatedAt
       );
-      storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
+      if (storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt) {
+        finalBuildInConfig = storageBuildInConfigValue;
+      }
     }
   }
-  let shortcutsFromBrowser = {};
+  const shortcutsFromBrowser = {};
   if (!isMonkey() && browserAPI.commands && browserAPI.commands.getAll) {
-    let commandResult = await browserAPI.commands.getAll();
-    for (let command of commandResult)
-      command.name && command.shortcut && (shortcutsFromBrowser[command.name] = command.shortcut);
+    const commandResult = await browserAPI.commands.getAll();
+    for (const command of commandResult) {
+      if (command.name && command.shortcut) {
+        shortcutsFromBrowser[command.name] = command.shortcut;
+      }
+    }
   }
-  let defaultConfig = getBuildInConfig(), envUserConfig = getEnvUserConfig();
-  log_default.v("envUserConfig", envUserConfig);
-  let userConfig = await getUserConfig(), globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {}, localConfig = await getLocalConfig(), now = /* @__PURE__ */ new Date();
+  const defaultConfig = getBuildInConfig();
+  const envUserConfig = getEnvUserConfig();
+  const userConfig = await getUserConfig();
+  const globalUserConfig = globalThis.IMMERSIVE_TRANSLATE_CONFIG || {};
+  const localConfig = await getLocalConfig();
+  const now = /* @__PURE__ */ new Date();
   if (localConfig && localConfig.tempTranslationUrlMatches && localConfig.tempTranslationUrlMatches.length > 0) {
-    let validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
-      (urlMatch) => new Date(urlMatch.expiredAt) > now
+    const validUrlMatches = localConfig.tempTranslationUrlMatches.filter(
+      (urlMatch) => {
+        const expiredAt = new Date(urlMatch.expiredAt);
+        return expiredAt > now;
+      }
     );
     if (validUrlMatches.length > 0) {
-      let currentMatches = userConfig.translationUrlPattern ? userConfig.translationUrlPattern?.matches || [] : [], currentMatchesArray = Array.isArray(currentMatches) ? currentMatches : [currentMatches], finalMatches = Array.from(
+      const currentMatches = userConfig.translationUrlPattern ? userConfig.translationUrlPattern?.matches || [] : [];
+      const currentMatchesArray = Array.isArray(currentMatches) ? currentMatches : [currentMatches];
+      const finalMatches = Array.from(
         new Set(
           currentMatchesArray.concat(
             validUrlMatches.map((urlMatch) => urlMatch.match)
@@ -9766,17 +9964,19 @@ async function getConfig() {
       };
     }
   }
-  let mergedUserConfig = Object.assign(
+  const mergedUserConfig = Object.assign(
     {},
     globalUserConfig,
     envUserConfig,
     userConfig
   );
   if (!mergedUserConfig.interfaceLanguage) {
-    let defaultInterfaceLanguage = await getBrowserIntefaceLanguage();
+    const defaultInterfaceLanguage = await getBrowserIntefaceLanguage();
     mergedUserConfig.interfaceLanguage = defaultInterfaceLanguage;
   }
-  let finalConfig = Object.assign(defaultConfig, finalBuildInConfig), configKeys = Object.keys(finalConfig), assignKeys = [
+  const finalConfig = Object.assign(defaultConfig, finalBuildInConfig);
+  const configKeys = Object.keys(finalConfig);
+  const assignKeys = [
     "translationUrlPattern",
     "translationLanguagePattern",
     "immediateTranslationPattern",
@@ -9786,66 +9986,101 @@ async function getConfig() {
     "translationGeneralConfig",
     "shortcuts"
   ];
-  for (let key of configKeys) {
-    let configKey = key;
-    if (configKey === "generalRule")
-      typeof mergedUserConfig[configKey] == "object" && (finalConfig[configKey] = mergeRule(
-        defaultConfig[configKey],
-        mergedUserConfig[configKey]
-      ));
-    else if (configKey === "translationServices") {
-      let userConfigValue = mergedUserConfig[configKey] || {}, buildInConfigValue = finalBuildInConfig[configKey] || {}, buildInConfigKeys = Object.keys(buildInConfigValue), userConfigKeys = Object.keys(userConfigValue), allUniqueKeys = [
+  for (const key of configKeys) {
+    const configKey = key;
+    if (configKey === "generalRule") {
+      if (typeof mergedUserConfig[configKey] === "object") {
+        finalConfig[configKey] = mergeRule(
+          defaultConfig[configKey],
+          mergedUserConfig[configKey]
+        );
+      }
+    } else if (configKey === "translationServices") {
+      const userConfigValue = mergedUserConfig[configKey] || {};
+      const buildInConfigValue = finalBuildInConfig[configKey] || {};
+      const buildInConfigKeys = Object.keys(buildInConfigValue);
+      const userConfigKeys = Object.keys(userConfigValue);
+      const allUniqueKeys = [
         .../* @__PURE__ */ new Set([...buildInConfigKeys, ...userConfigKeys])
-      ], finalConfigValue = {};
-      for (let key2 of allUniqueKeys)
+      ];
+      const finalConfigValue = {};
+      for (const key2 of allUniqueKeys) {
         finalConfigValue[key2] = {
           // @ts-ignore: it's ok
           ...buildInConfigValue[key2],
           ...userConfigValue[key2]
         };
+      }
       finalConfig[configKey] = finalConfigValue;
-    } else if (typeof mergedUserConfig[configKey] != "string" && typeof mergedUserConfig[configKey] != "boolean" && typeof mergedUserConfig[configKey] != "number" && assignKeys.includes(configKey))
-      mergedUserConfig[configKey] && (finalConfig[configKey] = Object.assign(
-        // @ts-ignore: ignore type error
-        finalConfig[configKey],
-        mergedUserConfig[configKey]
-      )), configKey === "shortcuts" && (finalConfig[configKey] = {
-        ...finalConfig[configKey],
-        ...shortcutsFromBrowser
-      });
-    else if (configKey === "rules") {
-      if (Array.isArray(mergedUserConfig[configKey]) && (finalConfig[configKey] = [
-        ...mergedUserConfig[configKey],
-        ...finalConfig[configKey]
-      ]), env.PROD === "0" && env.DEV_RULES) {
-        let devRules = JSON.parse(env.DEV_RULES);
+    } else if (typeof mergedUserConfig[configKey] !== "string" && typeof mergedUserConfig[configKey] !== "boolean" && typeof mergedUserConfig[configKey] !== "number" && assignKeys.includes(configKey)) {
+      if (mergedUserConfig[configKey]) {
+        finalConfig[configKey] = Object.assign(
+          // @ts-ignore: ignore type error
+          finalConfig[configKey],
+          mergedUserConfig[configKey]
+        );
+      }
+      if (configKey === "shortcuts") {
+        finalConfig[configKey] = {
+          ...finalConfig[configKey],
+          ...shortcutsFromBrowser
+        };
+      }
+    } else if (configKey === "rules") {
+      if (Array.isArray(mergedUserConfig[configKey])) {
         finalConfig[configKey] = [
-          ...devRules,
+          ...mergedUserConfig[configKey],
           ...finalConfig[configKey]
         ];
       }
-    } else
-      mergedUserConfig[configKey] !== void 0 && (finalConfig[configKey] = mergedUserConfig[configKey]);
+      if (env.PROD === "0") {
+        if (env.DEV_RULES) {
+          const devRules = JSON.parse(env.DEV_RULES);
+          finalConfig[configKey] = [
+            ...devRules,
+            ...finalConfig[configKey]
+          ];
+        }
+      }
+    } else {
+      if (mergedUserConfig[configKey] !== void 0) {
+        finalConfig[configKey] = mergedUserConfig[configKey];
+      }
+    }
   }
-  return finalConfig.donateUrl = finalBuildInConfig.donateUrl, finalConfig.minVersion = finalBuildInConfig.minVersion, finalConfig.feedbackUrl = finalBuildInConfig.feedbackUrl, finalConfig;
+  finalConfig.donateUrl = finalBuildInConfig.donateUrl;
+  finalConfig.minVersion = finalBuildInConfig.minVersion;
+  finalConfig.feedbackUrl = finalBuildInConfig.feedbackUrl;
+  return finalConfig;
 }
 async function getUserConfig() {
-  return (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {};
+  const userConfigObject = await browserAPI.storage.sync.get("userConfig") || {};
+  const userConfig = userConfigObject.userConfig || {};
+  return userConfig;
 }
 var getBrowserIntefaceLanguage = async () => {
-  let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
-  return defaultInterfaceLanguage || "en";
-}, getBuildInConfig = () => {
-  let finalBuildInConfig = {
+  const languages3 = await browserAPI.i18n.getAcceptLanguages();
+  const formatedlanguages = languages3.map((lang) => formatLanguage(lang));
+  const defaultInterfaceLanguage = formatedlanguages.find((lang) => {
+    return translations[lang];
+  });
+  if (defaultInterfaceLanguage) {
+    return defaultInterfaceLanguage;
+  } else {
+    return "en";
+  }
+};
+var getBuildInConfig = () => {
+  const finalBuildInConfig = {
     ...buildin_config_default,
     buildinConfigUpdatedAt: env.BUILD_TIME
   };
-  return {
+  const defaultConfig = {
     ...finalBuildInConfig,
-    targetLanguage: fallbackLanguage,
-    interfaceLanguage: "en",
-    debug: !1,
-    alpha: !1,
+    "targetLanguage": fallbackLanguage,
+    "interfaceLanguage": "en",
+    debug: false,
+    alpha: false,
     translationUrlPattern: {
       matches: [],
       excludeMatches: []
@@ -9878,172 +10113,272 @@ var getBrowserIntefaceLanguage = async () => {
     translationGeneralConfig: { engine: "google" },
     rules: []
   };
+  return defaultConfig;
 };
 
 // services/util.ts
 function humanReadableSize(bytes) {
-  if (Math.abs(bytes) < 1024)
+  const thresh = 1024;
+  if (Math.abs(bytes) < thresh) {
     return bytes + " Byte";
-  let units = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"], u3 = -1;
-  do
-    bytes /= 1024, ++u3;
-  while (Math.abs(bytes) >= 1024 && u3 < units.length - 1);
+  }
+  const units = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  let u3 = -1;
+  do {
+    bytes /= thresh;
+    ++u3;
+  } while (Math.abs(bytes) >= thresh && u3 < units.length - 1);
   return bytes.toFixed(1) + " " + units[u3];
 }
 function splitSentences(sentences, maxLength, maxGroupLength) {
-  let tempSentences = splitStentenceWithMaxLength(sentences, maxLength), tempSentenceGroups = [], tempGroup = {
+  const tempSentences = splitStentenceWithMaxLength(sentences, maxLength);
+  const tempSentenceGroups = [];
+  let tempGroup = {
     from: sentences[0].from,
     fromByClient: sentences[0].fromByClient,
     to: sentences[0].to,
     tempSentences: [],
     url: sentences[0].url
   };
-  for (let tempSentence of tempSentences)
-    (tempGroup.tempSentences.reduce(
+  for (const tempSentence of tempSentences) {
+    const length = tempGroup.tempSentences.reduce(
       (acc, cur) => acc + cur.text.length,
       0
-    ) + tempSentence.text.length > maxLength || tempGroup.tempSentences.length >= maxGroupLength) && (tempSentenceGroups.push(tempGroup), tempGroup = {
-      fromByClient: tempGroup.fromByClient,
-      from: tempSentence.from,
-      to: tempSentence.to,
-      tempSentences: [],
-      url: tempSentence.url
-    }), (tempGroup.from !== tempSentence.from || tempGroup.to !== tempSentence.to) && (tempGroup.tempSentences.length > 0 ? (tempSentenceGroups.push(tempGroup), tempGroup = {
-      fromByClient: tempGroup.fromByClient,
-      from: tempSentence.from,
-      to: tempSentence.to,
-      tempSentences: [],
-      url: tempSentence.url
-    }) : (tempGroup.from = tempSentence.from, tempGroup.to = tempSentence.to)), tempGroup.tempSentences.push(tempSentence);
-  return tempGroup.tempSentences.length > 0 && tempSentenceGroups.push(tempGroup), tempSentenceGroups;
+    );
+    if (length + tempSentence.text.length > maxLength || tempGroup.tempSentences.length >= maxGroupLength) {
+      tempSentenceGroups.push(tempGroup);
+      tempGroup = {
+        fromByClient: tempGroup.fromByClient,
+        from: tempSentence.from,
+        to: tempSentence.to,
+        tempSentences: [],
+        url: tempSentence.url
+      };
+    }
+    if (tempGroup.from !== tempSentence.from || tempGroup.to !== tempSentence.to) {
+      if (tempGroup.tempSentences.length > 0) {
+        tempSentenceGroups.push(tempGroup);
+        tempGroup = {
+          fromByClient: tempGroup.fromByClient,
+          from: tempSentence.from,
+          to: tempSentence.to,
+          tempSentences: [],
+          url: tempSentence.url
+        };
+      } else {
+        tempGroup.from = tempSentence.from;
+        tempGroup.to = tempSentence.to;
+      }
+    }
+    tempGroup.tempSentences.push(tempSentence);
+  }
+  if (tempGroup.tempSentences.length > 0) {
+    tempSentenceGroups.push(tempGroup);
+  }
+  return tempSentenceGroups;
 }
 function splitStentenceWithMaxLength(sentences, maxLength) {
-  let allTempSentences = [];
+  const allTempSentences = [];
   for (let i2 = 0; i2 < sentences.length; i2++) {
-    let currentSentence = sentences[i2], { from, to, text, url } = currentSentence, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
+    const currentSentence = sentences[i2];
+    const { from, to, text, url } = currentSentence;
+    const textArrSplitedByNewLine = text.split(/\r?\n/);
+    const currentTempSentences = [];
+    let currentPrefix = "";
     for (let j5 = 0; j5 < textArrSplitedByNewLine.length; j5++) {
-      let currentText = textArrSplitedByNewLine[j5];
+      const currentText = textArrSplitedByNewLine[j5];
       if (currentText === "") {
-        currentTempSentences.length > 0 ? j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
-`) : currentPrefix += `
-`;
+        if (currentTempSentences.length > 0) {
+          if (j5 < textArrSplitedByNewLine.length - 1) {
+            currentTempSentences[currentTempSentences.length - 1].suffix += "\n";
+          }
+        } else {
+          currentPrefix += "\n";
+        }
         continue;
-      } else if (currentText.length > maxLength) {
-        let tempSplitedSentences = [];
-        splitSentence(currentText, maxLength, tempSplitedSentences);
-        for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
-          let tempSentence = tempSplitedSentences[k4], { text: text2, prefix, suffix } = tempSentence;
+      } else {
+        if (currentText.length > maxLength) {
+          const tempSplitedSentences = [];
+          splitSentence(currentText, maxLength, tempSplitedSentences);
+          for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
+            const tempSentence = tempSplitedSentences[k4];
+            const { text: text2, prefix, suffix } = tempSentence;
+            currentTempSentences.push({
+              from,
+              to,
+              text: text2,
+              prefix,
+              suffix,
+              index: i2,
+              url
+            });
+          }
+        } else {
           currentTempSentences.push({
+            text: currentText,
+            prefix: currentPrefix,
+            suffix: "",
             from,
             to,
-            text: text2,
-            prefix,
-            suffix,
             index: i2,
             url
           });
         }
-      } else
-        currentTempSentences.push({
-          text: currentText,
-          prefix: currentPrefix,
-          suffix: "",
-          from,
-          to,
-          index: i2,
-          url
-        });
-      currentTempSentences.length > 0 && j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
-`);
+      }
+      if (currentTempSentences.length > 0 && j5 < textArrSplitedByNewLine.length - 1) {
+        currentTempSentences[currentTempSentences.length - 1].suffix += "\n";
+      }
     }
     allTempSentences.push(...currentTempSentences);
   }
   return allTempSentences;
 }
 function isSameTargetLanguage(sourceLanguage, targetLanguage) {
-  let finalSourceLanguage = formatLanguage(sourceLanguage), finalTargetLanguage = formatLanguage(targetLanguage), isSame = finalSourceLanguage === finalTargetLanguage;
-  return isSame ? !0 : (isSame = finalSourceLanguage.startsWith("zh") && finalTargetLanguage.startsWith("zh"), isSame);
+  const finalSourceLanguage = formatLanguage(sourceLanguage);
+  const finalTargetLanguage = formatLanguage(targetLanguage);
+  let isSame = finalSourceLanguage === finalTargetLanguage;
+  if (isSame) {
+    return true;
+  }
+  isSame = finalSourceLanguage.startsWith("zh") && finalTargetLanguage.startsWith("zh");
+  return isSame;
 }
 function splitSentence(text, maxLength, sentences) {
-  let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
-    let index = text.lastIndexOf(boundary, maxLength);
+  const boundaries = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"];
+  const boundaryIndex = boundaries.reduce((acc, boundary) => {
+    const index = text.lastIndexOf(boundary, maxLength);
     return index > acc ? index : acc;
   }, -1);
-  if (boundaryIndex === -1)
+  if (boundaryIndex === -1) {
     sentences.push({
       text: text.slice(0, maxLength),
       prefix: "",
       suffix: ""
-    }), text.length > maxLength && splitSentence(text.slice(maxLength), maxLength, sentences);
-  else {
-    let theText = text.slice(0, boundaryIndex + 1);
-    theText.startsWith(" ") ? sentences.push({
-      text: theText.slice(1),
-      prefix: " ",
-      suffix: ""
-    }) : sentences.push({
-      text: theText,
-      prefix: "",
-      suffix: ""
-    }), boundaryIndex + 1 < text.length && splitSentence(text.slice(boundaryIndex + 1), maxLength, sentences);
+    });
+    if (text.length > maxLength) {
+      splitSentence(text.slice(maxLength), maxLength, sentences);
+    }
+  } else {
+    const theText = text.slice(0, boundaryIndex + 1);
+    if (theText.startsWith(" ")) {
+      sentences.push({
+        text: theText.slice(1),
+        prefix: " ",
+        suffix: ""
+      });
+    } else {
+      sentences.push({
+        text: theText,
+        prefix: "",
+        suffix: ""
+      });
+    }
+    if (boundaryIndex + 1 < text.length) {
+      splitSentence(text.slice(boundaryIndex + 1), maxLength, sentences);
+    }
   }
   return sentences;
 }
 function mergeUrl(defaultUrl, customUrl) {
-  let defaultUrlObj = new URL(defaultUrl);
-  customUrl.startsWith("http") || (customUrl = "https://" + customUrl);
-  let customUrlObj = new URL(customUrl);
-  return customUrlObj.pathname !== "/" ? customUrlObj.toString() : (defaultUrlObj.host = customUrlObj.host, customUrlObj.port && (defaultUrlObj.port = customUrlObj.port), customUrlObj.protocol && (defaultUrlObj.protocol = customUrlObj.protocol), customUrlObj.username && (defaultUrlObj.username = customUrlObj.username), customUrlObj.password && (defaultUrlObj.password = customUrlObj.password), defaultUrlObj.toString());
+  const defaultUrlObj = new URL(defaultUrl);
+  if (!customUrl.startsWith("http")) {
+    customUrl = "https://" + customUrl;
+  }
+  const customUrlObj = new URL(customUrl);
+  if (customUrlObj.pathname !== "/") {
+    return customUrlObj.toString();
+  } else {
+    defaultUrlObj.host = customUrlObj.host;
+    if (customUrlObj.port) {
+      defaultUrlObj.port = customUrlObj.port;
+    }
+    if (customUrlObj.protocol) {
+      defaultUrlObj.protocol = customUrlObj.protocol;
+    }
+    if (customUrlObj.username) {
+      defaultUrlObj.username = customUrlObj.username;
+    }
+    if (customUrlObj.password) {
+      defaultUrlObj.password = customUrlObj.password;
+    }
+    return defaultUrlObj.toString();
+  }
 }
 
 // errors.ts
 var CommonError = class extends Error {
   constructor(name, message, details) {
     super(message);
-    this.name = name, details && (this.details = details);
+    this.name = name;
+    if (details) {
+      this.details = details;
+    }
   }
 };
 
 // browser/request.ts
 async function request(options) {
   let response;
-  if (options && options.retry && options.retry > 0)
+  if (options && options.retry && options.retry > 0) {
     try {
       response = await retry(rawRequest.bind(null, options), {
         multiplier: 2,
         maxAttempts: options.retry
       });
     } catch (e3) {
-      throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
+      if (e3 && e3.name === "RetryError") {
+        if (e3.cause) {
+          throw e3.cause;
+        }
+      }
+      throw e3;
     }
-  else
+  } else {
     response = await rawRequest(options);
+  }
   return response;
 }
 async function rawRequest(options) {
-  options.body;
+  if (options.body) {
+  }
   let { url, responseType, ...fetchOptions } = options;
-  responseType || (responseType = "json"), fetchOptions = {
+  if (!responseType) {
+    responseType = "json";
+  }
+  fetchOptions = {
     mode: "cors",
     ...fetchOptions
   };
-  let response = await (options.fetchPolyfill || fetch)(url, fetchOptions);
+  const fetchFn = options.fetchPolyfill || fetch;
+  const response = await fetchFn(url, fetchOptions);
   if (response.ok && response.status >= 200 && response.status < 400) {
-    if (responseType === "json")
-      return await response.json();
-    if (responseType === "text")
-      return await response.text();
-    if (responseType === "raw") {
-      let data = await response.text(), responseHeaders = Object.fromEntries([
+    if (responseType === "json") {
+      const data = await response.json();
+      return data;
+    } else if (responseType === "text") {
+      const data = await response.text();
+      return data;
+    } else if (responseType === "raw") {
+      const data = await response.text();
+      const responseHeaders = Object.fromEntries([
         ...response.headers.entries()
-      ]), finalUrl = response.url;
-      return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
+      ]);
+      let finalUrl = response.url;
+      if (!finalUrl) {
+        if (response.headers.get("X-Final-URL")) {
+          finalUrl = response.headers.get("X-Final-URL");
+        } else {
+          finalUrl = url;
+        }
+      }
+      const result = {
         body: data,
         headers: responseHeaders,
         status: response.status,
         statusText: response.statusText,
         url: finalUrl
       };
+      return result;
     }
   } else {
     let details;
@@ -10052,7 +10387,10 @@ async function rawRequest(options) {
     } catch (_e3) {
       log_default.error("parse response failed", _e3);
     }
-    throw details && log_default.error("fail response", details), new CommonError(
+    if (details) {
+      log_default.error("fail response", details);
+    }
+    throw new CommonError(
       "fetchError",
       response.status + ": " + response.statusText || "",
       details
@@ -10062,7 +10400,8 @@ async function rawRequest(options) {
 
 // utils/md5.js
 function safeAdd(x5, y3) {
-  var lsw = (x5 & 65535) + (y3 & 65535), msw = (x5 >> 16) + (y3 >> 16) + (lsw >> 16);
+  var lsw = (x5 & 65535) + (y3 & 65535);
+  var msw = (x5 >> 16) + (y3 >> 16) + (lsw >> 16);
   return msw << 16 | lsw & 65535;
 }
 function bitRotateLeft(num, cnt) {
@@ -10084,40 +10423,144 @@ function md5ii(a4, b4, c4, d3, x5, s4, t5) {
   return md5cmn(c4 ^ (b4 | ~d3), a4, b4, x5, s4, t5);
 }
 function binlMD5(x5, len) {
-  x5[len >> 5] |= 128 << len % 32, x5[(len + 64 >>> 9 << 4) + 14] = len;
-  var i2, olda, oldb, oldc, oldd, a4 = 1732584193, b4 = -271733879, c4 = -1732584194, d3 = 271733878;
-  for (i2 = 0; i2 < x5.length; i2 += 16)
-    olda = a4, oldb = b4, oldc = c4, oldd = d3, a4 = md5ff(a4, b4, c4, d3, x5[i2], 7, -680876936), d3 = md5ff(d3, a4, b4, c4, x5[i2 + 1], 12, -389564586), c4 = md5ff(c4, d3, a4, b4, x5[i2 + 2], 17, 606105819), b4 = md5ff(b4, c4, d3, a4, x5[i2 + 3], 22, -1044525330), a4 = md5ff(a4, b4, c4, d3, x5[i2 + 4], 7, -176418897), d3 = md5ff(d3, a4, b4, c4, x5[i2 + 5], 12, 1200080426), c4 = md5ff(c4, d3, a4, b4, x5[i2 + 6], 17, -1473231341), b4 = md5ff(b4, c4, d3, a4, x5[i2 + 7], 22, -45705983), a4 = md5ff(a4, b4, c4, d3, x5[i2 + 8], 7, 1770035416), d3 = md5ff(d3, a4, b4, c4, x5[i2 + 9], 12, -1958414417), c4 = md5ff(c4, d3, a4, b4, x5[i2 + 10], 17, -42063), b4 = md5ff(b4, c4, d3, a4, x5[i2 + 11], 22, -1990404162), a4 = md5ff(a4, b4, c4, d3, x5[i2 + 12], 7, 1804603682), d3 = md5ff(d3, a4, b4, c4, x5[i2 + 13], 12, -40341101), c4 = md5ff(c4, d3, a4, b4, x5[i2 + 14], 17, -1502002290), b4 = md5ff(b4, c4, d3, a4, x5[i2 + 15], 22, 1236535329), a4 = md5gg(a4, b4, c4, d3, x5[i2 + 1], 5, -165796510), d3 = md5gg(d3, a4, b4, c4, x5[i2 + 6], 9, -1069501632), c4 = md5gg(c4, d3, a4, b4, x5[i2 + 11], 14, 643717713), b4 = md5gg(b4, c4, d3, a4, x5[i2], 20, -373897302), a4 = md5gg(a4, b4, c4, d3, x5[i2 + 5], 5, -701558691), d3 = md5gg(d3, a4, b4, c4, x5[i2 + 10], 9, 38016083), c4 = md5gg(c4, d3, a4, b4, x5[i2 + 15], 14, -660478335), b4 = md5gg(b4, c4, d3, a4, x5[i2 + 4], 20, -405537848), a4 = md5gg(a4, b4, c4, d3, x5[i2 + 9], 5, 568446438), d3 = md5gg(d3, a4, b4, c4, x5[i2 + 14], 9, -1019803690), c4 = md5gg(c4, d3, a4, b4, x5[i2 + 3], 14, -187363961), b4 = md5gg(b4, c4, d3, a4, x5[i2 + 8], 20, 1163531501), a4 = md5gg(a4, b4, c4, d3, x5[i2 + 13], 5, -1444681467), d3 = md5gg(d3, a4, b4, c4, x5[i2 + 2], 9, -51403784), c4 = md5gg(c4, d3, a4, b4, x5[i2 + 7], 14, 1735328473), b4 = md5gg(b4, c4, d3, a4, x5[i2 + 12], 20, -1926607734), a4 = md5hh(a4, b4, c4, d3, x5[i2 + 5], 4, -378558), d3 = md5hh(d3, a4, b4, c4, x5[i2 + 8], 11, -2022574463), c4 = md5hh(c4, d3, a4, b4, x5[i2 + 11], 16, 1839030562), b4 = md5hh(b4, c4, d3, a4, x5[i2 + 14], 23, -35309556), a4 = md5hh(a4, b4, c4, d3, x5[i2 + 1], 4, -1530992060), d3 = md5hh(d3, a4, b4, c4, x5[i2 + 4], 11, 1272893353), c4 = md5hh(c4, d3, a4, b4, x5[i2 + 7], 16, -155497632), b4 = md5hh(b4, c4, d3, a4, x5[i2 + 10], 23, -1094730640), a4 = md5hh(a4, b4, c4, d3, x5[i2 + 13], 4, 681279174), d3 = md5hh(d3, a4, b4, c4, x5[i2], 11, -358537222), c4 = md5hh(c4, d3, a4, b4, x5[i2 + 3], 16, -722521979), b4 = md5hh(b4, c4, d3, a4, x5[i2 + 6], 23, 76029189), a4 = md5hh(a4, b4, c4, d3, x5[i2 + 9], 4, -640364487), d3 = md5hh(d3, a4, b4, c4, x5[i2 + 12], 11, -421815835), c4 = md5hh(c4, d3, a4, b4, x5[i2 + 15], 16, 530742520), b4 = md5hh(b4, c4, d3, a4, x5[i2 + 2], 23, -995338651), a4 = md5ii(a4, b4, c4, d3, x5[i2], 6, -198630844), d3 = md5ii(d3, a4, b4, c4, x5[i2 + 7], 10, 1126891415), c4 = md5ii(c4, d3, a4, b4, x5[i2 + 14], 15, -1416354905), b4 = md5ii(b4, c4, d3, a4, x5[i2 + 5], 21, -57434055), a4 = md5ii(a4, b4, c4, d3, x5[i2 + 12], 6, 1700485571), d3 = md5ii(d3, a4, b4, c4, x5[i2 + 3], 10, -1894986606), c4 = md5ii(c4, d3, a4, b4, x5[i2 + 10], 15, -1051523), b4 = md5ii(b4, c4, d3, a4, x5[i2 + 1], 21, -2054922799), a4 = md5ii(a4, b4, c4, d3, x5[i2 + 8], 6, 1873313359), d3 = md5ii(d3, a4, b4, c4, x5[i2 + 15], 10, -30611744), c4 = md5ii(c4, d3, a4, b4, x5[i2 + 6], 15, -1560198380), b4 = md5ii(b4, c4, d3, a4, x5[i2 + 13], 21, 1309151649), a4 = md5ii(a4, b4, c4, d3, x5[i2 + 4], 6, -145523070), d3 = md5ii(d3, a4, b4, c4, x5[i2 + 11], 10, -1120210379), c4 = md5ii(c4, d3, a4, b4, x5[i2 + 2], 15, 718787259), b4 = md5ii(b4, c4, d3, a4, x5[i2 + 9], 21, -343485551), a4 = safeAdd(a4, olda), b4 = safeAdd(b4, oldb), c4 = safeAdd(c4, oldc), d3 = safeAdd(d3, oldd);
+  x5[len >> 5] |= 128 << len % 32;
+  x5[(len + 64 >>> 9 << 4) + 14] = len;
+  var i2;
+  var olda;
+  var oldb;
+  var oldc;
+  var oldd;
+  var a4 = 1732584193;
+  var b4 = -271733879;
+  var c4 = -1732584194;
+  var d3 = 271733878;
+  for (i2 = 0; i2 < x5.length; i2 += 16) {
+    olda = a4;
+    oldb = b4;
+    oldc = c4;
+    oldd = d3;
+    a4 = md5ff(a4, b4, c4, d3, x5[i2], 7, -680876936);
+    d3 = md5ff(d3, a4, b4, c4, x5[i2 + 1], 12, -389564586);
+    c4 = md5ff(c4, d3, a4, b4, x5[i2 + 2], 17, 606105819);
+    b4 = md5ff(b4, c4, d3, a4, x5[i2 + 3], 22, -1044525330);
+    a4 = md5ff(a4, b4, c4, d3, x5[i2 + 4], 7, -176418897);
+    d3 = md5ff(d3, a4, b4, c4, x5[i2 + 5], 12, 1200080426);
+    c4 = md5ff(c4, d3, a4, b4, x5[i2 + 6], 17, -1473231341);
+    b4 = md5ff(b4, c4, d3, a4, x5[i2 + 7], 22, -45705983);
+    a4 = md5ff(a4, b4, c4, d3, x5[i2 + 8], 7, 1770035416);
+    d3 = md5ff(d3, a4, b4, c4, x5[i2 + 9], 12, -1958414417);
+    c4 = md5ff(c4, d3, a4, b4, x5[i2 + 10], 17, -42063);
+    b4 = md5ff(b4, c4, d3, a4, x5[i2 + 11], 22, -1990404162);
+    a4 = md5ff(a4, b4, c4, d3, x5[i2 + 12], 7, 1804603682);
+    d3 = md5ff(d3, a4, b4, c4, x5[i2 + 13], 12, -40341101);
+    c4 = md5ff(c4, d3, a4, b4, x5[i2 + 14], 17, -1502002290);
+    b4 = md5ff(b4, c4, d3, a4, x5[i2 + 15], 22, 1236535329);
+    a4 = md5gg(a4, b4, c4, d3, x5[i2 + 1], 5, -165796510);
+    d3 = md5gg(d3, a4, b4, c4, x5[i2 + 6], 9, -1069501632);
+    c4 = md5gg(c4, d3, a4, b4, x5[i2 + 11], 14, 643717713);
+    b4 = md5gg(b4, c4, d3, a4, x5[i2], 20, -373897302);
+    a4 = md5gg(a4, b4, c4, d3, x5[i2 + 5], 5, -701558691);
+    d3 = md5gg(d3, a4, b4, c4, x5[i2 + 10], 9, 38016083);
+    c4 = md5gg(c4, d3, a4, b4, x5[i2 + 15], 14, -660478335);
+    b4 = md5gg(b4, c4, d3, a4, x5[i2 + 4], 20, -405537848);
+    a4 = md5gg(a4, b4, c4, d3, x5[i2 + 9], 5, 568446438);
+    d3 = md5gg(d3, a4, b4, c4, x5[i2 + 14], 9, -1019803690);
+    c4 = md5gg(c4, d3, a4, b4, x5[i2 + 3], 14, -187363961);
+    b4 = md5gg(b4, c4, d3, a4, x5[i2 + 8], 20, 1163531501);
+    a4 = md5gg(a4, b4, c4, d3, x5[i2 + 13], 5, -1444681467);
+    d3 = md5gg(d3, a4, b4, c4, x5[i2 + 2], 9, -51403784);
+    c4 = md5gg(c4, d3, a4, b4, x5[i2 + 7], 14, 1735328473);
+    b4 = md5gg(b4, c4, d3, a4, x5[i2 + 12], 20, -1926607734);
+    a4 = md5hh(a4, b4, c4, d3, x5[i2 + 5], 4, -378558);
+    d3 = md5hh(d3, a4, b4, c4, x5[i2 + 8], 11, -2022574463);
+    c4 = md5hh(c4, d3, a4, b4, x5[i2 + 11], 16, 1839030562);
+    b4 = md5hh(b4, c4, d3, a4, x5[i2 + 14], 23, -35309556);
+    a4 = md5hh(a4, b4, c4, d3, x5[i2 + 1], 4, -1530992060);
+    d3 = md5hh(d3, a4, b4, c4, x5[i2 + 4], 11, 1272893353);
+    c4 = md5hh(c4, d3, a4, b4, x5[i2 + 7], 16, -155497632);
+    b4 = md5hh(b4, c4, d3, a4, x5[i2 + 10], 23, -1094730640);
+    a4 = md5hh(a4, b4, c4, d3, x5[i2 + 13], 4, 681279174);
+    d3 = md5hh(d3, a4, b4, c4, x5[i2], 11, -358537222);
+    c4 = md5hh(c4, d3, a4, b4, x5[i2 + 3], 16, -722521979);
+    b4 = md5hh(b4, c4, d3, a4, x5[i2 + 6], 23, 76029189);
+    a4 = md5hh(a4, b4, c4, d3, x5[i2 + 9], 4, -640364487);
+    d3 = md5hh(d3, a4, b4, c4, x5[i2 + 12], 11, -421815835);
+    c4 = md5hh(c4, d3, a4, b4, x5[i2 + 15], 16, 530742520);
+    b4 = md5hh(b4, c4, d3, a4, x5[i2 + 2], 23, -995338651);
+    a4 = md5ii(a4, b4, c4, d3, x5[i2], 6, -198630844);
+    d3 = md5ii(d3, a4, b4, c4, x5[i2 + 7], 10, 1126891415);
+    c4 = md5ii(c4, d3, a4, b4, x5[i2 + 14], 15, -1416354905);
+    b4 = md5ii(b4, c4, d3, a4, x5[i2 + 5], 21, -57434055);
+    a4 = md5ii(a4, b4, c4, d3, x5[i2 + 12], 6, 1700485571);
+    d3 = md5ii(d3, a4, b4, c4, x5[i2 + 3], 10, -1894986606);
+    c4 = md5ii(c4, d3, a4, b4, x5[i2 + 10], 15, -1051523);
+    b4 = md5ii(b4, c4, d3, a4, x5[i2 + 1], 21, -2054922799);
+    a4 = md5ii(a4, b4, c4, d3, x5[i2 + 8], 6, 1873313359);
+    d3 = md5ii(d3, a4, b4, c4, x5[i2 + 15], 10, -30611744);
+    c4 = md5ii(c4, d3, a4, b4, x5[i2 + 6], 15, -1560198380);
+    b4 = md5ii(b4, c4, d3, a4, x5[i2 + 13], 21, 1309151649);
+    a4 = md5ii(a4, b4, c4, d3, x5[i2 + 4], 6, -145523070);
+    d3 = md5ii(d3, a4, b4, c4, x5[i2 + 11], 10, -1120210379);
+    c4 = md5ii(c4, d3, a4, b4, x5[i2 + 2], 15, 718787259);
+    b4 = md5ii(b4, c4, d3, a4, x5[i2 + 9], 21, -343485551);
+    a4 = safeAdd(a4, olda);
+    b4 = safeAdd(b4, oldb);
+    c4 = safeAdd(c4, oldc);
+    d3 = safeAdd(d3, oldd);
+  }
   return [a4, b4, c4, d3];
 }
 function binl2rstr(input) {
-  var i2, output = "", length32 = input.length * 32;
-  for (i2 = 0; i2 < length32; i2 += 8)
+  var i2;
+  var output = "";
+  var length32 = input.length * 32;
+  for (i2 = 0; i2 < length32; i2 += 8) {
     output += String.fromCharCode(input[i2 >> 5] >>> i2 % 32 & 255);
+  }
   return output;
 }
 function rstr2binl(input) {
-  var i2, output = [];
-  for (output[(input.length >> 2) - 1] = void 0, i2 = 0; i2 < output.length; i2 += 1)
+  var i2;
+  var output = [];
+  output[(input.length >> 2) - 1] = void 0;
+  for (i2 = 0; i2 < output.length; i2 += 1) {
     output[i2] = 0;
+  }
   var length8 = input.length * 8;
-  for (i2 = 0; i2 < length8; i2 += 8)
+  for (i2 = 0; i2 < length8; i2 += 8) {
     output[i2 >> 5] |= (input.charCodeAt(i2 / 8) & 255) << i2 % 32;
+  }
   return output;
 }
 function rstrMD5(s4) {
   return binl2rstr(binlMD5(rstr2binl(s4), s4.length * 8));
 }
 function rstrHMACMD5(key, data) {
-  var i2, bkey = rstr2binl(key), ipad = [], opad = [], hash;
-  for (ipad[15] = opad[15] = void 0, bkey.length > 16 && (bkey = binlMD5(bkey, key.length * 8)), i2 = 0; i2 < 16; i2 += 1)
-    ipad[i2] = bkey[i2] ^ 909522486, opad[i2] = bkey[i2] ^ 1549556828;
-  return hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8), binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
+  var i2;
+  var bkey = rstr2binl(key);
+  var ipad = [];
+  var opad = [];
+  var hash;
+  ipad[15] = opad[15] = void 0;
+  if (bkey.length > 16) {
+    bkey = binlMD5(bkey, key.length * 8);
+  }
+  for (i2 = 0; i2 < 16; i2 += 1) {
+    ipad[i2] = bkey[i2] ^ 909522486;
+    opad[i2] = bkey[i2] ^ 1549556828;
+  }
+  hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8);
+  return binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
 }
 function rstr2hex(input) {
-  var hexTab = "0123456789abcdef", output = "", x5, i2;
-  for (i2 = 0; i2 < input.length; i2 += 1)
-    x5 = input.charCodeAt(i2), output += hexTab.charAt(x5 >>> 4 & 15) + hexTab.charAt(x5 & 15);
+  var hexTab = "0123456789abcdef";
+  var output = "";
+  var x5;
+  var i2;
+  for (i2 = 0; i2 < input.length; i2 += 1) {
+    x5 = input.charCodeAt(i2);
+    output += hexTab.charAt(x5 >>> 4 & 15) + hexTab.charAt(x5 & 15);
+  }
   return output;
 }
 function str2rstrUTF8(input) {
@@ -10136,23 +10579,38 @@ function hexHMACMD5(k4, d3) {
   return rstr2hex(rawHMACMD5(k4, d3));
 }
 function md5(string, key, raw) {
-  return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
+  if (!key) {
+    if (!raw) {
+      return hexMD5(string);
+    }
+    return rawMD5(string);
+  }
+  if (!raw) {
+    return hexHMACMD5(key, string);
+  }
+  return rawHMACMD5(key, string);
 }
 
 // services/cache.ts
 var dbNames = [];
 async function openIndexedDB(dbName, _storageName) {
   return await new Promise((resolve, reject) => {
-    let name = dbName, version = 1, request3 = indexedDB.open(name, version);
+    const name = dbName;
+    const version = 1;
+    const request3 = indexedDB.open(name, version);
     request3.onsuccess = (_event) => {
       resolve(request3.result);
-    }, request3.onerror = (event) => {
+    };
+    request3.onerror = (event) => {
       console.error(
         "onerror: Error opening the database, switching to non-database mode",
         event
-      ), reject();
-    }, request3.onupgradeneeded = (_event) => {
-      let db = request3.result, storageName = _storageName || "cache";
+      );
+      reject();
+    };
+    request3.onupgradeneeded = (_event) => {
+      const db = request3.result;
+      const storageName = _storageName ? _storageName : "cache";
       db.createObjectStore(storageName, {
         keyPath: "key"
       });
@@ -10160,122 +10618,180 @@ async function openIndexedDB(dbName, _storageName) {
   });
 }
 async function setParagraphCache(payload) {
-  let storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
-  return await addInDB(storageName, payload);
+  const storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
+  const result = await addInDB(storageName, payload);
+  return result;
 }
 async function queryParagraphCache(payload) {
-  let payload_hash = md5(payload.originalText), storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
-  return await queryInDB(storageName, payload_hash);
+  const payload_hash = md5(payload.originalText);
+  const storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
+  const result = await queryInDB(storageName, payload_hash);
+  return result;
 }
 async function queryInDB(dbName, origTextHash) {
-  let db = await openIndexedDB(dbName);
+  const db = await openIndexedDB(dbName);
   return await new Promise((resolve, reject) => {
     if (!db)
       return reject();
-    let storageName = "cache", request3 = db.transaction([storageName], "readonly").objectStore(storageName).get(origTextHash);
+    const storageName = "cache";
+    const objectStore = db.transaction([storageName], "readonly").objectStore(storageName);
+    const request3 = objectStore.get(origTextHash);
     request3.onsuccess = (_event) => {
       db.close();
-      let result = request3.result;
+      const result = request3.result;
       resolve(result);
-    }, request3.onerror = (event) => {
-      db.close(), console.error("queryInDB->onerror:", event), reject();
+    };
+    request3.onerror = (event) => {
+      db.close();
+      console.error("queryInDB->onerror:", event);
+      reject();
     };
   });
 }
 async function addInDB(dbName, cacheEntry) {
-  let db = await openIndexedDB(dbName);
-  return (await getAllDBNames()).includes(dbName) || await addCacheList(dbName), await new Promise((resolve) => {
+  const db = await openIndexedDB(dbName);
+  const names = await getAllDBNames();
+  if (!names.includes(dbName)) {
+    await addCacheList(dbName);
+  }
+  return await new Promise((resolve) => {
     if (!db)
-      return resolve(!1);
-    let storageName = "cache", request3 = db.transaction([storageName], "readwrite").objectStore(storageName).put(cacheEntry);
+      return resolve(false);
+    const storageName = "cache";
+    const objectStore = db.transaction([storageName], "readwrite").objectStore(storageName);
+    const request3 = objectStore.put(cacheEntry);
     request3.onsuccess = (_event) => {
-      db.close(), resolve(!0);
-    }, request3.onerror = (event) => {
-      console.error("addInDB->onerror:", event), db.close(), resolve(!1);
+      db.close();
+      resolve(true);
+    };
+    request3.onerror = (event) => {
+      console.error("addInDB->onerror:", event);
+      db.close();
+      resolve(false);
     };
   });
 }
 async function addCacheList(dbName) {
-  let storageName = "cache_list", db = await openIndexedDB(brandId + "-cacheList", storageName), request3 = db.transaction([storageName], "readwrite").objectStore(storageName).put({ key: dbName });
+  const storageName = "cache_list";
+  const db = await openIndexedDB(brandId + "-cacheList", storageName);
+  const objectStore = db.transaction([storageName], "readwrite").objectStore(storageName);
+  const request3 = objectStore.put({ key: dbName });
   request3.onsuccess = (_event) => {
-    db.close(), dbNames.push(dbName);
-  }, request3.onerror = (event) => {
-    db.close(), console.error(event);
+    db.close();
+    dbNames.push(dbName);
+  };
+  request3.onerror = (event) => {
+    db.close();
+    console.error(event);
   };
 }
 async function getAllDBNames() {
-  if (dbNames && dbNames.length > 0)
+  if (dbNames && dbNames.length > 0) {
     return dbNames;
-  let db = await openIndexedDB(brandId + "-cacheList", "cache_list");
-  return dbNames = await new Promise((resolve) => {
-    let storageName = "cache_list", request3 = db.transaction([storageName], "readonly").objectStore(storageName).getAllKeys();
+  }
+  const db = await openIndexedDB(brandId + "-cacheList", "cache_list");
+  dbNames = await new Promise((resolve) => {
+    const storageName = "cache_list";
+    const objectStore = db.transaction([storageName], "readonly").objectStore(storageName);
+    const request3 = objectStore.getAllKeys();
     request3.onsuccess = (_event) => {
-      db.close(), resolve(request3.result);
-    }, request3.onerror = (event) => {
-      db.close(), console.error(event), resolve([]);
+      db.close();
+      resolve(request3.result);
     };
-  }), dbNames;
+    request3.onerror = (event) => {
+      db.close();
+      console.error(event);
+      resolve([]);
+    };
+  });
+  return dbNames;
 }
 async function calculateSize() {
   try {
-    let promises = [];
-    (await getAllDBNames()).forEach((dbName) => {
+    const promises = [];
+    const dbnames = await getAllDBNames();
+    dbnames.forEach((dbName) => {
       promises.push(getDatabaseSize(dbName));
     });
-    let results = await Promise.all(promises);
+    const results = await Promise.all(promises);
     return humanReadableSize(
       results.reduce((total, size) => total + size, 0)
     );
   } catch (e3) {
-    return console.error(e3), humanReadableSize(0);
+    console.error(e3);
+    return humanReadableSize(0);
   }
 }
 async function getDatabaseSize(dbName) {
-  let db = await openIndexedDB(dbName), tableSizeGetters = [...db.objectStoreNames].reduce(
+  const db = await openIndexedDB(dbName);
+  const tableNames = [...db.objectStoreNames];
+  const tableSizeGetters = tableNames.reduce(
     (acc, tableName) => {
-      let tmp = getTableSize(db, tableName);
-      return acc.push(tmp), acc;
+      const tmp = getTableSize(db, tableName);
+      acc.push(tmp);
+      return acc;
     },
     []
-  ), sizes = await Promise.all(tableSizeGetters);
-  return db.close(), sizes.reduce((acc, val) => acc + val, 0);
+  );
+  const sizes = await Promise.all(tableSizeGetters);
+  db.close();
+  const total = sizes.reduce((acc, val) => acc + val, 0);
+  return total;
 }
 async function getTableSize(db, storageName) {
   return await new Promise((resolve, reject) => {
     if (db == null)
       return reject();
-    let size = 0, transaction = db.transaction([storageName]).objectStore(storageName).openCursor();
+    let size = 0;
+    const transaction = db.transaction([storageName]).objectStore(storageName).openCursor();
     transaction.onsuccess = (_event) => {
-      let cursor = transaction.result;
+      const cursor = transaction.result;
       if (cursor) {
-        let storedObject = cursor.value, json = JSON.stringify(storedObject);
-        size += json.length, cursor.continue();
-      } else
+        const storedObject = cursor.value;
+        const json = JSON.stringify(storedObject);
+        size += json.length;
+        cursor.continue();
+      } else {
         resolve(size);
-    }, transaction.onerror = (err) => reject("error in " + storageName + ": " + err);
+      }
+    };
+    transaction.onerror = (err) => reject("error in " + storageName + ": " + err);
   });
 }
 async function deleteAll() {
   try {
-    let promises = (await getAllDBNames()).map((dbName) => deleteDatabase(dbName));
-    return !!(await Promise.all(promises)).every((ok) => ok);
+    const dbnames = await getAllDBNames();
+    const promises = dbnames.map((dbName) => {
+      return deleteDatabase(dbName);
+    });
+    const results = await Promise.all(promises);
+    if (results.every((ok) => ok)) {
+      return true;
+    }
+    return false;
   } catch (e3) {
-    return console.error("deleteAll error", e3), !1;
+    console.error("deleteAll error", e3);
+    return false;
   }
 }
 async function deleteDatabase(dbName) {
   return await new Promise((resolve) => {
-    let DBDeleteRequest = indexedDB.deleteDatabase(dbName);
+    const DBDeleteRequest = indexedDB.deleteDatabase(dbName);
     DBDeleteRequest.onsuccess = () => {
-      resolve(!0);
-    }, DBDeleteRequest.onerror = (err) => {
-      resolve(!1);
+      resolve(true);
+    };
+    DBDeleteRequest.onerror = (err) => {
+      resolve(false);
     };
   });
 }
 
 // utils/detect_chinese.ts
-var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g, japaneseRegex = /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g, koreanRegex = /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g, punctuationRegex = /(\s+)|([\p{P}\p{S}])/gu, regexGroups = [
+var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g;
+var japaneseRegex = /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g;
+var koreanRegex = /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g;
+var punctuationRegex = /(\s+)|([\p{P}\p{S}])/gu;
+var regexGroups = [
   ["zh-CN", chineseRegex],
   [
     "ja",
@@ -10284,272 +10800,530 @@ var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\
   ["ko", koreanRegex]
 ];
 function detectChinese(text) {
-  if (!text)
+  if (!text) {
     return "auto";
-  let maxCountLang = "auto", currentMaxCount = 0, punctuationMatchesLength = 0, punctuationMatches = text.match(punctuationRegex);
-  punctuationMatches && (punctuationMatchesLength = punctuationMatches.reduce((sum, item) => sum + item.length, 0));
-  let allLettersLength = text.length - punctuationMatchesLength;
-  for (let group of regexGroups) {
-    let regex = group[1], lang = group[0], matches = text.match(regex), langLength = matches ? matches.length : 0;
-    langLength > currentMaxCount && (currentMaxCount = langLength, maxCountLang = lang);
   }
-  return currentMaxCount * 2.5 / allLettersLength > 0.5 ? maxCountLang : "auto";
+  let maxCountLang = "auto";
+  let currentMaxCount = 0;
+  let punctuationMatchesLength = 0;
+  const punctuationMatches = text.match(punctuationRegex);
+  if (punctuationMatches) {
+    punctuationMatchesLength = punctuationMatches.reduce((sum, item) => {
+      return sum + item.length;
+    }, 0);
+  }
+  const allLettersLength = text.length - punctuationMatchesLength;
+  for (const group of regexGroups) {
+    const regex = group[1];
+    const lang = group[0];
+    const matches = text.match(regex);
+    const langLength = matches ? matches.length : 0;
+    if (langLength > currentMaxCount) {
+      currentMaxCount = langLength;
+      maxCountLang = lang;
+    }
+  }
+  if (currentMaxCount * 2.5 / allLettersLength > 0.5) {
+    return maxCountLang;
+  }
+  return "auto";
 }
 
 // utils/iframe.ts
 function getIsInIframe() {
   try {
     return globalThis.self !== globalThis.top;
-  } catch {
-    return !0;
+  } catch (_e3) {
+    return true;
   }
 }
 
 // dom/util.ts
-var env2 = getEnv(), isProd = env2.PROD === "1";
+var env2 = getEnv();
+var isProd = env2.PROD === "1";
 function duplicatedElements(root2, array, rule) {
-  let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
-  for (let header of allHeaders)
-    main2.length > 0 && main2[0].contains(header) || headers2.push(header);
-  for (let i2 = 0; i2 < array.length; i2++) {
-    let a4 = array[i2].element;
-    for (let j5 = i2 + 1; j5 < array.length; j5++) {
-      let b4 = array[j5].element;
-      if (a4.contains(b4))
-        array.splice(j5, 1), j5--;
-      else if (b4.contains(a4)) {
-        array.splice(i2, 1), i2--;
-        break;
-      } else
-        a4 === b4 && (array.splice(j5, 1), j5--);
+  const allHeaders = root2.querySelectorAll("header");
+  const main2 = root2.querySelectorAll("main");
+  const headers2 = [];
+  for (const header of allHeaders) {
+    const isInMain = main2.length > 0 && main2[0].contains(header);
+    if (!isInMain) {
+      headers2.push(header);
     }
   }
-  return array.filter((container) => {
-    let element = container.element;
-    if (container.reserve)
-      return !0;
-    let isHeader = !1;
-    for (let header of headers2) {
-      if (isMatchTags(element.nodeName, ["H1"]))
+  for (let i2 = 0; i2 < array.length; i2++) {
+    const a4 = array[i2].element;
+    for (let j5 = i2 + 1; j5 < array.length; j5++) {
+      const b4 = array[j5].element;
+      if (a4.contains(b4)) {
+        array.splice(j5, 1);
+        j5--;
+      } else if (b4.contains(a4)) {
+        array.splice(i2, 1);
+        i2--;
+        break;
+      } else if (a4 === b4) {
+        array.splice(j5, 1);
+        j5--;
+      }
+    }
+  }
+  const finalArray = array.filter((container) => {
+    const element = container.element;
+    if (container.reserve) {
+      return true;
+    }
+    let isHeader = false;
+    for (const header of headers2) {
+      if (isMatchTags(element.nodeName, ["H1"])) {
         continue;
-      let h1Container = header.querySelector("h1");
-      if (!(h1Container && isValidTextByCount(
+      }
+      const h1Container = header.querySelector("h1");
+      if (h1Container && isValidTextByCount(
         h1Container.textContent || "",
         rule.paragraphMinTextCount,
         rule.paragraphMinWordCount
-      )) && (element === header || header.contains(element))) {
-        isHeader = !0;
+      )) {
+        continue;
+      }
+      if (element === header || header.contains(element)) {
+        isHeader = true;
         break;
       }
     }
-    return !isHeader;
-  }).map((container) => container.element);
+    if (isHeader) {
+      return false;
+    }
+    return true;
+  });
+  return finalArray.map((container) => container.element);
 }
 function getLastHTMLElement(elements) {
   for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    if (typeof element != "string")
+    const element = elements[i2].element || elements[i2];
+    if (typeof element !== "string") {
       return element;
+    }
   }
   return null;
 }
 function getHTMLElements(elements) {
-  let result = [];
+  const result = [];
   for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    typeof element != "string" && result.push(element);
+    const element = elements[i2].element || elements[i2];
+    if (typeof element !== "string" || element !== " ") {
+      result.push(element);
+    }
   }
   return result;
 }
 function getFirstHTMLElement(elements) {
   for (let i2 = 0; i2 < elements.length; i2++) {
-    let element = elements[i2];
-    if (typeof element != "string")
+    const element = elements[i2];
+    if (typeof element !== "string") {
       return element;
+    }
   }
   return null;
 }
 function getWhitespace(nextNode, isPreWhitespace) {
-  return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+  if (nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0) {
+    if (isPreWhitespace) {
+      return nextNode.textContent;
+    } else {
+      return " ";
+    }
+  } else {
+    return null;
+  }
 }
 function getElementsBySelectors(root2, selectors) {
-  let elements = [];
-  for (let selector of selectors) {
-    let nodes = root2.querySelectorAll(selector);
-    for (let node of nodes)
+  const elements = [];
+  for (const selector of selectors) {
+    const nodes = root2.querySelectorAll(selector);
+    for (const node of nodes) {
       elements.push(node);
+    }
   }
   return elements;
 }
 function isInlineElementByTreeWalker(element, rule) {
-  let filterInlineElement = function(node) {
-    return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-  }, treeWalker = document.createTreeWalker(
+  const filterInlineElement = function(node) {
+    if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (isExcludeElement(node, rule, true)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    } else {
+      return NodeFilter.FILTER_REJECT;
+    }
+  };
+  const treeWalker = document.createTreeWalker(
     element,
     NodeFilter.SHOW_ELEMENT,
     filterInlineElement
-  ), isInline = !0;
-  for (; treeWalker.nextNode(); ) {
-    let node = treeWalker.currentNode;
+  );
+  let isInline = true;
+  while (treeWalker.nextNode()) {
+    const node = treeWalker.currentNode;
     if (node.nodeType === Node.ELEMENT_NODE) {
-      if (isMarked(
+      const isHasInlineElement = isMarked(
         node,
         sourceInlineElementMarkAttributeName
-      )) {
-        if (isInline === !0)
-          return !0;
-        continue;
+      );
+      if (isHasInlineElement) {
+        if (isInline === true) {
+          return true;
+        } else {
+          continue;
+        }
       }
-      if (!isMatchTags(node.nodeName, rule.inlineTags))
-        return !1;
+      const isBlockElement = !isMatchTags(node.nodeName, rule.inlineTags);
+      if (isBlockElement) {
+        return false;
+      }
     }
   }
-  return !0;
+  return true;
 }
 function isInlineElement(element, rule) {
-  let inlineTags = rule.inlineTags;
-  return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
-    element,
-    sourceBlockElementMarkAttributeName
-  ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
-    element,
-    sourceInlineElementMarkAttributeName
-  ) : !1;
+  const inlineTags = rule.inlineTags;
+  if (element.nodeType === Node.ELEMENT_NODE) {
+    if (isMatchTags(element.nodeName, inlineTags)) {
+      if (isMarked(
+        element,
+        sourceBlockElementMarkAttributeName
+      )) {
+        return false;
+      }
+      if (isMatchTags(element.nodeName, ["BR"])) {
+        return false;
+      }
+      if (isMarked(element, sourceInlineElementMarkAttributeName)) {
+        return true;
+      }
+      return isInlineElementByTreeWalker(element, rule);
+    } else {
+      return isMarked(
+        element,
+        sourceInlineElementMarkAttributeName
+      );
+    }
+  }
+  return false;
 }
 function isDuplicateElement(element, elements) {
-  for (let e3 of elements)
-    if (e3 === element)
-      return !0;
-  return !1;
+  for (const e3 of elements) {
+    if (e3 === element) {
+      return true;
+    }
+  }
+  return false;
 }
 function isMetaElement(element, rule) {
-  return !!isMatchTags(element.nodeName, rule.metaTags);
+  if (isMatchTags(element.nodeName, rule.metaTags)) {
+    return true;
+  }
+  return false;
 }
 function isExcludeElement(element, rule, includeStayElements) {
-  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
-    return !0;
-  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE)) {
+    return true;
+  }
+  const { stayOriginalTags, excludeTags } = rule;
+  let finalExcludeTags = [];
+  if (includeStayElements && excludeTags && excludeTags.length > 0) {
+    finalExcludeTags = excludeTags || [];
+  } else {
+    finalExcludeTags = excludeTags.filter((tag) => {
+      return !stayOriginalTags.includes(tag);
+    });
+  }
+  if (element.nodeType === Node.ELEMENT_NODE && element.isContentEditable) {
+    return true;
+  }
+  if (element.nodeType === Node.ELEMENT_NODE) {
+    if (element.getAttribute("translate") === "no") {
+      return true;
+    }
+    if (element.classList.contains("notranslate")) {
+      return true;
+    }
+    if (isMarked(element, sourceElementExcludeAttributeName, true)) {
+      return true;
+    }
+  }
+  if (element.nodeType === Node.ELEMENT_NODE && isMarked(
     element,
     specifiedTargetContainerElementAttributeName
-  ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
+  )) {
+    return false;
+  }
+  if (isMatchTags(element.nodeName, finalExcludeTags)) {
+    return true;
+  }
+  return false;
 }
 function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
-  let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
+  const delimiters = getPlaceholderDelimiters(ctx);
+  const stayInOriginalRegex = new RegExp(
     `^${delimiters[0]}(\\d+)${delimiters[1]}$`
-  ), text = item.text, trimedText = text.trim();
-  return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
+  );
+  const text = item.text;
+  const trimedText = text.trim();
+  if (trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text)) {
+    return false;
+  }
+  if (trimedText.includes("</style>") || trimedText.includes("< styles>")) {
+    return false;
+  }
+  if (isAtTag(trimedText)) {
+    return false;
+  }
+  if (isUrl(trimedText)) {
+    return false;
+  }
+  if (isHashTag(trimedText)) {
+    return false;
+  }
+  if (stayInOriginalRegex.test(trimedText)) {
+    return false;
+  }
+  return isValidTextByCount(text, minTextCount, minWordCount);
 }
 function isValidTextByCount(rawText, minTextCount, minWordCount) {
-  let text = rawText.trim();
-  return text.length >= minTextCount || text.split(" ").length >= minWordCount;
+  const text = rawText.trim();
+  if (text.length >= minTextCount) {
+    return true;
+  }
+  if (text.split(" ").length >= minWordCount) {
+    return true;
+  }
+  return false;
 }
 function isUrl(text) {
-  if (text && text.includes("://"))
+  if (text && text.includes("://")) {
     try {
-      return new URL(text), !0;
-    } catch {
-      return !1;
+      new URL(text);
+      return true;
+    } catch (_e3) {
+      return false;
     }
-  else
-    return !1;
+  } else {
+    return false;
+  }
 }
 function isHashTag(text) {
-  return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
+  if (text && text.startsWith("#")) {
+    if (text.indexOf(" ") === -1) {
+      return true;
+    }
+  }
+  return false;
 }
 function isAtTag(text) {
-  return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
+  if (text && text.startsWith("@")) {
+    if (text.indexOf(" ") === -1) {
+      return true;
+    }
+  }
+  return false;
 }
 function isStockTag(text) {
-  return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
+  if (text && text.startsWith("$")) {
+    if (text.indexOf(" ") === -1) {
+      return true;
+    }
+  }
+  return false;
 }
-function isMarked(element, markedAttribute, explicit = !1) {
+function isMarked(element, markedAttribute, explicit = false) {
   return isMarkedWith(element, markedAttribute, "1", explicit);
 }
-function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute] === value)
-  ) : !1 : element.dataset[markedAttribute] === value;
+function isMarkedWith(element, markedAttribute, value, explicit = false) {
+  if (isProd && !explicit) {
+    if (!element[elementMarkRootKey]) {
+      return false;
+    }
+    if (
+      // @ts-ignore: it's ok
+      element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute] === value
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return element.dataset[markedAttribute] === value;
+  }
 }
-function hasMark(element, markedAttribute, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute])
-  ) : !1 : element.dataset[markedAttribute] !== void 0;
+function hasMark(element, markedAttribute, explicit = false) {
+  if (isProd && !explicit) {
+    if (!element[elementMarkRootKey]) {
+      return false;
+    }
+    if (
+      // @ts-ignore: it's ok
+      element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute]
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return element.dataset[markedAttribute] !== void 0;
+  }
 }
 function getMainText(root2) {
-  return (root2.innerText || root2.textContent || "").trim();
+  const bodyText = root2.innerText || root2.textContent || "";
+  return bodyText.trim();
 }
 function isMatchSelectors(selectors) {
-  return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
+  if (!selectors) {
+    return false;
+  }
+  if (typeof selectors === "string") {
+    return document.querySelector(selectors) !== null;
+  }
+  return selectors.some((selector) => {
+    return document.querySelector(selector);
+  });
 }
-function setAttribute(element, name, value, explicit = !1) {
-  element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
+function setAttribute(element, name, value, explicit = false) {
+  if (!element.isContentEditable) {
+    if (isProd && !explicit) {
+      if (!element.dataset[sourceElementEffectAttributeNameForJs]) {
+        element.dataset[sourceElementEffectAttributeNameForJs] = "1";
+      }
+      if (!element[elementMarkRootKey]) {
+        element[elementMarkRootKey] = {};
+      }
+      if (!element[elementMarkRootKey][name]) {
+        element[elementMarkRootKey][name] = value;
+      }
+    } else {
+      if (!element.dataset[sourceElementEffectAttributeNameForJs]) {
+        element.dataset[sourceElementEffectAttributeNameForJs] = "1";
+      }
+      if (element.dataset[name] !== value) {
+        element.dataset[name] = value;
+      }
+    }
+  }
 }
-function removeAttribute(element, name, explicit = !1) {
+function removeAttribute(element, name, explicit = false) {
   if (isProd && !explicit) {
-    if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
-      return;
+    if (!element[elementMarkRootKey]) {
+      return void 0;
+    }
+    if (!element[elementMarkRootKey][name]) {
+      return void 0;
+    }
     delete element[elementMarkRootKey][name];
-  } else
+  } else {
     delete element.dataset[name];
+  }
 }
-function getAttribute(element, name, explicit = !1) {
-  return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
+function getAttribute(element, name, explicit = false) {
+  if (isProd && !explicit) {
+    if (!element[elementMarkRootKey]) {
+      return void 0;
+    }
+    if (!element[elementMarkRootKey][name]) {
+      return void 0;
+    }
+    return element[elementMarkRootKey][name];
+  } else {
+    return element.dataset[name];
+  }
 }
 function isStayOriginalElement(element, rule) {
-  let isStayOriginal = !1;
-  return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+  let isStayOriginal = false;
+  if (isMatchTags(element.nodeName, rule.stayOriginalTags)) {
+    isStayOriginal = true;
+  } else if (isMarked(element, sourceElementStayOriginalAttributeName)) {
+    isStayOriginal = true;
+  }
+  return isStayOriginal;
 }
 function isUnknowTag(element, rule) {
-  let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
+  const allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
     rule.excludeTags
   );
   return !isMatchTags(element.nodeName, allKnowTags);
 }
 function getPlaceholderDelimiters(ctx) {
-  let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
-  return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
+  const { config } = ctx;
+  let delimiters = defaultPlaceholderDelimiters;
+  if (config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters) {
+    delimiters = config.translationServices[ctx.translationService].placeholderDelimiters;
+  }
+  return delimiters;
 }
 function isContainsSelectors(element, selectors) {
-  if (!selectors)
-    return !1;
-  Array.isArray(selectors) || (selectors = [selectors]);
-  for (let selector of selectors)
-    if (element.querySelector(selector))
-      return !0;
-  return !1;
+  if (!selectors) {
+    return false;
+  }
+  if (!Array.isArray(selectors)) {
+    selectors = [selectors];
+  }
+  for (const selector of selectors) {
+    if (element.querySelector(selector)) {
+      return true;
+    }
+  }
+  return false;
 }
 function getTheLastTextNodeParentElement(element) {
-  let treeWalker = document.createTreeWalker(
+  const treeWalker = document.createTreeWalker(
     element,
     NodeFilter.SHOW_TEXT,
-    (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
-  ), lastTextNode = null;
-  for (; treeWalker.nextNode(); )
+    (node) => {
+      if (node.textContent && node.textContent.trim()) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+      return NodeFilter.FILTER_REJECT;
+    }
+  );
+  let lastTextNode = null;
+  while (treeWalker.nextNode()) {
     lastTextNode = treeWalker.currentNode;
-  return lastTextNode ? lastTextNode.parentElement : null;
+  }
+  if (lastTextNode) {
+    return lastTextNode.parentElement;
+  }
+  return null;
 }
 function getRealUrl() {
-  if (!getIsInIframe())
+  const isInIframe = getIsInIframe();
+  if (!isInIframe) {
     return globalThis.location.href;
+  }
   try {
-    let currentUrl = globalThis.location.href;
-    if (new URL(currentUrl).protocol === "about:") {
-      if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
+    const currentUrl = globalThis.location.href;
+    const currentUrlObj = new URL(currentUrl);
+    if (currentUrlObj.protocol === "about:") {
+      if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0) {
         return globalThis.location.ancestorOrigins[0];
+      }
       let href = "";
       try {
         href = globalThis.parent.location.href;
-      } catch {
+      } catch (_e3) {
       }
-      return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
-    } else
+      if (href) {
+        return href;
+      }
+      const realUrl = globalThis.location != globalThis.parent.location ? document.referrer : document.location.href;
+      return realUrl;
+    } else {
       return currentUrl;
-  } catch {
+    }
+  } catch (_e3) {
   }
   return globalThis.location.href;
 }
@@ -10557,21 +11331,38 @@ function injectCSS(rootDocument, css) {
   rootDocument.head.appendChild(rootDocument.createElement("style")).innerHTML = css;
 }
 function isInlineIframe(frame) {
-  return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+  const src = frame.getAttribute("src");
+  if (src) {
+    return false;
+  }
+  const srcdoc = frame.getAttribute("srcdoc");
+  if (srcdoc && frame.contentDocument && frame.contentDocument.body) {
+    return true;
+  }
+  return false;
 }
 function isMatchTags(nodeName, tags) {
-  if (!nodeName || !tags)
-    return !1;
-  Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
-  for (let tag of tags)
-    if (nodeName === tag)
-      return !0;
-  return !1;
+  if (!nodeName) {
+    return false;
+  }
+  if (!tags) {
+    return false;
+  }
+  if (!Array.isArray(tags)) {
+    tags = [tags];
+  }
+  nodeName = nodeName.toUpperCase();
+  for (const tag of tags) {
+    if (nodeName === tag) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // dom/mark_containers.ts
 function markContainers(container, rule) {
-  let {
+  const {
     excludeSelectors,
     additionalExcludeSelectors,
     extraInlineSelectors,
@@ -10583,96 +11374,135 @@ function markContainers(container, rule) {
     stayOriginalTags,
     stayOriginalSelectors,
     globalAttributes
-  } = rule, globalStyleSelectors = Object.keys(globalStyles);
-  if (globalStyleSelectors.length > 0)
-    for (let selector of globalStyleSelectors) {
-      let elements = getElementsBySelectors(container, [selector]);
-      for (let element of elements)
+  } = rule;
+  const globalStyleSelectors = Object.keys(globalStyles);
+  if (globalStyleSelectors.length > 0) {
+    for (const selector of globalStyleSelectors) {
+      const elements = getElementsBySelectors(container, [selector]);
+      for (const element of elements) {
         if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
           setAttribute(
             element,
             sourceElementWithGlobalStyleMarkAttributeName,
             "1"
           );
-          let cssText = globalStyles[selector];
+          const cssText = globalStyles[selector];
           element.style.cssText += cssText;
         }
+      }
     }
-  let globalAttributesSelectors = Object.keys(globalAttributes);
-  if (globalAttributesSelectors.length > 0)
-    for (let selector of globalAttributesSelectors) {
-      let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
-      for (let element of elements)
-        for (let key of attributesKeys) {
-          let value = attributes[key];
-          element.getAttribute(key) !== value && (value === null ? element.removeAttribute(key) : element.setAttribute(key, value));
+  }
+  const globalAttributesSelectors = Object.keys(globalAttributes);
+  if (globalAttributesSelectors.length > 0) {
+    for (const selector of globalAttributesSelectors) {
+      const attributes = globalAttributes[selector];
+      const attributesKeys = Object.keys(attributes);
+      const elements = getElementsBySelectors(container, [selector]);
+      for (const element of elements) {
+        for (const key of attributesKeys) {
+          const value = attributes[key];
+          const currentValue = element.getAttribute(key);
+          if (currentValue !== value) {
+            if (value === null) {
+              element.removeAttribute(key);
+            } else {
+              element.setAttribute(key, value);
+            }
+          }
         }
+      }
     }
-  let allExcludeSelectors = [
+  }
+  const allExcludeSelectors = [
     ...excludeSelectors,
     ...additionalExcludeSelectors
-  ], allInlineSelectors = [
+  ];
+  const allInlineSelectors = [
     ...extraInlineSelectors,
     ...additionalInlineSelectors
-  ], allAtomicBlockSelectors = [...atomicBlockSelectors], allAtomicBlockTagsSelectors = atomicBlockTags.map(
+  ];
+  const allAtomicBlockSelectors = [...atomicBlockSelectors];
+  const allAtomicBlockTagsSelectors = atomicBlockTags.map(
     (item) => item.toLowerCase()
-  ), allBlockSelectos = extraBlockSelectors;
-  getElementsBySelectors(
+  );
+  const allBlockSelectos = extraBlockSelectors;
+  const excludeElements = getElementsBySelectors(
     container,
     allExcludeSelectors
-  ).forEach((element) => {
-    isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
+  );
+  excludeElements.forEach((element) => {
+    if (!isMarked(element, sourceElementExcludeAttributeName, true)) {
+      setAttribute(element, sourceElementExcludeAttributeName, "1", true);
+    }
   });
   let atomicBlockElements = [];
-  if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
-    container,
-    allAtomicBlockSelectors
-  ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
-    let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
+  if (allAtomicBlockSelectors.length > 0) {
+    atomicBlockElements = getElementsBySelectors(
+      container,
+      allAtomicBlockSelectors
+    ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName));
+  }
+  if (allAtomicBlockTagsSelectors.length > 0) {
+    const stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
       (arr, item) => {
-        let tagLower = item.toLowerCase();
-        return arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`), arr;
+        const tagLower = item.toLowerCase();
+        arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`);
+        return arr;
       },
       []
-    ), httpLinkTags = [">http://", ">https://"];
+    );
+    const httpLinkTags = [">http://", ">https://"];
     stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
-    let atomicBlockTagsElements = getElementsBySelectors(
+    const atomicBlockTagsElements = getElementsBySelectors(
       container,
       allAtomicBlockTagsSelectors
     ).filter((element) => {
-      if (isMarked(
+      const isMark = isMarked(
         element,
         sourceAtomicBlockElementMarkAttributeName
-      ))
-        return !1;
-      {
-        let htmlString = element.innerHTML;
-        return !stayOriginalTagsHTMLStringArr.some(
+      );
+      if (isMark) {
+        return false;
+      } else {
+        const htmlString = element.innerHTML;
+        const isStayOriginal = stayOriginalTagsHTMLStringArr.some(
           (item) => htmlString.includes(item)
         );
+        return !isStayOriginal;
       }
     });
     atomicBlockElements.push(...atomicBlockTagsElements);
   }
   atomicBlockElements.forEach((element) => {
-    isMarked(element, sourceAtomicBlockElementMarkAttributeName) || setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
+    if (!isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
+      setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
+    }
   });
-  let extraInlineElements = [];
-  allInlineSelectors.length > 0 && extraInlineElements.push(
-    ...getElementsBySelectors(container, allInlineSelectors)
-  ), extraInlineElements.forEach((element) => {
+  const extraInlineElements = [];
+  if (allInlineSelectors.length > 0) {
+    extraInlineElements.push(
+      ...getElementsBySelectors(container, allInlineSelectors)
+    );
+  }
+  extraInlineElements.forEach((element) => {
     setAttribute(element, sourceInlineElementMarkAttributeName, "1");
   });
-  let extraBlockElements = [];
-  allBlockSelectos.length > 0 && extraBlockElements.push(
-    ...getElementsBySelectors(container, allBlockSelectos)
-  ), extraBlockElements.forEach((element) => {
+  const extraBlockElements = [];
+  if (allBlockSelectos.length > 0) {
+    extraBlockElements.push(
+      ...getElementsBySelectors(container, allBlockSelectos)
+    );
+  }
+  extraBlockElements.forEach((element) => {
     setAttribute(element, sourceBlockElementMarkAttributeName, "1");
   });
-  let stayOriginalElements = [];
-  stayOriginalSelectors.length > 0 && stayOriginalElements.push(
-    ...getElementsBySelectors(container, stayOriginalSelectors)
-  ), stayOriginalElements.forEach((element) => {
+  const stayOriginalElements = [];
+  if (stayOriginalSelectors.length > 0) {
+    stayOriginalElements.push(
+      ...getElementsBySelectors(container, stayOriginalSelectors)
+    );
+  }
+  stayOriginalElements.forEach((element) => {
     setAttribute(element, sourceElementStayOriginalAttributeName, "1");
   });
 }
@@ -10680,115 +11510,171 @@ function markContainers(container, rule) {
 // utils/language_match.ts
 function isMatchLanguage(lang, matchPattern) {
   let matches = matchPattern.matches || [];
-  if (matches && !Array.isArray(matches) && (matches = [matches]), matches.length === 0)
-    return !1;
-  if (matches.length > 0) {
-    if (matches.includes(lang))
-      return !0;
-    for (let match of matches)
-      if (match.includes("*") && new RegExp(match).test(lang))
-        return !0;
+  if (matches && !Array.isArray(matches)) {
+    matches = [matches];
   }
-  return !1;
+  if (matches.length === 0) {
+    return false;
+  }
+  if (matches.length > 0) {
+    if (matches.includes(lang)) {
+      return true;
+    } else {
+      for (const match of matches) {
+        if (match.includes("*")) {
+          const reg = new RegExp(match);
+          if (reg.test(lang)) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
 }
 
 // dom/detect_page_language.ts
 async function detectPageLanguage() {
   let lang = "auto";
-  return document.body && document.body.textContent && document.body.textContent.trim() && (lang = await detectLanguage({
-    text: getMainText(document.body)
-  })), lang === "auto" && document.documentElement && document.documentElement.lang && (lang = formatLanguage(document.documentElement.lang)), lang;
+  if (document.body && document.body.textContent && document.body.textContent.trim()) {
+    lang = await detectLanguage({
+      text: getMainText(document.body)
+    });
+  }
+  if (lang === "auto" && document.documentElement && document.documentElement.lang) {
+    lang = formatLanguage(document.documentElement.lang);
+  }
+  return lang;
 }
 
 // dom/get_containers.ts
 function getContainers(root2, ctx) {
-  if (!(root2 && root2.textContent && root2.textContent.trim()))
+  if (!(root2 && root2.textContent && root2.textContent.trim())) {
     return [];
-  let { rule, state: { translationArea } } = ctx, contentContainers = [];
-  if (translationArea === "body")
+  }
+  const { rule, state: { translationArea } } = ctx;
+  let contentContainers = [];
+  if (translationArea === "body") {
     return [root2];
+  }
   if (rule && rule.selectors.length > 0) {
-    let containers = rule.selectors.map((selector) => {
-      let isMatch = root2.matches(selector), elements = [];
-      isMatch ? elements = [root2] : elements = root2.querySelectorAll(
-        selector
-      );
-      for (let element of elements)
-        isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
-          element,
-          specifiedTargetContainerElementAttributeName,
-          "1"
+    const containers = rule.selectors.map((selector) => {
+      const isMatch = root2.matches(selector);
+      let elements = [];
+      if (isMatch) {
+        elements = [root2];
+      } else {
+        elements = root2.querySelectorAll(
+          selector
         );
+      }
+      for (const element of elements) {
+        if (!isMarked(element, specifiedTargetContainerElementAttributeName)) {
+          setAttribute(
+            element,
+            specifiedTargetContainerElementAttributeName,
+            "1"
+          );
+        }
+      }
       return Array.from(elements);
     }).flat();
     contentContainers.push(
       ...containers.map((container) => ({
         element: container,
-        reserve: !0
+        reserve: true
       }))
     );
   } else {
     if (rule && rule.additionalSelectors.length > 0) {
-      let additionalElements = getElementsBySelectors(
+      const additionalElements = getElementsBySelectors(
         root2,
         rule.additionalSelectors
       );
-      for (let element of additionalElements)
-        isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
-          element,
-          specifiedTargetContainerElementAttributeName,
-          "1"
-        );
+      for (const element of additionalElements) {
+        if (!isMarked(element, specifiedTargetContainerElementAttributeName)) {
+          setAttribute(
+            element,
+            specifiedTargetContainerElementAttributeName,
+            "1"
+          );
+        }
+      }
       contentContainers.push(
         ...additionalElements.map((element) => ({
           element,
-          reserve: !0
+          reserve: true
         }))
       );
     }
-    let articleElements = getElementsBySelectors(root2, ["article"]);
+    const articleElements = getElementsBySelectors(root2, ["article"]);
     contentContainers.push(
       ...articleElements.map((element) => ({
         element,
-        reserve: !0
+        reserve: true
       }))
     );
     let mains;
-    if (contentContainers.length === 0 && (mains = root2.querySelectorAll("[role=main]"), mains.length === 0 && (mains = root2.querySelectorAll("main")), mains.length === 0 && (mains = root2.querySelectorAll(".main")), mains.length > 0)) {
-      let mainsArray = Array.from(mains);
-      contentContainers = contentContainers.concat(
-        mainsArray.map((main2) => ({
-          element: main2,
-          reserve: !0
-        }))
-      );
+    if (contentContainers.length === 0) {
+      mains = root2.querySelectorAll("[role=main]");
+      if (mains.length === 0) {
+        mains = root2.querySelectorAll("main");
+      }
+      if (mains.length === 0) {
+        mains = root2.querySelectorAll(".main");
+      }
+      if (mains.length > 0) {
+        const mainsArray = Array.from(mains);
+        contentContainers = contentContainers.concat(
+          mainsArray.map((main2) => ({
+            element: main2,
+            reserve: true
+          }))
+        );
+      }
     }
-    let detectedContainers = [], treeFilter = (node) => {
-      if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !1))
-        return NodeFilter.FILTER_REJECT;
-      if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
-        let parentNode = node.parentNode;
-        parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+    const detectedContainers = [];
+    const treeFilter = (node) => {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (isExcludeElement(node, ctx.rule, false)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+      }
+      if (node.nodeType === Node.TEXT_NODE) {
+        const trimedText = node.textContent ? node.textContent.trim() : "";
+        if (trimedText.length >= rule.containerMinTextCount) {
+          let parentNode = node.parentNode;
+          if (parentNode && parentNode.parentNode) {
+            parentNode = parentNode.parentNode;
+          }
+          if (parentNode && parentNode.nodeType === Node.ELEMENT_NODE) {
+            if (!detectedContainers.includes(parentNode)) {
+              detectedContainers.push(parentNode);
+            }
+          }
+        }
       }
       return NodeFilter.FILTER_ACCEPT;
-    }, walk = document.createTreeWalker(
+    };
+    const walk = document.createTreeWalker(
       root2,
       NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
       treeFilter
     );
-    for (; walk.nextNode(); )
-      ;
+    while (walk.nextNode()) {
+    }
     contentContainers.push(
       ...detectedContainers.map((element) => ({
         element,
-        reserve: !1
+        reserve: false
       }))
     );
   }
-  let finalContainers = duplicatedElements(root2, contentContainers, rule);
-  return finalContainers.sort(function(a4, b4) {
+  const finalContainers = duplicatedElements(root2, contentContainers, rule);
+  finalContainers.sort(function(a4, b4) {
     return a4.compareDocumentPosition(b4) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-  }), finalContainers;
+  });
+  return finalContainers;
 }
 
 // dom/unmount.ts
@@ -10797,11 +11683,14 @@ function addToUnmountQueue(fn) {
   cleanQueue.push(fn);
 }
 function clean() {
-  cleanQueue.forEach((fn) => fn()), cleanQueue = [];
+  cleanQueue.forEach((fn) => fn());
+  cleanQueue = [];
 }
 
 // dom/current_language.ts
-var currentPageLanguage = "auto", currentPageLanguageByClient = "auto", currentPageLanguageByRemote = "auto";
+var currentPageLanguage = "auto";
+var currentPageLanguageByClient = "auto";
+var currentPageLanguageByRemote = "auto";
 function setCurrentPageLanguage(lang) {
   currentPageLanguage = lang;
 }
@@ -10809,7 +11698,13 @@ function setCurrentPageLanguageByClient(lang) {
   currentPageLanguageByClient = lang;
 }
 function getCurrentPageLanguage() {
-  return currentPageLanguageByClient !== "auto" ? currentPageLanguageByClient : currentPageLanguageByRemote !== "auto" ? currentPageLanguageByRemote : currentPageLanguage;
+  if (currentPageLanguageByClient !== "auto") {
+    return currentPageLanguageByClient;
+  }
+  if (currentPageLanguageByRemote !== "auto") {
+    return currentPageLanguageByRemote;
+  }
+  return currentPageLanguage;
 }
 function getCurrentPageLanguageByClient() {
   return currentPageLanguageByClient;
@@ -10817,76 +11712,123 @@ function getCurrentPageLanguageByClient() {
 
 // dom/elements_to_paragraph.ts
 function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
-  let variables = [], { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
-  if (elements.length === 0)
+  const variables = [];
+  const { rule } = ctx;
+  const delimiters = getPlaceholderDelimiters(ctx);
+  if (elements.length === 0) {
     return null;
+  }
   elements = elements.map(
-    (element) => element.element ? element : {
-      element
+    (element) => {
+      if (element.element) {
+        return element;
+      } else {
+        return {
+          element
+        };
+      }
     }
   );
-  let text = "", isHasMeaningfulText = !1;
+  const isForceTranslate = elements.some(
+    (element) => {
+      return element.forceTranslate;
+    }
+  );
+  let text = "";
+  let isHasMeaningfulText = isForceTranslate;
   for (let i2 = 0; i2 < elements.length; i2++) {
-    let element = elements[i2].element;
-    if (typeof element == "string") {
+    const elementState = elements[i2];
+    const element = elementState.element;
+    if (elementState.text) {
+      text += elementState.text;
+      if (elementState.variables && elementState.variables.length > 0) {
+        variables.push(...elementState.variables);
+      }
+      continue;
+    }
+    if (typeof element === "string") {
       text += element;
       continue;
     }
     let rawText = "";
-    isContainsSelectors(
+    if (isContainsSelectors(
       element,
       `[${sourceElementExcludeAttributeNameForSelector}]`
-    ) ? rawText = getTextWithExcludeElement(element) || "" : rawText = element.innerText || "";
-    let isStartWithSpace = rawText.startsWith(" "), isEndWithSpace = rawText.endsWith(" ");
-    element.tagName === "A" && (isStartWithSpace = !0, isEndWithSpace = !0);
-    let isStayOriginal = isStayOriginalElement(element, rule);
+    )) {
+      rawText = getTextWithExcludeElement(element) || "";
+    } else {
+      rawText = element.innerText || "";
+    }
+    let isStartWithSpace = rawText.startsWith(" ");
+    let isEndWithSpace = rawText.endsWith(" ");
+    if (element.tagName === "A") {
+      isStartWithSpace = true;
+      isEndWithSpace = true;
+    }
+    const isStayOriginal = isStayOriginalElement(element, rule);
     if (rawText === "" || isStayOriginal) {
-      isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
-      let variable = {
+      if (isStayOriginal) {
+        isStartWithSpace = true;
+        isEndWithSpace = true;
+      }
+      const variable = {
         type: "element",
         value: element
       };
       variables.push(variable);
-      let index = variables.length - 1, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
+      const index = variables.length - 1;
+      const delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
       text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
       continue;
     }
-    if (!isExcludeElement(element, rule, !0)) {
-      {
-        let finalText = isPreWhitespace ? rawText : rawText.trim().replace(/\n/g, " ");
-        if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
-          let variable = {
-            type: "element",
-            value: element
-          };
-          variables.push(variable);
-          let index = variables.length - 1, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
-          text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
-        } else
-          isHasMeaningfulText = !0, text += (isStartWithSpace ? " " : "") + finalText + (isEndWithSpace ? " " : "");
+    if (isExcludeElement(element, rule, true)) {
+      continue;
+    } else {
+      const finalText = isPreWhitespace ? rawText : rawText.trim().replace(/\n/g, " ");
+      if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
+        const variable = {
+          type: "element",
+          value: element
+        };
+        variables.push(variable);
+        const index = variables.length - 1;
+        const delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
+        text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
+      } else {
+        isHasMeaningfulText = true;
+        text += (isStartWithSpace ? " " : "") + finalText + (isEndWithSpace ? " " : "");
       }
-      if (typeof element != "string") {
-        let whitespace = getWhitespace(
-          element.nextSibling,
-          isPreWhitespace
-        );
-        whitespace && (text += whitespace);
+    }
+    if (typeof element !== "string") {
+      const whitespace = getWhitespace(
+        element.nextSibling,
+        isPreWhitespace
+      );
+      if (whitespace) {
+        text += whitespace;
       }
     }
   }
-  if (!isHasMeaningfulText)
+  if (!isHasMeaningfulText) {
     return null;
-  let inline = !1, wordCount = text.split(" ").length, lineCount = text.split(`
-`).length;
-  wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2 && (inline = !0);
-  let finalElements = elements.map(
-    (element) => element.element
-  ), lastElement = getLastHTMLElement(elements), isVertical = !1;
-  if (lastElement) {
-    let writtingMode = globalThis.getComputedStyle(lastElement).writingMode;
-    isVertical = writtingMode ? writtingMode.includes("vertical") : !1;
   }
-  let paragraph = {
+  let inline = false;
+  const wordCount = text.split(" ").length;
+  const lineCount = text.split("\n").length;
+  if (wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2) {
+    inline = true;
+  }
+  const finalElements = elements.map(
+    (element) => element.element
+  );
+  const lastElement = getLastHTMLElement(elements);
+  let isVertical = false;
+  if (lastElement) {
+    const computedStyle = globalThis.getComputedStyle(lastElement);
+    const writtingMode = computedStyle.writingMode;
+    isVertical = writtingMode ? writtingMode.includes("vertical") : false;
+  }
+  const paragraph = {
     rootFrame,
     isVertical,
     elements: finalElements,
@@ -10895,26 +11837,46 @@ function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
     inline,
     preWhitespace: isPreWhitespace
   };
-  return isNeedToTranslate(
+  if (isForceTranslate || isNeedToTranslate(
     paragraph,
     ctx.state.translationArea === "body" ? 2 : rule.paragraphMinTextCount,
     ctx.state.translationArea === "body" ? 1 : rule.paragraphMinWordCount,
     ctx
-  ) ? paragraph : null;
+  )) {
+    return paragraph;
+  }
+  return null;
 }
 function getTextWithExcludeElement(element) {
-  let finalText = "", filterExcludeElement = (node) => node.nodeType === Node.ELEMENT_NODE ? isMarked(node, sourceElementExcludeAttributeName, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : node.nodeType === Node.TEXT_NODE ? (node.textContent && node.textContent.trim() !== "" && (finalText += node.textContent.replace(/\s+/g, " ")), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT, treeWalker = document.createTreeWalker(
+  let finalText = "";
+  const filterExcludeElement = (node) => {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      if (isMarked(node, sourceElementExcludeAttributeName, true)) {
+        return NodeFilter.FILTER_REJECT;
+      } else {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    } else if (node.nodeType === Node.TEXT_NODE) {
+      if (node.textContent && node.textContent.trim() !== "") {
+        finalText += node.textContent.replace(/\s+/g, " ");
+      }
+      return NodeFilter.FILTER_REJECT;
+    }
+    return NodeFilter.FILTER_ACCEPT;
+  };
+  const treeWalker = document.createTreeWalker(
     element,
     NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
     filterExcludeElement
   );
-  for (; treeWalker.nextNode(); )
-    ;
+  while (treeWalker.nextNode()) {
+  }
   return finalText;
 }
 
 // dom/get_paragraphs.ts
-var paragraphAutoIncreaceId = 1, paragraphEntities = /* @__PURE__ */ new Map();
+var paragraphAutoIncreaceId = 1;
+var paragraphEntities = /* @__PURE__ */ new Map();
 function getParagraphEntities() {
   return paragraphEntities;
 }
@@ -10928,300 +11890,494 @@ function cleanParagraphs() {
   paragraphEntities.clear();
 }
 function isMarkedByParagraph(targetElement) {
-  if (!isMarked(targetElement, sourceElementMarkAttributeName))
-    return !1;
-  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName))
-    return !0;
-  let markId = getAttribute(
+  if (!isMarked(targetElement, sourceElementMarkAttributeName)) {
+    return false;
+  }
+  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName)) {
+    return true;
+  }
+  const markId = getAttribute(
     targetElement,
     sourceElementParagraphAttributeName
   );
-  if (!markId)
-    return !1;
-  let paragraphId = parseInt(markId), isExist = paragraphEntities.has(paragraphId);
+  if (!markId) {
+    return false;
+  }
+  const paragraphId = parseInt(markId);
+  const isExist = paragraphEntities.has(paragraphId);
   if (!isExist) {
-    let maybeTargetElement = document.getElementById(
+    const maybeTargetElement = document.getElementById(
       `${translationTargetElementWrapperClass}-${paragraphId}`
     );
-    maybeTargetElement && maybeTargetElement.remove();
+    if (maybeTargetElement) {
+      maybeTargetElement.remove();
+    }
   }
   return isExist;
 }
 function addToParagraphs(paragraph, allParagraphs) {
-  let newParagraph = {
+  const newParagraph = {
     ...paragraph,
     id: paragraphAutoIncreaceId++,
     languageByClient: "auto",
     languageByLocal: "auto"
   };
   newParagraph.elements.forEach((element) => {
-    element instanceof HTMLElement && (setAttribute(element, sourceElementMarkAttributeName, "1"), setAttribute(
-      element,
-      sourceElementParagraphAttributeName,
-      `${newParagraph.id}`
-    ));
-  }), allParagraphs.push(newParagraph), paragraphEntities.set(newParagraph.id, {
+    if (element instanceof HTMLElement) {
+      setAttribute(element, sourceElementMarkAttributeName, "1");
+      setAttribute(
+        element,
+        sourceElementParagraphAttributeName,
+        `${newParagraph.id}`
+      );
+    }
+  });
+  allParagraphs.push(newParagraph);
+  paragraphEntities.set(newParagraph.id, {
     ...newParagraph,
     state: "Original",
     observers: []
   });
 }
 async function getParagraphs(rootFrame, containers, ctx) {
-  let allParagraphs = [], { targetLanguage, rule } = ctx;
-  for (let container of containers) {
-    if (isExcludeElement(container, rule, !1))
+  const allParagraphs = [];
+  const { targetLanguage, rule } = ctx;
+  for (const container of containers) {
+    if (isExcludeElement(container, rule, false)) {
       continue;
-    let isPreWhitespaceContainer = isMarked(
+    }
+    const isPreWhitespaceContainer = isMarked(
       container,
       sourcePreWhitespaceMarkAttributeName
-    ), inlineElementGroups = [];
+    );
+    const inlineElementGroups = [];
     if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
       if (!isMarkedByParagraph(container)) {
-        let paragraph = elementsToParagraph(
+        const paragraph = elementsToParagraph(
           [container],
-          !0,
+          true,
           rootFrame,
           ctx
         );
-        paragraph && addToParagraphs(paragraph, allParagraphs);
+        if (paragraph) {
+          addToParagraphs(paragraph, allParagraphs);
+        }
       }
       continue;
     }
-    let filter = (node2) => {
-      if (!(node2.nodeType === Node.TEXT_NODE || node2.nodeType === Node.ELEMENT_NODE))
+    const filter = (node2) => {
+      if (!(node2.nodeType === Node.TEXT_NODE || node2.nodeType === Node.ELEMENT_NODE)) {
         return NodeFilter.FILTER_REJECT;
+      }
       if (node2.nodeType === Node.ELEMENT_NODE) {
-        let element = node2;
-        if (element.isContentEditable || isMarkedByParagraph(
-          node2
-        ))
+        const element = node2;
+        if (element.isContentEditable) {
           return NodeFilter.FILTER_REJECT;
-        if (setAttribute(element, sourceElementMarkAttributeName, "1"), isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
+        }
+        if (isMarkedByParagraph(
+          node2
+        )) {
+          return NodeFilter.FILTER_REJECT;
+        } else {
+          setAttribute(element, sourceElementMarkAttributeName, "1");
+        }
+        if (isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
           if (inlineElementGroups.length > 0) {
-            let paragraph2 = elementsToParagraph(
+            const paragraph2 = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
               rootFrame,
               ctx
             );
-            paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
+            if (paragraph2) {
+              addToParagraphs(paragraph2, allParagraphs);
+            }
+            inlineElementGroups.length = 0;
           }
           inlineElementGroups.push(element);
-          let paragraph = elementsToParagraph(
+          const paragraph = elementsToParagraph(
             [...inlineElementGroups],
             isPreWhitespaceContainer,
             rootFrame,
             ctx
           );
-          return paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0, NodeFilter.FILTER_REJECT;
+          if (paragraph) {
+            addToParagraphs(paragraph, allParagraphs);
+          }
+          inlineElementGroups.length = 0;
+          return NodeFilter.FILTER_REJECT;
         }
       }
-      if (isExcludeElement(node2, rule, !0)) {
-        if (isMatchTags(node2.nodeName, ["CODE", "TT"]) && isMatchTags(node2.parentNode?.nodeName, ["PRE"]))
+      if (isExcludeElement(node2, rule, true)) {
+        if (isMatchTags(node2.nodeName, ["CODE", "TT"]) && isMatchTags(node2.parentNode?.nodeName, ["PRE"])) {
           return NodeFilter.FILTER_REJECT;
+        }
         if (isInlineElement(
           node2,
           rule
-        ))
-          return handleInlineElement(
+        )) {
+          handleInlineElement(
             node2,
             inlineElementGroups,
             allParagraphs,
             isPreWhitespaceContainer,
             rootFrame,
             ctx
-          ), NodeFilter.FILTER_REJECT;
-        if (inlineElementGroups.length > 0) {
-          let paragraph = elementsToParagraph(
-            [...inlineElementGroups],
-            isPreWhitespaceContainer,
-            rootFrame,
-            ctx
           );
-          paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+          return NodeFilter.FILTER_REJECT;
+        } else {
+          if (inlineElementGroups.length > 0) {
+            const paragraph = elementsToParagraph(
+              [...inlineElementGroups],
+              isPreWhitespaceContainer,
+              rootFrame,
+              ctx
+            );
+            if (paragraph) {
+              addToParagraphs(paragraph, allParagraphs);
+            }
+            inlineElementGroups.length = 0;
+          }
         }
         return NodeFilter.FILTER_REJECT;
       }
-      return isMatchTags(node2.nodeName, ["PRE"]) ? (node2.classList.contains("code"), NodeFilter.FILTER_REJECT) : isInlineElement(
+      if (isMatchTags(node2.nodeName, ["PRE"])) {
+        if (node2.classList.contains("code")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_REJECT;
+      }
+      if (isInlineElement(
         node2,
         rule
-      ) ? (handleInlineElement(
-        node2,
-        inlineElementGroups,
-        allParagraphs,
-        isPreWhitespaceContainer,
-        rootFrame,
-        ctx
-      ), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT;
-    }, elementIter = document.createTreeWalker(
+      )) {
+        handleInlineElement(
+          node2,
+          inlineElementGroups,
+          allParagraphs,
+          isPreWhitespaceContainer,
+          rootFrame,
+          ctx
+        );
+        return NodeFilter.FILTER_REJECT;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    };
+    const elementIter = document.createTreeWalker(
       container,
       NodeFilter.SHOW_ELEMENT,
       filter
-    ), node = elementIter.nextNode();
-    for (; node; ) {
+    );
+    let node = elementIter.nextNode();
+    while (node) {
       if (inlineElementGroups.length > 0) {
-        let paragraph = elementsToParagraph(
+        const paragraph = elementsToParagraph(
           [...inlineElementGroups],
           isPreWhitespaceContainer,
           rootFrame,
           ctx
         );
-        paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+        if (paragraph) {
+          addToParagraphs(paragraph, allParagraphs);
+        }
+        inlineElementGroups.length = 0;
       }
       node = elementIter.nextNode();
     }
     if (inlineElementGroups.length > 0) {
-      let paragraph = elementsToParagraph(
+      const paragraph = elementsToParagraph(
         [...inlineElementGroups],
         isPreWhitespaceContainer,
         rootFrame,
         ctx
       );
-      paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+      if (paragraph) {
+        addToParagraphs(paragraph, allParagraphs);
+      }
+      inlineElementGroups.length = 0;
     }
   }
-  let promises = allParagraphs.map((paragraph) => {
-    let { text } = paragraph;
+  const promises = allParagraphs.map((paragraph) => {
+    const { text } = paragraph;
     return detectLanguage({
       text,
       minLength: 10
     });
-  }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
-  ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
-  let currentPageLanguageByLocal = getCurrentPageLanguage();
-  return results.forEach((result, index) => {
+  });
+  const results = await Promise.all(promises);
+  const filterdParagraphs = [];
+  const excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [];
+  let currentPageLanguageByClient2 = "auto";
+  if (!ctx.state.isDetectParagraphLanguage) {
+    currentPageLanguageByClient2 = getCurrentPageLanguageByClient();
+  }
+  const currentPageLanguageByLocal = getCurrentPageLanguage();
+  results.forEach((result, index) => {
     let currentLanguageByLocal = result;
-    currentLanguageByLocal === "auto" && (currentLanguageByLocal = currentPageLanguageByLocal);
-    let newParagraph = {
+    if (currentLanguageByLocal === "auto") {
+      currentLanguageByLocal = currentPageLanguageByLocal;
+    }
+    const newParagraph = {
       ...allParagraphs[index],
       languageByLocal: currentLanguageByLocal,
       languageByClient: currentPageLanguageByClient2 || "auto"
     };
-    if (newParagraph.text.length < ctx.rule.languageDetectMinTextCount && (newParagraph.languageByLocal = "auto"), paragraphEntities.set(newParagraph.id, {
+    if (newParagraph.text.length < ctx.rule.languageDetectMinTextCount) {
+      newParagraph.languageByLocal = "auto";
+    }
+    paragraphEntities.set(newParagraph.id, {
       ...newParagraph,
       state: "Original",
       observers: []
-    }), !isSameTargetLanguage(result, targetLanguage)) {
-      if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
-        return;
+    });
+    const isSame = isSameTargetLanguage(result, targetLanguage);
+    if (!isSame) {
+      if (excludeLanguages.length > 0) {
+        const isExclude = excludeLanguages.some((language) => {
+          return isSameTargetLanguage(result, language);
+        });
+        if (isExclude) {
+          return;
+        }
+      }
       filterdParagraphs.push(newParagraph);
     }
-  }), filterdParagraphs;
+  });
+  return filterdParagraphs;
 }
-function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer) {
-  let elements = [], treeWalker = document.createTreeWalker(
+function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootFrame, ctx) {
+  let elementState = {
+    element: root2
+  };
+  const treeWalker = document.createTreeWalker(
     root2,
     NodeFilter.SHOW_TEXT,
     null
-  ), node = null, isWhiteSpaceNodeOfLastElement = !1;
-  for (; node = treeWalker.nextNode(); ) {
-    let rawText = node.textContent || "", textContent = rawText.trim();
+  );
+  let node = null;
+  let isWhiteSpaceNodeOfLastElement = false;
+  let fullText = "";
+  let variables = [];
+  let elements = [];
+  while (node = treeWalker.nextNode()) {
+    const rawText = node.textContent || "";
+    const textContent = rawText.trim();
     if (!isWhiteSpaceNodeOfLastElement && rawText.length > 0 && textContent.length === 0) {
-      isWhiteSpaceNodeOfLastElement = !0, elements.push(" ");
+      isWhiteSpaceNodeOfLastElement = true;
+      fullText += " ";
+      elements.push(" ");
       continue;
     }
-    textContent.length > 0 && (elements.push(node.parentElement), isWhiteSpaceNodeOfLastElement = !1);
+    if (textContent.length > 0) {
+      const parent = node.parentElement;
+      if (parent === root2) {
+        const text = textContent.replace(/\s+/g, " ");
+        fullText += text;
+        elements.push(text);
+      } else {
+        elements.push(parent);
+        const parentElementParagraph = elementsToParagraph(
+          [{
+            element: parent,
+            forceTranslate: true
+          }],
+          isPreWhitespaceContainer,
+          rootFrame,
+          ctx
+        );
+        if (parentElementParagraph) {
+          fullText += parentElementParagraph.text;
+          if (parentElementParagraph) {
+            if (parentElementParagraph.variables) {
+              variables = variables.concat(parentElementParagraph.variables);
+            }
+          }
+        }
+      }
+      isWhiteSpaceNodeOfLastElement = false;
+    }
   }
-  let lastElement = elements[elements.length - 1];
-  if (lastElement && typeof lastElement != "string") {
-    let whitespace = getWhitespace(
+  const lastElement = elements[elements.length - 1];
+  if (lastElement && typeof lastElement !== "string") {
+    const whitespace = getWhitespace(
       lastElement.nextSibling,
       isPreWhitespaceContainer
     );
-    whitespace && elements.push(whitespace);
+    if (whitespace) {
+      elements.push(whitespace);
+      fullText += " ";
+    }
   }
-  if (typeof elements[elements.length - 1] != "string") {
-    let whitespace = getWhitespace(
+  if (typeof elements[elements.length - 1] !== "string") {
+    const whitespace = getWhitespace(
       root2.nextSibling,
       isPreWhitespaceContainer
     );
-    whitespace && elements.push(whitespace);
+    if (whitespace) {
+      elements.push(whitespace);
+      fullText += " ";
+    }
   }
-  return elements;
+  elementState.text = fullText;
+  elementState.variables = variables;
+  return elementState;
 }
 function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, rootFrame, ctx) {
-  let previouseElement = node.previousElementSibling;
+  const previouseElement = node.previousElementSibling;
   if (previouseElement && !isInlineElement(
     previouseElement,
     ctx.rule
-  ) && inlineElementGroups.length > 0) {
-    let paragraph = elementsToParagraph(
-      [...inlineElementGroups],
-      isPreWhitespaceContainer,
-      rootFrame,
-      ctx
-    );
-    paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+  )) {
+    if (inlineElementGroups.length > 0) {
+      const paragraph = elementsToParagraph(
+        [...inlineElementGroups],
+        isPreWhitespaceContainer,
+        rootFrame,
+        ctx
+      );
+      if (paragraph) {
+        addToParagraphs(paragraph, allParagraphs);
+      }
+      inlineElementGroups.length = 0;
+    }
   }
-  isExcludeElement(
+  const isExcludeElementBool = isExcludeElement(
     node,
     ctx.rule,
-    !1
-  ) ? isMetaElement(node, ctx.rule) || inlineElementGroups.push(node) : isStayOriginalElement(node, ctx.rule) ? inlineElementGroups.push(node) : isContainsSelectors(node, ["code", "tt"]) ? inlineElementGroups.push(
-    ...getInlineElementsOfInlineElement(
-      node,
-      isPreWhitespaceContainer
-    )
-  ) : inlineElementGroups.push(node);
+    false
+  );
+  if (isExcludeElementBool) {
+    if (!isMetaElement(node, ctx.rule)) {
+      inlineElementGroups.push(node);
+    }
+  } else if (!isStayOriginalElement(node, ctx.rule)) {
+    if (isContainsSelectors(node, ["code", "tt"])) {
+      inlineElementGroups.push(
+        getInlineElementsOfInlineElement(
+          node,
+          isPreWhitespaceContainer,
+          rootFrame,
+          ctx
+        )
+      );
+    } else {
+      inlineElementGroups.push(node);
+    }
+  } else {
+    inlineElementGroups.push(node);
+  }
 }
 
 // dom/get_pdf_paragraphs.ts
 async function getParagraphs2(rootFrame, containers, ctx, targetContainers) {
-  let allParagraphs = [], { rule } = ctx;
+  const allParagraphs = [];
+  const { rule } = ctx;
   for (let i2 = 0; i2 < containers.length; i2++) {
-    let container = containers[i2], targetContainer = targetContainers[i2];
-    if (!targetContainer)
+    const container = containers[i2];
+    const targetContainer = targetContainers[i2];
+    if (!targetContainer) {
       throw new Error("targetContainer is null");
-    let inlineElementGroups = [], isFirstElementOfParagraph = !0, lastLineFirstElementInfo = null, pdfContainerFilter = function(node2) {
-      let element = node2;
-      if (isMatchTags(element.nodeName, ["DIV", "BR"]))
-        return isFirstElementOfParagraph = !0, NodeFilter.FILTER_REJECT;
-      if (element.classList.contains("markedContent"))
-        return NodeFilter.FILTER_ACCEPT;
-      if (isMarkedByParagraph2(
-        node2
-      ))
-        return NodeFilter.FILTER_REJECT;
-      if (setAttribute(element, sourceElementMarkAttributeName, "1"), isInlineElement(element, rule)) {
-        let lastElement = getLastHTMLElement(inlineElementGroups), currentElementStyle = globalThis.getComputedStyle(element);
-        if (!lastElement)
-          inlineElementGroups.push(formatElement(element, currentElementStyle));
-        else {
-          let lastElementStyle = globalThis.getComputedStyle(lastElement), lastElementInfo = getElementInfoByComputedStyle(
-            lastElementStyle
-          ), currentElementInfo = getElementInfoByComputedStyle(
-            currentElementStyle
-          ), distanceInfo = getDistance(currentElementInfo, lastElementInfo), isNewParagraph = !1;
-          if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.5 && lastLineFirstElementInfo.left > -3 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
-            let trimedText = (element.innerText || element.textContent || "").trim();
-            (trimedText.startsWith("\u2022") || trimedText.charCodeAt(0) === 61623 || /^\d+\./.test(trimedText)) && (isNewParagraph = !0);
-          }
-          !isNewParagraph && isFirstElementOfParagraph && getLastHTMLElement(inlineElementGroups) && getHTMLElements(inlineElementGroups).reduce(
-            (max, element2) => {
-              let elementInfo = getElementInfoByComputedStyle(
-                globalThis.getComputedStyle(element2)
-              );
-              return Math.max(max, elementInfo.right);
-            },
-            0
-          ) - lastElementInfo.right > rule.pdfNewParagraphIndentRightIndentPx && (isNewParagraph = !0), isFirstElementOfParagraph && (lastLineFirstElementInfo = currentElementInfo, isFirstElementOfParagraph = !1), isNewParagraph || (isNewParagraph = getIsNewParagraph(distanceInfo, rule)), isNewParagraph && tryToAddToParagraph(
-            inlineElementGroups,
-            allParagraphs,
-            rootFrame,
-            ctx,
-            targetContainer
-          ), inlineElementGroups.push(formatElement(element, currentElementStyle)), inlineElementGroups.push(" ");
-        }
+    }
+    const inlineElementGroups = [];
+    let isFirstElementOfParagraph = true;
+    let lastLineFirstElementInfo = null;
+    const pdfContainerFilter = function(node2) {
+      const element = node2;
+      if (isMatchTags(element.nodeName, ["DIV", "BR"])) {
+        isFirstElementOfParagraph = true;
         return NodeFilter.FILTER_REJECT;
       }
+      if (element.classList.contains("markedContent")) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+      if (isMarkedByParagraph2(
+        node2
+      )) {
+        return NodeFilter.FILTER_REJECT;
+      } else {
+        setAttribute(element, sourceElementMarkAttributeName, "1");
+      }
+      if (isInlineElement(element, rule)) {
+        const lastElement = getLastHTMLElement(inlineElementGroups);
+        const currentElementStyle = globalThis.getComputedStyle(element);
+        if (!lastElement) {
+          inlineElementGroups.push(formatElement(element, currentElementStyle));
+        } else {
+          const lastElementStyle = globalThis.getComputedStyle(lastElement);
+          const lastElementInfo = getElementInfoByComputedStyle(
+            lastElementStyle
+          );
+          const currentElementInfo = getElementInfoByComputedStyle(
+            currentElementStyle
+          );
+          const distanceInfo = getDistance(currentElementInfo, lastElementInfo);
+          let isNewParagraph = false;
+          if (isFirstElementOfParagraph && lastLineFirstElementInfo) {
+            const firstElementBetweenThisLineAndLastLineDistanceInfo = getDistance(currentElementInfo, lastLineFirstElementInfo);
+            if (firstElementBetweenThisLineAndLastLineDistanceInfo.left >= 1.5 && lastLineFirstElementInfo.left > -3) {
+              isNewParagraph = true;
+            }
+          }
+          if (!isNewParagraph && isFirstElementOfParagraph) {
+            const currentText = element.innerText || element.textContent || "";
+            const trimedText = currentText.trim();
+            if (trimedText.startsWith("\u2022") || trimedText.charCodeAt(0) === 61623) {
+              isNewParagraph = true;
+            } else if (/^\d+\./.test(trimedText)) {
+              isNewParagraph = true;
+            }
+          }
+          if (!isNewParagraph && isFirstElementOfParagraph) {
+            const lastElement2 = getLastHTMLElement(inlineElementGroups);
+            if (lastElement2) {
+              const maxRight = getHTMLElements(inlineElementGroups).reduce(
+                (max, element2) => {
+                  const elementInfo = getElementInfoByComputedStyle(
+                    globalThis.getComputedStyle(element2)
+                  );
+                  return Math.max(max, elementInfo.right);
+                },
+                0
+              );
+              const rightDistance = maxRight - lastElementInfo.right;
+              if (rightDistance > rule.pdfNewParagraphIndentRightIndentPx) {
+                isNewParagraph = true;
+              }
+            }
+          }
+          if (isFirstElementOfParagraph) {
+            lastLineFirstElementInfo = currentElementInfo;
+            isFirstElementOfParagraph = false;
+          }
+          if (!isNewParagraph) {
+            isNewParagraph = getIsNewParagraph(distanceInfo, rule);
+          }
+          if (isNewParagraph) {
+            tryToAddToParagraph(
+              inlineElementGroups,
+              allParagraphs,
+              rootFrame,
+              ctx,
+              targetContainer
+            );
+          }
+          inlineElementGroups.push(formatElement(element, currentElementStyle));
+          inlineElementGroups.push(" ");
+        }
+        return NodeFilter.FILTER_REJECT;
+      } else {
+      }
       return NodeFilter.FILTER_ACCEPT;
-    }, elementIter = document.createTreeWalker(
+    };
+    const elementIter = document.createTreeWalker(
       container,
       NodeFilter.SHOW_ELEMENT,
       pdfContainerFilter
-    ), node = elementIter.nextNode();
-    for (; node; )
+    );
+    let node = elementIter.nextNode();
+    while (node) {
       node = elementIter.nextNode();
+    }
     tryToAddToParagraph(
       inlineElementGroups,
       allParagraphs,
@@ -11234,13 +12390,19 @@ async function getParagraphs2(rootFrame, containers, ctx, targetContainers) {
 }
 function tryToAddToParagraph(inlineElementGroups, allParagraphs, rootFrame, ctx, targetContainer) {
   if (inlineElementGroups.length > 0) {
-    let paragraph = elementsToParagraph(
+    const paragraph = elementsToParagraph(
       [...inlineElementGroups],
-      !1,
+      false,
       rootFrame,
       ctx
     );
-    paragraph && (paragraph.isPdf = !0, paragraph.targetContainer = targetContainer, paragraph.inline = !1, addToParagraphs(paragraph, allParagraphs)), inlineElementGroups.length = 0;
+    if (paragraph) {
+      paragraph.isPdf = true;
+      paragraph.targetContainer = targetContainer;
+      paragraph.inline = false;
+      addToParagraphs(paragraph, allParagraphs);
+    }
+    inlineElementGroups.length = 0;
   }
 }
 function getElementInfoByComputedStyle(style) {
@@ -11252,10 +12414,17 @@ function getElementInfoByComputedStyle(style) {
   };
 }
 function getIsNewParagraph(distance, rule) {
-  return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top <= rule.pdfNewParagraphLineHeight * -1;
+  if (distance.fontSize > 2 || distance.fontSize < -2) {
+    return true;
+  }
+  if (distance.top >= rule.pdfNewParagraphLineHeight || distance.top <= rule.pdfNewParagraphLineHeight * -1) {
+    return true;
+  }
+  return false;
 }
 function getDistance(elementInfo1, elementInfo2) {
-  let elementBasedFontSize = elementInfo2.fontSize, currentElementFontSize = elementInfo1.fontSize;
+  const elementBasedFontSize = elementInfo2.fontSize;
+  const currentElementFontSize = elementInfo1.fontSize;
   return {
     top: (elementInfo1.top - elementInfo2.top) / elementBasedFontSize,
     left: (elementInfo1.left - elementInfo2.left) / elementBasedFontSize,
@@ -11263,29 +12432,41 @@ function getDistance(elementInfo1, elementInfo2) {
   };
 }
 function formatElement(element, style) {
-  return style.fontFamily === "monospace" ? {
-    element,
-    isStayOriginal: !0,
-    targetTagName: "code"
-  } : element;
+  const fontFamily = style.fontFamily;
+  if (fontFamily === "monospace") {
+    return {
+      element,
+      isStayOriginal: true,
+      targetTagName: "code"
+    };
+  } else {
+    return element;
+  }
 }
 function isMarkedByParagraph2(targetElement) {
-  if (!isMarked(targetElement, sourceElementMarkAttributeName))
-    return !1;
-  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName))
-    return !0;
-  let markId = getAttribute(
+  if (!isMarked(targetElement, sourceElementMarkAttributeName)) {
+    return false;
+  }
+  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName)) {
+    return true;
+  }
+  const markId = getAttribute(
     targetElement,
     sourceElementParagraphAttributeName
   );
-  if (!markId)
-    return !1;
-  let paragraphId = parseInt(markId), isExist = getParagraphEntities().has(paragraphId);
+  if (!markId) {
+    return false;
+  }
+  const paragraphId = parseInt(markId);
+  const paragraphEntities2 = getParagraphEntities();
+  const isExist = paragraphEntities2.has(paragraphId);
   if (!isExist) {
-    let maybeTargetElement = document.getElementById(
+    const maybeTargetElement = document.getElementById(
       `${translationTargetElementWrapperClass}-${paragraphId}`
     );
-    maybeTargetElement && maybeTargetElement.remove();
+    if (maybeTargetElement) {
+      maybeTargetElement.remove();
+    }
   }
   return isExist;
 }
@@ -11297,57 +12478,125 @@ function escapeHTML(htmlStr) {
 
 // dom/paragraph_to_html.ts
 function getTranslationWrapperClassNames(translationTheme, isInline, additonalClassNames = [], isPreWhitespace, isPdf) {
-  let classList = ["notranslate"];
-  return isPreWhitespace && classList.push(
-    translationTargetTranslationElementPreWhitespaceWrapperClass
-  ), translationTheme && (classList.push(
-    `${brandId}-target-translation-theme-${translationTheme}`
-  ), isInline ? classList.push(
-    `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
-  ) : classList.push(
-    `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
-  )), additonalClassNames.length > 0 && classList.push(...additonalClassNames), isInline ? classList.push(translationTargetTranslationElementInlineWrapperClass) : (classList.push(translationTargetTranslationElementBlockWrapperClass), isPdf && classList.push(translationTargetTranslationPdfElementBlockWrapperClass)), classList;
+  const classList = ["notranslate"];
+  if (isPreWhitespace) {
+    classList.push(
+      translationTargetTranslationElementPreWhitespaceWrapperClass
+    );
+  }
+  if (translationTheme) {
+    classList.push(
+      `${brandId}-target-translation-theme-${translationTheme}`
+    );
+    if (isInline) {
+      classList.push(
+        `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
+      );
+    } else {
+      classList.push(
+        `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
+      );
+    }
+  }
+  if (additonalClassNames.length > 0) {
+    classList.push(...additonalClassNames);
+  }
+  if (isInline) {
+    classList.push(translationTargetTranslationElementInlineWrapperClass);
+  } else {
+    classList.push(translationTargetTranslationElementBlockWrapperClass);
+    if (isPdf) {
+      classList.push(translationTargetTranslationPdfElementBlockWrapperClass);
+    }
+  }
+  return classList;
 }
 function getTranslationInnerClassNames(translationTheme) {
-  let innerClassList = [
+  const innerClassList = [
     "notranslate",
     translationTargetInnerElementWrapperClass
   ];
-  return translationTheme && innerClassList.push(
-    `${brandId}-target-translation-theme-${translationTheme}-inner`
-  ), innerClassList;
+  if (translationTheme) {
+    innerClassList.push(
+      `${brandId}-target-translation-theme-${translationTheme}-inner`
+    );
+  }
+  return innerClassList;
 }
 function paragraphToHtml(sourceItem, sentence, ctx) {
-  let { rule, state } = ctx, { translationTheme } = state, { variables, isVertical } = sourceItem;
+  const { rule, state } = ctx;
+  const { translationTheme } = state;
+  let { variables, isVertical } = sourceItem;
   variables = variables || [];
-  let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), html = escapeHTML(targetText);
-  variables.length > 0 && (html = html.replace(regex, (match) => {
-    let matchPositonAtHtml = html.indexOf(match), isStartWhiteSpace = html[matchPositonAtHtml - 1] === " ", isEndWhiteSpace = html[matchPositonAtHtml + match.length] === " ", matchNumberStr = match.slice(
-      delimiters[0].length,
-      -delimiters[1].length
-    ), matchNumber = Number(matchNumberStr);
-    if (isNaN(matchNumber))
+  const { text: targetText } = sentence;
+  const { wrapperPrefix, wrapperSuffix } = rule;
+  const delimiters = getPlaceholderDelimiters(ctx);
+  const position = "afterend";
+  const regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g");
+  let html = escapeHTML(targetText);
+  if (variables.length > 0) {
+    html = html.replace(regex, (match) => {
+      const matchPositonAtHtml = html.indexOf(match);
+      const isStartWhiteSpace = html[matchPositonAtHtml - 1] === " ";
+      const isEndWhiteSpace = html[matchPositonAtHtml + match.length] === " ";
+      const matchNumberStr = match.slice(
+        delimiters[0].length,
+        -delimiters[1].length
+      );
+      const matchNumber = Number(matchNumberStr);
+      if (isNaN(matchNumber)) {
+        return match;
+      }
+      const variable = variables[Number(matchNumber)];
+      if (variable && variable.type === "element") {
+        let variableHtml = variable.value.outerHTML;
+        if (!isStartWhiteSpace) {
+          variableHtml = " " + variableHtml;
+        }
+        if (!isEndWhiteSpace) {
+          variableHtml = variableHtml + " ";
+        }
+        return variableHtml;
+      } else {
+        log_default.error("variable type not supported", variable, match);
+      }
       return match;
-    let variable = variables[Number(matchNumber)];
-    if (variable && variable.type === "element") {
-      let variableHtml = variable.value.outerHTML;
-      return isStartWhiteSpace || (variableHtml = " " + variableHtml), isEndWhiteSpace || (variableHtml = variableHtml + " "), variableHtml;
-    } else
-      log_default.error("variable type not supported", variable, match);
-    return match;
-  }));
-  let classList = getTranslationWrapperClassNames(
+    });
+  }
+  const classList = getTranslationWrapperClassNames(
     translationTheme,
     sourceItem.inline,
     rule.translationClasses || [],
     sourceItem.preWhitespace,
     ctx.rule.isPdf
   );
-  isVertical && classList.push(translationTargetTranslationElementVerticalBlockClass);
-  let innerClassList = getTranslationInnerClassNames(
+  if (isVertical) {
+    classList.push(translationTargetTranslationElementVerticalBlockClass);
+  }
+  const innerClassList = getTranslationInnerClassNames(
     translationTheme
-  ), blockStyleStr = "";
-  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
+  );
+  let blockStyleStr = "";
+  if (rule.translationBlockStyle) {
+    blockStyleStr = `style="${rule.translationBlockStyle}"`;
+  }
+  html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`;
+  if (!sourceItem.inline) {
+    if (wrapperPrefix === "smart") {
+      html = `<br />${html}`;
+    } else {
+      html = `${wrapperPrefix}${html}`;
+    }
+    if (wrapperSuffix === "smart") {
+      html = `${html}`;
+    } else {
+      html = `${html}${wrapperSuffix}`;
+    }
+  }
+  if (sourceItem.inline) {
+    html = `<span class="notranslate">&#160;</span>${html}`;
+  }
+  return {
     html,
     position
   };
@@ -11355,25 +12604,56 @@ function paragraphToHtml(sourceItem, sentence, ctx) {
 
 // dom/normalize_container.ts
 function normalizeContainer(containers, rule) {
-  let hiddenElements = [];
-  for (let container of containers) {
-    if (isMarked(container, sourceAtomicBlockElementMarkAttributeName))
+  const hiddenElements = [];
+  for (const container of containers) {
+    if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
       continue;
-    if (setAttribute(container, targetContainerElementAttributeName, "1"), container.normalize(), rule.lineBreakMaxTextCount > 0) {
-      let treeFilter = (node) => node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.lineBreakMaxTextCount && addLineBreakToText(node, rule.lineBreakMaxTextCount), NodeFilter.FILTER_ACCEPT), walk = document.createTreeWalker(
+    }
+    setAttribute(container, targetContainerElementAttributeName, "1");
+    container.normalize();
+    if (rule.lineBreakMaxTextCount > 0) {
+      const treeFilter = (node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          if (isExcludeElement(node, rule, true)) {
+            return NodeFilter.FILTER_REJECT;
+          }
+        }
+        if (node.nodeType === Node.TEXT_NODE) {
+          const trimedText = node.textContent ? node.textContent.trim() : "";
+          if (trimedText.length >= rule.lineBreakMaxTextCount) {
+            addLineBreakToText(node, rule.lineBreakMaxTextCount);
+          }
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      };
+      const walk = document.createTreeWalker(
         container,
         NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
         treeFilter
       );
-      for (; walk.nextNode(); )
-        ;
+      while (walk.nextNode()) {
+      }
     }
-    if (!(rule.excludeTags.includes("PRE") || rule.additionalExcludeTags.includes("PRE")) && rule.isTransformPreTagNewLine) {
-      let preTags = container.querySelectorAll("pre");
-      for (let preTag of preTags)
+    const isExcludePre = rule.excludeTags.includes("PRE") || rule.additionalExcludeTags.includes("PRE");
+    if (!isExcludePre && rule.isTransformPreTagNewLine) {
+      const preTags = container.querySelectorAll("pre");
+      for (const preTag of preTags) {
         formatPreHtml(preTag);
+      }
     }
-    rule.preWhitespaceDetectedTags.includes(container.tagName) && (hasMark(container, sourcePreWhitespaceMarkAttributeName) || (isPreElementByStyle(container) ? (setAttribute(container, sourcePreWhitespaceMarkAttributeName, "1"), rule.isTransformPreTagNewLine && formatPreHtml(container)) : setAttribute(container, sourcePreWhitespaceMarkAttributeName, "0"))), wrapTextNode(
+    if (rule.preWhitespaceDetectedTags.includes(container.tagName)) {
+      if (!hasMark(container, sourcePreWhitespaceMarkAttributeName)) {
+        if (isPreElementByStyle(container)) {
+          setAttribute(container, sourcePreWhitespaceMarkAttributeName, "1");
+          if (rule.isTransformPreTagNewLine) {
+            formatPreHtml(container);
+          }
+        } else {
+          setAttribute(container, sourcePreWhitespaceMarkAttributeName, "0");
+        }
+      }
+    }
+    wrapTextNode(
       0,
       container,
       rule,
@@ -11385,34 +12665,52 @@ function normalizeContainer(containers, rule) {
   };
 }
 function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
-  if (isMarked(root2, sourceAtomicBlockElementMarkAttributeName))
+  if (isMarked(root2, sourceAtomicBlockElementMarkAttributeName)) {
     return;
-  let isSingleInlineElement = !1;
+  }
+  let isSingleInlineElement = false;
   if (depth === 0) {
-    let isStayOriginal = isStayOriginalElement(root2, rule);
-    root2.childNodes && root2.childNodes.length === 1 && root2.nodeType === Node.ELEMENT_NODE && isInlineElement(
+    const isStayOriginal = isStayOriginalElement(root2, rule);
+    if (root2.childNodes && root2.childNodes.length === 1 && root2.nodeType === Node.ELEMENT_NODE && isInlineElement(
       root2,
       rule
-    ) && !isStayOriginal && (isSingleInlineElement = !0);
+    ) && !isStayOriginal) {
+      isSingleInlineElement = true;
+    }
   }
   if (root2 && root2.childNodes && root2.childNodes.length > 0) {
-    for (let node of root2.childNodes)
+    for (const node of root2.childNodes) {
       if (node.nodeType === Node.ELEMENT_NODE) {
-        if (isExcludeElement(node, rule, !1))
-          continue;
-        {
-          let computedStyle = globalThis.getComputedStyle(
+        if (!isExcludeElement(node, rule, false)) {
+          const computedStyle = globalThis.getComputedStyle(
             node
-          ), tempIsExcludeElement = !1;
-          if (computedStyle.display === "none" && (displayNoneElements.push(node), tempIsExcludeElement = !0), !tempIsExcludeElement) {
-            let clip = computedStyle.clip, zIndex = computedStyle.zIndex, height = computedStyle.height, width = computedStyle.width, formatedZIndex = 0;
+          );
+          let tempIsExcludeElement = false;
+          if (computedStyle.display === "none") {
+            displayNoneElements.push(node);
+            tempIsExcludeElement = true;
+          }
+          if (!tempIsExcludeElement) {
+            const clip = computedStyle.clip;
+            const zIndex = computedStyle.zIndex;
+            const height = computedStyle.height;
+            const width = computedStyle.width;
+            let formatedZIndex = 0;
             if (zIndex.startsWith("-")) {
-              let zIndexNumber = parseInt(zIndex);
-              isNaN(zIndexNumber) || (formatedZIndex = zIndexNumber);
+              const zIndexNumber = parseInt(zIndex);
+              if (!isNaN(zIndexNumber)) {
+                formatedZIndex = zIndexNumber;
+              }
             }
-            if ((clip === "rect(1px, 1px, 1px, 1px)" || formatedZIndex < 0) && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
-              let heightNumber = parseInt(height), widthNumber = parseInt(width);
-              !isNaN(heightNumber) && !isNaN(widthNumber) && (heightNumber > 0 && heightNumber < 8 || widthNumber > 0 && widthNumber <= 8) && (tempIsExcludeElement = !0);
+            if (clip === "rect(1px, 1px, 1px, 1px)" || formatedZIndex < 0) {
+              tempIsExcludeElement = true;
+            }
+            if (!tempIsExcludeElement && node.nodeName !== "BR") {
+              const heightNumber = parseInt(height);
+              const widthNumber = parseInt(width);
+              if (!isNaN(heightNumber) && !isNaN(widthNumber) && (heightNumber > 0 && heightNumber < 8 || widthNumber > 0 && widthNumber <= 8)) {
+                tempIsExcludeElement = true;
+              }
             }
           }
           if (tempIsExcludeElement) {
@@ -11420,11 +12718,15 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
               node,
               sourceElementExcludeAttributeName,
               "1",
-              !0
+              true
             );
             continue;
           } else {
-            if (isMatchTags(node.nodeName, ["DIV"]) || isUnknowTag(node, rule))
+            if (isMatchTags(node.nodeName, ["DIV"])) {
+              const nodeElement = node;
+              if (node && nodeElement.style && nodeElement.style.display && nodeElement.style.display === "initial") {
+                continue;
+              }
               if (computedStyle.display === "inline" || computedStyle.display === "inline-flex") {
                 if (!isMarked(
                   node,
@@ -11437,26 +12739,67 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
                   );
                   continue;
                 }
-              } else
-                computedStyle.display === "block" || computedStyle.display;
-            else if (isMatchTags(node.nodeName, ["SPAN", "A"]) && !computedStyle.display.startsWith("inline")) {
-              isMarked(
+              }
+            } else if (isMatchTags(node.nodeName, ["SPAN", "A"])) {
+              if (!computedStyle.display.startsWith("inline")) {
+                if (!isMarked(
+                  node,
+                  sourceInlineElementMarkAttributeName
+                )) {
+                  setAttribute(
+                    node,
+                    sourceBlockElementMarkAttributeName,
+                    "1"
+                  );
+                  wrapTextNode(
+                    depth + 1,
+                    node,
+                    rule,
+                    displayNoneElements
+                  );
+                }
+                continue;
+              }
+            } else if (isUnknowTag(node, rule)) {
+              const isUnknownTagIsInlineElement = isInlineElement(
                 node,
-                sourceInlineElementMarkAttributeName
-              ) || (setAttribute(
-                node,
-                sourceBlockElementMarkAttributeName,
-                "1"
-              ), wrapTextNode(
-                depth + 1,
-                node,
-                rule,
-                displayNoneElements
-              ));
+                rule
+              );
+              if (isUnknownTagIsInlineElement) {
+                if (!isMarked(
+                  node,
+                  sourceBlockElementMarkAttributeName
+                ) && !isMarked(
+                  node,
+                  sourceInlineElementMarkAttributeName
+                )) {
+                  setAttribute(
+                    node,
+                    sourceInlineElementMarkAttributeName,
+                    "1"
+                  );
+                  continue;
+                }
+              } else {
+                if (!isMarked(
+                  node,
+                  sourceBlockElementMarkAttributeName
+                ) && !isMarked(
+                  node,
+                  sourceInlineElementMarkAttributeName
+                )) {
+                  setAttribute(
+                    node,
+                    sourceBlockElementMarkAttributeName,
+                    "1"
+                  );
+                }
+                continue;
+              }
+            }
+            if (isInlineElement(node, rule) && !isSingleInlineElement) {
               continue;
             }
-            if (isInlineElement(node, rule) && !isSingleInlineElement)
-              continue;
             wrapTextNode(
               depth + 1,
               node,
@@ -11464,128 +12807,209 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
               displayNoneElements
             );
           }
+        } else {
+          continue;
         }
       } else if (node.nodeType === Node.TEXT_NODE) {
-        let text = node.textContent;
+        const text = node.textContent;
         if (text && text.trim().length > 0) {
-          let span = document.createElement("span");
-          node.after(span), span.appendChild(node);
+          const span = document.createElement("span");
+          node.after(span);
+          span.appendChild(node);
         }
       }
+    }
   }
 }
 function isPreElementByStyle(element) {
-  let style = window.getComputedStyle(element);
+  const style = window.getComputedStyle(element);
   return style.whiteSpace.startsWith("pre") || style.whiteSpace === "break-spaces";
 }
 function formatPreHtml(preElement) {
-  let newHtml = preElement.innerHTML.replace(/\n/g, "<br />");
+  const html = preElement.innerHTML;
+  const newHtml = html.replace(/\n/g, "<br />");
   preElement.innerHTML = newHtml;
 }
 function addLineBreakToText(textNode, maxLength) {
-  let text = textNode.textContent || "";
-  if (text.trim().length <= maxLength)
+  const text = textNode.textContent || "";
+  const trimedText = text.trim();
+  if (trimedText.length <= maxLength) {
     return;
-  let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
-    let index = text.lastIndexOf(boundary, maxLength);
+  }
+  const boundaries = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"];
+  let boundaryIndex = boundaries.reduce((acc, boundary) => {
+    const index = text.lastIndexOf(boundary, maxLength);
     return index > acc ? index : acc;
   }, -1);
-  if (boundaryIndex === -1)
-    text.length > maxLength + 20 && addLineBreakToText(textNode, maxLength + 20);
-  else {
-    let theText = text.slice(boundaryIndex + 1);
-    boundaryIndex++, theText.startsWith(" ") && boundaryIndex++;
-    let theLastTextNode = textNode.splitText(boundaryIndex), br = document.createElement("br");
-    theLastTextNode.parentNode?.insertBefore(br, theLastTextNode), boundaryIndex + 1 < text.length && addLineBreakToText(theLastTextNode, maxLength);
+  if (boundaryIndex === -1) {
+    if (text.length > maxLength + 20) {
+      addLineBreakToText(textNode, maxLength + 20);
+    }
+  } else {
+    const theText = text.slice(boundaryIndex + 1);
+    boundaryIndex++;
+    if (theText.startsWith(" ")) {
+      boundaryIndex++;
+    }
+    const theLastTextNode = textNode.splitText(boundaryIndex);
+    const br = document.createElement("br");
+    theLastTextNode.parentNode?.insertBefore(br, theLastTextNode);
+    if (boundaryIndex + 1 < text.length) {
+      addLineBreakToText(theLastTextNode, maxLength);
+    }
   }
 }
 
 // dom/normalize_pdf_container.ts
 function normalizeContainer2(containers, _rule) {
   let targetContainers = [];
-  for (let container of containers) {
-    let maxRight = 0, minLeft = 1e5, rightContainer = document.createElement("div"), treeFilter = (node) => {
-      let element = node;
-      if (isMatchTags(element.nodeName, ["DIV", "BR"]))
+  for (const container of containers) {
+    let maxRight = 0;
+    let minLeft = 1e5;
+    const rightContainer = document.createElement("div");
+    const treeFilter = (node) => {
+      const element = node;
+      if (isMatchTags(element.nodeName, ["DIV", "BR"])) {
         return NodeFilter.FILTER_REJECT;
-      if (element.classList.contains("markedContent"))
+      }
+      if (element.classList.contains("markedContent")) {
         return NodeFilter.FILTER_ACCEPT;
+      }
       if (isMatchTags(element.nodeName, ["SPAN"])) {
-        let rect = element.getBoundingClientRect(), style = globalThis.getComputedStyle(element), right = rect.right, left = rect.left, top = style.top.slice(0, -2), fontsize = style.fontSize.slice(0, -2);
-        return right > maxRight && (maxRight = right), left < minLeft && (minLeft = left), setAttribute(element, sourceElementLeft, `${left}`), setAttribute(element, sourceElementRight, `${right}`), setAttribute(element, sourceElementTop, top), setAttribute(element, sourceElementFontSize, fontsize), NodeFilter.FILTER_ACCEPT;
-      } else
+        const rect = element.getBoundingClientRect();
+        const style = globalThis.getComputedStyle(element);
+        const right = rect.right;
+        const left = rect.left;
+        const top = style.top.slice(0, -2);
+        const fontsize = style.fontSize.slice(0, -2);
+        if (right > maxRight) {
+          maxRight = right;
+        }
+        if (left < minLeft) {
+          minLeft = left;
+        }
+        setAttribute(element, sourceElementLeft, `${left}`);
+        setAttribute(element, sourceElementRight, `${right}`);
+        setAttribute(element, sourceElementTop, top);
+        setAttribute(element, sourceElementFontSize, fontsize);
         return NodeFilter.FILTER_ACCEPT;
-    }, walk = document.createTreeWalker(
+      } else {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    };
+    const walk = document.createTreeWalker(
       container,
       NodeFilter.SHOW_ELEMENT,
       treeFilter
     );
-    for (; walk.nextNode(); )
-      ;
+    while (walk.nextNode()) {
+    }
     let realWidth = maxRight - minLeft;
-    realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = maxRight + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
+    if (realWidth < 600) {
+      realWidth = 600;
+    }
+    targetContainers.push(rightContainer);
+    rightContainer.style.left = maxRight + "px";
+    rightContainer.style.width = maxRight + "px";
+    rightContainer.classList.add(translationPdfTargetContainerClass);
+    if (container.childNodes.length > 0) {
+      container.insertBefore(rightContainer, container.childNodes[0]);
+    }
   }
   return { targetContainers };
 }
 
 // utils/url_match.ts
-var matchAll = ["*://*/*", "*", "*://*"], placeholder = "immersive-translate-wildcard-placeholder.com";
+var matchAll = ["*://*/*", "*", "*://*"];
+var placeholder = "immersive-translate-wildcard-placeholder.com";
 function getMatchedUrl(rawUrl, rawMatches) {
   let matches = [];
-  if (!rawMatches || (rawMatches && !Array.isArray(rawMatches) ? matches = [rawMatches] : matches = rawMatches, matches.length === 0))
+  if (!rawMatches) {
     return null;
-  if (matches.some((m4) => matchAll.includes(m4)))
+  }
+  if (rawMatches && !Array.isArray(rawMatches)) {
+    matches = [rawMatches];
+  } else {
+    matches = rawMatches;
+  }
+  if (matches.length === 0) {
+    return null;
+  }
+  if (matches.some((m4) => matchAll.includes(m4))) {
     return rawUrl;
-  let urlObj = new URL(rawUrl);
-  urlObj.hash = "", urlObj.search = "";
-  let url = urlObj.href, hostname2 = urlObj.hostname;
+  }
+  const urlObj = new URL(rawUrl);
+  urlObj.hash = "";
+  urlObj.search = "";
+  const url = urlObj.href;
+  const hostname2 = urlObj.hostname;
   if (matches && matches.length > 0) {
-    let matched = matches.find((match) => {
-      let rawMatch = match;
-      if (match === hostname2)
-        return !0;
-      if (matchAll.includes(match))
-        return !0;
-      if (!match.includes("*") && match.includes("://")) {
+    const matched = matches.find((match) => {
+      const rawMatch = match;
+      if (match === hostname2) {
+        return true;
+      } else if (matchAll.includes(match)) {
+        return true;
+      } else if (!match.includes("*") && match.includes("://")) {
         try {
-          let matchUrl = new URL(match);
-          return matchUrl.pathname === "/" && !match.endsWith("/") ? matchUrl.hostname === hostname2 : isTwoUrlMatched(url, match);
-        } catch {
+          const matchUrl = new URL(match);
+          if (matchUrl.pathname === "/" && !match.endsWith("/")) {
+            return matchUrl.hostname === hostname2;
+          } else {
+            return isTwoUrlMatched(url, match);
+          }
+        } catch (_e3) {
         }
-        return !1;
+        return false;
       } else {
-        let scheme, rawMatch2 = match;
-        match.includes("://") ? scheme = match.split("://")[0] : (scheme = "*", match = "https://" + match);
-        let validUrlMatch = match.replace(
+        let scheme;
+        const rawMatch2 = match;
+        if (match.includes("://")) {
+          scheme = match.split("://")[0];
+        } else {
+          scheme = "*";
+          match = "https://" + match;
+        }
+        const validUrlMatch = match.replace(
           /\*/g,
           placeholder
-        ), validUrlObj;
+        );
+        let validUrlObj;
         try {
           validUrlObj = new URL(validUrlMatch);
-        } catch {
-          return log_default.debug(
+        } catch (_e3) {
+          log_default.debug(
             "invalid match pattern",
             validUrlMatch,
             "raw match value:",
             rawMatch2
-          ), !1;
+          );
+          return false;
         }
-        let hostname3 = validUrlObj.hostname, pathname = validUrlObj.pathname;
-        pathname === "/" && (rawMatch2.replace("://", "").includes("/") || (pathname = "/*"));
-        let regex = makeRegExp(
+        const hostname3 = validUrlObj.hostname;
+        let pathname = validUrlObj.pathname;
+        if (pathname === "/") {
+          if (!rawMatch2.replace("://", "").includes("/")) {
+            pathname = "/*";
+          }
+        }
+        const regex = makeRegExp(
           scheme + ":",
           restorePlaceholderToWildcard(hostname3),
           restorePlaceholderToWildcard(pathname)
         );
         if (regex) {
-          let clonedUrl = new URL(url);
-          return clonedUrl.port = "", regex.test(clonedUrl.href);
-        } else
-          return !1;
+          const clonedUrl = new URL(url);
+          clonedUrl.port = "";
+          return regex.test(clonedUrl.href);
+        } else {
+          return false;
+        }
       }
     });
-    if (matched)
+    if (matched) {
       return matched;
+    }
   }
   return null;
 }
@@ -11594,22 +13018,71 @@ function restorePlaceholderToWildcard(str) {
 }
 function makeRegExp(scheme, host, path) {
   let regex = "^";
-  return scheme === "*:" ? regex += "(http:|https:|file:)" : regex += scheme, regex += "//", host && (scheme === "file:" || (host === "*" ? regex += "[^/]+?" : (host.match(/^\*\./) && (regex += "[^/]*?", host = host.substring(2)), regex += host.replace(/\./g, "\\.").replace(/\*/g, "[^/]*")))), path ? path === "*" || path === "/*" ? regex += "(/.*)?" : path.includes("*") ? (regex += path.replace(/\*/g, ".*?"), regex += "/?") : regex += path.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&") : regex += "/?", regex += "$", new RegExp(regex);
+  if (scheme === "*:") {
+    regex += "(http:|https:|file:)";
+  } else {
+    regex += scheme;
+  }
+  regex += "//";
+  if (host) {
+    if (scheme === "file:") {
+    } else {
+      if (host === "*") {
+        regex += "[^/]+?";
+      } else {
+        if (host.match(/^\*\./)) {
+          regex += "[^/]*?";
+          host = host.substring(2);
+        }
+        regex += host.replace(/\./g, "\\.").replace(/\*/g, "[^/]*");
+      }
+    }
+  }
+  if (path) {
+    if (path === "*" || path === "/*") {
+      regex += "(/.*)?";
+    } else if (path.includes("*")) {
+      regex += path.replace(/\*/g, ".*?");
+      regex += "/?";
+    } else {
+      regex += path.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+    }
+  } else {
+    regex += "/?";
+  }
+  regex += "$";
+  return new RegExp(regex);
 }
 function isMatchUrl(url, rawMatches) {
   return getMatchedUrl(url, rawMatches) !== null;
 }
 function isTwoUrlMatched(url1, url2) {
-  let urlObj1 = new URL(url1), urlObj2 = new URL(url2);
+  const urlObj1 = new URL(url1);
+  const urlObj2 = new URL(url2);
   return urlObj1.hostname === urlObj2.hostname && urlObj1.pathname === urlObj2.pathname && urlObj1.protocol === urlObj2.protocol && urlObj1.port === urlObj2.port;
 }
 
 // libs/sha256.js
-var ERROR = "input is invalid type", WINDOW = typeof window == "object", root = WINDOW ? window : {};
-root.JS_SHA256_NO_WINDOW && (WINDOW = !1);
-var WEB_WORKER = !WINDOW && typeof self == "object", NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process == "object" && process.versions && process.versions.node;
-NODE_JS ? root = global : WEB_WORKER && (root = self);
-var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && module.exports, AMD = typeof define == "function" && define.amd, ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer < "u", HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [-2147483648, 8388608, 32768, 128], SHIFT = [24, 16, 8, 0], K5 = [
+var ERROR = "input is invalid type";
+var WINDOW = typeof window === "object";
+var root = WINDOW ? window : {};
+if (root.JS_SHA256_NO_WINDOW) {
+  WINDOW = false;
+}
+var WEB_WORKER = !WINDOW && typeof self === "object";
+var NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process === "object" && process.versions && process.versions.node;
+if (NODE_JS) {
+  root = global;
+} else if (WEB_WORKER) {
+  root = self;
+}
+var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module === "object" && module.exports;
+var AMD = typeof define === "function" && define.amd;
+var ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
+var HEX_CHARS = "0123456789abcdef".split("");
+var EXTRA = [-2147483648, 8388608, 32768, 128];
+var SHIFT = [24, 16, 8, 0];
+var K5 = [
   1116352408,
   1899447441,
   3049323471,
@@ -11674,22 +13147,30 @@ var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && mod
   2756734187,
   3204031479,
   3329325298
-], OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"], blocks = [];
-(root.JS_SHA256_NO_NODE_JS || !Array.isArray) && (Array.isArray = function(obj) {
-  return Object.prototype.toString.call(obj) === "[object Array]";
-});
-ARRAY_BUFFER && (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView) && (ArrayBuffer.isView = function(obj) {
-  return typeof obj == "object" && obj.buffer && obj.buffer.constructor === ArrayBuffer;
-});
+];
+var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
+var blocks = [];
+if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
+  Array.isArray = function(obj) {
+    return Object.prototype.toString.call(obj) === "[object Array]";
+  };
+}
+if (ARRAY_BUFFER && (root.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW || !ArrayBuffer.isView)) {
+  ArrayBuffer.isView = function(obj) {
+    return typeof obj === "object" && obj.buffer && obj.buffer.constructor === ArrayBuffer;
+  };
+}
 var createOutputMethod = function(outputType, is224) {
   return function(message) {
-    return new Sha256(is224, !0).update(message)[outputType]();
+    return new Sha256(is224, true).update(message)[outputType]();
   };
-}, createMethod = function(is224) {
+};
+var createMethod = function(is224) {
   var method = createOutputMethod("hex", is224);
   method.create = function() {
     return new Sha256(is224);
-  }, method.update = function(message) {
+  };
+  method.update = function(message) {
     return method.create().update(message);
   };
   for (var i2 = 0; i2 < OUTPUT_TYPES.length; ++i2) {
@@ -11697,15 +13178,18 @@ var createOutputMethod = function(outputType, is224) {
     method[type] = createOutputMethod(type, is224);
   }
   return method;
-}, createHmacOutputMethod = function(outputType, is224) {
+};
+var createHmacOutputMethod = function(outputType, is224) {
   return function(key, message) {
-    return new HmacSha256(key, is224, !0).update(message)[outputType]();
+    return new HmacSha256(key, is224, true).update(message)[outputType]();
   };
-}, createHmacMethod = function(is224) {
+};
+var createHmacMethod = function(is224) {
   var method = createHmacOutputMethod("hex", is224);
   method.create = function(key) {
     return new HmacSha256(key, is224);
-  }, method.update = function(key, message) {
+  };
+  method.update = function(key, message) {
     return method.create(key).update(message);
   };
   for (var i2 = 0; i2 < OUTPUT_TYPES.length; ++i2) {
@@ -11715,59 +13199,212 @@ var createOutputMethod = function(outputType, is224) {
   return method;
 };
 function Sha256(is224, sharedMemory) {
-  sharedMemory ? (blocks[0] = blocks[16] = blocks[1] = blocks[2] = blocks[3] = blocks[4] = blocks[5] = blocks[6] = blocks[7] = blocks[8] = blocks[9] = blocks[10] = blocks[11] = blocks[12] = blocks[13] = blocks[14] = blocks[15] = 0, this.blocks = blocks) : this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], is224 ? (this.h0 = 3238371032, this.h1 = 914150663, this.h2 = 812702999, this.h3 = 4144912697, this.h4 = 4290775857, this.h5 = 1750603025, this.h6 = 1694076839, this.h7 = 3204075428) : (this.h0 = 1779033703, this.h1 = 3144134277, this.h2 = 1013904242, this.h3 = 2773480762, this.h4 = 1359893119, this.h5 = 2600822924, this.h6 = 528734635, this.h7 = 1541459225), this.block = this.start = this.bytes = this.hBytes = 0, this.finalized = this.hashed = !1, this.first = !0, this.is224 = is224;
+  if (sharedMemory) {
+    blocks[0] = blocks[16] = blocks[1] = blocks[2] = blocks[3] = blocks[4] = blocks[5] = blocks[6] = blocks[7] = blocks[8] = blocks[9] = blocks[10] = blocks[11] = blocks[12] = blocks[13] = blocks[14] = blocks[15] = 0;
+    this.blocks = blocks;
+  } else {
+    this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  }
+  if (is224) {
+    this.h0 = 3238371032;
+    this.h1 = 914150663;
+    this.h2 = 812702999;
+    this.h3 = 4144912697;
+    this.h4 = 4290775857;
+    this.h5 = 1750603025;
+    this.h6 = 1694076839;
+    this.h7 = 3204075428;
+  } else {
+    this.h0 = 1779033703;
+    this.h1 = 3144134277;
+    this.h2 = 1013904242;
+    this.h3 = 2773480762;
+    this.h4 = 1359893119;
+    this.h5 = 2600822924;
+    this.h6 = 528734635;
+    this.h7 = 1541459225;
+  }
+  this.block = this.start = this.bytes = this.hBytes = 0;
+  this.finalized = this.hashed = false;
+  this.first = true;
+  this.is224 = is224;
 }
 Sha256.prototype.update = function(message) {
-  if (!this.finalized) {
-    var notString, type = typeof message;
-    if (type !== "string") {
-      if (type === "object") {
-        if (message === null)
-          throw new Error(ERROR);
-        if (ARRAY_BUFFER && message.constructor === ArrayBuffer)
-          message = new Uint8Array(message);
-        else if (!Array.isArray(message) && (!ARRAY_BUFFER || !ArrayBuffer.isView(message)))
-          throw new Error(ERROR);
-      } else
-        throw new Error(ERROR);
-      notString = !0;
-    }
-    for (var code2, index = 0, i2, length = message.length, blocks2 = this.blocks; index < length; ) {
-      if (this.hashed && (this.hashed = !1, blocks2[0] = this.block, blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0), notString)
-        for (i2 = this.start; index < length && i2 < 64; ++index)
-          blocks2[i2 >> 2] |= message[index] << SHIFT[i2++ & 3];
-      else
-        for (i2 = this.start; index < length && i2 < 64; ++index)
-          code2 = message.charCodeAt(index), code2 < 128 ? blocks2[i2 >> 2] |= code2 << SHIFT[i2++ & 3] : code2 < 2048 ? (blocks2[i2 >> 2] |= (192 | code2 >> 6) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3]) : code2 < 55296 || code2 >= 57344 ? (blocks2[i2 >> 2] |= (224 | code2 >> 12) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3]) : (code2 = 65536 + ((code2 & 1023) << 10 | message.charCodeAt(++index) & 1023), blocks2[i2 >> 2] |= (240 | code2 >> 18) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 >> 12 & 63) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i2++ & 3], blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3]);
-      this.lastByteIndex = i2, this.bytes += i2 - this.start, i2 >= 64 ? (this.block = blocks2[16], this.start = i2 - 64, this.hash(), this.hashed = !0) : this.start = i2;
-    }
-    return this.bytes > 4294967295 && (this.hBytes += this.bytes / 4294967296 << 0, this.bytes = this.bytes % 4294967296), this;
+  if (this.finalized) {
+    return;
   }
+  var notString, type = typeof message;
+  if (type !== "string") {
+    if (type === "object") {
+      if (message === null) {
+        throw new Error(ERROR);
+      } else if (ARRAY_BUFFER && message.constructor === ArrayBuffer) {
+        message = new Uint8Array(message);
+      } else if (!Array.isArray(message)) {
+        if (!ARRAY_BUFFER || !ArrayBuffer.isView(message)) {
+          throw new Error(ERROR);
+        }
+      }
+    } else {
+      throw new Error(ERROR);
+    }
+    notString = true;
+  }
+  var code2, index = 0, i2, length = message.length, blocks2 = this.blocks;
+  while (index < length) {
+    if (this.hashed) {
+      this.hashed = false;
+      blocks2[0] = this.block;
+      blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+    }
+    if (notString) {
+      for (i2 = this.start; index < length && i2 < 64; ++index) {
+        blocks2[i2 >> 2] |= message[index] << SHIFT[i2++ & 3];
+      }
+    } else {
+      for (i2 = this.start; index < length && i2 < 64; ++index) {
+        code2 = message.charCodeAt(index);
+        if (code2 < 128) {
+          blocks2[i2 >> 2] |= code2 << SHIFT[i2++ & 3];
+        } else if (code2 < 2048) {
+          blocks2[i2 >> 2] |= (192 | code2 >> 6) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3];
+        } else if (code2 < 55296 || code2 >= 57344) {
+          blocks2[i2 >> 2] |= (224 | code2 >> 12) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3];
+        } else {
+          code2 = 65536 + ((code2 & 1023) << 10 | message.charCodeAt(++index) & 1023);
+          blocks2[i2 >> 2] |= (240 | code2 >> 18) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 >> 12 & 63) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 >> 6 & 63) << SHIFT[i2++ & 3];
+          blocks2[i2 >> 2] |= (128 | code2 & 63) << SHIFT[i2++ & 3];
+        }
+      }
+    }
+    this.lastByteIndex = i2;
+    this.bytes += i2 - this.start;
+    if (i2 >= 64) {
+      this.block = blocks2[16];
+      this.start = i2 - 64;
+      this.hash();
+      this.hashed = true;
+    } else {
+      this.start = i2;
+    }
+  }
+  if (this.bytes > 4294967295) {
+    this.hBytes += this.bytes / 4294967296 << 0;
+    this.bytes = this.bytes % 4294967296;
+  }
+  return this;
 };
 Sha256.prototype.finalize = function() {
-  if (!this.finalized) {
-    this.finalized = !0;
-    var blocks2 = this.blocks, i2 = this.lastByteIndex;
-    blocks2[16] = this.block, blocks2[i2 >> 2] |= EXTRA[i2 & 3], this.block = blocks2[16], i2 >= 56 && (this.hashed || this.hash(), blocks2[0] = this.block, blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0), blocks2[14] = this.hBytes << 3 | this.bytes >>> 29, blocks2[15] = this.bytes << 3, this.hash();
+  if (this.finalized) {
+    return;
   }
+  this.finalized = true;
+  var blocks2 = this.blocks, i2 = this.lastByteIndex;
+  blocks2[16] = this.block;
+  blocks2[i2 >> 2] |= EXTRA[i2 & 3];
+  this.block = blocks2[16];
+  if (i2 >= 56) {
+    if (!this.hashed) {
+      this.hash();
+    }
+    blocks2[0] = this.block;
+    blocks2[16] = blocks2[1] = blocks2[2] = blocks2[3] = blocks2[4] = blocks2[5] = blocks2[6] = blocks2[7] = blocks2[8] = blocks2[9] = blocks2[10] = blocks2[11] = blocks2[12] = blocks2[13] = blocks2[14] = blocks2[15] = 0;
+  }
+  blocks2[14] = this.hBytes << 3 | this.bytes >>> 29;
+  blocks2[15] = this.bytes << 3;
+  this.hash();
 };
 Sha256.prototype.hash = function() {
   var a4 = this.h0, b4 = this.h1, c4 = this.h2, d3 = this.h3, e3 = this.h4, f4 = this.h5, g5 = this.h6, h3 = this.h7, blocks2 = this.blocks, j5, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
-  for (j5 = 16; j5 < 64; ++j5)
-    t1 = blocks2[j5 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j5 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j5] = blocks2[j5 - 16] + s0 + blocks2[j5 - 7] + s1 << 0;
-  for (bc = b4 & c4, j5 = 0; j5 < 64; j5 += 4)
-    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d3 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d3 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a4 >>> 2 | a4 << 30) ^ (a4 >>> 13 | a4 << 19) ^ (a4 >>> 22 | a4 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a4 & b4, maj = ab ^ a4 & c4 ^ bc, ch = e3 & f4 ^ ~e3 & g5, t1 = h3 + s1 + ch + K5[j5] + blocks2[j5], t22 = s0 + maj, h3 = d3 + t1 << 0, d3 = t1 + t22 << 0), s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d3 & a4, maj = da ^ d3 & b4 ^ ab, ch = h3 & e3 ^ ~h3 & f4, t1 = g5 + s1 + ch + K5[j5 + 1] + blocks2[j5 + 1], t22 = s0 + maj, g5 = c4 + t1 << 0, c4 = t1 + t22 << 0, s0 = (c4 >>> 2 | c4 << 30) ^ (c4 >>> 13 | c4 << 19) ^ (c4 >>> 22 | c4 << 10), s1 = (g5 >>> 6 | g5 << 26) ^ (g5 >>> 11 | g5 << 21) ^ (g5 >>> 25 | g5 << 7), cd = c4 & d3, maj = cd ^ c4 & a4 ^ da, ch = g5 & h3 ^ ~g5 & e3, t1 = f4 + s1 + ch + K5[j5 + 2] + blocks2[j5 + 2], t22 = s0 + maj, f4 = b4 + t1 << 0, b4 = t1 + t22 << 0, s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10), s1 = (f4 >>> 6 | f4 << 26) ^ (f4 >>> 11 | f4 << 21) ^ (f4 >>> 25 | f4 << 7), bc = b4 & c4, maj = bc ^ b4 & d3 ^ cd, ch = f4 & g5 ^ ~f4 & h3, t1 = e3 + s1 + ch + K5[j5 + 3] + blocks2[j5 + 3], t22 = s0 + maj, e3 = a4 + t1 << 0, a4 = t1 + t22 << 0;
-  this.h0 = this.h0 + a4 << 0, this.h1 = this.h1 + b4 << 0, this.h2 = this.h2 + c4 << 0, this.h3 = this.h3 + d3 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f4 << 0, this.h6 = this.h6 + g5 << 0, this.h7 = this.h7 + h3 << 0;
+  for (j5 = 16; j5 < 64; ++j5) {
+    t1 = blocks2[j5 - 15];
+    s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3;
+    t1 = blocks2[j5 - 2];
+    s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10;
+    blocks2[j5] = blocks2[j5 - 16] + s0 + blocks2[j5 - 7] + s1 << 0;
+  }
+  bc = b4 & c4;
+  for (j5 = 0; j5 < 64; j5 += 4) {
+    if (this.first) {
+      if (this.is224) {
+        ab = 300032;
+        t1 = blocks2[0] - 1413257819;
+        h3 = t1 - 150054599 << 0;
+        d3 = t1 + 24177077 << 0;
+      } else {
+        ab = 704751109;
+        t1 = blocks2[0] - 210244248;
+        h3 = t1 - 1521486534 << 0;
+        d3 = t1 + 143694565 << 0;
+      }
+      this.first = false;
+    } else {
+      s0 = (a4 >>> 2 | a4 << 30) ^ (a4 >>> 13 | a4 << 19) ^ (a4 >>> 22 | a4 << 10);
+      s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7);
+      ab = a4 & b4;
+      maj = ab ^ a4 & c4 ^ bc;
+      ch = e3 & f4 ^ ~e3 & g5;
+      t1 = h3 + s1 + ch + K5[j5] + blocks2[j5];
+      t22 = s0 + maj;
+      h3 = d3 + t1 << 0;
+      d3 = t1 + t22 << 0;
+    }
+    s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10);
+    s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7);
+    da = d3 & a4;
+    maj = da ^ d3 & b4 ^ ab;
+    ch = h3 & e3 ^ ~h3 & f4;
+    t1 = g5 + s1 + ch + K5[j5 + 1] + blocks2[j5 + 1];
+    t22 = s0 + maj;
+    g5 = c4 + t1 << 0;
+    c4 = t1 + t22 << 0;
+    s0 = (c4 >>> 2 | c4 << 30) ^ (c4 >>> 13 | c4 << 19) ^ (c4 >>> 22 | c4 << 10);
+    s1 = (g5 >>> 6 | g5 << 26) ^ (g5 >>> 11 | g5 << 21) ^ (g5 >>> 25 | g5 << 7);
+    cd = c4 & d3;
+    maj = cd ^ c4 & a4 ^ da;
+    ch = g5 & h3 ^ ~g5 & e3;
+    t1 = f4 + s1 + ch + K5[j5 + 2] + blocks2[j5 + 2];
+    t22 = s0 + maj;
+    f4 = b4 + t1 << 0;
+    b4 = t1 + t22 << 0;
+    s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10);
+    s1 = (f4 >>> 6 | f4 << 26) ^ (f4 >>> 11 | f4 << 21) ^ (f4 >>> 25 | f4 << 7);
+    bc = b4 & c4;
+    maj = bc ^ b4 & d3 ^ cd;
+    ch = f4 & g5 ^ ~f4 & h3;
+    t1 = e3 + s1 + ch + K5[j5 + 3] + blocks2[j5 + 3];
+    t22 = s0 + maj;
+    e3 = a4 + t1 << 0;
+    a4 = t1 + t22 << 0;
+  }
+  this.h0 = this.h0 + a4 << 0;
+  this.h1 = this.h1 + b4 << 0;
+  this.h2 = this.h2 + c4 << 0;
+  this.h3 = this.h3 + d3 << 0;
+  this.h4 = this.h4 + e3 << 0;
+  this.h5 = this.h5 + f4 << 0;
+  this.h6 = this.h6 + g5 << 0;
+  this.h7 = this.h7 + h3 << 0;
 };
 Sha256.prototype.hex = function() {
   this.finalize();
-  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h3 >> 28 & 15] + HEX_CHARS[h3 >> 24 & 15] + HEX_CHARS[h3 >> 20 & 15] + HEX_CHARS[h3 >> 16 & 15] + HEX_CHARS[h3 >> 12 & 15] + HEX_CHARS[h3 >> 8 & 15] + HEX_CHARS[h3 >> 4 & 15] + HEX_CHARS[h3 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
-  return this.is224 || (hex2 += HEX_CHARS[h7 >> 28 & 15] + HEX_CHARS[h7 >> 24 & 15] + HEX_CHARS[h7 >> 20 & 15] + HEX_CHARS[h7 >> 16 & 15] + HEX_CHARS[h7 >> 12 & 15] + HEX_CHARS[h7 >> 8 & 15] + HEX_CHARS[h7 >> 4 & 15] + HEX_CHARS[h7 & 15]), hex2;
+  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7;
+  var hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h3 >> 28 & 15] + HEX_CHARS[h3 >> 24 & 15] + HEX_CHARS[h3 >> 20 & 15] + HEX_CHARS[h3 >> 16 & 15] + HEX_CHARS[h3 >> 12 & 15] + HEX_CHARS[h3 >> 8 & 15] + HEX_CHARS[h3 >> 4 & 15] + HEX_CHARS[h3 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
+  if (!this.is224) {
+    hex2 += HEX_CHARS[h7 >> 28 & 15] + HEX_CHARS[h7 >> 24 & 15] + HEX_CHARS[h7 >> 20 & 15] + HEX_CHARS[h7 >> 16 & 15] + HEX_CHARS[h7 >> 12 & 15] + HEX_CHARS[h7 >> 8 & 15] + HEX_CHARS[h7 >> 4 & 15] + HEX_CHARS[h7 & 15];
+  }
+  return hex2;
 };
 Sha256.prototype.toString = Sha256.prototype.hex;
 Sha256.prototype.digest = function() {
   this.finalize();
-  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, arr = [
+  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7;
+  var arr = [
     h0 >> 24 & 255,
     h0 >> 16 & 255,
     h0 >> 8 & 255,
@@ -11797,51 +13434,99 @@ Sha256.prototype.digest = function() {
     h6 >> 8 & 255,
     h6 & 255
   ];
-  return this.is224 || arr.push(h7 >> 24 & 255, h7 >> 16 & 255, h7 >> 8 & 255, h7 & 255), arr;
+  if (!this.is224) {
+    arr.push(h7 >> 24 & 255, h7 >> 16 & 255, h7 >> 8 & 255, h7 & 255);
+  }
+  return arr;
 };
 Sha256.prototype.array = Sha256.prototype.digest;
 Sha256.prototype.arrayBuffer = function() {
   this.finalize();
-  var buffer = new ArrayBuffer(this.is224 ? 28 : 32), dataView = new DataView(buffer);
-  return dataView.setUint32(0, this.h0), dataView.setUint32(4, this.h1), dataView.setUint32(8, this.h2), dataView.setUint32(12, this.h3), dataView.setUint32(16, this.h4), dataView.setUint32(20, this.h5), dataView.setUint32(24, this.h6), this.is224 || dataView.setUint32(28, this.h7), buffer;
+  var buffer = new ArrayBuffer(this.is224 ? 28 : 32);
+  var dataView = new DataView(buffer);
+  dataView.setUint32(0, this.h0);
+  dataView.setUint32(4, this.h1);
+  dataView.setUint32(8, this.h2);
+  dataView.setUint32(12, this.h3);
+  dataView.setUint32(16, this.h4);
+  dataView.setUint32(20, this.h5);
+  dataView.setUint32(24, this.h6);
+  if (!this.is224) {
+    dataView.setUint32(28, this.h7);
+  }
+  return buffer;
 };
 function HmacSha256(key, is224, sharedMemory) {
   var i2, type = typeof key;
   if (type === "string") {
     var bytes = [], length = key.length, index = 0, code2;
-    for (i2 = 0; i2 < length; ++i2)
-      code2 = key.charCodeAt(i2), code2 < 128 ? bytes[index++] = code2 : code2 < 2048 ? (bytes[index++] = 192 | code2 >> 6, bytes[index++] = 128 | code2 & 63) : code2 < 55296 || code2 >= 57344 ? (bytes[index++] = 224 | code2 >> 12, bytes[index++] = 128 | code2 >> 6 & 63, bytes[index++] = 128 | code2 & 63) : (code2 = 65536 + ((code2 & 1023) << 10 | key.charCodeAt(++i2) & 1023), bytes[index++] = 240 | code2 >> 18, bytes[index++] = 128 | code2 >> 12 & 63, bytes[index++] = 128 | code2 >> 6 & 63, bytes[index++] = 128 | code2 & 63);
+    for (i2 = 0; i2 < length; ++i2) {
+      code2 = key.charCodeAt(i2);
+      if (code2 < 128) {
+        bytes[index++] = code2;
+      } else if (code2 < 2048) {
+        bytes[index++] = 192 | code2 >> 6;
+        bytes[index++] = 128 | code2 & 63;
+      } else if (code2 < 55296 || code2 >= 57344) {
+        bytes[index++] = 224 | code2 >> 12;
+        bytes[index++] = 128 | code2 >> 6 & 63;
+        bytes[index++] = 128 | code2 & 63;
+      } else {
+        code2 = 65536 + ((code2 & 1023) << 10 | key.charCodeAt(++i2) & 1023);
+        bytes[index++] = 240 | code2 >> 18;
+        bytes[index++] = 128 | code2 >> 12 & 63;
+        bytes[index++] = 128 | code2 >> 6 & 63;
+        bytes[index++] = 128 | code2 & 63;
+      }
+    }
     key = bytes;
-  } else if (type === "object") {
-    if (key === null)
+  } else {
+    if (type === "object") {
+      if (key === null) {
+        throw new Error(ERROR);
+      } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
+        key = new Uint8Array(key);
+      } else if (!Array.isArray(key)) {
+        if (!ARRAY_BUFFER || !ArrayBuffer.isView(key)) {
+          throw new Error(ERROR);
+        }
+      }
+    } else {
       throw new Error(ERROR);
-    if (ARRAY_BUFFER && key.constructor === ArrayBuffer)
-      key = new Uint8Array(key);
-    else if (!Array.isArray(key) && (!ARRAY_BUFFER || !ArrayBuffer.isView(key)))
-      throw new Error(ERROR);
-  } else
-    throw new Error(ERROR);
-  key.length > 64 && (key = new Sha256(is224, !0).update(key).array());
+    }
+  }
+  if (key.length > 64) {
+    key = new Sha256(is224, true).update(key).array();
+  }
   var oKeyPad = [], iKeyPad = [];
   for (i2 = 0; i2 < 64; ++i2) {
     var b4 = key[i2] || 0;
-    oKeyPad[i2] = 92 ^ b4, iKeyPad[i2] = 54 ^ b4;
+    oKeyPad[i2] = 92 ^ b4;
+    iKeyPad[i2] = 54 ^ b4;
   }
-  Sha256.call(this, is224, sharedMemory), this.update(iKeyPad), this.oKeyPad = oKeyPad, this.inner = !0, this.sharedMemory = sharedMemory;
+  Sha256.call(this, is224, sharedMemory);
+  this.update(iKeyPad);
+  this.oKeyPad = oKeyPad;
+  this.inner = true;
+  this.sharedMemory = sharedMemory;
 }
 HmacSha256.prototype = new Sha256();
 HmacSha256.prototype.finalize = function() {
-  if (Sha256.prototype.finalize.call(this), this.inner) {
-    this.inner = !1;
+  Sha256.prototype.finalize.call(this);
+  if (this.inner) {
+    this.inner = false;
     var innerHash = this.array();
-    Sha256.call(this, this.is224, this.sharedMemory), this.update(this.oKeyPad), this.update(innerHash), Sha256.prototype.finalize.call(this);
+    Sha256.call(this, this.is224, this.sharedMemory);
+    this.update(this.oKeyPad);
+    this.update(innerHash);
+    Sha256.prototype.finalize.call(this);
   }
 };
 var exports = createMethod();
 exports.sha256 = exports;
-exports.sha224 = createMethod(!0);
+exports.sha224 = createMethod(true);
 exports.sha256.hmac = createHmacMethod();
-exports.sha224.hmac = createHmacMethod(!0);
+exports.sha224.hmac = createHmacMethod(true);
 var sha256_default = exports;
 
 // utils/sha256.ts
@@ -11850,32 +13535,41 @@ function sha256(message) {
   return Promise.resolve(sha256Fn(message));
 }
 function hex(hashBuffer) {
-  return Array.from(new Uint8Array(hashBuffer)).map((b4) => b4.toString(16).padStart(2, "0")).join(
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map((b4) => b4.toString(16).padStart(2, "0")).join(
     ""
   );
+  return hashHex;
 }
 function hmacSha256(str, keyString) {
-  let hash = sha256Fn.hmac.create(keyString);
-  return hash.update(str), Promise.resolve(hash.array());
+  const hash = sha256Fn.hmac.create(keyString);
+  hash.update(str);
+  return Promise.resolve(hash.array());
 }
 async function hmacSha256ByString(str, keyString) {
-  let sig = await hmacSha256(str, keyString);
+  const sig = await hmacSha256(str, keyString);
   return hex(sig);
 }
 async function hmacSha256ByArrayBuffer(str, keyString) {
-  let buffer = decodeHex(keyString), sig = await hmacSha256(str, buffer);
+  const buffer = decodeHex(keyString);
+  const sig = await hmacSha256(str, buffer);
   return hex(sig);
 }
 function decodeHex(string) {
-  let bytes = [];
-  return string.replace(/../g, function(pair) {
-    return bytes.push(parseInt(pair, 16)), "";
-  }), new Uint8Array(bytes).buffer;
+  const bytes = [];
+  string.replace(/../g, function(pair) {
+    bytes.push(parseInt(pair, 16));
+    return "";
+  });
+  return new Uint8Array(bytes).buffer;
 }
 
 // dom/context.ts
 async function getContext(options) {
-  let { url, config, state } = options, urlObj = new URL(url), sourceLanguage = "auto", {
+  const { url, config, state } = options;
+  const urlObj = new URL(url);
+  let sourceLanguage = "auto";
+  const {
     translationParagraphLanguagePattern,
     translationService,
     translationServices,
@@ -11885,44 +13579,72 @@ async function getContext(options) {
     targetLanguage,
     sourceLanguageUrlPattern,
     immediateTranslationPattern
-  } = config, isDetectParagraphLanguage = isMatched(
+  } = config;
+  const isDetectParagraphLanguage = isMatched(
     url,
     translationParagraphLanguagePattern
-  ), isImmediateTranslate = isMatched(url, immediateTranslationPattern), defaultTranslationService = translationService, services = Object.keys(translationServices);
-  for (let service of services) {
-    let serviceConfig = translationServices[service];
+  );
+  const isImmediateTranslate = isMatched(url, immediateTranslationPattern);
+  let defaultTranslationService = translationService;
+  const services = Object.keys(translationServices);
+  for (const service of services) {
+    const serviceConfig = translationServices[service];
     if (isMatched(url, serviceConfig)) {
       defaultTranslationService = service;
       break;
     }
   }
-  let defaultTheme = translationTheme, themes = Object.keys(translationThemePatterns);
-  for (let theme of themes) {
-    let themeConfig = translationThemePatterns[theme];
+  let defaultTheme = translationTheme;
+  const themes = Object.keys(translationThemePatterns);
+  for (const theme of themes) {
+    const themeConfig = translationThemePatterns[theme];
     if (isMatched(url, themeConfig)) {
       defaultTheme = theme;
       break;
     }
   }
-  let isTranslateUrl = isMatched(url, translationUrlPattern), isTranslateExcludeUrl = isMatchedExclude(
+  const isTranslateUrl = isMatched(url, translationUrlPattern);
+  let isTranslateExcludeUrl = isMatchedExclude(
     url,
     translationUrlPattern
   );
-  isTranslateExcludeUrl || (isTranslateExcludeUrl = isMatchUrl(url, buildinExcludeUrls));
-  let sourceConfigLanguages = Object.keys(sourceLanguageUrlPattern), sourceLanguageReverseMap = {};
-  for (let language of sourceConfigLanguages) {
-    let matchPattern = sourceLanguageUrlPattern[language];
-    if (matchPattern && matchPattern.matches)
-      for (let match of matchPattern.matches)
-        sourceLanguageReverseMap[match] = language;
+  if (!isTranslateExcludeUrl) {
+    isTranslateExcludeUrl = isMatchUrl(url, buildinExcludeUrls);
   }
-  let sourceUrlMatches = Object.keys(sourceLanguageReverseMap), sourceUrlMatched = getMatchedUrl(url, sourceUrlMatches);
-  sourceUrlMatched && (sourceLanguage = sourceLanguageReverseMap[sourceUrlMatched] ?? "auto", sourceLanguageReverseMap[sourceUrlMatched] && sourceLanguageReverseMap[sourceUrlMatched] !== "auto" && setCurrentPageLanguageByClient(
-    sourceLanguageReverseMap[sourceUrlMatched]
-  ));
-  let defaultTargetLanguage = targetLanguage || "zh-CN", hostname2 = urlObj.hostname, encryptedHostname = await sha256(hostname2), pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash, encryptedPath = await sha256(pathAndQueryAndHash), encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`, localConfig = await getLocalConfig(), translationStartMode = config.translationStartMode;
-  translationStartMode === "dynamic" && isImmediateTranslate && (translationStartMode = "immediate");
-  let ctx = {
+  const sourceConfigLanguages = Object.keys(sourceLanguageUrlPattern);
+  const sourceLanguageReverseMap = {};
+  for (const language of sourceConfigLanguages) {
+    const matchPattern = sourceLanguageUrlPattern[language];
+    if (matchPattern && matchPattern.matches) {
+      for (const match of matchPattern.matches) {
+        sourceLanguageReverseMap[match] = language;
+      }
+    }
+  }
+  const sourceUrlMatches = Object.keys(sourceLanguageReverseMap);
+  const sourceUrlMatched = getMatchedUrl(url, sourceUrlMatches);
+  if (sourceUrlMatched) {
+    sourceLanguage = sourceLanguageReverseMap[sourceUrlMatched] ?? "auto";
+    if (sourceLanguageReverseMap[sourceUrlMatched] && sourceLanguageReverseMap[sourceUrlMatched] !== "auto") {
+      setCurrentPageLanguageByClient(
+        sourceLanguageReverseMap[sourceUrlMatched]
+      );
+    }
+  }
+  const defaultTargetLanguage = targetLanguage || "zh-CN";
+  const hostname2 = urlObj.hostname;
+  const encryptedHostname = await sha256(hostname2);
+  const pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash;
+  const encryptedPath = await sha256(pathAndQueryAndHash);
+  const encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`;
+  const localConfig = await getLocalConfig();
+  let translationStartMode = config.translationStartMode;
+  if (translationStartMode === "dynamic") {
+    if (isImmediateTranslate) {
+      translationStartMode = "immediate";
+    }
+  }
+  const ctx = {
     targetLanguage: defaultTargetLanguage,
     config,
     translationService: defaultTranslationService,
@@ -11935,355 +13657,688 @@ async function getContext(options) {
     state: state ? Object.assign({
       translationArea: config.translationArea,
       translationStartMode,
-      isAutoTranslate: !1,
-      isNeedClean: !1,
+      isAutoTranslate: false,
+      isNeedClean: false,
       isDetectParagraphLanguage,
       translationTheme: defaultTheme
     }, state) : {
       translationArea: config.translationArea,
       translationStartMode,
-      isAutoTranslate: !1,
-      isNeedClean: !1,
+      isAutoTranslate: false,
+      isNeedClean: false,
       isDetectParagraphLanguage,
       translationTheme: defaultTheme
     },
     localConfig
   };
-  ctx.state.translationArea === "body" && (ctx.config.generalRule.excludeTags = ctx.config.generalRule.excludeTags.filter((tag) => tag !== "BUTTON" && tag !== "FOOTER" && tag !== "ASIDE"), ctx.config.generalRule.additionalExcludeSelectors = ctx.config.generalRule.additionalExcludeSelectors.filter(
-    (selector) => selector !== ".btn"
-  )), ctx.translationService === "d" && (config.immediateTranslationTextCount = 0);
-  let rules = config.rules, rule;
-  globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
-  let generalRule = config.generalRule;
-  return rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => tag !== "LABEL" && tag !== "BUTTON" && tag !== "ASIDE" && tag !== "OPTION")), ctx;
+  if (ctx.state.translationArea === "body") {
+    ctx.config.generalRule.excludeTags = ctx.config.generalRule.excludeTags.filter((tag) => {
+      return !ctx.config.generalRule.bodyTranslateTags.includes(tag);
+    });
+    ctx.config.generalRule.additionalExcludeSelectors = ctx.config.generalRule.additionalExcludeSelectors.filter(
+      (selector) => selector !== ".btn"
+    );
+  }
+  if (ctx.translationService === "d") {
+    config.immediateTranslationTextCount = 0;
+  }
+  const rules = config.rules;
+  let rule;
+  if (globalThis.PDFViewerApplication) {
+    rule = rules.find((rule2) => rule2.isPdf);
+  } else {
+    rule = rules.find((rule2) => {
+      const isMatchedRule = isMatched(url, rule2);
+      return isMatchedRule;
+    });
+  }
+  if (ctx.rule.isPdf) {
+    ctx.state.translationArea = "main";
+  }
+  if (ctx.state.translationArea === "body") {
+    ctx.rule.paragraphMinTextCount = 1;
+    ctx.rule.paragraphMinWordCount = 1;
+  }
+  const generalRule = config.generalRule;
+  if (rule) {
+    ctx.rule = mergeRule(generalRule, rule);
+  }
+  if (ctx.state.translationArea === "body") {
+    if (ctx.rule.excludeTags) {
+      ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => {
+        return !ctx.rule.bodyTranslateTags.includes(tag) && !ctx.rule.forceTranslateTags.includes(tag);
+      });
+    }
+  }
+  return ctx;
 }
 function isMatched(url, matchPattern) {
-  if (!matchPattern)
-    return !1;
-  let { matches, excludeMatches, selectorMatches, excludeSelectorMatches } = matchPattern;
-  return excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) ? !1 : matches && matches.length > 0 && isMatchUrl(url, matches) ? !0 : excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches) ? !1 : !!(selectorMatches && selectorMatches.length > 0 && isMatchSelectors(selectorMatches));
+  if (!matchPattern) {
+    return false;
+  }
+  const { matches, excludeMatches, selectorMatches, excludeSelectorMatches } = matchPattern;
+  if (excludeMatches && excludeMatches.length > 0) {
+    const isMatchedExclude2 = isMatchUrl(url, excludeMatches);
+    if (isMatchedExclude2) {
+      return false;
+    }
+  }
+  if (matches && matches.length > 0) {
+    const isMatchedUrl = isMatchUrl(url, matches);
+    if (isMatchedUrl) {
+      return true;
+    }
+  }
+  if (excludeSelectorMatches && excludeSelectorMatches.length > 0) {
+    const isMatchedExclude2 = isMatchSelectors(excludeSelectorMatches);
+    if (isMatchedExclude2) {
+      return false;
+    }
+  }
+  if (selectorMatches && selectorMatches.length > 0) {
+    const isMatchedSelector = isMatchSelectors(selectorMatches);
+    if (isMatchedSelector) {
+      return true;
+    }
+  }
+  return false;
 }
 function isMatchedExclude(url, matchPattern) {
-  if (!matchPattern)
-    return !1;
-  let { excludeMatches, excludeSelectorMatches } = matchPattern;
-  return !!(excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) || excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches));
+  if (!matchPattern) {
+    return false;
+  }
+  const { excludeMatches, excludeSelectorMatches } = matchPattern;
+  if (excludeMatches && excludeMatches.length > 0) {
+    const isMatchedExclude2 = isMatchUrl(url, excludeMatches);
+    if (isMatchedExclude2) {
+      return true;
+    }
+  }
+  if (excludeSelectorMatches && excludeSelectorMatches.length > 0) {
+    const isMatchedExclude2 = isMatchSelectors(excludeSelectorMatches);
+    if (isMatchedExclude2) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // dom/translate_page.ts
-var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = le(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
+var pageStatus = "Original";
+var currentParagraphIds = [];
+var waitToTranslateParagraphIds = /* @__PURE__ */ new Set();
+var allNewDynamicElements = [];
+var allIntersectionObserver = [];
+var allResizebleObserver = [];
+var currentNewDynamicElements = [];
+var oldUrl = getRealUrl().split("#")[0];
+var currentTranslatedTextLength = 0;
+var globalContext;
+var debounceTranslateCurrentQueue = le(translateCurrentQueue, 300);
+var debounceTranslateNewDynamicNodes = debounce(
   translateNewDynamicNodes,
   200
-), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+);
+var env3 = getEnv();
+var isProd2 = env3.PROD === "1";
+var titleMutationObserver;
+var mutationObserverMap = /* @__PURE__ */ new Map();
+var mainMutaionObserver;
+var originalPageTitle = "";
 async function toggleTranslatePage() {
   if (getPageStatus() === "Original") {
     let ctx = await getGlobalContext(getRealUrl(), {});
-    ctx.state.translationTheme = ctx.config.translationTheme, ctx = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext);
-  } else
-    (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
+    ctx.state.translationTheme = ctx.config.translationTheme;
+    ctx = await getGlobalContext(getRealUrl(), {});
+    await translatePage(globalContext);
+  } else if (getPageStatus() === "Translated" || getPageStatus() === "Error") {
+    restorePage();
+  }
 }
 async function toggleTranslationMask() {
-  if (getPageStatus() === "Original")
+  if (getPageStatus() === "Original") {
     globalContext = await getGlobalContext(getRealUrl(), {
       translationTheme: "mask"
-    }), await translatePage(globalContext);
-  else if (getPageStatus() === "Translated") {
-    let allFrames = [
+    });
+    await translatePage(globalContext);
+  } else if (getPageStatus() === "Translated") {
+    const allFrames = [
       document.body,
       ...mutationObserverMap.keys()
-    ], currentTranslationTheme = globalContext?.state.translationTheme;
-    for (let frame of allFrames) {
-      let currentRootTheme = getAttribute(
+    ];
+    const currentTranslationTheme = globalContext?.state.translationTheme;
+    for (const frame of allFrames) {
+      const currentRootTheme = getAttribute(
         frame,
         translationFrameRootThemeAttributeNameForJs,
-        !0
+        true
       );
-      currentTranslationTheme === "mask" ? currentRootTheme !== "none" ? setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "none",
-        !0
-      ) : setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "mask",
-        !0
-      ) : currentRootTheme !== "mask" ? setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "mask",
-        !0
-      ) : setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "none",
-        !0
-      );
+      if (currentTranslationTheme === "mask") {
+        if (currentRootTheme !== "none") {
+          setAttribute(
+            frame,
+            translationFrameRootThemeAttributeNameForJs,
+            "none",
+            true
+          );
+        } else {
+          setAttribute(
+            frame,
+            translationFrameRootThemeAttributeNameForJs,
+            "mask",
+            true
+          );
+        }
+      } else {
+        if (currentRootTheme !== "mask") {
+          setAttribute(
+            frame,
+            translationFrameRootThemeAttributeNameForJs,
+            "mask",
+            true
+          );
+        } else {
+          setAttribute(
+            frame,
+            translationFrameRootThemeAttributeNameForJs,
+            "none",
+            true
+          );
+        }
+      }
     }
   }
 }
+function showTranslationOnly() {
+}
 function restorePage() {
   clean();
-  let allFrames = [
+  const allFrames = [
     document.body,
     ...mutationObserverMap.keys()
   ];
-  for (let rootFrame of allFrames)
-    disableMutatinObserver(rootFrame), rootFrame.querySelectorAll(
+  for (const rootFrame of allFrames) {
+    disableMutatinObserver(rootFrame);
+    const elements = rootFrame.querySelectorAll(
       "." + translationTargetElementWrapperClass
-    ).forEach((element) => {
+    );
+    elements.forEach((element) => {
       element.remove();
-    }), rootFrame.querySelectorAll(
+    });
+    const pdfElements = rootFrame.querySelectorAll(
       "." + translationPdfTargetContainerClass
-    ).forEach((element) => {
+    );
+    pdfElements.forEach((element) => {
       element.remove();
-    }), rootFrame.querySelectorAll(
+    });
+    const elementsEffected = rootFrame.querySelectorAll(
       "[" + sourceElementEffectAttributeName + "]"
-    ).forEach((element) => {
+    );
+    elementsEffected.forEach((element) => {
       if (isProd2) {
         delete element[elementMarkRootKey];
-        let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
-        for (let key of keys)
+        const allKeys = Object.keys(element.dataset);
+        const keys = allKeys.filter((key) => key.startsWith(brandIdForJs));
+        for (const key of keys) {
           delete element.dataset[key];
+        }
       } else {
-        let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
-        for (let key of keys)
+        const allKeys = Object.keys(element.dataset);
+        const keys = allKeys.filter((key) => key.startsWith(brandIdForJs));
+        for (const key of keys) {
           delete element.dataset[key];
+        }
       }
       element.removeAttribute(sourceElementEffectAttributeName);
     });
-  disableTitleMutationObserver(), setPageTranslatedStatus("Translating"), originalPageTitle && (document.title = originalPageTitle), setPageTranslatedStatus("Original");
+  }
+  disableTitleMutationObserver();
+  setPageTranslatedStatus("Translating");
+  if (originalPageTitle) {
+    document.title = originalPageTitle;
+  }
+  setPageTranslatedStatus("Original");
 }
 function onElementVisible(paragraph, callback) {
-  let isCalled = !1, firstElement = getFirstHTMLElement(paragraph.elements), lastElement = getLastHTMLElement(paragraph.elements);
+  let isCalled = false;
+  const firstElement = getFirstHTMLElement(paragraph.elements);
+  const lastElement = getLastHTMLElement(paragraph.elements);
   waitToTranslateParagraphIds.add(paragraph.id);
-  let observers = [];
+  const observers = [];
   if (firstElement) {
-    let observe = new IntersectionObserver((entries, observer) => {
+    const observe = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        entry.intersectionRatio > 0 && (observer.disconnect(), isCalled || (isCalled = !0, callback(paragraph)));
+        if (entry.intersectionRatio > 0) {
+          observer.disconnect();
+          if (!isCalled) {
+            isCalled = true;
+            callback(paragraph);
+          }
+        }
       });
     });
-    allIntersectionObserver.push(observe), observers.push(observe), observe.observe(firstElement);
+    allIntersectionObserver.push(observe);
+    observers.push(observe);
+    observe.observe(firstElement);
   }
   if (lastElement && lastElement !== firstElement) {
-    let observe = new IntersectionObserver((entries, observer) => {
+    const observe = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        entry.intersectionRatio > 0 && (observer.disconnect(), isCalled || (isCalled = !0, callback(paragraph)));
+        if (entry.intersectionRatio > 0) {
+          observer.disconnect();
+          if (!isCalled) {
+            isCalled = true;
+            callback(paragraph);
+          }
+        }
       });
     });
-    allIntersectionObserver.push(observe), observers.push(observe), observe.observe(lastElement);
+    allIntersectionObserver.push(observe);
+    observers.push(observe);
+    observe.observe(lastElement);
   }
-  let paragraphEntiry = getParagraph(paragraph.id);
-  paragraphEntiry && (paragraphEntiry.observers = observers, setParagraph(paragraph.id, paragraphEntiry));
+  const paragraphEntiry = getParagraph(paragraph.id);
+  if (paragraphEntiry) {
+    paragraphEntiry.observers = observers;
+    setParagraph(paragraph.id, paragraphEntiry);
+  }
 }
 function onHiddenElementVisible(element, callback) {
   if (element) {
-    let resizewatcher = new ResizeObserver((entries, observer) => {
-      for (let entry of entries)
-        entry.contentRect.width > 10 && (observer.disconnect(), callback(entry.target));
+    const resizewatcher = new ResizeObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 10) {
+          observer.disconnect();
+          callback(entry.target);
+        }
+      }
     });
-    resizewatcher.observe(element), allResizebleObserver.push(resizewatcher);
+    resizewatcher.observe(element);
+    allResizebleObserver.push(resizewatcher);
   }
 }
 async function translateNewDynamicNodes(ctx) {
-  let currentNewDynamicNodes = [...currentNewDynamicElements];
+  const currentNewDynamicNodes = [...currentNewDynamicElements];
   currentNewDynamicElements = [];
-  let frameMap = /* @__PURE__ */ new Map();
+  const frameMap = /* @__PURE__ */ new Map();
   currentNewDynamicNodes.forEach((node) => {
-    frameMap.has(node.rootFrame) || frameMap.set(node.rootFrame, []), frameMap.get(node.rootFrame)?.push(node.element);
+    if (!frameMap.has(node.rootFrame)) {
+      frameMap.set(node.rootFrame, []);
+    }
+    frameMap.get(node.rootFrame)?.push(node.element);
   });
-  for (let [rootFrame, elements] of frameMap)
+  for (const [rootFrame, elements] of frameMap) {
     try {
-      let allContainers = [];
-      for (let element of elements) {
-        let rawContainers = getContainers(
+      const allContainers = [];
+      for (const element of elements) {
+        const rawContainers = getContainers(
           element,
           ctx
         );
-        if (rawContainers.length === 0)
+        if (rawContainers.length === 0) {
           continue;
-        let containers = rawContainers;
+        }
+        const containers = rawContainers;
         allContainers.push(...containers);
       }
       await translateContainers(allContainers, rootFrame, ctx);
     } catch (e3) {
       log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
     }
+  }
 }
 function translationParagraph(visibleParagraph, ctx) {
   waitToTranslateParagraphIds.delete(visibleParagraph.id);
-  let paragraphWithState = getParagraph(visibleParagraph.id);
-  paragraphWithState && (paragraphWithState.observers && paragraphWithState.observers.length > 0 && paragraphWithState.observers.forEach((observer) => {
-    observer.disconnect();
-  }), paragraphWithState.observers = [], paragraphWithState.state = "Translating", setParagraph(visibleParagraph.id, paragraphWithState));
-  let id = visibleParagraph.id;
+  const paragraphWithState = getParagraph(visibleParagraph.id);
+  if (paragraphWithState) {
+    if (paragraphWithState.observers && paragraphWithState.observers.length > 0) {
+      paragraphWithState.observers.forEach((observer) => {
+        observer.disconnect();
+      });
+    }
+    paragraphWithState.observers = [];
+    paragraphWithState.state = "Translating";
+    setParagraph(visibleParagraph.id, paragraphWithState);
+  }
+  const id = visibleParagraph.id;
   currentTranslatedTextLength += visibleParagraph.text.length;
-  let realElements = getHTMLElements(visibleParagraph.elements);
-  if (visibleParagraph.isPdf) {
-    let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
-    isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
-    realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
-    let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
-      let left = getAttribute(current, sourceElementLeft);
-      return left && left < prev ? left : prev;
-    }, 1e3), width = realElements.reduce((prev, current) => {
-      let right = getAttribute(current, sourceElementRight);
-      return right && right > prev ? right : prev;
-    }, 0) - minLeft;
-    width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${minLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
-      "notranslate",
-      `${translationTargetElementWrapperClass}`
-    ), targetContainer.appendChild(paragraphTarget);
-  } else {
-    let lastElement = getLastHTMLElement(visibleParagraph.elements), position = "afterend";
-    visibleParagraph.elements.length > 0 && lastElement && (realElements.length === 1 ? position = "beforeend" : isInlineElement(
-      visibleParagraph.elements[0],
-      ctx.rule
-    ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-    let targetTranslationWrapper = document.createElement("span");
+  const realElements = getHTMLElements(visibleParagraph.elements);
+  if (!visibleParagraph.isPdf) {
+    const lastElement = getLastHTMLElement(visibleParagraph.elements);
+    let position = "afterend";
+    if (visibleParagraph.elements.length > 0 && lastElement) {
+      if (realElements.length === 1) {
+        position = "beforeend";
+      } else {
+        if (!isInlineElement(
+          visibleParagraph.elements[0],
+          ctx.rule
+        )) {
+          position = "beforeend";
+        }
+      }
+    }
+    if (ctx.rule.insertPosition) {
+      position = ctx.rule.insertPosition;
+    }
+    const targetTranslationWrapper = document.createElement("span");
     targetTranslationWrapper.classList.add(
       "notranslate",
       translationTargetElementWrapperClass
-    ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`;
-    let loadingHtml = getLoadingHTML(
+    );
+    targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`;
+    const loadingHtml = getLoadingHTML(
       ctx.config.loadingTheme
     );
-    if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
-      let innerElement = getTheLastTextNodeParentElement(lastElement);
-      innerElement ? innerElement.appendChild(targetTranslationWrapper) : lastElement.appendChild(targetTranslationWrapper);
-    } else if (position === "afterend")
+    targetTranslationWrapper.innerHTML = loadingHtml;
+    if (position === "beforeend") {
+      const innerElement = getTheLastTextNodeParentElement(lastElement);
+      if (innerElement) {
+        innerElement.appendChild(targetTranslationWrapper);
+      } else {
+        lastElement.appendChild(targetTranslationWrapper);
+      }
+    } else if (position === "afterend") {
       lastElement.insertAdjacentElement(position, targetTranslationWrapper);
-    else
+    } else {
       throw new Error("not support position");
+    }
+  } else {
+    const firstElement = getFirstHTMLElement(visibleParagraph.elements);
+    const elementStyle = globalThis.getComputedStyle(firstElement);
+    const top = elementStyle.top;
+    let fontSize = elementStyle.fontSize;
+    const fontSizeNumber = parseFloat(fontSize.slice(0, -2));
+    if (!isNaN(fontSizeNumber)) {
+      if (fontSizeNumber > 20) {
+        fontSize = "20px";
+      }
+    }
+    const targetContainer = visibleParagraph.targetContainer;
+    const paragraphTarget = document.createElement("span");
+    if (realElements.length === 1) {
+      paragraphTarget.style.fontSize = fontSize;
+    }
+    paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`;
+    paragraphTarget.style.top = top;
+    let firstElementLeft = getAttribute(firstElement, sourceElementLeft);
+    const minLeft = realElements.reduce((prev, current) => {
+      const left = getAttribute(current, sourceElementLeft);
+      if (left && left < prev) {
+        return left;
+      }
+      return prev;
+    }, 1e3);
+    const maxRight = realElements.reduce((prev, current) => {
+      const right = getAttribute(current, sourceElementRight);
+      if (right && right > prev) {
+        return right;
+      }
+      return prev;
+    }, 0);
+    let width = maxRight - minLeft;
+    if (width < 30) {
+    }
+    if (width > 600) {
+      width = 600;
+    }
+    if (firstElementLeft < 200) {
+      firstElementLeft = 10;
+    }
+    if (firstElementLeft) {
+      if (firstElementLeft < 0) {
+        firstElementLeft = 0;
+      }
+    }
+    paragraphTarget.style.left = `${minLeft || 10}px`;
+    if (minLeft < 400) {
+      paragraphTarget.style.width = width + "px";
+    } else {
+      paragraphTarget.style.width = `calc(100% - ${minLeft}px)`;
+    }
+    paragraphTarget.classList.add(
+      `notranslate`,
+      `${translationTargetElementWrapperClass}`
+    ), targetContainer.appendChild(paragraphTarget);
   }
-  currentParagraphIds.push(id), debounceTranslateCurrentQueue(ctx);
+  currentParagraphIds.push(id);
+  debounceTranslateCurrentQueue(ctx);
 }
 function addParagraphToQueue(paragraph, ctx) {
-  ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.config.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
-    translationParagraph(visibleParagraph, ctx);
-  }) : translationParagraph(paragraph, ctx);
+  if (ctx.state.translationStartMode === "dynamic") {
+    if (currentTranslatedTextLength > ctx.config.immediateTranslationTextCount) {
+      onElementVisible(paragraph, (visibleParagraph) => {
+        translationParagraph(visibleParagraph, ctx);
+      });
+    } else {
+      translationParagraph(paragraph, ctx);
+    }
+  } else {
+    translationParagraph(paragraph, ctx);
+  }
 }
 async function translatePage(ctx) {
-  if (pageStatus === "Translating")
+  if (pageStatus === "Translating") {
     return;
-  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
-    let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
-      (item) => item.match === currentDomain && item.expiredAt > now
-    ), isChanged = !1;
-    index > -1 || (currentTempTranslationDomains.push({
-      match: currentDomain,
-      expiredAt: now + ctx.config.tempTranslateDomainMinutes * 60 * 1e3
-    }), isChanged = !0), isChanged && await setLocalConfig({
-      ...ctx.localConfig,
-      tempTranslationUrlMatches: [
-        ...currentTempTranslationDomains
-      ]
-    });
   }
-  ctx.state.isAutoTranslate = !0;
-  let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-  currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
-    currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
+  setPageTranslatedStatus("Translating");
+  if (!ctx) {
+    ctx = await getGlobalContext(getRealUrl(), {});
+  }
+  if (!ctx.state.isAutoTranslate) {
+    if (ctx.config.tempTranslateDomainMinutes > 0) {
+      const now = Date.now();
+      const urlObj = new URL(ctx.url);
+      const currentDomain = urlObj.hostname;
+      const currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [];
+      const index = currentTempTranslationDomains.findIndex(
+        (item) => item.match === currentDomain && item.expiredAt > now
+      );
+      let isChanged = false;
+      if (index > -1) {
+      } else {
+        currentTempTranslationDomains.push({
+          match: currentDomain,
+          expiredAt: now + ctx.config.tempTranslateDomainMinutes * 60 * 1e3
+        });
+        isChanged = true;
+      }
+      if (isChanged) {
+        await setLocalConfig({
+          ...ctx.localConfig,
+          tempTranslationUrlMatches: [
+            ...currentTempTranslationDomains
+          ]
+        });
+      }
+    }
+  }
+  ctx.state.isAutoTranslate = true;
+  const currentScrollOffset = globalThis.scrollY;
+  const currentWindowHeight = globalThis.innerHeight;
+  if (currentScrollOffset >= currentWindowHeight) {
+    ctx.config.immediateTranslationTextCount = 0;
+  }
+  log_default.debug("ctx", ctx);
+  if (ctx.state.isNeedClean) {
+    restorePage();
+  } else {
+    globalContext.state.isNeedClean = true;
+  }
+  if (ctx.rule.normalizeBody) {
+    const element = document.querySelector(ctx.rule.normalizeBody);
+    if (element) {
+      document.body = document.body.cloneNode(true);
+    }
+  }
+  addToUnmountQueue(() => {
+    currentTranslatedTextLength = 0;
+    cleanParagraphs();
+    allIntersectionObserver.forEach((observer) => {
       observer.disconnect();
-    }), allResizebleObserver.forEach((observer) => {
-      observer.disconnect();
-    }), allIntersectionObserver = [], waitToTranslateParagraphIds.clear();
-  }), setPageTranslatedStatus("Translating");
-  try {
-    let allFrames = [document.body];
-    document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
-    }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
-      document.body,
-      ctx.rule.shadowRootSelectors
-    ).forEach((host) => {
-      host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
     });
+    allResizebleObserver.forEach((observer) => {
+      observer.disconnect();
+    });
+    allIntersectionObserver = [];
+    waitToTranslateParagraphIds.clear();
+  });
+  setPageTranslatedStatus("Translating");
+  try {
+    const allFrames = [document.body];
+    const allFramesElements = document.querySelectorAll("iframe");
+    allFramesElements.forEach((frame) => {
+      if (isInlineIframe(frame)) {
+        allFrames.push(frame.contentDocument.body);
+        injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS);
+      }
+    });
+    if (ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0) {
+      const shadowRootHosts = getElementsBySelectors(
+        document.body,
+        ctx.rule.shadowRootSelectors
+      );
+      shadowRootHosts.forEach((host) => {
+        if (host.shadowRoot) {
+          if (host.shadowRoot.mode === "open") {
+            allFrames.push(host.shadowRoot);
+          }
+        }
+      });
+    }
     let containersCount = 0;
-    setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
-    for (let rootFrame of allFrames) {
-      let containerCount = await translateFrame(rootFrame, ctx);
+    setPageTranslatedStatus("Translating");
+    log_default.debug("allFrames", allFrames);
+    for (const rootFrame of allFrames) {
+      const containerCount = await translateFrame(rootFrame, ctx);
       containersCount += containerCount;
     }
-    containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
+    if (containersCount === 0) {
+      setPageTranslatedStatus("Translated");
+    }
+    translateTitle(ctx).catch((e3) => {
       log_default.error(
-        "translateTitle error:",
+        `translateTitle error:`,
         e3.name,
         e3.message,
         e3.details || ""
       );
-    }), enableTitleMutationObserver(ctx);
+    });
+    enableTitleMutationObserver(ctx);
   } catch (e3) {
-    setPageTranslatedStatus("Error"), log_default.error(e3);
+    setPageTranslatedStatus("Error");
+    log_default.error(e3);
   }
 }
 async function translateFrame(rootFrame, ctx) {
   markContainers(rootFrame, ctx.rule);
-  let containers = getContainers(rootFrame, ctx);
+  const containers = getContainers(rootFrame, ctx);
   log_default.debug("detect containers", containers);
-  let { rule } = ctx;
-  containers.length > 0 && await translateContainers(containers, rootFrame, ctx);
-  let observer = enableMutatinObserver(rootFrame, rule, ctx);
-  return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
+  const { rule } = ctx;
+  if (containers.length > 0) {
+    await translateContainers(containers, rootFrame, ctx);
+  }
+  const observer = enableMutatinObserver(rootFrame, rule, ctx);
+  if (rootFrame === document.body) {
+    mainMutaionObserver = observer;
+  } else {
+    mutationObserverMap.set(rootFrame, observer);
+  }
+  return containers.length;
 }
 async function getGlobalContext(url, state) {
-  let config = await getConfig2();
-  if (!globalContext)
-    globalContext = await getContext({
+  const config = await getConfig2();
+  if (!globalContext) {
+    const options = {
       url,
       config,
       state
-    });
-  else {
-    let options = {
+    };
+    const ctx = await getContext(options);
+    globalContext = ctx;
+  } else {
+    const options = {
       url,
       config,
       state: { ...globalContext.state, ...state }
     };
-    globalContext = await getContext(options);
+    const ctx = await getContext(options);
+    globalContext = ctx;
   }
   return globalContext;
 }
 async function toggleTranslateTheMainPage() {
-  getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
+  if (getPageStatus() === "Original") {
+    await translateTheMainPage();
+  } else if (getPageStatus() === "Translated" || getPageStatus() === "Error") {
+    globalContext = await getGlobalContext(getRealUrl(), {});
+    if (globalContext.state.translationArea !== "main") {
+      await translateTheMainPage();
+    } else {
+      restorePage();
+    }
+  }
 }
 async function translateTheMainPage() {
   globalContext = await getGlobalContext(getRealUrl(), {
     translationArea: "main"
-  }), await translatePage(globalContext);
+  });
+  await translatePage(globalContext);
 }
 async function translateTheWholePage() {
   globalContext = await getGlobalContext(getRealUrl(), {
     translationArea: "body"
-  }), await translatePage(globalContext);
+  });
+  await translatePage(globalContext);
 }
 async function toggleTranslateTheWholePage() {
-  getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", globalContext = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext)) : restorePage());
+  if (getPageStatus() === "Original") {
+    await translateTheWholePage();
+  } else if (getPageStatus() === "Translated" || getPageStatus() === "Error") {
+    globalContext = await getGlobalContext(getRealUrl(), {});
+    if (globalContext.state.translationArea !== "body") {
+      globalContext.state.translationArea = "body";
+      globalContext = await getGlobalContext(getRealUrl(), {});
+      await translatePage(globalContext);
+    } else {
+      restorePage();
+    }
+  }
 }
 async function translateToThePageEndImmediately() {
   globalContext = await getGlobalContext(getRealUrl(), {
     translationArea: "body",
     translationStartMode: "immediate"
-  }), await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
+  });
+  await translatePage(globalContext);
+  await translateNewDynamicNodes(globalContext);
 }
 async function translateTitle(ctx) {
-  let pageTitle = document.title;
-  if (!pageTitle || pageTitle.includes(titleDelimiters))
+  const pageTitle = document.title;
+  if (!pageTitle) {
     return;
-  originalPageTitle !== pageTitle && (originalPageTitle = pageTitle);
+  }
+  if (pageTitle.includes(titleDelimiters)) {
+    return;
+  }
+  if (originalPageTitle !== pageTitle) {
+    originalPageTitle = pageTitle;
+  }
   let currentLang = "auto";
-  if (ctx.state.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
-    let detectedLang = await detectLanguage({
+  if (!ctx.state.isDetectParagraphLanguage) {
+    currentLang = getCurrentPageLanguageByClient();
+  }
+  if (currentLang === "auto") {
+    const detectedLang = await detectLanguage({
       text: pageTitle,
       minLength: 10
     });
-    if (isSameTargetLanguage(detectedLang, ctx.targetLanguage))
+    if (isSameTargetLanguage(detectedLang, ctx.targetLanguage)) {
       return;
+    }
   }
   try {
-    let result = await translateSingleSentence({
+    const result = await translateSingleSentence({
       id: 0,
       url: ctx.url,
       text: pageTitle,
@@ -12291,7 +14346,9 @@ async function translateTitle(ctx) {
       to: ctx.targetLanguage,
       fromByClient: currentLang
     }, ctx);
-    result && result.text && (document.title = originalPageTitle + titleDelimiters + result.text);
+    if (result && result.text) {
+      document.title = originalPageTitle + titleDelimiters + result.text;
+    }
   } catch (e3) {
     throw e3;
   }
@@ -12300,92 +14357,135 @@ function getLoadingHTML(theme) {
   return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
 }
 async function translateContainers(containers, rootFrame, ctx) {
-  let { rule } = ctx;
-  for (let container of containers)
+  const { rule } = ctx;
+  for (const container of containers) {
     markContainers(container, rule);
+  }
   let targetContainers = [];
-  if (ctx.rule.isPdf)
-    containers.length > 0 && (setPageTranslatedStatus("Translating"), targetContainers = normalizeContainer2(
-      containers,
-      rule
-    ).targetContainers);
-  else {
+  if (!ctx.rule.isPdf) {
     setPageTranslatedStatus("Translating");
-    let normalizeResult = normalizeContainer(
+    const normalizeResult = normalizeContainer(
       containers,
       rule
-    ), { hiddenElements } = normalizeResult;
-    for (let element of hiddenElements)
+    );
+    const { hiddenElements } = normalizeResult;
+    for (const element of hiddenElements) {
       onHiddenElementVisible(element, () => {
-        removeAttribute(element, sourceElementExcludeAttributeName, !0), translateContainers([element], rootFrame, ctx);
+        removeAttribute(element, sourceElementExcludeAttributeName, true);
+        translateContainers([element], rootFrame, ctx);
       });
+    }
     setPageTranslatedStatus("Translating");
+  } else {
+    if (containers.length > 0) {
+      setPageTranslatedStatus("Translating");
+      const normalizeResult = normalizeContainer2(
+        containers,
+        rule
+      );
+      targetContainers = normalizeResult.targetContainers;
+    }
   }
   let paragraphs = [];
-  if (ctx.rule.isPdf ? paragraphs = await getParagraphs2(
-    rootFrame,
-    containers,
-    ctx,
-    targetContainers
-  ) : (containers = containers.filter((container) => !isExcludeElement(container, rule, !1)), paragraphs = await getParagraphs(
-    rootFrame,
-    containers,
-    ctx
-  )), setPageTranslatedStatus("Translating"), paragraphs.length === 0) {
+  if (ctx.rule.isPdf) {
+    paragraphs = await getParagraphs2(
+      rootFrame,
+      containers,
+      ctx,
+      targetContainers
+    );
+  } else {
+    containers = containers.filter((container) => {
+      return !isExcludeElement(container, rule, false);
+    });
+    paragraphs = await getParagraphs(
+      rootFrame,
+      containers,
+      ctx
+    );
+  }
+  setPageTranslatedStatus("Translating");
+  if (paragraphs.length === 0) {
     setPageTranslatedStatus("Translated");
     return;
   }
   log_default.debug("detect paragraphs", paragraphs);
-  for (let paragraph of paragraphs)
+  for (const paragraph of paragraphs) {
     addParagraphToQueue(paragraph, ctx);
+  }
   setPageTranslatedStatus("Translated");
 }
 function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
-  let paragraphWithState = getParagraph(sentenceRequest.id);
+  const paragraphWithState = getParagraph(sentenceRequest.id);
   if (paragraphWithState && (err || !translatedSentence)) {
-    err || (log_default.error("translate error", translatedSentence), err = new Error("no response from server"));
-    let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+    if (!err) {
+      log_default.error(`translate error`, translatedSentence);
+      err = new Error("no response from server");
+    }
+    const wrapperId = sentenceRequest.id;
+    const wrapper = paragraphWithState.rootFrame.querySelector(
       `#${translationTargetElementWrapperClass}-${wrapperId}`
-    ), errorMessage = err.message.replaceAll(`
-`, "");
-    errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-    let errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
-    wrapper && (wrapper.innerHTML = errorHtml);
+    );
+    let errorMessage = err.message.replaceAll("\n", "");
+    errorMessage = errorMessage.replaceAll('"', "&quot;");
+    if (paragraphWithState) {
+      paragraphWithState.state = "Error";
+      setParagraph(paragraphWithState.id, paragraphWithState);
+    }
+    const errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+    if (wrapper) {
+      wrapper.innerHTML = errorHtml;
+    }
   } else {
-    let paragraph = getParagraph(sentenceRequest.id);
+    const paragraph = getParagraph(sentenceRequest.id);
     if (paragraph) {
-      paragraph.state = "Translated", setParagraph(paragraph.id, paragraph);
-      let targetItem = paragraphToHtml(
+      paragraph.state = "Translated";
+      setParagraph(paragraph.id, paragraph);
+      const targetItem = paragraphToHtml(
         paragraph,
         translatedSentence,
         ctx
-      ), wrapperId = translatedSentence.id, wrapper = paragraph.rootFrame.querySelector(
+      );
+      const wrapperId = translatedSentence.id;
+      const wrapper = paragraph.rootFrame.querySelector(
         `#${translationTargetElementWrapperClass}-${wrapperId}`
       );
-      wrapper && (wrapper.innerHTML = targetItem.html, paragraph.rootFrame.querySelectorAll(
-        `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
-      ).forEach((element) => {
-        setAttribute(
-          element,
-          sourceElementTranslatedMarkAttributeName,
-          "1"
+      if (wrapper) {
+        wrapper.innerHTML = targetItem.html;
+        const originalElements = paragraph.rootFrame.querySelectorAll(
+          `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
         );
-      }));
-    } else
-      log_default.error("paragraph not found", sentenceRequest.id);
+        originalElements.forEach((element) => {
+          setAttribute(
+            element,
+            sourceElementTranslatedMarkAttributeName,
+            "1"
+          );
+        });
+      }
+    } else {
+      log_default.error(`paragraph not found`, sentenceRequest.id);
+    }
   }
 }
 async function translateCurrentQueue(ctx) {
-  if (currentParagraphIds.length === 0)
+  if (currentParagraphIds.length === 0) {
     return Promise.resolve();
-  let ids = [...currentParagraphIds];
+  }
+  const ids = [...currentParagraphIds];
   currentParagraphIds = [];
   let currentParagraphLang = "auto";
-  ctx.state.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
-  let payload = {
+  if (!ctx.state.isDetectParagraphLanguage) {
+    currentParagraphLang = getCurrentPageLanguage();
+  }
+  const payload = {
     sentences: ids.filter((id) => getParagraph(id)).map((id) => {
-      let paragraph = getParagraph(id), from = paragraph.languageByLocal;
-      return from === "auto" && (from = currentParagraphLang), {
+      const paragraph = getParagraph(id);
+      let from = paragraph.languageByLocal;
+      if (from === "auto") {
+        from = currentParagraphLang;
+      }
+      return {
         id: paragraph.id,
         url: ctx.encryptedUrl,
         text: paragraph.text,
@@ -12395,7 +14495,8 @@ async function translateCurrentQueue(ctx) {
       };
     })
   };
-  if (payload.sentences.length > 0) {
+  const sentenceLength = payload.sentences.length;
+  if (sentenceLength > 0) {
     setPageTranslatedStatus("Translating");
     try {
       await translateMultipleSentences(
@@ -12406,8 +14507,9 @@ async function translateCurrentQueue(ctx) {
         }
       );
     } catch (e3) {
-      setPageTranslatedStatus("Error"), log_default.error(
-        "translateCurrentQueue error",
+      setPageTranslatedStatus("Error");
+      log_default.error(
+        `translateCurrentQueue error`,
         e3.name,
         e3.message,
         e3.details || " "
@@ -12418,204 +14520,311 @@ async function translateCurrentQueue(ctx) {
   setPageTranslatedStatus("Translated");
 }
 function setPageTranslatedStatus(_pageStatus) {
-  pageStatus = _pageStatus, sendPageTranslatedStatus(pageStatus);
+  pageStatus = _pageStatus;
+  sendPageTranslatedStatus(pageStatus);
 }
 function enableMutatinObserver(rootFrame, rule, ctx) {
-  log_default.debug("enableMutatinObserver for ", rootFrame), disableMutatinObserver(rootFrame), allNewDynamicElements = [], currentNewDynamicElements = [];
-  let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR"), mutationObserver = new MutationObserver(function(mutations) {
+  log_default.debug(`enableMutatinObserver for `, rootFrame);
+  disableMutatinObserver(rootFrame);
+  allNewDynamicElements = [];
+  currentNewDynamicElements = [];
+  const inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR");
+  const mutationObserver = new MutationObserver(function(mutations) {
     mutations.forEach((mutation) => {
       if (rootFrame === document.body) {
-        let currentUrl = getRealUrl();
-        if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
-          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), setTimeout(() => {
-            log_default.debug("url changed, reinit page"), initPage();
-          }, rule.urlChangeDelay);
-          let event = new Event(pageUrlChangedEventName);
-          document.dispatchEvent(event);
-          return;
+        const currentUrl = getRealUrl();
+        const currentUrlWithoutHash = currentUrl.split("#")[0];
+        if (currentUrlWithoutHash !== oldUrl) {
+          if (rule.observeUrlChange) {
+            oldUrl = currentUrl.split("#")[0];
+            clean();
+            disableMutatinObserver(rootFrame);
+            disableTitleMutationObserver();
+            setTimeout(() => {
+              log_default.debug(`url changed, reinit page`);
+              initPage();
+            }, rule.urlChangeDelay);
+            const event = new Event(pageUrlChangedEventName);
+            document.dispatchEvent(event);
+            return;
+          }
         }
       }
       mutation.addedNodes.forEach((addedNode) => {
         if (addedNode.nodeType === Node.ELEMENT_NODE) {
-          let element = addedNode;
-          if (element.nodeName === "IFRAME")
-            isInlineIframe(element) && setTimeout(() => {
-              injectCSS(
-                element.contentDocument,
-                env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
-              ), translateFrame(
-                element.contentDocument.body,
-                ctx
-              ).catch((e3) => {
-                log_default.error(
-                  "translateFrame error",
-                  e3.details || " ",
-                  e3
+          const element = addedNode;
+          if (element.nodeName === "IFRAME") {
+            if (isInlineIframe(element)) {
+              setTimeout(() => {
+                injectCSS(
+                  element.contentDocument,
+                  env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
                 );
-              });
-            }, ctx.rule.urlChangeDelay);
-          else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
+                translateFrame(
+                  element.contentDocument.body,
+                  ctx
+                ).catch((e3) => {
+                  log_default.error(
+                    `translateFrame error`,
+                    e3.details || " ",
+                    e3
+                  );
+                });
+              }, ctx.rule.urlChangeDelay);
+            }
+          } else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
             element.nodeName
           )) {
-            if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
+            if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no") {
               return;
-            isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push({
-              element,
-              rootFrame
-            }), allNewDynamicElements.push(element), debounceTranslateNewDynamicNodes(ctx));
+            }
+            if (!isDuplicateElement(element, allNewDynamicElements)) {
+              currentNewDynamicElements.push({
+                element,
+                rootFrame
+              });
+              allNewDynamicElements.push(element);
+              debounceTranslateNewDynamicNodes(ctx);
+            }
           }
         }
       });
     });
   });
-  return mutationObserver.observe(rootFrame, {
-    childList: !0,
-    subtree: !0
-  }), mutationObserver;
+  mutationObserver.observe(rootFrame, {
+    childList: true,
+    subtree: true
+  });
+  return mutationObserver;
 }
 function enableTitleMutationObserver(ctx) {
-  let titleElement = document.querySelector("title");
-  titleElement && (titleMutationObserver = new MutationObserver(function(mutations) {
-    mutations.length > 0 && (mutations[0].target.text.includes(titleDelimiters) || translateTitle(ctx).catch((e3) => {
-      log_default.error(
-        "translateTitle error:",
-        e3.name,
-        e3.message,
-        e3.details || ""
-      );
-    }));
-  }), titleMutationObserver.observe(titleElement, {
-    subtree: !0,
-    characterData: !0,
-    childList: !0
-  }));
+  const titleElement = document.querySelector("title");
+  if (titleElement) {
+    titleMutationObserver = new MutationObserver(function(mutations) {
+      if (mutations.length > 0) {
+        const title = mutations[0].target.text;
+        if (!title.includes(titleDelimiters)) {
+          translateTitle(ctx).catch((e3) => {
+            log_default.error(
+              `translateTitle error:`,
+              e3.name,
+              e3.message,
+              e3.details || ""
+            );
+          });
+        }
+      }
+    });
+    titleMutationObserver.observe(titleElement, {
+      subtree: true,
+      characterData: true,
+      childList: true
+    });
+  }
 }
 function mutationElementIsInline(rule, element) {
   if (rule.extraBlockSelectors) {
-    for (let match of rule.extraBlockSelectors)
-      if (element.matches(match))
-        return !0;
+    for (const match of rule.extraBlockSelectors) {
+      if (element.matches(match)) {
+        return true;
+      }
+    }
   }
-  return !1;
+  return false;
 }
 async function initPage() {
-  let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl(), {});
-  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
+  const isInIframe = getIsInIframe();
+  const ctx = await getGlobalContext(getRealUrl(), {});
+  if (ctx.rule.urlChangeDelay) {
+    await delay(ctx.rule.urlChangeDelay);
+  }
   let lang = ctx.sourceLanguage;
-  lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
-  }) : isInIframe ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
-  }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
+  if (lang === "auto") {
+    if (!isMonkey()) {
+      if (!isInIframe) {
+        lang = await detectTabLanguage();
+      } else {
+        lang = await detectLanguage({
+          text: getMainText(document.body).slice(0, 1e3)
+        });
+      }
+    } else {
+      lang = await detectLanguage({
+        text: getMainText(document.body).slice(0, 1e3)
+      });
+    }
+    if (lang === "auto") {
+      lang = await detectPageLanguage();
+    }
+    setCurrentPageLanguage(lang);
+  } else {
+    setCurrentPageLanguageByClient(lang);
+  }
   let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-  !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage(globalContext)) : log_default.debug("do not auto translate", ctx);
+  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl) {
+    log_default.debug(`detect page language: ${lang}`);
+    if (isMatchLanguage(lang, ctx.config.translationLanguagePattern)) {
+      isAutoTranslate = true;
+      log_default.debug(`match language pattern ${lang}, auto translate`);
+    }
+  }
+  if (isAutoTranslate) {
+    globalContext.state.isAutoTranslate = true;
+    await translatePage(globalContext);
+  } else {
+    log_default.debug(`do not auto translate`, ctx);
+  }
 }
 function disableMutatinObserver(rootFrame) {
   if (mutationObserverMap.has(rootFrame)) {
-    let mutationObserver = mutationObserverMap.get(rootFrame);
-    mutationObserver.disconnect(), mutationObserver.takeRecords(), mutationObserverMap.delete(rootFrame);
+    const mutationObserver = mutationObserverMap.get(rootFrame);
+    mutationObserver.disconnect();
+    mutationObserver.takeRecords();
+    mutationObserverMap.delete(rootFrame);
   } else if (rootFrame === document.body) {
-    let mutationObserver = mainMutaionObserver;
-    mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords());
+    const mutationObserver = mainMutaionObserver;
+    if (mutationObserver) {
+      mutationObserver.disconnect();
+      mutationObserver.takeRecords();
+    }
   }
 }
 function disableTitleMutationObserver() {
-  titleMutationObserver && (titleMutationObserver.disconnect(), titleMutationObserver.takeRecords(), titleMutationObserver = void 0);
+  if (titleMutationObserver) {
+    titleMutationObserver.disconnect();
+    titleMutationObserver.takeRecords();
+    titleMutationObserver = void 0;
+  }
 }
 function getPageStatus() {
   return pageStatus;
 }
 
 // messager.ts
-var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
-  constructor(fromType, debug = !1) {
-    this.logger = new Logger(), debug && this.logger.setLevel("debug"), this.fromType = fromType, listeners2.has(fromType) || (listeners2.set(fromType, /* @__PURE__ */ new Map()), browserAPI.runtime.onMessage.addListener(
-      // @ts-ignore: it's ok
-      (message, sender, sendResponse) => {
-        let from = message.from, to = message.to, tabId, tabUrl, tabActive;
-        sender.tab && sender.tab.id && (tabId = sender.tab.id, from = `${from}:${tabId}`, tabUrl = sender.tab.url, tabActive = sender.tab.active), this.logger.debug(
-          `${message.to} received message [${message.payload.method}] from ${message.from}`,
-          message.payload.data ? message.payload.data : " "
-        );
-        let parsedTo = parseType(to), { type: toType, name: toName } = parsedTo;
-        if (toType !== fromType)
-          return !1;
-        let parsedMessageFrom = parseType(from), connectionInfo = listeners2.get(toType).get(toName);
-        if (!connectionInfo)
-          return this.logger.debug(
-            `no message handler for ${toType}:${to}, but it's ok`
-          ), !1;
-        let { messageHandler, sync } = connectionInfo, messageAuthor = {
-          type: fromType,
-          name: parsedMessageFrom.name,
-          id: tabId,
-          url: tabUrl,
-          active: tabActive
-        };
-        if (sync) {
-          try {
-            let handlerResult = messageHandler(
-              message.payload,
-              messageAuthor
-            );
-            sendResponse({
-              ok: !0,
-              data: handlerResult
-            });
-          } catch (e3) {
-            sendResponse({
-              ok: !1,
-              errorName: e3.name,
-              errorMessage: e3.message,
-              errorDetails: e3.details
-            });
+var listeners2 = /* @__PURE__ */ new Map();
+var Messager = class {
+  constructor(fromType, debug = false) {
+    this.logger = new Logger();
+    if (debug) {
+      this.logger.setLevel("debug");
+    }
+    this.fromType = fromType;
+    if (!listeners2.has(fromType)) {
+      listeners2.set(fromType, /* @__PURE__ */ new Map());
+      browserAPI.runtime.onMessage.addListener(
+        // @ts-ignore: it's ok
+        (message, sender, sendResponse) => {
+          let from = message.from;
+          const to = message.to;
+          let tabId;
+          let tabUrl;
+          let tabActive;
+          if (sender.tab && sender.tab.id) {
+            tabId = sender.tab.id;
+            from = `${from}:${tabId}`;
+            tabUrl = sender.tab.url;
+            tabActive = sender.tab.active;
           }
-          return !1;
-        } else
-          return messageHandler(
-            message.payload,
-            messageAuthor
-          ).then((data) => {
-            sendResponse({
-              ok: !0,
-              data
-            });
-          }).catch(
-            (e3) => {
+          this.logger.debug(
+            `${message.to} received message [${message.payload.method}] from ${message.from}`,
+            message.payload.data ? message.payload.data : " "
+          );
+          const parsedTo = parseType(to);
+          const { type: toType, name: toName } = parsedTo;
+          if (toType !== fromType) {
+            return false;
+          }
+          const parsedMessageFrom = parseType(from);
+          const currentListener = listeners2.get(toType);
+          const connectionInfo = currentListener.get(toName);
+          if (!connectionInfo) {
+            this.logger.debug(
+              `no message handler for ${toType}:${to}, but it's ok`
+            );
+            return false;
+          }
+          const { messageHandler, sync } = connectionInfo;
+          const messageAuthor = {
+            type: fromType,
+            name: parsedMessageFrom.name,
+            id: tabId,
+            url: tabUrl,
+            active: tabActive
+          };
+          if (sync) {
+            try {
+              const handlerResult = messageHandler(
+                message.payload,
+                messageAuthor
+              );
               sendResponse({
-                ok: !1,
+                ok: true,
+                data: handlerResult
+              });
+            } catch (e3) {
+              sendResponse({
+                ok: false,
                 errorName: e3.name,
                 errorMessage: e3.message,
                 errorDetails: e3.details
               });
             }
-          ), !0;
-      }
-    ));
+            return false;
+          } else {
+            messageHandler(
+              message.payload,
+              messageAuthor
+            ).then((data) => {
+              sendResponse({
+                ok: true,
+                data
+              });
+            }).catch(
+              (e3) => {
+                sendResponse({
+                  ok: false,
+                  errorName: e3.name,
+                  errorMessage: e3.message,
+                  errorDetails: e3.details
+                });
+              }
+            );
+            return true;
+          }
+        }
+      );
+    }
   }
   getConnection(name, messageHandler, options) {
-    let sync = !1;
-    options && options.sync && (sync = !0);
-    let fromType = this.fromType, currentListeners = listeners2.get(fromType);
-    if (currentListeners.has(name))
-      return currentListeners.get(name).connectionInstance;
-    {
-      let connection2 = new Connection(`${fromType}:${name}`, this.logger);
-      return listeners2.get(fromType).set(name, {
+    let sync = false;
+    if (options && options.sync) {
+      sync = true;
+    }
+    const fromType = this.fromType;
+    const currentListeners = listeners2.get(fromType);
+    if (!currentListeners.has(name)) {
+      const connection2 = new Connection(`${fromType}:${name}`, this.logger);
+      listeners2.get(fromType).set(name, {
         messageHandler,
         sync,
         connectionInstance: connection2
-      }), connection2;
+      });
+      return connection2;
+    } else {
+      return currentListeners.get(name).connectionInstance;
     }
   }
-}, Connection = class {
+};
+var Connection = class {
   constructor(from, logger) {
-    this.from = from, this.logger = logger;
+    this.from = from;
+    this.logger = logger;
   }
   async sendMessage(to, messagePayload) {
-    let parsedTo = parseType(to), { type, id } = parsedTo;
+    const parsedTo = parseType(to);
+    const { type, id } = parsedTo;
     if (type !== "content_script") {
-      let message = {
+      const message = {
         to,
         from: this.from,
         payload: messagePayload
@@ -12625,24 +14834,26 @@ var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
         message.payload.data ? message.payload.data : " "
       );
       try {
-        let response = await browserAPI.runtime.sendMessage(message);
+        const response = await browserAPI.runtime.sendMessage(message);
         return handleResponse(message, response, this.logger);
       } catch (e3) {
         if (type === "popup") {
-          let errorMessage = `popup ${to} is not active, so the message does not send, ignore this error, ${JSON.stringify(messagePayload)}`;
-          return this.logger.debug(
+          const errorMessage = `popup ${to} is not active, so the message does not send, ignore this error, ${JSON.stringify(messagePayload)}`;
+          this.logger.debug(
             errorMessage,
             messagePayload,
             to,
             e3
-          ), Promise.resolve({
+          );
+          return Promise.resolve({
             message: errorMessage
           });
-        } else
+        } else {
           throw e3;
+        }
       }
     } else {
-      let message = {
+      const message = {
         from: this.from,
         to,
         payload: messagePayload
@@ -12651,66 +14862,107 @@ var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
         `${message.from} send message [${message.payload.method}] to ${message.to}`,
         message.payload.data ? message.payload.data : " "
       );
-      let response = await browserAPI.tabs.sendMessage(id, message);
+      const response = await browserAPI.tabs.sendMessage(id, message);
       return handleResponse(message, response, this.logger);
     }
   }
 };
 function handleResponse(message, response, logger) {
-  if (response.ok)
-    return logger.debug(
+  if (response.ok) {
+    logger.debug(
       `${message.from} received response from ${message.to}:`,
       response.data ? response.data : " "
-    ), response.data;
-  throw new CommonError(
-    response.errorName || "UnknownError",
-    response.errorMessage || "Unknown error",
-    response.errorDetails
-  );
+    );
+    return response.data;
+  } else {
+    throw new CommonError(
+      response.errorName || "UnknownError",
+      response.errorMessage || "Unknown error",
+      response.errorDetails
+    );
+  }
 }
 function parseType(str) {
-  let parts = str.split(":");
-  if (parts.length < 2)
+  const parts = str.split(":");
+  if (parts.length < 2) {
     throw new Error("not a valid to string");
-  let messageTo = {
+  }
+  const messageTo = {
     type: parts[0],
     name: parts[1]
   };
   if (parts[0] === "content_script") {
-    let tabId = parseInt(parts[2]);
-    if (!isNaN(tabId))
+    const tabId = parseInt(parts[2]);
+    if (!isNaN(tabId)) {
       messageTo.id = tabId;
-    else
+    } else {
       throw new Error("tab id not a valid number");
+    }
   }
   return messageTo;
 }
 
 // content_message_listeners.ts
 var asyncMessageHandler = async function(payload, _author) {
-  let { method, data } = payload;
-  method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
+  const { method, data } = payload;
+  if (method === "translateTheWholePage") {
+    await translateTheWholePage();
+  } else if (method === "translateTheMainPage") {
+    await translateTheMainPage();
+  } else if (method === "translateToThePageEndImmediately") {
+    await translateToThePageEndImmediately();
+  } else if (method === "toggleTranslatePage") {
+    await toggleTranslatePage();
+  } else if (method === "toggleTranslateTheWholePage") {
+    await toggleTranslateTheWholePage();
+  } else if (method === "toggleTranslateTheMainPage") {
+    await toggleTranslateTheMainPage();
+  } else if (method === "translatePage") {
+    await translatePage();
+  } else if (method === "toggleTranslationMask") {
+    await toggleTranslationMask();
+  } else if (method === "restorePage") {
+    restorePage();
+  } else if (method === "showTranslationOnly") {
+    showTranslationOnly();
+  } else if (method === "setCurrentPageLanguageByClient") {
+    setCurrentPageLanguageByClient(data);
+  }
 };
 var connection;
 function getConnection() {
-  return connection || (connection = new Messager("content_script", !1).getConnection("main", asyncMessageHandler), connection);
+  if (connection) {
+    return connection;
+  }
+  const messenger = new Messager("content_script", false);
+  connection = messenger.getConnection("main", asyncMessageHandler);
+  return connection;
 }
 
 // browser_proxy.ts
 async function sendMessage(options) {
-  return await getConnection().sendMessage(
+  const c4 = getConnection();
+  const response = await c4.sendMessage(
     "background:main",
     options
   );
+  return response;
 }
 function request2(options) {
-  return isMonkey() || isDeno2() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
+  if (isMonkey() || isDeno2()) {
+    options.fetchPolyfill = globalThis.GM_fetch;
+    return request(options);
+  }
+  return sendMessage({
     method: "fetch",
     data: options
   });
 }
 function getConfig2() {
-  return isMonkey() ? getConfig() : sendMessage(
+  if (isMonkey()) {
+    return getConfig();
+  }
+  return sendMessage(
     {
       method: "getConfig"
     }
@@ -12718,12 +14970,13 @@ function getConfig2() {
 }
 function detectLanguage(options) {
   if (options.text) {
-    let chineseLike = detectChinese(options.text);
-    if (chineseLike !== "auto")
+    const chineseLike = detectChinese(options.text);
+    if (chineseLike !== "auto") {
       return Promise.resolve(chineseLike);
+    }
   }
   if (isMonkey()) {
-    let result = browserAPI.extra.detectLanguage(
+    const result = browserAPI.extra.detectLanguage(
       options.text,
       options.minLength
     );
@@ -12745,20 +14998,24 @@ function detectTabLanguage() {
 }
 function sendPageTranslatedStatus(status) {
   if (isMonkey()) {
-    let event = new CustomEvent(pageTranslatedStatusEventName, {
+    const event = new CustomEvent(pageTranslatedStatusEventName, {
       detail: status
     });
     document.dispatchEvent(event);
     return;
   }
-  getConnection().sendMessage("popup:main_sync", {
+  const c4 = getConnection();
+  c4.sendMessage("popup:main_sync", {
     method: "setPageStatus",
     data: status
   }).catch((_e3) => {
   });
 }
 function queryDb(query) {
-  return isMonkey() ? queryParagraphCache(query) : sendMessage(
+  if (isMonkey()) {
+    return queryParagraphCache(query);
+  }
+  return sendMessage(
     {
       method: "queryParagraphCache",
       data: query
@@ -12778,11 +15035,13 @@ async function setDbStore(params) {
   );
 }
 async function mockRequest() {
-  if (isMonkey())
+  if (isMonkey()) {
     return Promise.resolve();
+  }
   await sendMessage({
     method: "mockRequest"
   });
+  return;
 }
 
 // services/translation.ts
@@ -12790,9 +15049,10 @@ var Translation = class {
   constructor(serviceConfig, generalConfig) {
     this.maxTextLength = 1800;
     this.throttleLimit = 3;
-    this.isSupportList = !0;
+    this.isSupportList = true;
     this.maxTextGroupLength = 200;
-    this.serviceConfig = serviceConfig, this.generalConfig = generalConfig;
+    this.serviceConfig = serviceConfig;
+    this.generalConfig = generalConfig;
   }
   static getAllProps() {
     return [];
@@ -12812,15 +15072,27 @@ var Translation = class {
     throw new Error("Not implemented");
   }
   async multipleTranslate(payload, options, everySentenceCallback) {
-    if (payload.sentences.length === 0)
+    if (payload.sentences.length === 0) {
       return {
         sentences: []
       };
-    let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, languages3 = /* @__PURE__ */ new Set();
-    for (let sentence of sentences)
-      sentence.from && sentence.from !== "auto" && languages3.add(sentence.from);
-    let isMultipleLanguage = !1;
-    languages3.size > 1 && (isMultipleLanguage = !0);
+    }
+    const { sentences } = payload;
+    const respondedSentences = [];
+    let tempSentenceGroups = [];
+    let currentSentenceIndex = 0;
+    const sent = /* @__PURE__ */ new Set();
+    let globalError = null;
+    const languages3 = /* @__PURE__ */ new Set();
+    for (const sentence of sentences) {
+      if (sentence.from && sentence.from !== "auto") {
+        languages3.add(sentence.from);
+      }
+    }
+    let isMultipleLanguage = false;
+    if (languages3.size > 1) {
+      isMultipleLanguage = true;
+    }
     try {
       tempSentenceGroups = splitSentences(
         sentences,
@@ -12829,60 +15101,80 @@ var Translation = class {
       );
     } catch (e3) {
       if (everySentenceCallback) {
-        sent.has(currentSentenceIndex) && currentSentenceIndex++;
+        if (sent.has(currentSentenceIndex)) {
+          currentSentenceIndex++;
+        }
         for (let i2 = currentSentenceIndex; i2 < sentences.length; i2++) {
-          let sentence = sentences[i2];
+          const sentence = sentences[i2];
           everySentenceCallback(e3, null, sentence);
         }
         globalError = e3;
-      } else
+      } else {
         globalError = e3;
+      }
     }
-    let throttle = m2({
+    const throttle = m2({
       limit: this.throttleLimit,
       interval: 1e3
     });
     log_default.debug(
       "tempSentenceGroups",
-      tempSentenceGroups.map((item) => item)
+      tempSentenceGroups.map((item) => {
+        return item;
+      })
     );
     for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
-      let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = throttle(async () => {
+      const tempSentenceGroup = tempSentenceGroups[i2];
+      const url = tempSentenceGroup.url;
+      const throttled = throttle(async () => {
         let finalFrom = tempSentenceGroup.from;
-        if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient && tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
-          return await this.translateList({
+        if (isMultipleLanguage) {
+          finalFrom = "auto";
+        }
+        if (tempSentenceGroup.fromByClient && tempSentenceGroup.fromByClient !== "auto") {
+          finalFrom = tempSentenceGroup.fromByClient;
+        }
+        if (this.isSupportList) {
+          const result2 = await this.translateList({
             text: tempSentenceGroup.tempSentences.map((item) => item.text),
             from: finalFrom,
             to: tempSentenceGroup.to,
             url,
             options
           });
-        {
-          let mergedText = tempSentenceGroup.tempSentences.map(
+          return result2;
+        } else {
+          const mergedText = tempSentenceGroup.tempSentences.map(
             (item) => item.text
-          ).join(translationTextSeparator), result2 = await this.translate({
+          ).join(translationTextSeparator);
+          const result2 = await this.translate({
             text: mergedText,
             from: finalFrom,
             to: tempSentenceGroup.to,
             url,
             options
-          }), { text } = result2;
+          });
+          const { text } = result2;
+          const translatedTexts2 = text.split(
+            translationTextSeparator
+          );
           return {
-            text: text.split(
-              translationTextSeparator
-            ),
+            text: translatedTexts2,
             from: result2.from,
             to: result2.to
           };
         }
-      }), result;
+      });
+      let result;
       try {
         result = await throttled();
       } catch (e3) {
         if (everySentenceCallback) {
-          sent.has(currentSentenceIndex) && currentSentenceIndex++;
+          if (sent.has(currentSentenceIndex)) {
+            currentSentenceIndex++;
+          }
           for (let i3 = currentSentenceIndex; i3 < sentences.length; i3++) {
-            let sentence = sentences[i3];
+            const sentence = sentences[i3];
             everySentenceCallback(e3, null, sentence);
           }
           globalError = e3;
@@ -12892,38 +15184,59 @@ var Translation = class {
           continue;
         }
       }
-      let { text: translatedTexts } = result;
-      for (let j5 = 0; j5 < translatedTexts.length; j5++)
+      const { text: translatedTexts } = result;
+      for (let j5 = 0; j5 < translatedTexts.length; j5++) {
         try {
-          let translatedText = translatedTexts[j5], tempSentence = tempSentenceGroup.tempSentences[j5], { index, prefix, suffix } = tempSentence;
-          respondedSentences[index] === void 0 ? respondedSentences[index] = {
-            ...sentences[index],
-            from: tempSentenceGroup.from,
-            to: tempSentenceGroup.to,
-            text: prefix + translatedText + suffix
-          } : respondedSentences[index].text += prefix + translatedText + suffix, index !== currentSentenceIndex && everySentenceCallback && (sent.add(currentSentenceIndex), everySentenceCallback(
-            null,
-            respondedSentences[currentSentenceIndex],
-            sentences[currentSentenceIndex]
-          )), currentSentenceIndex = index;
+          const translatedText = translatedTexts[j5];
+          const tempSentence = tempSentenceGroup.tempSentences[j5];
+          const { index, prefix, suffix } = tempSentence;
+          if (respondedSentences[index] === void 0) {
+            respondedSentences[index] = {
+              ...sentences[index],
+              from: tempSentenceGroup.from,
+              to: tempSentenceGroup.to,
+              text: prefix + translatedText + suffix
+            };
+          } else {
+            respondedSentences[index].text += prefix + translatedText + suffix;
+          }
+          if (index !== currentSentenceIndex) {
+            if (everySentenceCallback) {
+              sent.add(currentSentenceIndex);
+              everySentenceCallback(
+                null,
+                respondedSentences[currentSentenceIndex],
+                sentences[currentSentenceIndex]
+              );
+            }
+          }
+          currentSentenceIndex = index;
         } catch (e3) {
           if (everySentenceCallback) {
-            sent.has(currentSentenceIndex) && currentSentenceIndex++;
+            if (sent.has(currentSentenceIndex)) {
+              currentSentenceIndex++;
+            }
             for (let i3 = currentSentenceIndex; i3 < sentences.length; i3++) {
-              let sentence = sentences[i3];
+              const sentence = sentences[i3];
               everySentenceCallback(e3, null, sentence);
             }
             throw e3;
-          } else
+          } else {
             throw e3;
+          }
         }
+      }
     }
-    if (everySentenceCallback && !sent.has(currentSentenceIndex) && respondedSentences[currentSentenceIndex] && sentences[currentSentenceIndex] && everySentenceCallback(
-      null,
-      respondedSentences[currentSentenceIndex],
-      sentences[currentSentenceIndex]
-    ), globalError)
+    if (everySentenceCallback && !sent.has(currentSentenceIndex) && respondedSentences[currentSentenceIndex] && sentences[currentSentenceIndex]) {
+      everySentenceCallback(
+        null,
+        respondedSentences[currentSentenceIndex],
+        sentences[currentSentenceIndex]
+      );
+    }
+    if (globalError) {
       throw globalError;
+    }
     return {
       sentences: respondedSentences
     };
@@ -12938,7 +15251,11 @@ var Translation = class {
     return Promise.resolve("auto");
   }
   detectLanguage(text) {
-    return text.length >= 50 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
+    if (text.length >= 50) {
+      return this.detectLanguageLocally(text);
+    } else {
+      return this.detectLanguageRemotely(text);
+    }
   }
 };
 
@@ -12961,38 +15278,45 @@ var langMap2 = [
   ["th", "th"],
   ["tr", "tr"],
   ["vi", "vi"]
-], _Tencent = class extends Translation {
+];
+var _Tencent = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.secretId = "";
     this.secretKey = "";
-    this.isSupportList = !0;
-    if (!serviceConfig || !serviceConfig.secretId || !serviceConfig.secretKey)
+    this.isSupportList = true;
+    if (!serviceConfig || !serviceConfig.secretId || !serviceConfig.secretKey) {
       throw new Error("secretId and secretKey are required");
-    this.secretId = serviceConfig.secretId, this.secretKey = serviceConfig.secretKey;
+    }
+    this.secretId = serviceConfig.secretId?.trim();
+    this.secretKey = serviceConfig.secretKey?.trim();
   }
   static getUTCDate(dateObj) {
-    let year = dateObj.getUTCFullYear(), month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0"), date = `${dateObj.getUTCDate()}`.padStart(2, "0");
+    const year = dateObj.getUTCFullYear();
+    const month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0");
+    const date = `${dateObj.getUTCDate()}`.padStart(2, "0");
     return `${year}-${month}-${date}`;
   }
   static getAllProps() {
     return [{
       name: "secretId",
-      required: !0,
+      required: true,
       type: "text"
     }, {
       name: "secretKey",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, RequestPayload = JSON.stringify({
+    const { text, from, to } = payload;
+    const RequestPayload = JSON.stringify({
       ProjectId: 0,
       Source: _Tencent.langMap.get(from) || "auto",
       SourceText: text,
       Target: _Tencent.langMap.get(to) || to
-    }), data = await this.signedRequest({
+    });
+    const data = await this.signedRequest({
       secretId: this.secretId,
       secretKey: this.secretKey,
       action: "TextTranslate",
@@ -13007,12 +15331,14 @@ var langMap2 = [
     };
   }
   async translateList(payload) {
-    let { text, from, to } = payload, RequestPayload = JSON.stringify({
+    const { text, from, to } = payload;
+    const RequestPayload = JSON.stringify({
       ProjectId: 0,
       Source: _Tencent.langMap.get(from) || "auto",
       SourceTextList: text,
       Target: _Tencent.langMap.get(to) || to
-    }), data = await this.signedRequest({
+    });
+    const data = await this.signedRequest({
       secretId: this.secretId,
       secretKey: this.secretKey,
       action: "TextTranslateBatch",
@@ -13034,7 +15360,10 @@ var langMap2 = [
     service,
     version
   }) {
-    let host = `${service}.tencentcloudapi.com`, now = /* @__PURE__ */ new Date(), timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10), CanonicalRequest = [
+    const host = `${service}.tencentcloudapi.com`;
+    const now = /* @__PURE__ */ new Date();
+    const timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10);
+    const CanonicalRequest = [
       "POST",
       "/",
       "",
@@ -13043,23 +15372,28 @@ var langMap2 = [
       "",
       "content-type;host",
       await sha256(payload)
-    ].join(`
-`), datestamp = _Tencent.getUTCDate(now), StringToSign = [
+    ].join("\n");
+    const datestamp = _Tencent.getUTCDate(now);
+    const StringToSign = [
       "TC3-HMAC-SHA256",
       timestamp,
       `${datestamp}/${service}/tc3_request`,
       await sha256(CanonicalRequest)
-    ].join(`
-`), SecretDate = await hmacSha256ByString(datestamp, `TC3${secretKey}`), SecretService = await hmacSha256ByArrayBuffer(
+    ].join("\n");
+    const SecretDate = await hmacSha256ByString(datestamp, `TC3${secretKey}`);
+    const SecretService = await hmacSha256ByArrayBuffer(
       service,
       SecretDate
-    ), SecretSigning = await hmacSha256ByArrayBuffer(
+    );
+    const SecretSigning = await hmacSha256ByArrayBuffer(
       "tc3_request",
       SecretService
-    ), Signature = await hmacSha256ByArrayBuffer(
+    );
+    const Signature = await hmacSha256ByArrayBuffer(
       StringToSign,
       SecretSigning
-    ), response = await request2({
+    );
+    const response = await request2({
       retry: 2,
       url: `https://${service}.tencentcloudapi.com`,
       method: "POST",
@@ -13074,17 +15408,23 @@ var langMap2 = [
       },
       body: payload
     });
-    if (response instanceof Error)
+    if (response instanceof Error) {
       throw response;
-    if (response.Response && response.Response.Error && response.Response.Error.Message)
-      throw new Error(
-        response.Response.Error.Message
-      );
-    return response;
+    } else {
+      if (response.Response && response.Response.Error && response.Response.Error.Message) {
+        throw new Error(
+          response.Response.Error.Message
+        );
+      } else {
+        return response;
+      }
+    }
   }
-}, Tencent = _Tencent;
+};
+var Tencent = _Tencent;
 /** Translator lang to custom lang */
-Tencent.langMap = new Map(langMap2), /** Custom lang to translator lang */
+Tencent.langMap = new Map(langMap2);
+/** Custom lang to translator lang */
 Tencent.langMapReverse = new Map(
   langMap2.map(([translatorLang, lang]) => [lang, translatorLang])
 );
@@ -13197,44 +15537,56 @@ var langMap3 = [
   ["yi", "yi"],
   ["yo", "yo"],
   ["zu", "zu"]
-], _Google = class extends Translation {
+];
+var _Google = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.throttleLimit = 100;
     this.apiUrl = "https://translate.googleapis.com/translate_a/single";
-    serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
+    if (serviceConfig && serviceConfig.apiUrl) {
+      this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl);
+    }
   }
   async translate(payload) {
-    let { text, from, to } = payload;
+    const { text, from, to } = payload;
     if (!text)
       return { ...payload };
-    let adaptedFrom = _Google.langMap.get(from) || "auto", adaptedTo = _Google.langMap.get(to) || to, result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
-    if (!result)
+    const adaptedFrom = _Google.langMap.get(from) || "auto";
+    const adaptedTo = _Google.langMap.get(to) || to;
+    const result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
+    if (!result) {
       throw new Error("google translate NETWORK_ERROR");
-    if (!result.data[0] || result.data[0].length <= 0)
+    }
+    if (!result.data[0] || result.data[0].length <= 0) {
       throw new Error("google translate API_SERVER_ERROR");
+    }
+    const transText = result.data[0].map((item) => item[0]).filter(Boolean).join("");
     return {
-      text: result.data[0].map((item) => item[0]).filter(Boolean).join(""),
+      text: transText,
       from: _Google.langMapReverse.get(result.data[2]) || "auto",
       to
     };
   }
   async fetchWithoutToken(text, from, to) {
-    let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
+    const params = new URLSearchParams({
       client: "gtx",
       dt: "t",
       sl: from,
       tl: to,
       q: text
-    }).toString();
-    return { data: await request2({
+    });
+    const url = `https://translate.googleapis.com/translate_a/single?` + params.toString();
+    const response = await request2({
       retry: 2,
       url
-    }) };
+    });
+    return { data: response };
   }
-}, Google = _Google;
-Google.langMap = new Map(langMap3), Google.langMapReverse = new Map(
+};
+var Google = _Google;
+Google.langMap = new Map(langMap3);
+Google.langMapReverse = new Map(
   langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13251,20 +15603,26 @@ function count(sentence, part) {
   return sentence.split(part).length - 1;
 }
 function generateTimestamp(sentences) {
-  let now = Date.now(), iCount = 1;
-  for (let sentence of sentences)
+  const now = Date.now();
+  let iCount = 1;
+  for (const sentence of sentences) {
     iCount += count(sentence, "i");
+  }
   return calculateValidTimestamp(now, iCount);
 }
 function randRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function generateId() {
-  return randRange(1e6, 1e8);
+  const MIN = 1e6;
+  const MAX = 1e8;
+  return randRange(MIN, MAX);
 }
 
 // services/d/settings.ts
-var API_URL = "https://www2.deepl.com/jsonrpc", AUTO = "auto", SUPPORTED_LANGUAGES = [
+var API_URL = "https://www2.deepl.com/jsonrpc";
+var AUTO = "auto";
+var SUPPORTED_LANGUAGES = [
   { code: "BG", language: "Bulgarian" },
   { code: "ZH", language: "Chinese" },
   { code: "CS", language: "Czech" },
@@ -13289,7 +15647,8 @@ var API_URL = "https://www2.deepl.com/jsonrpc", AUTO = "auto", SUPPORTED_LANGUAG
   { code: "SL", language: "Slovenian" },
   { code: "ES", language: "Spanish" },
   { code: "SV", language: "Swedish" }
-], SUPPORTED_FORMALITY_TONES = ["formal", "informal"];
+];
+var SUPPORTED_FORMALITY_TONES = ["formal", "informal"];
 
 // services/d/generators.ts
 function generateSplitSentencesRequestData(text, sourceLanguage = AUTO, identifier = generateId()) {
@@ -13297,7 +15656,7 @@ function generateSplitSentencesRequestData(text, sourceLanguage = AUTO, identifi
     jsonrpc: "2.0",
     method: "LMT_split_text",
     params: {
-      commonJobParams: { mode: "translate" },
+      commonJobParams: { "mode": "translate" },
       lang: {
         lang_user_selected: sourceLanguage,
         user_preferred_langs: []
@@ -13308,11 +15667,12 @@ function generateSplitSentencesRequestData(text, sourceLanguage = AUTO, identifi
   };
 }
 function generateJobs(sentences, beams = 1) {
-  let jobs = [], id = 0;
+  const jobs = [];
+  let id = 0;
   for (let i2 = 0; i2 < sentences.length; i2++) {
-    let chunks = sentences[i2].chunks;
+    const chunks = sentences[i2].chunks;
     for (let j5 = 0; j5 < chunks.length; j5++) {
-      let chunk = chunks[j5];
+      const chunk = chunks[j5];
       jobs.push({
         kind: "default",
         _index: i2,
@@ -13327,28 +15687,32 @@ function generateJobs(sentences, beams = 1) {
         ),
         raw_en_context_after: id + 1 < chunks.length ? [chunks[id + 1].sentences[0].text] : [],
         preferred_num_beams: beams
-      }), id++;
+      });
+      id++;
     }
   }
   return jobs;
 }
 function splitedResultToArray(sentences) {
   return sentences.reduce((jobs, sentence) => {
-    let chunks = sentence.chunks;
-    for (let chunk of chunks)
+    const chunks = sentence.chunks;
+    for (const chunk of chunks) {
       jobs.push(chunk.sentences[0].text);
+    }
     return jobs;
   }, []);
 }
 function generateCommonJobParams(formality) {
-  if (!formality)
+  if (!formality) {
     return {};
-  if (!SUPPORTED_FORMALITY_TONES.includes(formality))
+  }
+  if (!SUPPORTED_FORMALITY_TONES.includes(formality)) {
     throw new Error("Formality tone '{formality_tone}' not supported.");
+  }
   return { formality };
 }
 function generateTranslationRequestData(sourceLanguage, targetLanguage, sentences, identifier = generateId(), alternatives = 1, formality) {
-  let allSentences = splitedResultToArray(sentences);
+  const allSentences = splitedResultToArray(sentences);
   return {
     jsonrpc: "2.0",
     method: "LMT_handle_jobs",
@@ -13369,7 +15733,11 @@ function generateTranslationRequestData(sourceLanguage, targetLanguage, sentence
 
 // services/d/utils.ts
 function createAbbreviationsDictionary(languages3 = SUPPORTED_LANGUAGES) {
-  return languages3.reduce((acc, lang) => (acc[lang.code.toLowerCase()] = lang.code, acc[lang.language.toLowerCase()] = lang.code, acc), {});
+  return languages3.reduce((acc, lang) => {
+    acc[lang.code.toLowerCase()] = lang.code;
+    acc[lang.language.toLowerCase()] = lang.code;
+    return acc;
+  }, {});
 }
 function abbreviateLanguage(language) {
   return createAbbreviationsDictionary()[language.toLowerCase()];
@@ -13388,12 +15756,15 @@ var headers = {
 };
 function stringifyJson(object) {
   return JSON.stringify(object).replace('"method":"', () => {
-    let self2 = object;
-    return (self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
+    const self2 = object;
+    if ((self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0) {
+      return '"method" : "';
+    }
+    return '"method": "';
   });
 }
 async function splitSentences2(API_URL2, text, sourceLanguage, identifier) {
-  let data = generateSplitSentencesRequestData(
+  const data = generateSplitSentencesRequestData(
     text,
     sourceLanguage,
     identifier
@@ -13409,47 +15780,67 @@ async function splitSentences2(API_URL2, text, sourceLanguage, identifier) {
   );
 }
 async function requestTranslation(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
-  let splitResult = await splitSentences2(
+  const splitResult = await splitSentences2(
     API_URL2,
     text,
     sourceLanguage,
     identifier
-  ), data = generateTranslationRequestData(
+  );
+  const data = generateTranslationRequestData(
     sourceLanguage === "auto" ? splitResult.result.lang.detected : sourceLanguage,
     targetLanguage,
     extractSplitSentences(splitResult),
     identifier,
     alternatives,
     formalityTone
-  ), jobsIndexes = data.params.jobs.map((job) => job._index);
+  );
+  const jobsIndexes = data.params.jobs.map((job) => job._index);
   data.params.jobs = data.params.jobs.map((job) => {
-    let newJob = { ...job };
-    return delete newJob._index, newJob;
+    const newJob = { ...job };
+    delete newJob._index;
+    return newJob;
   });
-  let response = await request2({
+  const response = await request2({
     retry: 2,
     method: "POST",
     url: API_URL2 + "?method=LMT_handle_jobs",
     body: stringifyJson(data),
     headers
-  }), finalResult = {
+  });
+  const finalResult = {
     from: splitResult.result.lang.detected,
     to: targetLanguage,
     text: []
   };
-  return response.result.translations.forEach((translation, index) => {
-    let jobIndex = jobsIndexes[index];
-    finalResult.text[jobIndex] === void 0 && (finalResult.text[jobIndex] = "");
-    let originalSentencePrefix = data.params.jobs[index].sentences[0].prefix, originalSentencePre = data.params.jobs[index].sentences[0].prefix;
+  response.result.translations.forEach((translation, index) => {
+    const jobIndex = jobsIndexes[index];
+    if (finalResult.text[jobIndex] === void 0) {
+      finalResult.text[jobIndex] = "";
+    }
+    const originalSentencePrefix = data.params.jobs[index].sentences[0].prefix;
+    const originalSentencePre = data.params.jobs[index].sentences[0].prefix;
     finalResult.text[jobIndex] = finalResult.text[jobIndex] + originalSentencePrefix + translation.beams[0].sentences[0].text;
-  }), finalResult;
+  });
+  return finalResult;
 }
 async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
-  return text ? text && text.length === 1 && text[0] === "" ? {
-    text: [""],
-    from: sourceLanguage,
-    to: targetLanguage
-  } : requestTranslation(
+  if (!text) {
+    return {
+      text: [],
+      from: sourceLanguage,
+      to: targetLanguage
+    };
+  }
+  if (text && text.length === 1) {
+    if (text[0] === "") {
+      return {
+        text: [""],
+        from: sourceLanguage,
+        to: targetLanguage
+      };
+    }
+  }
+  const response = requestTranslation(
     API_URL2,
     text,
     abbreviateLanguage(targetLanguage),
@@ -13457,11 +15848,8 @@ async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, 
     identifier,
     alternatives,
     formalityTone
-  ) : {
-    text: [],
-    from: sourceLanguage,
-    to: targetLanguage
-  };
+  );
+  return response;
 }
 
 // services/d/mod.ts
@@ -13478,17 +15866,21 @@ var langMap4 = [
   ["pt", "PT"],
   ["ru", "RU"],
   ["tr", "tr"]
-], _D = class extends Translation {
+];
+var _D = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.maxTextGroupLength = 3;
     this.maxTextLength = 800;
-    this.isSupportList = !0;
+    this.isSupportList = true;
     this.API_URL = API_URL;
-    serviceConfig && serviceConfig.apiUrl && (this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl));
+    if (serviceConfig && serviceConfig.apiUrl) {
+      this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl);
+    }
   }
   async translateList(payload) {
-    let { text, to, from } = payload, result = await translate(
+    const { text, to, from } = payload;
+    const result = await translate(
       this.API_URL,
       text,
       _D.langMap.get(to) || to,
@@ -13500,9 +15892,11 @@ var langMap4 = [
       to: _D.langMapReverse.get(result.to)
     };
   }
-}, D8 = _D;
+};
+var D8 = _D;
 /** Translator lang to custom lang */
-D8.langMap = new Map(langMap4), /** Custom lang to translator lang */
+D8.langMap = new Map(langMap4);
+/** Custom lang to translator lang */
 D8.langMapReverse = new Map(
   langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
 );
@@ -13526,46 +15920,54 @@ var langMap5 = [
   ["th", "th"],
   ["tr", "tr"],
   ["vi", "vi"]
-], API = "https://transmart.qq.com/api/imt", _Transmart = class extends Translation {
+];
+var API = "https://transmart.qq.com/api/imt";
+var _Transmart = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.maxTextGroupLength = 50;
     this.maxTextLength = 1e3;
     this.throttleLimit = 1e3;
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.clientKey = btoa(
       "transmart_crx_" + navigator.userAgent
     ).slice(0, 100);
   }
   async translate(payload) {
-    let { text, to } = payload, sourceLanguage = await this.detectLanguage(text), remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage, remoteTargetLanguage = _Transmart.langMap.get(to) || to;
-    if (sourceLanguage === to)
+    const { text, to } = payload;
+    const sourceLanguage = await this.detectLanguage(text);
+    const remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage;
+    const remoteTargetLanguage = _Transmart.langMap.get(to) || to;
+    if (sourceLanguage === to) {
       return {
         text,
         from: sourceLanguage,
         to
       };
-    let requestPayload = JSON.stringify(
+    }
+    const requestPayload = JSON.stringify(
       {
-        header: {
-          fn: "auto_translation_block",
-          client_key: this.clientKey
+        "header": {
+          "fn": "auto_translation_block",
+          "client_key": this.clientKey
         },
-        source: {
-          text_block: text,
-          lang: remoteSourceLanguage,
-          orig_url: payload.url
+        "source": {
+          "text_block": text,
+          "lang": remoteSourceLanguage,
+          "orig_url": payload.url
         },
-        target: { lang: remoteTargetLanguage }
+        "target": { "lang": remoteTargetLanguage }
       }
-    ), data = await request2({
+    );
+    const data = await request2({
       url: API,
       body: requestPayload,
       method: "POST",
       retry: 2
     });
-    if (data.header.ret_code !== "succ")
+    if (data.header.ret_code !== "succ") {
       throw new Error(data.message || data.header.ret_code);
+    }
     return {
       text: data.auto_translation,
       from: sourceLanguage || "auto",
@@ -13573,9 +15975,9 @@ var langMap5 = [
     };
   }
   async translateList(payload) {
-    let { from, text, to } = payload;
+    const { from, text, to } = payload;
     if (text.length === 1) {
-      let result = await this.translate({
+      const result = await this.translate({
         from,
         text: text[0],
         to,
@@ -13588,35 +15990,39 @@ var langMap5 = [
         to: result.to
       };
     }
-    let sourceLanguage = await this.detectLanguage(text.join(`
-`));
-    if (sourceLanguage === to)
+    const sourceLanguage = await this.detectLanguage(text.join("\n"));
+    if (sourceLanguage === to) {
       return {
         text,
         from: sourceLanguage,
         to
       };
-    let remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage, remoteTargetLanguage = _Transmart.langMap.get(to) || to, requestPayload = JSON.stringify(
+    }
+    const remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage;
+    const remoteTargetLanguage = _Transmart.langMap.get(to) || to;
+    const requestPayload = JSON.stringify(
       {
-        header: {
-          fn: "auto_translation",
-          client_key: this.clientKey
+        "header": {
+          "fn": "auto_translation",
+          "client_key": this.clientKey
         },
-        source: {
-          text_list: text,
-          lang: remoteSourceLanguage,
-          orig_url: payload.url
+        "source": {
+          "text_list": text,
+          "lang": remoteSourceLanguage,
+          "orig_url": payload.url
         },
-        target: { lang: remoteTargetLanguage },
-        type: "plain"
+        "target": { "lang": remoteTargetLanguage },
+        "type": "plain"
       }
-    ), data = await request2({
+    );
+    const data = await request2({
       url: API,
       body: requestPayload,
       method: "POST"
     });
-    if (data.header.ret_code !== "succ")
+    if (data.header.ret_code !== "succ") {
       throw new Error(data.message || data.header.ret_code);
+    }
     return {
       text: data.auto_translation,
       from: sourceLanguage || "auto",
@@ -13627,25 +16033,33 @@ var langMap5 = [
     return this.detectLanguageRemotely(text);
   }
   async detectLanguageRemotely(text) {
-    let payload = {
-      header: {
-        fn: "text_analysis",
-        client_key: this.clientKey
+    const payload = {
+      "header": {
+        "fn": "text_analysis",
+        "client_key": this.clientKey
       },
       text: text.slice(0, 280)
-    }, response = await request2({
+    };
+    const response = await request2({
       url: API,
       method: "POST",
       body: JSON.stringify(payload)
     });
-    if (response.header.ret_code !== "succ")
+    if (response.header.ret_code !== "succ") {
       throw new Error(response.message || response.header.ret_code);
-    let remoteLanguage = response.language, language = _Transmart.langMapReverse.get(remoteLanguage);
-    return language || remoteLanguage;
+    }
+    const remoteLanguage = response.language;
+    const language = _Transmart.langMapReverse.get(remoteLanguage);
+    if (language) {
+      return language;
+    }
+    return remoteLanguage;
   }
-}, Transmart = _Transmart;
+};
+var Transmart = _Transmart;
 /** Translator lang to custom lang */
-Transmart.langMap = new Map(langMap5), /** Custom lang to translator lang */
+Transmart.langMap = new Map(langMap5);
+/** Custom lang to translator lang */
 Transmart.langMapReverse = new Map(
   langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
 );
@@ -13659,32 +16073,40 @@ function getRandomBoolean() {
 var Mock = class extends Translation {
   constructor() {
     super(...arguments);
-    this.isSupportList = !0;
+    this.isSupportList = true;
   }
   async translate(payload) {
-    let { text } = payload;
-    await mockRequest(), await delay(5e3);
-    let startSpaceLength = text.match(/^\s*/)[0].length;
+    const { text } = payload;
+    await mockRequest();
+    await delay(5e3);
+    const startSpaceLength = text.match(/^\s*/)[0].length;
+    const mockText = text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
     return {
-      text: text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6),
+      text: mockText,
       from: payload.from,
       to: payload.to
     };
   }
   async translateList(payload) {
-    let { text: textList, from, to } = payload;
-    if (await mockRequest(), !getRandomBoolean())
+    const { text: textList, from, to } = payload;
+    await mockRequest();
+    if (!getRandomBoolean()) {
       throw new Error("\u6A21\u62DF\u9519\u8BEF");
-    return textList.length === 0 ? {
-      from,
-      to,
-      text: [""]
-    } : {
+    }
+    if (textList.length === 0) {
+      return {
+        from,
+        to,
+        text: [""]
+      };
+    }
+    return {
       from,
       to,
       text: textList.map((text) => {
-        let startSpaceLength = text.match(/^\s*/)[0].length;
-        return text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
+        const startSpaceLength = text.match(/^\s*/)[0].length;
+        const mockText = text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
+        return mockText;
       })
     };
   }
@@ -13704,26 +16126,34 @@ var rawLangMap = [
   ["pl", "pl"],
   ["pt", "pt"],
   ["ru", "ru"]
-], langMap6 = new Map(rawLangMap), langMapReverse = new Map(
+];
+var langMap6 = new Map(rawLangMap);
+var langMapReverse = new Map(
   rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
-), _Openl = class extends Translation {
+);
+var _Openl = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.apikey = "";
     this.codename = _Openl.DEFAULT_CODENAME;
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.maxTextGroupLength = 1;
-    if (!serviceConfig || !serviceConfig.apikey)
+    if (!serviceConfig || !serviceConfig.apikey) {
       throw new Error("apikey are required");
-    this.apikey = serviceConfig.apikey, serviceConfig.codename && (this.codename = serviceConfig.codename);
+    }
+    this.apikey = serviceConfig.apikey?.trim();
+    if (serviceConfig.codename) {
+      this.codename = serviceConfig.codename;
+    }
   }
   static getAllProps() {
+    const props = _Openl.getProps();
     return [
-      ..._Openl.getProps(),
+      ...props,
       {
         type: "password",
         name: "apikey",
-        required: !0
+        required: true
       }
     ];
   }
@@ -13733,7 +16163,7 @@ var rawLangMap = [
       name: "codename",
       label: "translationEngine",
       default: _Openl.DEFAULT_CODENAME,
-      required: !1,
+      required: false,
       options: [
         {
           label: "translationServices.deepl",
@@ -13783,7 +16213,8 @@ var rawLangMap = [
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, response = await request2(
+    const { text, from, to } = payload;
+    const response = await request2(
       {
         retry: 2,
         url: `https://api.openl.club/services/${this.codename}/translate`,
@@ -13800,16 +16231,18 @@ var rawLangMap = [
       }
     );
     if (response.status) {
-      let result = response;
+      const result = response;
       return {
         text: result.result,
         from: langMapReverse.get(result.source_lang),
         to: langMapReverse.get(result.target_lang)
       };
-    } else
+    } else {
       throw new Error(response.msg);
+    }
   }
-}, Openl = _Openl;
+};
+var Openl = _Openl;
 Openl.DEFAULT_CODENAME = "deepl";
 var openl_default = Openl;
 
@@ -13828,9 +16261,12 @@ var rawLangMap2 = [
   ["pl", "PL"],
   ["pt", "PT"],
   ["ru", "RU"]
-], langMap7 = new Map(rawLangMap2), langMapReverse2 = new Map(
+];
+var langMap7 = new Map(rawLangMap2);
+var langMapReverse2 = new Map(
   rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
-), Deepl = class extends Translation {
+);
+var Deepl = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.authKey = "";
@@ -13839,31 +16275,48 @@ var rawLangMap2 = [
     this.freeApiUrl = "https://api-free.deepl.com/v2/translate";
     this.proApiUrl = "https://api.deepl.com/v2/translate";
     this.immersiveTranslateApiUrl = "https://deepl.immersivetranslate.com/v2/translate";
-    if (!serviceConfig || !serviceConfig.authKey)
+    if (!serviceConfig || !serviceConfig.authKey) {
       throw new Error("authKey are required");
-    serviceConfig && serviceConfig.freeApiUrl && (this.freeApiUrl = mergeUrl(this.freeApiUrl, serviceConfig.freeApiUrl)), serviceConfig && serviceConfig.proApiUrl && (this.proApiUrl = mergeUrl(this.proApiUrl, serviceConfig.proApiUrl)), serviceConfig && serviceConfig.immersiveTranslateApiUrl && (this.immersiveTranslateApiUrl = mergeUrl(
-      this.immersiveTranslateApiUrl,
-      serviceConfig.immersiveTranslateApiUrl
-    )), this.authKey = serviceConfig.authKey;
+    }
+    if (serviceConfig && serviceConfig.freeApiUrl) {
+      this.freeApiUrl = mergeUrl(this.freeApiUrl, serviceConfig.freeApiUrl);
+    }
+    if (serviceConfig && serviceConfig.proApiUrl) {
+      this.proApiUrl = mergeUrl(this.proApiUrl, serviceConfig.proApiUrl);
+    }
+    if (serviceConfig && serviceConfig.immersiveTranslateApiUrl) {
+      this.immersiveTranslateApiUrl = mergeUrl(
+        this.immersiveTranslateApiUrl,
+        serviceConfig.immersiveTranslateApiUrl
+      );
+    }
+    this.authKey = serviceConfig.authKey?.trim();
   }
   static getAllProps() {
     return [{
       name: "authKey",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translateList(payload) {
-    let { from, to, text } = payload, bodyParams = {
-      source_lang: langMap7.get(from) || "",
-      target_lang: langMap7.get(to) || to
-    }, bodySearchParams = new URLSearchParams(bodyParams);
+    const { from, to, text } = payload;
+    const bodyParams = {
+      ["source_lang"]: langMap7.get(from) || "",
+      ["target_lang"]: langMap7.get(to) || to
+    };
+    const bodySearchParams = new URLSearchParams(bodyParams);
     text.forEach((item) => {
       bodySearchParams.append("text", item);
     });
-    let body = bodySearchParams.toString(), deeplEndpoint = this.freeApiUrl;
-    this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
-    let response = await request2(
+    const body = bodySearchParams.toString();
+    let deeplEndpoint = this.freeApiUrl;
+    if (this.authKey.endsWith(":im")) {
+      deeplEndpoint = this.immersiveTranslateApiUrl;
+    } else if (!this.authKey.endsWith(":fx")) {
+      deeplEndpoint = this.proApiUrl;
+    }
+    const response = await request2(
       {
         retry: 2,
         url: deeplEndpoint,
@@ -13874,17 +16327,20 @@ var rawLangMap2 = [
           "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
         extra: {
-          overrideMimeType: "application/json; charset=utf-8"
+          "overrideMimeType": "application/json; charset=utf-8"
         }
       }
-    ), { translations: translations2 } = response;
+    );
+    const { translations: translations2 } = response;
+    const resultText = translations2.map((t5) => t5.text);
     return {
-      text: translations2.map((t5) => t5.text),
+      text: resultText,
       from: translations2[0] && langMapReverse2.get(translations2[0].detected_source_language) || from,
       to
     };
   }
-}, deepl_default = Deepl;
+};
+var deepl_default = Deepl;
 
 // services/niu.ts
 var rawLangMap3 = [
@@ -13898,24 +16354,29 @@ var rawLangMap3 = [
   ["de", "de"],
   ["ko", "ko"],
   ["fr", "fr"]
-], langMap8 = new Map(rawLangMap3), Niu = class extends Translation {
+];
+var langMap8 = new Map(rawLangMap3);
+var Niu = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.APIKEY = "";
-    this.isSupportList = !1;
-    if (!serviceConfig || !serviceConfig.APIKEY)
+    this.isSupportList = false;
+    if (!serviceConfig || !serviceConfig.APIKEY) {
       throw new Error("APIKEY are required");
-    this.APIKEY = serviceConfig.APIKEY;
+    }
+    this.APIKEY = serviceConfig.APIKEY?.trim();
   }
   static getAllProps() {
     return [{
       name: "APIKEY",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, options = {
+    let { text, from, to } = payload;
+    const src_text = text;
+    const options = {
       url: "https://api.niutrans.com/NiuTransServer/translation",
       retry: 2,
       headers: {
@@ -13923,26 +16384,31 @@ var rawLangMap3 = [
       },
       method: "POST",
       body: JSON.stringify({
-        src_text: text,
+        src_text,
         from: langMap8.get(from) || from,
         to: langMap8.get(to) || to,
         apikey: this.APIKEY
       })
-    }, response = await request2(
+    };
+    const response = await request2(
       options
     );
-    if (response.tgt_text) {
+    if (!response.tgt_text) {
+      throw new Error(JSON.stringify(response));
+    } else {
       let result = response.tgt_text;
-      return result.endsWith(`
-`) && (result = result.slice(0, -1)), {
+      if (result.endsWith("\n")) {
+        result = result.slice(0, -1);
+      }
+      return {
         text: result,
         from,
         to
       };
-    } else
-      throw new Error(JSON.stringify(response));
+    }
   }
-}, niu_default = Niu;
+};
+var niu_default = Niu;
 
 // services/volc/sign.ts
 var unsignableHeaders = [
@@ -13952,7 +16418,8 @@ var unsignableHeaders = [
   "user-agent",
   "presigned-expires",
   "expect"
-], constant = {
+];
+var constant = {
   algorithm: "HMAC-SHA256",
   v4Identifier: "request",
   dateHeader: "X-Date",
@@ -13965,65 +16432,110 @@ var unsignableHeaders = [
   signHeadersKey: "X-SignedHeaders",
   signQueriesKey: "X-SignedQueries",
   signatureKey: "X-Signature"
-}, uriEscape = (str) => {
+};
+var uriEscape = (str) => {
   try {
     return encodeURIComponent(str).replace(/[^A-Za-z0-9_.~\-%]+/g, escape).replace(
       /[*]/g,
       (ch) => `%${ch.charCodeAt(0).toString(16).toUpperCase()}`
     );
-  } catch {
+  } catch (e3) {
     return "";
   }
-}, queryParamsToString = (params) => Object.keys(params).map((key) => {
-  let val = params[key];
-  if (typeof val > "u" || val === null)
+};
+var queryParamsToString = (params) => Object.keys(params).map((key) => {
+  const val = params[key];
+  if (typeof val === "undefined" || val === null) {
     return;
-  let escapedKey = uriEscape(key);
-  if (escapedKey)
-    return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
-}).filter((v2) => v2).join("&"), Signer = class {
+  }
+  const escapedKey = uriEscape(key);
+  if (!escapedKey) {
+    return;
+  }
+  if (Array.isArray(val)) {
+    return `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}`;
+  }
+  return `${escapedKey}=${uriEscape(val)}`;
+}).filter((v2) => v2).join("&");
+var Signer = class {
   constructor(request3, serviceName, options) {
-    this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options = options || {}, this.bodySha256 = options.bodySha256, this.request.params = this.sortParams(this.request.params);
+    this.request = request3;
+    this.request.headers = request3.headers || {};
+    this.serviceName = serviceName;
+    options = options || {};
+    this.bodySha256 = options.bodySha256;
+    this.request.params = this.sortParams(this.request.params);
   }
   sortParams(params) {
-    let newParams = {};
-    return params && Object.keys(params).filter((key) => {
-      let value = params[key];
-      return typeof value < "u" && value !== null;
-    }).sort().map((key) => {
-      newParams[key] = params[key];
-    }), newParams;
+    const newParams = {};
+    if (params) {
+      Object.keys(params).filter((key) => {
+        const value = params[key];
+        return typeof value !== "undefined" && value !== null;
+      }).sort().map((key) => {
+        newParams[key] = params[key];
+      });
+    }
+    return newParams;
   }
   async addAuthorization(credentials, date) {
-    let datetime = this.getDateTime(date);
-    await this.addHeaders(credentials, datetime), this.request.headers.Authorization = await this.authorization(
+    const datetime = this.getDateTime(date);
+    await this.addHeaders(credentials, datetime);
+    this.request.headers["Authorization"] = await this.authorization(
       credentials,
       datetime
     );
   }
   async authorization(credentials, datetime) {
-    let parts = [], credString = this.credentialString(datetime);
-    return parts.push(
+    const parts = [];
+    const credString = this.credentialString(datetime);
+    parts.push(
       `${constant.algorithm} Credential=${credentials.accessKeyId}/${credString}`
-    ), parts.push(`SignedHeaders=${this.signedHeaders()}`), parts.push(`Signature=${await this.signature(credentials, datetime)}`), parts.join(", ");
+    );
+    parts.push(`SignedHeaders=${this.signedHeaders()}`);
+    parts.push(`Signature=${await this.signature(credentials, datetime)}`);
+    return parts.join(", ");
   }
   async getSignUrl(credentials, date) {
-    let datetime = this.getDateTime(date), query = { ...this.request.params }, params = this.request.params, headers2 = this.request.headers;
-    credentials.sessionToken && (query[constant.tokenHeader] = credentials.sessionToken), query[constant.dateHeader] = datetime, query[constant.notSignBody] = "", query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`, query[constant.algorithmKey] = constant.algorithm, query[constant.signHeadersKey] = "", query[constant.signQueriesKey] = void 0, query[constant.signatureKey] = void 0, query = this.sortParams(query), this.request.params = query, this.request.headers = {};
-    let sig = await this.signature(credentials, datetime);
-    return this.request.params = params, this.request.headers = headers2, query[constant.signQueriesKey] = Object.keys(query).sort().join(";"), query[constant.signatureKey] = sig, queryParamsToString(query);
+    const datetime = this.getDateTime(date);
+    let query = { ...this.request.params };
+    const params = this.request.params;
+    const headers2 = this.request.headers;
+    if (credentials.sessionToken) {
+      query[constant.tokenHeader] = credentials.sessionToken;
+    }
+    query[constant.dateHeader] = datetime;
+    query[constant.notSignBody] = "";
+    query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`;
+    query[constant.algorithmKey] = constant.algorithm;
+    query[constant.signHeadersKey] = "";
+    query[constant.signQueriesKey] = void 0;
+    query[constant.signatureKey] = void 0;
+    query = this.sortParams(query);
+    this.request.params = query;
+    this.request.headers = {};
+    const sig = await this.signature(credentials, datetime);
+    this.request.params = params;
+    this.request.headers = headers2;
+    query[constant.signQueriesKey] = Object.keys(query).sort().join(";");
+    query[constant.signatureKey] = sig;
+    return queryParamsToString(query);
   }
   getDateTime(date) {
     return this.iso8601(date).replace(/[:\-]|\.\d{3}/g, "");
   }
   async addHeaders(credentials, datetime) {
-    if (this.request.headers[constant.dateHeader] = datetime, credentials.sessionToken && (this.request.headers[constant.tokenHeader] = credentials.sessionToken), this.request.body) {
+    this.request.headers[constant.dateHeader] = datetime;
+    if (credentials.sessionToken) {
+      this.request.headers[constant.tokenHeader] = credentials.sessionToken;
+    }
+    if (this.request.body) {
       let body = this.request.body;
       this.request.headers[constant.contentSha256Header] = await sha256(body);
     }
   }
   async signature(credentials, datetime) {
-    let signingKey = await this.getSigningKey(
+    const signingKey = await this.getSigningKey(
       credentials,
       datetime.substr(0, 8),
       this.request.region,
@@ -14032,47 +16544,61 @@ var unsignableHeaders = [
     return hex(await hmacSha256(await this.stringToSign(datetime), signingKey));
   }
   async stringToSign(datetime) {
-    let parts = [];
-    parts.push(constant.algorithm), parts.push(datetime), parts.push(this.credentialString(datetime));
-    let x5 = await this.canonicalString();
-    return parts.push(
+    const parts = [];
+    parts.push(constant.algorithm);
+    parts.push(datetime);
+    parts.push(this.credentialString(datetime));
+    const x5 = await this.canonicalString();
+    parts.push(
       await this.hexEncodedHash(x5)
-    ), parts.join(`
-`);
+    );
+    const result = parts.join("\n");
+    return result;
   }
   async canonicalString() {
-    let parts = [], pathname = this.request.pathname || "/";
-    parts.push(this.request.method.toUpperCase()), parts.push(pathname);
-    let queryString = queryParamsToString(this.request.params) || "";
-    return parts.push(queryString), parts.push(`${this.canonicalHeaders()}
-`), parts.push(this.signedHeaders()), parts.push(await this.hexEncodedBodyHash()), parts.join(`
+    const parts = [], pathname = this.request.pathname || "/";
+    parts.push(this.request.method.toUpperCase());
+    parts.push(pathname);
+    const queryString = queryParamsToString(this.request.params) || "";
+    parts.push(queryString);
+    parts.push(`${this.canonicalHeaders()}
 `);
+    parts.push(this.signedHeaders());
+    parts.push(await this.hexEncodedBodyHash());
+    const result = parts.join("\n");
+    return result;
   }
   canonicalHeaders() {
-    let headers2 = [];
+    const headers2 = [];
     Object.keys(this.request.headers).forEach((key) => {
       headers2.push([key, this.request.headers[key]]);
-    }), headers2.sort((a4, b4) => a4[0].toLowerCase() < b4[0].toLowerCase() ? -1 : 1);
-    let parts = [];
-    return headers2.forEach((item) => {
-      let key = item[0].toLowerCase();
+    });
+    headers2.sort((a4, b4) => a4[0].toLowerCase() < b4[0].toLowerCase() ? -1 : 1);
+    const parts = [];
+    headers2.forEach((item) => {
+      const key = item[0].toLowerCase();
       if (this.isSignableHeader(key)) {
-        let value = item[1];
-        if (typeof value > "u" || value === null || typeof value.toString != "function")
+        const value = item[1];
+        if (typeof value === "undefined" || value === null || typeof value.toString !== "function") {
           throw new Error(`Header ${key} contains invalid value`);
+        }
         parts.push(`${key}:${this.canonicalHeaderValues(value.toString())}`);
       }
-    }), parts.join(`
-`);
+    });
+    return parts.join("\n");
   }
   canonicalHeaderValues(values) {
     return values.replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "");
   }
   signedHeaders() {
-    let keys = [];
-    return Object.keys(this.request.headers).forEach((key) => {
-      key = key.toLowerCase(), this.isSignableHeader(key) && keys.push(key);
-    }), keys.sort().join(";");
+    const keys = [];
+    Object.keys(this.request.headers).forEach((key) => {
+      key = key.toLowerCase();
+      if (this.isSignableHeader(key)) {
+        keys.push(key);
+      }
+    });
+    return keys.sort().join(";");
   }
   signedQueries() {
     return Object.keys(this.request.params).join(";");
@@ -14088,19 +16614,30 @@ var unsignableHeaders = [
     return await sha256(str);
   }
   async hexEncodedBodyHash() {
-    return this.request.headers[constant.contentSha256Header] ? this.request.headers[constant.contentSha256Header] : this.request.body ? await this.hexEncodedHash(queryParamsToString(this.request.body)) : await this.hexEncodedHash("");
+    if (this.request.headers[constant.contentSha256Header]) {
+      return this.request.headers[constant.contentSha256Header];
+    }
+    if (this.request.body) {
+      return await this.hexEncodedHash(queryParamsToString(this.request.body));
+    }
+    return await this.hexEncodedHash("");
   }
   isSignableHeader(key) {
     return unsignableHeaders.indexOf(key) < 0;
   }
   iso8601(date) {
-    return date === void 0 && (date = /* @__PURE__ */ new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
+    if (date === void 0) {
+      date = /* @__PURE__ */ new Date();
+    }
+    return date.toISOString().replace(/\.\d{3}Z$/, "Z");
   }
   async getSigningKey(credentials, date, region, service) {
-    let kDate = await hmacSha256(
+    const kDate = await hmacSha256(
       date,
       `${constant.kDatePrefix}${credentials.secretKey}`
-    ), kRegion = await hmacSha256(region, kDate), kService = await hmacSha256(service, kRegion);
+    );
+    const kRegion = await hmacSha256(region, kDate);
+    const kService = await hmacSha256(service, kRegion);
     return hmacSha256(constant.v4Identifier, kService);
   }
   createScope(date, region, serviceName) {
@@ -14216,51 +16753,59 @@ var rawLangMap4 = [
   ["zh-CN", "zh"],
   ["zh-TW", "zh-Hans"],
   ["zu", "zu"]
-], langMap9 = new Map(rawLangMap4), langMapReverse3 = new Map(
+];
+var langMap9 = new Map(rawLangMap4);
+var langMapReverse3 = new Map(
   rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
-), Volc = class extends Translation {
+);
+var Volc = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.accessKeyId = "";
     this.secretAccessKey = "";
     this.maxTextGroupLength = 8;
-    if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey)
+    if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey) {
       throw new Error("accessKeyId and secretAccessKey are required");
-    this.accessKeyId = serviceConfig.accessKeyId, this.secretAccessKey = serviceConfig.secretAccessKey;
+    }
+    this.accessKeyId = serviceConfig.accessKeyId?.trim();
+    this.secretAccessKey = serviceConfig.secretAccessKey?.trim();
   }
   static getAllProps() {
     return [{
       name: "accessKeyId",
-      required: !0,
+      required: true,
       type: "text"
     }, {
       name: "secretAccessKey",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async remoteDetectLanguage(text) {
-    let requestObj = {
+    const bodyParams = {
+      "TextList": [text]
+    };
+    const requestObj = {
       region: "cn-north-1",
       method: "POST",
       params: {
-        Action: "LangDetect",
-        Version: "2020-06-01"
+        "Action": "LangDetect",
+        "Version": "2020-06-01"
       },
       pathname: "/",
       headers: {
         "Content-Type": "application/json",
-        host: "open.volcengineapi.com"
+        "host": "open.volcengineapi.com"
       },
-      body: JSON.stringify({
-        TextList: [text]
-      })
-    }, signer = new Signer(requestObj, "translate");
+      body: JSON.stringify(bodyParams)
+    };
+    const signer = new Signer(requestObj, "translate");
     await signer.addAuthorization({
       accessKeyId: this.accessKeyId,
       secretKey: this.secretAccessKey
     });
-    let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
+    const urlSearchParams = new URLSearchParams(requestObj.params);
+    const response = await request2(
       {
         retry: 2,
         url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
@@ -14269,45 +16814,55 @@ var rawLangMap4 = [
         body: requestObj.body
       }
     );
-    if (response.DetectedLanguageList && response.DetectedLanguageList.length > 0)
+    if (response.DetectedLanguageList && response.DetectedLanguageList.length > 0) {
       return response.DetectedLanguageList[0].Language;
-    if (response.ResponseMetadata && response.ResponseMetadata.Error) {
-      let error2 = response.ResponseMetadata.Error;
-      throw new CommonError(error2.Code, error2.Message);
-    } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
-      let error2 = response.ResponseMetaData.Error;
-      throw new CommonError(error2.Code, error2.Message);
-    } else
-      throw new Error("response: " + JSON.stringify(response));
+    } else {
+      if (response.ResponseMetadata && response.ResponseMetadata.Error) {
+        const error2 = response.ResponseMetadata.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
+        const error2 = response.ResponseMetaData.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      } else {
+        throw new Error("response: " + JSON.stringify(response));
+      }
+    }
   }
   async translateList(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap9.get(from), bodyParams = {
-      TargetLanguage: langMap9.get(to) || to,
-      TextList: text
+    const { text, from, to } = payload;
+    const remoteFrom = langMap9.get(from);
+    const bodyParams = {
+      "TargetLanguage": langMap9.get(to) || to,
+      "TextList": text
     };
-    remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
-      text.join(`
-`).slice(0, 1e3)
-    );
-    let requestObj = {
+    if (remoteFrom) {
+      bodyParams.SourceLanguage = remoteFrom;
+    } else {
+      bodyParams.SourceLanguage = await this.remoteDetectLanguage(
+        text.join("\n").slice(0, 1e3)
+      );
+    }
+    const requestObj = {
       region: "cn-north-1",
       method: "POST",
       params: {
-        Action: "TranslateText",
-        Version: "2020-06-01"
+        "Action": "TranslateText",
+        "Version": "2020-06-01"
       },
       pathname: "/",
       headers: {
         "Content-Type": "application/json",
-        host: "open.volcengineapi.com"
+        "host": "open.volcengineapi.com"
       },
       body: JSON.stringify(bodyParams)
-    }, signer = new Signer(requestObj, "translate");
+    };
+    const signer = new Signer(requestObj, "translate");
     await signer.addAuthorization({
       accessKeyId: this.accessKeyId,
       secretKey: this.secretAccessKey
     });
-    let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
+    const urlSearchParams = new URLSearchParams(requestObj.params);
+    const response = await request2(
       {
         retry: 2,
         url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
@@ -14317,24 +16872,34 @@ var rawLangMap4 = [
       }
     );
     if (response.TranslationList) {
-      let resultText = response.TranslationList.map((item) => item.Translation), remoteFrom2 = from;
-      return response.TranslationList.length > 0 && response.TranslationList[0].DetectedSourceLanguage && (remoteFrom2 = langMapReverse3.get(
-        response.TranslationList[0].DetectedSourceLanguage
-      ) || from), {
+      const resultText = response.TranslationList.map((item) => item.Translation);
+      let remoteFrom2 = from;
+      if (response.TranslationList.length > 0) {
+        if (response.TranslationList[0].DetectedSourceLanguage) {
+          remoteFrom2 = langMapReverse3.get(
+            response.TranslationList[0].DetectedSourceLanguage
+          ) || from;
+        }
+      }
+      return {
         text: resultText,
         from: remoteFrom2,
         to
       };
-    } else if (response.ResponseMetadata && response.ResponseMetadata.Error) {
-      let error2 = response.ResponseMetadata.Error;
-      throw new CommonError(error2.Code, error2.Message);
-    } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
-      let error2 = response.ResponseMetaData.Error;
-      throw new CommonError(error2.Code, error2.Message);
-    } else
-      throw new Error("response: " + JSON.stringify(response));
+    } else {
+      if (response.ResponseMetadata && response.ResponseMetadata.Error) {
+        const error2 = response.ResponseMetadata.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
+        const error2 = response.ResponseMetaData.Error;
+        throw new CommonError(error2.Code, error2.Message);
+      } else {
+        throw new Error("response: " + JSON.stringify(response));
+      }
+    }
   }
-}, mod_default2 = Volc;
+};
+var mod_default2 = Volc;
 
 // services/volc_alpha.ts
 var rawLangMap5 = [
@@ -14443,38 +17008,49 @@ var rawLangMap5 = [
   ["zh-CN", "zh"],
   ["zh-TW", "zh-Hans"],
   ["zu", "zu"]
-], langMap10 = new Map(rawLangMap5), langMapReverse4 = new Map(
+];
+var langMap10 = new Map(rawLangMap5);
+var langMapReverse4 = new Map(
   rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
-), VolcAlpha = class extends Translation {
+);
+var VolcAlpha = class extends Translation {
   constructor() {
     super(...arguments);
     this.maxTextGroupLength = 50;
-    this.isSupportList = !1;
+    this.isSupportList = false;
   }
   async translate(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, response = await request2(
+    const { text, from, to } = payload;
+    const remoteFrom = langMap10.get(from) || "detect";
+    const remoteTo = langMap10.get(to) || to;
+    const bodyParams = {
+      "source_language": remoteFrom,
+      "target_language": remoteTo,
+      "text": text
+    };
+    const response = await request2(
       {
         url: "https://translate.volcengine.com/crx/translate/v1/",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          source_language: remoteFrom,
-          target_language: remoteTo,
-          text
-        })
+        body: JSON.stringify(bodyParams)
       }
     );
     if (response.base_resp && response.base_resp.status_code === 0) {
-      let resultText = response.translation, remoteFrom2 = from;
-      return response.detected_language && (remoteFrom2 = langMapReverse4.get(response.detected_language) || from), {
+      const resultText = response.translation;
+      let remoteFrom2 = from;
+      if (response.detected_language) {
+        remoteFrom2 = langMapReverse4.get(response.detected_language) || from;
+      }
+      return {
         text: resultText,
         from: remoteFrom2,
         to
       };
     } else {
-      let error2 = response.base_resp;
+      const error2 = response.base_resp;
       throw new CommonError(error2.status_code.toString(), error2.status_message);
     }
   }
@@ -14494,27 +17070,31 @@ var rawLangMap6 = [
   ["pt", "PT"],
   ["ru", "RU"],
   ["tr", "tr"]
-], langMap11 = new Map(rawLangMap6), Deeplx = class extends Translation {
+];
+var langMap11 = new Map(rawLangMap6);
+var Deeplx = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.url = "";
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.maxTextGroupLength = 1;
-    if (!serviceConfig || !serviceConfig.url)
+    if (!serviceConfig || !serviceConfig.url) {
       throw new Error(
         "deeplx custom url are required, please check your settings."
       );
+    }
     this.url = serviceConfig.url;
   }
   static getAllProps() {
     return [{
       name: "url",
-      required: !0,
+      required: true,
       type: "text"
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, result = await request2(
+    const { text, from, to } = payload;
+    const response = await request2(
       {
         retry: 2,
         url: this.url,
@@ -14529,18 +17109,26 @@ var rawLangMap6 = [
         })
       }
     );
-    if (result.code === 200)
+    const result = response;
+    if (result.code === 200) {
       return {
         text: result.data,
         from,
         to
       };
-    throw new Error(result.message || result.message || "API Error");
+    } else {
+      throw new Error(result.message || result.message || "API Error");
+    }
   }
 };
 
 // services/bing/api.js
-var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap7 = [
+var TRANSLATE_API_ROOT = "https://{s}bing.com";
+var TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator";
+var TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3";
+var TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3";
+var globalConfigStorageKey = "bingGlobalConfig";
+var rawLangMap7 = [
   ["auto", "auto-detect"],
   ["ar", "ar"],
   ["ga", "ga"],
@@ -14616,31 +17204,54 @@ var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_AP
   ["vi", "vi"],
   ["ku", "ku"],
   ["km", "kmr"]
-], langMap12 = new Map(rawLangMap7), langMapReverse5 = new Map(
+];
+var langMap12 = new Map(rawLangMap7);
+var langMapReverse5 = new Map(
   rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
-), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
+);
+var MAX_TEXT_LEN = 1e3;
+var globalConfig;
+var globalConfigPromise;
 function replaceSubdomain(url, subdomain) {
   return url.replace("{s}", subdomain ? subdomain + "." : "");
 }
 async function isTokenExpired() {
   if (!globalConfig) {
-    let storageValue = await browserAPI.storage.local.get(
+    const storageValue = await browserAPI.storage.local.get(
       globalConfigStorageKey
     );
-    return storageValue && (globalConfig = storageValue[globalConfigStorageKey]), !0;
+    if (storageValue) {
+      globalConfig = storageValue[globalConfigStorageKey];
+    }
+    return true;
   }
-  let { tokenTs, tokenExpiryInterval } = globalConfig;
+  const { tokenTs, tokenExpiryInterval } = globalConfig;
   return Date.now() - tokenTs > tokenExpiryInterval;
 }
 async function fetchGlobalConfig() {
-  let subdomain, IG, IID, token, key, tokenExpiryInterval, isVertical, frontDoorBotClassification, isSignedInOrCorporateUser, cookie;
+  let subdomain;
+  let IG;
+  let IID;
+  let token;
+  let key;
+  let tokenExpiryInterval;
+  let isVertical;
+  let frontDoorBotClassification;
+  let isSignedInOrCorporateUser;
+  let cookie;
   try {
-    let finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain), response = await request2({
+    const finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain);
+    const response = await request2({
       retry: 2,
       url: finalUrl,
       responseType: "raw"
-    }), { body, headers: headers2, url } = response;
-    subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1], cookie = headers2["set-cookie"], IG = body.match(/IG:"([^"]+)"/)[1], IID = body.match(/data-iid="([^"]+)"/)[1], [
+    });
+    const { body, headers: headers2, url } = response;
+    subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1];
+    cookie = headers2["set-cookie"];
+    IG = body.match(/IG:"([^"]+)"/)[1];
+    IID = body.match(/data-iid="([^"]+)"/)[1];
+    [
       key,
       token,
       tokenExpiryInterval,
@@ -14651,9 +17262,10 @@ async function fetchGlobalConfig() {
       body.match(/params_AbusePreventionHelper\s?=\s?([^\]]+\])/)[1]
     );
   } catch (e3) {
-    throw console.error("failed to fetch global config", e3), e3;
+    console.error("failed to fetch global config", e3);
+    throw e3;
   }
-  return globalConfig = {
+  globalConfig = {
     subdomain,
     IG,
     IID,
@@ -14667,44 +17279,70 @@ async function fetchGlobalConfig() {
     cookie,
     // PENDING: reset count if count value is large?
     count: 0
-  }, await browserAPI.storage.local.set({
+  };
+  await browserAPI.storage.local.set({
     [globalConfigStorageKey]: globalConfig
-  }), globalConfig;
+  });
+  return globalConfig;
 }
 function makeRequestURL(isSpellCheck) {
-  let { IG, IID, subdomain, isVertical } = globalConfig;
+  const { IG, IID, subdomain, isVertical } = globalConfig;
   return replaceSubdomain(
     isSpellCheck ? TRANSLATE_SPELL_CHECK_API : TRANSLATE_API,
     subdomain
   ) + "?isVertical=1" + (IG && IG.length ? "&IG=" + IG : "") + (IID && IID.length ? "&IID=" + IID + "." + globalConfig.count++ : "");
 }
 function makeRequestBody(isSpellCheck, text, fromLang, toLang) {
-  let { token, key } = globalConfig, body = {
+  const { token, key } = globalConfig;
+  const body = {
     fromLang,
     text,
     token,
     key
   };
-  return !isSpellCheck && toLang && (body.to = toLang), body;
+  if (!isSpellCheck && toLang) {
+    body.to = toLang;
+  }
+  return body;
 }
 async function translate2(text, from, to) {
-  if (!text || !(text = text.trim()))
+  if (!text || !(text = text.trim())) {
     return;
-  if (text.length > MAX_TEXT_LEN)
+  }
+  if (text.length > MAX_TEXT_LEN) {
     throw new Error(
       `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
     );
-  globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap12.get(from) || from, to = langMap12.get(to) || to;
-  let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
-    !1,
+  }
+  if (!globalConfigPromise) {
+    globalConfigPromise = fetchGlobalConfig();
+  }
+  await globalConfigPromise;
+  const isTokenExpiredValue = await isTokenExpired();
+  if (isTokenExpiredValue) {
+    globalConfigPromise = fetchGlobalConfig();
+    await globalConfigPromise;
+  }
+  from = from || "auto";
+  to = to || "zh-CN";
+  from = langMap12.get(from) || from;
+  to = langMap12.get(to) || to;
+  const requestURL = makeRequestURL(false);
+  const requestBody = makeRequestBody(
+    false,
     text,
     from,
     to === "auto-detect" ? "zh-Hans" : to
-  ), requestHeaders = {
+  );
+  const requestHeaders = {
     referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
     // cookie: globalConfig.cookie,
     "content-type": "application/x-www-form-urlencoded"
-  }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
+  };
+  const searchParams = new URLSearchParams(requestBody);
+  const finalUrl = requestURL;
+  const requestBodyString = searchParams.toString();
+  const body = await request2({
     retry: 2,
     url: finalUrl,
     headers: requestHeaders,
@@ -14712,40 +17350,51 @@ async function translate2(text, from, to) {
     body: requestBodyString
   });
   if (body.ShowCaptcha || body.StatusCode === 401 || body.statusCode) {
-    if (globalConfig = null, globalConfigPromise = null, await browserAPI.storage.local.remove(globalConfigStorageKey), body.ShowCaptcha)
+    globalConfig = null;
+    globalConfigPromise = null;
+    await browserAPI.storage.local.remove(globalConfigStorageKey);
+    if (body.ShowCaptcha) {
       throw new Error(`
       Sorry that bing translator seems to be asking for the captcha,
       Please take care not to request too frequently.
       The response code is ${body.StatusCode}.
     `);
-    if (body.StatusCode === 401)
+    }
+    if (body.StatusCode === 401) {
       throw new Error(`
       Max count of translation exceeded. Please try it again later.
       The response code is 401.
     `);
-    if (body.statusCode)
+    }
+    if (body.statusCode) {
       throw new Error(
         `Something went wrong! The response is ${JSON.stringify(body)}.`
       );
+    }
   }
-  let translation = body[0].translations[0], detectedLang = body[0].detectedLanguage;
-  return {
+  const translation = body[0].translations[0];
+  const detectedLang = body[0].detectedLanguage;
+  const res = {
     text: translation.text,
     from: langMapReverse5.get(detectedLang.language),
     to: langMapReverse5.get(translation.to)
   };
+  return res;
 }
 
 // services/bing/mod.ts
 var Bing = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.maxTextLength = 1e3;
   }
   async translate(payload) {
-    let { text, from, to } = payload;
-    return text ? await translate2(text, from, to) : { ...payload };
+    const { text, from, to } = payload;
+    if (!text)
+      return { ...payload };
+    const result = await translate2(text, from, to);
+    return result;
   }
 };
 
@@ -14780,64 +17429,78 @@ var rawLangMap8 = [
   ["hu", "hu"],
   ["zh-TW", "cht"],
   ["vi", "vie"]
-], langMap13 = new Map(rawLangMap8), langMapReverse6 = new Map(
+];
+var langMap13 = new Map(rawLangMap8);
+var langMapReverse6 = new Map(
   rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
-), Baidu = class extends Translation {
+);
+var Baidu = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.endpoint = "https://api.fanyi.baidu.com/api/trans/vip/translate";
     this.appid = "";
     this.key = "";
-    this.isSupportList = !1;
-    if (!serviceConfig || !serviceConfig.appid || !serviceConfig.key)
+    this.isSupportList = false;
+    if (!serviceConfig || !serviceConfig.appid || !serviceConfig.key) {
       throw new Error("appid and key are required");
-    this.appid = serviceConfig.appid, this.key = serviceConfig.key;
+    }
+    this.appid = serviceConfig.appid?.trim();
+    this.key = serviceConfig.key?.trim();
   }
   static getAllProps() {
     return [{
       name: "appid",
-      required: !0,
+      required: true,
       type: "text"
     }, {
       name: "key",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translate(payload) {
-    let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
+    const salt = Date.now().toString();
+    const { endpoint } = this;
+    const { appid, key } = this;
+    const { text, from, to } = payload;
+    const params = new URLSearchParams({
       from: langMap13.get(from) || "auto",
       to: langMap13.get(to) || to,
       q: text,
       salt,
       appid,
       sign: md5(appid + text + salt + key)
-    }), urlObj = new URL(endpoint);
+    });
+    const urlObj = new URL(endpoint);
     urlObj.search = params.toString();
-    let data = await request2(
+    const data = await request2(
       {
         url: urlObj.toString()
       }
     );
-    if (data.error_code)
-      throw console.error(
+    if (data.error_code) {
+      console.error(
         new Error("[Baidu service]" + data.error_msg)
-      ), new CommonError(
+      );
+      throw new CommonError(
         "API_SERVER_ERROR",
         data.error_msg
       );
-    let {
+    }
+    const {
       trans_result: transResult,
       from: langDetected
-    } = data, transParagraphs = transResult.map(({ dst }) => dst);
+    } = data;
+    const transParagraphs = transResult.map(({ dst }) => dst);
+    const detectedFrom = langMapReverse6.get(langDetected);
     return {
-      from: langMapReverse6.get(langDetected) || langDetected,
+      from: detectedFrom || langDetected,
       to,
-      text: transParagraphs.join(`
-`)
+      text: transParagraphs.join("\n")
     };
   }
-}, baidu_default = Baidu;
+};
+var baidu_default = Baidu;
 
 // services/caiyun.ts
 var rawLangMap9 = [
@@ -14845,48 +17508,58 @@ var rawLangMap9 = [
   ["zh-CN", "zh"],
   ["en", "en"],
   ["ja", "ja"]
-], langMap14 = new Map(rawLangMap9), Caiyun = class extends Translation {
+];
+var langMap14 = new Map(rawLangMap9);
+var Caiyun = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.token = "";
-    if (!serviceConfig || !serviceConfig.token)
+    if (!serviceConfig || !serviceConfig.token) {
       throw new Error("token are required");
-    this.token = serviceConfig.token;
+    }
+    this.token = serviceConfig.token?.trim();
   }
   static getAllProps() {
     return [{
       name: "token",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translateList(payload) {
     let { text, from, to } = payload;
-    if (!langMap14.get(to))
+    const remoteTo = langMap14.get(to);
+    if (!remoteTo) {
       throw new Error(`Unsupported language: ${to}`);
-    from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
-    let source = text;
+    }
+    if (from === "auto") {
+      from = await detectLanguage({ text: text.join(" "), minLength: 10 });
+    }
+    const source = text;
+    const response = await request2(
+      {
+        retry: 2,
+        url: "https://api.interpreter.caiyunai.com/v1/translator",
+        headers: {
+          "content-type": "application/json",
+          "x-authorization": "token " + this.token
+        },
+        method: "POST",
+        body: JSON.stringify({
+          source,
+          trans_type: `${langMap14.get(from) || "auto"}2${langMap14.get(to)}`
+        })
+      }
+    );
+    const result = response;
     return {
-      text: (await request2(
-        {
-          retry: 2,
-          url: "https://api.interpreter.caiyunai.com/v1/translator",
-          headers: {
-            "content-type": "application/json",
-            "x-authorization": "token " + this.token
-          },
-          method: "POST",
-          body: JSON.stringify({
-            source,
-            trans_type: `${langMap14.get(from) || "auto"}2${langMap14.get(to)}`
-          })
-        }
-      )).target,
+      text: result.target,
       from,
       to
     };
   }
-}, caiyun_default = Caiyun;
+};
+var caiyun_default = Caiyun;
 
 // services/youdao.ts
 var rawLangMap10 = [
@@ -14903,36 +17576,47 @@ var rawLangMap10 = [
   ["id", "id"],
   ["vi", "vi"],
   ["it", "it"]
-], langMap15 = new Map(rawLangMap10), langMapReverse7 = new Map(
+];
+var langMap15 = new Map(rawLangMap10);
+var langMapReverse7 = new Map(
   rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 function truncate(q6) {
-  let len = q6.length;
-  return len <= 20 ? q6 : q6.substring(0, 10) + len + q6.substring(len - 10, len);
+  const len = q6.length;
+  if (len <= 20)
+    return q6;
+  return q6.substring(0, 10) + len + q6.substring(len - 10, len);
 }
 var Youdao = class extends Translation {
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
+    this.isSupportList = false;
     this.appId = "";
     this.appSecret = "";
-    if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret)
+    if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret) {
       throw new Error("appId and appSecret are required");
-    this.appId = serviceConfig.appId, this.appSecret = serviceConfig.appSecret;
+    }
+    this.appId = serviceConfig.appId?.trim();
+    this.appSecret = serviceConfig.appSecret?.trim();
   }
   static getAllProps() {
     return [{
       name: "appId",
-      required: !0,
+      required: true,
       type: "text"
     }, {
       name: "appSecret",
-      required: !0,
+      required: true,
       type: "password"
     }];
   }
   async translate(payload) {
-    let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
+    const { text, from, to } = payload;
+    const salt = (/* @__PURE__ */ new Date()).getTime();
+    const curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3);
+    const str1 = this.appId + truncate(text) + salt + curTime + this.appSecret;
+    const sign = await sha256(str1);
+    const params = {
       q: text,
       appKey: this.appId,
       salt: salt.toString(),
@@ -14941,7 +17625,9 @@ var Youdao = class extends Translation {
       sign,
       signType: "v3",
       curtime: curTime.toString()
-    }, urlSearchParams = new URLSearchParams(params), result = await request2(
+    };
+    const urlSearchParams = new URLSearchParams(params);
+    const res = await request2(
       {
         url: "https://openapi.youdao.com/api",
         method: "POST",
@@ -14950,15 +17636,18 @@ var Youdao = class extends Translation {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }
-    ), l2 = result.l, [remoteFrom, _3] = l2.split("2");
+    );
+    const result = res;
+    const l2 = result.l;
+    const [remoteFrom, _3] = l2.split("2");
     return {
-      text: result.translation.join(`
-`),
+      text: result.translation.join("\n"),
       from: langMapReverse7.get(remoteFrom),
       to
     };
   }
-}, youdao_default = Youdao;
+};
+var youdao_default = Youdao;
 
 // services/mod.ts
 var TranslationServices = {
@@ -14997,7 +17686,7 @@ var TranslationServices = {
   volcAlpha: {
     class: VolcAlpha,
     name: "Volc Alpha",
-    alpha: !0,
+    alpha: true,
     homepage: "https://www.volcengine.com/"
   },
   bing: {
@@ -15044,19 +17733,19 @@ var TranslationServices = {
   d: {
     class: D8,
     name: "D () ",
-    alpha: !0,
+    alpha: true,
     homepage: "https://www.deepl.com/translator"
   },
   dpro: {
     class: D8,
     name: "DPro (Canary) ",
-    canary: !0,
+    canary: true,
     homepage: "https://www.deepl.com/translator"
   },
   deeplx: {
     class: Deeplx,
     name: "DeepLX (Beta)",
-    beta: !0,
+    beta: true,
     homepage: "https://www.deepl.com/translator"
   },
   niu: {
@@ -15067,15 +17756,19 @@ var TranslationServices = {
   }
 };
 function formatTranslationService(key, ctx) {
-  let service = TranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.class.getAllProps();
+  const service = TranslationServices[key];
+  const translationConfig = ctx.config.translationServices[key] || {};
+  let ok = true;
+  const allProps = service.class.getAllProps();
   if (allProps.length > 0) {
-    let requiredProps = allProps.filter((prop) => prop.required);
+    const requiredProps = allProps.filter((prop) => prop.required);
     if (requiredProps.length > 0) {
-      for (let prop of requiredProps)
+      for (const prop of requiredProps) {
         if (!translationConfig[prop.name]) {
-          ok = !1;
+          ok = false;
           break;
         }
+      }
     }
   }
   return {
@@ -15090,45 +17783,81 @@ function formatTranslationService(key, ctx) {
 }
 var allServiceKeys = Object.keys(
   TranslationServices
-), getTranslationServices = (ctx) => {
-  let { config } = ctx, alpha = config.alpha, beta = config.beta, canary = config.canary, debug = config.debug;
+);
+var getTranslationServices = (ctx) => {
+  const { config } = ctx;
+  const alpha = config.alpha;
+  const beta = config.beta;
+  const canary = config.canary;
+  const debug = config.debug;
   return allServiceKeys.filter((key) => {
-    let service = TranslationServices[key];
-    if (key.startsWith("mock"))
-      return !!debug;
-    let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
-    return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
-  }).map((key) => formatTranslationService(key, ctx));
+    const service = TranslationServices[key];
+    if (key.startsWith("mock")) {
+      if (debug) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    const isCanaryFeature = !!service.canary;
+    const isAlphaFeature = !!service.alpha;
+    const isBetaFeature = !!service.beta;
+    if (isCanaryFeature && canary) {
+      return true;
+    } else if (isAlphaFeature && (alpha || canary)) {
+      return true;
+    } else if (isBetaFeature && (beta || alpha || canary)) {
+      return true;
+    } else if (key === ctx.translationService) {
+      return true;
+    }
+    return !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
+  }).map((key) => {
+    return formatTranslationService(key, ctx);
+  });
 };
 async function translateSingleSentence(sentence, ctx) {
-  if (!sentence.text)
+  if (!sentence.text) {
     return sentence;
-  let result = await translateMultipleSentences(
+  }
+  const result = await translateMultipleSentences(
     {
       sentences: [sentence]
     },
     ctx
   );
-  if (result.sentences.length > 0)
+  if (result.sentences.length > 0) {
     return {
       ...sentence,
       ...result.sentences[0]
     };
+  }
   throw new CommonError("translateFailed", "translate failed");
 }
 async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
-  if (!payload.sentences.length)
+  if (!payload.sentences.length) {
     return {
       ...payload
     };
-  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
+  }
+  const { config, translationService } = ctx;
+  const generalConfig = config.translationGeneralConfig;
+  const services = config.translationServices;
+  const defaultTranslationEngine = translationService;
+  const serviceConfig = services[defaultTranslationEngine] || {};
+  const noCacheSentences = [];
+  const finalResult = {
     sentences: Array(payload.sentences.length)
-  }, sourceLength = payload.sentences.length, sentenceIndex = -1;
-  if (config.cache)
-    for (let sentence of payload.sentences) {
+  };
+  const sourceLength = payload.sentences.length;
+  let sentenceIndex = -1;
+  if (config.cache) {
+    for (const sentence of payload.sentences) {
       sentenceIndex++;
       let cacheServiceKey = defaultTranslationEngine;
-      defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME);
+      if (defaultTranslationEngine === "openl") {
+        cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME;
+      }
       let res = null;
       try {
         res = await deadline(
@@ -15144,61 +17873,82 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
         log_default.warn("query cache DB error, but it's ok", e3);
       }
       if (res) {
-        let result = {
+        const result = {
           ...sentence,
           text: res.translatedText
         };
-        finalResult.sentences[sentenceIndex] = result, everySentenceCallback && everySentenceCallback(null, result, sentence);
-      } else
+        finalResult.sentences[sentenceIndex] = result;
+        if (everySentenceCallback) {
+          everySentenceCallback(null, result, sentence);
+        }
+      } else {
         noCacheSentences.push(sentence);
+      }
     }
-  else
+  } else {
     noCacheSentences.push(...payload.sentences);
-  let resultLength = noCacheSentences.length;
-  if (sourceLength - resultLength > 0 && log_default.debug(`use ${sourceLength - resultLength} sentences from cache`), !noCacheSentences.length)
+  }
+  const resultLength = noCacheSentences.length;
+  if (sourceLength - resultLength > 0) {
+    log_default.debug(`use ${sourceLength - resultLength} sentences from cache`);
+  }
+  if (!noCacheSentences.length) {
     return finalResult;
+  }
   let translator;
   try {
     translator = new TranslationServices[defaultTranslationEngine].class(
       serviceConfig,
       generalConfig
-    ), await translator.init();
+    );
+    await translator.init();
   } catch (e3) {
-    if (everySentenceCallback)
-      for (let sentence of noCacheSentences)
+    if (everySentenceCallback) {
+      for (const sentence of noCacheSentences) {
         everySentenceCallback(e3, null, sentence);
+      }
+    }
     throw e3;
   }
-  let noCacheResult = await translator.multipleTranslate(
+  const noCacheResult = await translator.multipleTranslate(
     {
       sentences: noCacheSentences
     },
     serviceConfig,
     (err, a4, b4) => {
-      if (everySentenceCallback && (everySentenceCallback(err, a4, b4), !err && a4 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
-        let cacheServiceKey = defaultTranslationEngine;
-        defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
-          setDbStore(
-            {
-              translatedText: a4.text,
-              from: b4.from,
-              to: b4.to,
-              detectedFrom: a4.from,
-              key: md5(b4.text),
-              service: cacheServiceKey
-            }
-          ),
-          3e3
-        ).catch((e3) => {
-          log_default.warn("set cache DB error", e3);
-        });
+      if (everySentenceCallback) {
+        everySentenceCallback(err, a4, b4);
+        if (!err && a4 && !defaultTranslationEngine.startsWith("mock") && config.cache) {
+          let cacheServiceKey = defaultTranslationEngine;
+          if (defaultTranslationEngine === "openl") {
+            cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME;
+          }
+          if (config.cache) {
+            deadline(
+              setDbStore(
+                {
+                  translatedText: a4.text,
+                  from: b4.from,
+                  to: b4.to,
+                  detectedFrom: a4.from,
+                  key: md5(b4.text),
+                  service: cacheServiceKey
+                }
+              ),
+              3e3
+            ).catch((e3) => {
+              log_default.warn("set cache DB error", e3);
+            });
+          }
+        }
       }
     }
   );
-  for (let sentence of noCacheResult.sentences) {
-    let index = finalResult.sentences.findIndex((s4) => !s4);
-    if (index === -1)
+  for (const sentence of noCacheResult.sentences) {
+    const index = finalResult.sentences.findIndex((s4) => !s4);
+    if (index === -1) {
       throw new CommonError("translateFailed", "can not match the result");
+    }
     finalResult.sentences[index] = sentence;
   }
   return finalResult;
@@ -15210,100 +17960,146 @@ function getResourceUrl(root2, lang) {
 }
 function format(str, params) {
   let result = str;
-  return params && Object.keys(params).forEach((key) => {
-    let rawValue = params[key], keyIsNumber = isNumber(key);
-    if (typeof rawValue == "object" || keyIsNumber) {
-      let value = rawValue;
-      keyIsNumber && typeof value == "string" && (value = {
-        tag: "a",
-        href: value
-      });
-      let tag = `<${key}>`, tagIndex = result.indexOf(tag);
-      if (tagIndex !== -1) {
-        let actualTag = value.tag || "a", endIndex = result.indexOf(`</${key}>`);
-        if (endIndex !== -1) {
-          let html = result.substring(tagIndex + tag.length, endIndex), attrs = Object.keys(value).filter((attr) => attr !== "tag").map((attr) => `${attr}="${value[attr]}"`).join(" ");
-          result = result.replace(
-            `${tag}${html}</${key}>`,
-            `<${actualTag} ${attrs}>${html}</${actualTag}>`
-          );
+  if (params) {
+    Object.keys(params).forEach((key) => {
+      let rawValue = params[key];
+      const keyIsNumber = isNumber(key);
+      if (typeof rawValue === "object" || keyIsNumber) {
+        let value = rawValue;
+        if (keyIsNumber) {
+          if (typeof value === "string") {
+            value = {
+              tag: "a",
+              href: value
+            };
+          }
         }
+        const tag = `<${key}>`;
+        const tagIndex = result.indexOf(tag);
+        if (tagIndex !== -1) {
+          const actualTag = value.tag || "a";
+          const endIndex = result.indexOf(`</${key}>`);
+          if (endIndex !== -1) {
+            const html = result.substring(tagIndex + tag.length, endIndex);
+            const attrs = Object.keys(value).filter((attr) => attr !== "tag").map((attr) => `${attr}="${value[attr]}"`).join(" ");
+            result = result.replace(
+              `${tag}${html}</${key}>`,
+              `<${actualTag} ${attrs}>${html}</${actualTag}>`
+            );
+          }
+        }
+      } else {
+        const template = new RegExp("{" + key + "}", "gm");
+        result = result.replace(template, rawValue.toString());
       }
-    } else {
-      let template = new RegExp("{" + key + "}", "gm");
-      result = result.replace(template, rawValue.toString());
-    }
-  }), result;
+    });
+  }
+  return result;
 }
 function getValue(languageData, lang, key) {
   let localeData = languageData[lang];
-  if (!localeData)
+  if (!localeData) {
     return key;
-  let keys = key.split("."), propKey = "";
+  }
+  const keys = key.split(".");
+  let propKey = "";
   do {
     propKey += keys.shift();
-    let value = localeData[propKey];
-    value !== void 0 && (typeof value == "object" || !keys.length) ? (localeData = value, propKey = "") : keys.length ? propKey += "." : localeData = key;
+    const value = localeData[propKey];
+    if (value !== void 0 && (typeof value === "object" || !keys.length)) {
+      localeData = value;
+      propKey = "";
+    } else if (!keys.length) {
+      localeData = key;
+    } else {
+      propKey += ".";
+    }
   } while (keys.length);
   return localeData;
 }
 function t3(data, key, lang, fallbackLang, params) {
-  if (!data.hasOwnProperty(lang))
+  if (!data.hasOwnProperty(lang)) {
     return key;
+  }
   let value = getValue(data, lang, key);
-  return value === key && lang !== fallbackLang && (value = getValue(data, fallbackLang, key)), format(value, params);
+  if (value === key && lang !== fallbackLang) {
+    value = getValue(data, fallbackLang, key);
+  }
+  return format(value, params);
 }
 function isNumber(value) {
-  if (typeof value == "number")
-    return !0;
+  if (typeof value === "number") {
+    return true;
+  }
   if (value) {
-    let num = parseInt(value);
+    const num = parseInt(value);
     return !isNaN(num);
-  } else
-    return !1;
+  } else {
+    return false;
+  }
 }
 
 // libs/preact-translation/useTranslate.tsx
-var cache = {}, defaultOptions = {
+var cache = {};
+var defaultOptions = {
   root: "",
   lang: "en",
   fallbackLang: "en"
 };
 function useTranslate(rawOptions, translations2) {
-  let options = Object.assign(
+  const options = Object.assign(
     {},
     defaultOptions,
     rawOptions
   );
   cache = translations2 || cache;
-  let [lang, setLang] = P2(options.lang), [data, setData] = P2(cache), [isReady, setReady] = P2(!1), loadData = (langKey) => {
-    if (data.hasOwnProperty(langKey))
+  const [lang, setLang] = P2(options.lang);
+  const [data, setData] = P2(cache);
+  const [isReady, setReady] = P2(false);
+  const loadData = (langKey) => {
+    if (data.hasOwnProperty(langKey)) {
       return;
-    setReady(!1);
+    }
+    setReady(false);
     let url = getResourceUrl(options.root || "", langKey);
-    options.getUrl && (url = options.getUrl(options.root || "", langKey), fetch(url).then((results) => results.json()).then((resource) => {
-      cache[langKey] = resource, setData({ ...cache }), setReady(!0);
-    }).catch((error2) => {
-      setData({ ...cache }), setReady(!0);
-    }));
+    if (options.getUrl) {
+      url = options.getUrl(options.root || "", langKey);
+      fetch(url).then((results) => results.json()).then((resource) => {
+        cache[langKey] = resource;
+        setData({ ...cache });
+        setReady(true);
+      }).catch((error2) => {
+        setData({ ...cache });
+        setReady(true);
+      });
+    }
   };
-  return j2(() => {
-    loadData(options.fallbackLang || "en"), loadData(lang);
-  }, [lang]), { lang, setLang, t: (key, params) => {
-    if (!data.hasOwnProperty(lang))
+  j2(() => {
+    loadData(options.fallbackLang || "en");
+    loadData(lang);
+  }, [lang]);
+  const t5 = (key, params) => {
+    if (!data.hasOwnProperty(lang)) {
       return key;
+    }
     let value = getValue(data, lang, key);
-    return value === key && lang !== options.fallbackLang && (value = getValue(data, options.fallbackLang, key)), format(value, params);
-  }, isReady };
+    if (value === key && lang !== options.fallbackLang) {
+      value = getValue(data, options.fallbackLang, key);
+    }
+    return format(value, params);
+  };
+  return { lang, setLang, t: t5, isReady };
 }
 
 // libs/preact-translation/translateProvider.tsx
-var TranslateContext = ce(null), defaultOptions2 = {
+var TranslateContext = ce(null);
+var defaultOptions2 = {
   root: "assets",
   lang: "en",
   fallbackLang: "en"
-}, TranslateProvider = (props) => {
-  let { t: t5, setLang, lang, isReady } = useTranslate(
+};
+var TranslateProvider = (props) => {
+  const { t: t5, setLang, lang, isReady } = useTranslate(
     {
       root: props.root || defaultOptions2.root,
       lang: props.lang || defaultOptions2.lang,
@@ -15342,7 +18138,8 @@ function NavLeft(props) {
 // components/select_link.tsx
 function SelectLink(props) {
   let { items, maxWidth } = props;
-  return maxWidth = maxWidth || 128, /* @__PURE__ */ p5(
+  maxWidth = maxWidth || 128;
+  return /* @__PURE__ */ p5(
     "select",
     {
       autoComplete: "off",
@@ -15350,8 +18147,11 @@ function SelectLink(props) {
       style: { maxWidth: `${maxWidth}px` },
       value: items.find((item) => item.selected)?.value,
       onChange: (e3) => {
-        let value = e3.target.value, item = items.find((item2) => item2.value === value);
-        item && item.onSelected(item);
+        const value = e3.target.value;
+        const item = items.find((item2) => item2.value === value);
+        if (item) {
+          item.onSelected(item);
+        }
       },
       children: items.map((item) => /* @__PURE__ */ p5("option", { value: item.value, selected: item.selected, children: item.label }))
     }
@@ -15360,7 +18160,7 @@ function SelectLink(props) {
 
 // components/input_row.tsx
 function InputRow(props) {
-  let { t: t5 } = useI18n();
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("div", { class: "input-row", children: [
     /* @__PURE__ */ p5("div", { class: "input-left", children: /* @__PURE__ */ p5("label", { for: props.field.name, children: [
       props.field.label ? t5(props.field.label) : props.field.name,
@@ -15386,44 +18186,54 @@ function InputRow(props) {
 function OptionField(props) {
   let { field, root: root2, onChange, value } = props;
   value = value || field.default || "";
-  let { t: t5 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p5("div", { class: "flex justify-end mb-2", children: [
-    /* @__PURE__ */ p5("label", { class: "engine", children: [
-      field.label ? t5(field.label) : field.name,
-      "\uFF1A"
-    ] }),
-    /* @__PURE__ */ p5(
-      SelectLink,
-      {
-        items: field.options.map(
-          (fieldOption) => ({
-            label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
-            value: value ?? "",
-            selected: value === fieldOption.value,
-            onSelected: () => {
-              onChange(fieldOption.value);
+  const { t: t5 } = useI18n();
+  if (field.type === "select") {
+    return /* @__PURE__ */ p5("div", { class: "flex justify-end mb-2", children: [
+      /* @__PURE__ */ p5("label", { class: "engine", children: [
+        field.label ? t5(field.label) : field.name,
+        "\uFF1A"
+      ] }),
+      /* @__PURE__ */ p5(
+        SelectLink,
+        {
+          items: field.options.map(
+            (fieldOption) => {
+              return {
+                label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
+                value: value ?? "",
+                selected: value === fieldOption.value,
+                onSelected: () => {
+                  onChange(fieldOption.value);
+                }
+              };
             }
-          })
-        )
+          )
+        }
+      )
+    ] });
+  } else if (field.type === "text") {
+    return /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+      InputRow,
+      {
+        field,
+        value,
+        type: field.type,
+        onChange
       }
-    )
-  ] }) : field.type === "text" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
-    InputRow,
-    {
-      field,
-      value,
-      type: field.type,
-      onChange
-    }
-  ) }) : field.type === "password" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
-    InputRow,
-    {
-      field,
-      value,
-      type: field.type,
-      onChange
-    }
-  ) }) : null;
+    ) });
+  } else if (field.type === "password") {
+    return /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+      InputRow,
+      {
+        field,
+        value,
+        type: field.type,
+        onChange
+      }
+    ) });
+  } else {
+    return null;
+  }
 }
 
 // locales.ts
@@ -15450,7 +18260,8 @@ var internalLocaleMap = {
     "languages.pt": "\u8461\u8404\u7259\u8A9E",
     "languages.ru": "\u4FC4\u8A9E"
   }
-}, finalTranslations = {
+};
+var finalTranslations = {
   ...translations,
   "zh-CN": {
     ...internalLocaleMap["zh-CN"],
@@ -15460,7 +18271,8 @@ var internalLocaleMap = {
     ...internalLocaleMap["zh-TW"],
     ...translations["zh-TW"]
   }
-}, locales_default = finalTranslations;
+};
+var locales_default = finalTranslations;
 function t4(key, interfaceLanguage, params) {
   return t3(
     finalTranslations,
@@ -15470,23 +18282,35 @@ function t4(key, interfaceLanguage, params) {
     params
   );
 }
-var getLanguages = () => languages.filter((lang) => lang !== "auto"), getLanguageName = (lang, interfaceLanguage, useOriginal) => {
-  let translation = t3(
+var getLanguages = () => {
+  return languages.filter((lang) => {
+    return lang !== "auto";
+  });
+};
+var getLanguageName = (lang, interfaceLanguage, useOriginal) => {
+  const translation = t3(
     finalTranslations,
     `languages.${lang}`,
     interfaceLanguage,
     "en"
   );
-  return useOriginal ? langMap[lang] || lang : translation !== `languages.${lang}` ? translation : langMap[lang];
+  if (useOriginal) {
+    return langMap[lang] || lang;
+  }
+  if (translation !== `languages.${lang}`) {
+    return translation;
+  } else {
+    return langMap[lang];
+  }
 };
 
 // components/always_lang.tsx
 function AlwaysLang(props) {
-  let { t: t5, lang } = useI18n();
+  const { t: t5, lang } = useI18n();
   return /* @__PURE__ */ p5("details", { role: "list", class: "nav-right", children: [
     /* @__PURE__ */ p5("summary", { "aria-haspopup": "listbox", children: t5("edit") }),
     /* @__PURE__ */ p5("ul", { role: "listbox", class: "option-list", children: props.options.map((item) => {
-      let label = getLanguageName(item.value, lang);
+      const label = getLanguageName(item.value, lang);
       return /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5("label", { children: [
         /* @__PURE__ */ p5(
           "input",
@@ -15507,41 +18331,49 @@ function AlwaysLang(props) {
 
 // components/url_list.tsx
 function UrlList(props) {
-  let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("div", { children: props.urls.map((item, i2) => /* @__PURE__ */ p5("div", { class: "url-list", children: [
-    /* @__PURE__ */ p5("div", { class: "url-left", children: /* @__PURE__ */ p5("div", { class: "url-name height-tight", children: item }) }),
-    /* @__PURE__ */ p5("nav", { children: /* @__PURE__ */ p5("ul", { children: /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5("details", { role: "list", dir: "rtl", children: [
-      /* @__PURE__ */ p5("summary", { "aria-haspopup": "listbox", role: "link" }),
-      /* @__PURE__ */ p5("ul", { class: "delete", role: "listbox", children: [
-        /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
-          "a",
-          {
-            onClick: (e3) => {
-              props.onEditUrl(item, props.type, i2);
-            },
-            children: t5("edit")
-          }
-        ) }),
-        /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
-          "a",
-          {
-            onClick: (e3) => {
-              props.onDeleteUrl(item, props.type);
-            },
-            children: t5("delete")
-          }
-        ) })
-      ] })
-    ] }) }) }) })
-  ] }, "menu" + i2)) });
+  const { t: t5 } = useI18n();
+  return /* @__PURE__ */ p5("div", { children: props.urls.map((item, i2) => {
+    return /* @__PURE__ */ p5("div", { class: "url-list", children: [
+      /* @__PURE__ */ p5("div", { class: "url-left", children: /* @__PURE__ */ p5("div", { class: "url-name height-tight", children: item }) }),
+      /* @__PURE__ */ p5("nav", { children: /* @__PURE__ */ p5("ul", { children: /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5("details", { role: "list", dir: "rtl", children: [
+        /* @__PURE__ */ p5("summary", { "aria-haspopup": "listbox", role: "link" }),
+        /* @__PURE__ */ p5("ul", { class: "delete", role: "listbox", children: [
+          /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+            "a",
+            {
+              onClick: (e3) => {
+                props.onEditUrl(item, props.type, i2);
+              },
+              children: t5("edit")
+            }
+          ) }),
+          /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+            "a",
+            {
+              onClick: (e3) => {
+                props.onDeleteUrl(item, props.type);
+              },
+              children: t5("delete")
+            }
+          ) })
+        ] })
+      ] }) }) }) })
+    ] }, "menu" + i2);
+  }) });
 }
 
 // components/add_url_modal.tsx
 function AddUrlModal(props) {
-  let { t: t5 } = useI18n(), textInput = w2(null), { toggleModal } = props;
-  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && toggleModal(e3);
-  }, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
+  const { t: t5 } = useI18n();
+  const textInput = w2(null);
+  const { toggleModal } = props;
+  const handleClickOverlay = (e3) => {
+    e3.preventDefault();
+    if (e3.target && e3.target.id === "immersive-translate-overlay") {
+      toggleModal(e3);
+    }
+  };
+  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: true, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
     /* @__PURE__ */ p5(
       "a",
       {
@@ -15582,7 +18414,8 @@ function AddUrlModal(props) {
           class: "full-button margin-left",
           "data-target": "modal-example",
           onClick: (e3) => {
-            if (e3.preventDefault(), textInput.current && textInput.current.value) {
+            e3.preventDefault();
+            if (textInput.current && textInput.current.value) {
               if (props.onSubmitAddUrl) {
                 if (props.urlValue !== "") {
                   props.onSubmitAddUrl(
@@ -15623,69 +18456,129 @@ function AddUrlModal(props) {
 // pages/general.tsx
 var languages2 = getLanguages();
 function General() {
-  let { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [ctx, setContext] = P2(null), [matchesIndex, setMatchesIndex] = P2(0), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
-    !1
-  ), [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
-    !1
-  ), [urlValue, setUrlValue] = P2(""), translationServiceItems = [];
-  ctx && (translationServiceItems = getTranslationServices(ctx));
-  let currentTranslationServiceConfig = null, curentTranslationServiceItem = null, alwaysTranslatedLangs = [], neverTranslatedLangs = [];
+  const { t: t5 } = useI18n();
+  const [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig();
+  const [config, setConfig] = P2(null);
+  const [ctx, setContext] = P2(null);
+  const [matchesIndex, setMatchesIndex] = P2(0);
+  const [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
+    false
+  );
+  const [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
+    false
+  );
+  const [urlValue, setUrlValue] = P2("");
+  let translationServiceItems = [];
+  if (ctx) {
+    translationServiceItems = getTranslationServices(ctx);
+  }
+  let currentTranslationServiceConfig = null;
+  let curentTranslationServiceItem = null;
+  let alwaysTranslatedLangs = [];
+  let neverTranslatedLangs = [];
   if (config && ctx) {
-    let { translationService, translationServices } = config;
-    TranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
-      translationService,
-      ctx
-    )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, alwaysTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2) ? {
-      checked: !0,
-      value: code2
-    } : {
-      checked: !1,
-      value: code2
-    }), neverTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2) ? {
-      checked: !0,
-      value: code2
-    } : {
-      checked: !1,
-      value: code2
+    const { translationService, translationServices } = config;
+    if (TranslationServices[translationService]) {
+      curentTranslationServiceItem = formatTranslationService(
+        translationService,
+        ctx
+      );
+    }
+    if (translationServices && translationServices[translationService]) {
+      currentTranslationServiceConfig = translationServices[translationService] || {};
+    } else {
+      currentTranslationServiceConfig = {};
+    }
+    alwaysTranslatedLangs = languages2.map((code2) => {
+      if (config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2)) {
+        return {
+          checked: true,
+          value: code2
+        };
+      } else {
+        return {
+          checked: false,
+          value: code2
+        };
+      }
+    });
+    neverTranslatedLangs = languages2.map((code2) => {
+      if (config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2)) {
+        return {
+          checked: true,
+          value: code2
+        };
+      } else {
+        return {
+          checked: false,
+          value: code2
+        };
+      }
     });
   }
-  j2(() => (v("esc", () => {
-    setIsShowAddUrlModal(!1), setIsShowNeverUrlModal(!1);
-  }), getConfig().then((config2) => {
-    setConfig(config2), log_default.debug("current config", config2);
-  }), () => {
-    v.unbind("esc");
-  }), []), j2(() => {
+  j2(() => {
+    v("esc", () => {
+      setIsShowAddUrlModal(false);
+      setIsShowNeverUrlModal(false);
+    });
+    getConfig().then((config2) => {
+      setConfig(config2);
+      log_default.debug("current config", config2);
+    });
+    return () => {
+      v.unbind("esc");
+    };
+  }, []);
+  j2(() => {
     getConfig().then((config2) => {
       setConfig(config2);
     });
-  }, [settings]), j2(() => {
-    config && getContext({
-      url: "http://localhost",
-      config
-    }).then((ctx2) => {
-      setContext(ctx2);
-    });
+  }, [settings]);
+  j2(() => {
+    if (config) {
+      getContext({
+        url: "http://localhost",
+        config
+      }).then((ctx2) => {
+        setContext(ctx2);
+      });
+    }
   }, [config]);
-  let selectService = (service) => {
-    setSettings((state) => ({ ...state, translationService: service }));
-  }, handleChangeValue = (value) => {
-    setSettings(() => ({
-      ...value
-    }));
-  }, handleReset = (e3) => {
-    e3.preventDefault(), confirm(t5("confirmResetConfig")) && (rawSetValue(getEnvUserConfig()), browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), clearLocalConfig().catch((e4) => {
-      log_default.error("clean local config error", e4);
-    }), success(t5("resetSuccess")));
-  }, selectTargetLanguage = (lang) => {
-    setSettings((state) => ({ ...state, targetLanguage: lang }));
-  }, handleTranslationLanguagePatternSelected = (value, currentLang) => {
+  const selectService = (service) => {
+    setSettings((state) => {
+      return { ...state, translationService: service };
+    });
+  };
+  const handleChangeValue = (value) => {
+    setSettings(() => {
+      return {
+        ...value
+      };
+    });
+  };
+  const handleReset = (e3) => {
+    e3.preventDefault();
+    if (confirm(t5("confirmResetConfig"))) {
+      rawSetValue(getEnvUserConfig());
+      browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
+      clearLocalConfig().catch((e4) => {
+        log_default.error(`clean local config error`, e4);
+      });
+      success(t5("resetSuccess"));
+    }
+  };
+  const selectTargetLanguage = (lang) => {
+    setSettings((state) => {
+      return { ...state, targetLanguage: lang };
+    });
+  };
+  const handleTranslationLanguagePatternSelected = (value, currentLang) => {
     if (!value) {
       setSettings((state) => {
-        let translationLanguagePattern = {
+        const translationLanguagePattern = {
           ...state.translationLanguagePattern
         };
-        return {
+        const newState = {
           ...state,
           translationLanguagePattern: {
             ...state.translationLanguagePattern,
@@ -15699,43 +18592,87 @@ function General() {
             )
           }
         };
+        return newState;
       });
       return;
     }
-    let name = value, reverseName = name === "matches" ? "excludeMatches" : "matches";
-    currentLang && setSettings((state) => {
-      let translationLanguagePattern = {
-        ...state.translationLanguagePattern
-      };
-      return translationLanguagePattern[name] = addToUniqueArray(
-        currentLang,
-        translationLanguagePattern[name]
-      ), translationLanguagePattern[reverseName] = removeFromArray(
-        currentLang,
-        translationLanguagePattern[reverseName]
-      ), {
-        ...state,
-        translationLanguagePattern: {
-          ...state.translationLanguagePattern,
-          ...translationLanguagePattern
+    const name = value;
+    const reverseName = name === "matches" ? "excludeMatches" : "matches";
+    if (currentLang) {
+      setSettings((state) => {
+        const translationLanguagePattern = {
+          ...state.translationLanguagePattern
+        };
+        translationLanguagePattern[name] = addToUniqueArray(
+          currentLang,
+          translationLanguagePattern[name]
+        );
+        translationLanguagePattern[reverseName] = removeFromArray(
+          currentLang,
+          translationLanguagePattern[reverseName]
+        );
+        const newState = {
+          ...state,
+          translationLanguagePattern: {
+            ...state.translationLanguagePattern,
+            ...translationLanguagePattern
+          }
+        };
+        return newState;
+      });
+    }
+  };
+  const onToggleAlwaysLangs = (checked, value) => {
+    if (checked) {
+      handleTranslationLanguagePatternSelected("matches", value);
+    } else {
+      handleTranslationLanguagePatternSelected(void 0, value);
+    }
+  };
+  const onToggleNeverLangs = (checked, value) => {
+    if (checked) {
+      handleTranslationLanguagePatternSelected(
+        "excludeMatches",
+        value
+      );
+    } else {
+      handleTranslationLanguagePatternSelected(void 0, value);
+    }
+  };
+  const toggleAddUrlModal = (type) => {
+    if (type === "matches") {
+      setIsShowAddUrlModal(!isShowAddUrlModal);
+    } else {
+      setIsShowNeverUrlModal(!isShowNeverUrlModal);
+    }
+  };
+  const onSubmitAddUrl = (url, index, type, action) => {
+    toggleAddUrlModal(type);
+    setSettings((state) => {
+      const pattern = settings.translationUrlPattern;
+      let currentMatches = [];
+      let currentExcludeMatches = [];
+      if (pattern && pattern.matches && pattern.excludeMatches) {
+        currentMatches = pattern.matches;
+        currentExcludeMatches = pattern.excludeMatches;
+      }
+      let newMatches = [...currentMatches];
+      let newExcludeMatches = [...currentExcludeMatches];
+      if (action === "edit") {
+        if (type === "matches") {
+          newMatches[index] = url;
+        } else {
+          newExcludeMatches[index] = url;
         }
-      };
-    });
-  }, onToggleAlwaysLangs = (checked, value) => {
-    handleTranslationLanguagePatternSelected(checked ? "matches" : void 0, value);
-  }, onToggleNeverLangs = (checked, value) => {
-    handleTranslationLanguagePatternSelected(
-      checked ? "excludeMatches" : void 0,
-      value
-    );
-  }, toggleAddUrlModal = (type) => {
-    type === "matches" ? setIsShowAddUrlModal(!isShowAddUrlModal) : setIsShowNeverUrlModal(!isShowNeverUrlModal);
-  }, onSubmitAddUrl = (url, index, type, action) => {
-    toggleAddUrlModal(type), setSettings((state) => {
-      let pattern = settings.translationUrlPattern, currentMatches = [], currentExcludeMatches = [];
-      pattern && pattern.matches && pattern.excludeMatches && (currentMatches = pattern.matches, currentExcludeMatches = pattern.excludeMatches);
-      let newMatches = [...currentMatches], newExcludeMatches = [...currentExcludeMatches];
-      return action === "edit" && (type === "matches" ? newMatches[index] = url : newExcludeMatches[index] = url), type === "matches" ? (newMatches = addToUniqueArray(url, newMatches), newExcludeMatches = removeFromArray(url, currentExcludeMatches)) : (newMatches = removeFromArray(url, currentMatches), newExcludeMatches = addToUniqueArray(url, newExcludeMatches)), {
+      }
+      if (type === "matches") {
+        newMatches = addToUniqueArray(url, newMatches);
+        newExcludeMatches = removeFromArray(url, currentExcludeMatches);
+      } else {
+        newMatches = removeFromArray(url, currentMatches);
+        newExcludeMatches = addToUniqueArray(url, newExcludeMatches);
+      }
+      return {
         ...state,
         translationUrlPattern: {
           ...state.translationUrlPattern,
@@ -15744,12 +18681,23 @@ function General() {
         }
       };
     });
-  }, onDeleteUrl = (url, type) => {
+  };
+  const onDeleteUrl = (url, type) => {
     setSettings((state) => {
-      let pattern = settings.translationUrlPattern, currentMatches = [];
-      type === "matches" ? pattern && pattern.matches && (currentMatches = pattern.matches) : pattern && pattern.excludeMatches && (currentMatches = pattern.excludeMatches);
+      const pattern = settings.translationUrlPattern;
+      let currentMatches = [];
+      if (type === "matches") {
+        if (pattern && pattern.matches) {
+          currentMatches = pattern.matches;
+        }
+      } else {
+        if (pattern && pattern.excludeMatches) {
+          currentMatches = pattern.excludeMatches;
+        }
+      }
       let newMatches = [...currentMatches];
-      return newMatches = removeFromArray(url, newMatches), {
+      newMatches = removeFromArray(url, newMatches);
+      return {
         ...state,
         translationUrlPattern: {
           ...state.translationUrlPattern,
@@ -15757,15 +18705,24 @@ function General() {
         }
       };
     });
-  }, onEditUrl = (url, type, index) => {
-    toggleAddUrlModal(type), setUrlValue(url), setMatchesIndex(index);
   };
-  if (!config)
+  const onEditUrl = (url, type, index) => {
+    toggleAddUrlModal(type);
+    setUrlValue(url);
+    setMatchesIndex(index);
+  };
+  if (!config) {
     return /* @__PURE__ */ p5("div", { children: "loading" });
+  }
   let langsArr = [];
-  config && config.translationLanguagePattern && config.translationLanguagePattern.matches && (langsArr = config.translationLanguagePattern.matches);
+  if (config && config.translationLanguagePattern && config.translationLanguagePattern.matches) {
+    langsArr = config.translationLanguagePattern.matches;
+  }
   let neverLangArr = [];
-  return config && config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && (neverLangArr = config.translationLanguagePattern.excludeMatches), /* @__PURE__ */ p5("div", { children: [
+  if (config && config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches) {
+    neverLangArr = config.translationLanguagePattern.excludeMatches;
+  }
+  return /* @__PURE__ */ p5("div", { children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("general") }),
       /* @__PURE__ */ p5("a", { class: "text-sm", href: "#", onClick: handleReset, children: t5("reset") })
@@ -15783,16 +18740,19 @@ function General() {
         {
           class: "select",
           onChange: (e3) => {
-            e3.preventDefault(), selectTargetLanguage(e3.target.value);
+            e3.preventDefault();
+            selectTargetLanguage(e3.target.value);
           },
-          children: languages2.filter((lang) => lang !== "auto").map((lang) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: lang,
-              selected: lang === config.targetLanguage,
-              children: getLanguageName(lang, config.interfaceLanguage)
-            }
-          ))
+          children: languages2.filter((lang) => lang !== "auto").map((lang) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: lang,
+                selected: lang === config.targetLanguage,
+                children: getLanguageName(lang, config.interfaceLanguage)
+              }
+            );
+          })
         }
       )
     ] }),
@@ -15809,16 +18769,19 @@ function General() {
         {
           class: "select",
           onChange: (e3) => {
-            e3.preventDefault(), selectService(e3.target.value);
+            e3.preventDefault();
+            selectService(e3.target.value);
           },
-          children: translationServiceItems.map((item) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: item.id,
-              selected: item.id === config.translationService,
-              children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
-            }
-          ))
+          children: translationServiceItems.map((item) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: item.id,
+                selected: item.id === config.translationService,
+                children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
+              }
+            );
+          })
         }
       )
     ] }),
@@ -15845,28 +18808,31 @@ function General() {
         }
       )
     ] }) : null,
-    currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => /* @__PURE__ */ p5(
-      OptionField,
-      {
-        field: prop,
-        value: currentTranslationServiceConfig[prop.name],
-        onChange: (value) => {
-          setSettings((state) => {
-            let currentServices = state.translationServices || {}, currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
-            return {
-              ...state,
-              translationServices: {
-                ...currentServices,
-                [curentTranslationServiceItem.id]: {
-                  ...currentServiceConfig,
-                  [prop.name]: value
+    currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => {
+      return /* @__PURE__ */ p5(
+        OptionField,
+        {
+          field: prop,
+          value: currentTranslationServiceConfig[prop.name],
+          onChange: (value) => {
+            setSettings((state) => {
+              const currentServices = state.translationServices || {};
+              const currentServiceConfig = currentServices[curentTranslationServiceItem.id] || {};
+              return {
+                ...state,
+                translationServices: {
+                  ...currentServices,
+                  [curentTranslationServiceItem.id]: {
+                    ...currentServiceConfig,
+                    [prop.name]: value
+                  }
                 }
-              }
-            };
-          });
+              };
+            });
+          }
         }
-      }
-    )),
+      );
+    }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5(
         NavLeft,
@@ -15885,25 +18851,28 @@ function General() {
         }
       )
     ] }),
-    /* @__PURE__ */ p5("div", { class: "langs-list", children: langsArr.map((item, i2) => /* @__PURE__ */ p5("div", { class: "lang-card", children: [
-      /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
-        item,
-        config.interfaceLanguage
-      ) }),
-      /* @__PURE__ */ p5(
-        "a",
-        {
-          href: "#close",
-          class: "close",
-          target: "_blank",
-          "aria-label": "Close",
-          "data-target": `${item}`,
-          onClick: (e3) => {
-            e3.preventDefault(), onToggleAlwaysLangs(!1, langsArr[i2]);
+    /* @__PURE__ */ p5("div", { class: "langs-list", children: langsArr.map((item, i2) => {
+      return /* @__PURE__ */ p5("div", { class: "lang-card", children: [
+        /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
+          item,
+          config.interfaceLanguage
+        ) }),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            href: "#close",
+            class: "close",
+            target: "_blank",
+            "aria-label": "Close",
+            "data-target": `${item}`,
+            onClick: (e3) => {
+              e3.preventDefault();
+              onToggleAlwaysLangs(false, langsArr[i2]);
+            }
           }
-        }
-      )
-    ] })) }),
+        )
+      ] });
+    }) }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5(
         NavLeft,
@@ -15922,25 +18891,28 @@ function General() {
         }
       )
     ] }),
-    /* @__PURE__ */ p5("div", { class: "langs-list", children: neverLangArr.map((item, i2) => /* @__PURE__ */ p5("div", { class: "lang-card", children: [
-      /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
-        item,
-        config.interfaceLanguage
-      ) }),
-      /* @__PURE__ */ p5(
-        "a",
-        {
-          href: "#close",
-          class: "close",
-          target: "_blank",
-          "aria-label": "Close",
-          "data-target": `${item}`,
-          onClick: (e3) => {
-            e3.preventDefault(), onToggleNeverLangs(!1, neverLangArr[i2]);
+    /* @__PURE__ */ p5("div", { class: "langs-list", children: neverLangArr.map((item, i2) => {
+      return /* @__PURE__ */ p5("div", { class: "lang-card", children: [
+        /* @__PURE__ */ p5("div", { id: `${item}`, children: getLanguageName(
+          item,
+          config.interfaceLanguage
+        ) }),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            href: "#close",
+            class: "close",
+            target: "_blank",
+            "aria-label": "Close",
+            "data-target": `${item}`,
+            onClick: (e3) => {
+              e3.preventDefault();
+              onToggleNeverLangs(false, neverLangArr[i2]);
+            }
           }
-        }
-      )
-    ] })) }),
+        )
+      ] });
+    }) }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5(
         NavLeft,
@@ -15958,7 +18930,8 @@ function General() {
           role: "button",
           class: "add-button secondary outline",
           onClick: (e3) => {
-            e3.preventDefault(), toggleAddUrlModal("matches");
+            e3.preventDefault();
+            toggleAddUrlModal("matches");
           },
           children: t5("add")
         }
@@ -15967,7 +18940,8 @@ function General() {
         AddUrlModal,
         {
           toggleModal: (e3) => {
-            e3.preventDefault(), toggleAddUrlModal("matches");
+            e3.preventDefault();
+            toggleAddUrlModal("matches");
           },
           onSubmitAddUrl,
           type: "matches",
@@ -16002,7 +18976,8 @@ function General() {
           role: "button",
           class: "add-button secondary outline",
           onClick: (e3) => {
-            e3.preventDefault(), toggleAddUrlModal("excludeMatches");
+            e3.preventDefault();
+            toggleAddUrlModal("excludeMatches");
           },
           children: t5("add")
         }
@@ -16011,7 +18986,8 @@ function General() {
         AddUrlModal,
         {
           toggleModal: (e3) => {
-            e3.preventDefault(), toggleAddUrlModal("excludeMatches");
+            e3.preventDefault();
+            toggleAddUrlModal("excludeMatches");
           },
           onSubmitAddUrl,
           type: "excludeMatches",
@@ -16034,21 +19010,29 @@ function General() {
 
 // components/shortcuts.tsx
 function ShortcutsModal(props) {
-  let { t: t5 } = useI18n(), {
+  const { t: t5 } = useI18n();
+  const {
     corfirmText,
     fingerCountToToggleTranslagePageWhenTouching,
     fingerCountToToggleTranslationMaskWhenTouching,
     onChange,
     onClose,
     shortcuts
-  } = props, inputRefs = {}, toggleTranslatePageWhenThreeFingersOnTheScreenRef = w2(null);
-  for (let i2 = 0; i2 < shortcuts.length; i2++)
+  } = props;
+  const inputRefs = {};
+  const toggleTranslatePageWhenThreeFingersOnTheScreenRef = w2(null);
+  for (let i2 = 0; i2 < shortcuts.length; i2++) {
     inputRefs[shortcuts[i2].name] = w2(null);
-  let handleClickOverlay = (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
+  }
+  const handleClickOverlay = (e3) => {
+    e3.preventDefault();
+    if (e3.target && e3.target.id === "immersive-translate-overlay") {
+      onClose();
+    }
   };
-  return j2(() => {
-  }, []), /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
+  j2(() => {
+  }, []);
+  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: true, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
     /* @__PURE__ */ p5(
       "a",
       {
@@ -16057,12 +19041,13 @@ function ShortcutsModal(props) {
         class: "close",
         "data-target": "modal-example",
         onClick: (e3) => {
-          e3.preventDefault(), onClose();
+          e3.preventDefault();
+          onClose();
         }
       }
     ),
     shortcuts.map((item, index) => {
-      let { name, description, shortcut } = item;
+      const { name, description, shortcut } = item;
       return /* @__PURE__ */ p5("div", { class: "flex justify-between items-center", children: [
         /* @__PURE__ */ p5("label", { class: "mb-2 text-sm", for: name, children: [
           description,
@@ -16091,7 +19076,8 @@ function ShortcutsModal(props) {
           ref: toggleTranslatePageWhenThreeFingersOnTheScreenRef,
           onChange: (e3) => {
             e3.preventDefault();
-            let value = e3.target.value, finalValue = {
+            const value = e3.target.value;
+            const finalValue = {
               fingerCountToToggleTranslagePageWhenTouching: parseInt(
                 value
               )
@@ -16104,14 +19090,16 @@ function ShortcutsModal(props) {
             3,
             4,
             5
-          ].map((item) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: item,
-              selected: item === fingerCountToToggleTranslagePageWhenTouching,
-              children: `${t5("fingers." + item)}`
-            }
-          ))
+          ].map((item) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: item,
+                selected: item === fingerCountToToggleTranslagePageWhenTouching,
+                children: `${t5("fingers." + item)}`
+              }
+            );
+          })
         }
       )
     ] }),
@@ -16123,7 +19111,8 @@ function ShortcutsModal(props) {
           class: "select !w-36",
           onChange: (e3) => {
             e3.preventDefault();
-            let value = e3.target.value, finalValue = {
+            const value = e3.target.value;
+            const finalValue = {
               fingerCountToToggleTranslationMaskWhenTouching: parseInt(
                 value
               )
@@ -16136,14 +19125,16 @@ function ShortcutsModal(props) {
             3,
             4,
             5
-          ].map((item) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: item,
-              selected: item === fingerCountToToggleTranslationMaskWhenTouching,
-              children: `${t5("fingers." + item)}`
-            }
-          ))
+          ].map((item) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: item,
+                selected: item === fingerCountToToggleTranslationMaskWhenTouching,
+                children: `${t5("fingers." + item)}`
+              }
+            );
+          })
         }
       )
     ] }),
@@ -16157,7 +19148,8 @@ function ShortcutsModal(props) {
           class: "full-button secondary margin-right",
           "data-target": "modal-example",
           onClick: (e3) => {
-            e3.preventDefault(), onClose();
+            e3.preventDefault();
+            onClose();
           },
           children: t5("cancel")
         }
@@ -16170,29 +19162,32 @@ function ShortcutsModal(props) {
           class: "full-button margin-left",
           "data-target": "modal-example",
           onClick: (e3) => {
-            if (e3.preventDefault(), !isMonkey()) {
+            e3.preventDefault();
+            if (!isMonkey()) {
               onChange(null);
               return;
             }
-            let newShortcuts = [];
+            const newShortcuts = [];
             for (let i2 = 0; i2 < shortcuts.length; i2++) {
-              let item = shortcuts[i2], inputRef = inputRefs[item.name];
+              const item = shortcuts[i2];
+              const inputRef = inputRefs[item.name];
               if (inputRef.current) {
-                let value = inputRef.current.value;
+                const value = inputRef.current.value;
                 newShortcuts.push({
                   ...item,
                   shortcut: value
                 });
               }
             }
-            let finalValue = {
+            const finalValue = {
               shortcuts: newShortcuts
             };
             if (toggleTranslatePageWhenThreeFingersOnTheScreenRef.current) {
-              let value = toggleTranslatePageWhenThreeFingersOnTheScreenRef.current.value;
+              const value = toggleTranslatePageWhenThreeFingersOnTheScreenRef.current.value;
               finalValue.fingerCountToToggleTranslagePageWhenTouching = parseInt(value);
             }
-            finalValue.isClose = !0, onChange(finalValue);
+            finalValue.isClose = true;
+            onChange(finalValue);
           },
           children: corfirmText
         }
@@ -16207,29 +19202,34 @@ var GoogleDriveAPI = class {
     this.accessToken = accessToken;
   }
   async listAll() {
-    let result = [], pageToken = "";
+    const result = [];
+    let pageToken = "";
     do {
-      let { nextPageToken, files } = await this.list(pageToken).catch(
+      const { nextPageToken, files } = await this.list(pageToken).catch(
         (error2) => {
           throw error2;
         }
       );
-      result.push(...files), pageToken = nextPageToken || "";
+      result.push(...files);
+      pageToken = nextPageToken || "";
     } while (pageToken);
     return result;
   }
   async getConfig(id) {
     try {
-      return await (await fetch(
+      const res = await fetch(
         `https://www.googleapis.com/drive/v3/files/${id}?alt=media`,
         {
           headers: {
             Authorization: `Bearer ${this.accessToken}`
           }
         }
-      )).json();
+      );
+      const result = await res.json();
+      return result;
     } catch (_e3) {
-      return log_default.error("get config error, use default", _e3), {};
+      log_default.error(`get config error, use default`, _e3);
+      return {};
     }
   }
   async delete(id) {
@@ -16239,12 +19239,13 @@ var GoogleDriveAPI = class {
         Authorization: `Bearer ${this.accessToken}`
       }
     });
+    return;
   }
   findByName(fileName) {
     return this.list(void 0, `name = '${fileName}'`);
   }
   uploadConfig(settings, filename = LATEST_FILE_NAME) {
-    let blob = new Blob([JSON.stringify(settings, null, 2)], {
+    const blob = new Blob([JSON.stringify(settings, null, 2)], {
       type: "application/json"
     });
     return this.upload(
@@ -16257,20 +19258,21 @@ var GoogleDriveAPI = class {
     );
   }
   updateConfig(id, settings) {
-    let blob = new Blob([JSON.stringify(settings, null, 2)], {
+    const blob = new Blob([JSON.stringify(settings, null, 2)], {
       type: "application/json"
     });
     return this.updateContent(id, blob);
   }
   async upload(metadata, blob) {
-    let data = new FormData();
+    const data = new FormData();
     data.append(
       "metadata",
       new Blob([JSON.stringify(metadata)], {
         type: "application/json; charset=UTF-8"
       })
-    ), data.append("file", blob);
-    let res = await fetch(
+    );
+    data.append("file", blob);
+    const res = await fetch(
       "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
       {
         method: "POST",
@@ -16280,26 +19282,43 @@ var GoogleDriveAPI = class {
         body: data
       }
     );
-    return res.ok ? await res.json() : Promise.reject(res.text());
+    if (!res.ok) {
+      return Promise.reject(res.text());
+    }
+    const result = await res.json();
+    return result;
   }
   async list(pageToken, query) {
-    let url = new URL("https://www.googleapis.com/drive/v3/files");
-    pageToken && url.searchParams.append("pageToken", pageToken), query && url.searchParams.append("q", query), url.searchParams.append("spaces", "appDataFolder"), url.searchParams.append(
+    const url = new URL("https://www.googleapis.com/drive/v3/files");
+    if (pageToken) {
+      url.searchParams.append("pageToken", pageToken);
+    }
+    if (query) {
+      url.searchParams.append("q", query);
+    }
+    url.searchParams.append("spaces", "appDataFolder");
+    url.searchParams.append(
       "fields",
       "files(id,name,createdTime,modifiedTime,size)"
-    ), url.searchParams.append("pageSize", "100"), url.searchParams.append("orderBy", "createdTime desc");
+    );
+    url.searchParams.append("pageSize", "100");
+    url.searchParams.append("orderBy", "createdTime desc");
     try {
-      return log_default.debug("list api:", url.toString(), this.accessToken), await (await fetch(url.toString(), {
+      log_default.debug(`list api:`, url.toString(), this.accessToken);
+      const res = await fetch(url.toString(), {
         headers: {
           Authorization: `Bearer ${this.accessToken}`
         }
-      })).json();
+      });
+      const result = await res.json();
+      return result;
     } catch (e3) {
-      throw log_default.error("fetch google ip error", e3), e3;
+      log_default.error(`fetch google ip error`, e3);
+      throw e3;
     }
   }
   async updateContent(id, blob) {
-    return await (await fetch(
+    const res = await fetch(
       `https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,
       {
         method: "PATCH",
@@ -16308,84 +19327,132 @@ var GoogleDriveAPI = class {
         },
         body: blob
       }
-    )).text();
+    );
+    const result = await res.text();
+    return result;
   }
 };
 
 // sync/util.ts
 function getAuthUrl(state, redirect_url) {
-  let SCOPES = ["https://www.googleapis.com/auth/drive.appdata"];
+  const SCOPES = ["https://www.googleapis.com/auth/drive.appdata"];
   return `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(redirect_url)}&scope=${encodeURIComponent(SCOPES.join(" "))}&state=${encodeURIComponent(JSON.stringify(state))}`;
 }
 function extractAccessToken(redirectUri) {
   let m4 = redirectUri.match(/[#?](.*)/);
-  return !m4 || m4.length < 1 ? null : {
-    access_token: new URLSearchParams(m4[1].split("#")[0]).get("access_token")
+  if (!m4 || m4.length < 1)
+    return null;
+  let params = new URLSearchParams(m4[1].split("#")[0]);
+  return {
+    access_token: params.get("access_token")
   };
 }
 async function autoSyncStrategy(accessToken, settings, handleChangeValue, handleUpdateLocalConfigLastSyncedAt, handleUpdateSettingUpdateAt, handleSuccess, handleFail) {
   log_default.debug(`autoSyncStrategy accessToken: ${accessToken}`);
-  let api = new GoogleDriveAPI(accessToken);
+  const api = new GoogleDriveAPI(accessToken);
   try {
-    let files = (await api.findByName(LATEST_FILE_NAME)).files;
-    log_default.debug("files", files);
-    let latestFileId = files[0]?.id, latestRemoteConfigResult = null;
-    if (latestFileId && (latestRemoteConfigResult = await api.getConfig(latestFileId).then((config) => ({
-      fileId: latestFileId,
-      config
-    }))), latestRemoteConfigResult) {
-      let { config: latestRemoteConfig, fileId } = latestRemoteConfigResult, remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : /* @__PURE__ */ new Date(0), localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : /* @__PURE__ */ new Date(0);
-      if (log_default.debug(
-        "remoteUpdatedAt",
+    const files = (await api.findByName(LATEST_FILE_NAME)).files;
+    log_default.debug(`files`, files);
+    const latestFileId = files[0]?.id;
+    let latestRemoteConfigResult = null;
+    if (latestFileId) {
+      latestRemoteConfigResult = await api.getConfig(latestFileId).then((config) => {
+        return {
+          fileId: latestFileId,
+          config
+        };
+      });
+    }
+    if (latestRemoteConfigResult) {
+      const { config: latestRemoteConfig, fileId } = latestRemoteConfigResult;
+      const remoteUpdatedAt = latestRemoteConfig.updatedAt ? new Date(latestRemoteConfig.updatedAt) : /* @__PURE__ */ new Date(0);
+      const localUpdatedAt = settings.updatedAt ? new Date(settings.updatedAt) : /* @__PURE__ */ new Date(0);
+      log_default.debug(
+        `remoteUpdatedAt`,
         remoteUpdatedAt,
         "localUpdatedAt",
         localUpdatedAt
-      ), remoteUpdatedAt > localUpdatedAt)
-        log_default.debug("remote is newer, update local config", latestRemoteConfig), handleChangeValue(latestRemoteConfig), handleSuccess && handleSuccess(!0);
-      else if (remoteUpdatedAt.getTime() === localUpdatedAt.getTime())
-        log_default.debug("remote and local are the same, do nothing"), handleSuccess && handleSuccess(!1);
-      else if (remoteUpdatedAt < localUpdatedAt)
-        log_default.debug("local is newer, update remote config", settings), await api.updateConfig(fileId, settings), handleSuccess && handleSuccess(!0);
-      else {
-        handleFail && handleFail(": unknown error");
+      );
+      if (remoteUpdatedAt > localUpdatedAt) {
+        log_default.debug(`remote is newer, update local config`, latestRemoteConfig);
+        handleChangeValue(latestRemoteConfig);
+        if (handleSuccess) {
+          handleSuccess(true);
+        }
+      } else if (remoteUpdatedAt.getTime() === localUpdatedAt.getTime()) {
+        log_default.debug(`remote and local are the same, do nothing`);
+        if (handleSuccess) {
+          handleSuccess(false);
+        }
+      } else if (remoteUpdatedAt < localUpdatedAt) {
+        log_default.debug(`local is newer, update remote config`, settings);
+        await api.updateConfig(fileId, settings);
+        if (handleSuccess) {
+          handleSuccess(true);
+        }
+      } else {
+        if (handleFail) {
+          handleFail(": unknown error");
+        }
         return;
       }
       handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString());
-    } else if (latestRemoteConfigResult === null)
+    } else if (latestRemoteConfigResult === null) {
       if (settings) {
         if (!settings.updatedAt) {
-          let newDate = (/* @__PURE__ */ new Date()).toISOString();
-          handleUpdateSettingUpdateAt(newDate), settings.updatedAt = newDate;
+          const newDate = (/* @__PURE__ */ new Date()).toISOString();
+          handleUpdateSettingUpdateAt(newDate);
+          settings.updatedAt = newDate;
         }
-        await api.uploadConfig(settings), handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString()), handleSuccess && handleSuccess(!0);
-      } else
-        handleFail && handleFail(": Local Config is empty");
-    else
-      handleFail && handleFail(": latestConfig is " + latestRemoteConfigResult);
+        await api.uploadConfig(settings);
+        handleUpdateLocalConfigLastSyncedAt((/* @__PURE__ */ new Date()).toISOString());
+        if (handleSuccess) {
+          handleSuccess(true);
+        }
+      } else {
+        if (handleFail) {
+          handleFail(": Local Config is empty");
+        }
+      }
+    } else if (handleFail) {
+      handleFail(": latestConfig is " + latestRemoteConfigResult);
+    }
   } catch (e3) {
-    log_default.error("syncLatestWithDrive error", e3), handleFail && handleFail(": " + e3.message);
+    log_default.error(`syncLatestWithDrive error`, e3);
+    if (handleFail) {
+      handleFail(": " + e3.message);
+    }
   }
 }
 
 // sync/google_auth.ts
-var GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke", GoogleAuth = class {
+var GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke";
+var GoogleAuth = class {
   constructor(state, redirectUrl) {
     this.CLASSNAME = "GoogleAuth";
-    this._state = state, this._redirectUrl = redirectUrl;
+    this._state = state;
+    this._redirectUrl = redirectUrl;
   }
   static revoke(token) {
-    let url = `${GOOGLE_REVOKE_URL}?token=${token}`;
+    const url = `${GOOGLE_REVOKE_URL}?token=${token}`;
     return fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }
-    }).then(async (res) => (await GoogleAuth.removeAuthInfo(), isUserscriptRuntime() && globalThis.location.reload(), res));
+    }).then(async (res) => {
+      await GoogleAuth.removeAuthInfo();
+      if (isUserscriptRuntime()) {
+        globalThis.location.reload();
+      }
+      return res;
+    });
   }
   static async getAuthInfo() {
-    let tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
-    if (tokenIndex[GOOGLE_ACCESS_TOKEN_KEY])
+    const tokenIndex = await browserAPI.storage.local.get(GOOGLE_ACCESS_TOKEN_KEY);
+    if (tokenIndex[GOOGLE_ACCESS_TOKEN_KEY]) {
       return tokenIndex[GOOGLE_ACCESS_TOKEN_KEY];
+    }
   }
   static async removeAuthInfo() {
     return await browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
@@ -16395,35 +19462,72 @@ var GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke", GoogleAuth = cla
       [GOOGLE_ACCESS_TOKEN_KEY]: authInfo
     });
   }
-  async auth(userscriptSyncPageStartAuthFlow = !1) {
-    let authInfo = await GoogleAuth.getAuthInfo();
-    if (log_default.debug(this.CLASSNAME, "token from cache:", authInfo), authInfo && authInfo.access_token && await validate(authInfo.access_token).then((_token) => !0).catch((_err) => !1))
-      return Promise.resolve(authInfo);
-    let authUrlWithState = getAuthUrl(
+  async auth(userscriptSyncPageStartAuthFlow = false) {
+    const authInfo = await GoogleAuth.getAuthInfo();
+    log_default.debug(this.CLASSNAME, "token from cache:", authInfo);
+    if (authInfo) {
+      if (authInfo.access_token) {
+        const isValid = await validate(authInfo.access_token).then((_token) => true).catch((_err) => false);
+        if (isValid) {
+          return Promise.resolve(authInfo);
+        }
+      }
+    }
+    const authUrlWithState = getAuthUrl(
       this._state,
       this._redirectUrl
     );
-    return log_default.debug(this.CLASSNAME, "auth url: " + authUrlWithState), isUserscriptRuntime() ? this.userscriptAuthWorkflow(
-      authUrlWithState,
-      userscriptSyncPageStartAuthFlow
-    ) : this.extensionAuthWorkflow(authUrlWithState).then((res) => (GoogleAuth.setAuthInfo(res), res));
+    log_default.debug(this.CLASSNAME, "auth url: " + authUrlWithState);
+    if (isUserscriptRuntime()) {
+      return this.userscriptAuthWorkflow(
+        authUrlWithState,
+        userscriptSyncPageStartAuthFlow
+      );
+    } else {
+      return this.extensionAuthWorkflow(authUrlWithState).then((res) => {
+        GoogleAuth.setAuthInfo(res);
+        return res;
+      });
+    }
   }
   async userscriptAuthWorkflow(authUrl, syncPageStartAuthFlow) {
-    return syncPageStartAuthFlow && await browserAPI.storage.local.set({ [AUTH_FLOW_FLAG]: !0 }), globalThis.open(authUrl, "_self"), Promise.resolve({});
+    if (syncPageStartAuthFlow) {
+      await browserAPI.storage.local.set({ [AUTH_FLOW_FLAG]: true });
+    }
+    globalThis.open(authUrl, "_self");
+    return Promise.resolve({});
   }
   extensionAuthWorkflow(authUrl) {
-    let _tabId, _success = !1;
+    let _tabId;
+    let _success = false;
     return new Promise((resolve, reject) => {
-      let cleanup = () => {
-        browserAPI.tabs.onUpdated.removeListener(tabUpdateListener), browserAPI.tabs.onRemoved.removeListener(tabRemovedListener);
-      }, tabUpdateListener = (tabId, _changeInfo, tab) => {
-        if (log_default.debug(this.CLASSNAME, "create tab onUpdated: " + tab.url), _tabId === tabId) {
-          let url = new URL(tab.url || ""), authInfo = extractAccessToken(tab.url);
-          url.pathname.startsWith("/auth-done") && authInfo?.access_token && (log_default.debug(this.CLASSNAME, "auth done: " + tab.url), resolve({ access_token: authInfo.access_token }), _success = !0, browserAPI.tabs.remove(tabId), cleanup());
+      const cleanup = () => {
+        browserAPI.tabs.onUpdated.removeListener(tabUpdateListener);
+        browserAPI.tabs.onRemoved.removeListener(tabRemovedListener);
+      };
+      const tabUpdateListener = (tabId, _changeInfo, tab) => {
+        log_default.debug(this.CLASSNAME, "create tab onUpdated: " + tab.url);
+        if (_tabId === tabId) {
+          const url = new URL(tab.url || "");
+          const authInfo = extractAccessToken(tab.url);
+          if (url.pathname.startsWith("/auth-done") && authInfo?.access_token) {
+            log_default.debug(this.CLASSNAME, "auth done: " + tab.url);
+            resolve({ access_token: authInfo.access_token });
+            _success = true;
+            browserAPI.tabs.remove(tabId);
+            cleanup();
+          }
         }
-      }, tabRemovedListener = (tabId, _removeInfo) => {
-        log_default.debug(this.CLASSNAME, "create tab onRemoved: " + tabId), (tabId === _tabId || !_success) && (cleanup(), reject(new Error("auth failed")));
-      }, width = Math.min(500, screen.availWidth), height = Math.min(650, screen.availHeight);
+      };
+      const tabRemovedListener = (tabId, _removeInfo) => {
+        log_default.debug(this.CLASSNAME, "create tab onRemoved: " + tabId);
+        if (tabId === _tabId || !_success) {
+          cleanup();
+          reject(new Error("auth failed"));
+        }
+      };
+      const width = Math.min(500, screen.availWidth);
+      const height = Math.min(650, screen.availHeight);
       browserAPI.windows.create({
         url: authUrl,
         type: "popup",
@@ -16432,40 +19536,56 @@ var GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke", GoogleAuth = cla
         left: Math.round((screen.width - width) / 2),
         top: Math.round((screen.height - height) / 2)
       }).then((window2) => {
-        _tabId = window2.tabs[0].id, browserAPI.tabs.onUpdated.addListener(tabUpdateListener), browserAPI.tabs.onRemoved.addListener(tabRemovedListener);
+        _tabId = window2.tabs[0].id;
+        browserAPI.tabs.onUpdated.addListener(tabUpdateListener);
+        browserAPI.tabs.onRemoved.addListener(tabRemovedListener);
       }).catch((error2) => {
-        log_default.debug(this.CLASSNAME, "create tab failed: " + error2), reject(error2);
+        log_default.debug(this.CLASSNAME, "create tab failed: " + error2);
+        reject(error2);
       });
     });
   }
 };
 
 // sync/authorize.ts
-var VALIDATION_BASE_URL = "https://www.googleapis.com/oauth2/v3/tokeninfo", CLIENT_ID = GOOGLE_CLIENT_ID, REDIRECT_URL = getEnv().REDIRECT_URL;
+var VALIDATION_BASE_URL = "https://www.googleapis.com/oauth2/v3/tokeninfo";
+var CLIENT_ID = GOOGLE_CLIENT_ID;
+var REDIRECT_URL = getEnv()["REDIRECT_URL"];
 function validate(accessToken) {
-  if (!accessToken)
+  if (!accessToken) {
     throw "Authorization failure";
-  let validationURL = `${VALIDATION_BASE_URL}?access_token=${accessToken}`, validationRequest = new Request(validationURL, {
+  }
+  const validationURL = `${VALIDATION_BASE_URL}?access_token=${accessToken}`;
+  const validationRequest = new Request(validationURL, {
     method: "GET"
   });
   function checkResponse(response) {
     return new Promise((resolve, reject) => {
-      response.status != 200 && reject("Token validation error"), response.json().then((json) => {
-        json.aud && json.aud === CLIENT_ID ? resolve(accessToken) : reject("Token validation error");
+      if (response.status != 200) {
+        reject("Token validation error");
+      }
+      response.json().then((json) => {
+        if (json.aud && json.aud === CLIENT_ID) {
+          resolve(accessToken);
+        } else {
+          reject("Token validation error");
+        }
       });
     });
   }
   return fetch(validationRequest).then(checkResponse);
 }
-function getAuthInfo(state, userscriptSyncStartAuthFlow = !1) {
-  return new GoogleAuth(state, REDIRECT_URL).auth(userscriptSyncStartAuthFlow);
+function getAuthInfo(state, userscriptSyncStartAuthFlow = false) {
+  const api = new GoogleAuth(state, REDIRECT_URL);
+  return api.auth(userscriptSyncStartAuthFlow);
 }
-function getAccessToken(state, userscriptSyncStartAuthFlow = !1) {
+function getAccessToken(state, userscriptSyncStartAuthFlow = false) {
   return getAuthInfo(state, userscriptSyncStartAuthFlow).then((authInfo) => authInfo.access_token || null);
 }
 
 // menu.ts
-var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
+var actions = isChrome() ? ["action"] : ["browser_action", "page_action"];
+var menus = [
   {
     id: "toggleTranslatePage",
     contexts: ["page", ...actions]
@@ -16480,19 +19600,26 @@ var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus
   }
 ];
 async function createContextMenu(config) {
-  log_default.debug("createContextMenu", menus), await browserAPI.contextMenus.removeAll();
-  for (let menu of menus)
-    config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (menu.contexts = menu.contexts.filter((item) => item !== "page")), browserAPI.contextMenus.create({
+  log_default.debug(`createContextMenu`, menus);
+  await browserAPI.contextMenus.removeAll();
+  for (const menu of menus) {
+    if (config.isShowContextMenu === false) {
+      if (menu.id === "toggleTranslatePage") {
+        menu.contexts = menu.contexts.filter((item) => item !== "page");
+      }
+    }
+    browserAPI.contextMenus.create({
       id: menu.id,
       title: t4(`browser.${menu.id}`, config.interfaceLanguage),
       contexts: menu.contexts
     }, () => browserAPI.runtime.lastError);
+  }
 }
 async function updateContextMenu() {
-  let config = await getConfig();
-  log_default.debug("update ContextMenu", config);
-  for (let menu of menus) {
-    let newTitle = t4(`browser.${menu.id}`, config.interfaceLanguage);
+  const config = await getConfig();
+  log_default.debug(`update ContextMenu`, config);
+  for (const menu of menus) {
+    const newTitle = t4(`browser.${menu.id}`, config.interfaceLanguage);
     browserAPI.contextMenus.update(
       menu.id,
       {
@@ -16503,21 +19630,37 @@ async function updateContextMenu() {
 }
 
 // pages/interface.tsx
-var allLocales = Object.keys(locales_default), getUrlArr = (config) => {
-  let theme = config.translationTheme;
-  return config.translationThemePatterns[theme] ? [...config.translationThemePatterns[theme].matches] : [];
+var allLocales = Object.keys(locales_default);
+var getUrlArr = (config) => {
+  const theme = config.translationTheme;
+  if (!config.translationThemePatterns[theme]) {
+    return [];
+  }
+  return [...config.translationThemePatterns[theme].matches];
 };
 function Options() {
-  let [settings, setSettings, _isPersistent, error2] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
-    !1
-  ), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
-    !1
-  ), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2(""), manifest = browserAPI.runtime.getManifest();
-  j2(() => (v("esc", () => {
-    setIsShowAddUrlModal(!1), setIsShowShortcutsModal(!1);
-  }), () => {
-    v.unbind("esc");
-  }), []), j2(() => {
+  const [settings, setSettings, _isPersistent, error2] = useUserConfig();
+  const [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
+    false
+  );
+  const [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
+    false
+  );
+  const [matchesIndex, setMatchesIndex] = P2(0);
+  const [ctx, setCtx] = P2(null);
+  const { t: t5, setLang } = useI18n();
+  const [urlValue, setUrlValue] = P2("");
+  const manifest = browserAPI.runtime.getManifest();
+  j2(() => {
+    v("esc", () => {
+      setIsShowAddUrlModal(false);
+      setIsShowShortcutsModal(false);
+    });
+    return () => {
+      v.unbind("esc");
+    };
+  }, []);
+  j2(() => {
     getConfig().then((config2) => {
       getContext({
         config: config2,
@@ -16527,28 +19670,28 @@ function Options() {
       });
     });
   }, [settings]);
-  let selectDisplay = (theme) => {
-    setSettings((state) => ({ ...state, translationTheme: theme }));
-  }, selectInterfaceLanguage = (lang) => {
-    setSettings((state) => ({ ...state, interfaceLanguage: lang }));
-  }, onAddInterfaceUrl = (url, theme, action) => {
-    setIsShowAddUrlModal(!isShowAddUrlModal), setSettings((state) => {
-      let currentPatterns = state.translationThemePatterns || {}, currentThemeObj = currentPatterns[theme] || {}, currentMatches = currentThemeObj.matches || [], newMatches = [...currentMatches];
-      return action === "edit" && (newMatches = removeFromArray(urlValue, currentMatches)), newMatches = addToUniqueArray(url, newMatches), {
-        ...state,
-        translationThemePatterns: {
-          ...currentPatterns,
-          [theme]: {
-            ...currentThemeObj,
-            matches: newMatches
-          }
-        }
-      };
-    });
-  }, onDeleteUrl = (url, theme) => {
+  const selectDisplay = (theme) => {
     setSettings((state) => {
-      let currentPatterns = state.translationThemePatterns || {}, currentThemeObj = currentPatterns[theme] || {}, newMatches = [...currentThemeObj.matches || []];
-      return newMatches = removeFromArray(url, newMatches), {
+      return { ...state, translationTheme: theme };
+    });
+  };
+  const selectInterfaceLanguage = (lang) => {
+    setSettings((state) => {
+      return { ...state, interfaceLanguage: lang };
+    });
+  };
+  const onAddInterfaceUrl = (url, theme, action) => {
+    setIsShowAddUrlModal(!isShowAddUrlModal);
+    setSettings((state) => {
+      const currentPatterns = state.translationThemePatterns || {};
+      const currentThemeObj = currentPatterns[theme] || {};
+      const currentMatches = currentThemeObj.matches || [];
+      let newMatches = [...currentMatches];
+      if (action === "edit") {
+        newMatches = removeFromArray(urlValue, currentMatches);
+      }
+      newMatches = addToUniqueArray(url, newMatches);
+      return {
         ...state,
         translationThemePatterns: {
           ...currentPatterns,
@@ -16559,12 +19702,37 @@ function Options() {
         }
       };
     });
-  }, onEditUrl = (url, type, index) => {
-    setIsShowAddUrlModal(!isShowAddUrlModal), setUrlValue(url), setMatchesIndex(index);
   };
-  if (!ctx)
+  const onDeleteUrl = (url, theme) => {
+    setSettings((state) => {
+      const currentPatterns = state.translationThemePatterns || {};
+      const currentThemeObj = currentPatterns[theme] || {};
+      const currentMatches = currentThemeObj.matches || [];
+      let newMatches = [...currentMatches];
+      newMatches = removeFromArray(url, newMatches);
+      return {
+        ...state,
+        translationThemePatterns: {
+          ...currentPatterns,
+          [theme]: {
+            ...currentThemeObj,
+            matches: newMatches
+          }
+        }
+      };
+    });
+  };
+  const onEditUrl = (url, type, index) => {
+    setIsShowAddUrlModal(!isShowAddUrlModal);
+    setUrlValue(url);
+    setMatchesIndex(index);
+  };
+  if (!ctx) {
     return /* @__PURE__ */ p5("div", { children: "loading" });
-  let config = ctx.config, corfirmText = t5("confirm"), note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
+  }
+  const config = ctx.config;
+  let corfirmText = t5("confirm");
+  let note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
     t5("browserShortcutsSucks"),
     " ",
     /* @__PURE__ */ p5("kbd", { children: "Ctrl+A" }),
@@ -16580,15 +19748,24 @@ function Options() {
       "?"
     ] })
   ] });
-  return isMonkey() || (isFirefox() ? (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
-    t5("browserShortcutsNoteForFirefox"),
-    "  ",
-    /* @__PURE__ */ p5("a", { href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F", children: [
-      t5("help"),
-      "?"
-    ] }),
-    " "
-  ] }), corfirmText = "") : (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: t5("browserShortcutsNoteForChrome") }), corfirmText = t5("goSettings"))), /* @__PURE__ */ p5("div", { children: [
+  if (!isMonkey()) {
+    if (isFirefox()) {
+      note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
+        t5("browserShortcutsNoteForFirefox"),
+        "  ",
+        /* @__PURE__ */ p5("a", { href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F", children: [
+          t5("help"),
+          "?"
+        ] }),
+        " "
+      ] });
+      corfirmText = "";
+    } else {
+      note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: t5("browserShortcutsNoteForChrome") });
+      corfirmText = t5("goSettings");
+    }
+  }
+  return /* @__PURE__ */ p5("div", { children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("interface") }) }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5(
@@ -16602,22 +19779,28 @@ function Options() {
         {
           class: "select",
           onChange: (e3) => {
-            setLang(e3.target.value), selectInterfaceLanguage(e3.target.value), isMonkey() || setTimeout(() => {
-              updateContextMenu();
-            }, 200);
-          },
-          children: allLocales.map((item) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: item,
-              selected: item === config.interfaceLanguage,
-              children: getLanguageName(
-                item,
-                config.interfaceLanguage,
-                !0
-              )
+            setLang(e3.target.value);
+            selectInterfaceLanguage(e3.target.value);
+            if (!isMonkey()) {
+              setTimeout(() => {
+                updateContextMenu();
+              }, 200);
             }
-          ))
+          },
+          children: allLocales.map((item) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: item,
+                selected: item === config.interfaceLanguage,
+                children: getLanguageName(
+                  item,
+                  config.interfaceLanguage,
+                  true
+                )
+              }
+            );
+          })
         }
       )
     ] }),
@@ -16635,7 +19818,8 @@ function Options() {
           role: "button",
           class: "add-button secondary outline",
           onClick: (e3) => {
-            e3.preventDefault(), setIsShowShortcutsModal(!isShowShortcutsModal);
+            e3.preventDefault();
+            setIsShowShortcutsModal(!isShowShortcutsModal);
           },
           children: t5("modify")
         }
@@ -16654,9 +19838,9 @@ function Options() {
         {
           type: "checkbox",
           onChange: (e3) => {
-            let checked = e3.target.checked;
+            const checked = e3.target.checked;
             setSettings((state) => {
-              let currentGeneralRule = state.generalRule || {};
+              const currentGeneralRule = state.generalRule || {};
               return {
                 ...state,
                 generalRule: {
@@ -16686,9 +19870,9 @@ function Options() {
           type: "number",
           id: "count",
           onChange: (e3) => {
-            let count2 = e3.target.value;
+            const count2 = e3.target.value;
             setSettings((state) => {
-              let currentGeneralRule = state.generalRule || {};
+              const currentGeneralRule = state.generalRule || {};
               return {
                 ...state,
                 generalRule: {
@@ -16701,7 +19885,7 @@ function Options() {
           name: "count",
           value: ctx.rule.lineBreakMaxTextCount,
           placeholder: "Text Length",
-          required: !0
+          required: true
         }
       ) })
     ] }),
@@ -16723,9 +19907,9 @@ function Options() {
         {
           type: "checkbox",
           onChange: (e3) => {
-            let checked = e3.target.checked;
+            const checked = e3.target.checked;
             setSettings((state) => {
-              let currentGeneralRule = state.generalRule || {};
+              const currentGeneralRule = state.generalRule || {};
               return {
                 ...state,
                 generalRule: {
@@ -16759,14 +19943,16 @@ function Options() {
           onChange: (e3) => {
             selectDisplay(e3.target.value);
           },
-          children: translationThemes.map((item) => /* @__PURE__ */ p5(
-            "option",
-            {
-              value: item,
-              selected: item === config.translationTheme,
-              children: t5(`translationTheme.${item}`)
-            }
-          ))
+          children: translationThemes.map((item) => {
+            return /* @__PURE__ */ p5(
+              "option",
+              {
+                value: item,
+                selected: item === config.translationTheme,
+                children: t5(`translationTheme.${item}`)
+              }
+            );
+          })
         }
       )
     ] }),
@@ -16779,10 +19965,10 @@ function Options() {
         {
           class: getTranslationWrapperClassNames(
             config.translationTheme,
-            !1,
+            false,
             [],
-            !1,
-            !1
+            false,
+            false
           ).join(
             " "
           ),
@@ -16796,7 +19982,50 @@ function Options() {
             }
           )
         }
-      )
+      ),
+      /* @__PURE__ */ p5("details", { class: "pt-2", children: [
+        /* @__PURE__ */ p5("summary", { class: "", style: { textAlign: "right" }, children: t5("previewAllThemes") }),
+        translationThemes.map((item) => {
+          return /* @__PURE__ */ p5("div", { class: "pt-2", children: /* @__PURE__ */ p5("label", { children: [
+            /* @__PURE__ */ p5(
+              "input",
+              {
+                type: "radio",
+                name: "theme",
+                value: item,
+                checked: item === config.translationTheme,
+                onChange: (e3) => {
+                  selectDisplay(e3.target.value);
+                }
+              }
+            ),
+            t5(`translationTheme.${item}`),
+            /* @__PURE__ */ p5("p", { children: /* @__PURE__ */ p5(
+              "span",
+              {
+                class: getTranslationWrapperClassNames(
+                  item,
+                  false,
+                  [],
+                  false,
+                  false
+                ).join(
+                  " "
+                ),
+                children: /* @__PURE__ */ p5(
+                  "span",
+                  {
+                    class: getTranslationInnerClassNames(
+                      item
+                    ).join(" "),
+                    children: sampleTargetText
+                  }
+                )
+              }
+            ) })
+          ] }) });
+        })
+      ] })
     ] }) }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
       /* @__PURE__ */ p5(
@@ -16815,7 +20044,8 @@ function Options() {
           role: "button",
           class: "add-button secondary outline",
           onClick: (e3) => {
-            e3.preventDefault(), setIsShowAddUrlModal(!isShowAddUrlModal);
+            e3.preventDefault();
+            setIsShowAddUrlModal(!isShowAddUrlModal);
           },
           children: t5("add")
         }
@@ -16825,7 +20055,8 @@ function Options() {
       AddUrlModal,
       {
         toggleModal: (e3) => {
-          e3.preventDefault(), setIsShowAddUrlModal(!isShowAddUrlModal);
+          e3.preventDefault();
+          setIsShowAddUrlModal(!isShowAddUrlModal);
         },
         onAddInterfaceUrl: (url, action) => {
           onAddInterfaceUrl(url, config.translationTheme, action);
@@ -16852,12 +20083,14 @@ function Options() {
         corfirmText,
         fingerCountToToggleTranslagePageWhenTouching: config.generalRule.fingerCountToToggleTranslagePageWhenTouching,
         fingerCountToToggleTranslationMaskWhenTouching: config.generalRule.fingerCountToToggleTranslationMaskWhenTouching,
-        shortcuts: allSupportedShortcuts.map((item) => ({
-          name: item,
-          shortcut: config.shortcuts[item],
-          description: t5(`browser.${item}`),
-          disabled: !isMonkey()
-        })),
+        shortcuts: allSupportedShortcuts.map((item) => {
+          return {
+            name: item,
+            shortcut: config.shortcuts[item],
+            description: t5(`browser.${item}`),
+            disabled: isMonkey() ? false : true
+          };
+        }),
         onChange: (changedValue) => {
           if (changedValue) {
             let {
@@ -16865,41 +20098,68 @@ function Options() {
               fingerCountToToggleTranslagePageWhenTouching,
               fingerCountToToggleTranslationMaskWhenTouching
             } = changedValue;
-            isMonkey() ? setSettings((state) => {
-              shortcuts = shortcuts || [];
-              let shortcutsMap = shortcuts.reduce(
-                (acc, item) => (acc[item.name] = item.shortcut, acc),
-                { ...state.shortcuts }
-              ), newState = {
-                ...state,
-                shortcuts: shortcutsMap
-              };
-              return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
-                ...newState.generalRule,
-                fingerCountToToggleTranslagePageWhenTouching
-              }), fingerCountToToggleTranslationMaskWhenTouching !== void 0 && (newState.generalRule = {
-                ...newState.generalRule,
-                fingerCountToToggleTranslationMaskWhenTouching
-              }), newState;
-            }) : (fingerCountToToggleTranslagePageWhenTouching !== void 0 || fingerCountToToggleTranslationMaskWhenTouching !== void 0) && setSettings((state) => {
-              let newState = {
-                ...state
-              };
-              return fingerCountToToggleTranslagePageWhenTouching !== void 0 && (newState.generalRule = {
-                ...newState.generalRule,
-                fingerCountToToggleTranslagePageWhenTouching
-              }), fingerCountToToggleTranslationMaskWhenTouching !== void 0 && (newState.generalRule = {
-                ...newState.generalRule,
-                fingerCountToToggleTranslationMaskWhenTouching
-              }), newState;
-            }), changedValue && changedValue.isClose && setIsShowShortcutsModal(!1);
-          } else
-            setIsShowShortcutsModal(!1), browserAPI.tabs.create({
+            if (!isMonkey()) {
+              if (fingerCountToToggleTranslagePageWhenTouching !== void 0 || fingerCountToToggleTranslationMaskWhenTouching !== void 0) {
+                setSettings((state) => {
+                  const newState = {
+                    ...state
+                  };
+                  if (fingerCountToToggleTranslagePageWhenTouching !== void 0) {
+                    newState.generalRule = {
+                      ...newState.generalRule,
+                      fingerCountToToggleTranslagePageWhenTouching
+                    };
+                  }
+                  if (fingerCountToToggleTranslationMaskWhenTouching !== void 0) {
+                    newState.generalRule = {
+                      ...newState.generalRule,
+                      fingerCountToToggleTranslationMaskWhenTouching
+                    };
+                  }
+                  return newState;
+                });
+              }
+            } else {
+              setSettings((state) => {
+                shortcuts = shortcuts || [];
+                const shortcutsMap = shortcuts.reduce(
+                  (acc, item) => {
+                    acc[item.name] = item.shortcut;
+                    return acc;
+                  },
+                  { ...state.shortcuts }
+                );
+                const newState = {
+                  ...state,
+                  shortcuts: shortcutsMap
+                };
+                if (fingerCountToToggleTranslagePageWhenTouching !== void 0) {
+                  newState.generalRule = {
+                    ...newState.generalRule,
+                    fingerCountToToggleTranslagePageWhenTouching
+                  };
+                }
+                if (fingerCountToToggleTranslationMaskWhenTouching !== void 0) {
+                  newState.generalRule = {
+                    ...newState.generalRule,
+                    fingerCountToToggleTranslationMaskWhenTouching
+                  };
+                }
+                return newState;
+              });
+            }
+            if (changedValue && changedValue.isClose) {
+              setIsShowShortcutsModal(false);
+            }
+          } else {
+            setIsShowShortcutsModal(false);
+            browserAPI.tabs.create({
               url: "chrome://extensions/shortcuts"
             });
+          }
         },
         onClose: () => {
-          setIsShowShortcutsModal(!1);
+          setIsShowShortcutsModal(false);
         }
       }
     ) : null
@@ -16908,66 +20168,119 @@ function Options() {
 
 // pages/developer.tsx
 function Options2() {
-  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n(), [allStorageObjects, setAllStorageObjects] = P2({}), [allLocalStorageObjects, setAllLocalStorageObjects] = P2({});
+  const [settings, setSettings, _isPersistent, _error] = useUserConfig();
+  const [config, setConfig] = P2(null);
+  const { t: t5 } = useI18n();
+  const [allStorageObjects, setAllStorageObjects] = P2({});
+  const [allLocalStorageObjects, setAllLocalStorageObjects] = P2({});
   j2(() => {
     getConfig().then((config2) => {
       setConfig(config2);
-    }), browserAPI.storage.sync.get(null).then((allStorageObjects2) => {
-      setAllStorageObjects(allStorageObjects2), browserAPI.storage.local.get(null).then((allLocalStorageObjects2) => {
+    });
+    browserAPI.storage.sync.get(null).then((allStorageObjects2) => {
+      setAllStorageObjects(allStorageObjects2);
+      browserAPI.storage.local.get(null).then((allLocalStorageObjects2) => {
         setAllLocalStorageObjects(allLocalStorageObjects2);
       });
     });
   }, [settings]);
-  let handleToggleDebug = (value) => {
-    setSettings((state) => ({
-      ...state,
-      debug: value
-    }));
-  }, handleToggleBeta = (value) => {
-    setSettings((state) => ({
-      ...state,
-      beta: value
-    }));
-  }, handleChangeValue = (value) => {
-    setSettings(() => ({
-      ...value
-    }));
-  }, handleChangeRules = (e3) => {
+  const handleToggleDebug = (value) => {
+    setSettings((state) => {
+      return {
+        ...state,
+        debug: value
+      };
+    });
+  };
+  const handleToggleBeta = (value) => {
+    setSettings((state) => {
+      return {
+        ...state,
+        beta: value
+      };
+    });
+  };
+  const handleChangeValue = (value) => {
+    setSettings(() => {
+      return {
+        ...value
+      };
+    });
+  };
+  const handleChangeRules = (e3) => {
     try {
-      let newRules = JSON.parse(
+      const newRules = JSON.parse(
         e3.target.value
       );
       if (!Array.isArray(newRules)) {
-        error("Invalid rules, rules must be an array");
+        error(`Invalid rules, rules must be an array`);
         return;
       }
-      let currentSettings = { ...settings };
-      currentSettings.rules = newRules, handleChangeValue(currentSettings), success(t5("saved"));
+      const currentSettings = { ...settings };
+      currentSettings.rules = newRules;
+      handleChangeValue(currentSettings);
+      success(t5("saved"));
     } catch (e4) {
       error(`Invalid JSON ${e4.message}`);
     }
-  }, handleChange = (e3) => {
+  };
+  const handleChangeInjectedCss = (e3) => {
+    const currentSettings = { ...settings };
+    if (!currentSettings.generalRule) {
+      currentSettings.generalRule = {};
+    }
+    currentSettings.generalRule = {
+      ...currentSettings.generalRule,
+      injectedCss: e3.target.value || ""
+    };
+    handleChangeValue(currentSettings);
+    success(t5("saved"));
+  };
+  const handleChange = (e3) => {
     try {
-      let newSettings = JSON.parse(
+      const newSettings = JSON.parse(
         e3.target.value
       );
-      handleChangeValue(newSettings), success(t5("saved"));
+      handleChangeValue(newSettings);
+      success(t5("saved"));
     } catch (e4) {
       error(`Invalid JSON ${e4.message}`);
     }
-  }, handleSave = (e3) => {
+  };
+  const handleSave = (e3) => {
     e3.preventDefault();
-  }, handleReset = (e3) => {
-    e3.preventDefault(), handleChangeValue(getEnvUserConfig()), success(t5("resetSuccess")), setTimeout(() => {
+  };
+  const handleReset = (e3) => {
+    e3.preventDefault();
+    handleChangeValue(getEnvUserConfig());
+    success(t5("resetSuccess"));
+    setTimeout(() => {
       clearLocalConfig().catch((e4) => {
-        log_default.error("clean local config error", e4);
+        log_default.error(`clean local config error`, e4);
       });
     }, 500);
-  }, handleResetRules = (e3) => {
+  };
+  const handleResetRules = (e3) => {
     e3.preventDefault();
-    let currentSettings = { ...settings };
-    delete currentSettings.rules, handleChangeValue(currentSettings);
-  }, defaultUserRulePlaceholder = `[{
+    const currentSettings = { ...settings };
+    delete currentSettings.rules;
+    handleChangeValue(currentSettings);
+    success(t5("resetThisSuccess"));
+  };
+  const handleResetInjectCss = (e3) => {
+    e3.preventDefault();
+    const currentSettings = { ...settings };
+    if (!currentSettings.generalRule) {
+      currentSettings.generalRule = {};
+    }
+    currentSettings.generalRule = {
+      ...currentSettings.generalRule
+    };
+    delete currentSettings.generalRule.injectedCss;
+    handleChangeValue(currentSettings);
+    success(t5("resetThisSuccess"));
+  };
+  const defaultUserRulePlaceholder = `[{
   "matches": "www.google.com",
   "selectors": [".title"]
 }, {
@@ -16975,14 +20288,17 @@ function Options2() {
   "selectors": [".text"],
   "excludeSelectors": ["footer"]
 }]`;
-  return config ? /* @__PURE__ */ p5("div", { children: [
+  if (!config) {
+    return /* @__PURE__ */ p5("div", { children: "loading" });
+  }
+  return /* @__PURE__ */ p5("div", { children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("developer") }) }),
     /* @__PURE__ */ p5(
       "div",
       {
         dangerouslySetInnerHTML: {
           __html: t5("developerDescription", {
-            1: "https://immersive-translate.owenyoung.com/advanced"
+            "1": "https://immersive-translate.owenyoung.com/advanced"
           })
         },
         class: "secondary text-xs text-gray-500 mb-4"
@@ -17027,7 +20343,7 @@ function Options2() {
           class: "text-gray-500",
           dangerouslySetInnerHTML: {
             __html: t5("betaDescription", {
-              1: telegramGroupLink
+              "1": telegramGroupLink
             })
           }
         }
@@ -17061,7 +20377,42 @@ function Options2() {
       ] })
     ] }),
     /* @__PURE__ */ p5("details", { class: "py-2", children: [
-      /* @__PURE__ */ p5("summary", { children: "Edit User Config" }),
+      /* @__PURE__ */ p5("summary", { children: "Edit Injected CSS" }),
+      /* @__PURE__ */ p5(
+        "textarea",
+        {
+          rows: 10,
+          onChange: handleChangeInjectedCss,
+          placeholder: ".title { color: red }",
+          value: settings.generalRule && settings.generalRule.injectedCss ? settings.generalRule.injectedCss : ""
+        }
+      ),
+      /* @__PURE__ */ p5("div", { children: [
+        /* @__PURE__ */ p5("a", { href: "#", class: "mr-3 !py-2", onClick: handleSave, role: "button", children: t5("save") }),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            class: "secondary text-sm mr-3",
+            href: "https://immersive-translate.owenyoung.com/advanced",
+            children: [
+              t5("help"),
+              "?"
+            ]
+          }
+        ),
+        /* @__PURE__ */ p5(
+          "a",
+          {
+            href: "#",
+            onClick: handleResetInjectCss,
+            class: "text-sm secondary mr-2",
+            children: t5("reset")
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ p5("details", { class: "py-2", children: [
+      /* @__PURE__ */ p5("summary", { children: "Edit Full User Config" }),
       /* @__PURE__ */ p5(
         "textarea",
         {
@@ -17098,22 +20449,27 @@ function Options2() {
       /* @__PURE__ */ p5("summary", { children: "Click to expand the local storage object" }),
       /* @__PURE__ */ p5("pre", { children: /* @__PURE__ */ p5("code", { children: JSON.stringify(allLocalStorageObjects, null, 2) }) })
     ] })
-  ] }) : /* @__PURE__ */ p5("div", { children: "loading" });
+  ] });
 }
 
 // utils/date.ts
 function formatFileNameDate() {
-  let now = /* @__PURE__ */ new Date();
+  const now = /* @__PURE__ */ new Date();
   return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}_${now.getHours()}-${now.getMinutes()}-${now.getSeconds()}`;
 }
 
 // components/config_sync.tsx
 function DeleteButton(prop) {
-  let { t: t5 } = useI18n(), { accessToken, id, listAllFiles } = prop, [deleteLoading, setDeleteLoading] = P2(!1);
+  const { t: t5 } = useI18n();
+  const { accessToken, id, listAllFiles } = prop;
+  const [deleteLoading, setDeleteLoading] = P2(false);
   function deleteConfig(e3, id2) {
-    e3.preventDefault(), setDeleteLoading(!0), new GoogleDriveAPI(accessToken).delete(id2).catch((error2) => {
-      console.error(error2), error(t5("delete"));
-    }).then(() => listAllFiles()).finally(() => setDeleteLoading(!1));
+    e3.preventDefault();
+    setDeleteLoading(true);
+    new GoogleDriveAPI(accessToken).delete(id2).catch((error2) => {
+      console.error(error2);
+      error(t5("delete"));
+    }).then(() => listAllFiles()).finally(() => setDeleteLoading(false));
   }
   return /* @__PURE__ */ p5(
     "a",
@@ -17127,60 +20483,89 @@ function DeleteButton(prop) {
   );
 }
 function ConfigSyncModal(prop) {
-  let {
+  const {
     onClose,
     accessToken,
     authExpire
-  } = prop, { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [files, setFiles] = P2([]), [firstLoad, setFirstLoad] = P2(!0), [exportLoading, setExportLoading] = P2(!1), [importLoadings, setImportLoadings] = P2({});
+  } = prop;
+  const { t: t5 } = useI18n();
+  const [settings, setSettings, _isPersistent, _error] = useUserConfig();
+  const [files, setFiles] = P2([]);
+  const [firstLoad, setFirstLoad] = P2(true);
+  const [exportLoading, setExportLoading] = P2(false);
+  const [importLoadings, setImportLoadings] = P2({});
   j2(() => {
-    accessToken && listAllFiles().then(() => setFirstLoad(!1));
+    if (accessToken) {
+      listAllFiles().then(() => setFirstLoad(false));
+    }
   }, [accessToken]);
-  let handleClickOverlay = (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
+  const handleClickOverlay = (e3) => {
+    e3.preventDefault();
+    if (e3.target && e3.target.id === "immersive-translate-overlay") {
+      onClose();
+    }
   };
   function listAllFiles() {
-    return new GoogleDriveAPI(accessToken).listAll().then((files2) => {
+    const api = new GoogleDriveAPI(accessToken);
+    return api.listAll().then((files2) => {
       setFiles(files2);
     }).catch((_e3) => authExpire());
   }
   function exportConfig(e3) {
-    if (e3.preventDefault(), files.length >= 10)
+    e3.preventDefault();
+    if (files.length >= 10) {
       return error(t5("maxBackupFiles", {
         count: 10
       }));
-    setExportLoading(!0);
-    let filename = "immersive-translate-config-" + formatFileNameDate() + ".json";
+    }
+    setExportLoading(true);
+    const filename = "immersive-translate-config-" + formatFileNameDate() + ".json";
     new GoogleDriveAPI(accessToken).uploadConfig(settings, filename).catch((error2) => {
-      console.error(error2), error(t5("uploadFail"));
-    }).then(() => listAllFiles()).finally(() => setExportLoading(!1));
+      console.error(error2);
+      error(t5("uploadFail"));
+    }).then(() => listAllFiles()).finally(() => setExportLoading(false));
   }
   function importConfig(e3, id, index) {
-    e3.preventDefault(), setImportLoadings({
-      [index]: !0
-    }), new GoogleDriveAPI(accessToken).getConfig(id).then((config) => {
-      setSettings(() => ({ ...config })), success(t5("importSuccess"));
+    e3.preventDefault();
+    setImportLoadings({
+      [index]: true
+    });
+    new GoogleDriveAPI(accessToken).getConfig(id).then((config) => {
+      setSettings(() => {
+        return { ...config };
+      });
+      success(t5("importSuccess"));
     }).catch((error2) => {
-      log_default.error(error2), error(t5("importFail"));
+      log_default.error(error2);
+      error(t5("importFail"));
     }).finally(() => setImportLoadings({}));
   }
   function downloadConfig(id, name) {
     new GoogleDriveAPI(accessToken).getConfig(id).then((config) => {
-      let element = document.createElement("a");
+      const element = document.createElement("a");
       element.setAttribute(
         "href",
         "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(config, null, 2))
-      ), element.setAttribute("download", name), element.style.display = "none", document.body.appendChild(element), element.click(), document.body.removeChild(element);
+      );
+      element.setAttribute("download", name);
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
     }).catch((error2) => {
-      log_default.error("download google config file failed", error2), error(t5("downloadFail") + ": " + error2.message);
+      log_default.error("download google config file failed", error2);
+      error(t5("downloadFail") + ": " + error2.message);
     });
   }
   function revoke(e3) {
-    e3.preventDefault(), setSettings({
+    e3.preventDefault();
+    setSettings({
       ...settings,
-      autoSync: !1
-    }), GoogleAuth.revoke(accessToken).then(() => onClose());
+      autoSync: false
+    });
+    GoogleAuth.revoke(accessToken).then(() => onClose());
   }
-  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: !0, children: /* @__PURE__ */ p5("article", { class: "md:w-[32rem] px-4", children: [
+  return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: true, children: /* @__PURE__ */ p5("article", { class: "md:w-[32rem] px-4", children: [
     /* @__PURE__ */ p5(
       "a",
       {
@@ -17190,7 +20575,8 @@ function ConfigSyncModal(prop) {
         className: "close",
         "data-target": "modal-example",
         onClick: (e3) => {
-          e3.preventDefault(), onClose();
+          e3.preventDefault();
+          onClose();
         }
       }
     ),
@@ -17202,8 +20588,10 @@ function ConfigSyncModal(prop) {
           {
             href: "#",
             onClick: (e3) => {
-              e3.preventDefault(), downloadConfig(file.id, file.name);
+              e3.preventDefault();
+              downloadConfig(file.id, file.name);
             },
+            class: "block truncate w-40 sm:w-auto",
             children: file.name.replace("immersive-translate-", "")
           }
         ) }),
@@ -17269,130 +20657,208 @@ function ConfigSyncModal(prop) {
 
 // pages/import_export.tsx
 function ImportExport() {
-  let [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [localConfig, setLocalConfigState] = P2(null), setLocalConfig2 = (localConfig2) => {
-    setLocalConfigState(localConfig2), setLocalConfig(localConfig2);
-  }, { t: t5 } = useI18n();
+  const [settings, setSettings, isPersistent, _error, rawSetValue] = useUserConfig();
+  const [config, setConfig] = P2(null);
+  const [localConfig, setLocalConfigState] = P2(null);
+  const setLocalConfig2 = (localConfig2) => {
+    setLocalConfigState(localConfig2);
+    setLocalConfig(localConfig2);
+  };
+  const { t: t5, setLang } = useI18n();
   j2(() => {
     getConfig().then((config2) => {
       setConfig(config2);
-    }), getLocalConfig().then((localConfig2) => {
+    });
+    getLocalConfig().then((localConfig2) => {
       setLocalConfig2(localConfig2);
     });
   }, []);
-  let handleChangeValue = (value) => {
-    setSettings(() => ({
-      ...value
-    }));
-  }, handleImportFile = (e3) => {
+  const handleChangeValue = (value) => {
+    setSettings(() => {
+      return {
+        ...value
+      };
+    });
+  };
+  const handleImportFile = (e3) => {
     e3.preventDefault();
-    let element = document.createElement("input");
-    element.setAttribute("type", "file"), element.setAttribute("accept", "text/plain"), element.style.display = "none", document.body.appendChild(element), element.oninput = (e4) => {
-      let input = e4.target, reader = new FileReader();
+    const element = document.createElement("input");
+    element.setAttribute("type", "file");
+    element.setAttribute("accept", "text/plain");
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.oninput = (e4) => {
+      const input = e4.target;
+      const reader = new FileReader();
       reader.onload = function() {
         try {
-          let newSettings = JSON.parse(reader.result);
-          handleChangeValue(newSettings), success(t5("successImportConfig"));
+          const newSettings = JSON.parse(reader.result);
+          handleChangeValue(newSettings);
+          success(t5("successImportConfig"));
         } catch (e5) {
           error(`Invalid JSON ${e5.message}`);
         }
-      }, reader.readAsText(input.files[0]);
-    }, element.click(), document.body.removeChild(element);
-  }, handleReset = (e3) => {
-    e3.preventDefault(), confirm(t5("confirmResetConfig")) && (rawSetValue(getEnvUserConfig()), success(t5("resetSuccess")), setTimeout(() => {
-      browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY), clearLocalConfig().catch((e4) => {
-        log_default.error("clean local config error", e4);
-      });
-    }, 500));
-  }, [showSyncModal, setShowSyncModal] = P2(!1), [authLoading, setAuthLoading] = P2(!1), [manualAuthLoading, setManualAuthLoading] = P2(!1), [accessToken, setAccessToken] = P2("");
+      };
+      reader.readAsText(input.files[0]);
+    };
+    element.click();
+    document.body.removeChild(element);
+  };
+  const handleReset = (e3) => {
+    e3.preventDefault();
+    if (confirm(t5("confirmResetConfig"))) {
+      rawSetValue(getEnvUserConfig());
+      success(t5("resetSuccess"));
+      setTimeout(() => {
+        browserAPI.storage.local.remove(GOOGLE_ACCESS_TOKEN_KEY);
+        clearLocalConfig().catch((e4) => {
+          log_default.error(`clean local config error`, e4);
+        });
+      }, 500);
+    }
+  };
+  const [showSyncModal, setShowSyncModal] = P2(false);
+  const [authLoading, setAuthLoading] = P2(false);
+  const [manualAuthLoading, setManualAuthLoading] = P2(false);
+  const [accessToken, setAccessToken] = P2("");
   j2(() => {
-    if (isUserscriptRuntime()) {
-      let check = localStorage.getItem(AUTH_FLOW_FLAG);
-      if (localStorage.removeItem(AUTH_FLOW_FLAG), check) {
-        let rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
-        log_default.debug("rawAuthInfoStr", rawAuthInfoStr);
-        let authInfo = {}, state = {}, token = "";
+    if (isUserscriptRuntime() && isPersistent) {
+      const check = localStorage.getItem(AUTH_FLOW_FLAG);
+      localStorage.removeItem(AUTH_FLOW_FLAG);
+      if (check) {
+        const rawAuthInfoStr = globalThis.localStorage.getItem(AUTH_STATE_FLAG);
+        log_default.debug("import_export", "rawAuthInfoStr", rawAuthInfoStr);
+        let authInfo = {};
+        let state = {};
+        let token = "";
         if (rawAuthInfoStr) {
           globalThis.localStorage.removeItem(AUTH_STATE_FLAG);
           try {
-            authInfo = JSON.parse(rawAuthInfoStr), state = authInfo.state || {}, token = authInfo.access_token || "";
+            authInfo = JSON.parse(rawAuthInfoStr);
+            state = authInfo.state || {};
+            token = authInfo.access_token || "";
           } catch (e3) {
             log_default.error("parse state error", e3);
           }
         }
-        if (token && state && (browserAPI.storage.local.set({ [GOOGLE_ACCESS_TOKEN_KEY]: token }).catch(
-          (e3) => {
-            log_default.error("set access token error", e3);
+        if (token && state) {
+          GoogleAuth.setAuthInfo({ access_token: token });
+          log_default.debug("import_export", "Google OAuth:", authInfo);
+          if (authInfo) {
+            const state2 = authInfo.state;
+            log_default.debug("state", state2);
+            if (state2?.mode === "auto") {
+              setAuthLoading(true);
+              syncLatestWithDrive(token);
+            } else {
+              setManualAuthLoading(true);
+              afterAuthSuccess(token);
+            }
           }
-        ), log_default.debug("import_export", "Google OAuth:" + authInfo), authInfo)) {
-          let state2 = authInfo.state;
-          log_default.debug("state", state2), state2?.mode === "auto" ? (setAuthLoading(!0), syncLatestWithDrive(token)) : (setManualAuthLoading(!0), afterAuthSuccess(token));
         }
       }
     }
-  }, []);
+  }, [isPersistent]);
   function handlerDriveAuth() {
-    setAuthLoading(!0), getAccessToken({
+    setAuthLoading(true);
+    getAccessToken({
       source: globalThis.location.href,
       mode: "auto"
-    }, !0).then((token) => {
-      log_default.debug("import_export", "Google OAuth:" + token), token !== null && syncLatestWithDrive(token);
+    }, true).then((token) => {
+      log_default.debug("import_export", "Google OAuth:" + token);
+      if (token !== null) {
+        syncLatestWithDrive(token);
+      }
     }).catch((error2) => {
-      error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
+      if (error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl") {
+        log_default.debug(`tokenValidateErrorRedirectToAuthUrl, ignore`);
+      } else {
+        afterAuthFail(error2);
+      }
     });
   }
   function handlerManualDriveAuth() {
-    setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken({
+    setManualAuthLoading(true);
+    setShowSyncModal(false);
+    getAccessToken({
       source: globalThis.location.href,
       mode: "manual"
-    }, !0).then((token) => {
-      log_default.debug("import_export", "Google OAuth:" + token), token !== null && afterAuthSuccess(token);
+    }, true).then((token) => {
+      log_default.debug("import_export", "Google OAuth:" + token);
+      if (token !== null) {
+        afterAuthSuccess(token);
+      }
     }).catch((error2) => {
-      error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
+      if (error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl") {
+        log_default.debug(`tokenValidateErrorRedirectToAuthUrl, ignore`);
+      } else {
+        afterAuthFail(error2);
+      }
     });
   }
   function authExpire() {
-    setAccessToken(""), handlerDriveAuth();
+    setAccessToken("");
+    handlerDriveAuth();
   }
   function afterAuthSuccess(accessToken2) {
-    setAccessToken(accessToken2), setManualAuthLoading(!1), setShowSyncModal(!0);
+    setAccessToken(accessToken2);
+    setManualAuthLoading(false);
+    setShowSyncModal(true);
   }
   function afterAuthFail(error2) {
-    setAuthLoading(!1), setManualAuthLoading(!1), setShowSyncModal(!1), setSettings({
+    setAuthLoading(false);
+    setManualAuthLoading(false);
+    setShowSyncModal(false);
+    setSettings({
       ...settings,
-      autoSync: !1
-    }), log_default.error("import_export", "Google OAuth error:" + error2), error(t5("authFail"));
+      autoSync: false
+    });
+    log_default.error("import_export", "Google OAuth error:" + error2);
+    error(t5("authFail"));
   }
   function syncLatestWithDrive(accessToken2) {
-    setAuthLoading(!0), log_default.debug("sync latest with drive", accessToken2), setAccessToken(accessToken2), getUserConfig().then((userSettings) => {
-      autoSyncStrategy(
-        accessToken2,
-        userSettings,
-        (newSettings) => {
-          rawSetValue(newSettings);
-        },
-        (isoDate) => setLocalConfig2({
-          ...localConfig,
-          lastSyncedAt: isoDate
-        }),
-        (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
-        (isChanged) => {
-          isChanged ? success(t5("successSyncConfig")) : success(t5("successSyncButNoChange"));
-        },
-        (reason) => error(t5("syncFail") + reason)
-      ).finally(() => {
-        setAuthLoading(!1);
-      });
-    }).catch((e3) => {
-      error(t5("syncFail")), log_default.error("sync latest with drive error", e3), setAuthLoading(!1);
+    setAuthLoading(true);
+    log_default.debug(`sync latest with drive`, accessToken2, settings);
+    setAccessToken(accessToken2);
+    autoSyncStrategy(
+      accessToken2,
+      settings,
+      (newSettings) => {
+        if (newSettings.interfaceLanguage) {
+          setLang(newSettings.interfaceLanguage);
+        }
+        rawSetValue(newSettings);
+      },
+      (isoDate) => setLocalConfig2({
+        ...localConfig,
+        lastSyncedAt: isoDate
+      }),
+      (isoDate) => setSettings({ ...settings, updatedAt: isoDate }),
+      (isChanged) => {
+        if (isChanged) {
+          success(t5("successSyncConfig"));
+        } else {
+          success(t5("successSyncButNoChange"));
+        }
+      },
+      (reason) => error(t5("syncFail") + reason)
+    ).finally(() => {
+      setAuthLoading(false);
     });
   }
   function toggleAutoSync(e3) {
     setSettings({
       ...settings,
       autoSync: e3.checked
-    }), e3.checked && handlerDriveAuth();
+    });
+    if (e3.checked) {
+      handlerDriveAuth();
+    }
   }
-  return config ? /* @__PURE__ */ p5("div", { class: "pb-4", children: [
+  if (!config) {
+    return null;
+  }
+  return /* @__PURE__ */ p5("div", { class: "pb-4", children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("import_export_title") }) }),
     /* @__PURE__ */ p5("div", { class: "pb-2", children: [
       /* @__PURE__ */ p5(
@@ -17463,7 +20929,8 @@ function ImportExport() {
         {
           className: "mr-4 secondary  mb-2 !text-sm ",
           onClick: (e3) => {
-            e3.preventDefault(), handlerDriveAuth();
+            e3.preventDefault();
+            handlerDriveAuth();
           },
           "aria-busy": authLoading,
           href: "#",
@@ -17496,7 +20963,8 @@ function ImportExport() {
           href: "#",
           "aria-busy": manualAuthLoading,
           onClick: (e3) => {
-            e3.preventDefault(), handlerManualDriveAuth();
+            e3.preventDefault();
+            handlerManualDriveAuth();
           },
           class: "secondary text-sm",
           children: t5("backupToCloud")
@@ -17510,39 +20978,49 @@ function ImportExport() {
     showSyncModal ? /* @__PURE__ */ p5(
       ConfigSyncModal,
       {
-        onClose: () => setShowSyncModal(!1),
+        onClose: () => setShowSyncModal(false),
         authExpire,
         accessToken
       }
     ) : null
-  ] }) : null;
+  ] });
 }
 
 // browser/version.ts
 function getVersion() {
-  return browserAPI.runtime.getManifest().version;
+  const manifest = browserAPI.runtime.getManifest();
+  return manifest.version;
 }
 
 // hooks/use_buildin_config.ts
-var SETTINGS_KEY2 = "buildinConfig", INITIAL_VALUE2 = {}, useBuildinConfig = createChromeStorageStateHookLocal(
+var SETTINGS_KEY2 = "buildinConfig";
+var INITIAL_VALUE2 = {};
+var useBuildinConfig = createChromeStorageStateHookLocal(
   SETTINGS_KEY2,
   INITIAL_VALUE2
 );
 
 // utils/compare_version.ts
 function isAVersionGreaterOrEqualWithB(a4, b4) {
-  return a4.localeCompare(b4, void 0, {
-    numeric: !0,
+  const result = a4.localeCompare(b4, void 0, {
+    numeric: true,
     sensitivity: "base"
-  }) >= 0;
+  });
+  return result >= 0;
 }
 
 // utils/click-multiple-times.ts
 function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
   return (cb) => {
-    let timer, clicked = 0;
+    let timer;
+    let clicked = 0;
     return (e3) => {
-      ++clicked == requiredClicks && (cb(e3), clicked = 0), clearTimeout(timer), timer = setTimeout(
+      if (++clicked == requiredClicks) {
+        cb(e3);
+        clicked = 0;
+      }
+      clearTimeout(timer);
+      timer = setTimeout(
         () => clicked = 0,
         // reset the number of clicks after a traditional 300ms duration
         timeLimit
@@ -17553,63 +21031,77 @@ function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
 
 // browser/cache_manager.ts
 async function cleanCache() {
-  let keys = ["bingGlobalConfig", "baiduGlobalConfig"];
-  for (let key of keys)
+  const keys = ["bingGlobalConfig", "baiduGlobalConfig"];
+  for (const key of keys) {
     await browserAPI.storage.local.remove(key);
-  isMonkey() || await deleteAll();
+  }
+  if (!isMonkey()) {
+    await deleteAll();
+  }
 }
 function getCacheSize() {
-  return isMonkey() ? Promise.resolve("0 B") : calculateSize();
+  if (!isMonkey()) {
+    return calculateSize();
+  } else {
+    return Promise.resolve("0 B");
+  }
 }
 
 // pages/about.tsx
 var AlreadyLatest = ({ date }) => {
-  let { t: t5 } = useI18n();
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
     t5("The local rules are up to date"),
     " ",
     new Date(date).toLocaleString()
   ] });
-}, SyncSuccess = ({ date }) => {
-  let { t: t5 } = useI18n();
+};
+var SyncSuccess = ({ date }) => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
     t5("Successfully synchronized with the latest official rules:"),
     " ",
     new Date(date).toLocaleString()
   ] });
-}, Checking = () => {
-  let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p5("p", { class: "text-sm", "aria-busy": !0, children: [
+};
+var Checking = () => {
+  const { t: t5 } = useI18n();
+  return /* @__PURE__ */ p5("p", { class: "text-sm", "aria-busy": true, children: [
     t5("Checking for updates"),
     "..."
   ] });
-}, Syncing = () => {
-  let { t: t5 } = useI18n();
+};
+var Syncing = () => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
     t5("Rules are being synchronized"),
     "..."
   ] });
-}, LocalVersionIsTooOld = ({ minVersion }) => {
-  let { t: t5 } = useI18n();
+};
+var LocalVersionIsTooOld = ({ minVersion }) => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: t5(
     "localVersionIsTooOld",
     {
       minVersion
     }
   ) });
-}, NewVersion = ({ latestVersion }) => {
-  let { t: t5 } = useI18n();
+};
+var NewVersion = ({ latestVersion }) => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
     t5("foundNewVersion"),
     ":",
     " ",
     /* @__PURE__ */ p5("a", { href: "https://github.com/immersive-translate/immersive-translate/releases", children: latestVersion })
   ] });
-}, CurrentLatestVersion = () => {
-  let { t: t5 } = useI18n();
+};
+var CurrentLatestVersion = () => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: t5("theLocalExtensionIsUpToUpdate") });
-}, SyncFailed = ({ message, handleSyncing, date }) => {
-  let { t: t5 } = useI18n();
+};
+var SyncFailed = ({ message, handleSyncing, date }) => {
+  const { t: t5 } = useI18n();
   return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
     t5("failToSyncRules"),
     " ",
@@ -17625,75 +21117,145 @@ var AlreadyLatest = ({ date }) => {
   ] });
 };
 function About() {
-  let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_3, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
-    !1
-  ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
+  const [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null);
+  const { t: t5 } = useI18n();
+  const [cacheSize, setCacheSize] = P2(t5("calculating") + "...");
+  const [remoteConfig, setRemoteConfig] = P2(null);
+  const [_3, setStorageBuildinConfig] = useBuildinConfig();
+  const [isNeedUpdate, setIsNeedUpdate] = P2(null);
+  const [syncErrorMessage, setSyncErrorMessage] = P2("");
+  const [isSyncSuccess, setIsSyncSuccess] = P2(false);
+  const [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
+    false
+  );
+  const [config, setConfig] = P2(null);
+  const [isLatestVersion, setIsLatestVersion] = P2(null);
+  const [settings, setSettings, _isPersistent, _error] = useUserConfig();
+  const [isCleaning, setIsCleaning] = P2(false);
+  const version = getVersion();
+  const handleSyncing = async () => {
     setSyncErrorMessage("");
     let finalRemoteConfig = remoteConfig;
-    if (remoteConfig === null)
+    if (remoteConfig === null) {
       try {
-        let response = await request({ url: buildinConfigSyncUrl });
-        response ? (setRemoteConfig(response), finalRemoteConfig = response, setIsSyncSuccess(!0)) : (setSyncErrorMessage(t5("unknownError")), setIsNeedUpdate(null));
+        const response = await request({ url: buildinConfigSyncUrl });
+        if (response) {
+          setRemoteConfig(response);
+          finalRemoteConfig = response;
+          setIsSyncSuccess(true);
+        } else {
+          setSyncErrorMessage(t5("unknownError"));
+          setIsNeedUpdate(null);
+        }
       } catch (e3) {
-        setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
+        setIsNeedUpdate(null);
+        setSyncErrorMessage(e3.message);
         return;
       }
-    finalRemoteConfig !== null ? (setStorageBuildinConfig(finalRemoteConfig), setIsNeedUpdate(!1), setLocalBuildinConfigUpdatedAt(
-      finalRemoteConfig.buildinConfigUpdatedAt
-    )) : (setSyncErrorMessage(t5("canNotFetchRemoteRule")), setIsNeedUpdate(null));
+    }
+    if (finalRemoteConfig !== null) {
+      setStorageBuildinConfig(finalRemoteConfig);
+      setIsNeedUpdate(false);
+      setLocalBuildinConfigUpdatedAt(
+        finalRemoteConfig.buildinConfigUpdatedAt
+      );
+    } else {
+      setSyncErrorMessage(t5("canNotFetchRemoteRule"));
+      setIsNeedUpdate(null);
+    }
   };
   j2(() => {
     getConfig().then((localConfig) => {
-      let localConfigUpdatedAtIsoString = localConfig.buildinConfigUpdatedAt;
+      const localConfigUpdatedAtIsoString = localConfig.buildinConfigUpdatedAt;
       setConfig(localConfig);
-      let localConfigUpdatedAt = new Date(localConfigUpdatedAtIsoString);
-      setLocalBuildinConfigUpdatedAt(localConfigUpdatedAtIsoString), request({
+      const localConfigUpdatedAt = new Date(localConfigUpdatedAtIsoString);
+      setLocalBuildinConfigUpdatedAt(localConfigUpdatedAtIsoString);
+      request({
         url: buildinConfigSyncUrl
       }).then((data) => {
-        let remoteMinVersion = data.minVersion, localVersion = version;
+        const remoteMinVersion = data.minVersion;
+        const localVersion = version;
         setRemoteConfig(data);
-        let remoteVersion = data.latestVersion;
-        if (remoteVersion && (isAVersionGreaterOrEqualWithB(localVersion, remoteVersion) ? setIsLatestVersion(!0) : setIsLatestVersion(!1)), isAVersionGreaterOrEqualWithB(localVersion, remoteMinVersion)) {
-          let latestIsoTime = data.buildinConfigUpdatedAt;
-          new Date(latestIsoTime) > localConfigUpdatedAt ? (setIsNeedUpdate(!0), handleSyncing()) : setIsNeedUpdate(!1);
-        } else
-          setIsInvalidLocalVersion(!0), setIsNeedUpdate(null);
+        const remoteVersion = data.latestVersion;
+        if (remoteVersion) {
+          if (!isAVersionGreaterOrEqualWithB(localVersion, remoteVersion)) {
+            setIsLatestVersion(false);
+          } else {
+            setIsLatestVersion(true);
+          }
+        }
+        if (isAVersionGreaterOrEqualWithB(localVersion, remoteMinVersion)) {
+          const latestIsoTime = data.buildinConfigUpdatedAt;
+          const latest = new Date(latestIsoTime);
+          if (latest > localConfigUpdatedAt) {
+            setIsNeedUpdate(true);
+            handleSyncing();
+          } else {
+            setIsNeedUpdate(false);
+          }
+        } else {
+          setIsInvalidLocalVersion(true);
+          setIsNeedUpdate(null);
+        }
       }).catch((e3) => {
-        setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
+        setIsNeedUpdate(null);
+        setSyncErrorMessage(e3.message);
       });
-    }), getCacheSize().then((size) => {
+    });
+    getCacheSize().then((size) => {
       setCacheSize(size);
     });
-  }, []), j2(() => {
+  }, []);
+  j2(() => {
     getConfig().then((config2) => {
       setConfig(config2);
     });
   }, [settings, localBuildinConfigUpdatedAt]);
-  let handleToggleAlpha = (_e3) => {
+  const handleToggleAlpha = (_e3) => {
     setSettings((state) => {
-      let action = !state.alpha;
-      return action ? success(t5("enableAlphaSuccess")) : success(t5("disableAlphaSuccess")), {
+      const action = !state.alpha;
+      if (action) {
+        success(t5("enableAlphaSuccess"));
+      } else {
+        success(t5("disableAlphaSuccess"));
+      }
+      return {
         ...state,
         alpha: action
       };
     });
-  }, handleCleanCache = (e3) => {
-    e3.preventDefault(), e3.stopPropagation(), setIsCleaning(!0), clearBuildinConfig().catch((e4) => {
-      log_default.error("clear build config failed:", e4);
-    }), clearLocalConfig().catch((e4) => {
-      log_default.error("clear local config failed:", e4);
-    }), cleanCache().then(() => {
-      setIsCleaning(!1), success("\u6E05\u7406\u6210\u529F"), setCacheSize("0 B");
-    }).catch((e4) => {
-      setIsCleaning(!1), error(e4.message);
-    });
-  }, handleCacheOption = (checked) => {
-    setSettings((state) => ({
-      ...state,
-      cache: checked
-    }));
   };
-  return config ? /* @__PURE__ */ p5("div", { class: "text-sm", children: [
+  const handleCleanCache = (e3) => {
+    e3.preventDefault();
+    e3.stopPropagation();
+    setIsCleaning(true);
+    clearBuildinConfig().catch((e4) => {
+      log_default.error("clear build config failed:", e4);
+    });
+    clearLocalConfig().catch((e4) => {
+      log_default.error("clear local config failed:", e4);
+    });
+    cleanCache().then(() => {
+      setIsCleaning(false);
+      success("\u6E05\u7406\u6210\u529F");
+      setCacheSize("0 B");
+    }).catch((e4) => {
+      setIsCleaning(false);
+      error(e4.message);
+    });
+  };
+  const handleCacheOption = (checked) => {
+    setSettings((state) => {
+      return {
+        ...state,
+        cache: checked
+      };
+    });
+  };
+  if (!config) {
+    return null;
+  }
+  return /* @__PURE__ */ p5("div", { class: "text-sm", children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5(
       "strong",
       {
@@ -17713,8 +21275,8 @@ function About() {
         ]
       }
     ),
-    isLatestVersion === !1 && /* @__PURE__ */ p5(NewVersion, { latestVersion: remoteConfig?.latestVersion }),
-    isLatestVersion === !0 && /* @__PURE__ */ p5(CurrentLatestVersion, {}),
+    isLatestVersion === false && /* @__PURE__ */ p5(NewVersion, { latestVersion: remoteConfig?.latestVersion }),
+    isLatestVersion === true && /* @__PURE__ */ p5(CurrentLatestVersion, {}),
     /* @__PURE__ */ p5("fieldset", { children: /* @__PURE__ */ p5("label", { for: "switch", children: [
       /* @__PURE__ */ p5(
         "input",
@@ -17748,7 +21310,7 @@ function About() {
         message: syncErrorMessage,
         date: localBuildinConfigUpdatedAt || ""
       }
-    ) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null ? /* @__PURE__ */ p5(Checking, {}) : isNeedUpdate === !0 ? /* @__PURE__ */ p5(Syncing, {}) : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : /* @__PURE__ */ p5(AlreadyLatest, { date: localBuildinConfigUpdatedAt }),
+    ) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null ? /* @__PURE__ */ p5(Checking, {}) : isNeedUpdate === true ? /* @__PURE__ */ p5(Syncing, {}) : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : /* @__PURE__ */ p5(AlreadyLatest, { date: localBuildinConfigUpdatedAt }),
     /* @__PURE__ */ p5("ul", { class: "text-sm ml-4", children: [
       /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
         "a",
@@ -17813,10 +21375,10 @@ function About() {
         class: "text-sm",
         dangerouslySetInnerHTML: {
           __html: t5("aboutIntro", {
-            1: "https://immersive-translate.owenyoung.com/thanks",
-            2: "https://immersive-translate.owenyoung.com/donate",
-            3: "https://twitter.com/OwenYoungZh",
-            4: "https://t.me/owenyoungzh"
+            "1": "https://immersive-translate.owenyoung.com/thanks",
+            "2": "https://immersive-translate.owenyoung.com/donate",
+            "3": "https://twitter.com/OwenYoungZh",
+            "4": "https://t.me/owenyoungzh"
           })
         }
       }
@@ -17832,12 +21394,15 @@ function About() {
         scrolling: "no"
       }
     ) })
-  ] }) : null;
+  ] });
 }
 
 // pages/advanced.tsx
 function Options3() {
-  let buildInConfig = getBuildInConfig(), [settings, setSettings, _isPersistent, error2] = useUserConfig(), [ctx, setCtx] = P2(null), { t: t5 } = useI18n();
+  const buildInConfig = getBuildInConfig();
+  const [settings, setSettings, _isPersistent, error2] = useUserConfig();
+  const [ctx, setCtx] = P2(null);
+  const { t: t5 } = useI18n();
   j2(() => {
     getConfig().then((config2) => {
       getContext({
@@ -17848,14 +21413,20 @@ function Options3() {
       });
     });
   }, [settings]);
-  let selectDisplay = (theme) => {
-    setSettings((state) => ({ ...state, translationTheme: theme }));
-  }, selectInterfaceLanguage = (lang) => {
-    setSettings((state) => ({ ...state, interfaceLanguage: lang }));
+  const selectDisplay = (theme) => {
+    setSettings((state) => {
+      return { ...state, translationTheme: theme };
+    });
   };
-  if (!ctx)
+  const selectInterfaceLanguage = (lang) => {
+    setSettings((state) => {
+      return { ...state, interfaceLanguage: lang };
+    });
+  };
+  if (!ctx) {
     return /* @__PURE__ */ p5("div", { children: "loading" });
-  let config = ctx.config;
+  }
+  const config = ctx.config;
   return /* @__PURE__ */ p5("div", { children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("advanced") }) }),
     /* @__PURE__ */ p5("div", { class: "nav", children: [
@@ -17874,11 +21445,13 @@ function Options3() {
           name: "switch",
           role: "switch",
           onChange: (e3) => {
-            let checked = e3.target.checked;
-            setSettings((state) => ({
-              ...state,
-              translationArea: checked ? "body" : "main"
-            }));
+            const checked = e3.target.checked;
+            setSettings((state) => {
+              return {
+                ...state,
+                translationArea: checked ? "body" : "main"
+              };
+            });
           },
           checked: config.translationArea === "body"
         }
@@ -17897,11 +21470,13 @@ function Options3() {
         {
           type: "checkbox",
           onChange: (e3) => {
-            let checked = e3.target.checked;
-            setSettings((state) => ({
-              ...state,
-              translationStartMode: checked ? "immediate" : "dynamic"
-            }));
+            const checked = e3.target.checked;
+            setSettings((state) => {
+              return {
+                ...state,
+                translationStartMode: checked ? "immediate" : "dynamic"
+              };
+            });
           },
           checked: config.translationStartMode === "immediate",
           id: "switch",
@@ -17922,16 +21497,19 @@ function Options3() {
         {
           type: "checkbox",
           onChange: (e3) => {
-            let checked = e3.target.checked;
+            const checked = e3.target.checked;
             createContextMenu({
               ...ctx.config,
               isShowContextMenu: checked
-            }), setSettings((state) => ({
-              ...state,
-              isShowContextMenu: checked
-            }));
+            });
+            setSettings((state) => {
+              return {
+                ...state,
+                isShowContextMenu: checked
+              };
+            });
           },
-          checked: ctx.config.isShowContextMenu === !0,
+          checked: ctx.config.isShowContextMenu === true,
           id: "switch",
           name: "switch",
           role: "switch"
@@ -17953,10 +21531,12 @@ function Options3() {
         {
           class: "select",
           onChange: (e3) => {
-            setSettings((state) => ({
-              ...state,
-              loadingTheme: e3.target.value
-            }));
+            setSettings((state) => {
+              return {
+                ...state,
+                loadingTheme: e3.target.value
+              };
+            });
           },
           children: [
             /* @__PURE__ */ p5(
@@ -17964,7 +21544,7 @@ function Options3() {
               {
                 value: "spinner",
                 selected: config.loadingTheme === "spinner",
-                children: t5("loadingTheme.spinner")
+                children: t5(`loadingTheme.spinner`)
               }
             ),
             /* @__PURE__ */ p5(
@@ -17972,10 +21552,10 @@ function Options3() {
               {
                 value: "text",
                 selected: config.loadingTheme === "text",
-                children: t5("loadingTheme.text")
+                children: t5(`loadingTheme.text`)
               }
             ),
-            /* @__PURE__ */ p5("option", { value: "none", selected: config.loadingTheme === "none", children: t5("loadingTheme.none") })
+            /* @__PURE__ */ p5("option", { value: "none", selected: config.loadingTheme === "none", children: t5(`loadingTheme.none`) })
           ]
         }
       )
@@ -18000,17 +21580,23 @@ function Options3() {
           onChange: (e3) => {
             setSettings((state) => {
               let currentGeneralRule = state.generalRule || {};
-              return parseInt(
+              const value = parseInt(
                 e3.target.value
-              ) === 0 ? currentGeneralRule = {
-                ...currentGeneralRule,
-                blockMinTextCount: 0,
-                blockMinWordCount: 0
-              } : currentGeneralRule = {
-                ...currentGeneralRule,
-                blockMinTextCount: buildInConfig.generalRule.blockMinTextCount,
-                blockMinWordCount: buildInConfig.generalRule.blockMinWordCount
-              }, {
+              );
+              if (value === 0) {
+                currentGeneralRule = {
+                  ...currentGeneralRule,
+                  blockMinTextCount: 0,
+                  blockMinWordCount: 0
+                };
+              } else {
+                currentGeneralRule = {
+                  ...currentGeneralRule,
+                  blockMinTextCount: buildInConfig.generalRule.blockMinTextCount,
+                  blockMinWordCount: buildInConfig.generalRule.blockMinWordCount
+                };
+              }
+              return {
                 ...state,
                 generalRule: currentGeneralRule
               };
@@ -18022,7 +21608,7 @@ function Options3() {
               {
                 value: 32,
                 selected: config.generalRule.blockMinTextCount > 0,
-                children: t5("smartLineBreak")
+                children: t5(`smartLineBreak`)
               }
             ),
             /* @__PURE__ */ p5(
@@ -18030,7 +21616,7 @@ function Options3() {
               {
                 value: 0,
                 selected: config.generalRule.blockMinTextCount === 0,
-                children: t5("alwaysLineBreak")
+                children: t5(`alwaysLineBreak`)
               }
             )
           ]
@@ -18052,12 +21638,14 @@ function Options3() {
         {
           class: "select",
           onChange: (e3) => {
-            setSettings((state) => ({
-              ...state,
-              tempTranslateDomainMinutes: parseInt(
-                e3.target.value
-              )
-            }));
+            setSettings((state) => {
+              return {
+                ...state,
+                tempTranslateDomainMinutes: parseInt(
+                  e3.target.value
+                )
+              };
+            });
           },
           children: [
             /* @__PURE__ */ p5(
@@ -18065,7 +21653,7 @@ function Options3() {
               {
                 value: 0,
                 selected: config.tempTranslateDomainMinutes === 0,
-                children: t5("disabled")
+                children: t5(`disabled`)
               }
             ),
             /* @__PURE__ */ p5(
@@ -18073,7 +21661,7 @@ function Options3() {
               {
                 value: 5,
                 selected: config.tempTranslateDomainMinutes === 5,
-                children: t5("xMinutes", {
+                children: t5(`xMinutes`, {
                   count: 5
                 })
               }
@@ -18083,7 +21671,7 @@ function Options3() {
               {
                 value: 10,
                 selected: config.tempTranslateDomainMinutes === 10,
-                children: t5("xMinutes", {
+                children: t5(`xMinutes`, {
                   count: 10
                 })
               }
@@ -18093,7 +21681,7 @@ function Options3() {
               {
                 value: 30,
                 selected: config.tempTranslateDomainMinutes === 30,
-                children: t5("xMinutes", {
+                children: t5(`xMinutes`, {
                   count: 30
                 })
               }
@@ -18110,16 +21698,18 @@ function Options3() {
           type: "number",
           id: "count",
           onChange: (e3) => {
-            let count2 = e3.target.value;
-            setSettings((state) => ({
-              ...state,
-              immediateTranslationTextCount: parseInt(count2)
-            }));
+            const count2 = e3.target.value;
+            setSettings((state) => {
+              return {
+                ...state,
+                immediateTranslationTextCount: parseInt(count2)
+              };
+            });
           },
           name: "count",
           value: config.immediateTranslationTextCount,
           placeholder: "Text Length",
-          required: !0
+          required: true
         }
       ) })
     ] })
@@ -18133,26 +21723,34 @@ var twind_config_default = Rt({
 
 // pages/options.tsx
 function main() {
-  let mountPoint = document.getElementById("mount");
-  mountPoint && (async () => {
-    $e(twind_config_default);
-    let config = await getConfig();
-    config.debug && log_default.setLevel("debug"), re(
-      /* @__PURE__ */ p5(
-        TranslateProvider,
-        {
-          lang: config.interfaceLanguage,
-          fallbackLang: "zh-CN",
-          translations: locales_default,
-          children: /* @__PURE__ */ p5(App, { donateUrl: config.donateUrl })
-        }
-      ),
-      mountPoint
-    );
-  })();
+  const mountPoint = document.getElementById("mount");
+  if (mountPoint) {
+    (async () => {
+      $e(twind_config_default);
+      const config = await getConfig();
+      if (config.debug) {
+        log_default.setLevel("debug");
+      }
+      re(
+        /* @__PURE__ */ p5(
+          TranslateProvider,
+          {
+            lang: config.interfaceLanguage,
+            fallbackLang: "zh-CN",
+            translations: locales_default,
+            children: /* @__PURE__ */ p5(App, { donateUrl: config.donateUrl })
+          }
+        ),
+        mountPoint
+      );
+    })();
+  }
 }
 function App(props) {
-  let route = useRoute(), { t: t5 } = useI18n(), version = getVersion(), navs = [
+  const route = useRoute();
+  const { t: t5 } = useI18n();
+  const version = getVersion();
+  const navs = [
     {
       name: t5("general"),
       props: {
@@ -18189,9 +21787,13 @@ function App(props) {
       }
     }
   ];
-  return navs.forEach((nav) => {
-    route === nav.props.href && (nav.props.className = "primary", nav.props["aria-current"] = "page");
-  }), /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
+  navs.forEach((nav) => {
+    if (route === nav.props.href) {
+      nav.props.className = "primary";
+      nav.props["aria-current"] = "page";
+    }
+  });
+  return /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
     /* @__PURE__ */ p5("aside", { children: /* @__PURE__ */ p5("nav", { class: "flex flex-col h-full justify-between", children: [
       /* @__PURE__ */ p5("div", { children: [
         /* @__PURE__ */ p5("hgroup", { children: [
@@ -18207,7 +21809,7 @@ function App(props) {
           ),
           /* @__PURE__ */ p5("h6", { class: "!text-sm", children: version })
         ] }),
-        /* @__PURE__ */ p5("ul", { children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
+        /* @__PURE__ */ p5("ul", { class: "flex flex-wrap  justify-between md:block", children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
       ] }),
       /* @__PURE__ */ p5("div", { class: "m-0 p-0 flex flex-col", children: [
         /* @__PURE__ */ p5(
@@ -18267,3 +21869,4 @@ function App(props) {
 
 // options.tsx
 main();
+//# sourceMappingURL=options.js.map

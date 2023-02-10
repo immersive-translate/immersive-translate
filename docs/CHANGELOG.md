@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.56
+
+- Fix duplicate translate for inline elements with code element.
+- Fix unknown tags inline/block check
+- Feat: support injected css on developer board
+- Feat: trim authKey, appid appSecret
+- Better: open settings page on new tab (but not for Stay)
+
 ## 0.2.55
 
 - Try fix deepl api charset

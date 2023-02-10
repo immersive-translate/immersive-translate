@@ -2,11 +2,9 @@
 
 你可以在扩展配置页面 -> 开发者设置 -> User Config 里编辑更多 UI 里无法编辑的自定义配置。
 
-基本配置示例：
-
 ## User Rules
 
-通过 Rules 可以对特定的网站进行自定义的配置，例如哪些内容是否需要被翻译，或调整网页样式等。当前内置的 `rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json) 找到。参数讲解详见最后的 Rules 说明。
+通过 Rules 可以对特定的网站进行自定义的配置，例如哪些内容是否需要被翻译，或调整网页样式等。当前版本内置的 `rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json)找到。参数讲解详见最后的 Rules 说明。
 
 ```json
 [{
@@ -139,7 +137,6 @@
 
 还可以在不同的服务下配置 `matches` 字段, 指定某些网站使用指定的翻译服务。
 
-
 ### 翻译特定网站
 
 `translationUrlPattern` 配置总是翻译的网站，以及永不翻译的网站。
@@ -173,7 +170,6 @@
   "matches": ["twitter.com", "github.com"]
 }
 ```
-
 
 ### 译文显示格式
 
@@ -266,6 +262,7 @@ export interface Rule {
   // 保持原样
   stayOriginalSelectors?: string | string[];  // 该选择器匹配的元素将保持原样
   stayOriginalTags?: string | string[];       // 匹配到的Tag 将保持原样，比如 `code`
+  
   // 分段换行
   atomicBlockSelectors?: string | string[];   // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段.
   atomicBlockTags?: string | string[];        // 原子Tag选择器,  同上

@@ -252,39 +252,62 @@
 
 ```typescript
 export interface Rule {
-  matches?: string | string[]; // url匹配规则，设置后，该条rule将仅匹配该url，支持通配符，比如 `*.google.com`, `www.google.com/test/*`, `file:///*`
-  excludeMatches?: string | string[]; // url 排除规则，设置后，该条rule将不匹配特定的url
-  selectorMatches?: string | string[]; // 选择器匹配规则，比如数量众多的mastodon实例可以用选择器来判断，无需指定所有的url
-  excludeSelectorMatches?: string | string[]; // 选择器排除规则
-  selectors?: string | string[]; // css选择器，设置后，该网页将翻译设置的selectors匹配的元素进行翻译
-  additionalSelectors?: string | string[]; // 额外的css选择器，设置后，除了智能判断的区域外，这里面包含的元素也会被翻译
-  excludeSelectors?: string | string[]; // 排除的元素，设置后，匹配的元素将不被翻译
-  additionalExcludeSelectors?: string | string[]; // 额外的排除元素
-  atomicBlockSelectors?: string | string[]; // 原子元素选择器，设置后，该选择器匹配的元素将被视为一个整体，不会进行分段
-  atomicBlockTags?: string | string[]; // 原子Tag名，同上
-  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
-  lineBreakMaxTextCount?: number; // 强制为原网页长段落进行分行的每个段落的最大字符数。
-  extraInlineSelectors?: string | string[]; // 额外的inline元素，有些网页不标准，导致解析出错，这里可以修正。
-  extraBlockSelectors?: string | string[]; // 额外的block元素，同上
-  translationClasses?: string | string | string[]; // 你可以为译文添加额外的css名字
+  
+  // url
+  matches?: string | string[]; // url匹配规则. 设置后,该条rule将仅匹配该url, 支持通配符, 如 `*.google.com`, `www.google.com/test/*`, `file:///*`
+  excludeMatches?: string | string[]; // url排除规则. 不匹配特定的url
+  
+  selectorMatches?: string | string[]; // url选择器匹配规则. 如数量众多的 mastodon实例就可以用选择器来判断, 无需指定所有url.
+  excludeSelectorMatches?: string | string[]; // url选择器排除规则.
+  
+  // css selectors
+  selectors?: string | string[]; // 该选择器匹配的元素将被翻译.
+  excludeSelectors?: string | string[]; // 排除元素, 不翻译选择器匹配的元素.
+  excludeTags?: string | string[]; // 排除Tags, 不翻译匹配的Tag
+  
+  // 保持原样
+  stayOriginalSelectors?: string | string[]; // 该选择器匹配的元素将保持原样不翻译.
+  stayOriginalTags?: string | string[]; // 匹配到的 Tag 将保持原样.比如 `code`
+  
+  // 追加范围, 而不是替代.
+  additionalSelectors?: string | string[]; // 额外的css选择器.除智能判断的区域外, 这里匹配的元素也会被翻译.
+  additionalExcludeSelectors?: string | string[]; // 额外排除元素
+  additionalExcludeTags?: string | string[]; // 额外排除Tags
+  
+  // Block or Inline ?
+  extraBlockSelectors?: string | string[]; // 额外的css选择器.该选择器匹配的元素将作为 block 元素.
+  extraInlineSelectors?: string | string[]; // 额外的css选择器.该选择器匹配的元素将作为 inline 元素.
   inlineTags?: string | string[]; // inlineTags
-  preWhitespaceDetectedTags?: string | string[]; // 检测是否是preWhiteSpace的tag
-  excludeTags?: string | string[]; // 排除的tags
-  additionalExcludeTags?: string | string[]; // 额外排除的tags
-  stayOriginalTags?: string | string[]; // 这些tag，比如code 保持原样
-  stayOriginalSelectors?: string | string[]; // 这样选择器匹配的tag，保持原样不翻译
-  globalStyles?: Record<string, string>; // 修改全局样式，这个很有用，可以移除原网页的一些最大高度的样式，比如youtube的标题，格式为 `".title":"max-height: unset;"`
-  globalAttributes?: Record<string, Record<string, string>>; // 修改全局元素的属性
-  wrapperPrefix?: string; // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
-  wrapperSuffix?: string; // 译文区域的后缀
-  urlChangeDelay?: number; // 延迟多少毫秒才开始翻译，为了等网页的初始化，目前默认为250ms
-  observeUrlChange?: boolean; // 是否检测url change事件，默认为true，部分网站不检测体验更好，比如inoreader
-  paragraphMinTextCount?: number; // 要翻译的段落的最小字符数
-  paragraphMinWordCount?: number; // 要翻译的段落的最小word数
-  blockMinTextCount?: number; // 让译文成为一个block的最小字符数，否则译文为一个inline元素
+  
+  blockMinTextCount?: number; // 译文作为 block 的最小字符数，否则译文为 inline元素. 
   blockMinWordCount?: number; // 同上
-  isShowUserscriptPagePopup?: boolean; // 是否在移动设备上展示页面内的浮窗
-  fingerCountToToggleTranslagePageWhenTouching?: number; // 四指触摸则翻译，可以设置为0，2，3，4，5
+  
+  // 分段换行
+  atomicBlockSelectors?: string | string[]; // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段.
+  atomicBlockTags?: string | string[]; // 原子Tag选择器,  同上
+  
+  // 智能识别
+  paragraphMinTextCount?: number; // 要翻译的段落的最小字符数, 大于数字的内容将被翻译.
+  paragraphMinWordCount?: number; // 要翻译的段落的最小单词数.
+  
+  // 长段落换行
+  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
+  lineBreakMaxTextCount?: number; // 翻译长段落时，强制进行分行的段落最大字符数。
+  
+  // 样式
+  globalStyles?: Record<string, string>; // 修改全局样式. 如果译文导致页面排版错乱，这个很有用。`
+  globalAttributes?: Record<string, Record<string, string>>; // 修改全局元素的属性
+  translationClasses?: string | string | string[]; // 为译文添加额外的 Class
+  
+  // 移动端 
+  isShowUserscriptPagePopup?: boolean; // 在移动设备上展示页面内的浮窗, 默认为true.
+  fingerCountToToggleTranslagePageWhenTouching?: number; // 四指触摸则翻译，可以设置为 0，2，3，4，5
+  
+  // 其他
+  preWhitespaceDetectedTags?: string | string[]; // 检测是否是 preWhiteSpace 的tag
+  urlChangeDelay?: number; // 延迟多少毫秒才开始翻译, 为了等网页的初始化, 目前默认为250ms
+  observeUrlChange?: boolean; // 检测链接地址变动, 链接地址发生变化时再次触发翻译, 默认为true.部分网站不检测体验更好，比如inoreader
+
 }
 ```
 

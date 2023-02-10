@@ -18,4 +18,6 @@
 
 ## 更多样式请查看设置界面
 
+![](assets/config1.png)
+
 ![](./assets/config.png)

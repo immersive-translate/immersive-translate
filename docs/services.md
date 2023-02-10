@@ -10,8 +10,8 @@
 4. [火山引擎](./services/volcano.md)
 5. [百度翻译](./services/baidu.md)
 6. [OpenL](./services/openL.md)
-7. [有道翻译](./services/youdao.md)
 8. [小牛翻译](./services/niu.md)
+7. [有道翻译](./services/youdao.md)
 
 ## 免责声明
 

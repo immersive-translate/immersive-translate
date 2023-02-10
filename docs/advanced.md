@@ -4,7 +4,9 @@
 
 基本配置示例：
 
-通过 User Rules, 我们可以对特定网站进行自定义配置，例如设置哪些区域的内容是否需要翻译，或者调整网页样式等。详见最后的 Rules 说明。
+## User Rules
+
+通过 Rules 可以对特定的网站进行自定义的配置，；例如哪些内容是否需要被翻译，或调整网页样式等。详见最后的 Rules 说明。
 
 ```json
 [{
@@ -17,8 +19,9 @@
 }]
 ```
 
+## User Config
 
-完整基本配置示例：
+通过 Config 可以自定义此插件的相关配置，如翻译服务、特定语言语言翻译选项等。
 
 ```json
 {
@@ -285,4 +288,55 @@ export interface Rule {
 }
 ```
 
+经常会用到的几个字段:
+
+
+匹配的元素将不被翻译
+```
+"excludeSelectors": [],
+```
+
+匹配的元素将被视为一个整体，不会进行分段。
+```
+"atomicBlockSelectors": [],
+```
+
+让译文成为一个 block 的最小字符数，否则译文为一个 inline 元素
+```
+"blockMinTextCount": 32,
+"blockMinWordCount": 5,
+```
+
+Block 和 inline 的区别，如果想了解更多可以看[这里](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#inline)
+
+    block 元素会独占一行，多个相邻的 block 元素会各自新起一行.
+    inline 元素不会独占一行，多个相邻的 inline 元素会排列在同一行里,直到一行排列不下才会新换一行。
+
+
+修改全局样式，如果译文会导致页面错位，可以用它修复。
+
+```
+"globalStyles": {
+    "div": "width:100%"
+}
+```
+
+译文区域的前缀，后缀。
+```
+"wrapperPrefix": "<br />",
+"wrapperSuffix": ""
+```
+
+## 如何使用 CSS选择器？
+
+在浏览器按 F12 打开开发者控制台。
+
+**Chrome**
+以 Twitter 举例，通过元素选择器找到你希望翻译的区域。
+查看 Elements 视图的 HTML 元素，寻找一个所有目标共有的CSS元素。例如正文的属性 `"[data-testid=\"tweetText\"]"`，就是我们要寻找的。
+
+你可以用 JS 来测试是否全部正确，或在元素右键，Copy - Copy JS path 
+```
+document.querySelectorAll("[data-testid=\"tweetText\"]")
+```
 

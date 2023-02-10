@@ -6,7 +6,7 @@
 
 ## User Rules
 
-通过 Rules 可以对特定的网站进行自定义的配置，例如哪些内容是否需要被翻译，或调整网页样式等。详见最后的 Rules 说明。
+通过 Rules 可以对特定的网站进行自定义的配置，例如哪些内容是否需要被翻译，或调整网页样式等。当前内置的 `rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json) 找到。参数讲解详见最后的 Rules 说明。
 
 ```json
 [{

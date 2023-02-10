@@ -4,6 +4,22 @@
 
 基本配置示例：
 
+通过 User Rules, 我们可以对特定网站进行自定义配置，例如设置哪些区域的内容是否需要翻译，或者调整网页样式等。详见最后的 Rules 说明。
+
+```json
+[{
+  "matches": "www.google.com",
+  "selectors": [".title"]
+}, {
+  "matches": "*.twitter.com",
+  "selectors": [".text"],
+  "excludeSelectors": ["footer"]
+}]
+```
+
+
+完整基本配置示例：
+
 ```json
 {
   "translationService": "tencent",
@@ -82,9 +98,14 @@
 }
 ```
 
-其中，`rules` 里的规则字段，可以使用`generalRule`里的全部字段，`rules`的优先级最高，当匹配到特定网站的某一条`rule`时，会合并`generalRule`和该`rule`，通过 rule,我们可以对任意网站进行任意自定义配置。详见最后的 Rules 说明。
+其中，`rules` 里的规则字段，可以使用 `generalRule` 里的全部字段。`rules` 拥有最高优先级，当匹配到特定网站的某一条 `rule` 时，会合并 `generalRule` 和该 `rule`。
 
-`translationService`, 为默认翻译引擎，当前支持：
+
+### 翻译服务配置
+
+**translationService**
+
+`translationService` 为默认翻译引擎，当前支持：
 
 ```typescript
 | "tencent"
@@ -99,17 +120,61 @@
 | "transmart"
 ```
 
-其中部分服务需要配置`apikey`等，不同服务需要的 token 不一样。
+在 `translationServices` 里配置各家翻译服务的 `apikey` ，不同服务商需要的参数不一样。
 
-比如`tencent`需要在`translationServices.tencent`里配置 `secretId`,`secretKey`， 需要在腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
+比如腾讯翻译君，在 `translationServices.tencent` 里需要配置 `secretId`, `secretKey`。需要前往腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
 
-还可以在不同的服务下配置：`matches`, 这样可以指定某些网站使用指定的翻译服务。
+```json
+"translationServices": {
+  "tencent": {
+    "secretId": "xxx",
+    "secretKey": "xxx",
+    "matches":["*.twitter.com"]
+  }
+}
+```
 
-`translationUrlPattern`, 配置 总是翻译的网站，以及永不翻译的网站。其中`matches`配置总是翻译的网站， `excludeMatches`配置永不翻译的网站。配置的值可以是域名或者带有`*`的网址，比如：`www.google.com/mail/*`
+还可以在不同的服务下配置 `matches` 字段, 指定某些网站使用指定的翻译服务。
 
-`translationLanguagePattern`,配置总是翻译的语言，以及永不翻译的语言。其中`matches`配置总是翻译的语言，比如`en`,`excludeMatches`配置永不翻译的语言。
 
-`translationTheme`为译文的显示格式:，当前支持以下样式：
+### 翻译特定网站
+
+`translationUrlPattern` 配置总是翻译的网站，以及永不翻译的网站。
+
+- `matches` 配置总是翻译的网站， 
+- `excludeMatches` 配置永不翻译的网站。
+
+配置值可以是域名或者带有 `*` 的网址，比如：`www.google.com/mail/*`
+
+```json
+"translationUrlPattern": {
+    "matches": ["stackoverflow.com"]
+    "excludeMatches": ["www.google.com/mail/*"]
+}
+```
+
+### 翻译特定语言
+
+`translationLanguagePattern`, 配置总是翻译的语言，以及永不翻译的语言。
+
+- `matches` 配置总是翻译的语言，比如 `en`,
+- `excludeMatches` 配置永不翻译的语言。
+
+
+### 段落语言检测
+
+`detectParagraphLanguagePattern` 为不同网站配置，按照段落检测语言，这样可以避免某些本来就是目标语言的段落被翻译。
+
+```
+"detectParagraphLanguagePattern": {
+  "matches": ["twitter.com", "github.com"]
+}
+```
+
+
+### 译文显示格式
+
+`translationTheme` 为译文的显示格式，当前支持以下样式：
 
 ```typescript
 | "none"
@@ -145,13 +210,19 @@
 }
 ```
 
-`translationThemePatterns` 下可以为不同网站配置不同的译文样式。
+`translationThemePatterns` 可以为不同网站配置不同的译文样式。
 
-`detectParagraphLanguagePattern`下可以为不同网站配置，按照段落检测语言，这样可以避免某些本来就是目标语言的段落被翻译。
+```json
+"translationThemePatterns": {
+  "underline": {
+    "matches": ["discord.com"]
+  }
+}
+```
 
-### Rules
+### Rules 
 
-`rules`, 数组对象，可以配置针对特别网站的规则，比如对于推特可以只翻译某一部分区域:
+`rules` 为数组对象，可以配置针对特别网站的规则，比如让推特只翻译某一部分区域:
 
 ```json
 {
@@ -172,7 +243,7 @@
 }
 ```
 
-当前内置的`rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json) 找到。
+当前内置的 `rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json) 找到。
 
 以下挑选部分重要字段进行说明：
 
@@ -213,3 +284,5 @@ export interface Rule {
   fingerCountToToggleTranslagePageWhenTouching?: number; // 四指触摸则翻译，可以设置为0，2，3，4，5
 }
 ```
+
+

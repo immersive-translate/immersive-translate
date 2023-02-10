@@ -121,9 +121,9 @@
 | "transmart"
 ```
 
-在 `translationServices` 里配置各家翻译服务的 `apikey` ，不同服务商需要的参数不一样。
+`translationServices` 配置各家翻译服务的 `apikey`，不同服务商需要的参数不一样。
 
-比如腾讯翻译君，在 `translationServices.tencent` 里需要配置 `secretId`, `secretKey`。需要前往腾讯云申请，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
+如腾讯翻译君，需要配置 `secretId`, `secretKey`。你可以前往腾讯云申请API密钥，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
 
 ```json
 "translationServices": {
@@ -155,7 +155,7 @@
 
 ### 翻译特定语言
 
-`translationLanguagePattern`, 配置总是翻译的语言，以及永不翻译的语言。
+translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的语言。
 
 - `matches` 配置总是翻译的语言，比如 `en`,
 - `excludeMatches` 配置永不翻译的语言。
@@ -272,29 +272,32 @@ export interface Rule {
   atomicBlockSelectors?: string | string[]; // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段
   atomicBlockTags?: string | string[];      // 原子Tag选择器,  同上
 
-  // 长段落换行
-  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
-  lineBreakMaxTextCount?: number; // 翻译长段落时，强制进行分行的段落最大字符数。
-
   // Block or Inline?
   inlineTags?: string | string[];           // 匹配的 Tag 将作为 inline 元素
   extraBlockSelectors?: string | string[];  // 额外的选择器，该选择器匹配的元素将作为 block 元素
   extraInlineSelectors?: string | string[]; // 额外的选择器，该选择器匹配的元素将作为 inline 元素
 
-  blockMinTextCount?: number; // 将译文作为 block 的最小字符数，否则译文为 inline 元素.
-  blockMinWordCount?: number;  // 同上
+  // 长段落分行
+  lineBreakMaxTextCount?: number; // 翻译长段落时，强制进行分行的段落最大字符数。
+
+  // 译文换行
+  blockMinTextCount?: number; // 将译文作为 block 的最小字符数，否则译文为 inline 元素。
+  blockMinWordCount?: number; // 同上。如果希望它们始终换行, 可以都填0.
   
   wrapperPrefix?: string;   // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
   wrapperSuffix?: string;   // 译文区域的后缀
 
-  // 样式
+  // 译文样式
   globalStyles?: Record<string, string>;                     // 修改页面样式，如果译文导致页面排版错乱，这个很有用。`
   globalAttributes?: Record<string, Record<string, string>>; // 修改页面元素的属性
   translationClasses?: string | string | string[];           // 为译文添加额外的 Class
 
-  // 翻译触发条件
+  // 翻译条件
+  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
   paragraphMinTextCount?: number; // 要翻译的段落的最小字符数, 大于数字的内容将被翻译
   paragraphMinWordCount?: number; // 要翻译的段落的最小单词数
+  
+  // 执行时机
   urlChangeDelay?: number;        // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
   observeUrlChange?: boolean;     // 检测链接地址变动，地址发生变化时，再次触发翻译。默认为true。部分网站不检测体验更好，比如 inoreader
 

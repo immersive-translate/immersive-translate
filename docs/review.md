@@ -16,17 +16,16 @@
 - 小众软件：[沉浸式翻译 – 支持 PDF、EPUB、网页，可同时显示原文与译文的双语翻译工具](https://www.appinn.com/immersive-translate/)
 - 蓝点网： [沉浸式翻译 - 支持多种翻译 API 的谷歌/火狐对照翻译扩展 ](https://www.landiannews.com/download/97161.html?utm_sources=ourl.co&utm_medium=social&utm_campaign=none)
 
-## 社交媒体
-
-> 强烈推荐这个网页翻译插件，和其他插件翻译整个网页相比，这个插件的优势是可以同时显示双语，中英文对照！完全免费使用。配合任何 epub 在线阅读网站对照翻译阅读书也非常方便。也支持了 Deepl 等翻译服务。开发者 @OwenYoungZh - [@viggo](https://twitter.com/decohack/status/1622175776274792449)
-
-> 一个非常赞的浏览器网页翻页插件:沉浸式双语网页翻译扩展-Immersive Translate, 智能识别网页主内容区，增强译文的阅读体验, 支持 Deepl, 谷歌等 10+ 种常见的翻译服务 - [@A 姐分享](https://twitter.com/abskoop/status/1619619066511241216)
 
 ## 用户留言
 
 > 难以想象的好用。它甚至支持 pdf！ - [Firefox 用户](https://addons.mozilla.org/en-US/firefox/addon/immersive-translate/reviews/1923696/)
 
 > 译文的特殊效果是同类产品的亮点 - Edge 浏览器用户
+
+> 强烈推荐这个网页翻译插件，和其他插件翻译整个网页相比，这个插件的优势是可以同时显示双语，中英文对照, 免费使用。配合任何 epub 在线阅读网站对照翻译阅读书也非常方便。也支持了 Deepl 等翻译服务。开发者 @OwenYoungZh - [@viggo](https://twitter.com/decohack/status/1622175776274792449)
+
+> 一个非常赞的浏览器网页翻页插件:沉浸式双语网页翻译扩展-Immersive Translate, 智能识别网页主内容区，增强译文的阅读体验, 支持 Deepl, 谷歌等 10+ 种常见的翻译服务 - [@A 姐分享](https://twitter.com/abskoop/status/1619619066511241216)
 
 > 完美的双语翻译插件，大大提升了外文书籍文章的阅读体验，强烈推荐！ - Edge 浏览器用户
 

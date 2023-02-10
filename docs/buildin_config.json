@@ -128,6 +128,8 @@
   "generalRule": {
     "_comment": "",
     "normalizeBody": "",
+    "injectedCss": [],
+    "additionalInjectedCss": [],
     "languageDetectMinTextCount": 50,
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
@@ -524,7 +526,10 @@
         ".Comment__body",
         "faceplate-batch .md"
       ],
-      "detectParagraphLanguage": true
+      "detectParagraphLanguage": true,
+      "globalStyles": {
+        "div.XPromoBottomBar": "display:none"
+      }
     },
     {
       "matches": "www.reuters.com/",
@@ -601,7 +606,10 @@
       ],
       "globalStyles": {
         ".comment-text": "max-height:unset;"
-      }
+      },
+      "injectedCss": [
+        ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+      ]
     },
     {
       "matches": "www.youtube.com",
@@ -636,7 +644,10 @@
       "extraBlockSelectors": [
         "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
-      "detectParagraphLanguage": true
+      "detectParagraphLanguage": true,
+      "injectedCss": [
+        ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+      ]
     },
     {
       "matches": "https://www.instagram.com/*",
@@ -1336,8 +1347,18 @@
       "additionalSelectors": [
         "aside.note"
       ]
+    },
+    {
+      "matches": "https://apps.microsoft.com/store/detail/*",
+      "additionalSelectors": [
+        "pre"
+      ],
+      "globalStyles": {
+        ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
+      },
+      "isTransformPreTagNewLine": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-10T07:04:54.131Z",
-  "latestVersion": "0.2.55"
+  "buildinConfigUpdatedAt": "2023-02-10T12:45:38.574Z",
+  "latestVersion": "0.2.57"
 }

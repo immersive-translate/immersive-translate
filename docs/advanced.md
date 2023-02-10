@@ -327,16 +327,3 @@ Block 和 inline 的区别，如果想了解更多可以看[这里](https://deve
 "wrapperSuffix": ""
 ```
 
-## 如何使用 CSS选择器？
-
-在浏览器按 F12 打开开发者控制台。
-
-**Chrome**
-以 Twitter 举例，通过元素选择器找到你希望翻译的区域。
-查看 Elements 视图的 HTML 元素，寻找一个所有目标共有的CSS元素。例如正文的属性 `"[data-testid=\"tweetText\"]"`，就是我们要寻找的。
-
-你可以用 JS 来测试是否全部正确，或在元素右键，Copy - Copy JS path 
-```
-document.querySelectorAll("[data-testid=\"tweetText\"]")
-```
-

@@ -13,9 +13,4 @@
 3. 选择开通付费版。
 4. 创建访问密钥。将鼠标悬停在网页右上角的头像上，然后选择 [访问管理](https://console.cloud.tencent.com/cam/overview)，然后在左侧菜单选择 [访问密钥 - API 密钥管理](https://console.cloud.tencent.com/cam/capi)，最好不要直接创建密钥，因为主账号创建的密钥可以访问调用你账号里的所有资源，因此保险起见选择创建一个子账号，在“用户权限”这一项进行搜索“机器翻译”，只勾选这一项。
 5. 成功创建后，会看到这个子账户的”SecretId“和“SecretKey”。将其填入本扩展即可！
-6. 完成，撒花 🎉，如有问题，请在 [这里](https://github.com/immersive-translate/immersive-translate/issues/) 反馈。
-
-## 参考
-
-本文参考了以下文章：
-- [划词翻译文档：腾讯翻译君](https://hcfy.app/docs/services/qq-api)
+6. 完成🎉，如有疑惑的地方，请在 [这里](https://github.com/immersive-translate/immersive-translate/issues/) 反馈。

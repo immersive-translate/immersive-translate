@@ -59,7 +59,7 @@ git clone git@github.com:immersive-translate/next-translator.git
 
 > This will start build, and watch files updates and reload the extension on firefox
 
-建议使用 Firefox 浏览器开发测试，效率比 Chrome 更高效。
+建议使用 Firefox 浏览器开发测试，web-ext 的工作效果比 Chrome 更好。
 
 ## Start dev with chrome
 

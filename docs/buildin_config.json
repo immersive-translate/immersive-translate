@@ -222,6 +222,13 @@
       "FOOTER",
       "MATH"
     ],
+    "bodyTranslateTags": [
+      "FOOTER",
+      "ADIDE",
+      "BUTTON",
+      "NAV"
+    ],
+    "forceTranslateTags": [],
     "metaTags": [
       "META",
       "SCRIPT",
@@ -538,11 +545,10 @@
       "excludeSelectors": [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
-        "div.blob-wrapper-embedded"
+        "div.blob-wrapper-embedded",
+        "div.Box.Box--condensed.my-2"
       ],
-      "extraBlockSelectors": [
-        "task-lists"
-      ],
+      "extraBlockSelectors": [],
       "extraInlineSelectors": [
         "g-emoji"
       ],
@@ -1332,6 +1338,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-10T04:50:36.982Z",
+  "buildinConfigUpdatedAt": "2023-02-10T07:04:54.131Z",
   "latestVersion": "0.2.55"
 }

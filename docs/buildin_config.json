@@ -1376,7 +1376,8 @@
         "developer.android.com"
       ],
       "additionalSelectors": [
-        "aside.note"
+        "aside.note",
+        "aside.caution"
       ]
     },
     {
@@ -1400,6 +1401,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-11T10:42:46.449Z",
+  "buildinConfigUpdatedAt": "2023-02-11T12:09:27.371Z",
   "latestVersion": "0.2.58"
 }

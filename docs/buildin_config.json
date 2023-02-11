@@ -76,6 +76,7 @@
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
+      "gitlab.com",
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
@@ -1387,8 +1388,18 @@
         ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
       },
       "isTransformPreTagNewLine": true
+    },
+    {
+      "matches": "gitlab.com",
+      "excludeSelectors": [
+        ".tree-content-holder",
+        "nav",
+        ".home-panel-metadata",
+        "div[data-testid=project_topic_list]",
+        ".commit"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-11T06:30:43.954Z",
-  "latestVersion": "0.2.57"
+  "buildinConfigUpdatedAt": "2023-02-11T10:42:46.449Z",
+  "latestVersion": "0.2.58"
 }

@@ -896,6 +896,10 @@
     },
     {
       "matches": "lobste.rs",
+      "excludeMatches": [
+        "https://lobste.rs/about",
+        "https://lobste.rs/chat"
+      ],
       "selectors": [
         ".u-repost-of",
         ".comment_text"
@@ -1400,6 +1404,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-11T12:52:39.859Z",
+  "buildinConfigUpdatedAt": "2023-02-11T14:29:28.964Z",
   "latestVersion": "0.2.58"
 }

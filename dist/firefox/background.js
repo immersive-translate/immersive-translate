@@ -5,7 +5,22 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSION: "0.2.57", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-11T10:27:38.132Z", VERSION: "0.2.58", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  --immersive-translate-theme-underline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDotted-borderColor: #72ece9;
+  --immersive-translate-theme-highlight-backgroundColor: #ffff00;
+  --immersive-translate-theme-dashed-borderColor: #59c1bd;
+  --immersive-translate-theme-blockquote-borderColor: #cc3355;
+  --immersive-translate-theme-thinDashed-borderColor: #ff374f;
+  --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dotted-borderColor: #94a3b8;
+  --immersive-translate-theme-wavy-borderColor: #72ece9;
+  --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+}
+
+.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -48,39 +63,44 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper {
 }
+
 .immersive-translate-target-translation-theme-underline-inner {
-  border-bottom: 1px solid #72ece9 !important;
+  border-bottom: 1px solid
+    var(--immersive-translate-theme-underline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline #72ece9 !important;
+  text-decoration: underline
+    var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline #72ece9 !important;
+  text-decoration: dashed underline
+    var(--immersive-translate-theme-nativeDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
-  border-bottom: 1px dashed #ff374f !important;
+  border-bottom: 1px dashed
+    var(--immersive-translate-theme-thinDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    currentColor 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 10%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;
@@ -89,19 +109,21 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSI
   padding-bottom: 3px;
 }
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline #72ece9 !important;
+  text-decoration: dotted underline
+    var(--immersive-translate-theme-nativeDotted-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline #59c1bd !important;
+  text-decoration: wavy underline
+    var(--immersive-translate-theme-wavy-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
   background-repeat: repeat-x !important;
   background: linear-gradient(
       to right,
-      #59c1bd 0%,
-      #59c1bd 50%,
+      var(--immersive-translate-theme-dashed-borderColor) 0%,
+      var(--immersive-translate-theme-dashed-borderColor) 50%,
       transparent 50%,
       transparent 100%
     )
@@ -115,12 +137,13 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSI
   display: block;
   max-width: 80px;
   width: 10%;
-  border-top: 1px dashed currentColor;
-  padding-top: 0.5em;
+  border-top: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  padding-top: 8px;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {
-  background: rgb(255, 255, 0);
+  background: var(--immersive-translate-theme-highlight-backgroundColor);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -163,7 +186,7 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:12.586Z", VERSI
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-blockquote {
-  border-left: 4px solid #cc3355 !important;
+  border-left: 4px solid var(--immersive-translate-theme-blockquote-borderColor) !important;
   padding-left: 12px !important;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -4651,9 +4674,10 @@ var zh_CN_default = {
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+  isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
   betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
   tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
   xMinutes: "{count} \u5206\u949F",
@@ -4807,8 +4831,8 @@ var zh_CN_default = {
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
-  enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
-  enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+  enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
+  enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
   "always sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
   "always translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -4834,7 +4858,6 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -4859,7 +4882,13 @@ var zh_CN_default = {
   "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u663E\u793A",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
-  successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
+  "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
+  successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/zh-TW.json
@@ -5090,6 +5119,7 @@ var zh_TW_default = {
   "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
+  "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
 };
 
@@ -5322,6 +5352,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   "loadingTheme.spinner": "Animate Spinner",
   "loadingTheme.text": "Static Text... ",
   "loadingTheme.none": "Disabled",
+  "edit border color": "Edit border color",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
 };
 
@@ -6247,11 +6278,41 @@ var buildin_config_default = {
         "h3[data-text-variant='heading-lg/semibold']",
         "section[aria-label='Search Results'] div[id^=message-content]"
       ],
+      extraBlockSelectors: [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
+      atomicBlockSelectors: [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
       excludeSelectors: [
-        "div[class^='repliedTextContent']"
+        "#channels",
+        "[data-list-id^='members']",
+        "div[class^='repliedTextContent']",
+        "div[class^='repliedTextPreview']",
+        "div[class^='messageAttachment']",
+        "div[class^='repliedMessage']",
+        "div[class*='isSystemMessage']",
+        "div[class^='avatarWrapper']",
+        "div[class^='container'] [class^='topLine']",
+        "div[class^='container'] [class^='bottomLine']",
+        "h3[class^='header']",
+        "h2[class^='forumPostTitle']",
+        "[class^='title'][aria-label='Channel header']",
+        "div[class^='sectionHeader']",
+        "article[class^=embedWrapper] [class^=anchor]",
+        "article[class^=embedWrapper] [class^=embedProvider]",
+        "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='card'] div[class^='tags']",
+        "li[class^='card'] div[class^='footer']"
       ],
       globalStyles: {
         "div[class^=headerText]": "max-height: unset;",
+        "div[class^=message]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       detectParagraphLanguage: !0,
@@ -6656,6 +6717,14 @@ var buildin_config_default = {
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
       additionalSelectors: ["aside.note"]
+    },
+    {
+      matches: "https://apps.microsoft.com/store/detail/*",
+      additionalSelectors: ["pre"],
+      globalStyles: {
+        ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
+      },
+      isTransformPreTagNewLine: !0
     }
   ]
 };

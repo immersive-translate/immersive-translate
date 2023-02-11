@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.58
+
+- Feat: Support custom translation text color, border color.
+
 ## 0.2.57
 
 - No changes, rebuild

@@ -5,7 +5,22 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:11.672Z", VERSION: "0.2.57", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+var define_process_env_default = { BUILD_TIME: "2023-02-11T10:27:37.225Z", VERSION: "0.2.58", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  --immersive-translate-theme-underline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDotted-borderColor: #72ece9;
+  --immersive-translate-theme-highlight-backgroundColor: #ffff00;
+  --immersive-translate-theme-dashed-borderColor: #59c1bd;
+  --immersive-translate-theme-blockquote-borderColor: #cc3355;
+  --immersive-translate-theme-thinDashed-borderColor: #ff374f;
+  --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dotted-borderColor: #94a3b8;
+  --immersive-translate-theme-wavy-borderColor: #72ece9;
+  --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+}
+
+.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -48,39 +63,44 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:11.672Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper {
 }
+
 .immersive-translate-target-translation-theme-underline-inner {
-  border-bottom: 1px solid #72ece9 !important;
+  border-bottom: 1px solid
+    var(--immersive-translate-theme-underline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline #72ece9 !important;
+  text-decoration: underline
+    var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline #72ece9 !important;
+  text-decoration: dashed underline
+    var(--immersive-translate-theme-nativeDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
-  border-bottom: 1px dashed #ff374f !important;
+  border-bottom: 1px dashed
+    var(--immersive-translate-theme-thinDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    currentColor 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 10%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;
@@ -89,19 +109,21 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:11.672Z", VERSI
   padding-bottom: 3px;
 }
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline #72ece9 !important;
+  text-decoration: dotted underline
+    var(--immersive-translate-theme-nativeDotted-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline #59c1bd !important;
+  text-decoration: wavy underline
+    var(--immersive-translate-theme-wavy-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
   background-repeat: repeat-x !important;
   background: linear-gradient(
       to right,
-      #59c1bd 0%,
-      #59c1bd 50%,
+      var(--immersive-translate-theme-dashed-borderColor) 0%,
+      var(--immersive-translate-theme-dashed-borderColor) 50%,
       transparent 50%,
       transparent 100%
     )
@@ -115,12 +137,13 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:11.672Z", VERSI
   display: block;
   max-width: 80px;
   width: 10%;
-  border-top: 1px dashed currentColor;
-  padding-top: 0.5em;
+  border-top: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  padding-top: 8px;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {
-  background: rgb(255, 255, 0);
+  background: var(--immersive-translate-theme-highlight-backgroundColor);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -163,7 +186,7 @@ var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:11.672Z", VERSI
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-blockquote {
-  border-left: 4px solid #cc3355 !important;
+  border-left: 4px solid var(--immersive-translate-theme-blockquote-borderColor) !important;
   padding-left: 12px !important;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -7178,164 +7201,6 @@ var B7;
 // deps.ts
 var toast = Fe.alert;
 
-// https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
-var a3 = 0;
-function p5(n3, s4, t5, f4, u3) {
-  var r, o3, _3 = {};
-  for (o3 in s4)
-    o3 == "ref" ? r = s4[o3] : _3[o3] = s4[o3];
-  var e3 = { type: n3, props: _3, key: t5, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a3, __source: u3, __self: f4 };
-  if (typeof n3 == "function" && (r = n3.defaultProps))
-    for (o3 in r)
-      _3[o3] === void 0 && (_3[o3] = r[o3]);
-  return d.vnode && d.vnode(e3), e3;
-}
-
-// components/switch.tsx
-function Switch({ value, defaultCase = null, cases }) {
-  return value == null ? null : /* @__PURE__ */ p5(L, { children: cases[value] != null ? cases[value] : defaultCase });
-}
-
-// hooks/use_route.ts
-function useRoute() {
-  let [route, setRoute] = P2(location.hash);
-  return j2(() => {
-    let updateRoute = () => setRoute(location.hash);
-    return globalThis.addEventListener("hashchange", updateRoute, !1), () => {
-      globalThis.removeEventListener("hashchange", updateRoute);
-    };
-  }, []), route;
-}
-
-// utils/is_mobile.ts
-var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
-navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
-function createMatch(userAgent) {
-  return (regex) => regex.test(userAgent);
-}
-function isMobile(param) {
-  let nav = {
-    userAgent: "",
-    platform: "",
-    maxTouchPoints: 0
-  };
-  !param && typeof navigator < "u" ? nav = {
-    userAgent: navigator.userAgent,
-    platform: navigator.platform,
-    maxTouchPoints: navigator.maxTouchPoints || 0
-  } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
-    userAgent: param.userAgent,
-    platform: param.platform,
-    maxTouchPoints: param.maxTouchPoints || 0
-  });
-  let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
-  typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
-  let match = createMatch(userAgent), result = {
-    apple: {
-      phone: match(appleIphone) && !match(windowsPhone),
-      ipod: match(appleIpod),
-      tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
-      universal: match(appleUniversal),
-      device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
-    },
-    amazon: {
-      phone: match(amazonPhone),
-      tablet: !match(amazonPhone) && match(amazonTablet),
-      device: match(amazonPhone) || match(amazonTablet)
-    },
-    android: {
-      phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
-      tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
-      device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
-    },
-    windows: {
-      phone: match(windowsPhone),
-      tablet: match(windowsTablet),
-      device: match(windowsPhone) || match(windowsTablet)
-    },
-    other: {
-      blackberry: match(otherBlackBerry),
-      blackberry10: match(otherBlackBerry10),
-      opera: match(otherOpera),
-      firefox: match(otherFirefox),
-      chrome: match(otherChrome),
-      device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
-    },
-    any: !1,
-    phone: !1,
-    tablet: !1
-  };
-  return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
-}
-
-// utils/platform.ts
-var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
-function isBrowser(toCheck) {
-  let currentBrowser = CHROME;
-  try {
-    let userAgent = navigator?.userAgent || "";
-    /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-  } catch {
-  }
-  return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
-}
-function isChrome() {
-  return isBrowser(CHROME);
-}
-function isDeno() {
-  return typeof Deno < "u";
-}
-function isFirefox() {
-  return isBrowser(FIREFOX);
-}
-function isTouchDevice() {
-  return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
-}
-
-// browser/mock_browser.ts
-var listeners = {
-  addListener: () => {
-  },
-  removeListener: () => {
-  },
-  hasListener: () => {
-  }
-}, mock_browser_default = {
-  permissions: {
-    contains: () => {
-    },
-    request: () => {
-    }
-  },
-  runtime: {
-    onMessage: listeners,
-    openOptionsPage: () => {
-    },
-    lastError: {
-      message: ""
-    }
-  },
-  storage: {
-    sync: {
-      get: () => {
-      },
-      set: () => {
-      }
-    }
-  },
-  tabs: {
-    onUpdated: listeners,
-    query: () => {
-    },
-    sendMessage: () => {
-    }
-  }
-};
-
-// browser/browser.ts
-var browserAPI;
-isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
-
 // locales/zh-CN.json
 var zh_CN_default = {
   lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
@@ -7361,9 +7226,10 @@ var zh_CN_default = {
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+  isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
   betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
   tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
   xMinutes: "{count} \u5206\u949F",
@@ -7517,8 +7383,8 @@ var zh_CN_default = {
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
-  enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
-  enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+  enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
+  enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
   "always sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
   "always translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -7544,7 +7410,6 @@ var zh_CN_default = {
   importSuccess: "\u5BFC\u5165\u6210\u529F",
   importFail: "\u5BFC\u5165\u5931\u8D25",
   deleteFail: "\u5220\u9664\u5931\u8D25",
-  isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
   backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
   create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
   maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -7569,7 +7434,13 @@ var zh_CN_default = {
   "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u663E\u793A",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
-  successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
+  "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
+  successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/zh-TW.json
@@ -7800,6 +7671,7 @@ var zh_TW_default = {
   "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
+  "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
 };
 
@@ -8032,6 +7904,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   "loadingTheme.spinner": "Animate Spinner",
   "loadingTheme.text": "Static Text... ",
   "loadingTheme.none": "Disabled",
+  "edit border color": "Edit border color",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
 };
 
@@ -8076,7 +7949,72 @@ var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleM
   "nativeDotted",
   "nativeDashed",
   "nativeUnderline"
-], languages = [
+], themeOptions = {
+  underline: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  nativeUnderline: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  nativeDashed: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  nativeDotted: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  dotted: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  dividingLine: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  highlight: [{
+    name: "backgroundColor",
+    required: !1,
+    type: "color"
+  }],
+  dashed: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  blockquote: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  thinDashed: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  dashedBorder: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }],
+  wavy: [{
+    name: "borderColor",
+    required: !1,
+    type: "color"
+  }]
+}, languages = [
   "auto",
   "en",
   "zh-CN",
@@ -8332,20 +8270,6 @@ var allSupportedShortcuts = [
   "translate.google.com"
 ], sampleSourceText = "Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post.", sampleTargetText = "\u957F\u591C\u5C06\u81F3\uFF0C\u6211\u4ECE\u4ECA\u5F00\u59CB\u5B88\u671B\uFF0C\u81F3\u6B7B\u65B9\u4F11\u3002\u6211\u5C06\u4E0D\u5A36\u59BB\u3001\u4E0D\u5C01\u5730\u3001\u4E0D\u751F\u5B50\u3002\u6211\u5C06\u4E0D\u6234\u5B9D\u51A0\uFF0C\u4E0D\u4E89\u8363\u5BA0\u3002\u6211\u5C06\u5C3D\u5FE0\u804C\u5B88\uFF0C\u751F\u6B7B\u4E8E\u65AF\u3002", fallbackLanguage = "zh-CN", telegramGroupLink = "https://t.me/+rq848Z09nehlOTgx";
 
-// dom/toast.ts
-function success(text) {
-  toast({
-    type: "success",
-    text
-  });
-}
-function error(text) {
-  toast({
-    type: "error",
-    text
-  });
-}
-
 // log.ts
 var Timing = class {
   #t = performance.now();
@@ -8412,6 +8336,537 @@ var Timing = class {
     } };
   }
 }, log_default = new Logger();
+
+// env.ts
+function getEnv() {
+  return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+}
+var env = getEnv();
+function isMonkey() {
+  return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+}
+function isDeno() {
+  return typeof Deno < "u";
+}
+function isUserscriptRuntime() {
+  if (
+    // @ts-ignore: it's ok
+    typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+    globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+  ) {
+    let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+    return !!(manifest && manifest._isUserscript);
+  } else
+    return !1;
+}
+
+// utils/iframe.ts
+function getIsInIframe() {
+  try {
+    return globalThis.self !== globalThis.top;
+  } catch {
+    return !0;
+  }
+}
+
+// dom/util.ts
+var env2 = getEnv(), isProd = env2.PROD === "1";
+function duplicatedElements(root2, array, rule) {
+  let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
+  for (let header of allHeaders)
+    main2.length > 0 && main2[0].contains(header) || headers2.push(header);
+  for (let i2 = 0; i2 < array.length; i2++) {
+    let a4 = array[i2].element;
+    for (let j5 = i2 + 1; j5 < array.length; j5++) {
+      let b4 = array[j5].element;
+      if (a4.contains(b4))
+        array.splice(j5, 1), j5--;
+      else if (b4.contains(a4)) {
+        array.splice(i2, 1), i2--;
+        break;
+      } else
+        a4 === b4 && (array.splice(j5, 1), j5--);
+    }
+  }
+  return array.filter((container) => {
+    let element = container.element;
+    if (container.reserve)
+      return !0;
+    let isHeader = !1;
+    for (let header of headers2) {
+      if (isMatchTags(element.nodeName, ["H1"]))
+        continue;
+      let h1Container = header.querySelector("h1");
+      if (!(h1Container && isValidTextByCount(
+        h1Container.textContent || "",
+        rule.paragraphMinTextCount,
+        rule.paragraphMinWordCount
+      )) && (element === header || header.contains(element))) {
+        isHeader = !0;
+        break;
+      }
+    }
+    return !isHeader;
+  }).map((container) => container.element);
+}
+function getLastHTMLElement(elements) {
+  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
+    let element = elements[i2].element || elements[i2];
+    if (typeof element != "string")
+      return element;
+  }
+  return null;
+}
+function getHTMLElements(elements) {
+  let result = [];
+  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
+    let element = elements[i2].element || elements[i2];
+    (typeof element != "string" || element !== " ") && result.push(element);
+  }
+  return result;
+}
+function getFirstHTMLElement(elements) {
+  for (let i2 = 0; i2 < elements.length; i2++) {
+    let element = elements[i2];
+    if (typeof element != "string")
+      return element;
+  }
+  return null;
+}
+function getWhitespace(nextNode, isPreWhitespace) {
+  return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+}
+function getElementsBySelectors(root2, selectors) {
+  let elements = [];
+  for (let selector of selectors) {
+    let nodes = root2.querySelectorAll(selector);
+    for (let node of nodes)
+      elements.push(node);
+  }
+  return elements;
+}
+function isInlineElementByTreeWalker(element, rule) {
+  let filterInlineElement = function(node) {
+    return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+  }, treeWalker = document.createTreeWalker(
+    element,
+    NodeFilter.SHOW_ELEMENT,
+    filterInlineElement
+  ), isInline = !0;
+  for (; treeWalker.nextNode(); ) {
+    let node = treeWalker.currentNode;
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      if (isMarked(
+        node,
+        sourceInlineElementMarkAttributeName
+      )) {
+        if (isInline === !0)
+          return !0;
+        continue;
+      }
+      if (!isMatchTags(node.nodeName, rule.inlineTags))
+        return !1;
+    }
+  }
+  return !0;
+}
+function isInlineElement(element, rule) {
+  let inlineTags = rule.inlineTags;
+  return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
+    element,
+    sourceBlockElementMarkAttributeName
+  ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
+    element,
+    sourceInlineElementMarkAttributeName
+  ) : !1;
+}
+function isDuplicateElement(element, elements) {
+  for (let e3 of elements)
+    if (e3 === element)
+      return !0;
+  return !1;
+}
+function isMetaElement(element, rule) {
+  return !!isMatchTags(element.nodeName, rule.metaTags);
+}
+function isExcludeElement(element, rule, includeStayElements) {
+  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
+    return !0;
+  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
+  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+    element,
+    specifiedTargetContainerElementAttributeName
+  ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
+}
+function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
+  let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
+    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
+  ), text = item.text, trimedText = text.trim();
+  return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
+}
+function isValidTextByCount(rawText, minTextCount, minWordCount) {
+  let text = rawText.trim();
+  return text.length >= minTextCount || text.split(" ").length >= minWordCount;
+}
+function isUrl(text) {
+  if (text && text.includes("://"))
+    try {
+      return new URL(text), !0;
+    } catch {
+      return !1;
+    }
+  else
+    return !1;
+}
+function isHashTag(text) {
+  return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
+}
+function isAtTag(text) {
+  return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
+}
+function isStockTag(text) {
+  return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
+}
+function isMarked(element, markedAttribute, explicit = !1) {
+  return isMarkedWith(element, markedAttribute, "1", explicit);
+}
+function isMarkedWith(element, markedAttribute, value, explicit = !1) {
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute] === value)
+  ) : !1 : element.dataset[markedAttribute] === value;
+}
+function hasMark(element, markedAttribute, explicit = !1) {
+  return isProd && !explicit ? element[elementMarkRootKey] ? (
+    // @ts-ignore: it's ok
+    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+    element[elementMarkRootKey][markedAttribute])
+  ) : !1 : element.dataset[markedAttribute] !== void 0;
+}
+function getMainText(root2) {
+  return (root2.innerText || root2.textContent || "").trim();
+}
+function isMatchSelectors(selectors) {
+  return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
+}
+function setAttribute(element, name, value, explicit = !1) {
+  element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
+}
+function removeAttribute(element, name, explicit = !1) {
+  if (isProd && !explicit) {
+    if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
+      return;
+    delete element[elementMarkRootKey][name];
+  } else
+    delete element.dataset[name];
+}
+function getAttribute(element, name, explicit = !1) {
+  return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
+}
+function isStayOriginalElement(element, rule) {
+  let isStayOriginal = !1;
+  return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+}
+function isUnknowTag(element, rule) {
+  let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
+    rule.excludeTags
+  );
+  return !isMatchTags(element.nodeName, allKnowTags);
+}
+function getPlaceholderDelimiters(ctx) {
+  let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
+  return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
+}
+function isContainsSelectors(element, selectors) {
+  if (!selectors)
+    return !1;
+  Array.isArray(selectors) || (selectors = [selectors]);
+  for (let selector of selectors)
+    if (element.querySelector(selector))
+      return !0;
+  return !1;
+}
+function getTheLastTextNodeParentElement(element) {
+  let treeWalker = document.createTreeWalker(
+    element,
+    NodeFilter.SHOW_TEXT,
+    (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+  ), lastTextNode = null;
+  for (; treeWalker.nextNode(); )
+    lastTextNode = treeWalker.currentNode;
+  return lastTextNode ? lastTextNode.parentElement : null;
+}
+function getRealUrl() {
+  if (!getIsInIframe())
+    return globalThis.location.href;
+  try {
+    let currentUrl = globalThis.location.href;
+    if (new URL(currentUrl).protocol === "about:") {
+      if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
+        return globalThis.location.ancestorOrigins[0];
+      let href = "";
+      try {
+        href = globalThis.parent.location.href;
+      } catch {
+      }
+      return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
+    } else
+      return currentUrl;
+  } catch {
+  }
+  return globalThis.location.href;
+}
+function injectCSS(rootDocument, css, id) {
+  if (rootDocument && rootDocument.head && rootDocument.head.appendChild) {
+    let styleElement = rootDocument.createElement("style");
+    if (id) {
+      let existingStyleElement = rootDocument.querySelector(
+        `style[data-id="${id}"]`
+      );
+      existingStyleElement && existingStyleElement.remove(), styleElement.dataset.id = id;
+    }
+    rootDocument.head.appendChild(styleElement).innerHTML = css;
+  } else
+    log_default.warn(
+      "injectCSS failed, rootDocument does not have head node",
+      rootDocument
+    );
+}
+function isInlineIframe(frame) {
+  return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+}
+function isMatchTags(nodeName, tags) {
+  if (!nodeName || !tags)
+    return !1;
+  Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
+  for (let tag of tags)
+    if (nodeName === tag)
+      return !0;
+  return !1;
+}
+
+// dom/apply_user_config_css.ts
+function applyUserConfigCss(root2, translationTheme, translationThemePatternConfig, remove) {
+  let theme = translationTheme, props = themeOptions[theme] || [], injectedCss = "";
+  root2 && props && props.length > 0 && props.forEach((prop) => {
+    let { name } = prop;
+    if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
+      let value = translationThemePatternConfig[name];
+      injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+`;
+    }
+  });
+  let otherCss = "";
+  if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
+    let value = translationThemePatternConfig.textColor;
+    otherCss = `
+.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+`;
+  }
+  let finalCss = "";
+  injectedCss && (finalCss = `:root {
+${injectedCss}}
+`), otherCss && (finalCss += otherCss), finalCss ? injectCSS(
+    root2,
+    finalCss,
+    "immersive-translate-user-custom-style"
+  ) : remove && injectCSS(
+    root2,
+    "",
+    "immersive-translate-user-custom-style"
+  );
+}
+
+// dom/inject_css_to_frame.ts
+function injectCssToFrame(root2, ctx) {
+  let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
+  injectCSS(root2, defaultInjectedCss);
+  let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.config.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
+  applyUserConfigCss(
+    root2,
+    translationTheme,
+    translationThemePatternConfig
+  );
+  let injectedCss = "";
+  (ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
+`)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
+` + ctx.rule.additionalInjectedCss.join(`
+`))), injectedCss && injectCSS(root2, injectedCss);
+}
+
+// https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
+var a3 = 0;
+function p5(n3, s4, t5, f4, u3) {
+  var r, o3, _3 = {};
+  for (o3 in s4)
+    o3 == "ref" ? r = s4[o3] : _3[o3] = s4[o3];
+  var e3 = { type: n3, props: _3, key: t5, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a3, __source: u3, __self: f4 };
+  if (typeof n3 == "function" && (r = n3.defaultProps))
+    for (o3 in r)
+      _3[o3] === void 0 && (_3[o3] = r[o3]);
+  return d.vnode && d.vnode(e3), e3;
+}
+
+// components/switch.tsx
+function Switch({ value, defaultCase = null, cases }) {
+  return value == null ? null : /* @__PURE__ */ p5(L, { children: cases[value] != null ? cases[value] : defaultCase });
+}
+
+// hooks/use_route.ts
+function useRoute() {
+  let [route, setRoute] = P2(location.hash);
+  return j2(() => {
+    let updateRoute = () => setRoute(location.hash);
+    return globalThis.addEventListener("hashchange", updateRoute, !1), () => {
+      globalThis.removeEventListener("hashchange", updateRoute);
+    };
+  }, []), route;
+}
+
+// utils/is_mobile.ts
+var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
+navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
+function createMatch(userAgent) {
+  return (regex) => regex.test(userAgent);
+}
+function isMobile(param) {
+  let nav = {
+    userAgent: "",
+    platform: "",
+    maxTouchPoints: 0
+  };
+  !param && typeof navigator < "u" ? nav = {
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    maxTouchPoints: navigator.maxTouchPoints || 0
+  } : typeof param == "string" ? nav.userAgent = param : param && param.userAgent && (nav = {
+    userAgent: param.userAgent,
+    platform: param.platform,
+    maxTouchPoints: param.maxTouchPoints || 0
+  });
+  let userAgent = nav.userAgent, tmp = userAgent.split("[FBAN");
+  typeof tmp[1] < "u" && (userAgent = tmp[0]), tmp = userAgent.split("Twitter"), typeof tmp[1] < "u" && (userAgent = tmp[0]);
+  let match = createMatch(userAgent), result = {
+    apple: {
+      phone: match(appleIphone) && !match(windowsPhone),
+      ipod: match(appleIpod),
+      tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
+      universal: match(appleUniversal),
+      device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
+    },
+    amazon: {
+      phone: match(amazonPhone),
+      tablet: !match(amazonPhone) && match(amazonTablet),
+      device: match(amazonPhone) || match(amazonTablet)
+    },
+    android: {
+      phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
+      tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
+      device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
+    },
+    windows: {
+      phone: match(windowsPhone),
+      tablet: match(windowsTablet),
+      device: match(windowsPhone) || match(windowsTablet)
+    },
+    other: {
+      blackberry: match(otherBlackBerry),
+      blackberry10: match(otherBlackBerry10),
+      opera: match(otherOpera),
+      firefox: match(otherFirefox),
+      chrome: match(otherChrome),
+      device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
+    },
+    any: !1,
+    phone: !1,
+    tablet: !1
+  };
+  return result.any = result.apple.device || result.android.device || result.windows.device || result.other.device, result.phone = result.apple.phone || result.android.phone || result.windows.phone, result.tablet = result.apple.tablet || result.android.tablet || result.windows.tablet, result;
+}
+
+// utils/platform.ts
+var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+function isBrowser(toCheck) {
+  let currentBrowser = CHROME;
+  try {
+    let userAgent = navigator?.userAgent || "";
+    /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
+  } catch {
+  }
+  return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+}
+function isChrome() {
+  return isBrowser(CHROME);
+}
+function isDeno2() {
+  return typeof Deno < "u";
+}
+function isFirefox() {
+  return isBrowser(FIREFOX);
+}
+function isTouchDevice() {
+  return !!navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+}
+
+// browser/mock_browser.ts
+var listeners = {
+  addListener: () => {
+  },
+  removeListener: () => {
+  },
+  hasListener: () => {
+  }
+}, mock_browser_default = {
+  permissions: {
+    contains: () => {
+    },
+    request: () => {
+    }
+  },
+  runtime: {
+    onMessage: listeners,
+    openOptionsPage: () => {
+    },
+    lastError: {
+      message: ""
+    }
+  },
+  storage: {
+    sync: {
+      get: () => {
+      },
+      set: () => {
+      }
+    }
+  },
+  tabs: {
+    onUpdated: listeners,
+    query: () => {
+    },
+    sendMessage: () => {
+    }
+  }
+};
+
+// browser/browser.ts
+var browserAPI;
+isDeno2() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
+
+// dom/toast.ts
+function success(text) {
+  toast({
+    type: "success",
+    text
+  });
+}
+function error(text) {
+  toast({
+    type: "error",
+    text
+  });
+}
 
 // libs/use-chrome-storage/storage.ts
 var storage = {
@@ -8513,30 +8968,6 @@ function formatLanguage(rawLangCode) {
       return "auto";
   else
     return languages[indexOfLanguages];
-}
-
-// env.ts
-function getEnv() {
-  return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
-}
-var env = getEnv();
-function isMonkey() {
-  return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
-}
-function isDeno2() {
-  return typeof Deno < "u";
-}
-function isUserscriptRuntime() {
-  if (
-    // @ts-ignore: it's ok
-    typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
-    globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
-    globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
-  ) {
-    let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-    return !!(manifest && manifest._isUserscript);
-  } else
-    return !1;
 }
 
 // buildin_config.json
@@ -9269,11 +9700,41 @@ var buildin_config_default = {
         "h3[data-text-variant='heading-lg/semibold']",
         "section[aria-label='Search Results'] div[id^=message-content]"
       ],
+      extraBlockSelectors: [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
+      atomicBlockSelectors: [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
       excludeSelectors: [
-        "div[class^='repliedTextContent']"
+        "#channels",
+        "[data-list-id^='members']",
+        "div[class^='repliedTextContent']",
+        "div[class^='repliedTextPreview']",
+        "div[class^='messageAttachment']",
+        "div[class^='repliedMessage']",
+        "div[class*='isSystemMessage']",
+        "div[class^='avatarWrapper']",
+        "div[class^='container'] [class^='topLine']",
+        "div[class^='container'] [class^='bottomLine']",
+        "h3[class^='header']",
+        "h2[class^='forumPostTitle']",
+        "[class^='title'][aria-label='Channel header']",
+        "div[class^='sectionHeader']",
+        "article[class^=embedWrapper] [class^=anchor]",
+        "article[class^=embedWrapper] [class^=embedProvider]",
+        "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='card'] div[class^='tags']",
+        "li[class^='card'] div[class^='footer']"
       ],
       globalStyles: {
         "div[class^=headerText]": "max-height: unset;",
+        "div[class^=message]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       detectParagraphLanguage: !0,
@@ -9678,6 +10139,14 @@ var buildin_config_default = {
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
       additionalSelectors: ["aside.note"]
+    },
+    {
+      matches: "https://apps.microsoft.com/store/detail/*",
+      additionalSelectors: ["pre"],
+      globalStyles: {
+        ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
+      },
+      isTransformPreTagNewLine: !0
     }
   ]
 };
@@ -10373,279 +10842,6 @@ function detectChinese(text) {
   return currentMaxCount * 2.5 / allLettersLength > 0.5 ? maxCountLang : "auto";
 }
 
-// utils/iframe.ts
-function getIsInIframe() {
-  try {
-    return globalThis.self !== globalThis.top;
-  } catch {
-    return !0;
-  }
-}
-
-// dom/util.ts
-var env2 = getEnv(), isProd = env2.PROD === "1";
-function duplicatedElements(root2, array, rule) {
-  let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
-  for (let header of allHeaders)
-    main2.length > 0 && main2[0].contains(header) || headers2.push(header);
-  for (let i2 = 0; i2 < array.length; i2++) {
-    let a4 = array[i2].element;
-    for (let j5 = i2 + 1; j5 < array.length; j5++) {
-      let b4 = array[j5].element;
-      if (a4.contains(b4))
-        array.splice(j5, 1), j5--;
-      else if (b4.contains(a4)) {
-        array.splice(i2, 1), i2--;
-        break;
-      } else
-        a4 === b4 && (array.splice(j5, 1), j5--);
-    }
-  }
-  return array.filter((container) => {
-    let element = container.element;
-    if (container.reserve)
-      return !0;
-    let isHeader = !1;
-    for (let header of headers2) {
-      if (isMatchTags(element.nodeName, ["H1"]))
-        continue;
-      let h1Container = header.querySelector("h1");
-      if (!(h1Container && isValidTextByCount(
-        h1Container.textContent || "",
-        rule.paragraphMinTextCount,
-        rule.paragraphMinWordCount
-      )) && (element === header || header.contains(element))) {
-        isHeader = !0;
-        break;
-      }
-    }
-    return !isHeader;
-  }).map((container) => container.element);
-}
-function getLastHTMLElement(elements) {
-  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    if (typeof element != "string")
-      return element;
-  }
-  return null;
-}
-function getHTMLElements(elements) {
-  let result = [];
-  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    (typeof element != "string" || element !== " ") && result.push(element);
-  }
-  return result;
-}
-function getFirstHTMLElement(elements) {
-  for (let i2 = 0; i2 < elements.length; i2++) {
-    let element = elements[i2];
-    if (typeof element != "string")
-      return element;
-  }
-  return null;
-}
-function getWhitespace(nextNode, isPreWhitespace) {
-  return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
-}
-function getElementsBySelectors(root2, selectors) {
-  let elements = [];
-  for (let selector of selectors) {
-    let nodes = root2.querySelectorAll(selector);
-    for (let node of nodes)
-      elements.push(node);
-  }
-  return elements;
-}
-function isInlineElementByTreeWalker(element, rule) {
-  let filterInlineElement = function(node) {
-    return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-  }, treeWalker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_ELEMENT,
-    filterInlineElement
-  ), isInline = !0;
-  for (; treeWalker.nextNode(); ) {
-    let node = treeWalker.currentNode;
-    if (node.nodeType === Node.ELEMENT_NODE) {
-      if (isMarked(
-        node,
-        sourceInlineElementMarkAttributeName
-      )) {
-        if (isInline === !0)
-          return !0;
-        continue;
-      }
-      if (!isMatchTags(node.nodeName, rule.inlineTags))
-        return !1;
-    }
-  }
-  return !0;
-}
-function isInlineElement(element, rule) {
-  let inlineTags = rule.inlineTags;
-  return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
-    element,
-    sourceBlockElementMarkAttributeName
-  ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
-    element,
-    sourceInlineElementMarkAttributeName
-  ) : !1;
-}
-function isDuplicateElement(element, elements) {
-  for (let e3 of elements)
-    if (e3 === element)
-      return !0;
-  return !1;
-}
-function isMetaElement(element, rule) {
-  return !!isMatchTags(element.nodeName, rule.metaTags);
-}
-function isExcludeElement(element, rule, includeStayElements) {
-  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
-    return !0;
-  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
-    element,
-    specifiedTargetContainerElementAttributeName
-  ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
-}
-function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
-  let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
-    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
-  ), text = item.text, trimedText = text.trim();
-  return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
-}
-function isValidTextByCount(rawText, minTextCount, minWordCount) {
-  let text = rawText.trim();
-  return text.length >= minTextCount || text.split(" ").length >= minWordCount;
-}
-function isUrl(text) {
-  if (text && text.includes("://"))
-    try {
-      return new URL(text), !0;
-    } catch {
-      return !1;
-    }
-  else
-    return !1;
-}
-function isHashTag(text) {
-  return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
-}
-function isAtTag(text) {
-  return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
-}
-function isStockTag(text) {
-  return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
-}
-function isMarked(element, markedAttribute, explicit = !1) {
-  return isMarkedWith(element, markedAttribute, "1", explicit);
-}
-function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute] === value)
-  ) : !1 : element.dataset[markedAttribute] === value;
-}
-function hasMark(element, markedAttribute, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute])
-  ) : !1 : element.dataset[markedAttribute] !== void 0;
-}
-function getMainText(root2) {
-  return (root2.innerText || root2.textContent || "").trim();
-}
-function isMatchSelectors(selectors) {
-  return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
-}
-function setAttribute(element, name, value, explicit = !1) {
-  element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
-}
-function removeAttribute(element, name, explicit = !1) {
-  if (isProd && !explicit) {
-    if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
-      return;
-    delete element[elementMarkRootKey][name];
-  } else
-    delete element.dataset[name];
-}
-function getAttribute(element, name, explicit = !1) {
-  return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
-}
-function isStayOriginalElement(element, rule) {
-  let isStayOriginal = !1;
-  return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
-}
-function isUnknowTag(element, rule) {
-  let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
-    rule.excludeTags
-  );
-  return !isMatchTags(element.nodeName, allKnowTags);
-}
-function getPlaceholderDelimiters(ctx) {
-  let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
-  return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
-}
-function isContainsSelectors(element, selectors) {
-  if (!selectors)
-    return !1;
-  Array.isArray(selectors) || (selectors = [selectors]);
-  for (let selector of selectors)
-    if (element.querySelector(selector))
-      return !0;
-  return !1;
-}
-function getTheLastTextNodeParentElement(element) {
-  let treeWalker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_TEXT,
-    (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
-  ), lastTextNode = null;
-  for (; treeWalker.nextNode(); )
-    lastTextNode = treeWalker.currentNode;
-  return lastTextNode ? lastTextNode.parentElement : null;
-}
-function getRealUrl() {
-  if (!getIsInIframe())
-    return globalThis.location.href;
-  try {
-    let currentUrl = globalThis.location.href;
-    if (new URL(currentUrl).protocol === "about:") {
-      if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
-        return globalThis.location.ancestorOrigins[0];
-      let href = "";
-      try {
-        href = globalThis.parent.location.href;
-      } catch {
-      }
-      return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
-    } else
-      return currentUrl;
-  } catch {
-  }
-  return globalThis.location.href;
-}
-function injectCSS(rootDocument, css) {
-  rootDocument.head.appendChild(rootDocument.createElement("style")).innerHTML = css;
-}
-function isInlineIframe(frame) {
-  return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
-}
-function isMatchTags(nodeName, tags) {
-  if (!nodeName || !tags)
-    return !1;
-  Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
-  for (let tag of tags)
-    if (nodeName === tag)
-      return !0;
-  return !1;
-}
-
 // dom/mark_containers.ts
 function markContainers(container, rule) {
   let {
@@ -11125,7 +11321,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
         }
         return NodeFilter.FILTER_REJECT;
       }
-      return isMatchTags(node2.nodeName, ["PRE"]) ? (node2.classList.contains("code"), NodeFilter.FILTER_REJECT) : isInlineElement(
+      return isMatchTags(node2.nodeName, ["PRE"]) && node2.classList.contains("code") ? NodeFilter.FILTER_REJECT : isInlineElement(
         node2,
         rule
       ) ? (handleInlineElement(
@@ -12039,7 +12235,7 @@ async function getContext(options) {
   let defaultTheme = translationTheme, themes = Object.keys(translationThemePatterns);
   for (let theme of themes) {
     let themeConfig = translationThemePatterns[theme];
-    if (isMatched(url, themeConfig)) {
+    if (themeConfig && isMatched(url, themeConfig)) {
       defaultTheme = theme;
       break;
     }
@@ -12286,7 +12482,7 @@ function translationParagraph(visibleParagraph, ctx) {
     targetTranslationWrapper.classList.add(
       "notranslate",
       translationTargetElementWrapperClass
-    ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`;
+    ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
     let loadingHtml = getLoadingHTML(
       ctx.config.loadingTheme
     );
@@ -12334,7 +12530,7 @@ async function translatePage(ctx) {
   try {
     let allFrames = [document.body];
     document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
+      isInlineIframe(frame) && allFrames.push(frame.contentDocument.body);
     }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
       document.body,
       ctx.rule.shadowRootSelectors
@@ -12580,9 +12776,9 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
           let element = addedNode;
           if (element.nodeName === "IFRAME")
             isInlineIframe(element) && setTimeout(() => {
-              injectCSS(
+              injectCssToFrame(
                 element.contentDocument,
-                env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
+                ctx
               ), translateFrame(
                 element.contentDocument.body,
                 ctx
@@ -12844,7 +13040,7 @@ async function sendMessage(options) {
   );
 }
 function request2(options) {
-  return isMonkey() || isDeno2() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
+  return isMonkey() || isDeno() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
     method: "fetch",
     data: options
   });
@@ -15524,46 +15720,84 @@ function InputRow(props) {
 
 // components/option_field.tsx
 function OptionField(props) {
-  let { field, root: root2, onChange, value } = props;
-  value = value || field.default || "";
-  let { t: t5 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p5("div", { class: "flex justify-end mb-2", children: [
-    /* @__PURE__ */ p5("label", { class: "engine", children: [
-      field.label ? t5(field.label) : field.name,
-      "\uFF1A"
-    ] }),
-    /* @__PURE__ */ p5(
-      SelectLink,
+  let { t: t5 } = useI18n(), { field, onChange, value } = props;
+  if (value = value || field.default || "", field.type === "select")
+    return /* @__PURE__ */ p5("div", { class: "flex justify-end mb-2", children: [
+      /* @__PURE__ */ p5("label", { class: "engine", children: [
+        field.label ? t5(field.label) : field.name,
+        "\uFF1A"
+      ] }),
+      /* @__PURE__ */ p5(
+        SelectLink,
+        {
+          items: field.options.map(
+            (fieldOption) => ({
+              label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
+              value: value ?? "",
+              selected: value === fieldOption.value,
+              onSelected: () => {
+                onChange(fieldOption.value);
+              }
+            })
+          )
+        }
+      )
+    ] });
+  if (field.type === "text")
+    return /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+      InputRow,
       {
-        items: field.options.map(
-          (fieldOption) => ({
-            label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
-            value: value ?? "",
-            selected: value === fieldOption.value,
-            onSelected: () => {
-              onChange(fieldOption.value);
-            }
-          })
-        )
+        field,
+        value,
+        type: field.type,
+        onChange
       }
-    )
-  ] }) : field.type === "text" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
-    InputRow,
-    {
-      field,
-      value,
-      type: field.type,
-      onChange
-    }
-  ) }) : field.type === "password" ? /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
-    InputRow,
-    {
-      field,
-      value,
-      type: field.type,
-      onChange
-    }
-  ) }) : null;
+    ) });
+  if (field.type === "password")
+    return /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5(
+      InputRow,
+      {
+        field,
+        value,
+        type: field.type,
+        onChange
+      }
+    ) });
+  if (field.type === "color") {
+    let theValue = value, defaultPlaceholder = "";
+    return theValue || (defaultPlaceholder = t5("default")), theValue || (theValue = "#ffffff"), /* @__PURE__ */ p5("div", { children: /* @__PURE__ */ p5("label", { class: "border-color-selector", for: field.name, children: /* @__PURE__ */ p5("div", { class: "border-color-left", children: [
+      /* @__PURE__ */ p5("div", { class: "shrink-0", children: [
+        field.label || field.name,
+        ":"
+      ] }),
+      /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "text",
+          id: field.name,
+          class: "border-color-text",
+          placeholder: defaultPlaceholder || "",
+          value,
+          onInput: (e3) => {
+            onChange(e3.target.value);
+          }
+        }
+      ),
+      /* @__PURE__ */ p5(
+        "input",
+        {
+          id: field.name,
+          type: "color",
+          name: field.name,
+          value: theValue,
+          onInput: (e3) => {
+            onChange(e3.target.value);
+          }
+        }
+      )
+    ] }) }) });
+  } else
+    return null;
 }
 
 // locales.ts
@@ -15680,7 +15914,7 @@ function UrlList(props) {
 function AddUrlModal(props) {
   let { t: t5 } = useI18n(), textInput = w2(null), { toggleModal } = props;
   return /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && toggleModal(e3);
+    e3.target && e3.target.id === "immersive-translate-overlay" && toggleModal(e3);
   }, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
     /* @__PURE__ */ p5(
       "a",
@@ -16185,7 +16419,7 @@ function ShortcutsModal(props) {
   for (let i2 = 0; i2 < shortcuts.length; i2++)
     inputRefs[shortcuts[i2].name] = w2(null);
   let handleClickOverlay = (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
+    e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
   };
   return j2(() => {
   }, []), /* @__PURE__ */ p5("dialog", { id: "immersive-translate-overlay", onClick: handleClickOverlay, open: !0, children: /* @__PURE__ */ p5("article", { class: "add-modal", children: [
@@ -16339,6 +16573,14 @@ function ShortcutsModal(props) {
       ) })
     ] })
   ] }) });
+}
+
+// utils/get_default_value_from_inject_css.ts
+function getDefaultValueFromInjectedCss(name, css) {
+  let injectedCSS = css;
+  injectedCSS || (injectedCSS = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS || "");
+  let regexStr = `${`--immersive-translate-${name}`}: (.+?);`, regex = new RegExp(regexStr), result = injectedCSS.match(regex);
+  return result ? result[1] : "";
 }
 
 // sync/google_drive_api.ts
@@ -16645,14 +16887,22 @@ async function updateContextMenu() {
 // pages/interface.tsx
 var allLocales = Object.keys(locales_default), getUrlArr = (config) => {
   let theme = config.translationTheme;
-  return config.translationThemePatterns[theme] ? [...config.translationThemePatterns[theme].matches] : [];
+  return !config.translationThemePatterns[theme] || !config.translationThemePatterns[theme].matches ? [] : [...config.translationThemePatterns[theme].matches];
 };
+function getThemeProps(theme) {
+  let props = [];
+  return themeOptions[theme] && (props = props.concat(themeOptions[theme])), props.push({
+    name: "textColor",
+    type: "color",
+    required: !1
+  }), props;
+}
 function Options() {
-  let [settings, setSettings, _isPersistent, error2] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
+  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
     !1
   ), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
     !1
-  ), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2(""), manifest = browserAPI.runtime.getManifest();
+  ), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2("");
   j2(() => (v("esc", () => {
     setIsShowAddUrlModal(!1), setIsShowShortcutsModal(!1);
   }), () => {
@@ -16668,7 +16918,17 @@ function Options() {
     });
   }, [settings]);
   let selectDisplay = (theme) => {
-    setSettings((state) => ({ ...state, translationTheme: theme }));
+    setSettings((state) => {
+      let currentThemeConfig = {
+        matches: [],
+        excludeMatches: []
+      };
+      return state && state.translationThemePatterns && state.translationThemePatterns[theme] && (currentThemeConfig = state.translationThemePatterns[theme]), applyUserConfigCss(
+        document,
+        theme,
+        currentThemeConfig
+      ), { ...state, translationTheme: theme };
+    });
   }, selectInterfaceLanguage = (lang) => {
     setSettings((state) => ({ ...state, interfaceLanguage: lang }));
   }, onAddInterfaceUrl = (url, theme, action) => {
@@ -16699,7 +16959,7 @@ function Options() {
         }
       };
     });
-  }, onEditUrl = (url, type, index) => {
+  }, onEditUrl = (url, _type, index) => {
     setIsShowAddUrlModal(!isShowAddUrlModal), setUrlValue(url), setMatchesIndex(index);
   };
   if (!ctx)
@@ -16723,10 +16983,17 @@ function Options() {
   return isMonkey() || (isFirefox() ? (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: [
     t5("browserShortcutsNoteForFirefox"),
     "  ",
-    /* @__PURE__ */ p5("a", { href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F", children: [
-      t5("help"),
-      "?"
-    ] }),
+    /* @__PURE__ */ p5(
+      "a",
+      {
+        target: "_blank",
+        href: "https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86Firefox%E7%9A%84%E6%89%A9%E5%B1%95%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F",
+        children: [
+          t5("help"),
+          "?"
+        ]
+      }
+    ),
     " "
   ] }), corfirmText = "") : (note = () => /* @__PURE__ */ p5("blockquote", { class: "text-sm", children: t5("browserShortcutsNoteForChrome") }), corfirmText = t5("goSettings"))), /* @__PURE__ */ p5("div", { children: [
     /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5("strong", { class: "text-lg", children: t5("interface") }) }),
@@ -16912,8 +17179,7 @@ function Options() {
     ] }),
     /* @__PURE__ */ p5("div", { class: "pt-2 text-sm", children: /* @__PURE__ */ p5("p", { children: [
       sampleSourceText,
-      /* @__PURE__ */ p5("br", {}),
-      /* @__PURE__ */ p5("br", {}),
+      /* @__PURE__ */ p5("div", { class: "pt-2" }),
       /* @__PURE__ */ p5(
         "span",
         {
@@ -16937,22 +17203,99 @@ function Options() {
           )
         }
       ),
-      /* @__PURE__ */ p5("details", { class: "pt-2", children: [
-        /* @__PURE__ */ p5("summary", { class: "", style: { textAlign: "right" }, children: t5("previewAllThemes") }),
-        translationThemes.map((item) => /* @__PURE__ */ p5("div", { class: "pt-2", children: /* @__PURE__ */ p5("label", { children: [
-          /* @__PURE__ */ p5(
-            "input",
-            {
-              type: "radio",
-              name: "theme",
-              value: item,
-              checked: item === config.translationTheme,
-              onChange: (e3) => {
-                selectDisplay(e3.target.value);
-              }
+      config.translationTheme && getThemeProps(config.translationTheme).length > 0 ? /* @__PURE__ */ p5("details", { class: "pt-2 border-none", children: [
+        /* @__PURE__ */ p5("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("customTheme") }),
+        /* @__PURE__ */ p5("div", { class: "flex flex-col items-end", children: [
+          getThemeProps(config.translationTheme).map(
+            (props) => {
+              props.label = t5(`customThemeLabel.${props.name}`);
+              let pattern = config.translationThemePatterns || {}, translationTheme = config.translationTheme, translationThemeConfig = pattern[translationTheme] || {}, cssVariableName = `theme-${translationTheme}-${props.name}`, initialValue = getDefaultValueFromInjectedCss(
+                cssVariableName
+              ) || "", currentValue = translationThemeConfig[props.name] || initialValue;
+              return /* @__PURE__ */ p5(
+                OptionField,
+                {
+                  field: props,
+                  value: currentValue,
+                  onChange: (value) => {
+                    setSettings((state) => {
+                      let currentThemePatterns = state.translationThemePatterns || {}, newThemeConfig = {
+                        ...currentThemePatterns[config.translationTheme] || {},
+                        [props.name]: value
+                      }, newState = {
+                        ...state,
+                        translationThemePatterns: {
+                          ...currentThemePatterns,
+                          [config.translationTheme]: newThemeConfig
+                        }
+                      };
+                      return applyUserConfigCss(
+                        document,
+                        config.translationTheme,
+                        newThemeConfig
+                      ), newState;
+                    });
+                  }
+                }
+              );
             }
           ),
-          t5(`translationTheme.${item}`),
+          /* @__PURE__ */ p5(
+            "a",
+            {
+              href: "#",
+              class: "text-sm secondary",
+              onClick: (e3) => {
+                e3.preventDefault(), setSettings((state) => {
+                  let currentThemePatterns = state.translationThemePatterns || {}, currentThemeConfig = {
+                    ...currentThemePatterns[config.translationTheme]
+                  };
+                  getThemeProps(config.translationTheme).forEach(
+                    (props) => {
+                      delete currentThemeConfig[props.name];
+                    }
+                  );
+                  let newState = {
+                    ...state,
+                    translationThemePatterns: {
+                      ...currentThemePatterns,
+                      [config.translationTheme]: currentThemeConfig
+                    }
+                  };
+                  return applyUserConfigCss(
+                    document,
+                    config.translationTheme,
+                    {
+                      matches: [],
+                      excludeMatches: []
+                    },
+                    !0
+                  ), newState;
+                });
+              },
+              children: t5("resetToDefaultColor")
+            }
+          )
+        ] })
+      ] }) : null,
+      /* @__PURE__ */ p5("details", { class: "pt-2 border-none", children: [
+        /* @__PURE__ */ p5("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("previewAllThemes") }),
+        translationThemes.map((item) => /* @__PURE__ */ p5("div", { class: "pt-2", children: /* @__PURE__ */ p5("label", { children: [
+          /* @__PURE__ */ p5("div", { class: "flex justify-between", children: /* @__PURE__ */ p5("div", { children: [
+            /* @__PURE__ */ p5(
+              "input",
+              {
+                type: "radio",
+                name: "theme",
+                value: item,
+                checked: item === config.translationTheme,
+                onChange: (e3) => {
+                  selectDisplay(e3.target.value);
+                }
+              }
+            ),
+            t5(`translationTheme.${item}`)
+          ] }) }),
           /* @__PURE__ */ p5("p", { children: /* @__PURE__ */ p5(
             "span",
             {
@@ -17364,7 +17707,7 @@ function ConfigSyncModal(prop) {
     accessToken && listAllFiles().then(() => setFirstLoad(!1));
   }, [accessToken]);
   let handleClickOverlay = (e3) => {
-    e3.preventDefault(), e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
+    e3.target && e3.target.id === "immersive-translate-overlay" && onClose();
   };
   function listAllFiles() {
     return new GoogleDriveAPI(accessToken).listAll().then((files2) => {
@@ -18358,7 +18701,12 @@ function main() {
   mountPoint && (async () => {
     $e(twind_config_default);
     let config = await getConfig();
-    config.debug && log_default.setLevel("debug"), re(
+    config.debug && log_default.setLevel("debug"), globalThis.location.hash || (globalThis.location.hash = "#general");
+    let ctx = await getContext({
+      url: "http://localhost",
+      config
+    });
+    injectCssToFrame(document, ctx), re(
       /* @__PURE__ */ p5(
         TranslateProvider,
         {
@@ -18415,7 +18763,7 @@ function App(props) {
   }), /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
     /* @__PURE__ */ p5("aside", { children: /* @__PURE__ */ p5("nav", { class: "flex flex-col h-full justify-between", children: [
       /* @__PURE__ */ p5("div", { children: [
-        /* @__PURE__ */ p5("hgroup", { children: [
+        /* @__PURE__ */ p5("hgroup", { class: "mb-2", children: [
           /* @__PURE__ */ p5(
             "h4",
             {
@@ -18428,7 +18776,7 @@ function App(props) {
           ),
           /* @__PURE__ */ p5("h6", { class: "!text-sm", children: version })
         ] }),
-        /* @__PURE__ */ p5("ul", { class: "flex flex-wrap  justify-between md:block", children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
+        /* @__PURE__ */ p5("ul", { class: "flex flex-wrap  justify-between md:block text-sm md:text-base", children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
       ] }),
       /* @__PURE__ */ p5("div", { class: "m-0 p-0 flex flex-col", children: [
         /* @__PURE__ */ p5(

@@ -61,7 +61,22 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-10T09:52:13.087Z", VERSION: "0.2.57", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `.immersive-translate-target-translation-pre-whitespace {
+  var define_process_env_default = { BUILD_TIME: "2023-02-11T10:14:57.720Z", VERSION: "0.2.57", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  --immersive-translate-theme-underline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDotted-borderColor: #72ece9;
+  --immersive-translate-theme-highlight-backgroundColor: #ffff00;
+  --immersive-translate-theme-dashed-borderColor: #59c1bd;
+  --immersive-translate-theme-blockquote-borderColor: #cc3355;
+  --immersive-translate-theme-thinDashed-borderColor: #ff374f;
+  --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dotted-borderColor: #94a3b8;
+  --immersive-translate-theme-wavy-borderColor: #72ece9;
+  --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+}
+
+.immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
 
@@ -104,39 +119,44 @@
 
 .immersive-translate-target-translation-inline-wrapper {
 }
+
 .immersive-translate-target-translation-theme-underline-inner {
-  border-bottom: 1px solid #72ece9 !important;
+  border-bottom: 1px solid
+    var(--immersive-translate-theme-underline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline #72ece9 !important;
+  text-decoration: underline
+    var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline #72ece9 !important;
+  text-decoration: dashed underline
+    var(--immersive-translate-theme-nativeDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
-  border-bottom: 1px dashed #ff374f !important;
+  border-bottom: 1px dashed
+    var(--immersive-translate-theme-thinDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    currentColor 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 10%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;
@@ -145,19 +165,21 @@
   padding-bottom: 3px;
 }
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline #72ece9 !important;
+  text-decoration: dotted underline
+    var(--immersive-translate-theme-nativeDotted-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline #59c1bd !important;
+  text-decoration: wavy underline
+    var(--immersive-translate-theme-wavy-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
   background-repeat: repeat-x !important;
   background: linear-gradient(
       to right,
-      #59c1bd 0%,
-      #59c1bd 50%,
+      var(--immersive-translate-theme-dashed-borderColor) 0%,
+      var(--immersive-translate-theme-dashed-borderColor) 50%,
       transparent 50%,
       transparent 100%
     )
@@ -171,12 +193,13 @@
   display: block;
   max-width: 80px;
   width: 10%;
-  border-top: 1px dashed currentColor;
-  padding-top: 0.5em;
+  border-top: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  padding-top: 8px;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {
-  background: rgb(255, 255, 0);
+  background: var(--immersive-translate-theme-highlight-backgroundColor);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -219,7 +242,7 @@
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-blockquote {
-  border-left: 4px solid #cc3355 !important;
+  border-left: 4px solid var(--immersive-translate-theme-blockquote-borderColor) !important;
   padding-left: 12px !important;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -4316,9 +4339,10 @@ body {
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
     alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
     toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
     betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+    translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
     tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
     xMinutes: "{count} \u5206\u949F",
@@ -4472,8 +4496,8 @@ body {
     "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
     neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
-    enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
-    enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+    enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
+    enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
     "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
     "always sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
     "always translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -4499,7 +4523,6 @@ body {
     importSuccess: "\u5BFC\u5165\u6210\u529F",
     importFail: "\u5BFC\u5165\u5931\u8D25",
     deleteFail: "\u5220\u9664\u5931\u8D25",
-    isShowContextMenu: "\u521B\u5EFA\u53F3\u952E\u83DC\u5355",
     backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
     create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
     maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
@@ -4524,7 +4547,13 @@ body {
     "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u663E\u793A",
     developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
-    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4"
+    "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
+    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
+    customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+    "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+    "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+    resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
   };
 
   // locales/zh-TW.json
@@ -4755,6 +4784,7 @@ body {
     "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
     "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u986F\u793A",
+    "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
     developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
   };
 
@@ -4987,6 +5017,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     "loadingTheme.spinner": "Animate Spinner",
     "loadingTheme.text": "Static Text... ",
     "loadingTheme.none": "Disabled",
+    "edit border color": "Edit border color",
     developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
   };
 
@@ -5013,7 +5044,72 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
   var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
   var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
-  var languages = [
+  var themeOptions = {
+    underline: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    nativeUnderline: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    nativeDashed: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    nativeDotted: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    dotted: [
+      {
+        name: "borderColor",
+        required: !1,
+        type: "color"
+      }
+    ],
+    dividingLine: [
+      {
+        name: "borderColor",
+        required: !1,
+        type: "color"
+      }
+    ],
+    highlight: [{
+      name: "backgroundColor",
+      required: !1,
+      type: "color"
+    }],
+    dashed: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    blockquote: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    thinDashed: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    dashedBorder: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }],
+    wavy: [{
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }]
+  }, languages = [
     "auto",
     "en",
     "zh-CN",
@@ -5263,429 +5359,6 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     "translate.google.com"
   ];
   var fallbackLanguage = "zh-CN";
-
-  // utils/iframe.ts
-  function getIsInIframe() {
-    try {
-      return globalThis.self !== globalThis.top;
-    } catch {
-      return !0;
-    }
-  }
-
-  // dom/util.ts
-  var env2 = getEnv(), isProd = env2.PROD === "1";
-  function duplicatedElements(root2, array, rule) {
-    let allHeaders = root2.querySelectorAll("header"), main3 = root2.querySelectorAll("main"), headers2 = [];
-    for (let header of allHeaders)
-      main3.length > 0 && main3[0].contains(header) || headers2.push(header);
-    for (let i3 = 0; i3 < array.length; i3++) {
-      let a6 = array[i3].element;
-      for (let j6 = i3 + 1; j6 < array.length; j6++) {
-        let b4 = array[j6].element;
-        if (a6.contains(b4))
-          array.splice(j6, 1), j6--;
-        else if (b4.contains(a6)) {
-          array.splice(i3, 1), i3--;
-          break;
-        } else
-          a6 === b4 && (array.splice(j6, 1), j6--);
-      }
-    }
-    return array.filter((container) => {
-      let element = container.element;
-      if (container.reserve)
-        return !0;
-      let isHeader = !1;
-      for (let header of headers2) {
-        if (isMatchTags(element.nodeName, ["H1"]))
-          continue;
-        let h1Container = header.querySelector("h1");
-        if (!(h1Container && isValidTextByCount(
-          h1Container.textContent || "",
-          rule.paragraphMinTextCount,
-          rule.paragraphMinWordCount
-        )) && (element === header || header.contains(element))) {
-          isHeader = !0;
-          break;
-        }
-      }
-      return !isHeader;
-    }).map((container) => container.element);
-  }
-  function getLastHTMLElement(elements) {
-    for (let i3 = elements.length - 1; i3 >= 0; i3--) {
-      let element = elements[i3].element || elements[i3];
-      if (typeof element != "string")
-        return element;
-    }
-    return null;
-  }
-  function getHTMLElements(elements) {
-    let result = [];
-    for (let i3 = elements.length - 1; i3 >= 0; i3--) {
-      let element = elements[i3].element || elements[i3];
-      (typeof element != "string" || element !== " ") && result.push(element);
-    }
-    return result;
-  }
-  function getFirstHTMLElement(elements) {
-    for (let i3 = 0; i3 < elements.length; i3++) {
-      let element = elements[i3];
-      if (typeof element != "string")
-        return element;
-    }
-    return null;
-  }
-  function getWhitespace(nextNode, isPreWhitespace) {
-    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
-  }
-  function getElementsBySelectors(root2, selectors) {
-    let elements = [];
-    for (let selector of selectors) {
-      let nodes = root2.querySelectorAll(selector);
-      for (let node of nodes)
-        elements.push(node);
-    }
-    return elements;
-  }
-  function isInlineElementByTreeWalker(element, rule) {
-    let filterInlineElement = function(node) {
-      return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-    }, treeWalker = document.createTreeWalker(
-      element,
-      NodeFilter.SHOW_ELEMENT,
-      filterInlineElement
-    ), isInline = !0;
-    for (; treeWalker.nextNode(); ) {
-      let node = treeWalker.currentNode;
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        if (isMarked(
-          node,
-          sourceInlineElementMarkAttributeName
-        )) {
-          if (isInline === !0)
-            return !0;
-          continue;
-        }
-        if (!isMatchTags(node.nodeName, rule.inlineTags))
-          return !1;
-      }
-    }
-    return !0;
-  }
-  function isInlineElement(element, rule) {
-    let inlineTags = rule.inlineTags;
-    return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
-      element,
-      sourceBlockElementMarkAttributeName
-    ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
-      element,
-      sourceInlineElementMarkAttributeName
-    ) : !1;
-  }
-  function isDuplicateElement(element, elements) {
-    for (let e3 of elements)
-      if (e3 === element)
-        return !0;
-    return !1;
-  }
-  function isMetaElement(element, rule) {
-    return !!isMatchTags(element.nodeName, rule.metaTags);
-  }
-  function isExcludeElement(element, rule, includeStayElements) {
-    if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
-      return !0;
-    let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
-      element,
-      specifiedTargetContainerElementAttributeName
-    ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
-  }
-  function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
-    let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
-      `^${delimiters[0]}(\\d+)${delimiters[1]}$`
-    ), text = item.text, trimedText = text.trim();
-    return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
-  }
-  function isValidTextByCount(rawText, minTextCount, minWordCount) {
-    let text = rawText.trim();
-    return text.length >= minTextCount || text.split(" ").length >= minWordCount;
-  }
-  function isUrl(text) {
-    if (text && text.includes("://"))
-      try {
-        return new URL(text), !0;
-      } catch {
-        return !1;
-      }
-    else
-      return !1;
-  }
-  function isHashTag(text) {
-    return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
-  }
-  function isAtTag(text) {
-    return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
-  }
-  function isStockTag(text) {
-    return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
-  }
-  function isMarked(element, markedAttribute, explicit = !1) {
-    return isMarkedWith(element, markedAttribute, "1", explicit);
-  }
-  function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-    return isProd && !explicit ? element[elementMarkRootKey] ? (
-      // @ts-ignore: it's ok
-      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-      element[elementMarkRootKey][markedAttribute] === value)
-    ) : !1 : element.dataset[markedAttribute] === value;
-  }
-  function hasMark(element, markedAttribute, explicit = !1) {
-    return isProd && !explicit ? element[elementMarkRootKey] ? (
-      // @ts-ignore: it's ok
-      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-      element[elementMarkRootKey][markedAttribute])
-    ) : !1 : element.dataset[markedAttribute] !== void 0;
-  }
-  function getMainText(root2) {
-    return (root2.innerText || root2.textContent || "").trim();
-  }
-  function isMatchSelectors(selectors) {
-    return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
-  }
-  function setAttribute(element, name, value, explicit = !1) {
-    element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
-  }
-  function removeAttribute(element, name, explicit = !1) {
-    if (isProd && !explicit) {
-      if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
-        return;
-      delete element[elementMarkRootKey][name];
-    } else
-      delete element.dataset[name];
-  }
-  function getAttribute(element, name, explicit = !1) {
-    return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
-  }
-  function isStayOriginalElement(element, rule) {
-    let isStayOriginal = !1;
-    return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
-  }
-  function isUnknowTag(element, rule) {
-    let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
-      rule.excludeTags
-    );
-    return !isMatchTags(element.nodeName, allKnowTags);
-  }
-  function getPlaceholderDelimiters(ctx) {
-    let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
-    return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
-  }
-  function isContainsSelectors(element, selectors) {
-    if (!selectors)
-      return !1;
-    Array.isArray(selectors) || (selectors = [selectors]);
-    for (let selector of selectors)
-      if (element.querySelector(selector))
-        return !0;
-    return !1;
-  }
-  function getTheLastTextNodeParentElement(element) {
-    let treeWalker = document.createTreeWalker(
-      element,
-      NodeFilter.SHOW_TEXT,
-      (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
-    ), lastTextNode = null;
-    for (; treeWalker.nextNode(); )
-      lastTextNode = treeWalker.currentNode;
-    return lastTextNode ? lastTextNode.parentElement : null;
-  }
-  function getRealUrl() {
-    if (!getIsInIframe())
-      return globalThis.location.href;
-    try {
-      let currentUrl = globalThis.location.href;
-      if (new URL(currentUrl).protocol === "about:") {
-        if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
-          return globalThis.location.ancestorOrigins[0];
-        let href = "";
-        try {
-          href = globalThis.parent.location.href;
-        } catch {
-        }
-        return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
-      } else
-        return currentUrl;
-    } catch {
-    }
-    return globalThis.location.href;
-  }
-  function injectCSS(rootDocument, css) {
-    rootDocument.head.appendChild(rootDocument.createElement("style")).innerHTML = css;
-  }
-  function isInlineIframe(frame) {
-    return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
-  }
-  function isMatchTags(nodeName, tags) {
-    if (!nodeName || !tags)
-      return !1;
-    Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
-    for (let tag of tags)
-      if (nodeName === tag)
-        return !0;
-    return !1;
-  }
-
-  // dom/mark_containers.ts
-  function markContainers(container, rule) {
-    let {
-      excludeSelectors,
-      additionalExcludeSelectors,
-      extraInlineSelectors,
-      additionalInlineSelectors,
-      extraBlockSelectors,
-      atomicBlockSelectors,
-      atomicBlockTags,
-      globalStyles,
-      stayOriginalTags,
-      stayOriginalSelectors,
-      globalAttributes
-    } = rule, globalStyleSelectors = Object.keys(globalStyles);
-    if (globalStyleSelectors.length > 0)
-      for (let selector of globalStyleSelectors) {
-        let elements = getElementsBySelectors(container, [selector]);
-        for (let element of elements)
-          if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
-            setAttribute(
-              element,
-              sourceElementWithGlobalStyleMarkAttributeName,
-              "1"
-            );
-            let cssText = globalStyles[selector];
-            element.style.cssText += cssText;
-          }
-      }
-    let globalAttributesSelectors = Object.keys(globalAttributes);
-    if (globalAttributesSelectors.length > 0)
-      for (let selector of globalAttributesSelectors) {
-        let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
-        for (let element of elements)
-          for (let key of attributesKeys) {
-            let value = attributes[key];
-            element.getAttribute(key) !== value && (value === null ? element.removeAttribute(key) : element.setAttribute(key, value));
-          }
-      }
-    let allExcludeSelectors = [
-      ...excludeSelectors,
-      ...additionalExcludeSelectors
-    ], allInlineSelectors = [
-      ...extraInlineSelectors,
-      ...additionalInlineSelectors
-    ], allAtomicBlockSelectors = [...atomicBlockSelectors], allAtomicBlockTagsSelectors = atomicBlockTags.map(
-      (item) => item.toLowerCase()
-    ), allBlockSelectos = extraBlockSelectors;
-    getElementsBySelectors(
-      container,
-      allExcludeSelectors
-    ).forEach((element) => {
-      isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
-    });
-    let atomicBlockElements = [];
-    if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
-      container,
-      allAtomicBlockSelectors
-    ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
-      let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
-        (arr, item) => {
-          let tagLower = item.toLowerCase();
-          return arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`), arr;
-        },
-        []
-      ), httpLinkTags = [">http://", ">https://"];
-      stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
-      let atomicBlockTagsElements = getElementsBySelectors(
-        container,
-        allAtomicBlockTagsSelectors
-      ).filter((element) => {
-        if (isMarked(
-          element,
-          sourceAtomicBlockElementMarkAttributeName
-        ))
-          return !1;
-        {
-          let htmlString = element.innerHTML;
-          return !stayOriginalTagsHTMLStringArr.some(
-            (item) => htmlString.includes(item)
-          );
-        }
-      });
-      atomicBlockElements.push(...atomicBlockTagsElements);
-    }
-    atomicBlockElements.forEach((element) => {
-      isMarked(element, sourceAtomicBlockElementMarkAttributeName) || setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
-    });
-    let extraInlineElements = [];
-    allInlineSelectors.length > 0 && extraInlineElements.push(
-      ...getElementsBySelectors(container, allInlineSelectors)
-    ), extraInlineElements.forEach((element) => {
-      setAttribute(element, sourceInlineElementMarkAttributeName, "1");
-    });
-    let extraBlockElements = [];
-    allBlockSelectos.length > 0 && extraBlockElements.push(
-      ...getElementsBySelectors(container, allBlockSelectos)
-    ), extraBlockElements.forEach((element) => {
-      setAttribute(element, sourceBlockElementMarkAttributeName, "1");
-    });
-    let stayOriginalElements = [];
-    stayOriginalSelectors.length > 0 && stayOriginalElements.push(
-      ...getElementsBySelectors(container, stayOriginalSelectors)
-    ), stayOriginalElements.forEach((element) => {
-      setAttribute(element, sourceElementStayOriginalAttributeName, "1");
-    });
-  }
-
-  // utils/language_match.ts
-  function isMatchLanguage(lang, matchPattern) {
-    let matches = matchPattern.matches || [];
-    if (matches && !Array.isArray(matches) && (matches = [matches]), matches.length === 0)
-      return !1;
-    if (matches.length > 0) {
-      if (matches.includes(lang))
-        return !0;
-      for (let match of matches)
-        if (match.includes("*") && new RegExp(match).test(lang))
-          return !0;
-    }
-    return !1;
-  }
-
-  // utils/format_language.ts
-  function formatLanguage(rawLangCode) {
-    if (typeof rawLangCode != "string")
-      return "auto";
-    let lowerCaseLangCode = rawLangCode.toLowerCase();
-    if (lowerCaseLangCode === "zh" || lowerCaseLangCode === "zh-hans")
-      return "zh-CN";
-    if (lowerCaseLangCode === "zh-hant" || lowerCaseLangCode === "zh-hk")
-      return "zh-TW";
-    if (lowerCaseLangCode === "iw")
-      return "he";
-    if (lowerCaseLangCode === "jv")
-      return "jw";
-    let lowerCaseLanguages = languages.map((lang) => lang.toLowerCase()), indexOfLanguages = lowerCaseLanguages.indexOf(
-      lowerCaseLangCode
-    );
-    if (indexOfLanguages === -1)
-      if (lowerCaseLangCode.indexOf("-") >= 0) {
-        lowerCaseLangCode = lowerCaseLangCode.split("-")[0];
-        let firstPartIndex = lowerCaseLanguages.indexOf(lowerCaseLangCode);
-        return firstPartIndex === -1 ? "auto" : languages[firstPartIndex];
-      } else
-        return "auto";
-    else
-      return languages[indexOfLanguages];
-  }
 
   // https://deno.land/std@0.171.0/async/deferred.ts
   function deferred() {
@@ -8028,6 +7701,442 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     }
   }, log_default = new Logger();
 
+  // utils/iframe.ts
+  function getIsInIframe() {
+    try {
+      return globalThis.self !== globalThis.top;
+    } catch {
+      return !0;
+    }
+  }
+
+  // dom/util.ts
+  var env2 = getEnv(), isProd = env2.PROD === "1";
+  function duplicatedElements(root2, array, rule) {
+    let allHeaders = root2.querySelectorAll("header"), main3 = root2.querySelectorAll("main"), headers2 = [];
+    for (let header of allHeaders)
+      main3.length > 0 && main3[0].contains(header) || headers2.push(header);
+    for (let i3 = 0; i3 < array.length; i3++) {
+      let a6 = array[i3].element;
+      for (let j6 = i3 + 1; j6 < array.length; j6++) {
+        let b4 = array[j6].element;
+        if (a6.contains(b4))
+          array.splice(j6, 1), j6--;
+        else if (b4.contains(a6)) {
+          array.splice(i3, 1), i3--;
+          break;
+        } else
+          a6 === b4 && (array.splice(j6, 1), j6--);
+      }
+    }
+    return array.filter((container) => {
+      let element = container.element;
+      if (container.reserve)
+        return !0;
+      let isHeader = !1;
+      for (let header of headers2) {
+        if (isMatchTags(element.nodeName, ["H1"]))
+          continue;
+        let h1Container = header.querySelector("h1");
+        if (!(h1Container && isValidTextByCount(
+          h1Container.textContent || "",
+          rule.paragraphMinTextCount,
+          rule.paragraphMinWordCount
+        )) && (element === header || header.contains(element))) {
+          isHeader = !0;
+          break;
+        }
+      }
+      return !isHeader;
+    }).map((container) => container.element);
+  }
+  function getLastHTMLElement(elements) {
+    for (let i3 = elements.length - 1; i3 >= 0; i3--) {
+      let element = elements[i3].element || elements[i3];
+      if (typeof element != "string")
+        return element;
+    }
+    return null;
+  }
+  function getHTMLElements(elements) {
+    let result = [];
+    for (let i3 = elements.length - 1; i3 >= 0; i3--) {
+      let element = elements[i3].element || elements[i3];
+      (typeof element != "string" || element !== " ") && result.push(element);
+    }
+    return result;
+  }
+  function getFirstHTMLElement(elements) {
+    for (let i3 = 0; i3 < elements.length; i3++) {
+      let element = elements[i3];
+      if (typeof element != "string")
+        return element;
+    }
+    return null;
+  }
+  function getWhitespace(nextNode, isPreWhitespace) {
+    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+  }
+  function getElementsBySelectors(root2, selectors) {
+    let elements = [];
+    for (let selector of selectors) {
+      let nodes = root2.querySelectorAll(selector);
+      for (let node of nodes)
+        elements.push(node);
+    }
+    return elements;
+  }
+  function isInlineElementByTreeWalker(element, rule) {
+    let filterInlineElement = function(node) {
+      return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }, treeWalker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_ELEMENT,
+      filterInlineElement
+    ), isInline = !0;
+    for (; treeWalker.nextNode(); ) {
+      let node = treeWalker.currentNode;
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (isMarked(
+          node,
+          sourceInlineElementMarkAttributeName
+        )) {
+          if (isInline === !0)
+            return !0;
+          continue;
+        }
+        if (!isMatchTags(node.nodeName, rule.inlineTags))
+          return !1;
+      }
+    }
+    return !0;
+  }
+  function isInlineElement(element, rule) {
+    let inlineTags = rule.inlineTags;
+    return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
+      element,
+      sourceBlockElementMarkAttributeName
+    ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
+      element,
+      sourceInlineElementMarkAttributeName
+    ) : !1;
+  }
+  function isDuplicateElement(element, elements) {
+    for (let e3 of elements)
+      if (e3 === element)
+        return !0;
+    return !1;
+  }
+  function isMetaElement(element, rule) {
+    return !!isMatchTags(element.nodeName, rule.metaTags);
+  }
+  function isExcludeElement(element, rule, includeStayElements) {
+    if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
+      return !0;
+    let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
+    return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+      element,
+      specifiedTargetContainerElementAttributeName
+    ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
+  }
+  function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
+    let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
+      `^${delimiters[0]}(\\d+)${delimiters[1]}$`
+    ), text = item.text, trimedText = text.trim();
+    return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
+  }
+  function isValidTextByCount(rawText, minTextCount, minWordCount) {
+    let text = rawText.trim();
+    return text.length >= minTextCount || text.split(" ").length >= minWordCount;
+  }
+  function isUrl(text) {
+    if (text && text.includes("://"))
+      try {
+        return new URL(text), !0;
+      } catch {
+        return !1;
+      }
+    else
+      return !1;
+  }
+  function isHashTag(text) {
+    return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
+  }
+  function isAtTag(text) {
+    return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
+  }
+  function isStockTag(text) {
+    return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
+  }
+  function isMarked(element, markedAttribute, explicit = !1) {
+    return isMarkedWith(element, markedAttribute, "1", explicit);
+  }
+  function isMarkedWith(element, markedAttribute, value, explicit = !1) {
+    return isProd && !explicit ? element[elementMarkRootKey] ? (
+      // @ts-ignore: it's ok
+      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute] === value)
+    ) : !1 : element.dataset[markedAttribute] === value;
+  }
+  function hasMark(element, markedAttribute, explicit = !1) {
+    return isProd && !explicit ? element[elementMarkRootKey] ? (
+      // @ts-ignore: it's ok
+      !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
+      element[elementMarkRootKey][markedAttribute])
+    ) : !1 : element.dataset[markedAttribute] !== void 0;
+  }
+  function getMainText(root2) {
+    return (root2.innerText || root2.textContent || "").trim();
+  }
+  function isMatchSelectors(selectors) {
+    return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
+  }
+  function setAttribute(element, name, value, explicit = !1) {
+    element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
+  }
+  function removeAttribute(element, name, explicit = !1) {
+    if (isProd && !explicit) {
+      if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
+        return;
+      delete element[elementMarkRootKey][name];
+    } else
+      delete element.dataset[name];
+  }
+  function getAttribute(element, name, explicit = !1) {
+    return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
+  }
+  function isStayOriginalElement(element, rule) {
+    let isStayOriginal = !1;
+    return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+  }
+  function isUnknowTag(element, rule) {
+    let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
+      rule.excludeTags
+    );
+    return !isMatchTags(element.nodeName, allKnowTags);
+  }
+  function getPlaceholderDelimiters(ctx) {
+    let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
+    return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
+  }
+  function isContainsSelectors(element, selectors) {
+    if (!selectors)
+      return !1;
+    Array.isArray(selectors) || (selectors = [selectors]);
+    for (let selector of selectors)
+      if (element.querySelector(selector))
+        return !0;
+    return !1;
+  }
+  function getTheLastTextNodeParentElement(element) {
+    let treeWalker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT,
+      (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    ), lastTextNode = null;
+    for (; treeWalker.nextNode(); )
+      lastTextNode = treeWalker.currentNode;
+    return lastTextNode ? lastTextNode.parentElement : null;
+  }
+  function getRealUrl() {
+    if (!getIsInIframe())
+      return globalThis.location.href;
+    try {
+      let currentUrl = globalThis.location.href;
+      if (new URL(currentUrl).protocol === "about:") {
+        if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
+          return globalThis.location.ancestorOrigins[0];
+        let href = "";
+        try {
+          href = globalThis.parent.location.href;
+        } catch {
+        }
+        return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
+      } else
+        return currentUrl;
+    } catch {
+    }
+    return globalThis.location.href;
+  }
+  function injectCSS(rootDocument, css, id) {
+    if (rootDocument && rootDocument.head && rootDocument.head.appendChild) {
+      let styleElement = rootDocument.createElement("style");
+      if (id) {
+        let existingStyleElement = rootDocument.querySelector(
+          `style[data-id="${id}"]`
+        );
+        existingStyleElement && existingStyleElement.remove(), styleElement.dataset.id = id;
+      }
+      rootDocument.head.appendChild(styleElement).innerHTML = css;
+    } else
+      log_default.warn(
+        "injectCSS failed, rootDocument does not have head node",
+        rootDocument
+      );
+  }
+  function isInlineIframe(frame) {
+    return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+  }
+  function isMatchTags(nodeName, tags) {
+    if (!nodeName || !tags)
+      return !1;
+    Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
+    for (let tag of tags)
+      if (nodeName === tag)
+        return !0;
+    return !1;
+  }
+
+  // dom/mark_containers.ts
+  function markContainers(container, rule) {
+    let {
+      excludeSelectors,
+      additionalExcludeSelectors,
+      extraInlineSelectors,
+      additionalInlineSelectors,
+      extraBlockSelectors,
+      atomicBlockSelectors,
+      atomicBlockTags,
+      globalStyles,
+      stayOriginalTags,
+      stayOriginalSelectors,
+      globalAttributes
+    } = rule, globalStyleSelectors = Object.keys(globalStyles);
+    if (globalStyleSelectors.length > 0)
+      for (let selector of globalStyleSelectors) {
+        let elements = getElementsBySelectors(container, [selector]);
+        for (let element of elements)
+          if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
+            setAttribute(
+              element,
+              sourceElementWithGlobalStyleMarkAttributeName,
+              "1"
+            );
+            let cssText = globalStyles[selector];
+            element.style.cssText += cssText;
+          }
+      }
+    let globalAttributesSelectors = Object.keys(globalAttributes);
+    if (globalAttributesSelectors.length > 0)
+      for (let selector of globalAttributesSelectors) {
+        let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
+        for (let element of elements)
+          for (let key of attributesKeys) {
+            let value = attributes[key];
+            element.getAttribute(key) !== value && (value === null ? element.removeAttribute(key) : element.setAttribute(key, value));
+          }
+      }
+    let allExcludeSelectors = [
+      ...excludeSelectors,
+      ...additionalExcludeSelectors
+    ], allInlineSelectors = [
+      ...extraInlineSelectors,
+      ...additionalInlineSelectors
+    ], allAtomicBlockSelectors = [...atomicBlockSelectors], allAtomicBlockTagsSelectors = atomicBlockTags.map(
+      (item) => item.toLowerCase()
+    ), allBlockSelectos = extraBlockSelectors;
+    getElementsBySelectors(
+      container,
+      allExcludeSelectors
+    ).forEach((element) => {
+      isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
+    });
+    let atomicBlockElements = [];
+    if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
+      container,
+      allAtomicBlockSelectors
+    ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
+      let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
+        (arr, item) => {
+          let tagLower = item.toLowerCase();
+          return arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`), arr;
+        },
+        []
+      ), httpLinkTags = [">http://", ">https://"];
+      stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
+      let atomicBlockTagsElements = getElementsBySelectors(
+        container,
+        allAtomicBlockTagsSelectors
+      ).filter((element) => {
+        if (isMarked(
+          element,
+          sourceAtomicBlockElementMarkAttributeName
+        ))
+          return !1;
+        {
+          let htmlString = element.innerHTML;
+          return !stayOriginalTagsHTMLStringArr.some(
+            (item) => htmlString.includes(item)
+          );
+        }
+      });
+      atomicBlockElements.push(...atomicBlockTagsElements);
+    }
+    atomicBlockElements.forEach((element) => {
+      isMarked(element, sourceAtomicBlockElementMarkAttributeName) || setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
+    });
+    let extraInlineElements = [];
+    allInlineSelectors.length > 0 && extraInlineElements.push(
+      ...getElementsBySelectors(container, allInlineSelectors)
+    ), extraInlineElements.forEach((element) => {
+      setAttribute(element, sourceInlineElementMarkAttributeName, "1");
+    });
+    let extraBlockElements = [];
+    allBlockSelectos.length > 0 && extraBlockElements.push(
+      ...getElementsBySelectors(container, allBlockSelectos)
+    ), extraBlockElements.forEach((element) => {
+      setAttribute(element, sourceBlockElementMarkAttributeName, "1");
+    });
+    let stayOriginalElements = [];
+    stayOriginalSelectors.length > 0 && stayOriginalElements.push(
+      ...getElementsBySelectors(container, stayOriginalSelectors)
+    ), stayOriginalElements.forEach((element) => {
+      setAttribute(element, sourceElementStayOriginalAttributeName, "1");
+    });
+  }
+
+  // utils/language_match.ts
+  function isMatchLanguage(lang, matchPattern) {
+    let matches = matchPattern.matches || [];
+    if (matches && !Array.isArray(matches) && (matches = [matches]), matches.length === 0)
+      return !1;
+    if (matches.length > 0) {
+      if (matches.includes(lang))
+        return !0;
+      for (let match of matches)
+        if (match.includes("*") && new RegExp(match).test(lang))
+          return !0;
+    }
+    return !1;
+  }
+
+  // utils/format_language.ts
+  function formatLanguage(rawLangCode) {
+    if (typeof rawLangCode != "string")
+      return "auto";
+    let lowerCaseLangCode = rawLangCode.toLowerCase();
+    if (lowerCaseLangCode === "zh" || lowerCaseLangCode === "zh-hans")
+      return "zh-CN";
+    if (lowerCaseLangCode === "zh-hant" || lowerCaseLangCode === "zh-hk")
+      return "zh-TW";
+    if (lowerCaseLangCode === "iw")
+      return "he";
+    if (lowerCaseLangCode === "jv")
+      return "jw";
+    let lowerCaseLanguages = languages.map((lang) => lang.toLowerCase()), indexOfLanguages = lowerCaseLanguages.indexOf(
+      lowerCaseLangCode
+    );
+    if (indexOfLanguages === -1)
+      if (lowerCaseLangCode.indexOf("-") >= 0) {
+        lowerCaseLangCode = lowerCaseLangCode.split("-")[0];
+        let firstPartIndex = lowerCaseLanguages.indexOf(lowerCaseLangCode);
+        return firstPartIndex === -1 ? "auto" : languages[firstPartIndex];
+      } else
+        return "auto";
+    else
+      return languages[indexOfLanguages];
+  }
+
   // utils/is_mobile.ts
   var appleIphone = /iPhone/i, appleIpod = /iPod/i, appleTablet = /iPad/i, appleUniversal = /\biOS-universal(?:.+)Mac\b/i, androidPhone = /\bAndroid(?:.+)Mobile\b/i, androidTablet = /Android/i, amazonPhone = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i, amazonTablet = /Silk/i, windowsPhone = /Windows Phone/i, windowsTablet = /\bWindows(?:.+)ARM\b/i, otherBlackBerry = /BlackBerry/i, otherBlackBerry10 = /BB10/i, otherOpera = /Opera Mini/i, otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i, otherFirefox = /Mobile(?:.+)Firefox\b/i, isAppleTabletOnIos13 = (navigator2) => typeof navigator2 < "u" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints == "number" && // @ts-ignore: it's ok
   navigator2.maxTouchPoints > 1 && typeof globalThis.MSStream > "u";
@@ -8884,11 +8993,41 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           "h3[data-text-variant='heading-lg/semibold']",
           "section[aria-label='Search Results'] div[id^=message-content]"
         ],
+        extraBlockSelectors: [
+          "[class^='embedFieldValue']",
+          "li[class^='card'] div[class^='message']",
+          "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+        ],
+        atomicBlockSelectors: [
+          "[class^='embedFieldValue']",
+          "li[class^='card'] div[class^='message']",
+          "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+        ],
         excludeSelectors: [
-          "div[class^='repliedTextContent']"
+          "#channels",
+          "[data-list-id^='members']",
+          "div[class^='repliedTextContent']",
+          "div[class^='repliedTextPreview']",
+          "div[class^='messageAttachment']",
+          "div[class^='repliedMessage']",
+          "div[class*='isSystemMessage']",
+          "div[class^='avatarWrapper']",
+          "div[class^='container'] [class^='topLine']",
+          "div[class^='container'] [class^='bottomLine']",
+          "h3[class^='header']",
+          "h2[class^='forumPostTitle']",
+          "[class^='title'][aria-label='Channel header']",
+          "div[class^='sectionHeader']",
+          "article[class^=embedWrapper] [class^=anchor]",
+          "article[class^=embedWrapper] [class^=embedProvider]",
+          "article[class^=embedWrapper] [class^=embedFooter]",
+          "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+          "li[class^='card'] div[class^='tags']",
+          "li[class^='card'] div[class^='footer']"
         ],
         globalStyles: {
           "div[class^=headerText]": "max-height: unset;",
+          "div[class^=message]": "max-height: unset;",
           "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
         },
         detectParagraphLanguage: !0,
@@ -9293,6 +9432,14 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       {
         matches: ["developer.android.google.cn", "developer.android.com"],
         additionalSelectors: ["aside.note"]
+      },
+      {
+        matches: "https://apps.microsoft.com/store/detail/*",
+        additionalSelectors: ["pre"],
+        globalStyles: {
+          ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
+        },
+        isTransformPreTagNewLine: !0
       }
     ]
   };
@@ -10339,6 +10486,55 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     cleanQueue.forEach((fn) => fn()), cleanQueue = [];
   }
 
+  // dom/apply_user_config_css.ts
+  function applyUserConfigCss(root2, translationTheme, translationThemePatternConfig, remove) {
+    let theme = translationTheme, props = themeOptions[theme] || [], injectedCss = "";
+    root2 && props && props.length > 0 && props.forEach((prop) => {
+      let { name } = prop;
+      if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
+        let value = translationThemePatternConfig[name];
+        injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+`;
+      }
+    });
+    let otherCss = "";
+    if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
+      let value = translationThemePatternConfig.textColor;
+      otherCss = `
+.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+`;
+    }
+    let finalCss = "";
+    injectedCss && (finalCss = `:root {
+${injectedCss}}
+`), otherCss && (finalCss += otherCss), finalCss ? injectCSS(
+      root2,
+      finalCss,
+      "immersive-translate-user-custom-style"
+    ) : remove && injectCSS(
+      root2,
+      "",
+      "immersive-translate-user-custom-style"
+    );
+  }
+
+  // dom/inject_css_to_frame.ts
+  function injectCssToFrame(root2, ctx) {
+    let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
+    injectCSS(root2, defaultInjectedCss);
+    let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.config.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
+    applyUserConfigCss(
+      root2,
+      translationTheme,
+      translationThemePatternConfig
+    );
+    let injectedCss = "";
+    (ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
+`)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
+` + ctx.rule.additionalInjectedCss.join(`
+`))), injectedCss && injectCSS(root2, injectedCss);
+  }
+
   // dom/elements_to_paragraph.ts
   function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
     let variables = [], { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
@@ -10572,7 +10768,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           }
           return NodeFilter.FILTER_REJECT;
         }
-        return isMatchTags(node2.nodeName, ["PRE"]) ? (node2.classList.contains("code"), NodeFilter.FILTER_REJECT) : isInlineElement(
+        return isMatchTags(node2.nodeName, ["PRE"]) && node2.classList.contains("code") ? NodeFilter.FILTER_REJECT : isInlineElement(
           node2,
           rule
         ) ? (handleInlineElement(
@@ -13905,7 +14101,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     let defaultTheme = translationTheme, themes = Object.keys(translationThemePatterns);
     for (let theme of themes) {
       let themeConfig = translationThemePatterns[theme];
-      if (isMatched(url, themeConfig)) {
+      if (themeConfig && isMatched(url, themeConfig)) {
         defaultTheme = theme;
         break;
       }
@@ -14152,7 +14348,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       targetTranslationWrapper.classList.add(
         "notranslate",
         translationTargetElementWrapperClass
-      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`;
+      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
       let loadingHtml = getLoadingHTML(
         ctx.config.loadingTheme
       );
@@ -14200,7 +14396,7 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     try {
       let allFrames = [document.body];
       document.querySelectorAll("iframe").forEach((frame) => {
-        isInlineIframe(frame) && (allFrames.push(frame.contentDocument.body), injectCSS(frame.contentDocument, env3.IMMERSIVE_TRANSLATE_INJECTED_CSS));
+        isInlineIframe(frame) && allFrames.push(frame.contentDocument.body);
       }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
         document.body,
         ctx.rule.shadowRootSelectors
@@ -14473,9 +14669,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
             let element = addedNode;
             if (element.nodeName === "IFRAME")
               isInlineIframe(element) && setTimeout(() => {
-                injectCSS(
+                injectCssToFrame(
                   element.contentDocument,
-                  env3.IMMERSIVE_TRANSLATE_INJECTED_CSS
+                  ctx
                 ), translateFrame(
                   element.contentDocument.body,
                   ctx
@@ -16106,16 +16302,6 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
     })));
   }
 
-  // userscript/inject_css.ts
-  var addCSS = (css) => document.head.appendChild(document.createElement("style")).innerHTML = css;
-  function injectCss() {
-    let injectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
-    injectedCss && addCSS(injectedCss);
-  }
-  function injectCssWithSpecialCssString(css) {
-    css && addCSS(css);
-  }
-
   // manifest.json
   var manifest_default = {
     manifest_version: 3,
@@ -16226,15 +16412,10 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
       config,
       url: getRealUrl()
     });
-    if (injectCss(), ctx.isTranslateExcludeUrl && isWebOptionsPage())
+    if (ctx.isTranslateExcludeUrl && isWebOptionsPage())
       log_default.debug("detect web options page"), setupWebOptionsPage();
     else {
-      setupDomListeners(ctx), isMonkey() ? (setupCommandListeners(config), registerCommands(config)) : setupMessageListeners();
-      let injectedCss = "";
-      if ((ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
-`)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
-` + ctx.rule.additionalInjectedCss.join(`
-`))), log_default.v("injectedCss", injectedCss), injectedCss && injectCssWithSpecialCssString(injectedCss), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e3) => {
+      if (setupDomListeners(ctx), isMonkey() ? (setupCommandListeners(config), registerCommands(config)) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e3) => {
         log_default.error(`init popup page error: ${e3}`);
       }), !ctx.isTranslateExcludeUrl) {
         if (ctx.rule.isPdf) {
@@ -16253,6 +16434,9 @@ If you have spare time, you can click here to <2>sponsor</2> my work, and you ca
           await initPage();
         checkCronAndRunOnce();
       }
+      injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
+        isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
+      });
     }
   }
   var debounceOpenOptionsPage = le(async () => {

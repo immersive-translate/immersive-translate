@@ -1,3 +1,18 @@
+:root {
+  --immersive-translate-theme-underline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
+  --immersive-translate-theme-nativeDotted-borderColor: #72ece9;
+  --immersive-translate-theme-highlight-backgroundColor: #ffff00;
+  --immersive-translate-theme-dashed-borderColor: #59c1bd;
+  --immersive-translate-theme-blockquote-borderColor: #cc3355;
+  --immersive-translate-theme-thinDashed-borderColor: #ff374f;
+  --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dotted-borderColor: #94a3b8;
+  --immersive-translate-theme-wavy-borderColor: #72ece9;
+  --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+}
+
 .immersive-translate-target-translation-pre-whitespace {
   white-space: pre-wrap !important;
 }
@@ -41,39 +56,44 @@
 
 .immersive-translate-target-translation-inline-wrapper {
 }
+
 .immersive-translate-target-translation-theme-underline-inner {
-  border-bottom: 1px solid #72ece9 !important;
+  border-bottom: 1px solid
+    var(--immersive-translate-theme-underline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline #72ece9 !important;
+  text-decoration: underline
+    var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
-  border: 1px dashed rgb(148 163 184) !important;
+  border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline #72ece9 !important;
+  text-decoration: dashed underline
+    var(--immersive-translate-theme-nativeDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
-  border-bottom: 1px dashed #ff374f !important;
+  border-bottom: 1px dashed
+    var(--immersive-translate-theme-thinDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    currentColor 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 10%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;
@@ -82,19 +102,21 @@
   padding-bottom: 3px;
 }
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline #72ece9 !important;
+  text-decoration: dotted underline
+    var(--immersive-translate-theme-nativeDotted-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline #59c1bd !important;
+  text-decoration: wavy underline
+    var(--immersive-translate-theme-wavy-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
   background-repeat: repeat-x !important;
   background: linear-gradient(
       to right,
-      #59c1bd 0%,
-      #59c1bd 50%,
+      var(--immersive-translate-theme-dashed-borderColor) 0%,
+      var(--immersive-translate-theme-dashed-borderColor) 50%,
       transparent 50%,
       transparent 100%
     )
@@ -108,12 +130,13 @@
   display: block;
   max-width: 80px;
   width: 10%;
-  border-top: 1px dashed currentColor;
-  padding-top: 0.5em;
+  border-top: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  padding-top: 8px;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {
-  background: rgb(255, 255, 0);
+  background: var(--immersive-translate-theme-highlight-backgroundColor);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -156,7 +179,7 @@
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-blockquote {
-  border-left: 4px solid #cc3355 !important;
+  border-left: 4px solid var(--immersive-translate-theme-blockquote-borderColor) !important;
   padding-left: 12px !important;
   margin-top: 4px;
   margin-bottom: 4px;

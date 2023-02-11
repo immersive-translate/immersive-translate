@@ -827,11 +827,41 @@
         "h3[data-text-variant='heading-lg/semibold']",
         "section[aria-label='Search Results'] div[id^=message-content]"
       ],
+      "extraBlockSelectors": [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
+      "atomicBlockSelectors": [
+        "[class^='embedFieldValue']",
+        "li[class^='card'] div[class^='message']",
+        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
+      ],
       "excludeSelectors": [
-        "div[class^='repliedTextContent']"
+        "#channels",
+        "[data-list-id^='members']",
+        "div[class^='repliedTextContent']",
+        "div[class^='repliedTextPreview']",
+        "div[class^='messageAttachment']",
+        "div[class^='repliedMessage']",
+        "div[class*='isSystemMessage']",
+        "div[class^='avatarWrapper']",
+        "div[class^='container'] [class^='topLine']",
+        "div[class^='container'] [class^='bottomLine']",
+        "h3[class^='header']",
+        "h2[class^='forumPostTitle']",
+        "[class^='title'][aria-label='Channel header']",
+        "div[class^='sectionHeader']",
+        "article[class^=embedWrapper] [class^=anchor]",
+        "article[class^=embedWrapper] [class^=embedProvider]",
+        "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='card'] div[class^='tags']",
+        "li[class^='card'] div[class^='footer']"
       ],
       "globalStyles": {
         "div[class^=headerText]": "max-height: unset;",
+        "div[class^=message]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       "detectParagraphLanguage": true,
@@ -1359,6 +1389,6 @@
       "isTransformPreTagNewLine": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-10T12:45:38.574Z",
+  "buildinConfigUpdatedAt": "2023-02-11T06:30:43.954Z",
   "latestVersion": "0.2.57"
 }

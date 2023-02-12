@@ -11,6 +11,7 @@
 - 提供多种译文样式选择，包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
 
 该扩展免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
+
 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
 (此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
@@ -37,7 +38,7 @@
 
 - [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
 - [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
-- [点此查看](https://immersive-translate.owenyoung.com/review) 沉浸式翻译用户的评价以及媒体报道
+- [点此查看](https://immersive-translate.owenyoung.com/review) 用户的评价以及媒体报道
 
 ## 安装
 
@@ -61,9 +62,7 @@
 2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 3. 安装后打开任意网页刷新一下，右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，可以多刷新一下网页，或强制重启一下 Safari 浏览器，以使其生效)
 
-如果有困难，可以点击参考 [iOS Safari 安装扩展视频教程](https://youtu.be/vOaCFjYmQNM)
-
-> 如果你使用 Stay.app , 需要在 Stay.app 的设置里，把该脚本的 Inject Mode 改为 Content，因为目前 Stay 似乎有点问题，无法自动判断 inject 的模式。下个版本应该会修复。
+如果安装有困难，可以点击参考 [YouTube视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B9qnMco) 。
 
 ### Android 安卓
 

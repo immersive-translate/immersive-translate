@@ -816,6 +816,12 @@
       "_comment": "https://midjourney.gitbook.io/docs/user-manual"
     },
     {
+      "matches": "https://codeforces.com/*",
+      "stayOriginalTags": [
+        "[class^='MathJax']"
+      ]
+    },
+    {
       "matches": "arxiv.org",
       "additionalSelectors": [
         "h1",
@@ -1468,6 +1474,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-12T12:48:58.225Z",
+  "buildinConfigUpdatedAt": "2023-02-12T15:58:47.207Z",
   "latestVersion": "0.2.58"
 }

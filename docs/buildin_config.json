@@ -609,6 +609,9 @@
       "globalStyles": {
         ".comment-text": "max-height:unset;"
       },
+      "stayOriginalTags": [
+        "img[emoji]"
+      ],
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
       ]
@@ -627,6 +630,9 @@
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
+      "stayOriginalTags": [
+        "img[emoji]"
+      ],
       "globalStyles": {
         "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
         "h1.ytd-watch-metadata": "-webkit-line-clamp: unset;max-height: unset;",
@@ -1468,6 +1474,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-12T12:30:14.762Z",
+  "buildinConfigUpdatedAt": "2023-02-12T12:36:33.482Z",
   "latestVersion": "0.2.58"
 }

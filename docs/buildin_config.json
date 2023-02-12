@@ -1248,6 +1248,12 @@
       ]
     },
     {
+      "matches": "https://www.tinytask.net",
+      "globalStyles": {
+        "table > tbody > tr > td > center > table > tbody > tr > td > ul > li": "height: 100%"
+      }
+    },
+    {
       "matches": "www.foxnews.com",
       "shadowRootSelectors": [
         "[data-spot-im-module-default-area='conversation'] > div"
@@ -1461,6 +1467,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-12T11:23:29.583Z",
+  "buildinConfigUpdatedAt": "2023-02-12T12:11:41.928Z",
   "latestVersion": "0.2.58"
 }

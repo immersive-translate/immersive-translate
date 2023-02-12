@@ -430,7 +430,8 @@
         ".js-quoted-tweet-text",
         "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
-        "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
+        "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
+        "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [
@@ -1467,6 +1468,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-12T12:11:41.928Z",
+  "buildinConfigUpdatedAt": "2023-02-12T12:30:14.762Z",
   "latestVersion": "0.2.58"
 }

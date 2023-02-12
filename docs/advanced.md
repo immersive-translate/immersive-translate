@@ -1,11 +1,12 @@
 # 高级自定义选项
 
-你可以在扩展配置页面 -> 开发者设置 -> User Config 里编辑更多 UI 里无法编辑的自定义配置。
+你可以在扩展配置页面 -> 开发者设置 -> User Config 里编辑更多 UI 里无法编辑的自定义配置，适用于高级用户。当前内置的 `config` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json)找到。
 
 ## User Rules
 
-通过 Rules 可以对特定的网站进行自定义的配置，例如哪些内容是否需要被翻译，或调整网页样式等。当前版本内置的 `rules` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json)找到。参数讲解详见最后的 Rules 说明。
+通过 `Rules` 可以对特定的网站进行自定义配置，决定哪些内容是否需要被翻译，或调整网页样式等，参数讲解详见最后的 Rules 说明。
 
+基本使用例子
 ```json
 [{
   "matches": "www.google.com",
@@ -13,8 +14,49 @@
 }, {
   "matches": "*.twitter.com",
   "selectors": [".text"],
-  "excludeSelectors": ["footer"]
+  "excludeSelectors": ["nav", "footer"]
 }]
+```
+
+使用 `matches` 来匹配对应的网站。允许通配符，即 `*` 符号，代替任意字符。如 `*.google.com`，`www.google.com/test/*`，`file://*`
+
+使用 `selectors` 会覆盖智能翻译范围，仅翻译该选择器匹配到的元素。
+
+使用 `excludeSelectors` 可以排除元素，不翻译该位置。
+
+也可以选择 `additional` 系列的选择器，在智能翻译的基础上增加或减少翻译范围
+
+```json
+{
+  "matches": "www.google.com",
+  "additionalSelectors": [],
+  "additionalExcludeSelectors": []
+}
+```
+
+如果译文导致页面错位，可以用 `globalStyles` 来修复。比如 youtube 的标题，用来移除原网页的最大高度。
+
+```json
+{
+  "matches": "www.google.com",
+  "globalStyles": { ".title": "max-height:unset;" }
+}
+```
+
+如果希望翻译某个区域时，将元素视为一个整体，不将其分行，可以用 `atomicBlockSelectors` 选择器。比如 Instagram 的个人简介。要注意的是，使用 `atomicBlockSelectors` 前需要先用 `selectors` 进行选择。
+
+```json
+{
+  "matches": "https://www.instagram.com/*",
+  "selectors": [
+    "div._aa_c h1",
+    "li._acaz div[role=\"menuitem\"]"
+  ]
+  "atomicBlockSelectors": [
+    "div._aa_c h1",
+    "li._acaz div[role=\"menuitem\"]"
+  ]
+}
 ```
 
 ## User Config
@@ -310,24 +352,10 @@ export interface Rule {
 }
 ```
 
-**实例讲解**
-
-
-url通配符，即 `*` 符号，可以添加在url中，代替任意字符。
-
-- `*.google.com` 可以匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`
-- `www.google.com/test/*`, 可以匹配 `www.google.com/test/xxx`、`www.google.com/test/xxx/yyy`
-- `file:///*` 
+**更多讲解**
 
 Block 和 inline 的区别，如果想了解更多可以看[这里](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#inline)
 
 - block 元素会独占一行，多个相邻的 block 元素会各自新起一行.
 - inline 元素不会独占一行，多个相邻的 inline 元素会排列在同一行里,直到一行排列不下才会新换一行。
 
-修改全局样式，如果译文会导致页面错位，可以用它修复。比如 youtube 的标题，用来移除原网页的一些最大高度。
-
-```json
-"globalStyles": {
-    ".title":"max-height: unset;"
-}
-```

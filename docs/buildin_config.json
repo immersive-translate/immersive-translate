@@ -1297,6 +1297,63 @@
       ]
     },
     {
+      "matches": [
+        "www.construct.net/en/forum/*",
+        "www.construct.net/en/tutorials/*",
+        "www.construct.net/en/courses*",
+        "www.construct.net/en/courses/*",
+        "www.construct.net/en/make-games/manuals/*"
+      ],
+      "excludeMatches": [
+        "https://www.construct.net/en/forum/search"
+      ],
+      "additionalSelectors": [
+        "aside",
+        "div.manualContent"
+      ],
+      "atomicBlockSelectors": [],
+      "stayOriginalSelectors": [
+        "a.usernameReference"
+      ],
+      "additionalInlineSelectors": [
+        "a.forumLink"
+      ],
+      "additionalExcludeSelectors": [
+        "div.topNav",
+        "div.usernameLink",
+        "ul.authorDetails",
+        "ul.tagViewer",
+        "ul.subForumForums",
+        "ul.breadCrumbNav",
+        "ul.postTools",
+        "li.comment ul.controls",
+        "div.forumTopNavWrap",
+        "div.downloadWrap",
+        "div.articleLeftMenu",
+        "div.breadCrumbNav",
+        "div#FilterMenu.FilterMenu",
+        "#BottomLinks.bottomLinks",
+        "span.tagViewWrap",
+        "div#LeftSide.leftSide",
+        "div#BottomWrap.bottomWrap",
+        "div.courseListWrap div.overview",
+        "div.conversationControls",
+        "div.contentWrapper h1",
+        "div.conversationControls",
+        ".forumControlsWrapper",
+        ".forumsBottomNavWrap",
+        "td.location a#LocationLink",
+        "#TopLevelComments .topBar",
+        "#TopLevelComments .controls",
+        ".manualContentWrap .menuWrap",
+        ".manualContent dl dt"
+      ],
+      "globalStyles": {
+        "td.location a#LocationLink": "padding-top: 4px;",
+        "div.articleMain .tutCourseWrap": "align-items: flex-start;"
+      }
+    },
+    {
       "matches": "getpocket.com",
       "selectors": [
         "h2.title",
@@ -1404,6 +1461,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-11T14:29:28.964Z",
+  "buildinConfigUpdatedAt": "2023-02-12T11:23:29.583Z",
   "latestVersion": "0.2.58"
 }

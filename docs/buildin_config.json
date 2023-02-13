@@ -931,6 +931,20 @@
       ]
     },
     {
+      "matches": "www.figma.com/community/*",
+      "normalizeBody": "div.ql-editor[contenteditable='false']",
+      "excludeSelectors": [
+        "div[class*='metadataRight']",
+        "div[class*='commentMetaAndOptions']"
+      ],
+      "globalStyles": {
+        "div[class*='mini_cardBottomRowSizing']": "height: 3em;"
+      },
+      "additionalSelectors": "div[class*='mini_cardBottomRow_Metadata']",
+      "atomicBlockSelectors": "div[class*='mini_cardBottomRow_Metadata']",
+      "stayOriginalSelectors": "[data-tooltip='tooltip-user-info']"
+    },
+    {
       "matches": "www.google.*/search*",
       "detectParagraphLanguage": true,
       "excludeSelectors": [
@@ -1487,6 +1501,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-13T07:27:18.942Z",
+  "buildinConfigUpdatedAt": "2023-02-13T15:01:16.656Z",
   "latestVersion": "0.2.58"
 }

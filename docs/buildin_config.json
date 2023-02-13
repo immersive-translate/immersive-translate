@@ -1323,7 +1323,8 @@
         "www.construct.net/en/make-games/manuals/*"
       ],
       "excludeMatches": [
-        "https://www.construct.net/en/forum/search"
+        "www.construct.net/en/forum/search",
+        "preview.construct.net"
       ],
       "additionalSelectors": [
         "aside",
@@ -1486,6 +1487,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-13T05:00:25.013Z",
+  "buildinConfigUpdatedAt": "2023-02-13T07:27:18.942Z",
   "latestVersion": "0.2.58"
 }

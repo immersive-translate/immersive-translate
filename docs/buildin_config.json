@@ -301,6 +301,7 @@
       "ADDRESS",
       "ARTICLE",
       "ASIDE",
+      "DETAILS",
       "BLOCKQUOTE",
       "CANVAS",
       "DD",
@@ -1478,6 +1479,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-13T03:12:20.756Z",
+  "buildinConfigUpdatedAt": "2023-02-13T04:48:25.964Z",
   "latestVersion": "0.2.58"
 }

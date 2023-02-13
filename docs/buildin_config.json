@@ -1413,6 +1413,13 @@
       "excludeSelectors": "div.hpIWZO"
     },
     {
+      "matches": "auth0.openai.com",
+      "excludeSelectors": [
+        "form",
+        "header > h1"
+      ]
+    },
+    {
       "matches": "chat.openai.com",
       "excludeSelectors": [
         "div.absolute.bottom-0.left-0.w-full",
@@ -1479,6 +1486,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-13T04:48:25.964Z",
+  "buildinConfigUpdatedAt": "2023-02-13T05:00:25.013Z",
   "latestVersion": "0.2.58"
 }

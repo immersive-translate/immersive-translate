@@ -1,12 +1,11 @@
 # 高级自定义选项
 
-你可以在扩展配置页面 -> 开发者设置 -> User Config 里编辑更多 UI 里无法编辑的自定义配置，适用于高级用户。当前内置的 `config` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json)找到。
+你可以在扩展配置页面 -> 开发者设置 -> User Config 里编辑更多 UI 里无法编辑的自定义配置，适用于高级用户，参数讲解详见最后的说明。当前内置的 `config` 可以在[这里](https://github.com/immersive-translate/next-immersive-translate/blob/main/docs/buildin_config.json)找到。
 
 ## User Rules
 
-通过 `Rules` 可以对特定的网站进行自定义配置，决定哪些内容是否需要被翻译，或调整网页样式等，参数讲解详见最后的 Rules 说明。
+通过 `Rules` 可以对特定的网站进行自定义配置，决定哪些内容是否需要被翻译，或调整网页样式等。
 
-基本使用例子
 ```json
 [{
   "matches": "www.google.com",
@@ -18,13 +17,13 @@
 }]
 ```
 
-使用 `matches` 来匹配对应的网站。允许通配符，即 `*` 符号，代替任意字符。如 `*.google.com`，`www.google.com/test/*`，`file://*`
+使用 `matches` 来匹配对应的网站。允许通配符，即 `*` 符号。如 `*.google.com`，`www.google.com/test/*`，`file://*`
 
 使用 `selectors` 会覆盖智能翻译范围，仅翻译该选择器匹配到的元素。
 
 使用 `excludeSelectors` 可以排除元素，不翻译该位置。
 
-也可以选择 `additional` 系列的选择器，在智能翻译的基础上增加或减少翻译范围
+使用 `additional` 系列的选择器，在智能翻译的基础上增加或减少翻译范围
 
 ```json
 {
@@ -34,7 +33,7 @@
 }
 ```
 
-如果译文导致页面错位，可以用 `globalStyles` 来修复。比如 youtube 的标题，用来移除原网页的最大高度。
+如果译文导致页面错位，文字重叠等边缘情况，可以使用 `globalStyles` 调整网页样式来修复。比如 youtube 的标题，用来移除原网页的最大高度。
 
 ```json
 {
@@ -141,14 +140,11 @@
 }
 ```
 
-其中，`rules` 里的规则字段，可以使用 `generalRule` 里的全部字段。`rules` 拥有最高优先级，当匹配到特定网站的某一条 `rule` 时，会合并 `generalRule` 和该 `rule`。
-
+其中，`rules` 里的规则字段，可以使用 `generalRule` 里的全部字段。`rules` 拥有最高优先级，当匹配到特定网站的某一条 `rule` 时，会合并 `generalRule` 和该 `rule` 的规则。详细介绍一些常见的字段。
 
 ### 翻译服务配置
 
-**translationService**
-
-`translationService` 为默认翻译引擎，当前支持：
+使用 `translationService` 选择默认的翻译引擎，当前支持：
 
 ```typescript
 | "tencent"
@@ -163,7 +159,7 @@
 | "transmart"
 ```
 
-`translationServices` 配置各家翻译服务的 `apikey`，不同服务商需要的参数不一样。
+使用 `translationServices` 配置各家翻译服务的 `apikey`，不同服务商需要的参数不一样，它们的API密钥均可在各自官网的开发者中心申请。
 
 如腾讯翻译君，需要配置 `secretId`, `secretKey`。你可以前往腾讯云申请API密钥，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
 
@@ -176,17 +172,16 @@
   }
 }
 ```
+也可配置 `matches` 字段, 为特定网站使用指定的翻译服务。
 
-还可以在不同的服务下配置 `matches` 字段, 指定某些网站使用指定的翻译服务。
-
-### 翻译特定网站
+### 总是翻译特定网站
 
 `translationUrlPattern` 配置总是翻译的网站，以及永不翻译的网站。
 
 - `matches` 配置总是翻译的网站， 
 - `excludeMatches` 配置永不翻译的网站。
 
-配置值可以是域名或者带有 `*` 的网址，比如：`www.google.com/mail/*`
+配置值可以是域名或带有 `*` 的网址，比如：`www.google.com/mail/*`
 
 ```json
 "translationUrlPattern": {
@@ -195,7 +190,7 @@
 }
 ```
 
-### 翻译特定语言
+### 总是翻译特定语言
 
 translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的语言。
 

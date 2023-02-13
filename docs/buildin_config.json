@@ -879,7 +879,9 @@
     {
       "matches": "web.telegram.org/z/*",
       "selectors": [
-        ".text-content"
+        ".message",
+        ".reply-markup-button-text",
+        ".bot-commands-list-element-description"
       ],
       "detectParagraphLanguage": true
     },
@@ -889,7 +891,9 @@
         "web.telegram.org/k/"
       ],
       "selectors": [
-        ".message"
+        ".message",
+        ".reply-markup-button-text",
+        ".bot-commands-list-element-description"
       ],
       "detectParagraphLanguage": true
     },
@@ -1474,6 +1478,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-12T15:58:47.207Z",
+  "buildinConfigUpdatedAt": "2023-02-13T03:12:20.756Z",
   "latestVersion": "0.2.58"
 }

@@ -1497,7 +1497,8 @@
         "developer.android.com"
       ],
       "additionalSelectors": [
-        "aside"
+        "aside",
+        "google-codelab-step"
       ]
     },
     {
@@ -1519,8 +1520,21 @@
         "div[data-testid=project_topic_list]",
         ".commit"
       ]
+    },
+    {
+      "matches": "www.newthingsunderthesun.com",
+      "additionalSelectors": [
+        "[translate=no]"
+      ]
+    },
+    {
+      "matches": "https://www.tiktok.com/*/video/*",
+      "selectors": [
+        "[data-e2e^=comment-level]",
+        "[data-e2e=browse-video-desc] > span"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T07:46:20.393Z",
-  "latestVersion": "0.2.58"
+  "buildinConfigUpdatedAt": "2023-02-14T09:50:18.452Z",
+  "latestVersion": "0.2.59"
 }

@@ -1533,8 +1533,40 @@
         "[data-e2e^=comment-level]",
         "[data-e2e=browse-video-desc] > span"
       ]
+    },
+    {
+      "matches": "www.rfc-editor.org",
+      "isTransformPreTagNewLine": true,
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T09:50:18.452Z",
+  "buildinConfigUpdatedAt": "2023-02-14T13:04:20.809Z",
   "latestVersion": "0.2.59"
 }

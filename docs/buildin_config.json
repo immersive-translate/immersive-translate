@@ -755,6 +755,19 @@
     },
     {
       "matches": [
+        "*.ideas.aha.io"
+      ],
+      "excludeSelectors": [
+        ".vote-status",
+        ".idea-meta-secondary",
+        ".comment-header",
+        ".my-ideas-filters-wrapper",
+        ".categories-filters-wrapper",
+        ".statuses-filters-wrapper"
+      ]
+    },
+    {
+      "matches": [
         "scholar.google.com"
       ],
       "wrapperPrefix": "\n",
@@ -1501,6 +1514,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-13T15:01:16.656Z",
+  "buildinConfigUpdatedAt": "2023-02-14T06:40:04.100Z",
   "latestVersion": "0.2.58"
 }

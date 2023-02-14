@@ -554,7 +554,8 @@
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
         "div.blob-wrapper-embedded",
-        "div.Box.Box--condensed.my-2"
+        "div.Box.Box--condensed.my-2",
+        "div.jp-CodeCell"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
@@ -1514,6 +1515,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T06:40:04.100Z",
+  "buildinConfigUpdatedAt": "2023-02-14T07:35:21.210Z",
   "latestVersion": "0.2.58"
 }

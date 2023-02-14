@@ -2,6 +2,8 @@
 
 沉浸式翻译扩展支持很多翻译服务，其中部分翻译服务需要你申请对应服务的 API 密钥才能使用，我从网络上整理了以下服务的申请教程，如果有遗漏或者没有及时更新的地方，欢迎点击右上角编辑这些页面。
 
+可以[在此](https://github.com/immersive-translate/immersive-translate/issues/137)进行翻译服务 API 相关的讨论。
+
 ## 翻译服务
 
 1. [Deepl](./services/deepL.md)

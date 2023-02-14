@@ -1496,6 +1496,7 @@
         "developer.android.google.cn",
         "developer.android.com"
       ],
+      "observeUrlChange": true,
       "additionalSelectors": [
         "aside",
         "google-codelab-step"
@@ -1567,6 +1568,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T13:04:20.809Z",
+  "buildinConfigUpdatedAt": "2023-02-14T14:52:27.336Z",
   "latestVersion": "0.2.59"
 }

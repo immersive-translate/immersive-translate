@@ -93,7 +93,7 @@
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    var(--immersive-translate-theme-dotted-borderColor) 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 30%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;

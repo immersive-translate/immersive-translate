@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-11T10:27:37.225Z", VERSION: "0.2.58", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-14T09:48:19.840Z", VERSION: "0.2.59", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -100,7 +100,7 @@ var define_process_env_default = { BUILD_TIME: "2023-02-11T10:27:37.225Z", VERSI
   background-repeat: repeat-x;
   background-image: linear-gradient(
     to right,
-    var(--immersive-translate-theme-dotted-borderColor) 10%,
+    var(--immersive-translate-theme-dotted-borderColor) 30%,
     rgba(255, 255, 255, 0) 0%
   );
   background-position: bottom;
@@ -8180,11 +8180,13 @@ function isMetaElement(element, rule) {
 function isExcludeElement(element, rule, includeStayElements) {
   if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
     return !0;
-  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) ? !0 : element.nodeType === Node.ELEMENT_NODE && isMarked(
+  if (element.nodeType === Node.ELEMENT_NODE && isMarked(
     element,
     specifiedTargetContainerElementAttributeName
-  ) ? !1 : !!isMatchTags(element.nodeName, finalExcludeTags);
+  ))
+    return !1;
+  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
+  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), !!(element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) || isMatchTags(element.nodeName, finalExcludeTags));
 }
 function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
   let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
@@ -8668,6 +8670,7 @@ var buildin_config_default = {
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
+      "gitlab.com",
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
@@ -8880,6 +8883,7 @@ var buildin_config_default = {
       "ADDRESS",
       "ARTICLE",
       "ASIDE",
+      "DETAILS",
       "BLOCKQUOTE",
       "CANVAS",
       "DD",
@@ -9002,7 +9006,8 @@ var buildin_config_default = {
         ".js-quoted-tweet-text",
         "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
-        "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)"
+        "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
+        "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)"
       ],
       observeUrlChange: !1,
       extraInlineSelectors: ['[data-testid="tweetText"] div']
@@ -9104,7 +9109,8 @@ var buildin_config_default = {
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
         "div.blob-wrapper-embedded",
-        "div.Box.Box--condensed.my-2"
+        "div.Box.Box--condensed.my-2",
+        "div.jp-CodeCell"
       ],
       extraBlockSelectors: [],
       extraInlineSelectors: [
@@ -9112,6 +9118,12 @@ var buildin_config_default = {
       ],
       stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
       detectParagraphLanguage: !0
+    },
+    {
+      matches: "notebooks.githubusercontent.com",
+      excludeSelectors: [
+        "div.jp-CodeCell"
+      ]
     },
     {
       matches: "www.facebook.com",
@@ -9276,6 +9288,19 @@ var buildin_config_default = {
       }
     },
     {
+      matches: [
+        "*.ideas.aha.io"
+      ],
+      excludeSelectors: [
+        ".vote-status",
+        ".idea-meta-secondary",
+        ".comment-header",
+        ".my-ideas-filters-wrapper",
+        ".categories-filters-wrapper",
+        ".statuses-filters-wrapper"
+      ]
+    },
+    {
       matches: ["scholar.google.com"],
       wrapperPrefix: `
 `,
@@ -9328,6 +9353,10 @@ var buildin_config_default = {
       matches: "*.gitbook.io",
       additionalSelectors: ["main"],
       _comment: "https://midjourney.gitbook.io/docs/user-manual"
+    },
+    {
+      matches: "https://codeforces.com/*",
+      stayOriginalTags: ["[class^='MathJax']"]
     },
     {
       matches: "arxiv.org",
@@ -9383,12 +9412,20 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
-      selectors: [".text-content"],
+      selectors: [
+        ".message",
+        ".reply-markup-button-text",
+        ".bot-commands-list-element-description"
+      ],
       detectParagraphLanguage: !0
     },
     {
       matches: ["web.telegram.org/k/*", "web.telegram.org/k/"],
-      selectors: [".message"],
+      selectors: [
+        ".message",
+        ".reply-markup-button-text",
+        ".bot-commands-list-element-description"
+      ],
       detectParagraphLanguage: !0
     },
     {
@@ -9398,6 +9435,7 @@ var buildin_config_default = {
     },
     {
       matches: "lobste.rs",
+      excludeMatches: ["https://lobste.rs/about", "https://lobste.rs/chat"],
       selectors: [".u-repost-of", ".comment_text"]
     },
     {
@@ -9408,6 +9446,20 @@ var buildin_config_default = {
     {
       matches: "1paragraph.app",
       additionalSelectors: ["#book"]
+    },
+    {
+      matches: "www.figma.com/community/*",
+      normalizeBody: "div.ql-editor[contenteditable='false']",
+      excludeSelectors: [
+        "div[class*='metadataRight']",
+        "div[class*='commentMetaAndOptions']"
+      ],
+      globalStyles: {
+        "div[class*='mini_cardBottomRowSizing']": "height: 3em;"
+      },
+      additionalSelectors: "div[class*='mini_cardBottomRow_Metadata']",
+      atomicBlockSelectors: "div[class*='mini_cardBottomRow_Metadata']",
+      stayOriginalSelectors: "[data-tooltip='tooltip-user-info']"
     },
     {
       matches: "www.google.*/search*",
@@ -9657,6 +9709,12 @@ var buildin_config_default = {
       selectors: ["#thisiddoesnotexists"]
     },
     {
+      matches: "https://www.tinytask.net",
+      globalStyles: {
+        "table > tbody > tr > td > center > table > tbody > tr > td > ul > li": "height: 100%"
+      }
+    },
+    {
       matches: "www.foxnews.com",
       shadowRootSelectors: [
         "[data-spot-im-module-default-area='conversation'] > div"
@@ -9706,6 +9764,64 @@ var buildin_config_default = {
       ]
     },
     {
+      matches: [
+        "www.construct.net/en/forum/*",
+        "www.construct.net/en/tutorials/*",
+        "www.construct.net/en/courses*",
+        "www.construct.net/en/courses/*",
+        "www.construct.net/en/make-games/manuals/*"
+      ],
+      excludeMatches: [
+        "www.construct.net/en/forum/search",
+        "preview.construct.net"
+      ],
+      additionalSelectors: [
+        "aside",
+        "div.manualContent"
+      ],
+      atomicBlockSelectors: [],
+      stayOriginalSelectors: [
+        "a.usernameReference"
+      ],
+      additionalInlineSelectors: [
+        "a.forumLink"
+      ],
+      additionalExcludeSelectors: [
+        "div.topNav",
+        "div.usernameLink",
+        "ul.authorDetails",
+        "ul.tagViewer",
+        "ul.subForumForums",
+        "ul.breadCrumbNav",
+        "ul.postTools",
+        "li.comment ul.controls",
+        "div.forumTopNavWrap",
+        "div.downloadWrap",
+        "div.articleLeftMenu",
+        "div.breadCrumbNav",
+        "div#FilterMenu.FilterMenu",
+        "#BottomLinks.bottomLinks",
+        "span.tagViewWrap",
+        "div#LeftSide.leftSide",
+        "div#BottomWrap.bottomWrap",
+        "div.courseListWrap div.overview",
+        "div.conversationControls",
+        "div.contentWrapper h1",
+        "div.conversationControls",
+        ".forumControlsWrapper",
+        ".forumsBottomNavWrap",
+        "td.location a#LocationLink",
+        "#TopLevelComments .topBar",
+        "#TopLevelComments .controls",
+        ".manualContentWrap .menuWrap",
+        ".manualContent dl dt"
+      ],
+      globalStyles: {
+        "td.location a#LocationLink": "padding-top: 4px;",
+        "div.articleMain .tutCourseWrap": "align-items: flex-start;"
+      }
+    },
+    {
       matches: "getpocket.com",
       selectors: ["h2.title", "div.excerpt p", "main > article"],
       globalStyles: {
@@ -9743,6 +9859,10 @@ var buildin_config_default = {
       excludeSelectors: "div.hpIWZO"
     },
     {
+      matches: "auth0.openai.com",
+      excludeSelectors: ["form", "header > h1"]
+    },
+    {
       matches: "chat.openai.com",
       excludeSelectors: [
         "div.absolute.bottom-0.left-0.w-full",
@@ -9778,7 +9898,7 @@ var buildin_config_default = {
     },
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
-      additionalSelectors: ["aside.note"]
+      additionalSelectors: ["aside", "google-codelab-step"]
     },
     {
       matches: "https://apps.microsoft.com/store/detail/*",
@@ -9787,6 +9907,29 @@ var buildin_config_default = {
         ".line-clamp": "-webkit-line-clamp:unset;max-height:unset;"
       },
       isTransformPreTagNewLine: !0
+    },
+    {
+      matches: "gitlab.com",
+      excludeSelectors: [
+        ".tree-content-holder",
+        "nav",
+        ".home-panel-metadata",
+        "div[data-testid=project_topic_list]",
+        ".commit"
+      ]
+    },
+    {
+      matches: "www.newthingsunderthesun.com",
+      additionalSelectors: [
+        "[translate=no]"
+      ]
+    },
+    {
+      matches: "https://www.tiktok.com/*/video/*",
+      selectors: [
+        "[data-e2e^=comment-level]",
+        "[data-e2e=browse-video-desc] > span"
+      ]
     }
   ]
 };
@@ -11604,6 +11747,11 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
                   node,
                   sourceBlockElementMarkAttributeName,
                   "1"
+                ), wrapTextNode(
+                  depth + 1,
+                  node,
+                  rule,
+                  displayNoneElements
                 );
                 continue;
               }
@@ -12824,6 +12972,8 @@ var Mock = class extends Translation {
   constructor() {
     super(...arguments);
     this.isSupportList = !0;
+    this.maxTextGroupLength = 50;
+    this.maxTextLength = 1800;
   }
   async translate(payload) {
     let { text } = payload;
@@ -12998,7 +13148,7 @@ var rawLangMap2 = [
   constructor(serviceConfig, generalConfig) {
     super(serviceConfig, generalConfig);
     this.authKey = "";
-    this.maxTextGroupLength = 10;
+    this.maxTextGroupLength = 50;
     this.maxTextLength = 1200;
     this.freeApiUrl = "https://api-free.deepl.com/v2/translate";
     this.proApiUrl = "https://api.deepl.com/v2/translate";
@@ -14259,7 +14409,9 @@ var allServiceKeys = Object.keys(
   return allServiceKeys.filter((key) => {
     let service = TranslationServices[key];
     if (key.startsWith("mock"))
-      return !!debug;
+      return debug ? !0 : key === ctx.config.translationService;
+    if (key === ctx.config.translationService)
+      return !0;
     let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
     return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
   }).map((key) => formatTranslationService(key, ctx));
@@ -14430,7 +14582,7 @@ function getMatchedUrl(rawUrl, rawMatches) {
   return null;
 }
 function restorePlaceholderToWildcard(str) {
-  return str.replace(placeholder, "*");
+  return str.replaceAll(placeholder, "*");
 }
 function makeRegExp(scheme, host, path) {
   let regex = "^";
@@ -16676,7 +16828,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.58",
+  version: "0.2.59",
   default_locale: "en",
   background: {
     service_worker: "background.js"

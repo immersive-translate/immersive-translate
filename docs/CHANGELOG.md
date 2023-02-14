@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.59
+
+- Fix: Unkowntags Block Element
+- Fix: translate=no element overide
+- Fix: url match with multiple \*
+
 ## 0.2.58
 
 - Feat: Support custom translation text color, border color.

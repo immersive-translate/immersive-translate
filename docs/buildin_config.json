@@ -572,6 +572,12 @@
       "detectParagraphLanguage": true
     },
     {
+      "matches": "notebooks.githubusercontent.com",
+      "excludeSelectors": [
+        "div.jp-CodeCell"
+      ]
+    },
+    {
       "matches": "www.facebook.com",
       "selectors": [
         "div[dir=auto][style]",
@@ -1515,6 +1521,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T07:35:21.210Z",
+  "buildinConfigUpdatedAt": "2023-02-14T07:46:20.393Z",
   "latestVersion": "0.2.58"
 }

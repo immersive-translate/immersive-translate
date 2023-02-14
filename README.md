@@ -62,7 +62,7 @@
 2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 3. 安装后打开任意网页刷新一下，右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，可以多刷新一下网页，或强制重启一下 Safari 浏览器，以使其生效)
 
-如果安装有困难，可以点击参考 [YouTube视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B9qnMco) 。
+如果安装有困难，可以点击参考 [YouTube视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
 
 ### Android 安卓
 

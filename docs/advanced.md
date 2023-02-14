@@ -17,7 +17,7 @@
 }]
 ```
 
-使用 `matches` 来匹配对应的网站。允许通配符，即 `*` 符号。如 `*.google.com`，`www.google.com/test/*`，`file://*`
+使用 `matches` 来匹配对应的网站。允许通配符，如 `*.google.com`,`www.google.com/test/*`,`file://*`
 
 使用 `selectors` 会覆盖智能翻译范围，仅翻译该选择器匹配到的元素。
 
@@ -30,15 +30,6 @@
   "matches": "www.google.com",
   "additionalSelectors": [],
   "additionalExcludeSelectors": []
-}
-```
-
-如果译文导致页面错位，文字重叠等边缘情况，可以使用 `globalStyles` 调整网页样式来修复。比如 youtube 的标题，用来移除原网页的最大高度。
-
-```json
-{
-  "matches": "www.google.com",
-  "globalStyles": { ".title": "max-height:unset;" }
 }
 ```
 
@@ -56,6 +47,29 @@
     "li._acaz div[role=\"menuitem\"]"
   ]
 }
+```
+
+如果译文导致页面错位，文字重叠等边缘情况，可以使用 `globalStyles` 调整网页样式来修复。比如 youtube 的标题，用来移除原网页的最大高度。
+
+```json
+{
+  "matches": "www.google.com",
+  "globalStyles": { ".title": "max-height:unset;" }
+}
+```
+
+## Injected CSS
+
+通过 Injected CSS 可以向全局注入自定义网页样式。可以搭配 `Rules` 的 `translationClasses` 一起使用。
+
+```
+".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+```
+
+也可以像常规的网页样式管理器那样，对网站进行更加个性化的样式设计。（甚至利用 `display:none` 去广告）
+
+```css
+.title { color: red }
 ```
 
 ## User Config
@@ -87,10 +101,11 @@
       "matches": ["discord.com"]
     }
   },
-  "debug": false,
   "generalRule": {
     "_comment": "",
     "normalizeBody": "",
+    "injectedCss": [],
+    "additionalInjectedCss": [],
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
     "isPdf": false,
@@ -140,7 +155,9 @@
 }
 ```
 
-其中，`rules` 里的规则字段，可以使用 `generalRule` 里的全部字段。`rules` 拥有最高优先级，当匹配到特定网站的某一条 `rule` 时，会合并 `generalRule` 和该 `rule` 的规则。详细介绍一些常见的字段。
+其中，`rules` 里的规则字段，可以使用 `generalRule` 里的全部字段。`rules` 拥有最高优先级，当匹配到特定网站的某一条 `rule` 时，会合并 `generalRule` 和该 `rule` 的规则。
+
+介绍一些 Config 常见的字段。
 
 ### 翻译服务配置
 

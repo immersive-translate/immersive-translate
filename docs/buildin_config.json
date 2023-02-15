@@ -1352,7 +1352,7 @@
       "matches": [
         "www.construct.net/en/forum/*",
         "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses*",
+        "www.construct.net/en/courses",
         "www.construct.net/en/courses/*",
         "www.construct.net/en/make-games/manuals/*"
       ],
@@ -1405,6 +1405,16 @@
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
+    },
+    {
+      "matches": "www.construct.net/en/blogs/*",
+      "excludeSelectors": [
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats"
+      ]
     },
     {
       "matches": "getpocket.com",
@@ -1568,6 +1578,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-14T14:52:27.336Z",
+  "buildinConfigUpdatedAt": "2023-02-15T08:54:08.568Z",
   "latestVersion": "0.2.59"
 }

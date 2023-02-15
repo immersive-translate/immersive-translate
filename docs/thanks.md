@@ -2,6 +2,11 @@
 
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
+- hjl5691
+- dddd1007
+- eliaszon
+- GuoJing
+- d0zingcat
 - VcFe
 - CyberBacchus
 - ChasLui

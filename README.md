@@ -16,6 +16,10 @@
 
 (此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
 
+
+<!-- [![Apifox](./assets/apifox.png "Apifox")](https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung) -->
+
+
 ## 目录
 
 - [安装](https://immersive-translate.owenyoung.com/installation.html)

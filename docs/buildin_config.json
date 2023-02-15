@@ -951,6 +951,46 @@
       ]
     },
     {
+      "matches": "www.artstation.com/artwork/*",
+      "excludeSelectors": ".project-description a",
+      "selectors": [
+        ".project-description",
+        "div.project-comment-text"
+      ],
+      "atomicBlockSelectors": "div.project-comment-text",
+      "detectParagraphLanguage": true
+    },
+    {
+      "matches": "www.artstation.com/learning/courses/*",
+      "additionalSelectors": [
+        "footer.learning-course-description.ng-star-inserted > span"
+      ],
+      "excludeSelectors": ".learning-card-meta"
+    },
+    {
+      "matches": [
+        "https://www.artstation.com/blogs",
+        "https://www.artstation.com/blogs/*"
+      ],
+      "detectParagraphLanguage": true,
+      "additionalSelectors": [
+        ".comment-item-body"
+      ],
+      "atomicBlockSelectors": [
+        ".author-headline",
+        ".author-location"
+      ],
+      "excludeSelectors": [
+        "blog-card-thumbnail",
+        "blog-card-header",
+        ".blog-card-author",
+        ".blog-card-meta",
+        ".blog-view-header",
+        ".blog-grid-title",
+        ".post-meta-header"
+      ]
+    },
+    {
       "matches": "www.figma.com/community/*",
       "normalizeBody": "div.ql-editor[contenteditable='false']",
       "excludeSelectors": [
@@ -1578,6 +1618,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-15T08:54:08.568Z",
+  "buildinConfigUpdatedAt": "2023-02-15T16:24:33.787Z",
   "latestVersion": "0.2.59"
 }

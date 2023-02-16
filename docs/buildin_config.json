@@ -1616,8 +1616,21 @@
         "FOOTER",
         "MATH"
       ]
+    },
+    {
+      "matches": "https://steamcommunity.com/app/*/discussions/",
+      "globalStyles": {
+        ".forum_topic": "height:auto;",
+        ".forum_topic_name": "white-space:normal;"
+      },
+      "excludeSelectors": [
+        ".forum_paging",
+        ".forum_topic_reply_count",
+        ".forum_topic_lastpost",
+        ".forum_topic_award_count"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-15T16:24:33.787Z",
+  "buildinConfigUpdatedAt": "2023-02-16T07:28:08.183Z",
   "latestVersion": "0.2.59"
 }

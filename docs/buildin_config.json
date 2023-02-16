@@ -1628,9 +1628,10 @@
         ".forum_topic_reply_count",
         ".forum_topic_lastpost",
         ".forum_topic_award_count"
-      ]
+      ],
+      "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-16T07:28:08.183Z",
+  "buildinConfigUpdatedAt": "2023-02-16T10:06:00.975Z",
   "latestVersion": "0.2.59"
 }

@@ -24,9 +24,9 @@
 
 ### Android 安卓
 
-1. 下载 [Firefox Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix&hl=en_US&gl=US) 版本
+1. 下载 [Firefox Beta版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
+3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在Firefox Beta浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会有本扩展的浮动窗口。
 
 ### 其他移动浏览器

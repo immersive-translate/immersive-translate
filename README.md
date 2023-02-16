@@ -21,15 +21,15 @@
 		<sup>特别鸣谢以下品牌的赞助:</sup>
 		<br>
 		<br>
-		<a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
 			<div>
-				<img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox">
+				<a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
 			</div>
+      <a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
 			<b>API 设计、开发、测试一体化协作平台</b>
 			<div>
 				<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
 			</div>
-		</a>
+      </a>
 </p>
 </div>
 

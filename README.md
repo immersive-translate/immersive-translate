@@ -23,7 +23,7 @@
 		<br />
 		<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
 			<div>
-				<img src="./assets/apifox-logo.png" width="200" alt="apifox">
+				<img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox">
 			</div>
 			<b>API 设计、开发、测试一体化协作平台</b>
 			<div>

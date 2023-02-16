@@ -8,11 +8,13 @@
 
 如果你喜欢快捷键，还可以使用快捷键进行翻译，以下是默认快捷键：
 
-	Alt+A: 翻译/切换原文，按一下翻译，再按一下显示原文。
-	
-	Alt+W: 翻译整个页面，而不是默认的智能翻译内容区域。
+    Alt+A: 翻译/切换原文，按一下翻译，再按一下显示原文。
+
+    Alt+W: 翻译整个页面，而不是默认的智能翻译内容区域。
 
 如果默认快捷键与别的软件快捷键冲突，可以在扩展的【设置页面 - 界面设置 - 快捷键管理】中修改，可以设置为 `Alt+Q`，`Alt+E` 等。
+
+你可以在[Buzzing](https://www.buzzing.cc/)里随便点击一篇英文报道试试效果～
 
 ## 设置页面
 
@@ -45,9 +47,9 @@
 
 ## PDF 文件翻译
 
->目前只支持简单的单列 PDF 翻译，复杂的 PDF 建议使用相关工具转为 HTML 后，再由插件翻译。
+> 目前只支持简单的单列 PDF 翻译，复杂的 PDF 建议使用相关工具转为 HTML 后，再由插件翻译。
 >
->推荐一个超级好用且免费的开源软件 [calibre](https://calibre-ebook.com/)，可以把 pdf 转为 epub 或 html，效果非常赞。
+> 推荐一个超级好用且免费的开源软件 [calibre](https://calibre-ebook.com/)，可以把 pdf 转为 epub 或 html，效果非常赞。
 
 1. 如果是在线的 PDF 文件，在浏览器打开后，点击扩展的图标，然后点击翻译该文件即可，如下图所示。
 
@@ -56,7 +58,7 @@
 2. 如果是本地的 PDF 文件，直接右键扩展的图标（或者左键点击扩展图标，然后点击「更多」，点击「翻译本地 PDF 文件」），进入页面后，点击页面右上角上传你的 PDF 文件即可。
 
 > 该扩展免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
-> 
+>
 > 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
 ## 了解更多

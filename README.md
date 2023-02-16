@@ -16,9 +16,22 @@
 
 (此位置正在等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！)
 
-
-<!-- [![Apifox](./assets/apifox.png "Apifox")](https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung) -->
-
+<div align="center">
+<p>
+		<sup>特别鸣谢以下品牌的赞助:</sup>
+		<br>
+		<br>
+			<div>
+				<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
+			</div>
+      <a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
+			<b>API 设计、开发、测试一体化协作平台</b>
+			<div>
+				<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
+			</div>
+      </a>
+</p>
+</div>
 
 ## 目录
 
@@ -66,7 +79,7 @@
 2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
 3. 安装后打开任意网页刷新一下，右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，可以多刷新一下网页，或强制重启一下 Safari 浏览器，以使其生效)
 
-如果安装有困难，可以点击参考 [YouTube视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
+如果安装有困难，可以点击参考 [YouTube 视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
 
 ### Android 安卓
 

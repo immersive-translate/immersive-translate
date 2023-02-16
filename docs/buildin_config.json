@@ -951,6 +951,46 @@
       ]
     },
     {
+      "matches": "www.artstation.com/artwork/*",
+      "excludeSelectors": ".project-description a",
+      "selectors": [
+        ".project-description",
+        "div.project-comment-text"
+      ],
+      "atomicBlockSelectors": "div.project-comment-text",
+      "detectParagraphLanguage": true
+    },
+    {
+      "matches": "www.artstation.com/learning/courses/*",
+      "additionalSelectors": [
+        "footer.learning-course-description.ng-star-inserted > span"
+      ],
+      "excludeSelectors": ".learning-card-meta"
+    },
+    {
+      "matches": [
+        "https://www.artstation.com/blogs",
+        "https://www.artstation.com/blogs/*"
+      ],
+      "detectParagraphLanguage": true,
+      "additionalSelectors": [
+        ".comment-item-body"
+      ],
+      "atomicBlockSelectors": [
+        ".author-headline",
+        ".author-location"
+      ],
+      "excludeSelectors": [
+        "blog-card-thumbnail",
+        "blog-card-header",
+        ".blog-card-author",
+        ".blog-card-meta",
+        ".blog-view-header",
+        ".blog-grid-title",
+        ".post-meta-header"
+      ]
+    },
+    {
       "matches": "www.figma.com/community/*",
       "normalizeBody": "div.ql-editor[contenteditable='false']",
       "excludeSelectors": [
@@ -1576,8 +1616,22 @@
         "FOOTER",
         "MATH"
       ]
+    },
+    {
+      "matches": "https://steamcommunity.com/app/*/discussions/",
+      "globalStyles": {
+        ".forum_topic": "height:auto;",
+        ".forum_topic_name": "white-space:normal;"
+      },
+      "excludeSelectors": [
+        ".forum_paging",
+        ".forum_topic_reply_count",
+        ".forum_topic_lastpost",
+        ".forum_topic_award_count"
+      ],
+      "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-15T08:54:08.568Z",
+  "buildinConfigUpdatedAt": "2023-02-16T10:06:00.975Z",
   "latestVersion": "0.2.59"
 }

@@ -22,9 +22,9 @@
 		<br>
 		<br>
 			<div>
-				<a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
+				<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
 			</div>
-      <a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
+      <a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
 			<b>API 设计、开发、测试一体化协作平台</b>
 			<div>
 				<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>

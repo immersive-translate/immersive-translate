@@ -21,7 +21,7 @@
 		<sup>特别鸣谢以下品牌的赞助:</sup>
 		<br>
 		<br>
-		<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
+		<a href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
 			<div>
 				<img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox">
 			</div>

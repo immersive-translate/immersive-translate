@@ -1,5 +1,6 @@
 [book]
-title = "Immersive Translate"
+title = "沉浸式翻译"
+description = "沉浸式双语网页翻译扩展 - Immersive Translate，支持全平台的浏览器，油猴脚本，支持数10种翻译引擎"
 src = "docs"
 
 [output.html]

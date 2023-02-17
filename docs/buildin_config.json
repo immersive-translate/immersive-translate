@@ -553,6 +553,8 @@
       "excludeSelectors": [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "div.js-details-container.Details",
+        "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell"
@@ -1641,6 +1643,6 @@
       "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T07:41:32.972Z",
+  "buildinConfigUpdatedAt": "2023-02-17T09:06:45.697Z",
   "latestVersion": "0.2.59"
 }

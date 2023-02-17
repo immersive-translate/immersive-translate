@@ -51,6 +51,8 @@
 >
 > 推荐一个超级好用且免费的开源软件 [calibre](https://calibre-ebook.com/)，可以把 pdf 转为 epub 或 html，效果非常赞。
 
+> 目前油猴脚本不支持PDF文件翻译，请下载扩展使用～
+
 1. 如果是在线的 PDF 文件，在浏览器打开后，点击扩展的图标，然后点击翻译该文件即可，如下图所示。
 
 ![pdf icon](https://immersive-translate.owenyoung.com/assets/pdf-browser-action.png)

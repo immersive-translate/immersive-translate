@@ -1647,12 +1647,18 @@
       "excludeSelectors": [
         ".c-header",
         ".u-container",
+        ".c-recommendations-header",
+        ".c-recommendations-list-container",
+        ".c-article-references__links",
         ".c-article-identifiers",
         ".c-article-author-list",
-        ".c-article-metrics-bar__wrapper"
+        ".c-article-metrics-bar__wrapper",
+        ".c-article__pill-button",
+        "#author-information-content",
+        "#article-info-section"
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T10:08:05.155Z",
+  "buildinConfigUpdatedAt": "2023-02-17T11:00:25.746Z",
   "latestVersion": "0.2.59"
 }

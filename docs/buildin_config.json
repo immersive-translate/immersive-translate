@@ -1641,8 +1641,18 @@
         ".forum_topic_award_count"
       ],
       "observeUrlChange": true
+    },
+    {
+      "matches": "https://www.nature.com/articles/*",
+      "excludeSelectors": [
+        ".c-header",
+        ".u-container",
+        ".c-article-identifiers",
+        ".c-article-author-list",
+        ".c-article-metrics-bar__wrapper"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T09:06:45.697Z",
+  "buildinConfigUpdatedAt": "2023-02-17T10:08:05.155Z",
   "latestVersion": "0.2.59"
 }

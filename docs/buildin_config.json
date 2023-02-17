@@ -1659,8 +1659,22 @@
         "#author-information-content",
         "#article-info-section"
       ]
+    },
+    {
+      "matches": "https://www.webofscience.com/wos/woscc/summary/*",
+      "globalStyles": {
+        ".abstract": "height:auto !important;",
+        ".show-more-lines": "height:unset !important;"
+      },
+      "excludeSelectors": [
+        ".summary-left-panel",
+        ".authors",
+        "app-summary-authors + div"
+      ],
+      "observeUrlChange": true,
+      "mutationChangeDelay": 600
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T13:22:12.552Z",
+  "buildinConfigUpdatedAt": "2023-02-17T13:40:43.305Z",
   "latestVersion": "0.2.59"
 }

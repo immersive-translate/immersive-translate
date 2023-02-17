@@ -1396,14 +1396,15 @@
     },
     {
       "matches": [
-        "www.construct.net/en/forum/*",
-        "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses",
-        "www.construct.net/en/courses/*",
-        "www.construct.net/en/make-games/manuals/*"
+        "construct.net/en/forum/*",
+        "construct.net/en/tutorials/*",
+        "construct.net/en/courses",
+        "construct.net/en/courses/*",
+        "construct.net/en/make-games/addons/*",
+        "construct.net/en/make-games/manuals/*"
       ],
       "excludeMatches": [
-        "www.construct.net/en/forum/search",
+        "construct.net/en/forum/search",
         "preview.construct.net"
       ],
       "additionalSelectors": [
@@ -1431,6 +1432,8 @@
         "div.articleLeftMenu",
         "div.breadCrumbNav",
         "div#FilterMenu.FilterMenu",
+        "div.viewAddonRightMenu",
+        "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
         "span.tagViewWrap",
         "div#LeftSide.leftSide",
@@ -1638,6 +1641,6 @@
       "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T07:35:46.798Z",
+  "buildinConfigUpdatedAt": "2023-02-17T07:41:32.972Z",
   "latestVersion": "0.2.59"
 }

@@ -138,6 +138,7 @@
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
     "mutationChangeDelay": 10,
+    "visibleDelay": 0,
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
@@ -1660,6 +1661,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T13:08:46.524Z",
+  "buildinConfigUpdatedAt": "2023-02-17T13:22:12.552Z",
   "latestVersion": "0.2.59"
 }

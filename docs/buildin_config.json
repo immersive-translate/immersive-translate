@@ -738,8 +738,8 @@
     {
       "matches": "read.readwise.io",
       "selectors": [
-        "div[class^=\"_titleRow_\"]",
-        "div[class^=\"_description_\"]",
+        "div[class^='_titleRow_']",
+        "div[class^='_description_']",
         "#document-text-content"
       ],
       "detectParagraphLanguage": true
@@ -761,16 +761,18 @@
       }
     },
     {
-      "matches": [
-        "*.ideas.aha.io"
-      ],
+      "matches": "*.ideas.aha.io",
       "excludeSelectors": [
-        ".vote-status",
-        ".idea-meta-secondary",
         ".comment-header",
+        ".vote-status",
+        ".idea-meta",
+        ".filters-title",
+        ".ideas-showing-count",
         ".my-ideas-filters-wrapper",
+        ".statuses-filters-wrapper",
         ".categories-filters-wrapper",
-        ".statuses-filters-wrapper"
+        "[class^='attachment']",
+        "span[class^='attachment-name']"
       ]
     },
     {
@@ -1632,6 +1634,6 @@
       "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-16T10:06:00.975Z",
+  "buildinConfigUpdatedAt": "2023-02-17T07:26:43.332Z",
   "latestVersion": "0.2.59"
 }

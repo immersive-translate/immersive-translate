@@ -137,6 +137,7 @@
     "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
+    "mutationChangeDelay": 10,
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
@@ -1659,6 +1660,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T12:03:41.171Z",
+  "buildinConfigUpdatedAt": "2023-02-17T13:08:46.524Z",
   "latestVersion": "0.2.59"
 }

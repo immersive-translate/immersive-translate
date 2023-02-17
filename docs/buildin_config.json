@@ -1422,17 +1422,17 @@
       ],
       "additionalExcludeSelectors": [
         "div.topNav",
+        ".breadCrumbNav",
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
         "ul.subForumForums",
-        "ul.breadCrumbNav",
         "ul.postTools",
         "li.comment ul.controls",
         "div.forumTopNavWrap",
         "div.downloadWrap",
         "div.articleLeftMenu",
-        "div.breadCrumbNav",
+        "div.usernameTextWrap",
         "div#FilterMenu.FilterMenu",
         "div.viewAddonRightMenu",
         "div.extendedMenu.addonsSubMenu",
@@ -1659,6 +1659,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T11:00:25.746Z",
+  "buildinConfigUpdatedAt": "2023-02-17T12:03:41.171Z",
   "latestVersion": "0.2.59"
 }

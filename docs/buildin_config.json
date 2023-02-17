@@ -1116,7 +1116,11 @@
       "matches": "www.cnbc.com",
       "additionalSelectors": [
         "div.RenderKeyPoints-list"
-      ]
+      ],
+      "urlChangeDelay": 1000,
+      "globalStyles": {
+        "div.Card-titleContainer > div": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       "matches": "app.daily.dev",
@@ -1634,6 +1638,6 @@
       "observeUrlChange": true
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T07:26:43.332Z",
+  "buildinConfigUpdatedAt": "2023-02-17T07:35:46.798Z",
   "latestVersion": "0.2.59"
 }

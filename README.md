@@ -71,6 +71,10 @@
 
 已上架 [Firefox Addon 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)，[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
 
+### 油猴脚本地址
+
+油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js> ， 在已安装油猴扩展的浏览器中打开，即可安装。
+
 ### Safari
 
 桌面版和移动版都支持，需要配合油猴插件安装,以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例：

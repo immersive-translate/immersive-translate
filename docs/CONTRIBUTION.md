@@ -28,7 +28,8 @@ irm get.scoop.sh | iex
 安装 make 工具
 ```
 scoop install gcc gow -u
-scoop install unxutils
+scoop install git
+scoop install unxutils 
 ```
 
 注：makefile 文件对 powershell 的兼容不同，参数跟命令需要放在同一行中，否则运行会报错。例如在 makefile 中对 make dev 的配置。

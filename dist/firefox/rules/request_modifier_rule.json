@@ -87,7 +87,7 @@
       {
         "header": "origin",
         "operation": "set",
-        "value": "https://www.deepl.com"
+        "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
       },
       {
         "header": "DNT",
@@ -103,6 +103,38 @@
   },
   "condition": {
     "urlFilter": "https://api.deepl.com/jsonrpc*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 201,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "Referer",
+        "operation": "set",
+        "value": "https://www.deepl.com/"
+      },
+      {
+        "header": "origin",
+        "operation": "set",
+        "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
+      },
+      {
+        "header": "sec-fetch-site",
+        "operation": "set",
+        "value": "same-site"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://w.deepl.com/oidc/token",
     "resourceTypes": ["xmlhttprequest"],
     "domainType": "thirdParty",
     "initiatorDomains": [

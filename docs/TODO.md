@@ -1,7 +1,7 @@
 # Todos
 
 - [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
-- [点击查看](https://github.com/orgs/immersive-translate/projects/1/views/1?groupedBy%5BcolumnId%5D=Status) 当前正在处理的需求
+- [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
 
 ## Todo List
 

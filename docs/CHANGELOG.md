@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.2.60
+
+- Feat: Support zh-CN to zh-TW for Deepl
+- Feat: Immersive Translate Deepl Feature
+- Feat: Support custom font size zoom
+- Fix: Steam forum style
+- Fix: global style not changed after dynamic elements generated
+- Fix: promote exclude priority
+- UI: about page change
+- Fix: some math element stayoriginal
+
 ## 0.2.59
 
 - Fix: Unkowntags Block Element

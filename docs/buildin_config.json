@@ -1691,8 +1691,16 @@
       "extraBlockSelectors": [
         "[data-test=prompt]"
       ]
+    },
+    {
+      "matches": [
+        "https://crates.io/search*"
+      ],
+      "selectors": [
+        "div[class^=_description-box] div[class^=_description]"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-18T16:53:15.514Z",
+  "buildinConfigUpdatedAt": "2023-02-18T17:03:52.575Z",
   "latestVersion": "0.2.61"
 }

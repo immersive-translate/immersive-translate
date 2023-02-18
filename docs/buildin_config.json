@@ -139,6 +139,9 @@
     "urlChangeDelay": 20,
     "mutationChangeDelay": 10,
     "visibleDelay": 0,
+    "additionalStayOriginalSelectors": [
+      "span.katex"
+    ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
@@ -174,8 +177,6 @@
       ".article__title",
       ".articleTitle",
       ".Article__content",
-      ".title",
-      ".abstract",
       ".titleLink",
       ".summary",
       ".content",
@@ -1675,6 +1676,6 @@
       "mutationChangeDelay": 600
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-17T13:40:43.305Z",
+  "buildinConfigUpdatedAt": "2023-02-18T08:24:36.479Z",
   "latestVersion": "0.2.59"
 }

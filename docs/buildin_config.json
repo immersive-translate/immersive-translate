@@ -181,7 +181,8 @@
       ".summary",
       ".content",
       ".headline",
-      ".page-content"
+      ".page-content",
+      "aside.note"
     ],
     "atomicBlockTags": [],
     "excludeSelectors": [],
@@ -465,7 +466,8 @@
       "matches": "developer.apple.com/documentation/*",
       "selectors": [
         ".container",
-        "h3.title"
+        "h3.title",
+        "div.content"
       ]
     },
     {
@@ -1676,6 +1678,6 @@
       "mutationChangeDelay": 600
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-18T08:24:36.479Z",
-  "latestVersion": "0.2.59"
+  "buildinConfigUpdatedAt": "2023-02-18T13:42:45.802Z",
+  "latestVersion": "0.2.60"
 }

@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.61
+
+- Fix: userscript is too big for greasy fork
+- Better: reduce file size
+
 ## 0.2.60
 
 - Feat: Support zh-CN to zh-TW for Deepl

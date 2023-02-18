@@ -182,7 +182,8 @@
       ".content",
       ".headline",
       ".page-content",
-      "aside.note"
+      "aside.note",
+      "aside.article-comments"
     ],
     "atomicBlockTags": [],
     "excludeSelectors": [],
@@ -1676,8 +1677,16 @@
       ],
       "observeUrlChange": true,
       "mutationChangeDelay": 600
+    },
+    {
+      "matches": [
+        "appleinsider.com"
+      ],
+      "excludeSelectors": [
+        "#topic-nav"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-18T13:42:45.802Z",
-  "latestVersion": "0.2.60"
+  "buildinConfigUpdatedAt": "2023-02-18T16:13:36.731Z",
+  "latestVersion": "0.2.61"
 }

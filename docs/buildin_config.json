@@ -1685,8 +1685,14 @@
       "excludeSelectors": [
         "#topic-nav"
       ]
+    },
+    {
+      "matches": "https://www.jetbrains.com/help/*",
+      "extraBlockSelectors": [
+        "[data-test=prompt]"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-18T16:13:36.731Z",
+  "buildinConfigUpdatedAt": "2023-02-18T16:53:15.514Z",
   "latestVersion": "0.2.61"
 }

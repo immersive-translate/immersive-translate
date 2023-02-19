@@ -536,6 +536,7 @@
         "faceplate-batch .md"
       ],
       "detectParagraphLanguage": true,
+      "urlChangeDelay": 300,
       "globalStyles": {
         "div.XPromoBottomBar": "display:none"
       }
@@ -1695,6 +1696,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-19T03:37:55.093Z",
+  "buildinConfigUpdatedAt": "2023-02-19T03:58:43.252Z",
   "latestVersion": "0.2.61"
 }

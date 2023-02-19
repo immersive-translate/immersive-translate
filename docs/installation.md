@@ -47,7 +47,11 @@
 git clone https://github.com/immersive-translate/next-immersive-translate.git
 ```
 
-扩展位于 `dist/chrome`, `dist/firefox`, `dist/userscript` 中。
+扩展位于 `dist/chrome`, `dist/firefox`, `dist/userscript` 中 
+
+> 如果你不习惯命令行操作，你也可以直接在[这里](https://github.com/immersive-translate/immersive-translate/releases/)下载压缩包，然后下次更新的时候重新下载最新版本的压缩包，替换旧的即可
+
+> 你也可以下载[Github 桌面客户端](https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop)将该[Github 仓库](https://github.com/immersive-translate/immersive-translate) 同步到本地。
 
 **Chrome 手动安装**
 

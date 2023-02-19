@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-18T16:21:00.579Z", VERSION: "0.2.61", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-19T04:47:59.772Z", VERSION: "0.2.62", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9299,6 +9299,8 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    waitForSelectors: [],
+    waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
@@ -9638,6 +9640,29 @@ var buildin_config_default = {
       matches: "old.reddit.com",
       selectors: ["p.title > a", "[role=main] .md-container"],
       detectParagraphLanguage: !0
+    },
+    {
+      matches: "https://www.reddit.com/r/*/comments/*/*",
+      selectors: [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      detectParagraphLanguage: !0,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      },
+      waitForSelectors: [
+        "[data-testid=post_author_link]"
+      ]
     },
     {
       matches: "www.reddit.com",
@@ -10343,15 +10368,9 @@ var buildin_config_default = {
     },
     {
       matches: [
-        "construct.net/en/forum/*",
-        "construct.net/en/tutorials/*",
-        "construct.net/en/courses",
-        "construct.net/en/courses/*",
-        "construct.net/en/make-games/addons/*",
-        "construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       excludeMatches: [
-        "construct.net/en/forum/search",
         "preview.construct.net"
       ],
       additionalSelectors: ["aside", "div.manualContent"],
@@ -10591,6 +10610,18 @@ var buildin_config_default = {
     {
       matches: ["appleinsider.com"],
       excludeSelectors: ["#topic-nav"]
+    },
+    {
+      matches: "https://www.jetbrains.com/help/*",
+      extraBlockSelectors: [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      matches: ["https://crates.io/search*"],
+      selectors: [
+        "div[class^=_description-box] div[class^=_description]"
+      ]
     }
   ]
 };
@@ -15738,9 +15769,7 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
       if (rootFrame === document.body) {
         let currentUrl = getRealUrl();
         if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
-          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), setTimeout(() => {
-            log_default.debug("url changed, reinit page"), initPage();
-          }, rule.urlChangeDelay);
+          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), initPage();
           let event = new Event(pageUrlChangedEventName);
           document.dispatchEvent(event);
           return;
@@ -15813,7 +15842,10 @@ function mutationElementIsInline(rule, element) {
 }
 async function initPage() {
   let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl(), {});
-  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
+  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
+    ctx.rule.waitForSelectors,
+    ctx.rule.waitForSelectorsTimeout
+  );
   let lang = ctx.sourceLanguage;
   lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
     text: getMainText(document.body).slice(0, 1e3)
@@ -15837,6 +15869,15 @@ function disableTitleMutationObserver() {
 }
 function getPageStatus() {
   return pageStatus;
+}
+function waitForSelectors(selectors, timeout = 3e3) {
+  return new Promise((resolve, _reject) => {
+    let timer2 = timeout ? setTimeout(() => {
+      resolve(new Error("timeout"));
+    }, timeout) : void 0, interval = setInterval(() => {
+      selectors.every((selector) => document.querySelector(selector) !== null) && (clearInterval(interval), timer2 && clearTimeout(timer2), resolve(null));
+    }, 50);
+  });
 }
 
 // libs/preact-translation/utils.ts
@@ -17391,7 +17432,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.61",
+  version: "0.2.62",
   default_locale: "en",
   background: {
     service_worker: "background.js"

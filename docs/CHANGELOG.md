@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.62
+
+- Feat: Add waitForSelectors rule, for fixing some sites like reddit
+
 ## 0.2.61
 
 - Fix: userscript is too big for greasy fork

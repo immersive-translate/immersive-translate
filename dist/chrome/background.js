@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-18T16:21:00.579Z", VERSION: "0.2.61", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-19T04:47:59.772Z", VERSION: "0.2.62", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5884,6 +5884,8 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    waitForSelectors: [],
+    waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
@@ -6223,6 +6225,29 @@ var buildin_config_default = {
       matches: "old.reddit.com",
       selectors: ["p.title > a", "[role=main] .md-container"],
       detectParagraphLanguage: !0
+    },
+    {
+      matches: "https://www.reddit.com/r/*/comments/*/*",
+      selectors: [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      detectParagraphLanguage: !0,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      },
+      waitForSelectors: [
+        "[data-testid=post_author_link]"
+      ]
     },
     {
       matches: "www.reddit.com",
@@ -6928,15 +6953,9 @@ var buildin_config_default = {
     },
     {
       matches: [
-        "construct.net/en/forum/*",
-        "construct.net/en/tutorials/*",
-        "construct.net/en/courses",
-        "construct.net/en/courses/*",
-        "construct.net/en/make-games/addons/*",
-        "construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       excludeMatches: [
-        "construct.net/en/forum/search",
         "preview.construct.net"
       ],
       additionalSelectors: ["aside", "div.manualContent"],
@@ -7176,6 +7195,18 @@ var buildin_config_default = {
     {
       matches: ["appleinsider.com"],
       excludeSelectors: ["#topic-nav"]
+    },
+    {
+      matches: "https://www.jetbrains.com/help/*",
+      extraBlockSelectors: [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      matches: ["https://crates.io/search*"],
+      selectors: [
+        "div[class^=_description-box] div[class^=_description]"
+      ]
     }
   ]
 };

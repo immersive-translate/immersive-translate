@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [ ] 保存后的本地网页，支持再次翻译为其他语言
 - [ ] discord 新消息蹦出来不会自动翻译
 - [ ] valid config, is invalid, then use the default config.
 - [ ] 合并重复的翻译请求，减少请求数量

@@ -130,6 +130,8 @@
     "_comment": "",
     "normalizeBody": "",
     "injectedCss": [],
+    "waitForSelectors": [],
+    "waitForSelectorsTimeout": 3000,
     "additionalInjectedCss": [],
     "languageDetectMinTextCount": 50,
     "wrapperPrefix": "smart",
@@ -521,6 +523,29 @@
       "detectParagraphLanguage": true
     },
     {
+      "matches": "https://www.reddit.com/r/*/comments/*/*",
+      "selectors": [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      "detectParagraphLanguage": true,
+      "globalStyles": {
+        "div.XPromoBottomBar": "display:none"
+      },
+      "waitForSelectors": [
+        "[data-testid=post_author_link]"
+      ]
+    },
+    {
       "matches": "www.reddit.com",
       "selectors": [
         "h1",
@@ -536,7 +561,6 @@
         "faceplate-batch .md"
       ],
       "detectParagraphLanguage": true,
-      "urlChangeDelay": 500,
       "globalStyles": {
         "div.XPromoBottomBar": "display:none"
       }
@@ -1696,6 +1720,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-19T04:09:54.905Z",
-  "latestVersion": "0.2.61"
+  "buildinConfigUpdatedAt": "2023-02-19T04:49:58.888Z",
+  "latestVersion": "0.2.62"
 }

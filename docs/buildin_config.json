@@ -1404,15 +1404,9 @@
     },
     {
       "matches": [
-        "construct.net/en/forum/*",
-        "construct.net/en/tutorials/*",
-        "construct.net/en/courses",
-        "construct.net/en/courses/*",
-        "construct.net/en/make-games/addons/*",
-        "construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       "excludeMatches": [
-        "construct.net/en/forum/search",
         "preview.construct.net"
       ],
       "additionalSelectors": [
@@ -1701,6 +1695,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-18T17:03:52.575Z",
+  "buildinConfigUpdatedAt": "2023-02-19T03:37:55.093Z",
   "latestVersion": "0.2.61"
 }

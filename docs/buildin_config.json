@@ -1724,8 +1724,14 @@
       "selectors": [
         "div[class^=_description-box] div[class^=_description]"
       ]
+    },
+    {
+      "matches": "www.theverge.com",
+      "shadowRootSelectors": [
+        "div#coral_thread > div"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-19T05:29:07.434Z",
+  "buildinConfigUpdatedAt": "2023-02-19T07:10:28.332Z",
   "latestVersion": "0.2.62"
 }

@@ -14,7 +14,11 @@
 
 已上架 [Firefox Addon 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)，[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
 
-## IOS 端
+### 油猴脚本地址
+
+油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js> ， 在已安装油猴扩展的浏览器中打开该地址，即可安装。
+
+## 苹果 iOS/macOS 系统
 
 使用 Safari 浏览器，桌面版和移动版都支持，需配合油猴插件安装，以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例:
 
@@ -22,16 +26,16 @@
 2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)(在 Safari 浏览器中打开该链接即可看到安装页面)
 3. 安装后，打开任意网页刷新一下，在网页右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，建议多刷新一下网页，或者强制重启一下 Safari，以使其生效)
 
-如果安装有困难，可以点击参考 [YouTube视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
+如果安装有困难，可以点击参考 [YouTube 视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
 
 ## 安卓端 (Android)
 
 #### 火狐浏览器
 
-1. 下载 [Firefox Beta版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta&hl=en_US&gl=US) 版本
+1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
 3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox Beta 浏览器中打开该链接即可看到安装页面）
-4. 安装后，打开任意网页，在右侧会出现本扩展的浮动窗口。
+4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
 #### 其他浏览器
 
@@ -39,7 +43,7 @@
 
 ## 油猴脚本 GreasyFork 地址
 
-你也可以通过 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
+你也可以通过 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 iOS 的 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)油猴扩展似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
 
 ## 手动安装 (追踪最新开发特性)
 

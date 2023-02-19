@@ -80,7 +80,7 @@
 桌面版和移动版都支持，需要配合油猴插件安装,以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例：
 
 1. 安装 [Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)，授予其“始终允许访问任何网站”的权限。
-2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
+2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)(在 Safari 浏览器中打开该链接即可看到安装页面)
 3. 安装后打开任意网页刷新一下，右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，可以多刷新一下网页，或强制重启一下 Safari 浏览器，以使其生效)
 
 如果安装有困难，可以点击参考 [YouTube 视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
@@ -89,7 +89,8 @@
 
 1. 下载 [Firefox Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，安装后，打开任意网页，会有本扩展的浮动窗口在右侧。
+3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox Beta 浏览器中打开该链接即可看到安装页面）
+4. 安装后，打开任意网页，在右侧会出现本扩展的浮动窗口。
 
 ### 其他移动浏览器
 

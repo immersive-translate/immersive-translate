@@ -523,7 +523,13 @@
       "detectParagraphLanguage": true
     },
     {
-      "matches": "https://www.reddit.com/r/*/comments/*/*",
+      "matches": [
+        "https://www.reddit.com/r/*/comments/*/*",
+        "https://www.reddit.com/",
+        "https://www.reddit.com/hot/",
+        "https://www.reddit.com/new/",
+        "https://www.reddit.com/top/"
+      ],
       "selectors": [
         "h1",
         ".PostHeader__post-title-line",
@@ -1720,6 +1726,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-19T04:49:58.888Z",
+  "buildinConfigUpdatedAt": "2023-02-19T05:29:07.434Z",
   "latestVersion": "0.2.62"
 }

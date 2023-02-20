@@ -110,7 +110,7 @@
 }
 
 .immersive-translate-target-translation-theme-weakening {
-  opacity: 0.4 !important;
+  opacity: 0.618 !important;
 }
 
 .immersive-translate-target-translation-theme-italic {

@@ -167,7 +167,7 @@ var define_process_env_default = { BUILD_TIME: "2023-02-19T04:47:59.772Z", VERSI
 }
 
 .immersive-translate-target-translation-theme-weakening {
-  opacity: 0.4 !important;
+  opacity: 0.618 !important;
 }
 
 .immersive-translate-target-translation-theme-italic {

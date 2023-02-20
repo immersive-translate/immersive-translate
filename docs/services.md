@@ -14,6 +14,7 @@
 6. [OpenL](./services/openL.md)
 8. [小牛翻译](./services/niu.md)
 7. [有道翻译](./services/youdao.md)
+8. [微软翻译](./services/azure.md)
 
 ## 免责声明
 

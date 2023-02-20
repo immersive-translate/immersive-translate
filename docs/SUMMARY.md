@@ -18,6 +18,7 @@
   - [OpenL](./services/openL.md)
   - [小牛翻译](./services/niu.md)
   - [有道翻译](./services/youdao.md)
+  - [微软翻译](./services/azure.md)
 - [用户评价](review.md)
 - [加入开发?](CONTRIBUTION.md)
   - [Todo List](TODO.md)

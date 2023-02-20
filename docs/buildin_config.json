@@ -130,6 +130,8 @@
     "_comment": "",
     "normalizeBody": "",
     "injectedCss": [],
+    "waitForSelectors": [],
+    "waitForSelectorsTimeout": 3000,
     "additionalInjectedCss": [],
     "languageDetectMinTextCount": 50,
     "wrapperPrefix": "smart",
@@ -137,6 +139,11 @@
     "isPdf": false,
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
+    "mutationChangeDelay": 10,
+    "visibleDelay": 0,
+    "additionalStayOriginalSelectors": [
+      "span.katex"
+    ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
@@ -172,13 +179,13 @@
       ".article__title",
       ".articleTitle",
       ".Article__content",
-      ".title",
-      ".abstract",
       ".titleLink",
       ".summary",
       ".content",
       ".headline",
-      ".page-content"
+      ".page-content",
+      "aside.note",
+      "aside.article-comments"
     ],
     "atomicBlockTags": [],
     "excludeSelectors": [],
@@ -462,7 +469,8 @@
       "matches": "developer.apple.com/documentation/*",
       "selectors": [
         ".container",
-        "h3.title"
+        "h3.title",
+        "div.content"
       ]
     },
     {
@@ -515,6 +523,35 @@
       "detectParagraphLanguage": true
     },
     {
+      "matches": [
+        "https://www.reddit.com/r/*/comments/*/*",
+        "https://www.reddit.com/",
+        "https://www.reddit.com/hot/",
+        "https://www.reddit.com/new/",
+        "https://www.reddit.com/top/"
+      ],
+      "selectors": [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      "detectParagraphLanguage": true,
+      "globalStyles": {
+        "div.XPromoBottomBar": "display:none"
+      },
+      "waitForSelectors": [
+        "[data-testid=post_author_link]"
+      ]
+    },
+    {
       "matches": "www.reddit.com",
       "selectors": [
         "h1",
@@ -553,6 +590,8 @@
       "excludeSelectors": [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "div.js-details-container.Details",
+        "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell"
@@ -738,8 +777,8 @@
     {
       "matches": "read.readwise.io",
       "selectors": [
-        "div[class^=\"_titleRow_\"]",
-        "div[class^=\"_description_\"]",
+        "div[class^='_titleRow_']",
+        "div[class^='_description_']",
         "#document-text-content"
       ],
       "detectParagraphLanguage": true
@@ -761,16 +800,18 @@
       }
     },
     {
-      "matches": [
-        "*.ideas.aha.io"
-      ],
+      "matches": "*.ideas.aha.io",
       "excludeSelectors": [
-        ".vote-status",
-        ".idea-meta-secondary",
         ".comment-header",
+        ".vote-status",
+        ".idea-meta",
+        ".filters-title",
+        ".ideas-showing-count",
         ".my-ideas-filters-wrapper",
+        ".statuses-filters-wrapper",
         ".categories-filters-wrapper",
-        ".statuses-filters-wrapper"
+        "[class^='attachment']",
+        "span[class^='attachment-name']"
       ]
     },
     {
@@ -1114,7 +1155,11 @@
       "matches": "www.cnbc.com",
       "additionalSelectors": [
         "div.RenderKeyPoints-list"
-      ]
+      ],
+      "urlChangeDelay": 1000,
+      "globalStyles": {
+        "div.Card-titleContainer > div": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       "matches": "app.daily.dev",
@@ -1390,15 +1435,11 @@
     },
     {
       "matches": [
-        "www.construct.net/en/forum/*",
-        "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses",
-        "www.construct.net/en/courses/*",
-        "www.construct.net/en/make-games/manuals/*"
+        "www.construct.net"
       ],
       "excludeMatches": [
-        "www.construct.net/en/forum/search",
-        "preview.construct.net"
+        "preview.construct.net",
+        "editor.construct.net"
       ],
       "additionalSelectors": [
         "aside",
@@ -1416,15 +1457,18 @@
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
-        "ul.subForumForums",
         "ul.breadCrumbNav",
+        "ul.subForumForums",
         "ul.postTools",
         "li.comment ul.controls",
         "div.forumTopNavWrap",
         "div.downloadWrap",
         "div.articleLeftMenu",
-        "div.breadCrumbNav",
+        "div.usernameTextWrap",
+        "div.bannerWrapper",
         "div#FilterMenu.FilterMenu",
+        "div.viewAddonRightMenu",
+        "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
         "span.tagViewWrap",
         "div#LeftSide.leftSide",
@@ -1630,8 +1674,66 @@
         ".forum_topic_award_count"
       ],
       "observeUrlChange": true
+    },
+    {
+      "matches": "https://www.nature.com/articles/*",
+      "excludeSelectors": [
+        ".c-header",
+        ".u-container",
+        ".c-recommendations-header",
+        ".c-recommendations-list-container",
+        ".c-article-references__links",
+        ".c-article-identifiers",
+        ".c-article-author-list",
+        ".c-article-metrics-bar__wrapper",
+        ".c-article__pill-button",
+        "#author-information-content",
+        "#article-info-section"
+      ]
+    },
+    {
+      "matches": "https://www.webofscience.com/wos/woscc/summary/*",
+      "globalStyles": {
+        ".abstract": "height:auto !important;",
+        ".show-more-lines": "height:unset !important;"
+      },
+      "excludeSelectors": [
+        ".summary-left-panel",
+        ".authors",
+        "app-summary-authors + div"
+      ],
+      "observeUrlChange": true,
+      "mutationChangeDelay": 600
+    },
+    {
+      "matches": [
+        "appleinsider.com"
+      ],
+      "excludeSelectors": [
+        "#topic-nav"
+      ]
+    },
+    {
+      "matches": "https://www.jetbrains.com/help/*",
+      "extraBlockSelectors": [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      "matches": [
+        "https://crates.io/search*"
+      ],
+      "selectors": [
+        "div[class^=_description-box] div[class^=_description]"
+      ]
+    },
+    {
+      "matches": "www.theverge.com",
+      "shadowRootSelectors": [
+        "div#coral_thread > div"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-16T10:06:00.975Z",
-  "latestVersion": "0.2.59"
+  "buildinConfigUpdatedAt": "2023-02-20T06:37:08.635Z",
+  "latestVersion": "0.2.62"
 }

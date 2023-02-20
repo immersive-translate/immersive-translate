@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-14T09:48:20.713Z", VERSION: "0.2.59", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-19T04:48:00.702Z", VERSION: "0.2.62", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3695,7 +3695,13 @@ body {
     opacity: 0.5;
     width: 36px;
     height: 36px;
-    border-radius: 9999999px;
+    border-radius: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform ease-out 250ms;
+    transition: -webkit-transform ease-out 250ms;
+    transition: transform ease-out 250ms;
+    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
   }
   .immersive-translate-popup-btn > svg {
   }
@@ -4676,8 +4682,8 @@ var zh_CN_default = {
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
   isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
   tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
   xMinutes: "{count} \u5206\u949F",
@@ -4704,16 +4710,16 @@ var zh_CN_default = {
   goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
   goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
   advanced: "\u8FDB\u9636\u8BBE\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96BE\u4EE5\u7406\u89E3\u7684\u8BBE\u7F6E\u9879\uFF08\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
   donateCafe: "\u8BF7\u5F00\u53D1\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u5F00\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u95EE\u9898\u53CD\u9988",
   toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u7ACB\u5373\u7FFB\u8BD1\u7F51\u9875\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\uFF0C\u800C\u4E0D\u662F\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8BD1\u7F51\u9875\u6240\u6709\u533A\u57DF",
-  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\uFF0C\u800C\u4E0D\u662F\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\u53BB\u7FFB\u8BD1\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8BD1\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8BED\u8A00",
   "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
   "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
@@ -4731,8 +4737,8 @@ var zh_CN_default = {
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
   "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
-  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u4E4B\u540E\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -4760,8 +4766,8 @@ var zh_CN_default = {
   popupTarget: "\u76EE\u6807\u8BED\u8A00",
   popupService: "\u7FFB\u8BD1\u670D\u52A1",
   forThisSite: "\u9488\u5BF9\u8BE5\u7F51\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u603B\u662F\u7FFB\u8BD1 {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
   add: "\u6DFB\u52A0",
@@ -4830,7 +4836,7 @@ var zh_CN_default = {
   "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -4840,14 +4846,14 @@ var zh_CN_default = {
   "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
   "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u5F53\u524D\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\u4E3A\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8BBE\u7F6E\u4E3A\u8BA9\u67D0\u4E9B\u7F51\u7AD9\u4F7F\u7528\u8BE5\u6837\u5F0F\uFF0C\u70B9\u51FB\u53F3\u8FB9\u7684\u6309\u94AE\u6DFB\u52A0\u540E\uFF0C\u518D\u5207\u6362\u5230\u53E6\u4E00\u79CD\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\uFF0C\u8FD9\u6837\u5373\u53EF\u5B9E\u73B0\u4E0D\u540C\u7F51\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8BD1\u6587\u6837\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u5F53\u524D\u7F51\u5740",
   confirm: "\u4FDD\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
-  syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
   syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
   import_hint: "\u5BFC\u5165",
@@ -4870,7 +4876,7 @@ var zh_CN_default = {
   clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
   aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
   "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9879\u76EE\u4E3B\u9875",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
   joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -4878,31 +4884,32 @@ var zh_CN_default = {
   autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
   loadingThemeTitle: "Loading \u6837\u5F0F",
   loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
-  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u663E\u793A",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
   "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
   successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
-  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
   "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/zh-TW.json
 var zh_TW_default = {
   lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u7B26\u6578\u91CF",
-  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6FPDF",
-  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3PDF",
+  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6F PDF",
+  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3 PDF",
   enableLineBreak: "\u662F\u5426\u958B\u5553\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
   sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005 (\u6309\u6708\u6216\u4E00\u6B21\u6027\u5747\u53EF)",
   help: "\u5E6B\u52A9",
-  browserShortcutsNoteForFirefox: "Firefox\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762`about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
-  browserShortcutsNoteForChrome: "\u985EChrome\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u7D50\u75C2\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u2019\u7BA1\u7406\u5FEB\u6377\u9375\u2018\u9762\u677F\uFF08\u2019chrome://extensions/shortcuts\u2018\uFF09\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
+  browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762 `about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
+  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5145\u529F\u80FD\u9801\u9762\uFF0C\u5728\u2019\u64F4\u5145\u529F\u80FD\u2018\u9762\u677F(\u2019chrome://extensions/shortcuts\u2018)\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
-  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u8B1B\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
   "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
@@ -4910,49 +4917,52 @@ var zh_TW_default = {
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
   "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
-  "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
+  "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
-  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8F09\u8A2D\u7F6E\u55CE?",
-  translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
-  smartLineBreak: "\u667A\u80FD\u6362\u884C",
-  alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
-  tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-  tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
-  xMinutes: "{count} \u5206\u949F",
+  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u7F6E\u8A2D\u7F6E\u55CE\uFF1F",
+  translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u7F6E",
+  smartLineBreak: "\u667A\u80FD\u63DB\u884C",
+  alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
+  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
+  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u7279\u6027",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
+  tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
+  xMinutes: "{count} \u5206\u9418",
   disabled: "\u505C\u7528",
   changelog: "\u66F4\u65B0\u65E5\u8A8C",
-  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
+  addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "\u57FA\u672C\u8A2D\u7F6E",
-  clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-  import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
-  export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
+  clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
+  import: "\u5F9E\u6587\u4EF6\u532F\u5165",
+  export: "\u5C0E\u51FA\u5230\u6587\u4EF6",
   toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
-  "fingers.0": "\u5173\u95ED",
-  "fingers.2": "\u53CC\u6307\u89E6\u6478",
-  "fingers.3": "\u4E09\u6307\u89E6\u6478",
-  "fingers.4": "\u56DB\u6307\u89E6\u6478",
-  "fingers.5": "\u4E94\u6307\u89E6\u6478",
+  "fingers.0": "\u95DC\u9589",
+  "fingers.2": "\u96D9\u6307\u89F8\u6478",
+  "fingers.3": "\u4E09\u6307\u89F8\u6478",
+  "fingers.4": "\u56DB\u6307\u89F8\u6478",
+  "fingers.5": "\u4E94\u6307\u89F8\u6478",
   document: "\u6587\u6A94",
-  resetSuccess: "\u885D\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
   saved: "\u6210\u529F\u5132\u5B58",
   successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
   goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
-  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
+  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u8A2D\u7F6E\u9801\u9762",
   advanced: "\u9032\u968E\u8A2D\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96E3\u4EE5\u7406\u89E3\u7684\u8A2D\u7F6E\u9805\uFF08\u4E00\u822C\u7121\u9700\u8A2D\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8A8D\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
   donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u958B\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u554F\u984C\u53CD\u994B",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u7ACB\u5373\u7FFB\u8B6F\u7DB2\u9801\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\uFF0C\u800C\u4E0D\u662F\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-  translationAreaDescription: "\u958B\u5553\u5F8C\uFF0C\u6574\u500B\u7DB2\u9801\u7684\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\uFF0C\u800C\u4E0D\u662F\u9ED8\u8A8D\u7684\u667A\u80FD\u8B58\u5225\u4E3B\u8981\u5340\u57DF\u53BB\u7FFB\u8B6F\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u500B\u5B57\u7B26\u7121\u9700\u7B49\u5F85\u6EFE\u52D5\u5230\u53EF\u8996\u5340\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8B6F\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8A9E\u8A00",
   "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
   "keyboard shortcuts": "\u9375\u76E4\u5FEB\u6377\u9375",
@@ -4962,20 +4972,20 @@ var zh_TW_default = {
   homepage: "\u4E3B\u9801",
   more: "\u66F4\u591A",
   translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
-  changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
-  changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+  changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
+  changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
   translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9069\u914D\u898F\u5247\uFF1A",
   "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
-  localVersionIsTooOld: "\u672C\u5730\u64F4\u5C55\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u64F4\u5C55\u5230{minVersion} \u6216\u4E4B\u5F8C\u7684\u7248\u672C\u5F8C\u518D\u5617\u8A66\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
-  retry: "\u9EDE\u6B64\u885D\u8A66",
+  retry: "\u9EDE\u6B64\u91CD\u8A66",
   failedReason: "\u5931\u6557\u539F\u56E0",
   currentRuleVersion: "\u7576\u524D\u898F\u5247\u7248\u672C",
   calculating: "\u8A08\u7B97\u4E2D",
@@ -4991,7 +5001,7 @@ var zh_TW_default = {
   service: "\u7FFB\u8B6F\u670D\u52D9",
   needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
   goSettings: "\u53BB\u8A2D\u7F6E",
-  needActionForOptions: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
+  needActionForOptions: "(\u9700\u8A2D\u7F6E)",
   translationEngine: "\u5F15\u64CE\u9078\u9805",
   sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
   target: "\u76EE\u6A19\u8A9E\u8A00",
@@ -4999,8 +5009,8 @@ var zh_TW_default = {
   popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
   popupService: "\u7FFB\u8B6F\u670D\u52D9",
   forThisSite: "\u5C0D\u65BC\u8A72\u7DB2\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
   add: "\u589E\u52A0",
@@ -5018,11 +5028,11 @@ var zh_TW_default = {
   Error: "\u932F\u8AA4",
   allowCacheTranslations: "\u958B\u555F\u672C\u5730\u7FFB\u8B6F\u7DE9\u5B58\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8ACB\u6C42\uFF09",
   "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
-  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u793A\u4F8B",
+  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
   interface: "\u754C\u9762\u8A2D\u7F6E",
   import_export: "\u5C0E\u5165/\u5C0E\u51FA",
-  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA",
-  syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA\u914D\u7F6E",
+  syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
   previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
   "translationTheme.none": "\u7121",
   "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
@@ -5039,17 +5049,17 @@ var zh_TW_default = {
   "translationTheme.italic": "\u659C\u9AD4",
   "translationTheme.bold": "\u7C97\u9AD4",
   "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+  "translationTheme.nativeDashed": "\u7CFB\u7D71\u81EA\u5E36\u865B\u7DDA\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeDotted": "\u7CFB\u7D71\u81EA\u5E36\u9EDE\u72C0\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
   "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
   "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
   "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
-  "translationServices.bai": "\u767E\u5EA6\uFF08Alpha\uFF09",
+  "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
   "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
   "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
-  "translationServices.deeplx": "DeeplX(Alpha)",
+  "translationServices.deeplx": "DeeplX(Beta)",
   "translationServices.bing": "\u5FC5\u61C9\u7FFB\u8B6F",
   "translationServices.deepl": "Deepl",
   "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
@@ -5065,10 +5075,11 @@ var zh_TW_default = {
   "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
   "translationServices.d": "Deepl(Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
   "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -5078,17 +5089,16 @@ var zh_TW_default = {
   "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
   "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u7576\u524D\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\u70BA\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8A2D\u7F6E\u70BA\u8B93\u67D0\u4E9B\u7DB2\u7AD9\u4F7F\u7528\u8A72\u6A23\u5F0F\uFF0C\u9EDE\u64CA\u53F3\u908A\u7684\u6309\u9215\u6DFB\u52A0\u5F8C\uFF0C\u518D\u5207\u63DB\u5230\u53E6\u4E00\u7A2E\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\uFF0C\u9019\u6A23\u5373\u53EF\u5BE6\u73FE\u4E0D\u540C\u7DB2\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8B6F\u6587\u6A23\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u7576\u524D\u7DB2\u5740",
   confirm: "\u5132\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u522A\u9664",
   "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
   syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
-  syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6B0A\u5931\u6557",
-  syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
+  syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
   import_hint: "\u5C0E\u5165",
   upload: "\u4E0A\u50B3",
   revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
@@ -5109,18 +5119,26 @@ var zh_TW_default = {
   clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
   aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
   "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
-  aboutIntro: "\u8A72\u64F4\u5C55\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u4E92\u806F\u7DB2\u4E0A\u5DE8\u5927\u7684\u5916\u8A9E\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u8D0A\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u983B\u9053</4>\u7372\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9805\u76EE\u4E3B\u9801",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+  joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u7372\u53D6\u6700\u65B0\u66F4\u65B0",
   feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
   autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
   loadingThemeTitle: "Loading \u6A23\u5F0F",
   loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
-  "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
+  developerDescription: "\u53EF\u4EE5\u9EDE\u64CA<1>\u9019\u88E1</1>\u67E5\u770B\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u76F8\u95DC\u7684\u6587\u6A94",
   "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "\u7576\u524D\u914D\u7F6E\u8207\u96F2\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
+  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/en.json
@@ -5148,15 +5166,17 @@ var en_default = {
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
   alwaysLineBreak: "Always Wrap",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "The position of the translation\uFF1AAlways wrap / smart wrap (the translation is displayed only when the paragraph is more than {count} characters)",
+  isShowContextMenu: "Create right button menu",
+  toggleBeta: "Enable Beta experimental features",
+  betaDescription: "Enable features that are still experimental, and translation services that are in testing. Join the <1>Telegram group</1> to learn more.",
+  translationLineBreakSettingDescription: "The always line break feature is suitable for layouts with less content, making the layout more neat and tidy. (Use smart line breaks for long paragraphs with more content (more than {count} characters) for saving space)",
   tempTranslateDomainTitle: "Open the translation time temporarily",
   tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
   xMinutes: "{count} minutes",
   disabled: "Disable",
   changelog: "Change Log",
   toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger simultaneous touch to show/hide the blur effect of the translation",
   addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "General",
   clickToExpandConfig: "Expand current configuration",
@@ -5170,21 +5190,22 @@ var en_default = {
   "fingers.5": "Five-finger touch",
   document: "Document",
   resetSuccess: "All settings reset successful",
+  resetThisSuccess: "Reset successful",
   saved: "Saved successfully",
   successImportConfig: "Configuration imported successfully",
   goAdvancedSettings: "Go to Advanced Settings Page",
   goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
   advanced: "Advanced",
-  advancedDescription: "Some unintelligible settings (normally set without setting to default)",
+  advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
   developer: "Developer settings",
   donateCafe: "Buy Me a Coffee",
-  "translate to the bottom of the page": "Whether translate to the bottom of the page once you open the page?",
+  "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
   feedback: "Feedback",
   toggleTranslatePage: "Toggle Translate",
-  translateToThePageEndImmediatelyDescription: "When turned on, it will immediately translate the page from the top to the bottom, instead of translating as you read. (Not recommended to turn on)",
+  translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
   "translate all areas of the page": "Whether to translate all areas of the web page",
-  translationAreaDescription: "When enabled, the entire area of the page will be translated, not the default intelligent recognition main area to translate ( not recommended)",
-  "the number of characters to be translated first": "How many characters are translated directly without waiting to scroll to the visible area for the first few characters?",
+  translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
+  "the number of characters to be translated first": "Directly translate the number of characters in front of the page without waiting to scroll to the visible area",
   "interface language": "Interface language",
   "display both the original text and the translation": "Display both the original text and the translation",
   "keyboard shortcuts": "Keyboard shortcuts",
@@ -5202,8 +5223,8 @@ var en_default = {
   "Successfully synchronized with the latest official rules:": "Successfully synced latest official rules:",
   "Checking for updates": "Checking for update",
   "Rules are being synchronized": "Syncing official rules",
-  localVersionIsTooOld: "The local extension is too old. Please upgrade to {minVersion} or then try syncing again",
-  badUserscriptBrowser: "This browser does not correctly implement the interface of Tampermonkey. Please use other < 1 > browsers that support Tampermonkey < / 1 >, such as (Firefox Nightly version)",
+  localVersionIsTooOld: "The local extension version is too old, please upgrade the extension to {minVersion} or a newer version and try to sync again.",
+  badUserscriptBrowser: "The current browser does not correctly implement the interface of the Greasemonkey extension, please use another browser that <1>supports the Greasemonkey extension</1> such as (Firefox Nightly version)",
   foundNewVersion: "New version available",
   theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
   failToSyncRules: "Failed to sync latest adaptive rules",
@@ -5297,10 +5318,11 @@ var en_default = {
   "translationServices.transmart": "Tencent Smart Translation",
   "translationServices.niu": "Niu Translation",
   "translationServices.d": "DeeplX (Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "Translate page title",
   "always languages": "Always translate the following languages",
   neverTranslateLanguagesLabel: "Never Translated Languages",
-  neverTranslateTheFollowingLanguagesDescription: "Automatically skip translating the paragraph when languages are the followings",
+  neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
   enableUserscriptPagePopup: "Always show Popup windows on the page",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "The following languages will always be translated",
@@ -5310,15 +5332,14 @@ var en_default = {
   "never translate the following sites": "The following sites will never be translated",
   "please refer to": "It can only be used after filling in the key. For details, please refer to",
   KeyAndConfigurationTutorial: "Key Application and Configuration Tutorial",
-  useAboveStyleForTheseSites: "The current default translation style is \u300C{theme}\u300D, you can also set it to let some websites use this style, click the button on the right to add it, and then switch to another default translation style, so that you can use different translation styles for different websites.",
+  useAboveStyleForTheseSites: "Sites that always use the {theme} translation style",
   currentUrl: "Current URL",
   confirm: "Save",
   cancel: "Cancel",
   delete: "Delete",
   "languages.auto": "Detect Language",
-  isShowContextMenu: "Create right button menu",
   syncToCloud: "Sync to cloud",
-  syncToCloudDescription: "When syncing it will compare the last modification time of the local and cloud configurations, whichever is the last.",
+  syncToCloudDescription: "Upload the configuration to the cloud server, and you can synchronize the configuration between different browsers or Tampermonkey scripts, based on the last modification time.",
   authFail: "Authorization Failed",
   syncTitle: "Please select a file operation",
   import_hint: "Import",
@@ -5341,19 +5362,26 @@ var en_default = {
   clickToDownload: "Click to download",
   aboutLabel: "About - Feedback - Sponsor",
   "browser.openAboutPage": "About / Feedback/Sponsor",
-  aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
+  aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
   projectHomepage: "Project Homepage",
   joinTelegramGroup: "Join Telegram group for feature discussion",
+  joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
   feedbackAndJoin: "Issue feedback/group",
   autoSync: "Auto-Time Sync",
   loadingThemeTitle: "Loading Style",
   loadingThemeDescription: "Set the style of waiting for the translation to load",
-  "loadingTheme.spinner": "Animate Spinner",
+  "loadingTheme.spinner": "Spinning icon",
   "loadingTheme.text": "Static Text... ",
   "loadingTheme.none": "Disabled",
+  developerDescription: "You can click <1>here</1> to see the documentation related to advanced customization",
   "edit border color": "Edit border color",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
+  customTheme: "Customize colors and sizes",
+  "customThemeLabel.borderColor": "Border color",
+  "customThemeLabel.backgroundColor": "Background color",
+  "customThemeLabel.textColor": "Text color",
+  "customThemeLabel.zoom": "Font scale (%)",
+  resetToDefaultColor: "Reset to default colors"
 };
 
 // constant.ts
@@ -5370,7 +5398,8 @@ var interfaceTranslations = [
     code: "en",
     messages: en_default
   }
-], translations = {};
+];
+var translations = {};
 for (let translation of interfaceTranslations)
   translations[translation.code] = translation.messages;
 var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html", brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
@@ -5499,6 +5528,205 @@ var languages = [
   "zu"
 ];
 var fallbackLanguage = "zh-CN";
+var openlProps = [{
+  type: "select",
+  name: "codename",
+  label: "translationEngine",
+  default: "deepl",
+  required: !1,
+  options: [
+    {
+      label: "translationServices.deepl",
+      value: "deepl"
+    },
+    {
+      label: "translationServices.youdao",
+      value: "youdao"
+    },
+    {
+      label: "translationServices.tencent",
+      value: "tencent"
+    },
+    {
+      label: "translationServices.aliyun",
+      value: "aliyun"
+    },
+    {
+      label: "translationServices.baidu",
+      value: "baidu"
+    },
+    {
+      label: "translationServices.caiyun",
+      value: "caiyun"
+    },
+    {
+      label: "translationServices.wechat",
+      value: "wechat"
+    },
+    {
+      label: "translationServices.azure",
+      value: "azure"
+    },
+    {
+      label: "translationServices.ibm",
+      value: "ibm"
+    },
+    {
+      label: "translationServices.aws",
+      value: "aws"
+    },
+    {
+      label: "translationServices.google",
+      value: "google"
+    }
+  ]
+}], PureTranslationServices = {
+  mock: {
+    name: "Mock",
+    homepage: "https://www.google.com"
+  },
+  mock2: {
+    name: "Mock2",
+    homepage: "https://www.google.com"
+  },
+  google: {
+    name: "Google",
+    homepage: "https://translate.google.com/"
+  },
+  transmart: {
+    name: "Transmart",
+    homepage: "https://transmart.qq.com/"
+  },
+  deepl: {
+    name: "DeepL",
+    homepage: "https://www.deepl.com/translator",
+    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+    allProps: [{
+      name: "authKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volc: {
+    name: "Volc",
+    homepage: "https://www.volcengine.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
+    allProps: [{
+      name: "accessKeyId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretAccessKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volcAlpha: {
+    name: "Volc Alpha",
+    alpha: !0,
+    homepage: "https://www.volcengine.com/"
+  },
+  bing: {
+    name: "Bing",
+    homepage: "https://www.bing.com/translator"
+  },
+  tencent: {
+    name: "Tencent",
+    homepage: "https://fanyi.qq.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
+    allProps: [{
+      name: "secretId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  baidu: {
+    name: "Baidu",
+    homepage: "https://fanyi.baidu.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
+    allProps: [{
+      name: "appid",
+      required: !0,
+      type: "text"
+    }, {
+      name: "key",
+      required: !0,
+      type: "password"
+    }]
+  },
+  caiyun: {
+    name: "Caiyun",
+    homepage: "https://fanyi.caiyunapp.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
+    allProps: [{
+      name: "token",
+      required: !0,
+      type: "password"
+    }]
+  },
+  openl: {
+    name: "Openl",
+    homepage: "https://openl.club/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openL",
+    allProps: [
+      ...openlProps,
+      {
+        type: "password",
+        name: "apikey",
+        required: !0
+      }
+    ],
+    props: openlProps
+  },
+  youdao: {
+    name: "Youdao",
+    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
+    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    allProps: [{
+      name: "appId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "appSecret",
+      required: !0,
+      type: "password"
+    }]
+  },
+  d: {
+    name: "D () ",
+    alpha: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  dpro: {
+    name: "DPro (Canary) ",
+    canary: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  deeplx: {
+    name: "DeepLX (Beta)",
+    beta: !0,
+    homepage: "https://www.deepl.com/translator",
+    allProps: [{
+      name: "url",
+      required: !0,
+      type: "text"
+    }]
+  },
+  niu: {
+    name: "niutrans",
+    homepage: "https://niutrans.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/niu",
+    allProps: [{
+      name: "APIKEY",
+      required: !0,
+      type: "password"
+    }]
+  }
+};
 
 // utils/format_language.ts
 function formatLanguage(rawLangCode) {
@@ -5621,9 +5849,7 @@ var buildin_config_default = {
       "https://www.reddit.com/.compact"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   translationParagraphLanguagePattern: {
@@ -5650,9 +5876,7 @@ var buildin_config_default = {
       "*.slack.com"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   sourceLanguageUrlPattern: {},
@@ -5660,6 +5884,8 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    waitForSelectors: [],
+    waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
@@ -5667,6 +5893,11 @@ var buildin_config_default = {
     isPdf: !1,
     isTransformPreTagNewLine: !1,
     urlChangeDelay: 20,
+    mutationChangeDelay: 10,
+    visibleDelay: 0,
+    additionalStayOriginalSelectors: [
+      "span.katex"
+    ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -5699,13 +5930,13 @@ var buildin_config_default = {
       ".article__title",
       ".articleTitle",
       ".Article__content",
-      ".title",
-      ".abstract",
       ".titleLink",
       ".summary",
       ".content",
       ".headline",
-      ".page-content"
+      ".page-content",
+      "aside.note",
+      "aside.article-comments"
     ],
     atomicBlockTags: [],
     excludeSelectors: [],
@@ -5752,19 +5983,9 @@ var buildin_config_default = {
       "FOOTER",
       "MATH"
     ],
-    bodyTranslateTags: [
-      "FOOTER",
-      "ADIDE",
-      "BUTTON",
-      "NAV"
-    ],
+    bodyTranslateTags: ["FOOTER", "ADIDE", "BUTTON", "NAV"],
     forceTranslateTags: [],
-    metaTags: [
-      "META",
-      "SCRIPT",
-      "STYLE",
-      "NOSCRIPT"
-    ],
+    metaTags: ["META", "SCRIPT", "STYLE", "NOSCRIPT"],
     additionalExcludeTags: [],
     stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
@@ -5874,9 +6095,7 @@ var buildin_config_default = {
   },
   rules: [
     {
-      matches: [
-        "moz-extension://*/pdf/index.html*"
-      ],
+      matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -5967,7 +6186,7 @@ var buildin_config_default = {
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [".container", "h3.title"]
+      selectors: [".container", "h3.title", "div.content"]
     },
     {
       matches: "news.ycombinator.com",
@@ -6008,6 +6227,29 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
+      matches: "https://www.reddit.com/r/*/comments/*/*",
+      selectors: [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      detectParagraphLanguage: !0,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      },
+      waitForSelectors: [
+        "[data-testid=post_author_link]"
+      ]
+    },
+    {
       matches: "www.reddit.com",
       selectors: [
         "h1",
@@ -6044,22 +6286,20 @@ var buildin_config_default = {
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "div.js-details-container.Details",
+        "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell"
       ],
       extraBlockSelectors: [],
-      extraInlineSelectors: [
-        "g-emoji"
-      ],
+      extraInlineSelectors: ["g-emoji"],
       stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
       detectParagraphLanguage: !0
     },
     {
       matches: "notebooks.githubusercontent.com",
-      excludeSelectors: [
-        "div.jp-CodeCell"
-      ]
+      excludeSelectors: ["div.jp-CodeCell"]
     },
     {
       matches: "www.facebook.com",
@@ -6077,20 +6317,14 @@ var buildin_config_default = {
       preWhitespaceDetectedTags: ["DIV", "SPAN"],
       extraBlockSelectors: ["span.x1vvkbs"],
       excludeSelectors: ["[role=button]"],
-      translationClasses: [
-        "immersive-translate-text"
-      ],
+      translationClasses: ["immersive-translate-text"],
       detectParagraphLanguage: !0
     },
     {
       matches: "m.youtube.com",
-      selectors: [
-        ".comment-text"
-      ],
+      selectors: [".comment-text"],
       observeUrlChange: !0,
-      atomicBlockSelectors: [
-        ".comment-text"
-      ],
+      atomicBlockSelectors: [".comment-text"],
       globalStyles: {
         ".comment-text": "max-height:unset;"
       },
@@ -6125,9 +6359,7 @@ var buildin_config_default = {
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
-      excludeSelectors: [
-        "[class^='lln-']"
-      ],
+      excludeSelectors: ["[class^='lln-']"],
       extraBlockSelectors: [
         "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
@@ -6162,10 +6394,7 @@ var buildin_config_default = {
     },
     {
       matches: "https://poeditor.com/projects/*",
-      selectors: [
-        ".comment-body",
-        ".reference_language .source-string"
-      ]
+      selectors: [".comment-body", ".reference_language .source-string"]
     },
     {
       matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
@@ -6204,8 +6433,8 @@ var buildin_config_default = {
     {
       matches: "read.readwise.io",
       selectors: [
-        'div[class^="_titleRow_"]',
-        'div[class^="_description_"]',
+        "div[class^='_titleRow_']",
+        "div[class^='_description_']",
         "#document-text-content"
       ],
       detectParagraphLanguage: !0
@@ -6224,16 +6453,18 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "*.ideas.aha.io"
-      ],
+      matches: "*.ideas.aha.io",
       excludeSelectors: [
-        ".vote-status",
-        ".idea-meta-secondary",
         ".comment-header",
+        ".vote-status",
+        ".idea-meta",
+        ".filters-title",
+        ".ideas-showing-count",
         ".my-ideas-filters-wrapper",
+        ".statuses-filters-wrapper",
         ".categories-filters-wrapper",
-        ".statuses-filters-wrapper"
+        "[class^='attachment']",
+        "span[class^='attachment-name']"
       ]
     },
     {
@@ -6384,6 +6615,38 @@ var buildin_config_default = {
       additionalSelectors: ["#book"]
     },
     {
+      matches: "www.artstation.com/artwork/*",
+      excludeSelectors: ".project-description a",
+      selectors: [".project-description", "div.project-comment-text"],
+      atomicBlockSelectors: "div.project-comment-text",
+      detectParagraphLanguage: !0
+    },
+    {
+      matches: "www.artstation.com/learning/courses/*",
+      additionalSelectors: [
+        "footer.learning-course-description.ng-star-inserted > span"
+      ],
+      excludeSelectors: ".learning-card-meta"
+    },
+    {
+      matches: [
+        "https://www.artstation.com/blogs",
+        "https://www.artstation.com/blogs/*"
+      ],
+      detectParagraphLanguage: !0,
+      additionalSelectors: [".comment-item-body"],
+      atomicBlockSelectors: [".author-headline", ".author-location"],
+      excludeSelectors: [
+        "blog-card-thumbnail",
+        "blog-card-header",
+        ".blog-card-author",
+        ".blog-card-meta",
+        ".blog-view-header",
+        ".blog-grid-title",
+        ".post-meta-header"
+      ]
+    },
+    {
       matches: "www.figma.com/community/*",
       normalizeBody: "div.ql-editor[contenteditable='false']",
       excludeSelectors: [
@@ -6406,9 +6669,7 @@ var buildin_config_default = {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
       },
-      extraBlockSelectors: [
-        ".MUFPAc"
-      ]
+      extraBlockSelectors: [".MUFPAc"]
     },
     {
       matches: "lowendtalk.com",
@@ -6470,7 +6731,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: ["div.RenderKeyPoints-list"]
+      additionalSelectors: ["div.RenderKeyPoints-list"],
+      urlChangeDelay: 1e3,
+      globalStyles: {
+        "div.Card-titleContainer > div": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       matches: "app.daily.dev",
@@ -6512,9 +6777,7 @@ var buildin_config_default = {
     },
     {
       matches: ["medium.com", "*.medium.com"],
-      selectorMatches: [
-        "meta[property='al:ios:url'][content^='medium://']"
-      ],
+      selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
       urlChangeDelay: 2e3,
       selectors: [
         "article section",
@@ -6529,9 +6792,7 @@ var buildin_config_default = {
       }
     },
     {
-      selectorMatches: [
-        "meta[property='og:site_name'][content='Nitter']"
-      ],
+      selectorMatches: ["meta[property='og:site_name'][content='Nitter']"],
       selectors: [".tweet-content", ".quote-text"]
     },
     {
@@ -6561,9 +6822,7 @@ var buildin_config_default = {
         '[data-feature-name="featurebullets"]',
         '[data-feature-name="aplus"'
       ],
-      excludeBlockSelectors: [
-        "div.reviewText > span"
-      ],
+      excludeBlockSelectors: ["div.reviewText > span"],
       globalStyles: {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
@@ -6594,10 +6853,7 @@ var buildin_config_default = {
     },
     {
       matches: ["*.annas-archive.org", "annas-archive.org"],
-      selectors: [
-        "h3.text-xl.font-bold",
-        "div[class='truncate text-sm']"
-      ],
+      selectors: ["h3.text-xl.font-bold", "div[class='truncate text-sm']"],
       globalStyles: {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
@@ -6605,12 +6861,8 @@ var buildin_config_default = {
       extraBlockSelectors: ["a.custom-a"]
     },
     {
-      matches: [
-        "explainshell.com"
-      ],
-      selectors: [
-        "[class='help-box']"
-      ]
+      matches: ["explainshell.com"],
+      selectors: ["[class='help-box']"]
     },
     {
       matches: ["apnews.com"],
@@ -6701,41 +6953,31 @@ var buildin_config_default = {
     },
     {
       matches: [
-        "www.construct.net/en/forum/*",
-        "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses*",
-        "www.construct.net/en/courses/*",
-        "www.construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       excludeMatches: [
-        "www.construct.net/en/forum/search",
         "preview.construct.net"
       ],
-      additionalSelectors: [
-        "aside",
-        "div.manualContent"
-      ],
+      additionalSelectors: ["aside", "div.manualContent"],
       atomicBlockSelectors: [],
-      stayOriginalSelectors: [
-        "a.usernameReference"
-      ],
-      additionalInlineSelectors: [
-        "a.forumLink"
-      ],
+      stayOriginalSelectors: ["a.usernameReference"],
+      additionalInlineSelectors: ["a.forumLink"],
       additionalExcludeSelectors: [
         "div.topNav",
+        ".breadCrumbNav",
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
         "ul.subForumForums",
-        "ul.breadCrumbNav",
         "ul.postTools",
         "li.comment ul.controls",
         "div.forumTopNavWrap",
         "div.downloadWrap",
         "div.articleLeftMenu",
-        "div.breadCrumbNav",
+        "div.usernameTextWrap",
         "div#FilterMenu.FilterMenu",
+        "div.viewAddonRightMenu",
+        "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
         "span.tagViewWrap",
         "div#LeftSide.leftSide",
@@ -6756,6 +6998,16 @@ var buildin_config_default = {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
+    },
+    {
+      matches: "www.construct.net/en/blogs/*",
+      excludeSelectors: [
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats"
+      ]
     },
     {
       matches: "getpocket.com",
@@ -6808,9 +7060,7 @@ var buildin_config_default = {
     },
     {
       matches: "glasp.co",
-      excludeSelectors: [
-        ".home_overview_list_content_wrapper"
-      ]
+      excludeSelectors: [".home_overview_list_content_wrapper"]
     },
     {
       matches: "developer.chrome.com",
@@ -6834,6 +7084,7 @@ var buildin_config_default = {
     },
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
+      observeUrlChange: !0,
       additionalSelectors: ["aside", "google-codelab-step"]
     },
     {
@@ -6856,15 +7107,105 @@ var buildin_config_default = {
     },
     {
       matches: "www.newthingsunderthesun.com",
-      additionalSelectors: [
-        "[translate=no]"
-      ]
+      additionalSelectors: ["[translate=no]"]
     },
     {
       matches: "https://www.tiktok.com/*/video/*",
       selectors: [
         "[data-e2e^=comment-level]",
         "[data-e2e=browse-video-desc] > span"
+      ]
+    },
+    {
+      matches: "www.rfc-editor.org",
+      isTransformPreTagNewLine: !0,
+      excludeTags: [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH"
+      ]
+    },
+    {
+      matches: "https://steamcommunity.com/app/*/discussions/",
+      globalStyles: {
+        ".forum_topic": "height:auto;",
+        ".forum_topic_name": "white-space:normal;"
+      },
+      excludeSelectors: [
+        ".forum_paging",
+        ".forum_topic_reply_count",
+        ".forum_topic_lastpost",
+        ".forum_topic_award_count"
+      ],
+      observeUrlChange: !0
+    },
+    {
+      matches: "https://www.nature.com/articles/*",
+      excludeSelectors: [
+        ".c-header",
+        ".u-container",
+        ".c-recommendations-header",
+        ".c-recommendations-list-container",
+        ".c-article-references__links",
+        ".c-article-identifiers",
+        ".c-article-author-list",
+        ".c-article-metrics-bar__wrapper",
+        ".c-article__pill-button",
+        "#author-information-content",
+        "#article-info-section"
+      ]
+    },
+    {
+      matches: "https://www.webofscience.com/wos/woscc/summary/*",
+      globalStyles: {
+        ".abstract": "height:auto !important;",
+        ".show-more-lines": "height:unset !important;"
+      },
+      excludeSelectors: [
+        ".summary-left-panel",
+        ".authors",
+        "app-summary-authors + div"
+      ],
+      observeUrlChange: !0,
+      mutationChangeDelay: 600
+    },
+    {
+      matches: ["appleinsider.com"],
+      excludeSelectors: ["#topic-nav"]
+    },
+    {
+      matches: "https://www.jetbrains.com/help/*",
+      extraBlockSelectors: [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      matches: ["https://crates.io/search*"],
+      selectors: [
+        "div[class^=_description-box] div[class^=_description]"
       ]
     }
   ]
@@ -7019,7 +7360,7 @@ function getEnvUserConfig() {
     };
     defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
   }
-  return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+  return env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
 }
 async function getLocalConfig() {
   let localConfig = await browserAPI.storage.local.get(localConfigStorageKey);
@@ -7561,16 +7902,16 @@ async function retry(fn, opts) {
 // https://esm.sh/stable/preact@10.11.0/deno/preact.js
 var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function k(e3, t4) {
-  for (var _2 in t4)
-    e3[_2] = t4[_2];
+  for (var _3 in t4)
+    e3[_3] = t4[_3];
   return e3;
 }
 function j(e3) {
   var t4 = e3.parentNode;
   t4 && t4.removeChild(e3);
 }
-function w(e3, t4, _2, r, l2) {
-  var o3 = { type: e3, props: t4, key: _2, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
+function w(e3, t4, _3, r, l2) {
+  var o3 = { type: e3, props: t4, key: _3, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
   return l2 == null && d.vnode != null && d.vnode(o3), o3;
 }
 function L(e3) {
@@ -7582,17 +7923,17 @@ function U(e3, t4) {
 function C(e3, t4) {
   if (t4 == null)
     return e3.__ ? C(e3.__, e3.__.__k.indexOf(e3) + 1) : null;
-  for (var _2; t4 < e3.__k.length; t4++)
-    if ((_2 = e3.__k[t4]) != null && _2.__e != null)
-      return _2.__e;
+  for (var _3; t4 < e3.__k.length; t4++)
+    if ((_3 = e3.__k[t4]) != null && _3.__e != null)
+      return _3.__e;
   return typeof e3.type == "function" ? C(e3) : null;
 }
 function z(e3) {
-  var t4, _2;
+  var t4, _3;
   if ((e3 = e3.__) != null && e3.__c != null) {
     for (e3.__e = e3.__c.base = null, t4 = 0; t4 < e3.__k.length; t4++)
-      if ((_2 = e3.__k[t4]) != null && _2.__e != null) {
-        e3.__e = e3.__c.base = _2.__e;
+      if ((_3 = e3.__k[t4]) != null && _3.__e != null) {
+        e3.__e = e3.__c.base = _3.__e;
         break;
       }
     return z(e3);
@@ -7603,18 +7944,18 @@ function M(e3) {
 }
 function D() {
   for (var e3; D.__r = S.length; )
-    e3 = S.sort(function(t4, _2) {
-      return t4.__v.__b - _2.__v.__b;
+    e3 = S.sort(function(t4, _3) {
+      return t4.__v.__b - _3.__v.__b;
     }), S = [], e3.some(function(t4) {
-      var _2, r, l2, o3, s4, f3;
-      t4.__d && (s4 = (o3 = (_2 = t4).__v).__e, (f3 = _2.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f3, o3, l2, _2.__n, f3.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
+      var _3, r, l2, o3, s4, f4;
+      t4.__d && (s4 = (o3 = (_3 = t4).__v).__e, (f4 = _3.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f4, o3, l2, _3.__n, f4.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
     });
 }
-function G(e3, t4, _2, r, l2, o3, s4, f3, p5, a) {
+function G(e3, t4, _3, r, l2, o3, s4, f4, p5, a) {
   var n3, h3, c3, i2, u3, b4, v2, y3 = r && r.__k || V, g5 = y3.length;
-  for (_2.__k = [], n3 = 0; n3 < t4.length; n3++)
-    if ((i2 = _2.__k[n3] = (i2 = t4[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
-      if (i2.__ = _2, i2.__b = _2.__b + 1, (c3 = y3[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
+  for (_3.__k = [], n3 = 0; n3 < t4.length; n3++)
+    if ((i2 = _3.__k[n3] = (i2 = t4[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
+      if (i2.__ = _3, i2.__b = _3.__b + 1, (c3 = y3[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
         y3[n3] = void 0;
       else
         for (h3 = 0; h3 < g5; h3++) {
@@ -7624,71 +7965,71 @@ function G(e3, t4, _2, r, l2, o3, s4, f3, p5, a) {
           }
           c3 = null;
         }
-      W(e3, i2, c3 = c3 || T, l2, o3, s4, f3, p5, a), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v2 || (v2 = []), c3.ref && v2.push(c3.ref, null, i2), v2.push(h3, i2.__c || u3, i2)), u3 != null ? (b4 == null && (b4 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p5 = q(i2, p5, e3) : p5 = J(e3, i2, c3, y3, u3, p5), typeof _2.type == "function" && (_2.__d = p5)) : p5 && c3.__e == p5 && p5.parentNode != e3 && (p5 = C(c3));
+      W(e3, i2, c3 = c3 || T, l2, o3, s4, f4, p5, a), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v2 || (v2 = []), c3.ref && v2.push(c3.ref, null, i2), v2.push(h3, i2.__c || u3, i2)), u3 != null ? (b4 == null && (b4 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p5 = q(i2, p5, e3) : p5 = J(e3, i2, c3, y3, u3, p5), typeof _3.type == "function" && (_3.__d = p5)) : p5 && c3.__e == p5 && p5.parentNode != e3 && (p5 = C(c3));
     }
-  for (_2.__e = b4, n3 = g5; n3--; )
-    y3[n3] != null && (typeof _2.type == "function" && y3[n3].__e != null && y3[n3].__e == _2.__d && (_2.__d = C(r, n3 + 1)), X(y3[n3], y3[n3]));
+  for (_3.__e = b4, n3 = g5; n3--; )
+    y3[n3] != null && (typeof _3.type == "function" && y3[n3].__e != null && y3[n3].__e == _3.__d && (_3.__d = C(r, n3 + 1)), X(y3[n3], y3[n3]));
   if (v2)
     for (n3 = 0; n3 < v2.length; n3++)
       Q(v2[n3], v2[++n3], v2[++n3]);
 }
-function q(e3, t4, _2) {
+function q(e3, t4, _3) {
   for (var r, l2 = e3.__k, o3 = 0; l2 && o3 < l2.length; o3++)
-    (r = l2[o3]) && (r.__ = e3, t4 = typeof r.type == "function" ? q(r, t4, _2) : J(_2, r, r, l2, r.__e, t4));
+    (r = l2[o3]) && (r.__ = e3, t4 = typeof r.type == "function" ? q(r, t4, _3) : J(_3, r, r, l2, r.__e, t4));
   return t4;
 }
-function J(e3, t4, _2, r, l2, o3) {
-  var s4, f3, p5;
+function J(e3, t4, _3, r, l2, o3) {
+  var s4, f4, p5;
   if (t4.__d !== void 0)
     s4 = t4.__d, t4.__d = void 0;
-  else if (_2 == null || l2 != o3 || l2.parentNode == null)
+  else if (_3 == null || l2 != o3 || l2.parentNode == null)
     e:
       if (o3 == null || o3.parentNode !== e3)
         e3.appendChild(l2), s4 = null;
       else {
-        for (f3 = o3, p5 = 0; (f3 = f3.nextSibling) && p5 < r.length; p5 += 2)
-          if (f3 == l2)
+        for (f4 = o3, p5 = 0; (f4 = f4.nextSibling) && p5 < r.length; p5 += 2)
+          if (f4 == l2)
             break e;
         e3.insertBefore(l2, o3), s4 = o3;
       }
   return s4 !== void 0 ? s4 : l2.nextSibling;
 }
-function _e(e3, t4, _2, r, l2) {
+function _e(e3, t4, _3, r, l2) {
   var o3;
-  for (o3 in _2)
-    o3 === "children" || o3 === "key" || o3 in t4 || N(e3, o3, null, _2[o3], r);
+  for (o3 in _3)
+    o3 === "children" || o3 === "key" || o3 in t4 || N(e3, o3, null, _3[o3], r);
   for (o3 in t4)
-    l2 && typeof t4[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _2[o3] === t4[o3] || N(e3, o3, t4[o3], _2[o3], r);
+    l2 && typeof t4[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _3[o3] === t4[o3] || N(e3, o3, t4[o3], _3[o3], r);
 }
-function I(e3, t4, _2) {
-  t4[0] === "-" ? e3.setProperty(t4, _2) : e3[t4] = _2 == null ? "" : typeof _2 != "number" || Z.test(t4) ? _2 : _2 + "px";
+function I(e3, t4, _3) {
+  t4[0] === "-" ? e3.setProperty(t4, _3) : e3[t4] = _3 == null ? "" : typeof _3 != "number" || Z.test(t4) ? _3 : _3 + "px";
 }
-function N(e3, t4, _2, r, l2) {
+function N(e3, t4, _3, r, l2) {
   var o3;
   e:
     if (t4 === "style")
-      if (typeof _2 == "string")
-        e3.style.cssText = _2;
+      if (typeof _3 == "string")
+        e3.style.cssText = _3;
       else {
         if (typeof r == "string" && (e3.style.cssText = r = ""), r)
           for (t4 in r)
-            _2 && t4 in _2 || I(e3.style, t4, "");
-        if (_2)
-          for (t4 in _2)
-            r && _2[t4] === r[t4] || I(e3.style, t4, _2[t4]);
+            _3 && t4 in _3 || I(e3.style, t4, "");
+        if (_3)
+          for (t4 in _3)
+            r && _3[t4] === r[t4] || I(e3.style, t4, _3[t4]);
       }
     else if (t4[0] === "o" && t4[1] === "n")
-      o3 = t4 !== (t4 = t4.replace(/Capture$/, "")), t4 = t4.toLowerCase() in e3 ? t4.toLowerCase().slice(2) : t4.slice(2), e3.l || (e3.l = {}), e3.l[t4 + o3] = _2, _2 ? r || e3.addEventListener(t4, o3 ? R : O, o3) : e3.removeEventListener(t4, o3 ? R : O, o3);
+      o3 = t4 !== (t4 = t4.replace(/Capture$/, "")), t4 = t4.toLowerCase() in e3 ? t4.toLowerCase().slice(2) : t4.slice(2), e3.l || (e3.l = {}), e3.l[t4 + o3] = _3, _3 ? r || e3.addEventListener(t4, o3 ? R : O, o3) : e3.removeEventListener(t4, o3 ? R : O, o3);
     else if (t4 !== "dangerouslySetInnerHTML") {
       if (l2)
         t4 = t4.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
       else if (t4 !== "href" && t4 !== "list" && t4 !== "form" && t4 !== "tabIndex" && t4 !== "download" && t4 in e3)
         try {
-          e3[t4] = _2 ?? "";
+          e3[t4] = _3 ?? "";
           break e;
         } catch {
         }
-      typeof _2 == "function" || (_2 != null && (_2 !== !1 || t4[0] === "a" && t4[1] === "r") ? e3.setAttribute(t4, _2) : e3.removeAttribute(t4));
+      typeof _3 == "function" || (_3 != null && (_3 !== !1 || t4[0] === "a" && t4[1] === "r") ? e3.setAttribute(t4, _3) : e3.removeAttribute(t4));
     }
 }
 function O(e3) {
@@ -7697,19 +8038,19 @@ function O(e3) {
 function R(e3) {
   this.l[e3.type + !0](d.event ? d.event(e3) : e3);
 }
-function W(e3, t4, _2, r, l2, o3, s4, f3, p5) {
-  var a, n3, h3, c3, i2, u3, b4, v2, y3, g5, x4, H6, E3, m4 = t4.type;
+function W(e3, t4, _3, r, l2, o3, s4, f4, p5) {
+  var a, n3, h3, c3, i2, u3, b4, v2, y3, g5, x4, H7, E3, m4 = t4.type;
   if (t4.constructor !== void 0)
     return null;
-  _2.__h != null && (p5 = _2.__h, f3 = t4.__e = _2.__e, t4.__h = null, o3 = [f3]), (a = d.__b) && a(t4);
+  _3.__h != null && (p5 = _3.__h, f4 = t4.__e = _3.__e, t4.__h = null, o3 = [f4]), (a = d.__b) && a(t4);
   try {
     e:
       if (typeof m4 == "function") {
-        if (v2 = t4.props, y3 = (a = m4.contextType) && r[a.__c], g5 = a ? y3 ? y3.props.value : a.__ : r, _2.__c ? b4 = (n3 = t4.__c = _2.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t4.__c = n3 = new m4(v2, g5) : (t4.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
+        if (v2 = t4.props, y3 = (a = m4.contextType) && r[a.__c], g5 = a ? y3 ? y3.props.value : a.__ : r, _3.__c ? b4 = (n3 = t4.__c = _3.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t4.__c = n3 = new m4(v2, g5) : (t4.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
           m4.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
         else {
-          if (m4.getDerivedStateFromProps == null && v2 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t4.__v === _2.__v) {
-            n3.props = v2, n3.state = n3.__s, t4.__v !== _2.__v && (n3.__d = !1), n3.__v = t4, t4.__e = _2.__e, t4.__k = _2.__k, t4.__k.forEach(function(A5) {
+          if (m4.getDerivedStateFromProps == null && v2 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t4.__v === _3.__v) {
+            n3.props = v2, n3.state = n3.__s, t4.__v !== _3.__v && (n3.__d = !1), n3.__v = t4, t4.__e = _3.__e, t4.__k = _3.__k, t4.__k.forEach(function(A5) {
               A5 && (A5.__ = t4);
             }), n3.__h.length && s4.push(n3);
             break e;
@@ -7718,33 +8059,33 @@ function W(e3, t4, _2, r, l2, o3, s4, f3, p5) {
             n3.componentDidUpdate(c3, i2, u3);
           });
         }
-        if (n3.context = g5, n3.props = v2, n3.__v = t4, n3.__P = e3, x4 = d.__r, H6 = 0, "prototype" in m4 && m4.prototype.render)
+        if (n3.context = g5, n3.props = v2, n3.__v = t4, n3.__P = e3, x4 = d.__r, H7 = 0, "prototype" in m4 && m4.prototype.render)
           n3.state = n3.__s, n3.__d = !1, x4 && x4(t4), a = n3.render(n3.props, n3.state, n3.context);
         else
           do
             n3.__d = !1, x4 && x4(t4), a = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
-          while (n3.__d && ++H6 < 25);
-        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E3 = a != null && a.type === L && a.key == null ? a.props.children : a, G(e3, Array.isArray(E3) ? E3 : [E3], t4, _2, r, l2, o3, s4, f3, p5), n3.base = t4.__e, t4.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
+          while (n3.__d && ++H7 < 25);
+        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E3 = a != null && a.type === L && a.key == null ? a.props.children : a, G(e3, Array.isArray(E3) ? E3 : [E3], t4, _3, r, l2, o3, s4, f4, p5), n3.base = t4.__e, t4.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
       } else
-        o3 == null && t4.__v === _2.__v ? (t4.__k = _2.__k, t4.__e = _2.__e) : t4.__e = ne(_2.__e, t4, _2, r, l2, o3, s4, p5);
+        o3 == null && t4.__v === _3.__v ? (t4.__k = _3.__k, t4.__e = _3.__e) : t4.__e = ne(_3.__e, t4, _3, r, l2, o3, s4, p5);
     (a = d.diffed) && a(t4);
   } catch (A5) {
-    t4.__v = null, (p5 || o3 != null) && (t4.__e = f3, t4.__h = !!p5, o3[o3.indexOf(f3)] = null), d.__e(A5, t4, _2);
+    t4.__v = null, (p5 || o3 != null) && (t4.__e = f4, t4.__h = !!p5, o3[o3.indexOf(f4)] = null), d.__e(A5, t4, _3);
   }
 }
 function K(e3, t4) {
-  d.__c && d.__c(t4, e3), e3.some(function(_2) {
+  d.__c && d.__c(t4, e3), e3.some(function(_3) {
     try {
-      e3 = _2.__h, _2.__h = [], e3.some(function(r) {
-        r.call(_2);
+      e3 = _3.__h, _3.__h = [], e3.some(function(r) {
+        r.call(_3);
       });
     } catch (r) {
-      d.__e(r, _2.__v);
+      d.__e(r, _3.__v);
     }
   });
 }
-function ne(e3, t4, _2, r, l2, o3, s4, f3) {
-  var p5, a, n3, h3 = _2.props, c3 = t4.props, i2 = t4.type, u3 = 0;
+function ne(e3, t4, _3, r, l2, o3, s4, f4) {
+  var p5, a, n3, h3 = _3.props, c3 = t4.props, i2 = t4.type, u3 = 0;
   if (i2 === "svg" && (l2 = !0), o3 != null) {
     for (; u3 < o3.length; u3++)
       if ((p5 = o3[u3]) && "setAttribute" in p5 == !!i2 && (i2 ? p5.localName === i2 : p5.nodeType === 3)) {
@@ -7755,34 +8096,34 @@ function ne(e3, t4, _2, r, l2, o3, s4, f3) {
   if (e3 == null) {
     if (i2 === null)
       return document.createTextNode(c3);
-    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f3 = !1;
+    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f4 = !1;
   }
   if (i2 === null)
-    h3 === c3 || f3 && e3.data === c3 || (e3.data = c3);
+    h3 === c3 || f4 && e3.data === c3 || (e3.data = c3);
   else {
-    if (o3 = o3 && P.call(e3.childNodes), a = (h3 = _2.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f3) {
+    if (o3 = o3 && P.call(e3.childNodes), a = (h3 = _3.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f4) {
       if (o3 != null)
         for (h3 = {}, u3 = 0; u3 < e3.attributes.length; u3++)
           h3[e3.attributes[u3].name] = e3.attributes[u3].value;
       (n3 || a) && (n3 && (a && n3.__html == a.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
     }
-    if (_e(e3, c3, h3, l2, f3), n3)
+    if (_e(e3, c3, h3, l2, f4), n3)
       t4.__k = [];
-    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _2, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _2.__k && C(_2, 0), f3), o3 != null)
+    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _3, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _3.__k && C(_3, 0), f4), o3 != null)
       for (u3 = o3.length; u3--; )
         o3[u3] != null && j(o3[u3]);
-    f3 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
+    f4 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
   }
   return e3;
 }
-function Q(e3, t4, _2) {
+function Q(e3, t4, _3) {
   try {
     typeof e3 == "function" ? e3(t4) : e3.current = t4;
   } catch (r) {
-    d.__e(r, _2);
+    d.__e(r, _3);
   }
 }
-function X(e3, t4, _2) {
+function X(e3, t4, _3) {
   var r, l2;
   if (d.unmount && d.unmount(e3), (r = e3.ref) && (r.current && r.current !== e3.__e || Q(r, null, t4)), (r = e3.__c) != null) {
     if (r.componentWillUnmount)
@@ -7796,26 +8137,26 @@ function X(e3, t4, _2) {
   if (r = e3.__k)
     for (l2 = 0; l2 < r.length; l2++)
       r[l2] && X(r[l2], t4, typeof e3.type != "function");
-  _2 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
+  _3 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
 }
-function oe(e3, t4, _2) {
-  return this.constructor(e3, _2);
+function oe(e3, t4, _3) {
+  return this.constructor(e3, _3);
 }
-P = V.slice, d = { __e: function(e3, t4, _2, r) {
+P = V.slice, d = { __e: function(e3, t4, _3, r) {
   for (var l2, o3, s4; t4 = t4.__; )
     if ((l2 = t4.__c) && !l2.__)
       try {
         if ((o3 = l2.constructor) && o3.getDerivedStateFromError != null && (l2.setState(o3.getDerivedStateFromError(e3)), s4 = l2.__d), l2.componentDidCatch != null && (l2.componentDidCatch(e3, r || {}), s4 = l2.__d), s4)
           return l2.__E = l2;
-      } catch (f3) {
-        e3 = f3;
+      } catch (f4) {
+        e3 = f4;
       }
   throw e3;
 } }, $ = 0, Y = function(e3) {
   return e3 != null && e3.constructor === void 0;
 }, U.prototype.setState = function(e3, t4) {
-  var _2;
-  _2 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _2), this.props)), e3 && k(_2, e3), e3 != null && this.__v && (t4 && this.__h.push(t4), M(this));
+  var _3;
+  _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _3), this.props)), e3 && k(_3, e3), e3 != null && this.__v && (t4 && this.__h.push(t4), M(this));
 }, U.prototype.forceUpdate = function(e3) {
   this.__v && (this.__e = !0, e3 && this.__h.push(e3), M(this));
 }, U.prototype.render = L, S = [], D.__r = 0, B = 0;
@@ -7824,29 +8165,29 @@ P = V.slice, d = { __e: function(e3, t4, _2, r) {
 var i, n, d2, N2;
 var q2 = [], l = [], V2 = d.__b, g = d.__r, b = d.diffed, C2 = d.__c, A = d.unmount;
 function R2() {
-  for (var _2; _2 = q2.shift(); )
-    if (_2.__P && _2.__H)
+  for (var _3; _3 = q2.shift(); )
+    if (_3.__P && _3.__H)
       try {
-        _2.__H.__h.forEach(m), _2.__H.__h.forEach(p), _2.__H.__h = [];
+        _3.__H.__h.forEach(m), _3.__H.__h.forEach(p), _3.__H.__h = [];
       } catch (t4) {
-        _2.__H.__h = [], d.__e(t4, _2.__v);
+        _3.__H.__h = [], d.__e(t4, _3.__v);
       }
 }
-d.__b = function(_2) {
-  typeof _2.type != "function" || _2.o || _2.type === L ? _2.o || (_2.o = _2.__ && _2.__.o ? _2.__.o : "") : _2.o = (_2.__ && _2.__.o ? _2.__.o : "") + (_2.__ && _2.__.__k ? _2.__.__k.indexOf(_2) : 0), n = null, V2 && V2(_2);
-}, d.__r = function(_2) {
-  g && g(_2), i = 0;
-  var t4 = (n = _2.__c).__H;
+d.__b = function(_3) {
+  typeof _3.type != "function" || _3.o || _3.type === L ? _3.o || (_3.o = _3.__ && _3.__.o ? _3.__.o : "") : _3.o = (_3.__ && _3.__.o ? _3.__.o : "") + (_3.__ && _3.__.__k ? _3.__.__k.indexOf(_3) : 0), n = null, V2 && V2(_3);
+}, d.__r = function(_3) {
+  g && g(_3), i = 0;
+  var t4 = (n = _3.__c).__H;
   t4 && (d2 === n ? (t4.__h = [], n.__h = [], t4.__.forEach(function(u3) {
     u3.__N && (u3.__ = u3.__N), u3.__V = l, u3.__N = u3.i = void 0;
   })) : (t4.__h.forEach(m), t4.__h.forEach(p), t4.__h = [])), d2 = n;
-}, d.diffed = function(_2) {
-  b && b(_2);
-  var t4 = _2.__c;
+}, d.diffed = function(_3) {
+  b && b(_3);
+  var t4 = _3.__c;
   t4 && t4.__H && (t4.__H.__h.length && (q2.push(t4) !== 1 && N2 === d.requestAnimationFrame || ((N2 = d.requestAnimationFrame) || S2)(R2)), t4.__H.__.forEach(function(u3) {
     u3.i && (u3.__H = u3.i), u3.__V !== l && (u3.__ = u3.__V), u3.i = void 0, u3.__V = l;
   })), d2 = n = null;
-}, d.__c = function(_2, t4) {
+}, d.__c = function(_3, t4) {
   t4.some(function(u3) {
     try {
       u3.__h.forEach(m), u3.__h = u3.__h.filter(function(o3) {
@@ -7857,10 +8198,10 @@ d.__b = function(_2) {
         r.__h && (r.__h = []);
       }), t4 = [], d.__e(o3, u3.__v);
     }
-  }), C2 && C2(_2, t4);
-}, d.unmount = function(_2) {
-  A && A(_2);
-  var t4, u3 = _2.__c;
+  }), C2 && C2(_3, t4);
+}, d.unmount = function(_3) {
+  A && A(_3);
+  var t4, u3 = _3.__c;
   u3 && u3.__H && (u3.__H.__.forEach(function(o3) {
     try {
       m(o3);
@@ -7870,19 +8211,19 @@ d.__b = function(_2) {
   }), u3.__H = void 0, t4 && d.__e(t4, u3.__v));
 };
 var F2 = typeof requestAnimationFrame == "function";
-function S2(_2) {
+function S2(_3) {
   var t4, u3 = function() {
-    clearTimeout(o3), F2 && cancelAnimationFrame(t4), setTimeout(_2);
+    clearTimeout(o3), F2 && cancelAnimationFrame(t4), setTimeout(_3);
   }, o3 = setTimeout(u3, 100);
   F2 && (t4 = requestAnimationFrame(u3));
 }
-function m(_2) {
-  var t4 = n, u3 = _2.__c;
-  typeof u3 == "function" && (_2.__c = void 0, u3()), n = t4;
+function m(_3) {
+  var t4 = n, u3 = _3.__c;
+  typeof u3 == "function" && (_3.__c = void 0, u3()), n = t4;
 }
-function p(_2) {
+function p(_3) {
   var t4 = n;
-  _2.__c = _2.__(), n = t4;
+  _3.__c = _3.__(), n = t4;
 }
 
 // https://esm.sh/v106/memoize-one@6.0.0/deno/memoize-one.js
@@ -7891,23 +8232,23 @@ var s = Number.isNaN || function(r) {
 };
 
 // https://esm.sh/v106/lodash.throttle@4.1.1/deno/lodash.throttle.js
-var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B2 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P2 = Object.prototype.hasOwnProperty, D2 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t4, f3) => {
+var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B2 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P2 = Object.prototype.hasOwnProperty, D2 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t4, f4) => {
   if (n3 && typeof n3 == "object" || typeof n3 == "function")
     for (let i2 of F3(n3))
-      !P2.call(e3, i2) && i2 !== t4 && h(e3, i2, { get: () => n3[i2], enumerable: !(f3 = B2(n3, i2)) || f3.enumerable });
+      !P2.call(e3, i2) && i2 !== t4 && h(e3, i2, { get: () => n3[i2], enumerable: !(f4 = B2(n3, i2)) || f4.enumerable });
   return e3;
 }, H = (e3, n3, t4) => (t4 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t4, "default", { value: e3, enumerable: !0 }) : t4, e3)), L2 = D2((ce4, k4) => {
-  var _2 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z4 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K5 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z5 = Object.prototype, w4 = Z5.toString, ee4 = Math.max, ne4 = Math.min, j5 = function() {
+  var _3 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z5 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K5 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z6 = Object.prototype, w4 = Z6.toString, ee4 = Math.max, ne4 = Math.min, j5 = function() {
     return Y6.Date.now();
   };
   function te2(e3, n3, t4) {
-    var f3, i2, g5, c3, a, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
+    var f4, i2, g5, c3, a, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
+      throw new TypeError(_3);
     n3 = E3(n3) || 0, b4(t4) && (v2 = !!t4.leading, s4 = "maxWait" in t4, g5 = s4 ? ee4(E3(t4.maxWait) || 0, n3) : g5, y3 = "trailing" in t4 ? !!t4.trailing : y3);
     function p5(r) {
-      var o3 = f3, d3 = i2;
-      return f3 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
+      var o3 = f4, d3 = i2;
+      return f4 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
     }
     function C5(r) {
       return l2 = r, a = setTimeout(m4, n3), v2 ? p5(r) : c3;
@@ -7923,21 +8264,21 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     function m4() {
       var r = j5();
       if (x4(r))
-        return I5(r);
+        return I6(r);
       a = setTimeout(m4, M5(r));
     }
-    function I5(r) {
-      return a = void 0, y3 && f3 ? p5(r) : (f3 = i2 = void 0, c3);
+    function I6(r) {
+      return a = void 0, y3 && f4 ? p5(r) : (f4 = i2 = void 0, c3);
     }
     function N7() {
-      a !== void 0 && clearTimeout(a), l2 = 0, f3 = u3 = i2 = a = void 0;
+      a !== void 0 && clearTimeout(a), l2 = 0, f4 = u3 = i2 = a = void 0;
     }
     function $4() {
-      return a === void 0 ? c3 : I5(j5());
+      return a === void 0 ? c3 : I6(j5());
     }
     function T6() {
       var r = j5(), o3 = x4(r);
-      if (f3 = arguments, i2 = this, u3 = r, o3) {
+      if (f4 = arguments, i2 = this, u3 = r, o3) {
         if (a === void 0)
           return C5(u3);
         if (s4)
@@ -7948,10 +8289,10 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     return T6.cancel = N7, T6.flush = $4, T6;
   }
   function re4(e3, n3, t4) {
-    var f3 = !0, i2 = !0;
+    var f4 = !0, i2 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
-    return b4(t4) && (f3 = "leading" in t4 ? !!t4.leading : f3, i2 = "trailing" in t4 ? !!t4.trailing : i2), te2(e3, n3, { leading: f3, maxWait: n3, trailing: i2 });
+      throw new TypeError(_3);
+    return b4(t4) && (f4 = "leading" in t4 ? !!t4.leading : f4, i2 = "trailing" in t4 ? !!t4.trailing : i2), te2(e3, n3, { leading: f4, maxWait: n3, trailing: i2 });
   }
   function b4(e3) {
     var n3 = typeof e3;
@@ -7975,7 +8316,7 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     if (typeof e3 != "string")
       return e3 === 0 ? e3 : +e3;
     e3 = e3.replace(X6, "");
-    var t4 = z4.test(e3);
+    var t4 = z5.test(e3);
     return t4 || J4.test(e3) ? K5(e3.slice(2), t4 ? 2 : 8) : q6.test(e3) ? S7 : +e3;
   }
   k4.exports = re4;
@@ -8070,7 +8411,7 @@ function T2(t4, e3 = {}) {
   return i2 == "1" ? t4 : i2 == "0" ? "#0000" : t4.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i2})`);
 }
 function ct(t4, e3, r, n3, i2 = []) {
-  return function l2(o3, { n: a, p: s4, r: u3 = [], i: f3 }, c3) {
+  return function l2(o3, { n: a, p: s4, r: u3 = [], i: f4 }, c3) {
     let p5 = [], d3 = "", v2 = 0, g5 = 0;
     for (let h3 in o3 || {}) {
       var y3, A5;
@@ -8079,12 +8420,12 @@ function ct(t4, e3, r, n3, i2 = []) {
         if (!b4)
           continue;
         if (h3[1] == "a") {
-          p5.push(...ht(a, s4, N3("" + b4), c3, s4, u3, f3, !0));
+          p5.push(...ht(a, s4, N3("" + b4), c3, s4, u3, f4, !0));
           continue;
         }
         if (h3[1] == "l") {
           for (let m4 of x(b4))
-            p5.push(...l2(m4, { n: a, p: (y3 = w2[h3[7]], s4 & ~w2.o | y3), r: u3, i: f3 }, c3));
+            p5.push(...l2(m4, { n: a, p: (y3 = w2[h3[7]], s4 & ~w2.o | y3), r: u3, i: f4 }, c3));
           continue;
         }
         if (h3[1] == "i") {
@@ -8101,13 +8442,13 @@ function ct(t4, e3, r, n3, i2 = []) {
         }
       }
       if (typeof b4 != "object" || Array.isArray(b4))
-        h3 == "label" && b4 ? a = b4 + V3(JSON.stringify([s4, f3, o3])) : (b4 || b4 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g5 += 1, v2 = Math.max(v2, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x(b4).map((m4) => c3.s(h3, ft("" + m4, c3.theme) + (f3 ? " !important" : ""))).join(";"));
+        h3 == "label" && b4 ? a = b4 + V3(JSON.stringify([s4, f4, o3])) : (b4 || b4 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g5 += 1, v2 = Math.max(v2, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x(b4).map((m4) => c3.s(h3, ft("" + m4, c3.theme) + (f4 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
         let m4 = s4;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C5, $4) => {
           let j5 = c3.theme("screens", $4);
           return j5 ? (m4 |= 67108864, kt(j5, "")) : C5;
-        }), m4 |= X2(h3)), p5.push(...l2(b4, { n: a, p: m4, r: [...u3, h3], i: f3 }, c3));
+        }), m4 |= X2(h3)), p5.push(...l2(b4, { n: a, p: m4, r: [...u3, h3], i: f4 }, c3));
       } else
         p5.push(...l2(b4, { p: s4, r: [...u3, h3] }, c3));
     }
@@ -8129,17 +8470,17 @@ function pt(t4, e3) {
 function B3(t4, e3, r = w2.u, n3, i2) {
   let l2 = [];
   for (let o3 of t4)
-    for (let a of function(s4, u3, f3, c3, p5) {
+    for (let a of function(s4, u3, f4, c3, p5) {
       var d3;
       s4 = { ...s4, i: s4.i || p5 };
       let v2 = function(g5, y3) {
         let A5 = ut.get(g5.n);
         return A5 ? A5(g5, y3) : y3.r(g5.n, g5.v[0] == "dark");
       }(s4, u3);
-      return v2 ? typeof v2 == "string" ? ({ r: c3, p: f3 } = at(s4, u3, f3, c3), pt(B3(N3(v2), u3, f3, c3, s4.i), s4.n)) : Array.isArray(v2) ? v2.map((g5) => {
+      return v2 ? typeof v2 == "string" ? ({ r: c3, p: f4 } = at(s4, u3, f4, c3), pt(B3(N3(v2), u3, f4, c3, s4.i), s4.n)) : Array.isArray(v2) ? v2.map((g5) => {
         var y3, A5;
-        return { o: 0, ...g5, r: [...x(c3), ...x(g5.r)], p: (y3 = f3, A5 = (d3 = g5.p) != null ? d3 : f3, y3 & ~w2.o | A5) };
-      }) : ct(v2, s4, u3, f3, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
+        return { o: 0, ...g5, r: [...x(c3), ...x(g5.r)], p: (y3 = f4, A5 = (d3 = g5.p) != null ? d3 : f4, y3 & ~w2.o | A5) };
+      }) : ct(v2, s4, u3, f4, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
     }(o3, e3, r, n3, i2))
       l2.splice(St(l2, a), 0, a);
   return l2;
@@ -8150,8 +8491,8 @@ function ht(t4, e3, r, n3, i2, l2, o3, a) {
 function Ot(t4, e3, r, n3) {
   var i2;
   return i2 = (l2, o3) => {
-    let { n: a, p: s4, r: u3, i: f3 } = at(l2, o3, e3);
-    return r && ht(a, e3, r, o3, s4, u3, f3, n3);
+    let { n: a, p: s4, r: u3, i: f4 } = at(l2, o3, e3);
+    return r && ht(a, e3, r, o3, s4, u3, f4, n3);
   }, ut.set(t4, i2), t4;
 }
 function K2(t4, e3) {
@@ -8175,8 +8516,8 @@ var yt = /* @__PURE__ */ new Map();
 function N3(t4) {
   let e3 = yt.get(t4);
   if (!e3) {
-    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a = 0, s4 = (u3, f3 = 0) => {
-      i2 != a && (r.push(t4.slice(i2, a + f3)), u3 && K2(r, n3)), i2 = a + 1;
+    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a = 0, s4 = (u3, f4 = 0) => {
+      i2 != a && (r.push(t4.slice(i2, a + f4)), u3 && K2(r, n3)), i2 = a + 1;
     };
     for (; a < t4.length; a++) {
       let u3 = t4[a];
@@ -8194,20 +8535,20 @@ function N3(t4) {
         t4[a + 1] != ":" && s4(!1, 1);
       else if (/[\s,)]/.test(u3)) {
         s4(!0);
-        let f3 = r.lastIndexOf("(");
+        let f4 = r.lastIndexOf("(");
         if (u3 == ")") {
-          let c3 = r[f3 - 1];
+          let c3 = r[f4 - 1];
           if (/[~@]$/.test(c3)) {
             let p5 = n3.shift();
-            r.length = f3, K2([...r, "#"], n3);
+            r.length = f4, K2([...r, "#"], n3);
             let { v: d3 } = n3[0].pop();
             for (let v2 of p5)
               v2.v.splice(+(v2.v[0] == "dark") - +(d3[0] == "dark"), d3.length);
             K2([...r, Ot(c3.length > 1 ? c3.slice(0, -1) + V3(JSON.stringify([c3, p5])) : c3 + "(" + st(p5) + ")", w2.a, p5, /@$/.test(c3))], n3);
           }
-          f3 = r.lastIndexOf("(", f3 - 1);
+          f4 = r.lastIndexOf("(", f4 - 1);
         }
-        r.length = f3 + 1;
+        r.length = f4 + 1;
       } else
         /[~@]/.test(u3) && t4[a + 1] == "(" && n3.unshift([]);
     }
@@ -8323,10 +8664,10 @@ var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad
 function ce2({ n: e3, i: t4, v: r = [] }, i2, n3, l2) {
   e3 && (e3 = ae3({ n: e3, i: t4, v: r })), l2 = [...b2(l2)];
   for (let s4 of r) {
-    let f3 = i2.theme("screens", s4);
-    for (let a of b2(f3 && Ce(f3) || i2.v(s4))) {
+    let f4 = i2.theme("screens", s4);
+    for (let a of b2(f4 && Ce(f4) || i2.v(s4))) {
       var o3;
-      l2.push(a), n3 |= f3 ? 67108864 | re(a) : s4 == "dark" ? 1073741824 : a[0] == "@" ? re(a) : (o3 = a, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(a), n3 |= f4 ? 67108864 | re(a) : s4 == "dark" ? 1073741824 : a[0] == "@" ? re(a) : (o3 = a, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: e3, p: n3, r: l2, i: t4 };
@@ -8337,8 +8678,8 @@ function ne2(e3) {
     let t4 = [], r = H3(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t4.push(n3), i2) : n3 ? H3(i2, (l2) => H3(n3, (o3) => {
       let s4 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
       if (s4) {
-        let f3 = l2.indexOf(s4[1]);
-        return ~f3 ? l2.slice(0, f3) + s4[0] + l2.slice(f3 + s4[1].length) : Q3(l2, o3);
+        let f4 = l2.indexOf(s4[1]);
+        return ~f4 ? l2.slice(0, f4) + s4[0] + l2.slice(f4 + s4[1].length) : Q3(l2, o3);
       }
       return Q3(o3, l2);
     })) : i2, "&"), (i2) => Q3(i2, e3.n ? "." + Y3(e3.n) : ""));
@@ -8385,21 +8726,21 @@ function P3(e3, t4 = {}) {
   return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
 }
 function de(e3, t4, r, i2, n3 = []) {
-  return function l2(o3, { n: s4, p: f3, r: a = [], i: c3 }, u3) {
+  return function l2(o3, { n: s4, p: f4, r: a = [], i: c3 }, u3) {
     let p5 = [], g5 = "", y3 = 0, $4 = 0;
     for (let h3 in o3 || {}) {
-      var A5, R6;
+      var A5, R7;
       let d3 = o3[h3];
       if (h3[0] == "@") {
         if (!d3)
           continue;
         if (h3[1] == "a") {
-          p5.push(...ge(s4, f3, I2("" + d3), u3, f3, a, c3, !0));
+          p5.push(...ge(s4, f4, I2("" + d3), u3, f4, a, c3, !0));
           continue;
         }
         if (h3[1] == "l") {
           for (let w4 of b2(d3))
-            p5.push(...l2(w4, { n: s4, p: (A5 = S3[h3[7]], f3 & ~S3.o | A5), r: h3[7] == "d" ? [] : a, i: c3 }, u3));
+            p5.push(...l2(w4, { n: s4, p: (A5 = S3[h3[7]], f4 & ~S3.o | A5), r: h3[7] == "d" ? [] : a, i: c3 }, u3));
           continue;
         }
         if (h3[1] == "i") {
@@ -8416,23 +8757,23 @@ function de(e3, t4, r, i2, n3 = []) {
         }
       }
       if (typeof d3 != "object" || Array.isArray(d3))
-        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f3, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R6 = h3)[0] == "-" ? 0 : Ee(R6) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R6) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h3, he("" + w4, u3.theme) + (c3 ? " !important" : ""))).join(";"));
+        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f4, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R7 = h3)[0] == "-" ? 0 : Ee(R7) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R7) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h3, he("" + w4, u3.theme) + (c3 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
-        let w4 = f3;
+        let w4 = f4;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j5, M5) => {
           let N7 = u3.theme("screens", M5);
           return N7 ? (w4 |= 67108864, Ce(N7, "")) : j5;
         }), w4 |= re(h3)), p5.push(...l2(d3, { n: s4, p: w4, r: [...a, h3], i: c3 }, u3));
       } else
-        p5.push(...l2(d3, { p: f3, r: [...a, h3] }, u3));
+        p5.push(...l2(d3, { p: f4, r: [...a, h3] }, u3));
     }
-    return p5.unshift({ n: s4, p: f3, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a, d: g5 }), p5.sort(Ne);
+    return p5.unshift({ n: s4, p: f4, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a, d: g5 }), p5.sort(Ne);
   }(e3, ce2(t4, r, i2, n3), r);
 }
 function he(e3, t4) {
   return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, i2, n3, l2, o3 = "") => {
     let s4 = t4(n3, o3);
-    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P3(s4) : "" + b2(s4).filter((f3) => Object(f3) !== f3);
+    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P3(s4) : "" + b2(s4).filter((f4) => Object(f4) !== f4);
   });
 }
 function ye(e3, t4) {
@@ -8444,28 +8785,28 @@ function ye(e3, t4) {
 function W4(e3, t4, r = S3.u, i2, n3) {
   let l2 = [];
   for (let o3 of e3)
-    for (let s4 of function(f3, a, c3, u3, p5) {
-      f3 = { ...f3, i: f3.i || p5 };
+    for (let s4 of function(f4, a, c3, u3, p5) {
+      f4 = { ...f4, i: f4.i || p5 };
       let g5 = function(y3, $4) {
         let A5 = pe.get(y3.n);
         return A5 ? A5(y3, $4) : $4.r(y3.n, y3.v[0] == "dark");
-      }(f3, a);
-      return g5 ? typeof g5 == "string" ? ({ r: u3, p: c3 } = ce2(f3, a, c3, u3), ye(W4(I2(g5), a, c3, u3, f3.i), f3.n)) : Array.isArray(g5) ? g5.map((y3) => {
+      }(f4, a);
+      return g5 ? typeof g5 == "string" ? ({ r: u3, p: c3 } = ce2(f4, a, c3, u3), ye(W4(I2(g5), a, c3, u3, f4.i), f4.n)) : Array.isArray(g5) ? g5.map((y3) => {
         var $4, A5;
         return { o: 0, ...y3, r: [...b2(u3), ...b2(y3.r)], p: ($4 = c3, A5 = y3.p ?? c3, $4 & ~S3.o | A5) };
-      }) : de(g5, f3, a, c3, u3) : [{ c: ae3(f3), p: 0, o: 0, r: [] }];
+      }) : de(g5, f4, a, c3, u3) : [{ c: ae3(f4), p: 0, o: 0, r: [] }];
     }(o3, t4, r, i2, n3))
       l2.splice(Me(l2, s4), 0, s4);
   return l2;
 }
 function ge(e3, t4, r, i2, n3, l2, o3, s4) {
-  return ye((s4 ? r.flatMap((f3) => W4([f3], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f3) => f3.p & S3.o && (f3.n || t4 == S3.b) ? { ...f3, p: f3.p & ~S3.o | t4, o: 0 } : f3), e3);
+  return ye((s4 ? r.flatMap((f4) => W4([f4], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f4) => f4.p & S3.o && (f4.n || t4 == S3.b) ? { ...f4, p: f4.p & ~S3.o | t4, o: 0 } : f4), e3);
 }
 function _e2(e3, t4, r, i2) {
   var n3;
   return n3 = (l2, o3) => {
-    let { n: s4, p: f3, r: a, i: c3 } = ce2(l2, o3, t4);
-    return r && ge(s4, t4, r, o3, f3, a, c3, i2);
+    let { n: s4, p: f4, r: a, i: c3 } = ce2(l2, o3, t4);
+    return r && ge(s4, t4, r, o3, f4, a, c3, i2);
   }, pe.set(e3, n3), e3;
 }
 function K3(e3, t4, r) {
@@ -8489,7 +8830,7 @@ var Se = /* @__PURE__ */ new Map();
 function I2(e3) {
   let t4 = Se.get(e3);
   if (!t4) {
-    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f3 = (a, c3 = 0) => {
+    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f4 = (a, c3 = 0) => {
       n3 != s4 && (r.push(e3.slice(n3, s4 + c3)), a && K3(r, i2)), n3 = s4 + 1;
     };
     for (; s4 < e3.length; s4++) {
@@ -8503,11 +8844,11 @@ function I2(e3) {
       else if (a == "/" && e3[s4 - 1] != "\\" && (e3[s4 + 1] == "*" || e3[s4 + 1] == "/"))
         o3 = e3[s4 + 1] == "*" ? /^\*\// : /^[\r\n]/;
       else if (a == "(")
-        f3(), r.push(a);
+        f4(), r.push(a);
       else if (a == ":")
-        e3[s4 + 1] != ":" && f3(!1, 1);
+        e3[s4 + 1] != ":" && f4(!1, 1);
       else if (/[\s,)]/.test(a)) {
-        f3(!0);
+        f4(!0);
         let c3 = r.lastIndexOf("(");
         if (a == ")") {
           let u3 = r[c3 - 1];
@@ -8525,7 +8866,7 @@ function I2(e3) {
       } else
         /[~@]/.test(a) && e3[s4 + 1] == "(" && i2.unshift([]);
     }
-    f3(!0), Se.set(e3, t4 = i2[0]);
+    f4(!0), Se.set(e3, t4 = i2[0]);
   }
   return t4;
 }
@@ -8620,15 +8961,15 @@ function Ye(e3 = {}, t4) {
     let s4 = i2.theme(n3, l2) || oe3(l2, n3, i2);
     if (!s4 || typeof s4 == "object")
       return;
-    let { opacityVariable: f3 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p5 = i2.theme(a, o3 || "DEFAULT") || o3 && oe3(o3, a, i2), g5 = t4 || (({ _: $4 }) => {
+    let { opacityVariable: f4 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p5 = i2.theme(a, o3 || "DEFAULT") || o3 && oe3(o3, a, i2), g5 = t4 || (({ _: $4 }) => {
       let A5 = He(c3, $4);
       return u3 ? { [u3]: A5 } : A5;
     });
-    r._ = { value: P3(s4, { opacityVariable: f3 || void 0, opacityValue: p5 || void 0 }), color: ($4) => P3(s4, $4), opacityVariable: f3 || void 0, opacityValue: p5 || void 0 };
+    r._ = { value: P3(s4, { opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }), color: ($4) => P3(s4, $4), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 };
     let y3 = g5(r, i2);
     if (!r.dark) {
       let $4 = i2.d(n3, l2, s4);
-      $4 && $4 !== s4 && (r._ = { value: P3($4, { opacityVariable: f3 || void 0, opacityValue: p5 || "1" }), color: (A5) => P3($4, A5), opacityVariable: f3 || void 0, opacityValue: p5 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
+      $4 && $4 !== s4 && (r._ = { value: P3($4, { opacityVariable: f4 || void 0, opacityValue: p5 || "1" }), color: (A5) => P3($4, A5), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
     }
     return y3;
   };
@@ -8874,7 +9215,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               return new Promise(function(c3) {
                 return setTimeout(c3, 1e3 * t4);
               });
-            }, R6 = function() {
+            }, R7 = function() {
               document.activeElement && document.activeElement.blur();
             }, W7 = function() {
               var t4 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c3) {
@@ -8921,49 +9262,49 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 });
               }
             }, he2 = u3.alert = function(t4) {
-              var c3 = t4.type, s4 = c3 === void 0 ? 4 : c3, d3 = t4.text, i2 = t4.time, k4 = i2 === void 0 ? e3.alertTime : i2, H6 = t4.stay, S7 = H6 !== void 0 && H6, h3 = t4.position, p5 = h3 === void 0 ? e3.positions.alert || p5.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f3 = W7();
-              l2.id = f3, l2.position = p5, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
-                return O4(f3, p5);
+              var c3 = t4.type, s4 = c3 === void 0 ? 4 : c3, d3 = t4.text, i2 = t4.time, k4 = i2 === void 0 ? e3.alertTime : i2, H7 = t4.stay, S7 = H7 !== void 0 && H7, h3 = t4.position, p5 = h3 === void 0 ? e3.positions.alert || p5.top : h3;
+              R7(), F8();
+              var l2 = document.createElement("div"), f4 = W7();
+              l2.id = f4, l2.position = p5, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
+                return O4(f4, p5);
               }, l2.listener = function(n3) {
                 ($4(n3) || ee4(n3)) && F8();
               }, K5(l2, p5), k4 && k4 < 1 && (k4 = 1), !S7 && k4 && oe5(k4).then(function() {
-                return O4(f3, p5);
+                return O4(f4, p5);
               });
             }, ke2 = u3.force = function(t4, c3) {
-              var s4 = t4.type, d3 = s4 === void 0 ? 5 : s4, i2 = t4.text, k4 = t4.buttonText, H6 = k4 === void 0 ? "OK" : k4, S7 = t4.callback, h3 = t4.position, p5 = h3 === void 0 ? e3.positions.force || p5.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f3 = W7();
-              l2.id = f3;
+              var s4 = t4.type, d3 = s4 === void 0 ? 5 : s4, i2 = t4.text, k4 = t4.buttonText, H7 = k4 === void 0 ? "OK" : k4, S7 = t4.callback, h3 = t4.position, p5 = h3 === void 0 ? e3.positions.force || p5.top : h3;
+              R7(), F8();
+              var l2 = document.createElement("div"), f4 = W7();
+              l2.id = f4;
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.textbox), n3.classList.add(e3.classes.backgroundInfo), n3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + i2 + "</div>";
               var r = document.createElement("div");
-              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H6, r.onclick = function() {
-                O4(f3, p5), j5(), S7 ? S7() : c3 && c3();
+              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H7, r.onclick = function() {
+                O4(f4, p5), j5(), S7 ? S7() : c3 && c3();
               }, l2.appendChild(n3), l2.appendChild(r), l2.listener = function(C5) {
                 $4(C5) && r.click();
               }, K5(l2, p5), te2();
             }, Ce3 = u3.confirm = function(t4, c3, s4) {
-              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Yes" : i2, H6 = t4.cancelText, S7 = H6 === void 0 ? "Cancel" : H6, h3 = t4.submitCallback, p5 = t4.cancelCallback, l2 = t4.position, f3 = l2 === void 0 ? e3.positions.confirm || f3.top : l2;
-              R6(), F8();
+              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Yes" : i2, H7 = t4.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t4.submitCallback, p5 = t4.cancelCallback, l2 = t4.position, f4 = l2 === void 0 ? e3.positions.confirm || f4.top : l2;
+              R7(), F8();
               var n3 = document.createElement("div"), r = W7();
               n3.id = r;
               var C5 = document.createElement("div");
               C5.classList.add(e3.classes.textbox), C5.classList.add(e3.classes.backgroundInfo), C5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
               var x4 = document.createElement("div");
               x4.classList.add(e3.classes.button), x4.classList.add(e3.classes.elementHalf), x4.classList.add(e3.classes.backgroundSuccess), x4.innerHTML = k4, x4.onclick = function() {
-                O4(r, f3), j5(), h3 ? h3() : c3 && c3();
+                O4(r, f4), j5(), h3 ? h3() : c3 && c3();
               };
               var a = document.createElement("div");
               a.classList.add(e3.classes.button), a.classList.add(e3.classes.elementHalf), a.classList.add(e3.classes.backgroundError), a.innerHTML = S7, a.onclick = function() {
-                O4(r, f3), j5(), p5 ? p5() : s4 && s4();
+                O4(r, f4), j5(), p5 ? p5() : s4 && s4();
               }, n3.appendChild(C5), n3.appendChild(x4), n3.appendChild(a), n3.listener = function(E3) {
                 $4(E3) ? x4.click() : ee4(E3) && a.click();
-              }, K5(n3, f3), te2(n3, f3);
+              }, K5(n3, f4), te2(n3, f4);
             }, ve2 = function(t4, c3, s4) {
-              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Submit" : i2, H6 = t4.cancelText, S7 = H6 === void 0 ? "Cancel" : H6, h3 = t4.submitCallback, p5 = t4.cancelCallback, l2 = t4.position, f3 = l2 === void 0 ? e3.positions.input || f3.top : l2, n3 = g5(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
-              R6(), F8();
+              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Submit" : i2, H7 = t4.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t4.submitCallback, p5 = t4.cancelCallback, l2 = t4.position, f4 = l2 === void 0 ? e3.positions.input || f4.top : l2, n3 = g5(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+              R7(), F8();
               var r = document.createElement("div"), C5 = W7();
               r.id = C5;
               var x4 = document.createElement("div");
@@ -8972,8 +9313,8 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               a.classList.add(e3.classes.inputField), a.setAttribute("autocapitalize", n3.autocapitalize || "none"), a.setAttribute("autocomplete", n3.autocomplete || "off"), a.setAttribute("autocorrect", n3.autocorrect || "off"), a.setAttribute("autofocus", n3.autofocus || "true"), a.setAttribute("inputmode", n3.inputmode || "verbatim"), a.setAttribute("max", n3.max || ""), a.setAttribute("maxlength", n3.maxlength || ""), a.setAttribute("min", n3.min || ""), a.setAttribute("minlength", n3.minlength || ""), a.setAttribute("placeholder", n3.placeholder || ""), a.setAttribute("spellcheck", n3.spellcheck || "default"), a.setAttribute("step", n3.step || "any"), a.setAttribute("type", n3.type || "text"), a.value = n3.value || "", n3.allowed && (a.oninput = function() {
                 var M5 = void 0;
                 if (Array.isArray(n3.allowed)) {
-                  for (var w4 = "", _2 = n3.allowed, P7 = 0; P7 < _2.length; P7++)
-                    _2[P7] === "an" ? w4 += "0-9a-zA-Z" : _2[P7] === "a" ? w4 += "a-zA-Z" : _2[P7] === "n" && (w4 += "0-9"), _2[P7] === "s" && (w4 += " ");
+                  for (var w4 = "", _3 = n3.allowed, P7 = 0; P7 < _3.length; P7++)
+                    _3[P7] === "an" ? w4 += "0-9a-zA-Z" : _3[P7] === "a" ? w4 += "a-zA-Z" : _3[P7] === "n" && (w4 += "0-9"), _3[P7] === "s" && (w4 += " ");
                   M5 = new RegExp("[^" + w4 + "]", "g");
                 } else
                   T6(n3.allowed) === "object" && (M5 = n3.allowed);
@@ -8981,26 +9322,26 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               });
               var E3 = document.createElement("div");
               E3.classList.add(e3.classes.button), E3.classList.add(e3.classes.elementHalf), E3.classList.add(e3.classes.backgroundSuccess), E3.innerHTML = k4, E3.onclick = function() {
-                O4(C5, f3), j5(), h3 ? h3(a.value) : c3 && c3(a.value);
+                O4(C5, f4), j5(), h3 ? h3(a.value) : c3 && c3(a.value);
               };
               var D7 = document.createElement("div");
               D7.classList.add(e3.classes.button), D7.classList.add(e3.classes.elementHalf), D7.classList.add(e3.classes.backgroundError), D7.innerHTML = S7, D7.onclick = function() {
-                O4(C5, f3), j5(), p5 ? p5(a.value) : s4 && s4(a.value);
+                O4(C5, f4), j5(), p5 ? p5(a.value) : s4 && s4(a.value);
               }, r.appendChild(x4), r.appendChild(a), r.appendChild(E3), r.appendChild(D7), r.listener = function(M5) {
                 $4(M5) ? E3.click() : ee4(M5) && D7.click();
-              }, K5(r, f3), a.focus(), te2(r, f3);
+              }, K5(r, f4), a.focus(), te2(r, f4);
             };
             u3.input = ve2;
             var Ee2 = u3.select = function(t4, c3) {
-              var s4 = t4.text, d3 = t4.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k4 = t4.cancelCallback, H6 = t4.choices, S7 = t4.position, h3 = S7 === void 0 ? e3.positions.select || h3.top : S7;
-              R6(), F8();
+              var s4 = t4.text, d3 = t4.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k4 = t4.cancelCallback, H7 = t4.choices, S7 = t4.position, h3 = S7 === void 0 ? e3.positions.select || h3.top : S7;
+              R7(), F8();
               var p5 = document.createElement("div"), l2 = W7();
               p5.id = l2;
-              var f3 = document.createElement("div");
-              f3.classList.add(e3.classes.textbox), f3.classList.add(e3.classes.backgroundInfo), f3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p5.appendChild(f3), H6.forEach(function(r, C5) {
+              var f4 = document.createElement("div");
+              f4.classList.add(e3.classes.textbox), f4.classList.add(e3.classes.backgroundInfo), f4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p5.appendChild(f4), H7.forEach(function(r, C5) {
                 var x4 = r.type, a = x4 === void 0 ? 1 : x4, E3 = r.text, D7 = r.handler, M5 = document.createElement("div");
                 M5.classList.add(le4[a]), M5.classList.add(e3.classes.button), M5.classList.add(e3.classes.selectChoice);
-                var w4 = H6[C5 + 1];
+                var w4 = H7[C5 + 1];
                 w4 && !w4.type && (w4.type = 1), w4 && w4.type === a && M5.classList.add(e3.classes.selectChoiceRepeated), M5.innerHTML = E3, M5.onclick = function() {
                   O4(l2, h3), j5(), D7();
                 }, p5.appendChild(M5);
@@ -9012,65 +9353,65 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee4(r) && n3.click();
               }, K5(p5, h3), te2(p5, h3);
             }, Te = u3.date = function(t4, c3, s4) {
-              var d3 = t4.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t4.submitText, H6 = k4 === void 0 ? "OK" : k4, S7 = t4.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p5 = t4.submitCallback, l2 = t4.cancelCallback, f3 = t4.position, n3 = f3 === void 0 ? e3.positions.date || n3.top : f3;
-              R6(), F8();
-              var r = "&#9662", C5 = document.createElement("div"), x4 = document.createElement("div"), a = document.createElement("div"), E3 = function(L6) {
-                C5.innerHTML = e3.dateMonths[L6.getMonth()], x4.innerHTML = L6.getDate(), a.innerHTML = L6.getFullYear();
-              }, D7 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
-                Number(Q6) > N7 && (Q6 = N7.toString()), L6.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
-              }, M5 = function(L6) {
-                var N7 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
-                L6.target.textContent = N7, i2.setFullYear(Number(N7));
-              }, w4 = function(L6) {
+              var d3 = t4.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t4.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t4.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p5 = t4.submitCallback, l2 = t4.cancelCallback, f4 = t4.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
+              R7(), F8();
+              var r = "&#9662", C5 = document.createElement("div"), x4 = document.createElement("div"), a = document.createElement("div"), E3 = function(L7) {
+                C5.innerHTML = e3.dateMonths[L7.getMonth()], x4.innerHTML = L7.getDate(), a.innerHTML = L7.getFullYear();
+              }, D7 = function(L7) {
+                var N7 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
+                Number(Q6) > N7 && (Q6 = N7.toString()), L7.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
+              }, M5 = function(L7) {
+                var N7 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
+                L7.target.textContent = N7, i2.setFullYear(Number(N7));
+              }, w4 = function(L7) {
                 E3(i2);
-              }, _2 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + L6 + 1, 0).getDate();
-                i2.getDate() > N7 && i2.setDate(N7), i2.setMonth(i2.getMonth() + L6), E3(i2);
-              }, P7 = function(L6) {
-                i2.setDate(i2.getDate() + L6), E3(i2);
-              }, be = function(L6) {
-                var N7 = i2.getFullYear() + L6;
-                N7 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L6), E3(i2);
+              }, _3 = function(L7) {
+                var N7 = new Date(i2.getFullYear(), i2.getMonth() + L7 + 1, 0).getDate();
+                i2.getDate() > N7 && i2.setDate(N7), i2.setMonth(i2.getMonth() + L7), E3(i2);
+              }, P7 = function(L7) {
+                i2.setDate(i2.getDate() + L7), E3(i2);
+              }, be = function(L7) {
+                var N7 = i2.getFullYear() + L7;
+                N7 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L7), E3(i2);
               }, Y6 = document.createElement("div"), de2 = W7();
               Y6.id = de2;
               var ue3 = document.createElement("div");
               ue3.classList.add(e3.classes.backgroundInfo);
-              var I5 = document.createElement("div");
-              I5.classList.add(e3.classes.dateSelectorInner);
-              var Z5 = document.createElement("div");
-              Z5.classList.add(e3.classes.button), Z5.classList.add(e3.classes.elementThird), Z5.classList.add(e3.classes.dateSelectorUp), Z5.innerHTML = r;
+              var I6 = document.createElement("div");
+              I6.classList.add(e3.classes.dateSelectorInner);
+              var Z6 = document.createElement("div");
+              Z6.classList.add(e3.classes.button), Z6.classList.add(e3.classes.elementThird), Z6.classList.add(e3.classes.dateSelectorUp), Z6.innerHTML = r;
               var q6 = document.createElement("div");
               q6.classList.add(e3.classes.button), q6.classList.add(e3.classes.elementThird), q6.classList.add(e3.classes.dateSelectorUp), q6.innerHTML = r;
-              var G7 = document.createElement("div");
-              G7.classList.add(e3.classes.button), G7.classList.add(e3.classes.elementThird), G7.classList.add(e3.classes.dateSelectorUp), G7.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x4.classList.add(e3.classes.element), x4.classList.add(e3.classes.elementThird), x4.setAttribute("contentEditable", !0), x4.addEventListener("input", D7), x4.addEventListener("blur", w4), x4.innerHTML = i2.getDate(), a.classList.add(e3.classes.element), a.classList.add(e3.classes.elementThird), a.setAttribute("contentEditable", !0), a.addEventListener("input", M5), a.addEventListener("blur", w4), a.innerHTML = i2.getFullYear();
+              var G8 = document.createElement("div");
+              G8.classList.add(e3.classes.button), G8.classList.add(e3.classes.elementThird), G8.classList.add(e3.classes.dateSelectorUp), G8.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x4.classList.add(e3.classes.element), x4.classList.add(e3.classes.elementThird), x4.setAttribute("contentEditable", !0), x4.addEventListener("input", D7), x4.addEventListener("blur", w4), x4.innerHTML = i2.getDate(), a.classList.add(e3.classes.element), a.classList.add(e3.classes.elementThird), a.setAttribute("contentEditable", !0), a.addEventListener("input", M5), a.addEventListener("blur", w4), a.innerHTML = i2.getFullYear();
               var ne4 = document.createElement("div");
               ne4.classList.add(e3.classes.button), ne4.classList.add(e3.classes.elementThird), ne4.innerHTML = r;
               var se3 = document.createElement("div");
               se3.classList.add(e3.classes.button), se3.classList.add(e3.classes.elementThird), se3.innerHTML = r;
               var ae5 = document.createElement("div");
-              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z5.onclick = function() {
-                return _2(1);
+              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z6.onclick = function() {
+                return _3(1);
               }, q6.onclick = function() {
                 return P7(1);
-              }, G7.onclick = function() {
+              }, G8.onclick = function() {
                 return be(1);
               }, ne4.onclick = function() {
-                return _2(-1);
+                return _3(-1);
               }, se3.onclick = function() {
                 return P7(-1);
               }, ae5.onclick = function() {
                 return be(-1);
               };
-              var z4 = document.createElement("div");
-              z4.classList.add(e3.classes.button), z4.classList.add(e3.classes.elementHalf), z4.classList.add(e3.classes.backgroundSuccess), z4.innerHTML = H6, z4.onclick = function() {
+              var z5 = document.createElement("div");
+              z5.classList.add(e3.classes.button), z5.classList.add(e3.classes.elementHalf), z5.classList.add(e3.classes.backgroundSuccess), z5.innerHTML = H7, z5.onclick = function() {
                 O4(de2, n3), j5(), p5 ? p5(i2) : c3 && c3(i2);
               };
               var U5 = document.createElement("div");
               U5.classList.add(e3.classes.button), U5.classList.add(e3.classes.elementHalf), U5.classList.add(e3.classes.backgroundError), U5.innerHTML = h3, U5.onclick = function() {
                 O4(de2, n3), j5(), l2 ? l2(i2) : s4 && s4(i2);
-              }, I5.appendChild(Z5), I5.appendChild(q6), I5.appendChild(G7), I5.appendChild(C5), I5.appendChild(x4), I5.appendChild(a), I5.appendChild(ne4), I5.appendChild(se3), I5.appendChild(ae5), ue3.appendChild(I5), Y6.appendChild(ue3), Y6.appendChild(z4), Y6.appendChild(U5), Y6.listener = function(L6) {
-                $4(L6) ? z4.click() : ee4(L6) && U5.click();
+              }, I6.appendChild(Z6), I6.appendChild(q6), I6.appendChild(G8), I6.appendChild(C5), I6.appendChild(x4), I6.appendChild(a), I6.appendChild(ne4), I6.appendChild(se3), I6.appendChild(ae5), ue3.appendChild(I6), Y6.appendChild(ue3), Y6.appendChild(z5), Y6.appendChild(U5), Y6.listener = function(L7) {
+                $4(L7) ? z5.click() : ee4(L7) && U5.click();
               }, K5(Y6, n3), te2(Y6, n3);
             };
             u3.default = { alert: he2, force: ke2, confirm: Ce3, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F8 };
@@ -9101,8 +9442,8 @@ function p4(r) {
     if (n3.transform) {
       let e3 = n3.transform;
       return n3 = n3.input, { input: n3, transform(t4, o3, s4) {
-        let f3 = r(t4, o3, ...s4);
-        return (...l2) => e3(t4, f3, l2);
+        let f4 = r(t4, o3, ...s4);
+        return (...l2) => e3(t4, f4, l2);
       } };
     } else
       return { input: n3, transform(e3, t4, o3) {
@@ -9302,6 +9643,71 @@ typeof document < "u" && (B6 = window.hotkeys, v.noConflict = function(e3) {
   return e3 && window.hotkeys === v && (window.hotkeys = B6), v;
 }, window.hotkeys = v);
 var B6;
+
+// https://esm.sh/v106/immersive-translate@1.0.5/deno/immersive-translate.js
+var R6 = "poegempjloogba", L5 = "ension://";
+var I5 = "rome-ext";
+var z4 = "ch" + I5 + L5 + "cofdb" + R6 + "gkncekinflcnj";
+var f3 = "Immersive Translate", G7 = class {
+  #e = performance.now();
+  reset() {
+    this.#e = performance.now();
+  }
+  stop(e3) {
+    let t4 = performance.now(), n3 = Math.round(t4 - this.#e);
+    console.debug(f3 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t4;
+  }
+}, H6 = class {
+  #e = 1;
+  get level() {
+    return this.#e;
+  }
+  setLevel(e3) {
+    switch (e3) {
+      case "debug":
+        this.#e = 0;
+        break;
+      case "info":
+        this.#e = 1;
+        break;
+      case "warn":
+        this.#e = 2;
+        break;
+      case "error":
+        this.#e = 3;
+        break;
+      case "fatal":
+        this.#e = 4;
+        break;
+    }
+  }
+  debug(...e3) {
+    this.#e <= 0 && console.log(f3 + " DEBUG:", ...e3);
+  }
+  v(...e3) {
+    this.#e <= 0 && console.log(f3 + " VERBOSE:", ...e3);
+  }
+  info(...e3) {
+    this.#e <= 1 && console.log(f3 + " INFO:", ...e3);
+  }
+  l(...e3) {
+    this.#e <= 1 && console.log(f3 + " TEMP INFO:", ...e3);
+  }
+  warn(...e3) {
+    this.#e <= 2 && console.warn(f3 + " WARN:", ...e3);
+  }
+  error(...e3) {
+    this.#e <= 3 && console.error(f3 + " ERROR:", ...e3);
+  }
+  fatal(...e3) {
+    this.#e <= 4 && console.error(f3 + " FATAL:", ...e3);
+  }
+  timing() {
+    return this.level === 0 ? new G7() : { reset: () => {
+    }, stop: () => {
+    } };
+  }
+}, _2 = new H6();
 
 // deps.ts
 var toast = Fe.alert;
@@ -9906,7 +10312,7 @@ var request_modifier_rule_default = [{
       {
         header: "origin",
         operation: "set",
-        value: "https://www.deepl.com"
+        value: "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
       },
       {
         header: "DNT",
@@ -9922,6 +10328,38 @@ var request_modifier_rule_default = [{
   },
   condition: {
     urlFilter: "https://api.deepl.com/jsonrpc*",
+    resourceTypes: ["xmlhttprequest"],
+    domainType: "thirdParty",
+    initiatorDomains: [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  id: 201,
+  priority: 1,
+  action: {
+    type: "modifyHeaders",
+    requestHeaders: [
+      {
+        header: "Referer",
+        operation: "set",
+        value: "https://www.deepl.com/"
+      },
+      {
+        header: "origin",
+        operation: "set",
+        value: "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
+      },
+      {
+        header: "sec-fetch-site",
+        operation: "set",
+        value: "same-site"
+      }
+    ]
+  },
+  condition: {
+    urlFilter: "https://w.deepl.com/oidc/token",
     resourceTypes: ["xmlhttprequest"],
     domainType: "thirdParty",
     initiatorDomains: [
@@ -10570,7 +11008,7 @@ function t3(key, interfaceLanguage, params) {
 var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
   {
     id: "toggleTranslatePage",
-    contexts: ["page", ...actions]
+    contexts: ["page", "selection", ...actions]
   },
   {
     id: contextOpenOptionsMenuId,
@@ -10583,12 +11021,15 @@ var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus
 ];
 async function createContextMenu(config) {
   log_default.debug("createContextMenu", menus), await browserAPI.contextMenus.removeAll();
-  for (let menu of menus)
-    config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (menu.contexts = menu.contexts.filter((item) => item !== "page")), browserAPI.contextMenus.create({
+  for (let menu of menus) {
+    let visible = !0;
+    config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (visible = !1), browserAPI.contextMenus.create({
       id: menu.id,
       title: t3(`browser.${menu.id}`, config.interfaceLanguage),
-      contexts: menu.contexts
+      contexts: menu.contexts,
+      visible
     }, () => browserAPI.runtime.lastError);
+  }
 }
 async function setupContextMenuListeners(config) {
   browserAPI.contextMenus.onClicked.addListener(

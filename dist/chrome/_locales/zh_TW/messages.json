@@ -21,7 +21,7 @@
     "message": "打開設置頁"
   },
   "toggleTranslationMask": {
-    "message": "显示/隐藏译文模糊效果"
+    "message": "顯示/隱藏譯文模糊效果"
   },
   "translateLocalPdfFile": {
     "message": "翻譯本地 PDF 文件"

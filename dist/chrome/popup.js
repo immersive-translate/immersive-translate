@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-14T09:48:19.840Z", VERSION: "0.2.59", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-19T04:47:59.772Z", VERSION: "0.2.62", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3695,7 +3695,13 @@ body {
     opacity: 0.5;
     width: 36px;
     height: 36px;
-    border-radius: 9999999px;
+    border-radius: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform ease-out 250ms;
+    transition: -webkit-transform ease-out 250ms;
+    transition: transform ease-out 250ms;
+    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
   }
   .immersive-translate-popup-btn > svg {
   }
@@ -4665,37 +4671,6 @@ function deferred() {
   return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
 }
 
-// https://deno.land/std@0.171.0/async/deadline.ts
-var DeadlineError = class extends Error {
-  constructor() {
-    super("Deadline"), this.name = "DeadlineError";
-  }
-};
-function deadline(p6, delay2) {
-  let d3 = deferred(), t3 = setTimeout(() => d3.reject(new DeadlineError()), delay2);
-  return Promise.race([p6, d3]).finally(() => clearTimeout(t3));
-}
-
-// https://deno.land/std@0.171.0/async/delay.ts
-function delay(ms, options = {}) {
-  let { signal, persistent } = options;
-  return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
-    let abort = () => {
-      clearTimeout(i2), reject(new DOMException("Delay was aborted.", "AbortError"));
-    }, i2 = setTimeout(() => {
-      signal?.removeEventListener("abort", abort), resolve();
-    }, ms);
-    if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
-      try {
-        Deno.unrefTimer(i2);
-      } catch (error) {
-        if (!(error instanceof ReferenceError))
-          throw error;
-        console.error("`persistent` option is only available in Deno");
-      }
-  });
-}
-
 // https://deno.land/std@0.171.0/async/mux_async_iterator.ts
 var MuxAsyncIterator = class {
   #iteratorCount = 0;
@@ -4989,26 +4964,10 @@ function stripColor(string) {
   return string.replace(ANSI_PATTERN, "");
 }
 
-// https://deno.land/std@0.167.0/async/debounce.ts
-function debounce(fn, wait) {
-  let timeout = null, flush = null, debounced = (...args) => {
-    debounced.clear(), flush = () => {
-      debounced.clear(), fn.call(debounced, ...args);
-    }, timeout = setTimeout(flush, wait);
-  };
-  return debounced.clear = () => {
-    typeof timeout == "number" && (clearTimeout(timeout), timeout = null, flush = null);
-  }, debounced.flush = () => {
-    flush?.();
-  }, Object.defineProperty(debounced, "pending", {
-    get: () => typeof timeout == "number"
-  }), debounced;
-}
-
 // https://deno.land/std@0.170.0/async/retry.ts
 var RetryError = class extends Error {
-  constructor(cause, count2) {
-    super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+  constructor(cause, count) {
+    super(`Exceeded max retry count (${count})`), this.name = "RetryError", this.cause = cause;
   }
 }, defaultRetryOptions = {
   multiplier: 2,
@@ -5036,25 +4995,25 @@ async function retry(fn, opts) {
 // https://esm.sh/stable/preact@10.11.0/deno/preact.js
 var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function k(e3, t3) {
-  for (var _2 in t3)
-    e3[_2] = t3[_2];
+  for (var _3 in t3)
+    e3[_3] = t3[_3];
   return e3;
 }
 function j(e3) {
   var t3 = e3.parentNode;
   t3 && t3.removeChild(e3);
 }
-function ee(e3, t3, _2) {
+function ee(e3, t3, _3) {
   var r, l2, o3, s4 = {};
   for (o3 in t3)
     o3 == "key" ? r = t3[o3] : o3 == "ref" ? l2 = t3[o3] : s4[o3] = t3[o3];
-  if (arguments.length > 2 && (s4.children = arguments.length > 3 ? P.call(arguments, 2) : _2), typeof e3 == "function" && e3.defaultProps != null)
+  if (arguments.length > 2 && (s4.children = arguments.length > 3 ? P.call(arguments, 2) : _3), typeof e3 == "function" && e3.defaultProps != null)
     for (o3 in e3.defaultProps)
       s4[o3] === void 0 && (s4[o3] = e3.defaultProps[o3]);
   return w(e3, s4, r, l2, null);
 }
-function w(e3, t3, _2, r, l2) {
-  var o3 = { type: e3, props: t3, key: _2, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
+function w(e3, t3, _3, r, l2) {
+  var o3 = { type: e3, props: t3, key: _3, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
   return l2 == null && d.vnode != null && d.vnode(o3), o3;
 }
 function L(e3) {
@@ -5066,17 +5025,17 @@ function U(e3, t3) {
 function C(e3, t3) {
   if (t3 == null)
     return e3.__ ? C(e3.__, e3.__.__k.indexOf(e3) + 1) : null;
-  for (var _2; t3 < e3.__k.length; t3++)
-    if ((_2 = e3.__k[t3]) != null && _2.__e != null)
-      return _2.__e;
+  for (var _3; t3 < e3.__k.length; t3++)
+    if ((_3 = e3.__k[t3]) != null && _3.__e != null)
+      return _3.__e;
   return typeof e3.type == "function" ? C(e3) : null;
 }
 function z(e3) {
-  var t3, _2;
+  var t3, _3;
   if ((e3 = e3.__) != null && e3.__c != null) {
     for (e3.__e = e3.__c.base = null, t3 = 0; t3 < e3.__k.length; t3++)
-      if ((_2 = e3.__k[t3]) != null && _2.__e != null) {
-        e3.__e = e3.__c.base = _2.__e;
+      if ((_3 = e3.__k[t3]) != null && _3.__e != null) {
+        e3.__e = e3.__c.base = _3.__e;
         break;
       }
     return z(e3);
@@ -5087,18 +5046,18 @@ function M(e3) {
 }
 function D() {
   for (var e3; D.__r = S.length; )
-    e3 = S.sort(function(t3, _2) {
-      return t3.__v.__b - _2.__v.__b;
+    e3 = S.sort(function(t3, _3) {
+      return t3.__v.__b - _3.__v.__b;
     }), S = [], e3.some(function(t3) {
-      var _2, r, l2, o3, s4, f4;
-      t3.__d && (s4 = (o3 = (_2 = t3).__v).__e, (f4 = _2.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f4, o3, l2, _2.__n, f4.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
+      var _3, r, l2, o3, s4, f5;
+      t3.__d && (s4 = (o3 = (_3 = t3).__v).__e, (f5 = _3.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f5, o3, l2, _3.__n, f5.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
     });
 }
-function G(e3, t3, _2, r, l2, o3, s4, f4, p6, a4) {
+function G(e3, t3, _3, r, l2, o3, s4, f5, p6, a3) {
   var n3, h3, c3, i2, u3, b4, v2, y3 = r && r.__k || V, g5 = y3.length;
-  for (_2.__k = [], n3 = 0; n3 < t3.length; n3++)
-    if ((i2 = _2.__k[n3] = (i2 = t3[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
-      if (i2.__ = _2, i2.__b = _2.__b + 1, (c3 = y3[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
+  for (_3.__k = [], n3 = 0; n3 < t3.length; n3++)
+    if ((i2 = _3.__k[n3] = (i2 = t3[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
+      if (i2.__ = _3, i2.__b = _3.__b + 1, (c3 = y3[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
         y3[n3] = void 0;
       else
         for (h3 = 0; h3 < g5; h3++) {
@@ -5108,71 +5067,71 @@ function G(e3, t3, _2, r, l2, o3, s4, f4, p6, a4) {
           }
           c3 = null;
         }
-      W(e3, i2, c3 = c3 || T, l2, o3, s4, f4, p6, a4), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v2 || (v2 = []), c3.ref && v2.push(c3.ref, null, i2), v2.push(h3, i2.__c || u3, i2)), u3 != null ? (b4 == null && (b4 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p6 = q(i2, p6, e3) : p6 = J(e3, i2, c3, y3, u3, p6), typeof _2.type == "function" && (_2.__d = p6)) : p6 && c3.__e == p6 && p6.parentNode != e3 && (p6 = C(c3));
+      W(e3, i2, c3 = c3 || T, l2, o3, s4, f5, p6, a3), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v2 || (v2 = []), c3.ref && v2.push(c3.ref, null, i2), v2.push(h3, i2.__c || u3, i2)), u3 != null ? (b4 == null && (b4 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p6 = q(i2, p6, e3) : p6 = J(e3, i2, c3, y3, u3, p6), typeof _3.type == "function" && (_3.__d = p6)) : p6 && c3.__e == p6 && p6.parentNode != e3 && (p6 = C(c3));
     }
-  for (_2.__e = b4, n3 = g5; n3--; )
-    y3[n3] != null && (typeof _2.type == "function" && y3[n3].__e != null && y3[n3].__e == _2.__d && (_2.__d = C(r, n3 + 1)), X(y3[n3], y3[n3]));
+  for (_3.__e = b4, n3 = g5; n3--; )
+    y3[n3] != null && (typeof _3.type == "function" && y3[n3].__e != null && y3[n3].__e == _3.__d && (_3.__d = C(r, n3 + 1)), X(y3[n3], y3[n3]));
   if (v2)
     for (n3 = 0; n3 < v2.length; n3++)
       Q(v2[n3], v2[++n3], v2[++n3]);
 }
-function q(e3, t3, _2) {
+function q(e3, t3, _3) {
   for (var r, l2 = e3.__k, o3 = 0; l2 && o3 < l2.length; o3++)
-    (r = l2[o3]) && (r.__ = e3, t3 = typeof r.type == "function" ? q(r, t3, _2) : J(_2, r, r, l2, r.__e, t3));
+    (r = l2[o3]) && (r.__ = e3, t3 = typeof r.type == "function" ? q(r, t3, _3) : J(_3, r, r, l2, r.__e, t3));
   return t3;
 }
-function J(e3, t3, _2, r, l2, o3) {
-  var s4, f4, p6;
+function J(e3, t3, _3, r, l2, o3) {
+  var s4, f5, p6;
   if (t3.__d !== void 0)
     s4 = t3.__d, t3.__d = void 0;
-  else if (_2 == null || l2 != o3 || l2.parentNode == null)
+  else if (_3 == null || l2 != o3 || l2.parentNode == null)
     e:
       if (o3 == null || o3.parentNode !== e3)
         e3.appendChild(l2), s4 = null;
       else {
-        for (f4 = o3, p6 = 0; (f4 = f4.nextSibling) && p6 < r.length; p6 += 2)
-          if (f4 == l2)
+        for (f5 = o3, p6 = 0; (f5 = f5.nextSibling) && p6 < r.length; p6 += 2)
+          if (f5 == l2)
             break e;
         e3.insertBefore(l2, o3), s4 = o3;
       }
   return s4 !== void 0 ? s4 : l2.nextSibling;
 }
-function _e(e3, t3, _2, r, l2) {
+function _e(e3, t3, _3, r, l2) {
   var o3;
-  for (o3 in _2)
-    o3 === "children" || o3 === "key" || o3 in t3 || N(e3, o3, null, _2[o3], r);
+  for (o3 in _3)
+    o3 === "children" || o3 === "key" || o3 in t3 || N(e3, o3, null, _3[o3], r);
   for (o3 in t3)
-    l2 && typeof t3[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _2[o3] === t3[o3] || N(e3, o3, t3[o3], _2[o3], r);
+    l2 && typeof t3[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _3[o3] === t3[o3] || N(e3, o3, t3[o3], _3[o3], r);
 }
-function I(e3, t3, _2) {
-  t3[0] === "-" ? e3.setProperty(t3, _2) : e3[t3] = _2 == null ? "" : typeof _2 != "number" || Z.test(t3) ? _2 : _2 + "px";
+function I(e3, t3, _3) {
+  t3[0] === "-" ? e3.setProperty(t3, _3) : e3[t3] = _3 == null ? "" : typeof _3 != "number" || Z.test(t3) ? _3 : _3 + "px";
 }
-function N(e3, t3, _2, r, l2) {
+function N(e3, t3, _3, r, l2) {
   var o3;
   e:
     if (t3 === "style")
-      if (typeof _2 == "string")
-        e3.style.cssText = _2;
+      if (typeof _3 == "string")
+        e3.style.cssText = _3;
       else {
         if (typeof r == "string" && (e3.style.cssText = r = ""), r)
           for (t3 in r)
-            _2 && t3 in _2 || I(e3.style, t3, "");
-        if (_2)
-          for (t3 in _2)
-            r && _2[t3] === r[t3] || I(e3.style, t3, _2[t3]);
+            _3 && t3 in _3 || I(e3.style, t3, "");
+        if (_3)
+          for (t3 in _3)
+            r && _3[t3] === r[t3] || I(e3.style, t3, _3[t3]);
       }
     else if (t3[0] === "o" && t3[1] === "n")
-      o3 = t3 !== (t3 = t3.replace(/Capture$/, "")), t3 = t3.toLowerCase() in e3 ? t3.toLowerCase().slice(2) : t3.slice(2), e3.l || (e3.l = {}), e3.l[t3 + o3] = _2, _2 ? r || e3.addEventListener(t3, o3 ? R : O, o3) : e3.removeEventListener(t3, o3 ? R : O, o3);
+      o3 = t3 !== (t3 = t3.replace(/Capture$/, "")), t3 = t3.toLowerCase() in e3 ? t3.toLowerCase().slice(2) : t3.slice(2), e3.l || (e3.l = {}), e3.l[t3 + o3] = _3, _3 ? r || e3.addEventListener(t3, o3 ? R : O, o3) : e3.removeEventListener(t3, o3 ? R : O, o3);
     else if (t3 !== "dangerouslySetInnerHTML") {
       if (l2)
         t3 = t3.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
       else if (t3 !== "href" && t3 !== "list" && t3 !== "form" && t3 !== "tabIndex" && t3 !== "download" && t3 in e3)
         try {
-          e3[t3] = _2 ?? "";
+          e3[t3] = _3 ?? "";
           break e;
         } catch {
         }
-      typeof _2 == "function" || (_2 != null && (_2 !== !1 || t3[0] === "a" && t3[1] === "r") ? e3.setAttribute(t3, _2) : e3.removeAttribute(t3));
+      typeof _3 == "function" || (_3 != null && (_3 !== !1 || t3[0] === "a" && t3[1] === "r") ? e3.setAttribute(t3, _3) : e3.removeAttribute(t3));
     }
 }
 function O(e3) {
@@ -5181,19 +5140,19 @@ function O(e3) {
 function R(e3) {
   this.l[e3.type + !0](d.event ? d.event(e3) : e3);
 }
-function W(e3, t3, _2, r, l2, o3, s4, f4, p6) {
-  var a4, n3, h3, c3, i2, u3, b4, v2, y3, g5, x5, H7, E3, m4 = t3.type;
+function W(e3, t3, _3, r, l2, o3, s4, f5, p6) {
+  var a3, n3, h3, c3, i2, u3, b4, v2, y3, g5, x5, H8, E3, m4 = t3.type;
   if (t3.constructor !== void 0)
     return null;
-  _2.__h != null && (p6 = _2.__h, f4 = t3.__e = _2.__e, t3.__h = null, o3 = [f4]), (a4 = d.__b) && a4(t3);
+  _3.__h != null && (p6 = _3.__h, f5 = t3.__e = _3.__e, t3.__h = null, o3 = [f5]), (a3 = d.__b) && a3(t3);
   try {
     e:
       if (typeof m4 == "function") {
-        if (v2 = t3.props, y3 = (a4 = m4.contextType) && r[a4.__c], g5 = a4 ? y3 ? y3.props.value : a4.__ : r, _2.__c ? b4 = (n3 = t3.__c = _2.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t3.__c = n3 = new m4(v2, g5) : (t3.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
+        if (v2 = t3.props, y3 = (a3 = m4.contextType) && r[a3.__c], g5 = a3 ? y3 ? y3.props.value : a3.__ : r, _3.__c ? b4 = (n3 = t3.__c = _3.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t3.__c = n3 = new m4(v2, g5) : (t3.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
           m4.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
         else {
-          if (m4.getDerivedStateFromProps == null && v2 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t3.__v === _2.__v) {
-            n3.props = v2, n3.state = n3.__s, t3.__v !== _2.__v && (n3.__d = !1), n3.__v = t3, t3.__e = _2.__e, t3.__k = _2.__k, t3.__k.forEach(function(A5) {
+          if (m4.getDerivedStateFromProps == null && v2 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t3.__v === _3.__v) {
+            n3.props = v2, n3.state = n3.__s, t3.__v !== _3.__v && (n3.__d = !1), n3.__v = t3, t3.__e = _3.__e, t3.__k = _3.__k, t3.__k.forEach(function(A5) {
               A5 && (A5.__ = t3);
             }), n3.__h.length && s4.push(n3);
             break e;
@@ -5202,33 +5161,33 @@ function W(e3, t3, _2, r, l2, o3, s4, f4, p6) {
             n3.componentDidUpdate(c3, i2, u3);
           });
         }
-        if (n3.context = g5, n3.props = v2, n3.__v = t3, n3.__P = e3, x5 = d.__r, H7 = 0, "prototype" in m4 && m4.prototype.render)
-          n3.state = n3.__s, n3.__d = !1, x5 && x5(t3), a4 = n3.render(n3.props, n3.state, n3.context);
+        if (n3.context = g5, n3.props = v2, n3.__v = t3, n3.__P = e3, x5 = d.__r, H8 = 0, "prototype" in m4 && m4.prototype.render)
+          n3.state = n3.__s, n3.__d = !1, x5 && x5(t3), a3 = n3.render(n3.props, n3.state, n3.context);
         else
           do
-            n3.__d = !1, x5 && x5(t3), a4 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
-          while (n3.__d && ++H7 < 25);
-        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E3 = a4 != null && a4.type === L && a4.key == null ? a4.props.children : a4, G(e3, Array.isArray(E3) ? E3 : [E3], t3, _2, r, l2, o3, s4, f4, p6), n3.base = t3.__e, t3.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
+            n3.__d = !1, x5 && x5(t3), a3 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
+          while (n3.__d && ++H8 < 25);
+        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E3 = a3 != null && a3.type === L && a3.key == null ? a3.props.children : a3, G(e3, Array.isArray(E3) ? E3 : [E3], t3, _3, r, l2, o3, s4, f5, p6), n3.base = t3.__e, t3.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
       } else
-        o3 == null && t3.__v === _2.__v ? (t3.__k = _2.__k, t3.__e = _2.__e) : t3.__e = ne(_2.__e, t3, _2, r, l2, o3, s4, p6);
-    (a4 = d.diffed) && a4(t3);
+        o3 == null && t3.__v === _3.__v ? (t3.__k = _3.__k, t3.__e = _3.__e) : t3.__e = ne(_3.__e, t3, _3, r, l2, o3, s4, p6);
+    (a3 = d.diffed) && a3(t3);
   } catch (A5) {
-    t3.__v = null, (p6 || o3 != null) && (t3.__e = f4, t3.__h = !!p6, o3[o3.indexOf(f4)] = null), d.__e(A5, t3, _2);
+    t3.__v = null, (p6 || o3 != null) && (t3.__e = f5, t3.__h = !!p6, o3[o3.indexOf(f5)] = null), d.__e(A5, t3, _3);
   }
 }
 function K(e3, t3) {
-  d.__c && d.__c(t3, e3), e3.some(function(_2) {
+  d.__c && d.__c(t3, e3), e3.some(function(_3) {
     try {
-      e3 = _2.__h, _2.__h = [], e3.some(function(r) {
-        r.call(_2);
+      e3 = _3.__h, _3.__h = [], e3.some(function(r) {
+        r.call(_3);
       });
     } catch (r) {
-      d.__e(r, _2.__v);
+      d.__e(r, _3.__v);
     }
   });
 }
-function ne(e3, t3, _2, r, l2, o3, s4, f4) {
-  var p6, a4, n3, h3 = _2.props, c3 = t3.props, i2 = t3.type, u3 = 0;
+function ne(e3, t3, _3, r, l2, o3, s4, f5) {
+  var p6, a3, n3, h3 = _3.props, c3 = t3.props, i2 = t3.type, u3 = 0;
   if (i2 === "svg" && (l2 = !0), o3 != null) {
     for (; u3 < o3.length; u3++)
       if ((p6 = o3[u3]) && "setAttribute" in p6 == !!i2 && (i2 ? p6.localName === i2 : p6.nodeType === 3)) {
@@ -5239,34 +5198,34 @@ function ne(e3, t3, _2, r, l2, o3, s4, f4) {
   if (e3 == null) {
     if (i2 === null)
       return document.createTextNode(c3);
-    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f4 = !1;
+    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f5 = !1;
   }
   if (i2 === null)
-    h3 === c3 || f4 && e3.data === c3 || (e3.data = c3);
+    h3 === c3 || f5 && e3.data === c3 || (e3.data = c3);
   else {
-    if (o3 = o3 && P.call(e3.childNodes), a4 = (h3 = _2.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f4) {
+    if (o3 = o3 && P.call(e3.childNodes), a3 = (h3 = _3.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f5) {
       if (o3 != null)
         for (h3 = {}, u3 = 0; u3 < e3.attributes.length; u3++)
           h3[e3.attributes[u3].name] = e3.attributes[u3].value;
-      (n3 || a4) && (n3 && (a4 && n3.__html == a4.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
+      (n3 || a3) && (n3 && (a3 && n3.__html == a3.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
     }
-    if (_e(e3, c3, h3, l2, f4), n3)
+    if (_e(e3, c3, h3, l2, f5), n3)
       t3.__k = [];
-    else if (u3 = t3.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t3, _2, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _2.__k && C(_2, 0), f4), o3 != null)
+    else if (u3 = t3.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t3, _3, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _3.__k && C(_3, 0), f5), o3 != null)
       for (u3 = o3.length; u3--; )
         o3[u3] != null && j(o3[u3]);
-    f4 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
+    f5 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
   }
   return e3;
 }
-function Q(e3, t3, _2) {
+function Q(e3, t3, _3) {
   try {
     typeof e3 == "function" ? e3(t3) : e3.current = t3;
   } catch (r) {
-    d.__e(r, _2);
+    d.__e(r, _3);
   }
 }
-function X(e3, t3, _2) {
+function X(e3, t3, _3) {
   var r, l2;
   if (d.unmount && d.unmount(e3), (r = e3.ref) && (r.current && r.current !== e3.__e || Q(r, null, t3)), (r = e3.__c) != null) {
     if (r.componentWillUnmount)
@@ -5280,17 +5239,17 @@ function X(e3, t3, _2) {
   if (r = e3.__k)
     for (l2 = 0; l2 < r.length; l2++)
       r[l2] && X(r[l2], t3, typeof e3.type != "function");
-  _2 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
+  _3 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
 }
-function oe(e3, t3, _2) {
-  return this.constructor(e3, _2);
+function oe(e3, t3, _3) {
+  return this.constructor(e3, _3);
 }
-function re(e3, t3, _2) {
+function re(e3, t3, _3) {
   var r, l2, o3;
-  d.__ && d.__(e3, t3), l2 = (r = typeof _2 == "function") ? null : _2 && _2.__k || t3.__k, o3 = [], W(t3, e3 = (!r && _2 || t3).__k = ee(L, null, [e3]), l2 || T, T, t3.ownerSVGElement !== void 0, !r && _2 ? [_2] : l2 ? null : t3.firstChild ? P.call(t3.childNodes) : null, o3, !r && _2 ? _2 : l2 ? l2.__e : t3.firstChild, r), K(o3, e3);
+  d.__ && d.__(e3, t3), l2 = (r = typeof _3 == "function") ? null : _3 && _3.__k || t3.__k, o3 = [], W(t3, e3 = (!r && _3 || t3).__k = ee(L, null, [e3]), l2 || T, T, t3.ownerSVGElement !== void 0, !r && _3 ? [_3] : l2 ? null : t3.firstChild ? P.call(t3.childNodes) : null, o3, !r && _3 ? _3 : l2 ? l2.__e : t3.firstChild, r), K(o3, e3);
 }
 function ce(e3, t3) {
-  var _2 = { __c: t3 = "__cC" + B++, __: e3, Consumer: function(r, l2) {
+  var _3 = { __c: t3 = "__cC" + B++, __: e3, Consumer: function(r, l2) {
     return r.children(l2);
   }, Provider: function(r) {
     var l2, o3;
@@ -5300,46 +5259,46 @@ function ce(e3, t3) {
       this.props.value !== s4.value && l2.some(M);
     }, this.sub = function(s4) {
       l2.push(s4);
-      var f4 = s4.componentWillUnmount;
+      var f5 = s4.componentWillUnmount;
       s4.componentWillUnmount = function() {
-        l2.splice(l2.indexOf(s4), 1), f4 && f4.call(s4);
+        l2.splice(l2.indexOf(s4), 1), f5 && f5.call(s4);
       };
     }), r.children;
   } };
-  return _2.Provider.__ = _2.Consumer.contextType = _2;
+  return _3.Provider.__ = _3.Consumer.contextType = _3;
 }
-P = V.slice, d = { __e: function(e3, t3, _2, r) {
+P = V.slice, d = { __e: function(e3, t3, _3, r) {
   for (var l2, o3, s4; t3 = t3.__; )
     if ((l2 = t3.__c) && !l2.__)
       try {
         if ((o3 = l2.constructor) && o3.getDerivedStateFromError != null && (l2.setState(o3.getDerivedStateFromError(e3)), s4 = l2.__d), l2.componentDidCatch != null && (l2.componentDidCatch(e3, r || {}), s4 = l2.__d), s4)
           return l2.__E = l2;
-      } catch (f4) {
-        e3 = f4;
+      } catch (f5) {
+        e3 = f5;
       }
   throw e3;
 } }, $ = 0, Y = function(e3) {
   return e3 != null && e3.constructor === void 0;
 }, U.prototype.setState = function(e3, t3) {
-  var _2;
-  _2 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _2), this.props)), e3 && k(_2, e3), e3 != null && this.__v && (t3 && this.__h.push(t3), M(this));
+  var _3;
+  _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _3), this.props)), e3 && k(_3, e3), e3 != null && this.__v && (t3 && this.__h.push(t3), M(this));
 }, U.prototype.forceUpdate = function(e3) {
   this.__v && (this.__e = !0, e3 && this.__h.push(e3), M(this));
 }, U.prototype.render = L, S = [], D.__r = 0, B = 0;
 
 // https://esm.sh/stable/preact@10.11.0/deno/hooks.js
 var i, n, d2, N2, f = 0, q2 = [], l = [], V2 = d.__b, g = d.__r, b = d.diffed, C2 = d.__c, A = d.unmount;
-function a(_2, t3) {
-  d.__h && d.__h(n, _2, f || t3), f = 0;
+function a(_3, t3) {
+  d.__h && d.__h(n, _3, f || t3), f = 0;
   var u3 = n.__H || (n.__H = { __: [], __h: [] });
-  return _2 >= u3.__.length && u3.__.push({ __V: l }), u3.__[_2];
+  return _3 >= u3.__.length && u3.__.push({ __V: l }), u3.__[_3];
 }
-function P2(_2) {
-  return f = 1, B2(D2, _2);
+function P2(_3) {
+  return f = 1, B2(D2, _3);
 }
-function B2(_2, t3, u3) {
+function B2(_3, t3, u3) {
   var o3 = a(i++, 2);
-  if (o3.t = _2, !o3.__c && (o3.__ = [u3 ? u3(t3) : D2(void 0, t3), function(v2) {
+  if (o3.t = _3, !o3.__c && (o3.__ = [u3 ? u3(t3) : D2(void 0, t3), function(v2) {
     var s4 = o3.__N ? o3.__N[0] : o3.__[0], h3 = o3.t(s4, v2);
     s4 !== h3 && (o3.__N = [h3, o3.__[1]], o3.__c.setState({}));
   }], o3.__c = n, !n.u)) {
@@ -5366,52 +5325,52 @@ function B2(_2, t3, u3) {
   }
   return o3.__N || o3.__;
 }
-function j2(_2, t3) {
+function j2(_3, t3) {
   var u3 = a(i++, 3);
-  !d.__s && H(u3.__H, t3) && (u3.__ = _2, u3.i = t3, n.__H.__h.push(u3));
+  !d.__s && H(u3.__H, t3) && (u3.__ = _3, u3.i = t3, n.__H.__h.push(u3));
 }
-function w2(_2) {
+function w2(_3) {
   return f = 5, x(function() {
-    return { current: _2 };
+    return { current: _3 };
   }, []);
 }
-function x(_2, t3) {
+function x(_3, t3) {
   var u3 = a(i++, 7);
-  return H(u3.__H, t3) ? (u3.__V = _2(), u3.i = t3, u3.__h = _2, u3.__V) : u3.__;
+  return H(u3.__H, t3) ? (u3.__V = _3(), u3.i = t3, u3.__h = _3, u3.__V) : u3.__;
 }
-function L2(_2, t3) {
+function L2(_3, t3) {
   return f = 8, x(function() {
-    return _2;
+    return _3;
   }, t3);
 }
-function M2(_2) {
-  var t3 = n.context[_2.__c], u3 = a(i++, 9);
-  return u3.c = _2, t3 ? (u3.__ == null && (u3.__ = !0, t3.sub(n)), t3.props.value) : _2.__;
+function M2(_3) {
+  var t3 = n.context[_3.__c], u3 = a(i++, 9);
+  return u3.c = _3, t3 ? (u3.__ == null && (u3.__ = !0, t3.sub(n)), t3.props.value) : _3.__;
 }
 function R2() {
-  for (var _2; _2 = q2.shift(); )
-    if (_2.__P && _2.__H)
+  for (var _3; _3 = q2.shift(); )
+    if (_3.__P && _3.__H)
       try {
-        _2.__H.__h.forEach(m), _2.__H.__h.forEach(p), _2.__H.__h = [];
+        _3.__H.__h.forEach(m), _3.__H.__h.forEach(p), _3.__H.__h = [];
       } catch (t3) {
-        _2.__H.__h = [], d.__e(t3, _2.__v);
+        _3.__H.__h = [], d.__e(t3, _3.__v);
       }
 }
-d.__b = function(_2) {
-  typeof _2.type != "function" || _2.o || _2.type === L ? _2.o || (_2.o = _2.__ && _2.__.o ? _2.__.o : "") : _2.o = (_2.__ && _2.__.o ? _2.__.o : "") + (_2.__ && _2.__.__k ? _2.__.__k.indexOf(_2) : 0), n = null, V2 && V2(_2);
-}, d.__r = function(_2) {
-  g && g(_2), i = 0;
-  var t3 = (n = _2.__c).__H;
+d.__b = function(_3) {
+  typeof _3.type != "function" || _3.o || _3.type === L ? _3.o || (_3.o = _3.__ && _3.__.o ? _3.__.o : "") : _3.o = (_3.__ && _3.__.o ? _3.__.o : "") + (_3.__ && _3.__.__k ? _3.__.__k.indexOf(_3) : 0), n = null, V2 && V2(_3);
+}, d.__r = function(_3) {
+  g && g(_3), i = 0;
+  var t3 = (n = _3.__c).__H;
   t3 && (d2 === n ? (t3.__h = [], n.__h = [], t3.__.forEach(function(u3) {
     u3.__N && (u3.__ = u3.__N), u3.__V = l, u3.__N = u3.i = void 0;
   })) : (t3.__h.forEach(m), t3.__h.forEach(p), t3.__h = [])), d2 = n;
-}, d.diffed = function(_2) {
-  b && b(_2);
-  var t3 = _2.__c;
+}, d.diffed = function(_3) {
+  b && b(_3);
+  var t3 = _3.__c;
   t3 && t3.__H && (t3.__H.__h.length && (q2.push(t3) !== 1 && N2 === d.requestAnimationFrame || ((N2 = d.requestAnimationFrame) || S2)(R2)), t3.__H.__.forEach(function(u3) {
     u3.i && (u3.__H = u3.i), u3.__V !== l && (u3.__ = u3.__V), u3.i = void 0, u3.__V = l;
   })), d2 = n = null;
-}, d.__c = function(_2, t3) {
+}, d.__c = function(_3, t3) {
   t3.some(function(u3) {
     try {
       u3.__h.forEach(m), u3.__h = u3.__h.filter(function(o3) {
@@ -5422,10 +5381,10 @@ d.__b = function(_2) {
         r.__h && (r.__h = []);
       }), t3 = [], d.__e(o3, u3.__v);
     }
-  }), C2 && C2(_2, t3);
-}, d.unmount = function(_2) {
-  A && A(_2);
-  var t3, u3 = _2.__c;
+  }), C2 && C2(_3, t3);
+}, d.unmount = function(_3) {
+  A && A(_3);
+  var t3, u3 = _3.__c;
   u3 && u3.__H && (u3.__H.__.forEach(function(o3) {
     try {
       m(o3);
@@ -5435,27 +5394,27 @@ d.__b = function(_2) {
   }), u3.__H = void 0, t3 && d.__e(t3, u3.__v));
 };
 var F2 = typeof requestAnimationFrame == "function";
-function S2(_2) {
+function S2(_3) {
   var t3, u3 = function() {
-    clearTimeout(o3), F2 && cancelAnimationFrame(t3), setTimeout(_2);
+    clearTimeout(o3), F2 && cancelAnimationFrame(t3), setTimeout(_3);
   }, o3 = setTimeout(u3, 100);
   F2 && (t3 = requestAnimationFrame(u3));
 }
-function m(_2) {
-  var t3 = n, u3 = _2.__c;
-  typeof u3 == "function" && (_2.__c = void 0, u3()), n = t3;
+function m(_3) {
+  var t3 = n, u3 = _3.__c;
+  typeof u3 == "function" && (_3.__c = void 0, u3()), n = t3;
 }
-function p(_2) {
+function p(_3) {
   var t3 = n;
-  _2.__c = _2.__(), n = t3;
+  _3.__c = _3.__(), n = t3;
 }
-function H(_2, t3) {
-  return !_2 || _2.length !== t3.length || t3.some(function(u3, o3) {
-    return u3 !== _2[o3];
+function H(_3, t3) {
+  return !_3 || _3.length !== t3.length || t3.some(function(u3, o3) {
+    return u3 !== _3[o3];
   });
 }
-function D2(_2, t3) {
-  return typeof t3 == "function" ? t3(_2) : t3;
+function D2(_3, t3) {
+  return typeof t3 == "function" ? t3(_3) : t3;
 }
 
 // https://esm.sh/v106/memoize-one@6.0.0/deno/memoize-one.js
@@ -5463,71 +5422,27 @@ var s = Number.isNaN || function(r) {
   return typeof r == "number" && r !== r;
 };
 
-// https://esm.sh/v106/p-throttle@5.0.0/deno/p-throttle.js
-var a2 = class extends Error {
-  constructor() {
-    super("Throttled function aborted"), this.name = "AbortError";
-  }
-};
-function m2({ limit: i2, interval: s4, strict: f4 }) {
-  if (!Number.isFinite(i2))
-    throw new TypeError("Expected `limit` to be a finite number");
-  if (!Number.isFinite(s4))
-    throw new TypeError("Expected `interval` to be a finite number");
-  let r = /* @__PURE__ */ new Map(), u3 = 0, c3 = 0;
-  function p6() {
-    let e3 = Date.now();
-    return e3 - u3 > s4 ? (c3 = 1, u3 = e3, 0) : (c3 < i2 ? c3++ : (u3 += s4, c3 = 1), u3 - e3);
-  }
-  let n3 = [];
-  function h3() {
-    let e3 = Date.now();
-    if (n3.length < i2)
-      return n3.push(e3), 0;
-    let t3 = n3.shift() + s4;
-    return e3 >= t3 ? (n3.push(e3), 0) : (n3.push(t3), t3 - e3);
-  }
-  let w4 = f4 ? h3 : p6;
-  return (e3) => {
-    let t3 = function(...o3) {
-      if (!t3.isEnabled)
-        return (async () => e3.apply(this, o3))();
-      let l2;
-      return new Promise((d3, b4) => {
-        l2 = setTimeout(() => {
-          d3(e3.apply(this, o3)), r.delete(l2);
-        }, w4()), r.set(l2, b4);
-      });
-    };
-    return t3.abort = () => {
-      for (let o3 of r.keys())
-        clearTimeout(o3), r.get(o3)(new a2());
-      r.clear(), n3.splice(0, n3.length);
-    }, t3.isEnabled = !0, t3;
-  };
-}
-
 // https://esm.sh/v106/lodash.throttle@4.1.1/deno/lodash.throttle.js
-var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B3 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P3 = Object.prototype.hasOwnProperty, D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t3, f4) => {
+var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B3 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P3 = Object.prototype.hasOwnProperty, D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t3, f5) => {
   if (n3 && typeof n3 == "object" || typeof n3 == "function")
     for (let i2 of F3(n3))
-      !P3.call(e3, i2) && i2 !== t3 && h(e3, i2, { get: () => n3[i2], enumerable: !(f4 = B3(n3, i2)) || f4.enumerable });
+      !P3.call(e3, i2) && i2 !== t3 && h(e3, i2, { get: () => n3[i2], enumerable: !(f5 = B3(n3, i2)) || f5.enumerable });
   return e3;
 }, H2 = (e3, n3, t3) => (t3 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t3, "default", { value: e3, enumerable: !0 }) : t3, e3)), L3 = D3((ce4, k4) => {
-  var _2 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z4 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K6 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z5 = Object.prototype, w4 = Z5.toString, ee4 = Math.max, ne4 = Math.min, j5 = function() {
+  var _3 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z5 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K6 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z6 = Object.prototype, w4 = Z6.toString, ee4 = Math.max, ne4 = Math.min, j5 = function() {
     return Y6.Date.now();
   };
   function te2(e3, n3, t3) {
-    var f4, i2, g5, c3, a4, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
+    var f5, i2, g5, c3, a3, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
+      throw new TypeError(_3);
     n3 = E3(n3) || 0, b4(t3) && (v2 = !!t3.leading, s4 = "maxWait" in t3, g5 = s4 ? ee4(E3(t3.maxWait) || 0, n3) : g5, y3 = "trailing" in t3 ? !!t3.trailing : y3);
     function p6(r) {
-      var o3 = f4, d3 = i2;
-      return f4 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
+      var o3 = f5, d3 = i2;
+      return f5 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
     }
     function C5(r) {
-      return l2 = r, a4 = setTimeout(m4, n3), v2 ? p6(r) : c3;
+      return l2 = r, a3 = setTimeout(m4, n3), v2 ? p6(r) : c3;
     }
     function M5(r) {
       var o3 = r - u3, d3 = r - l2, O4 = n3 - o3;
@@ -5540,35 +5455,35 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     function m4() {
       var r = j5();
       if (x5(r))
-        return I5(r);
-      a4 = setTimeout(m4, M5(r));
+        return I6(r);
+      a3 = setTimeout(m4, M5(r));
     }
-    function I5(r) {
-      return a4 = void 0, y3 && f4 ? p6(r) : (f4 = i2 = void 0, c3);
+    function I6(r) {
+      return a3 = void 0, y3 && f5 ? p6(r) : (f5 = i2 = void 0, c3);
     }
     function N7() {
-      a4 !== void 0 && clearTimeout(a4), l2 = 0, f4 = u3 = i2 = a4 = void 0;
+      a3 !== void 0 && clearTimeout(a3), l2 = 0, f5 = u3 = i2 = a3 = void 0;
     }
     function $4() {
-      return a4 === void 0 ? c3 : I5(j5());
+      return a3 === void 0 ? c3 : I6(j5());
     }
     function T6() {
       var r = j5(), o3 = x5(r);
-      if (f4 = arguments, i2 = this, u3 = r, o3) {
-        if (a4 === void 0)
+      if (f5 = arguments, i2 = this, u3 = r, o3) {
+        if (a3 === void 0)
           return C5(u3);
         if (s4)
-          return a4 = setTimeout(m4, n3), p6(u3);
+          return a3 = setTimeout(m4, n3), p6(u3);
       }
-      return a4 === void 0 && (a4 = setTimeout(m4, n3)), c3;
+      return a3 === void 0 && (a3 = setTimeout(m4, n3)), c3;
     }
     return T6.cancel = N7, T6.flush = $4, T6;
   }
   function re4(e3, n3, t3) {
-    var f4 = !0, i2 = !0;
+    var f5 = !0, i2 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
-    return b4(t3) && (f4 = "leading" in t3 ? !!t3.leading : f4, i2 = "trailing" in t3 ? !!t3.trailing : i2), te2(e3, n3, { leading: f4, maxWait: n3, trailing: i2 });
+      throw new TypeError(_3);
+    return b4(t3) && (f5 = "leading" in t3 ? !!t3.leading : f5, i2 = "trailing" in t3 ? !!t3.trailing : i2), te2(e3, n3, { leading: f5, maxWait: n3, trailing: i2 });
   }
   function b4(e3) {
     var n3 = typeof e3;
@@ -5592,11 +5507,11 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     if (typeof e3 != "string")
       return e3 === 0 ? e3 : +e3;
     e3 = e3.replace(X6, "");
-    var t3 = z4.test(e3);
+    var t3 = z5.test(e3);
     return t3 || J4.test(e3) ? K6(e3.slice(2), t3 ? 2 : 8) : q6.test(e3) ? S7 : +e3;
   }
   k4.exports = re4;
-}), ae = H2(L3()), { default: W2, ...oe2 } = ae, le = W2 !== void 0 ? W2 : oe2;
+}), ae = H2(L3()), { default: W2, ...oe2 } = ae;
 
 // https://esm.sh/v106/@twind/core@1.0.1/deno/core.js
 var F4;
@@ -5630,11 +5545,11 @@ function X2(t3) {
 }
 var qt = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad-on", "cus-w", "ver", "cus", "cus-v", "tive", "sable", "tiona", "quire"];
 function at({ n: t3, i: e3, v: r = [] }, n3, i2, l2) {
-  for (let a4 of (t3 && (t3 = lt({ n: t3, i: e3, v: r })), l2 = [...x2(l2)], r)) {
-    let s4 = n3.theme("screens", a4);
-    for (let u3 of x2(s4 && kt(s4) || n3.v(a4))) {
+  for (let a3 of (t3 && (t3 = lt({ n: t3, i: e3, v: r })), l2 = [...x2(l2)], r)) {
+    let s4 = n3.theme("screens", a3);
+    for (let u3 of x2(s4 && kt(s4) || n3.v(a3))) {
       var o3;
-      l2.push(u3), i2 |= s4 ? 67108864 | X2(u3) : a4 == "dark" ? 1073741824 : u3[0] == "@" ? X2(u3) : (o3 = u3, 1 << ~(/:([a-z-]+)/.test(o3) && ~qt.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(u3), i2 |= s4 ? 67108864 | X2(u3) : a3 == "dark" ? 1073741824 : u3[0] == "@" ? X2(u3) : (o3 = u3, 1 << ~(/:([a-z-]+)/.test(o3) && ~qt.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: t3, p: i2, r: l2, i: e3 };
@@ -5643,10 +5558,10 @@ var ut = /* @__PURE__ */ new Map();
 function tt(t3) {
   if (t3.d) {
     let e3 = [], r = Y2(t3.r.reduce((n3, i2) => i2[0] == "@" ? (e3.push(i2), n3) : i2 ? Y2(n3, (l2) => Y2(i2, (o3) => {
-      let a4 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
-      if (a4) {
-        let s4 = l2.indexOf(a4[1]);
-        return ~s4 ? l2.slice(0, s4) + a4[0] + l2.slice(s4 + a4[1].length) : Z2(l2, o3);
+      let a3 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
+      if (a3) {
+        let s4 = l2.indexOf(a3[1]);
+        return ~s4 ? l2.slice(0, s4) + a3[0] + l2.slice(s4 + a3[1].length) : Z2(l2, o3);
       }
       return Z2(o3, l2);
     })) : n3, "&"), (n3) => Z2(n3, t3.n ? "." + W3(t3.n) : ""));
@@ -5687,7 +5602,7 @@ function T2(t3, e3 = {}) {
   return i2 == "1" ? t3 : i2 == "0" ? "#0000" : t3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i2})`);
 }
 function ct(t3, e3, r, n3, i2 = []) {
-  return function l2(o3, { n: a4, p: s4, r: u3 = [], i: f4 }, c3) {
+  return function l2(o3, { n: a3, p: s4, r: u3 = [], i: f5 }, c3) {
     let p6 = [], d3 = "", v2 = 0, g5 = 0;
     for (let h3 in o3 || {}) {
       var y3, A5;
@@ -5696,12 +5611,12 @@ function ct(t3, e3, r, n3, i2 = []) {
         if (!b4)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ht(a4, s4, N3("" + b4), c3, s4, u3, f4, !0));
+          p6.push(...ht(a3, s4, N3("" + b4), c3, s4, u3, f5, !0));
           continue;
         }
         if (h3[1] == "l") {
           for (let m4 of x2(b4))
-            p6.push(...l2(m4, { n: a4, p: (y3 = w3[h3[7]], s4 & ~w3.o | y3), r: u3, i: f4 }, c3));
+            p6.push(...l2(m4, { n: a3, p: (y3 = w3[h3[7]], s4 & ~w3.o | y3), r: u3, i: f5 }, c3));
           continue;
         }
         if (h3[1] == "i") {
@@ -5718,23 +5633,23 @@ function ct(t3, e3, r, n3, i2 = []) {
         }
       }
       if (typeof b4 != "object" || Array.isArray(b4))
-        h3 == "label" && b4 ? a4 = b4 + V3(JSON.stringify([s4, f4, o3])) : (b4 || b4 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g5 += 1, v2 = Math.max(v2, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x2(b4).map((m4) => c3.s(h3, ft("" + m4, c3.theme) + (f4 ? " !important" : ""))).join(";"));
+        h3 == "label" && b4 ? a3 = b4 + V3(JSON.stringify([s4, f5, o3])) : (b4 || b4 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g5 += 1, v2 = Math.max(v2, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x2(b4).map((m4) => c3.s(h3, ft("" + m4, c3.theme) + (f5 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
         let m4 = s4;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C5, $4) => {
           let j5 = c3.theme("screens", $4);
           return j5 ? (m4 |= 67108864, kt(j5, "")) : C5;
-        }), m4 |= X2(h3)), p6.push(...l2(b4, { n: a4, p: m4, r: [...u3, h3], i: f4 }, c3));
+        }), m4 |= X2(h3)), p6.push(...l2(b4, { n: a3, p: m4, r: [...u3, h3], i: f5 }, c3));
       } else
         p6.push(...l2(b4, { p: s4, r: [...u3, h3] }, c3));
     }
-    return p6.unshift({ n: a4, p: s4, o: Math.max(0, 15 - g5) + 1.5 * Math.min(v2 || 15, 15), r: u3, d: d3 }), p6.sort(Mt);
+    return p6.unshift({ n: a3, p: s4, o: Math.max(0, 15 - g5) + 1.5 * Math.min(v2 || 15, 15), r: u3, d: d3 }), p6.sort(Mt);
   }(t3, at(e3, r, n3, i2), r);
 }
 function ft(t3, e3) {
   return t3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, n3, i2, l2, o3) => {
-    let a4 = e3(i2, o3);
-    return typeof a4 == "function" && /color|fill|stroke/i.test(i2) ? T2(a4) : "" + a4;
+    let a3 = e3(i2, o3);
+    return typeof a3 == "function" && /color|fill|stroke/i.test(i2) ? T2(a3) : "" + a3;
   });
 }
 function pt(t3, e3) {
@@ -5746,29 +5661,29 @@ function pt(t3, e3) {
 function B4(t3, e3, r = w3.u, n3, i2) {
   let l2 = [];
   for (let o3 of t3)
-    for (let a4 of function(s4, u3, f4, c3, p6) {
+    for (let a3 of function(s4, u3, f5, c3, p6) {
       var d3;
       s4 = { ...s4, i: s4.i || p6 };
       let v2 = function(g5, y3) {
         let A5 = ut.get(g5.n);
         return A5 ? A5(g5, y3) : y3.r(g5.n, g5.v[0] == "dark");
       }(s4, u3);
-      return v2 ? typeof v2 == "string" ? ({ r: c3, p: f4 } = at(s4, u3, f4, c3), pt(B4(N3(v2), u3, f4, c3, s4.i), s4.n)) : Array.isArray(v2) ? v2.map((g5) => {
+      return v2 ? typeof v2 == "string" ? ({ r: c3, p: f5 } = at(s4, u3, f5, c3), pt(B4(N3(v2), u3, f5, c3, s4.i), s4.n)) : Array.isArray(v2) ? v2.map((g5) => {
         var y3, A5;
-        return { o: 0, ...g5, r: [...x2(c3), ...x2(g5.r)], p: (y3 = f4, A5 = (d3 = g5.p) != null ? d3 : f4, y3 & ~w3.o | A5) };
-      }) : ct(v2, s4, u3, f4, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
+        return { o: 0, ...g5, r: [...x2(c3), ...x2(g5.r)], p: (y3 = f5, A5 = (d3 = g5.p) != null ? d3 : f5, y3 & ~w3.o | A5) };
+      }) : ct(v2, s4, u3, f5, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
     }(o3, e3, r, n3, i2))
-      l2.splice(St(l2, a4), 0, a4);
+      l2.splice(St(l2, a3), 0, a3);
   return l2;
 }
-function ht(t3, e3, r, n3, i2, l2, o3, a4) {
-  return pt((a4 ? r.flatMap((s4) => B4([s4], n3, i2, l2, o3)) : B4(r, n3, i2, l2, o3)).map((s4) => s4.p & w3.o && (s4.n || e3 == w3.b) ? { ...s4, p: s4.p & ~w3.o | e3, o: 0 } : s4), t3);
+function ht(t3, e3, r, n3, i2, l2, o3, a3) {
+  return pt((a3 ? r.flatMap((s4) => B4([s4], n3, i2, l2, o3)) : B4(r, n3, i2, l2, o3)).map((s4) => s4.p & w3.o && (s4.n || e3 == w3.b) ? { ...s4, p: s4.p & ~w3.o | e3, o: 0 } : s4), t3);
 }
 function Ot(t3, e3, r, n3) {
   var i2;
   return i2 = (l2, o3) => {
-    let { n: a4, p: s4, r: u3, i: f4 } = at(l2, o3, e3);
-    return r && ht(a4, e3, r, o3, s4, u3, f4, n3);
+    let { n: a3, p: s4, r: u3, i: f5 } = at(l2, o3, e3);
+    return r && ht(a3, e3, r, o3, s4, u3, f5, n3);
   }, ut.set(t3, i2), t3;
 }
 function K2(t3, e3) {
@@ -5792,41 +5707,41 @@ var yt = /* @__PURE__ */ new Map();
 function N3(t3) {
   let e3 = yt.get(t3);
   if (!e3) {
-    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a4 = 0, s4 = (u3, f4 = 0) => {
-      i2 != a4 && (r.push(t3.slice(i2, a4 + f4)), u3 && K2(r, n3)), i2 = a4 + 1;
+    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a3 = 0, s4 = (u3, f5 = 0) => {
+      i2 != a3 && (r.push(t3.slice(i2, a3 + f5)), u3 && K2(r, n3)), i2 = a3 + 1;
     };
-    for (; a4 < t3.length; a4++) {
-      let u3 = t3[a4];
+    for (; a3 < t3.length; a3++) {
+      let u3 = t3[a3];
       if (l2)
-        t3[a4 - 1] != "\\" && (l2 += +(u3 == "[") || -(u3 == "]"));
+        t3[a3 - 1] != "\\" && (l2 += +(u3 == "[") || -(u3 == "]"));
       else if (u3 == "[")
         l2 += 1;
       else if (o3)
-        t3[a4 - 1] != "\\" && o3.test(t3.slice(a4)) && (o3 = null, i2 = a4 + RegExp.lastMatch.length);
-      else if (u3 == "/" && t3[a4 - 1] != "\\" && (t3[a4 + 1] == "*" || t3[a4 + 1] == "/"))
-        o3 = t3[a4 + 1] == "*" ? /^\*\// : /^[\r\n]/;
+        t3[a3 - 1] != "\\" && o3.test(t3.slice(a3)) && (o3 = null, i2 = a3 + RegExp.lastMatch.length);
+      else if (u3 == "/" && t3[a3 - 1] != "\\" && (t3[a3 + 1] == "*" || t3[a3 + 1] == "/"))
+        o3 = t3[a3 + 1] == "*" ? /^\*\// : /^[\r\n]/;
       else if (u3 == "(")
         s4(), r.push(u3);
       else if (u3 == ":")
-        t3[a4 + 1] != ":" && s4(!1, 1);
+        t3[a3 + 1] != ":" && s4(!1, 1);
       else if (/[\s,)]/.test(u3)) {
         s4(!0);
-        let f4 = r.lastIndexOf("(");
+        let f5 = r.lastIndexOf("(");
         if (u3 == ")") {
-          let c3 = r[f4 - 1];
+          let c3 = r[f5 - 1];
           if (/[~@]$/.test(c3)) {
             let p6 = n3.shift();
-            r.length = f4, K2([...r, "#"], n3);
+            r.length = f5, K2([...r, "#"], n3);
             let { v: d3 } = n3[0].pop();
             for (let v2 of p6)
               v2.v.splice(+(v2.v[0] == "dark") - +(d3[0] == "dark"), d3.length);
             K2([...r, Ot(c3.length > 1 ? c3.slice(0, -1) + V3(JSON.stringify([c3, p6])) : c3 + "(" + st(p6) + ")", w3.a, p6, /@$/.test(c3))], n3);
           }
-          f4 = r.lastIndexOf("(", f4 - 1);
+          f5 = r.lastIndexOf("(", f5 - 1);
         }
-        r.length = f4 + 1;
+        r.length = f5 + 1;
       } else
-        /[~@]/.test(u3) && t3[a4 + 1] == "(" && n3.unshift([]);
+        /[~@]/.test(u3) && t3[a3 + 1] == "(" && n3.unshift([]);
     }
     s4(!0), yt.set(t3, e3 = n3[0]);
   }
@@ -5876,7 +5791,7 @@ function mt(t3) {
 function dt(t3, ...e3) {
   var r, n3;
   let i2 = U2(t3, e3), l2 = (((r = i2.find((o3) => o3.label)) == null ? void 0 : r.label) || "css") + V3(JSON.stringify(i2));
-  return n3 = (o3, a4) => pt(i2.flatMap((s4) => ct(s4, o3, a4, w3.o)), l2), ut.set(l2, n3), l2;
+  return n3 = (o3, a3) => pt(i2.flatMap((s4) => ct(s4, o3, a3, w3.o)), l2), ut.set(l2, n3), l2;
 }
 var ce2 = new Proxy(function(t3, e3) {
   return bt("animation", t3, e3);
@@ -5940,10 +5855,10 @@ var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad
 function ce3({ n: e3, i: t3, v: r = [] }, i2, n3, l2) {
   e3 && (e3 = ae3({ n: e3, i: t3, v: r })), l2 = [...b2(l2)];
   for (let s4 of r) {
-    let f4 = i2.theme("screens", s4);
-    for (let a4 of b2(f4 && Ce(f4) || i2.v(s4))) {
+    let f5 = i2.theme("screens", s4);
+    for (let a3 of b2(f5 && Ce(f5) || i2.v(s4))) {
       var o3;
-      l2.push(a4), n3 |= f4 ? 67108864 | re2(a4) : s4 == "dark" ? 1073741824 : a4[0] == "@" ? re2(a4) : (o3 = a4, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(a3), n3 |= f5 ? 67108864 | re2(a3) : s4 == "dark" ? 1073741824 : a3[0] == "@" ? re2(a3) : (o3 = a3, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: e3, p: n3, r: l2, i: t3 };
@@ -5954,8 +5869,8 @@ function ne2(e3) {
     let t3 = [], r = H4(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t3.push(n3), i2) : n3 ? H4(i2, (l2) => H4(n3, (o3) => {
       let s4 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
       if (s4) {
-        let f4 = l2.indexOf(s4[1]);
-        return ~f4 ? l2.slice(0, f4) + s4[0] + l2.slice(f4 + s4[1].length) : Q3(l2, o3);
+        let f5 = l2.indexOf(s4[1]);
+        return ~f5 ? l2.slice(0, f5) + s4[0] + l2.slice(f5 + s4[1].length) : Q3(l2, o3);
       }
       return Q3(o3, l2);
     })) : i2, "&"), (i2) => Q3(i2, e3.n ? "." + Y3(e3.n) : ""));
@@ -6002,21 +5917,21 @@ function P4(e3, t3 = {}) {
   return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
 }
 function de(e3, t3, r, i2, n3 = []) {
-  return function l2(o3, { n: s4, p: f4, r: a4 = [], i: c3 }, u3) {
+  return function l2(o3, { n: s4, p: f5, r: a3 = [], i: c3 }, u3) {
     let p6 = [], g5 = "", y3 = 0, $4 = 0;
     for (let h3 in o3 || {}) {
-      var A5, R6;
+      var A5, R7;
       let d3 = o3[h3];
       if (h3[0] == "@") {
         if (!d3)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ge(s4, f4, I2("" + d3), u3, f4, a4, c3, !0));
+          p6.push(...ge(s4, f5, I2("" + d3), u3, f5, a3, c3, !0));
           continue;
         }
         if (h3[1] == "l") {
           for (let w4 of b2(d3))
-            p6.push(...l2(w4, { n: s4, p: (A5 = S3[h3[7]], f4 & ~S3.o | A5), r: h3[7] == "d" ? [] : a4, i: c3 }, u3));
+            p6.push(...l2(w4, { n: s4, p: (A5 = S3[h3[7]], f5 & ~S3.o | A5), r: h3[7] == "d" ? [] : a3, i: c3 }, u3));
           continue;
         }
         if (h3[1] == "i") {
@@ -6033,23 +5948,23 @@ function de(e3, t3, r, i2, n3 = []) {
         }
       }
       if (typeof d3 != "object" || Array.isArray(d3))
-        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f4, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R6 = h3)[0] == "-" ? 0 : Ee(R6) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R6) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h3, he("" + w4, u3.theme) + (c3 ? " !important" : ""))).join(";"));
+        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f5, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R7 = h3)[0] == "-" ? 0 : Ee(R7) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R7) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h3, he("" + w4, u3.theme) + (c3 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
-        let w4 = f4;
+        let w4 = f5;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j5, M5) => {
           let N7 = u3.theme("screens", M5);
           return N7 ? (w4 |= 67108864, Ce(N7, "")) : j5;
-        }), w4 |= re2(h3)), p6.push(...l2(d3, { n: s4, p: w4, r: [...a4, h3], i: c3 }, u3));
+        }), w4 |= re2(h3)), p6.push(...l2(d3, { n: s4, p: w4, r: [...a3, h3], i: c3 }, u3));
       } else
-        p6.push(...l2(d3, { p: f4, r: [...a4, h3] }, u3));
+        p6.push(...l2(d3, { p: f5, r: [...a3, h3] }, u3));
     }
-    return p6.unshift({ n: s4, p: f4, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a4, d: g5 }), p6.sort(Ne);
+    return p6.unshift({ n: s4, p: f5, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a3, d: g5 }), p6.sort(Ne);
   }(e3, ce3(t3, r, i2, n3), r);
 }
 function he(e3, t3) {
   return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, i2, n3, l2, o3 = "") => {
     let s4 = t3(n3, o3);
-    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P4(s4) : "" + b2(s4).filter((f4) => Object(f4) !== f4);
+    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P4(s4) : "" + b2(s4).filter((f5) => Object(f5) !== f5);
   });
 }
 function ye(e3, t3) {
@@ -6061,28 +5976,28 @@ function ye(e3, t3) {
 function W4(e3, t3, r = S3.u, i2, n3) {
   let l2 = [];
   for (let o3 of e3)
-    for (let s4 of function(f4, a4, c3, u3, p6) {
-      f4 = { ...f4, i: f4.i || p6 };
+    for (let s4 of function(f5, a3, c3, u3, p6) {
+      f5 = { ...f5, i: f5.i || p6 };
       let g5 = function(y3, $4) {
         let A5 = pe.get(y3.n);
         return A5 ? A5(y3, $4) : $4.r(y3.n, y3.v[0] == "dark");
-      }(f4, a4);
-      return g5 ? typeof g5 == "string" ? ({ r: u3, p: c3 } = ce3(f4, a4, c3, u3), ye(W4(I2(g5), a4, c3, u3, f4.i), f4.n)) : Array.isArray(g5) ? g5.map((y3) => {
+      }(f5, a3);
+      return g5 ? typeof g5 == "string" ? ({ r: u3, p: c3 } = ce3(f5, a3, c3, u3), ye(W4(I2(g5), a3, c3, u3, f5.i), f5.n)) : Array.isArray(g5) ? g5.map((y3) => {
         var $4, A5;
         return { o: 0, ...y3, r: [...b2(u3), ...b2(y3.r)], p: ($4 = c3, A5 = y3.p ?? c3, $4 & ~S3.o | A5) };
-      }) : de(g5, f4, a4, c3, u3) : [{ c: ae3(f4), p: 0, o: 0, r: [] }];
+      }) : de(g5, f5, a3, c3, u3) : [{ c: ae3(f5), p: 0, o: 0, r: [] }];
     }(o3, t3, r, i2, n3))
       l2.splice(Me(l2, s4), 0, s4);
   return l2;
 }
 function ge(e3, t3, r, i2, n3, l2, o3, s4) {
-  return ye((s4 ? r.flatMap((f4) => W4([f4], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f4) => f4.p & S3.o && (f4.n || t3 == S3.b) ? { ...f4, p: f4.p & ~S3.o | t3, o: 0 } : f4), e3);
+  return ye((s4 ? r.flatMap((f5) => W4([f5], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f5) => f5.p & S3.o && (f5.n || t3 == S3.b) ? { ...f5, p: f5.p & ~S3.o | t3, o: 0 } : f5), e3);
 }
 function _e2(e3, t3, r, i2) {
   var n3;
   return n3 = (l2, o3) => {
-    let { n: s4, p: f4, r: a4, i: c3 } = ce3(l2, o3, t3);
-    return r && ge(s4, t3, r, o3, f4, a4, c3, i2);
+    let { n: s4, p: f5, r: a3, i: c3 } = ce3(l2, o3, t3);
+    return r && ge(s4, t3, r, o3, f5, a3, c3, i2);
   }, pe.set(e3, n3), e3;
 }
 function K3(e3, t3, r) {
@@ -6106,27 +6021,27 @@ var Se = /* @__PURE__ */ new Map();
 function I2(e3) {
   let t3 = Se.get(e3);
   if (!t3) {
-    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f4 = (a4, c3 = 0) => {
-      n3 != s4 && (r.push(e3.slice(n3, s4 + c3)), a4 && K3(r, i2)), n3 = s4 + 1;
+    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f5 = (a3, c3 = 0) => {
+      n3 != s4 && (r.push(e3.slice(n3, s4 + c3)), a3 && K3(r, i2)), n3 = s4 + 1;
     };
     for (; s4 < e3.length; s4++) {
-      let a4 = e3[s4];
+      let a3 = e3[s4];
       if (l2)
-        e3[s4 - 1] != "\\" && (l2 += +(a4 == "[") || -(a4 == "]"));
-      else if (a4 == "[")
+        e3[s4 - 1] != "\\" && (l2 += +(a3 == "[") || -(a3 == "]"));
+      else if (a3 == "[")
         l2 += 1;
       else if (o3)
         e3[s4 - 1] != "\\" && o3.test(e3.slice(s4)) && (o3 = null, n3 = s4 + RegExp.lastMatch.length);
-      else if (a4 == "/" && e3[s4 - 1] != "\\" && (e3[s4 + 1] == "*" || e3[s4 + 1] == "/"))
+      else if (a3 == "/" && e3[s4 - 1] != "\\" && (e3[s4 + 1] == "*" || e3[s4 + 1] == "/"))
         o3 = e3[s4 + 1] == "*" ? /^\*\// : /^[\r\n]/;
-      else if (a4 == "(")
-        f4(), r.push(a4);
-      else if (a4 == ":")
-        e3[s4 + 1] != ":" && f4(!1, 1);
-      else if (/[\s,)]/.test(a4)) {
-        f4(!0);
+      else if (a3 == "(")
+        f5(), r.push(a3);
+      else if (a3 == ":")
+        e3[s4 + 1] != ":" && f5(!1, 1);
+      else if (/[\s,)]/.test(a3)) {
+        f5(!0);
         let c3 = r.lastIndexOf("(");
-        if (a4 == ")") {
+        if (a3 == ")") {
           let u3 = r[c3 - 1];
           if (/[~@]$/.test(u3)) {
             let p6 = i2.shift();
@@ -6140,9 +6055,9 @@ function I2(e3) {
         }
         r.length = c3 + 1;
       } else
-        /[~@]/.test(a4) && e3[s4 + 1] == "(" && i2.unshift([]);
+        /[~@]/.test(a3) && e3[s4 + 1] == "(" && i2.unshift([]);
     }
-    f4(!0), Se.set(e3, t3 = i2[0]);
+    f5(!0), Se.set(e3, t3 = i2[0]);
   }
   return t3;
 }
@@ -6237,15 +6152,15 @@ function Ye(e3 = {}, t3) {
     let s4 = i2.theme(n3, l2) || oe3(l2, n3, i2);
     if (!s4 || typeof s4 == "object")
       return;
-    let { opacityVariable: f4 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a4 = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p6 = i2.theme(a4, o3 || "DEFAULT") || o3 && oe3(o3, a4, i2), g5 = t3 || (({ _: $4 }) => {
+    let { opacityVariable: f5 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a3 = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p6 = i2.theme(a3, o3 || "DEFAULT") || o3 && oe3(o3, a3, i2), g5 = t3 || (({ _: $4 }) => {
       let A5 = He(c3, $4);
       return u3 ? { [u3]: A5 } : A5;
     });
-    r._ = { value: P4(s4, { opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }), color: ($4) => P4(s4, $4), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 };
+    r._ = { value: P4(s4, { opacityVariable: f5 || void 0, opacityValue: p6 || void 0 }), color: ($4) => P4(s4, $4), opacityVariable: f5 || void 0, opacityValue: p6 || void 0 };
     let y3 = g5(r, i2);
     if (!r.dark) {
       let $4 = i2.d(n3, l2, s4);
-      $4 && $4 !== s4 && (r._ = { value: P4($4, { opacityVariable: f4 || void 0, opacityValue: p6 || "1" }), color: (A5) => P4($4, A5), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
+      $4 && $4 !== s4 && (r._ = { value: P4($4, { opacityVariable: f5 || void 0, opacityValue: p6 || "1" }), color: (A5) => P4($4, A5), opacityVariable: f5 || void 0, opacityValue: p6 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
     }
     return y3;
   };
@@ -6299,31 +6214,31 @@ function xe2(e3, t3, r, i2) {
 // https://esm.sh/v106/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
 var L4 = "inherit", U3 = "currentColor", j3 = "transparent", V4 = "#000", B6 = "#fff", H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee3 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe4 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re3 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae4 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie2 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne3 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L4, current: U3, transparent: j3, black: V4, white: B6, slate: H5, gray: I3, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee3, sky: te, blue: oe4, indigo: re3, violet: ae4, purple: ie2, fuchsia: ne3, pink: le3, rose: se2 }, h2 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c(4, "rem", 4, 0.5, 0.5), ...c(12, "rem", 4, 5), 14: "3.5rem", ...c(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c(200, "", 100, 0, 50), ...c(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c(200, "", 100, 0, 50), scale: { ...c(150, "", 100, 0, 50), ...c(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c(50, "", 1, 0, 10), auto: "auto" } };
 function x3(e3, r) {
-  let a4 = {};
+  let a3 = {};
   do
     for (var i2 = 1; i2 < e3; i2++)
-      a4[`${i2}/${e3}`] = Number((i2 / e3 * 100).toFixed(6)) + "%";
+      a3[`${i2}/${e3}`] = Number((i2 / e3 * 100).toFixed(6)) + "%";
   while (++e3 <= r);
-  return a4;
+  return a3;
 }
-function f2(e3, r, a4 = 0) {
+function f2(e3, r, a3 = 0) {
   let i2 = {};
-  for (; a4 <= e3; a4 = 2 * a4 || 1)
-    i2[a4] = a4 + r;
+  for (; a3 <= e3; a3 = 2 * a3 || 1)
+    i2[a3] = a3 + r;
   return i2;
 }
-function c(e3, r = "", a4 = 1, i2 = 0, l2 = 1, d3 = {}) {
+function c(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d3 = {}) {
   for (; i2 <= e3; i2 += l2)
-    d3[i2] = i2 / a4 + r;
+    d3[i2] = i2 / a3 + r;
   return d3;
 }
 function n2(e3) {
   return ({ theme: r }) => r(e3);
 }
-var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a4) => ({ "@layer overrides": { "&": { [e3]: oe3(`[${r}]`, e3, a4) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
-  let { screens: a4 = r("screens"), center: i2, padding: l2 } = r("container"), d3 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
-  for (let w4 in a4) {
-    let b4 = a4[w4];
+var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a3) => ({ "@layer overrides": { "&": { [e3]: oe3(`[${r}]`, e3, a3) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
+  let { screens: a3 = r("screens"), center: i2, padding: l2 } = r("container"), d3 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
+  for (let w4 in a3) {
+    let b4 = a3[w4];
     typeof b4 == "string" && (d3[Ce(b4)] = { "&": { maxWidth: b4, ...m4(w4) } });
   }
   return d3;
@@ -6332,16 +6247,16 @@ var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", bo
     if (b4)
       return { paddingRight: b4, paddingLeft: b4 };
   }
-}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W5), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W5), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a4 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a4 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
-  let a4 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
-  return { [`border-${g2(a4[0])}-radius`]: r, [`border-${g2(a4[1])}-radius`]: r };
+}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W5), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W5), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a3 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a3 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
+  let a3 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
+  return { [`border-${g2(a3[0])}-radius`]: r, [`border-${g2(a3[1])}-radius`]: r };
 }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: e3, _: r }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (e3 || "-x")]: r, ["--tw-border-spacing" + (e3 || "-y")]: r, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, u("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", u("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": e3 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: e3 } })), yt2("divide-([xy]-reverse)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + e3]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: e3, _: r }) => {
-  let a4 = { x: "lr", y: "tb" }[e3];
-  return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g2(a4[0])}Width`]: `calc(${r} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g2(a4[1])}Width`]: `calc(${r} * var(--tw-divide-${e3}-reverse))` } };
-}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A3(), ...A3("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a4 }) => {
+  let a3 = { x: "lr", y: "tb" }[e3];
+  return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g2(a3[0])}Width`]: `calc(${r} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g2(a3[1])}Width`]: `calc(${r} * var(--tw-divide-${e3}-reverse))` } };
+}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A3(), ...A3("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a3 }) => {
   let i2 = p2(e3), l2 = i2.split(" "), d3 = r("keyframes", l2[0]);
-  return d3 ? { ["@keyframes " + (l2[0] = a4(l2[0]))]: d3, animation: l2.join(" ") } : { animation: i2 };
-}), "(transform)-(none)", yt2("transform", $2), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$2() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a4 }) => ({ [`--tw-${r ? "pan-x" : a4 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
+  return d3 ? { ["@keyframes " + (l2[0] = a3(l2[0]))]: d3, animation: l2.join(" ") } : { animation: i2 };
+}), "(transform)-(none)", yt2("transform", $2), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$2() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a3 }) => ({ [`--tw-${r ? "pan-x" : a3 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
 function y2(e3) {
   return (typeof e3 == "string" ? e3 : e3[1]).replace(/-/g, " ").trim();
 }
@@ -6349,10 +6264,10 @@ function F6(e3) {
   return (typeof e3 == "string" ? e3 : e3[1]).replace("col", "column");
 }
 function g2(e3, r = "-") {
-  let a4 = [];
+  let a3 = [];
   for (let i2 of e3)
-    a4.push({ t: "top", r: "right", b: "bottom", l: "left" }[i2]);
-  return a4.join(r);
+    a3.push({ t: "top", r: "right", b: "bottom", l: "left" }[i2]);
+  return a3.join(r);
 }
 function p2(e3) {
   return e3 && "" + (e3._ || e3);
@@ -6361,16 +6276,16 @@ function T4({ $$: e3 }) {
   return ({ r: "flex-", "": "flex-", w: "space-", u: "space-", n: "space-" }[e3[3] || ""] || "") + e3;
 }
 function u(e3, r = "") {
-  return ({ 1: a4, _: i2 }) => {
-    let l2 = { x: "lr", y: "tb" }[a4] || a4 + a4;
+  return ({ 1: a3, _: i2 }) => {
+    let l2 = { x: "lr", y: "tb" }[a3] || a3 + a3;
     return l2 ? { ...He(e3 + "-" + g2(l2[0]) + r, i2), ...He(e3 + "-" + g2(l2[1]) + r, i2) } : He(e3 + r, i2);
   };
 }
 function A3(e3 = "") {
-  let r = ["blur", "brightness", "contrast", "grayscale", "hue-rotate", "invert", e3 && "opacity", "saturate", "sepia", !e3 && "drop-shadow"].filter(Boolean), a4 = {};
+  let r = ["blur", "brightness", "contrast", "grayscale", "hue-rotate", "invert", e3 && "opacity", "saturate", "sepia", !e3 && "drop-shadow"].filter(Boolean), a3 = {};
   for (let i2 of r)
-    a4[`--tw-${e3}${i2}`] = "var(--tw-empty,/*!*/ /*!*/)";
-  return a4 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a4 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a4), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d3 }) => ({ [`--tw-${l2}`]: b2(d3).map((m4) => `${i2}(${m4})`).join(" "), ...a4 })))];
+    a3[`--tw-${e3}${i2}`] = "var(--tw-empty,/*!*/ /*!*/)";
+  return a3 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a3 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a3), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d3 }) => ({ [`--tw-${l2}`]: b2(d3).map((m4) => `${i2}(${m4})`).join(" "), ...a3 })))];
 }
 function k2({ 1: e3, _: r }) {
   return { ["--tw-" + e3]: r, ...$2() };
@@ -6491,7 +6406,7 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               return new Promise(function(c3) {
                 return setTimeout(c3, 1e3 * t3);
               });
-            }, R6 = function() {
+            }, R7 = function() {
               document.activeElement && document.activeElement.blur();
             }, W7 = function() {
               var t3 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c3) {
@@ -6538,88 +6453,88 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 });
               }
             }, he2 = u3.alert = function(t3) {
-              var c3 = t3.type, s4 = c3 === void 0 ? 4 : c3, d3 = t3.text, i2 = t3.time, k4 = i2 === void 0 ? e3.alertTime : i2, H7 = t3.stay, S7 = H7 !== void 0 && H7, h3 = t3.position, p6 = h3 === void 0 ? e3.positions.alert || p6.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f4 = W7();
-              l2.id = f4, l2.position = p6, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
-                return O4(f4, p6);
+              var c3 = t3.type, s4 = c3 === void 0 ? 4 : c3, d3 = t3.text, i2 = t3.time, k4 = i2 === void 0 ? e3.alertTime : i2, H8 = t3.stay, S7 = H8 !== void 0 && H8, h3 = t3.position, p6 = h3 === void 0 ? e3.positions.alert || p6.top : h3;
+              R7(), F8();
+              var l2 = document.createElement("div"), f5 = W7();
+              l2.id = f5, l2.position = p6, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
+                return O4(f5, p6);
               }, l2.listener = function(n3) {
                 ($4(n3) || ee4(n3)) && F8();
               }, K6(l2, p6), k4 && k4 < 1 && (k4 = 1), !S7 && k4 && oe5(k4).then(function() {
-                return O4(f4, p6);
+                return O4(f5, p6);
               });
             }, ke2 = u3.force = function(t3, c3) {
-              var s4 = t3.type, d3 = s4 === void 0 ? 5 : s4, i2 = t3.text, k4 = t3.buttonText, H7 = k4 === void 0 ? "OK" : k4, S7 = t3.callback, h3 = t3.position, p6 = h3 === void 0 ? e3.positions.force || p6.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f4 = W7();
-              l2.id = f4;
+              var s4 = t3.type, d3 = s4 === void 0 ? 5 : s4, i2 = t3.text, k4 = t3.buttonText, H8 = k4 === void 0 ? "OK" : k4, S7 = t3.callback, h3 = t3.position, p6 = h3 === void 0 ? e3.positions.force || p6.top : h3;
+              R7(), F8();
+              var l2 = document.createElement("div"), f5 = W7();
+              l2.id = f5;
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.textbox), n3.classList.add(e3.classes.backgroundInfo), n3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + i2 + "</div>";
               var r = document.createElement("div");
-              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H7, r.onclick = function() {
-                O4(f4, p6), j5(), S7 ? S7() : c3 && c3();
+              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H8, r.onclick = function() {
+                O4(f5, p6), j5(), S7 ? S7() : c3 && c3();
               }, l2.appendChild(n3), l2.appendChild(r), l2.listener = function(C5) {
                 $4(C5) && r.click();
               }, K6(l2, p6), te2();
             }, Ce3 = u3.confirm = function(t3, c3, s4) {
-              var d3 = t3.text, i2 = t3.submitText, k4 = i2 === void 0 ? "Yes" : i2, H7 = t3.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t3.submitCallback, p6 = t3.cancelCallback, l2 = t3.position, f4 = l2 === void 0 ? e3.positions.confirm || f4.top : l2;
-              R6(), F8();
+              var d3 = t3.text, i2 = t3.submitText, k4 = i2 === void 0 ? "Yes" : i2, H8 = t3.cancelText, S7 = H8 === void 0 ? "Cancel" : H8, h3 = t3.submitCallback, p6 = t3.cancelCallback, l2 = t3.position, f5 = l2 === void 0 ? e3.positions.confirm || f5.top : l2;
+              R7(), F8();
               var n3 = document.createElement("div"), r = W7();
               n3.id = r;
               var C5 = document.createElement("div");
               C5.classList.add(e3.classes.textbox), C5.classList.add(e3.classes.backgroundInfo), C5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
               var x5 = document.createElement("div");
               x5.classList.add(e3.classes.button), x5.classList.add(e3.classes.elementHalf), x5.classList.add(e3.classes.backgroundSuccess), x5.innerHTML = k4, x5.onclick = function() {
-                O4(r, f4), j5(), h3 ? h3() : c3 && c3();
+                O4(r, f5), j5(), h3 ? h3() : c3 && c3();
               };
-              var a4 = document.createElement("div");
-              a4.classList.add(e3.classes.button), a4.classList.add(e3.classes.elementHalf), a4.classList.add(e3.classes.backgroundError), a4.innerHTML = S7, a4.onclick = function() {
-                O4(r, f4), j5(), p6 ? p6() : s4 && s4();
-              }, n3.appendChild(C5), n3.appendChild(x5), n3.appendChild(a4), n3.listener = function(E3) {
-                $4(E3) ? x5.click() : ee4(E3) && a4.click();
-              }, K6(n3, f4), te2(n3, f4);
+              var a3 = document.createElement("div");
+              a3.classList.add(e3.classes.button), a3.classList.add(e3.classes.elementHalf), a3.classList.add(e3.classes.backgroundError), a3.innerHTML = S7, a3.onclick = function() {
+                O4(r, f5), j5(), p6 ? p6() : s4 && s4();
+              }, n3.appendChild(C5), n3.appendChild(x5), n3.appendChild(a3), n3.listener = function(E3) {
+                $4(E3) ? x5.click() : ee4(E3) && a3.click();
+              }, K6(n3, f5), te2(n3, f5);
             }, ve2 = function(t3, c3, s4) {
-              var d3 = t3.text, i2 = t3.submitText, k4 = i2 === void 0 ? "Submit" : i2, H7 = t3.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t3.submitCallback, p6 = t3.cancelCallback, l2 = t3.position, f4 = l2 === void 0 ? e3.positions.input || f4.top : l2, n3 = g5(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
-              R6(), F8();
+              var d3 = t3.text, i2 = t3.submitText, k4 = i2 === void 0 ? "Submit" : i2, H8 = t3.cancelText, S7 = H8 === void 0 ? "Cancel" : H8, h3 = t3.submitCallback, p6 = t3.cancelCallback, l2 = t3.position, f5 = l2 === void 0 ? e3.positions.input || f5.top : l2, n3 = g5(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+              R7(), F8();
               var r = document.createElement("div"), C5 = W7();
               r.id = C5;
               var x5 = document.createElement("div");
               x5.classList.add(e3.classes.textbox), x5.classList.add(e3.classes.backgroundInfo), x5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
-              var a4 = document.createElement("input");
-              a4.classList.add(e3.classes.inputField), a4.setAttribute("autocapitalize", n3.autocapitalize || "none"), a4.setAttribute("autocomplete", n3.autocomplete || "off"), a4.setAttribute("autocorrect", n3.autocorrect || "off"), a4.setAttribute("autofocus", n3.autofocus || "true"), a4.setAttribute("inputmode", n3.inputmode || "verbatim"), a4.setAttribute("max", n3.max || ""), a4.setAttribute("maxlength", n3.maxlength || ""), a4.setAttribute("min", n3.min || ""), a4.setAttribute("minlength", n3.minlength || ""), a4.setAttribute("placeholder", n3.placeholder || ""), a4.setAttribute("spellcheck", n3.spellcheck || "default"), a4.setAttribute("step", n3.step || "any"), a4.setAttribute("type", n3.type || "text"), a4.value = n3.value || "", n3.allowed && (a4.oninput = function() {
+              var a3 = document.createElement("input");
+              a3.classList.add(e3.classes.inputField), a3.setAttribute("autocapitalize", n3.autocapitalize || "none"), a3.setAttribute("autocomplete", n3.autocomplete || "off"), a3.setAttribute("autocorrect", n3.autocorrect || "off"), a3.setAttribute("autofocus", n3.autofocus || "true"), a3.setAttribute("inputmode", n3.inputmode || "verbatim"), a3.setAttribute("max", n3.max || ""), a3.setAttribute("maxlength", n3.maxlength || ""), a3.setAttribute("min", n3.min || ""), a3.setAttribute("minlength", n3.minlength || ""), a3.setAttribute("placeholder", n3.placeholder || ""), a3.setAttribute("spellcheck", n3.spellcheck || "default"), a3.setAttribute("step", n3.step || "any"), a3.setAttribute("type", n3.type || "text"), a3.value = n3.value || "", n3.allowed && (a3.oninput = function() {
                 var M5 = void 0;
                 if (Array.isArray(n3.allowed)) {
-                  for (var w4 = "", _2 = n3.allowed, P7 = 0; P7 < _2.length; P7++)
-                    _2[P7] === "an" ? w4 += "0-9a-zA-Z" : _2[P7] === "a" ? w4 += "a-zA-Z" : _2[P7] === "n" && (w4 += "0-9"), _2[P7] === "s" && (w4 += " ");
+                  for (var w4 = "", _3 = n3.allowed, P7 = 0; P7 < _3.length; P7++)
+                    _3[P7] === "an" ? w4 += "0-9a-zA-Z" : _3[P7] === "a" ? w4 += "a-zA-Z" : _3[P7] === "n" && (w4 += "0-9"), _3[P7] === "s" && (w4 += " ");
                   M5 = new RegExp("[^" + w4 + "]", "g");
                 } else
                   T6(n3.allowed) === "object" && (M5 = n3.allowed);
-                a4.value = a4.value.replace(M5, "");
+                a3.value = a3.value.replace(M5, "");
               });
               var E3 = document.createElement("div");
               E3.classList.add(e3.classes.button), E3.classList.add(e3.classes.elementHalf), E3.classList.add(e3.classes.backgroundSuccess), E3.innerHTML = k4, E3.onclick = function() {
-                O4(C5, f4), j5(), h3 ? h3(a4.value) : c3 && c3(a4.value);
+                O4(C5, f5), j5(), h3 ? h3(a3.value) : c3 && c3(a3.value);
               };
-              var D9 = document.createElement("div");
-              D9.classList.add(e3.classes.button), D9.classList.add(e3.classes.elementHalf), D9.classList.add(e3.classes.backgroundError), D9.innerHTML = S7, D9.onclick = function() {
-                O4(C5, f4), j5(), p6 ? p6(a4.value) : s4 && s4(a4.value);
-              }, r.appendChild(x5), r.appendChild(a4), r.appendChild(E3), r.appendChild(D9), r.listener = function(M5) {
-                $4(M5) ? E3.click() : ee4(M5) && D9.click();
-              }, K6(r, f4), a4.focus(), te2(r, f4);
+              var D8 = document.createElement("div");
+              D8.classList.add(e3.classes.button), D8.classList.add(e3.classes.elementHalf), D8.classList.add(e3.classes.backgroundError), D8.innerHTML = S7, D8.onclick = function() {
+                O4(C5, f5), j5(), p6 ? p6(a3.value) : s4 && s4(a3.value);
+              }, r.appendChild(x5), r.appendChild(a3), r.appendChild(E3), r.appendChild(D8), r.listener = function(M5) {
+                $4(M5) ? E3.click() : ee4(M5) && D8.click();
+              }, K6(r, f5), a3.focus(), te2(r, f5);
             };
             u3.input = ve2;
             var Ee2 = u3.select = function(t3, c3) {
-              var s4 = t3.text, d3 = t3.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k4 = t3.cancelCallback, H7 = t3.choices, S7 = t3.position, h3 = S7 === void 0 ? e3.positions.select || h3.top : S7;
-              R6(), F8();
+              var s4 = t3.text, d3 = t3.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k4 = t3.cancelCallback, H8 = t3.choices, S7 = t3.position, h3 = S7 === void 0 ? e3.positions.select || h3.top : S7;
+              R7(), F8();
               var p6 = document.createElement("div"), l2 = W7();
               p6.id = l2;
-              var f4 = document.createElement("div");
-              f4.classList.add(e3.classes.textbox), f4.classList.add(e3.classes.backgroundInfo), f4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p6.appendChild(f4), H7.forEach(function(r, C5) {
-                var x5 = r.type, a4 = x5 === void 0 ? 1 : x5, E3 = r.text, D9 = r.handler, M5 = document.createElement("div");
-                M5.classList.add(le4[a4]), M5.classList.add(e3.classes.button), M5.classList.add(e3.classes.selectChoice);
-                var w4 = H7[C5 + 1];
-                w4 && !w4.type && (w4.type = 1), w4 && w4.type === a4 && M5.classList.add(e3.classes.selectChoiceRepeated), M5.innerHTML = E3, M5.onclick = function() {
-                  O4(l2, h3), j5(), D9();
+              var f5 = document.createElement("div");
+              f5.classList.add(e3.classes.textbox), f5.classList.add(e3.classes.backgroundInfo), f5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p6.appendChild(f5), H8.forEach(function(r, C5) {
+                var x5 = r.type, a3 = x5 === void 0 ? 1 : x5, E3 = r.text, D8 = r.handler, M5 = document.createElement("div");
+                M5.classList.add(le4[a3]), M5.classList.add(e3.classes.button), M5.classList.add(e3.classes.selectChoice);
+                var w4 = H8[C5 + 1];
+                w4 && !w4.type && (w4.type = 1), w4 && w4.type === a3 && M5.classList.add(e3.classes.selectChoiceRepeated), M5.innerHTML = E3, M5.onclick = function() {
+                  O4(l2, h3), j5(), D8();
                 }, p6.appendChild(M5);
               });
               var n3 = document.createElement("div");
@@ -6629,65 +6544,65 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 ee4(r) && n3.click();
               }, K6(p6, h3), te2(p6, h3);
             }, Te = u3.date = function(t3, c3, s4) {
-              var d3 = t3.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t3.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t3.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t3.submitCallback, l2 = t3.cancelCallback, f4 = t3.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
-              R6(), F8();
-              var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a4 = document.createElement("div"), E3 = function(L6) {
-                C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a4.innerHTML = L6.getFullYear();
-              }, D9 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
-                Number(Q6) > N7 && (Q6 = N7.toString()), L6.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
-              }, M5 = function(L6) {
-                var N7 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
-                L6.target.textContent = N7, i2.setFullYear(Number(N7));
-              }, w4 = function(L6) {
+              var d3 = t3.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t3.submitText, H8 = k4 === void 0 ? "OK" : k4, S7 = t3.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t3.submitCallback, l2 = t3.cancelCallback, f5 = t3.position, n3 = f5 === void 0 ? e3.positions.date || n3.top : f5;
+              R7(), F8();
+              var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a3 = document.createElement("div"), E3 = function(L7) {
+                C5.innerHTML = e3.dateMonths[L7.getMonth()], x5.innerHTML = L7.getDate(), a3.innerHTML = L7.getFullYear();
+              }, D8 = function(L7) {
+                var N7 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
+                Number(Q6) > N7 && (Q6 = N7.toString()), L7.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
+              }, M5 = function(L7) {
+                var N7 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
+                L7.target.textContent = N7, i2.setFullYear(Number(N7));
+              }, w4 = function(L7) {
                 E3(i2);
-              }, _2 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + L6 + 1, 0).getDate();
-                i2.getDate() > N7 && i2.setDate(N7), i2.setMonth(i2.getMonth() + L6), E3(i2);
-              }, P7 = function(L6) {
-                i2.setDate(i2.getDate() + L6), E3(i2);
-              }, be = function(L6) {
-                var N7 = i2.getFullYear() + L6;
-                N7 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L6), E3(i2);
+              }, _3 = function(L7) {
+                var N7 = new Date(i2.getFullYear(), i2.getMonth() + L7 + 1, 0).getDate();
+                i2.getDate() > N7 && i2.setDate(N7), i2.setMonth(i2.getMonth() + L7), E3(i2);
+              }, P7 = function(L7) {
+                i2.setDate(i2.getDate() + L7), E3(i2);
+              }, be = function(L7) {
+                var N7 = i2.getFullYear() + L7;
+                N7 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L7), E3(i2);
               }, Y6 = document.createElement("div"), de2 = W7();
               Y6.id = de2;
               var ue3 = document.createElement("div");
               ue3.classList.add(e3.classes.backgroundInfo);
-              var I5 = document.createElement("div");
-              I5.classList.add(e3.classes.dateSelectorInner);
-              var Z5 = document.createElement("div");
-              Z5.classList.add(e3.classes.button), Z5.classList.add(e3.classes.elementThird), Z5.classList.add(e3.classes.dateSelectorUp), Z5.innerHTML = r;
+              var I6 = document.createElement("div");
+              I6.classList.add(e3.classes.dateSelectorInner);
+              var Z6 = document.createElement("div");
+              Z6.classList.add(e3.classes.button), Z6.classList.add(e3.classes.elementThird), Z6.classList.add(e3.classes.dateSelectorUp), Z6.innerHTML = r;
               var q6 = document.createElement("div");
               q6.classList.add(e3.classes.button), q6.classList.add(e3.classes.elementThird), q6.classList.add(e3.classes.dateSelectorUp), q6.innerHTML = r;
-              var G7 = document.createElement("div");
-              G7.classList.add(e3.classes.button), G7.classList.add(e3.classes.elementThird), G7.classList.add(e3.classes.dateSelectorUp), G7.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x5.classList.add(e3.classes.element), x5.classList.add(e3.classes.elementThird), x5.setAttribute("contentEditable", !0), x5.addEventListener("input", D9), x5.addEventListener("blur", w4), x5.innerHTML = i2.getDate(), a4.classList.add(e3.classes.element), a4.classList.add(e3.classes.elementThird), a4.setAttribute("contentEditable", !0), a4.addEventListener("input", M5), a4.addEventListener("blur", w4), a4.innerHTML = i2.getFullYear();
+              var G8 = document.createElement("div");
+              G8.classList.add(e3.classes.button), G8.classList.add(e3.classes.elementThird), G8.classList.add(e3.classes.dateSelectorUp), G8.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x5.classList.add(e3.classes.element), x5.classList.add(e3.classes.elementThird), x5.setAttribute("contentEditable", !0), x5.addEventListener("input", D8), x5.addEventListener("blur", w4), x5.innerHTML = i2.getDate(), a3.classList.add(e3.classes.element), a3.classList.add(e3.classes.elementThird), a3.setAttribute("contentEditable", !0), a3.addEventListener("input", M5), a3.addEventListener("blur", w4), a3.innerHTML = i2.getFullYear();
               var ne4 = document.createElement("div");
               ne4.classList.add(e3.classes.button), ne4.classList.add(e3.classes.elementThird), ne4.innerHTML = r;
               var se3 = document.createElement("div");
               se3.classList.add(e3.classes.button), se3.classList.add(e3.classes.elementThird), se3.innerHTML = r;
               var ae5 = document.createElement("div");
-              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z5.onclick = function() {
-                return _2(1);
+              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z6.onclick = function() {
+                return _3(1);
               }, q6.onclick = function() {
                 return P7(1);
-              }, G7.onclick = function() {
+              }, G8.onclick = function() {
                 return be(1);
               }, ne4.onclick = function() {
-                return _2(-1);
+                return _3(-1);
               }, se3.onclick = function() {
                 return P7(-1);
               }, ae5.onclick = function() {
                 return be(-1);
               };
-              var z4 = document.createElement("div");
-              z4.classList.add(e3.classes.button), z4.classList.add(e3.classes.elementHalf), z4.classList.add(e3.classes.backgroundSuccess), z4.innerHTML = H7, z4.onclick = function() {
+              var z5 = document.createElement("div");
+              z5.classList.add(e3.classes.button), z5.classList.add(e3.classes.elementHalf), z5.classList.add(e3.classes.backgroundSuccess), z5.innerHTML = H8, z5.onclick = function() {
                 O4(de2, n3), j5(), p6 ? p6(i2) : c3 && c3(i2);
               };
               var U5 = document.createElement("div");
               U5.classList.add(e3.classes.button), U5.classList.add(e3.classes.elementHalf), U5.classList.add(e3.classes.backgroundError), U5.innerHTML = h3, U5.onclick = function() {
                 O4(de2, n3), j5(), l2 ? l2(i2) : s4 && s4(i2);
-              }, I5.appendChild(Z5), I5.appendChild(q6), I5.appendChild(G7), I5.appendChild(C5), I5.appendChild(x5), I5.appendChild(a4), I5.appendChild(ne4), I5.appendChild(se3), I5.appendChild(ae5), ue3.appendChild(I5), Y6.appendChild(ue3), Y6.appendChild(z4), Y6.appendChild(U5), Y6.listener = function(L6) {
-                $4(L6) ? z4.click() : ee4(L6) && U5.click();
+              }, I6.appendChild(Z6), I6.appendChild(q6), I6.appendChild(G8), I6.appendChild(C5), I6.appendChild(x5), I6.appendChild(a3), I6.appendChild(ne4), I6.appendChild(se3), I6.appendChild(ae5), ue3.appendChild(I6), Y6.appendChild(ue3), Y6.appendChild(z5), Y6.appendChild(U5), Y6.listener = function(L7) {
+                $4(L7) ? z5.click() : ee4(L7) && U5.click();
               }, K6(Y6, n3), te2(Y6, n3);
             };
             u3.default = { alert: he2, force: ke2, confirm: Ce3, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F8 };
@@ -6718,8 +6633,8 @@ function p4(r) {
     if (n3.transform) {
       let e3 = n3.transform;
       return n3 = n3.input, { input: n3, transform(t3, o3, s4) {
-        let f4 = r(t3, o3, ...s4);
-        return (...l2) => e3(t3, f4, l2);
+        let f5 = r(t3, o3, ...s4);
+        return (...l2) => e3(t3, f5, l2);
       } };
     } else
       return { input: n3, transform(e3, t3, o3) {
@@ -6755,8 +6670,8 @@ function U4(e3) {
   return t3;
 }
 function G6(e3, t3) {
-  for (var i2 = e3.length >= t3.length ? e3 : t3, r = e3.length >= t3.length ? t3 : e3, n3 = !0, a4 = 0; a4 < i2.length; a4++)
-    r.indexOf(i2[a4]) === -1 && (n3 = !1);
+  for (var i2 = e3.length >= t3.length ? e3 : t3, r = e3.length >= t3.length ? t3 : e3, n3 = !0, a3 = 0; a3 < i2.length; a3++)
+    r.indexOf(i2[a3]) === -1 && (n3 = !1);
   return n3;
 }
 var b3 = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M4 ? 173 : 189, "=": M4 ? 61 : 187, ";": M4 ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g4 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L5 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u2 = { 16: !1, 18: !1, 17: !1, 91: !1 }, s3 = {};
@@ -6825,12 +6740,12 @@ function Q5(e3) {
   else if (typeof e3 == "string") {
     for (var t3 = arguments.length, i2 = new Array(t3 > 1 ? t3 - 1 : 0), r = 1; r < t3; r++)
       i2[r - 1] = arguments[r];
-    var n3 = i2[0], a4 = i2[1];
-    typeof n3 == "function" && (a4 = n3, n3 = ""), S6({ key: e3, scope: n3, method: a4, splitKey: "+" });
+    var n3 = i2[0], a3 = i2[1];
+    typeof n3 == "function" && (a3 = n3, n3 = ""), S6({ key: e3, scope: n3, method: a3, splitKey: "+" });
   }
 }
 var S6 = function(t3) {
-  var i2 = t3.key, r = t3.scope, n3 = t3.method, a4 = t3.splitKey, o3 = a4 === void 0 ? "+" : a4, l2 = U4(i2);
+  var i2 = t3.key, r = t3.scope, n3 = t3.method, a3 = t3.splitKey, o3 = a3 === void 0 ? "+" : a3, l2 = U4(i2);
   l2.forEach(function(c3) {
     var p6 = c3.split(o3), m4 = p6.length, y3 = p6[m4 - 1], d3 = y3 === "*" ? "*" : C4(y3);
     if (s3[d3]) {
@@ -6848,8 +6763,8 @@ function _(e3, t3, i2, r) {
     var n3;
     if (t3.scope === i2 || t3.scope === "all") {
       n3 = t3.mods.length > 0;
-      for (var a4 in u2)
-        Object.prototype.hasOwnProperty.call(u2, a4) && (!u2[a4] && t3.mods.indexOf(+a4) > -1 || u2[a4] && t3.mods.indexOf(+a4) === -1) && (n3 = !1);
+      for (var a3 in u2)
+        Object.prototype.hasOwnProperty.call(u2, a3) && (!u2[a3] && t3.mods.indexOf(+a3) > -1 || u2[a3] && t3.mods.indexOf(+a3) === -1) && (n3 = !1);
       (t3.mods.length === 0 && !u2[16] && !u2[18] && !u2[17] && !u2[91] || n3 || t3.shortcut === "*") && t3.method(e3, t3) === !1 && (e3.preventDefault ? e3.preventDefault() : e3.returnValue = !1, e3.stopPropagation && e3.stopPropagation(), e3.cancelBubble && (e3.cancelBubble = !0));
     }
   }
@@ -6867,8 +6782,8 @@ function k3(e3, t3) {
       if (!i2)
         return;
     }
-    for (var a4 in u2)
-      Object.prototype.hasOwnProperty.call(u2, a4) && (u2[a4] = e3[L5[a4]]);
+    for (var a3 in u2)
+      Object.prototype.hasOwnProperty.call(u2, a3) && (u2[a3] = e3[L5[a3]]);
     e3.getModifierState && !(e3.altKey && !e3.ctrlKey) && e3.getModifierState("AltGraph") && (f3.indexOf(17) === -1 && f3.push(17), f3.indexOf(18) === -1 && f3.push(18), u2[17] = !0, u2[18] = !0);
     var o3 = E2();
     if (i2)
@@ -6889,9 +6804,9 @@ function W6(e3) {
 }
 function v(e3, t3, i2) {
   f3 = [];
-  var r = U4(e3), n3 = [], a4 = "all", o3 = document, l2 = 0, c3 = !1, p6 = !0, m4 = "+", y3 = !1;
-  for (i2 === void 0 && typeof t3 == "function" && (i2 = t3), Object.prototype.toString.call(t3) === "[object Object]" && (t3.scope && (a4 = t3.scope), t3.element && (o3 = t3.element), t3.keyup && (c3 = t3.keyup), t3.keydown !== void 0 && (p6 = t3.keydown), t3.capture !== void 0 && (y3 = t3.capture), typeof t3.splitKey == "string" && (m4 = t3.splitKey)), typeof t3 == "string" && (a4 = t3); l2 < r.length; l2++)
-    e3 = r[l2].split(m4), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s3 || (s3[e3] = []), s3[e3].push({ keyup: c3, keydown: p6, scope: a4, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m4, element: o3 });
+  var r = U4(e3), n3 = [], a3 = "all", o3 = document, l2 = 0, c3 = !1, p6 = !0, m4 = "+", y3 = !1;
+  for (i2 === void 0 && typeof t3 == "function" && (i2 = t3), Object.prototype.toString.call(t3) === "[object Object]" && (t3.scope && (a3 = t3.scope), t3.element && (o3 = t3.element), t3.keyup && (c3 = t3.keyup), t3.keydown !== void 0 && (p6 = t3.keydown), t3.capture !== void 0 && (y3 = t3.capture), typeof t3.splitKey == "string" && (m4 = t3.splitKey)), typeof t3 == "string" && (a3 = t3); l2 < r.length; l2++)
+    e3 = r[l2].split(m4), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s3 || (s3[e3] = []), s3[e3].push({ keyup: c3, keydown: p6, scope: a3, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m4, element: o3 });
   typeof o3 < "u" && !W6(o3) && window && (H6.push(o3), P6(o3, "keydown", function(d3) {
     k3(d3, o3);
   }, y3), A4 || (A4 = !0, P6(window, "focus", function() {
@@ -6919,6 +6834,71 @@ typeof document < "u" && (B7 = window.hotkeys, v.noConflict = function(e3) {
   return e3 && window.hotkeys === v && (window.hotkeys = B7), v;
 }, window.hotkeys = v);
 var B7;
+
+// https://esm.sh/v106/immersive-translate@1.0.5/deno/immersive-translate.js
+var R6 = "poegempjloogba", L6 = "ension://";
+var I5 = "rome-ext";
+var z4 = "ch" + I5 + L6 + "cofdb" + R6 + "gkncekinflcnj";
+var f4 = "Immersive Translate", G7 = class {
+  #e = performance.now();
+  reset() {
+    this.#e = performance.now();
+  }
+  stop(e3) {
+    let t3 = performance.now(), n3 = Math.round(t3 - this.#e);
+    console.debug(f4 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t3;
+  }
+}, H7 = class {
+  #e = 1;
+  get level() {
+    return this.#e;
+  }
+  setLevel(e3) {
+    switch (e3) {
+      case "debug":
+        this.#e = 0;
+        break;
+      case "info":
+        this.#e = 1;
+        break;
+      case "warn":
+        this.#e = 2;
+        break;
+      case "error":
+        this.#e = 3;
+        break;
+      case "fatal":
+        this.#e = 4;
+        break;
+    }
+  }
+  debug(...e3) {
+    this.#e <= 0 && console.log(f4 + " DEBUG:", ...e3);
+  }
+  v(...e3) {
+    this.#e <= 0 && console.log(f4 + " VERBOSE:", ...e3);
+  }
+  info(...e3) {
+    this.#e <= 1 && console.log(f4 + " INFO:", ...e3);
+  }
+  l(...e3) {
+    this.#e <= 1 && console.log(f4 + " TEMP INFO:", ...e3);
+  }
+  warn(...e3) {
+    this.#e <= 2 && console.warn(f4 + " WARN:", ...e3);
+  }
+  error(...e3) {
+    this.#e <= 3 && console.error(f4 + " ERROR:", ...e3);
+  }
+  fatal(...e3) {
+    this.#e <= 4 && console.error(f4 + " FATAL:", ...e3);
+  }
+  timing() {
+    return this.level === 0 ? new G7() : { reset: () => {
+    }, stop: () => {
+    } };
+  }
+}, _2 = new H7();
 
 // deps.ts
 var toast = Fe.alert;
@@ -7053,8 +7033,8 @@ var zh_CN_default = {
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
   isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
   tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
   xMinutes: "{count} \u5206\u949F",
@@ -7081,16 +7061,16 @@ var zh_CN_default = {
   goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
   goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
   advanced: "\u8FDB\u9636\u8BBE\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96BE\u4EE5\u7406\u89E3\u7684\u8BBE\u7F6E\u9879\uFF08\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
   donateCafe: "\u8BF7\u5F00\u53D1\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u5F00\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u95EE\u9898\u53CD\u9988",
   toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u7ACB\u5373\u7FFB\u8BD1\u7F51\u9875\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\uFF0C\u800C\u4E0D\u662F\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8BD1\u7F51\u9875\u6240\u6709\u533A\u57DF",
-  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\uFF0C\u800C\u4E0D\u662F\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\u53BB\u7FFB\u8BD1\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8BD1\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8BED\u8A00",
   "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
   "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
@@ -7108,8 +7088,8 @@ var zh_CN_default = {
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
   "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
-  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u4E4B\u540E\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -7137,8 +7117,8 @@ var zh_CN_default = {
   popupTarget: "\u76EE\u6807\u8BED\u8A00",
   popupService: "\u7FFB\u8BD1\u670D\u52A1",
   forThisSite: "\u9488\u5BF9\u8BE5\u7F51\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u603B\u662F\u7FFB\u8BD1 {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
   add: "\u6DFB\u52A0",
@@ -7207,7 +7187,7 @@ var zh_CN_default = {
   "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -7217,14 +7197,14 @@ var zh_CN_default = {
   "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
   "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u5F53\u524D\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\u4E3A\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8BBE\u7F6E\u4E3A\u8BA9\u67D0\u4E9B\u7F51\u7AD9\u4F7F\u7528\u8BE5\u6837\u5F0F\uFF0C\u70B9\u51FB\u53F3\u8FB9\u7684\u6309\u94AE\u6DFB\u52A0\u540E\uFF0C\u518D\u5207\u6362\u5230\u53E6\u4E00\u79CD\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\uFF0C\u8FD9\u6837\u5373\u53EF\u5B9E\u73B0\u4E0D\u540C\u7F51\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8BD1\u6587\u6837\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u5F53\u524D\u7F51\u5740",
   confirm: "\u4FDD\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
-  syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
   syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
   import_hint: "\u5BFC\u5165",
@@ -7247,7 +7227,7 @@ var zh_CN_default = {
   clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
   aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
   "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9879\u76EE\u4E3B\u9875",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
   joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -7255,31 +7235,32 @@ var zh_CN_default = {
   autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
   loadingThemeTitle: "Loading \u6837\u5F0F",
   loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
-  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u663E\u793A",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
   "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
   successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
-  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
   "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/zh-TW.json
 var zh_TW_default = {
   lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u7B26\u6578\u91CF",
-  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6FPDF",
-  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3PDF",
+  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6F PDF",
+  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3 PDF",
   enableLineBreak: "\u662F\u5426\u958B\u5553\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
   sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005 (\u6309\u6708\u6216\u4E00\u6B21\u6027\u5747\u53EF)",
   help: "\u5E6B\u52A9",
-  browserShortcutsNoteForFirefox: "Firefox\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762`about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
-  browserShortcutsNoteForChrome: "\u985EChrome\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u7D50\u75C2\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u2019\u7BA1\u7406\u5FEB\u6377\u9375\u2018\u9762\u677F\uFF08\u2019chrome://extensions/shortcuts\u2018\uFF09\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
+  browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762 `about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
+  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5145\u529F\u80FD\u9801\u9762\uFF0C\u5728\u2019\u64F4\u5145\u529F\u80FD\u2018\u9762\u677F(\u2019chrome://extensions/shortcuts\u2018)\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
-  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u8B1B\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
   "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
@@ -7287,49 +7268,52 @@ var zh_TW_default = {
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
   "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
-  "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
+  "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
-  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8F09\u8A2D\u7F6E\u55CE?",
-  translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
-  smartLineBreak: "\u667A\u80FD\u6362\u884C",
-  alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
-  tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-  tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
-  xMinutes: "{count} \u5206\u949F",
+  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u7F6E\u8A2D\u7F6E\u55CE\uFF1F",
+  translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u7F6E",
+  smartLineBreak: "\u667A\u80FD\u63DB\u884C",
+  alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
+  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
+  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u7279\u6027",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
+  tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
+  xMinutes: "{count} \u5206\u9418",
   disabled: "\u505C\u7528",
   changelog: "\u66F4\u65B0\u65E5\u8A8C",
-  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
+  addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "\u57FA\u672C\u8A2D\u7F6E",
-  clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-  import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
-  export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
+  clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
+  import: "\u5F9E\u6587\u4EF6\u532F\u5165",
+  export: "\u5C0E\u51FA\u5230\u6587\u4EF6",
   toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
-  "fingers.0": "\u5173\u95ED",
-  "fingers.2": "\u53CC\u6307\u89E6\u6478",
-  "fingers.3": "\u4E09\u6307\u89E6\u6478",
-  "fingers.4": "\u56DB\u6307\u89E6\u6478",
-  "fingers.5": "\u4E94\u6307\u89E6\u6478",
+  "fingers.0": "\u95DC\u9589",
+  "fingers.2": "\u96D9\u6307\u89F8\u6478",
+  "fingers.3": "\u4E09\u6307\u89F8\u6478",
+  "fingers.4": "\u56DB\u6307\u89F8\u6478",
+  "fingers.5": "\u4E94\u6307\u89F8\u6478",
   document: "\u6587\u6A94",
-  resetSuccess: "\u885D\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
   saved: "\u6210\u529F\u5132\u5B58",
   successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
   goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
-  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
+  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u8A2D\u7F6E\u9801\u9762",
   advanced: "\u9032\u968E\u8A2D\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96E3\u4EE5\u7406\u89E3\u7684\u8A2D\u7F6E\u9805\uFF08\u4E00\u822C\u7121\u9700\u8A2D\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8A8D\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
   donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u958B\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u554F\u984C\u53CD\u994B",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u7ACB\u5373\u7FFB\u8B6F\u7DB2\u9801\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\uFF0C\u800C\u4E0D\u662F\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-  translationAreaDescription: "\u958B\u5553\u5F8C\uFF0C\u6574\u500B\u7DB2\u9801\u7684\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\uFF0C\u800C\u4E0D\u662F\u9ED8\u8A8D\u7684\u667A\u80FD\u8B58\u5225\u4E3B\u8981\u5340\u57DF\u53BB\u7FFB\u8B6F\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u500B\u5B57\u7B26\u7121\u9700\u7B49\u5F85\u6EFE\u52D5\u5230\u53EF\u8996\u5340\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8B6F\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8A9E\u8A00",
   "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
   "keyboard shortcuts": "\u9375\u76E4\u5FEB\u6377\u9375",
@@ -7339,20 +7323,20 @@ var zh_TW_default = {
   homepage: "\u4E3B\u9801",
   more: "\u66F4\u591A",
   translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
-  changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
-  changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+  changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
+  changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
   translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9069\u914D\u898F\u5247\uFF1A",
   "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
-  localVersionIsTooOld: "\u672C\u5730\u64F4\u5C55\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u64F4\u5C55\u5230{minVersion} \u6216\u4E4B\u5F8C\u7684\u7248\u672C\u5F8C\u518D\u5617\u8A66\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
-  retry: "\u9EDE\u6B64\u885D\u8A66",
+  retry: "\u9EDE\u6B64\u91CD\u8A66",
   failedReason: "\u5931\u6557\u539F\u56E0",
   currentRuleVersion: "\u7576\u524D\u898F\u5247\u7248\u672C",
   calculating: "\u8A08\u7B97\u4E2D",
@@ -7368,7 +7352,7 @@ var zh_TW_default = {
   service: "\u7FFB\u8B6F\u670D\u52D9",
   needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
   goSettings: "\u53BB\u8A2D\u7F6E",
-  needActionForOptions: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
+  needActionForOptions: "(\u9700\u8A2D\u7F6E)",
   translationEngine: "\u5F15\u64CE\u9078\u9805",
   sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
   target: "\u76EE\u6A19\u8A9E\u8A00",
@@ -7376,8 +7360,8 @@ var zh_TW_default = {
   popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
   popupService: "\u7FFB\u8B6F\u670D\u52D9",
   forThisSite: "\u5C0D\u65BC\u8A72\u7DB2\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
   add: "\u589E\u52A0",
@@ -7395,11 +7379,11 @@ var zh_TW_default = {
   Error: "\u932F\u8AA4",
   allowCacheTranslations: "\u958B\u555F\u672C\u5730\u7FFB\u8B6F\u7DE9\u5B58\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8ACB\u6C42\uFF09",
   "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
-  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u793A\u4F8B",
+  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
   interface: "\u754C\u9762\u8A2D\u7F6E",
   import_export: "\u5C0E\u5165/\u5C0E\u51FA",
-  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA",
-  syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA\u914D\u7F6E",
+  syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
   previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
   "translationTheme.none": "\u7121",
   "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
@@ -7416,17 +7400,17 @@ var zh_TW_default = {
   "translationTheme.italic": "\u659C\u9AD4",
   "translationTheme.bold": "\u7C97\u9AD4",
   "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+  "translationTheme.nativeDashed": "\u7CFB\u7D71\u81EA\u5E36\u865B\u7DDA\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeDotted": "\u7CFB\u7D71\u81EA\u5E36\u9EDE\u72C0\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
   "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
   "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
   "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
-  "translationServices.bai": "\u767E\u5EA6\uFF08Alpha\uFF09",
+  "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
   "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
   "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
-  "translationServices.deeplx": "DeeplX(Alpha)",
+  "translationServices.deeplx": "DeeplX(Beta)",
   "translationServices.bing": "\u5FC5\u61C9\u7FFB\u8B6F",
   "translationServices.deepl": "Deepl",
   "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
@@ -7442,10 +7426,11 @@ var zh_TW_default = {
   "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
   "translationServices.d": "Deepl(Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
   "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -7455,17 +7440,16 @@ var zh_TW_default = {
   "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
   "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u7576\u524D\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\u70BA\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8A2D\u7F6E\u70BA\u8B93\u67D0\u4E9B\u7DB2\u7AD9\u4F7F\u7528\u8A72\u6A23\u5F0F\uFF0C\u9EDE\u64CA\u53F3\u908A\u7684\u6309\u9215\u6DFB\u52A0\u5F8C\uFF0C\u518D\u5207\u63DB\u5230\u53E6\u4E00\u7A2E\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\uFF0C\u9019\u6A23\u5373\u53EF\u5BE6\u73FE\u4E0D\u540C\u7DB2\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8B6F\u6587\u6A23\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u7576\u524D\u7DB2\u5740",
   confirm: "\u5132\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u522A\u9664",
   "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
   syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
-  syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6B0A\u5931\u6557",
-  syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
+  syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
   import_hint: "\u5C0E\u5165",
   upload: "\u4E0A\u50B3",
   revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
@@ -7486,18 +7470,26 @@ var zh_TW_default = {
   clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
   aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
   "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
-  aboutIntro: "\u8A72\u64F4\u5C55\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u4E92\u806F\u7DB2\u4E0A\u5DE8\u5927\u7684\u5916\u8A9E\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u8D0A\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u983B\u9053</4>\u7372\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9805\u76EE\u4E3B\u9801",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+  joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u7372\u53D6\u6700\u65B0\u66F4\u65B0",
   feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
   autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
   loadingThemeTitle: "Loading \u6A23\u5F0F",
   loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
-  "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
+  developerDescription: "\u53EF\u4EE5\u9EDE\u64CA<1>\u9019\u88E1</1>\u67E5\u770B\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u76F8\u95DC\u7684\u6587\u6A94",
   "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "\u7576\u524D\u914D\u7F6E\u8207\u96F2\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
+  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/en.json
@@ -7525,15 +7517,17 @@ var en_default = {
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
   alwaysLineBreak: "Always Wrap",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "The position of the translation\uFF1AAlways wrap / smart wrap (the translation is displayed only when the paragraph is more than {count} characters)",
+  isShowContextMenu: "Create right button menu",
+  toggleBeta: "Enable Beta experimental features",
+  betaDescription: "Enable features that are still experimental, and translation services that are in testing. Join the <1>Telegram group</1> to learn more.",
+  translationLineBreakSettingDescription: "The always line break feature is suitable for layouts with less content, making the layout more neat and tidy. (Use smart line breaks for long paragraphs with more content (more than {count} characters) for saving space)",
   tempTranslateDomainTitle: "Open the translation time temporarily",
   tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
   xMinutes: "{count} minutes",
   disabled: "Disable",
   changelog: "Change Log",
   toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger simultaneous touch to show/hide the blur effect of the translation",
   addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "General",
   clickToExpandConfig: "Expand current configuration",
@@ -7547,21 +7541,22 @@ var en_default = {
   "fingers.5": "Five-finger touch",
   document: "Document",
   resetSuccess: "All settings reset successful",
+  resetThisSuccess: "Reset successful",
   saved: "Saved successfully",
   successImportConfig: "Configuration imported successfully",
   goAdvancedSettings: "Go to Advanced Settings Page",
   goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
   advanced: "Advanced",
-  advancedDescription: "Some unintelligible settings (normally set without setting to default)",
+  advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
   developer: "Developer settings",
   donateCafe: "Buy Me a Coffee",
-  "translate to the bottom of the page": "Whether translate to the bottom of the page once you open the page?",
+  "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
   feedback: "Feedback",
   toggleTranslatePage: "Toggle Translate",
-  translateToThePageEndImmediatelyDescription: "When turned on, it will immediately translate the page from the top to the bottom, instead of translating as you read. (Not recommended to turn on)",
+  translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
   "translate all areas of the page": "Whether to translate all areas of the web page",
-  translationAreaDescription: "When enabled, the entire area of the page will be translated, not the default intelligent recognition main area to translate ( not recommended)",
-  "the number of characters to be translated first": "How many characters are translated directly without waiting to scroll to the visible area for the first few characters?",
+  translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
+  "the number of characters to be translated first": "Directly translate the number of characters in front of the page without waiting to scroll to the visible area",
   "interface language": "Interface language",
   "display both the original text and the translation": "Display both the original text and the translation",
   "keyboard shortcuts": "Keyboard shortcuts",
@@ -7579,8 +7574,8 @@ var en_default = {
   "Successfully synchronized with the latest official rules:": "Successfully synced latest official rules:",
   "Checking for updates": "Checking for update",
   "Rules are being synchronized": "Syncing official rules",
-  localVersionIsTooOld: "The local extension is too old. Please upgrade to {minVersion} or then try syncing again",
-  badUserscriptBrowser: "This browser does not correctly implement the interface of Tampermonkey. Please use other < 1 > browsers that support Tampermonkey < / 1 >, such as (Firefox Nightly version)",
+  localVersionIsTooOld: "The local extension version is too old, please upgrade the extension to {minVersion} or a newer version and try to sync again.",
+  badUserscriptBrowser: "The current browser does not correctly implement the interface of the Greasemonkey extension, please use another browser that <1>supports the Greasemonkey extension</1> such as (Firefox Nightly version)",
   foundNewVersion: "New version available",
   theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
   failToSyncRules: "Failed to sync latest adaptive rules",
@@ -7674,10 +7669,11 @@ var en_default = {
   "translationServices.transmart": "Tencent Smart Translation",
   "translationServices.niu": "Niu Translation",
   "translationServices.d": "DeeplX (Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "Translate page title",
   "always languages": "Always translate the following languages",
   neverTranslateLanguagesLabel: "Never Translated Languages",
-  neverTranslateTheFollowingLanguagesDescription: "Automatically skip translating the paragraph when languages are the followings",
+  neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
   enableUserscriptPagePopup: "Always show Popup windows on the page",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "The following languages will always be translated",
@@ -7687,15 +7683,14 @@ var en_default = {
   "never translate the following sites": "The following sites will never be translated",
   "please refer to": "It can only be used after filling in the key. For details, please refer to",
   KeyAndConfigurationTutorial: "Key Application and Configuration Tutorial",
-  useAboveStyleForTheseSites: "The current default translation style is \u300C{theme}\u300D, you can also set it to let some websites use this style, click the button on the right to add it, and then switch to another default translation style, so that you can use different translation styles for different websites.",
+  useAboveStyleForTheseSites: "Sites that always use the {theme} translation style",
   currentUrl: "Current URL",
   confirm: "Save",
   cancel: "Cancel",
   delete: "Delete",
   "languages.auto": "Detect Language",
-  isShowContextMenu: "Create right button menu",
   syncToCloud: "Sync to cloud",
-  syncToCloudDescription: "When syncing it will compare the last modification time of the local and cloud configurations, whichever is the last.",
+  syncToCloudDescription: "Upload the configuration to the cloud server, and you can synchronize the configuration between different browsers or Tampermonkey scripts, based on the last modification time.",
   authFail: "Authorization Failed",
   syncTitle: "Please select a file operation",
   import_hint: "Import",
@@ -7718,19 +7713,26 @@ var en_default = {
   clickToDownload: "Click to download",
   aboutLabel: "About - Feedback - Sponsor",
   "browser.openAboutPage": "About / Feedback/Sponsor",
-  aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
+  aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
   projectHomepage: "Project Homepage",
   joinTelegramGroup: "Join Telegram group for feature discussion",
+  joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
   feedbackAndJoin: "Issue feedback/group",
   autoSync: "Auto-Time Sync",
   loadingThemeTitle: "Loading Style",
   loadingThemeDescription: "Set the style of waiting for the translation to load",
-  "loadingTheme.spinner": "Animate Spinner",
+  "loadingTheme.spinner": "Spinning icon",
   "loadingTheme.text": "Static Text... ",
   "loadingTheme.none": "Disabled",
+  developerDescription: "You can click <1>here</1> to see the documentation related to advanced customization",
   "edit border color": "Edit border color",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
+  customTheme: "Customize colors and sizes",
+  "customThemeLabel.borderColor": "Border color",
+  "customThemeLabel.backgroundColor": "Background color",
+  "customThemeLabel.textColor": "Text color",
+  "customThemeLabel.zoom": "Font scale (%)",
+  resetToDefaultColor: "Reset to default colors"
 };
 
 // constant.ts
@@ -7747,81 +7749,18 @@ var interfaceTranslations = [
     code: "en",
     messages: en_default
   }
-], translations = {};
+];
+var translations = {};
 for (let translation of interfaceTranslations)
   translations[translation.code] = translation.messages;
 var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html", brandIdForJs = "immersiveTranslate";
 var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
 var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig";
-var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
-var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
-`, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
-var themeOptions = {
-  underline: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeUnderline: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeDashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeDotted: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  dotted: [
-    {
-      name: "borderColor",
-      required: !1,
-      type: "color"
-    }
-  ],
-  dividingLine: [
-    {
-      name: "borderColor",
-      required: !1,
-      type: "color"
-    }
-  ],
-  highlight: [{
-    name: "backgroundColor",
-    required: !1,
-    type: "color"
-  }],
-  dashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  blockquote: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  thinDashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  dashedBorder: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  wavy: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }]
-}, languages = [
+var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
+var elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
+var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
+var translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+var languages = [
   "auto",
   "en",
   "zh-CN",
@@ -8071,6 +8010,205 @@ var buildinExcludeUrls = [
   "translate.google.com"
 ];
 var fallbackLanguage = "zh-CN";
+var openlProps = [{
+  type: "select",
+  name: "codename",
+  label: "translationEngine",
+  default: "deepl",
+  required: !1,
+  options: [
+    {
+      label: "translationServices.deepl",
+      value: "deepl"
+    },
+    {
+      label: "translationServices.youdao",
+      value: "youdao"
+    },
+    {
+      label: "translationServices.tencent",
+      value: "tencent"
+    },
+    {
+      label: "translationServices.aliyun",
+      value: "aliyun"
+    },
+    {
+      label: "translationServices.baidu",
+      value: "baidu"
+    },
+    {
+      label: "translationServices.caiyun",
+      value: "caiyun"
+    },
+    {
+      label: "translationServices.wechat",
+      value: "wechat"
+    },
+    {
+      label: "translationServices.azure",
+      value: "azure"
+    },
+    {
+      label: "translationServices.ibm",
+      value: "ibm"
+    },
+    {
+      label: "translationServices.aws",
+      value: "aws"
+    },
+    {
+      label: "translationServices.google",
+      value: "google"
+    }
+  ]
+}], PureTranslationServices = {
+  mock: {
+    name: "Mock",
+    homepage: "https://www.google.com"
+  },
+  mock2: {
+    name: "Mock2",
+    homepage: "https://www.google.com"
+  },
+  google: {
+    name: "Google",
+    homepage: "https://translate.google.com/"
+  },
+  transmart: {
+    name: "Transmart",
+    homepage: "https://transmart.qq.com/"
+  },
+  deepl: {
+    name: "DeepL",
+    homepage: "https://www.deepl.com/translator",
+    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+    allProps: [{
+      name: "authKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volc: {
+    name: "Volc",
+    homepage: "https://www.volcengine.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
+    allProps: [{
+      name: "accessKeyId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretAccessKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volcAlpha: {
+    name: "Volc Alpha",
+    alpha: !0,
+    homepage: "https://www.volcengine.com/"
+  },
+  bing: {
+    name: "Bing",
+    homepage: "https://www.bing.com/translator"
+  },
+  tencent: {
+    name: "Tencent",
+    homepage: "https://fanyi.qq.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
+    allProps: [{
+      name: "secretId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  baidu: {
+    name: "Baidu",
+    homepage: "https://fanyi.baidu.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
+    allProps: [{
+      name: "appid",
+      required: !0,
+      type: "text"
+    }, {
+      name: "key",
+      required: !0,
+      type: "password"
+    }]
+  },
+  caiyun: {
+    name: "Caiyun",
+    homepage: "https://fanyi.caiyunapp.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
+    allProps: [{
+      name: "token",
+      required: !0,
+      type: "password"
+    }]
+  },
+  openl: {
+    name: "Openl",
+    homepage: "https://openl.club/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openL",
+    allProps: [
+      ...openlProps,
+      {
+        type: "password",
+        name: "apikey",
+        required: !0
+      }
+    ],
+    props: openlProps
+  },
+  youdao: {
+    name: "Youdao",
+    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
+    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    allProps: [{
+      name: "appId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "appSecret",
+      required: !0,
+      type: "password"
+    }]
+  },
+  d: {
+    name: "D () ",
+    alpha: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  dpro: {
+    name: "DPro (Canary) ",
+    canary: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  deeplx: {
+    name: "DeepLX (Beta)",
+    beta: !0,
+    homepage: "https://www.deepl.com/translator",
+    allProps: [{
+      name: "url",
+      required: !0,
+      type: "text"
+    }]
+  },
+  niu: {
+    name: "niutrans",
+    homepage: "https://niutrans.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/niu",
+    allProps: [{
+      name: "APIKEY",
+      required: !0,
+      type: "password"
+    }]
+  }
+};
 
 // utils/get_pdf_viewer_url.ts
 function formatToPdfViewerUrl(url) {
@@ -8411,17 +8549,17 @@ Sha256.prototype.finalize = function() {
   }
 };
 Sha256.prototype.hash = function() {
-  var a4 = this.h0, b4 = this.h1, c3 = this.h2, d3 = this.h3, e3 = this.h4, f4 = this.h5, g5 = this.h6, h3 = this.h7, blocks2 = this.blocks, j5, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+  var a3 = this.h0, b4 = this.h1, c3 = this.h2, d3 = this.h3, e3 = this.h4, f5 = this.h5, g5 = this.h6, h3 = this.h7, blocks2 = this.blocks, j5, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
   for (j5 = 16; j5 < 64; ++j5)
     t1 = blocks2[j5 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j5 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j5] = blocks2[j5 - 16] + s0 + blocks2[j5 - 7] + s1 << 0;
   for (bc = b4 & c3, j5 = 0; j5 < 64; j5 += 4)
-    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d3 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d3 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a4 >>> 2 | a4 << 30) ^ (a4 >>> 13 | a4 << 19) ^ (a4 >>> 22 | a4 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a4 & b4, maj = ab ^ a4 & c3 ^ bc, ch = e3 & f4 ^ ~e3 & g5, t1 = h3 + s1 + ch + K5[j5] + blocks2[j5], t22 = s0 + maj, h3 = d3 + t1 << 0, d3 = t1 + t22 << 0), s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d3 & a4, maj = da ^ d3 & b4 ^ ab, ch = h3 & e3 ^ ~h3 & f4, t1 = g5 + s1 + ch + K5[j5 + 1] + blocks2[j5 + 1], t22 = s0 + maj, g5 = c3 + t1 << 0, c3 = t1 + t22 << 0, s0 = (c3 >>> 2 | c3 << 30) ^ (c3 >>> 13 | c3 << 19) ^ (c3 >>> 22 | c3 << 10), s1 = (g5 >>> 6 | g5 << 26) ^ (g5 >>> 11 | g5 << 21) ^ (g5 >>> 25 | g5 << 7), cd = c3 & d3, maj = cd ^ c3 & a4 ^ da, ch = g5 & h3 ^ ~g5 & e3, t1 = f4 + s1 + ch + K5[j5 + 2] + blocks2[j5 + 2], t22 = s0 + maj, f4 = b4 + t1 << 0, b4 = t1 + t22 << 0, s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10), s1 = (f4 >>> 6 | f4 << 26) ^ (f4 >>> 11 | f4 << 21) ^ (f4 >>> 25 | f4 << 7), bc = b4 & c3, maj = bc ^ b4 & d3 ^ cd, ch = f4 & g5 ^ ~f4 & h3, t1 = e3 + s1 + ch + K5[j5 + 3] + blocks2[j5 + 3], t22 = s0 + maj, e3 = a4 + t1 << 0, a4 = t1 + t22 << 0;
-  this.h0 = this.h0 + a4 << 0, this.h1 = this.h1 + b4 << 0, this.h2 = this.h2 + c3 << 0, this.h3 = this.h3 + d3 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f4 << 0, this.h6 = this.h6 + g5 << 0, this.h7 = this.h7 + h3 << 0;
+    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d3 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d3 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a3 >>> 2 | a3 << 30) ^ (a3 >>> 13 | a3 << 19) ^ (a3 >>> 22 | a3 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a3 & b4, maj = ab ^ a3 & c3 ^ bc, ch = e3 & f5 ^ ~e3 & g5, t1 = h3 + s1 + ch + K5[j5] + blocks2[j5], t22 = s0 + maj, h3 = d3 + t1 << 0, d3 = t1 + t22 << 0), s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d3 & a3, maj = da ^ d3 & b4 ^ ab, ch = h3 & e3 ^ ~h3 & f5, t1 = g5 + s1 + ch + K5[j5 + 1] + blocks2[j5 + 1], t22 = s0 + maj, g5 = c3 + t1 << 0, c3 = t1 + t22 << 0, s0 = (c3 >>> 2 | c3 << 30) ^ (c3 >>> 13 | c3 << 19) ^ (c3 >>> 22 | c3 << 10), s1 = (g5 >>> 6 | g5 << 26) ^ (g5 >>> 11 | g5 << 21) ^ (g5 >>> 25 | g5 << 7), cd = c3 & d3, maj = cd ^ c3 & a3 ^ da, ch = g5 & h3 ^ ~g5 & e3, t1 = f5 + s1 + ch + K5[j5 + 2] + blocks2[j5 + 2], t22 = s0 + maj, f5 = b4 + t1 << 0, b4 = t1 + t22 << 0, s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10), s1 = (f5 >>> 6 | f5 << 26) ^ (f5 >>> 11 | f5 << 21) ^ (f5 >>> 25 | f5 << 7), bc = b4 & c3, maj = bc ^ b4 & d3 ^ cd, ch = f5 & g5 ^ ~f5 & h3, t1 = e3 + s1 + ch + K5[j5 + 3] + blocks2[j5 + 3], t22 = s0 + maj, e3 = a3 + t1 << 0, a3 = t1 + t22 << 0;
+  this.h0 = this.h0 + a3 << 0, this.h1 = this.h1 + b4 << 0, this.h2 = this.h2 + c3 << 0, this.h3 = this.h3 + d3 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f5 << 0, this.h6 = this.h6 + g5 << 0, this.h7 = this.h7 + h3 << 0;
 };
 Sha256.prototype.hex = function() {
   this.finalize();
-  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h3 >> 28 & 15] + HEX_CHARS[h3 >> 24 & 15] + HEX_CHARS[h3 >> 20 & 15] + HEX_CHARS[h3 >> 16 & 15] + HEX_CHARS[h3 >> 12 & 15] + HEX_CHARS[h3 >> 8 & 15] + HEX_CHARS[h3 >> 4 & 15] + HEX_CHARS[h3 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
-  return this.is224 || (hex2 += HEX_CHARS[h7 >> 28 & 15] + HEX_CHARS[h7 >> 24 & 15] + HEX_CHARS[h7 >> 20 & 15] + HEX_CHARS[h7 >> 16 & 15] + HEX_CHARS[h7 >> 12 & 15] + HEX_CHARS[h7 >> 8 & 15] + HEX_CHARS[h7 >> 4 & 15] + HEX_CHARS[h7 & 15]), hex2;
+  var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, hex = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h3 >> 28 & 15] + HEX_CHARS[h3 >> 24 & 15] + HEX_CHARS[h3 >> 20 & 15] + HEX_CHARS[h3 >> 16 & 15] + HEX_CHARS[h3 >> 12 & 15] + HEX_CHARS[h3 >> 8 & 15] + HEX_CHARS[h3 >> 4 & 15] + HEX_CHARS[h3 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
+  return this.is224 || (hex += HEX_CHARS[h7 >> 28 & 15] + HEX_CHARS[h7 >> 24 & 15] + HEX_CHARS[h7 >> 20 & 15] + HEX_CHARS[h7 >> 16 & 15] + HEX_CHARS[h7 >> 12 & 15] + HEX_CHARS[h7 >> 8 & 15] + HEX_CHARS[h7 >> 4 & 15] + HEX_CHARS[h7 & 15]), hex;
 };
 Sha256.prototype.toString = Sha256.prototype.hex;
 Sha256.prototype.digest = function() {
@@ -8508,29 +8646,6 @@ var sha256Fn = sha256_default.sha256;
 function sha256(message) {
   return Promise.resolve(sha256Fn(message));
 }
-function hex(hashBuffer) {
-  return Array.from(new Uint8Array(hashBuffer)).map((b4) => b4.toString(16).padStart(2, "0")).join(
-    ""
-  );
-}
-function hmacSha256(str, keyString) {
-  let hash = sha256Fn.hmac.create(keyString);
-  return hash.update(str), Promise.resolve(hash.array());
-}
-async function hmacSha256ByString(str, keyString) {
-  let sig = await hmacSha256(str, keyString);
-  return hex(sig);
-}
-async function hmacSha256ByArrayBuffer(str, keyString) {
-  let buffer = decodeHex(keyString), sig = await hmacSha256(str, buffer);
-  return hex(sig);
-}
-function decodeHex(string) {
-  let bytes = [];
-  return string.replace(/../g, function(pair) {
-    return bytes.push(parseInt(pair, 16)), "";
-  }), new Uint8Array(bytes).buffer;
-}
 
 // env.ts
 function getEnv() {
@@ -8540,296 +8655,11 @@ var env = getEnv();
 function isMonkey() {
   return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
 }
-function isDeno2() {
-  return typeof Deno < "u";
-}
-
-// utils/iframe.ts
-function getIsInIframe() {
-  try {
-    return globalThis.self !== globalThis.top;
-  } catch {
-    return !0;
-  }
-}
 
 // dom/util.ts
 var env2 = getEnv(), isProd = env2.PROD === "1";
-function duplicatedElements(root2, array, rule) {
-  let allHeaders = root2.querySelectorAll("header"), main = root2.querySelectorAll("main"), headers2 = [];
-  for (let header of allHeaders)
-    main.length > 0 && main[0].contains(header) || headers2.push(header);
-  for (let i2 = 0; i2 < array.length; i2++) {
-    let a4 = array[i2].element;
-    for (let j5 = i2 + 1; j5 < array.length; j5++) {
-      let b4 = array[j5].element;
-      if (a4.contains(b4))
-        array.splice(j5, 1), j5--;
-      else if (b4.contains(a4)) {
-        array.splice(i2, 1), i2--;
-        break;
-      } else
-        a4 === b4 && (array.splice(j5, 1), j5--);
-    }
-  }
-  return array.filter((container) => {
-    let element = container.element;
-    if (container.reserve)
-      return !0;
-    let isHeader = !1;
-    for (let header of headers2) {
-      if (isMatchTags(element.nodeName, ["H1"]))
-        continue;
-      let h1Container = header.querySelector("h1");
-      if (!(h1Container && isValidTextByCount(
-        h1Container.textContent || "",
-        rule.paragraphMinTextCount,
-        rule.paragraphMinWordCount
-      )) && (element === header || header.contains(element))) {
-        isHeader = !0;
-        break;
-      }
-    }
-    return !isHeader;
-  }).map((container) => container.element);
-}
-function getLastHTMLElement(elements) {
-  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    if (typeof element != "string")
-      return element;
-  }
-  return null;
-}
-function getHTMLElements(elements) {
-  let result = [];
-  for (let i2 = elements.length - 1; i2 >= 0; i2--) {
-    let element = elements[i2].element || elements[i2];
-    (typeof element != "string" || element !== " ") && result.push(element);
-  }
-  return result;
-}
-function getFirstHTMLElement(elements) {
-  for (let i2 = 0; i2 < elements.length; i2++) {
-    let element = elements[i2];
-    if (typeof element != "string")
-      return element;
-  }
-  return null;
-}
-function getWhitespace(nextNode, isPreWhitespace) {
-  return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
-}
-function getElementsBySelectors(root2, selectors) {
-  let elements = [];
-  for (let selector of selectors) {
-    let nodes = root2.querySelectorAll(selector);
-    for (let node of nodes)
-      elements.push(node);
-  }
-  return elements;
-}
-function isInlineElementByTreeWalker(element, rule) {
-  let filterInlineElement = function(node) {
-    return node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE ? node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-  }, treeWalker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_ELEMENT,
-    filterInlineElement
-  ), isInline = !0;
-  for (; treeWalker.nextNode(); ) {
-    let node = treeWalker.currentNode;
-    if (node.nodeType === Node.ELEMENT_NODE) {
-      if (isMarked(
-        node,
-        sourceInlineElementMarkAttributeName
-      )) {
-        if (isInline === !0)
-          return !0;
-        continue;
-      }
-      if (!isMatchTags(node.nodeName, rule.inlineTags))
-        return !1;
-    }
-  }
-  return !0;
-}
-function isInlineElement(element, rule) {
-  let inlineTags = rule.inlineTags;
-  return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
-    element,
-    sourceBlockElementMarkAttributeName
-  ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
-    element,
-    sourceInlineElementMarkAttributeName
-  ) : !1;
-}
-function isDuplicateElement(element, elements) {
-  for (let e3 of elements)
-    if (e3 === element)
-      return !0;
-  return !1;
-}
-function isMetaElement(element, rule) {
-  return !!isMatchTags(element.nodeName, rule.metaTags);
-}
-function isExcludeElement(element, rule, includeStayElements) {
-  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
-    return !0;
-  if (element.nodeType === Node.ELEMENT_NODE && isMarked(
-    element,
-    specifiedTargetContainerElementAttributeName
-  ))
-    return !1;
-  let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), !!(element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) || isMatchTags(element.nodeName, finalExcludeTags));
-}
-function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
-  let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
-    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
-  ), text = item.text, trimedText = text.trim();
-  return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
-}
-function isValidTextByCount(rawText, minTextCount, minWordCount) {
-  let text = rawText.trim();
-  return text.length >= minTextCount || text.split(" ").length >= minWordCount;
-}
-function isUrl(text) {
-  if (text && text.includes("://"))
-    try {
-      return new URL(text), !0;
-    } catch {
-      return !1;
-    }
-  else
-    return !1;
-}
-function isHashTag(text) {
-  return !!(text && text.startsWith("#") && text.indexOf(" ") === -1);
-}
-function isAtTag(text) {
-  return !!(text && text.startsWith("@") && text.indexOf(" ") === -1);
-}
-function isStockTag(text) {
-  return !!(text && text.startsWith("$") && text.indexOf(" ") === -1);
-}
-function isMarked(element, markedAttribute, explicit = !1) {
-  return isMarkedWith(element, markedAttribute, "1", explicit);
-}
-function isMarkedWith(element, markedAttribute, value, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute] === value)
-  ) : !1 : element.dataset[markedAttribute] === value;
-}
-function hasMark(element, markedAttribute, explicit = !1) {
-  return isProd && !explicit ? element[elementMarkRootKey] ? (
-    // @ts-ignore: it's ok
-    !!(element[elementMarkRootKey] && // @ts-ignore: it's ok
-    element[elementMarkRootKey][markedAttribute])
-  ) : !1 : element.dataset[markedAttribute] !== void 0;
-}
-function getMainText(root2) {
-  return (root2.innerText || root2.textContent || "").trim();
-}
 function isMatchSelectors(selectors) {
   return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
-}
-function setAttribute(element, name, value, explicit = !1) {
-  element.isContentEditable || (isProd && !explicit ? (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element[elementMarkRootKey] || (element[elementMarkRootKey] = {}), element[elementMarkRootKey][name] || (element[elementMarkRootKey][name] = value)) : (element.dataset[sourceElementEffectAttributeNameForJs] || (element.dataset[sourceElementEffectAttributeNameForJs] = "1"), element.dataset[name] !== value && (element.dataset[name] = value)));
-}
-function removeAttribute(element, name, explicit = !1) {
-  if (isProd && !explicit) {
-    if (!element[elementMarkRootKey] || !element[elementMarkRootKey][name])
-      return;
-    delete element[elementMarkRootKey][name];
-  } else
-    delete element.dataset[name];
-}
-function getAttribute(element, name, explicit = !1) {
-  return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
-}
-function isStayOriginalElement(element, rule) {
-  let isStayOriginal = !1;
-  return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
-}
-function isUnknowTag(element, rule) {
-  let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
-    rule.excludeTags
-  );
-  return !isMatchTags(element.nodeName, allKnowTags);
-}
-function getPlaceholderDelimiters(ctx) {
-  let { config } = ctx, delimiters = defaultPlaceholderDelimiters;
-  return config.translationServices[ctx.translationService] && config.translationServices[ctx.translationService].placeholderDelimiters && (delimiters = config.translationServices[ctx.translationService].placeholderDelimiters), delimiters;
-}
-function isContainsSelectors(element, selectors) {
-  if (!selectors)
-    return !1;
-  Array.isArray(selectors) || (selectors = [selectors]);
-  for (let selector of selectors)
-    if (element.querySelector(selector))
-      return !0;
-  return !1;
-}
-function getTheLastTextNodeParentElement(element) {
-  let treeWalker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_TEXT,
-    (node) => node.textContent && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
-  ), lastTextNode = null;
-  for (; treeWalker.nextNode(); )
-    lastTextNode = treeWalker.currentNode;
-  return lastTextNode ? lastTextNode.parentElement : null;
-}
-function getRealUrl() {
-  if (!getIsInIframe())
-    return globalThis.location.href;
-  try {
-    let currentUrl = globalThis.location.href;
-    if (new URL(currentUrl).protocol === "about:") {
-      if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
-        return globalThis.location.ancestorOrigins[0];
-      let href = "";
-      try {
-        href = globalThis.parent.location.href;
-      } catch {
-      }
-      return href || (globalThis.location != globalThis.parent.location ? document.referrer : document.location.href);
-    } else
-      return currentUrl;
-  } catch {
-  }
-  return globalThis.location.href;
-}
-function injectCSS(rootDocument, css, id) {
-  if (rootDocument && rootDocument.head && rootDocument.head.appendChild) {
-    let styleElement = rootDocument.createElement("style");
-    if (id) {
-      let existingStyleElement = rootDocument.querySelector(
-        `style[data-id="${id}"]`
-      );
-      existingStyleElement && existingStyleElement.remove(), styleElement.dataset.id = id;
-    }
-    rootDocument.head.appendChild(styleElement).innerHTML = css;
-  } else
-    log_default.warn(
-      "injectCSS failed, rootDocument does not have head node",
-      rootDocument
-    );
-}
-function isInlineIframe(frame) {
-  return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
-}
-function isMatchTags(nodeName, tags) {
-  if (!nodeName || !tags)
-    return !1;
-  Array.isArray(tags) || (tags = [tags]), nodeName = nodeName.toUpperCase();
-  for (let tag of tags)
-    if (nodeName === tag)
-      return !0;
-  return !1;
 }
 
 // utils/format_language.ts
@@ -8932,9 +8762,7 @@ var buildin_config_default = {
       "https://www.reddit.com/.compact"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   translationParagraphLanguagePattern: {
@@ -8961,9 +8789,7 @@ var buildin_config_default = {
       "*.slack.com"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   sourceLanguageUrlPattern: {},
@@ -8971,6 +8797,8 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    waitForSelectors: [],
+    waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
@@ -8978,6 +8806,11 @@ var buildin_config_default = {
     isPdf: !1,
     isTransformPreTagNewLine: !1,
     urlChangeDelay: 20,
+    mutationChangeDelay: 10,
+    visibleDelay: 0,
+    additionalStayOriginalSelectors: [
+      "span.katex"
+    ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -9010,13 +8843,13 @@ var buildin_config_default = {
       ".article__title",
       ".articleTitle",
       ".Article__content",
-      ".title",
-      ".abstract",
       ".titleLink",
       ".summary",
       ".content",
       ".headline",
-      ".page-content"
+      ".page-content",
+      "aside.note",
+      "aside.article-comments"
     ],
     atomicBlockTags: [],
     excludeSelectors: [],
@@ -9063,19 +8896,9 @@ var buildin_config_default = {
       "FOOTER",
       "MATH"
     ],
-    bodyTranslateTags: [
-      "FOOTER",
-      "ADIDE",
-      "BUTTON",
-      "NAV"
-    ],
+    bodyTranslateTags: ["FOOTER", "ADIDE", "BUTTON", "NAV"],
     forceTranslateTags: [],
-    metaTags: [
-      "META",
-      "SCRIPT",
-      "STYLE",
-      "NOSCRIPT"
-    ],
+    metaTags: ["META", "SCRIPT", "STYLE", "NOSCRIPT"],
     additionalExcludeTags: [],
     stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
@@ -9185,9 +9008,7 @@ var buildin_config_default = {
   },
   rules: [
     {
-      matches: [
-        "moz-extension://*/pdf/index.html*"
-      ],
+      matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -9278,7 +9099,7 @@ var buildin_config_default = {
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [".container", "h3.title"]
+      selectors: [".container", "h3.title", "div.content"]
     },
     {
       matches: "news.ycombinator.com",
@@ -9319,6 +9140,29 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
+      matches: "https://www.reddit.com/r/*/comments/*/*",
+      selectors: [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      detectParagraphLanguage: !0,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      },
+      waitForSelectors: [
+        "[data-testid=post_author_link]"
+      ]
+    },
+    {
       matches: "www.reddit.com",
       selectors: [
         "h1",
@@ -9355,22 +9199,20 @@ var buildin_config_default = {
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "div.js-details-container.Details",
+        "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell"
       ],
       extraBlockSelectors: [],
-      extraInlineSelectors: [
-        "g-emoji"
-      ],
+      extraInlineSelectors: ["g-emoji"],
       stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
       detectParagraphLanguage: !0
     },
     {
       matches: "notebooks.githubusercontent.com",
-      excludeSelectors: [
-        "div.jp-CodeCell"
-      ]
+      excludeSelectors: ["div.jp-CodeCell"]
     },
     {
       matches: "www.facebook.com",
@@ -9388,20 +9230,14 @@ var buildin_config_default = {
       preWhitespaceDetectedTags: ["DIV", "SPAN"],
       extraBlockSelectors: ["span.x1vvkbs"],
       excludeSelectors: ["[role=button]"],
-      translationClasses: [
-        "immersive-translate-text"
-      ],
+      translationClasses: ["immersive-translate-text"],
       detectParagraphLanguage: !0
     },
     {
       matches: "m.youtube.com",
-      selectors: [
-        ".comment-text"
-      ],
+      selectors: [".comment-text"],
       observeUrlChange: !0,
-      atomicBlockSelectors: [
-        ".comment-text"
-      ],
+      atomicBlockSelectors: [".comment-text"],
       globalStyles: {
         ".comment-text": "max-height:unset;"
       },
@@ -9436,9 +9272,7 @@ var buildin_config_default = {
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
-      excludeSelectors: [
-        "[class^='lln-']"
-      ],
+      excludeSelectors: ["[class^='lln-']"],
       extraBlockSelectors: [
         "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
@@ -9473,10 +9307,7 @@ var buildin_config_default = {
     },
     {
       matches: "https://poeditor.com/projects/*",
-      selectors: [
-        ".comment-body",
-        ".reference_language .source-string"
-      ]
+      selectors: [".comment-body", ".reference_language .source-string"]
     },
     {
       matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
@@ -9515,8 +9346,8 @@ var buildin_config_default = {
     {
       matches: "read.readwise.io",
       selectors: [
-        'div[class^="_titleRow_"]',
-        'div[class^="_description_"]',
+        "div[class^='_titleRow_']",
+        "div[class^='_description_']",
         "#document-text-content"
       ],
       detectParagraphLanguage: !0
@@ -9535,16 +9366,18 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "*.ideas.aha.io"
-      ],
+      matches: "*.ideas.aha.io",
       excludeSelectors: [
-        ".vote-status",
-        ".idea-meta-secondary",
         ".comment-header",
+        ".vote-status",
+        ".idea-meta",
+        ".filters-title",
+        ".ideas-showing-count",
         ".my-ideas-filters-wrapper",
+        ".statuses-filters-wrapper",
         ".categories-filters-wrapper",
-        ".statuses-filters-wrapper"
+        "[class^='attachment']",
+        "span[class^='attachment-name']"
       ]
     },
     {
@@ -9695,6 +9528,38 @@ var buildin_config_default = {
       additionalSelectors: ["#book"]
     },
     {
+      matches: "www.artstation.com/artwork/*",
+      excludeSelectors: ".project-description a",
+      selectors: [".project-description", "div.project-comment-text"],
+      atomicBlockSelectors: "div.project-comment-text",
+      detectParagraphLanguage: !0
+    },
+    {
+      matches: "www.artstation.com/learning/courses/*",
+      additionalSelectors: [
+        "footer.learning-course-description.ng-star-inserted > span"
+      ],
+      excludeSelectors: ".learning-card-meta"
+    },
+    {
+      matches: [
+        "https://www.artstation.com/blogs",
+        "https://www.artstation.com/blogs/*"
+      ],
+      detectParagraphLanguage: !0,
+      additionalSelectors: [".comment-item-body"],
+      atomicBlockSelectors: [".author-headline", ".author-location"],
+      excludeSelectors: [
+        "blog-card-thumbnail",
+        "blog-card-header",
+        ".blog-card-author",
+        ".blog-card-meta",
+        ".blog-view-header",
+        ".blog-grid-title",
+        ".post-meta-header"
+      ]
+    },
+    {
       matches: "www.figma.com/community/*",
       normalizeBody: "div.ql-editor[contenteditable='false']",
       excludeSelectors: [
@@ -9717,9 +9582,7 @@ var buildin_config_default = {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
       },
-      extraBlockSelectors: [
-        ".MUFPAc"
-      ]
+      extraBlockSelectors: [".MUFPAc"]
     },
     {
       matches: "lowendtalk.com",
@@ -9781,7 +9644,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: ["div.RenderKeyPoints-list"]
+      additionalSelectors: ["div.RenderKeyPoints-list"],
+      urlChangeDelay: 1e3,
+      globalStyles: {
+        "div.Card-titleContainer > div": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       matches: "app.daily.dev",
@@ -9823,9 +9690,7 @@ var buildin_config_default = {
     },
     {
       matches: ["medium.com", "*.medium.com"],
-      selectorMatches: [
-        "meta[property='al:ios:url'][content^='medium://']"
-      ],
+      selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
       urlChangeDelay: 2e3,
       selectors: [
         "article section",
@@ -9840,9 +9705,7 @@ var buildin_config_default = {
       }
     },
     {
-      selectorMatches: [
-        "meta[property='og:site_name'][content='Nitter']"
-      ],
+      selectorMatches: ["meta[property='og:site_name'][content='Nitter']"],
       selectors: [".tweet-content", ".quote-text"]
     },
     {
@@ -9872,9 +9735,7 @@ var buildin_config_default = {
         '[data-feature-name="featurebullets"]',
         '[data-feature-name="aplus"'
       ],
-      excludeBlockSelectors: [
-        "div.reviewText > span"
-      ],
+      excludeBlockSelectors: ["div.reviewText > span"],
       globalStyles: {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
@@ -9905,10 +9766,7 @@ var buildin_config_default = {
     },
     {
       matches: ["*.annas-archive.org", "annas-archive.org"],
-      selectors: [
-        "h3.text-xl.font-bold",
-        "div[class='truncate text-sm']"
-      ],
+      selectors: ["h3.text-xl.font-bold", "div[class='truncate text-sm']"],
       globalStyles: {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
@@ -9916,12 +9774,8 @@ var buildin_config_default = {
       extraBlockSelectors: ["a.custom-a"]
     },
     {
-      matches: [
-        "explainshell.com"
-      ],
-      selectors: [
-        "[class='help-box']"
-      ]
+      matches: ["explainshell.com"],
+      selectors: ["[class='help-box']"]
     },
     {
       matches: ["apnews.com"],
@@ -10012,41 +9866,31 @@ var buildin_config_default = {
     },
     {
       matches: [
-        "www.construct.net/en/forum/*",
-        "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses*",
-        "www.construct.net/en/courses/*",
-        "www.construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       excludeMatches: [
-        "www.construct.net/en/forum/search",
         "preview.construct.net"
       ],
-      additionalSelectors: [
-        "aside",
-        "div.manualContent"
-      ],
+      additionalSelectors: ["aside", "div.manualContent"],
       atomicBlockSelectors: [],
-      stayOriginalSelectors: [
-        "a.usernameReference"
-      ],
-      additionalInlineSelectors: [
-        "a.forumLink"
-      ],
+      stayOriginalSelectors: ["a.usernameReference"],
+      additionalInlineSelectors: ["a.forumLink"],
       additionalExcludeSelectors: [
         "div.topNav",
+        ".breadCrumbNav",
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
         "ul.subForumForums",
-        "ul.breadCrumbNav",
         "ul.postTools",
         "li.comment ul.controls",
         "div.forumTopNavWrap",
         "div.downloadWrap",
         "div.articleLeftMenu",
-        "div.breadCrumbNav",
+        "div.usernameTextWrap",
         "div#FilterMenu.FilterMenu",
+        "div.viewAddonRightMenu",
+        "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
         "span.tagViewWrap",
         "div#LeftSide.leftSide",
@@ -10067,6 +9911,16 @@ var buildin_config_default = {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
+    },
+    {
+      matches: "www.construct.net/en/blogs/*",
+      excludeSelectors: [
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats"
+      ]
     },
     {
       matches: "getpocket.com",
@@ -10119,9 +9973,7 @@ var buildin_config_default = {
     },
     {
       matches: "glasp.co",
-      excludeSelectors: [
-        ".home_overview_list_content_wrapper"
-      ]
+      excludeSelectors: [".home_overview_list_content_wrapper"]
     },
     {
       matches: "developer.chrome.com",
@@ -10145,6 +9997,7 @@ var buildin_config_default = {
     },
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
+      observeUrlChange: !0,
       additionalSelectors: ["aside", "google-codelab-step"]
     },
     {
@@ -10167,15 +10020,105 @@ var buildin_config_default = {
     },
     {
       matches: "www.newthingsunderthesun.com",
-      additionalSelectors: [
-        "[translate=no]"
-      ]
+      additionalSelectors: ["[translate=no]"]
     },
     {
       matches: "https://www.tiktok.com/*/video/*",
       selectors: [
         "[data-e2e^=comment-level]",
         "[data-e2e=browse-video-desc] > span"
+      ]
+    },
+    {
+      matches: "www.rfc-editor.org",
+      isTransformPreTagNewLine: !0,
+      excludeTags: [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH"
+      ]
+    },
+    {
+      matches: "https://steamcommunity.com/app/*/discussions/",
+      globalStyles: {
+        ".forum_topic": "height:auto;",
+        ".forum_topic_name": "white-space:normal;"
+      },
+      excludeSelectors: [
+        ".forum_paging",
+        ".forum_topic_reply_count",
+        ".forum_topic_lastpost",
+        ".forum_topic_award_count"
+      ],
+      observeUrlChange: !0
+    },
+    {
+      matches: "https://www.nature.com/articles/*",
+      excludeSelectors: [
+        ".c-header",
+        ".u-container",
+        ".c-recommendations-header",
+        ".c-recommendations-list-container",
+        ".c-article-references__links",
+        ".c-article-identifiers",
+        ".c-article-author-list",
+        ".c-article-metrics-bar__wrapper",
+        ".c-article__pill-button",
+        "#author-information-content",
+        "#article-info-section"
+      ]
+    },
+    {
+      matches: "https://www.webofscience.com/wos/woscc/summary/*",
+      globalStyles: {
+        ".abstract": "height:auto !important;",
+        ".show-more-lines": "height:unset !important;"
+      },
+      excludeSelectors: [
+        ".summary-left-panel",
+        ".authors",
+        "app-summary-authors + div"
+      ],
+      observeUrlChange: !0,
+      mutationChangeDelay: 600
+    },
+    {
+      matches: ["appleinsider.com"],
+      excludeSelectors: ["#topic-nav"]
+    },
+    {
+      matches: "https://www.jetbrains.com/help/*",
+      extraBlockSelectors: [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      matches: ["https://crates.io/search*"],
+      selectors: [
+        "div[class^=_description-box] div[class^=_description]"
       ]
     }
   ]
@@ -10232,7 +10175,7 @@ function getEnvUserConfig() {
     };
     defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
   }
-  return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+  return env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
 }
 async function getLocalConfig() {
   let localConfig = await browserAPI.storage.local.get(localConfigStorageKey);
@@ -10415,18 +10358,9 @@ var getBrowserIntefaceLanguage = async () => {
 };
 
 // dom/current_language.ts
-var currentPageLanguage = "auto", currentPageLanguageByClient = "auto", currentPageLanguageByRemote = "auto";
-function setCurrentPageLanguage(lang) {
-  currentPageLanguage = lang;
-}
+var currentPageLanguageByClient = "auto";
 function setCurrentPageLanguageByClient(lang) {
   currentPageLanguageByClient = lang;
-}
-function getCurrentPageLanguage() {
-  return currentPageLanguageByClient !== "auto" ? currentPageLanguageByClient : currentPageLanguageByRemote !== "auto" ? currentPageLanguageByRemote : currentPageLanguage;
-}
-function getCurrentPageLanguageByClient() {
-  return currentPageLanguageByClient;
 }
 
 // dom/context.ts
@@ -10603,11 +10537,11 @@ var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, rawUseUserConfig = createCh
   INITIAL_VALUE
 );
 function useUserConfig() {
-  let [value, setValue, isPersistent, error] = rawUseUserConfig();
-  return [value, function(newValue) {
+  let [value, setValue, isPersistent, error] = rawUseUserConfig(), formatSetValue = L2((newValue) => {
     let toStore = typeof newValue == "function" ? newValue(value) : newValue;
     toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
-  }, isPersistent, error, setValue];
+  }, [value]);
+  return [value, formatSetValue, isPersistent, error, setValue];
 }
 
 // errors.ts
@@ -10692,12 +10626,12 @@ var listeners2 = /* @__PURE__ */ new Map(), Messager = class {
     if (currentListeners.has(name))
       return currentListeners.get(name).connectionInstance;
     {
-      let connection3 = new Connection(`${fromType}:${name}`, this.logger);
+      let connection2 = new Connection(`${fromType}:${name}`, this.logger);
       return listeners2.get(fromType).set(name, {
         messageHandler,
         sync,
-        connectionInstance: connection3
-      }), connection3;
+        connectionInstance: connection2
+      }), connection2;
     }
   }
 }, Connection = class {
@@ -10831,15 +10765,15 @@ function getVersion() {
 }
 
 // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
-var a3 = 0;
-function p5(n3, s4, t3, f4, u3) {
-  var r, o3, _2 = {};
+var a2 = 0;
+function p5(n3, s4, t3, f5, u3) {
+  var r, o3, _3 = {};
   for (o3 in s4)
-    o3 == "ref" ? r = s4[o3] : _2[o3] = s4[o3];
-  var e3 = { type: n3, props: _2, key: t3, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a3, __source: u3, __self: f4 };
+    o3 == "ref" ? r = s4[o3] : _3[o3] = s4[o3];
+  var e3 = { type: n3, props: _3, key: t3, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a2, __source: u3, __self: f5 };
   if (typeof n3 == "function" && (r = n3.defaultProps))
     for (o3 in r)
-      _2[o3] === void 0 && (_2[o3] = r[o3]);
+      _3[o3] === void 0 && (_3[o3] = r[o3]);
   return d.vnode && d.vnode(e3), e3;
 }
 
@@ -11049,4348 +10983,8 @@ function PopupField(props) {
 }
 
 // services/util.ts
-function splitSentences(sentences, maxLength, maxGroupLength) {
-  let tempSentences = splitStentenceWithMaxLength(sentences, maxLength), tempSentenceGroups = [], tempGroup = {
-    from: sentences[0].from,
-    fromByClient: sentences[0].fromByClient,
-    to: sentences[0].to,
-    tempSentences: [],
-    url: sentences[0].url
-  };
-  for (let tempSentence of tempSentences)
-    (tempGroup.tempSentences.reduce(
-      (acc, cur) => acc + cur.text.length,
-      0
-    ) + tempSentence.text.length > maxLength || tempGroup.tempSentences.length >= maxGroupLength) && (tempSentenceGroups.push(tempGroup), tempGroup = {
-      fromByClient: tempGroup.fromByClient,
-      from: tempSentence.from,
-      to: tempSentence.to,
-      tempSentences: [],
-      url: tempSentence.url
-    }), (tempGroup.from !== tempSentence.from || tempGroup.to !== tempSentence.to) && (tempGroup.tempSentences.length > 0 ? (tempSentenceGroups.push(tempGroup), tempGroup = {
-      fromByClient: tempGroup.fromByClient,
-      from: tempSentence.from,
-      to: tempSentence.to,
-      tempSentences: [],
-      url: tempSentence.url
-    }) : (tempGroup.from = tempSentence.from, tempGroup.to = tempSentence.to)), tempGroup.tempSentences.push(tempSentence);
-  return tempGroup.tempSentences.length > 0 && tempSentenceGroups.push(tempGroup), tempSentenceGroups;
-}
-function splitStentenceWithMaxLength(sentences, maxLength) {
-  let allTempSentences = [];
-  for (let i2 = 0; i2 < sentences.length; i2++) {
-    let currentSentence = sentences[i2], { from, to, text, url } = currentSentence, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
-    for (let j5 = 0; j5 < textArrSplitedByNewLine.length; j5++) {
-      let currentText = textArrSplitedByNewLine[j5];
-      if (currentText === "") {
-        currentTempSentences.length > 0 ? j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
-`) : currentPrefix += `
-`;
-        continue;
-      } else if (currentText.length > maxLength) {
-        let tempSplitedSentences = [];
-        splitSentence(currentText, maxLength, tempSplitedSentences);
-        for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
-          let tempSentence = tempSplitedSentences[k4], { text: text2, prefix, suffix } = tempSentence;
-          currentTempSentences.push({
-            from,
-            to,
-            text: text2,
-            prefix,
-            suffix,
-            index: i2,
-            url
-          });
-        }
-      } else
-        currentTempSentences.push({
-          text: currentText,
-          prefix: currentPrefix,
-          suffix: "",
-          from,
-          to,
-          index: i2,
-          url
-        });
-      currentTempSentences.length > 0 && j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
-`);
-    }
-    allTempSentences.push(...currentTempSentences);
-  }
-  return allTempSentences;
-}
-function isSameTargetLanguage(sourceLanguage, targetLanguage) {
-  let finalSourceLanguage = formatLanguage(sourceLanguage), finalTargetLanguage = formatLanguage(targetLanguage), isSame = finalSourceLanguage === finalTargetLanguage;
-  return isSame ? !0 : (isSame = finalSourceLanguage.startsWith("zh") && finalTargetLanguage.startsWith("zh"), isSame);
-}
-function splitSentence(text, maxLength, sentences) {
-  let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
-    let index = text.lastIndexOf(boundary, maxLength);
-    return index > acc ? index : acc;
-  }, -1);
-  if (boundaryIndex === -1)
-    sentences.push({
-      text: text.slice(0, maxLength),
-      prefix: "",
-      suffix: ""
-    }), text.length > maxLength && splitSentence(text.slice(maxLength), maxLength, sentences);
-  else {
-    let theText = text.slice(0, boundaryIndex + 1);
-    theText.startsWith(" ") ? sentences.push({
-      text: theText.slice(1),
-      prefix: " ",
-      suffix: ""
-    }) : sentences.push({
-      text: theText,
-      prefix: "",
-      suffix: ""
-    }), boundaryIndex + 1 < text.length && splitSentence(text.slice(boundaryIndex + 1), maxLength, sentences);
-  }
-  return sentences;
-}
-function mergeUrl(defaultUrl, customUrl) {
-  let defaultUrlObj = new URL(defaultUrl);
-  customUrl.startsWith("http") || (customUrl = "https://" + customUrl);
-  let customUrlObj = new URL(customUrl);
-  return customUrlObj.pathname !== "/" ? customUrlObj.toString() : (defaultUrlObj.host = customUrlObj.host, customUrlObj.port && (defaultUrlObj.port = customUrlObj.port), customUrlObj.protocol && (defaultUrlObj.protocol = customUrlObj.protocol), customUrlObj.username && (defaultUrlObj.username = customUrlObj.username), customUrlObj.password && (defaultUrlObj.password = customUrlObj.password), defaultUrlObj.toString());
-}
-
-// browser/request.ts
-async function request(options) {
-  let response;
-  if (options && options.retry && options.retry > 0)
-    try {
-      response = await retry(rawRequest.bind(null, options), {
-        multiplier: 2,
-        maxAttempts: options.retry
-      });
-    } catch (e3) {
-      throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
-    }
-  else
-    response = await rawRequest(options);
-  return response;
-}
-async function rawRequest(options) {
-  options.body;
-  let { url, responseType, ...fetchOptions } = options;
-  responseType || (responseType = "json"), fetchOptions = {
-    mode: "cors",
-    ...fetchOptions
-  };
-  let response = await (options.fetchPolyfill || fetch)(url, fetchOptions);
-  if (response.ok && response.status >= 200 && response.status < 400) {
-    if (responseType === "json")
-      return await response.json();
-    if (responseType === "text")
-      return await response.text();
-    if (responseType === "raw") {
-      let data = await response.text(), responseHeaders = Object.fromEntries([
-        ...response.headers.entries()
-      ]), finalUrl = response.url;
-      return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
-        body: data,
-        headers: responseHeaders,
-        status: response.status,
-        statusText: response.statusText,
-        url: finalUrl
-      };
-    }
-  } else {
-    let details;
-    try {
-      details = await response.text();
-    } catch (_e3) {
-      log_default.error("parse response failed", _e3);
-    }
-    throw details && log_default.error("fail response", details), new CommonError(
-      "fetchError",
-      response.status + ": " + response.statusText || "",
-      details
-    );
-  }
-}
-
-// utils/md5.js
-function safeAdd(x5, y3) {
-  var lsw = (x5 & 65535) + (y3 & 65535), msw = (x5 >> 16) + (y3 >> 16) + (lsw >> 16);
-  return msw << 16 | lsw & 65535;
-}
-function bitRotateLeft(num, cnt) {
-  return num << cnt | num >>> 32 - cnt;
-}
-function md5cmn(q6, a4, b4, x5, s4, t3) {
-  return safeAdd(bitRotateLeft(safeAdd(safeAdd(a4, q6), safeAdd(x5, t3)), s4), b4);
-}
-function md5ff(a4, b4, c3, d3, x5, s4, t3) {
-  return md5cmn(b4 & c3 | ~b4 & d3, a4, b4, x5, s4, t3);
-}
-function md5gg(a4, b4, c3, d3, x5, s4, t3) {
-  return md5cmn(b4 & d3 | c3 & ~d3, a4, b4, x5, s4, t3);
-}
-function md5hh(a4, b4, c3, d3, x5, s4, t3) {
-  return md5cmn(b4 ^ c3 ^ d3, a4, b4, x5, s4, t3);
-}
-function md5ii(a4, b4, c3, d3, x5, s4, t3) {
-  return md5cmn(c3 ^ (b4 | ~d3), a4, b4, x5, s4, t3);
-}
-function binlMD5(x5, len) {
-  x5[len >> 5] |= 128 << len % 32, x5[(len + 64 >>> 9 << 4) + 14] = len;
-  var i2, olda, oldb, oldc, oldd, a4 = 1732584193, b4 = -271733879, c3 = -1732584194, d3 = 271733878;
-  for (i2 = 0; i2 < x5.length; i2 += 16)
-    olda = a4, oldb = b4, oldc = c3, oldd = d3, a4 = md5ff(a4, b4, c3, d3, x5[i2], 7, -680876936), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 1], 12, -389564586), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 2], 17, 606105819), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 3], 22, -1044525330), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 4], 7, -176418897), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 5], 12, 1200080426), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 6], 17, -1473231341), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 7], 22, -45705983), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 8], 7, 1770035416), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 9], 12, -1958414417), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 10], 17, -42063), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 11], 22, -1990404162), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 12], 7, 1804603682), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 13], 12, -40341101), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 14], 17, -1502002290), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 15], 22, 1236535329), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 1], 5, -165796510), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 6], 9, -1069501632), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 11], 14, 643717713), b4 = md5gg(b4, c3, d3, a4, x5[i2], 20, -373897302), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 5], 5, -701558691), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 10], 9, 38016083), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 15], 14, -660478335), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 4], 20, -405537848), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 9], 5, 568446438), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 14], 9, -1019803690), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 3], 14, -187363961), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 8], 20, 1163531501), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 13], 5, -1444681467), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 2], 9, -51403784), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 7], 14, 1735328473), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 12], 20, -1926607734), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 5], 4, -378558), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 8], 11, -2022574463), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 11], 16, 1839030562), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 14], 23, -35309556), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 1], 4, -1530992060), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 4], 11, 1272893353), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 7], 16, -155497632), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 10], 23, -1094730640), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 13], 4, 681279174), d3 = md5hh(d3, a4, b4, c3, x5[i2], 11, -358537222), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 3], 16, -722521979), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 6], 23, 76029189), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 9], 4, -640364487), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 12], 11, -421815835), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 15], 16, 530742520), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 2], 23, -995338651), a4 = md5ii(a4, b4, c3, d3, x5[i2], 6, -198630844), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 7], 10, 1126891415), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 14], 15, -1416354905), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 5], 21, -57434055), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 12], 6, 1700485571), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 3], 10, -1894986606), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 10], 15, -1051523), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 1], 21, -2054922799), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 8], 6, 1873313359), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 15], 10, -30611744), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 6], 15, -1560198380), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 13], 21, 1309151649), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 4], 6, -145523070), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 11], 10, -1120210379), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 2], 15, 718787259), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 9], 21, -343485551), a4 = safeAdd(a4, olda), b4 = safeAdd(b4, oldb), c3 = safeAdd(c3, oldc), d3 = safeAdd(d3, oldd);
-  return [a4, b4, c3, d3];
-}
-function binl2rstr(input) {
-  var i2, output = "", length32 = input.length * 32;
-  for (i2 = 0; i2 < length32; i2 += 8)
-    output += String.fromCharCode(input[i2 >> 5] >>> i2 % 32 & 255);
-  return output;
-}
-function rstr2binl(input) {
-  var i2, output = [];
-  for (output[(input.length >> 2) - 1] = void 0, i2 = 0; i2 < output.length; i2 += 1)
-    output[i2] = 0;
-  var length8 = input.length * 8;
-  for (i2 = 0; i2 < length8; i2 += 8)
-    output[i2 >> 5] |= (input.charCodeAt(i2 / 8) & 255) << i2 % 32;
-  return output;
-}
-function rstrMD5(s4) {
-  return binl2rstr(binlMD5(rstr2binl(s4), s4.length * 8));
-}
-function rstrHMACMD5(key, data) {
-  var i2, bkey = rstr2binl(key), ipad = [], opad = [], hash;
-  for (ipad[15] = opad[15] = void 0, bkey.length > 16 && (bkey = binlMD5(bkey, key.length * 8)), i2 = 0; i2 < 16; i2 += 1)
-    ipad[i2] = bkey[i2] ^ 909522486, opad[i2] = bkey[i2] ^ 1549556828;
-  return hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8), binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
-}
-function rstr2hex(input) {
-  var hexTab = "0123456789abcdef", output = "", x5, i2;
-  for (i2 = 0; i2 < input.length; i2 += 1)
-    x5 = input.charCodeAt(i2), output += hexTab.charAt(x5 >>> 4 & 15) + hexTab.charAt(x5 & 15);
-  return output;
-}
-function str2rstrUTF8(input) {
-  return unescape(encodeURIComponent(input));
-}
-function rawMD5(s4) {
-  return rstrMD5(str2rstrUTF8(s4));
-}
-function hexMD5(s4) {
-  return rstr2hex(rawMD5(s4));
-}
-function rawHMACMD5(k4, d3) {
-  return rstrHMACMD5(str2rstrUTF8(k4), str2rstrUTF8(d3));
-}
-function hexHMACMD5(k4, d3) {
-  return rstr2hex(rawHMACMD5(k4, d3));
-}
-function md5(string, key, raw) {
-  return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
-}
-
-// services/cache.ts
-var dbNames = [];
-async function openIndexedDB(dbName, _storageName) {
-  return await new Promise((resolve, reject) => {
-    let name = dbName, version = 1, request3 = indexedDB.open(name, version);
-    request3.onsuccess = (_event) => {
-      resolve(request3.result);
-    }, request3.onerror = (event) => {
-      console.error(
-        "onerror: Error opening the database, switching to non-database mode",
-        event
-      ), reject();
-    }, request3.onupgradeneeded = (_event) => {
-      let db = request3.result, storageName = _storageName || "cache";
-      db.createObjectStore(storageName, {
-        keyPath: "key"
-      });
-    };
-  });
-}
-async function setParagraphCache(payload) {
-  let storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
-  return await addInDB(storageName, payload);
-}
-async function queryParagraphCache(payload) {
-  let payload_hash = md5(payload.originalText), storageName = `${brandId}-${payload.service}@${payload.from}->${payload.to}`;
-  return await queryInDB(storageName, payload_hash);
-}
-async function queryInDB(dbName, origTextHash) {
-  let db = await openIndexedDB(dbName);
-  return await new Promise((resolve, reject) => {
-    if (!db)
-      return reject();
-    let storageName = "cache", request3 = db.transaction([storageName], "readonly").objectStore(storageName).get(origTextHash);
-    request3.onsuccess = (_event) => {
-      db.close();
-      let result = request3.result;
-      resolve(result);
-    }, request3.onerror = (event) => {
-      db.close(), console.error("queryInDB->onerror:", event), reject();
-    };
-  });
-}
-async function addInDB(dbName, cacheEntry) {
-  let db = await openIndexedDB(dbName);
-  return (await getAllDBNames()).includes(dbName) || await addCacheList(dbName), await new Promise((resolve) => {
-    if (!db)
-      return resolve(!1);
-    let storageName = "cache", request3 = db.transaction([storageName], "readwrite").objectStore(storageName).put(cacheEntry);
-    request3.onsuccess = (_event) => {
-      db.close(), resolve(!0);
-    }, request3.onerror = (event) => {
-      console.error("addInDB->onerror:", event), db.close(), resolve(!1);
-    };
-  });
-}
-async function addCacheList(dbName) {
-  let storageName = "cache_list", db = await openIndexedDB(brandId + "-cacheList", storageName), request3 = db.transaction([storageName], "readwrite").objectStore(storageName).put({ key: dbName });
-  request3.onsuccess = (_event) => {
-    db.close(), dbNames.push(dbName);
-  }, request3.onerror = (event) => {
-    db.close(), console.error(event);
-  };
-}
-async function getAllDBNames() {
-  if (dbNames && dbNames.length > 0)
-    return dbNames;
-  let db = await openIndexedDB(brandId + "-cacheList", "cache_list");
-  return dbNames = await new Promise((resolve) => {
-    let storageName = "cache_list", request3 = db.transaction([storageName], "readonly").objectStore(storageName).getAllKeys();
-    request3.onsuccess = (_event) => {
-      db.close(), resolve(request3.result);
-    }, request3.onerror = (event) => {
-      db.close(), console.error(event), resolve([]);
-    };
-  }), dbNames;
-}
-
-// utils/detect_chinese.ts
-var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g, japaneseRegex = /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g, koreanRegex = /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g, punctuationRegex = /(\s+)|([\p{P}\p{S}])/gu, regexGroups = [
-  ["zh-CN", chineseRegex],
-  [
-    "ja",
-    japaneseRegex
-  ],
-  ["ko", koreanRegex]
-];
-function detectChinese(text) {
-  if (!text)
-    return "auto";
-  let maxCountLang = "auto", currentMaxCount = 0, punctuationMatchesLength = 0, punctuationMatches = text.match(punctuationRegex);
-  punctuationMatches && (punctuationMatchesLength = punctuationMatches.reduce((sum, item) => sum + item.length, 0));
-  let allLettersLength = text.length - punctuationMatchesLength;
-  for (let group of regexGroups) {
-    let regex = group[1], lang = group[0], matches = text.match(regex), langLength = matches ? matches.length : 0;
-    langLength > currentMaxCount && (currentMaxCount = langLength, maxCountLang = lang);
-  }
-  return currentMaxCount * 2.5 / allLettersLength > 0.5 ? maxCountLang : "auto";
-}
-
-// dom/mark_containers.ts
-function markContainers(container, rule) {
-  let {
-    excludeSelectors,
-    additionalExcludeSelectors,
-    extraInlineSelectors,
-    additionalInlineSelectors,
-    extraBlockSelectors,
-    atomicBlockSelectors,
-    atomicBlockTags,
-    globalStyles,
-    stayOriginalTags,
-    stayOriginalSelectors,
-    globalAttributes
-  } = rule, globalStyleSelectors = Object.keys(globalStyles);
-  if (globalStyleSelectors.length > 0)
-    for (let selector of globalStyleSelectors) {
-      let elements = getElementsBySelectors(container, [selector]);
-      for (let element of elements)
-        if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
-          setAttribute(
-            element,
-            sourceElementWithGlobalStyleMarkAttributeName,
-            "1"
-          );
-          let cssText = globalStyles[selector];
-          element.style.cssText += cssText;
-        }
-    }
-  let globalAttributesSelectors = Object.keys(globalAttributes);
-  if (globalAttributesSelectors.length > 0)
-    for (let selector of globalAttributesSelectors) {
-      let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
-      for (let element of elements)
-        for (let key of attributesKeys) {
-          let value = attributes[key];
-          element.getAttribute(key) !== value && (value === null ? element.removeAttribute(key) : element.setAttribute(key, value));
-        }
-    }
-  let allExcludeSelectors = [
-    ...excludeSelectors,
-    ...additionalExcludeSelectors
-  ], allInlineSelectors = [
-    ...extraInlineSelectors,
-    ...additionalInlineSelectors
-  ], allAtomicBlockSelectors = [...atomicBlockSelectors], allAtomicBlockTagsSelectors = atomicBlockTags.map(
-    (item) => item.toLowerCase()
-  ), allBlockSelectos = extraBlockSelectors;
-  getElementsBySelectors(
-    container,
-    allExcludeSelectors
-  ).forEach((element) => {
-    isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
-  });
-  let atomicBlockElements = [];
-  if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
-    container,
-    allAtomicBlockSelectors
-  ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
-    let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
-      (arr, item) => {
-        let tagLower = item.toLowerCase();
-        return arr.push(`<${tagLower}>`, `</${tagLower}>`, `<${tagLower} />`), arr;
-      },
-      []
-    ), httpLinkTags = [">http://", ">https://"];
-    stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
-    let atomicBlockTagsElements = getElementsBySelectors(
-      container,
-      allAtomicBlockTagsSelectors
-    ).filter((element) => {
-      if (isMarked(
-        element,
-        sourceAtomicBlockElementMarkAttributeName
-      ))
-        return !1;
-      {
-        let htmlString = element.innerHTML;
-        return !stayOriginalTagsHTMLStringArr.some(
-          (item) => htmlString.includes(item)
-        );
-      }
-    });
-    atomicBlockElements.push(...atomicBlockTagsElements);
-  }
-  atomicBlockElements.forEach((element) => {
-    isMarked(element, sourceAtomicBlockElementMarkAttributeName) || setAttribute(element, sourceAtomicBlockElementMarkAttributeName, "1");
-  });
-  let extraInlineElements = [];
-  allInlineSelectors.length > 0 && extraInlineElements.push(
-    ...getElementsBySelectors(container, allInlineSelectors)
-  ), extraInlineElements.forEach((element) => {
-    setAttribute(element, sourceInlineElementMarkAttributeName, "1");
-  });
-  let extraBlockElements = [];
-  allBlockSelectos.length > 0 && extraBlockElements.push(
-    ...getElementsBySelectors(container, allBlockSelectos)
-  ), extraBlockElements.forEach((element) => {
-    setAttribute(element, sourceBlockElementMarkAttributeName, "1");
-  });
-  let stayOriginalElements = [];
-  stayOriginalSelectors.length > 0 && stayOriginalElements.push(
-    ...getElementsBySelectors(container, stayOriginalSelectors)
-  ), stayOriginalElements.forEach((element) => {
-    setAttribute(element, sourceElementStayOriginalAttributeName, "1");
-  });
-}
-
-// utils/language_match.ts
-function isMatchLanguage(lang, matchPattern) {
-  let matches = matchPattern.matches || [];
-  if (matches && !Array.isArray(matches) && (matches = [matches]), matches.length === 0)
-    return !1;
-  if (matches.length > 0) {
-    if (matches.includes(lang))
-      return !0;
-    for (let match of matches)
-      if (match.includes("*") && new RegExp(match).test(lang))
-        return !0;
-  }
-  return !1;
-}
-
-// dom/detect_page_language.ts
-async function detectPageLanguage() {
-  let lang = "auto";
-  return document.body && document.body.textContent && document.body.textContent.trim() && (lang = await detectLanguage({
-    text: getMainText(document.body)
-  })), lang === "auto" && document.documentElement && document.documentElement.lang && (lang = formatLanguage(document.documentElement.lang)), lang;
-}
-
-// dom/get_containers.ts
-function getContainers(root2, ctx) {
-  if (!(root2 && root2.textContent && root2.textContent.trim()))
-    return [];
-  let { rule, state: { translationArea } } = ctx, contentContainers = [];
-  if (translationArea === "body")
-    return [root2];
-  if (rule && rule.selectors.length > 0) {
-    let containers = rule.selectors.map((selector) => {
-      let isMatch = root2.matches(selector), elements = [];
-      isMatch ? elements = [root2] : elements = root2.querySelectorAll(
-        selector
-      );
-      for (let element of elements)
-        isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
-          element,
-          specifiedTargetContainerElementAttributeName,
-          "1"
-        );
-      return Array.from(elements);
-    }).flat();
-    contentContainers.push(
-      ...containers.map((container) => ({
-        element: container,
-        reserve: !0
-      }))
-    );
-  } else {
-    if (rule && rule.additionalSelectors.length > 0) {
-      let additionalElements = getElementsBySelectors(
-        root2,
-        rule.additionalSelectors
-      );
-      for (let element of additionalElements)
-        isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
-          element,
-          specifiedTargetContainerElementAttributeName,
-          "1"
-        );
-      contentContainers.push(
-        ...additionalElements.map((element) => ({
-          element,
-          reserve: !0
-        }))
-      );
-    }
-    let articleElements = getElementsBySelectors(root2, ["article"]);
-    contentContainers.push(
-      ...articleElements.map((element) => ({
-        element,
-        reserve: !0
-      }))
-    );
-    let mains;
-    if (contentContainers.length === 0 && (mains = root2.querySelectorAll("[role=main]"), mains.length === 0 && (mains = root2.querySelectorAll("main")), mains.length === 0 && (mains = root2.querySelectorAll(".main")), mains.length > 0)) {
-      let mainsArray = Array.from(mains);
-      contentContainers = contentContainers.concat(
-        mainsArray.map((main) => ({
-          element: main,
-          reserve: !0
-        }))
-      );
-    }
-    let detectedContainers = [], treeFilter = (node) => {
-      if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !1))
-        return NodeFilter.FILTER_REJECT;
-      if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
-        let parentNode = node.parentNode;
-        parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
-      }
-      return NodeFilter.FILTER_ACCEPT;
-    }, walk = document.createTreeWalker(
-      root2,
-      NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
-      treeFilter
-    );
-    for (; walk.nextNode(); )
-      ;
-    contentContainers.push(
-      ...detectedContainers.map((element) => ({
-        element,
-        reserve: !1
-      }))
-    );
-  }
-  let finalContainers = duplicatedElements(root2, contentContainers, rule);
-  return finalContainers.sort(function(a4, b4) {
-    return a4.compareDocumentPosition(b4) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-  }), finalContainers;
-}
-
-// dom/unmount.ts
-var cleanQueue = [];
-function addToUnmountQueue(fn) {
-  cleanQueue.push(fn);
-}
-function clean() {
-  cleanQueue.forEach((fn) => fn()), cleanQueue = [];
-}
-
-// dom/apply_user_config_css.ts
-function applyUserConfigCss(root2, translationTheme, translationThemePatternConfig, remove) {
-  let theme = translationTheme, props = themeOptions[theme] || [], injectedCss = "";
-  root2 && props && props.length > 0 && props.forEach((prop) => {
-    let { name } = prop;
-    if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
-      let value = translationThemePatternConfig[name];
-      injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
-`;
-    }
-  });
-  let otherCss = "";
-  if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
-    let value = translationThemePatternConfig.textColor;
-    otherCss = `
-.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
-`;
-  }
-  let finalCss = "";
-  injectedCss && (finalCss = `:root {
-${injectedCss}}
-`), otherCss && (finalCss += otherCss), finalCss ? injectCSS(
-    root2,
-    finalCss,
-    "immersive-translate-user-custom-style"
-  ) : remove && injectCSS(
-    root2,
-    "",
-    "immersive-translate-user-custom-style"
-  );
-}
-
-// dom/inject_css_to_frame.ts
-function injectCssToFrame(root2, ctx) {
-  let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
-  injectCSS(root2, defaultInjectedCss);
-  let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.config.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
-  applyUserConfigCss(
-    root2,
-    translationTheme,
-    translationThemePatternConfig
-  );
-  let injectedCss = "";
-  (ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
-`)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
-` + ctx.rule.additionalInjectedCss.join(`
-`))), injectedCss && injectCSS(root2, injectedCss);
-}
-
-// dom/elements_to_paragraph.ts
-function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
-  let variables = [], { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
-  if (elements.length === 0)
-    return null;
-  elements = elements.map(
-    (element) => element.element ? element : {
-      element
-    }
-  );
-  let isForceTranslate = elements.some(
-    (element) => element.forceTranslate
-  ), text = "", isHasMeaningfulText = isForceTranslate;
-  for (let i2 = 0; i2 < elements.length; i2++) {
-    let elementState = elements[i2], element = elementState.element;
-    if (elementState.text) {
-      text += elementState.text, elementState.variables && elementState.variables.length > 0 && variables.push(...elementState.variables);
-      continue;
-    }
-    if (typeof element == "string") {
-      text += element;
-      continue;
-    }
-    let rawText = "";
-    isContainsSelectors(
-      element,
-      `[${sourceElementExcludeAttributeNameForSelector}]`
-    ) ? rawText = getTextWithExcludeElement(element) || "" : rawText = element.innerText || "";
-    let isStartWithSpace = rawText.startsWith(" "), isEndWithSpace = rawText.endsWith(" ");
-    element.tagName === "A" && (isStartWithSpace = !0, isEndWithSpace = !0);
-    let isStayOriginal = isStayOriginalElement(element, rule);
-    if (rawText === "" || isStayOriginal) {
-      isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
-      let variable = {
-        type: "element",
-        value: element
-      };
-      variables.push(variable);
-      let index = variables.length - 1, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
-      text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
-      continue;
-    }
-    if (!isExcludeElement(element, rule, !0)) {
-      {
-        let finalText = isPreWhitespace ? rawText : rawText.trim().replace(/\n/g, " ");
-        if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
-          let variable = {
-            type: "element",
-            value: element
-          };
-          variables.push(variable);
-          let index = variables.length - 1, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
-          text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
-        } else
-          isHasMeaningfulText = !0, text += (isStartWithSpace ? " " : "") + finalText + (isEndWithSpace ? " " : "");
-      }
-      if (typeof element != "string") {
-        let whitespace = getWhitespace(
-          element.nextSibling,
-          isPreWhitespace
-        );
-        whitespace && (text += whitespace);
-      }
-    }
-  }
-  if (!isHasMeaningfulText)
-    return null;
-  let inline = !1, wordCount = text.split(" ").length, lineCount = text.split(`
-`).length;
-  wordCount <= rule.blockMinWordCount && text.length <= rule.blockMinTextCount && lineCount < 2 && (inline = !0);
-  let finalElements = elements.map(
-    (element) => element.element
-  ), lastElement = getLastHTMLElement(elements), isVertical = !1;
-  if (lastElement) {
-    let writtingMode = globalThis.getComputedStyle(lastElement).writingMode;
-    isVertical = writtingMode ? writtingMode.includes("vertical") : !1;
-  }
-  let paragraph = {
-    rootFrame,
-    isVertical,
-    elements: finalElements,
-    text,
-    variables,
-    inline,
-    preWhitespace: isPreWhitespace
-  };
-  return isForceTranslate || isNeedToTranslate(
-    paragraph,
-    ctx.state.translationArea === "body" ? 2 : rule.paragraphMinTextCount,
-    ctx.state.translationArea === "body" ? 1 : rule.paragraphMinWordCount,
-    ctx
-  ) ? paragraph : null;
-}
-function getTextWithExcludeElement(element) {
-  let finalText = "", filterExcludeElement = (node) => node.nodeType === Node.ELEMENT_NODE ? isMarked(node, sourceElementExcludeAttributeName, !0) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT : node.nodeType === Node.TEXT_NODE ? (node.textContent && node.textContent.trim() !== "" && (finalText += node.textContent.replace(/\s+/g, " ")), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT, treeWalker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
-    filterExcludeElement
-  );
-  for (; treeWalker.nextNode(); )
-    ;
-  return finalText;
-}
-
-// dom/get_paragraphs.ts
-var paragraphAutoIncreaceId = 1, paragraphEntities = /* @__PURE__ */ new Map();
-function getParagraphEntities() {
-  return paragraphEntities;
-}
-function getParagraph(id) {
-  return paragraphEntities.get(id);
-}
-function setParagraph(id, paragraph) {
-  paragraphEntities.set(id, paragraph);
-}
-function cleanParagraphs() {
-  paragraphEntities.clear();
-}
-function isMarkedByParagraph(targetElement) {
-  if (!isMarked(targetElement, sourceElementMarkAttributeName))
-    return !1;
-  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName))
-    return !0;
-  let markId = getAttribute(
-    targetElement,
-    sourceElementParagraphAttributeName
-  );
-  if (!markId)
-    return !1;
-  let paragraphId = parseInt(markId), isExist = paragraphEntities.has(paragraphId);
-  if (!isExist) {
-    let maybeTargetElement = document.getElementById(
-      `${translationTargetElementWrapperClass}-${paragraphId}`
-    );
-    maybeTargetElement && maybeTargetElement.remove();
-  }
-  return isExist;
-}
-function addToParagraphs(paragraph, allParagraphs) {
-  let newParagraph = {
-    ...paragraph,
-    id: paragraphAutoIncreaceId++,
-    languageByClient: "auto",
-    languageByLocal: "auto"
-  };
-  newParagraph.elements.forEach((element) => {
-    element instanceof HTMLElement && (setAttribute(element, sourceElementMarkAttributeName, "1"), setAttribute(
-      element,
-      sourceElementParagraphAttributeName,
-      `${newParagraph.id}`
-    ));
-  }), allParagraphs.push(newParagraph), paragraphEntities.set(newParagraph.id, {
-    ...newParagraph,
-    state: "Original",
-    observers: []
-  });
-}
-async function getParagraphs(rootFrame, containers, ctx) {
-  let allParagraphs = [], { targetLanguage, rule } = ctx;
-  for (let container of containers) {
-    if (isExcludeElement(container, rule, !1))
-      continue;
-    let isPreWhitespaceContainer = isMarked(
-      container,
-      sourcePreWhitespaceMarkAttributeName
-    ), inlineElementGroups = [];
-    if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
-      if (!isMarkedByParagraph(container)) {
-        let paragraph = elementsToParagraph(
-          [container],
-          !0,
-          rootFrame,
-          ctx
-        );
-        paragraph && addToParagraphs(paragraph, allParagraphs);
-      }
-      continue;
-    }
-    let filter = (node2) => {
-      if (!(node2.nodeType === Node.TEXT_NODE || node2.nodeType === Node.ELEMENT_NODE))
-        return NodeFilter.FILTER_REJECT;
-      if (node2.nodeType === Node.ELEMENT_NODE) {
-        let element = node2;
-        if (element.isContentEditable || isMarkedByParagraph(
-          node2
-        ))
-          return NodeFilter.FILTER_REJECT;
-        if (setAttribute(element, sourceElementMarkAttributeName, "1"), isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
-          if (inlineElementGroups.length > 0) {
-            let paragraph2 = elementsToParagraph(
-              [...inlineElementGroups],
-              isPreWhitespaceContainer,
-              rootFrame,
-              ctx
-            );
-            paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
-          }
-          inlineElementGroups.push(element);
-          let paragraph = elementsToParagraph(
-            [...inlineElementGroups],
-            isPreWhitespaceContainer,
-            rootFrame,
-            ctx
-          );
-          return paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0, NodeFilter.FILTER_REJECT;
-        }
-      }
-      if (isExcludeElement(node2, rule, !0)) {
-        if (isMatchTags(node2.nodeName, ["CODE", "TT"]) && isMatchTags(node2.parentNode?.nodeName, ["PRE"]))
-          return NodeFilter.FILTER_REJECT;
-        if (isInlineElement(
-          node2,
-          rule
-        ))
-          return handleInlineElement(
-            node2,
-            inlineElementGroups,
-            allParagraphs,
-            isPreWhitespaceContainer,
-            rootFrame,
-            ctx
-          ), NodeFilter.FILTER_REJECT;
-        if (inlineElementGroups.length > 0) {
-          let paragraph = elementsToParagraph(
-            [...inlineElementGroups],
-            isPreWhitespaceContainer,
-            rootFrame,
-            ctx
-          );
-          paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
-        }
-        return NodeFilter.FILTER_REJECT;
-      }
-      return isMatchTags(node2.nodeName, ["PRE"]) && node2.classList.contains("code") ? NodeFilter.FILTER_REJECT : isInlineElement(
-        node2,
-        rule
-      ) ? (handleInlineElement(
-        node2,
-        inlineElementGroups,
-        allParagraphs,
-        isPreWhitespaceContainer,
-        rootFrame,
-        ctx
-      ), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT;
-    }, elementIter = document.createTreeWalker(
-      container,
-      NodeFilter.SHOW_ELEMENT,
-      filter
-    ), node = elementIter.nextNode();
-    for (; node; ) {
-      if (inlineElementGroups.length > 0) {
-        let paragraph = elementsToParagraph(
-          [...inlineElementGroups],
-          isPreWhitespaceContainer,
-          rootFrame,
-          ctx
-        );
-        paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
-      }
-      node = elementIter.nextNode();
-    }
-    if (inlineElementGroups.length > 0) {
-      let paragraph = elementsToParagraph(
-        [...inlineElementGroups],
-        isPreWhitespaceContainer,
-        rootFrame,
-        ctx
-      );
-      paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
-    }
-  }
-  let promises = allParagraphs.map((paragraph) => {
-    let { text } = paragraph;
-    return detectLanguage({
-      text,
-      minLength: 10
-    });
-  }), results = await Promise.all(promises), filterdParagraphs = [], excludeLanguages = ctx?.config?.translationLanguagePattern?.excludeMatches || [], currentPageLanguageByClient2 = "auto";
-  ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
-  let currentPageLanguageByLocal = getCurrentPageLanguage();
-  return results.forEach((result, index) => {
-    let currentLanguageByLocal = result;
-    currentLanguageByLocal === "auto" && (currentLanguageByLocal = currentPageLanguageByLocal);
-    let newParagraph = {
-      ...allParagraphs[index],
-      languageByLocal: currentLanguageByLocal,
-      languageByClient: currentPageLanguageByClient2 || "auto"
-    };
-    if (newParagraph.text.length < ctx.rule.languageDetectMinTextCount && (newParagraph.languageByLocal = "auto"), paragraphEntities.set(newParagraph.id, {
-      ...newParagraph,
-      state: "Original",
-      observers: []
-    }), !isSameTargetLanguage(result, targetLanguage)) {
-      if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
-        return;
-      filterdParagraphs.push(newParagraph);
-    }
-  }), filterdParagraphs;
-}
-function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootFrame, ctx) {
-  let elementState = {
-    element: root2
-  }, treeWalker = document.createTreeWalker(
-    root2,
-    NodeFilter.SHOW_TEXT,
-    null
-  ), node = null, isWhiteSpaceNodeOfLastElement = !1, fullText = "", variables = [], elements = [];
-  for (; node = treeWalker.nextNode(); ) {
-    let rawText = node.textContent || "", textContent = rawText.trim();
-    if (!isWhiteSpaceNodeOfLastElement && rawText.length > 0 && textContent.length === 0) {
-      isWhiteSpaceNodeOfLastElement = !0, fullText += " ", elements.push(" ");
-      continue;
-    }
-    if (textContent.length > 0) {
-      let parent = node.parentElement;
-      if (parent === root2) {
-        let text = textContent.replace(/\s+/g, " ");
-        fullText += text, elements.push(text);
-      } else {
-        elements.push(parent);
-        let parentElementParagraph = elementsToParagraph(
-          [{
-            element: parent,
-            forceTranslate: !0
-          }],
-          isPreWhitespaceContainer,
-          rootFrame,
-          ctx
-        );
-        parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables)));
-      }
-      isWhiteSpaceNodeOfLastElement = !1;
-    }
-  }
-  let lastElement = elements[elements.length - 1];
-  if (lastElement && typeof lastElement != "string") {
-    let whitespace = getWhitespace(
-      lastElement.nextSibling,
-      isPreWhitespaceContainer
-    );
-    whitespace && (elements.push(whitespace), fullText += " ");
-  }
-  if (typeof elements[elements.length - 1] != "string") {
-    let whitespace = getWhitespace(
-      root2.nextSibling,
-      isPreWhitespaceContainer
-    );
-    whitespace && (elements.push(whitespace), fullText += " ");
-  }
-  return elementState.text = fullText, elementState.variables = variables, elementState;
-}
-function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, rootFrame, ctx) {
-  let previouseElement = node.previousElementSibling;
-  if (previouseElement && !isInlineElement(
-    previouseElement,
-    ctx.rule
-  ) && inlineElementGroups.length > 0) {
-    let paragraph = elementsToParagraph(
-      [...inlineElementGroups],
-      isPreWhitespaceContainer,
-      rootFrame,
-      ctx
-    );
-    paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
-  }
-  isExcludeElement(
-    node,
-    ctx.rule,
-    !1
-  ) ? isMetaElement(node, ctx.rule) || inlineElementGroups.push(node) : isStayOriginalElement(node, ctx.rule) ? inlineElementGroups.push(node) : isContainsSelectors(node, ["code", "tt"]) ? inlineElementGroups.push(
-    getInlineElementsOfInlineElement(
-      node,
-      isPreWhitespaceContainer,
-      rootFrame,
-      ctx
-    )
-  ) : inlineElementGroups.push(node);
-}
-
-// dom/get_pdf_paragraphs.ts
-async function getParagraphs2(rootFrame, containers, ctx, targetContainers) {
-  let allParagraphs = [], { rule } = ctx;
-  for (let i2 = 0; i2 < containers.length; i2++) {
-    let container = containers[i2], targetContainer = targetContainers[i2];
-    if (!targetContainer)
-      throw new Error("targetContainer is null");
-    let inlineElementGroups = [], isFirstElementOfParagraph = !0, lastLineFirstElementInfo = null, pdfContainerFilter = function(node2) {
-      let element = node2;
-      if (isMatchTags(element.nodeName, ["DIV", "BR"]))
-        return isFirstElementOfParagraph = !0, NodeFilter.FILTER_REJECT;
-      if (element.classList.contains("markedContent"))
-        return NodeFilter.FILTER_ACCEPT;
-      if (isMarkedByParagraph2(
-        node2
-      ))
-        return NodeFilter.FILTER_REJECT;
-      if (setAttribute(element, sourceElementMarkAttributeName, "1"), isInlineElement(element, rule)) {
-        let lastElement = getLastHTMLElement(inlineElementGroups), currentElementStyle = globalThis.getComputedStyle(element);
-        if (!lastElement)
-          inlineElementGroups.push(formatElement(element, currentElementStyle));
-        else {
-          let lastElementStyle = globalThis.getComputedStyle(lastElement), lastElementInfo = getElementInfoByComputedStyle(
-            lastElementStyle
-          ), currentElementInfo = getElementInfoByComputedStyle(
-            currentElementStyle
-          ), distanceInfo = getDistance(currentElementInfo, lastElementInfo), isNewParagraph = !1;
-          if (isFirstElementOfParagraph && lastLineFirstElementInfo && getDistance(currentElementInfo, lastLineFirstElementInfo).left >= 1.5 && lastLineFirstElementInfo.left > -3 && (isNewParagraph = !0), !isNewParagraph && isFirstElementOfParagraph) {
-            let trimedText = (element.innerText || element.textContent || "").trim();
-            (trimedText.startsWith("\u2022") || trimedText.charCodeAt(0) === 61623 || /^\d+\./.test(trimedText)) && (isNewParagraph = !0);
-          }
-          !isNewParagraph && isFirstElementOfParagraph && getLastHTMLElement(inlineElementGroups) && getHTMLElements(inlineElementGroups).reduce(
-            (max, element2) => {
-              let elementInfo = getElementInfoByComputedStyle(
-                globalThis.getComputedStyle(element2)
-              );
-              return Math.max(max, elementInfo.right);
-            },
-            0
-          ) - lastElementInfo.right > rule.pdfNewParagraphIndentRightIndentPx && (isNewParagraph = !0), isFirstElementOfParagraph && (lastLineFirstElementInfo = currentElementInfo, isFirstElementOfParagraph = !1), isNewParagraph || (isNewParagraph = getIsNewParagraph(distanceInfo, rule)), isNewParagraph && tryToAddToParagraph(
-            inlineElementGroups,
-            allParagraphs,
-            rootFrame,
-            ctx,
-            targetContainer
-          ), inlineElementGroups.push(formatElement(element, currentElementStyle)), inlineElementGroups.push(" ");
-        }
-        return NodeFilter.FILTER_REJECT;
-      }
-      return NodeFilter.FILTER_ACCEPT;
-    }, elementIter = document.createTreeWalker(
-      container,
-      NodeFilter.SHOW_ELEMENT,
-      pdfContainerFilter
-    ), node = elementIter.nextNode();
-    for (; node; )
-      node = elementIter.nextNode();
-    tryToAddToParagraph(
-      inlineElementGroups,
-      allParagraphs,
-      rootFrame,
-      ctx,
-      targetContainer
-    );
-  }
-  return allParagraphs;
-}
-function tryToAddToParagraph(inlineElementGroups, allParagraphs, rootFrame, ctx, targetContainer) {
-  if (inlineElementGroups.length > 0) {
-    let paragraph = elementsToParagraph(
-      [...inlineElementGroups],
-      !1,
-      rootFrame,
-      ctx
-    );
-    paragraph && (paragraph.isPdf = !0, paragraph.targetContainer = targetContainer, paragraph.inline = !1, addToParagraphs(paragraph, allParagraphs)), inlineElementGroups.length = 0;
-  }
-}
-function getElementInfoByComputedStyle(style) {
-  return {
-    top: parseFloat(style.top.slice(0, -2)),
-    left: parseFloat(style.left.slice(0, -2)),
-    right: parseFloat(style.left.slice(0, -2)) + parseFloat(style.width.slice(0, -2)),
-    fontSize: parseFloat(style.fontSize.slice(0, -2))
-  };
-}
-function getIsNewParagraph(distance, rule) {
-  return distance.fontSize > 2 || distance.fontSize < -2 || distance.top >= rule.pdfNewParagraphLineHeight || distance.top <= rule.pdfNewParagraphLineHeight * -1;
-}
-function getDistance(elementInfo1, elementInfo2) {
-  let elementBasedFontSize = elementInfo2.fontSize, currentElementFontSize = elementInfo1.fontSize;
-  return {
-    top: (elementInfo1.top - elementInfo2.top) / elementBasedFontSize,
-    left: (elementInfo1.left - elementInfo2.left) / elementBasedFontSize,
-    fontSize: currentElementFontSize - elementBasedFontSize
-  };
-}
-function formatElement(element, style) {
-  return style.fontFamily === "monospace" ? {
-    element,
-    isStayOriginal: !0,
-    targetTagName: "code"
-  } : element;
-}
-function isMarkedByParagraph2(targetElement) {
-  if (!isMarked(targetElement, sourceElementMarkAttributeName))
-    return !1;
-  if (isMarked(targetElement, sourceElementTranslatedMarkAttributeName))
-    return !0;
-  let markId = getAttribute(
-    targetElement,
-    sourceElementParagraphAttributeName
-  );
-  if (!markId)
-    return !1;
-  let paragraphId = parseInt(markId), isExist = getParagraphEntities().has(paragraphId);
-  if (!isExist) {
-    let maybeTargetElement = document.getElementById(
-      `${translationTargetElementWrapperClass}-${paragraphId}`
-    );
-    maybeTargetElement && maybeTargetElement.remove();
-  }
-  return isExist;
-}
-
-// utils/escape_html.ts
-function escapeHTML(htmlStr) {
-  return htmlStr.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-}
-
-// dom/paragraph_to_html.ts
-function getTranslationWrapperClassNames(translationTheme, isInline, additonalClassNames = [], isPreWhitespace, isPdf) {
-  let classList = ["notranslate"];
-  return isPreWhitespace && classList.push(
-    translationTargetTranslationElementPreWhitespaceWrapperClass
-  ), translationTheme && (classList.push(
-    `${brandId}-target-translation-theme-${translationTheme}`
-  ), isInline ? classList.push(
-    `${translationTargetTranslationElementInlineWrapperClass}-theme-${translationTheme}`
-  ) : classList.push(
-    `${translationTargetTranslationElementBlockWrapperClass}-theme-${translationTheme}`
-  )), additonalClassNames.length > 0 && classList.push(...additonalClassNames), isInline ? classList.push(translationTargetTranslationElementInlineWrapperClass) : (classList.push(translationTargetTranslationElementBlockWrapperClass), isPdf && classList.push(translationTargetTranslationPdfElementBlockWrapperClass)), classList;
-}
-function getTranslationInnerClassNames(translationTheme) {
-  let innerClassList = [
-    "notranslate",
-    translationTargetInnerElementWrapperClass
-  ];
-  return translationTheme && innerClassList.push(
-    `${brandId}-target-translation-theme-${translationTheme}-inner`
-  ), innerClassList;
-}
-function paragraphToHtml(sourceItem, sentence, ctx) {
-  let { rule, state } = ctx, { translationTheme } = state, { variables, isVertical } = sourceItem;
-  variables = variables || [];
-  let { text: targetText } = sentence, { wrapperPrefix, wrapperSuffix } = rule, delimiters = getPlaceholderDelimiters(ctx), position = "afterend", regex = new RegExp(`${delimiters[0]}(\\d+)${delimiters[1]}`, "g"), html = escapeHTML(targetText);
-  variables.length > 0 && (html = html.replace(regex, (match) => {
-    let matchPositonAtHtml = html.indexOf(match), isStartWhiteSpace = html[matchPositonAtHtml - 1] === " ", isEndWhiteSpace = html[matchPositonAtHtml + match.length] === " ", matchNumberStr = match.slice(
-      delimiters[0].length,
-      -delimiters[1].length
-    ), matchNumber = Number(matchNumberStr);
-    if (isNaN(matchNumber))
-      return match;
-    let variable = variables[Number(matchNumber)];
-    if (variable && variable.type === "element") {
-      let variableHtml = variable.value.outerHTML;
-      return isStartWhiteSpace || (variableHtml = " " + variableHtml), isEndWhiteSpace || (variableHtml = variableHtml + " "), variableHtml;
-    } else
-      log_default.error("variable type not supported", variable, match);
-    return match;
-  }));
-  let classList = getTranslationWrapperClassNames(
-    translationTheme,
-    sourceItem.inline,
-    rule.translationClasses || [],
-    sourceItem.preWhitespace,
-    ctx.rule.isPdf
-  );
-  isVertical && classList.push(translationTargetTranslationElementVerticalBlockClass);
-  let innerClassList = getTranslationInnerClassNames(
-    translationTheme
-  ), blockStyleStr = "";
-  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
-    html,
-    position
-  };
-}
-
-// dom/normalize_container.ts
-function normalizeContainer(containers, rule) {
-  let hiddenElements = [];
-  for (let container of containers) {
-    if (isMarked(container, sourceAtomicBlockElementMarkAttributeName))
-      continue;
-    if (setAttribute(container, targetContainerElementAttributeName, "1"), container.normalize(), rule.lineBreakMaxTextCount > 0) {
-      let treeFilter = (node) => node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, rule, !0) ? NodeFilter.FILTER_REJECT : (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.lineBreakMaxTextCount && addLineBreakToText(node, rule.lineBreakMaxTextCount), NodeFilter.FILTER_ACCEPT), walk = document.createTreeWalker(
-        container,
-        NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
-        treeFilter
-      );
-      for (; walk.nextNode(); )
-        ;
-    }
-    if (!(rule.excludeTags.includes("PRE") || rule.additionalExcludeTags.includes("PRE")) && rule.isTransformPreTagNewLine) {
-      let preTags = container.querySelectorAll("pre");
-      for (let preTag of preTags)
-        formatPreHtml(preTag);
-    }
-    rule.preWhitespaceDetectedTags.includes(container.tagName) && (hasMark(container, sourcePreWhitespaceMarkAttributeName) || (isPreElementByStyle(container) ? (setAttribute(container, sourcePreWhitespaceMarkAttributeName, "1"), rule.isTransformPreTagNewLine && formatPreHtml(container)) : setAttribute(container, sourcePreWhitespaceMarkAttributeName, "0"))), wrapTextNode(
-      0,
-      container,
-      rule,
-      hiddenElements
-    );
-  }
-  return {
-    hiddenElements
-  };
-}
-function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
-  if (isMarked(root2, sourceAtomicBlockElementMarkAttributeName))
-    return;
-  let isSingleInlineElement = !1;
-  if (depth === 0) {
-    let isStayOriginal = isStayOriginalElement(root2, rule);
-    root2.childNodes && root2.childNodes.length === 1 && root2.nodeType === Node.ELEMENT_NODE && isInlineElement(
-      root2,
-      rule
-    ) && !isStayOriginal && (isSingleInlineElement = !0);
-  }
-  if (root2 && root2.childNodes && root2.childNodes.length > 0) {
-    for (let node of root2.childNodes)
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        if (isExcludeElement(node, rule, !1))
-          continue;
-        {
-          let computedStyle = globalThis.getComputedStyle(
-            node
-          ), tempIsExcludeElement = !1;
-          if (computedStyle.display === "none" && (displayNoneElements.push(node), tempIsExcludeElement = !0), !tempIsExcludeElement) {
-            let clip = computedStyle.clip, zIndex = computedStyle.zIndex, height = computedStyle.height, width = computedStyle.width, formatedZIndex = 0;
-            if (zIndex.startsWith("-")) {
-              let zIndexNumber = parseInt(zIndex);
-              isNaN(zIndexNumber) || (formatedZIndex = zIndexNumber);
-            }
-            if ((clip === "rect(1px, 1px, 1px, 1px)" || formatedZIndex < 0) && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
-              let heightNumber = parseInt(height), widthNumber = parseInt(width);
-              !isNaN(heightNumber) && !isNaN(widthNumber) && (heightNumber > 0 && heightNumber < 8 || widthNumber > 0 && widthNumber <= 8) && (tempIsExcludeElement = !0);
-            }
-          }
-          if (tempIsExcludeElement) {
-            setAttribute(
-              node,
-              sourceElementExcludeAttributeName,
-              "1",
-              !0
-            );
-            continue;
-          } else {
-            if (isMatchTags(node.nodeName, ["DIV"])) {
-              let nodeElement = node;
-              if (node && nodeElement.style && nodeElement.style.display && nodeElement.style.display === "initial")
-                continue;
-              if ((computedStyle.display === "inline" || computedStyle.display === "inline-flex") && !isMarked(
-                node,
-                sourceBlockElementMarkAttributeName
-              )) {
-                setAttribute(
-                  node,
-                  sourceInlineElementMarkAttributeName,
-                  "1"
-                );
-                continue;
-              }
-            } else if (isMatchTags(node.nodeName, ["SPAN", "A"])) {
-              if (!computedStyle.display.startsWith("inline")) {
-                isMarked(
-                  node,
-                  sourceInlineElementMarkAttributeName
-                ) || (setAttribute(
-                  node,
-                  sourceBlockElementMarkAttributeName,
-                  "1"
-                ), wrapTextNode(
-                  depth + 1,
-                  node,
-                  rule,
-                  displayNoneElements
-                ));
-                continue;
-              }
-            } else if (isUnknowTag(node, rule))
-              if (isInlineElement(
-                node,
-                rule
-              )) {
-                if (!isMarked(
-                  node,
-                  sourceBlockElementMarkAttributeName
-                ) && !isMarked(
-                  node,
-                  sourceInlineElementMarkAttributeName
-                )) {
-                  setAttribute(
-                    node,
-                    sourceInlineElementMarkAttributeName,
-                    "1"
-                  );
-                  continue;
-                }
-              } else {
-                !isMarked(
-                  node,
-                  sourceBlockElementMarkAttributeName
-                ) && !isMarked(
-                  node,
-                  sourceInlineElementMarkAttributeName
-                ) && setAttribute(
-                  node,
-                  sourceBlockElementMarkAttributeName,
-                  "1"
-                ), wrapTextNode(
-                  depth + 1,
-                  node,
-                  rule,
-                  displayNoneElements
-                );
-                continue;
-              }
-            if (isInlineElement(node, rule) && !isSingleInlineElement)
-              continue;
-            wrapTextNode(
-              depth + 1,
-              node,
-              rule,
-              displayNoneElements
-            );
-          }
-        }
-      } else if (node.nodeType === Node.TEXT_NODE) {
-        let text = node.textContent;
-        if (text && text.trim().length > 0) {
-          let span = document.createElement("span");
-          node.after(span), span.appendChild(node);
-        }
-      }
-  }
-}
-function isPreElementByStyle(element) {
-  let style = window.getComputedStyle(element);
-  return style.whiteSpace.startsWith("pre") || style.whiteSpace === "break-spaces";
-}
-function formatPreHtml(preElement) {
-  let newHtml = preElement.innerHTML.replace(/\n/g, "<br />");
-  preElement.innerHTML = newHtml;
-}
-function addLineBreakToText(textNode, maxLength) {
-  let text = textNode.textContent || "";
-  if (text.trim().length <= maxLength)
-    return;
-  let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
-    let index = text.lastIndexOf(boundary, maxLength);
-    return index > acc ? index : acc;
-  }, -1);
-  if (boundaryIndex === -1)
-    text.length > maxLength + 20 && addLineBreakToText(textNode, maxLength + 20);
-  else {
-    let theText = text.slice(boundaryIndex + 1);
-    boundaryIndex++, theText.startsWith(" ") && boundaryIndex++;
-    let theLastTextNode = textNode.splitText(boundaryIndex), br = document.createElement("br");
-    theLastTextNode.parentNode?.insertBefore(br, theLastTextNode), boundaryIndex + 1 < text.length && addLineBreakToText(theLastTextNode, maxLength);
-  }
-}
-
-// dom/normalize_pdf_container.ts
-function normalizeContainer2(containers, _rule) {
-  let targetContainers = [];
-  for (let container of containers) {
-    let maxRight = 0, minLeft = 1e5, rightContainer = document.createElement("div"), treeFilter = (node) => {
-      let element = node;
-      if (isMatchTags(element.nodeName, ["DIV", "BR"]))
-        return NodeFilter.FILTER_REJECT;
-      if (element.classList.contains("markedContent"))
-        return NodeFilter.FILTER_ACCEPT;
-      if (isMatchTags(element.nodeName, ["SPAN"])) {
-        let rect = element.getBoundingClientRect(), style = globalThis.getComputedStyle(element), right = rect.right, left = rect.left, top = style.top.slice(0, -2), fontsize = style.fontSize.slice(0, -2);
-        return right > maxRight && (maxRight = right), left < minLeft && (minLeft = left), setAttribute(element, sourceElementLeft, `${left}`), setAttribute(element, sourceElementRight, `${right}`), setAttribute(element, sourceElementTop, top), setAttribute(element, sourceElementFontSize, fontsize), NodeFilter.FILTER_ACCEPT;
-      } else
-        return NodeFilter.FILTER_ACCEPT;
-    }, walk = document.createTreeWalker(
-      container,
-      NodeFilter.SHOW_ELEMENT,
-      treeFilter
-    );
-    for (; walk.nextNode(); )
-      ;
-    let realWidth = maxRight - minLeft;
-    realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = maxRight + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
-  }
-  return { targetContainers };
-}
-
-// dom/translate_page.ts
-var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = le(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
-  translateNewDynamicNodes,
-  200
-), env3 = getEnv(), isProd2 = env3.PROD === "1", titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
-async function toggleTranslatePage() {
-  if (getPageStatus() === "Original") {
-    let ctx = await getGlobalContext(getRealUrl(), {});
-    ctx.state.translationTheme = ctx.config.translationTheme, ctx = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext);
-  } else
-    (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
-}
-async function toggleTranslationMask() {
-  if (getPageStatus() === "Original")
-    globalContext = await getGlobalContext(getRealUrl(), {
-      translationTheme: "mask"
-    }), await translatePage(globalContext);
-  else if (getPageStatus() === "Translated") {
-    let allFrames = [
-      document.body,
-      ...mutationObserverMap.keys()
-    ], currentTranslationTheme = globalContext?.state.translationTheme;
-    for (let frame of allFrames) {
-      let currentRootTheme = getAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        !0
-      );
-      currentTranslationTheme === "mask" ? currentRootTheme !== "none" ? setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "none",
-        !0
-      ) : setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "mask",
-        !0
-      ) : currentRootTheme !== "mask" ? setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "mask",
-        !0
-      ) : setAttribute(
-        frame,
-        translationFrameRootThemeAttributeNameForJs,
-        "none",
-        !0
-      );
-    }
-  }
-}
-function restorePage() {
-  clean();
-  let allFrames = [
-    document.body,
-    ...mutationObserverMap.keys()
-  ];
-  for (let rootFrame of allFrames)
-    disableMutatinObserver(rootFrame), rootFrame.querySelectorAll(
-      "." + translationTargetElementWrapperClass
-    ).forEach((element) => {
-      element.remove();
-    }), rootFrame.querySelectorAll(
-      "." + translationPdfTargetContainerClass
-    ).forEach((element) => {
-      element.remove();
-    }), rootFrame.querySelectorAll(
-      "[" + sourceElementEffectAttributeName + "]"
-    ).forEach((element) => {
-      if (isProd2) {
-        delete element[elementMarkRootKey];
-        let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
-        for (let key of keys)
-          delete element.dataset[key];
-      } else {
-        let keys = Object.keys(element.dataset).filter((key) => key.startsWith(brandIdForJs));
-        for (let key of keys)
-          delete element.dataset[key];
-      }
-      element.removeAttribute(sourceElementEffectAttributeName);
-    });
-  disableTitleMutationObserver(), setPageTranslatedStatus("Translating"), originalPageTitle && (document.title = originalPageTitle), setPageTranslatedStatus("Original");
-}
-function onElementVisible(paragraph, callback) {
-  let isCalled = !1, firstElement = getFirstHTMLElement(paragraph.elements), lastElement = getLastHTMLElement(paragraph.elements);
-  waitToTranslateParagraphIds.add(paragraph.id);
-  let observers = [];
-  if (firstElement) {
-    let observe = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        entry.intersectionRatio > 0 && (observer.disconnect(), isCalled || (isCalled = !0, callback(paragraph)));
-      });
-    });
-    allIntersectionObserver.push(observe), observers.push(observe), observe.observe(firstElement);
-  }
-  if (lastElement && lastElement !== firstElement) {
-    let observe = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        entry.intersectionRatio > 0 && (observer.disconnect(), isCalled || (isCalled = !0, callback(paragraph)));
-      });
-    });
-    allIntersectionObserver.push(observe), observers.push(observe), observe.observe(lastElement);
-  }
-  let paragraphEntiry = getParagraph(paragraph.id);
-  paragraphEntiry && (paragraphEntiry.observers = observers, setParagraph(paragraph.id, paragraphEntiry));
-}
-function onHiddenElementVisible(element, callback) {
-  if (element) {
-    let resizewatcher = new ResizeObserver((entries, observer) => {
-      for (let entry of entries)
-        entry.contentRect.width > 10 && (observer.disconnect(), callback(entry.target));
-    });
-    resizewatcher.observe(element), allResizebleObserver.push(resizewatcher);
-  }
-}
-async function translateNewDynamicNodes(ctx) {
-  let currentNewDynamicNodes = [...currentNewDynamicElements];
-  currentNewDynamicElements = [];
-  let frameMap = /* @__PURE__ */ new Map();
-  currentNewDynamicNodes.forEach((node) => {
-    frameMap.has(node.rootFrame) || frameMap.set(node.rootFrame, []), frameMap.get(node.rootFrame)?.push(node.element);
-  });
-  for (let [rootFrame, elements] of frameMap)
-    try {
-      let allContainers = [];
-      for (let element of elements) {
-        let rawContainers = getContainers(
-          element,
-          ctx
-        );
-        if (rawContainers.length === 0)
-          continue;
-        let containers = rawContainers;
-        allContainers.push(...containers);
-      }
-      await translateContainers(allContainers, rootFrame, ctx);
-    } catch (e3) {
-      log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
-    }
-}
-function translationParagraph(visibleParagraph, ctx) {
-  waitToTranslateParagraphIds.delete(visibleParagraph.id);
-  let paragraphWithState = getParagraph(visibleParagraph.id);
-  paragraphWithState && (paragraphWithState.observers && paragraphWithState.observers.length > 0 && paragraphWithState.observers.forEach((observer) => {
-    observer.disconnect();
-  }), paragraphWithState.observers = [], paragraphWithState.state = "Translating", setParagraph(visibleParagraph.id, paragraphWithState));
-  let id = visibleParagraph.id;
-  currentTranslatedTextLength += visibleParagraph.text.length;
-  let realElements = getHTMLElements(visibleParagraph.elements);
-  if (visibleParagraph.isPdf) {
-    let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
-    isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
-    realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
-    let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
-      let left = getAttribute(current, sourceElementLeft);
-      return left && left < prev ? left : prev;
-    }, 1e3), width = realElements.reduce((prev, current) => {
-      let right = getAttribute(current, sourceElementRight);
-      return right && right > prev ? right : prev;
-    }, 0) - minLeft;
-    width < 30, width > 600 && (width = 600), firstElementLeft < 200 && (firstElementLeft = 10), firstElementLeft && firstElementLeft < 0 && (firstElementLeft = 0), paragraphTarget.style.left = `${minLeft || 10}px`, minLeft < 400 ? paragraphTarget.style.width = width + "px" : paragraphTarget.style.width = `calc(100% - ${minLeft}px)`, paragraphTarget.classList.add(
-      "notranslate",
-      `${translationTargetElementWrapperClass}`
-    ), targetContainer.appendChild(paragraphTarget);
-  } else {
-    let lastElement = getLastHTMLElement(visibleParagraph.elements), position = "afterend";
-    visibleParagraph.elements.length > 0 && lastElement && (realElements.length === 1 ? position = "beforeend" : isInlineElement(
-      visibleParagraph.elements[0],
-      ctx.rule
-    ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-    let targetTranslationWrapper = document.createElement("span");
-    targetTranslationWrapper.classList.add(
-      "notranslate",
-      translationTargetElementWrapperClass
-    ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
-    let loadingHtml = getLoadingHTML(
-      ctx.config.loadingTheme
-    );
-    if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
-      let innerElement = getTheLastTextNodeParentElement(lastElement);
-      innerElement ? innerElement.appendChild(targetTranslationWrapper) : lastElement.appendChild(targetTranslationWrapper);
-    } else if (position === "afterend")
-      lastElement.insertAdjacentElement(position, targetTranslationWrapper);
-    else
-      throw new Error("not support position");
-  }
-  currentParagraphIds.push(id), debounceTranslateCurrentQueue(ctx);
-}
-function addParagraphToQueue(paragraph, ctx) {
-  ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.config.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
-    translationParagraph(visibleParagraph, ctx);
-  }) : translationParagraph(paragraph, ctx);
-}
-async function translatePage(ctx) {
-  if (pageStatus === "Translating")
-    return;
-  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
-    let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
-      (item) => item.match === currentDomain && item.expiredAt > now
-    ), isChanged = !1;
-    index > -1 || (currentTempTranslationDomains.push({
-      match: currentDomain,
-      expiredAt: now + ctx.config.tempTranslateDomainMinutes * 60 * 1e3
-    }), isChanged = !0), isChanged && await setLocalConfig({
-      ...ctx.localConfig,
-      tempTranslationUrlMatches: [
-        ...currentTempTranslationDomains
-      ]
-    });
-  }
-  ctx.state.isAutoTranslate = !0;
-  let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-  currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
-    currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
-      observer.disconnect();
-    }), allResizebleObserver.forEach((observer) => {
-      observer.disconnect();
-    }), allIntersectionObserver = [], waitToTranslateParagraphIds.clear();
-  }), setPageTranslatedStatus("Translating");
-  try {
-    let allFrames = [document.body];
-    document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && allFrames.push(frame.contentDocument.body);
-    }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
-      document.body,
-      ctx.rule.shadowRootSelectors
-    ).forEach((host) => {
-      host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
-    });
-    let containersCount = 0;
-    setPageTranslatedStatus("Translating"), log_default.debug("allFrames", allFrames);
-    for (let rootFrame of allFrames) {
-      let containerCount = await translateFrame(rootFrame, ctx);
-      containersCount += containerCount;
-    }
-    containersCount === 0 && setPageTranslatedStatus("Translated"), translateTitle(ctx).catch((e3) => {
-      log_default.error(
-        "translateTitle error:",
-        e3.name,
-        e3.message,
-        e3.details || ""
-      );
-    }), enableTitleMutationObserver(ctx);
-  } catch (e3) {
-    setPageTranslatedStatus("Error"), log_default.error(e3);
-  }
-}
-async function translateFrame(rootFrame, ctx) {
-  markContainers(rootFrame, ctx.rule);
-  let containers = getContainers(rootFrame, ctx);
-  log_default.debug("detect containers", containers);
-  let { rule } = ctx;
-  containers.length > 0 && await translateContainers(containers, rootFrame, ctx);
-  let observer = enableMutatinObserver(rootFrame, rule, ctx);
-  return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
-}
-async function getGlobalContext(url, state) {
-  let config = await getConfig2();
-  if (!globalContext)
-    globalContext = await getContext({
-      url,
-      config,
-      state
-    });
-  else {
-    let options = {
-      url,
-      config,
-      state: { ...globalContext.state, ...state }
-    };
-    globalContext = await getContext(options);
-  }
-  return globalContext;
-}
-async function toggleTranslateTheMainPage() {
-  getPageStatus() === "Original" ? await translateTheMainPage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "main" ? await translateTheMainPage() : restorePage());
-}
-async function translateTheMainPage() {
-  globalContext = await getGlobalContext(getRealUrl(), {
-    translationArea: "main"
-  }), await translatePage(globalContext);
-}
-async function translateTheWholePage() {
-  globalContext = await getGlobalContext(getRealUrl(), {
-    translationArea: "body"
-  }), await translatePage(globalContext);
-}
-async function toggleTranslateTheWholePage() {
-  getPageStatus() === "Original" ? await translateTheWholePage() : (getPageStatus() === "Translated" || getPageStatus() === "Error") && (globalContext = await getGlobalContext(getRealUrl(), {}), globalContext.state.translationArea !== "body" ? (globalContext.state.translationArea = "body", globalContext = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext)) : restorePage());
-}
-async function translateToThePageEndImmediately() {
-  globalContext = await getGlobalContext(getRealUrl(), {
-    translationArea: "body",
-    translationStartMode: "immediate"
-  }), await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
-}
-async function translateTitle(ctx) {
-  let pageTitle = document.title;
-  if (!pageTitle || pageTitle.includes(titleDelimiters))
-    return;
-  originalPageTitle !== pageTitle && (originalPageTitle = pageTitle);
-  let currentLang = "auto";
-  if (ctx.state.isDetectParagraphLanguage || (currentLang = getCurrentPageLanguageByClient()), currentLang === "auto") {
-    let detectedLang = await detectLanguage({
-      text: pageTitle,
-      minLength: 10
-    });
-    if (isSameTargetLanguage(detectedLang, ctx.targetLanguage))
-      return;
-  }
-  try {
-    let result = await translateSingleSentence({
-      id: 0,
-      url: ctx.url,
-      text: pageTitle,
-      from: currentLang,
-      to: ctx.targetLanguage,
-      fromByClient: currentLang
-    }, ctx);
-    result && result.text && (document.title = originalPageTitle + titleDelimiters + result.text);
-  } catch (e3) {
-    throw e3;
-  }
-}
-function getLoadingHTML(theme) {
-  return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
-}
-async function translateContainers(containers, rootFrame, ctx) {
-  let { rule } = ctx;
-  for (let container of containers)
-    markContainers(container, rule);
-  let targetContainers = [];
-  if (ctx.rule.isPdf)
-    containers.length > 0 && (setPageTranslatedStatus("Translating"), targetContainers = normalizeContainer2(
-      containers,
-      rule
-    ).targetContainers);
-  else {
-    setPageTranslatedStatus("Translating");
-    let normalizeResult = normalizeContainer(
-      containers,
-      rule
-    ), { hiddenElements } = normalizeResult;
-    for (let element of hiddenElements)
-      onHiddenElementVisible(element, () => {
-        removeAttribute(element, sourceElementExcludeAttributeName, !0), translateContainers([element], rootFrame, ctx);
-      });
-    setPageTranslatedStatus("Translating");
-  }
-  let paragraphs = [];
-  if (ctx.rule.isPdf ? paragraphs = await getParagraphs2(
-    rootFrame,
-    containers,
-    ctx,
-    targetContainers
-  ) : (containers = containers.filter((container) => !isExcludeElement(container, rule, !1)), paragraphs = await getParagraphs(
-    rootFrame,
-    containers,
-    ctx
-  )), setPageTranslatedStatus("Translating"), paragraphs.length === 0) {
-    setPageTranslatedStatus("Translated");
-    return;
-  }
-  log_default.debug("detect paragraphs", paragraphs);
-  for (let paragraph of paragraphs)
-    addParagraphToQueue(paragraph, ctx);
-  setPageTranslatedStatus("Translated");
-}
-function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
-  let paragraphWithState = getParagraph(sentenceRequest.id);
-  if (paragraphWithState && (err || !translatedSentence)) {
-    err || (log_default.error("translate error", translatedSentence), err = new Error("no response from server"));
-    let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
-      `#${translationTargetElementWrapperClass}-${wrapperId}`
-    ), errorMessage = err.message.replaceAll(`
-`, "");
-    errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-    let errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
-    wrapper && (wrapper.innerHTML = errorHtml);
-  } else {
-    let paragraph = getParagraph(sentenceRequest.id);
-    if (paragraph) {
-      paragraph.state = "Translated", setParagraph(paragraph.id, paragraph);
-      let targetItem = paragraphToHtml(
-        paragraph,
-        translatedSentence,
-        ctx
-      ), wrapperId = translatedSentence.id, wrapper = paragraph.rootFrame.querySelector(
-        `#${translationTargetElementWrapperClass}-${wrapperId}`
-      );
-      wrapper && (wrapper.innerHTML = targetItem.html, paragraph.rootFrame.querySelectorAll(
-        `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
-      ).forEach((element) => {
-        setAttribute(
-          element,
-          sourceElementTranslatedMarkAttributeName,
-          "1"
-        );
-      }));
-    } else
-      log_default.error("paragraph not found", sentenceRequest.id);
-  }
-}
-async function translateCurrentQueue(ctx) {
-  if (currentParagraphIds.length === 0)
-    return Promise.resolve();
-  let ids = [...currentParagraphIds];
-  currentParagraphIds = [];
-  let currentParagraphLang = "auto";
-  ctx.state.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
-  let payload = {
-    sentences: ids.filter((id) => getParagraph(id)).map((id) => {
-      let paragraph = getParagraph(id), from = paragraph.languageByLocal;
-      return from === "auto" && (from = currentParagraphLang), {
-        id: paragraph.id,
-        url: ctx.encryptedUrl,
-        text: paragraph.text,
-        from,
-        fromByClient: paragraph.languageByClient,
-        to: ctx.targetLanguage
-      };
-    })
-  };
-  if (payload.sentences.length > 0) {
-    setPageTranslatedStatus("Translating");
-    try {
-      await translateMultipleSentences(
-        payload,
-        ctx,
-        (err, translatedSentence, sentenceRequest) => {
-          onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx);
-        }
-      );
-    } catch (e3) {
-      setPageTranslatedStatus("Error"), log_default.error(
-        "translateCurrentQueue error",
-        e3.name,
-        e3.message,
-        e3.details || " "
-      );
-      return;
-    }
-  }
-  setPageTranslatedStatus("Translated");
-}
-function setPageTranslatedStatus(_pageStatus) {
-  pageStatus = _pageStatus, sendPageTranslatedStatus(pageStatus);
-}
-function enableMutatinObserver(rootFrame, rule, ctx) {
-  log_default.debug("enableMutatinObserver for ", rootFrame), disableMutatinObserver(rootFrame), allNewDynamicElements = [], currentNewDynamicElements = [];
-  let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR"), mutationObserver = new MutationObserver(function(mutations) {
-    mutations.forEach((mutation) => {
-      if (rootFrame === document.body) {
-        let currentUrl = getRealUrl();
-        if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
-          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), setTimeout(() => {
-            log_default.debug("url changed, reinit page"), initPage();
-          }, rule.urlChangeDelay);
-          let event = new Event(pageUrlChangedEventName);
-          document.dispatchEvent(event);
-          return;
-        }
-      }
-      mutation.addedNodes.forEach((addedNode) => {
-        if (addedNode.nodeType === Node.ELEMENT_NODE) {
-          let element = addedNode;
-          if (element.nodeName === "IFRAME")
-            isInlineIframe(element) && setTimeout(() => {
-              injectCssToFrame(
-                element.contentDocument,
-                ctx
-              ), translateFrame(
-                element.contentDocument.body,
-                ctx
-              ).catch((e3) => {
-                log_default.error(
-                  "translateFrame error",
-                  e3.details || " ",
-                  e3
-                );
-              });
-            }, ctx.rule.urlChangeDelay);
-          else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
-            element.nodeName
-          )) {
-            if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
-              return;
-            isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push({
-              element,
-              rootFrame
-            }), allNewDynamicElements.push(element), debounceTranslateNewDynamicNodes(ctx));
-          }
-        }
-      });
-    });
-  });
-  return mutationObserver.observe(rootFrame, {
-    childList: !0,
-    subtree: !0
-  }), mutationObserver;
-}
-function enableTitleMutationObserver(ctx) {
-  let titleElement = document.querySelector("title");
-  titleElement && (titleMutationObserver = new MutationObserver(function(mutations) {
-    mutations.length > 0 && (mutations[0].target.text.includes(titleDelimiters) || translateTitle(ctx).catch((e3) => {
-      log_default.error(
-        "translateTitle error:",
-        e3.name,
-        e3.message,
-        e3.details || ""
-      );
-    }));
-  }), titleMutationObserver.observe(titleElement, {
-    subtree: !0,
-    characterData: !0,
-    childList: !0
-  }));
-}
-function mutationElementIsInline(rule, element) {
-  if (rule.extraBlockSelectors) {
-    for (let match of rule.extraBlockSelectors)
-      if (element.matches(match))
-        return !0;
-  }
-  return !1;
-}
-async function initPage() {
-  let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl(), {});
-  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
-  let lang = ctx.sourceLanguage;
-  lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
-  }) : isInIframe ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
-  }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
-  let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-  !isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate ? (globalContext.state.isAutoTranslate = !0, await translatePage(globalContext)) : log_default.debug("do not auto translate", ctx);
-}
-function disableMutatinObserver(rootFrame) {
-  if (mutationObserverMap.has(rootFrame)) {
-    let mutationObserver = mutationObserverMap.get(rootFrame);
-    mutationObserver.disconnect(), mutationObserver.takeRecords(), mutationObserverMap.delete(rootFrame);
-  } else if (rootFrame === document.body) {
-    let mutationObserver = mainMutaionObserver;
-    mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords());
-  }
-}
-function disableTitleMutationObserver() {
-  titleMutationObserver && (titleMutationObserver.disconnect(), titleMutationObserver.takeRecords(), titleMutationObserver = void 0);
-}
-function getPageStatus() {
-  return pageStatus;
-}
-
-// content_message_listeners.ts
-var asyncMessageHandler = async function(payload, _author) {
-  let { method, data } = payload;
-  method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
-};
-var connection2;
-function getConnection2() {
-  return connection2 || (connection2 = new Messager("content_script", !1).getConnection("main", asyncMessageHandler), connection2);
-}
-
-// browser_proxy.ts
-async function sendMessage(options) {
-  return await getConnection2().sendMessage(
-    "background:main",
-    options
-  );
-}
-function request2(options) {
-  return isMonkey() || isDeno2() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
-    method: "fetch",
-    data: options
-  });
-}
-function getConfig2() {
-  return isMonkey() ? getConfig() : sendMessage(
-    {
-      method: "getConfig"
-    }
-  );
-}
-function detectLanguage(options) {
-  if (options.text) {
-    let chineseLike = detectChinese(options.text);
-    if (chineseLike !== "auto")
-      return Promise.resolve(chineseLike);
-  }
-  if (isMonkey()) {
-    let result = browserAPI.extra.detectLanguage(
-      options.text,
-      options.minLength
-    );
-    return Promise.resolve(result);
-  }
-  return sendMessage(
-    {
-      method: "detectLanguage",
-      data: options
-    }
-  );
-}
-function detectTabLanguage() {
-  return sendMessage(
-    {
-      method: "detectTabLanguage"
-    }
-  );
-}
-function sendPageTranslatedStatus(status) {
-  if (isMonkey()) {
-    let event = new CustomEvent(pageTranslatedStatusEventName, {
-      detail: status
-    });
-    document.dispatchEvent(event);
-    return;
-  }
-  getConnection2().sendMessage("popup:main_sync", {
-    method: "setPageStatus",
-    data: status
-  }).catch((_e3) => {
-  });
-}
-function queryDb(query) {
-  return isMonkey() ? queryParagraphCache(query) : sendMessage(
-    {
-      method: "queryParagraphCache",
-      data: query
-    }
-  );
-}
-async function setDbStore(params) {
-  if (isMonkey()) {
-    await setParagraphCache(params);
-    return;
-  }
-  return sendMessage(
-    {
-      method: "setParagraphCache",
-      data: params
-    }
-  );
-}
-async function mockRequest() {
-  if (isMonkey())
-    return Promise.resolve();
-  await sendMessage({
-    method: "mockRequest"
-  });
-}
-
-// services/translation.ts
-var Translation = class {
-  constructor(serviceConfig, generalConfig) {
-    this.maxTextLength = 1800;
-    this.throttleLimit = 3;
-    this.isSupportList = !0;
-    this.maxTextGroupLength = 200;
-    this.serviceConfig = serviceConfig, this.generalConfig = generalConfig;
-  }
-  static getAllProps() {
-    return [];
-  }
-  static getProps() {
-    return [];
-  }
-  async init() {
-  }
-  getMaxTextGroupLength() {
-    return this.maxTextGroupLength;
-  }
-  translate(_payload) {
-    throw new Error("Not implemented");
-  }
-  translateList(_payload) {
-    throw new Error("Not implemented");
-  }
-  async multipleTranslate(payload, options, everySentenceCallback) {
-    if (payload.sentences.length === 0)
-      return {
-        sentences: []
-      };
-    let { sentences } = payload, respondedSentences = [], tempSentenceGroups = [], currentSentenceIndex = 0, sent = /* @__PURE__ */ new Set(), globalError = null, languages2 = /* @__PURE__ */ new Set();
-    for (let sentence of sentences)
-      sentence.from && sentence.from !== "auto" && languages2.add(sentence.from);
-    let isMultipleLanguage = !1;
-    languages2.size > 1 && (isMultipleLanguage = !0);
-    try {
-      tempSentenceGroups = splitSentences(
-        sentences,
-        this.maxTextLength,
-        this.maxTextGroupLength
-      );
-    } catch (e3) {
-      if (everySentenceCallback) {
-        sent.has(currentSentenceIndex) && currentSentenceIndex++;
-        for (let i2 = currentSentenceIndex; i2 < sentences.length; i2++) {
-          let sentence = sentences[i2];
-          everySentenceCallback(e3, null, sentence);
-        }
-        globalError = e3;
-      } else
-        globalError = e3;
-    }
-    let throttle = m2({
-      limit: this.throttleLimit,
-      interval: 1e3
-    });
-    log_default.debug(
-      "tempSentenceGroups",
-      tempSentenceGroups.map((item) => item)
-    );
-    for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
-      let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = throttle(async () => {
-        let finalFrom = tempSentenceGroup.from;
-        if (isMultipleLanguage && (finalFrom = "auto"), tempSentenceGroup.fromByClient && tempSentenceGroup.fromByClient !== "auto" && (finalFrom = tempSentenceGroup.fromByClient), this.isSupportList)
-          return await this.translateList({
-            text: tempSentenceGroup.tempSentences.map((item) => item.text),
-            from: finalFrom,
-            to: tempSentenceGroup.to,
-            url,
-            options
-          });
-        {
-          let mergedText = tempSentenceGroup.tempSentences.map(
-            (item) => item.text
-          ).join(translationTextSeparator), result2 = await this.translate({
-            text: mergedText,
-            from: finalFrom,
-            to: tempSentenceGroup.to,
-            url,
-            options
-          }), { text } = result2;
-          return {
-            text: text.split(
-              translationTextSeparator
-            ),
-            from: result2.from,
-            to: result2.to
-          };
-        }
-      }), result;
-      try {
-        result = await throttled();
-      } catch (e3) {
-        if (everySentenceCallback) {
-          sent.has(currentSentenceIndex) && currentSentenceIndex++;
-          for (let i3 = currentSentenceIndex; i3 < sentences.length; i3++) {
-            let sentence = sentences[i3];
-            everySentenceCallback(e3, null, sentence);
-          }
-          globalError = e3;
-          continue;
-        } else {
-          globalError = e3;
-          continue;
-        }
-      }
-      let { text: translatedTexts } = result;
-      for (let j5 = 0; j5 < translatedTexts.length; j5++)
-        try {
-          let translatedText = translatedTexts[j5], tempSentence = tempSentenceGroup.tempSentences[j5], { index, prefix, suffix } = tempSentence;
-          respondedSentences[index] === void 0 ? respondedSentences[index] = {
-            ...sentences[index],
-            from: tempSentenceGroup.from,
-            to: tempSentenceGroup.to,
-            text: prefix + translatedText + suffix
-          } : respondedSentences[index].text += prefix + translatedText + suffix, index !== currentSentenceIndex && everySentenceCallback && (sent.add(currentSentenceIndex), everySentenceCallback(
-            null,
-            respondedSentences[currentSentenceIndex],
-            sentences[currentSentenceIndex]
-          )), currentSentenceIndex = index;
-        } catch (e3) {
-          if (everySentenceCallback) {
-            sent.has(currentSentenceIndex) && currentSentenceIndex++;
-            for (let i3 = currentSentenceIndex; i3 < sentences.length; i3++) {
-              let sentence = sentences[i3];
-              everySentenceCallback(e3, null, sentence);
-            }
-            throw e3;
-          } else
-            throw e3;
-        }
-    }
-    if (everySentenceCallback && !sent.has(currentSentenceIndex) && respondedSentences[currentSentenceIndex] && sentences[currentSentenceIndex] && everySentenceCallback(
-      null,
-      respondedSentences[currentSentenceIndex],
-      sentences[currentSentenceIndex]
-    ), globalError)
-      throw globalError;
-    return {
-      sentences: respondedSentences
-    };
-  }
-  detectLanguageLocally(text) {
-    return detectLanguage({
-      text,
-      minLength: 18
-    });
-  }
-  detectLanguageRemotely(_text) {
-    return Promise.resolve("auto");
-  }
-  detectLanguage(text) {
-    return text.length >= 50 ? this.detectLanguageLocally(text) : this.detectLanguageRemotely(text);
-  }
-};
-
-// services/tencent.ts
-var langMap2 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["zh-TW", "zh-TW"],
-  ["de", "de"],
-  ["en", "en"],
-  ["es", "es"],
-  ["fr", "fr"],
-  ["id", "id"],
-  ["it", "it"],
-  ["ja", "jp"],
-  ["ko", "kr"],
-  ["ms", "ms"],
-  ["pt", "pt"],
-  ["ru", "ru"],
-  ["th", "th"],
-  ["tr", "tr"],
-  ["vi", "vi"]
-], _Tencent = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.secretId = "";
-    this.secretKey = "";
-    this.isSupportList = !0;
-    if (!serviceConfig || !serviceConfig.secretId || !serviceConfig.secretKey)
-      throw new Error("secretId and secretKey are required");
-    this.secretId = serviceConfig.secretId?.trim(), this.secretKey = serviceConfig.secretKey?.trim();
-  }
-  static getUTCDate(dateObj) {
-    let year = dateObj.getUTCFullYear(), month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0"), date = `${dateObj.getUTCDate()}`.padStart(2, "0");
-    return `${year}-${month}-${date}`;
-  }
-  static getAllProps() {
-    return [{
-      name: "secretId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretKey",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, RequestPayload = JSON.stringify({
-      ProjectId: 0,
-      Source: _Tencent.langMap.get(from) || "auto",
-      SourceText: text,
-      Target: _Tencent.langMap.get(to) || to
-    }), data = await this.signedRequest({
-      secretId: this.secretId,
-      secretKey: this.secretKey,
-      action: "TextTranslate",
-      payload: RequestPayload,
-      service: "tmt",
-      version: "2018-03-21"
-    });
-    return {
-      text: data.Response.TargetText,
-      from: _Tencent.langMapReverse.get(data.Response.Source) || from,
-      to: _Tencent.langMapReverse.get(data.Response.Target) || to
-    };
-  }
-  async translateList(payload) {
-    let { text, from, to } = payload, RequestPayload = JSON.stringify({
-      ProjectId: 0,
-      Source: _Tencent.langMap.get(from) || "auto",
-      SourceTextList: text,
-      Target: _Tencent.langMap.get(to) || to
-    }), data = await this.signedRequest({
-      secretId: this.secretId,
-      secretKey: this.secretKey,
-      action: "TextTranslateBatch",
-      payload: RequestPayload,
-      service: "tmt",
-      version: "2018-03-21"
-    });
-    return {
-      text: data.Response.TargetTextList,
-      from: _Tencent.langMapReverse.get(data.Response.Source) || from,
-      to: _Tencent.langMapReverse.get(data.Response.Target) || to
-    };
-  }
-  async signedRequest({
-    secretId,
-    secretKey,
-    action,
-    payload,
-    service,
-    version
-  }) {
-    let host = `${service}.tencentcloudapi.com`, now = /* @__PURE__ */ new Date(), timestamp = `${(/* @__PURE__ */ new Date()).valueOf()}`.slice(0, 10), CanonicalRequest = [
-      "POST",
-      "/",
-      "",
-      "content-type:application/json; charset=utf-8",
-      `host:${host}`,
-      "",
-      "content-type;host",
-      await sha256(payload)
-    ].join(`
-`), datestamp = _Tencent.getUTCDate(now), StringToSign = [
-      "TC3-HMAC-SHA256",
-      timestamp,
-      `${datestamp}/${service}/tc3_request`,
-      await sha256(CanonicalRequest)
-    ].join(`
-`), SecretDate = await hmacSha256ByString(datestamp, `TC3${secretKey}`), SecretService = await hmacSha256ByArrayBuffer(
-      service,
-      SecretDate
-    ), SecretSigning = await hmacSha256ByArrayBuffer(
-      "tc3_request",
-      SecretService
-    ), Signature = await hmacSha256ByArrayBuffer(
-      StringToSign,
-      SecretSigning
-    ), response = await request2({
-      retry: 2,
-      url: `https://${service}.tencentcloudapi.com`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Host: host,
-        "X-TC-Action": action,
-        "X-TC-Timestamp": timestamp,
-        "X-TC-Region": "ap-beijing",
-        "X-TC-Version": version,
-        Authorization: `TC3-HMAC-SHA256 Credential=${secretId}/${datestamp}/${service}/tc3_request, SignedHeaders=content-type;host, Signature=${Signature}`
-      },
-      body: payload
-    });
-    if (response instanceof Error)
-      throw response;
-    if (response.Response && response.Response.Error && response.Response.Error.Message)
-      throw new Error(
-        response.Response.Error.Message
-      );
-    return response;
-  }
-}, Tencent = _Tencent;
-/** Translator lang to custom lang */
-Tencent.langMap = new Map(langMap2), /** Custom lang to translator lang */
-Tencent.langMapReverse = new Map(
-  langMap2.map(([translatorLang, lang]) => [lang, translatorLang])
-);
-
-// services/google.ts
-var langMap3 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh-CN"],
-  ["zh-TW", "zh-TW"],
-  ["en", "en"],
-  ["af", "af"],
-  ["am", "am"],
-  ["ar", "ar"],
-  ["az", "az"],
-  ["be", "be"],
-  ["bg", "bg"],
-  ["bn", "bn"],
-  ["bs", "bs"],
-  ["ca", "ca"],
-  ["ceb", "ceb"],
-  ["co", "co"],
-  ["cs", "cs"],
-  ["cy", "cy"],
-  ["da", "da"],
-  ["de", "de"],
-  ["el", "el"],
-  ["eo", "eo"],
-  ["es", "es"],
-  ["et", "et"],
-  ["eu", "eu"],
-  ["fa", "fa"],
-  ["fi", "fi"],
-  ["fr", "fr"],
-  ["fy", "fy"],
-  ["ga", "ga"],
-  ["gd", "gd"],
-  ["gl", "gl"],
-  ["gu", "gu"],
-  ["ha", "ha"],
-  ["haw", "haw"],
-  ["he", "he"],
-  ["hi", "hi"],
-  ["hmn", "hmn"],
-  ["hr", "hr"],
-  ["ht", "ht"],
-  ["hu", "hu"],
-  ["hy", "hy"],
-  ["id", "id"],
-  ["ig", "ig"],
-  ["is", "is"],
-  ["it", "it"],
-  ["ja", "ja"],
-  ["jw", "jw"],
-  ["ka", "ka"],
-  ["kk", "kk"],
-  ["km", "km"],
-  ["kn", "kn"],
-  ["ko", "ko"],
-  ["ku", "ku"],
-  ["ky", "ky"],
-  ["la", "la"],
-  ["lb", "lb"],
-  ["lo", "lo"],
-  ["lt", "lt"],
-  ["lv", "lv"],
-  ["mg", "mg"],
-  ["mi", "mi"],
-  ["mk", "mk"],
-  ["ml", "ml"],
-  ["mn", "mn"],
-  ["mr", "mr"],
-  ["ms", "ms"],
-  ["mt", "mt"],
-  ["my", "my"],
-  ["ne", "ne"],
-  ["nl", "nl"],
-  ["no", "no"],
-  ["ny", "ny"],
-  ["pa", "pa"],
-  ["pl", "pl"],
-  ["ps", "ps"],
-  ["pt", "pt"],
-  ["ro", "ro"],
-  ["ru", "ru"],
-  ["sd", "sd"],
-  ["si", "si"],
-  ["sk", "sk"],
-  ["sl", "sl"],
-  ["sm", "sm"],
-  ["sn", "sn"],
-  ["so", "so"],
-  ["sq", "sq"],
-  ["sr", "sr"],
-  ["st", "st"],
-  ["su", "su"],
-  ["sv", "sv"],
-  ["sw", "sw"],
-  ["ta", "ta"],
-  ["te", "te"],
-  ["tg", "tg"],
-  ["th", "th"],
-  ["fil", "tl"],
-  ["tr", "tr"],
-  ["ug", "ug"],
-  ["uk", "uk"],
-  ["ur", "ur"],
-  ["uz", "uz"],
-  ["vi", "vi"],
-  ["xh", "xh"],
-  ["yi", "yi"],
-  ["yo", "yo"],
-  ["zu", "zu"]
-], _Google = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
-    this.throttleLimit = 100;
-    this.apiUrl = "https://translate.googleapis.com/translate_a/single";
-    serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
-  }
-  async translate(payload) {
-    let { text, from, to } = payload;
-    if (!text)
-      return { ...payload };
-    let adaptedFrom = _Google.langMap.get(from) || "auto", adaptedTo = _Google.langMap.get(to) || to, result = await this.fetchWithoutToken(text, adaptedFrom, adaptedTo);
-    if (!result)
-      throw new Error("google translate NETWORK_ERROR");
-    if (!result.data[0] || result.data[0].length <= 0)
-      throw new Error("google translate API_SERVER_ERROR");
-    return {
-      text: result.data[0].map((item) => item[0]).filter(Boolean).join(""),
-      from: _Google.langMapReverse.get(result.data[2]) || "auto",
-      to
-    };
-  }
-  async fetchWithoutToken(text, from, to) {
-    let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
-      client: "gtx",
-      dt: "t",
-      sl: from,
-      tl: to,
-      q: text
-    }).toString();
-    return { data: await request2({
-      retry: 2,
-      url
-    }) };
-  }
-}, Google = _Google;
-Google.langMap = new Map(langMap3), Google.langMapReverse = new Map(
-  langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
-);
-
-// services/d/extractors.ts
-function extractSplitSentences(response) {
-  return response.result.texts;
-}
-
-// services/d/hacks.ts
-function calculateValidTimestamp(timestamp, iCount) {
-  return iCount ? timestamp + (iCount - timestamp % iCount) : timestamp;
-}
-function count(sentence, part) {
-  return sentence.split(part).length - 1;
-}
-function generateTimestamp(sentences) {
-  let now = Date.now(), iCount = 1;
-  for (let sentence of sentences)
-    iCount += count(sentence, "i");
-  return calculateValidTimestamp(now, iCount);
-}
-function randRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function generateId() {
-  return randRange(1e6, 1e8);
-}
-
-// services/d/settings.ts
-var API_URL = "https://www2.deepl.com/jsonrpc", AUTO = "auto", SUPPORTED_LANGUAGES = [
-  { code: "BG", language: "Bulgarian" },
-  { code: "ZH", language: "Chinese" },
-  { code: "CS", language: "Czech" },
-  { code: "DA", language: "Danish" },
-  { code: "NL", language: "Dutch" },
-  { code: "EN", language: "English" },
-  { code: "ET", language: "Estonian" },
-  { code: "FI", language: "Finnish" },
-  { code: "FR", language: "French" },
-  { code: "DE", language: "German" },
-  { code: "EL", language: "Greek" },
-  { code: "HU", language: "Hungarian" },
-  { code: "IT", language: "Italian" },
-  { code: "JA", language: "Japanese" },
-  { code: "LV", language: "Latvian" },
-  { code: "LT", language: "Lithuanian" },
-  { code: "PL", language: "Polish" },
-  { code: "PT", language: "Portuguese" },
-  { code: "RO", language: "Romanian" },
-  { code: "RU", language: "Russian" },
-  { code: "SK", language: "Slovak" },
-  { code: "SL", language: "Slovenian" },
-  { code: "ES", language: "Spanish" },
-  { code: "SV", language: "Swedish" }
-], SUPPORTED_FORMALITY_TONES = ["formal", "informal"];
-
-// services/d/generators.ts
-function generateSplitSentencesRequestData(text, sourceLanguage = AUTO, identifier = generateId()) {
-  return {
-    jsonrpc: "2.0",
-    method: "LMT_split_text",
-    params: {
-      commonJobParams: { mode: "translate" },
-      lang: {
-        lang_user_selected: sourceLanguage,
-        user_preferred_langs: []
-      },
-      texts: text
-    },
-    id: identifier
-  };
-}
-function generateJobs(sentences, beams = 1) {
-  let jobs = [], id = 0;
-  for (let i2 = 0; i2 < sentences.length; i2++) {
-    let chunks = sentences[i2].chunks;
-    for (let j5 = 0; j5 < chunks.length; j5++) {
-      let chunk = chunks[j5];
-      jobs.push({
-        kind: "default",
-        _index: i2,
-        // raw_en_sentence: sentence,
-        sentences: [{
-          id,
-          text: chunk.sentences[0].text,
-          prefix: chunk.sentences[0].prefix
-        }],
-        raw_en_context_before: chunks.slice(0, id).map(
-          (chunk2) => chunk2.sentences[0].text
-        ),
-        raw_en_context_after: id + 1 < chunks.length ? [chunks[id + 1].sentences[0].text] : [],
-        preferred_num_beams: beams
-      }), id++;
-    }
-  }
-  return jobs;
-}
-function splitedResultToArray(sentences) {
-  return sentences.reduce((jobs, sentence) => {
-    let chunks = sentence.chunks;
-    for (let chunk of chunks)
-      jobs.push(chunk.sentences[0].text);
-    return jobs;
-  }, []);
-}
-function generateCommonJobParams(formality) {
-  if (!formality)
-    return {};
-  if (!SUPPORTED_FORMALITY_TONES.includes(formality))
-    throw new Error("Formality tone '{formality_tone}' not supported.");
-  return { formality };
-}
-function generateTranslationRequestData(sourceLanguage, targetLanguage, sentences, identifier = generateId(), alternatives = 1, formality) {
-  let allSentences = splitedResultToArray(sentences);
-  return {
-    jsonrpc: "2.0",
-    method: "LMT_handle_jobs",
-    params: {
-      jobs: generateJobs(sentences, alternatives),
-      lang: {
-        user_preferred_langs: [targetLanguage, sourceLanguage],
-        source_lang_computed: sourceLanguage,
-        target_lang: targetLanguage
-      },
-      priority: 1,
-      commonJobParams: generateCommonJobParams(formality),
-      timestamp: generateTimestamp(splitedResultToArray(sentences))
-    },
-    id: identifier
-  };
-}
-
-// services/d/utils.ts
-function createAbbreviationsDictionary(languages2 = SUPPORTED_LANGUAGES) {
-  return languages2.reduce((acc, lang) => (acc[lang.code.toLowerCase()] = lang.code, acc[lang.language.toLowerCase()] = lang.code, acc), {});
-}
-function abbreviateLanguage(language) {
-  return createAbbreviationsDictionary()[language.toLowerCase()];
-}
-
-// services/d/api.ts
-var headers = {
-  Accept: "*/*",
-  "Accept-Language": "en-US;q=0.8,en;q=0.7",
-  "Content-Type": "application/json",
-  Origin: "https://www.deepl.com",
-  Referer: "https://www.deepl.com/translator",
-  "Sec-Fetch-Dest": "empty",
-  "Sec-Fetch-Mode": "cors",
-  "Sec-Fetch-Site": "same-site"
-};
-function stringifyJson(object) {
-  return JSON.stringify(object).replace('"method":"', () => {
-    let self2 = object;
-    return (self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
-  });
-}
-async function splitSentences2(API_URL2, text, sourceLanguage, identifier) {
-  let data = generateSplitSentencesRequestData(
-    text,
-    sourceLanguage,
-    identifier
-  );
-  return await request2(
-    {
-      retry: 2,
-      method: "POST",
-      url: API_URL2 + "?method=LMT_split_text",
-      headers,
-      body: stringifyJson(data)
-    }
-  );
-}
-async function requestTranslation(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
-  let splitResult = await splitSentences2(
-    API_URL2,
-    text,
-    sourceLanguage,
-    identifier
-  ), data = generateTranslationRequestData(
-    sourceLanguage === "auto" ? splitResult.result.lang.detected : sourceLanguage,
-    targetLanguage,
-    extractSplitSentences(splitResult),
-    identifier,
-    alternatives,
-    formalityTone
-  ), jobsIndexes = data.params.jobs.map((job) => job._index);
-  data.params.jobs = data.params.jobs.map((job) => {
-    let newJob = { ...job };
-    return delete newJob._index, newJob;
-  });
-  let response = await request2({
-    retry: 2,
-    method: "POST",
-    url: API_URL2 + "?method=LMT_handle_jobs",
-    body: stringifyJson(data),
-    headers
-  }), finalResult = {
-    from: splitResult.result.lang.detected,
-    to: targetLanguage,
-    text: []
-  };
-  return response.result.translations.forEach((translation, index) => {
-    let jobIndex = jobsIndexes[index];
-    finalResult.text[jobIndex] === void 0 && (finalResult.text[jobIndex] = "");
-    let originalSentencePrefix = data.params.jobs[index].sentences[0].prefix, originalSentencePre = data.params.jobs[index].sentences[0].prefix;
-    finalResult.text[jobIndex] = finalResult.text[jobIndex] + originalSentencePrefix + translation.beams[0].sentences[0].text;
-  }), finalResult;
-}
-async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
-  return text ? text && text.length === 1 && text[0] === "" ? {
-    text: [""],
-    from: sourceLanguage,
-    to: targetLanguage
-  } : requestTranslation(
-    API_URL2,
-    text,
-    abbreviateLanguage(targetLanguage),
-    abbreviateLanguage(sourceLanguage) ?? "auto",
-    identifier,
-    alternatives,
-    formalityTone
-  ) : {
-    text: [],
-    from: sourceLanguage,
-    to: targetLanguage
-  };
-}
-
-// services/d/mod.ts
-var langMap4 = [
-  ["auto", "auto"],
-  ["zh-CN", "ZH"],
-  ["zh-TW", "ZH"],
-  ["de", "DE"],
-  ["en", "EN"],
-  ["es", "ES"],
-  ["fr", "FR"],
-  ["it", "IT"],
-  ["ja", "JA"],
-  ["pt", "PT"],
-  ["ru", "RU"],
-  ["tr", "tr"]
-], _D = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.maxTextGroupLength = 3;
-    this.maxTextLength = 800;
-    this.isSupportList = !0;
-    this.API_URL = API_URL;
-    serviceConfig && serviceConfig.apiUrl && (this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl));
-  }
-  async translateList(payload) {
-    let { text, to, from } = payload, result = await translate(
-      this.API_URL,
-      text,
-      _D.langMap.get(to) || to,
-      _D.langMap.get(from) || "auto"
-    );
-    return {
-      text: result.text,
-      from: _D.langMapReverse.get(result.from),
-      to: _D.langMapReverse.get(result.to)
-    };
-  }
-}, D8 = _D;
-/** Translator lang to custom lang */
-D8.langMap = new Map(langMap4), /** Custom lang to translator lang */
-D8.langMapReverse = new Map(
-  langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
-);
-
-// services/transmart.ts
-var langMap5 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["zh-TW", "zh-TW"],
-  ["de", "de"],
-  ["en", "en"],
-  ["es", "es"],
-  ["fr", "fr"],
-  ["id", "id"],
-  ["it", "it"],
-  ["ja", "ja"],
-  ["ko", "kr"],
-  ["ms", "ms"],
-  ["pt", "pt"],
-  ["ru", "ru"],
-  ["th", "th"],
-  ["tr", "tr"],
-  ["vi", "vi"]
-], API = "https://transmart.qq.com/api/imt", _Transmart = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.maxTextGroupLength = 50;
-    this.maxTextLength = 1e3;
-    this.throttleLimit = 1e3;
-    this.isSupportList = !1;
-    this.clientKey = btoa(
-      "transmart_crx_" + navigator.userAgent
-    ).slice(0, 100);
-  }
-  async translate(payload) {
-    let { text, to } = payload, sourceLanguage = await this.detectLanguage(text), remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage, remoteTargetLanguage = _Transmart.langMap.get(to) || to;
-    if (sourceLanguage === to)
-      return {
-        text,
-        from: sourceLanguage,
-        to
-      };
-    let requestPayload = JSON.stringify(
-      {
-        header: {
-          fn: "auto_translation_block",
-          client_key: this.clientKey
-        },
-        source: {
-          text_block: text,
-          lang: remoteSourceLanguage,
-          orig_url: payload.url
-        },
-        target: { lang: remoteTargetLanguage }
-      }
-    ), data = await request2({
-      url: API,
-      body: requestPayload,
-      method: "POST",
-      retry: 2
-    });
-    if (data.header.ret_code !== "succ")
-      throw new Error(data.message || data.header.ret_code);
-    return {
-      text: data.auto_translation,
-      from: sourceLanguage || "auto",
-      to
-    };
-  }
-  async translateList(payload) {
-    let { from, text, to } = payload;
-    if (text.length === 1) {
-      let result = await this.translate({
-        from,
-        text: text[0],
-        to,
-        url: payload.url,
-        options: payload.options
-      });
-      return {
-        text: [result.text],
-        from: result.from,
-        to: result.to
-      };
-    }
-    let sourceLanguage = await this.detectLanguage(text.join(`
-`));
-    if (sourceLanguage === to)
-      return {
-        text,
-        from: sourceLanguage,
-        to
-      };
-    let remoteSourceLanguage = _Transmart.langMap.get(sourceLanguage) || sourceLanguage, remoteTargetLanguage = _Transmart.langMap.get(to) || to, requestPayload = JSON.stringify(
-      {
-        header: {
-          fn: "auto_translation",
-          client_key: this.clientKey
-        },
-        source: {
-          text_list: text,
-          lang: remoteSourceLanguage,
-          orig_url: payload.url
-        },
-        target: { lang: remoteTargetLanguage },
-        type: "plain"
-      }
-    ), data = await request2({
-      url: API,
-      body: requestPayload,
-      method: "POST"
-    });
-    if (data.header.ret_code !== "succ")
-      throw new Error(data.message || data.header.ret_code);
-    return {
-      text: data.auto_translation,
-      from: sourceLanguage || "auto",
-      to
-    };
-  }
-  detectLanguageLocally(text) {
-    return this.detectLanguageRemotely(text);
-  }
-  async detectLanguageRemotely(text) {
-    let payload = {
-      header: {
-        fn: "text_analysis",
-        client_key: this.clientKey
-      },
-      text: text.slice(0, 280)
-    }, response = await request2({
-      url: API,
-      method: "POST",
-      body: JSON.stringify(payload)
-    });
-    if (response.header.ret_code !== "succ")
-      throw new Error(response.message || response.header.ret_code);
-    let remoteLanguage = response.language, language = _Transmart.langMapReverse.get(remoteLanguage);
-    return language || remoteLanguage;
-  }
-}, Transmart = _Transmart;
-/** Translator lang to custom lang */
-Transmart.langMap = new Map(langMap5), /** Custom lang to translator lang */
-Transmart.langMapReverse = new Map(
-  langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
-);
-
-// utils/random.ts
-function getRandomBoolean() {
-  return Math.random() >= 0;
-}
-
-// services/mock.ts
-var Mock = class extends Translation {
-  constructor() {
-    super(...arguments);
-    this.isSupportList = !0;
-    this.maxTextGroupLength = 50;
-    this.maxTextLength = 1800;
-  }
-  async translate(payload) {
-    let { text } = payload;
-    await mockRequest(), await delay(5e3);
-    let startSpaceLength = text.match(/^\s*/)[0].length;
-    return {
-      text: text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6),
-      from: payload.from,
-      to: payload.to
-    };
-  }
-  async translateList(payload) {
-    let { text: textList, from, to } = payload;
-    if (await mockRequest(), !getRandomBoolean())
-      throw new Error("\u6A21\u62DF\u9519\u8BEF");
-    return textList.length === 0 ? {
-      from,
-      to,
-      text: [""]
-    } : {
-      from,
-      to,
-      text: textList.map((text) => {
-        let startSpaceLength = text.match(/^\s*/)[0].length;
-        return text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
-      })
-    };
-  }
-};
-
-// services/openl.ts
-var rawLangMap = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["en", "en"],
-  ["ja", "ja"],
-  ["de", "de"],
-  ["fr", "fr"],
-  ["it", "it"],
-  ["es", "es"],
-  ["nl", "nl"],
-  ["pl", "pl"],
-  ["pt", "pt"],
-  ["ru", "ru"]
-], langMap6 = new Map(rawLangMap), langMapReverse = new Map(
-  rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
-), _Openl = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.apikey = "";
-    this.codename = _Openl.DEFAULT_CODENAME;
-    this.isSupportList = !1;
-    this.maxTextGroupLength = 1;
-    if (!serviceConfig || !serviceConfig.apikey)
-      throw new Error("apikey are required");
-    this.apikey = serviceConfig.apikey?.trim(), serviceConfig.codename && (this.codename = serviceConfig.codename);
-  }
-  static getAllProps() {
-    return [
-      ..._Openl.getProps(),
-      {
-        type: "password",
-        name: "apikey",
-        required: !0
-      }
-    ];
-  }
-  static getProps() {
-    return [{
-      type: "select",
-      name: "codename",
-      label: "translationEngine",
-      default: _Openl.DEFAULT_CODENAME,
-      required: !1,
-      options: [
-        {
-          label: "translationServices.deepl",
-          value: "deepl"
-        },
-        {
-          label: "translationServices.youdao",
-          value: "youdao"
-        },
-        {
-          label: "translationServices.tencent",
-          value: "tencent"
-        },
-        {
-          label: "translationServices.aliyun",
-          value: "aliyun"
-        },
-        {
-          label: "translationServices.baidu",
-          value: "baidu"
-        },
-        {
-          label: "translationServices.caiyun",
-          value: "caiyun"
-        },
-        {
-          label: "translationServices.wechat",
-          value: "wechat"
-        },
-        {
-          label: "translationServices.azure",
-          value: "azure"
-        },
-        {
-          label: "translationServices.ibm",
-          value: "ibm"
-        },
-        {
-          label: "translationServices.aws",
-          value: "aws"
-        },
-        {
-          label: "translationServices.google",
-          value: "google"
-        }
-      ]
-    }];
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, response = await request2(
-      {
-        retry: 2,
-        url: `https://api.openl.club/services/${this.codename}/translate`,
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({
-          apikey: this.apikey,
-          text,
-          source_lang: langMap6.get(from) || "auto",
-          target_lang: langMap6.get(to) || to
-        })
-      }
-    );
-    if (response.status) {
-      let result = response;
-      return {
-        text: result.result,
-        from: langMapReverse.get(result.source_lang),
-        to: langMapReverse.get(result.target_lang)
-      };
-    } else
-      throw new Error(response.msg);
-  }
-}, Openl = _Openl;
-Openl.DEFAULT_CODENAME = "deepl";
-var openl_default = Openl;
-
-// services/deepl.ts
-var rawLangMap2 = [
-  ["auto", ""],
-  ["zh-CN", "ZH"],
-  ["zh-TW", "ZH"],
-  ["en", "EN"],
-  ["de", "DE"],
-  ["fr", "FR"],
-  ["it", "IT"],
-  ["ja", "JA"],
-  ["es", "ES"],
-  ["nl", "NL"],
-  ["pl", "PL"],
-  ["pt", "PT"],
-  ["ru", "RU"]
-], langMap7 = new Map(rawLangMap2), langMapReverse2 = new Map(
-  rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
-), Deepl = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.authKey = "";
-    this.maxTextGroupLength = 50;
-    this.maxTextLength = 1200;
-    this.freeApiUrl = "https://api-free.deepl.com/v2/translate";
-    this.proApiUrl = "https://api.deepl.com/v2/translate";
-    this.immersiveTranslateApiUrl = "https://deepl.immersivetranslate.com/v2/translate";
-    if (!serviceConfig || !serviceConfig.authKey)
-      throw new Error("authKey are required");
-    serviceConfig && serviceConfig.freeApiUrl && (this.freeApiUrl = mergeUrl(this.freeApiUrl, serviceConfig.freeApiUrl)), serviceConfig && serviceConfig.proApiUrl && (this.proApiUrl = mergeUrl(this.proApiUrl, serviceConfig.proApiUrl)), serviceConfig && serviceConfig.immersiveTranslateApiUrl && (this.immersiveTranslateApiUrl = mergeUrl(
-      this.immersiveTranslateApiUrl,
-      serviceConfig.immersiveTranslateApiUrl
-    )), this.authKey = serviceConfig.authKey?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "authKey",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translateList(payload) {
-    let { from, to, text } = payload, bodyParams = {
-      source_lang: langMap7.get(from) || "",
-      target_lang: langMap7.get(to) || to
-    }, bodySearchParams = new URLSearchParams(bodyParams);
-    text.forEach((item) => {
-      bodySearchParams.append("text", item);
-    });
-    let body = bodySearchParams.toString(), deeplEndpoint = this.freeApiUrl;
-    this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
-    let response = await request2(
-      {
-        retry: 2,
-        url: deeplEndpoint,
-        method: "POST",
-        body,
-        headers: {
-          Authorization: "DeepL-Auth-Key " + this.authKey,
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-        },
-        extra: {
-          overrideMimeType: "application/json; charset=utf-8"
-        }
-      }
-    ), { translations: translations2 } = response;
-    return {
-      text: translations2.map((t3) => t3.text),
-      from: translations2[0] && langMapReverse2.get(translations2[0].detected_source_language) || from,
-      to
-    };
-  }
-}, deepl_default = Deepl;
-
-// services/niu.ts
-var rawLangMap3 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["zh-TW", "cht"],
-  ["en", "en"],
-  ["ja", "ja"],
-  ["ru", "ru"],
-  ["es", "es"],
-  ["de", "de"],
-  ["ko", "ko"],
-  ["fr", "fr"]
-], langMap8 = new Map(rawLangMap3), Niu = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.APIKEY = "";
-    this.isSupportList = !1;
-    if (!serviceConfig || !serviceConfig.APIKEY)
-      throw new Error("APIKEY are required");
-    this.APIKEY = serviceConfig.APIKEY?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "APIKEY",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, options = {
-      url: "https://api.niutrans.com/NiuTransServer/translation",
-      retry: 2,
-      headers: {
-        "content-type": "application/json"
-      },
-      method: "POST",
-      body: JSON.stringify({
-        src_text: text,
-        from: langMap8.get(from) || from,
-        to: langMap8.get(to) || to,
-        apikey: this.APIKEY
-      })
-    }, response = await request2(
-      options
-    );
-    if (response.tgt_text) {
-      let result = response.tgt_text;
-      return result.endsWith(`
-`) && (result = result.slice(0, -1)), {
-        text: result,
-        from,
-        to
-      };
-    } else
-      throw new Error(JSON.stringify(response));
-  }
-}, niu_default = Niu;
-
-// services/volc/sign.ts
-var unsignableHeaders = [
-  "authorization",
-  "content-type",
-  "content-length",
-  "user-agent",
-  "presigned-expires",
-  "expect"
-], constant = {
-  algorithm: "HMAC-SHA256",
-  v4Identifier: "request",
-  dateHeader: "X-Date",
-  tokenHeader: "X-Security-Token",
-  contentSha256Header: "X-Content-Sha256",
-  notSignBody: "X-NotSignBody",
-  kDatePrefix: "",
-  credential: "X-Credential",
-  algorithmKey: "X-Algorithm",
-  signHeadersKey: "X-SignedHeaders",
-  signQueriesKey: "X-SignedQueries",
-  signatureKey: "X-Signature"
-}, uriEscape = (str) => {
-  try {
-    return encodeURIComponent(str).replace(/[^A-Za-z0-9_.~\-%]+/g, escape).replace(
-      /[*]/g,
-      (ch) => `%${ch.charCodeAt(0).toString(16).toUpperCase()}`
-    );
-  } catch {
-    return "";
-  }
-}, queryParamsToString = (params) => Object.keys(params).map((key) => {
-  let val = params[key];
-  if (typeof val > "u" || val === null)
-    return;
-  let escapedKey = uriEscape(key);
-  if (escapedKey)
-    return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
-}).filter((v2) => v2).join("&"), Signer = class {
-  constructor(request3, serviceName, options) {
-    this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options = options || {}, this.bodySha256 = options.bodySha256, this.request.params = this.sortParams(this.request.params);
-  }
-  sortParams(params) {
-    let newParams = {};
-    return params && Object.keys(params).filter((key) => {
-      let value = params[key];
-      return typeof value < "u" && value !== null;
-    }).sort().map((key) => {
-      newParams[key] = params[key];
-    }), newParams;
-  }
-  async addAuthorization(credentials, date) {
-    let datetime = this.getDateTime(date);
-    await this.addHeaders(credentials, datetime), this.request.headers.Authorization = await this.authorization(
-      credentials,
-      datetime
-    );
-  }
-  async authorization(credentials, datetime) {
-    let parts = [], credString = this.credentialString(datetime);
-    return parts.push(
-      `${constant.algorithm} Credential=${credentials.accessKeyId}/${credString}`
-    ), parts.push(`SignedHeaders=${this.signedHeaders()}`), parts.push(`Signature=${await this.signature(credentials, datetime)}`), parts.join(", ");
-  }
-  async getSignUrl(credentials, date) {
-    let datetime = this.getDateTime(date), query = { ...this.request.params }, params = this.request.params, headers2 = this.request.headers;
-    credentials.sessionToken && (query[constant.tokenHeader] = credentials.sessionToken), query[constant.dateHeader] = datetime, query[constant.notSignBody] = "", query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`, query[constant.algorithmKey] = constant.algorithm, query[constant.signHeadersKey] = "", query[constant.signQueriesKey] = void 0, query[constant.signatureKey] = void 0, query = this.sortParams(query), this.request.params = query, this.request.headers = {};
-    let sig = await this.signature(credentials, datetime);
-    return this.request.params = params, this.request.headers = headers2, query[constant.signQueriesKey] = Object.keys(query).sort().join(";"), query[constant.signatureKey] = sig, queryParamsToString(query);
-  }
-  getDateTime(date) {
-    return this.iso8601(date).replace(/[:\-]|\.\d{3}/g, "");
-  }
-  async addHeaders(credentials, datetime) {
-    if (this.request.headers[constant.dateHeader] = datetime, credentials.sessionToken && (this.request.headers[constant.tokenHeader] = credentials.sessionToken), this.request.body) {
-      let body = this.request.body;
-      this.request.headers[constant.contentSha256Header] = await sha256(body);
-    }
-  }
-  async signature(credentials, datetime) {
-    let signingKey = await this.getSigningKey(
-      credentials,
-      datetime.substr(0, 8),
-      this.request.region,
-      this.serviceName
-    );
-    return hex(await hmacSha256(await this.stringToSign(datetime), signingKey));
-  }
-  async stringToSign(datetime) {
-    let parts = [];
-    parts.push(constant.algorithm), parts.push(datetime), parts.push(this.credentialString(datetime));
-    let x5 = await this.canonicalString();
-    return parts.push(
-      await this.hexEncodedHash(x5)
-    ), parts.join(`
-`);
-  }
-  async canonicalString() {
-    let parts = [], pathname = this.request.pathname || "/";
-    parts.push(this.request.method.toUpperCase()), parts.push(pathname);
-    let queryString = queryParamsToString(this.request.params) || "";
-    return parts.push(queryString), parts.push(`${this.canonicalHeaders()}
-`), parts.push(this.signedHeaders()), parts.push(await this.hexEncodedBodyHash()), parts.join(`
-`);
-  }
-  canonicalHeaders() {
-    let headers2 = [];
-    Object.keys(this.request.headers).forEach((key) => {
-      headers2.push([key, this.request.headers[key]]);
-    }), headers2.sort((a4, b4) => a4[0].toLowerCase() < b4[0].toLowerCase() ? -1 : 1);
-    let parts = [];
-    return headers2.forEach((item) => {
-      let key = item[0].toLowerCase();
-      if (this.isSignableHeader(key)) {
-        let value = item[1];
-        if (typeof value > "u" || value === null || typeof value.toString != "function")
-          throw new Error(`Header ${key} contains invalid value`);
-        parts.push(`${key}:${this.canonicalHeaderValues(value.toString())}`);
-      }
-    }), parts.join(`
-`);
-  }
-  canonicalHeaderValues(values) {
-    return values.replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "");
-  }
-  signedHeaders() {
-    let keys = [];
-    return Object.keys(this.request.headers).forEach((key) => {
-      key = key.toLowerCase(), this.isSignableHeader(key) && keys.push(key);
-    }), keys.sort().join(";");
-  }
-  signedQueries() {
-    return Object.keys(this.request.params).join(";");
-  }
-  credentialString(datetime) {
-    return this.createScope(
-      datetime.substr(0, 8),
-      this.request.region,
-      this.serviceName
-    );
-  }
-  async hexEncodedHash(str) {
-    return await sha256(str);
-  }
-  async hexEncodedBodyHash() {
-    return this.request.headers[constant.contentSha256Header] ? this.request.headers[constant.contentSha256Header] : this.request.body ? await this.hexEncodedHash(queryParamsToString(this.request.body)) : await this.hexEncodedHash("");
-  }
-  isSignableHeader(key) {
-    return unsignableHeaders.indexOf(key) < 0;
-  }
-  iso8601(date) {
-    return date === void 0 && (date = /* @__PURE__ */ new Date()), date.toISOString().replace(/\.\d{3}Z$/, "Z");
-  }
-  async getSigningKey(credentials, date, region, service) {
-    let kDate = await hmacSha256(
-      date,
-      `${constant.kDatePrefix}${credentials.secretKey}`
-    ), kRegion = await hmacSha256(region, kDate), kService = await hmacSha256(service, kRegion);
-    return hmacSha256(constant.v4Identifier, kService);
-  }
-  createScope(date, region, serviceName) {
-    return [date.substr(0, 8), region, serviceName, constant.v4Identifier].join(
-      "/"
-    );
-  }
-};
-
-// services/volc/mod.ts
-var rawLangMap4 = [
-  ["af", "af"],
-  ["am", "am"],
-  ["ar", "ar"],
-  ["az", "az"],
-  ["be", "be"],
-  ["bg", "bg"],
-  ["bn", "bn"],
-  ["bs", "bs"],
-  ["ca", "ca"],
-  ["co", "co"],
-  ["cs", "cs"],
-  ["cy", "cy"],
-  ["da", "da"],
-  ["de", "de"],
-  ["el", "el"],
-  ["en", "en"],
-  ["eo", "eo"],
-  ["es", "es"],
-  ["et", "et"],
-  ["eu", "eu"],
-  ["fa", "fa"],
-  ["fi", "fi"],
-  ["fj", "fj"],
-  ["fr", "fr"],
-  ["fy", "fy"],
-  ["ga", "ga"],
-  ["gd", "gd"],
-  ["gl", "gl"],
-  ["gu", "gu"],
-  ["ha", "ha"],
-  ["he", "he"],
-  ["hi", "hi"],
-  ["hr", "hr"],
-  ["ht", "ht"],
-  ["hu", "hu"],
-  ["hy", "hy"],
-  ["id", "id"],
-  ["ig", "ig"],
-  ["is", "is"],
-  ["it", "it"],
-  ["ja", "ja"],
-  ["ka", "ka"],
-  ["kk", "kk"],
-  ["km", "km"],
-  ["kn", "kn"],
-  ["ko", "ko"],
-  ["ku", "ku"],
-  ["ky", "ky"],
-  ["la", "la"],
-  ["lb", "lb"],
-  ["lo", "lo"],
-  ["lt", "lt"],
-  ["lv", "lv"],
-  ["mg", "mg"],
-  ["mi", "mi"],
-  ["mk", "mk"],
-  ["ml", "ml"],
-  ["mn", "mn"],
-  ["mr", "mr"],
-  ["ms", "ms"],
-  ["mt", "mt"],
-  ["my", "my"],
-  ["ne", "ne"],
-  ["nl", "nl"],
-  ["no", "no"],
-  ["ny", "ny"],
-  ["pa", "pa"],
-  ["pl", "pl"],
-  ["ps", "ps"],
-  ["pt", "pt"],
-  ["ro", "ro"],
-  ["ru", "ru"],
-  ["sd", "sd"],
-  ["si", "si"],
-  ["sk", "sk"],
-  ["sl", "sl"],
-  ["sm", "sm"],
-  ["sn", "sn"],
-  ["so", "so"],
-  ["sq", "sq"],
-  ["sr", "sr"],
-  ["st", "st"],
-  ["su", "su"],
-  ["sv", "sv"],
-  ["sw", "sw"],
-  ["ta", "ta"],
-  ["te", "te"],
-  ["tg", "tg"],
-  ["th", "th"],
-  ["tn", "tn"],
-  ["to", "to"],
-  ["tr", "tr"],
-  ["ty", "ty"],
-  ["ug", "ug"],
-  ["uk", "uk"],
-  ["ur", "ur"],
-  ["uz", "uz"],
-  ["vi", "vi"],
-  ["xh", "xh"],
-  ["yi", "yi"],
-  ["yo", "yo"],
-  ["zh-CN", "zh"],
-  ["zh-TW", "zh-Hans"],
-  ["zu", "zu"]
-], langMap9 = new Map(rawLangMap4), langMapReverse3 = new Map(
-  rawLangMap4.map(([translatorLang, lang]) => [lang, translatorLang])
-), Volc = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.accessKeyId = "";
-    this.secretAccessKey = "";
-    this.maxTextGroupLength = 8;
-    if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey)
-      throw new Error("accessKeyId and secretAccessKey are required");
-    this.accessKeyId = serviceConfig.accessKeyId?.trim(), this.secretAccessKey = serviceConfig.secretAccessKey?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "accessKeyId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretAccessKey",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async remoteDetectLanguage(text) {
-    let requestObj = {
-      region: "cn-north-1",
-      method: "POST",
-      params: {
-        Action: "LangDetect",
-        Version: "2020-06-01"
-      },
-      pathname: "/",
-      headers: {
-        "Content-Type": "application/json",
-        host: "open.volcengineapi.com"
-      },
-      body: JSON.stringify({
-        TextList: [text]
-      })
-    }, signer = new Signer(requestObj, "translate");
-    await signer.addAuthorization({
-      accessKeyId: this.accessKeyId,
-      secretKey: this.secretAccessKey
-    });
-    let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
-      {
-        retry: 2,
-        url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
-        headers: signer.request.headers,
-        method: requestObj.method,
-        body: requestObj.body
-      }
-    );
-    if (response.DetectedLanguageList && response.DetectedLanguageList.length > 0)
-      return response.DetectedLanguageList[0].Language;
-    if (response.ResponseMetadata && response.ResponseMetadata.Error) {
-      let error = response.ResponseMetadata.Error;
-      throw new CommonError(error.Code, error.Message);
-    } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
-      let error = response.ResponseMetaData.Error;
-      throw new CommonError(error.Code, error.Message);
-    } else
-      throw new Error("response: " + JSON.stringify(response));
-  }
-  async translateList(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap9.get(from), bodyParams = {
-      TargetLanguage: langMap9.get(to) || to,
-      TextList: text
-    };
-    remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
-      text.join(`
-`).slice(0, 1e3)
-    );
-    let requestObj = {
-      region: "cn-north-1",
-      method: "POST",
-      params: {
-        Action: "TranslateText",
-        Version: "2020-06-01"
-      },
-      pathname: "/",
-      headers: {
-        "Content-Type": "application/json",
-        host: "open.volcengineapi.com"
-      },
-      body: JSON.stringify(bodyParams)
-    }, signer = new Signer(requestObj, "translate");
-    await signer.addAuthorization({
-      accessKeyId: this.accessKeyId,
-      secretKey: this.secretAccessKey
-    });
-    let urlSearchParams = new URLSearchParams(requestObj.params), response = await request2(
-      {
-        retry: 2,
-        url: "https://open.volcengineapi.com" + requestObj.pathname + "?" + urlSearchParams.toString(),
-        headers: signer.request.headers,
-        method: requestObj.method,
-        body: requestObj.body
-      }
-    );
-    if (response.TranslationList) {
-      let resultText = response.TranslationList.map((item) => item.Translation), remoteFrom2 = from;
-      return response.TranslationList.length > 0 && response.TranslationList[0].DetectedSourceLanguage && (remoteFrom2 = langMapReverse3.get(
-        response.TranslationList[0].DetectedSourceLanguage
-      ) || from), {
-        text: resultText,
-        from: remoteFrom2,
-        to
-      };
-    } else if (response.ResponseMetadata && response.ResponseMetadata.Error) {
-      let error = response.ResponseMetadata.Error;
-      throw new CommonError(error.Code, error.Message);
-    } else if (response.ResponseMetaData && response.ResponseMetaData.Error) {
-      let error = response.ResponseMetaData.Error;
-      throw new CommonError(error.Code, error.Message);
-    } else
-      throw new Error("response: " + JSON.stringify(response));
-  }
-}, mod_default2 = Volc;
-
-// services/volc_alpha.ts
-var rawLangMap5 = [
-  ["auto", "detect"],
-  ["af", "af"],
-  ["am", "am"],
-  ["ar", "ar"],
-  ["az", "az"],
-  ["be", "be"],
-  ["bg", "bg"],
-  ["bn", "bn"],
-  ["bs", "bs"],
-  ["ca", "ca"],
-  ["co", "co"],
-  ["cs", "cs"],
-  ["cy", "cy"],
-  ["da", "da"],
-  ["de", "de"],
-  ["el", "el"],
-  ["en", "en"],
-  ["eo", "eo"],
-  ["es", "es"],
-  ["et", "et"],
-  ["eu", "eu"],
-  ["fa", "fa"],
-  ["fi", "fi"],
-  ["fj", "fj"],
-  ["fr", "fr"],
-  ["fy", "fy"],
-  ["ga", "ga"],
-  ["gd", "gd"],
-  ["gl", "gl"],
-  ["gu", "gu"],
-  ["ha", "ha"],
-  ["he", "he"],
-  ["hi", "hi"],
-  ["hr", "hr"],
-  ["ht", "ht"],
-  ["hu", "hu"],
-  ["hy", "hy"],
-  ["id", "id"],
-  ["ig", "ig"],
-  ["is", "is"],
-  ["it", "it"],
-  ["ja", "ja"],
-  ["ka", "ka"],
-  ["kk", "kk"],
-  ["km", "km"],
-  ["kn", "kn"],
-  ["ko", "ko"],
-  ["ku", "ku"],
-  ["ky", "ky"],
-  ["la", "la"],
-  ["lb", "lb"],
-  ["lo", "lo"],
-  ["lt", "lt"],
-  ["lv", "lv"],
-  ["mg", "mg"],
-  ["mi", "mi"],
-  ["mk", "mk"],
-  ["ml", "ml"],
-  ["mn", "mn"],
-  ["mr", "mr"],
-  ["ms", "ms"],
-  ["mt", "mt"],
-  ["my", "my"],
-  ["ne", "ne"],
-  ["nl", "nl"],
-  ["no", "no"],
-  ["ny", "ny"],
-  ["pa", "pa"],
-  ["pl", "pl"],
-  ["ps", "ps"],
-  ["pt", "pt"],
-  ["ro", "ro"],
-  ["ru", "ru"],
-  ["sd", "sd"],
-  ["si", "si"],
-  ["sk", "sk"],
-  ["sl", "sl"],
-  ["sm", "sm"],
-  ["sn", "sn"],
-  ["so", "so"],
-  ["sq", "sq"],
-  ["sr", "sr"],
-  ["st", "st"],
-  ["su", "su"],
-  ["sv", "sv"],
-  ["sw", "sw"],
-  ["ta", "ta"],
-  ["te", "te"],
-  ["tg", "tg"],
-  ["th", "th"],
-  ["tn", "tn"],
-  ["to", "to"],
-  ["tr", "tr"],
-  ["ty", "ty"],
-  ["ug", "ug"],
-  ["uk", "uk"],
-  ["ur", "ur"],
-  ["uz", "uz"],
-  ["vi", "vi"],
-  ["xh", "xh"],
-  ["yi", "yi"],
-  ["yo", "yo"],
-  ["zh-CN", "zh"],
-  ["zh-TW", "zh-Hans"],
-  ["zu", "zu"]
-], langMap10 = new Map(rawLangMap5), langMapReverse4 = new Map(
-  rawLangMap5.map(([translatorLang, lang]) => [lang, translatorLang])
-), VolcAlpha = class extends Translation {
-  constructor() {
-    super(...arguments);
-    this.maxTextGroupLength = 50;
-    this.isSupportList = !1;
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap10.get(from) || "detect", remoteTo = langMap10.get(to) || to, response = await request2(
-      {
-        url: "https://translate.volcengine.com/crx/translate/v1/",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          source_language: remoteFrom,
-          target_language: remoteTo,
-          text
-        })
-      }
-    );
-    if (response.base_resp && response.base_resp.status_code === 0) {
-      let resultText = response.translation, remoteFrom2 = from;
-      return response.detected_language && (remoteFrom2 = langMapReverse4.get(response.detected_language) || from), {
-        text: resultText,
-        from: remoteFrom2,
-        to
-      };
-    } else {
-      let error = response.base_resp;
-      throw new CommonError(error.status_code.toString(), error.status_message);
-    }
-  }
-};
-
-// services/deeplx.ts
-var rawLangMap6 = [
-  ["auto", "auto"],
-  ["zh-CN", "ZH"],
-  ["zh-TW", "ZH"],
-  ["de", "DE"],
-  ["en", "EN"],
-  ["es", "ES"],
-  ["fr", "FR"],
-  ["it", "IT"],
-  ["ja", "JA"],
-  ["pt", "PT"],
-  ["ru", "RU"],
-  ["tr", "tr"]
-], langMap11 = new Map(rawLangMap6), Deeplx = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.url = "";
-    this.isSupportList = !1;
-    this.maxTextGroupLength = 1;
-    if (!serviceConfig || !serviceConfig.url)
-      throw new Error(
-        "deeplx custom url are required, please check your settings."
-      );
-    this.url = serviceConfig.url;
-  }
-  static getAllProps() {
-    return [{
-      name: "url",
-      required: !0,
-      type: "text"
-    }];
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, result = await request2(
-      {
-        retry: 2,
-        url: this.url,
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({
-          source_lang: langMap11.get(from) || from,
-          target_lang: langMap11.get(to) || to,
-          text
-        })
-      }
-    );
-    if (result.code === 200)
-      return {
-        text: result.data,
-        from,
-        to
-      };
-    throw new Error(result.message || result.message || "API Error");
-  }
-};
-
-// services/bing/api.js
-var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap7 = [
-  ["auto", "auto-detect"],
-  ["ar", "ar"],
-  ["ga", "ga"],
-  ["et", "et"],
-  ["bg", "bg"],
-  ["is", "is"],
-  ["pl", "pl"],
-  ["bs", "bs-Latn"],
-  ["fa", "fa"],
-  ["da", "da"],
-  ["de", "de"],
-  ["ru", "ru"],
-  ["fr", "fr"],
-  ["zh-TW", "zh-Hant"],
-  ["fil", "fil"],
-  ["fj", "fj"],
-  ["fi", "fi"],
-  ["gu", "gu"],
-  ["kk", "kk"],
-  ["ht", "ht"],
-  ["ko", "ko"],
-  ["nl", "nl"],
-  ["ca", "ca"],
-  ["zh-CN", "zh-Hans"],
-  ["cs", "cs"],
-  ["kn", "kn"],
-  ["otq", "otq"],
-  ["tlh", "tlh"],
-  ["hr", "hr"],
-  ["lv", "lv"],
-  ["lt", "lt"],
-  ["ro", "ro"],
-  ["mg", "mg"],
-  ["mt", "mt"],
-  ["mr", "mr"],
-  ["ml", "ml"],
-  ["ms", "ms"],
-  ["mi", "mi"],
-  ["bn", "bn-BD"],
-  ["hmn", "mww"],
-  ["af", "af"],
-  ["pa", "pa"],
-  ["pt", "pt"],
-  ["ps", "ps"],
-  ["ja", "ja"],
-  ["sv", "sv"],
-  ["sm", "sm"],
-  ["sr-Latn", "sr-Latn"],
-  ["sr-Cyrl", "sr-Cyrl"],
-  ["no", "nb"],
-  ["sk", "sk"],
-  ["sl", "sl"],
-  ["sw", "sw"],
-  ["ty", "ty"],
-  ["te", "te"],
-  ["ta", "ta"],
-  ["th", "th"],
-  ["to", "to"],
-  ["tr", "tr"],
-  ["cy", "cy"],
-  ["ur", "ur"],
-  ["uk", "uk"],
-  ["es", "es"],
-  ["he", "iw"],
-  ["el", "el"],
-  ["hu", "hu"],
-  ["it", "it"],
-  ["hi", "hi"],
-  ["id", "id"],
-  ["en", "en"],
-  ["yua", "yua"],
-  ["yue", "yua"],
-  ["vi", "vi"],
-  ["ku", "ku"],
-  ["km", "kmr"]
-], langMap12 = new Map(rawLangMap7), langMapReverse5 = new Map(
-  rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
-), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
-function replaceSubdomain(url, subdomain) {
-  return url.replace("{s}", subdomain ? subdomain + "." : "");
-}
-async function isTokenExpired() {
-  if (!globalConfig) {
-    let storageValue = await browserAPI.storage.local.get(
-      globalConfigStorageKey
-    );
-    return storageValue && (globalConfig = storageValue[globalConfigStorageKey]), !0;
-  }
-  let { tokenTs, tokenExpiryInterval } = globalConfig;
-  return Date.now() - tokenTs > tokenExpiryInterval;
-}
-async function fetchGlobalConfig() {
-  let subdomain, IG, IID, token, key, tokenExpiryInterval, isVertical, frontDoorBotClassification, isSignedInOrCorporateUser, cookie;
-  try {
-    let finalUrl = replaceSubdomain(TRANSLATE_WEBSITE, subdomain), response = await request2({
-      retry: 2,
-      url: finalUrl,
-      responseType: "raw"
-    }), { body, headers: headers2, url } = response;
-    subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1], cookie = headers2["set-cookie"], IG = body.match(/IG:"([^"]+)"/)[1], IID = body.match(/data-iid="([^"]+)"/)[1], [
-      key,
-      token,
-      tokenExpiryInterval,
-      isVertical,
-      frontDoorBotClassification,
-      isSignedInOrCorporateUser
-    ] = JSON.parse(
-      body.match(/params_AbusePreventionHelper\s?=\s?([^\]]+\])/)[1]
-    );
-  } catch (e3) {
-    throw console.error("failed to fetch global config", e3), e3;
-  }
-  return globalConfig = {
-    subdomain,
-    IG,
-    IID,
-    key,
-    token,
-    tokenTs: key,
-    tokenExpiryInterval,
-    isVertical,
-    frontDoorBotClassification,
-    isSignedInOrCorporateUser,
-    cookie,
-    // PENDING: reset count if count value is large?
-    count: 0
-  }, await browserAPI.storage.local.set({
-    [globalConfigStorageKey]: globalConfig
-  }), globalConfig;
-}
-function makeRequestURL(isSpellCheck) {
-  let { IG, IID, subdomain, isVertical } = globalConfig;
-  return replaceSubdomain(
-    isSpellCheck ? TRANSLATE_SPELL_CHECK_API : TRANSLATE_API,
-    subdomain
-  ) + "?isVertical=1" + (IG && IG.length ? "&IG=" + IG : "") + (IID && IID.length ? "&IID=" + IID + "." + globalConfig.count++ : "");
-}
-function makeRequestBody(isSpellCheck, text, fromLang, toLang) {
-  let { token, key } = globalConfig, body = {
-    fromLang,
-    text,
-    token,
-    key
-  };
-  return !isSpellCheck && toLang && (body.to = toLang), body;
-}
-async function translate2(text, from, to) {
-  if (!text || !(text = text.trim()))
-    return;
-  if (text.length > MAX_TEXT_LEN)
-    throw new Error(
-      `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
-    );
-  globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap12.get(from) || from, to = langMap12.get(to) || to;
-  let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
-    !1,
-    text,
-    from,
-    to === "auto-detect" ? "zh-Hans" : to
-  ), requestHeaders = {
-    referer: replaceSubdomain(TRANSLATE_WEBSITE, globalConfig.subdomain),
-    // cookie: globalConfig.cookie,
-    "content-type": "application/x-www-form-urlencoded"
-  }, searchParams = new URLSearchParams(requestBody), finalUrl = requestURL, requestBodyString = searchParams.toString(), body = await request2({
-    retry: 2,
-    url: finalUrl,
-    headers: requestHeaders,
-    method: "POST",
-    body: requestBodyString
-  });
-  if (body.ShowCaptcha || body.StatusCode === 401 || body.statusCode) {
-    if (globalConfig = null, globalConfigPromise = null, await browserAPI.storage.local.remove(globalConfigStorageKey), body.ShowCaptcha)
-      throw new Error(`
-      Sorry that bing translator seems to be asking for the captcha,
-      Please take care not to request too frequently.
-      The response code is ${body.StatusCode}.
-    `);
-    if (body.StatusCode === 401)
-      throw new Error(`
-      Max count of translation exceeded. Please try it again later.
-      The response code is 401.
-    `);
-    if (body.statusCode)
-      throw new Error(
-        `Something went wrong! The response is ${JSON.stringify(body)}.`
-      );
-  }
-  let translation = body[0].translations[0], detectedLang = body[0].detectedLanguage;
-  return {
-    text: translation.text,
-    from: langMapReverse5.get(detectedLang.language),
-    to: langMapReverse5.get(translation.to)
-  };
-}
-
-// services/bing/mod.ts
-var Bing = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
-    this.maxTextLength = 1e3;
-  }
-  async translate(payload) {
-    let { text, from, to } = payload;
-    return text ? await translate2(text, from, to) : { ...payload };
-  }
-};
-
-// services/baidu.ts
-var rawLangMap8 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["en", "en"],
-  ["yue", "yue"],
-  ["wyw", "wyw"],
-  ["ja", "jp"],
-  ["ko", "kor"],
-  ["fr", "fra"],
-  ["es", "spa"],
-  ["th", "th"],
-  ["ar", "ara"],
-  ["ru", "ru"],
-  ["pt", "pt"],
-  ["de", "de"],
-  ["it", "it"],
-  ["el", "el"],
-  ["nl", "nl"],
-  ["pl", "pl"],
-  ["bg", "bul"],
-  ["et", "est"],
-  ["da", "dan"],
-  ["fi", "fin"],
-  ["cs", "cs"],
-  ["ro", "rom"],
-  ["sl", "slo"],
-  ["sv", "swe"],
-  ["hu", "hu"],
-  ["zh-TW", "cht"],
-  ["vi", "vie"]
-], langMap13 = new Map(rawLangMap8), langMapReverse6 = new Map(
-  rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
-), Baidu = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.endpoint = "https://api.fanyi.baidu.com/api/trans/vip/translate";
-    this.appid = "";
-    this.key = "";
-    this.isSupportList = !1;
-    if (!serviceConfig || !serviceConfig.appid || !serviceConfig.key)
-      throw new Error("appid and key are required");
-    this.appid = serviceConfig.appid?.trim(), this.key = serviceConfig.key?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "appid",
-      required: !0,
-      type: "text"
-    }, {
-      name: "key",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translate(payload) {
-    let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-      from: langMap13.get(from) || "auto",
-      to: langMap13.get(to) || to,
-      q: text,
-      salt,
-      appid,
-      sign: md5(appid + text + salt + key)
-    }), urlObj = new URL(endpoint);
-    urlObj.search = params.toString();
-    let data = await request2(
-      {
-        url: urlObj.toString()
-      }
-    );
-    if (data.error_code)
-      throw console.error(
-        new Error("[Baidu service]" + data.error_msg)
-      ), new CommonError(
-        "API_SERVER_ERROR",
-        data.error_msg
-      );
-    let {
-      trans_result: transResult,
-      from: langDetected
-    } = data, transParagraphs = transResult.map(({ dst }) => dst);
-    return {
-      from: langMapReverse6.get(langDetected) || langDetected,
-      to,
-      text: transParagraphs.join(`
-`)
-    };
-  }
-}, baidu_default = Baidu;
-
-// services/caiyun.ts
-var rawLangMap9 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["en", "en"],
-  ["ja", "ja"]
-], langMap14 = new Map(rawLangMap9), Caiyun = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.token = "";
-    if (!serviceConfig || !serviceConfig.token)
-      throw new Error("token are required");
-    this.token = serviceConfig.token?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "token",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translateList(payload) {
-    let { text, from, to } = payload;
-    if (!langMap14.get(to))
-      throw new Error(`Unsupported language: ${to}`);
-    from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
-    let source = text;
-    return {
-      text: (await request2(
-        {
-          retry: 2,
-          url: "https://api.interpreter.caiyunai.com/v1/translator",
-          headers: {
-            "content-type": "application/json",
-            "x-authorization": "token " + this.token
-          },
-          method: "POST",
-          body: JSON.stringify({
-            source,
-            trans_type: `${langMap14.get(from) || "auto"}2${langMap14.get(to)}`
-          })
-        }
-      )).target,
-      from,
-      to
-    };
-  }
-}, caiyun_default = Caiyun;
-
-// services/youdao.ts
-var rawLangMap10 = [
-  ["auto", "auto"],
-  ["en", "en"],
-  ["ru", "ru"],
-  ["pt", "pt"],
-  ["es", "es"],
-  ["zh-CN", "zh-CHS"],
-  ["ja", "ja"],
-  ["ko", "ko"],
-  ["fr", "fr"],
-  ["ar", "ar"],
-  ["id", "id"],
-  ["vi", "vi"],
-  ["it", "it"]
-], langMap15 = new Map(rawLangMap10), langMapReverse7 = new Map(
-  rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
-);
-function truncate(q6) {
-  let len = q6.length;
-  return len <= 20 ? q6 : q6.substring(0, 10) + len + q6.substring(len - 10, len);
-}
-var Youdao = class extends Translation {
-  constructor(serviceConfig, generalConfig) {
-    super(serviceConfig, generalConfig);
-    this.isSupportList = !1;
-    this.appId = "";
-    this.appSecret = "";
-    if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret)
-      throw new Error("appId and appSecret are required");
-    this.appId = serviceConfig.appId?.trim(), this.appSecret = serviceConfig.appSecret?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "appId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "appSecret",
-      required: !0,
-      type: "password"
-    }];
-  }
-  async translate(payload) {
-    let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
-      q: text,
-      appKey: this.appId,
-      salt: salt.toString(),
-      from: langMap15.get(from) || "auto",
-      to: langMap15.get(to) || to,
-      sign,
-      signType: "v3",
-      curtime: curTime.toString()
-    }, urlSearchParams = new URLSearchParams(params), result = await request2(
-      {
-        url: "https://openapi.youdao.com/api",
-        method: "POST",
-        body: urlSearchParams.toString(),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      }
-    ), l2 = result.l, [remoteFrom, _2] = l2.split("2");
-    return {
-      text: result.translation.join(`
-`),
-      from: langMapReverse7.get(remoteFrom),
-      to
-    };
-  }
-}, youdao_default = Youdao;
-
-// services/mod.ts
-var TranslationServices = {
-  mock: {
-    class: Mock,
-    name: "Mock",
-    homepage: "https://www.google.com"
-  },
-  mock2: {
-    class: Mock,
-    name: "Mock2",
-    homepage: "https://www.google.com"
-  },
-  google: {
-    class: Google,
-    name: "Google",
-    homepage: "https://translate.google.com/"
-  },
-  transmart: {
-    class: Transmart,
-    name: "Transmart",
-    homepage: "https://transmart.qq.com/"
-  },
-  deepl: {
-    class: deepl_default,
-    name: "DeepL",
-    homepage: "https://www.deepl.com/translator",
-    docUrl: "https://immersive-translate.owenyoung.com/services/deepL"
-  },
-  volc: {
-    class: mod_default2,
-    name: "Volc",
-    homepage: "https://www.volcengine.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/volcano"
-  },
-  volcAlpha: {
-    class: VolcAlpha,
-    name: "Volc Alpha",
-    alpha: !0,
-    homepage: "https://www.volcengine.com/"
-  },
-  bing: {
-    class: Bing,
-    name: "Bing",
-    homepage: "https://www.bing.com/translator"
-  },
-  // bai: {
-  //   class: Bai,
-  //   name: "Baidu(Alapa)",
-  //   homepage: "https://fanyi.baidu.com/",
-  //   alpha: true,
-  // },
-  tencent: {
-    class: Tencent,
-    name: "Tencent",
-    homepage: "https://fanyi.qq.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/tencent"
-  },
-  baidu: {
-    class: baidu_default,
-    name: "Baidu",
-    homepage: "https://fanyi.baidu.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/baidu"
-  },
-  caiyun: {
-    class: caiyun_default,
-    name: "Caiyun",
-    homepage: "https://fanyi.caiyunapp.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/caiyun"
-  },
-  openl: {
-    class: openl_default,
-    name: "Openl",
-    homepage: "https://openl.club/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/openL"
-  },
-  youdao: {
-    class: youdao_default,
-    name: "Youdao",
-    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-    docUrl: "https://hcfy.app/docs/services/youdao-api"
-  },
-  d: {
-    class: D8,
-    name: "D () ",
-    alpha: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  dpro: {
-    class: D8,
-    name: "DPro (Canary) ",
-    canary: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  deeplx: {
-    class: Deeplx,
-    name: "DeepLX (Beta)",
-    beta: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  niu: {
-    class: niu_default,
-    name: "niutrans",
-    homepage: "https://niutrans.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/niu"
-  }
-};
 function formatTranslationService(key, ctx) {
-  let service = TranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.class.getAllProps();
+  let service = PureTranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.allProps || [];
   if (allProps.length > 0) {
     let requiredProps = allProps.filter((prop) => prop.required);
     if (requiredProps.length > 0) {
@@ -15407,16 +11001,16 @@ function formatTranslationService(key, ctx) {
     selected: ctx.translationService === key,
     ok,
     config: translationConfig,
-    props: service.class.getProps(),
+    props: service.props || [],
     allProps
   };
 }
-var allServiceKeys = Object.keys(
-  TranslationServices
-), getTranslationServices = (ctx) => {
+var getTranslationServices = (ctx) => {
   let { config } = ctx, alpha = config.alpha, beta = config.beta, canary = config.canary, debug = config.debug;
-  return allServiceKeys.filter((key) => {
-    let service = TranslationServices[key];
+  return Object.keys(
+    PureTranslationServices
+  ).filter((key) => {
+    let service = PureTranslationServices[key];
     if (key.startsWith("mock"))
       return debug ? !0 : key === ctx.config.translationService;
     if (key === ctx.config.translationService)
@@ -15425,109 +11019,6 @@ var allServiceKeys = Object.keys(
     return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
   }).map((key) => formatTranslationService(key, ctx));
 };
-async function translateSingleSentence(sentence, ctx) {
-  if (!sentence.text)
-    return sentence;
-  let result = await translateMultipleSentences(
-    {
-      sentences: [sentence]
-    },
-    ctx
-  );
-  if (result.sentences.length > 0)
-    return {
-      ...sentence,
-      ...result.sentences[0]
-    };
-  throw new CommonError("translateFailed", "translate failed");
-}
-async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
-  if (!payload.sentences.length)
-    return {
-      ...payload
-    };
-  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
-    sentences: Array(payload.sentences.length)
-  }, sourceLength = payload.sentences.length, sentenceIndex = -1;
-  if (config.cache)
-    for (let sentence of payload.sentences) {
-      sentenceIndex++;
-      let cacheServiceKey = defaultTranslationEngine;
-      defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME);
-      let res = null;
-      try {
-        res = await deadline(
-          queryDb({
-            originalText: sentence.text,
-            from: sentence.from,
-            to: sentence.to,
-            service: cacheServiceKey
-          }),
-          1e3
-        );
-      } catch (e3) {
-        log_default.warn("query cache DB error, but it's ok", e3);
-      }
-      if (res) {
-        let result = {
-          ...sentence,
-          text: res.translatedText
-        };
-        finalResult.sentences[sentenceIndex] = result, everySentenceCallback && everySentenceCallback(null, result, sentence);
-      } else
-        noCacheSentences.push(sentence);
-    }
-  else
-    noCacheSentences.push(...payload.sentences);
-  let resultLength = noCacheSentences.length;
-  if (sourceLength - resultLength > 0 && log_default.debug(`use ${sourceLength - resultLength} sentences from cache`), !noCacheSentences.length)
-    return finalResult;
-  let translator;
-  try {
-    translator = new TranslationServices[defaultTranslationEngine].class(
-      serviceConfig,
-      generalConfig
-    ), await translator.init();
-  } catch (e3) {
-    if (everySentenceCallback)
-      for (let sentence of noCacheSentences)
-        everySentenceCallback(e3, null, sentence);
-    throw e3;
-  }
-  let noCacheResult = await translator.multipleTranslate(
-    {
-      sentences: noCacheSentences
-    },
-    serviceConfig,
-    (err, a4, b4) => {
-      if (everySentenceCallback && (everySentenceCallback(err, a4, b4), !err && a4 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
-        let cacheServiceKey = defaultTranslationEngine;
-        defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
-          setDbStore(
-            {
-              translatedText: a4.text,
-              from: b4.from,
-              to: b4.to,
-              detectedFrom: a4.from,
-              key: md5(b4.text),
-              service: cacheServiceKey
-            }
-          ),
-          3e3
-        ).catch((e3) => {
-          log_default.warn("set cache DB error", e3);
-        });
-      }
-    }
-  );
-  for (let sentence of noCacheResult.sentences) {
-    let index = finalResult.sentences.findIndex((s4) => !s4);
-    if (index === -1)
-      throw new CommonError("translateFailed", "can not match the result");
-    finalResult.sentences[index] = sentence;
-  }
-  return finalResult;
-}
 
 // locales.ts
 var internalLocaleMap = {
@@ -15575,8 +11066,8 @@ var getLanguageName = (lang, interfaceLanguage, useOriginal) => {
 };
 
 // utils/compare_version.ts
-function isAVersionGreaterOrEqualWithB(a4, b4) {
-  return a4.localeCompare(b4, void 0, {
+function isAVersionGreaterOrEqualWithB(a3, b4) {
+  return a3.localeCompare(b4, void 0, {
     numeric: !0,
     sensitivity: "base"
   }) >= 0;
@@ -15635,7 +11126,7 @@ var SyncSuccess = ({ date }) => {
   ] });
 };
 function SyncLatest(props) {
-  let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t3 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
+  let { request: request2 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t3 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
     !1
   ), [isBadUserscriptBrowser, setIsBadUserscriptBrowser] = P2(
     !1
@@ -15644,7 +11135,7 @@ function SyncLatest(props) {
     let finalRemoteConfig = remoteConfig;
     if (remoteConfig === null)
       try {
-        let response = await request3({ url: buildinConfigSyncUrl });
+        let response = await request2({ url: buildinConfigSyncUrl });
         response ? (setRemoteConfig(response), finalRemoteConfig = response, setIsSyncSuccess(!0)) : (setSyncErrorMessage(t3("unknownError")), setIsNeedUpdate(null));
       } catch (e3) {
         setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
@@ -15663,7 +11154,7 @@ function SyncLatest(props) {
         setIsBadUserscriptBrowser(!0);
         return;
       }
-      request3({
+      request2({
         url: buildinConfigSyncUrl
       }).then((response) => {
         let data = response, remoteMinVersion = data.minVersion, localVersion = version;
@@ -15697,9 +11188,9 @@ function Popup(props) {
   let version = getVersion(), {
     onTranslateTheMainPage,
     onUserConfigChange,
-    request: request3,
+    request: request2,
     onSetBuildinConfig,
-    pageStatus: pageStatus2,
+    pageStatus,
     config,
     openAboutPage,
     onTranslateTheWholePage,
@@ -15719,7 +11210,7 @@ function Popup(props) {
   } = props, setSettings = onUserConfigChange, [message, setMessage] = P2(""), [errorMessage, _setErrorMessage] = P2(""), { t: t3 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null;
   if (config) {
     let { translationService, translationServices, translationUrlPattern } = config;
-    if (TranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
+    if (PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
       translationService,
       ctx
     )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, currentUrl && isValidHtmlUrl(currentUrl)) {
@@ -15793,9 +11284,9 @@ function Popup(props) {
           ...translationUrlPattern
         }
       };
-    }), name === "matches" && pageStatus2 === "Original" ? setTimeout(() => {
+    }), name === "matches" && pageStatus === "Original" ? setTimeout(() => {
       onTranslatePage(), onClose();
-    }, 100) : name === "excludeMatches" && pageStatus2 === "Translated" && setTimeout(() => {
+    }, 100) : name === "excludeMatches" && pageStatus === "Translated" && setTimeout(() => {
       onRestorePage(), onClose();
     }, 100);
   }, handleTranslationLanguagePatternSelected = (value) => {
@@ -15839,15 +11330,15 @@ function Popup(props) {
           ...translationLanguagePattern
         }
       };
-    }), name === "matches" && pageStatus2 === "Original" && setTimeout(() => {
+    }), name === "matches" && pageStatus === "Original" && setTimeout(() => {
       onTranslatePage(), onClose();
     }, 100);
   }, isPdfUrl = currentUrlObj?.pathname.toLowerCase().endsWith(".pdf"), buttonLabel = t3("translate");
-  pageStatus2 === "Translated" ? buttonLabel = t3("show-original") : pageStatus2 === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t3("translate-firefox-local-pdf") : buttonLabel = t3("translate-pdf") : buttonLabel = t3("translate") : buttonLabel = t3(pageStatus2);
+  pageStatus === "Translated" ? buttonLabel = t3("show-original") : pageStatus === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t3("translate-firefox-local-pdf") : buttonLabel = t3("translate-pdf") : buttonLabel = t3("translate") : buttonLabel = t3(pageStatus);
   let translateToThePageEndImmediatelyLabel = t3(
     "translateToThePageEndImmediately"
   );
-  (pageStatus2 === "Original" || pageStatus2 === "Translated") && (config.shortcuts.toggleTranslatePage && (isTouchDevice() && ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 ? buttonLabel += ` (${t3(`fingers.${ctx.rule.fingerCountToToggleTranslagePageWhenTouching}`)})` : buttonLabel += ` (${config.shortcuts.toggleTranslatePage})`), config.shortcuts.toggleTranslateToThePageEndImmediately && (translateToThePageEndImmediatelyLabel += ` (${config.shortcuts.toggleTranslateToThePageEndImmediately})`));
+  (pageStatus === "Original" || pageStatus === "Translated") && (config.shortcuts.toggleTranslatePage && (isTouchDevice() && ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 ? buttonLabel += ` (${t3(`fingers.${ctx.rule.fingerCountToToggleTranslagePageWhenTouching}`)})` : buttonLabel += ` (${config.shortcuts.toggleTranslatePage})`), config.shortcuts.toggleTranslateToThePageEndImmediately && (translateToThePageEndImmediatelyLabel += ` (${config.shortcuts.toggleTranslateToThePageEndImmediately})`));
   let translationServiceItems = [];
   ctx && (translationServiceItems = getTranslationServices(ctx));
   let handleClosePopup = (e3) => {
@@ -16105,8 +11596,8 @@ function Popup(props) {
         onClick: () => {
           isPdfUrl ? onTranslatePdf && onTranslatePdf() : onToggleTranslate();
         },
-        "aria-busy": pageStatus2 === "Translating",
-        disabled: pageStatus2 === "Translating",
+        "aria-busy": pageStatus === "Translating",
+        disabled: pageStatus === "Translating",
         children: buttonLabel
       }
     ) }),
@@ -16173,7 +11664,7 @@ function Popup(props) {
       /* @__PURE__ */ p5(
         SyncLatest,
         {
-          request: request3,
+          request: request2,
           setStorageBuildinConfig: onSetBuildinConfig
         }
       ),
@@ -16196,6 +11687,62 @@ function Popup(props) {
   ] });
 }
 
+// browser/request.ts
+async function request(options) {
+  let response;
+  if (options && options.retry && options.retry > 0)
+    try {
+      response = await retry(rawRequest.bind(null, options), {
+        multiplier: 2,
+        maxAttempts: options.retry
+      });
+    } catch (e3) {
+      throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
+    }
+  else
+    response = await rawRequest(options);
+  return response;
+}
+async function rawRequest(options) {
+  options.body;
+  let { url, responseType, ...fetchOptions } = options;
+  responseType || (responseType = "json"), fetchOptions = {
+    mode: "cors",
+    ...fetchOptions
+  };
+  let response = await (options.fetchPolyfill || fetch)(url, fetchOptions);
+  if (response.ok && response.status >= 200 && response.status < 400) {
+    if (responseType === "json")
+      return await response.json();
+    if (responseType === "text")
+      return await response.text();
+    if (responseType === "raw") {
+      let data = await response.text(), responseHeaders = Object.fromEntries([
+        ...response.headers.entries()
+      ]), finalUrl = response.url;
+      return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
+        body: data,
+        headers: responseHeaders,
+        status: response.status,
+        statusText: response.statusText,
+        url: finalUrl
+      };
+    }
+  } else {
+    let details;
+    try {
+      details = await response.text();
+    } catch (_e3) {
+      log_default.error("parse response failed", _e3);
+    }
+    throw details && log_default.error("fail response", details), new CommonError(
+      "fetchError",
+      response.status + ": " + response.statusText || "",
+      details
+    );
+  }
+}
+
 // pages/popup.tsx
 var callbacksWhenReady = {}, readyTabs = {};
 function callWhenReady(tabId, callback) {
@@ -16215,7 +11762,7 @@ function runCallbacksWhenReady(tabId) {
   }
 }
 function Popup2() {
-  let [pageStatus2, setPageStatus] = P2("Original"), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), [currentUrl, setCurrentUrl] = P2(null), [currentTabId, setCurrentTabId] = P2(null), [currentLang, setCurrentLang] = P2("auto"), [ctx, setContext] = P2(null), messageHandler = (e3) => {
+  let [pageStatus, setPageStatus] = P2("Original"), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), [currentUrl, setCurrentUrl] = P2(null), [currentTabId, setCurrentTabId] = P2(null), [currentLang, setCurrentLang] = P2("auto"), [ctx, setContext] = P2(null), messageHandler = (e3) => {
     let { tabId, payload } = e3.detail, { method, data } = payload;
     log_default.debug("popup received message", method, data || " "), method === "setPageStatus" && tabId && setPageStatus(data);
   };
@@ -16353,7 +11900,7 @@ function Popup2() {
       onSetPageLanguage: handleSetPageLanguage,
       onUserConfigChange: setSettings,
       config,
-      pageStatus: pageStatus2,
+      pageStatus,
       ctx,
       currentUrl,
       currentLang,

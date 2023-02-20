@@ -1,10 +1,11 @@
 # Todos
 
 - [添加你的建议](https://github.com/immersive-translate/immersive-translate/issues)
-- [点击查看](https://github.com/orgs/immersive-translate/projects/1/views/1?groupedBy%5BcolumnId%5D=Status) 当前正在处理的需求
+- [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求
 
 ## Todo List
 
+- [ ] 保存后的本地网页，支持再次翻译为其他语言
 - [ ] discord 新消息蹦出来不会自动翻译
 - [ ] valid config, is invalid, then use the default config.
 - [ ] 合并重复的翻译请求，减少请求数量

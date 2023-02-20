@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-14T09:48:20.713Z", VERSION: "0.2.59", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-19T04:48:00.702Z", VERSION: "0.2.62", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3695,7 +3695,13 @@ body {
     opacity: 0.5;
     width: 36px;
     height: 36px;
-    border-radius: 9999999px;
+    border-radius: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform ease-out 250ms;
+    transition: -webkit-transform ease-out 250ms;
+    transition: transform ease-out 250ms;
+    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
   }
   .immersive-translate-popup-btn > svg {
   }
@@ -4676,8 +4682,8 @@ var zh_CN_default = {
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
   isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C(\u66F4\u6574\u9F50)/\u4EC5\u957F\u6BB5\u843D\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
   tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
   xMinutes: "{count} \u5206\u949F",
@@ -4704,16 +4710,16 @@ var zh_CN_default = {
   goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
   goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
   advanced: "\u8FDB\u9636\u8BBE\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96BE\u4EE5\u7406\u89E3\u7684\u8BBE\u7F6E\u9879\uFF08\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
   donateCafe: "\u8BF7\u5F00\u53D1\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u5F00\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u95EE\u9898\u53CD\u9988",
   toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u7ACB\u5373\u7FFB\u8BD1\u7F51\u9875\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\uFF0C\u800C\u4E0D\u662F\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8BD1\u7F51\u9875\u6240\u6709\u533A\u57DF",
-  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\uFF0C\u800C\u4E0D\u662F\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\u53BB\u7FFB\u8BD1\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8BD1\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8BED\u8A00",
   "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
   "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
@@ -4731,8 +4737,8 @@ var zh_CN_default = {
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
   "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
-  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u4E4B\u540E\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -4760,8 +4766,8 @@ var zh_CN_default = {
   popupTarget: "\u76EE\u6807\u8BED\u8A00",
   popupService: "\u7FFB\u8BD1\u670D\u52A1",
   forThisSite: "\u9488\u5BF9\u8BE5\u7F51\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u603B\u662F\u7FFB\u8BD1 {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
   add: "\u6DFB\u52A0",
@@ -4830,7 +4836,7 @@ var zh_CN_default = {
   "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
@@ -4840,14 +4846,14 @@ var zh_CN_default = {
   "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
   "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u5F53\u524D\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\u4E3A\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8BBE\u7F6E\u4E3A\u8BA9\u67D0\u4E9B\u7F51\u7AD9\u4F7F\u7528\u8BE5\u6837\u5F0F\uFF0C\u70B9\u51FB\u53F3\u8FB9\u7684\u6309\u94AE\u6DFB\u52A0\u540E\uFF0C\u518D\u5207\u6362\u5230\u53E6\u4E00\u79CD\u9ED8\u8BA4\u8BD1\u6587\u6837\u5F0F\uFF0C\u8FD9\u6837\u5373\u53EF\u5B9E\u73B0\u4E0D\u540C\u7F51\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8BD1\u6587\u6837\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u5F53\u524D\u7F51\u5740",
   confirm: "\u4FDD\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u5220\u9664",
   "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
   syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
-  syncToCloudDescription: "\u5F00\u542F\u540E\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E,\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6743\u5931\u8D25",
   syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
   import_hint: "\u5BFC\u5165",
@@ -4870,7 +4876,7 @@ var zh_CN_default = {
   clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
   aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
   "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684\u90AE\u4EF6\u8BA2\u9605\u8FFD\u8E2A\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9879\u76EE\u4E3B\u9875",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
   joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -4878,31 +4884,32 @@ var zh_CN_default = {
   autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
   loadingThemeTitle: "Loading \u6837\u5F0F",
   loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
-  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u663E\u793A",
   developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
   "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
   successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
-  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
   "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/zh-TW.json
 var zh_TW_default = {
   lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u7B26\u6578\u91CF",
-  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6FPDF",
-  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3PDF",
+  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6F PDF",
+  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3 PDF",
   enableLineBreak: "\u662F\u5426\u958B\u5553\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
   sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005 (\u6309\u6708\u6216\u4E00\u6B21\u6027\u5747\u53EF)",
   help: "\u5E6B\u52A9",
-  browserShortcutsNoteForFirefox: "Firefox\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762`about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
-  browserShortcutsNoteForChrome: "\u985EChrome\u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u7D50\u75C2\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u2019\u7BA1\u7406\u5FEB\u6377\u9375\u2018\u9762\u677F\uFF08\u2019chrome://extensions/shortcuts\u2018\uFF09\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
+  browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762 `about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
+  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5145\u529F\u80FD\u9801\u9762\uFF0C\u5728\u2019\u64F4\u5145\u529F\u80FD\u2018\u9762\u677F(\u2019chrome://extensions/shortcuts\u2018)\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
-  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u8B1B\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
   "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
@@ -4910,49 +4917,52 @@ var zh_TW_default = {
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
   "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
-  "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
+  "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
-  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8F09\u8A2D\u7F6E\u55CE?",
-  translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
-  smartLineBreak: "\u667A\u80FD\u6362\u884C",
-  alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "\u5BF9\u4E8E\u8BD1\u6587\u7684\u4F4D\u7F6E\uFF1A\u603B\u662F\u6362\u884C/\u667A\u80FD\u6362\u884C\uFF08\u5F53\u6BB5\u843D\u591A\u4E8E{count}\u4E2A\u5B57\u7B26\u624D\u6362\u884C\u663E\u793A\u8BD1\u6587\uFF09",
-  tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-  tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
-  xMinutes: "{count} \u5206\u949F",
+  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u7F6E\u8A2D\u7F6E\u55CE\uFF1F",
+  translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u7F6E",
+  smartLineBreak: "\u667A\u80FD\u63DB\u884C",
+  alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
+  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
+  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u7279\u6027",
+  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
+  tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
+  xMinutes: "{count} \u5206\u9418",
   disabled: "\u505C\u7528",
   changelog: "\u66F4\u65B0\u65E5\u8A8C",
-  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
+  addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "\u57FA\u672C\u8A2D\u7F6E",
-  clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-  import: "\u4ECE\u6587\u4EF6\u5BFC\u5165\u914D\u7F6E",
-  export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
+  clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
+  import: "\u5F9E\u6587\u4EF6\u532F\u5165",
+  export: "\u5C0E\u51FA\u5230\u6587\u4EF6",
   toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
-  "fingers.0": "\u5173\u95ED",
-  "fingers.2": "\u53CC\u6307\u89E6\u6478",
-  "fingers.3": "\u4E09\u6307\u89E6\u6478",
-  "fingers.4": "\u56DB\u6307\u89E6\u6478",
-  "fingers.5": "\u4E94\u6307\u89E6\u6478",
+  "fingers.0": "\u95DC\u9589",
+  "fingers.2": "\u96D9\u6307\u89F8\u6478",
+  "fingers.3": "\u4E09\u6307\u89F8\u6478",
+  "fingers.4": "\u56DB\u6307\u89F8\u6478",
+  "fingers.5": "\u4E94\u6307\u89F8\u6478",
   document: "\u6587\u6A94",
-  resetSuccess: "\u885D\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
+  resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
   saved: "\u6210\u529F\u5132\u5B58",
   successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
   goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
-  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
+  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u8A2D\u7F6E\u9801\u9762",
   advanced: "\u9032\u968E\u8A2D\u7F6E",
-  advancedDescription: "\u4E00\u4E9B\u96E3\u4EE5\u7406\u89E3\u7684\u8A2D\u7F6E\u9805\uFF08\u4E00\u822C\u7121\u9700\u8A2D\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8A8D\u5373\u53EF\uFF09",
+  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
   donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u6253\u958B\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u554F\u984C\u53CD\u994B",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u7ACB\u5373\u7FFB\u8B6F\u7DB2\u9801\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\uFF0C\u800C\u4E0D\u662F\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-  translationAreaDescription: "\u958B\u5553\u5F8C\uFF0C\u6574\u500B\u7DB2\u9801\u7684\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\uFF0C\u800C\u4E0D\u662F\u9ED8\u8A8D\u7684\u667A\u80FD\u8B58\u5225\u4E3B\u8981\u5340\u57DF\u53BB\u7FFB\u8B6F\uFF08\u4E0D\u63A8\u85A6\u958B\u5553\uFF09",
-  "the number of characters to be translated first": "\u524D\u591A\u5C11\u500B\u5B57\u7B26\u7121\u9700\u7B49\u5F85\u6EFE\u52D5\u5230\u53EF\u8996\u5340\u57DF\uFF0C\u76F4\u63A5\u7FFB\u8B6F\uFF1F",
+  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
   "interface language": "\u754C\u9762\u8A9E\u8A00",
   "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
   "keyboard shortcuts": "\u9375\u76E4\u5FEB\u6377\u9375",
@@ -4962,20 +4972,20 @@ var zh_TW_default = {
   homepage: "\u4E3B\u9801",
   more: "\u66F4\u591A",
   translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
-  changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
-  changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+  changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
+  changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
   translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
   "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9069\u914D\u898F\u5247\uFF1A",
   "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
-  localVersionIsTooOld: "\u672C\u5730\u64F4\u5C55\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u64F4\u5C55\u5230{minVersion} \u6216\u4E4B\u5F8C\u7684\u7248\u672C\u5F8C\u518D\u5617\u8A66\u540C\u6B65",
-  badUserscriptBrowser: "\u8BE5\u6D4F\u89C8\u5668\u672A\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
   foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
-  retry: "\u9EDE\u6B64\u885D\u8A66",
+  retry: "\u9EDE\u6B64\u91CD\u8A66",
   failedReason: "\u5931\u6557\u539F\u56E0",
   currentRuleVersion: "\u7576\u524D\u898F\u5247\u7248\u672C",
   calculating: "\u8A08\u7B97\u4E2D",
@@ -4991,7 +5001,7 @@ var zh_TW_default = {
   service: "\u7FFB\u8B6F\u670D\u52D9",
   needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
   goSettings: "\u53BB\u8A2D\u7F6E",
-  needActionForOptions: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
+  needActionForOptions: "(\u9700\u8A2D\u7F6E)",
   translationEngine: "\u5F15\u64CE\u9078\u9805",
   sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
   target: "\u76EE\u6A19\u8A9E\u8A00",
@@ -4999,8 +5009,8 @@ var zh_TW_default = {
   popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
   popupService: "\u7FFB\u8B6F\u670D\u52D9",
   forThisSite: "\u5C0D\u65BC\u8A72\u7DB2\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F{language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F{language}",
+  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
   alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
   add: "\u589E\u52A0",
@@ -5018,11 +5028,11 @@ var zh_TW_default = {
   Error: "\u932F\u8AA4",
   allowCacheTranslations: "\u958B\u555F\u672C\u5730\u7FFB\u8B6F\u7DE9\u5B58\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8ACB\u6C42\uFF09",
   "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
-  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u793A\u4F8B",
+  "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
   interface: "\u754C\u9762\u8A2D\u7F6E",
   import_export: "\u5C0E\u5165/\u5C0E\u51FA",
-  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA",
-  syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA\u914D\u7F6E",
+  syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
   previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
   "translationTheme.none": "\u7121",
   "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
@@ -5039,17 +5049,17 @@ var zh_TW_default = {
   "translationTheme.italic": "\u659C\u9AD4",
   "translationTheme.bold": "\u7C97\u9AD4",
   "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
-  "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+  "translationTheme.nativeDashed": "\u7CFB\u7D71\u81EA\u5E36\u865B\u7DDA\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeDotted": "\u7CFB\u7D71\u81EA\u5E36\u9EDE\u72C0\u4E0B\u5283\u7DDA",
+  "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
   "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
   "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
   "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
-  "translationServices.bai": "\u767E\u5EA6\uFF08Alpha\uFF09",
+  "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
   "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
   "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
-  "translationServices.deeplx": "DeeplX(Alpha)",
+  "translationServices.deeplx": "DeeplX(Beta)",
   "translationServices.bing": "\u5FC5\u61C9\u7FFB\u8B6F",
   "translationServices.deepl": "Deepl",
   "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
@@ -5065,10 +5075,11 @@ var zh_TW_default = {
   "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
   "translationServices.d": "Deepl(Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
   "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u8DF3\u8FC7\u7FFB\u8BD1\u8BE5\u6BB5\u843D",
+  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
   enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -5078,17 +5089,16 @@ var zh_TW_default = {
   "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
   "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u7576\u524D\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\u70BA\u300C{theme}\u300D\uFF0C\u4F60\u4E5F\u53EF\u4EE5\u8A2D\u7F6E\u70BA\u8B93\u67D0\u4E9B\u7DB2\u7AD9\u4F7F\u7528\u8A72\u6A23\u5F0F\uFF0C\u9EDE\u64CA\u53F3\u908A\u7684\u6309\u9215\u6DFB\u52A0\u5F8C\uFF0C\u518D\u5207\u63DB\u5230\u53E6\u4E00\u7A2E\u9ED8\u8A8D\u8B6F\u6587\u6A23\u5F0F\uFF0C\u9019\u6A23\u5373\u53EF\u5BE6\u73FE\u4E0D\u540C\u7DB2\u7AD9\u4F7F\u7528\u4E0D\u540C\u7684\u8B6F\u6587\u6A23\u5F0F\u3002",
+  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
   currentUrl: "\u7576\u524D\u7DB2\u5740",
   confirm: "\u5132\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u522A\u9664",
   "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
   syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
-  syncToCloudDescription: "\u540C\u6B65\u65F6\u4F1A\u6BD4\u8F83\u672C\u5730\u548C\u4E91\u7AEF\u914D\u7F6E\u7684\u6700\u540E\u4FEE\u6539\u65F6\u95F4\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
   authFail: "\u6388\u6B0A\u5931\u6557",
-  syncTitle: "\u8ACB\u9078\u64C7\u6587\u4EF6\u64CD\u4F5C",
+  syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
   import_hint: "\u5C0E\u5165",
   upload: "\u4E0A\u50B3",
   revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
@@ -5109,18 +5119,26 @@ var zh_TW_default = {
   clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
   aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
   "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
-  aboutIntro: "\u8A72\u64F4\u5C55\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u4E92\u806F\u7DB2\u4E0A\u5DE8\u5927\u7684\u5916\u8A9E\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u5B8C\u5168\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u8D0A\u52A9</2> \u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\u548C<4>Telegram \u983B\u9053</4>\u7372\u53D6\u6700\u65B0\u66F4\u65B0\u3002",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9805\u76EE\u4E3B\u9801",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+  joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u7372\u53D6\u6700\u65B0\u66F4\u65B0",
   feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
   autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
   loadingThemeTitle: "Loading \u6A23\u5F0F",
   loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
-  "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B Spinner",
+  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
+  developerDescription: "\u53EF\u4EE5\u9EDE\u64CA<1>\u9019\u88E1</1>\u67E5\u770B\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u76F8\u95DC\u7684\u6587\u6A94",
   "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "\u7576\u524D\u914D\u7F6E\u8207\u96F2\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
+  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
 };
 
 // locales/en.json
@@ -5148,15 +5166,17 @@ var en_default = {
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
   alwaysLineBreak: "Always Wrap",
-  toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-  betaDescription: "\u5F00\u542F\u540E\u4F1A\u542F\u7528\u4E00\u4E9B\u5B9E\u9A8C\u6027\u529F\u80FD\uFF0C\u4EE5\u53CA\u8FD8\u5728\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1, \u53EF\u4EE5<1>\u52A0Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u5185\u6D4B\u7684\u7279\u6027\u3002",
-  translationLineBreakSettingDescription: "The position of the translation\uFF1AAlways wrap / smart wrap (the translation is displayed only when the paragraph is more than {count} characters)",
+  isShowContextMenu: "Create right button menu",
+  toggleBeta: "Enable Beta experimental features",
+  betaDescription: "Enable features that are still experimental, and translation services that are in testing. Join the <1>Telegram group</1> to learn more.",
+  translationLineBreakSettingDescription: "The always line break feature is suitable for layouts with less content, making the layout more neat and tidy. (Use smart line breaks for long paragraphs with more content (more than {count} characters) for saving space)",
   tempTranslateDomainTitle: "Open the translation time temporarily",
   tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
   xMinutes: "{count} minutes",
   disabled: "Disable",
   changelog: "Change Log",
   toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger simultaneous touch to show/hide the blur effect of the translation",
   addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "General",
   clickToExpandConfig: "Expand current configuration",
@@ -5170,21 +5190,22 @@ var en_default = {
   "fingers.5": "Five-finger touch",
   document: "Document",
   resetSuccess: "All settings reset successful",
+  resetThisSuccess: "Reset successful",
   saved: "Saved successfully",
   successImportConfig: "Configuration imported successfully",
   goAdvancedSettings: "Go to Advanced Settings Page",
   goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
   advanced: "Advanced",
-  advancedDescription: "Some unintelligible settings (normally set without setting to default)",
+  advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
   developer: "Developer settings",
   donateCafe: "Buy Me a Coffee",
-  "translate to the bottom of the page": "Whether translate to the bottom of the page once you open the page?",
+  "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
   feedback: "Feedback",
   toggleTranslatePage: "Toggle Translate",
-  translateToThePageEndImmediatelyDescription: "When turned on, it will immediately translate the page from the top to the bottom, instead of translating as you read. (Not recommended to turn on)",
+  translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
   "translate all areas of the page": "Whether to translate all areas of the web page",
-  translationAreaDescription: "When enabled, the entire area of the page will be translated, not the default intelligent recognition main area to translate ( not recommended)",
-  "the number of characters to be translated first": "How many characters are translated directly without waiting to scroll to the visible area for the first few characters?",
+  translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
+  "the number of characters to be translated first": "Directly translate the number of characters in front of the page without waiting to scroll to the visible area",
   "interface language": "Interface language",
   "display both the original text and the translation": "Display both the original text and the translation",
   "keyboard shortcuts": "Keyboard shortcuts",
@@ -5202,8 +5223,8 @@ var en_default = {
   "Successfully synchronized with the latest official rules:": "Successfully synced latest official rules:",
   "Checking for updates": "Checking for update",
   "Rules are being synchronized": "Syncing official rules",
-  localVersionIsTooOld: "The local extension is too old. Please upgrade to {minVersion} or then try syncing again",
-  badUserscriptBrowser: "This browser does not correctly implement the interface of Tampermonkey. Please use other < 1 > browsers that support Tampermonkey < / 1 >, such as (Firefox Nightly version)",
+  localVersionIsTooOld: "The local extension version is too old, please upgrade the extension to {minVersion} or a newer version and try to sync again.",
+  badUserscriptBrowser: "The current browser does not correctly implement the interface of the Greasemonkey extension, please use another browser that <1>supports the Greasemonkey extension</1> such as (Firefox Nightly version)",
   foundNewVersion: "New version available",
   theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
   failToSyncRules: "Failed to sync latest adaptive rules",
@@ -5297,10 +5318,11 @@ var en_default = {
   "translationServices.transmart": "Tencent Smart Translation",
   "translationServices.niu": "Niu Translation",
   "translationServices.d": "DeeplX (Alpha)",
+  "translationServices.dpro": "D Pro (Canary)",
   "translate title": "Translate page title",
   "always languages": "Always translate the following languages",
   neverTranslateLanguagesLabel: "Never Translated Languages",
-  neverTranslateTheFollowingLanguagesDescription: "Automatically skip translating the paragraph when languages are the followings",
+  neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
   enableUserscriptPagePopup: "Always show Popup windows on the page",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "The following languages will always be translated",
@@ -5310,15 +5332,14 @@ var en_default = {
   "never translate the following sites": "The following sites will never be translated",
   "please refer to": "It can only be used after filling in the key. For details, please refer to",
   KeyAndConfigurationTutorial: "Key Application and Configuration Tutorial",
-  useAboveStyleForTheseSites: "The current default translation style is \u300C{theme}\u300D, you can also set it to let some websites use this style, click the button on the right to add it, and then switch to another default translation style, so that you can use different translation styles for different websites.",
+  useAboveStyleForTheseSites: "Sites that always use the {theme} translation style",
   currentUrl: "Current URL",
   confirm: "Save",
   cancel: "Cancel",
   delete: "Delete",
   "languages.auto": "Detect Language",
-  isShowContextMenu: "Create right button menu",
   syncToCloud: "Sync to cloud",
-  syncToCloudDescription: "When syncing it will compare the last modification time of the local and cloud configurations, whichever is the last.",
+  syncToCloudDescription: "Upload the configuration to the cloud server, and you can synchronize the configuration between different browsers or Tampermonkey scripts, based on the last modification time.",
   authFail: "Authorization Failed",
   syncTitle: "Please select a file operation",
   import_hint: "Import",
@@ -5341,19 +5362,26 @@ var en_default = {
   clickToDownload: "Click to download",
   aboutLabel: "About - Feedback - Sponsor",
   "browser.openAboutPage": "About / Feedback/Sponsor",
-  aboutIntro: `This extension is completely free. I hope we can get foreign information on the Internet more easily and happily. Thanks to these <1>sponsors</1>, more people can use this tool completely free of charge because of their support. 
-If you have spare time, you can click here to <2>sponsor</2> my work, and you can follow my <3>Twitter</3> and <4>Telegram channels </4> for the latest updates.`,
+  aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
   projectHomepage: "Project Homepage",
   joinTelegramGroup: "Join Telegram group for feature discussion",
+  joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
   feedbackAndJoin: "Issue feedback/group",
   autoSync: "Auto-Time Sync",
   loadingThemeTitle: "Loading Style",
   loadingThemeDescription: "Set the style of waiting for the translation to load",
-  "loadingTheme.spinner": "Animate Spinner",
+  "loadingTheme.spinner": "Spinning icon",
   "loadingTheme.text": "Static Text... ",
   "loadingTheme.none": "Disabled",
+  developerDescription: "You can click <1>here</1> to see the documentation related to advanced customization",
   "edit border color": "Edit border color",
-  developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863"
+  successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
+  customTheme: "Customize colors and sizes",
+  "customThemeLabel.borderColor": "Border color",
+  "customThemeLabel.backgroundColor": "Background color",
+  "customThemeLabel.textColor": "Text color",
+  "customThemeLabel.zoom": "Font scale (%)",
+  resetToDefaultColor: "Reset to default colors"
 };
 
 // constant.ts
@@ -5370,7 +5398,7 @@ var interfaceTranslations = [
     code: "en",
     messages: en_default
   }
-], translations = {};
+], immersiveTranslateGlobalConfigStorageKey = "immersiveTranslateDeeplGlobalState", translations = {};
 for (let translation of interfaceTranslations)
   translations[translation.code] = translation.messages;
 var brandName = "Immersive Translate", brandId = "immersive-translate";
@@ -5694,6 +5722,205 @@ var buildinExcludeUrls = [
   "translate.google.com"
 ];
 var fallbackLanguage = "zh-CN";
+var openlProps = [{
+  type: "select",
+  name: "codename",
+  label: "translationEngine",
+  default: "deepl",
+  required: !1,
+  options: [
+    {
+      label: "translationServices.deepl",
+      value: "deepl"
+    },
+    {
+      label: "translationServices.youdao",
+      value: "youdao"
+    },
+    {
+      label: "translationServices.tencent",
+      value: "tencent"
+    },
+    {
+      label: "translationServices.aliyun",
+      value: "aliyun"
+    },
+    {
+      label: "translationServices.baidu",
+      value: "baidu"
+    },
+    {
+      label: "translationServices.caiyun",
+      value: "caiyun"
+    },
+    {
+      label: "translationServices.wechat",
+      value: "wechat"
+    },
+    {
+      label: "translationServices.azure",
+      value: "azure"
+    },
+    {
+      label: "translationServices.ibm",
+      value: "ibm"
+    },
+    {
+      label: "translationServices.aws",
+      value: "aws"
+    },
+    {
+      label: "translationServices.google",
+      value: "google"
+    }
+  ]
+}], PureTranslationServices = {
+  mock: {
+    name: "Mock",
+    homepage: "https://www.google.com"
+  },
+  mock2: {
+    name: "Mock2",
+    homepage: "https://www.google.com"
+  },
+  google: {
+    name: "Google",
+    homepage: "https://translate.google.com/"
+  },
+  transmart: {
+    name: "Transmart",
+    homepage: "https://transmart.qq.com/"
+  },
+  deepl: {
+    name: "DeepL",
+    homepage: "https://www.deepl.com/translator",
+    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+    allProps: [{
+      name: "authKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volc: {
+    name: "Volc",
+    homepage: "https://www.volcengine.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
+    allProps: [{
+      name: "accessKeyId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretAccessKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  volcAlpha: {
+    name: "Volc Alpha",
+    alpha: !0,
+    homepage: "https://www.volcengine.com/"
+  },
+  bing: {
+    name: "Bing",
+    homepage: "https://www.bing.com/translator"
+  },
+  tencent: {
+    name: "Tencent",
+    homepage: "https://fanyi.qq.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
+    allProps: [{
+      name: "secretId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "secretKey",
+      required: !0,
+      type: "password"
+    }]
+  },
+  baidu: {
+    name: "Baidu",
+    homepage: "https://fanyi.baidu.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
+    allProps: [{
+      name: "appid",
+      required: !0,
+      type: "text"
+    }, {
+      name: "key",
+      required: !0,
+      type: "password"
+    }]
+  },
+  caiyun: {
+    name: "Caiyun",
+    homepage: "https://fanyi.caiyunapp.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
+    allProps: [{
+      name: "token",
+      required: !0,
+      type: "password"
+    }]
+  },
+  openl: {
+    name: "Openl",
+    homepage: "https://openl.club/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openL",
+    allProps: [
+      ...openlProps,
+      {
+        type: "password",
+        name: "apikey",
+        required: !0
+      }
+    ],
+    props: openlProps
+  },
+  youdao: {
+    name: "Youdao",
+    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
+    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    allProps: [{
+      name: "appId",
+      required: !0,
+      type: "text"
+    }, {
+      name: "appSecret",
+      required: !0,
+      type: "password"
+    }]
+  },
+  d: {
+    name: "D () ",
+    alpha: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  dpro: {
+    name: "DPro (Canary) ",
+    canary: !0,
+    homepage: "https://www.deepl.com/translator"
+  },
+  deeplx: {
+    name: "DeepLX (Beta)",
+    beta: !0,
+    homepage: "https://www.deepl.com/translator",
+    allProps: [{
+      name: "url",
+      required: !0,
+      type: "text"
+    }]
+  },
+  niu: {
+    name: "niutrans",
+    homepage: "https://niutrans.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/niu",
+    allProps: [{
+      name: "APIKEY",
+      required: !0,
+      type: "password"
+    }]
+  }
+};
 
 // https://deno.land/std@0.171.0/async/deferred.ts
 function deferred() {
@@ -6082,25 +6309,25 @@ async function retry(fn, opts) {
 // https://esm.sh/stable/preact@10.11.0/deno/preact.js
 var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function k(e3, t4) {
-  for (var _2 in t4)
-    e3[_2] = t4[_2];
+  for (var _3 in t4)
+    e3[_3] = t4[_3];
   return e3;
 }
 function j(e3) {
   var t4 = e3.parentNode;
   t4 && t4.removeChild(e3);
 }
-function ee(e3, t4, _2) {
+function ee(e3, t4, _3) {
   var r, l2, o3, s4 = {};
   for (o3 in t4)
     o3 == "key" ? r = t4[o3] : o3 == "ref" ? l2 = t4[o3] : s4[o3] = t4[o3];
-  if (arguments.length > 2 && (s4.children = arguments.length > 3 ? P.call(arguments, 2) : _2), typeof e3 == "function" && e3.defaultProps != null)
+  if (arguments.length > 2 && (s4.children = arguments.length > 3 ? P.call(arguments, 2) : _3), typeof e3 == "function" && e3.defaultProps != null)
     for (o3 in e3.defaultProps)
       s4[o3] === void 0 && (s4[o3] = e3.defaultProps[o3]);
   return w(e3, s4, r, l2, null);
 }
-function w(e3, t4, _2, r, l2) {
-  var o3 = { type: e3, props: t4, key: _2, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
+function w(e3, t4, _3, r, l2) {
+  var o3 = { type: e3, props: t4, key: _3, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l2 ?? ++$ };
   return l2 == null && d.vnode != null && d.vnode(o3), o3;
 }
 function L(e3) {
@@ -6112,17 +6339,17 @@ function U(e3, t4) {
 function C(e3, t4) {
   if (t4 == null)
     return e3.__ ? C(e3.__, e3.__.__k.indexOf(e3) + 1) : null;
-  for (var _2; t4 < e3.__k.length; t4++)
-    if ((_2 = e3.__k[t4]) != null && _2.__e != null)
-      return _2.__e;
+  for (var _3; t4 < e3.__k.length; t4++)
+    if ((_3 = e3.__k[t4]) != null && _3.__e != null)
+      return _3.__e;
   return typeof e3.type == "function" ? C(e3) : null;
 }
 function z(e3) {
-  var t4, _2;
+  var t4, _3;
   if ((e3 = e3.__) != null && e3.__c != null) {
     for (e3.__e = e3.__c.base = null, t4 = 0; t4 < e3.__k.length; t4++)
-      if ((_2 = e3.__k[t4]) != null && _2.__e != null) {
-        e3.__e = e3.__c.base = _2.__e;
+      if ((_3 = e3.__k[t4]) != null && _3.__e != null) {
+        e3.__e = e3.__c.base = _3.__e;
         break;
       }
     return z(e3);
@@ -6133,92 +6360,92 @@ function M(e3) {
 }
 function D() {
   for (var e3; D.__r = S.length; )
-    e3 = S.sort(function(t4, _2) {
-      return t4.__v.__b - _2.__v.__b;
+    e3 = S.sort(function(t4, _3) {
+      return t4.__v.__b - _3.__v.__b;
     }), S = [], e3.some(function(t4) {
-      var _2, r, l2, o3, s4, f4;
-      t4.__d && (s4 = (o3 = (_2 = t4).__v).__e, (f4 = _2.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f4, o3, l2, _2.__n, f4.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
+      var _3, r, l2, o3, s4, f5;
+      t4.__d && (s4 = (o3 = (_3 = t4).__v).__e, (f5 = _3.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f5, o3, l2, _3.__n, f5.ownerSVGElement !== void 0, o3.__h != null ? [s4] : null, r, s4 ?? C(o3), o3.__h), K(r, o3), o3.__e != s4 && z(o3)));
     });
 }
-function G(e3, t4, _2, r, l2, o3, s4, f4, p6, a4) {
-  var n3, h3, c3, i2, u3, b4, v2, y3 = r && r.__k || V, g5 = y3.length;
-  for (_2.__k = [], n3 = 0; n3 < t4.length; n3++)
-    if ((i2 = _2.__k[n3] = (i2 = t4[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
-      if (i2.__ = _2, i2.__b = _2.__b + 1, (c3 = y3[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
-        y3[n3] = void 0;
+function G(e3, t4, _3, r, l2, o3, s4, f5, p6, a4) {
+  var n3, h3, c3, i2, u3, b5, v3, y4 = r && r.__k || V, g6 = y4.length;
+  for (_3.__k = [], n3 = 0; n3 < t4.length; n3++)
+    if ((i2 = _3.__k[n3] = (i2 = t4[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
+      if (i2.__ = _3, i2.__b = _3.__b + 1, (c3 = y4[n3]) === null || c3 && i2.key == c3.key && i2.type === c3.type)
+        y4[n3] = void 0;
       else
-        for (h3 = 0; h3 < g5; h3++) {
-          if ((c3 = y3[h3]) && i2.key == c3.key && i2.type === c3.type) {
-            y3[h3] = void 0;
+        for (h3 = 0; h3 < g6; h3++) {
+          if ((c3 = y4[h3]) && i2.key == c3.key && i2.type === c3.type) {
+            y4[h3] = void 0;
             break;
           }
           c3 = null;
         }
-      W(e3, i2, c3 = c3 || T, l2, o3, s4, f4, p6, a4), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v2 || (v2 = []), c3.ref && v2.push(c3.ref, null, i2), v2.push(h3, i2.__c || u3, i2)), u3 != null ? (b4 == null && (b4 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p6 = q(i2, p6, e3) : p6 = J(e3, i2, c3, y3, u3, p6), typeof _2.type == "function" && (_2.__d = p6)) : p6 && c3.__e == p6 && p6.parentNode != e3 && (p6 = C(c3));
+      W(e3, i2, c3 = c3 || T, l2, o3, s4, f5, p6, a4), u3 = i2.__e, (h3 = i2.ref) && c3.ref != h3 && (v3 || (v3 = []), c3.ref && v3.push(c3.ref, null, i2), v3.push(h3, i2.__c || u3, i2)), u3 != null ? (b5 == null && (b5 = u3), typeof i2.type == "function" && i2.__k === c3.__k ? i2.__d = p6 = q(i2, p6, e3) : p6 = J(e3, i2, c3, y4, u3, p6), typeof _3.type == "function" && (_3.__d = p6)) : p6 && c3.__e == p6 && p6.parentNode != e3 && (p6 = C(c3));
     }
-  for (_2.__e = b4, n3 = g5; n3--; )
-    y3[n3] != null && (typeof _2.type == "function" && y3[n3].__e != null && y3[n3].__e == _2.__d && (_2.__d = C(r, n3 + 1)), X(y3[n3], y3[n3]));
-  if (v2)
-    for (n3 = 0; n3 < v2.length; n3++)
-      Q(v2[n3], v2[++n3], v2[++n3]);
+  for (_3.__e = b5, n3 = g6; n3--; )
+    y4[n3] != null && (typeof _3.type == "function" && y4[n3].__e != null && y4[n3].__e == _3.__d && (_3.__d = C(r, n3 + 1)), X(y4[n3], y4[n3]));
+  if (v3)
+    for (n3 = 0; n3 < v3.length; n3++)
+      Q(v3[n3], v3[++n3], v3[++n3]);
 }
-function q(e3, t4, _2) {
+function q(e3, t4, _3) {
   for (var r, l2 = e3.__k, o3 = 0; l2 && o3 < l2.length; o3++)
-    (r = l2[o3]) && (r.__ = e3, t4 = typeof r.type == "function" ? q(r, t4, _2) : J(_2, r, r, l2, r.__e, t4));
+    (r = l2[o3]) && (r.__ = e3, t4 = typeof r.type == "function" ? q(r, t4, _3) : J(_3, r, r, l2, r.__e, t4));
   return t4;
 }
-function J(e3, t4, _2, r, l2, o3) {
-  var s4, f4, p6;
+function J(e3, t4, _3, r, l2, o3) {
+  var s4, f5, p6;
   if (t4.__d !== void 0)
     s4 = t4.__d, t4.__d = void 0;
-  else if (_2 == null || l2 != o3 || l2.parentNode == null)
+  else if (_3 == null || l2 != o3 || l2.parentNode == null)
     e:
       if (o3 == null || o3.parentNode !== e3)
         e3.appendChild(l2), s4 = null;
       else {
-        for (f4 = o3, p6 = 0; (f4 = f4.nextSibling) && p6 < r.length; p6 += 2)
-          if (f4 == l2)
+        for (f5 = o3, p6 = 0; (f5 = f5.nextSibling) && p6 < r.length; p6 += 2)
+          if (f5 == l2)
             break e;
         e3.insertBefore(l2, o3), s4 = o3;
       }
   return s4 !== void 0 ? s4 : l2.nextSibling;
 }
-function _e(e3, t4, _2, r, l2) {
+function _e(e3, t4, _3, r, l2) {
   var o3;
-  for (o3 in _2)
-    o3 === "children" || o3 === "key" || o3 in t4 || N(e3, o3, null, _2[o3], r);
+  for (o3 in _3)
+    o3 === "children" || o3 === "key" || o3 in t4 || N(e3, o3, null, _3[o3], r);
   for (o3 in t4)
-    l2 && typeof t4[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _2[o3] === t4[o3] || N(e3, o3, t4[o3], _2[o3], r);
+    l2 && typeof t4[o3] != "function" || o3 === "children" || o3 === "key" || o3 === "value" || o3 === "checked" || _3[o3] === t4[o3] || N(e3, o3, t4[o3], _3[o3], r);
 }
-function I(e3, t4, _2) {
-  t4[0] === "-" ? e3.setProperty(t4, _2) : e3[t4] = _2 == null ? "" : typeof _2 != "number" || Z.test(t4) ? _2 : _2 + "px";
+function I(e3, t4, _3) {
+  t4[0] === "-" ? e3.setProperty(t4, _3) : e3[t4] = _3 == null ? "" : typeof _3 != "number" || Z.test(t4) ? _3 : _3 + "px";
 }
-function N(e3, t4, _2, r, l2) {
+function N(e3, t4, _3, r, l2) {
   var o3;
   e:
     if (t4 === "style")
-      if (typeof _2 == "string")
-        e3.style.cssText = _2;
+      if (typeof _3 == "string")
+        e3.style.cssText = _3;
       else {
         if (typeof r == "string" && (e3.style.cssText = r = ""), r)
           for (t4 in r)
-            _2 && t4 in _2 || I(e3.style, t4, "");
-        if (_2)
-          for (t4 in _2)
-            r && _2[t4] === r[t4] || I(e3.style, t4, _2[t4]);
+            _3 && t4 in _3 || I(e3.style, t4, "");
+        if (_3)
+          for (t4 in _3)
+            r && _3[t4] === r[t4] || I(e3.style, t4, _3[t4]);
       }
     else if (t4[0] === "o" && t4[1] === "n")
-      o3 = t4 !== (t4 = t4.replace(/Capture$/, "")), t4 = t4.toLowerCase() in e3 ? t4.toLowerCase().slice(2) : t4.slice(2), e3.l || (e3.l = {}), e3.l[t4 + o3] = _2, _2 ? r || e3.addEventListener(t4, o3 ? R : O, o3) : e3.removeEventListener(t4, o3 ? R : O, o3);
+      o3 = t4 !== (t4 = t4.replace(/Capture$/, "")), t4 = t4.toLowerCase() in e3 ? t4.toLowerCase().slice(2) : t4.slice(2), e3.l || (e3.l = {}), e3.l[t4 + o3] = _3, _3 ? r || e3.addEventListener(t4, o3 ? R : O, o3) : e3.removeEventListener(t4, o3 ? R : O, o3);
     else if (t4 !== "dangerouslySetInnerHTML") {
       if (l2)
         t4 = t4.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
       else if (t4 !== "href" && t4 !== "list" && t4 !== "form" && t4 !== "tabIndex" && t4 !== "download" && t4 in e3)
         try {
-          e3[t4] = _2 ?? "";
+          e3[t4] = _3 ?? "";
           break e;
         } catch {
         }
-      typeof _2 == "function" || (_2 != null && (_2 !== !1 || t4[0] === "a" && t4[1] === "r") ? e3.setAttribute(t4, _2) : e3.removeAttribute(t4));
+      typeof _3 == "function" || (_3 != null && (_3 !== !1 || t4[0] === "a" && t4[1] === "r") ? e3.setAttribute(t4, _3) : e3.removeAttribute(t4));
     }
 }
 function O(e3) {
@@ -6227,54 +6454,54 @@ function O(e3) {
 function R(e3) {
   this.l[e3.type + !0](d.event ? d.event(e3) : e3);
 }
-function W(e3, t4, _2, r, l2, o3, s4, f4, p6) {
-  var a4, n3, h3, c3, i2, u3, b4, v2, y3, g5, x5, H7, E3, m4 = t4.type;
+function W(e3, t4, _3, r, l2, o3, s4, f5, p6) {
+  var a4, n3, h3, c3, i2, u3, b5, v3, y4, g6, x6, H8, E4, m5 = t4.type;
   if (t4.constructor !== void 0)
     return null;
-  _2.__h != null && (p6 = _2.__h, f4 = t4.__e = _2.__e, t4.__h = null, o3 = [f4]), (a4 = d.__b) && a4(t4);
+  _3.__h != null && (p6 = _3.__h, f5 = t4.__e = _3.__e, t4.__h = null, o3 = [f5]), (a4 = d.__b) && a4(t4);
   try {
     e:
-      if (typeof m4 == "function") {
-        if (v2 = t4.props, y3 = (a4 = m4.contextType) && r[a4.__c], g5 = a4 ? y3 ? y3.props.value : a4.__ : r, _2.__c ? b4 = (n3 = t4.__c = _2.__c).__ = n3.__E : ("prototype" in m4 && m4.prototype.render ? t4.__c = n3 = new m4(v2, g5) : (t4.__c = n3 = new U(v2, g5), n3.constructor = m4, n3.render = oe), y3 && y3.sub(n3), n3.props = v2, n3.state || (n3.state = {}), n3.context = g5, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m4.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m4.getDerivedStateFromProps(v2, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
-          m4.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
+      if (typeof m5 == "function") {
+        if (v3 = t4.props, y4 = (a4 = m5.contextType) && r[a4.__c], g6 = a4 ? y4 ? y4.props.value : a4.__ : r, _3.__c ? b5 = (n3 = t4.__c = _3.__c).__ = n3.__E : ("prototype" in m5 && m5.prototype.render ? t4.__c = n3 = new m5(v3, g6) : (t4.__c = n3 = new U(v3, g6), n3.constructor = m5, n3.render = oe), y4 && y4.sub(n3), n3.props = v3, n3.state || (n3.state = {}), n3.context = g6, n3.__n = r, h3 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m5.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k({}, n3.__s)), k(n3.__s, m5.getDerivedStateFromProps(v3, n3.__s))), c3 = n3.props, i2 = n3.state, h3)
+          m5.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
         else {
-          if (m4.getDerivedStateFromProps == null && v2 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v2, g5), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v2, n3.__s, g5) === !1 || t4.__v === _2.__v) {
-            n3.props = v2, n3.state = n3.__s, t4.__v !== _2.__v && (n3.__d = !1), n3.__v = t4, t4.__e = _2.__e, t4.__k = _2.__k, t4.__k.forEach(function(A5) {
-              A5 && (A5.__ = t4);
+          if (m5.getDerivedStateFromProps == null && v3 !== c3 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v3, g6), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v3, n3.__s, g6) === !1 || t4.__v === _3.__v) {
+            n3.props = v3, n3.state = n3.__s, t4.__v !== _3.__v && (n3.__d = !1), n3.__v = t4, t4.__e = _3.__e, t4.__k = _3.__k, t4.__k.forEach(function(A6) {
+              A6 && (A6.__ = t4);
             }), n3.__h.length && s4.push(n3);
             break e;
           }
-          n3.componentWillUpdate != null && n3.componentWillUpdate(v2, n3.__s, g5), n3.componentDidUpdate != null && n3.__h.push(function() {
+          n3.componentWillUpdate != null && n3.componentWillUpdate(v3, n3.__s, g6), n3.componentDidUpdate != null && n3.__h.push(function() {
             n3.componentDidUpdate(c3, i2, u3);
           });
         }
-        if (n3.context = g5, n3.props = v2, n3.__v = t4, n3.__P = e3, x5 = d.__r, H7 = 0, "prototype" in m4 && m4.prototype.render)
-          n3.state = n3.__s, n3.__d = !1, x5 && x5(t4), a4 = n3.render(n3.props, n3.state, n3.context);
+        if (n3.context = g6, n3.props = v3, n3.__v = t4, n3.__P = e3, x6 = d.__r, H8 = 0, "prototype" in m5 && m5.prototype.render)
+          n3.state = n3.__s, n3.__d = !1, x6 && x6(t4), a4 = n3.render(n3.props, n3.state, n3.context);
         else
           do
-            n3.__d = !1, x5 && x5(t4), a4 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
-          while (n3.__d && ++H7 < 25);
-        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E3 = a4 != null && a4.type === L && a4.key == null ? a4.props.children : a4, G(e3, Array.isArray(E3) ? E3 : [E3], t4, _2, r, l2, o3, s4, f4, p6), n3.base = t4.__e, t4.__h = null, n3.__h.length && s4.push(n3), b4 && (n3.__E = n3.__ = null), n3.__e = !1;
+            n3.__d = !1, x6 && x6(t4), a4 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
+          while (n3.__d && ++H8 < 25);
+        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c3, i2)), E4 = a4 != null && a4.type === L && a4.key == null ? a4.props.children : a4, G(e3, Array.isArray(E4) ? E4 : [E4], t4, _3, r, l2, o3, s4, f5, p6), n3.base = t4.__e, t4.__h = null, n3.__h.length && s4.push(n3), b5 && (n3.__E = n3.__ = null), n3.__e = !1;
       } else
-        o3 == null && t4.__v === _2.__v ? (t4.__k = _2.__k, t4.__e = _2.__e) : t4.__e = ne(_2.__e, t4, _2, r, l2, o3, s4, p6);
+        o3 == null && t4.__v === _3.__v ? (t4.__k = _3.__k, t4.__e = _3.__e) : t4.__e = ne(_3.__e, t4, _3, r, l2, o3, s4, p6);
     (a4 = d.diffed) && a4(t4);
-  } catch (A5) {
-    t4.__v = null, (p6 || o3 != null) && (t4.__e = f4, t4.__h = !!p6, o3[o3.indexOf(f4)] = null), d.__e(A5, t4, _2);
+  } catch (A6) {
+    t4.__v = null, (p6 || o3 != null) && (t4.__e = f5, t4.__h = !!p6, o3[o3.indexOf(f5)] = null), d.__e(A6, t4, _3);
   }
 }
 function K(e3, t4) {
-  d.__c && d.__c(t4, e3), e3.some(function(_2) {
+  d.__c && d.__c(t4, e3), e3.some(function(_3) {
     try {
-      e3 = _2.__h, _2.__h = [], e3.some(function(r) {
-        r.call(_2);
+      e3 = _3.__h, _3.__h = [], e3.some(function(r) {
+        r.call(_3);
       });
     } catch (r) {
-      d.__e(r, _2.__v);
+      d.__e(r, _3.__v);
     }
   });
 }
-function ne(e3, t4, _2, r, l2, o3, s4, f4) {
-  var p6, a4, n3, h3 = _2.props, c3 = t4.props, i2 = t4.type, u3 = 0;
+function ne(e3, t4, _3, r, l2, o3, s4, f5) {
+  var p6, a4, n3, h3 = _3.props, c3 = t4.props, i2 = t4.type, u3 = 0;
   if (i2 === "svg" && (l2 = !0), o3 != null) {
     for (; u3 < o3.length; u3++)
       if ((p6 = o3[u3]) && "setAttribute" in p6 == !!i2 && (i2 ? p6.localName === i2 : p6.nodeType === 3)) {
@@ -6285,34 +6512,34 @@ function ne(e3, t4, _2, r, l2, o3, s4, f4) {
   if (e3 == null) {
     if (i2 === null)
       return document.createTextNode(c3);
-    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f4 = !1;
+    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c3.is && c3), o3 = null, f5 = !1;
   }
   if (i2 === null)
-    h3 === c3 || f4 && e3.data === c3 || (e3.data = c3);
+    h3 === c3 || f5 && e3.data === c3 || (e3.data = c3);
   else {
-    if (o3 = o3 && P.call(e3.childNodes), a4 = (h3 = _2.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f4) {
+    if (o3 = o3 && P.call(e3.childNodes), a4 = (h3 = _3.props || T).dangerouslySetInnerHTML, n3 = c3.dangerouslySetInnerHTML, !f5) {
       if (o3 != null)
         for (h3 = {}, u3 = 0; u3 < e3.attributes.length; u3++)
           h3[e3.attributes[u3].name] = e3.attributes[u3].value;
       (n3 || a4) && (n3 && (a4 && n3.__html == a4.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
     }
-    if (_e(e3, c3, h3, l2, f4), n3)
+    if (_e(e3, c3, h3, l2, f5), n3)
       t4.__k = [];
-    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _2, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _2.__k && C(_2, 0), f4), o3 != null)
+    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _3, r, l2 && i2 !== "foreignObject", o3, s4, o3 ? o3[0] : _3.__k && C(_3, 0), f5), o3 != null)
       for (u3 = o3.length; u3--; )
         o3[u3] != null && j(o3[u3]);
-    f4 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
+    f5 || ("value" in c3 && (u3 = c3.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c3 && (u3 = c3.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
   }
   return e3;
 }
-function Q(e3, t4, _2) {
+function Q(e3, t4, _3) {
   try {
     typeof e3 == "function" ? e3(t4) : e3.current = t4;
   } catch (r) {
-    d.__e(r, _2);
+    d.__e(r, _3);
   }
 }
-function X(e3, t4, _2) {
+function X(e3, t4, _3) {
   var r, l2;
   if (d.unmount && d.unmount(e3), (r = e3.ref) && (r.current && r.current !== e3.__e || Q(r, null, t4)), (r = e3.__c) != null) {
     if (r.componentWillUnmount)
@@ -6326,17 +6553,17 @@ function X(e3, t4, _2) {
   if (r = e3.__k)
     for (l2 = 0; l2 < r.length; l2++)
       r[l2] && X(r[l2], t4, typeof e3.type != "function");
-  _2 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
+  _3 || e3.__e == null || j(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
 }
-function oe(e3, t4, _2) {
-  return this.constructor(e3, _2);
+function oe(e3, t4, _3) {
+  return this.constructor(e3, _3);
 }
-function re(e3, t4, _2) {
+function re(e3, t4, _3) {
   var r, l2, o3;
-  d.__ && d.__(e3, t4), l2 = (r = typeof _2 == "function") ? null : _2 && _2.__k || t4.__k, o3 = [], W(t4, e3 = (!r && _2 || t4).__k = ee(L, null, [e3]), l2 || T, T, t4.ownerSVGElement !== void 0, !r && _2 ? [_2] : l2 ? null : t4.firstChild ? P.call(t4.childNodes) : null, o3, !r && _2 ? _2 : l2 ? l2.__e : t4.firstChild, r), K(o3, e3);
+  d.__ && d.__(e3, t4), l2 = (r = typeof _3 == "function") ? null : _3 && _3.__k || t4.__k, o3 = [], W(t4, e3 = (!r && _3 || t4).__k = ee(L, null, [e3]), l2 || T, T, t4.ownerSVGElement !== void 0, !r && _3 ? [_3] : l2 ? null : t4.firstChild ? P.call(t4.childNodes) : null, o3, !r && _3 ? _3 : l2 ? l2.__e : t4.firstChild, r), K(o3, e3);
 }
 function ce(e3, t4) {
-  var _2 = { __c: t4 = "__cC" + B++, __: e3, Consumer: function(r, l2) {
+  var _3 = { __c: t4 = "__cC" + B++, __: e3, Consumer: function(r, l2) {
     return r.children(l2);
   }, Provider: function(r) {
     var l2, o3;
@@ -6346,118 +6573,118 @@ function ce(e3, t4) {
       this.props.value !== s4.value && l2.some(M);
     }, this.sub = function(s4) {
       l2.push(s4);
-      var f4 = s4.componentWillUnmount;
+      var f5 = s4.componentWillUnmount;
       s4.componentWillUnmount = function() {
-        l2.splice(l2.indexOf(s4), 1), f4 && f4.call(s4);
+        l2.splice(l2.indexOf(s4), 1), f5 && f5.call(s4);
       };
     }), r.children;
   } };
-  return _2.Provider.__ = _2.Consumer.contextType = _2;
+  return _3.Provider.__ = _3.Consumer.contextType = _3;
 }
-P = V.slice, d = { __e: function(e3, t4, _2, r) {
+P = V.slice, d = { __e: function(e3, t4, _3, r) {
   for (var l2, o3, s4; t4 = t4.__; )
     if ((l2 = t4.__c) && !l2.__)
       try {
         if ((o3 = l2.constructor) && o3.getDerivedStateFromError != null && (l2.setState(o3.getDerivedStateFromError(e3)), s4 = l2.__d), l2.componentDidCatch != null && (l2.componentDidCatch(e3, r || {}), s4 = l2.__d), s4)
           return l2.__E = l2;
-      } catch (f4) {
-        e3 = f4;
+      } catch (f5) {
+        e3 = f5;
       }
   throw e3;
 } }, $ = 0, Y = function(e3) {
   return e3 != null && e3.constructor === void 0;
 }, U.prototype.setState = function(e3, t4) {
-  var _2;
-  _2 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _2), this.props)), e3 && k(_2, e3), e3 != null && this.__v && (t4 && this.__h.push(t4), M(this));
+  var _3;
+  _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k({}, this.state), typeof e3 == "function" && (e3 = e3(k({}, _3), this.props)), e3 && k(_3, e3), e3 != null && this.__v && (t4 && this.__h.push(t4), M(this));
 }, U.prototype.forceUpdate = function(e3) {
   this.__v && (this.__e = !0, e3 && this.__h.push(e3), M(this));
 }, U.prototype.render = L, S = [], D.__r = 0, B = 0;
 
 // https://esm.sh/stable/preact@10.11.0/deno/hooks.js
 var i, n, d2, N2, f = 0, q2 = [], l = [], V2 = d.__b, g = d.__r, b = d.diffed, C2 = d.__c, A = d.unmount;
-function a(_2, t4) {
-  d.__h && d.__h(n, _2, f || t4), f = 0;
+function a(_3, t4) {
+  d.__h && d.__h(n, _3, f || t4), f = 0;
   var u3 = n.__H || (n.__H = { __: [], __h: [] });
-  return _2 >= u3.__.length && u3.__.push({ __V: l }), u3.__[_2];
+  return _3 >= u3.__.length && u3.__.push({ __V: l }), u3.__[_3];
 }
-function P2(_2) {
-  return f = 1, B2(D2, _2);
+function P2(_3) {
+  return f = 1, B2(D2, _3);
 }
-function B2(_2, t4, u3) {
+function B2(_3, t4, u3) {
   var o3 = a(i++, 2);
-  if (o3.t = _2, !o3.__c && (o3.__ = [u3 ? u3(t4) : D2(void 0, t4), function(v2) {
-    var s4 = o3.__N ? o3.__N[0] : o3.__[0], h3 = o3.t(s4, v2);
+  if (o3.t = _3, !o3.__c && (o3.__ = [u3 ? u3(t4) : D2(void 0, t4), function(v3) {
+    var s4 = o3.__N ? o3.__N[0] : o3.__[0], h3 = o3.t(s4, v3);
     s4 !== h3 && (o3.__N = [h3, o3.__[1]], o3.__c.setState({}));
   }], o3.__c = n, !n.u)) {
     n.u = !0;
     var r = n.shouldComponentUpdate;
-    n.shouldComponentUpdate = function(v2, s4, h3) {
+    n.shouldComponentUpdate = function(v3, s4, h3) {
       if (!o3.__c.__H)
         return !0;
-      var y3 = o3.__c.__H.__.filter(function(c3) {
+      var y4 = o3.__c.__H.__.filter(function(c3) {
         return c3.__c;
       });
-      if (y3.every(function(c3) {
+      if (y4.every(function(c3) {
         return !c3.__N;
       }))
-        return !r || r.call(this, v2, s4, h3);
-      var E3 = !1;
-      return y3.forEach(function(c3) {
+        return !r || r.call(this, v3, s4, h3);
+      var E4 = !1;
+      return y4.forEach(function(c3) {
         if (c3.__N) {
-          var k4 = c3.__[0];
-          c3.__ = c3.__N, c3.__N = void 0, k4 !== c3.__[0] && (E3 = !0);
+          var k5 = c3.__[0];
+          c3.__ = c3.__N, c3.__N = void 0, k5 !== c3.__[0] && (E4 = !0);
         }
-      }), !!E3 && (!r || r.call(this, v2, s4, h3));
+      }), !!E4 && (!r || r.call(this, v3, s4, h3));
     };
   }
   return o3.__N || o3.__;
 }
-function j2(_2, t4) {
+function j2(_3, t4) {
   var u3 = a(i++, 3);
-  !d.__s && H(u3.__H, t4) && (u3.__ = _2, u3.i = t4, n.__H.__h.push(u3));
+  !d.__s && H(u3.__H, t4) && (u3.__ = _3, u3.i = t4, n.__H.__h.push(u3));
 }
-function w2(_2) {
+function w2(_3) {
   return f = 5, x(function() {
-    return { current: _2 };
+    return { current: _3 };
   }, []);
 }
-function x(_2, t4) {
+function x(_3, t4) {
   var u3 = a(i++, 7);
-  return H(u3.__H, t4) ? (u3.__V = _2(), u3.i = t4, u3.__h = _2, u3.__V) : u3.__;
+  return H(u3.__H, t4) ? (u3.__V = _3(), u3.i = t4, u3.__h = _3, u3.__V) : u3.__;
 }
-function L2(_2, t4) {
+function L2(_3, t4) {
   return f = 8, x(function() {
-    return _2;
+    return _3;
   }, t4);
 }
-function M2(_2) {
-  var t4 = n.context[_2.__c], u3 = a(i++, 9);
-  return u3.c = _2, t4 ? (u3.__ == null && (u3.__ = !0, t4.sub(n)), t4.props.value) : _2.__;
+function M2(_3) {
+  var t4 = n.context[_3.__c], u3 = a(i++, 9);
+  return u3.c = _3, t4 ? (u3.__ == null && (u3.__ = !0, t4.sub(n)), t4.props.value) : _3.__;
 }
 function R2() {
-  for (var _2; _2 = q2.shift(); )
-    if (_2.__P && _2.__H)
+  for (var _3; _3 = q2.shift(); )
+    if (_3.__P && _3.__H)
       try {
-        _2.__H.__h.forEach(m), _2.__H.__h.forEach(p), _2.__H.__h = [];
+        _3.__H.__h.forEach(m), _3.__H.__h.forEach(p), _3.__H.__h = [];
       } catch (t4) {
-        _2.__H.__h = [], d.__e(t4, _2.__v);
+        _3.__H.__h = [], d.__e(t4, _3.__v);
       }
 }
-d.__b = function(_2) {
-  typeof _2.type != "function" || _2.o || _2.type === L ? _2.o || (_2.o = _2.__ && _2.__.o ? _2.__.o : "") : _2.o = (_2.__ && _2.__.o ? _2.__.o : "") + (_2.__ && _2.__.__k ? _2.__.__k.indexOf(_2) : 0), n = null, V2 && V2(_2);
-}, d.__r = function(_2) {
-  g && g(_2), i = 0;
-  var t4 = (n = _2.__c).__H;
+d.__b = function(_3) {
+  typeof _3.type != "function" || _3.o || _3.type === L ? _3.o || (_3.o = _3.__ && _3.__.o ? _3.__.o : "") : _3.o = (_3.__ && _3.__.o ? _3.__.o : "") + (_3.__ && _3.__.__k ? _3.__.__k.indexOf(_3) : 0), n = null, V2 && V2(_3);
+}, d.__r = function(_3) {
+  g && g(_3), i = 0;
+  var t4 = (n = _3.__c).__H;
   t4 && (d2 === n ? (t4.__h = [], n.__h = [], t4.__.forEach(function(u3) {
     u3.__N && (u3.__ = u3.__N), u3.__V = l, u3.__N = u3.i = void 0;
   })) : (t4.__h.forEach(m), t4.__h.forEach(p), t4.__h = [])), d2 = n;
-}, d.diffed = function(_2) {
-  b && b(_2);
-  var t4 = _2.__c;
+}, d.diffed = function(_3) {
+  b && b(_3);
+  var t4 = _3.__c;
   t4 && t4.__H && (t4.__H.__h.length && (q2.push(t4) !== 1 && N2 === d.requestAnimationFrame || ((N2 = d.requestAnimationFrame) || S2)(R2)), t4.__H.__.forEach(function(u3) {
     u3.i && (u3.__H = u3.i), u3.__V !== l && (u3.__ = u3.__V), u3.i = void 0, u3.__V = l;
   })), d2 = n = null;
-}, d.__c = function(_2, t4) {
+}, d.__c = function(_3, t4) {
   t4.some(function(u3) {
     try {
       u3.__h.forEach(m), u3.__h = u3.__h.filter(function(o3) {
@@ -6468,10 +6695,10 @@ d.__b = function(_2) {
         r.__h && (r.__h = []);
       }), t4 = [], d.__e(o3, u3.__v);
     }
-  }), C2 && C2(_2, t4);
-}, d.unmount = function(_2) {
-  A && A(_2);
-  var t4, u3 = _2.__c;
+  }), C2 && C2(_3, t4);
+}, d.unmount = function(_3) {
+  A && A(_3);
+  var t4, u3 = _3.__c;
   u3 && u3.__H && (u3.__H.__.forEach(function(o3) {
     try {
       m(o3);
@@ -6481,27 +6708,27 @@ d.__b = function(_2) {
   }), u3.__H = void 0, t4 && d.__e(t4, u3.__v));
 };
 var F2 = typeof requestAnimationFrame == "function";
-function S2(_2) {
+function S2(_3) {
   var t4, u3 = function() {
-    clearTimeout(o3), F2 && cancelAnimationFrame(t4), setTimeout(_2);
+    clearTimeout(o3), F2 && cancelAnimationFrame(t4), setTimeout(_3);
   }, o3 = setTimeout(u3, 100);
   F2 && (t4 = requestAnimationFrame(u3));
 }
-function m(_2) {
-  var t4 = n, u3 = _2.__c;
-  typeof u3 == "function" && (_2.__c = void 0, u3()), n = t4;
+function m(_3) {
+  var t4 = n, u3 = _3.__c;
+  typeof u3 == "function" && (_3.__c = void 0, u3()), n = t4;
 }
-function p(_2) {
+function p(_3) {
   var t4 = n;
-  _2.__c = _2.__(), n = t4;
+  _3.__c = _3.__(), n = t4;
 }
-function H(_2, t4) {
-  return !_2 || _2.length !== t4.length || t4.some(function(u3, o3) {
-    return u3 !== _2[o3];
+function H(_3, t4) {
+  return !_3 || _3.length !== t4.length || t4.some(function(u3, o3) {
+    return u3 !== _3[o3];
   });
 }
-function D2(_2, t4) {
-  return typeof t4 == "function" ? t4(_2) : t4;
+function D2(_3, t4) {
+  return typeof t4 == "function" ? t4(_3) : t4;
 }
 
 // https://esm.sh/v106/memoize-one@6.0.0/deno/memoize-one.js
@@ -6515,7 +6742,7 @@ var a2 = class extends Error {
     super("Throttled function aborted"), this.name = "AbortError";
   }
 };
-function m2({ limit: i2, interval: s4, strict: f4 }) {
+function m2({ limit: i2, interval: s4, strict: f5 }) {
   if (!Number.isFinite(i2))
     throw new TypeError("Expected `limit` to be a finite number");
   if (!Number.isFinite(s4))
@@ -6533,16 +6760,16 @@ function m2({ limit: i2, interval: s4, strict: f4 }) {
     let t4 = n3.shift() + s4;
     return e3 >= t4 ? (n3.push(e3), 0) : (n3.push(t4), t4 - e3);
   }
-  let w4 = f4 ? h3 : p6;
+  let w5 = f5 ? h3 : p6;
   return (e3) => {
     let t4 = function(...o3) {
       if (!t4.isEnabled)
         return (async () => e3.apply(this, o3))();
       let l2;
-      return new Promise((d3, b4) => {
+      return new Promise((d3, b5) => {
         l2 = setTimeout(() => {
           d3(e3.apply(this, o3)), r.delete(l2);
-        }, w4()), r.set(l2, b4);
+        }, w5()), r.set(l2, b5);
       });
     };
     return t4.abort = () => {
@@ -6554,69 +6781,69 @@ function m2({ limit: i2, interval: s4, strict: f4 }) {
 }
 
 // https://esm.sh/v106/lodash.throttle@4.1.1/deno/lodash.throttle.js
-var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B3 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P3 = Object.prototype.hasOwnProperty, D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t4, f4) => {
+var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object.create, h = Object.defineProperty, B3 = Object.getOwnPropertyDescriptor, F3 = Object.getOwnPropertyNames, R3 = Object.getPrototypeOf, P3 = Object.prototype.hasOwnProperty, D3 = (e3, n3) => () => (n3 || e3((n3 = { exports: {} }).exports, n3), n3.exports), G2 = (e3, n3, t4, f5) => {
   if (n3 && typeof n3 == "object" || typeof n3 == "function")
     for (let i2 of F3(n3))
-      !P3.call(e3, i2) && i2 !== t4 && h(e3, i2, { get: () => n3[i2], enumerable: !(f4 = B3(n3, i2)) || f4.enumerable });
+      !P3.call(e3, i2) && i2 !== t4 && h(e3, i2, { get: () => n3[i2], enumerable: !(f5 = B3(n3, i2)) || f5.enumerable });
   return e3;
-}, H2 = (e3, n3, t4) => (t4 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t4, "default", { value: e3, enumerable: !0 }) : t4, e3)), L3 = D3((ce4, k4) => {
-  var _2 = "Expected a function", S7 = NaN, U5 = "[object Symbol]", X6 = /^\s+|\s+$/g, q6 = /^[-+]0x[0-9a-f]+$/i, z4 = /^0b[01]+$/i, J4 = /^0o[0-7]+$/i, K6 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V6 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V6 || Function("return this")(), Z5 = Object.prototype, w4 = Z5.toString, ee4 = Math.max, ne4 = Math.min, j5 = function() {
+}, H2 = (e3, n3, t4) => (t4 = e3 != null ? A2(R3(e3)) : {}, G2(n3 || !e3 || !e3.__esModule ? h(t4, "default", { value: e3, enumerable: !0 }) : t4, e3)), L3 = D3((ce4, k5) => {
+  var _3 = "Expected a function", S8 = NaN, U6 = "[object Symbol]", X7 = /^\s+|\s+$/g, q7 = /^[-+]0x[0-9a-f]+$/i, z5 = /^0b[01]+$/i, J5 = /^0o[0-7]+$/i, K7 = parseInt, Q6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, V7 = typeof self == "object" && self && self.Object === Object && self, Y6 = Q6 || V7 || Function("return this")(), Z6 = Object.prototype, w5 = Z6.toString, ee4 = Math.max, ne4 = Math.min, j6 = function() {
     return Y6.Date.now();
   };
   function te2(e3, n3, t4) {
-    var f4, i2, g5, c3, a4, u3, l2 = 0, v2 = !1, s4 = !1, y3 = !0;
+    var f5, i2, g6, c3, a4, u3, l2 = 0, v3 = !1, s4 = !1, y4 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
-    n3 = E3(n3) || 0, b4(t4) && (v2 = !!t4.leading, s4 = "maxWait" in t4, g5 = s4 ? ee4(E3(t4.maxWait) || 0, n3) : g5, y3 = "trailing" in t4 ? !!t4.trailing : y3);
+      throw new TypeError(_3);
+    n3 = E4(n3) || 0, b5(t4) && (v3 = !!t4.leading, s4 = "maxWait" in t4, g6 = s4 ? ee4(E4(t4.maxWait) || 0, n3) : g6, y4 = "trailing" in t4 ? !!t4.trailing : y4);
     function p6(r) {
-      var o3 = f4, d3 = i2;
-      return f4 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
+      var o3 = f5, d3 = i2;
+      return f5 = i2 = void 0, l2 = r, c3 = e3.apply(d3, o3), c3;
     }
-    function C5(r) {
-      return l2 = r, a4 = setTimeout(m4, n3), v2 ? p6(r) : c3;
+    function C6(r) {
+      return l2 = r, a4 = setTimeout(m5, n3), v3 ? p6(r) : c3;
     }
-    function M5(r) {
+    function M6(r) {
       var o3 = r - u3, d3 = r - l2, O4 = n3 - o3;
-      return s4 ? ne4(O4, g5 - d3) : O4;
+      return s4 ? ne4(O4, g6 - d3) : O4;
     }
-    function x5(r) {
+    function x6(r) {
       var o3 = r - u3, d3 = r - l2;
-      return u3 === void 0 || o3 >= n3 || o3 < 0 || s4 && d3 >= g5;
+      return u3 === void 0 || o3 >= n3 || o3 < 0 || s4 && d3 >= g6;
     }
-    function m4() {
-      var r = j5();
-      if (x5(r))
-        return I5(r);
-      a4 = setTimeout(m4, M5(r));
+    function m5() {
+      var r = j6();
+      if (x6(r))
+        return I6(r);
+      a4 = setTimeout(m5, M6(r));
     }
-    function I5(r) {
-      return a4 = void 0, y3 && f4 ? p6(r) : (f4 = i2 = void 0, c3);
+    function I6(r) {
+      return a4 = void 0, y4 && f5 ? p6(r) : (f5 = i2 = void 0, c3);
     }
-    function N7() {
-      a4 !== void 0 && clearTimeout(a4), l2 = 0, f4 = u3 = i2 = a4 = void 0;
+    function N8() {
+      a4 !== void 0 && clearTimeout(a4), l2 = 0, f5 = u3 = i2 = a4 = void 0;
     }
-    function $4() {
-      return a4 === void 0 ? c3 : I5(j5());
+    function $5() {
+      return a4 === void 0 ? c3 : I6(j6());
     }
-    function T6() {
-      var r = j5(), o3 = x5(r);
-      if (f4 = arguments, i2 = this, u3 = r, o3) {
+    function T7() {
+      var r = j6(), o3 = x6(r);
+      if (f5 = arguments, i2 = this, u3 = r, o3) {
         if (a4 === void 0)
-          return C5(u3);
+          return C6(u3);
         if (s4)
-          return a4 = setTimeout(m4, n3), p6(u3);
+          return a4 = setTimeout(m5, n3), p6(u3);
       }
-      return a4 === void 0 && (a4 = setTimeout(m4, n3)), c3;
+      return a4 === void 0 && (a4 = setTimeout(m5, n3)), c3;
     }
-    return T6.cancel = N7, T6.flush = $4, T6;
+    return T7.cancel = N8, T7.flush = $5, T7;
   }
   function re4(e3, n3, t4) {
-    var f4 = !0, i2 = !0;
+    var f5 = !0, i2 = !0;
     if (typeof e3 != "function")
-      throw new TypeError(_2);
-    return b4(t4) && (f4 = "leading" in t4 ? !!t4.leading : f4, i2 = "trailing" in t4 ? !!t4.trailing : i2), te2(e3, n3, { leading: f4, maxWait: n3, trailing: i2 });
+      throw new TypeError(_3);
+    return b5(t4) && (f5 = "leading" in t4 ? !!t4.leading : f5, i2 = "trailing" in t4 ? !!t4.trailing : i2), te2(e3, n3, { leading: f5, maxWait: n3, trailing: i2 });
   }
-  function b4(e3) {
+  function b5(e3) {
     var n3 = typeof e3;
     return !!e3 && (n3 == "object" || n3 == "function");
   }
@@ -6624,24 +6851,24 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), A2 = Object
     return !!e3 && typeof e3 == "object";
   }
   function fe(e3) {
-    return typeof e3 == "symbol" || ie4(e3) && w4.call(e3) == U5;
+    return typeof e3 == "symbol" || ie4(e3) && w5.call(e3) == U6;
   }
-  function E3(e3) {
+  function E4(e3) {
     if (typeof e3 == "number")
       return e3;
     if (fe(e3))
-      return S7;
-    if (b4(e3)) {
+      return S8;
+    if (b5(e3)) {
       var n3 = typeof e3.valueOf == "function" ? e3.valueOf() : e3;
-      e3 = b4(n3) ? n3 + "" : n3;
+      e3 = b5(n3) ? n3 + "" : n3;
     }
     if (typeof e3 != "string")
       return e3 === 0 ? e3 : +e3;
-    e3 = e3.replace(X6, "");
-    var t4 = z4.test(e3);
-    return t4 || J4.test(e3) ? K6(e3.slice(2), t4 ? 2 : 8) : q6.test(e3) ? S7 : +e3;
+    e3 = e3.replace(X7, "");
+    var t4 = z5.test(e3);
+    return t4 || J5.test(e3) ? K7(e3.slice(2), t4 ? 2 : 8) : q7.test(e3) ? S8 : +e3;
   }
-  k4.exports = re4;
+  k5.exports = re4;
 }), ae = H2(L3()), { default: W2, ...oe2 } = ae, le = W2 !== void 0 ? W2 : oe2;
 
 // https://esm.sh/v106/@twind/core@1.0.1/deno/core.js
@@ -6733,48 +6960,48 @@ function T2(t4, e3 = {}) {
   return i2 == "1" ? t4 : i2 == "0" ? "#0000" : t4.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i2})`);
 }
 function ct(t4, e3, r, n3, i2 = []) {
-  return function l2(o3, { n: a4, p: s4, r: u3 = [], i: f4 }, c3) {
-    let p6 = [], d3 = "", v2 = 0, g5 = 0;
+  return function l2(o3, { n: a4, p: s4, r: u3 = [], i: f5 }, c3) {
+    let p6 = [], d3 = "", v3 = 0, g6 = 0;
     for (let h3 in o3 || {}) {
-      var y3, A5;
-      let b4 = o3[h3];
+      var y4, A6;
+      let b5 = o3[h3];
       if (h3[0] == "@") {
-        if (!b4)
+        if (!b5)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ht(a4, s4, N3("" + b4), c3, s4, u3, f4, !0));
+          p6.push(...ht(a4, s4, N3("" + b5), c3, s4, u3, f5, !0));
           continue;
         }
         if (h3[1] == "l") {
-          for (let m4 of x2(b4))
-            p6.push(...l2(m4, { n: a4, p: (y3 = w3[h3[7]], s4 & ~w3.o | y3), r: u3, i: f4 }, c3));
+          for (let m5 of x2(b5))
+            p6.push(...l2(m5, { n: a4, p: (y4 = w3[h3[7]], s4 & ~w3.o | y4), r: u3, i: f5 }, c3));
           continue;
         }
         if (h3[1] == "i") {
-          p6.push(...x2(b4).map((m4) => ({ p: -1, o: 0, r: [], d: h3 + " " + m4 })));
+          p6.push(...x2(b5).map((m5) => ({ p: -1, o: 0, r: [], d: h3 + " " + m5 })));
           continue;
         }
         if (h3[1] == "k") {
-          p6.push({ p: w3.d, o: 0, r: [h3], d: l2(b4, { p: w3.d }, c3).map(tt).join("") });
+          p6.push({ p: w3.d, o: 0, r: [h3], d: l2(b5, { p: w3.d }, c3).map(tt).join("") });
           continue;
         }
         if (h3[1] == "f") {
-          p6.push(...x2(b4).map((m4) => ({ p: w3.d, o: 0, r: [h3], d: l2(m4, { p: w3.d }, c3).map(tt).join("") })));
+          p6.push(...x2(b5).map((m5) => ({ p: w3.d, o: 0, r: [h3], d: l2(m5, { p: w3.d }, c3).map(tt).join("") })));
           continue;
         }
       }
-      if (typeof b4 != "object" || Array.isArray(b4))
-        h3 == "label" && b4 ? a4 = b4 + V3(JSON.stringify([s4, f4, o3])) : (b4 || b4 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g5 += 1, v2 = Math.max(v2, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x2(b4).map((m4) => c3.s(h3, ft("" + m4, c3.theme) + (f4 ? " !important" : ""))).join(";"));
+      if (typeof b5 != "object" || Array.isArray(b5))
+        h3 == "label" && b5 ? a4 = b5 + V3(JSON.stringify([s4, f5, o3])) : (b5 || b5 === 0) && (h3 = h3.replace(/[A-Z]/g, (m5) => "-" + m5.toLowerCase()), g6 += 1, v3 = Math.max(v3, (A6 = h3)[0] == "-" ? 0 : jt(A6) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A6) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d3 += (d3 ? ";" : "") + x2(b5).map((m5) => c3.s(h3, ft("" + m5, c3.theme) + (f5 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
-        let m4 = s4;
-        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C5, $4) => {
-          let j5 = c3.theme("screens", $4);
-          return j5 ? (m4 |= 67108864, kt(j5, "")) : C5;
-        }), m4 |= X2(h3)), p6.push(...l2(b4, { n: a4, p: m4, r: [...u3, h3], i: f4 }, c3));
+        let m5 = s4;
+        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C6, $5) => {
+          let j6 = c3.theme("screens", $5);
+          return j6 ? (m5 |= 67108864, kt(j6, "")) : C6;
+        }), m5 |= X2(h3)), p6.push(...l2(b5, { n: a4, p: m5, r: [...u3, h3], i: f5 }, c3));
       } else
-        p6.push(...l2(b4, { p: s4, r: [...u3, h3] }, c3));
+        p6.push(...l2(b5, { p: s4, r: [...u3, h3] }, c3));
     }
-    return p6.unshift({ n: a4, p: s4, o: Math.max(0, 15 - g5) + 1.5 * Math.min(v2 || 15, 15), r: u3, d: d3 }), p6.sort(Mt);
+    return p6.unshift({ n: a4, p: s4, o: Math.max(0, 15 - g6) + 1.5 * Math.min(v3 || 15, 15), r: u3, d: d3 }), p6.sort(Mt);
   }(t4, at(e3, r, n3, i2), r);
 }
 function ft(t4, e3) {
@@ -6792,17 +7019,17 @@ function pt(t4, e3) {
 function B4(t4, e3, r = w3.u, n3, i2) {
   let l2 = [];
   for (let o3 of t4)
-    for (let a4 of function(s4, u3, f4, c3, p6) {
+    for (let a4 of function(s4, u3, f5, c3, p6) {
       var d3;
       s4 = { ...s4, i: s4.i || p6 };
-      let v2 = function(g5, y3) {
-        let A5 = ut.get(g5.n);
-        return A5 ? A5(g5, y3) : y3.r(g5.n, g5.v[0] == "dark");
+      let v3 = function(g6, y4) {
+        let A6 = ut.get(g6.n);
+        return A6 ? A6(g6, y4) : y4.r(g6.n, g6.v[0] == "dark");
       }(s4, u3);
-      return v2 ? typeof v2 == "string" ? ({ r: c3, p: f4 } = at(s4, u3, f4, c3), pt(B4(N3(v2), u3, f4, c3, s4.i), s4.n)) : Array.isArray(v2) ? v2.map((g5) => {
-        var y3, A5;
-        return { o: 0, ...g5, r: [...x2(c3), ...x2(g5.r)], p: (y3 = f4, A5 = (d3 = g5.p) != null ? d3 : f4, y3 & ~w3.o | A5) };
-      }) : ct(v2, s4, u3, f4, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
+      return v3 ? typeof v3 == "string" ? ({ r: c3, p: f5 } = at(s4, u3, f5, c3), pt(B4(N3(v3), u3, f5, c3, s4.i), s4.n)) : Array.isArray(v3) ? v3.map((g6) => {
+        var y4, A6;
+        return { o: 0, ...g6, r: [...x2(c3), ...x2(g6.r)], p: (y4 = f5, A6 = (d3 = g6.p) != null ? d3 : f5, y4 & ~w3.o | A6) };
+      }) : ct(v3, s4, u3, f5, c3) : [{ c: lt(s4), p: 0, o: 0, r: [] }];
     }(o3, e3, r, n3, i2))
       l2.splice(St(l2, a4), 0, a4);
   return l2;
@@ -6813,8 +7040,8 @@ function ht(t4, e3, r, n3, i2, l2, o3, a4) {
 function Ot(t4, e3, r, n3) {
   var i2;
   return i2 = (l2, o3) => {
-    let { n: a4, p: s4, r: u3, i: f4 } = at(l2, o3, e3);
-    return r && ht(a4, e3, r, o3, s4, u3, f4, n3);
+    let { n: a4, p: s4, r: u3, i: f5 } = at(l2, o3, e3);
+    return r && ht(a4, e3, r, o3, s4, u3, f5, n3);
   }, ut.set(t4, i2), t4;
 }
 function K2(t4, e3) {
@@ -6838,8 +7065,8 @@ var yt = /* @__PURE__ */ new Map();
 function N3(t4) {
   let e3 = yt.get(t4);
   if (!e3) {
-    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a4 = 0, s4 = (u3, f4 = 0) => {
-      i2 != a4 && (r.push(t4.slice(i2, a4 + f4)), u3 && K2(r, n3)), i2 = a4 + 1;
+    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a4 = 0, s4 = (u3, f5 = 0) => {
+      i2 != a4 && (r.push(t4.slice(i2, a4 + f5)), u3 && K2(r, n3)), i2 = a4 + 1;
     };
     for (; a4 < t4.length; a4++) {
       let u3 = t4[a4];
@@ -6857,20 +7084,20 @@ function N3(t4) {
         t4[a4 + 1] != ":" && s4(!1, 1);
       else if (/[\s,)]/.test(u3)) {
         s4(!0);
-        let f4 = r.lastIndexOf("(");
+        let f5 = r.lastIndexOf("(");
         if (u3 == ")") {
-          let c3 = r[f4 - 1];
+          let c3 = r[f5 - 1];
           if (/[~@]$/.test(c3)) {
             let p6 = n3.shift();
-            r.length = f4, K2([...r, "#"], n3);
+            r.length = f5, K2([...r, "#"], n3);
             let { v: d3 } = n3[0].pop();
-            for (let v2 of p6)
-              v2.v.splice(+(v2.v[0] == "dark") - +(d3[0] == "dark"), d3.length);
+            for (let v3 of p6)
+              v3.v.splice(+(v3.v[0] == "dark") - +(d3[0] == "dark"), d3.length);
             K2([...r, Ot(c3.length > 1 ? c3.slice(0, -1) + V3(JSON.stringify([c3, p6])) : c3 + "(" + st(p6) + ")", w3.a, p6, /@$/.test(c3))], n3);
           }
-          f4 = r.lastIndexOf("(", f4 - 1);
+          f5 = r.lastIndexOf("(", f5 - 1);
         }
-        r.length = f4 + 1;
+        r.length = f5 + 1;
       } else
         /[~@]/.test(u3) && t4[a4 + 1] == "(" && n3.unshift([]);
     }
@@ -6986,10 +7213,10 @@ var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad
 function ce3({ n: e3, i: t4, v: r = [] }, i2, n3, l2) {
   e3 && (e3 = ae3({ n: e3, i: t4, v: r })), l2 = [...b2(l2)];
   for (let s4 of r) {
-    let f4 = i2.theme("screens", s4);
-    for (let a4 of b2(f4 && Ce(f4) || i2.v(s4))) {
+    let f5 = i2.theme("screens", s4);
+    for (let a4 of b2(f5 && Ce(f5) || i2.v(s4))) {
       var o3;
-      l2.push(a4), n3 |= f4 ? 67108864 | re2(a4) : s4 == "dark" ? 1073741824 : a4[0] == "@" ? re2(a4) : (o3 = a4, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(a4), n3 |= f5 ? 67108864 | re2(a4) : s4 == "dark" ? 1073741824 : a4[0] == "@" ? re2(a4) : (o3 = a4, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: e3, p: n3, r: l2, i: t4 };
@@ -7000,8 +7227,8 @@ function ne2(e3) {
     let t4 = [], r = H4(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t4.push(n3), i2) : n3 ? H4(i2, (l2) => H4(n3, (o3) => {
       let s4 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
       if (s4) {
-        let f4 = l2.indexOf(s4[1]);
-        return ~f4 ? l2.slice(0, f4) + s4[0] + l2.slice(f4 + s4[1].length) : Q3(l2, o3);
+        let f5 = l2.indexOf(s4[1]);
+        return ~f5 ? l2.slice(0, f5) + s4[0] + l2.slice(f5 + s4[1].length) : Q3(l2, o3);
       }
       return Q3(o3, l2);
     })) : i2, "&"), (i2) => Q3(i2, e3.n ? "." + Y3(e3.n) : ""));
@@ -7048,25 +7275,25 @@ function P4(e3, t4 = {}) {
   return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
 }
 function de(e3, t4, r, i2, n3 = []) {
-  return function l2(o3, { n: s4, p: f4, r: a4 = [], i: c3 }, u3) {
-    let p6 = [], g5 = "", y3 = 0, $4 = 0;
+  return function l2(o3, { n: s4, p: f5, r: a4 = [], i: c3 }, u3) {
+    let p6 = [], g6 = "", y4 = 0, $5 = 0;
     for (let h3 in o3 || {}) {
-      var A5, R6;
+      var A6, R7;
       let d3 = o3[h3];
       if (h3[0] == "@") {
         if (!d3)
           continue;
         if (h3[1] == "a") {
-          p6.push(...ge(s4, f4, I2("" + d3), u3, f4, a4, c3, !0));
+          p6.push(...ge(s4, f5, I2("" + d3), u3, f5, a4, c3, !0));
           continue;
         }
         if (h3[1] == "l") {
-          for (let w4 of b2(d3))
-            p6.push(...l2(w4, { n: s4, p: (A5 = S3[h3[7]], f4 & ~S3.o | A5), r: h3[7] == "d" ? [] : a4, i: c3 }, u3));
+          for (let w5 of b2(d3))
+            p6.push(...l2(w5, { n: s4, p: (A6 = S3[h3[7]], f5 & ~S3.o | A6), r: h3[7] == "d" ? [] : a4, i: c3 }, u3));
           continue;
         }
         if (h3[1] == "i") {
-          p6.push(...b2(d3).map((w4) => ({ p: -1, o: 0, r: [], d: h3 + " " + w4 })));
+          p6.push(...b2(d3).map((w5) => ({ p: -1, o: 0, r: [], d: h3 + " " + w5 })));
           continue;
         }
         if (h3[1] == "k") {
@@ -7074,28 +7301,28 @@ function de(e3, t4, r, i2, n3 = []) {
           continue;
         }
         if (h3[1] == "f") {
-          p6.push(...b2(d3).map((w4) => ({ p: S3.d, o: 0, r: [h3], d: l2(w4, { p: S3.d }, u3).map(ne2).join("") })));
+          p6.push(...b2(d3).map((w5) => ({ p: S3.d, o: 0, r: [h3], d: l2(w5, { p: S3.d }, u3).map(ne2).join("") })));
           continue;
         }
       }
       if (typeof d3 != "object" || Array.isArray(d3))
-        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f4, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w4) => "-" + w4.toLowerCase()), $4 += 1, y3 = Math.max(y3, (R6 = h3)[0] == "-" ? 0 : Ee(R6) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R6) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g5 += (g5 ? ";" : "") + b2(d3).map((w4) => u3.s(h3, he("" + w4, u3.theme) + (c3 ? " !important" : ""))).join(";"));
+        h3 == "label" && d3 ? s4 = d3 + T3(JSON.stringify([f5, c3, o3])) : (d3 || d3 === 0) && (h3 = h3.replace(/[A-Z]/g, (w5) => "-" + w5.toLowerCase()), $5 += 1, y4 = Math.max(y4, (R7 = h3)[0] == "-" ? 0 : Ee(R7) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R7) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g6 += (g6 ? ";" : "") + b2(d3).map((w5) => u3.s(h3, he("" + w5, u3.theme) + (c3 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
-        let w4 = f4;
-        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j5, M5) => {
-          let N7 = u3.theme("screens", M5);
-          return N7 ? (w4 |= 67108864, Ce(N7, "")) : j5;
-        }), w4 |= re2(h3)), p6.push(...l2(d3, { n: s4, p: w4, r: [...a4, h3], i: c3 }, u3));
+        let w5 = f5;
+        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j6, M6) => {
+          let N8 = u3.theme("screens", M6);
+          return N8 ? (w5 |= 67108864, Ce(N8, "")) : j6;
+        }), w5 |= re2(h3)), p6.push(...l2(d3, { n: s4, p: w5, r: [...a4, h3], i: c3 }, u3));
       } else
-        p6.push(...l2(d3, { p: f4, r: [...a4, h3] }, u3));
+        p6.push(...l2(d3, { p: f5, r: [...a4, h3] }, u3));
     }
-    return p6.unshift({ n: s4, p: f4, o: Math.max(0, 15 - $4) + 1.5 * Math.min(y3 || 15, 15), r: a4, d: g5 }), p6.sort(Ne);
+    return p6.unshift({ n: s4, p: f5, o: Math.max(0, 15 - $5) + 1.5 * Math.min(y4 || 15, 15), r: a4, d: g6 }), p6.sort(Ne);
   }(e3, ce3(t4, r, i2, n3), r);
 }
 function he(e3, t4) {
   return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, i2, n3, l2, o3 = "") => {
     let s4 = t4(n3, o3);
-    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P4(s4) : "" + b2(s4).filter((f4) => Object(f4) !== f4);
+    return typeof s4 == "function" && /color|fill|stroke/i.test(n3) ? P4(s4) : "" + b2(s4).filter((f5) => Object(f5) !== f5);
   });
 }
 function ye(e3, t4) {
@@ -7107,28 +7334,28 @@ function ye(e3, t4) {
 function W4(e3, t4, r = S3.u, i2, n3) {
   let l2 = [];
   for (let o3 of e3)
-    for (let s4 of function(f4, a4, c3, u3, p6) {
-      f4 = { ...f4, i: f4.i || p6 };
-      let g5 = function(y3, $4) {
-        let A5 = pe.get(y3.n);
-        return A5 ? A5(y3, $4) : $4.r(y3.n, y3.v[0] == "dark");
-      }(f4, a4);
-      return g5 ? typeof g5 == "string" ? ({ r: u3, p: c3 } = ce3(f4, a4, c3, u3), ye(W4(I2(g5), a4, c3, u3, f4.i), f4.n)) : Array.isArray(g5) ? g5.map((y3) => {
-        var $4, A5;
-        return { o: 0, ...y3, r: [...b2(u3), ...b2(y3.r)], p: ($4 = c3, A5 = y3.p ?? c3, $4 & ~S3.o | A5) };
-      }) : de(g5, f4, a4, c3, u3) : [{ c: ae3(f4), p: 0, o: 0, r: [] }];
+    for (let s4 of function(f5, a4, c3, u3, p6) {
+      f5 = { ...f5, i: f5.i || p6 };
+      let g6 = function(y4, $5) {
+        let A6 = pe.get(y4.n);
+        return A6 ? A6(y4, $5) : $5.r(y4.n, y4.v[0] == "dark");
+      }(f5, a4);
+      return g6 ? typeof g6 == "string" ? ({ r: u3, p: c3 } = ce3(f5, a4, c3, u3), ye(W4(I2(g6), a4, c3, u3, f5.i), f5.n)) : Array.isArray(g6) ? g6.map((y4) => {
+        var $5, A6;
+        return { o: 0, ...y4, r: [...b2(u3), ...b2(y4.r)], p: ($5 = c3, A6 = y4.p ?? c3, $5 & ~S3.o | A6) };
+      }) : de(g6, f5, a4, c3, u3) : [{ c: ae3(f5), p: 0, o: 0, r: [] }];
     }(o3, t4, r, i2, n3))
       l2.splice(Me(l2, s4), 0, s4);
   return l2;
 }
 function ge(e3, t4, r, i2, n3, l2, o3, s4) {
-  return ye((s4 ? r.flatMap((f4) => W4([f4], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f4) => f4.p & S3.o && (f4.n || t4 == S3.b) ? { ...f4, p: f4.p & ~S3.o | t4, o: 0 } : f4), e3);
+  return ye((s4 ? r.flatMap((f5) => W4([f5], i2, n3, l2, o3)) : W4(r, i2, n3, l2, o3)).map((f5) => f5.p & S3.o && (f5.n || t4 == S3.b) ? { ...f5, p: f5.p & ~S3.o | t4, o: 0 } : f5), e3);
 }
 function _e2(e3, t4, r, i2) {
   var n3;
   return n3 = (l2, o3) => {
-    let { n: s4, p: f4, r: a4, i: c3 } = ce3(l2, o3, t4);
-    return r && ge(s4, t4, r, o3, f4, a4, c3, i2);
+    let { n: s4, p: f5, r: a4, i: c3 } = ce3(l2, o3, t4);
+    return r && ge(s4, t4, r, o3, f5, a4, c3, i2);
   }, pe.set(e3, n3), e3;
 }
 function K3(e3, t4, r) {
@@ -7152,7 +7379,7 @@ var Se = /* @__PURE__ */ new Map();
 function I2(e3) {
   let t4 = Se.get(e3);
   if (!t4) {
-    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f4 = (a4, c3 = 0) => {
+    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s4 = 0, f5 = (a4, c3 = 0) => {
       n3 != s4 && (r.push(e3.slice(n3, s4 + c3)), a4 && K3(r, i2)), n3 = s4 + 1;
     };
     for (; s4 < e3.length; s4++) {
@@ -7166,20 +7393,20 @@ function I2(e3) {
       else if (a4 == "/" && e3[s4 - 1] != "\\" && (e3[s4 + 1] == "*" || e3[s4 + 1] == "/"))
         o3 = e3[s4 + 1] == "*" ? /^\*\// : /^[\r\n]/;
       else if (a4 == "(")
-        f4(), r.push(a4);
+        f5(), r.push(a4);
       else if (a4 == ":")
-        e3[s4 + 1] != ":" && f4(!1, 1);
+        e3[s4 + 1] != ":" && f5(!1, 1);
       else if (/[\s,)]/.test(a4)) {
-        f4(!0);
+        f5(!0);
         let c3 = r.lastIndexOf("(");
         if (a4 == ")") {
           let u3 = r[c3 - 1];
           if (/[~@]$/.test(u3)) {
             let p6 = i2.shift();
             r.length = c3, K3([...r, "#"], i2);
-            let { v: g5 } = i2[0].pop();
-            for (let y3 of p6)
-              y3.v.splice(+(y3.v[0] == "dark") - +(g5[0] == "dark"), g5.length);
+            let { v: g6 } = i2[0].pop();
+            for (let y4 of p6)
+              y4.v.splice(+(y4.v[0] == "dark") - +(g6[0] == "dark"), g6.length);
             K3([...r, _e2(u3.length > 1 ? u3.slice(0, -1) + T3(JSON.stringify([u3, p6])) : u3 + "(" + ue2(p6) + ")", S3.a, p6, /@$/.test(u3))], i2);
           }
           c3 = r.lastIndexOf("(", c3 - 1);
@@ -7188,7 +7415,7 @@ function I2(e3) {
       } else
         /[~@]/.test(a4) && e3[s4 + 1] == "(" && i2.unshift([]);
     }
-    f4(!0), Se.set(e3, t4 = i2[0]);
+    f5(!0), Se.set(e3, t4 = i2[0]);
   }
   return t4;
 }
@@ -7283,17 +7510,17 @@ function Ye(e3 = {}, t4) {
     let s4 = i2.theme(n3, l2) || oe3(l2, n3, i2);
     if (!s4 || typeof s4 == "object")
       return;
-    let { opacityVariable: f4 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a4 = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p6 = i2.theme(a4, o3 || "DEFAULT") || o3 && oe3(o3, a4, i2), g5 = t4 || (({ _: $4 }) => {
-      let A5 = He(c3, $4);
-      return u3 ? { [u3]: A5 } : A5;
+    let { opacityVariable: f5 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a4 = n3.replace("Color", "Opacity"), property: c3 = n3, selector: u3 } = e3, p6 = i2.theme(a4, o3 || "DEFAULT") || o3 && oe3(o3, a4, i2), g6 = t4 || (({ _: $5 }) => {
+      let A6 = He(c3, $5);
+      return u3 ? { [u3]: A6 } : A6;
     });
-    r._ = { value: P4(s4, { opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }), color: ($4) => P4(s4, $4), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 };
-    let y3 = g5(r, i2);
+    r._ = { value: P4(s4, { opacityVariable: f5 || void 0, opacityValue: p6 || void 0 }), color: ($5) => P4(s4, $5), opacityVariable: f5 || void 0, opacityValue: p6 || void 0 };
+    let y4 = g6(r, i2);
     if (!r.dark) {
-      let $4 = i2.d(n3, l2, s4);
-      $4 && $4 !== s4 && (r._ = { value: P4($4, { opacityVariable: f4 || void 0, opacityValue: p6 || "1" }), color: (A5) => P4($4, A5), opacityVariable: f4 || void 0, opacityValue: p6 || void 0 }, y3 = { "&": y3, [i2.v("dark")]: g5(r, i2) });
+      let $5 = i2.d(n3, l2, s4);
+      $5 && $5 !== s4 && (r._ = { value: P4($5, { opacityVariable: f5 || void 0, opacityValue: p6 || "1" }), color: (A6) => P4($5, A6), opacityVariable: f5 || void 0, opacityValue: p6 || void 0 }, y4 = { "&": y4, [i2.v("dark")]: g6(r, i2) });
     }
-    return y3;
+    return y4;
   };
 }
 function Ze(e3) {
@@ -7367,16 +7594,16 @@ function n2(e3) {
   return ({ theme: r }) => r(e3);
 }
 var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a4) => ({ "@layer overrides": { "&": { [e3]: oe3(`[${r}]`, e3, a4) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
-  let { screens: a4 = r("screens"), center: i2, padding: l2 } = r("container"), d3 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
-  for (let w4 in a4) {
-    let b4 = a4[w4];
-    typeof b4 == "string" && (d3[Ce(b4)] = { "&": { maxWidth: b4, ...m4(w4) } });
+  let { screens: a4 = r("screens"), center: i2, padding: l2 } = r("container"), d3 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m5("xs") };
+  for (let w5 in a4) {
+    let b5 = a4[w5];
+    typeof b5 == "string" && (d3[Ce(b5)] = { "&": { maxWidth: b5, ...m5(w5) } });
   }
   return d3;
-  function m4(w4) {
-    let b4 = l2 && (typeof l2 == "string" ? l2 : l2[w4] || l2.DEFAULT);
-    if (b4)
-      return { paddingRight: b4, paddingLeft: b4 };
+  function m5(w5) {
+    let b5 = l2 && (typeof l2 == "string" ? l2 : l2[w5] || l2.DEFAULT);
+    if (b5)
+      return { paddingRight: b5, paddingLeft: b5 };
   }
 }), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W5), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W5), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a4 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a4 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
   let a4 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
@@ -7416,7 +7643,7 @@ function A3(e3 = "") {
   let r = ["blur", "brightness", "contrast", "grayscale", "hue-rotate", "invert", e3 && "opacity", "saturate", "sepia", !e3 && "drop-shadow"].filter(Boolean), a4 = {};
   for (let i2 of r)
     a4[`--tw-${e3}${i2}`] = "var(--tw-empty,/*!*/ /*!*/)";
-  return a4 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a4 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a4), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d3 }) => ({ [`--tw-${l2}`]: b2(d3).map((m4) => `${i2}(${m4})`).join(" "), ...a4 })))];
+  return a4 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a4 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a4), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d3 }) => ({ [`--tw-${l2}`]: b2(d3).map((m5) => `${i2}(${m5})`).join(" "), ...a4 })))];
 }
 function k2({ 1: e3, _: r }) {
   return { ["--tw-" + e3]: r, ...$2() };
@@ -7435,100 +7662,100 @@ function D6({ 1: e3 }) {
 }
 
 // https://esm.sh/v106/notie@4.3.1/deno/notie.js
-var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropertyDescriptor, Se2 = Object.getOwnPropertyNames, we2 = Object.getPrototypeOf, Oe = Object.prototype.hasOwnProperty, Ae2 = (y3, o3) => () => (o3 || y3((o3 = { exports: {} }).exports, o3), o3.exports), De = (y3, o3, v2, b4) => {
+var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropertyDescriptor, Se2 = Object.getOwnPropertyNames, we2 = Object.getPrototypeOf, Oe = Object.prototype.hasOwnProperty, Ae2 = (y4, o3) => () => (o3 || y4((o3 = { exports: {} }).exports, o3), o3.exports), De = (y4, o3, v3, b5) => {
   if (o3 && typeof o3 == "object" || typeof o3 == "function")
-    for (let m4 of Se2(o3))
-      !Oe.call(y3, m4) && m4 !== v2 && xe3(y3, m4, { get: () => o3[m4], enumerable: !(b4 = He2(o3, m4)) || b4.enumerable });
-  return y3;
-}, Ie = (y3, o3, v2) => (v2 = y3 != null ? Me2(we2(y3)) : {}, De(o3 || !y3 || !y3.__esModule ? xe3(v2, "default", { value: y3, enumerable: !0 }) : v2, y3)), ye2 = Ae2((ie4, pe2) => {
-  (function(y3, o3) {
-    typeof ie4 == "object" && typeof pe2 == "object" ? pe2.exports = o3() : typeof define == "function" && define.amd ? define([], o3) : typeof ie4 == "object" ? ie4.notie = o3() : y3.notie = o3();
+    for (let m5 of Se2(o3))
+      !Oe.call(y4, m5) && m5 !== v3 && xe3(y4, m5, { get: () => o3[m5], enumerable: !(b5 = He2(o3, m5)) || b5.enumerable });
+  return y4;
+}, Ie = (y4, o3, v3) => (v3 = y4 != null ? Me2(we2(y4)) : {}, De(o3 || !y4 || !y4.__esModule ? xe3(v3, "default", { value: y4, enumerable: !0 }) : v3, y4)), ye2 = Ae2((ie4, pe2) => {
+  (function(y4, o3) {
+    typeof ie4 == "object" && typeof pe2 == "object" ? pe2.exports = o3() : typeof define == "function" && define.amd ? define([], o3) : typeof ie4 == "object" ? ie4.notie = o3() : y4.notie = o3();
   })(ie4, function() {
-    return function(y3) {
-      function o3(b4) {
-        if (v2[b4])
-          return v2[b4].exports;
-        var m4 = v2[b4] = { i: b4, l: !1, exports: {} };
-        return y3[b4].call(m4.exports, m4, m4.exports, o3), m4.l = !0, m4.exports;
+    return function(y4) {
+      function o3(b5) {
+        if (v3[b5])
+          return v3[b5].exports;
+        var m5 = v3[b5] = { i: b5, l: !1, exports: {} };
+        return y4[b5].call(m5.exports, m5, m5.exports, o3), m5.l = !0, m5.exports;
       }
-      var v2 = {};
-      return o3.m = y3, o3.c = v2, o3.i = function(b4) {
-        return b4;
-      }, o3.d = function(b4, m4, ce4) {
-        o3.o(b4, m4) || Object.defineProperty(b4, m4, { configurable: !1, enumerable: !0, get: ce4 });
-      }, o3.n = function(b4) {
-        var m4 = b4 && b4.__esModule ? function() {
-          return b4.default;
+      var v3 = {};
+      return o3.m = y4, o3.c = v3, o3.i = function(b5) {
+        return b5;
+      }, o3.d = function(b5, m5, ce4) {
+        o3.o(b5, m5) || Object.defineProperty(b5, m5, { configurable: !1, enumerable: !0, get: ce4 });
+      }, o3.n = function(b5) {
+        var m5 = b5 && b5.__esModule ? function() {
+          return b5.default;
         } : function() {
-          return b4;
+          return b5;
         };
-        return o3.d(m4, "a", m4), m4;
-      }, o3.o = function(b4, m4) {
-        return Object.prototype.hasOwnProperty.call(b4, m4);
+        return o3.d(m5, "a", m5), m5;
+      }, o3.o = function(b5, m5) {
+        return Object.prototype.hasOwnProperty.call(b5, m5);
       }, o3.p = "", o3(o3.s = 1);
-    }([function(y3, o3) {
-      y3.exports = function(v2) {
-        return v2.webpackPolyfill || (v2.deprecate = function() {
-        }, v2.paths = [], v2.children || (v2.children = []), Object.defineProperty(v2, "loaded", { enumerable: !0, get: function() {
-          return v2.l;
-        } }), Object.defineProperty(v2, "id", { enumerable: !0, get: function() {
-          return v2.i;
-        } }), v2.webpackPolyfill = 1), v2;
+    }([function(y4, o3) {
+      y4.exports = function(v3) {
+        return v3.webpackPolyfill || (v3.deprecate = function() {
+        }, v3.paths = [], v3.children || (v3.children = []), Object.defineProperty(v3, "loaded", { enumerable: !0, get: function() {
+          return v3.l;
+        } }), Object.defineProperty(v3, "id", { enumerable: !0, get: function() {
+          return v3.i;
+        } }), v3.webpackPolyfill = 1), v3;
       };
-    }, function(y3, o3, v2) {
+    }, function(y4, o3, v3) {
       "use strict";
-      (function(b4) {
-        var m4, ce4, re4, V6 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A5) {
-          return typeof A5;
-        } : function(A5) {
-          return A5 && typeof Symbol == "function" && A5.constructor === Symbol && A5 !== Symbol.prototype ? "symbol" : typeof A5;
+      (function(b5) {
+        var m5, ce4, re4, V7 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A6) {
+          return typeof A6;
+        } : function(A6) {
+          return A6 && typeof Symbol == "function" && A6.constructor === Symbol && A6 !== Symbol.prototype ? "symbol" : typeof A6;
         };
-        (function(A5, u3) {
-          V6(o3) === "object" && V6(b4) === "object" ? b4.exports = u3() : (ce4 = [], m4 = u3, re4 = typeof m4 == "function" ? m4.apply(o3, ce4) : m4, re4 !== void 0 && (b4.exports = re4));
+        (function(A6, u3) {
+          V7(o3) === "object" && V7(b5) === "object" ? b5.exports = u3() : (ce4 = [], m5 = u3, re4 = typeof m5 == "function" ? m5.apply(o3, ce4) : m5, re4 !== void 0 && (b5.exports = re4));
         })(void 0, function() {
-          return function(A5) {
-            function u3(g5) {
-              if (X6[g5])
-                return X6[g5].exports;
-              var T6 = X6[g5] = { i: g5, l: !1, exports: {} };
-              return A5[g5].call(T6.exports, T6, T6.exports, u3), T6.l = !0, T6.exports;
+          return function(A6) {
+            function u3(g6) {
+              if (X7[g6])
+                return X7[g6].exports;
+              var T7 = X7[g6] = { i: g6, l: !1, exports: {} };
+              return A6[g6].call(T7.exports, T7, T7.exports, u3), T7.l = !0, T7.exports;
             }
-            var X6 = {};
-            return u3.m = A5, u3.c = X6, u3.i = function(g5) {
-              return g5;
-            }, u3.d = function(g5, T6, B8) {
-              u3.o(g5, T6) || Object.defineProperty(g5, T6, { configurable: !1, enumerable: !0, get: B8 });
-            }, u3.n = function(g5) {
-              var T6 = g5 && g5.__esModule ? function() {
-                return g5.default;
+            var X7 = {};
+            return u3.m = A6, u3.c = X7, u3.i = function(g6) {
+              return g6;
+            }, u3.d = function(g6, T7, B9) {
+              u3.o(g6, T7) || Object.defineProperty(g6, T7, { configurable: !1, enumerable: !0, get: B9 });
+            }, u3.n = function(g6) {
+              var T7 = g6 && g6.__esModule ? function() {
+                return g6.default;
               } : function() {
-                return g5;
+                return g6;
               };
-              return u3.d(T6, "a", T6), T6;
-            }, u3.o = function(g5, T6) {
-              return Object.prototype.hasOwnProperty.call(g5, T6);
+              return u3.d(T7, "a", T7), T7;
+            }, u3.o = function(g6, T7) {
+              return Object.prototype.hasOwnProperty.call(g6, T7);
             }, u3.p = "", u3(u3.s = 0);
-          }([function(A5, u3, X6) {
-            function g5(t4, c3) {
+          }([function(A6, u3, X7) {
+            function g6(t4, c3) {
               var s4 = {};
               for (var d3 in t4)
                 c3.indexOf(d3) >= 0 || Object.prototype.hasOwnProperty.call(t4, d3) && (s4[d3] = t4[d3]);
               return s4;
             }
             Object.defineProperty(u3, "__esModule", { value: !0 });
-            var T6 = typeof Symbol == "function" && V6(Symbol.iterator) === "symbol" ? function(t4) {
-              return typeof t4 > "u" ? "undefined" : V6(t4);
+            var T7 = typeof Symbol == "function" && V7(Symbol.iterator) === "symbol" ? function(t4) {
+              return typeof t4 > "u" ? "undefined" : V7(t4);
             } : function(t4) {
-              return t4 && typeof Symbol == "function" && t4.constructor === Symbol && t4 !== Symbol.prototype ? "symbol" : typeof t4 > "u" ? "undefined" : V6(t4);
-            }, B8 = Object.assign || function(t4) {
+              return t4 && typeof Symbol == "function" && t4.constructor === Symbol && t4 !== Symbol.prototype ? "symbol" : typeof t4 > "u" ? "undefined" : V7(t4);
+            }, B9 = Object.assign || function(t4) {
               for (var c3 = 1; c3 < arguments.length; c3++) {
                 var s4 = arguments[c3];
                 for (var d3 in s4)
                   Object.prototype.hasOwnProperty.call(s4, d3) && (t4[d3] = s4[d3]);
               }
               return t4;
-            }, J4 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: J4.top, force: J4.top, confirm: J4.top, input: J4.top, select: J4.bottom, date: J4.top } }, ge2 = u3.setOptions = function(t4) {
-              e3 = B8({}, e3, t4, { classes: B8({}, e3.classes, t4.classes), ids: B8({}, e3.ids, t4.ids), positions: B8({}, e3.positions, t4.positions) });
+            }, J5 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: J5.top, force: J5.top, confirm: J5.top, input: J5.top, select: J5.bottom, date: J5.top } }, ge2 = u3.setOptions = function(t4) {
+              e3 = B9({}, e3, t4, { classes: B9({}, e3.classes, t4.classes), ids: B9({}, e3.ids, t4.ids), positions: B9({}, e3.positions, t4.positions) });
             }, fe = function() {
               return new Promise(function(t4) {
                 return setTimeout(t4, 0);
@@ -7537,9 +7764,9 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               return new Promise(function(c3) {
                 return setTimeout(c3, 1e3 * t4);
               });
-            }, R6 = function() {
+            }, R7 = function() {
               document.activeElement && document.activeElement.blur();
-            }, W7 = function() {
+            }, W8 = function() {
               var t4 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c3) {
                 var s4 = 16 * Math.random() | 0, d3 = c3 === "x" ? s4 : 3 & s4 | 8;
                 return d3.toString(16);
@@ -7547,11 +7774,11 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
               return "notie-" + t4;
             }, le4 = { 1: e3.classes.backgroundSuccess, success: e3.classes.backgroundSuccess, 2: e3.classes.backgroundWarning, warning: e3.classes.backgroundWarning, 3: e3.classes.backgroundError, error: e3.classes.backgroundError, 4: e3.classes.backgroundInfo, info: e3.classes.backgroundInfo, 5: e3.classes.backgroundNeutral, neutral: e3.classes.backgroundNeutral }, me2 = function() {
               return e3.transitionSelector + " " + e3.transitionDuration + "s " + e3.transitionCurve;
-            }, $4 = function(t4) {
+            }, $5 = function(t4) {
               return t4.keyCode === 13;
             }, ee4 = function(t4) {
               return t4.keyCode === 27;
-            }, K6 = function(t4, c3) {
+            }, K7 = function(t4, c3) {
               t4.classList.add(e3.classes.container), t4.style[c3] = "-10000px", document.body.appendChild(t4), t4.style[c3] = "-" + t4.offsetHeight + "px", t4.listener && window.addEventListener("keydown", t4.listener), fe().then(function() {
                 t4.style.transition = me2(), t4.style[c3] = 0;
               });
@@ -7563,16 +7790,16 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
             }, te2 = function(t4, c3) {
               var s4 = document.createElement("div");
               s4.id = e3.ids.overlay, s4.classList.add(e3.classes.overlay), s4.classList.add(e3.classes.backgroundOverlay), s4.style.opacity = 0, t4 && e3.overlayClickDismiss && (s4.onclick = function() {
-                O4(t4.id, c3), j5();
+                O4(t4.id, c3), j6();
               }), document.body.appendChild(s4), fe().then(function() {
                 s4.style.transition = me2(), s4.style.opacity = e3.overlayOpacity;
               });
-            }, j5 = function() {
+            }, j6 = function() {
               var t4 = document.getElementById(e3.ids.overlay);
               t4.style.opacity = 0, oe5(e3.transitionDuration).then(function() {
                 t4.parentNode && t4.parentNode.removeChild(t4);
               });
-            }, F8 = u3.hideAlerts = function(t4) {
+            }, F9 = u3.hideAlerts = function(t4) {
               var c3 = document.getElementsByClassName(e3.classes.alert);
               if (c3.length) {
                 for (var s4 = 0; s4 < c3.length; s4++) {
@@ -7584,162 +7811,162 @@ var Me2 = Object.create, xe3 = Object.defineProperty, He2 = Object.getOwnPropert
                 });
               }
             }, he2 = u3.alert = function(t4) {
-              var c3 = t4.type, s4 = c3 === void 0 ? 4 : c3, d3 = t4.text, i2 = t4.time, k4 = i2 === void 0 ? e3.alertTime : i2, H7 = t4.stay, S7 = H7 !== void 0 && H7, h3 = t4.position, p6 = h3 === void 0 ? e3.positions.alert || p6.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f4 = W7();
-              l2.id = f4, l2.position = p6, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
-                return O4(f4, p6);
+              var c3 = t4.type, s4 = c3 === void 0 ? 4 : c3, d3 = t4.text, i2 = t4.time, k5 = i2 === void 0 ? e3.alertTime : i2, H8 = t4.stay, S8 = H8 !== void 0 && H8, h3 = t4.position, p6 = h3 === void 0 ? e3.positions.alert || p6.top : h3;
+              R7(), F9();
+              var l2 = document.createElement("div"), f5 = W8();
+              l2.id = f5, l2.position = p6, l2.classList.add(e3.classes.textbox), l2.classList.add(le4[s4]), l2.classList.add(e3.classes.alert), l2.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>", l2.onclick = function() {
+                return O4(f5, p6);
               }, l2.listener = function(n3) {
-                ($4(n3) || ee4(n3)) && F8();
-              }, K6(l2, p6), k4 && k4 < 1 && (k4 = 1), !S7 && k4 && oe5(k4).then(function() {
-                return O4(f4, p6);
+                ($5(n3) || ee4(n3)) && F9();
+              }, K7(l2, p6), k5 && k5 < 1 && (k5 = 1), !S8 && k5 && oe5(k5).then(function() {
+                return O4(f5, p6);
               });
             }, ke2 = u3.force = function(t4, c3) {
-              var s4 = t4.type, d3 = s4 === void 0 ? 5 : s4, i2 = t4.text, k4 = t4.buttonText, H7 = k4 === void 0 ? "OK" : k4, S7 = t4.callback, h3 = t4.position, p6 = h3 === void 0 ? e3.positions.force || p6.top : h3;
-              R6(), F8();
-              var l2 = document.createElement("div"), f4 = W7();
-              l2.id = f4;
+              var s4 = t4.type, d3 = s4 === void 0 ? 5 : s4, i2 = t4.text, k5 = t4.buttonText, H8 = k5 === void 0 ? "OK" : k5, S8 = t4.callback, h3 = t4.position, p6 = h3 === void 0 ? e3.positions.force || p6.top : h3;
+              R7(), F9();
+              var l2 = document.createElement("div"), f5 = W8();
+              l2.id = f5;
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.textbox), n3.classList.add(e3.classes.backgroundInfo), n3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + i2 + "</div>";
               var r = document.createElement("div");
-              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H7, r.onclick = function() {
-                O4(f4, p6), j5(), S7 ? S7() : c3 && c3();
-              }, l2.appendChild(n3), l2.appendChild(r), l2.listener = function(C5) {
-                $4(C5) && r.click();
-              }, K6(l2, p6), te2();
+              r.classList.add(e3.classes.button), r.classList.add(le4[d3]), r.innerHTML = H8, r.onclick = function() {
+                O4(f5, p6), j6(), S8 ? S8() : c3 && c3();
+              }, l2.appendChild(n3), l2.appendChild(r), l2.listener = function(C6) {
+                $5(C6) && r.click();
+              }, K7(l2, p6), te2();
             }, Ce3 = u3.confirm = function(t4, c3, s4) {
-              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Yes" : i2, H7 = t4.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t4.submitCallback, p6 = t4.cancelCallback, l2 = t4.position, f4 = l2 === void 0 ? e3.positions.confirm || f4.top : l2;
-              R6(), F8();
-              var n3 = document.createElement("div"), r = W7();
+              var d3 = t4.text, i2 = t4.submitText, k5 = i2 === void 0 ? "Yes" : i2, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, p6 = t4.cancelCallback, l2 = t4.position, f5 = l2 === void 0 ? e3.positions.confirm || f5.top : l2;
+              R7(), F9();
+              var n3 = document.createElement("div"), r = W8();
               n3.id = r;
-              var C5 = document.createElement("div");
-              C5.classList.add(e3.classes.textbox), C5.classList.add(e3.classes.backgroundInfo), C5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
-              var x5 = document.createElement("div");
-              x5.classList.add(e3.classes.button), x5.classList.add(e3.classes.elementHalf), x5.classList.add(e3.classes.backgroundSuccess), x5.innerHTML = k4, x5.onclick = function() {
-                O4(r, f4), j5(), h3 ? h3() : c3 && c3();
+              var C6 = document.createElement("div");
+              C6.classList.add(e3.classes.textbox), C6.classList.add(e3.classes.backgroundInfo), C6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
+              var x6 = document.createElement("div");
+              x6.classList.add(e3.classes.button), x6.classList.add(e3.classes.elementHalf), x6.classList.add(e3.classes.backgroundSuccess), x6.innerHTML = k5, x6.onclick = function() {
+                O4(r, f5), j6(), h3 ? h3() : c3 && c3();
               };
               var a4 = document.createElement("div");
-              a4.classList.add(e3.classes.button), a4.classList.add(e3.classes.elementHalf), a4.classList.add(e3.classes.backgroundError), a4.innerHTML = S7, a4.onclick = function() {
-                O4(r, f4), j5(), p6 ? p6() : s4 && s4();
-              }, n3.appendChild(C5), n3.appendChild(x5), n3.appendChild(a4), n3.listener = function(E3) {
-                $4(E3) ? x5.click() : ee4(E3) && a4.click();
-              }, K6(n3, f4), te2(n3, f4);
+              a4.classList.add(e3.classes.button), a4.classList.add(e3.classes.elementHalf), a4.classList.add(e3.classes.backgroundError), a4.innerHTML = S8, a4.onclick = function() {
+                O4(r, f5), j6(), p6 ? p6() : s4 && s4();
+              }, n3.appendChild(C6), n3.appendChild(x6), n3.appendChild(a4), n3.listener = function(E4) {
+                $5(E4) ? x6.click() : ee4(E4) && a4.click();
+              }, K7(n3, f5), te2(n3, f5);
             }, ve2 = function(t4, c3, s4) {
-              var d3 = t4.text, i2 = t4.submitText, k4 = i2 === void 0 ? "Submit" : i2, H7 = t4.cancelText, S7 = H7 === void 0 ? "Cancel" : H7, h3 = t4.submitCallback, p6 = t4.cancelCallback, l2 = t4.position, f4 = l2 === void 0 ? e3.positions.input || f4.top : l2, n3 = g5(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
-              R6(), F8();
-              var r = document.createElement("div"), C5 = W7();
-              r.id = C5;
-              var x5 = document.createElement("div");
-              x5.classList.add(e3.classes.textbox), x5.classList.add(e3.classes.backgroundInfo), x5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
+              var d3 = t4.text, i2 = t4.submitText, k5 = i2 === void 0 ? "Submit" : i2, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, p6 = t4.cancelCallback, l2 = t4.position, f5 = l2 === void 0 ? e3.positions.input || f5.top : l2, n3 = g6(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+              R7(), F9();
+              var r = document.createElement("div"), C6 = W8();
+              r.id = C6;
+              var x6 = document.createElement("div");
+              x6.classList.add(e3.classes.textbox), x6.classList.add(e3.classes.backgroundInfo), x6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + d3 + "</div>";
               var a4 = document.createElement("input");
               a4.classList.add(e3.classes.inputField), a4.setAttribute("autocapitalize", n3.autocapitalize || "none"), a4.setAttribute("autocomplete", n3.autocomplete || "off"), a4.setAttribute("autocorrect", n3.autocorrect || "off"), a4.setAttribute("autofocus", n3.autofocus || "true"), a4.setAttribute("inputmode", n3.inputmode || "verbatim"), a4.setAttribute("max", n3.max || ""), a4.setAttribute("maxlength", n3.maxlength || ""), a4.setAttribute("min", n3.min || ""), a4.setAttribute("minlength", n3.minlength || ""), a4.setAttribute("placeholder", n3.placeholder || ""), a4.setAttribute("spellcheck", n3.spellcheck || "default"), a4.setAttribute("step", n3.step || "any"), a4.setAttribute("type", n3.type || "text"), a4.value = n3.value || "", n3.allowed && (a4.oninput = function() {
-                var M5 = void 0;
+                var M6 = void 0;
                 if (Array.isArray(n3.allowed)) {
-                  for (var w4 = "", _2 = n3.allowed, P7 = 0; P7 < _2.length; P7++)
-                    _2[P7] === "an" ? w4 += "0-9a-zA-Z" : _2[P7] === "a" ? w4 += "a-zA-Z" : _2[P7] === "n" && (w4 += "0-9"), _2[P7] === "s" && (w4 += " ");
-                  M5 = new RegExp("[^" + w4 + "]", "g");
+                  for (var w5 = "", _3 = n3.allowed, P8 = 0; P8 < _3.length; P8++)
+                    _3[P8] === "an" ? w5 += "0-9a-zA-Z" : _3[P8] === "a" ? w5 += "a-zA-Z" : _3[P8] === "n" && (w5 += "0-9"), _3[P8] === "s" && (w5 += " ");
+                  M6 = new RegExp("[^" + w5 + "]", "g");
                 } else
-                  T6(n3.allowed) === "object" && (M5 = n3.allowed);
-                a4.value = a4.value.replace(M5, "");
+                  T7(n3.allowed) === "object" && (M6 = n3.allowed);
+                a4.value = a4.value.replace(M6, "");
               });
-              var E3 = document.createElement("div");
-              E3.classList.add(e3.classes.button), E3.classList.add(e3.classes.elementHalf), E3.classList.add(e3.classes.backgroundSuccess), E3.innerHTML = k4, E3.onclick = function() {
-                O4(C5, f4), j5(), h3 ? h3(a4.value) : c3 && c3(a4.value);
+              var E4 = document.createElement("div");
+              E4.classList.add(e3.classes.button), E4.classList.add(e3.classes.elementHalf), E4.classList.add(e3.classes.backgroundSuccess), E4.innerHTML = k5, E4.onclick = function() {
+                O4(C6, f5), j6(), h3 ? h3(a4.value) : c3 && c3(a4.value);
               };
-              var D9 = document.createElement("div");
-              D9.classList.add(e3.classes.button), D9.classList.add(e3.classes.elementHalf), D9.classList.add(e3.classes.backgroundError), D9.innerHTML = S7, D9.onclick = function() {
-                O4(C5, f4), j5(), p6 ? p6(a4.value) : s4 && s4(a4.value);
-              }, r.appendChild(x5), r.appendChild(a4), r.appendChild(E3), r.appendChild(D9), r.listener = function(M5) {
-                $4(M5) ? E3.click() : ee4(M5) && D9.click();
-              }, K6(r, f4), a4.focus(), te2(r, f4);
+              var D10 = document.createElement("div");
+              D10.classList.add(e3.classes.button), D10.classList.add(e3.classes.elementHalf), D10.classList.add(e3.classes.backgroundError), D10.innerHTML = S8, D10.onclick = function() {
+                O4(C6, f5), j6(), p6 ? p6(a4.value) : s4 && s4(a4.value);
+              }, r.appendChild(x6), r.appendChild(a4), r.appendChild(E4), r.appendChild(D10), r.listener = function(M6) {
+                $5(M6) ? E4.click() : ee4(M6) && D10.click();
+              }, K7(r, f5), a4.focus(), te2(r, f5);
             };
             u3.input = ve2;
             var Ee2 = u3.select = function(t4, c3) {
-              var s4 = t4.text, d3 = t4.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k4 = t4.cancelCallback, H7 = t4.choices, S7 = t4.position, h3 = S7 === void 0 ? e3.positions.select || h3.top : S7;
-              R6(), F8();
-              var p6 = document.createElement("div"), l2 = W7();
+              var s4 = t4.text, d3 = t4.cancelText, i2 = d3 === void 0 ? "Cancel" : d3, k5 = t4.cancelCallback, H8 = t4.choices, S8 = t4.position, h3 = S8 === void 0 ? e3.positions.select || h3.top : S8;
+              R7(), F9();
+              var p6 = document.createElement("div"), l2 = W8();
               p6.id = l2;
-              var f4 = document.createElement("div");
-              f4.classList.add(e3.classes.textbox), f4.classList.add(e3.classes.backgroundInfo), f4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p6.appendChild(f4), H7.forEach(function(r, C5) {
-                var x5 = r.type, a4 = x5 === void 0 ? 1 : x5, E3 = r.text, D9 = r.handler, M5 = document.createElement("div");
-                M5.classList.add(le4[a4]), M5.classList.add(e3.classes.button), M5.classList.add(e3.classes.selectChoice);
-                var w4 = H7[C5 + 1];
-                w4 && !w4.type && (w4.type = 1), w4 && w4.type === a4 && M5.classList.add(e3.classes.selectChoiceRepeated), M5.innerHTML = E3, M5.onclick = function() {
-                  O4(l2, h3), j5(), D9();
-                }, p6.appendChild(M5);
+              var f5 = document.createElement("div");
+              f5.classList.add(e3.classes.textbox), f5.classList.add(e3.classes.backgroundInfo), f5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s4 + "</div>", p6.appendChild(f5), H8.forEach(function(r, C6) {
+                var x6 = r.type, a4 = x6 === void 0 ? 1 : x6, E4 = r.text, D10 = r.handler, M6 = document.createElement("div");
+                M6.classList.add(le4[a4]), M6.classList.add(e3.classes.button), M6.classList.add(e3.classes.selectChoice);
+                var w5 = H8[C6 + 1];
+                w5 && !w5.type && (w5.type = 1), w5 && w5.type === a4 && M6.classList.add(e3.classes.selectChoiceRepeated), M6.innerHTML = E4, M6.onclick = function() {
+                  O4(l2, h3), j6(), D10();
+                }, p6.appendChild(M6);
               });
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.backgroundNeutral), n3.classList.add(e3.classes.button), n3.innerHTML = i2, n3.onclick = function() {
-                O4(l2, h3), j5(), k4 ? k4() : c3 && c3();
+                O4(l2, h3), j6(), k5 ? k5() : c3 && c3();
               }, p6.appendChild(n3), p6.listener = function(r) {
                 ee4(r) && n3.click();
-              }, K6(p6, h3), te2(p6, h3);
+              }, K7(p6, h3), te2(p6, h3);
             }, Te = u3.date = function(t4, c3, s4) {
-              var d3 = t4.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k4 = t4.submitText, H7 = k4 === void 0 ? "OK" : k4, S7 = t4.cancelText, h3 = S7 === void 0 ? "Cancel" : S7, p6 = t4.submitCallback, l2 = t4.cancelCallback, f4 = t4.position, n3 = f4 === void 0 ? e3.positions.date || n3.top : f4;
-              R6(), F8();
-              var r = "&#9662", C5 = document.createElement("div"), x5 = document.createElement("div"), a4 = document.createElement("div"), E3 = function(L6) {
-                C5.innerHTML = e3.dateMonths[L6.getMonth()], x5.innerHTML = L6.getDate(), a4.innerHTML = L6.getFullYear();
-              }, D9 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
-                Number(Q6) > N7 && (Q6 = N7.toString()), L6.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
-              }, M5 = function(L6) {
-                var N7 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
-                L6.target.textContent = N7, i2.setFullYear(Number(N7));
-              }, w4 = function(L6) {
-                E3(i2);
-              }, _2 = function(L6) {
-                var N7 = new Date(i2.getFullYear(), i2.getMonth() + L6 + 1, 0).getDate();
-                i2.getDate() > N7 && i2.setDate(N7), i2.setMonth(i2.getMonth() + L6), E3(i2);
-              }, P7 = function(L6) {
-                i2.setDate(i2.getDate() + L6), E3(i2);
-              }, be = function(L6) {
-                var N7 = i2.getFullYear() + L6;
-                N7 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L6), E3(i2);
-              }, Y6 = document.createElement("div"), de2 = W7();
+              var d3 = t4.value, i2 = d3 === void 0 ? /* @__PURE__ */ new Date() : d3, k5 = t4.submitText, H8 = k5 === void 0 ? "OK" : k5, S8 = t4.cancelText, h3 = S8 === void 0 ? "Cancel" : S8, p6 = t4.submitCallback, l2 = t4.cancelCallback, f5 = t4.position, n3 = f5 === void 0 ? e3.positions.date || n3.top : f5;
+              R7(), F9();
+              var r = "&#9662", C6 = document.createElement("div"), x6 = document.createElement("div"), a4 = document.createElement("div"), E4 = function(L7) {
+                C6.innerHTML = e3.dateMonths[L7.getMonth()], x6.innerHTML = L7.getDate(), a4.innerHTML = L7.getFullYear();
+              }, D10 = function(L7) {
+                var N8 = new Date(i2.getFullYear(), i2.getMonth() + 1, 0).getDate(), Q6 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
+                Number(Q6) > N8 && (Q6 = N8.toString()), L7.target.textContent = Q6, Number(Q6) < 1 && (Q6 = "1"), i2.setDate(Number(Q6));
+              }, M6 = function(L7) {
+                var N8 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
+                L7.target.textContent = N8, i2.setFullYear(Number(N8));
+              }, w5 = function(L7) {
+                E4(i2);
+              }, _3 = function(L7) {
+                var N8 = new Date(i2.getFullYear(), i2.getMonth() + L7 + 1, 0).getDate();
+                i2.getDate() > N8 && i2.setDate(N8), i2.setMonth(i2.getMonth() + L7), E4(i2);
+              }, P8 = function(L7) {
+                i2.setDate(i2.getDate() + L7), E4(i2);
+              }, be = function(L7) {
+                var N8 = i2.getFullYear() + L7;
+                N8 < 0 ? i2.setFullYear(0) : i2.setFullYear(i2.getFullYear() + L7), E4(i2);
+              }, Y6 = document.createElement("div"), de2 = W8();
               Y6.id = de2;
               var ue3 = document.createElement("div");
               ue3.classList.add(e3.classes.backgroundInfo);
-              var I5 = document.createElement("div");
-              I5.classList.add(e3.classes.dateSelectorInner);
-              var Z5 = document.createElement("div");
-              Z5.classList.add(e3.classes.button), Z5.classList.add(e3.classes.elementThird), Z5.classList.add(e3.classes.dateSelectorUp), Z5.innerHTML = r;
-              var q6 = document.createElement("div");
-              q6.classList.add(e3.classes.button), q6.classList.add(e3.classes.elementThird), q6.classList.add(e3.classes.dateSelectorUp), q6.innerHTML = r;
-              var G7 = document.createElement("div");
-              G7.classList.add(e3.classes.button), G7.classList.add(e3.classes.elementThird), G7.classList.add(e3.classes.dateSelectorUp), G7.innerHTML = r, C5.classList.add(e3.classes.element), C5.classList.add(e3.classes.elementThird), C5.innerHTML = e3.dateMonths[i2.getMonth()], x5.classList.add(e3.classes.element), x5.classList.add(e3.classes.elementThird), x5.setAttribute("contentEditable", !0), x5.addEventListener("input", D9), x5.addEventListener("blur", w4), x5.innerHTML = i2.getDate(), a4.classList.add(e3.classes.element), a4.classList.add(e3.classes.elementThird), a4.setAttribute("contentEditable", !0), a4.addEventListener("input", M5), a4.addEventListener("blur", w4), a4.innerHTML = i2.getFullYear();
+              var I6 = document.createElement("div");
+              I6.classList.add(e3.classes.dateSelectorInner);
+              var Z6 = document.createElement("div");
+              Z6.classList.add(e3.classes.button), Z6.classList.add(e3.classes.elementThird), Z6.classList.add(e3.classes.dateSelectorUp), Z6.innerHTML = r;
+              var q7 = document.createElement("div");
+              q7.classList.add(e3.classes.button), q7.classList.add(e3.classes.elementThird), q7.classList.add(e3.classes.dateSelectorUp), q7.innerHTML = r;
+              var G8 = document.createElement("div");
+              G8.classList.add(e3.classes.button), G8.classList.add(e3.classes.elementThird), G8.classList.add(e3.classes.dateSelectorUp), G8.innerHTML = r, C6.classList.add(e3.classes.element), C6.classList.add(e3.classes.elementThird), C6.innerHTML = e3.dateMonths[i2.getMonth()], x6.classList.add(e3.classes.element), x6.classList.add(e3.classes.elementThird), x6.setAttribute("contentEditable", !0), x6.addEventListener("input", D10), x6.addEventListener("blur", w5), x6.innerHTML = i2.getDate(), a4.classList.add(e3.classes.element), a4.classList.add(e3.classes.elementThird), a4.setAttribute("contentEditable", !0), a4.addEventListener("input", M6), a4.addEventListener("blur", w5), a4.innerHTML = i2.getFullYear();
               var ne4 = document.createElement("div");
               ne4.classList.add(e3.classes.button), ne4.classList.add(e3.classes.elementThird), ne4.innerHTML = r;
               var se3 = document.createElement("div");
               se3.classList.add(e3.classes.button), se3.classList.add(e3.classes.elementThird), se3.innerHTML = r;
               var ae5 = document.createElement("div");
-              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z5.onclick = function() {
-                return _2(1);
-              }, q6.onclick = function() {
-                return P7(1);
-              }, G7.onclick = function() {
+              ae5.classList.add(e3.classes.button), ae5.classList.add(e3.classes.elementThird), ae5.innerHTML = r, Z6.onclick = function() {
+                return _3(1);
+              }, q7.onclick = function() {
+                return P8(1);
+              }, G8.onclick = function() {
                 return be(1);
               }, ne4.onclick = function() {
-                return _2(-1);
+                return _3(-1);
               }, se3.onclick = function() {
-                return P7(-1);
+                return P8(-1);
               }, ae5.onclick = function() {
                 return be(-1);
               };
-              var z4 = document.createElement("div");
-              z4.classList.add(e3.classes.button), z4.classList.add(e3.classes.elementHalf), z4.classList.add(e3.classes.backgroundSuccess), z4.innerHTML = H7, z4.onclick = function() {
-                O4(de2, n3), j5(), p6 ? p6(i2) : c3 && c3(i2);
+              var z5 = document.createElement("div");
+              z5.classList.add(e3.classes.button), z5.classList.add(e3.classes.elementHalf), z5.classList.add(e3.classes.backgroundSuccess), z5.innerHTML = H8, z5.onclick = function() {
+                O4(de2, n3), j6(), p6 ? p6(i2) : c3 && c3(i2);
               };
-              var U5 = document.createElement("div");
-              U5.classList.add(e3.classes.button), U5.classList.add(e3.classes.elementHalf), U5.classList.add(e3.classes.backgroundError), U5.innerHTML = h3, U5.onclick = function() {
-                O4(de2, n3), j5(), l2 ? l2(i2) : s4 && s4(i2);
-              }, I5.appendChild(Z5), I5.appendChild(q6), I5.appendChild(G7), I5.appendChild(C5), I5.appendChild(x5), I5.appendChild(a4), I5.appendChild(ne4), I5.appendChild(se3), I5.appendChild(ae5), ue3.appendChild(I5), Y6.appendChild(ue3), Y6.appendChild(z4), Y6.appendChild(U5), Y6.listener = function(L6) {
-                $4(L6) ? z4.click() : ee4(L6) && U5.click();
-              }, K6(Y6, n3), te2(Y6, n3);
+              var U6 = document.createElement("div");
+              U6.classList.add(e3.classes.button), U6.classList.add(e3.classes.elementHalf), U6.classList.add(e3.classes.backgroundError), U6.innerHTML = h3, U6.onclick = function() {
+                O4(de2, n3), j6(), l2 ? l2(i2) : s4 && s4(i2);
+              }, I6.appendChild(Z6), I6.appendChild(q7), I6.appendChild(G8), I6.appendChild(C6), I6.appendChild(x6), I6.appendChild(a4), I6.appendChild(ne4), I6.appendChild(se3), I6.appendChild(ae5), ue3.appendChild(I6), Y6.appendChild(ue3), Y6.appendChild(z5), Y6.appendChild(U6), Y6.listener = function(L7) {
+                $5(L7) ? z5.click() : ee4(L7) && U6.click();
+              }, K7(Y6, n3), te2(Y6, n3);
             };
-            u3.default = { alert: he2, force: ke2, confirm: Ce3, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F8 };
+            u3.default = { alert: he2, force: ke2, confirm: Ce3, input: ve2, select: Ee2, date: Te, setOptions: ge2, hideAlerts: F9 };
           }]);
         });
-      }).call(o3, v2(0)(y3));
+      }).call(o3, v3(0)(y4));
     }]);
   });
 }), je = Ie(ye2()), { default: Le, ...Ne2 } = je, Fe = Le !== void 0 ? Le : Ne2;
@@ -7764,8 +7991,8 @@ function p4(r) {
     if (n3.transform) {
       let e3 = n3.transform;
       return n3 = n3.input, { input: n3, transform(t4, o3, s4) {
-        let f4 = r(t4, o3, ...s4);
-        return (...l2) => e3(t4, f4, l2);
+        let f5 = r(t4, o3, ...s4);
+        return (...l2) => e3(t4, f5, l2);
       } };
     } else
       return { input: n3, transform(e3, t4, o3) {
@@ -7878,13 +8105,13 @@ function Q5(e3) {
 var S6 = function(t4) {
   var i2 = t4.key, r = t4.scope, n3 = t4.method, a4 = t4.splitKey, o3 = a4 === void 0 ? "+" : a4, l2 = U4(i2);
   l2.forEach(function(c3) {
-    var p6 = c3.split(o3), m4 = p6.length, y3 = p6[m4 - 1], d3 = y3 === "*" ? "*" : C4(y3);
+    var p6 = c3.split(o3), m5 = p6.length, y4 = p6[m5 - 1], d3 = y4 === "*" ? "*" : C4(y4);
     if (s3[d3]) {
       r || (r = E2());
-      var K6 = m4 > 1 ? T5(g4, p6) : [];
+      var K7 = m5 > 1 ? T5(g4, p6) : [];
       s3[d3] = s3[d3].filter(function(h3) {
-        var w4 = n3 ? h3.method === n3 : !0;
-        return !(w4 && h3.scope === r && G6(h3.mods, K6));
+        var w5 = n3 ? h3.method === n3 : !0;
+        return !(w5 && h3.scope === r && G6(h3.mods, K7));
       });
     }
   });
@@ -7904,8 +8131,8 @@ function k3(e3, t4) {
   var i2 = s3["*"], r = e3.keyCode || e3.which || e3.charCode;
   if (v.filter.call(this, e3)) {
     if ((r === 93 || r === 224) && (r = 91), f3.indexOf(r) === -1 && r !== 229 && f3.push(r), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(h3) {
-      var w4 = L5[h3];
-      e3[h3] && f3.indexOf(w4) === -1 ? f3.push(w4) : !e3[h3] && f3.indexOf(w4) > -1 ? f3.splice(f3.indexOf(w4), 1) : h3 === "metaKey" && e3[h3] && f3.length === 3 && (e3.ctrlKey || e3.shiftKey || e3.altKey || (f3 = f3.slice(f3.indexOf(w4))));
+      var w5 = L5[h3];
+      e3[h3] && f3.indexOf(w5) === -1 ? f3.push(w5) : !e3[h3] && f3.indexOf(w5) > -1 ? f3.splice(f3.indexOf(w5), 1) : h3 === "metaKey" && e3[h3] && f3.length === 3 && (e3.ctrlKey || e3.shiftKey || e3.altKey || (f3 = f3.slice(f3.indexOf(w5))));
     }), r in u2) {
       u2[r] = !0;
       for (var n3 in g4)
@@ -7923,8 +8150,8 @@ function k3(e3, t4) {
     if (r in s3) {
       for (var c3 = 0; c3 < s3[r].length; c3++)
         if ((e3.type === "keydown" && s3[r][c3].keydown || e3.type === "keyup" && s3[r][c3].keyup) && s3[r][c3].key) {
-          for (var p6 = s3[r][c3], m4 = p6.splitKey, y3 = p6.key.split(m4), d3 = [], K6 = 0; K6 < y3.length; K6++)
-            d3.push(C4(y3[K6]));
+          for (var p6 = s3[r][c3], m5 = p6.splitKey, y4 = p6.key.split(m5), d3 = [], K7 = 0; K7 < y4.length; K7++)
+            d3.push(C4(y4[K7]));
           d3.sort().join("") === f3.sort().join("") && _(e3, p6, o3, t4);
         }
     }
@@ -7935,16 +8162,16 @@ function W6(e3) {
 }
 function v(e3, t4, i2) {
   f3 = [];
-  var r = U4(e3), n3 = [], a4 = "all", o3 = document, l2 = 0, c3 = !1, p6 = !0, m4 = "+", y3 = !1;
-  for (i2 === void 0 && typeof t4 == "function" && (i2 = t4), Object.prototype.toString.call(t4) === "[object Object]" && (t4.scope && (a4 = t4.scope), t4.element && (o3 = t4.element), t4.keyup && (c3 = t4.keyup), t4.keydown !== void 0 && (p6 = t4.keydown), t4.capture !== void 0 && (y3 = t4.capture), typeof t4.splitKey == "string" && (m4 = t4.splitKey)), typeof t4 == "string" && (a4 = t4); l2 < r.length; l2++)
-    e3 = r[l2].split(m4), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s3 || (s3[e3] = []), s3[e3].push({ keyup: c3, keydown: p6, scope: a4, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m4, element: o3 });
+  var r = U4(e3), n3 = [], a4 = "all", o3 = document, l2 = 0, c3 = !1, p6 = !0, m5 = "+", y4 = !1;
+  for (i2 === void 0 && typeof t4 == "function" && (i2 = t4), Object.prototype.toString.call(t4) === "[object Object]" && (t4.scope && (a4 = t4.scope), t4.element && (o3 = t4.element), t4.keyup && (c3 = t4.keyup), t4.keydown !== void 0 && (p6 = t4.keydown), t4.capture !== void 0 && (y4 = t4.capture), typeof t4.splitKey == "string" && (m5 = t4.splitKey)), typeof t4 == "string" && (a4 = t4); l2 < r.length; l2++)
+    e3 = r[l2].split(m5), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s3 || (s3[e3] = []), s3[e3].push({ keyup: c3, keydown: p6, scope: a4, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m5, element: o3 });
   typeof o3 < "u" && !W6(o3) && window && (H6.push(o3), P6(o3, "keydown", function(d3) {
     k3(d3, o3);
-  }, y3), A4 || (A4 = !0, P6(window, "focus", function() {
+  }, y4), A4 || (A4 = !0, P6(window, "focus", function() {
     f3 = [];
-  }, y3)), P6(o3, "keyup", function(d3) {
+  }, y4)), P6(o3, "keyup", function(d3) {
     k3(d3, o3), N6(d3);
-  }, y3));
+  }, y4));
 }
 function Y5(e3) {
   var t4 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "all";
@@ -7965,6 +8192,315 @@ typeof document < "u" && (B7 = window.hotkeys, v.noConflict = function(e3) {
   return e3 && window.hotkeys === v && (window.hotkeys = B7), v;
 }, window.hotkeys = v);
 var B7;
+
+// https://esm.sh/v106/immersive-translate@1.0.5/deno/immersive-translate.js
+var R6 = "poegempjloogba", L6 = "ension://", D8 = "me-";
+function T6(e3) {
+  if (!e3)
+    return [!1, !0];
+  let t4 = new Date(e3).getTime(), n3 = (/* @__PURE__ */ new Date()).getTime(), o3 = t4 - n3 < 15e3;
+  return [t4 - n3 > 3e3, o3];
+}
+function b4(e3) {
+  return e3 ? e3.PROD === "1" : !0;
+}
+function A5(e3) {
+  return e3 ? e3.MOCK === "1" : !1;
+}
+function F8(e3) {
+  return new Promise((t4, n3) => {
+    setTimeout(() => {
+      t4();
+    }, e3);
+  });
+}
+var I5 = "rome-ext";
+function N7(e3, t4) {
+  return t4 ? e3 + (t4 - e3 % t4) : e3;
+}
+function U5(e3, t4) {
+  return e3.split(t4).length - 1;
+}
+function $4(e3) {
+  let t4 = Date.now(), n3 = 1;
+  for (let o3 of e3)
+    n3 += U5(o3, "i");
+  return N7(t4, n3);
+}
+function j5(e3, t4) {
+  return Math.floor(Math.random() * (t4 - e3 + 1)) + e3;
+}
+var P7 = "extension", C5 = "chro";
+function M5() {
+  return j5(1e6, 1e8);
+}
+var m4 = "BrowserExt";
+function K5(e3) {
+  return JSON.stringify(e3).replace('"method":"', () => {
+    let t4 = e3;
+    return (t4.id + 3) % 13 === 0 || (t4.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
+  });
+}
+var E3 = "DeepL", x5 = "ension", z4 = "ch" + I5 + L6 + "cofdb" + R6 + "gkncekinflcnj";
+function v2(e3) {
+  let { contentType: t4, userAgent: n3, url: o3, authorization: r, clientVersion: a4 } = e3, i2 = new URL(o3), s4 = new Headers();
+  if (s4.append("authority", i2.hostname), s4.append("accept", "*/*"), s4.append("accept-language", "ja"), r && s4.append("authorization", `Bearer ${r}`), s4.append("cache-control", "no-cache"), t4 ? s4.append("content-type", t4) : s4.append("content-type", "application/json; charset=utf-8"), s4.append("origin", z4), s4.append("pragma", "no-cache"), s4.append("referer", "https://www.deepl.com/"), s4.append("sec-fetch-dest", "empty"), s4.append("sec-fetch-mode", "cors"), s4.append("sec-fetch-site", "none"), n3)
+    s4.append("user-agent", n3);
+  else if (globalThis && globalThis.navigator && globalThis.navigator.userAgent) {
+    let u3 = globalThis.navigator.userAgent;
+    s4.append("user-agent", `${E3}${m4}${x5}/${a4 || "1.1.1"} ${u3}`);
+  } else
+    s4.append("user-agent", `${E3}${m4}${x5}/${a4 || "1.1.1"} Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78`);
+  let c3 = {};
+  for (let [u3, h3] of s4.entries())
+    c3[u3] = h3;
+  return c3;
+}
+function B8(e3) {
+  let t4 = "1.1.1", { texts: n3, target_lang: o3, source_lang: r } = e3, a4 = { jsonrpc: "2.0", method: "LMT_handle_texts", params: { texts: n3.map((s4) => ({ text: s4 })), splitting: "newlines", lang: { target_lang: o3, source_lang_user_selected: r || "auto", preference: { weight: { BG: 119e-5, CS: 0.04360000000000001, DA: 0.007090000000000001, DE: 0.02142, EL: 287e-5, EN: 4.79277, ES: 0.029710000000000004, ET: 0.007300000000000001, FI: 0.013850000000000001, FR: 0.04227, HU: 0.019000000000000003, ID: 423e-5, IT: 0.03592, JA: 453e-5, LT: 0.031700000000000006, LV: 27e-4, NL: 0.02375, PL: 0.044520000000000004, PT: 0.017320000000000002, RO: 0.009040000000000001, RU: 234e-5, SK: 0.04977, SL: 691e-5, SV: 0.0049700000000000005, TR: 0.01076, UK: 201e-5, ZH: 0.004880000000000001 } } }, timestamp: $4(n3) }, id: M5() }, i2 = v2({ url: "https://api.deepl.com/jsonrpc", clientVersion: t4, authorization: e3.authorization });
+  return { url: `https://api.deepl.com/jsonrpc?client=${C5 + D8 + P7},${t4}`, headers: i2, body: K5(a4), method: "POST" };
+}
+function J4(e3) {
+  let t4 = e3.split(".");
+  if (t4.length <= 1)
+    throw new Error("invlaid token");
+  let n3 = t4[1];
+  if (!n3)
+    throw new Error("invalid base64 url token");
+  let o3 = n3.replace(/-/g, "+").replace(/_/g, "/"), r = decodeURIComponent(globalThis.atob(o3).split("").map(function(s4) {
+    return "%" + ("00" + s4.charCodeAt(0).toString(16)).slice(-2);
+  }).join("")), a4 = JSON.parse(r), i2 = new Date(a4.exp * 1e3);
+  return { accessToken: e3, accessTokenExpiresAt: i2.toISOString() };
+}
+var g5 = {}, w4 = {};
+async function y3(e3, t4) {
+  if (!e3)
+    throw new Error("auth key is required");
+  let { state: n3 } = t4, { refreshToken: o3, refreshTokenExpiresAt: r } = n3, [a4, i2] = T6(r), s4 = { refreshToken: o3, refreshTokenExpiresAt: r };
+  a4 || (s4 = await k4(e3, t4));
+  let [c3, u3] = T6(s4.refreshTokenExpiresAt);
+  i2 = u3;
+  let h3 = s4.refreshToken;
+  if (g5[h3])
+    return new Promise((l2, p6) => {
+      g5[h3].push((d3, O4) => {
+        d3 ? p6(d3) : l2(O4);
+      });
+    });
+  g5[h3] = [];
+  try {
+    let l2 = await V6(h3, t4.onFetch), p6 = { state: { ...n3, ...s4, ...l2 }, shouldUpdateRefreshToken: i2 };
+    return g5[h3].forEach((d3) => {
+      d3(null, p6);
+    }), delete g5[h3], p6;
+  } catch (l2) {
+    throw g5[h3].forEach((p6) => {
+      p6(l2);
+    }), delete g5[h3], l2;
+  }
+}
+async function k4(e3, t4) {
+  if (!e3)
+    throw new Error("auth key is required");
+  let { refreshTokenEndpoint: n3, onFetch: o3 } = t4;
+  if (w4[e3])
+    return new Promise((r, a4) => {
+      w4[e3].push((i2, s4) => {
+        i2 ? a4(i2) : r(s4);
+      });
+    });
+  try {
+    w4[e3] = [];
+    let r = new URLSearchParams({ grant_type: "auth_key", auth_key: e3 }), a4 = new URL("/refresh_token?" + r.toString(), n3), i2 = await o3(a4.toString()), s4 = (/* @__PURE__ */ new Date()).getTime() + i2.refresh_token_expires_in * 1e3, c3 = { refreshToken: i2.refresh_token, refreshTokenExpiresAt: new Date(s4).toISOString() };
+    return w4[e3].forEach((u3) => {
+      u3(null, c3);
+    }), delete w4[e3], c3;
+  } catch (r) {
+    throw w4[e3].forEach((a4) => {
+      a4(r);
+    }), delete w4[e3], r;
+  }
+}
+async function V6(e3, t4) {
+  if (!e3)
+    throw new Error("refreshToken is required");
+  let n3 = b4(), o3 = A5();
+  if (!n3 && !o3) {
+    await F8(5e3);
+    let s4 = /* @__PURE__ */ new Date();
+    return { accessToken: "test", accessTokenExpiresAt: new Date(s4.getTime() + 1e3 * 5).toISOString() };
+  }
+  let r = "https://w.deepl.com/oidc/token", a4 = await t4(r, { headers: v2({ url: r, contentType: "application/x-www-form-urlencoded" }), body: `grant_type=refresh_token&refresh_token=${e3}`, method: "POST" }), i2 = J4(a4.access_token);
+  if (a4.expires_in) {
+    let s4 = /* @__PURE__ */ new Date(), c3 = new Date(s4.getTime() + a4.expires_in * 1e3);
+    i2.accessTokenExpiresAt = c3.toISOString();
+  }
+  return i2;
+}
+async function S7(e3, t4, n3) {
+  if (!t4)
+    throw new Error("body is required");
+  let o3 = new URLSearchParams(t4), r = o3.getAll("text");
+  if (r.length < 1)
+    throw new Error("No text to translate");
+  if (q6(r) > 5e3)
+    throw new Error("text too long, the max length is 5000 characters.");
+  let a4 = o3.get("target_lang");
+  if (!a4)
+    throw new Error("No target language");
+  let i2 = o3.get("source_lang"), s4 = { ...B8({ texts: r, authorization: e3, target_lang: a4, source_lang: i2 }), responseType: "raw" }, c3 = b4(), u3 = A5();
+  if (!c3 && !u3)
+    return await F8(50), { translations: r.map((d3) => ({ text: "mock: " + d3, detected_source_language: "EN" })) };
+  let h3 = await n3(s4.url, s4), l2 = JSON.parse(h3.body), p6 = [];
+  if (l2.result && l2.result.texts)
+    p6 = l2.result.texts.map((d3) => ({ text: d3.text, detected_source_language: l2.result.lang }));
+  else
+    throw new Error("No response from deepl api");
+  return { translations: p6 };
+}
+function q6(e3) {
+  let t4 = 0;
+  for (let n3 of e3)
+    t4 += n3.length;
+  return t4;
+}
+var f4 = "Immersive Translate", G7 = class {
+  #e = performance.now();
+  reset() {
+    this.#e = performance.now();
+  }
+  stop(e3) {
+    let t4 = performance.now(), n3 = Math.round(t4 - this.#e);
+    console.debug(f4 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t4;
+  }
+}, H7 = class {
+  #e = 1;
+  get level() {
+    return this.#e;
+  }
+  setLevel(e3) {
+    switch (e3) {
+      case "debug":
+        this.#e = 0;
+        break;
+      case "info":
+        this.#e = 1;
+        break;
+      case "warn":
+        this.#e = 2;
+        break;
+      case "error":
+        this.#e = 3;
+        break;
+      case "fatal":
+        this.#e = 4;
+        break;
+    }
+  }
+  debug(...e3) {
+    this.#e <= 0 && console.log(f4 + " DEBUG:", ...e3);
+  }
+  v(...e3) {
+    this.#e <= 0 && console.log(f4 + " VERBOSE:", ...e3);
+  }
+  info(...e3) {
+    this.#e <= 1 && console.log(f4 + " INFO:", ...e3);
+  }
+  l(...e3) {
+    this.#e <= 1 && console.log(f4 + " TEMP INFO:", ...e3);
+  }
+  warn(...e3) {
+    this.#e <= 2 && console.warn(f4 + " WARN:", ...e3);
+  }
+  error(...e3) {
+    this.#e <= 3 && console.error(f4 + " ERROR:", ...e3);
+  }
+  fatal(...e3) {
+    this.#e <= 4 && console.error(f4 + " FATAL:", ...e3);
+  }
+  timing() {
+    return this.level === 0 ? new G7() : { reset: () => {
+    }, stop: () => {
+    } };
+  }
+}, _2 = new H7();
+async function W7(e3) {
+  e3.body;
+  let { url: t4, responseType: n3, ...o3 } = e3;
+  n3 || (n3 = "json"), o3 = { redirect: "follow", ...o3 };
+  let r = await X6(t4, o3);
+  if (r.ok && r.status >= 200 && r.status < 400)
+    if (n3 === "json") {
+      let a4 = await r.json();
+      return _2.debug("response", JSON.stringify(a4, null, 2)), a4;
+    } else {
+      if (n3 === "text")
+        return await r.text();
+      if (n3 === "raw") {
+        let a4 = await r.text(), i2 = Object.fromEntries([...r.headers.entries()]), s4 = r.url;
+        return { body: a4, headers: i2, status: r.status, statusText: r.statusText, url: s4 };
+      }
+    }
+  else {
+    let a4;
+    try {
+      a4 = await r.text();
+    } catch (i2) {
+      _2.error("parse response failed", i2);
+    }
+    throw new Error(r.status + ": " + r.statusText || " " + a4 || "");
+  }
+}
+async function X6(e3, t4) {
+  let n3 = 15e3;
+  t4 && t4.timeout && (n3 = t4.timeout);
+  let o3 = new AbortController(), r = setTimeout(() => o3.abort(), n3), a4 = await fetch(e3, { ...t4, signal: o3.signal });
+  return clearTimeout(r), a4;
+}
+var Z5 = class {
+  constructor(e3, t4) {
+    this.state = {}, this.isStateChanged = !1, this.onFetch = (n3, o3) => W7({ url: n3, ...o3 }), this.refreshTokenEndpoint = "https://api.immersivetranslate.com", this.authKey = e3, t4 = t4 || {}, t4.state && (this.state = t4.state), t4.onFetch && (this.onFetch = t4.onFetch), t4.refreshTokenEndpoint && (this.refreshTokenEndpoint = t4.refreshTokenEndpoint);
+  }
+  getState() {
+    return this.state;
+  }
+  getIsStateChanged() {
+    let e3 = this.isStateChanged;
+    return this.isStateChanged = !1, e3;
+  }
+  setState(e3) {
+    this.state = e3, this.isStateChanged = !0;
+  }
+  async translateText(e3, t4, n3) {
+    await this.updateToken();
+    let o3 = new URLSearchParams();
+    (Array.isArray(e3) ? e3 : [e3]).forEach((a4, i2) => {
+      o3.append("text", a4);
+    }), t4 && o3.append("source_lang", t4), n3 && o3.append("target_lang", n3);
+    let r = await S7(this.state.accessToken, o3.toString(), this.onFetch);
+    if (r && r.translations && r.translations.length > 0)
+      return Array.isArray(e3) ? r.translations.map((a4) => ({ text: a4.text, detectedSourceLanguage: a4.detected_source_language })) : { text: r.translations[0].text, detectedSourceLanguage: r.translations[0].detected_source_language };
+    throw new Error("No translation result");
+  }
+  async translateApi(e3) {
+    return await this.updateToken(), await S7(this.state.accessToken, e3, this.onFetch);
+  }
+  async updateToken() {
+    let { accessTokenExpiresAt: e3 } = this.state, [t4, n3] = T6(e3);
+    if (t4)
+      n3 && y3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then(({ state: o3, shouldUpdateRefreshToken: r }) => {
+        this.setState({ ...this.state, ...o3 }), r && k4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((a4) => {
+          this.setState({ ...this.state, ...a4 });
+        });
+      });
+    else {
+      let { state: o3, shouldUpdateRefreshToken: r } = await y3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint });
+      this.setState(o3), r && k4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((a4) => {
+        this.setState({ ...this.state, ...a4 });
+      });
+    }
+  }
+};
 
 // deps.ts
 var toast = Fe.alert;
@@ -8065,15 +8601,15 @@ function duplicatedElements(root2, array, rule) {
     main3.length > 0 && main3[0].contains(header) || headers2.push(header);
   for (let i2 = 0; i2 < array.length; i2++) {
     let a4 = array[i2].element;
-    for (let j5 = i2 + 1; j5 < array.length; j5++) {
-      let b4 = array[j5].element;
-      if (a4.contains(b4))
-        array.splice(j5, 1), j5--;
-      else if (b4.contains(a4)) {
+    for (let j6 = i2 + 1; j6 < array.length; j6++) {
+      let b5 = array[j6].element;
+      if (a4.contains(b5))
+        array.splice(j6, 1), j6--;
+      else if (b5.contains(a4)) {
         array.splice(i2, 1), i2--;
         break;
       } else
-        a4 === b4 && (array.splice(j5, 1), j5--);
+        a4 === b5 && (array.splice(j6, 1), j6--);
     }
   }
   return array.filter((container) => {
@@ -8178,7 +8714,7 @@ function isMetaElement(element, rule) {
   return !!isMatchTags(element.nodeName, rule.metaTags);
 }
 function isExcludeElement(element, rule, includeStayElements) {
-  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE))
+  if (!(element.nodeType === Node.ELEMENT_NODE || element.nodeType === Node.TEXT_NODE) || element.nodeType === Node.ELEMENT_NODE && isMarked(element, sourceElementExcludeAttributeName, !0))
     return !0;
   if (element.nodeType === Node.ELEMENT_NODE && isMarked(
     element,
@@ -8186,13 +8722,14 @@ function isExcludeElement(element, rule, includeStayElements) {
   ))
     return !1;
   let { stayOriginalTags, excludeTags } = rule, finalExcludeTags = [];
-  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), !!(element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate") || isMarked(element, sourceElementExcludeAttributeName, !0)) || isMatchTags(element.nodeName, finalExcludeTags));
+  return includeStayElements && excludeTags && excludeTags.length > 0 ? finalExcludeTags = excludeTags || [] : finalExcludeTags = excludeTags.filter((tag) => !stayOriginalTags.includes(tag)), !!(element.nodeType === Node.ELEMENT_NODE && element.isContentEditable || element.nodeType === Node.ELEMENT_NODE && (element.getAttribute("translate") === "no" || element.classList.contains("notranslate")) || isMatchTags(element.nodeName, finalExcludeTags));
 }
 function isNeedToTranslate(item, minTextCount, minWordCount, ctx) {
   let delimiters = getPlaceholderDelimiters(ctx), stayInOriginalRegex = new RegExp(
-    `^${delimiters[0]}(\\d+)${delimiters[1]}$`
+    `${delimiters[0]}(\\d+)${delimiters[1]}`,
+    "gi"
   ), text = item.text, trimedText = text.trim();
-  return trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
+  return trimedText = trimedText.replace(stayInOriginalRegex, ""), trimedText = trimedText.trim(), trimedText === "" || trimedText.length === 1 && trimedText.charCodeAt(0) === 8203 || /^\d+(,\d+)*(\.\d+)?$/.test(text) || trimedText.includes("</style>") || trimedText.includes("< styles>") || isAtTag(trimedText) || isUrl(trimedText) || isHashTag(trimedText) || stayInOriginalRegex.test(trimedText) ? !1 : isValidTextByCount(text, minTextCount, minWordCount);
 }
 function isValidTextByCount(rawText, minTextCount, minWordCount) {
   let text = rawText.trim();
@@ -8255,8 +8792,21 @@ function getAttribute(element, name, explicit = !1) {
   return isProd && !explicit ? !element[elementMarkRootKey] || !element[elementMarkRootKey][name] ? void 0 : element[elementMarkRootKey][name] : element.dataset[name];
 }
 function isStayOriginalElement(element, rule) {
-  let isStayOriginal = !1;
-  return (isMatchTags(element.nodeName, rule.stayOriginalTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+  let isStayOriginal = !1, allTags = [
+    ...rule.stayOriginalTags,
+    ...rule.additionalStayOriginalTags
+  ];
+  return (isMatchTags(element.nodeName, allTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal;
+}
+function isContainsStayOriginalElement(element, rule) {
+  let isStayOriginal = !1, allTags = [
+    ...rule.stayOriginalTags,
+    ...rule.additionalStayOriginalTags
+  ];
+  if ((isMatchTags(element.nodeName, allTags) || isMarked(element, sourceElementStayOriginalAttributeName)) && (isStayOriginal = !0), isStayOriginal)
+    return !0;
+  let allSelectors = allTags.map((tag) => tag.toLowerCase());
+  return rule.stayOriginalSelectors && allSelectors.push(...rule.stayOriginalSelectors), rule.additionalStayOriginalSelectors && allSelectors.push(...rule.additionalStayOriginalSelectors), isContainsSelectors(element, allSelectors);
 }
 function isUnknowTag(element, rule) {
   let allKnowTags = rule.allBlockTags.concat(rule.inlineTags).concat(
@@ -8337,7 +8887,7 @@ function isMatchTags(nodeName, tags) {
 }
 
 // dom/mark_containers.ts
-function markContainers(container, rule) {
+function markContainers(container, rule, rootFrame, isDynamic) {
   let {
     excludeSelectors,
     additionalExcludeSelectors,
@@ -8349,11 +8899,16 @@ function markContainers(container, rule) {
     globalStyles,
     stayOriginalTags,
     stayOriginalSelectors,
-    globalAttributes
+    additionalStayOriginalSelectors,
+    globalAttributes,
+    additionalSelectors
   } = rule, globalStyleSelectors = Object.keys(globalStyles);
   if (globalStyleSelectors.length > 0)
     for (let selector of globalStyleSelectors) {
-      let elements = getElementsBySelectors(container, [selector]);
+      let elements = getElementsBySelectors(
+        isDynamic ? rootFrame : container,
+        [selector]
+      );
       for (let element of elements)
         if (!isMarked(element, sourceElementWithGlobalStyleMarkAttributeName)) {
           setAttribute(
@@ -8368,7 +8923,10 @@ function markContainers(container, rule) {
   let globalAttributesSelectors = Object.keys(globalAttributes);
   if (globalAttributesSelectors.length > 0)
     for (let selector of globalAttributesSelectors) {
-      let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(container, [selector]);
+      let attributes = globalAttributes[selector], attributesKeys = Object.keys(attributes), elements = getElementsBySelectors(
+        isDynamic ? rootFrame : container,
+        [selector]
+      );
       for (let element of elements)
         for (let key of attributesKeys) {
           let value = attributes[key];
@@ -8385,14 +8943,23 @@ function markContainers(container, rule) {
     (item) => item.toLowerCase()
   ), allBlockSelectos = extraBlockSelectors;
   getElementsBySelectors(
-    container,
+    isDynamic ? rootFrame : container,
+    additionalSelectors
+  ).forEach((element) => {
+    isMarked(element, specifiedTargetContainerElementAttributeName) || setAttribute(
+      element,
+      specifiedTargetContainerElementAttributeName,
+      "1"
+    );
+  }), getElementsBySelectors(
+    isDynamic ? rootFrame : container,
     allExcludeSelectors
   ).forEach((element) => {
     isMarked(element, sourceElementExcludeAttributeName, !0) || setAttribute(element, sourceElementExcludeAttributeName, "1", !0);
   });
   let atomicBlockElements = [];
   if (allAtomicBlockSelectors.length > 0 && (atomicBlockElements = getElementsBySelectors(
-    container,
+    isDynamic ? rootFrame : container,
     allAtomicBlockSelectors
   ).filter((element) => !isMarked(element, sourceAtomicBlockElementMarkAttributeName))), allAtomicBlockTagsSelectors.length > 0) {
     let stayOriginalTagsHTMLStringArr = stayOriginalTags.reduce(
@@ -8404,7 +8971,7 @@ function markContainers(container, rule) {
     ), httpLinkTags = [">http://", ">https://"];
     stayOriginalTagsHTMLStringArr.push(...httpLinkTags);
     let atomicBlockTagsElements = getElementsBySelectors(
-      container,
+      isDynamic ? rootFrame : container,
       allAtomicBlockTagsSelectors
     ).filter((element) => {
       if (isMarked(
@@ -8426,19 +8993,31 @@ function markContainers(container, rule) {
   });
   let extraInlineElements = [];
   allInlineSelectors.length > 0 && extraInlineElements.push(
-    ...getElementsBySelectors(container, allInlineSelectors)
+    ...getElementsBySelectors(
+      isDynamic ? rootFrame : container,
+      allInlineSelectors
+    )
   ), extraInlineElements.forEach((element) => {
     setAttribute(element, sourceInlineElementMarkAttributeName, "1");
   });
   let extraBlockElements = [];
   allBlockSelectos.length > 0 && extraBlockElements.push(
-    ...getElementsBySelectors(container, allBlockSelectos)
+    ...getElementsBySelectors(
+      isDynamic ? rootFrame : container,
+      allBlockSelectos
+    )
   ), extraBlockElements.forEach((element) => {
     setAttribute(element, sourceBlockElementMarkAttributeName, "1");
   });
-  let stayOriginalElements = [];
-  stayOriginalSelectors.length > 0 && stayOriginalElements.push(
-    ...getElementsBySelectors(container, stayOriginalSelectors)
+  let stayOriginalElements = [], allStayOriginalSelectors = [
+    ...stayOriginalSelectors,
+    ...additionalStayOriginalSelectors
+  ];
+  allStayOriginalSelectors.length > 0 && stayOriginalElements.push(
+    ...getElementsBySelectors(
+      isDynamic ? rootFrame : container,
+      allStayOriginalSelectors
+    )
   ), stayOriginalElements.forEach((element) => {
     setAttribute(element, sourceElementStayOriginalAttributeName, "1");
   });
@@ -8685,9 +9264,7 @@ var buildin_config_default = {
       "https://www.reddit.com/.compact"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   translationParagraphLanguagePattern: {
@@ -8714,9 +9291,7 @@ var buildin_config_default = {
       "*.slack.com"
     ],
     excludeMatches: [],
-    selectorMatches: [
-      "meta[property='al:ios:url'][content^='medium://']"
-    ],
+    selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
     selectorExcludeMatches: []
   },
   sourceLanguageUrlPattern: {},
@@ -8724,6 +9299,8 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    waitForSelectors: [],
+    waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
@@ -8731,6 +9308,11 @@ var buildin_config_default = {
     isPdf: !1,
     isTransformPreTagNewLine: !1,
     urlChangeDelay: 20,
+    mutationChangeDelay: 10,
+    visibleDelay: 0,
+    additionalStayOriginalSelectors: [
+      "span.katex"
+    ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -8763,13 +9345,13 @@ var buildin_config_default = {
       ".article__title",
       ".articleTitle",
       ".Article__content",
-      ".title",
-      ".abstract",
       ".titleLink",
       ".summary",
       ".content",
       ".headline",
-      ".page-content"
+      ".page-content",
+      "aside.note",
+      "aside.article-comments"
     ],
     atomicBlockTags: [],
     excludeSelectors: [],
@@ -8816,19 +9398,9 @@ var buildin_config_default = {
       "FOOTER",
       "MATH"
     ],
-    bodyTranslateTags: [
-      "FOOTER",
-      "ADIDE",
-      "BUTTON",
-      "NAV"
-    ],
+    bodyTranslateTags: ["FOOTER", "ADIDE", "BUTTON", "NAV"],
     forceTranslateTags: [],
-    metaTags: [
-      "META",
-      "SCRIPT",
-      "STYLE",
-      "NOSCRIPT"
-    ],
+    metaTags: ["META", "SCRIPT", "STYLE", "NOSCRIPT"],
     additionalExcludeTags: [],
     stayOriginalTags: ["CODE", "TT", "IMG", "SUP", "SUB"],
     additionalStayOriginalTags: [],
@@ -8938,9 +9510,7 @@ var buildin_config_default = {
   },
   rules: [
     {
-      matches: [
-        "moz-extension://*/pdf/index.html*"
-      ],
+      matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -9031,7 +9601,7 @@ var buildin_config_default = {
     },
     {
       matches: "developer.apple.com/documentation/*",
-      selectors: [".container", "h3.title"]
+      selectors: [".container", "h3.title", "div.content"]
     },
     {
       matches: "news.ycombinator.com",
@@ -9072,6 +9642,29 @@ var buildin_config_default = {
       detectParagraphLanguage: !0
     },
     {
+      matches: "https://www.reddit.com/r/*/comments/*/*",
+      selectors: [
+        "h1",
+        ".PostHeader__post-title-line",
+        "[data-click-id=body] h3",
+        "[data-click-id=background] h3",
+        "[data-testid=comment]",
+        "[data-adclicklocation='title']",
+        "[data-adclicklocation=media]",
+        ".PostContent",
+        ".post-content",
+        ".Comment__body",
+        "faceplate-batch .md"
+      ],
+      detectParagraphLanguage: !0,
+      globalStyles: {
+        "div.XPromoBottomBar": "display:none"
+      },
+      waitForSelectors: [
+        "[data-testid=post_author_link]"
+      ]
+    },
+    {
       matches: "www.reddit.com",
       selectors: [
         "h1",
@@ -9108,22 +9701,20 @@ var buildin_config_default = {
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "div.js-details-container.Details",
+        "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell"
       ],
       extraBlockSelectors: [],
-      extraInlineSelectors: [
-        "g-emoji"
-      ],
+      extraInlineSelectors: ["g-emoji"],
       stayOriginalTags: ["CODE", "TT", "G-EMOJI", "IMG", "SUP", "SUB"],
       detectParagraphLanguage: !0
     },
     {
       matches: "notebooks.githubusercontent.com",
-      excludeSelectors: [
-        "div.jp-CodeCell"
-      ]
+      excludeSelectors: ["div.jp-CodeCell"]
     },
     {
       matches: "www.facebook.com",
@@ -9141,20 +9732,14 @@ var buildin_config_default = {
       preWhitespaceDetectedTags: ["DIV", "SPAN"],
       extraBlockSelectors: ["span.x1vvkbs"],
       excludeSelectors: ["[role=button]"],
-      translationClasses: [
-        "immersive-translate-text"
-      ],
+      translationClasses: ["immersive-translate-text"],
       detectParagraphLanguage: !0
     },
     {
       matches: "m.youtube.com",
-      selectors: [
-        ".comment-text"
-      ],
+      selectors: [".comment-text"],
       observeUrlChange: !0,
-      atomicBlockSelectors: [
-        ".comment-text"
-      ],
+      atomicBlockSelectors: [".comment-text"],
       globalStyles: {
         ".comment-text": "max-height:unset;"
       },
@@ -9189,9 +9774,7 @@ var buildin_config_default = {
         "yt-formatted-string#video-title",
         "span#video-title"
       ],
-      excludeSelectors: [
-        "[class^='lln-']"
-      ],
+      excludeSelectors: ["[class^='lln-']"],
       extraBlockSelectors: [
         "yt-formatted-string.ytd-transcript-segment-renderer"
       ],
@@ -9226,10 +9809,7 @@ var buildin_config_default = {
     },
     {
       matches: "https://poeditor.com/projects/*",
-      selectors: [
-        ".comment-body",
-        ".reference_language .source-string"
-      ]
+      selectors: [".comment-body", ".reference_language .source-string"]
     },
     {
       matches: ["*.substack.com", "newsletter.rootsofprogress.org"],
@@ -9268,8 +9848,8 @@ var buildin_config_default = {
     {
       matches: "read.readwise.io",
       selectors: [
-        'div[class^="_titleRow_"]',
-        'div[class^="_description_"]',
+        "div[class^='_titleRow_']",
+        "div[class^='_description_']",
         "#document-text-content"
       ],
       detectParagraphLanguage: !0
@@ -9288,16 +9868,18 @@ var buildin_config_default = {
       }
     },
     {
-      matches: [
-        "*.ideas.aha.io"
-      ],
+      matches: "*.ideas.aha.io",
       excludeSelectors: [
-        ".vote-status",
-        ".idea-meta-secondary",
         ".comment-header",
+        ".vote-status",
+        ".idea-meta",
+        ".filters-title",
+        ".ideas-showing-count",
         ".my-ideas-filters-wrapper",
+        ".statuses-filters-wrapper",
         ".categories-filters-wrapper",
-        ".statuses-filters-wrapper"
+        "[class^='attachment']",
+        "span[class^='attachment-name']"
       ]
     },
     {
@@ -9448,6 +10030,38 @@ var buildin_config_default = {
       additionalSelectors: ["#book"]
     },
     {
+      matches: "www.artstation.com/artwork/*",
+      excludeSelectors: ".project-description a",
+      selectors: [".project-description", "div.project-comment-text"],
+      atomicBlockSelectors: "div.project-comment-text",
+      detectParagraphLanguage: !0
+    },
+    {
+      matches: "www.artstation.com/learning/courses/*",
+      additionalSelectors: [
+        "footer.learning-course-description.ng-star-inserted > span"
+      ],
+      excludeSelectors: ".learning-card-meta"
+    },
+    {
+      matches: [
+        "https://www.artstation.com/blogs",
+        "https://www.artstation.com/blogs/*"
+      ],
+      detectParagraphLanguage: !0,
+      additionalSelectors: [".comment-item-body"],
+      atomicBlockSelectors: [".author-headline", ".author-location"],
+      excludeSelectors: [
+        "blog-card-thumbnail",
+        "blog-card-header",
+        ".blog-card-author",
+        ".blog-card-meta",
+        ".blog-view-header",
+        ".blog-grid-title",
+        ".post-meta-header"
+      ]
+    },
+    {
       matches: "www.figma.com/community/*",
       normalizeBody: "div.ql-editor[contenteditable='false']",
       excludeSelectors: [
@@ -9470,9 +10084,7 @@ var buildin_config_default = {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
       },
-      extraBlockSelectors: [
-        ".MUFPAc"
-      ]
+      extraBlockSelectors: [".MUFPAc"]
     },
     {
       matches: "lowendtalk.com",
@@ -9534,7 +10146,11 @@ var buildin_config_default = {
     },
     {
       matches: "www.cnbc.com",
-      additionalSelectors: ["div.RenderKeyPoints-list"]
+      additionalSelectors: ["div.RenderKeyPoints-list"],
+      urlChangeDelay: 1e3,
+      globalStyles: {
+        "div.Card-titleContainer > div": "-webkit-line-clamp: unset;max-height: unset;"
+      }
     },
     {
       matches: "app.daily.dev",
@@ -9576,9 +10192,7 @@ var buildin_config_default = {
     },
     {
       matches: ["medium.com", "*.medium.com"],
-      selectorMatches: [
-        "meta[property='al:ios:url'][content^='medium://']"
-      ],
+      selectorMatches: ["meta[property='al:ios:url'][content^='medium://']"],
       urlChangeDelay: 2e3,
       selectors: [
         "article section",
@@ -9593,9 +10207,7 @@ var buildin_config_default = {
       }
     },
     {
-      selectorMatches: [
-        "meta[property='og:site_name'][content='Nitter']"
-      ],
+      selectorMatches: ["meta[property='og:site_name'][content='Nitter']"],
       selectors: [".tweet-content", ".quote-text"]
     },
     {
@@ -9625,9 +10237,7 @@ var buildin_config_default = {
         '[data-feature-name="featurebullets"]',
         '[data-feature-name="aplus"'
       ],
-      excludeBlockSelectors: [
-        "div.reviewText > span"
-      ],
+      excludeBlockSelectors: ["div.reviewText > span"],
       globalStyles: {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
@@ -9658,10 +10268,7 @@ var buildin_config_default = {
     },
     {
       matches: ["*.annas-archive.org", "annas-archive.org"],
-      selectors: [
-        "h3.text-xl.font-bold",
-        "div[class='truncate text-sm']"
-      ],
+      selectors: ["h3.text-xl.font-bold", "div[class='truncate text-sm']"],
       globalStyles: {
         "div[id^='link-index-']": "height: unset; max-height: unset;"
       },
@@ -9669,12 +10276,8 @@ var buildin_config_default = {
       extraBlockSelectors: ["a.custom-a"]
     },
     {
-      matches: [
-        "explainshell.com"
-      ],
-      selectors: [
-        "[class='help-box']"
-      ]
+      matches: ["explainshell.com"],
+      selectors: ["[class='help-box']"]
     },
     {
       matches: ["apnews.com"],
@@ -9765,41 +10368,31 @@ var buildin_config_default = {
     },
     {
       matches: [
-        "www.construct.net/en/forum/*",
-        "www.construct.net/en/tutorials/*",
-        "www.construct.net/en/courses*",
-        "www.construct.net/en/courses/*",
-        "www.construct.net/en/make-games/manuals/*"
+        "construct.net"
       ],
       excludeMatches: [
-        "www.construct.net/en/forum/search",
         "preview.construct.net"
       ],
-      additionalSelectors: [
-        "aside",
-        "div.manualContent"
-      ],
+      additionalSelectors: ["aside", "div.manualContent"],
       atomicBlockSelectors: [],
-      stayOriginalSelectors: [
-        "a.usernameReference"
-      ],
-      additionalInlineSelectors: [
-        "a.forumLink"
-      ],
+      stayOriginalSelectors: ["a.usernameReference"],
+      additionalInlineSelectors: ["a.forumLink"],
       additionalExcludeSelectors: [
         "div.topNav",
+        ".breadCrumbNav",
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
         "ul.subForumForums",
-        "ul.breadCrumbNav",
         "ul.postTools",
         "li.comment ul.controls",
         "div.forumTopNavWrap",
         "div.downloadWrap",
         "div.articleLeftMenu",
-        "div.breadCrumbNav",
+        "div.usernameTextWrap",
         "div#FilterMenu.FilterMenu",
+        "div.viewAddonRightMenu",
+        "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
         "span.tagViewWrap",
         "div#LeftSide.leftSide",
@@ -9820,6 +10413,16 @@ var buildin_config_default = {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
+    },
+    {
+      matches: "www.construct.net/en/blogs/*",
+      excludeSelectors: [
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats"
+      ]
     },
     {
       matches: "getpocket.com",
@@ -9872,9 +10475,7 @@ var buildin_config_default = {
     },
     {
       matches: "glasp.co",
-      excludeSelectors: [
-        ".home_overview_list_content_wrapper"
-      ]
+      excludeSelectors: [".home_overview_list_content_wrapper"]
     },
     {
       matches: "developer.chrome.com",
@@ -9898,6 +10499,7 @@ var buildin_config_default = {
     },
     {
       matches: ["developer.android.google.cn", "developer.android.com"],
+      observeUrlChange: !0,
       additionalSelectors: ["aside", "google-codelab-step"]
     },
     {
@@ -9920,15 +10522,105 @@ var buildin_config_default = {
     },
     {
       matches: "www.newthingsunderthesun.com",
-      additionalSelectors: [
-        "[translate=no]"
-      ]
+      additionalSelectors: ["[translate=no]"]
     },
     {
       matches: "https://www.tiktok.com/*/video/*",
       selectors: [
         "[data-e2e^=comment-level]",
         "[data-e2e=browse-video-desc] > span"
+      ]
+    },
+    {
+      matches: "www.rfc-editor.org",
+      isTransformPreTagNewLine: !0,
+      excludeTags: [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH"
+      ]
+    },
+    {
+      matches: "https://steamcommunity.com/app/*/discussions/",
+      globalStyles: {
+        ".forum_topic": "height:auto;",
+        ".forum_topic_name": "white-space:normal;"
+      },
+      excludeSelectors: [
+        ".forum_paging",
+        ".forum_topic_reply_count",
+        ".forum_topic_lastpost",
+        ".forum_topic_award_count"
+      ],
+      observeUrlChange: !0
+    },
+    {
+      matches: "https://www.nature.com/articles/*",
+      excludeSelectors: [
+        ".c-header",
+        ".u-container",
+        ".c-recommendations-header",
+        ".c-recommendations-list-container",
+        ".c-article-references__links",
+        ".c-article-identifiers",
+        ".c-article-author-list",
+        ".c-article-metrics-bar__wrapper",
+        ".c-article__pill-button",
+        "#author-information-content",
+        "#article-info-section"
+      ]
+    },
+    {
+      matches: "https://www.webofscience.com/wos/woscc/summary/*",
+      globalStyles: {
+        ".abstract": "height:auto !important;",
+        ".show-more-lines": "height:unset !important;"
+      },
+      excludeSelectors: [
+        ".summary-left-panel",
+        ".authors",
+        "app-summary-authors + div"
+      ],
+      observeUrlChange: !0,
+      mutationChangeDelay: 600
+    },
+    {
+      matches: ["appleinsider.com"],
+      excludeSelectors: ["#topic-nav"]
+    },
+    {
+      matches: "https://www.jetbrains.com/help/*",
+      extraBlockSelectors: [
+        "[data-test=prompt]"
+      ]
+    },
+    {
+      matches: ["https://crates.io/search*"],
+      selectors: [
+        "div[class^=_description-box] div[class^=_description]"
       ]
     }
   ]
@@ -10024,7 +10716,7 @@ function getEnvUserConfig() {
     };
     defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
   }
-  return env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), defaultUserConfig;
+  return env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
 }
 async function getLocalConfig() {
   let localConfig2 = await browserAPI.storage.local.get(localConfigStorageKey);
@@ -10271,34 +10963,34 @@ async function rawRequest(options2) {
 }
 
 // utils/md5.js
-function safeAdd(x5, y3) {
-  var lsw = (x5 & 65535) + (y3 & 65535), msw = (x5 >> 16) + (y3 >> 16) + (lsw >> 16);
+function safeAdd(x6, y4) {
+  var lsw = (x6 & 65535) + (y4 & 65535), msw = (x6 >> 16) + (y4 >> 16) + (lsw >> 16);
   return msw << 16 | lsw & 65535;
 }
 function bitRotateLeft(num, cnt) {
   return num << cnt | num >>> 32 - cnt;
 }
-function md5cmn(q6, a4, b4, x5, s4, t4) {
-  return safeAdd(bitRotateLeft(safeAdd(safeAdd(a4, q6), safeAdd(x5, t4)), s4), b4);
+function md5cmn(q7, a4, b5, x6, s4, t4) {
+  return safeAdd(bitRotateLeft(safeAdd(safeAdd(a4, q7), safeAdd(x6, t4)), s4), b5);
 }
-function md5ff(a4, b4, c3, d3, x5, s4, t4) {
-  return md5cmn(b4 & c3 | ~b4 & d3, a4, b4, x5, s4, t4);
+function md5ff(a4, b5, c3, d3, x6, s4, t4) {
+  return md5cmn(b5 & c3 | ~b5 & d3, a4, b5, x6, s4, t4);
 }
-function md5gg(a4, b4, c3, d3, x5, s4, t4) {
-  return md5cmn(b4 & d3 | c3 & ~d3, a4, b4, x5, s4, t4);
+function md5gg(a4, b5, c3, d3, x6, s4, t4) {
+  return md5cmn(b5 & d3 | c3 & ~d3, a4, b5, x6, s4, t4);
 }
-function md5hh(a4, b4, c3, d3, x5, s4, t4) {
-  return md5cmn(b4 ^ c3 ^ d3, a4, b4, x5, s4, t4);
+function md5hh(a4, b5, c3, d3, x6, s4, t4) {
+  return md5cmn(b5 ^ c3 ^ d3, a4, b5, x6, s4, t4);
 }
-function md5ii(a4, b4, c3, d3, x5, s4, t4) {
-  return md5cmn(c3 ^ (b4 | ~d3), a4, b4, x5, s4, t4);
+function md5ii(a4, b5, c3, d3, x6, s4, t4) {
+  return md5cmn(c3 ^ (b5 | ~d3), a4, b5, x6, s4, t4);
 }
-function binlMD5(x5, len) {
-  x5[len >> 5] |= 128 << len % 32, x5[(len + 64 >>> 9 << 4) + 14] = len;
-  var i2, olda, oldb, oldc, oldd, a4 = 1732584193, b4 = -271733879, c3 = -1732584194, d3 = 271733878;
-  for (i2 = 0; i2 < x5.length; i2 += 16)
-    olda = a4, oldb = b4, oldc = c3, oldd = d3, a4 = md5ff(a4, b4, c3, d3, x5[i2], 7, -680876936), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 1], 12, -389564586), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 2], 17, 606105819), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 3], 22, -1044525330), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 4], 7, -176418897), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 5], 12, 1200080426), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 6], 17, -1473231341), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 7], 22, -45705983), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 8], 7, 1770035416), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 9], 12, -1958414417), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 10], 17, -42063), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 11], 22, -1990404162), a4 = md5ff(a4, b4, c3, d3, x5[i2 + 12], 7, 1804603682), d3 = md5ff(d3, a4, b4, c3, x5[i2 + 13], 12, -40341101), c3 = md5ff(c3, d3, a4, b4, x5[i2 + 14], 17, -1502002290), b4 = md5ff(b4, c3, d3, a4, x5[i2 + 15], 22, 1236535329), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 1], 5, -165796510), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 6], 9, -1069501632), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 11], 14, 643717713), b4 = md5gg(b4, c3, d3, a4, x5[i2], 20, -373897302), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 5], 5, -701558691), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 10], 9, 38016083), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 15], 14, -660478335), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 4], 20, -405537848), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 9], 5, 568446438), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 14], 9, -1019803690), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 3], 14, -187363961), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 8], 20, 1163531501), a4 = md5gg(a4, b4, c3, d3, x5[i2 + 13], 5, -1444681467), d3 = md5gg(d3, a4, b4, c3, x5[i2 + 2], 9, -51403784), c3 = md5gg(c3, d3, a4, b4, x5[i2 + 7], 14, 1735328473), b4 = md5gg(b4, c3, d3, a4, x5[i2 + 12], 20, -1926607734), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 5], 4, -378558), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 8], 11, -2022574463), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 11], 16, 1839030562), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 14], 23, -35309556), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 1], 4, -1530992060), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 4], 11, 1272893353), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 7], 16, -155497632), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 10], 23, -1094730640), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 13], 4, 681279174), d3 = md5hh(d3, a4, b4, c3, x5[i2], 11, -358537222), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 3], 16, -722521979), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 6], 23, 76029189), a4 = md5hh(a4, b4, c3, d3, x5[i2 + 9], 4, -640364487), d3 = md5hh(d3, a4, b4, c3, x5[i2 + 12], 11, -421815835), c3 = md5hh(c3, d3, a4, b4, x5[i2 + 15], 16, 530742520), b4 = md5hh(b4, c3, d3, a4, x5[i2 + 2], 23, -995338651), a4 = md5ii(a4, b4, c3, d3, x5[i2], 6, -198630844), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 7], 10, 1126891415), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 14], 15, -1416354905), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 5], 21, -57434055), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 12], 6, 1700485571), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 3], 10, -1894986606), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 10], 15, -1051523), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 1], 21, -2054922799), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 8], 6, 1873313359), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 15], 10, -30611744), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 6], 15, -1560198380), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 13], 21, 1309151649), a4 = md5ii(a4, b4, c3, d3, x5[i2 + 4], 6, -145523070), d3 = md5ii(d3, a4, b4, c3, x5[i2 + 11], 10, -1120210379), c3 = md5ii(c3, d3, a4, b4, x5[i2 + 2], 15, 718787259), b4 = md5ii(b4, c3, d3, a4, x5[i2 + 9], 21, -343485551), a4 = safeAdd(a4, olda), b4 = safeAdd(b4, oldb), c3 = safeAdd(c3, oldc), d3 = safeAdd(d3, oldd);
-  return [a4, b4, c3, d3];
+function binlMD5(x6, len) {
+  x6[len >> 5] |= 128 << len % 32, x6[(len + 64 >>> 9 << 4) + 14] = len;
+  var i2, olda, oldb, oldc, oldd, a4 = 1732584193, b5 = -271733879, c3 = -1732584194, d3 = 271733878;
+  for (i2 = 0; i2 < x6.length; i2 += 16)
+    olda = a4, oldb = b5, oldc = c3, oldd = d3, a4 = md5ff(a4, b5, c3, d3, x6[i2], 7, -680876936), d3 = md5ff(d3, a4, b5, c3, x6[i2 + 1], 12, -389564586), c3 = md5ff(c3, d3, a4, b5, x6[i2 + 2], 17, 606105819), b5 = md5ff(b5, c3, d3, a4, x6[i2 + 3], 22, -1044525330), a4 = md5ff(a4, b5, c3, d3, x6[i2 + 4], 7, -176418897), d3 = md5ff(d3, a4, b5, c3, x6[i2 + 5], 12, 1200080426), c3 = md5ff(c3, d3, a4, b5, x6[i2 + 6], 17, -1473231341), b5 = md5ff(b5, c3, d3, a4, x6[i2 + 7], 22, -45705983), a4 = md5ff(a4, b5, c3, d3, x6[i2 + 8], 7, 1770035416), d3 = md5ff(d3, a4, b5, c3, x6[i2 + 9], 12, -1958414417), c3 = md5ff(c3, d3, a4, b5, x6[i2 + 10], 17, -42063), b5 = md5ff(b5, c3, d3, a4, x6[i2 + 11], 22, -1990404162), a4 = md5ff(a4, b5, c3, d3, x6[i2 + 12], 7, 1804603682), d3 = md5ff(d3, a4, b5, c3, x6[i2 + 13], 12, -40341101), c3 = md5ff(c3, d3, a4, b5, x6[i2 + 14], 17, -1502002290), b5 = md5ff(b5, c3, d3, a4, x6[i2 + 15], 22, 1236535329), a4 = md5gg(a4, b5, c3, d3, x6[i2 + 1], 5, -165796510), d3 = md5gg(d3, a4, b5, c3, x6[i2 + 6], 9, -1069501632), c3 = md5gg(c3, d3, a4, b5, x6[i2 + 11], 14, 643717713), b5 = md5gg(b5, c3, d3, a4, x6[i2], 20, -373897302), a4 = md5gg(a4, b5, c3, d3, x6[i2 + 5], 5, -701558691), d3 = md5gg(d3, a4, b5, c3, x6[i2 + 10], 9, 38016083), c3 = md5gg(c3, d3, a4, b5, x6[i2 + 15], 14, -660478335), b5 = md5gg(b5, c3, d3, a4, x6[i2 + 4], 20, -405537848), a4 = md5gg(a4, b5, c3, d3, x6[i2 + 9], 5, 568446438), d3 = md5gg(d3, a4, b5, c3, x6[i2 + 14], 9, -1019803690), c3 = md5gg(c3, d3, a4, b5, x6[i2 + 3], 14, -187363961), b5 = md5gg(b5, c3, d3, a4, x6[i2 + 8], 20, 1163531501), a4 = md5gg(a4, b5, c3, d3, x6[i2 + 13], 5, -1444681467), d3 = md5gg(d3, a4, b5, c3, x6[i2 + 2], 9, -51403784), c3 = md5gg(c3, d3, a4, b5, x6[i2 + 7], 14, 1735328473), b5 = md5gg(b5, c3, d3, a4, x6[i2 + 12], 20, -1926607734), a4 = md5hh(a4, b5, c3, d3, x6[i2 + 5], 4, -378558), d3 = md5hh(d3, a4, b5, c3, x6[i2 + 8], 11, -2022574463), c3 = md5hh(c3, d3, a4, b5, x6[i2 + 11], 16, 1839030562), b5 = md5hh(b5, c3, d3, a4, x6[i2 + 14], 23, -35309556), a4 = md5hh(a4, b5, c3, d3, x6[i2 + 1], 4, -1530992060), d3 = md5hh(d3, a4, b5, c3, x6[i2 + 4], 11, 1272893353), c3 = md5hh(c3, d3, a4, b5, x6[i2 + 7], 16, -155497632), b5 = md5hh(b5, c3, d3, a4, x6[i2 + 10], 23, -1094730640), a4 = md5hh(a4, b5, c3, d3, x6[i2 + 13], 4, 681279174), d3 = md5hh(d3, a4, b5, c3, x6[i2], 11, -358537222), c3 = md5hh(c3, d3, a4, b5, x6[i2 + 3], 16, -722521979), b5 = md5hh(b5, c3, d3, a4, x6[i2 + 6], 23, 76029189), a4 = md5hh(a4, b5, c3, d3, x6[i2 + 9], 4, -640364487), d3 = md5hh(d3, a4, b5, c3, x6[i2 + 12], 11, -421815835), c3 = md5hh(c3, d3, a4, b5, x6[i2 + 15], 16, 530742520), b5 = md5hh(b5, c3, d3, a4, x6[i2 + 2], 23, -995338651), a4 = md5ii(a4, b5, c3, d3, x6[i2], 6, -198630844), d3 = md5ii(d3, a4, b5, c3, x6[i2 + 7], 10, 1126891415), c3 = md5ii(c3, d3, a4, b5, x6[i2 + 14], 15, -1416354905), b5 = md5ii(b5, c3, d3, a4, x6[i2 + 5], 21, -57434055), a4 = md5ii(a4, b5, c3, d3, x6[i2 + 12], 6, 1700485571), d3 = md5ii(d3, a4, b5, c3, x6[i2 + 3], 10, -1894986606), c3 = md5ii(c3, d3, a4, b5, x6[i2 + 10], 15, -1051523), b5 = md5ii(b5, c3, d3, a4, x6[i2 + 1], 21, -2054922799), a4 = md5ii(a4, b5, c3, d3, x6[i2 + 8], 6, 1873313359), d3 = md5ii(d3, a4, b5, c3, x6[i2 + 15], 10, -30611744), c3 = md5ii(c3, d3, a4, b5, x6[i2 + 6], 15, -1560198380), b5 = md5ii(b5, c3, d3, a4, x6[i2 + 13], 21, 1309151649), a4 = md5ii(a4, b5, c3, d3, x6[i2 + 4], 6, -145523070), d3 = md5ii(d3, a4, b5, c3, x6[i2 + 11], 10, -1120210379), c3 = md5ii(c3, d3, a4, b5, x6[i2 + 2], 15, 718787259), b5 = md5ii(b5, c3, d3, a4, x6[i2 + 9], 21, -343485551), a4 = safeAdd(a4, olda), b5 = safeAdd(b5, oldb), c3 = safeAdd(c3, oldc), d3 = safeAdd(d3, oldd);
+  return [a4, b5, c3, d3];
 }
 function binl2rstr(input) {
   var i2, output = "", length32 = input.length * 32;
@@ -10325,9 +11017,9 @@ function rstrHMACMD5(key, data) {
   return hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8), binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
 }
 function rstr2hex(input) {
-  var hexTab = "0123456789abcdef", output = "", x5, i2;
+  var hexTab = "0123456789abcdef", output = "", x6, i2;
   for (i2 = 0; i2 < input.length; i2 += 1)
-    x5 = input.charCodeAt(i2), output += hexTab.charAt(x5 >>> 4 & 15) + hexTab.charAt(x5 & 15);
+    x6 = input.charCodeAt(i2), output += hexTab.charAt(x6 >>> 4 & 15) + hexTab.charAt(x6 & 15);
   return output;
 }
 function str2rstrUTF8(input) {
@@ -10339,11 +11031,11 @@ function rawMD5(s4) {
 function hexMD5(s4) {
   return rstr2hex(rawMD5(s4));
 }
-function rawHMACMD5(k4, d3) {
-  return rstrHMACMD5(str2rstrUTF8(k4), str2rstrUTF8(d3));
+function rawHMACMD5(k5, d3) {
+  return rstrHMACMD5(str2rstrUTF8(k5), str2rstrUTF8(d3));
 }
-function hexHMACMD5(k4, d3) {
-  return rstr2hex(rawHMACMD5(k4, d3));
+function hexHMACMD5(k5, d3) {
+  return rstr2hex(rawHMACMD5(k5, d3));
 }
 function md5(string, key, raw) {
   return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
@@ -10381,18 +11073,18 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
   let allTempSentences = [];
   for (let i2 = 0; i2 < sentences.length; i2++) {
     let currentSentence = sentences[i2], { from, to, text, url } = currentSentence, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
-    for (let j5 = 0; j5 < textArrSplitedByNewLine.length; j5++) {
-      let currentText = textArrSplitedByNewLine[j5];
+    for (let j6 = 0; j6 < textArrSplitedByNewLine.length; j6++) {
+      let currentText = textArrSplitedByNewLine[j6];
       if (currentText === "") {
-        currentTempSentences.length > 0 ? j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
+        currentTempSentences.length > 0 ? j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `) : currentPrefix += `
 `;
         continue;
       } else if (currentText.length > maxLength) {
         let tempSplitedSentences = [];
         splitSentence(currentText, maxLength, tempSplitedSentences);
-        for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
-          let tempSentence = tempSplitedSentences[k4], { text: text2, prefix, suffix } = tempSentence;
+        for (let k5 = 0; k5 < tempSplitedSentences.length; k5++) {
+          let tempSentence = tempSplitedSentences[k5], { text: text2, prefix, suffix } = tempSentence;
           currentTempSentences.push({
             from,
             to,
@@ -10413,7 +11105,7 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
           index: i2,
           url
         });
-      currentTempSentences.length > 0 && j5 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
+      currentTempSentences.length > 0 && j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `);
     }
     allTempSentences.push(...currentTempSentences);
@@ -10455,6 +11147,42 @@ function mergeUrl(defaultUrl, customUrl) {
   let customUrlObj = new URL(customUrl);
   return customUrlObj.pathname !== "/" ? customUrlObj.toString() : (defaultUrlObj.host = customUrlObj.host, customUrlObj.port && (defaultUrlObj.port = customUrlObj.port), customUrlObj.protocol && (defaultUrlObj.protocol = customUrlObj.protocol), customUrlObj.username && (defaultUrlObj.username = customUrlObj.username), customUrlObj.password && (defaultUrlObj.password = customUrlObj.password), defaultUrlObj.toString());
 }
+function formatTranslationService(key, ctx) {
+  let service = PureTranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.allProps || [];
+  if (allProps.length > 0) {
+    let requiredProps = allProps.filter((prop) => prop.required);
+    if (requiredProps.length > 0) {
+      for (let prop of requiredProps)
+        if (!translationConfig[prop.name]) {
+          ok = !1;
+          break;
+        }
+    }
+  }
+  return {
+    ...service,
+    id: key,
+    selected: ctx.translationService === key,
+    ok,
+    config: translationConfig,
+    props: service.props || [],
+    allProps
+  };
+}
+var getTranslationServices = (ctx) => {
+  let { config } = ctx, alpha = config.alpha, beta = config.beta, canary = config.canary, debug = config.debug;
+  return Object.keys(
+    PureTranslationServices
+  ).filter((key) => {
+    let service = PureTranslationServices[key];
+    if (key.startsWith("mock"))
+      return debug ? !0 : key === ctx.config.translationService;
+    if (key === ctx.config.translationService)
+      return !0;
+    let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
+    return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
+  }).map((key) => formatTranslationService(key, ctx));
+};
 
 // services/cache.ts
 var dbNames = [];
@@ -10537,10 +11265,7 @@ async function getAllDBNames() {
 // utils/detect_chinese.ts
 var chineseRegex = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g, japaneseRegex = /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g, koreanRegex = /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g, punctuationRegex = /(\s+)|([\p{P}\p{S}])/gu, regexGroups = [
   ["zh-CN", chineseRegex],
-  [
-    "ja",
-    japaneseRegex
-  ],
+  ["ja", japaneseRegex],
   ["ko", koreanRegex]
 ];
 function detectChinese(text) {
@@ -10962,7 +11687,7 @@ function getContainers(root2, ctx) {
       );
     }
     let detectedContainers = [], treeFilter = (node) => {
-      if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !1))
+      if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !0))
         return NodeFilter.FILTER_REJECT;
       if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
         let parentNode = node.parentNode;
@@ -10984,8 +11709,8 @@ function getContainers(root2, ctx) {
     );
   }
   let finalContainers = duplicatedElements(root2, contentContainers, rule);
-  return finalContainers.sort(function(a4, b4) {
-    return a4.compareDocumentPosition(b4) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+  return finalContainers.sort(function(a4, b5) {
+    return a4.compareDocumentPosition(b5) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
   }), finalContainers;
 }
 
@@ -11012,8 +11737,14 @@ function applyUserConfigCss(root2, translationTheme, translationThemePatternConf
   let otherCss = "";
   if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
     let value = translationThemePatternConfig.textColor;
-    otherCss = `
-.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+    otherCss += `
+span.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+`;
+  }
+  if (translationThemePatternConfig && translationThemePatternConfig.zoom) {
+    let value = translationThemePatternConfig.zoom;
+    otherCss += `
+span.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
 `;
   }
   let finalCss = "";
@@ -11049,7 +11780,7 @@ function injectCssToFrame(root2, ctx) {
 
 // dom/elements_to_paragraph.ts
 function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
-  let variables = [], { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
+  let { rule } = ctx, delimiters = getPlaceholderDelimiters(ctx);
   if (elements.length === 0)
     return null;
   elements = elements.map(
@@ -11059,7 +11790,9 @@ function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
   );
   let isForceTranslate = elements.some(
     (element) => element.forceTranslate
-  ), text = "", isHasMeaningfulText = isForceTranslate;
+  ), text = "", variables = [], currentVariableIndex = 0;
+  elements && elements.length > 0 && elements[0].currentVariableIndex && (currentVariableIndex = elements[0].currentVariableIndex);
+  let isHasMeaningfulText = isForceTranslate;
   for (let i2 = 0; i2 < elements.length; i2++) {
     let elementState = elements[i2], element = elementState.element;
     if (elementState.text) {
@@ -11079,13 +11812,18 @@ function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
     element.tagName === "A" && (isStartWithSpace = !0, isEndWithSpace = !0);
     let isStayOriginal = isStayOriginalElement(element, rule);
     if (rawText === "" || isStayOriginal) {
+      if (element && isMatchTags(element.nodeName, ["IMG"])) {
+        let style = globalThis.getComputedStyle(element), width = parseInt(style.width, 10), height = parseInt(style.height, 10);
+        if (width > 36 || height > 36)
+          continue;
+      }
       isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
       let variable = {
         type: "element",
         value: element
       };
       variables.push(variable);
-      let index = variables.length - 1, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
+      let index = variables.length - 1 + currentVariableIndex, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
       text += (isStartWithSpace ? " " : "") + delimiter + (isEndWithSpace ? " " : "");
       continue;
     }
@@ -11225,7 +11963,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
       }
       continue;
     }
-    let filter = (node2) => {
+    let currentVariableIndex = 0, filter = (node2) => {
       if (!(node2.nodeType === Node.TEXT_NODE || node2.nodeType === Node.ELEMENT_NODE))
         return NodeFilter.FILTER_REJECT;
       if (node2.nodeType === Node.ELEMENT_NODE) {
@@ -11242,7 +11980,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
               rootFrame,
               ctx
             );
-            paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
+            currentVariableIndex = 0, paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
           }
           inlineElementGroups.push(element);
           let paragraph = elementsToParagraph(
@@ -11251,7 +11989,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
             rootFrame,
             ctx
           );
-          return paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0, NodeFilter.FILTER_REJECT;
+          return currentVariableIndex = 0, paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0, NodeFilter.FILTER_REJECT;
         }
       }
       if (isExcludeElement(node2, rule, !0)) {
@@ -11261,14 +11999,15 @@ async function getParagraphs(rootFrame, containers, ctx) {
           node2,
           rule
         ))
-          return handleInlineElement(
+          return currentVariableIndex = handleInlineElement(
             node2,
             inlineElementGroups,
             allParagraphs,
             isPreWhitespaceContainer,
             rootFrame,
-            ctx
-          ), NodeFilter.FILTER_REJECT;
+            ctx,
+            currentVariableIndex
+          ).currentVariableIndex, NodeFilter.FILTER_REJECT;
         if (inlineElementGroups.length > 0) {
           let paragraph = elementsToParagraph(
             [...inlineElementGroups],
@@ -11276,21 +12015,22 @@ async function getParagraphs(rootFrame, containers, ctx) {
             rootFrame,
             ctx
           );
-          paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+          currentVariableIndex = 0, paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
         }
         return NodeFilter.FILTER_REJECT;
       }
       return isMatchTags(node2.nodeName, ["PRE"]) && node2.classList.contains("code") ? NodeFilter.FILTER_REJECT : isInlineElement(
         node2,
         rule
-      ) ? (handleInlineElement(
+      ) ? (currentVariableIndex = handleInlineElement(
         node2,
         inlineElementGroups,
         allParagraphs,
         isPreWhitespaceContainer,
         rootFrame,
-        ctx
-      ), NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT;
+        ctx,
+        currentVariableIndex
+      ).currentVariableIndex, NodeFilter.FILTER_REJECT) : NodeFilter.FILTER_ACCEPT;
     }, elementIter = document.createTreeWalker(
       container,
       NodeFilter.SHOW_ELEMENT,
@@ -11304,7 +12044,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
           rootFrame,
           ctx
         );
-        paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+        currentVariableIndex = 0, paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
       }
       node = elementIter.nextNode();
     }
@@ -11315,7 +12055,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
         rootFrame,
         ctx
       );
-      paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
+      currentVariableIndex = 0, paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
     }
   }
   let promises = allParagraphs.map((paragraph) => {
@@ -11346,15 +12086,34 @@ async function getParagraphs(rootFrame, containers, ctx) {
     }
   }), filterdParagraphs;
 }
-function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootFrame, ctx) {
+function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootFrame, ctx, currentVariableIndex) {
   let elementState = {
     element: root2
+  }, node = null, isWhiteSpaceNodeOfLastElement = !1, fullText = "", variables = [], elements = [], filter = (node2) => {
+    if (node2.nodeType === Node.TEXT_NODE)
+      return NodeFilter.FILTER_ACCEPT;
+    if (node2.nodeType === Node.ELEMENT_NODE && isStayOriginalElement(node2, ctx.rule)) {
+      let parentElementParagraph = elementsToParagraph(
+        [{
+          element: node2,
+          forceTranslate: !0,
+          currentVariableIndex
+        }],
+        isPreWhitespaceContainer,
+        rootFrame,
+        ctx
+      );
+      return currentVariableIndex = 0, parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables))), NodeFilter.FILTER_REJECT;
+    }
+    return NodeFilter.FILTER_ACCEPT;
   }, treeWalker = document.createTreeWalker(
     root2,
-    NodeFilter.SHOW_TEXT,
-    null
-  ), node = null, isWhiteSpaceNodeOfLastElement = !1, fullText = "", variables = [], elements = [];
+    NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+    filter
+  );
   for (; node = treeWalker.nextNode(); ) {
+    if (node.nodeType !== Node.TEXT_NODE)
+      continue;
     let rawText = node.textContent || "", textContent = rawText.trim();
     if (!isWhiteSpaceNodeOfLastElement && rawText.length > 0 && textContent.length === 0) {
       isWhiteSpaceNodeOfLastElement = !0, fullText += " ", elements.push(" ");
@@ -11370,7 +12129,8 @@ function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootF
         let parentElementParagraph = elementsToParagraph(
           [{
             element: parent,
-            forceTranslate: !0
+            forceTranslate: !0,
+            currentVariableIndex
           }],
           isPreWhitespaceContainer,
           rootFrame,
@@ -11398,7 +12158,7 @@ function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootF
   }
   return elementState.text = fullText, elementState.variables = variables, elementState;
 }
-function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, rootFrame, ctx) {
+function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhitespaceContainer, rootFrame, ctx, currentVariableIndex) {
   let previouseElement = node.previousElementSibling;
   if (previouseElement && !isInlineElement(
     previouseElement,
@@ -11412,18 +12172,30 @@ function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhit
     );
     paragraph && addToParagraphs(paragraph, allParagraphs), inlineElementGroups.length = 0;
   }
-  isExcludeElement(
+  if (isExcludeElement(
     node,
     ctx.rule,
     !1
-  ) ? isMetaElement(node, ctx.rule) || inlineElementGroups.push(node) : isStayOriginalElement(node, ctx.rule) ? inlineElementGroups.push(node) : isContainsSelectors(node, ["code", "tt"]) ? inlineElementGroups.push(
-    getInlineElementsOfInlineElement(
+  ))
+    isMetaElement(node, ctx.rule) || inlineElementGroups.push(node);
+  else if (isStayOriginalElement(node, ctx.rule))
+    inlineElementGroups.push(node);
+  else if (isContainsStayOriginalElement(node, ctx.rule)) {
+    let inlineGroupElementState = getInlineElementsOfInlineElement(
       node,
       isPreWhitespaceContainer,
       rootFrame,
-      ctx
-    )
-  ) : inlineElementGroups.push(node);
+      ctx,
+      currentVariableIndex
+    );
+    inlineGroupElementState && inlineGroupElementState.text && (inlineGroupElementState.variables && (currentVariableIndex += inlineGroupElementState.variables.length), inlineElementGroups.push(
+      inlineGroupElementState
+    ));
+  } else
+    inlineElementGroups.push(node);
+  return {
+    currentVariableIndex
+  };
 }
 
 // dom/get_pdf_paragraphs.ts
@@ -11837,12 +12609,6 @@ var Translation = class {
     this.maxTextGroupLength = 200;
     this.serviceConfig = serviceConfig, this.generalConfig = generalConfig;
   }
-  static getAllProps() {
-    return [];
-  }
-  static getProps() {
-    return [];
-  }
   async init() {
   }
   getMaxTextGroupLength() {
@@ -11936,9 +12702,9 @@ var Translation = class {
         }
       }
       let { text: translatedTexts } = result;
-      for (let j5 = 0; j5 < translatedTexts.length; j5++)
+      for (let j6 = 0; j6 < translatedTexts.length; j6++)
         try {
-          let translatedText = translatedTexts[j5], tempSentence = tempSentenceGroup.tempSentences[j5], { index, prefix, suffix } = tempSentence;
+          let translatedText = translatedTexts[j6], tempSentence = tempSentenceGroup.tempSentences[j6], { index, prefix, suffix } = tempSentence;
           respondedSentences[index] === void 0 ? respondedSentences[index] = {
             ...sentences[index],
             from: tempSentenceGroup.from,
@@ -11990,7 +12756,7 @@ var ERROR = "input is invalid type", WINDOW = typeof window == "object", root = 
 root.JS_SHA256_NO_WINDOW && (WINDOW = !1);
 var WEB_WORKER = !WINDOW && typeof self == "object", NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process == "object" && process.versions && process.versions.node;
 NODE_JS ? root = global : WEB_WORKER && (root = self);
-var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && module.exports, AMD = typeof define == "function" && define.amd, ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer < "u", HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [-2147483648, 8388608, 32768, 128], SHIFT = [24, 16, 8, 0], K5 = [
+var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && module.exports, AMD = typeof define == "function" && define.amd, ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer < "u", HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [-2147483648, 8388608, 32768, 128], SHIFT = [24, 16, 8, 0], K6 = [
   1116352408,
   1899447441,
   3049323471,
@@ -12133,12 +12899,12 @@ Sha256.prototype.finalize = function() {
   }
 };
 Sha256.prototype.hash = function() {
-  var a4 = this.h0, b4 = this.h1, c3 = this.h2, d3 = this.h3, e3 = this.h4, f4 = this.h5, g5 = this.h6, h3 = this.h7, blocks2 = this.blocks, j5, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
-  for (j5 = 16; j5 < 64; ++j5)
-    t1 = blocks2[j5 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j5 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j5] = blocks2[j5 - 16] + s0 + blocks2[j5 - 7] + s1 << 0;
-  for (bc = b4 & c3, j5 = 0; j5 < 64; j5 += 4)
-    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d3 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d3 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a4 >>> 2 | a4 << 30) ^ (a4 >>> 13 | a4 << 19) ^ (a4 >>> 22 | a4 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a4 & b4, maj = ab ^ a4 & c3 ^ bc, ch = e3 & f4 ^ ~e3 & g5, t1 = h3 + s1 + ch + K5[j5] + blocks2[j5], t22 = s0 + maj, h3 = d3 + t1 << 0, d3 = t1 + t22 << 0), s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d3 & a4, maj = da ^ d3 & b4 ^ ab, ch = h3 & e3 ^ ~h3 & f4, t1 = g5 + s1 + ch + K5[j5 + 1] + blocks2[j5 + 1], t22 = s0 + maj, g5 = c3 + t1 << 0, c3 = t1 + t22 << 0, s0 = (c3 >>> 2 | c3 << 30) ^ (c3 >>> 13 | c3 << 19) ^ (c3 >>> 22 | c3 << 10), s1 = (g5 >>> 6 | g5 << 26) ^ (g5 >>> 11 | g5 << 21) ^ (g5 >>> 25 | g5 << 7), cd = c3 & d3, maj = cd ^ c3 & a4 ^ da, ch = g5 & h3 ^ ~g5 & e3, t1 = f4 + s1 + ch + K5[j5 + 2] + blocks2[j5 + 2], t22 = s0 + maj, f4 = b4 + t1 << 0, b4 = t1 + t22 << 0, s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10), s1 = (f4 >>> 6 | f4 << 26) ^ (f4 >>> 11 | f4 << 21) ^ (f4 >>> 25 | f4 << 7), bc = b4 & c3, maj = bc ^ b4 & d3 ^ cd, ch = f4 & g5 ^ ~f4 & h3, t1 = e3 + s1 + ch + K5[j5 + 3] + blocks2[j5 + 3], t22 = s0 + maj, e3 = a4 + t1 << 0, a4 = t1 + t22 << 0;
-  this.h0 = this.h0 + a4 << 0, this.h1 = this.h1 + b4 << 0, this.h2 = this.h2 + c3 << 0, this.h3 = this.h3 + d3 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f4 << 0, this.h6 = this.h6 + g5 << 0, this.h7 = this.h7 + h3 << 0;
+  var a4 = this.h0, b5 = this.h1, c3 = this.h2, d3 = this.h3, e3 = this.h4, f5 = this.h5, g6 = this.h6, h3 = this.h7, blocks2 = this.blocks, j6, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+  for (j6 = 16; j6 < 64; ++j6)
+    t1 = blocks2[j6 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j6 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j6] = blocks2[j6 - 16] + s0 + blocks2[j6 - 7] + s1 << 0;
+  for (bc = b5 & c3, j6 = 0; j6 < 64; j6 += 4)
+    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d3 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d3 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a4 >>> 2 | a4 << 30) ^ (a4 >>> 13 | a4 << 19) ^ (a4 >>> 22 | a4 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a4 & b5, maj = ab ^ a4 & c3 ^ bc, ch = e3 & f5 ^ ~e3 & g6, t1 = h3 + s1 + ch + K6[j6] + blocks2[j6], t22 = s0 + maj, h3 = d3 + t1 << 0, d3 = t1 + t22 << 0), s0 = (d3 >>> 2 | d3 << 30) ^ (d3 >>> 13 | d3 << 19) ^ (d3 >>> 22 | d3 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d3 & a4, maj = da ^ d3 & b5 ^ ab, ch = h3 & e3 ^ ~h3 & f5, t1 = g6 + s1 + ch + K6[j6 + 1] + blocks2[j6 + 1], t22 = s0 + maj, g6 = c3 + t1 << 0, c3 = t1 + t22 << 0, s0 = (c3 >>> 2 | c3 << 30) ^ (c3 >>> 13 | c3 << 19) ^ (c3 >>> 22 | c3 << 10), s1 = (g6 >>> 6 | g6 << 26) ^ (g6 >>> 11 | g6 << 21) ^ (g6 >>> 25 | g6 << 7), cd = c3 & d3, maj = cd ^ c3 & a4 ^ da, ch = g6 & h3 ^ ~g6 & e3, t1 = f5 + s1 + ch + K6[j6 + 2] + blocks2[j6 + 2], t22 = s0 + maj, f5 = b5 + t1 << 0, b5 = t1 + t22 << 0, s0 = (b5 >>> 2 | b5 << 30) ^ (b5 >>> 13 | b5 << 19) ^ (b5 >>> 22 | b5 << 10), s1 = (f5 >>> 6 | f5 << 26) ^ (f5 >>> 11 | f5 << 21) ^ (f5 >>> 25 | f5 << 7), bc = b5 & c3, maj = bc ^ b5 & d3 ^ cd, ch = f5 & g6 ^ ~f5 & h3, t1 = e3 + s1 + ch + K6[j6 + 3] + blocks2[j6 + 3], t22 = s0 + maj, e3 = a4 + t1 << 0, a4 = t1 + t22 << 0;
+  this.h0 = this.h0 + a4 << 0, this.h1 = this.h1 + b5 << 0, this.h2 = this.h2 + c3 << 0, this.h3 = this.h3 + d3 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f5 << 0, this.h6 = this.h6 + g6 << 0, this.h7 = this.h7 + h3 << 0;
 };
 Sha256.prototype.hex = function() {
   this.finalize();
@@ -12205,8 +12971,8 @@ function HmacSha256(key, is224, sharedMemory) {
   key.length > 64 && (key = new Sha256(is224, !0).update(key).array());
   var oKeyPad = [], iKeyPad = [];
   for (i2 = 0; i2 < 64; ++i2) {
-    var b4 = key[i2] || 0;
-    oKeyPad[i2] = 92 ^ b4, iKeyPad[i2] = 54 ^ b4;
+    var b5 = key[i2] || 0;
+    oKeyPad[i2] = 92 ^ b5, iKeyPad[i2] = 54 ^ b5;
   }
   Sha256.call(this, is224, sharedMemory), this.update(iKeyPad), this.oKeyPad = oKeyPad, this.inner = !0, this.sharedMemory = sharedMemory;
 }
@@ -12231,7 +12997,7 @@ function sha256(message) {
   return Promise.resolve(sha256Fn(message));
 }
 function hex(hashBuffer) {
-  return Array.from(new Uint8Array(hashBuffer)).map((b4) => b4.toString(16).padStart(2, "0")).join(
+  return Array.from(new Uint8Array(hashBuffer)).map((b5) => b5.toString(16).padStart(2, "0")).join(
     ""
   );
 }
@@ -12286,17 +13052,6 @@ var langMap2 = [
   static getUTCDate(dateObj) {
     let year = dateObj.getUTCFullYear(), month = `${dateObj.getUTCMonth() + 1}`.padStart(2, "0"), date = `${dateObj.getUTCDate()}`.padStart(2, "0");
     return `${year}-${month}-${date}`;
-  }
-  static getAllProps() {
-    return [{
-      name: "secretId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretKey",
-      required: !0,
-      type: "password"
-    }];
   }
   async translate(payload) {
     let { text, from, to } = payload, RequestPayload = JSON.stringify({
@@ -12623,8 +13378,8 @@ function generateJobs(sentences, beams = 1) {
   let jobs = [], id = 0;
   for (let i2 = 0; i2 < sentences.length; i2++) {
     let chunks = sentences[i2].chunks;
-    for (let j5 = 0; j5 < chunks.length; j5++) {
-      let chunk = chunks[j5];
+    for (let j6 = 0; j6 < chunks.length; j6++) {
+      let chunk = chunks[j6];
       jobs.push({
         kind: "default",
         _index: i2,
@@ -12777,7 +13532,10 @@ async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, 
 }
 
 // services/d/mod.ts
-var langMap4 = [
+var converter = globalThis.OpenCC.Converter({
+  from: "cn",
+  to: "tw"
+}), langMap4 = [
   ["auto", "auto"],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -12806,16 +13564,16 @@ var langMap4 = [
       _D.langMap.get(to) || to,
       _D.langMap.get(from) || "auto"
     );
-    return {
+    return result.text && Array.isArray(result.text) && (result.text = result.text.map((item) => to === "zh-TW" ? converter(item) : item)), {
       text: result.text,
       from: _D.langMapReverse.get(result.from),
       to: _D.langMapReverse.get(result.to)
     };
   }
-}, D8 = _D;
+}, D9 = _D;
 /** Translator lang to custom lang */
-D8.langMap = new Map(langMap4), /** Custom lang to translator lang */
-D8.langMapReverse = new Map(
+D9.langMap = new Map(langMap4), /** Custom lang to translator lang */
+D9.langMapReverse = new Map(
   langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 
@@ -13005,9 +13763,13 @@ var Mock = class extends Translation {
 };
 
 // services/openl.ts
-var rawLangMap = [
+var converter2 = globalThis.OpenCC.Converter({
+  from: "cn",
+  to: "tw"
+}), rawLangMap = [
   ["auto", "auto"],
   ["zh-CN", "zh"],
+  ["zh-TW", "zh"],
   ["en", "en"],
   ["ja", "ja"],
   ["de", "de"],
@@ -13031,71 +13793,6 @@ var rawLangMap = [
       throw new Error("apikey are required");
     this.apikey = serviceConfig.apikey?.trim(), serviceConfig.codename && (this.codename = serviceConfig.codename);
   }
-  static getAllProps() {
-    return [
-      ..._Openl.getProps(),
-      {
-        type: "password",
-        name: "apikey",
-        required: !0
-      }
-    ];
-  }
-  static getProps() {
-    return [{
-      type: "select",
-      name: "codename",
-      label: "translationEngine",
-      default: _Openl.DEFAULT_CODENAME,
-      required: !1,
-      options: [
-        {
-          label: "translationServices.deepl",
-          value: "deepl"
-        },
-        {
-          label: "translationServices.youdao",
-          value: "youdao"
-        },
-        {
-          label: "translationServices.tencent",
-          value: "tencent"
-        },
-        {
-          label: "translationServices.aliyun",
-          value: "aliyun"
-        },
-        {
-          label: "translationServices.baidu",
-          value: "baidu"
-        },
-        {
-          label: "translationServices.caiyun",
-          value: "caiyun"
-        },
-        {
-          label: "translationServices.wechat",
-          value: "wechat"
-        },
-        {
-          label: "translationServices.azure",
-          value: "azure"
-        },
-        {
-          label: "translationServices.ibm",
-          value: "ibm"
-        },
-        {
-          label: "translationServices.aws",
-          value: "aws"
-        },
-        {
-          label: "translationServices.google",
-          value: "google"
-        }
-      ]
-    }];
-  }
   async translate(payload) {
     let { text, from, to } = payload, response = await request2(
       {
@@ -13115,7 +13812,7 @@ var rawLangMap = [
     );
     if (response.status) {
       let result = response;
-      return {
+      return result.result && to == "zh-TW" && (result.result = converter2(result.result)), {
         text: result.result,
         from: langMapReverse.get(result.source_lang),
         to: langMapReverse.get(result.target_lang)
@@ -13128,7 +13825,10 @@ Openl.DEFAULT_CODENAME = "deepl";
 var openl_default = Openl;
 
 // services/deepl.ts
-var rawLangMap2 = [
+var converter3 = globalThis.OpenCC.Converter({
+  from: "cn",
+  to: "tw"
+}), globalState = null, rawLangMap2 = [
   ["auto", ""],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -13153,19 +13853,41 @@ var rawLangMap2 = [
     this.freeApiUrl = "https://api-free.deepl.com/v2/translate";
     this.proApiUrl = "https://api.deepl.com/v2/translate";
     this.immersiveTranslateApiUrl = "https://deepl.immersivetranslate.com/v2/translate";
+    this.immersiveTranslateDeeplTokenUrl = "https://api.immersivetranslate.com";
     if (!serviceConfig || !serviceConfig.authKey)
       throw new Error("authKey are required");
     serviceConfig && serviceConfig.freeApiUrl && (this.freeApiUrl = mergeUrl(this.freeApiUrl, serviceConfig.freeApiUrl)), serviceConfig && serviceConfig.proApiUrl && (this.proApiUrl = mergeUrl(this.proApiUrl, serviceConfig.proApiUrl)), serviceConfig && serviceConfig.immersiveTranslateApiUrl && (this.immersiveTranslateApiUrl = mergeUrl(
       this.immersiveTranslateApiUrl,
       serviceConfig.immersiveTranslateApiUrl
+    )), serviceConfig && serviceConfig.immersiveTranslateDeeplTokenUrl && (this.immersiveTranslateDeeplTokenUrl = mergeUrl(
+      this.immersiveTranslateDeeplTokenUrl,
+      serviceConfig.immersiveTranslateDeeplTokenUrl
     )), this.authKey = serviceConfig.authKey?.trim();
   }
-  static getAllProps() {
-    return [{
-      name: "authKey",
-      required: !0,
-      type: "password"
-    }];
+  async init() {
+    if (!globalState) {
+      globalState = {};
+      let globalStateValue = await browserAPI.storage.local.get(
+        immersiveTranslateGlobalConfigStorageKey
+      );
+      globalStateValue && globalStateValue[immersiveTranslateGlobalConfigStorageKey] && (globalState = globalStateValue[immersiveTranslateGlobalConfigStorageKey]);
+    }
+    if (this.authKey.startsWith("immersive_")) {
+      let deeplInstance = new Z5(
+        this.authKey,
+        {
+          state: globalState,
+          onFetch: (url, options2) => request2({
+            url,
+            ...options2
+          }),
+          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl
+        }
+      );
+      await deeplInstance.updateToken(), deeplInstance.getIsStateChanged() && (globalState = deeplInstance.getState(), await browserAPI.storage.local.set({
+        [immersiveTranslateGlobalConfigStorageKey]: globalState
+      }));
+    }
   }
   async translateList(payload) {
     let { from, to, text } = payload, bodyParams = {
@@ -13177,23 +13899,41 @@ var rawLangMap2 = [
     });
     let body = bodySearchParams.toString(), deeplEndpoint = this.freeApiUrl;
     this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
-    let response = await request2(
-      {
-        retry: 2,
-        url: deeplEndpoint,
-        method: "POST",
-        body,
-        headers: {
-          Authorization: "DeepL-Auth-Key " + this.authKey,
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-        },
-        extra: {
-          overrideMimeType: "application/json; charset=utf-8"
+    let response;
+    if (this.authKey.startsWith("immersive_")) {
+      let deeplInstance = new Z5(
+        this.authKey,
+        {
+          state: globalState,
+          onFetch: (url, options2) => request2({
+            url,
+            ...options2
+          }),
+          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl
         }
-      }
-    ), { translations: translations2 } = response;
+      );
+      response = await deeplInstance.translateApi(body), deeplInstance.getIsStateChanged() && (globalState = deeplInstance.getState(), await browserAPI.storage.local.set({
+        [immersiveTranslateGlobalConfigStorageKey]: globalState
+      }));
+    } else
+      response = await request2(
+        {
+          retry: 2,
+          url: deeplEndpoint,
+          method: "POST",
+          body,
+          headers: {
+            Authorization: "DeepL-Auth-Key " + this.authKey,
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
+          extra: {
+            overrideMimeType: "application/json; charset=utf-8"
+          }
+        }
+      );
+    let { translations: translations2 } = response;
     return {
-      text: translations2.map((t4) => t4.text),
+      text: translations2.map((t4) => to === "zh-TW" ? converter3(t4.text) : t4.text),
       from: translations2[0] && langMapReverse2.get(translations2[0].detected_source_language) || from,
       to
     };
@@ -13220,13 +13960,6 @@ var rawLangMap3 = [
     if (!serviceConfig || !serviceConfig.APIKEY)
       throw new Error("APIKEY are required");
     this.APIKEY = serviceConfig.APIKEY?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "APIKEY",
-      required: !0,
-      type: "password"
-    }];
   }
   async translate(payload) {
     let { text, from, to } = payload, options2 = {
@@ -13295,7 +14028,7 @@ var unsignableHeaders = [
   let escapedKey = uriEscape(key);
   if (escapedKey)
     return Array.isArray(val) ? `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}` : `${escapedKey}=${uriEscape(val)}`;
-}).filter((v2) => v2).join("&"), Signer = class {
+}).filter((v3) => v3).join("&"), Signer = class {
   constructor(request3, serviceName, options2) {
     this.request = request3, this.request.headers = request3.headers || {}, this.serviceName = serviceName, options2 = options2 || {}, this.bodySha256 = options2.bodySha256, this.request.params = this.sortParams(this.request.params);
   }
@@ -13348,9 +14081,9 @@ var unsignableHeaders = [
   async stringToSign(datetime) {
     let parts = [];
     parts.push(constant.algorithm), parts.push(datetime), parts.push(this.credentialString(datetime));
-    let x5 = await this.canonicalString();
+    let x6 = await this.canonicalString();
     return parts.push(
-      await this.hexEncodedHash(x5)
+      await this.hexEncodedHash(x6)
     ), parts.join(`
 `);
   }
@@ -13366,7 +14099,7 @@ var unsignableHeaders = [
     let headers2 = [];
     Object.keys(this.request.headers).forEach((key) => {
       headers2.push([key, this.request.headers[key]]);
-    }), headers2.sort((a4, b4) => a4[0].toLowerCase() < b4[0].toLowerCase() ? -1 : 1);
+    }), headers2.sort((a4, b5) => a4[0].toLowerCase() < b5[0].toLowerCase() ? -1 : 1);
     let parts = [];
     return headers2.forEach((item) => {
       let key = item[0].toLowerCase();
@@ -13541,17 +14274,6 @@ var rawLangMap4 = [
     if (!serviceConfig || !serviceConfig.accessKeyId || !serviceConfig.secretAccessKey)
       throw new Error("accessKeyId and secretAccessKey are required");
     this.accessKeyId = serviceConfig.accessKeyId?.trim(), this.secretAccessKey = serviceConfig.secretAccessKey?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "accessKeyId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretAccessKey",
-      required: !0,
-      type: "password"
-    }];
   }
   async remoteDetectLanguage(text) {
     let requestObj = {
@@ -13795,7 +14517,10 @@ var rawLangMap5 = [
 };
 
 // services/deeplx.ts
-var rawLangMap6 = [
+var converter4 = globalThis.OpenCC.Converter({
+  from: "cn",
+  to: "tw"
+}), rawLangMap6 = [
   ["auto", "auto"],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -13820,13 +14545,6 @@ var rawLangMap6 = [
       );
     this.url = serviceConfig.url;
   }
-  static getAllProps() {
-    return [{
-      name: "url",
-      required: !0,
-      type: "text"
-    }];
-  }
   async translate(payload) {
     let { text, from, to } = payload, result = await request2(
       {
@@ -13844,7 +14562,7 @@ var rawLangMap6 = [
       }
     );
     if (result.code === 200)
-      return {
+      return result.data && to === "zh-TW" && (result.data = converter4(result.data)), {
         text: result.data,
         from,
         to
@@ -14107,17 +14825,6 @@ var rawLangMap8 = [
       throw new Error("appid and key are required");
     this.appid = serviceConfig.appid?.trim(), this.key = serviceConfig.key?.trim();
   }
-  static getAllProps() {
-    return [{
-      name: "appid",
-      required: !0,
-      type: "text"
-    }, {
-      name: "key",
-      required: !0,
-      type: "password"
-    }];
-  }
   async translate(payload) {
     let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
       from: langMap13.get(from) || "auto",
@@ -14167,13 +14874,6 @@ var rawLangMap9 = [
       throw new Error("token are required");
     this.token = serviceConfig.token?.trim();
   }
-  static getAllProps() {
-    return [{
-      name: "token",
-      required: !0,
-      type: "password"
-    }];
-  }
   async translateList(payload) {
     let { text, from, to } = payload;
     if (!langMap14.get(to))
@@ -14220,9 +14920,9 @@ var rawLangMap10 = [
 ], langMap15 = new Map(rawLangMap10), langMapReverse7 = new Map(
   rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
 );
-function truncate(q6) {
-  let len = q6.length;
-  return len <= 20 ? q6 : q6.substring(0, 10) + len + q6.substring(len - 10, len);
+function truncate(q7) {
+  let len = q7.length;
+  return len <= 20 ? q7 : q7.substring(0, 10) + len + q7.substring(len - 10, len);
 }
 var Youdao = class extends Translation {
   constructor(serviceConfig, generalConfig) {
@@ -14233,17 +14933,6 @@ var Youdao = class extends Translation {
     if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret)
       throw new Error("appId and appSecret are required");
     this.appId = serviceConfig.appId?.trim(), this.appSecret = serviceConfig.appSecret?.trim();
-  }
-  static getAllProps() {
-    return [{
-      name: "appId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "appSecret",
-      required: !0,
-      type: "password"
-    }];
   }
   async translate(payload) {
     let { text, from, to } = payload, salt = (/* @__PURE__ */ new Date()).getTime(), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
@@ -14264,7 +14953,7 @@ var Youdao = class extends Translation {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }
-    ), l2 = result.l, [remoteFrom, _2] = l2.split("2");
+    ), l2 = result.l, [remoteFrom, _3] = l2.split("2");
     return {
       text: result.translation.join(`
 `),
@@ -14275,147 +14964,31 @@ var Youdao = class extends Translation {
 }, youdao_default = Youdao;
 
 // services/mod.ts
-var TranslationServices = {
-  mock: {
-    class: Mock,
-    name: "Mock",
-    homepage: "https://www.google.com"
-  },
-  mock2: {
-    class: Mock,
-    name: "Mock2",
-    homepage: "https://www.google.com"
-  },
-  google: {
-    class: Google,
-    name: "Google",
-    homepage: "https://translate.google.com/"
-  },
-  transmart: {
-    class: Transmart,
-    name: "Transmart",
-    homepage: "https://transmart.qq.com/"
-  },
-  deepl: {
-    class: deepl_default,
-    name: "DeepL",
-    homepage: "https://www.deepl.com/translator",
-    docUrl: "https://immersive-translate.owenyoung.com/services/deepL"
-  },
-  volc: {
-    class: mod_default2,
-    name: "Volc",
-    homepage: "https://www.volcengine.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/volcano"
-  },
-  volcAlpha: {
-    class: VolcAlpha,
-    name: "Volc Alpha",
-    alpha: !0,
-    homepage: "https://www.volcengine.com/"
-  },
-  bing: {
-    class: Bing,
-    name: "Bing",
-    homepage: "https://www.bing.com/translator"
-  },
-  // bai: {
-  //   class: Bai,
-  //   name: "Baidu(Alapa)",
-  //   homepage: "https://fanyi.baidu.com/",
-  //   alpha: true,
-  // },
-  tencent: {
-    class: Tencent,
-    name: "Tencent",
-    homepage: "https://fanyi.qq.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/tencent"
-  },
-  baidu: {
-    class: baidu_default,
-    name: "Baidu",
-    homepage: "https://fanyi.baidu.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/baidu"
-  },
-  caiyun: {
-    class: caiyun_default,
-    name: "Caiyun",
-    homepage: "https://fanyi.caiyunapp.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/caiyun"
-  },
-  openl: {
-    class: openl_default,
-    name: "Openl",
-    homepage: "https://openl.club/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/openL"
-  },
-  youdao: {
-    class: youdao_default,
-    name: "Youdao",
-    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-    docUrl: "https://hcfy.app/docs/services/youdao-api"
-  },
-  d: {
-    class: D8,
-    name: "D () ",
-    alpha: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  dpro: {
-    class: D8,
-    name: "DPro (Canary) ",
-    canary: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  deeplx: {
-    class: Deeplx,
-    name: "DeepLX (Beta)",
-    beta: !0,
-    homepage: "https://www.deepl.com/translator"
-  },
-  niu: {
-    class: niu_default,
-    name: "niutrans",
-    homepage: "https://niutrans.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/niu"
-  }
-};
-function formatTranslationService(key, ctx) {
-  let service = TranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.class.getAllProps();
-  if (allProps.length > 0) {
-    let requiredProps = allProps.filter((prop) => prop.required);
-    if (requiredProps.length > 0) {
-      for (let prop of requiredProps)
-        if (!translationConfig[prop.name]) {
-          ok = !1;
-          break;
-        }
-    }
-  }
-  return {
-    ...service,
-    id: key,
-    selected: ctx.translationService === key,
-    ok,
-    config: translationConfig,
-    props: service.class.getProps(),
-    allProps
+var TranslationServicesClass = {
+  mock: Mock,
+  mock2: Mock,
+  google: Google,
+  transmart: Transmart,
+  deepl: deepl_default,
+  volc: mod_default2,
+  volcAlpha: VolcAlpha,
+  bing: Bing,
+  tencent: Tencent,
+  baidu: baidu_default,
+  caiyun: caiyun_default,
+  openl: openl_default,
+  youdao: youdao_default,
+  d: D9,
+  dpro: D9,
+  deeplx: Deeplx,
+  niu: niu_default
+}, TranslationServices = {};
+Object.keys(PureTranslationServices).forEach((key) => {
+  TranslationServices[key] = {
+    ...PureTranslationServices[key],
+    class: TranslationServicesClass[key]
   };
-}
-var allServiceKeys = Object.keys(
-  TranslationServices
-), getTranslationServices = (ctx) => {
-  let { config } = ctx, alpha = config.alpha, beta = config.beta, canary = config.canary, debug = config.debug;
-  return allServiceKeys.filter((key) => {
-    let service = TranslationServices[key];
-    if (key.startsWith("mock"))
-      return debug ? !0 : key === ctx.config.translationService;
-    if (key === ctx.config.translationService)
-      return !0;
-    let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
-    return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
-  }).map((key) => formatTranslationService(key, ctx));
-};
+});
 async function translateSingleSentence(sentence, ctx) {
   if (!sentence.text)
     return sentence;
@@ -14431,6 +15004,13 @@ async function translateSingleSentence(sentence, ctx) {
       ...result.sentences[0]
     };
   throw new CommonError("translateFailed", "translate failed");
+}
+async function initTranslationEngine(ctx) {
+  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+  await new TranslationServices[defaultTranslationEngine].class(
+    serviceConfig,
+    generalConfig
+  ).init();
 }
 async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
   if (!payload.sentences.length)
@@ -14490,17 +15070,17 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
       sentences: noCacheSentences
     },
     serviceConfig,
-    (err, a4, b4) => {
-      if (everySentenceCallback && (everySentenceCallback(err, a4, b4), !err && a4 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
+    (err, a4, b5) => {
+      if (everySentenceCallback && (everySentenceCallback(err, a4, b5), !err && a4 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
         let cacheServiceKey = defaultTranslationEngine;
         defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
           setDbStore(
             {
               translatedText: a4.text,
-              from: b4.from,
-              to: b4.to,
+              from: b5.from,
+              to: b5.to,
               detectedFrom: a4.from,
-              key: md5(b4.text),
+              key: md5(b5.text),
               service: cacheServiceKey
             }
           ),
@@ -14526,7 +15106,7 @@ function getMatchedUrl(rawUrl, rawMatches) {
   let matches = [];
   if (!rawMatches || (rawMatches && !Array.isArray(rawMatches) ? matches = [rawMatches] : matches = rawMatches, matches.length === 0))
     return null;
-  if (matches.some((m4) => matchAll.includes(m4)))
+  if (matches.some((m5) => matchAll.includes(m5)))
     return rawUrl;
   let urlObj = new URL(rawUrl);
   urlObj.hash = "", urlObj.search = "";
@@ -14829,7 +15409,7 @@ async function translateNewDynamicNodes(ctx) {
         let containers = rawContainers;
         allContainers.push(...containers);
       }
-      await translateContainers(allContainers, rootFrame, ctx);
+      await translateContainers(allContainers, rootFrame, ctx, !0);
     } catch (e3) {
       log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
     }
@@ -14885,7 +15465,9 @@ function translationParagraph(visibleParagraph, ctx) {
 }
 function addParagraphToQueue(paragraph, ctx) {
   ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.config.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
-    translationParagraph(visibleParagraph, ctx);
+    ctx.rule.visibleDelay > 0 ? setTimeout(() => {
+      translationParagraph(visibleParagraph, ctx);
+    }, ctx.rule.visibleDelay) : translationParagraph(visibleParagraph, ctx);
   }) : translationParagraph(paragraph, ctx);
 }
 async function translatePage(ctx) {
@@ -14907,7 +15489,9 @@ async function translatePage(ctx) {
   }
   ctx.state.isAutoTranslate = !0;
   let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-  currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
+  currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), initTranslationEngine(ctx).catch((e3) => {
+    log_default.warn("init translation engine error", e3);
+  }), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
     currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
       observer.disconnect();
     }), allResizebleObserver.forEach((observer) => {
@@ -14943,11 +15527,11 @@ async function translatePage(ctx) {
   }
 }
 async function translateFrame(rootFrame, ctx) {
-  markContainers(rootFrame, ctx.rule);
+  markContainers(rootFrame, ctx.rule, rootFrame, !1);
   let containers = getContainers(rootFrame, ctx);
   log_default.debug("detect containers", containers);
   let { rule } = ctx;
-  containers.length > 0 && await translateContainers(containers, rootFrame, ctx);
+  containers.length > 0 && await translateContainers(containers, rootFrame, ctx, !1);
   let observer = enableMutatinObserver(rootFrame, rule, ctx);
   return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
 }
@@ -15028,10 +15612,10 @@ function setLoadingToParagraph(rootFrame, id, ctx) {
 function getLoadingHTML(theme) {
   return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
 }
-async function translateContainers(containers, rootFrame, ctx) {
+async function translateContainers(containers, rootFrame, ctx, isDynamic) {
   let { rule } = ctx;
   for (let container of containers)
-    markContainers(container, rule);
+    markContainers(container, rule, rootFrame, isDynamic);
   let targetContainers = [];
   if (ctx.rule.isPdf)
     containers.length > 0 && (setPageTranslatedStatus("Translating"), targetContainers = normalizeContainer2(
@@ -15046,7 +15630,7 @@ async function translateContainers(containers, rootFrame, ctx) {
     ), { hiddenElements } = normalizeResult;
     for (let element of hiddenElements)
       onHiddenElementVisible(element, () => {
-        removeAttribute(element, sourceElementExcludeAttributeName, !0), translateContainers([element], rootFrame, ctx);
+        removeAttribute(element, sourceElementExcludeAttributeName, !0), translateContainers([element], rootFrame, ctx, !0);
       });
     setPageTranslatedStatus("Translating");
   }
@@ -15105,22 +15689,30 @@ function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
     let paragraph = getParagraph(sentenceRequest.id);
     if (paragraph) {
       paragraph.state = "Translated", setParagraph(paragraph.id, paragraph);
-      let targetItem = paragraphToHtml(
-        paragraph,
-        translatedSentence,
-        ctx
-      ), wrapperId = translatedSentence.id, wrapper = paragraph.rootFrame.querySelector(
+      let wrapperId = translatedSentence.id, wrapper = paragraph.rootFrame.querySelector(
         `#${translationTargetElementWrapperClass}-${wrapperId}`
       );
-      wrapper && (wrapper.innerHTML = targetItem.html, paragraph.rootFrame.querySelectorAll(
-        `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
-      ).forEach((element) => {
-        setAttribute(
-          element,
-          sourceElementTranslatedMarkAttributeName,
-          "1"
-        );
-      }));
+      if (wrapper) {
+        if (paragraph.text === translatedSentence.text)
+          wrapper.innerHTML = "";
+        else {
+          let targetItem = paragraphToHtml(
+            paragraph,
+            translatedSentence,
+            ctx
+          );
+          wrapper.innerHTML = targetItem.html;
+        }
+        paragraph.rootFrame.querySelectorAll(
+          `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
+        ).forEach((element) => {
+          setAttribute(
+            element,
+            sourceElementTranslatedMarkAttributeName,
+            "1"
+          );
+        });
+      }
     } else
       log_default.error("paragraph not found", sentenceRequest.id);
   }
@@ -15177,9 +15769,7 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
       if (rootFrame === document.body) {
         let currentUrl = getRealUrl();
         if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
-          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), setTimeout(() => {
-            log_default.debug("url changed, reinit page"), initPage();
-          }, rule.urlChangeDelay);
+          oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), initPage();
           let event = new Event(pageUrlChangedEventName);
           document.dispatchEvent(event);
           return;
@@ -15209,10 +15799,12 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
           )) {
             if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
               return;
-            isDuplicateElement(element, allNewDynamicElements) || (currentNewDynamicElements.push({
-              element,
-              rootFrame
-            }), allNewDynamicElements.push(element), debounceTranslateNewDynamicNodes(ctx));
+            isDuplicateElement(element, allNewDynamicElements) || (allNewDynamicElements.push(element), setTimeout(() => {
+              currentNewDynamicElements.push({
+                element,
+                rootFrame
+              }), debounceTranslateNewDynamicNodes(ctx);
+            }, rule.mutationChangeDelay || 0));
           }
         }
       });
@@ -15250,7 +15842,10 @@ function mutationElementIsInline(rule, element) {
 }
 async function initPage() {
   let isInIframe = getIsInIframe(), ctx = await getGlobalContext(getRealUrl(), {});
-  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay);
+  ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
+    ctx.rule.waitForSelectors,
+    ctx.rule.waitForSelectorsTimeout
+  );
   let lang = ctx.sourceLanguage;
   lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
     text: getMainText(document.body).slice(0, 1e3)
@@ -15274,6 +15869,15 @@ function disableTitleMutationObserver() {
 }
 function getPageStatus() {
   return pageStatus;
+}
+function waitForSelectors(selectors, timeout = 3e3) {
+  return new Promise((resolve, _reject) => {
+    let timer2 = timeout ? setTimeout(() => {
+      resolve(new Error("timeout"));
+    }, timeout) : void 0, interval = setInterval(() => {
+      selectors.every((selector) => document.querySelector(selector) !== null) && (clearInterval(interval), timer2 && clearTimeout(timer2), resolve(null));
+    }, 50);
+  });
 }
 
 // libs/preact-translation/utils.ts
@@ -15431,8 +16035,8 @@ function setupDomListeners(ctx) {
 }
 
 // utils/compare_version.ts
-function isAVersionGreaterOrEqualWithB(a4, b4) {
-  return a4.localeCompare(b4, void 0, {
+function isAVersionGreaterOrEqualWithB(a4, b5) {
+  return a4.localeCompare(b5, void 0, {
     numeric: !0,
     sensitivity: "base"
   }) >= 0;
@@ -15638,14 +16242,14 @@ function useTranslate(rawOptions, translations2) {
 
 // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
 var a3 = 0;
-function p5(n3, s4, t4, f4, u3) {
-  var r, o3, _2 = {};
+function p5(n3, s4, t4, f5, u3) {
+  var r, o3, _3 = {};
   for (o3 in s4)
-    o3 == "ref" ? r = s4[o3] : _2[o3] = s4[o3];
-  var e3 = { type: n3, props: _2, key: t4, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a3, __source: u3, __self: f4 };
+    o3 == "ref" ? r = s4[o3] : _3[o3] = s4[o3];
+  var e3 = { type: n3, props: _3, key: t4, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a3, __source: u3, __self: f5 };
   if (typeof n3 == "function" && (r = n3.defaultProps))
     for (o3 in r)
-      _2[o3] === void 0 && (_2[o3] = r[o3]);
+      _3[o3] === void 0 && (_3[o3] = r[o3]);
   return d.vnode && d.vnode(e3), e3;
 }
 
@@ -15979,7 +16583,7 @@ function Popup(props) {
   } = props, setSettings = onUserConfigChange, [message, setMessage] = P2(""), [errorMessage, _setErrorMessage] = P2(""), { t: t4 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null;
   if (config) {
     let { translationService, translationServices, translationUrlPattern } = config;
-    if (TranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
+    if (PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
       translationService,
       ctx
     )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, currentUrl && isValidHtmlUrl(currentUrl)) {
@@ -16521,11 +17125,11 @@ var SETTINGS_KEY = "userConfig", INITIAL_VALUE = {}, rawUseUserConfig = createCh
   INITIAL_VALUE
 );
 function useUserConfig() {
-  let [value, setValue, isPersistent, error] = rawUseUserConfig();
-  return [value, function(newValue) {
+  let [value, setValue, isPersistent, error] = rawUseUserConfig(), formatSetValue = L2((newValue) => {
     let toStore = typeof newValue == "function" ? newValue(value) : newValue;
     toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
-  }, isPersistent, error, setValue];
+  }, [value]);
+  return [value, formatSetValue, isPersistent, error, setValue];
 }
 
 // userscript/popup_app.tsx
@@ -16828,7 +17432,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.59",
+  version: "0.2.62",
   default_locale: "en",
   background: {
     service_worker: "background.js"
@@ -16842,6 +17446,7 @@ var manifest_default = {
         "*://*/*"
       ],
       js: [
+        "cn2t.js",
         "content_script.js"
       ],
       run_at: "document_end",

@@ -1,46 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>add clients</title>
     <style>
-      /* .main {
-        background-color: "#f082ac";
-      } */
-      p,
-      label {
-        font: 1rem "Fira Sans", sans-serif;
-      }
-
-      input {
-        margin: 0.4rem;
-      }
-      #form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        justify-content: center;
+      .pd {
+        padding: 10px 0px;
       }
     </style>
   </head>
   <body>
-    <div class="main">
-      <!-- <p>
-        An example demonstrating the use of the
-        <code>&lt;input type="color"&gt;</code> control.
-      </p>
-
-      <label for="colorWell">Color:</label>
-      <input type="color" value="#ff0000" id="colorWell" /> -->
-      <input type="button" value="ok" onclick="change()" />
-      <p></p>
+    <div class="pd">
+      <label for="name">name: <input type="text" id="name" required /> </label>
     </div>
-
-    <div id="form"></div>
-
-    <script type="text/javascript" src="./mmm.js"></script>
+    <div class="pd">
+      <label for="githubUsername"
+        >githubUsername: <input type="text" id="githubUsername" />
+      </label>
+    </div>
+    <div class="pd">
+      <label for="mail">mail: <input type="text" id="mail" /> </label>
+    </div>
+    <div class="pd">
+      <label for="type">type: <input type="text" id="type" /> </label>
+    </div>
+    <div class="pd">
+      <input type="button" value="Generate" onclick="generate()" />:
+    </div>
+    <div class="pd" id="user"></div>
   </body>
+  <script src="mmm.js"></script>
 </html>

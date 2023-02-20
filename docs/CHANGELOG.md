@@ -1,5 +1,25 @@
 # Change Log
 
+## 0.2.62
+
+- Feat: Add waitForSelectors rule, for fixing some sites like reddit
+
+## 0.2.61
+
+- Fix: userscript is too big for greasy fork
+- Better: reduce file size
+
+## 0.2.60
+
+- Feat: Support zh-CN to zh-TW for Deepl
+- Feat: Immersive Translate Deepl Feature
+- Feat: Support custom font size zoom
+- Fix: Steam forum style
+- Fix: global style not changed after dynamic elements generated
+- Fix: promote exclude priority
+- UI: about page change
+- Fix: some math element stayoriginal
+
 ## 0.2.59
 
 - Fix: Unkowntags Block Element

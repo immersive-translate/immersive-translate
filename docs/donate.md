@@ -2,19 +2,17 @@
 
 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。你也可以关注我的 [推特](https://twitter.com/OwenYoungZh) 或 [Telegram 频道](https://t.me/owenyoungzh) 获取最新更新,还可以加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论或者加入该扩展的 [Telegram 频道](https://t.me/immersivetranslate) 接收最新更新。如果你在赞助方面遇到任何问题，请通过 [这里](https://www.owenyoung.com/contact/) 提供的联系方式联系我。
 
-## 月度赞助链接
+## 微信，支付宝
 
-你可以通过我的[爱发电主页](https://afdian.net/a/translate) 进行月度赞助，支持微信，支付宝。
+你可以通过我的[爱发电主页](https://afdian.net/a/translate) 进行月度/一次性赞助，支持微信，支付宝。
 
-我也开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击 [这里](https://github.com/sponsors/theowenyoung?frequency=recurring) 可以进行月度赞助，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
+## Github Sponsor
 
-> 你也可以选择 [Patreon 平台](https://www.patreon.com/theowenyoung) 进行赞助，$1 起即可小额支持，同样支持 Paypal，以及信用卡。
+我也开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击 [这里](https://github.com/sponsors/theowenyoung?frequency=recurring) 可以进行月度或一次性赞助，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
-## 一次性赞助
+## Patreon
 
-通过我的[爱发电主页](https://afdian.net/a/translate) 进行一次性赞助（选择 1 个月即可），支持微信，支付宝。
-
-点击 [我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=one-time) ，$2 起即可小额支持，支持 Paypal，以及信用卡支付。
+你也可以选择 [Patreon 平台](https://www.patreon.com/theowenyoung) 进行赞助，$1 起即可小额支持，同样支持 Paypal，以及信用卡。
 
 ## 品牌赞助
 

@@ -30,6 +30,8 @@
 
 如果你使用的是油猴脚本，那么你需要进入 [在线网页版设置页面](https://immersive-translate.owenyoung.com/options/) 才能设置一些高级选项，点击浮窗里的【设置】链接进入该页面，或者直接 [点此](https://immersive-translate.owenyoung.com/options/) 进入。
 
+> Tips: 油猴脚本的浮窗可以任意拖动位置～
+
 ## 配置同步功能
 
 你可以将配置信息在本地导出进行同步，也可以使用 Google Drive 进行同步。
@@ -50,6 +52,8 @@
 > 目前只支持简单的单列 PDF 翻译，复杂的 PDF 建议使用相关工具转为 HTML 后，再由插件翻译。
 >
 > 推荐一个超级好用且免费的开源软件 [calibre](https://calibre-ebook.com/)，可以把 pdf 转为 epub 或 html，效果非常赞。
+
+> 目前油猴脚本不支持 PDF 文件翻译，请下载扩展使用～
 
 1. 如果是在线的 PDF 文件，在浏览器打开后，点击扩展的图标，然后点击翻译该文件即可，如下图所示。
 

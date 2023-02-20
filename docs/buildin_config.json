@@ -1435,10 +1435,11 @@
     },
     {
       "matches": [
-        "construct.net"
+        "www.construct.net"
       ],
       "excludeMatches": [
-        "preview.construct.net"
+        "preview.construct.net",
+        "editor.construct.net"
       ],
       "additionalSelectors": [
         "aside",
@@ -1453,10 +1454,10 @@
       ],
       "additionalExcludeSelectors": [
         "div.topNav",
-        ".breadCrumbNav",
         "div.usernameLink",
         "ul.authorDetails",
         "ul.tagViewer",
+        "ul.breadCrumbNav",
         "ul.subForumForums",
         "ul.postTools",
         "li.comment ul.controls",
@@ -1464,6 +1465,7 @@
         "div.downloadWrap",
         "div.articleLeftMenu",
         "div.usernameTextWrap",
+        "div.bannerWrapper",
         "div#FilterMenu.FilterMenu",
         "div.viewAddonRightMenu",
         "div.extendedMenu.addonsSubMenu",
@@ -1732,6 +1734,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-19T07:10:28.332Z",
+  "buildinConfigUpdatedAt": "2023-02-20T06:37:08.635Z",
   "latestVersion": "0.2.62"
 }

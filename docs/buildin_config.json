@@ -1513,6 +1513,18 @@
       }
     },
     {
+      "matches": "*.fandom.com",
+      "urlChangeDelay": 800,
+      "normalizeBody": "#mw-content-text",
+      "globalStyles": {
+        "#mw-content-text > div > div:nth-child(1)": "height:100%;"
+      },
+      "additionalExcludeSelectors": [
+        "header.fandom-community-header",
+        "div.ph-registration-buttons"
+      ]
+    },
+    {
       "matches": "huggingface.co",
       "globalStyles": {
         ".line-clamp-2": "-webkit-line-clamp:unset;max-height:unset;"
@@ -1734,6 +1746,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-20T06:37:08.635Z",
+  "buildinConfigUpdatedAt": "2023-02-21T13:12:13.410Z",
   "latestVersion": "0.2.62"
 }

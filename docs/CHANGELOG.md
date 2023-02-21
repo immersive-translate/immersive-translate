@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.64
+
+- Fix: openl choose translation services
+- Feat: Support is translate title option
+
 ## 0.2.63
 
 - Feat: Support Azure Translate Service
@@ -8,6 +13,7 @@
 - Fix: change transparency from 0.4 to 0.618 [#147](https://github.com/immersive-translate/immersive-translate/pull/147)
 - Fix: popup shortcuts tips
 - Performance: serial to cocurrency requests
+- Better for detect Japanese count
 
 ## 0.2.62
 

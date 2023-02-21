@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-21T15:39:07.071Z", VERSION: "0.2.63", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-21T16:55:15.738Z", VERSION: "0.2.64", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7206,7 +7206,7 @@ var zh_CN_default = {
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
   alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-  isShowContextMenu: "\u662F\u5426\u663E\u793A\u53F3\u952E\u83DC\u5355",
+  isShowContextMenu: "\u5C06\u7FFB\u8BD1\u7F51\u9875\u52A0\u5165\u53F3\u952E\u83DC\u5355\u9879",
   toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
   betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
   translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
@@ -7422,7 +7422,9 @@ var zh_CN_default = {
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
   "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
-  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
+  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
+  isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
+  isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1"
 };
 
 // locales/zh-TW.json
@@ -9041,6 +9043,7 @@ var buildin_config_default = {
     waitForSelectors: [],
     waitForSelectorsTimeout: 3e3,
     additionalInjectedCss: [],
+    isTranslateTitle: !0,
     languageDetectMinTextCount: 50,
     wrapperPrefix: "smart",
     wrapperSuffix: "smart",
@@ -9309,6 +9312,7 @@ var buildin_config_default = {
         "tweetdeck.twitter.com",
         "https://platform.twitter.com/embed*"
       ],
+      isTranslateTitle: !1,
       selectors: [
         '[data-testid="tweetText"]',
         ".tweet-text",
@@ -11337,7 +11341,7 @@ function OptionField(props) {
           items: field.options.map(
             (fieldOption) => ({
               label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
-              value: value ?? "",
+              value: fieldOption.value,
               selected: value === fieldOption.value,
               onSelected: () => {
                 onChange(fieldOption.value);
@@ -14319,6 +14323,35 @@ function Options3() {
           id: "isShowContextMenu",
           name: "switch",
           role: "switch"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ p5("div", { class: "nav", children: [
+      /* @__PURE__ */ p5(
+        NavLeft,
+        {
+          title: t5("isTranslateTitle"),
+          description: t5("isTranslateTitleDescription")
+        }
+      ),
+      /* @__PURE__ */ p5("label", { for: "isTranslateTitle", children: /* @__PURE__ */ p5(
+        "input",
+        {
+          type: "checkbox",
+          id: "isTranslateTitle",
+          name: "isTranslateTitle",
+          role: "switch",
+          onChange: (e3) => {
+            let checked = e3.target.checked;
+            setSettings((state) => ({
+              ...state,
+              generalRule: {
+                ...state.generalRule,
+                isTranslateTitle: checked
+              }
+            }));
+          },
+          checked: config.generalRule.isTranslateTitle
         }
       ) })
     ] }),

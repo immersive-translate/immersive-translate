@@ -5,6 +5,10 @@
 
 ## Todo List
 
+- [ ] yandex 搜索页面适配
+- [ ] 支持是否翻译标题设置，支持选择智能翻译的区域
+- [ ] 动态修改频率限制参数，防止参数设置不当
+- [ ] 测试立即翻译到网页底部的并行请求问题
 - [ ] 保存后的本地网页，支持再次翻译为其他语言
 - [ ] discord 新消息蹦出来不会自动翻译
 - [ ] valid config, is invalid, then use the default config.

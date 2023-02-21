@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.63
+
+- Feat: Support Azure Translate Service
+- Feat: Support Papago Translate Service
+- Fix: native firefox android google drive sync.
+- Fix: change transparency from 0.4 to 0.618 [#147](https://github.com/immersive-translate/immersive-translate/pull/147)
+- Fix: popup shortcuts tips
+- Performance: serial to cocurrency requests
+
 ## 0.2.62
 
 - Feat: Add waitForSelectors rule, for fixing some sites like reddit

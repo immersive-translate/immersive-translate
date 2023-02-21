@@ -7,6 +7,10 @@
 
 ## 申请步骤
 
-参考链接：[微软 Azure 翻译入门文档](https://learn.microsoft.com/zh-cn/azure/cognitive-services/translator/document-translation/quickstarts/get-started-with-rest-api?pivots=programming-language-csharp) 
+参考链接：[微软 Azure 翻译入门文档](https://learn.microsoft.com/zh-cn/azure/cognitive-services/translator/document-translation/quickstarts/get-started-with-rest-api?pivots=programming-language-csharp)
 
 如有疑惑的地方，请在 [这里](https://github.com/immersive-translate/immersive-translate/issues/137) 反馈。
+
+## 常见问题
+
+1. 开通成功后，微软会提供 2 个 key，任选其一填入沉浸式扩展微软翻译的配置里即可。

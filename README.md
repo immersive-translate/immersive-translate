@@ -41,7 +41,7 @@
 - [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [在线文档](https://immersive-translate.owenyoung.com/)
-- [Github](https://github.com/immersive-translate/immersive-translate/)
+- [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## 保持联系
 
@@ -106,7 +106,7 @@
 
 手动安装的优点在于无需等待商店审核，可以立即体验到最新开发版本的功能。
 
-- 下载安装包。使用 git clone 将仓库下载到本地：`git clone https://github.com/immersive-translate/next-immersive-translate.git`。（如果你不习惯命令行操作，你可以直接在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载压缩包。此外，你也可以通过下载 [Github 桌面客户端](https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) 将该 [Github 仓库](https://github.com/immersive-translate/immersive-translate) 同步到本地。）
+- 下载安装包。使用 git clone 将仓库下载到本地：`git clone https://github.com/immersive-translate/next-immersive-translate.git`。（如果你不习惯命令行操作，你可以直接在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载压缩包。此外，你也可以通过下载 [GitHub 桌面客户端](https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) 将该 [GitHub 仓库](https://github.com/immersive-translate/immersive-translate) 同步到本地。）
 - 类 Chrome 浏览器安装：(1) 在地址栏输入：`chrome://extensions`，打开扩展管理窗口；(2) 打开“开发人员模式”，选择“加载解压缩的扩展”，选择 `dist/chrome` 载入。
 - Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，选择 `dist/firefox/manifest.json` 即可。
 - 更新方法：如果你使用 git 下载的安装包，那么使用 `git pull` 拉取最新文件，然后在扩展管理页面选择 `Reload` 即可。如果你在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载的安装包，那么还在这里下载最新的版本替换旧的即可。
@@ -126,10 +126,10 @@
 Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
 
 - 帮助我在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN), [Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)， [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里评价该扩展。
-- [Star](https://github.com/immersive-translate/immersive-translate/) 这个 Github 项目。
+- [Star](https://github.com/immersive-translate/immersive-translate/) 这个 GitHub 项目。
 - 帮忙 [贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
 - 帮忙 [翻译](https://crowdin.com/project/immersive-translate) 该扩展的界面语言。
-- 帮忙解答用户在 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 和 [Github Issue](https://github.com/immersive-translate/immersive-translate/issues) 里的提问。
+- 帮忙解答用户在 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 和 [GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues) 里的提问。
 - 甚至，如果你有代码开发能力，你可以直接参与开发这个扩展，请加 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解。
 
 > Psssss. 我比预想中花了更巨大的时间和精力开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！

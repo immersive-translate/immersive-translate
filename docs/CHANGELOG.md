@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.66
+
+- Fix: PDF file translation failed, Bug from 0.2.60 for supporting deepl from zh-CN to zh-TW
+
 ## 0.2.65
 
 - Support throttle request for multiple frame

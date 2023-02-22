@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.65
+
+- Support throttle request for multiple frame
+- Do not translate page title when in iframe
+
 ## 0.2.64
 
 - Fix: openl choose translation services

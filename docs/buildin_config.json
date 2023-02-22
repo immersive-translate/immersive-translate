@@ -1211,13 +1211,17 @@
         ".title >a",
         ".title > span",
         ".thumbnailTitle",
-        ".commentMessage > span"
+        ".commentMessage > span",
+        "h1.floatLeft",
+        ".commentText"
       ],
       "detectParagraphLanguage": true,
       "wrapperPrefix": "\n\n",
       "wrapperSuffix": "\n",
       "globalStyles": {
-        ".title": "height: unset; max-height: unset;"
+        ".title": "height: unset; max-height: unset;",
+        ".title > a": "height: unset; max-height: unset;",
+        ".thumbnailTitle": "height: unset; max-height: unset;"
       }
     },
     {
@@ -1766,6 +1770,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-22T09:25:03.663Z",
+  "buildinConfigUpdatedAt": "2023-02-22T13:32:10.266Z",
   "latestVersion": "0.2.66"
 }

@@ -138,7 +138,9 @@
     "injectedCss": [],
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
+    "initTranslationServiceAsSoonAsPossible": true,
     "additionalInjectedCss": [],
+    "isTranslateTitle": true,
     "languageDetectMinTextCount": 50,
     "wrapperPrefix": "smart",
     "wrapperSuffix": "smart",
@@ -438,6 +440,7 @@
         "tweetdeck.twitter.com",
         "https://platform.twitter.com/embed*"
       ],
+      "isTranslateTitle": false,
       "selectors": [
         "[data-testid=\"tweetText\"]",
         ".tweet-text",
@@ -836,12 +839,25 @@
     },
     {
       "matches": "mail.google.com",
+      "detectParagraphLanguage": true,
       "selectors": [
         "h2[data-thread-perm-id]",
         "span[data-thread-id]",
         "div[data-message-id] div[class='']"
+      ]
+    },
+    {
+      "matches": "outlook.live.com",
+      "normalizeBody": "#ReadingPaneContainerId",
+      "detectParagraphLanguage": true,
+      "atomicBlockSelectors": [
+        "div p:has(span)"
       ],
-      "detectParagraphLanguage": true
+      "excludeSelectors": [
+        ".jHAG3.XG5Jd",
+        ".OZZZK",
+        ".lDdSm"
+      ]
     },
     {
       "matches": "www.producthunt.com",
@@ -1752,6 +1768,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-21T15:31:06.798Z",
-  "latestVersion": "0.2.63"
+  "buildinConfigUpdatedAt": "2023-02-22T04:51:42.519Z",
+  "latestVersion": "0.2.65"
 }

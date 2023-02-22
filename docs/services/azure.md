@@ -5,7 +5,6 @@
 1. 官方网站：[微软 Azure 翻译](https://learn.microsoft.com/zh-cn/azure/cognitive-services/translator/text-translation-overview)
 2. 官方说明：每月翻译 200 万字之内都是免费的，如果您每月超过 200 万字，我们会按照 10 美元 / 100 万字 的费率收费。详情参考 [定价说明](https://azure.microsoft.com/zh-cn/pricing/details/cognitive-services/translator/)
 
-
 ## 注册流程
 
 注册流程相比其他翻译服务较为繁琐，需耐心操作。  
@@ -28,7 +27,7 @@
 
 创建 [翻译工具](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)  
 1. 区域 (region) 选择一个离你最近的地区，比如香港区域就是 `East Asia`。
-2. 定价层根据需要选择，免费用户可选择 `Free F0`，但免费层不支持文档翻译。如有需要可以使用标准 S1 试用。
+2. 定价层根据需要选择，免费用户可选择 `Free F0`。免费层不支持文档翻译。如有需要可以使用标准 S1 试用。
 3. 剩下的流程只需直接下一步即可。在最后一页，部署完成后，点击左下方的蓝色按钮"创建"。
 
 ## 访问密钥

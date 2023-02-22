@@ -1487,40 +1487,38 @@
         "div.downloadWrap",
         "div.articleLeftMenu",
         "div.usernameTextWrap",
+        "div.favouriteWrap",
         "div.bannerWrapper",
-        "div#FilterMenu.FilterMenu",
         "div.viewAddonRightMenu",
         "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
-        "span.tagViewWrap",
         "div#LeftSide.leftSide",
         "div#BottomWrap.bottomWrap",
         "div.courseListWrap div.overview",
         "div.conversationControls",
         "div.contentWrapper h1",
         "div.conversationControls",
-        ".forumControlsWrapper",
-        ".forumsBottomNavWrap",
         "td.location a#LocationLink",
         "#TopLevelComments .topBar",
         "#TopLevelComments .controls",
-        ".manualContentWrap .menuWrap",
+        ".tagViewWrap",
+        ".changeCount",
+        ".otherStats",
+        ".FilterMenu",
+        ".mobileTopicStats",
+        ".forumControlsWrapper",
+        ".forumsBottomNavWrap",
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats",
         ".manualContent dl dt"
       ],
       "globalStyles": {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
-    },
-    {
-      "matches": "www.construct.net/en/blogs/*",
-      "excludeSelectors": [
-        ".breadCrumbNav",
-        ".favouriteWrap",
-        ".usernameLink",
-        ".followWrapper",
-        ".blogPostStats"
-      ]
     },
     {
       "matches": "getpocket.com",
@@ -1768,6 +1766,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-22T04:51:42.519Z",
-  "latestVersion": "0.2.65"
+  "buildinConfigUpdatedAt": "2023-02-22T09:25:03.663Z",
+  "latestVersion": "0.2.66"
 }

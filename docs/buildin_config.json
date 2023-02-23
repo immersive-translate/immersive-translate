@@ -960,6 +960,7 @@
       "globalStyles": {
         "div[class^=headerText]": "max-height: unset;",
         "div[class^=message]": "max-height: unset;",
+        "div[class^=text]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       "detectParagraphLanguage": true,
@@ -1776,6 +1777,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-23T04:04:31.402Z",
+  "buildinConfigUpdatedAt": "2023-02-23T07:07:37.781Z",
   "latestVersion": "0.2.66"
 }

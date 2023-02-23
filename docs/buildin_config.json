@@ -931,15 +931,19 @@
       ],
       "excludeSelectors": [
         "#channels",
-        "[data-list-id^='members']",
         "div[class^='repliedTextContent']",
         "div[class^='repliedTextPreview']",
         "div[class^='messageAttachment']",
         "div[class^='repliedMessage']",
+        "div[class^='reactionTooltip']",
         "div[class*='isSystemMessage']",
         "div[class^='avatarWrapper']",
         "div[class^='container'] [class^='topLine']",
         "div[class^='container'] [class^='bottomLine']",
+        "div[class^='container'] [class^='children'] button[class^='component']",
+        "div[class^='userPopoutOverlayBackground'] [class^='userTagNoNickname']",
+        "div[class^='userPopoutOverlayBackgound'] [class^='userTagNoNickname']",
+        "span[class^='botTag']",
         "h3[class^='header']",
         "h2[class^='forumPostTitle']",
         "[class^='title'][aria-label='Channel header']",
@@ -947,7 +951,9 @@
         "article[class^=embedWrapper] [class^=anchor]",
         "article[class^=embedWrapper] [class^=embedProvider]",
         "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='members'] [class^='username']",
         "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='containerDefault'] div[class^='channelInfo']",
         "li[class^='card'] div[class^='tags']",
         "li[class^='card'] div[class^='footer']"
       ],
@@ -1770,6 +1776,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-22T13:32:10.266Z",
+  "buildinConfigUpdatedAt": "2023-02-23T04:04:31.402Z",
   "latestVersion": "0.2.66"
 }

@@ -947,6 +947,7 @@
         "h3[class^='header']",
         "h2[class^='forumPostTitle']",
         "[class^='title'][aria-label='Channel header']",
+        "div[class^='unreadPill']",
         "div[class^='sectionHeader']",
         "article[class^=embedWrapper] [class^=anchor]",
         "article[class^=embedWrapper] [class^=embedProvider]",
@@ -1777,6 +1778,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-23T07:07:37.781Z",
+  "buildinConfigUpdatedAt": "2023-02-23T07:08:51.183Z",
   "latestVersion": "0.2.66"
 }

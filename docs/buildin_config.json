@@ -1706,7 +1706,7 @@
       ]
     },
     {
-      "matches": "https://steamcommunity.com/app/*/discussions/",
+      "matches": "https://steamcommunity.com/app/*/discussions/*",
       "globalStyles": {
         ".forum_topic": "height:auto;",
         ".forum_topic_name": "white-space:normal;"
@@ -1715,7 +1715,8 @@
         ".forum_paging",
         ".forum_topic_reply_count",
         ".forum_topic_lastpost",
-        ".forum_topic_award_count"
+        ".forum_topic_award_count",
+        ".discussion_search_pagingcontrols"
       ],
       "observeUrlChange": true
     },
@@ -1778,6 +1779,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-23T07:08:51.183Z",
+  "buildinConfigUpdatedAt": "2023-02-24T09:06:26.220Z",
   "latestVersion": "0.2.66"
 }

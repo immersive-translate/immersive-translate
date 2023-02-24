@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.67
+// @version      0.2.68
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -64,7 +64,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-24T10:35:24.802Z", VERSION: "0.2.67", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-24T15:05:16.467Z", VERSION: "0.2.68", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4491,6 +4491,7 @@ body {
     "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
     "translationServices.mock2": "\u6A21\u62DF\u7FFB\u8BD12",
     "translationServices.caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+    "translationServices.cai": "\u5F69\u4E91\u5C0F\u8BD1 (Alpha)",
     "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
@@ -4737,6 +4738,7 @@ body {
     "translationServices.mock": "\u6A21\u64EC\u7FFB\u8B6F",
     "translationServices.mock2": "\u6A21\u64EC\u7FFB\u8B6F2",
     "translationServices.caiyun": "\u5F69\u96F2\u5C0F\u8B6F",
+    "translationServices.cai": "\u5F69\u96F2\u5C0F\u8B6F (Alpha)",
     "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8B6F(Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
@@ -4981,6 +4983,7 @@ body {
     "translationServices.mock": "Mock translation",
     "translationServices.mock2": "Mock Translation2",
     "translationServices.caiyun": "Caiyun Translation",
+    "translationServices.cai": "Caiyun Translation (Alpha)",
     "translationServices.volcAlpha": "Volcano Translation (Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "Youdao Translation",
@@ -5537,6 +5540,11 @@ body {
         required: !0,
         type: "password"
       }]
+    },
+    cai: {
+      name: "Cai",
+      homepage: "https://fanyi.caiyunapp.com/",
+      alpha: !0
     },
     openl: {
       name: "Openl",
@@ -8345,13 +8353,29 @@ body {
   }
   function isInlineElement(element, rule) {
     let inlineTags = rule.inlineTags;
-    return element.nodeType === Node.ELEMENT_NODE ? isMatchTags(element.nodeName, inlineTags) ? isMarked(
-      element,
-      sourceBlockElementMarkAttributeName
-    ) || isMatchTags(element.nodeName, ["BR"]) ? !1 : isMarked(element, sourceInlineElementMarkAttributeName) ? !0 : isInlineElementByTreeWalker(element, rule) : isMarked(
-      element,
-      sourceInlineElementMarkAttributeName
-    ) : !1;
+    if (element.nodeType === Node.ELEMENT_NODE)
+      if (isMatchTags(element.nodeName, inlineTags) || isUnknowTag(element, rule)) {
+        if (isMarked(
+          element,
+          sourceBlockElementMarkAttributeName
+        ) || isMatchTags(element.nodeName, ["BR"]))
+          return !1;
+        if (isMarked(element, sourceInlineElementMarkAttributeName))
+          return !0;
+        if (isUnknowTag(element, rule)) {
+          let style = globalThis.getComputedStyle(element);
+          if (style.display === "block" || style.display === "flex")
+            return !1;
+          if (style.display === "inline" || style.display === "inline-block" || style.display === "inline-flex")
+            return !0;
+        }
+        return isInlineElementByTreeWalker(element, rule);
+      } else
+        return isMarked(
+          element,
+          sourceInlineElementMarkAttributeName
+        );
+    return !1;
   }
   function isDuplicateElement(element, elements) {
     for (let e3 of elements)
@@ -9112,7 +9136,8 @@ body {
         "RELIN-HC",
         "RELIN-HIGHLIGHT",
         "RELIN-ORIGIN",
-        "RELIN-TARGET"
+        "RELIN-TARGET",
+        "XQDD_HIGHLIGHT_NEW_WORD"
       ],
       additionalInlineTags: [],
       extraInlineSelectors: [],
@@ -10264,7 +10289,7 @@ body {
         ]
       },
       {
-        matches: "https://steamcommunity.com/app/*/discussions/*",
+        matches: "https://steamcommunity.com/app/*",
         globalStyles: {
           ".forum_topic": "height:auto;",
           ".forum_topic_name": "white-space:normal;"
@@ -15090,8 +15115,47 @@ ${injectedCss}}
     }
   }, caiyun_default = Caiyun;
 
-  // services/youdao.ts
+  // services/cai.ts
   var rawLangMap12 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ], langMap18 = new Map(rawLangMap12), Cai = class extends Translation {
+    constructor(serviceConfig, generalConfig, options2) {
+      super(serviceConfig, generalConfig, options2);
+      this.token = "ssdj273ksdiwi923bsd9";
+    }
+    async translateList(payload) {
+      let { text, from, to } = payload;
+      if (!langMap18.get(to))
+        throw new Error(`Unsupported language: ${to}`);
+      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
+      let source = text;
+      return {
+        text: (await request2(
+          {
+            retry: 2,
+            url: "https://api.interpreter.caiyunai.com/v1/translator",
+            headers: {
+              "content-type": "application/json",
+              "x-authorization": "token " + this.token
+            },
+            method: "POST",
+            body: JSON.stringify({
+              source,
+              trans_type: `${langMap18.get(from) || "auto"}2${langMap18.get(to)}`
+            })
+          }
+        )).target,
+        from,
+        to
+      };
+    }
+  }, cai_default = Cai;
+
+  // services/youdao.ts
+  var rawLangMap13 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -15105,8 +15169,8 @@ ${injectedCss}}
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap18 = new Map(rawLangMap12), langMapReverse7 = new Map(
-    rawLangMap12.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap19 = new Map(rawLangMap13), langMapReverse7 = new Map(
+    rawLangMap13.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q7) {
     let len = q7.length;
@@ -15128,8 +15192,8 @@ ${injectedCss}}
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap18.get(from) || "auto",
-        to: langMap18.get(to) || to,
+        from: langMap19.get(from) || "auto",
+        to: langMap19.get(to) || to,
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -15172,6 +15236,7 @@ ${injectedCss}}
     tencent: Tencent,
     baidu: baidu_default,
     caiyun: caiyun_default,
+    cai: cai_default,
     openl: openl_default,
     youdao: youdao_default,
     d: D10,
@@ -17662,7 +17727,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.67",
+    version: "0.2.68",
     default_locale: "en",
     background: {
       service_worker: "background.js"

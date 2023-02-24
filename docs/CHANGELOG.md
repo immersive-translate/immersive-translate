@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.68
+
+- Support Caiyun (Alpha)
+- Fix unknow block tags
+
 ## 0.2.67
 
 - Feat: Add `<all>` for always translate languages, so now you can use it to translate all language except the target language, and never translate languages

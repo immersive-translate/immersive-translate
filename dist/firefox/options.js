@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-24T10:35:24.419Z", VERSION: "0.2.67", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-24T15:05:15.986Z", VERSION: "0.2.68", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7375,6 +7375,7 @@ var zh_CN_default = {
   "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
   "translationServices.mock2": "\u6A21\u62DF\u7FFB\u8BD12",
   "translationServices.caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+  "translationServices.cai": "\u5F69\u4E91\u5C0F\u8BD1 (Alpha)",
   "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
@@ -7621,6 +7622,7 @@ var zh_TW_default = {
   "translationServices.mock": "\u6A21\u64EC\u7FFB\u8B6F",
   "translationServices.mock2": "\u6A21\u64EC\u7FFB\u8B6F2",
   "translationServices.caiyun": "\u5F69\u96F2\u5C0F\u8B6F",
+  "translationServices.cai": "\u5F69\u96F2\u5C0F\u8B6F (Alpha)",
   "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8B6F(Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
@@ -7865,6 +7867,7 @@ var en_default = {
   "translationServices.mock": "Mock translation",
   "translationServices.mock2": "Mock Translation2",
   "translationServices.caiyun": "Caiyun Translation",
+  "translationServices.cai": "Caiyun Translation (Alpha)",
   "translationServices.volcAlpha": "Volcano Translation (Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "Youdao Translation",
@@ -8444,6 +8447,11 @@ var allSupportedShortcuts = [
       required: !0,
       type: "password"
     }]
+  },
+  cai: {
+    name: "Cai",
+    homepage: "https://fanyi.caiyunapp.com/",
+    alpha: !0
   },
   openl: {
     name: "Openl",
@@ -9218,7 +9226,8 @@ var buildin_config_default = {
       "RELIN-HC",
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
-      "RELIN-TARGET"
+      "RELIN-TARGET",
+      "XQDD_HIGHLIGHT_NEW_WORD"
     ],
     additionalInlineTags: [],
     extraInlineSelectors: [],
@@ -10370,7 +10379,7 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: "https://steamcommunity.com/app/*/discussions/*",
+      matches: "https://steamcommunity.com/app/*",
       globalStyles: {
         ".forum_topic": "height:auto;",
         ".forum_topic_name": "white-space:normal;"

@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.67
+
+- Feat: Add `<all>` for always translate languages, so now you can use it to translate all language except the target language, and never translate languages
+- Fix: Allow config custom google API
+- Better: Deepl Free support
+- Fix: hight memory use for userscripts and extension (by removing opencc zh-CN to zh-TW, instead with Google translate)
+- Fix: Relingo [#159](https://github.com/immersive-translate/immersive-translate/issues/159)
+- Fix: Azure translate setup but still show (need setup)
+
 ## 0.2.66
 
 - Fix: PDF file translation failed, Bug from 0.2.60 for supporting deepl from zh-CN to zh-TW

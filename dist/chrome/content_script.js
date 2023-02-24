@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-22T07:44:00.322Z", VERSION: "0.2.66", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-24T10:35:23.600Z", VERSION: "0.2.67", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4669,7 +4669,7 @@ var zh_CN_default = {
   lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
   "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
   "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
-  enableLineBreak: "\u662F\u5426\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
+  enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
   sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
   help: "\u5E2E\u52A9",
   browserShortcutsNoteForFirefox: "Firefox \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762 `about:addons`\uFF0C\u7136\u540E\u70B9\u51FB\u300C\u8BBE\u7F6E\u300D\uFF0C\u518D\u70B9\u51FB\u300C\u7BA1\u7406\u5FEB\u6377\u952E\u300D\u5373\u53EF\u8BBE\u7F6E",
@@ -4677,7 +4677,7 @@ var zh_CN_default = {
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
   enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
-  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u817E\u8BAF/\u706B\u5C71\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u6709\u9053/\u817E\u8BAF\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
   "browser.toggleTranslateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF/\u663E\u793A\u539F\u6587",
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
@@ -4856,7 +4856,7 @@ var zh_CN_default = {
   "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
   "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
+  useAboveStyleForTheseSites: "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u603B\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8BD1\u6587\u6837\u5F0F",
   currentUrl: "\u5F53\u524D\u7F51\u5740",
   confirm: "\u4FDD\u5B58",
   cancel: "\u53D6\u6D88",
@@ -5102,7 +5102,7 @@ var zh_TW_default = {
   "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
   "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
   KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
+  useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
   currentUrl: "\u7576\u524D\u7DB2\u5740",
   confirm: "\u5132\u5B58",
   cancel: "\u53D6\u6D88",
@@ -5167,7 +5167,7 @@ var en_default = {
   browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
   enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
   "browser.brandName": "Immersive Translate",
-  "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
+  "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.",
   "browser.toggleTranslatePage": "Toggle translate webpage ",
   "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
   "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
@@ -5188,9 +5188,9 @@ var en_default = {
   xMinutes: "{count} minutes",
   disabled: "Disable",
   changelog: "Change Log",
-  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-  toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger simultaneous touch to show/hide the blur effect of the translation",
-  addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+  toggleTranslatePageWhenThreeFingersOnTheScreen: "Three-finger touch to show/hide translation display",
+  toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger touch to show/hide the blur effect of the translation",
+  addUrlDescription: "The domain name is available and wildcard is supported e.g.: *.google.com, google.com/mail/*, https://www.google.com/*",
   general: "General",
   clickToExpandConfig: "Expand current configuration",
   import: "Import configuration from file",
@@ -5228,8 +5228,8 @@ var en_default = {
   homepage: "Home Page",
   more: "More",
   translateTheWholePage: "Translate the whole page area (different from only the main area)",
-  changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
-  changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+  changeToTranslateTheWholePage: "Translate the whole page",
+  changeToTranslateTheMainPage: "Translate main only",
   translateToThePageEndImmediately: "Immediately translate to the bottom (different from translating the current visible area)",
   translateTheMainPage: "Main areas of intelligent translation",
   "The local rules are up to date": "Local  rules are up to date:",
@@ -5338,7 +5338,7 @@ var en_default = {
   neverTranslateLanguagesLabel: "Never Translated Languages",
   neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
   enableUserscriptPagePopup: "Always show Popup windows on the page",
-  enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+  enableUserscriptPagePopupDescription: "Three-finger touch to show the Popup.",
   "always translate the following languages": "The following languages will always be translated",
   "always sites": "Always translate the following sites",
   "always translate the following sites": "The following sites will always be translated",
@@ -5492,9 +5492,21 @@ var themeOptions = {
   "zh-CN",
   "zh-TW",
   "ja",
-  "af",
-  "am",
+  "ko",
+  "es",
+  "de",
+  "fr",
+  "pt",
+  "ru",
   "ar",
+  "it",
+  "ms",
+  "id",
+  "vi",
+  "af",
+  "th",
+  "ur",
+  "am",
   "az",
   "be",
   "bg",
@@ -5506,17 +5518,14 @@ var themeOptions = {
   "cs",
   "cy",
   "da",
-  "de",
   "el",
   "eo",
-  "es",
   "et",
   "eu",
   "fa",
   "fi",
   "fil",
   "fj",
-  "fr",
   "fy",
   "ga",
   "gd",
@@ -5531,16 +5540,13 @@ var themeOptions = {
   "ht",
   "hu",
   "hy",
-  "id",
   "ig",
   "is",
-  "it",
   "jw",
   "ka",
   "kk",
   "km",
   "kn",
-  "ko",
   "ku",
   "ky",
   "la",
@@ -5554,7 +5560,6 @@ var themeOptions = {
   "ml",
   "mn",
   "mr",
-  "ms",
   "mt",
   "mww",
   "my",
@@ -5566,9 +5571,7 @@ var themeOptions = {
   "pa",
   "pl",
   "ps",
-  "pt",
   "ro",
-  "ru",
   "sd",
   "si",
   "sk",
@@ -5587,7 +5590,6 @@ var themeOptions = {
   "ta",
   "te",
   "tg",
-  "th",
   "tlh",
   "tlh-Qaak",
   "to",
@@ -5595,9 +5597,7 @@ var themeOptions = {
   "ty",
   "ug",
   "uk",
-  "ur",
   "uz",
-  "vi",
   "wyw",
   "xh",
   "yi",
@@ -5716,7 +5716,7 @@ var themeOptions = {
   ur: "Urdu",
   uz: "Uzbek",
   vi: "Vietnamese",
-  wyw: "Classical Chinese",
+  wyw: "\u6587\u8A00\u6587",
   xh: "Bantu",
   yi: "Yiddish",
   yo: "Yoruba",
@@ -5724,7 +5724,9 @@ var themeOptions = {
   yue: "Cantonese (Traditional)",
   "zh-CN": "\u7B80\u4F53\u4E2D\u6587",
   "zh-TW": "\u7E41\u9AD4\u4E2D\u6587",
-  zu: "Zulu"
+  zu: "Zulu",
+  // @ts-ignore: it's ok
+  "<all>": "All Languages"
 };
 var buildinExcludeUrls = [
   "https://immersive-translate.owenyoung.com/options/",
@@ -5740,7 +5742,7 @@ var openlProps = [{
   type: "select",
   name: "codename",
   label: "translationEngine",
-  default: "deepl",
+  default: "youdao",
   required: !1,
   options: [
     {
@@ -9034,11 +9036,18 @@ function markContainers(container, rule, rootFrame, isDynamic) {
 
 // utils/language_match.ts
 function isMatchLanguage(lang, matchPattern) {
-  let matches = matchPattern.matches || [];
-  if (matches && !Array.isArray(matches) && (matches = [matches]), matches.length === 0)
+  let matches = matchPattern.matches || [], excludeMatches = matchPattern.excludeMatches || [];
+  if (excludeMatches && !Array.isArray(excludeMatches) && (excludeMatches = [excludeMatches]), matches && !Array.isArray(matches) && (matches = [matches]), excludeMatches.length > 0) {
+    if (excludeMatches.includes(lang) || excludeMatches.includes("<all>"))
+      return !1;
+    for (let match of excludeMatches)
+      if (match.includes("*") && new RegExp(match).test(lang))
+        return !1;
+  }
+  if (matches.length === 0)
     return !1;
   if (matches.length > 0) {
-    if (matches.includes(lang))
+    if (matches.includes(lang) || matches.includes("<all>"))
       return !0;
     for (let match of matches)
       if (match.includes("*") && new RegExp(match).test(lang))
@@ -9324,9 +9333,7 @@ var buildin_config_default = {
     urlChangeDelay: 20,
     mutationChangeDelay: 10,
     visibleDelay: 0,
-    additionalStayOriginalSelectors: [
-      "span.katex"
-    ],
+    additionalStayOriginalSelectors: ["span.katex"],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -9457,7 +9464,11 @@ var buildin_config_default = {
       "LINK",
       "TIME",
       "META",
-      "WBR"
+      "WBR",
+      "RELIN-HC",
+      "RELIN-HIGHLIGHT",
+      "RELIN-ORIGIN",
+      "RELIN-TARGET"
     ],
     additionalInlineTags: [],
     extraInlineSelectors: [],
@@ -9681,9 +9692,7 @@ var buildin_config_default = {
       globalStyles: {
         "div.XPromoBottomBar": "display:none"
       },
-      waitForSelectors: [
-        "[data-testid=post_author_link]"
-      ]
+      waitForSelectors: ["[data-testid=post_author_link]"]
     },
     {
       matches: "www.reddit.com",
@@ -9924,11 +9933,7 @@ var buildin_config_default = {
       normalizeBody: "#ReadingPaneContainerId",
       detectParagraphLanguage: !0,
       atomicBlockSelectors: ["div p:has(span)"],
-      excludeSelectors: [
-        ".jHAG3.XG5Jd",
-        ".OZZZK",
-        ".lDdSm"
-      ]
+      excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
     },
     {
       matches: "www.producthunt.com",
@@ -9995,29 +10000,37 @@ var buildin_config_default = {
       ],
       excludeSelectors: [
         "#channels",
-        "[data-list-id^='members']",
         "div[class^='repliedTextContent']",
         "div[class^='repliedTextPreview']",
         "div[class^='messageAttachment']",
         "div[class^='repliedMessage']",
+        "div[class^='reactionTooltip']",
         "div[class*='isSystemMessage']",
         "div[class^='avatarWrapper']",
         "div[class^='container'] [class^='topLine']",
         "div[class^='container'] [class^='bottomLine']",
+        "div[class^='container'] [class^='children'] button[class^='component']",
+        "div[class^='userPopoutOverlayBackground'] [class^='userTagNoNickname']",
+        "div[class^='userPopoutOverlayBackgound'] [class^='userTagNoNickname']",
+        "span[class^='botTag']",
         "h3[class^='header']",
         "h2[class^='forumPostTitle']",
         "[class^='title'][aria-label='Channel header']",
+        "div[class^='unreadPill']",
         "div[class^='sectionHeader']",
         "article[class^=embedWrapper] [class^=anchor]",
         "article[class^=embedWrapper] [class^=embedProvider]",
         "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='members'] [class^='username']",
         "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='containerDefault'] div[class^='channelInfo']",
         "li[class^='card'] div[class^='tags']",
         "li[class^='card'] div[class^='footer']"
       ],
       globalStyles: {
         "div[class^=headerText]": "max-height: unset;",
         "div[class^=message]": "max-height: unset;",
+        "div[class^=text]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       detectParagraphLanguage: !0,
@@ -10206,7 +10219,9 @@ var buildin_config_default = {
         ".title >a",
         ".title > span",
         ".thumbnailTitle",
-        ".commentMessage > span"
+        ".commentMessage > span",
+        "h1.floatLeft",
+        ".commentText"
       ],
       detectParagraphLanguage: !0,
       wrapperPrefix: `
@@ -10215,7 +10230,9 @@ var buildin_config_default = {
       wrapperSuffix: `
 `,
       globalStyles: {
-        ".title": "height: unset; max-height: unset;"
+        ".title": "height: unset; max-height: unset;",
+        ".title > a": "height: unset; max-height: unset;",
+        ".thumbnailTitle": "height: unset; max-height: unset;"
       }
     },
     {
@@ -10399,17 +10416,9 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: [
-        "www.construct.net"
-      ],
-      excludeMatches: [
-        "preview.construct.net",
-        "editor.construct.net"
-      ],
-      additionalSelectors: [
-        "aside",
-        "div.manualContent"
-      ],
+      matches: ["www.construct.net"],
+      excludeMatches: ["preview.construct.net", "editor.construct.net"],
+      additionalSelectors: ["aside", "div.manualContent"],
       atomicBlockSelectors: [],
       stayOriginalSelectors: ["a.usernameReference"],
       additionalInlineSelectors: ["a.forumLink"],
@@ -10426,40 +10435,38 @@ var buildin_config_default = {
         "div.downloadWrap",
         "div.articleLeftMenu",
         "div.usernameTextWrap",
+        "div.favouriteWrap",
         "div.bannerWrapper",
-        "div#FilterMenu.FilterMenu",
         "div.viewAddonRightMenu",
         "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
-        "span.tagViewWrap",
         "div#LeftSide.leftSide",
         "div#BottomWrap.bottomWrap",
         "div.courseListWrap div.overview",
         "div.conversationControls",
         "div.contentWrapper h1",
         "div.conversationControls",
-        ".forumControlsWrapper",
-        ".forumsBottomNavWrap",
         "td.location a#LocationLink",
         "#TopLevelComments .topBar",
         "#TopLevelComments .controls",
-        ".manualContentWrap .menuWrap",
+        ".tagViewWrap",
+        ".changeCount",
+        ".otherStats",
+        ".FilterMenu",
+        ".mobileTopicStats",
+        ".forumControlsWrapper",
+        ".forumsBottomNavWrap",
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats",
         ".manualContent dl dt"
       ],
       globalStyles: {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
-    },
-    {
-      matches: "www.construct.net/en/blogs/*",
-      excludeSelectors: [
-        ".breadCrumbNav",
-        ".favouriteWrap",
-        ".usernameLink",
-        ".followWrapper",
-        ".blogPostStats"
-      ]
     },
     {
       matches: "getpocket.com",
@@ -10613,7 +10620,7 @@ var buildin_config_default = {
       ]
     },
     {
-      matches: "https://steamcommunity.com/app/*/discussions/",
+      matches: "https://steamcommunity.com/app/*/discussions/*",
       globalStyles: {
         ".forum_topic": "height:auto;",
         ".forum_topic_name": "white-space:normal;"
@@ -10622,7 +10629,8 @@ var buildin_config_default = {
         ".forum_paging",
         ".forum_topic_reply_count",
         ".forum_topic_lastpost",
-        ".forum_topic_award_count"
+        ".forum_topic_award_count",
+        ".discussion_search_pagingcontrols"
       ],
       observeUrlChange: !0
     },
@@ -10662,21 +10670,15 @@ var buildin_config_default = {
     },
     {
       matches: "https://www.jetbrains.com/help/*",
-      extraBlockSelectors: [
-        "[data-test=prompt]"
-      ]
+      extraBlockSelectors: ["[data-test=prompt]"]
     },
     {
       matches: ["https://crates.io/search*"],
-      selectors: [
-        "div[class^=_description-box] div[class^=_description]"
-      ]
+      selectors: ["div[class^=_description-box] div[class^=_description]"]
     },
     {
       matches: "www.theverge.com",
-      shadowRootSelectors: [
-        "div#coral_thread > div"
-      ]
+      shadowRootSelectors: ["div#coral_thread > div"]
     }
   ]
 };
@@ -11216,7 +11218,7 @@ function formatTranslationService(key, ctx) {
     let requiredProps = allProps.filter((prop) => prop.required);
     if (requiredProps.length > 0) {
       for (let prop of requiredProps)
-        if (!translationConfig[prop.name]) {
+        if (!translationConfig[prop.name] && !prop.default) {
           ok = !1;
           break;
         }
@@ -11828,7 +11830,7 @@ ${injectedCss}}
 function injectCssToFrame(root2, ctx) {
   let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
   injectCSS(root2, defaultInjectedCss);
-  let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.config.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
+  let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.state.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
   applyUserConfigCss(
     root2,
     translationTheme,
@@ -13694,13 +13696,13 @@ var langMap3 = [
     };
   }
   async fetchWithoutToken(text, from, to) {
-    let url = "https://translate.googleapis.com/translate_a/single?" + new URLSearchParams({
+    let params = new URLSearchParams({
       client: "gtx",
       dt: "t",
       sl: from,
       tl: to,
       q: text
-    }).toString();
+    }), url = this.apiUrl + "?" + params.toString();
     return { data: await request2({
       retry: 2,
       url
@@ -13710,11 +13712,6 @@ var langMap3 = [
 Google.langMap = new Map(langMap3), Google.langMapReverse = new Map(
   langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
 );
-
-// services/d/extractors.ts
-function extractSplitSentences(response) {
-  return response.result.texts;
-}
 
 // services/d/hacks.ts
 function calculateValidTimestamp(timestamp, iCount) {
@@ -13762,83 +13759,7 @@ var API_URL = "https://www2.deepl.com/jsonrpc", AUTO = "auto", SUPPORTED_LANGUAG
   { code: "SL", language: "Slovenian" },
   { code: "ES", language: "Spanish" },
   { code: "SV", language: "Swedish" }
-], SUPPORTED_FORMALITY_TONES = ["formal", "informal"];
-
-// services/d/generators.ts
-function generateSplitSentencesRequestData(text, sourceLanguage = AUTO, identifier = generateId()) {
-  return {
-    jsonrpc: "2.0",
-    method: "LMT_split_text",
-    params: {
-      commonJobParams: { mode: "translate" },
-      lang: {
-        lang_user_selected: sourceLanguage,
-        user_preferred_langs: []
-      },
-      texts: text
-    },
-    id: identifier
-  };
-}
-function generateJobs(sentences, beams = 1) {
-  let jobs = [], id = 0;
-  for (let i2 = 0; i2 < sentences.length; i2++) {
-    let chunks = sentences[i2].chunks;
-    for (let j6 = 0; j6 < chunks.length; j6++) {
-      let chunk = chunks[j6];
-      jobs.push({
-        kind: "default",
-        _index: i2,
-        // raw_en_sentence: sentence,
-        sentences: [{
-          id,
-          text: chunk.sentences[0].text,
-          prefix: chunk.sentences[0].prefix
-        }],
-        raw_en_context_before: chunks.slice(0, id).map(
-          (chunk2) => chunk2.sentences[0].text
-        ),
-        raw_en_context_after: id + 1 < chunks.length ? [chunks[id + 1].sentences[0].text] : [],
-        preferred_num_beams: beams
-      }), id++;
-    }
-  }
-  return jobs;
-}
-function splitedResultToArray(sentences) {
-  return sentences.reduce((jobs, sentence) => {
-    let chunks = sentence.chunks;
-    for (let chunk of chunks)
-      jobs.push(chunk.sentences[0].text);
-    return jobs;
-  }, []);
-}
-function generateCommonJobParams(formality) {
-  if (!formality)
-    return {};
-  if (!SUPPORTED_FORMALITY_TONES.includes(formality))
-    throw new Error("Formality tone '{formality_tone}' not supported.");
-  return { formality };
-}
-function generateTranslationRequestData(sourceLanguage, targetLanguage, sentences, identifier = generateId(), alternatives = 1, formality) {
-  let allSentences = splitedResultToArray(sentences);
-  return {
-    jsonrpc: "2.0",
-    method: "LMT_handle_jobs",
-    params: {
-      jobs: generateJobs(sentences, alternatives),
-      lang: {
-        user_preferred_langs: [targetLanguage, sourceLanguage],
-        source_lang_computed: sourceLanguage,
-        target_lang: targetLanguage
-      },
-      priority: 1,
-      commonJobParams: generateCommonJobParams(formality),
-      timestamp: generateTimestamp(splitedResultToArray(sentences))
-    },
-    id: identifier
-  };
-}
+];
 
 // services/d/utils.ts
 function createAbbreviationsDictionary(languages2 = SUPPORTED_LANGUAGES) {
@@ -13865,56 +13786,46 @@ function stringifyJson(object) {
     return (self2.id + 3) % 13 === 0 || (self2.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
   });
 }
-async function splitSentences2(API_URL2, text, sourceLanguage, identifier) {
-  let data = generateSplitSentencesRequestData(
-    text,
-    sourceLanguage,
-    identifier
-  );
-  return await request2(
-    {
-      retry: 2,
-      method: "POST",
-      url: API_URL2 + "?method=LMT_split_text",
-      headers,
-      body: stringifyJson(data)
+function initData(source_lang, target_lang) {
+  return {
+    id: 1,
+    jsonrpc: "2.0",
+    method: "LMT_handle_texts",
+    params: {
+      timestamp: 0,
+      texts: [{
+        text: "",
+        requestAlternatives: 3
+      }],
+      splitting: "newlines",
+      lang: {
+        source_lang_user_selected: source_lang,
+        target_lang
+      }
     }
-  );
+  };
 }
-async function requestTranslation(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
-  let splitResult = await splitSentences2(
-    API_URL2,
-    text,
-    sourceLanguage,
-    identifier
-  ), data = generateTranslationRequestData(
-    sourceLanguage === "auto" ? splitResult.result.lang.detected : sourceLanguage,
-    targetLanguage,
-    extractSplitSentences(splitResult),
-    identifier,
-    alternatives,
-    formalityTone
-  ), jobsIndexes = data.params.jobs.map((job) => job._index);
-  data.params.jobs = data.params.jobs.map((job) => {
-    let newJob = { ...job };
-    return delete newJob._index, newJob;
-  });
+async function requestTranslation2(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
+  let id = generateId(), postData = initData(sourceLanguage, targetLanguage), textObjList = [];
+  text.forEach((t4) => {
+    textObjList.push({
+      text: t4,
+      requestAlternatives: 3
+    });
+  }), postData.id = id, postData.params.texts = textObjList, postData.params.timestamp = generateTimestamp(text);
   let response = await request2({
     retry: 2,
     method: "POST",
-    url: API_URL2 + "?method=LMT_handle_jobs",
-    body: stringifyJson(data),
+    url: API_URL2,
+    body: stringifyJson(postData),
     headers
   }), finalResult = {
-    from: splitResult.result.lang.detected,
+    from: response.result.lang,
     to: targetLanguage,
     text: []
   };
-  return response.result.translations.forEach((translation, index) => {
-    let jobIndex = jobsIndexes[index];
-    finalResult.text[jobIndex] === void 0 && (finalResult.text[jobIndex] = "");
-    let originalSentencePrefix = data.params.jobs[index].sentences[0].prefix, originalSentencePre = data.params.jobs[index].sentences[0].prefix;
-    finalResult.text[jobIndex] = finalResult.text[jobIndex] + originalSentencePrefix + translation.beams[0].sentences[0].text;
+  return response.result.texts.forEach((t4) => {
+    finalResult.text.push(t4.text);
   }), finalResult;
 }
 async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
@@ -13922,7 +13833,7 @@ async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, 
     text: [""],
     from: sourceLanguage,
     to: targetLanguage
-  } : requestTranslation(
+  } : requestTranslation2(
     API_URL2,
     text,
     abbreviateLanguage(targetLanguage),
@@ -13938,10 +13849,7 @@ async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, 
 }
 
 // services/d/mod.ts
-var converter = globalThis.OpenCC.Converter({
-  from: "cn",
-  to: "tw"
-}), langMap4 = [
+var langMap4 = [
   ["auto", "auto"],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -13970,7 +13878,7 @@ var converter = globalThis.OpenCC.Converter({
       _D.langMap.get(to) || to,
       _D.langMap.get(from) || "auto"
     );
-    return result.text && Array.isArray(result.text) && (result.text = result.text.map((item) => to === "zh-TW" ? converter(item) : item)), {
+    return {
       text: result.text,
       from: _D.langMapReverse.get(result.from),
       to: _D.langMapReverse.get(result.to)
@@ -14168,10 +14076,7 @@ var Mock = class extends Translation {
 };
 
 // services/openl.ts
-var converter2 = globalThis.OpenCC.Converter({
-  from: "cn",
-  to: "tw"
-}), rawLangMap = [
+var rawLangMap = [
   ["auto", "auto"],
   ["zh-CN", "zh"],
   ["zh-TW", "zh"],
@@ -14217,7 +14122,7 @@ var converter2 = globalThis.OpenCC.Converter({
     );
     if (response.status) {
       let result = response;
-      return result.result && to == "zh-TW" && (result.result = converter2(result.result)), {
+      return result.result && to == "zh-TW", {
         text: result.result,
         from: langMapReverse.get(result.source_lang),
         to: langMapReverse.get(result.target_lang)
@@ -14266,10 +14171,7 @@ async function throttleRequest(options2) {
 }
 
 // services/deepl.ts
-var converter3 = globalThis.OpenCC.Converter({
-  from: "cn",
-  to: "tw"
-}), globalState = null, rawLangMap2 = [
+var globalState = null, rawLangMap2 = [
   ["auto", ""],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -14386,9 +14288,27 @@ var converter3 = globalThis.OpenCC.Converter({
           }
         }
       );
-    let { translations: translations2 } = response;
+    let { translations: translations2 } = response, resultText = translations2.map((item) => item.text);
+    if (to === "zh-TW") {
+      let serviceConfig = this.serviceConfig || {};
+      serviceConfig && serviceConfig.googleApiUrl && (serviceConfig.apiUrl = serviceConfig.googleApiUrl);
+      let googleResult = await new Google(
+        this.serviceConfig,
+        this.generalConfig,
+        this.translationOptions
+      ).translate({
+        from: "zh-CN",
+        to: "zh-TW",
+        text: translations2.map((item) => item.text).join(`
+`),
+        url: "",
+        options: {}
+      });
+      googleResult && googleResult.text && (resultText = googleResult.text.split(`
+`));
+    }
     return {
-      text: translations2.map((t4) => to === "zh-TW" ? converter3(t4.text) : t4.text),
+      text: resultText,
       from: translations2[0] && langMapReverse2.get(translations2[0].detected_source_language) || from,
       to
     };
@@ -15162,10 +15082,7 @@ var rawLangMap7 = [
 };
 
 // services/deeplx.ts
-var converter4 = globalThis.OpenCC.Converter({
-  from: "cn",
-  to: "tw"
-}), rawLangMap8 = [
+var rawLangMap8 = [
   ["auto", "auto"],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -15207,7 +15124,7 @@ var converter4 = globalThis.OpenCC.Converter({
       }
     );
     if (result.code === 200)
-      return result.data && to === "zh-TW" && (result.data = converter4(result.data)), {
+      return {
         text: result.data,
         from,
         to
@@ -15642,6 +15559,7 @@ var TranslationServicesClass = {
 Object.keys(PureTranslationServices).forEach((key) => {
   TranslationServices[key] = {
     ...PureTranslationServices[key],
+    // @ts-ignore: it's ok
     class: TranslationServicesClass[key]
   };
 });
@@ -15939,20 +15857,22 @@ function isMatchedExclude(url, matchPattern) {
 }
 
 // dom/translate_page.ts
-var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, debounceTranslateCurrentQueue = se(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
+var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, debounceTranslateCurrentQueue = se(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
   translateNewDynamicNodes,
   200
 ), env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
 async function toggleTranslatePage() {
   if (getPageStatus() === "Original") {
     let ctx = await getGlobalContext(getRealUrl(), {});
-    ctx.state.translationTheme = ctx.config.translationTheme, ctx = await getGlobalContext(getRealUrl(), {}), await translatePage(globalContext);
+    initialTranslationTheme ? ctx = await getGlobalContext(getRealUrl(), {
+      translationTheme: initialTranslationTheme
+    }) : initialTranslationTheme = ctx.state.translationTheme, await translatePage(globalContext);
   } else
     (getPageStatus() === "Translated" || getPageStatus() === "Error") && restorePage();
 }
 async function toggleTranslationMask() {
   if (getPageStatus() === "Original")
-    globalContext = await getGlobalContext(getRealUrl(), {
+    globalContext = await getGlobalContext(getRealUrl(), {}), initialTranslationTheme || (initialTranslationTheme = globalContext.state.translationTheme), globalContext = await getGlobalContext(getRealUrl(), {
       translationTheme: "mask"
     }), await translatePage(globalContext);
   else if (getPageStatus() === "Translated") {
@@ -16202,20 +16122,21 @@ async function translateFrame(rootFrame, ctx) {
   return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
 }
 async function getGlobalContext(url, state) {
-  let config = await getConfig2();
-  if (!globalContext)
-    globalContext = await getContext({
-      url,
-      config,
-      state
-    });
-  else {
+  let config = await getConfig2(), stateKeys = Object.keys(state);
+  if (globalContext) {
     let options2 = {
       url,
       config,
       state: { ...globalContext.state, ...state }
     };
     globalContext = await getContext(options2);
+  } else {
+    let realState = state;
+    stateKeys.length === 0 && (realState = void 0), globalContext = await getContext({
+      url,
+      config,
+      state: realState
+    });
   }
   return globalContext;
 }
@@ -16519,7 +16440,7 @@ async function initPage() {
     text: getMainText(document.body).slice(0, 1e3)
   }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
   let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate)
+  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate)
     globalContext.state.isAutoTranslate = !0, await translatePage(globalContext);
   else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
     if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
@@ -16624,7 +16545,9 @@ var internalLocaleMap = {
     "languages.de": "\u5FB7\u8BED",
     "languages.it": "\u610F\u5927\u5229\u8BED",
     "languages.pt": "\u8461\u8404\u7259\u8BED",
-    "languages.ru": "\u4FC4\u8BED"
+    "languages.ru": "\u4FC4\u8BED",
+    "languages.wyw": "\u6587\u8A00\u6587",
+    "languages.<all>": "\u5168\u90E8"
   },
   "zh-TW": {
     "languages.en": "\u82F1\u8A9E",
@@ -16635,7 +16558,9 @@ var internalLocaleMap = {
     "languages.de": "\u5FB7\u8A9E",
     "languages.it": "\u610F\u5927\u5229\u8A9E",
     "languages.pt": "\u8461\u8404\u7259\u8A9E",
-    "languages.ru": "\u4FC4\u8A9E"
+    "languages.ru": "\u4FC4\u8A9E",
+    "languages.wyw": "\u6587\u8A00\u6587",
+    "languages.<all>": "\u5168\u90E8"
   }
 }, finalTranslations = {
   ...translations,
@@ -18112,7 +18037,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.66",
+  version: "0.2.67",
   default_locale: "en",
   background: {
     service_worker: "background.js"
@@ -18126,7 +18051,6 @@ var manifest_default = {
         "*://*/*"
       ],
       js: [
-        "cn2t.js",
         "content_script.js"
       ],
       run_at: "document_end",

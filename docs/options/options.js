@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-22T07:44:01.617Z", VERSION: "0.2.66", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-24T10:35:24.802Z", VERSION: "0.2.67", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -6406,7 +6406,7 @@ body {
     lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
     "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
     "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
-    enableLineBreak: "\u662F\u5426\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
+    enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
     sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
     help: "\u5E2E\u52A9",
     browserShortcutsNoteForFirefox: "Firefox \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762 `about:addons`\uFF0C\u7136\u540E\u70B9\u51FB\u300C\u8BBE\u7F6E\u300D\uFF0C\u518D\u70B9\u51FB\u300C\u7BA1\u7406\u5FEB\u6377\u952E\u300D\u5373\u53EF\u8BBE\u7F6E",
@@ -6414,7 +6414,7 @@ body {
     browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
     enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
     "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
-    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u817E\u8BAF/\u706B\u5C71\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u6709\u9053/\u817E\u8BAF\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
     "browser.toggleTranslatePage": "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
     "browser.toggleTranslateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF/\u663E\u793A\u539F\u6587",
     "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
@@ -6593,7 +6593,7 @@ body {
     "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
     "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
     KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-    useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
+    useAboveStyleForTheseSites: "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u603B\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8BD1\u6587\u6837\u5F0F",
     currentUrl: "\u5F53\u524D\u7F51\u5740",
     confirm: "\u4FDD\u5B58",
     cancel: "\u53D6\u6D88",
@@ -6839,7 +6839,7 @@ body {
     "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
     "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
     KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-    useAboveStyleForTheseSites: "\u603B\u662F\u4F7F\u7528 {theme} \u8BD1\u6587\u6837\u5F0F\u7684\u7F51\u7AD9",
+    useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
     currentUrl: "\u7576\u524D\u7DB2\u5740",
     confirm: "\u5132\u5B58",
     cancel: "\u53D6\u6D88",
@@ -6904,7 +6904,7 @@ body {
     browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
     enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
     "browser.brandName": "Immersive Translate",
-    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
+    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.",
     "browser.toggleTranslatePage": "Toggle translate webpage ",
     "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
     "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
@@ -6925,9 +6925,9 @@ body {
     xMinutes: "{count} minutes",
     disabled: "Disable",
     changelog: "Change Log",
-    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u4E09\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-    toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger simultaneous touch to show/hide the blur effect of the translation",
-    addUrlDescription: "The domain name is available and wildcard is supported e.g.\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "Three-finger touch to show/hide translation display",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger touch to show/hide the blur effect of the translation",
+    addUrlDescription: "The domain name is available and wildcard is supported e.g.: *.google.com, google.com/mail/*, https://www.google.com/*",
     general: "General",
     clickToExpandConfig: "Expand current configuration",
     import: "Import configuration from file",
@@ -6965,8 +6965,8 @@ body {
     homepage: "Home Page",
     more: "More",
     translateTheWholePage: "Translate the whole page area (different from only the main area)",
-    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u9875\u9762\u6240\u6709\u533A\u57DF",
-    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+    changeToTranslateTheWholePage: "Translate the whole page",
+    changeToTranslateTheMainPage: "Translate main only",
     translateToThePageEndImmediately: "Immediately translate to the bottom (different from translating the current visible area)",
     translateTheMainPage: "Main areas of intelligent translation",
     "The local rules are up to date": "Local  rules are up to date:",
@@ -7075,7 +7075,7 @@ body {
     neverTranslateLanguagesLabel: "Never Translated Languages",
     neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
     enableUserscriptPagePopup: "Always show Popup windows on the page",
-    enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+    enableUserscriptPagePopupDescription: "Three-finger touch to show the Popup.",
     "always translate the following languages": "The following languages will always be translated",
     "always sites": "Always translate the following sites",
     "always translate the following sites": "The following sites will always be translated",
@@ -7248,9 +7248,21 @@ body {
     "zh-CN",
     "zh-TW",
     "ja",
-    "af",
-    "am",
+    "ko",
+    "es",
+    "de",
+    "fr",
+    "pt",
+    "ru",
     "ar",
+    "it",
+    "ms",
+    "id",
+    "vi",
+    "af",
+    "th",
+    "ur",
+    "am",
     "az",
     "be",
     "bg",
@@ -7262,17 +7274,14 @@ body {
     "cs",
     "cy",
     "da",
-    "de",
     "el",
     "eo",
-    "es",
     "et",
     "eu",
     "fa",
     "fi",
     "fil",
     "fj",
-    "fr",
     "fy",
     "ga",
     "gd",
@@ -7287,16 +7296,13 @@ body {
     "ht",
     "hu",
     "hy",
-    "id",
     "ig",
     "is",
-    "it",
     "jw",
     "ka",
     "kk",
     "km",
     "kn",
-    "ko",
     "ku",
     "ky",
     "la",
@@ -7310,7 +7316,6 @@ body {
     "ml",
     "mn",
     "mr",
-    "ms",
     "mt",
     "mww",
     "my",
@@ -7322,9 +7327,7 @@ body {
     "pa",
     "pl",
     "ps",
-    "pt",
     "ro",
-    "ru",
     "sd",
     "si",
     "sk",
@@ -7343,7 +7346,6 @@ body {
     "ta",
     "te",
     "tg",
-    "th",
     "tlh",
     "tlh-Qaak",
     "to",
@@ -7351,9 +7353,7 @@ body {
     "ty",
     "ug",
     "uk",
-    "ur",
     "uz",
-    "vi",
     "wyw",
     "xh",
     "yi",
@@ -7472,7 +7472,7 @@ body {
     ur: "Urdu",
     uz: "Uzbek",
     vi: "Vietnamese",
-    wyw: "Classical Chinese",
+    wyw: "\u6587\u8A00\u6587",
     xh: "Bantu",
     yi: "Yiddish",
     yo: "Yoruba",
@@ -7480,7 +7480,9 @@ body {
     yue: "Cantonese (Traditional)",
     "zh-CN": "\u7B80\u4F53\u4E2D\u6587",
     "zh-TW": "\u7E41\u9AD4\u4E2D\u6587",
-    zu: "Zulu"
+    zu: "Zulu",
+    // @ts-ignore: it's ok
+    "<all>": "All Languages"
   };
   var allSupportedShortcuts = [
     "toggleTranslatePage",
@@ -7500,7 +7502,7 @@ body {
     type: "select",
     name: "codename",
     label: "translationEngine",
-    default: "deepl",
+    default: "youdao",
     required: !1,
     options: [
       {
@@ -7867,7 +7869,7 @@ ${injectedCss}}
   function injectCssToFrame(root2, ctx) {
     let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
     injectCSS(root2, defaultInjectedCss);
-    let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.config.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
+    let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.state.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
     applyUserConfigCss(
       root2,
       translationTheme,
@@ -8278,9 +8280,7 @@ ${injectedCss}}
       urlChangeDelay: 20,
       mutationChangeDelay: 10,
       visibleDelay: 0,
-      additionalStayOriginalSelectors: [
-        "span.katex"
-      ],
+      additionalStayOriginalSelectors: ["span.katex"],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
       observeUrlChange: !1,
@@ -8411,7 +8411,11 @@ ${injectedCss}}
         "LINK",
         "TIME",
         "META",
-        "WBR"
+        "WBR",
+        "RELIN-HC",
+        "RELIN-HIGHLIGHT",
+        "RELIN-ORIGIN",
+        "RELIN-TARGET"
       ],
       additionalInlineTags: [],
       extraInlineSelectors: [],
@@ -8635,9 +8639,7 @@ ${injectedCss}}
         globalStyles: {
           "div.XPromoBottomBar": "display:none"
         },
-        waitForSelectors: [
-          "[data-testid=post_author_link]"
-        ]
+        waitForSelectors: ["[data-testid=post_author_link]"]
       },
       {
         matches: "www.reddit.com",
@@ -8878,11 +8880,7 @@ ${injectedCss}}
         normalizeBody: "#ReadingPaneContainerId",
         detectParagraphLanguage: !0,
         atomicBlockSelectors: ["div p:has(span)"],
-        excludeSelectors: [
-          ".jHAG3.XG5Jd",
-          ".OZZZK",
-          ".lDdSm"
-        ]
+        excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
       },
       {
         matches: "www.producthunt.com",
@@ -8949,29 +8947,37 @@ ${injectedCss}}
         ],
         excludeSelectors: [
           "#channels",
-          "[data-list-id^='members']",
           "div[class^='repliedTextContent']",
           "div[class^='repliedTextPreview']",
           "div[class^='messageAttachment']",
           "div[class^='repliedMessage']",
+          "div[class^='reactionTooltip']",
           "div[class*='isSystemMessage']",
           "div[class^='avatarWrapper']",
           "div[class^='container'] [class^='topLine']",
           "div[class^='container'] [class^='bottomLine']",
+          "div[class^='container'] [class^='children'] button[class^='component']",
+          "div[class^='userPopoutOverlayBackground'] [class^='userTagNoNickname']",
+          "div[class^='userPopoutOverlayBackgound'] [class^='userTagNoNickname']",
+          "span[class^='botTag']",
           "h3[class^='header']",
           "h2[class^='forumPostTitle']",
           "[class^='title'][aria-label='Channel header']",
+          "div[class^='unreadPill']",
           "div[class^='sectionHeader']",
           "article[class^=embedWrapper] [class^=anchor]",
           "article[class^=embedWrapper] [class^=embedProvider]",
           "article[class^=embedWrapper] [class^=embedFooter]",
+          "[data-list-item-id^='members'] [class^='username']",
           "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+          "li[class^='containerDefault'] div[class^='channelInfo']",
           "li[class^='card'] div[class^='tags']",
           "li[class^='card'] div[class^='footer']"
         ],
         globalStyles: {
           "div[class^=headerText]": "max-height: unset;",
           "div[class^=message]": "max-height: unset;",
+          "div[class^=text]": "max-height: unset;",
           "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
         },
         detectParagraphLanguage: !0,
@@ -9160,7 +9166,9 @@ ${injectedCss}}
           ".title >a",
           ".title > span",
           ".thumbnailTitle",
-          ".commentMessage > span"
+          ".commentMessage > span",
+          "h1.floatLeft",
+          ".commentText"
         ],
         detectParagraphLanguage: !0,
         wrapperPrefix: `
@@ -9169,7 +9177,9 @@ ${injectedCss}}
         wrapperSuffix: `
 `,
         globalStyles: {
-          ".title": "height: unset; max-height: unset;"
+          ".title": "height: unset; max-height: unset;",
+          ".title > a": "height: unset; max-height: unset;",
+          ".thumbnailTitle": "height: unset; max-height: unset;"
         }
       },
       {
@@ -9353,17 +9363,9 @@ ${injectedCss}}
         ]
       },
       {
-        matches: [
-          "www.construct.net"
-        ],
-        excludeMatches: [
-          "preview.construct.net",
-          "editor.construct.net"
-        ],
-        additionalSelectors: [
-          "aside",
-          "div.manualContent"
-        ],
+        matches: ["www.construct.net"],
+        excludeMatches: ["preview.construct.net", "editor.construct.net"],
+        additionalSelectors: ["aside", "div.manualContent"],
         atomicBlockSelectors: [],
         stayOriginalSelectors: ["a.usernameReference"],
         additionalInlineSelectors: ["a.forumLink"],
@@ -9380,40 +9382,38 @@ ${injectedCss}}
           "div.downloadWrap",
           "div.articleLeftMenu",
           "div.usernameTextWrap",
+          "div.favouriteWrap",
           "div.bannerWrapper",
-          "div#FilterMenu.FilterMenu",
           "div.viewAddonRightMenu",
           "div.extendedMenu.addonsSubMenu",
           "#BottomLinks.bottomLinks",
-          "span.tagViewWrap",
           "div#LeftSide.leftSide",
           "div#BottomWrap.bottomWrap",
           "div.courseListWrap div.overview",
           "div.conversationControls",
           "div.contentWrapper h1",
           "div.conversationControls",
-          ".forumControlsWrapper",
-          ".forumsBottomNavWrap",
           "td.location a#LocationLink",
           "#TopLevelComments .topBar",
           "#TopLevelComments .controls",
-          ".manualContentWrap .menuWrap",
+          ".tagViewWrap",
+          ".changeCount",
+          ".otherStats",
+          ".FilterMenu",
+          ".mobileTopicStats",
+          ".forumControlsWrapper",
+          ".forumsBottomNavWrap",
+          ".breadCrumbNav",
+          ".favouriteWrap",
+          ".usernameLink",
+          ".followWrapper",
+          ".blogPostStats",
           ".manualContent dl dt"
         ],
         globalStyles: {
           "td.location a#LocationLink": "padding-top: 4px;",
           "div.articleMain .tutCourseWrap": "align-items: flex-start;"
         }
-      },
-      {
-        matches: "www.construct.net/en/blogs/*",
-        excludeSelectors: [
-          ".breadCrumbNav",
-          ".favouriteWrap",
-          ".usernameLink",
-          ".followWrapper",
-          ".blogPostStats"
-        ]
       },
       {
         matches: "getpocket.com",
@@ -9567,7 +9567,7 @@ ${injectedCss}}
         ]
       },
       {
-        matches: "https://steamcommunity.com/app/*/discussions/",
+        matches: "https://steamcommunity.com/app/*/discussions/*",
         globalStyles: {
           ".forum_topic": "height:auto;",
           ".forum_topic_name": "white-space:normal;"
@@ -9576,7 +9576,8 @@ ${injectedCss}}
           ".forum_paging",
           ".forum_topic_reply_count",
           ".forum_topic_lastpost",
-          ".forum_topic_award_count"
+          ".forum_topic_award_count",
+          ".discussion_search_pagingcontrols"
         ],
         observeUrlChange: !0
       },
@@ -9616,21 +9617,15 @@ ${injectedCss}}
       },
       {
         matches: "https://www.jetbrains.com/help/*",
-        extraBlockSelectors: [
-          "[data-test=prompt]"
-        ]
+        extraBlockSelectors: ["[data-test=prompt]"]
       },
       {
         matches: ["https://crates.io/search*"],
-        selectors: [
-          "div[class^=_description-box] div[class^=_description]"
-        ]
+        selectors: ["div[class^=_description-box] div[class^=_description]"]
       },
       {
         matches: "www.theverge.com",
-        shadowRootSelectors: [
-          "div#coral_thread > div"
-        ]
+        shadowRootSelectors: ["div#coral_thread > div"]
       }
     ]
   };
@@ -9928,7 +9923,7 @@ ${injectedCss}}
       let requiredProps = allProps.filter((prop) => prop.required);
       if (requiredProps.length > 0) {
         for (let prop of requiredProps)
-          if (!translationConfig[prop.name]) {
+          if (!translationConfig[prop.name] && !prop.default) {
             ok = !1;
             break;
           }
@@ -10668,7 +10663,9 @@ ${injectedCss}}
       "languages.de": "\u5FB7\u8BED",
       "languages.it": "\u610F\u5927\u5229\u8BED",
       "languages.pt": "\u8461\u8404\u7259\u8BED",
-      "languages.ru": "\u4FC4\u8BED"
+      "languages.ru": "\u4FC4\u8BED",
+      "languages.wyw": "\u6587\u8A00\u6587",
+      "languages.<all>": "\u5168\u90E8"
     },
     "zh-TW": {
       "languages.en": "\u82F1\u8A9E",
@@ -10679,7 +10676,9 @@ ${injectedCss}}
       "languages.de": "\u5FB7\u8A9E",
       "languages.it": "\u610F\u5927\u5229\u8A9E",
       "languages.pt": "\u8461\u8404\u7259\u8A9E",
-      "languages.ru": "\u4FC4\u8A9E"
+      "languages.ru": "\u4FC4\u8A9E",
+      "languages.wyw": "\u6587\u8A00\u6587",
+      "languages.<all>": "\u5168\u90E8"
     }
   }, finalTranslations = {
     ...translations,
@@ -10973,13 +10972,15 @@ ${injectedCss}}
       PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
         translationService,
         ctx
-      )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, alwaysTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2) ? {
-        checked: !0,
-        value: code2
-      } : {
-        checked: !1,
-        value: code2
-      }), neverTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2) ? {
+      )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, alwaysTranslatedLangs = languages2.concat("<all>").map(
+        (code2) => config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2) ? {
+          checked: !0,
+          value: code2
+        } : {
+          checked: !1,
+          value: code2
+        }
+      ), neverTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2) ? {
         checked: !0,
         value: code2
       } : {

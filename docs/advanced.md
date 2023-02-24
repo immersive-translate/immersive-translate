@@ -26,11 +26,11 @@
 使用 `additional` 系列的选择器，在智能翻译的基础上增加或减少翻译范围
 
 ```json
-{
+[{
   "matches": "www.google.com",
   "additionalSelectors": [],
   "additionalExcludeSelectors": []
-}
+}]
 ```
 
 如果希望翻译某个区域时，将元素视为一个整体，不将其分行，可以用 `atomicBlockSelectors` 选择器。比如 Instagram 的个人简介。要注意的是，使用 `atomicBlockSelectors` 前需要先用 `selectors` 进行选择。
@@ -303,63 +303,65 @@ translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的�
 ```typescript
 export interface Rule {
 
-  // url 匹配
-  matches?: string | string[];           // url匹配规则。设置后，该条rule将仅匹配该url。
-  excludeMatches?: string | string[];    // url排除规则，不匹配特定的url
-  selectorMatches?: string | string[];   // url选择器匹配规则，用选择器来判断，则无需指定所有url
-  excludeSelectorMatches?: string | string[]; // url选择器排除规则
+  // 匹配网站
+  matches?: string | string[];           // 该条Rule将仅匹配此处的网站。
+  excludeMatches?: string | string[];    // 排除特定的网站。
+  selectorMatches?: string | string[];   // 用选择器来匹配，而无需指定所有url
+  excludeSelectorMatches?: string | string[]; // 排除规则，同上。
 
-  // css 选择器
-  selectors?: string | string[];         // 该选择器匹配的元素将被翻译
-  excludeSelectors?: string | string[];  // 排除元素，不翻译选择器匹配的元素
+  // 指定翻译范围
+  selectors?: string | string[];         // 仅翻译匹配到的元素
+  excludeSelectors?: string | string[];  // 排除元素，不翻译匹配的元素
   excludeTags?: string | string[];       // 排除Tags，不翻译匹配的Tag
 
-  // 追加翻译范围，而不是替代
-  additionalSelectors?: string | string[];        // 追加元素。在智能判断的区域基础，追加这里匹配的元素
-  additionalExcludeSelectors?: string | string[]; // 追加排除元素
+  // 追加翻译范围，而不是覆盖
+  additionalSelectors?: string | string[];        // 追加翻译范围。在智能翻译的区域，追加翻译位置。
+  additionalExcludeSelectors?: string | string[]; // 追加排除元素，让智能翻译不翻译特定位置。
   additionalExcludeTags?: string | string[];      // 追加排除Tags
 
   // 保持原样
-  stayOriginalSelectors?: string | string[]; // 该选择器匹配的元素将保持原样
+  stayOriginalSelectors?: string | string[]; // 匹配的元素将保持原样。常用于论坛网站的标签。
   stayOriginalTags?: string | string[];      // 匹配到的Tag将保持原样，比如 `code`
+
+  // 区域翻译
+  atomicBlockSelectors?: string | string[]; // 区域选择器, 匹配的元素将被视为一个整体, 不会分段翻译
+  atomicBlockTags?: string | string[];      // 区域Tag选择器,  同上
 
   // Block or Inline
   extraBlockSelectors?: string | string[];  // 额外的选择器，匹配的元素将作为 block 元素，独占一行。
   extraInlineSelectors?: string | string[]; // 额外的选择器，匹配的元素将作为 inline 元素。
-  
-  // 分段换行
-  atomicBlockSelectors?: string | string[]; // 原子选择器, 该选择器匹配的元素将被视为一个整体, 不会进行分段
-  atomicBlockTags?: string | string[];      // 原子Tag选择器,  同上
-
-  // 上下文
-  wrapperPrefix?: string;   // 译文区域的前缀，默认为 smart， 根据字数确定是否添加空行
-  wrapperSuffix?: string;   // 译文区域的后缀
 
   inlineTags?: string | string[];                // 匹配的 Tag 将作为 inline 元素
-  preWhitespaceDetectedTags?: string | string[]; // 匹配的 Tag 将分段换行
+  preWhitespaceDetectedTags?: string | string[]; // 匹配的 Tag 将自动换行
   
   // 译文样式
-  translationClasses?: string | string | string[];           // 为译文添加额外的 Class
+  translationClasses?: string | string | string[];   // 为译文添加额外的 Class
   
-  globalStyles?: Record<string, string>;                     // 修改页面样式，如果译文导致页面错乱，这个很有用。`
+  // 全局样式
+  globalStyles?: Record<string, string>;                     // 修改页面样式，若译文导致页面错乱，这个很有用。`
   globalAttributes?: Record<string, Record<string, string>>; // 修改页面元素的属性
   
-  injectedCss?: string | string[];                // 嵌入CSS样式
-  additionalInjectedCss?: string | string[];      // 追加CSS样式，而不是直接覆盖。
+  // 嵌入样式
+  injectedCss?: string | string[];           // 嵌入CSS样式
+  additionalInjectedCss?: string | string[]; // 追加CSS样式，而不是直接覆盖。
+
+  // 上下文
+  wrapperPrefix?: string;   // 译文区域的前缀，默认为 smart，根据字数决定是否换行。
+  wrapperSuffix?: string;   // 译文区域的后缀
 
   // 译文换行字数
-  blockMinTextCount?: number; // 将译文作为 block 的最小字符数，否则译文为 inline 元素。
-  blockMinWordCount?: number; // 同上。如果希望它们始终换行, 可以都填0.
+  blockMinTextCount?: number;    // 将译文作为 block 的最小字符数，否则译文为 inline 元素。
+  blockMinWordCount?: number;    // 同上。如果希望它们始终换行, 可以都填0.
 
-  // 开启翻译的最小字数
-  containerMinTextCount?: number; // 智能识别时，元素内最少包含的字符数，才会被视为要翻译的区域，默认为18
-  paragraphMinTextCount?: number; // 要翻译的段落的最小字符数, 大于数字的内容将被翻译
-  paragraphMinWordCount?: number; // 要翻译的段落的最小单词数
+  // 内容可翻译的最小字数
+  containerMinTextCount?: number; // 智能识别时，元素最少包含的字符数，才会被翻译，默认为18
+  paragraphMinTextCount?: number; // 原文段落的最小字符数, 大于数字的内容将被翻译
+  paragraphMinWordCount?: number; // 原文段落的最小单词数
   
-  // 长段落分行字数
-  lineBreakMaxTextCount?: number; // 翻译长段落时，强制进行分行的段落最大字符数。
+  // 长段落强制换行字数
+  lineBreakMaxTextCount?: number; // 开启翻译长段落时，强制进行分行的段落最大字符数。
   
-  // 执行时机
+  // 启动翻译的时机
   urlChangeDelay?: number;        // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
   observeUrlChange?: boolean;     // 检测url地址发生变化时，再次启动翻译，默认为true。
 

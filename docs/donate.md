@@ -16,7 +16,7 @@
 
 ## 品牌赞助
 
-沉浸式翻译目前正处于高速发展阶段，每天都有成千上万的用户访问该扩展的主页，如果你有想宣传或者推广的产品，可以 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式，可以在主页显眼位置放置你的产品，你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！ （目前每月 [$25 刀](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263194) 即可成为品牌赞助商）
+沉浸式翻译目前正处于高速发展阶段，每天都有成千上万的用户访问该扩展的主页，如果你有想宣传或者推广的产品，可以 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式，可以在主页显眼位置放置你的产品，你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！ （目前每月 [$50 刀](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263194) 即可成为品牌赞助商）
 
 ## 加密货币一次性赞助
 

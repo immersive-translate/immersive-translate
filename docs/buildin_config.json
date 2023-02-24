@@ -301,7 +301,12 @@
       "LINK",
       "TIME",
       "META",
-      "WBR"
+      "WBR",
+      "RELIN-HC",
+      "RELIN-HIGHLIGHT",
+      "RELIN-ORIGIN",
+      "RELIN-TARGET",
+      "XQDD_HIGHLIGHT_NEW_WORD"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -931,29 +936,37 @@
       ],
       "excludeSelectors": [
         "#channels",
-        "[data-list-id^='members']",
         "div[class^='repliedTextContent']",
         "div[class^='repliedTextPreview']",
         "div[class^='messageAttachment']",
         "div[class^='repliedMessage']",
+        "div[class^='reactionTooltip']",
         "div[class*='isSystemMessage']",
         "div[class^='avatarWrapper']",
         "div[class^='container'] [class^='topLine']",
         "div[class^='container'] [class^='bottomLine']",
+        "div[class^='container'] [class^='children'] button[class^='component']",
+        "div[class^='userPopoutOverlayBackground'] [class^='userTagNoNickname']",
+        "div[class^='userPopoutOverlayBackgound'] [class^='userTagNoNickname']",
+        "span[class^='botTag']",
         "h3[class^='header']",
         "h2[class^='forumPostTitle']",
         "[class^='title'][aria-label='Channel header']",
+        "div[class^='unreadPill']",
         "div[class^='sectionHeader']",
         "article[class^=embedWrapper] [class^=anchor]",
         "article[class^=embedWrapper] [class^=embedProvider]",
         "article[class^=embedWrapper] [class^=embedFooter]",
+        "[data-list-item-id^='members'] [class^='username']",
         "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
+        "li[class^='containerDefault'] div[class^='channelInfo']",
         "li[class^='card'] div[class^='tags']",
         "li[class^='card'] div[class^='footer']"
       ],
       "globalStyles": {
         "div[class^=headerText]": "max-height: unset;",
         "div[class^=message]": "max-height: unset;",
+        "div[class^=text]": "max-height: unset;",
         "h3[data-text-variant='heading-lg/semibold']": "-webkit-line-clamp: none;"
       },
       "detectParagraphLanguage": true,
@@ -1211,13 +1224,17 @@
         ".title >a",
         ".title > span",
         ".thumbnailTitle",
-        ".commentMessage > span"
+        ".commentMessage > span",
+        "h1.floatLeft",
+        ".commentText"
       ],
       "detectParagraphLanguage": true,
       "wrapperPrefix": "\n\n",
       "wrapperSuffix": "\n",
       "globalStyles": {
-        ".title": "height: unset; max-height: unset;"
+        ".title": "height: unset; max-height: unset;",
+        ".title > a": "height: unset; max-height: unset;",
+        ".thumbnailTitle": "height: unset; max-height: unset;"
       }
     },
     {
@@ -1487,40 +1504,38 @@
         "div.downloadWrap",
         "div.articleLeftMenu",
         "div.usernameTextWrap",
+        "div.favouriteWrap",
         "div.bannerWrapper",
-        "div#FilterMenu.FilterMenu",
         "div.viewAddonRightMenu",
         "div.extendedMenu.addonsSubMenu",
         "#BottomLinks.bottomLinks",
-        "span.tagViewWrap",
         "div#LeftSide.leftSide",
         "div#BottomWrap.bottomWrap",
         "div.courseListWrap div.overview",
         "div.conversationControls",
         "div.contentWrapper h1",
         "div.conversationControls",
-        ".forumControlsWrapper",
-        ".forumsBottomNavWrap",
         "td.location a#LocationLink",
         "#TopLevelComments .topBar",
         "#TopLevelComments .controls",
-        ".manualContentWrap .menuWrap",
+        ".tagViewWrap",
+        ".changeCount",
+        ".otherStats",
+        ".FilterMenu",
+        ".mobileTopicStats",
+        ".forumControlsWrapper",
+        ".forumsBottomNavWrap",
+        ".breadCrumbNav",
+        ".favouriteWrap",
+        ".usernameLink",
+        ".followWrapper",
+        ".blogPostStats",
         ".manualContent dl dt"
       ],
       "globalStyles": {
         "td.location a#LocationLink": "padding-top: 4px;",
         "div.articleMain .tutCourseWrap": "align-items: flex-start;"
       }
-    },
-    {
-      "matches": "www.construct.net/en/blogs/*",
-      "excludeSelectors": [
-        ".breadCrumbNav",
-        ".favouriteWrap",
-        ".usernameLink",
-        ".followWrapper",
-        ".blogPostStats"
-      ]
     },
     {
       "matches": "getpocket.com",
@@ -1696,7 +1711,7 @@
       ]
     },
     {
-      "matches": "https://steamcommunity.com/app/*/discussions/",
+      "matches": "https://steamcommunity.com/app/*",
       "globalStyles": {
         ".forum_topic": "height:auto;",
         ".forum_topic_name": "white-space:normal;"
@@ -1705,7 +1720,8 @@
         ".forum_paging",
         ".forum_topic_reply_count",
         ".forum_topic_lastpost",
-        ".forum_topic_award_count"
+        ".forum_topic_award_count",
+        ".discussion_search_pagingcontrols"
       ],
       "observeUrlChange": true
     },
@@ -1768,6 +1784,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-22T04:51:42.519Z",
-  "latestVersion": "0.2.65"
+  "buildinConfigUpdatedAt": "2023-02-24T15:04:35.199Z",
+  "latestVersion": "0.2.68"
 }

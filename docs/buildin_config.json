@@ -305,7 +305,8 @@
       "RELIN-HC",
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
-      "RELIN-TARGET"
+      "RELIN-TARGET",
+      "XQDD_HIGHLIGHT_NEW_WORD"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -1783,6 +1784,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-24T13:10:45.163Z",
-  "latestVersion": "0.2.67"
+  "buildinConfigUpdatedAt": "2023-02-24T15:04:35.199Z",
+  "latestVersion": "0.2.68"
 }

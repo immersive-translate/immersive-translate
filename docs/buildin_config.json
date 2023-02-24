@@ -544,6 +544,9 @@
         "https://www.reddit.com/new/",
         "https://www.reddit.com/top/"
       ],
+      "excludeMatches": [
+        "https://www.reddit.com/r/*/wiki/*"
+      ],
       "selectors": [
         "h1",
         ".PostHeader__post-title-line",
@@ -579,6 +582,9 @@
         ".post-content",
         ".Comment__body",
         "faceplate-batch .md"
+      ],
+      "excludeMatches": [
+        "https://www.reddit.com/r/*/wiki/*"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -1784,6 +1790,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-24T15:04:35.199Z",
+  "buildinConfigUpdatedAt": "2023-02-24T15:38:59.289Z",
   "latestVersion": "0.2.68"
 }

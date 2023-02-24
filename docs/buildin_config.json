@@ -301,7 +301,11 @@
       "LINK",
       "TIME",
       "META",
-      "WBR"
+      "WBR",
+      "RELIN-HC",
+      "RELIN-HIGHLIGHT",
+      "RELIN-ORIGIN",
+      "RELIN-TARGET"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
@@ -1706,7 +1710,7 @@
       ]
     },
     {
-      "matches": "https://steamcommunity.com/app/*/discussions/*",
+      "matches": "https://steamcommunity.com/app/*",
       "globalStyles": {
         ".forum_topic": "height:auto;",
         ".forum_topic_name": "white-space:normal;"
@@ -1779,6 +1783,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-24T09:06:26.220Z",
-  "latestVersion": "0.2.66"
+  "buildinConfigUpdatedAt": "2023-02-24T13:10:45.163Z",
+  "latestVersion": "0.2.67"
 }

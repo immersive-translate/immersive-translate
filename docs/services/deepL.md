@@ -7,10 +7,17 @@
 3. DeepL API Free 的账号，每月提供 50 万免费字符的翻译额度。
 4. DeepL API Pro 的官方费用是：每 100 万字符 $25 刀。
 
+## 通过赞助沉浸式扩展获得无字符数限制的 DeepL Auth Key
 
-## 通过赞助获得官方 DeepL Auth Key
+如果你对 DeepL 翻译服务有强需求，但是官方 API 的字符数限制让你感到困扰，那么你可以考虑通过赞助沉浸式翻译以获得无字符数量限制的 Deepl Auth Key
 
-自 2023 年 02 月 25 日起，我将提供快速、稳定、不限字符数量的 Deepl 翻译服务（使用 Deepl 官方服务）给月度赞助用户使用。如果你对翻译质量有较高的需求，可以通过[爱发电](https://afdian.net/a/translate)或[Github Sponsor](https://github.com/sponsors/theowenyoung) 选择 10$ 每月或 69RMB 每月的赞助，获得一个可在沉浸式翻译扩展里使用的 Deepl Auth Key 以及其他相关福利。
+你可以通过[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate) 选择 10$ 每月或 69RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关福利。
+
+> 说明：
+>
+> 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用
+> 2. 翻译服务依然使用的是 DeepL 官方的翻译接口，数据不会经过沉浸式翻译的服务器
+> 3. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
 
 如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
 
@@ -22,4 +29,10 @@
 
 ## 常见问题
 
-填入的密钥不可用。DeepL API Pro 和 DeepL Pro 是两种账户，可以在沉浸式翻译里使用的 Auth Key 请点击这里查看[DeepL API Pro](https://www.deepl.com/zh/pro/select-country#developer)
+### 1. 填入的密钥不可用。
+
+DeepL API Pro 和 DeepL Pro 是两种账户，可以在沉浸式翻译里使用的 Auth Key 是 DeepL API 账户， 请点击这里查看[DeepL API Pro](https://www.deepl.com/zh/pro/select-country#developer)
+
+### 2. Deepl Free API 提示 401 无权限
+
+Deepl Free API 的 Key 都是以 `:fx` 结尾的，其他的都不是 Free API 的 key

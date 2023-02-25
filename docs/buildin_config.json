@@ -193,7 +193,8 @@
       ".headline",
       ".page-content",
       "aside.note",
-      "aside.article-comments"
+      "aside.article-comments",
+      "aside.onebox"
     ],
     "atomicBlockTags": [],
     "excludeSelectors": [],
@@ -242,7 +243,7 @@
     ],
     "bodyTranslateTags": [
       "FOOTER",
-      "ADIDE",
+      "ASIDE",
       "BUTTON",
       "NAV"
     ],
@@ -1790,6 +1791,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-24T15:38:59.289Z",
+  "buildinConfigUpdatedAt": "2023-02-25T19:29:07.206Z",
   "latestVersion": "0.2.68"
 }

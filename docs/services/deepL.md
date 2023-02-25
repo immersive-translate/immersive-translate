@@ -1,6 +1,6 @@
 # DeepL
 
-## 通过 DeepL 官方注册 DeepL API
+## 通过 DeepL 官方注册 DeepL API 账户 获得 DeepL Auth Key
 
 1. 官方介绍：[DeepL API Pro](https://www.deepl.com/zh/pro/select-country#developer)
 2. 注册账号和开通 DeepL API，需要你有一张在 DeepL 支持的国家或地区发行的 VISA 或 MASTER 信用卡，目前并不支持国内发行的任何信用卡，包括双币卡和外币卡。如果没有那就注册不了。
@@ -9,9 +9,9 @@
 
 ## 通过赞助沉浸式扩展获得无字符数限制的 DeepL Auth Key
 
-如果你对 DeepL 翻译服务有强需求，但是官方 API 的字符数限制让你感到困扰，那么你可以考虑通过赞助沉浸式翻译以获得无字符数量限制的 Deepl Auth Key
+如果你对 DeepL 翻译服务有强需求，但是官方 API 的字符数限制让你感到困扰，那么你可以考虑通过[赞助沉浸式翻译](https://immersive-translate.owenyoung.com/donate)以获得无字符数量限制的 Deepl Auth Key
 
-你可以通过[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate) 选择 10$ 每月或 69RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关福利。
+打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 10$ 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
 
 > 说明：
 >
@@ -21,7 +21,7 @@
 
 如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
 
-## 在其他平台购买 Auth Key
+## 在其他平台购买 DeepL Auth Key
 
 如果你只是轻量使用，你可以在淘宝或其他平台购买已开通 DeepL API Free 的账号，每月有 50 万免费字符翻译额度。当你购买了账号后，除了账号密码外，卖家一般也会把 auth key 给你，直接把 authkey 填入本扩展的 DeepL 翻译中即可。
 

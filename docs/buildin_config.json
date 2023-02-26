@@ -219,6 +219,8 @@
       "TEXTAREA",
       "SVG",
       "svg",
+      "G",
+      "TEXT",
       "NOSCRIPT",
       "INPUT",
       "BUTTON",
@@ -1792,8 +1794,14 @@
     {
       "matches": "https://beta.simp.red/trans*",
       "mainFrameSelector": ".simpread-read-root"
+    },
+    {
+      "matches": "https://www.lookintobitcoin.com/charts/*",
+      "excludeSelectors": [
+        "svg"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-26T10:49:40.866Z",
-  "latestVersion": "0.2.69"
+  "buildinConfigUpdatedAt": "2023-02-26T11:41:39.813Z",
+  "latestVersion": "0.2.70"
 }

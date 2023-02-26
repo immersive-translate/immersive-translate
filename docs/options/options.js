@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-26T11:42:14.140Z", VERSION: "0.2.70", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-26T15:14:16.575Z", VERSION: "0.2.71", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7469,7 +7469,7 @@ body {
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
-  var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
+  var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
   var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
   var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
@@ -8190,6 +8190,12 @@ body {
   }
   function isDeno() {
     return typeof Deno < "u";
+  }
+  function isWebOptionsPage() {
+    return (
+      // @ts-ignore: ok
+      typeof globalThis.__IS_IMMERSIVE_TRANSLATE_WEB_OPTIONS_PAGE__ < "u"
+    );
   }
   function isUserscriptRuntime() {
     if (
@@ -13395,6 +13401,38 @@ ${injectedCss}}
     return connection || (connection = new Messager("content_script", !1).getConnection("main", asyncMessageHandler), connection);
   }
 
+  // userscript/document_message_channel.ts
+  var messageHandlers = /* @__PURE__ */ new Map();
+  function setupDocumentMesssageChannel() {
+    document.addEventListener(documentMessageTypeIdentifierForHandler, (e3) => {
+      let event = e3;
+      event && event.detail && messageHandlers.has(event.detail.id) && (event.detail.ok ? messageHandlers.get(event.detail.id)(null, event.detail.data) : messageHandlers.get(event.detail.id)(
+        new Error(event.detail.errorMessage),
+        null
+      ), messageHandlers.delete(event.detail.id));
+    });
+  }
+  function ask(request3) {
+    let id = makeid(64), event = new CustomEvent(documentMessageTypeIdentifierForAsk, {
+      detail: {
+        ...request3,
+        type: "ask",
+        id
+      }
+    });
+    return document.dispatchEvent(event), new Promise((resolve, reject) => {
+      messageHandlers.set(id, (e3, data) => {
+        e3 ? reject(e3) : resolve(data);
+      });
+    });
+  }
+  function makeid(length) {
+    let result = "", characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", charactersLength = characters.length, counter = 0;
+    for (; counter < length; )
+      result += characters.charAt(Math.floor(Math.random() * charactersLength)), counter += 1;
+    return result;
+  }
+
   // browser_proxy.ts
   async function sendMessage(options) {
     return await getConnection().sendMessage(
@@ -13403,7 +13441,10 @@ ${injectedCss}}
     );
   }
   function request2(options) {
-    return isMonkey() || isDeno() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
+    return isWebOptionsPage() ? ask({
+      method: "request",
+      data: options
+    }) : isMonkey() || isDeno() ? (options.fetchPolyfill = globalThis.GM_fetch, request(options)) : sendMessage({
       method: "fetch",
       data: options
     });
@@ -15998,7 +16039,7 @@ ${injectedCss}}
       this.appId = serviceConfig.appId?.trim(), this.appSecret = serviceConfig.appSecret?.trim();
     }
     async translate(payload) {
-      let { text, from, to } = payload, salt = makeid(32), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
+      let { text, from, to } = payload, salt = makeid2(32), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
@@ -16025,7 +16066,7 @@ ${injectedCss}}
       };
     }
   };
-  function makeid(length) {
+  function makeid2(length) {
     let result = "", characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", charactersLength = characters.length, counter = 0;
     for (; counter < length; )
       result += characters.charAt(Math.floor(Math.random() * charactersLength)), counter += 1;
@@ -16965,7 +17006,7 @@ ${injectedCss}}
           {
             class: "select",
             onChange: (e3) => {
-              e3.preventDefault(), selectService(e3.target.value);
+              e3.preventDefault(), setVerifiedErrorMessage(""), setVerifiedSuccessMessage(""), selectService(e3.target.value);
             },
             children: translationServiceItems.map((item) => /* @__PURE__ */ p4(
               "option",
@@ -17023,7 +17064,7 @@ ${injectedCss}}
           }
         }
       )),
-      currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && /* @__PURE__ */ p4("div", { class: "text-right", children: [
+      currentTranslationServiceConfig && curentTranslationServiceItem && /* @__PURE__ */ p4("div", { class: "text-right", children: [
         verifiedSuccessMessage && /* @__PURE__ */ p4("span", { class: "verified text-green-500 mr-2", children: t5("verified") }),
         verifiedErrorMessage && /* @__PURE__ */ p4("span", { class: "verified text-red-500 mr-2", children: verifiedErrorMessage }),
         /* @__PURE__ */ p4(
@@ -17046,7 +17087,7 @@ ${injectedCss}}
                   fromByClient: "auto"
                 }, ctx), setVerifiedSuccessMessage("verified");
               } catch (e4) {
-                console.log(e4), setVerifiedErrorMessage(e4.message);
+                console.error(e4), setVerifiedErrorMessage(e4.message);
               } finally {
                 setIsVerifingService(!1);
               }
@@ -19684,11 +19725,12 @@ ${injectedCss}}
   }
 
   // userscript/options_entry.ts
+  globalThis.__IS_IMMERSIVE_TRANSLATE_WEB_OPTIONS_PAGE__ = !0;
   var isReady = !1;
   function initPage2() {
     if (isReady)
       return;
-    if (!document.querySelector(
+    if (setupDocumentMesssageChannel(), !document.querySelector(
       "meta[name=immersive-translate-options]"
     ))
       throw new Error("Options meta element not found");

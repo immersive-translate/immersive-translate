@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.71
+
+- Fix: Open AI userscript permission
+
 ## 0.2.70
 
 - Fix: Open AI placeholder

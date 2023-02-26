@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.69
+
+- Feat: Support Open AI as translation service.
+- Feat: Support verify translation service on options.html
+- Feat: Support custom main frame cuase some site is not using body as the main frame
+
 ## 0.2.68
 
 - Support Caiyun (Alpha)

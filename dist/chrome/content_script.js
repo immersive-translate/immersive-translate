@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-24T15:05:15.018Z", VERSION: "0.2.68", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-26T10:47:45.946Z", VERSION: "0.2.69", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3742,7 +3742,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-// https://esm.sh/v107/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
+// https://esm.sh/v108/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
 var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 }, __export2 = (target, all) => {
@@ -3761,7 +3761,7 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
-  "esm-build-a564a4cea9152dee9787cea93457ae9e69afe22a-46a4a4a9/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
+  "esm-build-59d68f3acfee06c9af551cb788e2eceb125e3a8b-74587886/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
     (function(global2, factory) {
       if (typeof define == "function" && define.amd)
         define("webextension-polyfill", ["module"], factory);
@@ -4653,16 +4653,16 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
         module22.exports = globalThis.browser;
     });
   }
-}), esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_exports = {};
-__export2(esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_exports, {
-  default: () => esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_default
+}), esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports = {};
+__export2(esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports, {
+  default: () => esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default
 });
 var __module = __toESM(require_browser_polyfill());
-__reExport(esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_exports, __toESM(require_browser_polyfill()));
-var { default: __default, ...__rest } = __module, esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_default = __default !== void 0 ? __default : __rest;
+__reExport(esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports, __toESM(require_browser_polyfill()));
+var { default: __default, ...__rest } = __module, esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default = __default !== void 0 ? __default : __rest;
 
 // browser/import_browser_polyfill.ts
-globalThis.immersiveTranslateBrowserAPI = esm_build_a564a4cea9152dee9787cea93457ae9e69afe22a_46a4a4a9_default;
+globalThis.immersiveTranslateBrowserAPI = esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default;
 
 // locales/zh-CN.json
 var zh_CN_default = {
@@ -4839,11 +4839,13 @@ var zh_CN_default = {
   "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
+  "translationServices.you": "\u6709\u9053\u7FFB\u8BD1 (Alpha)",
   "translationServices.transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8BD1",
   "translationServices.papago": "Papago \u7FFB\u8BD1",
   "translationServices.d": "D (Alpha)",
   "translationServices.dpro": "D Pro (Canary)",
+  "translationServices.openai": "OpenAI",
   "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
   "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
@@ -4908,7 +4910,9 @@ var zh_CN_default = {
   "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
   isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
-  isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1"
+  isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
+  verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
+  verified: "\u9A8C\u8BC1\u6210\u529F"
 };
 
 // locales/zh-TW.json
@@ -5086,6 +5090,7 @@ var zh_TW_default = {
   "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8B6F(Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
+  "translationServices.you": "\u6709\u9053\u7FFB\u8B6F (Alpha)",
   "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
   "translationServices.papago": "Papago\u7FFB\u8B6F",
@@ -5331,6 +5336,7 @@ var en_default = {
   "translationServices.volcAlpha": "Volcano Translation (Alpha)",
   "translationServices.openl": "OpenL",
   "translationServices.youdao": "Youdao Translation",
+  "translationServices.you": "Youdao Translation (Alpha)",
   "translationServices.transmart": "Tencent Smart Translation",
   "translationServices.niu": "Niu Translation",
   "translationServices.papago": "Papago Translation",
@@ -5425,26 +5431,34 @@ var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = bran
 var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
 var themeOptions = {
-  underline: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeUnderline: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeDashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  nativeDotted: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
+  underline: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  nativeUnderline: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  nativeDashed: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  nativeDotted: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
   dotted: [
     {
       name: "borderColor",
@@ -5459,36 +5473,48 @@ var themeOptions = {
       type: "color"
     }
   ],
-  highlight: [{
-    name: "backgroundColor",
-    required: !1,
-    type: "color"
-  }],
-  dashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  blockquote: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  thinDashed: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  dashedBorder: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }],
-  wavy: [{
-    name: "borderColor",
-    required: !1,
-    type: "color"
-  }]
+  highlight: [
+    {
+      name: "backgroundColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  dashed: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  blockquote: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  thinDashed: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  dashedBorder: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  wavy: [
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ]
 }, languages = [
   "auto",
   "en",
@@ -5741,149 +5767,186 @@ var buildinExcludeUrls = [
   "translate.google.com"
 ];
 var fallbackLanguage = "zh-CN";
-var openlProps = [{
-  type: "select",
-  name: "codename",
-  label: "translationEngine",
-  default: "youdao",
-  required: !1,
-  options: [
-    {
-      label: "translationServices.deepl",
-      value: "deepl"
-    },
-    {
-      label: "translationServices.youdao",
-      value: "youdao"
-    },
-    {
-      label: "translationServices.tencent",
-      value: "tencent"
-    },
-    {
-      label: "translationServices.aliyun",
-      value: "aliyun"
-    },
-    {
-      label: "translationServices.baidu",
-      value: "baidu"
-    },
-    {
-      label: "translationServices.caiyun",
-      value: "caiyun"
-    },
-    {
-      label: "translationServices.wechat",
-      value: "wechat"
-    },
-    {
-      label: "translationServices.azure",
-      value: "azure"
-    },
-    {
-      label: "translationServices.ibm",
-      value: "ibm"
-    },
-    {
-      label: "translationServices.aws",
-      value: "aws"
-    },
-    {
-      label: "translationServices.google",
-      value: "google"
-    }
-  ]
-}], PureTranslationServices = {
-  mock: {
-    name: "Mock",
-    homepage: "https://www.google.com"
-  },
-  mock2: {
-    name: "Mock2",
-    homepage: "https://www.google.com"
-  },
+var openlProps = [
+  {
+    type: "select",
+    name: "codename",
+    label: "translationEngine",
+    default: "youdao",
+    required: !1,
+    options: [
+      {
+        label: "translationServices.google",
+        value: "google"
+      },
+      {
+        label: "translationServices.deepl",
+        value: "deepl"
+      },
+      {
+        label: "translationServices.youdao",
+        value: "youdao"
+      },
+      {
+        label: "translationServices.tencent",
+        value: "tencent"
+      },
+      {
+        label: "translationServices.aliyun",
+        value: "aliyun"
+      },
+      {
+        label: "translationServices.baidu",
+        value: "baidu"
+      },
+      {
+        label: "translationServices.caiyun",
+        value: "caiyun"
+      },
+      {
+        label: "translationServices.wechat",
+        value: "wechat"
+      },
+      {
+        label: "translationServices.ibm",
+        value: "ibm"
+      },
+      {
+        label: "translationServices.azure",
+        value: "azure"
+      },
+      {
+        label: "translationServices.aws",
+        value: "aws"
+      }
+    ]
+  }
+], PureTranslationServices = {
   google: {
     name: "Google",
     homepage: "https://translate.google.com/"
   },
-  transmart: {
-    name: "Transmart",
-    homepage: "https://transmart.qq.com/"
-  },
-  deepl: {
-    name: "DeepL",
-    homepage: "https://www.deepl.com/translator",
-    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
-    allProps: [{
-      name: "authKey",
-      required: !0,
-      type: "password"
-    }]
-  },
-  volc: {
-    name: "Volc",
-    homepage: "https://www.volcengine.com/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
-    allProps: [{
-      name: "accessKeyId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretAccessKey",
-      required: !0,
-      type: "password"
-    }]
-  },
-  volcAlpha: {
-    name: "Volc Alpha",
-    alpha: !0,
-    homepage: "https://www.volcengine.com/"
-  },
-  papago: {
-    name: "Papago",
-    homepage: "https://translate.google.com/"
-  },
-  bing: {
-    name: "Bing",
-    homepage: "https://www.bing.com/translator"
+  youdao: {
+    name: "Youdao",
+    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
+    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    allProps: [
+      {
+        name: "appId",
+        required: !0,
+        type: "text"
+      },
+      {
+        name: "appSecret",
+        required: !0,
+        type: "password"
+      }
+    ]
   },
   tencent: {
     name: "Tencent",
     homepage: "https://fanyi.qq.com/",
     docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
-    allProps: [{
-      name: "secretId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "secretKey",
-      required: !0,
-      type: "password"
-    }]
+    allProps: [
+      {
+        name: "secretId",
+        required: !0,
+        type: "text"
+      },
+      {
+        name: "secretKey",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  deepl: {
+    name: "DeepL",
+    homepage: "https://www.deepl.com/translator",
+    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+    allProps: [
+      {
+        name: "authKey",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  azure: {
+    name: "azure",
+    homepage: "https://learn.microsoft.com/en-us/azure/cognitive-services/translator/text-translation-overview",
+    docUrl: "https://immersive-translate.owenyoung.com/services/azure",
+    allProps: [
+      {
+        name: "region",
+        required: !0,
+        default: "eastasia",
+        type: "text"
+      },
+      {
+        name: "APIKEY",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  papago: {
+    name: "Papago",
+    homepage: "https://translate.google.com/"
   },
   baidu: {
     name: "Baidu",
     homepage: "https://fanyi.baidu.com/",
     docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
-    allProps: [{
-      name: "appid",
-      required: !0,
-      type: "text"
-    }, {
-      name: "key",
-      required: !0,
-      type: "password"
-    }]
+    allProps: [
+      {
+        name: "appid",
+        required: !0,
+        type: "text"
+      },
+      {
+        name: "key",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  volc: {
+    name: "Volc",
+    homepage: "https://www.volcengine.com/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
+    allProps: [
+      {
+        name: "accessKeyId",
+        required: !0,
+        type: "text"
+      },
+      {
+        name: "secretAccessKey",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  bing: {
+    name: "Bing",
+    homepage: "https://www.bing.com/translator"
+  },
+  transmart: {
+    name: "Transmart",
+    homepage: "https://transmart.qq.com/"
   },
   caiyun: {
     name: "Caiyun",
     homepage: "https://fanyi.caiyunapp.com/",
     docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
-    allProps: [{
-      name: "token",
-      required: !0,
-      type: "password"
-    }]
+    allProps: [
+      {
+        name: "token",
+        required: !0,
+        type: "password"
+      }
+    ]
   },
   cai: {
     name: "Cai",
@@ -5904,19 +5967,47 @@ var openlProps = [{
     ],
     props: openlProps
   },
-  youdao: {
-    name: "Youdao",
-    homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-    docUrl: "https://hcfy.app/docs/services/youdao-api",
-    allProps: [{
-      name: "appId",
-      required: !0,
-      type: "text"
-    }, {
-      name: "appSecret",
-      required: !0,
-      type: "password"
-    }]
+  mock: {
+    name: "Mock",
+    homepage: "https://www.google.com"
+  },
+  mock2: {
+    name: "Mock2",
+    homepage: "https://www.google.com"
+  },
+  you: {
+    name: "You",
+    alpha: !0,
+    homepage: "https://immersive-translate.owenyoung.com/services/youdao"
+  },
+  openai: {
+    name: "Open AI",
+    homepage: "https://openai.com/api/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+    allProps: [
+      {
+        name: "APIKEY",
+        required: !0,
+        type: "password"
+      },
+      {
+        name: "model",
+        required: !1,
+        type: "text",
+        default: "text-davinci-003"
+      },
+      {
+        name: "prompt",
+        required: !1,
+        type: "textarea",
+        default: "translate to ${to}:\n\n${text} =>"
+      }
+    ]
+  },
+  volcAlpha: {
+    name: "Volc Alpha",
+    alpha: !0,
+    homepage: "https://www.volcengine.com/"
   },
   d: {
     name: "D () ",
@@ -5932,36 +6023,25 @@ var openlProps = [{
     name: "DeepLX (Beta)",
     beta: !0,
     homepage: "https://www.deepl.com/translator",
-    allProps: [{
-      name: "url",
-      required: !0,
-      type: "text"
-    }]
+    allProps: [
+      {
+        name: "url",
+        required: !0,
+        type: "text"
+      }
+    ]
   },
   niu: {
     name: "niutrans",
     homepage: "https://niutrans.com/",
     docUrl: "https://immersive-translate.owenyoung.com/services/niu",
-    allProps: [{
-      name: "APIKEY",
-      required: !0,
-      type: "password"
-    }]
-  },
-  azure: {
-    name: "azure",
-    homepage: "https://learn.microsoft.com/en-us/azure/cognitive-services/translator/text-translation-overview",
-    docUrl: "https://immersive-translate.owenyoung.com/services/azure",
-    allProps: [{
-      name: "region",
-      required: !0,
-      default: "eastasia",
-      type: "text"
-    }, {
-      name: "APIKEY",
-      required: !0,
-      type: "password"
-    }]
+    allProps: [
+      {
+        name: "APIKEY",
+        required: !0,
+        type: "password"
+      }
+    ]
   }
 }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
@@ -5988,8 +6068,8 @@ var DeadlineError = class extends Error {
   }
 };
 function deadline(p5, delay2) {
-  let d4 = deferred(), t4 = setTimeout(() => d4.reject(new DeadlineError()), delay2);
-  return Promise.race([p5, d4]).finally(() => clearTimeout(t4));
+  let d5 = deferred(), t4 = setTimeout(() => d5.reject(new DeadlineError()), delay2);
+  return Promise.race([p5, d5]).finally(() => clearTimeout(t4));
 }
 
 // https://deno.land/std@0.171.0/async/delay.ts
@@ -6406,11 +6486,11 @@ function D() {
     e3 = S.sort(function(t4, _3) {
       return t4.__v.__b - _3.__v.__b;
     }), S = [], e3.some(function(t4) {
-      var _3, r, l2, o3, s5, f5;
-      t4.__d && (s5 = (o3 = (_3 = t4).__v).__e, (f5 = _3.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f5, o3, l2, _3.__n, f5.ownerSVGElement !== void 0, o3.__h != null ? [s5] : null, r, s5 ?? C(o3), o3.__h), K(r, o3), o3.__e != s5 && z(o3)));
+      var _3, r, l2, o3, s5, f4;
+      t4.__d && (s5 = (o3 = (_3 = t4).__v).__e, (f4 = _3.__P) && (r = [], (l2 = k({}, o3)).__v = o3.__v + 1, W(f4, o3, l2, _3.__n, f4.ownerSVGElement !== void 0, o3.__h != null ? [s5] : null, r, s5 ?? C(o3), o3.__h), K(r, o3), o3.__e != s5 && z(o3)));
     });
 }
-function G(e3, t4, _3, r, l2, o3, s5, f5, p5, a3) {
+function G(e3, t4, _3, r, l2, o3, s5, f4, p5, a3) {
   var n3, h3, c4, i2, u3, b5, v4, y4 = r && r.__k || V, g6 = y4.length;
   for (_3.__k = [], n3 = 0; n3 < t4.length; n3++)
     if ((i2 = _3.__k[n3] = (i2 = t4[n3]) == null || typeof i2 == "boolean" ? null : typeof i2 == "string" || typeof i2 == "number" || typeof i2 == "bigint" ? w(null, i2, null, null, i2) : Array.isArray(i2) ? w(L, { children: i2 }, null, null, null) : i2.__b > 0 ? w(i2.type, i2.props, i2.key, i2.ref ? i2.ref : null, i2.__v) : i2) != null) {
@@ -6424,7 +6504,7 @@ function G(e3, t4, _3, r, l2, o3, s5, f5, p5, a3) {
           }
           c4 = null;
         }
-      W(e3, i2, c4 = c4 || T, l2, o3, s5, f5, p5, a3), u3 = i2.__e, (h3 = i2.ref) && c4.ref != h3 && (v4 || (v4 = []), c4.ref && v4.push(c4.ref, null, i2), v4.push(h3, i2.__c || u3, i2)), u3 != null ? (b5 == null && (b5 = u3), typeof i2.type == "function" && i2.__k === c4.__k ? i2.__d = p5 = q(i2, p5, e3) : p5 = J(e3, i2, c4, y4, u3, p5), typeof _3.type == "function" && (_3.__d = p5)) : p5 && c4.__e == p5 && p5.parentNode != e3 && (p5 = C(c4));
+      W(e3, i2, c4 = c4 || T, l2, o3, s5, f4, p5, a3), u3 = i2.__e, (h3 = i2.ref) && c4.ref != h3 && (v4 || (v4 = []), c4.ref && v4.push(c4.ref, null, i2), v4.push(h3, i2.__c || u3, i2)), u3 != null ? (b5 == null && (b5 = u3), typeof i2.type == "function" && i2.__k === c4.__k ? i2.__d = p5 = q(i2, p5, e3) : p5 = J(e3, i2, c4, y4, u3, p5), typeof _3.type == "function" && (_3.__d = p5)) : p5 && c4.__e == p5 && p5.parentNode != e3 && (p5 = C(c4));
     }
   for (_3.__e = b5, n3 = g6; n3--; )
     y4[n3] != null && (typeof _3.type == "function" && y4[n3].__e != null && y4[n3].__e == _3.__d && (_3.__d = C(r, n3 + 1)), X(y4[n3], y4[n3]));
@@ -6438,7 +6518,7 @@ function q(e3, t4, _3) {
   return t4;
 }
 function J(e3, t4, _3, r, l2, o3) {
-  var s5, f5, p5;
+  var s5, f4, p5;
   if (t4.__d !== void 0)
     s5 = t4.__d, t4.__d = void 0;
   else if (_3 == null || l2 != o3 || l2.parentNode == null)
@@ -6446,8 +6526,8 @@ function J(e3, t4, _3, r, l2, o3) {
       if (o3 == null || o3.parentNode !== e3)
         e3.appendChild(l2), s5 = null;
       else {
-        for (f5 = o3, p5 = 0; (f5 = f5.nextSibling) && p5 < r.length; p5 += 2)
-          if (f5 == l2)
+        for (f4 = o3, p5 = 0; (f4 = f4.nextSibling) && p5 < r.length; p5 += 2)
+          if (f4 == l2)
             break e;
         e3.insertBefore(l2, o3), s5 = o3;
       }
@@ -6497,11 +6577,11 @@ function O(e3) {
 function R(e3) {
   this.l[e3.type + !0](d.event ? d.event(e3) : e3);
 }
-function W(e3, t4, _3, r, l2, o3, s5, f5, p5) {
+function W(e3, t4, _3, r, l2, o3, s5, f4, p5) {
   var a3, n3, h3, c4, i2, u3, b5, v4, y4, g6, x6, H8, E4, m4 = t4.type;
   if (t4.constructor !== void 0)
     return null;
-  _3.__h != null && (p5 = _3.__h, f5 = t4.__e = _3.__e, t4.__h = null, o3 = [f5]), (a3 = d.__b) && a3(t4);
+  _3.__h != null && (p5 = _3.__h, f4 = t4.__e = _3.__e, t4.__h = null, o3 = [f4]), (a3 = d.__b) && a3(t4);
   try {
     e:
       if (typeof m4 == "function") {
@@ -6524,12 +6604,12 @@ function W(e3, t4, _3, r, l2, o3, s5, f5, p5) {
           do
             n3.__d = !1, x6 && x6(t4), a3 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
           while (n3.__d && ++H8 < 25);
-        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c4, i2)), E4 = a3 != null && a3.type === L && a3.key == null ? a3.props.children : a3, G(e3, Array.isArray(E4) ? E4 : [E4], t4, _3, r, l2, o3, s5, f5, p5), n3.base = t4.__e, t4.__h = null, n3.__h.length && s5.push(n3), b5 && (n3.__E = n3.__ = null), n3.__e = !1;
+        n3.state = n3.__s, n3.getChildContext != null && (r = k(k({}, r), n3.getChildContext())), h3 || n3.getSnapshotBeforeUpdate == null || (u3 = n3.getSnapshotBeforeUpdate(c4, i2)), E4 = a3 != null && a3.type === L && a3.key == null ? a3.props.children : a3, G(e3, Array.isArray(E4) ? E4 : [E4], t4, _3, r, l2, o3, s5, f4, p5), n3.base = t4.__e, t4.__h = null, n3.__h.length && s5.push(n3), b5 && (n3.__E = n3.__ = null), n3.__e = !1;
       } else
         o3 == null && t4.__v === _3.__v ? (t4.__k = _3.__k, t4.__e = _3.__e) : t4.__e = ne(_3.__e, t4, _3, r, l2, o3, s5, p5);
     (a3 = d.diffed) && a3(t4);
   } catch (A5) {
-    t4.__v = null, (p5 || o3 != null) && (t4.__e = f5, t4.__h = !!p5, o3[o3.indexOf(f5)] = null), d.__e(A5, t4, _3);
+    t4.__v = null, (p5 || o3 != null) && (t4.__e = f4, t4.__h = !!p5, o3[o3.indexOf(f4)] = null), d.__e(A5, t4, _3);
   }
 }
 function K(e3, t4) {
@@ -6543,7 +6623,7 @@ function K(e3, t4) {
     }
   });
 }
-function ne(e3, t4, _3, r, l2, o3, s5, f5) {
+function ne(e3, t4, _3, r, l2, o3, s5, f4) {
   var p5, a3, n3, h3 = _3.props, c4 = t4.props, i2 = t4.type, u3 = 0;
   if (i2 === "svg" && (l2 = !0), o3 != null) {
     for (; u3 < o3.length; u3++)
@@ -6555,23 +6635,23 @@ function ne(e3, t4, _3, r, l2, o3, s5, f5) {
   if (e3 == null) {
     if (i2 === null)
       return document.createTextNode(c4);
-    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c4.is && c4), o3 = null, f5 = !1;
+    e3 = l2 ? document.createElementNS("http://www.w3.org/2000/svg", i2) : document.createElement(i2, c4.is && c4), o3 = null, f4 = !1;
   }
   if (i2 === null)
-    h3 === c4 || f5 && e3.data === c4 || (e3.data = c4);
+    h3 === c4 || f4 && e3.data === c4 || (e3.data = c4);
   else {
-    if (o3 = o3 && P.call(e3.childNodes), a3 = (h3 = _3.props || T).dangerouslySetInnerHTML, n3 = c4.dangerouslySetInnerHTML, !f5) {
+    if (o3 = o3 && P.call(e3.childNodes), a3 = (h3 = _3.props || T).dangerouslySetInnerHTML, n3 = c4.dangerouslySetInnerHTML, !f4) {
       if (o3 != null)
         for (h3 = {}, u3 = 0; u3 < e3.attributes.length; u3++)
           h3[e3.attributes[u3].name] = e3.attributes[u3].value;
       (n3 || a3) && (n3 && (a3 && n3.__html == a3.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
     }
-    if (_e(e3, c4, h3, l2, f5), n3)
+    if (_e(e3, c4, h3, l2, f4), n3)
       t4.__k = [];
-    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _3, r, l2 && i2 !== "foreignObject", o3, s5, o3 ? o3[0] : _3.__k && C(_3, 0), f5), o3 != null)
+    else if (u3 = t4.props.children, G(e3, Array.isArray(u3) ? u3 : [u3], t4, _3, r, l2 && i2 !== "foreignObject", o3, s5, o3 ? o3[0] : _3.__k && C(_3, 0), f4), o3 != null)
       for (u3 = o3.length; u3--; )
         o3[u3] != null && j(o3[u3]);
-    f5 || ("value" in c4 && (u3 = c4.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c4 && (u3 = c4.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
+    f4 || ("value" in c4 && (u3 = c4.value) !== void 0 && (u3 !== e3.value || i2 === "progress" && !u3 || i2 === "option" && u3 !== h3.value) && N(e3, "value", u3, h3.value, !1), "checked" in c4 && (u3 = c4.checked) !== void 0 && u3 !== e3.checked && N(e3, "checked", u3, h3.checked, !1));
   }
   return e3;
 }
@@ -6616,9 +6696,9 @@ function ce(e3, t4) {
       this.props.value !== s5.value && l2.some(M);
     }, this.sub = function(s5) {
       l2.push(s5);
-      var f5 = s5.componentWillUnmount;
+      var f4 = s5.componentWillUnmount;
       s5.componentWillUnmount = function() {
-        l2.splice(l2.indexOf(s5), 1), f5 && f5.call(s5);
+        l2.splice(l2.indexOf(s5), 1), f4 && f4.call(s5);
       };
     }), r.children;
   } };
@@ -6630,8 +6710,8 @@ P = V.slice, d = { __e: function(e3, t4, _3, r) {
       try {
         if ((o3 = l2.constructor) && o3.getDerivedStateFromError != null && (l2.setState(o3.getDerivedStateFromError(e3)), s5 = l2.__d), l2.componentDidCatch != null && (l2.componentDidCatch(e3, r || {}), s5 = l2.__d), s5)
           return l2.__E = l2;
-      } catch (f5) {
-        e3 = f5;
+      } catch (f4) {
+        e3 = f4;
       }
   throw e3;
 } }, $ = 0, Y = function(e3) {
@@ -6674,8 +6754,8 @@ function B2(_3, t4, u3) {
       var E4 = !1;
       return y4.forEach(function(c4) {
         if (c4.__N) {
-          var k5 = c4.__[0];
-          c4.__ = c4.__N, c4.__N = void 0, k5 !== c4.__[0] && (E4 = !0);
+          var k4 = c4.__[0];
+          c4.__ = c4.__N, c4.__N = void 0, k4 !== c4.__[0] && (E4 = !0);
         }
       }), !!E4 && (!r || r.call(this, v4, s5, h3));
     };
@@ -6774,62 +6854,62 @@ function D2(_3, t4) {
   return typeof t4 == "function" ? t4(_3) : t4;
 }
 
-// https://esm.sh/v107/memoize-one@6.0.0/deno/memoize-one.js
+// https://esm.sh/v108/memoize-one@6.0.0/deno/memoize-one.js
 var s = Number.isNaN || function(r) {
   return typeof r == "number" && r !== r;
 };
 
-// https://esm.sh/v107/lodash.throttle@4.1.1/deno/lodash.throttle.js
+// https://esm.sh/v108/lodash.throttle@4.1.1/deno/lodash.throttle.js
 var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e3, t4) => () => (t4 || e3((t4 = { exports: {} }).exports, t4), t4.exports), q3 = (e3, t4) => {
   for (var n3 in t4)
     I2(e3, n3, { get: t4[n3], enumerable: !0 });
-}, v = (e3, t4, n3, f5) => {
+}, v = (e3, t4, n3, f4) => {
   if (t4 && typeof t4 == "object" || typeof t4 == "function")
     for (let i2 of G2(t4))
-      !U2.call(e3, i2) && i2 !== n3 && I2(e3, i2, { get: () => t4[i2], enumerable: !(f5 = D3(t4, i2)) || f5.enumerable });
+      !U2.call(e3, i2) && i2 !== n3 && I2(e3, i2, { get: () => t4[i2], enumerable: !(f4 = D3(t4, i2)) || f4.enumerable });
   return e3;
 }, s2 = (e3, t4, n3) => (v(e3, t4, "default"), n3 && v(n3, t4, "default")), L3 = (e3, t4, n3) => (n3 = e3 != null ? P3(H2(e3)) : {}, v(t4 || !e3 || !e3.__esModule ? I2(n3, "default", { value: e3, enumerable: !0 }) : n3, e3)), h = X2((ge2, N8) => {
-  var M6 = "Expected a function", W7 = NaN, z6 = "[object Symbol]", J5 = /^\s+|\s+$/g, K7 = /^[-+]0x[0-9a-f]+$/i, Q6 = /^0b[01]+$/i, V7 = /^0o[0-7]+$/i, Y6 = parseInt, Z6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w5 = typeof self == "object" && self && self.Object === Object && self, ee4 = Z6 || w5 || Function("return this")(), te2 = Object.prototype, ne4 = te2.toString, re4 = Math.max, ie4 = Math.min, O4 = function() {
+  var M6 = "Expected a function", W7 = NaN, z6 = "[object Symbol]", J5 = /^\s+|\s+$/g, K7 = /^[-+]0x[0-9a-f]+$/i, Q7 = /^0b[01]+$/i, V7 = /^0o[0-7]+$/i, Y6 = parseInt, Z6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w5 = typeof self == "object" && self && self.Object === Object && self, ee4 = Z6 || w5 || Function("return this")(), te2 = Object.prototype, ne4 = te2.toString, re4 = Math.max, ie4 = Math.min, O5 = function() {
     return ee4.Date.now();
   };
   function fe(e3, t4, n3) {
-    var f5, i2, b5, l2, a3, u3, d4 = 0, S8 = !1, g6 = !1, T7 = !0;
+    var f4, i2, b5, l2, a3, u3, d5 = 0, S8 = !1, g6 = !1, T7 = !0;
     if (typeof e3 != "function")
       throw new TypeError(M6);
     t4 = C6(t4) || 0, p5(n3) && (S8 = !!n3.leading, g6 = "maxWait" in n3, b5 = g6 ? re4(C6(n3.maxWait) || 0, t4) : b5, T7 = "trailing" in n3 ? !!n3.trailing : T7);
     function j6(r) {
-      var o3 = f5, m4 = i2;
-      return f5 = i2 = void 0, d4 = r, l2 = e3.apply(m4, o3), l2;
+      var o3 = f4, m4 = i2;
+      return f4 = i2 = void 0, d5 = r, l2 = e3.apply(m4, o3), l2;
     }
     function A5(r) {
-      return d4 = r, a3 = setTimeout(y4, t4), S8 ? j6(r) : l2;
+      return d5 = r, a3 = setTimeout(y4, t4), S8 ? j6(r) : l2;
     }
     function B10(r) {
-      var o3 = r - u3, m4 = r - d4, k5 = t4 - o3;
-      return g6 ? ie4(k5, b5 - m4) : k5;
+      var o3 = r - u3, m4 = r - d5, k4 = t4 - o3;
+      return g6 ? ie4(k4, b5 - m4) : k4;
     }
     function E4(r) {
-      var o3 = r - u3, m4 = r - d4;
+      var o3 = r - u3, m4 = r - d5;
       return u3 === void 0 || o3 >= t4 || o3 < 0 || g6 && m4 >= b5;
     }
     function y4() {
-      var r = O4();
+      var r = O5();
       if (E4(r))
         return _3(r);
       a3 = setTimeout(y4, B10(r));
     }
     function _3(r) {
-      return a3 = void 0, T7 && f5 ? j6(r) : (f5 = i2 = void 0, l2);
+      return a3 = void 0, T7 && f4 ? j6(r) : (f4 = i2 = void 0, l2);
     }
     function F8() {
-      a3 !== void 0 && clearTimeout(a3), d4 = 0, f5 = u3 = i2 = a3 = void 0;
+      a3 !== void 0 && clearTimeout(a3), d5 = 0, f4 = u3 = i2 = a3 = void 0;
     }
-    function R6() {
-      return a3 === void 0 ? l2 : _3(O4());
+    function R5() {
+      return a3 === void 0 ? l2 : _3(O5());
     }
     function x6() {
-      var r = O4(), o3 = E4(r);
-      if (f5 = arguments, i2 = this, u3 = r, o3) {
+      var r = O5(), o3 = E4(r);
+      if (f4 = arguments, i2 = this, u3 = r, o3) {
         if (a3 === void 0)
           return A5(u3);
         if (g6)
@@ -6837,13 +6917,13 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object
       }
       return a3 === void 0 && (a3 = setTimeout(y4, t4)), l2;
     }
-    return x6.cancel = F8, x6.flush = R6, x6;
+    return x6.cancel = F8, x6.flush = R5, x6;
   }
   function ae4(e3, t4, n3) {
-    var f5 = !0, i2 = !0;
+    var f4 = !0, i2 = !0;
     if (typeof e3 != "function")
       throw new TypeError(M6);
-    return p5(n3) && (f5 = "leading" in n3 ? !!n3.leading : f5, i2 = "trailing" in n3 ? !!n3.trailing : i2), fe(e3, t4, { leading: f5, maxWait: t4, trailing: i2 });
+    return p5(n3) && (f4 = "leading" in n3 ? !!n3.leading : f4, i2 = "trailing" in n3 ? !!n3.trailing : i2), fe(e3, t4, { leading: f4, maxWait: t4, trailing: i2 });
   }
   function p5(e3) {
     var t4 = typeof e3;
@@ -6867,7 +6947,7 @@ var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object
     if (typeof e3 != "string")
       return e3 === 0 ? e3 : +e3;
     e3 = e3.replace(J5, "");
-    var n3 = Q6.test(e3);
+    var n3 = Q7.test(e3);
     return n3 || V7.test(e3) ? Y6(e3.slice(2), n3 ? 2 : 8) : K7.test(e3) ? W7 : +e3;
   }
   N8.exports = ae4;
@@ -6877,7 +6957,7 @@ var ce2 = L3(h());
 s2(c, L3(h()));
 var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
 
-// https://esm.sh/v107/@twind/core@1.0.1/deno/core.js
+// https://esm.sh/v108/@twind/core@1.0.1/deno/core.js
 var F3;
 function lt(t4) {
   return [...t4.v, (t4.i ? "!" : "") + t4.n].join(":");
@@ -6966,8 +7046,8 @@ function T2(t4, e3 = {}) {
   return i2 == "1" ? t4 : i2 == "0" ? "#0000" : t4.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i2})`);
 }
 function ct(t4, e3, r, n3, i2 = []) {
-  return function l2(o3, { n: a3, p: s5, r: u3 = [], i: f5 }, c4) {
-    let p5 = [], d4 = "", v4 = 0, g6 = 0;
+  return function l2(o3, { n: a3, p: s5, r: u3 = [], i: f4 }, c4) {
+    let p5 = [], d5 = "", v4 = 0, g6 = 0;
     for (let h3 in o3 || {}) {
       var y4, A5;
       let b5 = o3[h3];
@@ -6975,12 +7055,12 @@ function ct(t4, e3, r, n3, i2 = []) {
         if (!b5)
           continue;
         if (h3[1] == "a") {
-          p5.push(...ht(a3, s5, N3("" + b5), c4, s5, u3, f5, !0));
+          p5.push(...ht(a3, s5, N3("" + b5), c4, s5, u3, f4, !0));
           continue;
         }
         if (h3[1] == "l") {
           for (let m4 of x2(b5))
-            p5.push(...l2(m4, { n: a3, p: (y4 = w3[h3[7]], s5 & ~w3.o | y4), r: u3, i: f5 }, c4));
+            p5.push(...l2(m4, { n: a3, p: (y4 = w3[h3[7]], s5 & ~w3.o | y4), r: u3, i: f4 }, c4));
           continue;
         }
         if (h3[1] == "i") {
@@ -6997,17 +7077,17 @@ function ct(t4, e3, r, n3, i2 = []) {
         }
       }
       if (typeof b5 != "object" || Array.isArray(b5))
-        h3 == "label" && b5 ? a3 = b5 + V3(JSON.stringify([s5, f5, o3])) : (b5 || b5 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g6 += 1, v4 = Math.max(v4, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d4 += (d4 ? ";" : "") + x2(b5).map((m4) => c4.s(h3, ft("" + m4, c4.theme) + (f5 ? " !important" : ""))).join(";"));
+        h3 == "label" && b5 ? a3 = b5 + V3(JSON.stringify([s5, f4, o3])) : (b5 || b5 === 0) && (h3 = h3.replace(/[A-Z]/g, (m4) => "-" + m4.toLowerCase()), g6 += 1, v4 = Math.max(v4, (A5 = h3)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d5 += (d5 ? ";" : "") + x2(b5).map((m4) => c4.s(h3, ft("" + m4, c4.theme) + (f4 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
         let m4 = s5;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C6, $6) => {
           let j6 = c4.theme("screens", $6);
           return j6 ? (m4 |= 67108864, kt(j6, "")) : C6;
-        }), m4 |= X3(h3)), p5.push(...l2(b5, { n: a3, p: m4, r: [...u3, h3], i: f5 }, c4));
+        }), m4 |= X3(h3)), p5.push(...l2(b5, { n: a3, p: m4, r: [...u3, h3], i: f4 }, c4));
       } else
         p5.push(...l2(b5, { p: s5, r: [...u3, h3] }, c4));
     }
-    return p5.unshift({ n: a3, p: s5, o: Math.max(0, 15 - g6) + 1.5 * Math.min(v4 || 15, 15), r: u3, d: d4 }), p5.sort(Mt);
+    return p5.unshift({ n: a3, p: s5, o: Math.max(0, 15 - g6) + 1.5 * Math.min(v4 || 15, 15), r: u3, d: d5 }), p5.sort(Mt);
   }(t4, at(e3, r, n3, i2), r);
 }
 function ft(t4, e3) {
@@ -7025,17 +7105,17 @@ function pt(t4, e3) {
 function B3(t4, e3, r = w3.u, n3, i2) {
   let l2 = [];
   for (let o3 of t4)
-    for (let a3 of function(s5, u3, f5, c4, p5) {
-      var d4;
+    for (let a3 of function(s5, u3, f4, c4, p5) {
+      var d5;
       s5 = { ...s5, i: s5.i || p5 };
       let v4 = function(g6, y4) {
         let A5 = ut.get(g6.n);
         return A5 ? A5(g6, y4) : y4.r(g6.n, g6.v[0] == "dark");
       }(s5, u3);
-      return v4 ? typeof v4 == "string" ? ({ r: c4, p: f5 } = at(s5, u3, f5, c4), pt(B3(N3(v4), u3, f5, c4, s5.i), s5.n)) : Array.isArray(v4) ? v4.map((g6) => {
+      return v4 ? typeof v4 == "string" ? ({ r: c4, p: f4 } = at(s5, u3, f4, c4), pt(B3(N3(v4), u3, f4, c4, s5.i), s5.n)) : Array.isArray(v4) ? v4.map((g6) => {
         var y4, A5;
-        return { o: 0, ...g6, r: [...x2(c4), ...x2(g6.r)], p: (y4 = f5, A5 = (d4 = g6.p) != null ? d4 : f5, y4 & ~w3.o | A5) };
-      }) : ct(v4, s5, u3, f5, c4) : [{ c: lt(s5), p: 0, o: 0, r: [] }];
+        return { o: 0, ...g6, r: [...x2(c4), ...x2(g6.r)], p: (y4 = f4, A5 = (d5 = g6.p) != null ? d5 : f4, y4 & ~w3.o | A5) };
+      }) : ct(v4, s5, u3, f4, c4) : [{ c: lt(s5), p: 0, o: 0, r: [] }];
     }(o3, e3, r, n3, i2))
       l2.splice(St(l2, a3), 0, a3);
   return l2;
@@ -7046,8 +7126,8 @@ function ht(t4, e3, r, n3, i2, l2, o3, a3) {
 function Ot(t4, e3, r, n3) {
   var i2;
   return i2 = (l2, o3) => {
-    let { n: a3, p: s5, r: u3, i: f5 } = at(l2, o3, e3);
-    return r && ht(a3, e3, r, o3, s5, u3, f5, n3);
+    let { n: a3, p: s5, r: u3, i: f4 } = at(l2, o3, e3);
+    return r && ht(a3, e3, r, o3, s5, u3, f4, n3);
   }, ut.set(t4, i2), t4;
 }
 function K2(t4, e3) {
@@ -7071,8 +7151,8 @@ var yt = /* @__PURE__ */ new Map();
 function N3(t4) {
   let e3 = yt.get(t4);
   if (!e3) {
-    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a3 = 0, s5 = (u3, f5 = 0) => {
-      i2 != a3 && (r.push(t4.slice(i2, a3 + f5)), u3 && K2(r, n3)), i2 = a3 + 1;
+    let r = [], n3 = [[]], i2 = 0, l2 = 0, o3 = null, a3 = 0, s5 = (u3, f4 = 0) => {
+      i2 != a3 && (r.push(t4.slice(i2, a3 + f4)), u3 && K2(r, n3)), i2 = a3 + 1;
     };
     for (; a3 < t4.length; a3++) {
       let u3 = t4[a3];
@@ -7090,20 +7170,20 @@ function N3(t4) {
         t4[a3 + 1] != ":" && s5(!1, 1);
       else if (/[\s,)]/.test(u3)) {
         s5(!0);
-        let f5 = r.lastIndexOf("(");
+        let f4 = r.lastIndexOf("(");
         if (u3 == ")") {
-          let c4 = r[f5 - 1];
+          let c4 = r[f4 - 1];
           if (/[~@]$/.test(c4)) {
             let p5 = n3.shift();
-            r.length = f5, K2([...r, "#"], n3);
-            let { v: d4 } = n3[0].pop();
+            r.length = f4, K2([...r, "#"], n3);
+            let { v: d5 } = n3[0].pop();
             for (let v4 of p5)
-              v4.v.splice(+(v4.v[0] == "dark") - +(d4[0] == "dark"), d4.length);
+              v4.v.splice(+(v4.v[0] == "dark") - +(d5[0] == "dark"), d5.length);
             K2([...r, Ot(c4.length > 1 ? c4.slice(0, -1) + V3(JSON.stringify([c4, p5])) : c4 + "(" + st(p5) + ")", w3.a, p5, /@$/.test(c4))], n3);
           }
-          f5 = r.lastIndexOf("(", f5 - 1);
+          f4 = r.lastIndexOf("(", f4 - 1);
         }
-        r.length = f5 + 1;
+        r.length = f4 + 1;
       } else
         /[~@]/.test(u3) && t4[a3 + 1] == "(" && n3.unshift([]);
     }
@@ -7186,7 +7266,7 @@ function xt(t4, e3, r, n3) {
   } };
 }
 
-// https://esm.sh/v107/@twind/core@1.1.3/deno/core.js
+// https://esm.sh/v108/@twind/core@1.1.3/deno/core.js
 var B4;
 function ae2(e3) {
   return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -7219,10 +7299,10 @@ var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad
 function ce4({ n: e3, i: t4, v: r = [] }, i2, n3, l2) {
   e3 && (e3 = ae2({ n: e3, i: t4, v: r })), l2 = [...b2(l2)];
   for (let s5 of r) {
-    let f5 = i2.theme("screens", s5);
-    for (let a3 of b2(f5 && Ce(f5) || i2.v(s5))) {
+    let f4 = i2.theme("screens", s5);
+    for (let a3 of b2(f4 && Ce(f4) || i2.v(s5))) {
       var o3;
-      l2.push(a3), n3 |= f5 ? 67108864 | re2(a3) : s5 == "dark" ? 1073741824 : a3[0] == "@" ? re2(a3) : (o3 = a3, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(a3), n3 |= f4 ? 67108864 | re2(a3) : s5 == "dark" ? 1073741824 : a3[0] == "@" ? re2(a3) : (o3 = a3, 1 << ~(/:([a-z-]+)/.test(o3) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: e3, p: n3, r: l2, i: t4 };
@@ -7233,8 +7313,8 @@ function ne2(e3) {
     let t4 = [], r = H4(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t4.push(n3), i2) : n3 ? H4(i2, (l2) => H4(n3, (o3) => {
       let s5 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
       if (s5) {
-        let f5 = l2.indexOf(s5[1]);
-        return ~f5 ? l2.slice(0, f5) + s5[0] + l2.slice(f5 + s5[1].length) : Q3(l2, o3);
+        let f4 = l2.indexOf(s5[1]);
+        return ~f4 ? l2.slice(0, f4) + s5[0] + l2.slice(f4 + s5[1].length) : Q3(l2, o3);
       }
       return Q3(o3, l2);
     })) : i2, "&"), (i2) => Q3(i2, e3.n ? "." + Y3(e3.n) : ""));
@@ -7281,54 +7361,54 @@ function P4(e3, t4 = {}) {
   return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
 }
 function de(e3, t4, r, i2, n3 = []) {
-  return function l2(o3, { n: s5, p: f5, r: a3 = [], i: c4 }, u3) {
+  return function l2(o3, { n: s5, p: f4, r: a3 = [], i: c4 }, u3) {
     let p5 = [], g6 = "", y4 = 0, $6 = 0;
     for (let h3 in o3 || {}) {
-      var A5, R6;
-      let d4 = o3[h3];
+      var A5, R5;
+      let d5 = o3[h3];
       if (h3[0] == "@") {
-        if (!d4)
+        if (!d5)
           continue;
         if (h3[1] == "a") {
-          p5.push(...ge(s5, f5, I3("" + d4), u3, f5, a3, c4, !0));
+          p5.push(...ge(s5, f4, I3("" + d5), u3, f4, a3, c4, !0));
           continue;
         }
         if (h3[1] == "l") {
-          for (let w5 of b2(d4))
-            p5.push(...l2(w5, { n: s5, p: (A5 = S3[h3[7]], f5 & ~S3.o | A5), r: h3[7] == "d" ? [] : a3, i: c4 }, u3));
+          for (let w5 of b2(d5))
+            p5.push(...l2(w5, { n: s5, p: (A5 = S3[h3[7]], f4 & ~S3.o | A5), r: h3[7] == "d" ? [] : a3, i: c4 }, u3));
           continue;
         }
         if (h3[1] == "i") {
-          p5.push(...b2(d4).map((w5) => ({ p: -1, o: 0, r: [], d: h3 + " " + w5 })));
+          p5.push(...b2(d5).map((w5) => ({ p: -1, o: 0, r: [], d: h3 + " " + w5 })));
           continue;
         }
         if (h3[1] == "k") {
-          p5.push({ p: S3.d, o: 0, r: [h3], d: l2(d4, { p: S3.d }, u3).map(ne2).join("") });
+          p5.push({ p: S3.d, o: 0, r: [h3], d: l2(d5, { p: S3.d }, u3).map(ne2).join("") });
           continue;
         }
         if (h3[1] == "f") {
-          p5.push(...b2(d4).map((w5) => ({ p: S3.d, o: 0, r: [h3], d: l2(w5, { p: S3.d }, u3).map(ne2).join("") })));
+          p5.push(...b2(d5).map((w5) => ({ p: S3.d, o: 0, r: [h3], d: l2(w5, { p: S3.d }, u3).map(ne2).join("") })));
           continue;
         }
       }
-      if (typeof d4 != "object" || Array.isArray(d4))
-        h3 == "label" && d4 ? s5 = d4 + T3(JSON.stringify([f5, c4, o3])) : (d4 || d4 === 0) && (h3 = h3.replace(/[A-Z]/g, (w5) => "-" + w5.toLowerCase()), $6 += 1, y4 = Math.max(y4, (R6 = h3)[0] == "-" ? 0 : Ee(R6) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R6) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g6 += (g6 ? ";" : "") + b2(d4).map((w5) => u3.s(h3, he("" + w5, u3.theme) + (c4 ? " !important" : ""))).join(";"));
+      if (typeof d5 != "object" || Array.isArray(d5))
+        h3 == "label" && d5 ? s5 = d5 + T3(JSON.stringify([f4, c4, o3])) : (d5 || d5 === 0) && (h3 = h3.replace(/[A-Z]/g, (w5) => "-" + w5.toLowerCase()), $6 += 1, y4 = Math.max(y4, (R5 = h3)[0] == "-" ? 0 : Ee(R5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g6 += (g6 ? ";" : "") + b2(d5).map((w5) => u3.s(h3, he("" + w5, u3.theme) + (c4 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
-        let w5 = f5;
+        let w5 = f4;
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j6, M6) => {
           let N8 = u3.theme("screens", M6);
           return N8 ? (w5 |= 67108864, Ce(N8, "")) : j6;
-        }), w5 |= re2(h3)), p5.push(...l2(d4, { n: s5, p: w5, r: [...a3, h3], i: c4 }, u3));
+        }), w5 |= re2(h3)), p5.push(...l2(d5, { n: s5, p: w5, r: [...a3, h3], i: c4 }, u3));
       } else
-        p5.push(...l2(d4, { p: f5, r: [...a3, h3] }, u3));
+        p5.push(...l2(d5, { p: f4, r: [...a3, h3] }, u3));
     }
-    return p5.unshift({ n: s5, p: f5, o: Math.max(0, 15 - $6) + 1.5 * Math.min(y4 || 15, 15), r: a3, d: g6 }), p5.sort(Ne);
+    return p5.unshift({ n: s5, p: f4, o: Math.max(0, 15 - $6) + 1.5 * Math.min(y4 || 15, 15), r: a3, d: g6 }), p5.sort(Ne);
   }(e3, ce4(t4, r, i2, n3), r);
 }
 function he(e3, t4) {
   return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, i2, n3, l2, o3 = "") => {
     let s5 = t4(n3, o3);
-    return typeof s5 == "function" && /color|fill|stroke/i.test(n3) ? P4(s5) : "" + b2(s5).filter((f5) => Object(f5) !== f5);
+    return typeof s5 == "function" && /color|fill|stroke/i.test(n3) ? P4(s5) : "" + b2(s5).filter((f4) => Object(f4) !== f4);
   });
 }
 function ye(e3, t4) {
@@ -7340,28 +7420,28 @@ function ye(e3, t4) {
 function W3(e3, t4, r = S3.u, i2, n3) {
   let l2 = [];
   for (let o3 of e3)
-    for (let s5 of function(f5, a3, c4, u3, p5) {
-      f5 = { ...f5, i: f5.i || p5 };
+    for (let s5 of function(f4, a3, c4, u3, p5) {
+      f4 = { ...f4, i: f4.i || p5 };
       let g6 = function(y4, $6) {
         let A5 = pe.get(y4.n);
         return A5 ? A5(y4, $6) : $6.r(y4.n, y4.v[0] == "dark");
-      }(f5, a3);
-      return g6 ? typeof g6 == "string" ? ({ r: u3, p: c4 } = ce4(f5, a3, c4, u3), ye(W3(I3(g6), a3, c4, u3, f5.i), f5.n)) : Array.isArray(g6) ? g6.map((y4) => {
+      }(f4, a3);
+      return g6 ? typeof g6 == "string" ? ({ r: u3, p: c4 } = ce4(f4, a3, c4, u3), ye(W3(I3(g6), a3, c4, u3, f4.i), f4.n)) : Array.isArray(g6) ? g6.map((y4) => {
         var $6, A5;
         return { o: 0, ...y4, r: [...b2(u3), ...b2(y4.r)], p: ($6 = c4, A5 = y4.p ?? c4, $6 & ~S3.o | A5) };
-      }) : de(g6, f5, a3, c4, u3) : [{ c: ae2(f5), p: 0, o: 0, r: [] }];
+      }) : de(g6, f4, a3, c4, u3) : [{ c: ae2(f4), p: 0, o: 0, r: [] }];
     }(o3, t4, r, i2, n3))
       l2.splice(Me(l2, s5), 0, s5);
   return l2;
 }
 function ge(e3, t4, r, i2, n3, l2, o3, s5) {
-  return ye((s5 ? r.flatMap((f5) => W3([f5], i2, n3, l2, o3)) : W3(r, i2, n3, l2, o3)).map((f5) => f5.p & S3.o && (f5.n || t4 == S3.b) ? { ...f5, p: f5.p & ~S3.o | t4, o: 0 } : f5), e3);
+  return ye((s5 ? r.flatMap((f4) => W3([f4], i2, n3, l2, o3)) : W3(r, i2, n3, l2, o3)).map((f4) => f4.p & S3.o && (f4.n || t4 == S3.b) ? { ...f4, p: f4.p & ~S3.o | t4, o: 0 } : f4), e3);
 }
 function _e2(e3, t4, r, i2) {
   var n3;
   return n3 = (l2, o3) => {
-    let { n: s5, p: f5, r: a3, i: c4 } = ce4(l2, o3, t4);
-    return r && ge(s5, t4, r, o3, f5, a3, c4, i2);
+    let { n: s5, p: f4, r: a3, i: c4 } = ce4(l2, o3, t4);
+    return r && ge(s5, t4, r, o3, f4, a3, c4, i2);
   }, pe.set(e3, n3), e3;
 }
 function K3(e3, t4, r) {
@@ -7385,7 +7465,7 @@ var Se = /* @__PURE__ */ new Map();
 function I3(e3) {
   let t4 = Se.get(e3);
   if (!t4) {
-    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s5 = 0, f5 = (a3, c4 = 0) => {
+    let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s5 = 0, f4 = (a3, c4 = 0) => {
       n3 != s5 && (r.push(e3.slice(n3, s5 + c4)), a3 && K3(r, i2)), n3 = s5 + 1;
     };
     for (; s5 < e3.length; s5++) {
@@ -7399,11 +7479,11 @@ function I3(e3) {
       else if (a3 == "/" && e3[s5 - 1] != "\\" && (e3[s5 + 1] == "*" || e3[s5 + 1] == "/"))
         o3 = e3[s5 + 1] == "*" ? /^\*\// : /^[\r\n]/;
       else if (a3 == "(")
-        f5(), r.push(a3);
+        f4(), r.push(a3);
       else if (a3 == ":")
-        e3[s5 + 1] != ":" && f5(!1, 1);
+        e3[s5 + 1] != ":" && f4(!1, 1);
       else if (/[\s,)]/.test(a3)) {
-        f5(!0);
+        f4(!0);
         let c4 = r.lastIndexOf("(");
         if (a3 == ")") {
           let u3 = r[c4 - 1];
@@ -7421,7 +7501,7 @@ function I3(e3) {
       } else
         /[~@]/.test(a3) && e3[s5 + 1] == "(" && i2.unshift([]);
     }
-    f5(!0), Se.set(e3, t4 = i2[0]);
+    f4(!0), Se.set(e3, t4 = i2[0]);
   }
   return t4;
 }
@@ -7516,15 +7596,15 @@ function Ye(e3 = {}, t4) {
     let s5 = i2.theme(n3, l2) || oe2(l2, n3, i2);
     if (!s5 || typeof s5 == "object")
       return;
-    let { opacityVariable: f5 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a3 = n3.replace("Color", "Opacity"), property: c4 = n3, selector: u3 } = e3, p5 = i2.theme(a3, o3 || "DEFAULT") || o3 && oe2(o3, a3, i2), g6 = t4 || (({ _: $6 }) => {
+    let { opacityVariable: f4 = `--tw-${r[0].replace(/-$/, "")}-opacity`, opacitySection: a3 = n3.replace("Color", "Opacity"), property: c4 = n3, selector: u3 } = e3, p5 = i2.theme(a3, o3 || "DEFAULT") || o3 && oe2(o3, a3, i2), g6 = t4 || (({ _: $6 }) => {
       let A5 = He(c4, $6);
       return u3 ? { [u3]: A5 } : A5;
     });
-    r._ = { value: P4(s5, { opacityVariable: f5 || void 0, opacityValue: p5 || void 0 }), color: ($6) => P4(s5, $6), opacityVariable: f5 || void 0, opacityValue: p5 || void 0 };
+    r._ = { value: P4(s5, { opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }), color: ($6) => P4(s5, $6), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 };
     let y4 = g6(r, i2);
     if (!r.dark) {
       let $6 = i2.d(n3, l2, s5);
-      $6 && $6 !== s5 && (r._ = { value: P4($6, { opacityVariable: f5 || void 0, opacityValue: p5 || "1" }), color: (A5) => P4($6, A5), opacityVariable: f5 || void 0, opacityValue: p5 || void 0 }, y4 = { "&": y4, [i2.v("dark")]: g6(r, i2) });
+      $6 && $6 !== s5 && (r._ = { value: P4($6, { opacityVariable: f4 || void 0, opacityValue: p5 || "1" }), color: (A5) => P4($6, A5), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }, y4 = { "&": y4, [i2.v("dark")]: g6(r, i2) });
     }
     return y4;
   };
@@ -7575,7 +7655,7 @@ function xe2(e3, t4, r, i2) {
   } };
 }
 
-// https://esm.sh/v107/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
+// https://esm.sh/v108/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
 var L4 = "inherit", U4 = "currentColor", j3 = "transparent", V4 = "#000", B5 = "#fff", H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I4 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q4 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X5 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee3 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re3 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie2 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne3 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se3 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L4, current: U4, transparent: j3, black: V4, white: B5, slate: H5, gray: I4, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q4, amber: Y4, yellow: X5, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee3, sky: te, blue: oe3, indigo: re3, violet: ae3, purple: ie2, fuchsia: ne3, pink: le3, rose: se3 }, h2 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
 function x3(e3, r) {
   let a3 = {};
@@ -7591,21 +7671,21 @@ function f2(e3, r, a3 = 0) {
     i2[a3] = a3 + r;
   return i2;
 }
-function c2(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d4 = {}) {
+function c2(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d5 = {}) {
   for (; i2 <= e3; i2 += l2)
-    d4[i2] = i2 / a3 + r;
-  return d4;
+    d5[i2] = i2 / a3 + r;
+  return d5;
 }
 function n2(e3) {
   return ({ theme: r }) => r(e3);
 }
 var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a3) => ({ "@layer overrides": { "&": { [e3]: oe2(`[${r}]`, e3, a3) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
-  let { screens: a3 = r("screens"), center: i2, padding: l2 } = r("container"), d4 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
+  let { screens: a3 = r("screens"), center: i2, padding: l2 } = r("container"), d5 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
   for (let w5 in a3) {
     let b5 = a3[w5];
-    typeof b5 == "string" && (d4[Ce(b5)] = { "&": { maxWidth: b5, ...m4(w5) } });
+    typeof b5 == "string" && (d5[Ce(b5)] = { "&": { maxWidth: b5, ...m4(w5) } });
   }
-  return d4;
+  return d5;
   function m4(w5) {
     let b5 = l2 && (typeof l2 == "string" ? l2 : l2[w5] || l2.DEFAULT);
     if (b5)
@@ -7618,8 +7698,8 @@ var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", bo
   let a3 = { x: "lr", y: "tb" }[e3];
   return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g2(a3[0])}Width`]: `calc(${r} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g2(a3[1])}Width`]: `calc(${r} * var(--tw-divide-${e3}-reverse))` } };
 }), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A2(), ...A2("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a3 }) => {
-  let i2 = p2(e3), l2 = i2.split(" "), d4 = r("keyframes", l2[0]);
-  return d4 ? { ["@keyframes " + (l2[0] = a3(l2[0]))]: d4, animation: l2.join(" ") } : { animation: i2 };
+  let i2 = p2(e3), l2 = i2.split(" "), d5 = r("keyframes", l2[0]);
+  return d5 ? { ["@keyframes " + (l2[0] = a3(l2[0]))]: d5, animation: l2.join(" ") } : { animation: i2 };
 }), "(transform)-(none)", yt2("transform", $3), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$3() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a3 }) => ({ [`--tw-${r ? "pan-x" : a3 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
 function y2(e3) {
   return (typeof e3 == "string" ? e3 : e3[1]).replace(/-/g, " ").trim();
@@ -7649,7 +7729,7 @@ function A2(e3 = "") {
   let r = ["blur", "brightness", "contrast", "grayscale", "hue-rotate", "invert", e3 && "opacity", "saturate", "sepia", !e3 && "drop-shadow"].filter(Boolean), a3 = {};
   for (let i2 of r)
     a3[`--tw-${e3}${i2}`] = "var(--tw-empty,/*!*/ /*!*/)";
-  return a3 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a3 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a3), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d4 }) => ({ [`--tw-${l2}`]: b2(d4).map((m4) => `${i2}(${m4})`).join(" "), ...a3 })))];
+  return a3 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a3 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a3), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d5 }) => ({ [`--tw-${l2}`]: b2(d5).map((m4) => `${i2}(${m4})`).join(" "), ...a3 })))];
 }
 function k2({ 1: e3, _: r }) {
   return { ["--tw-" + e3]: r, ...$3() };
@@ -7667,7 +7747,7 @@ function D6({ 1: e3 }) {
   return `repeat(${e3},minmax(0,1fr))`;
 }
 
-// https://esm.sh/v107/notie@4.3.1/deno/notie.js
+// https://esm.sh/v108/notie@4.3.1/deno/notie.js
 var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne2 = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
   for (var l2 in i2)
     ve2(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7763,7 +7843,7 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
                   Object.prototype.hasOwnProperty.call(s5, u3) && (t4[u3] = s5[u3]);
               }
               return t4;
-            }, R6 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R6.top, force: R6.top, confirm: R6.top, input: R6.top, select: R6.bottom, date: R6.top } }, Ee2 = p5.setOptions = function(t4) {
+            }, R5 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R5.top, force: R5.top, confirm: R5.top, input: R5.top, select: R5.bottom, date: R5.top } }, Ee2 = p5.setOptions = function(t4) {
               e3 = J5({}, e3, t4, { classes: J5({}, e3.classes, t4.classes), ids: J5({}, e3.ids, t4.ids), positions: J5({}, e3.positions, t4.positions) });
             }, ye2 = function() {
               return new Promise(function(t4) {
@@ -7791,7 +7871,7 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
               t4.classList.add(e3.classes.container), t4.style[o3] = "-10000px", document.body.appendChild(t4), t4.style[o3] = "-" + t4.offsetHeight + "px", t4.listener && window.addEventListener("keydown", t4.listener), ye2().then(function() {
                 t4.style.transition = Le(), t4.style[o3] = 0;
               });
-            }, O4 = function(t4, o3) {
+            }, O5 = function(t4, o3) {
               var s5 = document.getElementById(t4);
               s5 && (s5.style[o3] = "-" + s5.offsetHeight + "px", s5.listener && window.removeEventListener("keydown", s5.listener), le4(e3.transitionDuration).then(function() {
                 s5.parentNode && s5.parentNode.removeChild(s5);
@@ -7799,7 +7879,7 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
             }, se4 = function(t4, o3) {
               var s5 = document.createElement("div");
               s5.id = e3.ids.overlay, s5.classList.add(e3.classes.overlay), s5.classList.add(e3.classes.backgroundOverlay), s5.style.opacity = 0, t4 && e3.overlayClickDismiss && (s5.onclick = function() {
-                O4(t4.id, o3), j6();
+                O5(t4.id, o3), j6();
               }), document.body.appendChild(s5), ye2().then(function() {
                 s5.style.transition = Le(), s5.style.opacity = e3.overlayOpacity;
               });
@@ -7813,55 +7893,55 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
               if (o3.length) {
                 for (var s5 = 0; s5 < o3.length; s5++) {
                   var u3 = o3[s5];
-                  O4(u3.id, u3.position);
+                  O5(u3.id, u3.position);
                 }
                 t4 && le4(e3.transitionDuration).then(function() {
                   return t4();
                 });
               }
             }, Te = p5.alert = function(t4) {
-              var o3 = t4.type, s5 = o3 === void 0 ? 4 : o3, u3 = t4.text, c4 = t4.time, k5 = c4 === void 0 ? e3.alertTime : c4, H8 = t4.stay, S8 = H8 !== void 0 && H8, h3 = t4.position, f5 = h3 === void 0 ? e3.positions.alert || f5.top : h3;
+              var o3 = t4.type, s5 = o3 === void 0 ? 4 : o3, u3 = t4.text, c4 = t4.time, k4 = c4 === void 0 ? e3.alertTime : c4, H8 = t4.stay, S8 = H8 !== void 0 && H8, h3 = t4.position, f4 = h3 === void 0 ? e3.positions.alert || f4.top : h3;
               W7(), F8();
-              var d4 = document.createElement("div"), m4 = K7();
-              d4.id = m4, d4.position = f5, d4.classList.add(e3.classes.textbox), d4.classList.add(ue3[s5]), d4.classList.add(e3.classes.alert), d4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u3 + "</div>", d4.onclick = function() {
-                return O4(m4, f5);
-              }, d4.listener = function(n3) {
+              var d5 = document.createElement("div"), m4 = K7();
+              d5.id = m4, d5.position = f4, d5.classList.add(e3.classes.textbox), d5.classList.add(ue3[s5]), d5.classList.add(e3.classes.alert), d5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u3 + "</div>", d5.onclick = function() {
+                return O5(m4, f4);
+              }, d5.listener = function(n3) {
                 (te2(n3) || ne4(n3)) && F8();
-              }, Z6(d4, f5), k5 && k5 < 1 && (k5 = 1), !S8 && k5 && le4(k5).then(function() {
-                return O4(m4, f5);
+              }, Z6(d5, f4), k4 && k4 < 1 && (k4 = 1), !S8 && k4 && le4(k4).then(function() {
+                return O5(m4, f4);
               });
             }, Me2 = p5.force = function(t4, o3) {
-              var s5 = t4.type, u3 = s5 === void 0 ? 5 : s5, c4 = t4.text, k5 = t4.buttonText, H8 = k5 === void 0 ? "OK" : k5, S8 = t4.callback, h3 = t4.position, f5 = h3 === void 0 ? e3.positions.force || f5.top : h3;
+              var s5 = t4.type, u3 = s5 === void 0 ? 5 : s5, c4 = t4.text, k4 = t4.buttonText, H8 = k4 === void 0 ? "OK" : k4, S8 = t4.callback, h3 = t4.position, f4 = h3 === void 0 ? e3.positions.force || f4.top : h3;
               W7(), F8();
-              var d4 = document.createElement("div"), m4 = K7();
-              d4.id = m4;
+              var d5 = document.createElement("div"), m4 = K7();
+              d5.id = m4;
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.textbox), n3.classList.add(e3.classes.backgroundInfo), n3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + c4 + "</div>";
               var r = document.createElement("div");
               r.classList.add(e3.classes.button), r.classList.add(ue3[u3]), r.innerHTML = H8, r.onclick = function() {
-                O4(m4, f5), j6(), S8 ? S8() : o3 && o3();
-              }, d4.appendChild(n3), d4.appendChild(r), d4.listener = function(C6) {
+                O5(m4, f4), j6(), S8 ? S8() : o3 && o3();
+              }, d5.appendChild(n3), d5.appendChild(r), d5.listener = function(C6) {
                 te2(C6) && r.click();
-              }, Z6(d4, f5), se4();
+              }, Z6(d5, f4), se4();
             }, He2 = p5.confirm = function(t4, o3, s5) {
-              var u3 = t4.text, c4 = t4.submitText, k5 = c4 === void 0 ? "Yes" : c4, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, f5 = t4.cancelCallback, d4 = t4.position, m4 = d4 === void 0 ? e3.positions.confirm || m4.top : d4;
+              var u3 = t4.text, c4 = t4.submitText, k4 = c4 === void 0 ? "Yes" : c4, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, f4 = t4.cancelCallback, d5 = t4.position, m4 = d5 === void 0 ? e3.positions.confirm || m4.top : d5;
               W7(), F8();
               var n3 = document.createElement("div"), r = K7();
               n3.id = r;
               var C6 = document.createElement("div");
               C6.classList.add(e3.classes.textbox), C6.classList.add(e3.classes.backgroundInfo), C6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u3 + "</div>";
               var y4 = document.createElement("div");
-              y4.classList.add(e3.classes.button), y4.classList.add(e3.classes.elementHalf), y4.classList.add(e3.classes.backgroundSuccess), y4.innerHTML = k5, y4.onclick = function() {
-                O4(r, m4), j6(), h3 ? h3() : o3 && o3();
+              y4.classList.add(e3.classes.button), y4.classList.add(e3.classes.elementHalf), y4.classList.add(e3.classes.backgroundSuccess), y4.innerHTML = k4, y4.onclick = function() {
+                O5(r, m4), j6(), h3 ? h3() : o3 && o3();
               };
               var a3 = document.createElement("div");
               a3.classList.add(e3.classes.button), a3.classList.add(e3.classes.elementHalf), a3.classList.add(e3.classes.backgroundError), a3.innerHTML = S8, a3.onclick = function() {
-                O4(r, m4), j6(), f5 ? f5() : s5 && s5();
+                O5(r, m4), j6(), f4 ? f4() : s5 && s5();
               }, n3.appendChild(C6), n3.appendChild(y4), n3.appendChild(a3), n3.listener = function(E4) {
                 te2(E4) ? y4.click() : ne4(E4) && a3.click();
               }, Z6(n3, m4), se4(n3, m4);
             }, ge2 = function(t4, o3, s5) {
-              var u3 = t4.text, c4 = t4.submitText, k5 = c4 === void 0 ? "Submit" : c4, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, f5 = t4.cancelCallback, d4 = t4.position, m4 = d4 === void 0 ? e3.positions.input || m4.top : d4, n3 = g6(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+              var u3 = t4.text, c4 = t4.submitText, k4 = c4 === void 0 ? "Submit" : c4, H8 = t4.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h3 = t4.submitCallback, f4 = t4.cancelCallback, d5 = t4.position, m4 = d5 === void 0 ? e3.positions.input || m4.top : d5, n3 = g6(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
               W7(), F8();
               var r = document.createElement("div"), C6 = K7();
               r.id = C6;
@@ -7879,39 +7959,39 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
                 a3.value = a3.value.replace(M6, "");
               });
               var E4 = document.createElement("div");
-              E4.classList.add(e3.classes.button), E4.classList.add(e3.classes.elementHalf), E4.classList.add(e3.classes.backgroundSuccess), E4.innerHTML = k5, E4.onclick = function() {
-                O4(C6, m4), j6(), h3 ? h3(a3.value) : o3 && o3(a3.value);
+              E4.classList.add(e3.classes.button), E4.classList.add(e3.classes.elementHalf), E4.classList.add(e3.classes.backgroundSuccess), E4.innerHTML = k4, E4.onclick = function() {
+                O5(C6, m4), j6(), h3 ? h3(a3.value) : o3 && o3(a3.value);
               };
               var D10 = document.createElement("div");
               D10.classList.add(e3.classes.button), D10.classList.add(e3.classes.elementHalf), D10.classList.add(e3.classes.backgroundError), D10.innerHTML = S8, D10.onclick = function() {
-                O4(C6, m4), j6(), f5 ? f5(a3.value) : s5 && s5(a3.value);
+                O5(C6, m4), j6(), f4 ? f4(a3.value) : s5 && s5(a3.value);
               }, r.appendChild(y4), r.appendChild(a3), r.appendChild(E4), r.appendChild(D10), r.listener = function(M6) {
                 te2(M6) ? E4.click() : ne4(M6) && D10.click();
               }, Z6(r, m4), a3.focus(), se4(r, m4);
             };
             p5.input = ge2;
             var Se2 = p5.select = function(t4, o3) {
-              var s5 = t4.text, u3 = t4.cancelText, c4 = u3 === void 0 ? "Cancel" : u3, k5 = t4.cancelCallback, H8 = t4.choices, S8 = t4.position, h3 = S8 === void 0 ? e3.positions.select || h3.top : S8;
+              var s5 = t4.text, u3 = t4.cancelText, c4 = u3 === void 0 ? "Cancel" : u3, k4 = t4.cancelCallback, H8 = t4.choices, S8 = t4.position, h3 = S8 === void 0 ? e3.positions.select || h3.top : S8;
               W7(), F8();
-              var f5 = document.createElement("div"), d4 = K7();
-              f5.id = d4;
+              var f4 = document.createElement("div"), d5 = K7();
+              f4.id = d5;
               var m4 = document.createElement("div");
-              m4.classList.add(e3.classes.textbox), m4.classList.add(e3.classes.backgroundInfo), m4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s5 + "</div>", f5.appendChild(m4), H8.forEach(function(r, C6) {
+              m4.classList.add(e3.classes.textbox), m4.classList.add(e3.classes.backgroundInfo), m4.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s5 + "</div>", f4.appendChild(m4), H8.forEach(function(r, C6) {
                 var y4 = r.type, a3 = y4 === void 0 ? 1 : y4, E4 = r.text, D10 = r.handler, M6 = document.createElement("div");
                 M6.classList.add(ue3[a3]), M6.classList.add(e3.classes.button), M6.classList.add(e3.classes.selectChoice);
                 var w5 = H8[C6 + 1];
                 w5 && !w5.type && (w5.type = 1), w5 && w5.type === a3 && M6.classList.add(e3.classes.selectChoiceRepeated), M6.innerHTML = E4, M6.onclick = function() {
-                  O4(d4, h3), j6(), D10();
-                }, f5.appendChild(M6);
+                  O5(d5, h3), j6(), D10();
+                }, f4.appendChild(M6);
               });
               var n3 = document.createElement("div");
               n3.classList.add(e3.classes.backgroundNeutral), n3.classList.add(e3.classes.button), n3.innerHTML = c4, n3.onclick = function() {
-                O4(d4, h3), j6(), k5 ? k5() : o3 && o3();
-              }, f5.appendChild(n3), f5.listener = function(r) {
+                O5(d5, h3), j6(), k4 ? k4() : o3 && o3();
+              }, f4.appendChild(n3), f4.listener = function(r) {
                 ne4(r) && n3.click();
-              }, Z6(f5, h3), se4(f5, h3);
+              }, Z6(f4, h3), se4(f4, h3);
             }, we2 = p5.date = function(t4, o3, s5) {
-              var u3 = t4.value, c4 = u3 === void 0 ? /* @__PURE__ */ new Date() : u3, k5 = t4.submitText, H8 = k5 === void 0 ? "OK" : k5, S8 = t4.cancelText, h3 = S8 === void 0 ? "Cancel" : S8, f5 = t4.submitCallback, d4 = t4.cancelCallback, m4 = t4.position, n3 = m4 === void 0 ? e3.positions.date || n3.top : m4;
+              var u3 = t4.value, c4 = u3 === void 0 ? /* @__PURE__ */ new Date() : u3, k4 = t4.submitText, H8 = k4 === void 0 ? "OK" : k4, S8 = t4.cancelText, h3 = S8 === void 0 ? "Cancel" : S8, f4 = t4.submitCallback, d5 = t4.cancelCallback, m4 = t4.position, n3 = m4 === void 0 ? e3.positions.date || n3.top : m4;
               W7(), F8();
               var r = "&#9662", C6 = document.createElement("div"), y4 = document.createElement("div"), a3 = document.createElement("div"), E4 = function(L7) {
                 C6.innerHTML = e3.dateMonths[L7.getMonth()], y4.innerHTML = L7.getDate(), a3.innerHTML = L7.getFullYear();
@@ -7941,8 +8021,8 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
               q7.classList.add(e3.classes.button), q7.classList.add(e3.classes.elementThird), q7.classList.add(e3.classes.dateSelectorUp), q7.innerHTML = r;
               var G8 = document.createElement("div");
               G8.classList.add(e3.classes.button), G8.classList.add(e3.classes.elementThird), G8.classList.add(e3.classes.dateSelectorUp), G8.innerHTML = r;
-              var Q6 = document.createElement("div");
-              Q6.classList.add(e3.classes.button), Q6.classList.add(e3.classes.elementThird), Q6.classList.add(e3.classes.dateSelectorUp), Q6.innerHTML = r, C6.classList.add(e3.classes.element), C6.classList.add(e3.classes.elementThird), C6.innerHTML = e3.dateMonths[c4.getMonth()], y4.classList.add(e3.classes.element), y4.classList.add(e3.classes.elementThird), y4.setAttribute("contentEditable", !0), y4.addEventListener("input", D10), y4.addEventListener("blur", w5), y4.innerHTML = c4.getDate(), a3.classList.add(e3.classes.element), a3.classList.add(e3.classes.elementThird), a3.setAttribute("contentEditable", !0), a3.addEventListener("input", M6), a3.addEventListener("blur", w5), a3.innerHTML = c4.getFullYear();
+              var Q7 = document.createElement("div");
+              Q7.classList.add(e3.classes.button), Q7.classList.add(e3.classes.elementThird), Q7.classList.add(e3.classes.dateSelectorUp), Q7.innerHTML = r, C6.classList.add(e3.classes.element), C6.classList.add(e3.classes.elementThird), C6.innerHTML = e3.dateMonths[c4.getMonth()], y4.classList.add(e3.classes.element), y4.classList.add(e3.classes.elementThird), y4.setAttribute("contentEditable", !0), y4.addEventListener("input", D10), y4.addEventListener("blur", w5), y4.innerHTML = c4.getDate(), a3.classList.add(e3.classes.element), a3.classList.add(e3.classes.elementThird), a3.setAttribute("contentEditable", !0), a3.addEventListener("input", M6), a3.addEventListener("blur", w5), a3.innerHTML = c4.getFullYear();
               var ae4 = document.createElement("div");
               ae4.classList.add(e3.classes.button), ae4.classList.add(e3.classes.elementThird), ae4.innerHTML = r;
               var ie4 = document.createElement("div");
@@ -7952,7 +8032,7 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
                 return _3(1);
               }, G8.onclick = function() {
                 return P8(1);
-              }, Q6.onclick = function() {
+              }, Q7.onclick = function() {
                 return he2(1);
               }, ae4.onclick = function() {
                 return _3(-1);
@@ -7963,12 +8043,12 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
               };
               var z6 = document.createElement("div");
               z6.classList.add(e3.classes.button), z6.classList.add(e3.classes.elementHalf), z6.classList.add(e3.classes.backgroundSuccess), z6.innerHTML = H8, z6.onclick = function() {
-                O4(pe2, n3), j6(), f5 ? f5(c4) : o3 && o3(c4);
+                O5(pe2, n3), j6(), f4 ? f4(c4) : o3 && o3(c4);
               };
               var U7 = document.createElement("div");
               U7.classList.add(e3.classes.button), U7.classList.add(e3.classes.elementHalf), U7.classList.add(e3.classes.backgroundError), U7.innerHTML = h3, U7.onclick = function() {
-                O4(pe2, n3), j6(), d4 ? d4(c4) : s5 && s5(c4);
-              }, I6.appendChild(q7), I6.appendChild(G8), I6.appendChild(Q6), I6.appendChild(C6), I6.appendChild(y4), I6.appendChild(a3), I6.appendChild(ae4), I6.appendChild(ie4), I6.appendChild(ce5), fe.appendChild(I6), Y6.appendChild(fe), Y6.appendChild(z6), Y6.appendChild(U7), Y6.listener = function(L7) {
+                O5(pe2, n3), j6(), d5 ? d5(c4) : s5 && s5(c4);
+              }, I6.appendChild(q7), I6.appendChild(G8), I6.appendChild(Q7), I6.appendChild(C6), I6.appendChild(y4), I6.appendChild(a3), I6.appendChild(ae4), I6.appendChild(ie4), I6.appendChild(ce5), fe.appendChild(I6), Y6.appendChild(fe), Y6.appendChild(z6), Y6.appendChild(U7), Y6.listener = function(L7) {
                 te2(L7) ? z6.click() : ne4(L7) && U7.click();
               }, Z6(Y6, n3), se4(Y6, n3);
             };
@@ -7984,11 +8064,11 @@ var Fe = ke2(xe3());
 X6(B6, ke2(xe3()));
 var { default: Ce3, ..._e3 } = Fe, Ye2 = Ce3 !== void 0 ? Ce3 : _e3;
 
-// https://esm.sh/v107/nanostores@0.7.4/deno/nanostores.js
+// https://esm.sh/v108/nanostores@0.7.4/deno/nanostores.js
 var S5 = Symbol("clean");
 var m2 = Symbol();
 
-// https://esm.sh/v107/@nanostores/i18n@0.7.1/deno/i18n.js
+// https://esm.sh/v108/@nanostores/i18n@0.7.1/deno/i18n.js
 function g3(r, n3) {
   if (typeof r == "string")
     return n3(r);
@@ -8004,8 +8084,8 @@ function p3(r) {
     if (n3.transform) {
       let e3 = n3.transform;
       return n3 = n3.input, { input: n3, transform(t4, o3, s5) {
-        let f5 = r(t4, o3, ...s5);
-        return (...l2) => e3(t4, f5, l2);
+        let f4 = r(t4, o3, ...s5);
+        return (...l2) => e3(t4, f4, l2);
       } };
     } else
       return { input: n3, transform(e3, t4, o3) {
@@ -8022,7 +8102,7 @@ var N5 = p3((r, n3, e3) => g3(n3, (t4) => {
   return t4 in n3 || (t4 = "many"), g3(n3[t4], (o3) => o3.replace(/{count}/g, e3));
 });
 
-// https://esm.sh/v107/hotkeys-js@3.10.1/deno/hotkeys-js.js
+// https://esm.sh/v108/hotkeys-js@3.10.1/deno/hotkeys-js.js
 var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
 function P6(e3, t4, i2, r) {
   e3.addEventListener ? e3.addEventListener(t4, i2, r) : e3.attachEvent && e3.attachEvent("on".concat(t4), function() {
@@ -8118,11 +8198,11 @@ function Q5(e3) {
 var S6 = function(t4) {
   var i2 = t4.key, r = t4.scope, n3 = t4.method, a3 = t4.splitKey, o3 = a3 === void 0 ? "+" : a3, l2 = U5(i2);
   l2.forEach(function(c4) {
-    var p5 = c4.split(o3), m4 = p5.length, y4 = p5[m4 - 1], d4 = y4 === "*" ? "*" : C4(y4);
-    if (s4[d4]) {
+    var p5 = c4.split(o3), m4 = p5.length, y4 = p5[m4 - 1], d5 = y4 === "*" ? "*" : C4(y4);
+    if (s4[d5]) {
       r || (r = E2());
       var K7 = m4 > 1 ? T5(g4, p5) : [];
-      s4[d4] = s4[d4].filter(function(h3) {
+      s4[d5] = s4[d5].filter(function(h3) {
         var w5 = n3 ? h3.method === n3 : !0;
         return !(w5 && h3.scope === r && G6(h3.mods, K7));
       });
@@ -8163,9 +8243,9 @@ function k3(e3, t4) {
     if (r in s4) {
       for (var c4 = 0; c4 < s4[r].length; c4++)
         if ((e3.type === "keydown" && s4[r][c4].keydown || e3.type === "keyup" && s4[r][c4].keyup) && s4[r][c4].key) {
-          for (var p5 = s4[r][c4], m4 = p5.splitKey, y4 = p5.key.split(m4), d4 = [], K7 = 0; K7 < y4.length; K7++)
-            d4.push(C4(y4[K7]));
-          d4.sort().join("") === f3.sort().join("") && _(e3, p5, o3, t4);
+          for (var p5 = s4[r][c4], m4 = p5.splitKey, y4 = p5.key.split(m4), d5 = [], K7 = 0; K7 < y4.length; K7++)
+            d5.push(C4(y4[K7]));
+          d5.sort().join("") === f3.sort().join("") && _(e3, p5, o3, t4);
         }
     }
   }
@@ -8178,12 +8258,12 @@ function v2(e3, t4, i2) {
   var r = U5(e3), n3 = [], a3 = "all", o3 = document, l2 = 0, c4 = !1, p5 = !0, m4 = "+", y4 = !1;
   for (i2 === void 0 && typeof t4 == "function" && (i2 = t4), Object.prototype.toString.call(t4) === "[object Object]" && (t4.scope && (a3 = t4.scope), t4.element && (o3 = t4.element), t4.keyup && (c4 = t4.keyup), t4.keydown !== void 0 && (p5 = t4.keydown), t4.capture !== void 0 && (y4 = t4.capture), typeof t4.splitKey == "string" && (m4 = t4.splitKey)), typeof t4 == "string" && (a3 = t4); l2 < r.length; l2++)
     e3 = r[l2].split(m4), n3 = [], e3.length > 1 && (n3 = T5(g4, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s4 || (s4[e3] = []), s4[e3].push({ keyup: c4, keydown: p5, scope: a3, mods: n3, shortcut: r[l2], method: i2, key: r[l2], splitKey: m4, element: o3 });
-  typeof o3 < "u" && !W5(o3) && window && (H6.push(o3), P6(o3, "keydown", function(d4) {
-    k3(d4, o3);
+  typeof o3 < "u" && !W5(o3) && window && (H6.push(o3), P6(o3, "keydown", function(d5) {
+    k3(d5, o3);
   }, y4), A3 || (A3 = !0, P6(window, "focus", function() {
     f3 = [];
-  }, y4)), P6(o3, "keyup", function(d4) {
-    k3(d4, o3), N6(d4);
+  }, y4)), P6(o3, "keyup", function(d5) {
+    k3(d5, o3), N6(d5);
   }, y4));
 }
 function Y5(e3) {
@@ -8206,187 +8286,17 @@ typeof document < "u" && (B8 = window.hotkeys, v2.noConflict = function(e3) {
 }, window.hotkeys = v2);
 var B8;
 
-// https://esm.sh/v107/immersive-translate@1.0.5/deno/immersive-translate.js
-var R5 = "poegempjloogba", L6 = "ension://", D8 = "me-";
-function T6(e3) {
-  if (!e3)
-    return [!1, !0];
-  let t4 = new Date(e3).getTime(), n3 = (/* @__PURE__ */ new Date()).getTime(), o3 = t4 - n3 < 15e3;
-  return [t4 - n3 > 3e3, o3];
-}
-function b4(e3) {
-  return e3 ? e3.PROD === "1" : !0;
-}
-function A4(e3) {
-  return e3 ? e3.MOCK === "1" : !1;
-}
-function F7(e3) {
-  return new Promise((t4, n3) => {
-    setTimeout(() => {
-      t4();
-    }, e3);
-  });
-}
-var I5 = "rome-ext";
-function N7(e3, t4) {
-  return t4 ? e3 + (t4 - e3 % t4) : e3;
-}
-function U6(e3, t4) {
-  return e3.split(t4).length - 1;
-}
-function $5(e3) {
-  let t4 = Date.now(), n3 = 1;
-  for (let o3 of e3)
-    n3 += U6(o3, "i");
-  return N7(t4, n3);
-}
-function j5(e3, t4) {
-  return Math.floor(Math.random() * (t4 - e3 + 1)) + e3;
-}
-var P7 = "extension", C5 = "chro";
-function M5() {
-  return j5(1e6, 1e8);
-}
-var m3 = "BrowserExt";
-function K5(e3) {
-  return JSON.stringify(e3).replace('"method":"', () => {
-    let t4 = e3;
-    return (t4.id + 3) % 13 === 0 || (t4.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
-  });
-}
-var E3 = "DeepL", x5 = "ension", z5 = "ch" + I5 + L6 + "cofdb" + R5 + "gkncekinflcnj";
-function v3(e3) {
-  let { contentType: t4, userAgent: n3, url: o3, authorization: r, clientVersion: a3 } = e3, i2 = new URL(o3), s5 = new Headers();
-  if (s5.append("authority", i2.hostname), s5.append("accept", "*/*"), s5.append("accept-language", "ja"), r && s5.append("authorization", `Bearer ${r}`), s5.append("cache-control", "no-cache"), t4 ? s5.append("content-type", t4) : s5.append("content-type", "application/json; charset=utf-8"), s5.append("origin", z5), s5.append("pragma", "no-cache"), s5.append("referer", "https://www.deepl.com/"), s5.append("sec-fetch-dest", "empty"), s5.append("sec-fetch-mode", "cors"), s5.append("sec-fetch-site", "none"), n3)
-    s5.append("user-agent", n3);
-  else if (globalThis && globalThis.navigator && globalThis.navigator.userAgent) {
-    let u3 = globalThis.navigator.userAgent;
-    s5.append("user-agent", `${E3}${m3}${x5}/${a3 || "1.1.1"} ${u3}`);
-  } else
-    s5.append("user-agent", `${E3}${m3}${x5}/${a3 || "1.1.1"} Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78`);
-  let c4 = {};
-  for (let [u3, h3] of s5.entries())
-    c4[u3] = h3;
-  return c4;
-}
-function B9(e3) {
-  let t4 = "1.1.1", { texts: n3, target_lang: o3, source_lang: r } = e3, a3 = { jsonrpc: "2.0", method: "LMT_handle_texts", params: { texts: n3.map((s5) => ({ text: s5 })), splitting: "newlines", lang: { target_lang: o3, source_lang_user_selected: r || "auto", preference: { weight: { BG: 119e-5, CS: 0.04360000000000001, DA: 0.007090000000000001, DE: 0.02142, EL: 287e-5, EN: 4.79277, ES: 0.029710000000000004, ET: 0.007300000000000001, FI: 0.013850000000000001, FR: 0.04227, HU: 0.019000000000000003, ID: 423e-5, IT: 0.03592, JA: 453e-5, LT: 0.031700000000000006, LV: 27e-4, NL: 0.02375, PL: 0.044520000000000004, PT: 0.017320000000000002, RO: 0.009040000000000001, RU: 234e-5, SK: 0.04977, SL: 691e-5, SV: 0.0049700000000000005, TR: 0.01076, UK: 201e-5, ZH: 0.004880000000000001 } } }, timestamp: $5(n3) }, id: M5() }, i2 = v3({ url: "https://api.deepl.com/jsonrpc", clientVersion: t4, authorization: e3.authorization });
-  return { url: `https://api.deepl.com/jsonrpc?client=${C5 + D8 + P7},${t4}`, headers: i2, body: K5(a3), method: "POST" };
-}
-function J4(e3) {
-  let t4 = e3.split(".");
-  if (t4.length <= 1)
-    throw new Error("invlaid token");
-  let n3 = t4[1];
-  if (!n3)
-    throw new Error("invalid base64 url token");
-  let o3 = n3.replace(/-/g, "+").replace(/_/g, "/"), r = decodeURIComponent(globalThis.atob(o3).split("").map(function(s5) {
-    return "%" + ("00" + s5.charCodeAt(0).toString(16)).slice(-2);
-  }).join("")), a3 = JSON.parse(r), i2 = new Date(a3.exp * 1e3);
-  return { accessToken: e3, accessTokenExpiresAt: i2.toISOString() };
-}
-var g5 = {}, w4 = {};
-async function y3(e3, t4) {
-  if (!e3)
-    throw new Error("auth key is required");
-  let { state: n3 } = t4, { refreshToken: o3, refreshTokenExpiresAt: r } = n3, [a3, i2] = T6(r), s5 = { refreshToken: o3, refreshTokenExpiresAt: r };
-  a3 || (s5 = await k4(e3, t4));
-  let [c4, u3] = T6(s5.refreshTokenExpiresAt);
-  i2 = u3;
-  let h3 = s5.refreshToken;
-  if (g5[h3])
-    return new Promise((l2, p5) => {
-      g5[h3].push((d4, O4) => {
-        d4 ? p5(d4) : l2(O4);
-      });
-    });
-  g5[h3] = [];
-  try {
-    let l2 = await V6(h3, t4.onFetch), p5 = { state: { ...n3, ...s5, ...l2 }, shouldUpdateRefreshToken: i2 };
-    return g5[h3].forEach((d4) => {
-      d4(null, p5);
-    }), delete g5[h3], p5;
-  } catch (l2) {
-    throw g5[h3].forEach((p5) => {
-      p5(l2);
-    }), delete g5[h3], l2;
-  }
-}
-async function k4(e3, t4) {
-  if (!e3)
-    throw new Error("auth key is required");
-  let { refreshTokenEndpoint: n3, onFetch: o3 } = t4;
-  if (w4[e3])
-    return new Promise((r, a3) => {
-      w4[e3].push((i2, s5) => {
-        i2 ? a3(i2) : r(s5);
-      });
-    });
-  try {
-    w4[e3] = [];
-    let r = new URLSearchParams({ grant_type: "auth_key", auth_key: e3 }), a3 = new URL("/refresh_token?" + r.toString(), n3), i2 = await o3(a3.toString()), s5 = (/* @__PURE__ */ new Date()).getTime() + i2.refresh_token_expires_in * 1e3, c4 = { refreshToken: i2.refresh_token, refreshTokenExpiresAt: new Date(s5).toISOString() };
-    return w4[e3].forEach((u3) => {
-      u3(null, c4);
-    }), delete w4[e3], c4;
-  } catch (r) {
-    throw w4[e3].forEach((a3) => {
-      a3(r);
-    }), delete w4[e3], r;
-  }
-}
-async function V6(e3, t4) {
-  if (!e3)
-    throw new Error("refreshToken is required");
-  let n3 = b4(), o3 = A4();
-  if (!n3 && !o3) {
-    await F7(5e3);
-    let s5 = /* @__PURE__ */ new Date();
-    return { accessToken: "test", accessTokenExpiresAt: new Date(s5.getTime() + 1e3 * 5).toISOString() };
-  }
-  let r = "https://w.deepl.com/oidc/token", a3 = await t4(r, { headers: v3({ url: r, contentType: "application/x-www-form-urlencoded" }), body: `grant_type=refresh_token&refresh_token=${e3}`, method: "POST" }), i2 = J4(a3.access_token);
-  if (a3.expires_in) {
-    let s5 = /* @__PURE__ */ new Date(), c4 = new Date(s5.getTime() + a3.expires_in * 1e3);
-    i2.accessTokenExpiresAt = c4.toISOString();
-  }
-  return i2;
-}
-async function S7(e3, t4, n3) {
-  if (!t4)
-    throw new Error("body is required");
-  let o3 = new URLSearchParams(t4), r = o3.getAll("text");
-  if (r.length < 1)
-    throw new Error("No text to translate");
-  if (q6(r) > 5e3)
-    throw new Error("text too long, the max length is 5000 characters.");
-  let a3 = o3.get("target_lang");
-  if (!a3)
-    throw new Error("No target language");
-  let i2 = o3.get("source_lang"), s5 = { ...B9({ texts: r, authorization: e3, target_lang: a3, source_lang: i2 }), responseType: "raw" }, c4 = b4(), u3 = A4();
-  if (!c4 && !u3)
-    return await F7(50), { translations: r.map((d4) => ({ text: "mock: " + d4, detected_source_language: "EN" })) };
-  let h3 = await n3(s5.url, s5), l2 = JSON.parse(h3.body), p5 = [];
-  if (l2.result && l2.result.texts)
-    p5 = l2.result.texts.map((d4) => ({ text: d4.text, detected_source_language: l2.result.lang }));
-  else
-    throw new Error("No response from deepl api");
-  return { translations: p5 };
-}
-function q6(e3) {
-  let t4 = 0;
-  for (let n3 of e3)
-    t4 += n3.length;
-  return t4;
-}
-var f4 = "Immersive Translate", G7 = class {
+// https://esm.sh/v108/immersive-translate@1.0.8/deno/immersive-translate.js
+var d4 = "Immersive Translate", v3 = class {
   #e = performance.now();
   reset() {
     this.#e = performance.now();
   }
   stop(e3) {
     let t4 = performance.now(), n3 = Math.round(t4 - this.#e);
-    console.debug(f4 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t4;
+    console.debug(d4 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t4;
   }
-}, H7 = class {
+}, D8 = class {
   #e = 1;
   get level() {
     return this.#e;
@@ -8411,68 +8321,239 @@ var f4 = "Immersive Translate", G7 = class {
     }
   }
   debug(...e3) {
-    this.#e <= 0 && console.log(f4 + " DEBUG:", ...e3);
+    this.#e <= 0 && console.log(d4 + " DEBUG:", ...e3);
   }
   v(...e3) {
-    this.#e <= 0 && console.log(f4 + " VERBOSE:", ...e3);
+    this.#e <= 0 && console.log(d4 + " VERBOSE:", ...e3);
   }
   info(...e3) {
-    this.#e <= 1 && console.log(f4 + " INFO:", ...e3);
+    this.#e <= 1 && console.log(d4 + " INFO:", ...e3);
   }
   l(...e3) {
-    this.#e <= 1 && console.log(f4 + " TEMP INFO:", ...e3);
+    this.#e <= 1 && console.log(d4 + " TEMP INFO:", ...e3);
   }
   warn(...e3) {
-    this.#e <= 2 && console.warn(f4 + " WARN:", ...e3);
+    this.#e <= 2 && console.warn(d4 + " WARN:", ...e3);
   }
   error(...e3) {
-    this.#e <= 3 && console.error(f4 + " ERROR:", ...e3);
+    this.#e <= 3 && console.error(d4 + " ERROR:", ...e3);
   }
   fatal(...e3) {
-    this.#e <= 4 && console.error(f4 + " FATAL:", ...e3);
+    this.#e <= 4 && console.error(d4 + " FATAL:", ...e3);
   }
   timing() {
-    return this.level === 0 ? new G7() : { reset: () => {
+    return this.level === 0 ? new v3() : { reset: () => {
     }, stop: () => {
     } };
   }
-}, _2 = new H7();
-async function W6(e3) {
+}, E3 = new D8(), L6 = "poegempjloogba", I5 = "ension://", N7 = "me-";
+function T6(e3) {
+  if (!e3)
+    return [!1, !0];
+  let t4 = new Date(e3).getTime(), n3 = (/* @__PURE__ */ new Date()).getTime(), o3 = t4 - n3 < 15e3;
+  return [t4 - n3 > 3e3, o3];
+}
+function b4(e3) {
+  return e3 ? e3.PROD === "1" : !0;
+}
+function F7(e3) {
+  return e3 ? e3.MOCK === "1" : !1;
+}
+function O4(e3) {
+  return new Promise((t4, n3) => {
+    setTimeout(() => {
+      t4();
+    }, e3);
+  });
+}
+var U6 = "rome-ext";
+function $5(e3, t4) {
+  return t4 ? e3 + (t4 - e3 % t4) : e3;
+}
+function j5(e3, t4) {
+  return e3.split(t4).length - 1;
+}
+function P7(e3) {
+  let t4 = Date.now(), n3 = 1;
+  for (let o3 of e3)
+    n3 += j5(o3, "i");
+  return $5(t4, n3);
+}
+function K5(e3, t4) {
+  return Math.floor(Math.random() * (t4 - e3 + 1)) + e3;
+}
+var M5 = "extension", z5 = "chro";
+function B9() {
+  return K5(1e6, 1e8);
+}
+var S7 = "BrowserExt";
+function J4(e3) {
+  return JSON.stringify(e3).replace('"method":"', () => {
+    let t4 = e3;
+    return (t4.id + 3) % 13 === 0 || (t4.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
+  });
+}
+var y3 = "DeepL", x5 = "ension", V6 = "ch" + U6 + I5 + "cofdb" + L6 + "gkncekinflcnj";
+function C5(e3) {
+  let { contentType: t4, userAgent: n3, url: o3, authorization: r, clientVersion: s5 } = e3, i2 = new URL(o3), a3 = new Headers();
+  if (a3.append("authority", i2.hostname), a3.append("accept", "*/*"), a3.append("accept-language", "ja"), r && a3.append("authorization", `Bearer ${r}`), a3.append("cache-control", "no-cache"), t4 ? a3.append("content-type", t4) : a3.append("content-type", "application/json; charset=utf-8"), a3.append("origin", V6), a3.append("pragma", "no-cache"), a3.append("referer", "https://www.deepl.com/"), a3.append("sec-fetch-dest", "empty"), a3.append("sec-fetch-mode", "cors"), a3.append("sec-fetch-site", "none"), n3)
+    a3.append("user-agent", n3);
+  else if (globalThis && globalThis.navigator && globalThis.navigator.userAgent) {
+    let p5 = globalThis.navigator.userAgent;
+    a3.append("user-agent", `${y3}${S7}${x5}/${s5 || "1.1.1"} ${p5}`);
+  } else
+    a3.append("user-agent", `${y3}${S7}${x5}/${s5 || "1.1.1"} Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78`);
+  let c4 = {};
+  for (let [p5, f4] of a3.entries())
+    c4[p5] = f4;
+  return c4;
+}
+function q6(e3) {
+  let t4 = "1.1.1", { texts: n3, target_lang: o3, source_lang: r } = e3, s5 = { jsonrpc: "2.0", method: "LMT_handle_texts", params: { texts: n3.map((a3) => ({ text: a3 })), splitting: "newlines", lang: { target_lang: o3, source_lang_user_selected: r || "auto", preference: { weight: { BG: 119e-5, CS: 0.04360000000000001, DA: 0.007090000000000001, DE: 0.02142, EL: 287e-5, EN: 4.79277, ES: 0.029710000000000004, ET: 0.007300000000000001, FI: 0.013850000000000001, FR: 0.04227, HU: 0.019000000000000003, ID: 423e-5, IT: 0.03592, JA: 453e-5, LT: 0.031700000000000006, LV: 27e-4, NL: 0.02375, PL: 0.044520000000000004, PT: 0.017320000000000002, RO: 0.009040000000000001, RU: 234e-5, SK: 0.04977, SL: 691e-5, SV: 0.0049700000000000005, TR: 0.01076, UK: 201e-5, ZH: 0.004880000000000001 } } }, timestamp: P7(n3) }, id: B9() }, i2 = C5({ url: "https://api.deepl.com/jsonrpc", clientVersion: t4, authorization: e3.authorization });
+  return { url: `https://api.deepl.com/jsonrpc?client=${z5 + N7 + M5},${t4}`, headers: i2, body: J4(s5), method: "POST" };
+}
+function G7(e3) {
+  let t4 = e3.split(".");
+  if (t4.length <= 1)
+    throw new Error("invlaid token");
+  let n3 = t4[1];
+  if (!n3)
+    throw new Error("invalid base64 url token");
+  let o3 = n3.replace(/-/g, "+").replace(/_/g, "/"), r = decodeURIComponent(globalThis.atob(o3).split("").map(function(a3) {
+    return "%" + ("00" + a3.charCodeAt(0).toString(16)).slice(-2);
+  }).join("")), s5 = JSON.parse(r), i2 = new Date(s5.exp * 1e3);
+  return { accessToken: e3, accessTokenExpiresAt: i2.toISOString() };
+}
+var g5 = {}, w4 = {};
+async function _2(e3, t4) {
+  if (!e3)
+    throw new Error("auth key is required");
+  let { state: n3 } = t4, { refreshToken: o3, refreshTokenExpiresAt: r, refreshTokenChecksAt: s5 } = n3, [i2, a3] = T6(r);
+  a3 || (a3 = T6(s5)[1]);
+  let c4 = { refreshToken: o3, refreshTokenExpiresAt: r, refreshTokenChecksAt: s5 || (/* @__PURE__ */ new Date()).toISOString() };
+  i2 || (c4 = await m3(e3, t4));
+  let [p5, f4] = T6(c4.refreshTokenExpiresAt);
+  a3 = f4, a3 || (a3 = T6(c4.refreshTokenChecksAt)[1]);
+  let h3 = c4.refreshToken;
+  if (g5[h3])
+    return new Promise((u3, l2) => {
+      g5[h3].push((k4, R5) => {
+        k4 ? l2(k4) : u3(R5);
+      });
+    });
+  g5[h3] = [];
+  try {
+    let u3 = await H7(h3, t4.onFetch), l2 = { state: { ...n3, ...c4, ...u3 }, shouldUpdateRefreshToken: a3 };
+    return g5[h3].forEach((k4) => {
+      k4(null, l2);
+    }), delete g5[h3], l2;
+  } catch (u3) {
+    throw g5[h3].forEach((l2) => {
+      l2(u3);
+    }), delete g5[h3], u3;
+  }
+}
+async function m3(e3, t4) {
+  if (!e3)
+    throw new Error("auth key is required");
+  let { refreshTokenEndpoint: n3, onFetch: o3 } = t4;
+  if (w4[e3])
+    return new Promise((r, s5) => {
+      w4[e3].push((i2, a3) => {
+        i2 ? s5(i2) : r(a3);
+      });
+    });
+  try {
+    w4[e3] = [];
+    let r = new URLSearchParams({ grant_type: "auth_key", auth_key: e3 }), s5 = new URL("/refresh_token?" + r.toString(), n3), i2 = await o3(s5.toString()), a3 = (/* @__PURE__ */ new Date()).getTime(), c4 = a3 + i2.refresh_token_expires_in * 1e3, p5 = a3 + i2.refresh_token_checks_in * 1e3, f4 = { refreshToken: i2.refresh_token, refreshTokenExpiresAt: new Date(c4).toISOString(), refreshTokenChecksAt: new Date(p5).toISOString() };
+    return w4[e3].forEach((h3) => {
+      h3(null, f4);
+    }), delete w4[e3], f4;
+  } catch (r) {
+    throw w4[e3].forEach((s5) => {
+      s5(r);
+    }), delete w4[e3], r;
+  }
+}
+async function H7(e3, t4) {
+  if (!e3)
+    throw new Error("refreshToken is required");
+  let n3 = b4(), o3 = F7();
+  if (!n3 && !o3) {
+    await O4(400);
+    let a3 = /* @__PURE__ */ new Date();
+    return { accessToken: "test", accessTokenExpiresAt: new Date(a3.getTime() + 1e3 * 5).toISOString() };
+  }
+  let r = "https://w.deepl.com/oidc/token", s5 = await t4(r, { headers: C5({ url: r, contentType: "application/x-www-form-urlencoded" }), body: `grant_type=refresh_token&refresh_token=${e3}`, method: "POST" }), i2 = G7(s5.access_token);
+  if (s5.expires_in) {
+    let a3 = /* @__PURE__ */ new Date(), c4 = new Date(a3.getTime() + s5.expires_in * 1e3);
+    i2.accessTokenExpiresAt = c4.toISOString();
+  }
+  return i2;
+}
+async function A4(e3, t4, n3) {
+  if (!t4)
+    throw new Error("body is required");
+  let o3 = new URLSearchParams(t4), r = o3.getAll("text");
+  if (r.length < 1)
+    throw new Error("No text to translate");
+  if (W6(r) > 5e3)
+    throw new Error("text too long, the max length is 5000 characters.");
+  let s5 = o3.get("target_lang");
+  if (!s5)
+    throw new Error("No target language");
+  let i2 = o3.get("source_lang"), a3 = { ...q6({ texts: r, authorization: e3, target_lang: s5, source_lang: i2 }), responseType: "raw" }, c4 = b4(), p5 = F7();
+  if (!c4 && !p5)
+    return await O4(50), { translations: r.map((l2) => ({ text: "mock: " + l2, detected_source_language: "EN" })) };
+  let f4 = await n3(a3.url, a3), h3 = JSON.parse(f4.body), u3 = [];
+  if (h3.result && h3.result.texts)
+    u3 = h3.result.texts.map((l2) => ({ text: l2.text, detected_source_language: h3.result.lang }));
+  else
+    throw new Error("No response from deepl api");
+  return { translations: u3 };
+}
+function W6(e3) {
+  let t4 = 0;
+  for (let n3 of e3)
+    t4 += n3.length;
+  return t4;
+}
+async function X8(e3) {
   e3.body;
   let { url: t4, responseType: n3, ...o3 } = e3;
   n3 || (n3 = "json"), o3 = { redirect: "follow", ...o3 };
-  let r = await X8(t4, o3);
+  let r = await Z5(t4, o3);
   if (r.ok && r.status >= 200 && r.status < 400)
     if (n3 === "json") {
-      let a3 = await r.json();
-      return _2.debug("response", JSON.stringify(a3, null, 2)), a3;
+      let s5 = await r.json();
+      return E3.debug("response", JSON.stringify(s5, null, 2)), s5;
     } else {
       if (n3 === "text")
         return await r.text();
       if (n3 === "raw") {
-        let a3 = await r.text(), i2 = Object.fromEntries([...r.headers.entries()]), s5 = r.url;
-        return { body: a3, headers: i2, status: r.status, statusText: r.statusText, url: s5 };
+        let s5 = await r.text(), i2 = Object.fromEntries([...r.headers.entries()]), a3 = r.url;
+        return { body: s5, headers: i2, status: r.status, statusText: r.statusText, url: a3 };
       }
     }
   else {
-    let a3;
+    let s5;
     try {
-      a3 = await r.text();
+      s5 = await r.text();
     } catch (i2) {
-      _2.error("parse response failed", i2);
+      E3.error("parse response failed", i2);
     }
-    throw new Error(r.status + ": " + r.statusText || " " + a3 || "");
+    throw new Error(r.status + ": " + r.statusText || " " + s5 || "");
   }
 }
-async function X8(e3, t4) {
+async function Z5(e3, t4) {
   let n3 = 15e3;
   t4 && t4.timeout && (n3 = t4.timeout);
-  let o3 = new AbortController(), r = setTimeout(() => o3.abort(), n3), a3 = await fetch(e3, { ...t4, signal: o3.signal });
-  return clearTimeout(r), a3;
+  let o3 = new AbortController(), r = setTimeout(() => o3.abort(), n3), s5 = await fetch(e3, { ...t4, signal: o3.signal });
+  return clearTimeout(r), s5;
 }
-var Z5 = class {
+var Q6 = class {
   constructor(e3, t4) {
-    this.state = {}, this.isStateChanged = !1, this.onFetch = (n3, o3) => W6({ url: n3, ...o3 }), this.refreshTokenEndpoint = "https://api.immersivetranslate.com", this.authKey = e3, t4 = t4 || {}, t4.state && (this.state = t4.state), t4.onFetch && (this.onFetch = t4.onFetch), t4.refreshTokenEndpoint && (this.refreshTokenEndpoint = t4.refreshTokenEndpoint);
+    this.state = {}, this.isStateChanged = !1, this.onFetch = (n3, o3) => X8({ url: n3, ...o3 }), this.refreshTokenEndpoint = "https://api.immersivetranslate.com", this.authKey = e3, t4 = t4 || {}, t4.state && (this.state = t4.state), t4.onFetch && (this.onFetch = t4.onFetch), t4.refreshTokenEndpoint && (this.refreshTokenEndpoint = t4.refreshTokenEndpoint), t4.onStateChange && (this.onStateChange = t4.onStateChange);
   }
   getState() {
     return this.state;
@@ -8482,36 +8563,51 @@ var Z5 = class {
     return this.isStateChanged = !1, e3;
   }
   setState(e3) {
-    this.state = e3, this.isStateChanged = !0;
+    this.state = e3, this.isStateChanged = !0, this.onStateChange && this.onStateChange(e3);
   }
   async translateText(e3, t4, n3) {
     await this.updateToken();
     let o3 = new URLSearchParams();
-    (Array.isArray(e3) ? e3 : [e3]).forEach((a3, i2) => {
-      o3.append("text", a3);
+    (Array.isArray(e3) ? e3 : [e3]).forEach((s5, i2) => {
+      o3.append("text", s5);
     }), t4 && o3.append("source_lang", t4), n3 && o3.append("target_lang", n3);
-    let r = await S7(this.state.accessToken, o3.toString(), this.onFetch);
+    let r = await A4(this.state.accessToken, o3.toString(), this.onFetch);
     if (r && r.translations && r.translations.length > 0)
-      return Array.isArray(e3) ? r.translations.map((a3) => ({ text: a3.text, detectedSourceLanguage: a3.detected_source_language })) : { text: r.translations[0].text, detectedSourceLanguage: r.translations[0].detected_source_language };
+      return Array.isArray(e3) ? r.translations.map((s5) => ({ text: s5.text, detectedSourceLanguage: s5.detected_source_language })) : { text: r.translations[0].text, detectedSourceLanguage: r.translations[0].detected_source_language };
     throw new Error("No translation result");
   }
   async translateApi(e3) {
-    return await this.updateToken(), await S7(this.state.accessToken, e3, this.onFetch);
+    return await this.updateToken(), await A4(this.state.accessToken, e3, this.onFetch);
+  }
+  async forceUpdateRefreshToken() {
+    await m3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((e3) => {
+      this.setState({ ...this.state, ...e3 });
+    });
+  }
+  onFetchTokenError(e3) {
+    throw E3.error("onFetchTokenError", e3), e3 && e3.message && e3.message.indexOf("401") > -1 && this.setState({}), e3;
   }
   async updateToken() {
     let { accessTokenExpiresAt: e3 } = this.state, [t4, n3] = T6(e3);
     if (t4)
-      n3 && y3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then(({ state: o3, shouldUpdateRefreshToken: r }) => {
-        this.setState({ ...this.state, ...o3 }), r && k4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((a3) => {
-          this.setState({ ...this.state, ...a3 });
+      n3 && _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then(({ state: o3, shouldUpdateRefreshToken: r }) => {
+        this.setState({ ...this.state, ...o3 }), r && m3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s5) => {
+          this.setState({ ...this.state, ...s5 });
         });
+      }).catch((o3) => {
+        this.onFetchTokenError(o3);
       });
-    else {
-      let { state: o3, shouldUpdateRefreshToken: r } = await y3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint });
-      this.setState(o3), r && k4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((a3) => {
-        this.setState({ ...this.state, ...a3 });
-      });
-    }
+    else
+      try {
+        let { state: o3, shouldUpdateRefreshToken: r } = await _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint });
+        this.setState(o3), r && m3(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s5) => {
+          this.setState({ ...this.state, ...s5 });
+        }).catch((s5) => {
+          console.warn("fetch refresh token error", s5);
+        });
+      } catch (o3) {
+        this.onFetchTokenError(o3);
+      }
   }
 };
 
@@ -8525,12 +8621,12 @@ var Timing = class {
     this.#t = performance.now();
   }
   stop(message) {
-    let now = performance.now(), d4 = Math.round(now - this.#t), cf = colors_exports.green;
-    d4 > 1e4 ? cf = colors_exports.red : d4 > 1e3 && (cf = colors_exports.yellow), console.debug(
+    let now = performance.now(), d5 = Math.round(now - this.#t), cf = colors_exports.green;
+    d5 > 1e4 ? cf = colors_exports.red : d5 > 1e3 && (cf = colors_exports.yellow), console.debug(
       colors_exports.dim(brandName + " TIMING:"),
       message,
       "in",
-      cf(d4 + "ms")
+      cf(d5 + "ms")
     ), this.#t = now;
   }
 }, Logger = class {
@@ -9396,7 +9492,8 @@ var buildin_config_default = {
       ".headline",
       ".page-content",
       "aside.note",
-      "aside.article-comments"
+      "aside.article-comments",
+      "aside.onebox"
     ],
     atomicBlockTags: [],
     excludeSelectors: [],
@@ -9443,7 +9540,7 @@ var buildin_config_default = {
       "FOOTER",
       "MATH"
     ],
-    bodyTranslateTags: ["FOOTER", "ADIDE", "BUTTON", "NAV"],
+    bodyTranslateTags: ["FOOTER", "ASIDE", "BUTTON", "NAV"],
     forceTranslateTags: [],
     metaTags: ["META", "SCRIPT", "STYLE", "NOSCRIPT"],
     additionalExcludeTags: [],
@@ -9700,6 +9797,9 @@ var buildin_config_default = {
         "https://www.reddit.com/new/",
         "https://www.reddit.com/top/"
       ],
+      excludeMatches: [
+        "https://www.reddit.com/r/*/wiki/*"
+      ],
       selectors: [
         "h1",
         ".PostHeader__post-title-line",
@@ -9733,6 +9833,9 @@ var buildin_config_default = {
         ".post-content",
         ".Comment__body",
         "faceplate-batch .md"
+      ],
+      excludeMatches: [
+        "https://www.reddit.com/r/*/wiki/*"
       ],
       detectParagraphLanguage: !0,
       globalStyles: {
@@ -10663,7 +10766,6 @@ var buildin_config_default = {
       matches: "https://www.nature.com/articles/*",
       excludeSelectors: [
         ".c-header",
-        ".u-container",
         ".c-recommendations-header",
         ".c-recommendations-list-container",
         ".c-article-references__links",
@@ -10704,6 +10806,10 @@ var buildin_config_default = {
     {
       matches: "www.theverge.com",
       shadowRootSelectors: ["div#coral_thread > div"]
+    },
+    {
+      matches: "https://beta.simp.red/trans*",
+      mainFrameSelector: ".simpread-read-root"
     }
   ]
 };
@@ -11057,24 +11163,24 @@ function bitRotateLeft(num, cnt) {
 function md5cmn(q7, a3, b5, x6, s5, t4) {
   return safeAdd(bitRotateLeft(safeAdd(safeAdd(a3, q7), safeAdd(x6, t4)), s5), b5);
 }
-function md5ff(a3, b5, c4, d4, x6, s5, t4) {
-  return md5cmn(b5 & c4 | ~b5 & d4, a3, b5, x6, s5, t4);
+function md5ff(a3, b5, c4, d5, x6, s5, t4) {
+  return md5cmn(b5 & c4 | ~b5 & d5, a3, b5, x6, s5, t4);
 }
-function md5gg(a3, b5, c4, d4, x6, s5, t4) {
-  return md5cmn(b5 & d4 | c4 & ~d4, a3, b5, x6, s5, t4);
+function md5gg(a3, b5, c4, d5, x6, s5, t4) {
+  return md5cmn(b5 & d5 | c4 & ~d5, a3, b5, x6, s5, t4);
 }
-function md5hh(a3, b5, c4, d4, x6, s5, t4) {
-  return md5cmn(b5 ^ c4 ^ d4, a3, b5, x6, s5, t4);
+function md5hh(a3, b5, c4, d5, x6, s5, t4) {
+  return md5cmn(b5 ^ c4 ^ d5, a3, b5, x6, s5, t4);
 }
-function md5ii(a3, b5, c4, d4, x6, s5, t4) {
-  return md5cmn(c4 ^ (b5 | ~d4), a3, b5, x6, s5, t4);
+function md5ii(a3, b5, c4, d5, x6, s5, t4) {
+  return md5cmn(c4 ^ (b5 | ~d5), a3, b5, x6, s5, t4);
 }
 function binlMD5(x6, len) {
   x6[len >> 5] |= 128 << len % 32, x6[(len + 64 >>> 9 << 4) + 14] = len;
-  var i2, olda, oldb, oldc, oldd, a3 = 1732584193, b5 = -271733879, c4 = -1732584194, d4 = 271733878;
+  var i2, olda, oldb, oldc, oldd, a3 = 1732584193, b5 = -271733879, c4 = -1732584194, d5 = 271733878;
   for (i2 = 0; i2 < x6.length; i2 += 16)
-    olda = a3, oldb = b5, oldc = c4, oldd = d4, a3 = md5ff(a3, b5, c4, d4, x6[i2], 7, -680876936), d4 = md5ff(d4, a3, b5, c4, x6[i2 + 1], 12, -389564586), c4 = md5ff(c4, d4, a3, b5, x6[i2 + 2], 17, 606105819), b5 = md5ff(b5, c4, d4, a3, x6[i2 + 3], 22, -1044525330), a3 = md5ff(a3, b5, c4, d4, x6[i2 + 4], 7, -176418897), d4 = md5ff(d4, a3, b5, c4, x6[i2 + 5], 12, 1200080426), c4 = md5ff(c4, d4, a3, b5, x6[i2 + 6], 17, -1473231341), b5 = md5ff(b5, c4, d4, a3, x6[i2 + 7], 22, -45705983), a3 = md5ff(a3, b5, c4, d4, x6[i2 + 8], 7, 1770035416), d4 = md5ff(d4, a3, b5, c4, x6[i2 + 9], 12, -1958414417), c4 = md5ff(c4, d4, a3, b5, x6[i2 + 10], 17, -42063), b5 = md5ff(b5, c4, d4, a3, x6[i2 + 11], 22, -1990404162), a3 = md5ff(a3, b5, c4, d4, x6[i2 + 12], 7, 1804603682), d4 = md5ff(d4, a3, b5, c4, x6[i2 + 13], 12, -40341101), c4 = md5ff(c4, d4, a3, b5, x6[i2 + 14], 17, -1502002290), b5 = md5ff(b5, c4, d4, a3, x6[i2 + 15], 22, 1236535329), a3 = md5gg(a3, b5, c4, d4, x6[i2 + 1], 5, -165796510), d4 = md5gg(d4, a3, b5, c4, x6[i2 + 6], 9, -1069501632), c4 = md5gg(c4, d4, a3, b5, x6[i2 + 11], 14, 643717713), b5 = md5gg(b5, c4, d4, a3, x6[i2], 20, -373897302), a3 = md5gg(a3, b5, c4, d4, x6[i2 + 5], 5, -701558691), d4 = md5gg(d4, a3, b5, c4, x6[i2 + 10], 9, 38016083), c4 = md5gg(c4, d4, a3, b5, x6[i2 + 15], 14, -660478335), b5 = md5gg(b5, c4, d4, a3, x6[i2 + 4], 20, -405537848), a3 = md5gg(a3, b5, c4, d4, x6[i2 + 9], 5, 568446438), d4 = md5gg(d4, a3, b5, c4, x6[i2 + 14], 9, -1019803690), c4 = md5gg(c4, d4, a3, b5, x6[i2 + 3], 14, -187363961), b5 = md5gg(b5, c4, d4, a3, x6[i2 + 8], 20, 1163531501), a3 = md5gg(a3, b5, c4, d4, x6[i2 + 13], 5, -1444681467), d4 = md5gg(d4, a3, b5, c4, x6[i2 + 2], 9, -51403784), c4 = md5gg(c4, d4, a3, b5, x6[i2 + 7], 14, 1735328473), b5 = md5gg(b5, c4, d4, a3, x6[i2 + 12], 20, -1926607734), a3 = md5hh(a3, b5, c4, d4, x6[i2 + 5], 4, -378558), d4 = md5hh(d4, a3, b5, c4, x6[i2 + 8], 11, -2022574463), c4 = md5hh(c4, d4, a3, b5, x6[i2 + 11], 16, 1839030562), b5 = md5hh(b5, c4, d4, a3, x6[i2 + 14], 23, -35309556), a3 = md5hh(a3, b5, c4, d4, x6[i2 + 1], 4, -1530992060), d4 = md5hh(d4, a3, b5, c4, x6[i2 + 4], 11, 1272893353), c4 = md5hh(c4, d4, a3, b5, x6[i2 + 7], 16, -155497632), b5 = md5hh(b5, c4, d4, a3, x6[i2 + 10], 23, -1094730640), a3 = md5hh(a3, b5, c4, d4, x6[i2 + 13], 4, 681279174), d4 = md5hh(d4, a3, b5, c4, x6[i2], 11, -358537222), c4 = md5hh(c4, d4, a3, b5, x6[i2 + 3], 16, -722521979), b5 = md5hh(b5, c4, d4, a3, x6[i2 + 6], 23, 76029189), a3 = md5hh(a3, b5, c4, d4, x6[i2 + 9], 4, -640364487), d4 = md5hh(d4, a3, b5, c4, x6[i2 + 12], 11, -421815835), c4 = md5hh(c4, d4, a3, b5, x6[i2 + 15], 16, 530742520), b5 = md5hh(b5, c4, d4, a3, x6[i2 + 2], 23, -995338651), a3 = md5ii(a3, b5, c4, d4, x6[i2], 6, -198630844), d4 = md5ii(d4, a3, b5, c4, x6[i2 + 7], 10, 1126891415), c4 = md5ii(c4, d4, a3, b5, x6[i2 + 14], 15, -1416354905), b5 = md5ii(b5, c4, d4, a3, x6[i2 + 5], 21, -57434055), a3 = md5ii(a3, b5, c4, d4, x6[i2 + 12], 6, 1700485571), d4 = md5ii(d4, a3, b5, c4, x6[i2 + 3], 10, -1894986606), c4 = md5ii(c4, d4, a3, b5, x6[i2 + 10], 15, -1051523), b5 = md5ii(b5, c4, d4, a3, x6[i2 + 1], 21, -2054922799), a3 = md5ii(a3, b5, c4, d4, x6[i2 + 8], 6, 1873313359), d4 = md5ii(d4, a3, b5, c4, x6[i2 + 15], 10, -30611744), c4 = md5ii(c4, d4, a3, b5, x6[i2 + 6], 15, -1560198380), b5 = md5ii(b5, c4, d4, a3, x6[i2 + 13], 21, 1309151649), a3 = md5ii(a3, b5, c4, d4, x6[i2 + 4], 6, -145523070), d4 = md5ii(d4, a3, b5, c4, x6[i2 + 11], 10, -1120210379), c4 = md5ii(c4, d4, a3, b5, x6[i2 + 2], 15, 718787259), b5 = md5ii(b5, c4, d4, a3, x6[i2 + 9], 21, -343485551), a3 = safeAdd(a3, olda), b5 = safeAdd(b5, oldb), c4 = safeAdd(c4, oldc), d4 = safeAdd(d4, oldd);
-  return [a3, b5, c4, d4];
+    olda = a3, oldb = b5, oldc = c4, oldd = d5, a3 = md5ff(a3, b5, c4, d5, x6[i2], 7, -680876936), d5 = md5ff(d5, a3, b5, c4, x6[i2 + 1], 12, -389564586), c4 = md5ff(c4, d5, a3, b5, x6[i2 + 2], 17, 606105819), b5 = md5ff(b5, c4, d5, a3, x6[i2 + 3], 22, -1044525330), a3 = md5ff(a3, b5, c4, d5, x6[i2 + 4], 7, -176418897), d5 = md5ff(d5, a3, b5, c4, x6[i2 + 5], 12, 1200080426), c4 = md5ff(c4, d5, a3, b5, x6[i2 + 6], 17, -1473231341), b5 = md5ff(b5, c4, d5, a3, x6[i2 + 7], 22, -45705983), a3 = md5ff(a3, b5, c4, d5, x6[i2 + 8], 7, 1770035416), d5 = md5ff(d5, a3, b5, c4, x6[i2 + 9], 12, -1958414417), c4 = md5ff(c4, d5, a3, b5, x6[i2 + 10], 17, -42063), b5 = md5ff(b5, c4, d5, a3, x6[i2 + 11], 22, -1990404162), a3 = md5ff(a3, b5, c4, d5, x6[i2 + 12], 7, 1804603682), d5 = md5ff(d5, a3, b5, c4, x6[i2 + 13], 12, -40341101), c4 = md5ff(c4, d5, a3, b5, x6[i2 + 14], 17, -1502002290), b5 = md5ff(b5, c4, d5, a3, x6[i2 + 15], 22, 1236535329), a3 = md5gg(a3, b5, c4, d5, x6[i2 + 1], 5, -165796510), d5 = md5gg(d5, a3, b5, c4, x6[i2 + 6], 9, -1069501632), c4 = md5gg(c4, d5, a3, b5, x6[i2 + 11], 14, 643717713), b5 = md5gg(b5, c4, d5, a3, x6[i2], 20, -373897302), a3 = md5gg(a3, b5, c4, d5, x6[i2 + 5], 5, -701558691), d5 = md5gg(d5, a3, b5, c4, x6[i2 + 10], 9, 38016083), c4 = md5gg(c4, d5, a3, b5, x6[i2 + 15], 14, -660478335), b5 = md5gg(b5, c4, d5, a3, x6[i2 + 4], 20, -405537848), a3 = md5gg(a3, b5, c4, d5, x6[i2 + 9], 5, 568446438), d5 = md5gg(d5, a3, b5, c4, x6[i2 + 14], 9, -1019803690), c4 = md5gg(c4, d5, a3, b5, x6[i2 + 3], 14, -187363961), b5 = md5gg(b5, c4, d5, a3, x6[i2 + 8], 20, 1163531501), a3 = md5gg(a3, b5, c4, d5, x6[i2 + 13], 5, -1444681467), d5 = md5gg(d5, a3, b5, c4, x6[i2 + 2], 9, -51403784), c4 = md5gg(c4, d5, a3, b5, x6[i2 + 7], 14, 1735328473), b5 = md5gg(b5, c4, d5, a3, x6[i2 + 12], 20, -1926607734), a3 = md5hh(a3, b5, c4, d5, x6[i2 + 5], 4, -378558), d5 = md5hh(d5, a3, b5, c4, x6[i2 + 8], 11, -2022574463), c4 = md5hh(c4, d5, a3, b5, x6[i2 + 11], 16, 1839030562), b5 = md5hh(b5, c4, d5, a3, x6[i2 + 14], 23, -35309556), a3 = md5hh(a3, b5, c4, d5, x6[i2 + 1], 4, -1530992060), d5 = md5hh(d5, a3, b5, c4, x6[i2 + 4], 11, 1272893353), c4 = md5hh(c4, d5, a3, b5, x6[i2 + 7], 16, -155497632), b5 = md5hh(b5, c4, d5, a3, x6[i2 + 10], 23, -1094730640), a3 = md5hh(a3, b5, c4, d5, x6[i2 + 13], 4, 681279174), d5 = md5hh(d5, a3, b5, c4, x6[i2], 11, -358537222), c4 = md5hh(c4, d5, a3, b5, x6[i2 + 3], 16, -722521979), b5 = md5hh(b5, c4, d5, a3, x6[i2 + 6], 23, 76029189), a3 = md5hh(a3, b5, c4, d5, x6[i2 + 9], 4, -640364487), d5 = md5hh(d5, a3, b5, c4, x6[i2 + 12], 11, -421815835), c4 = md5hh(c4, d5, a3, b5, x6[i2 + 15], 16, 530742520), b5 = md5hh(b5, c4, d5, a3, x6[i2 + 2], 23, -995338651), a3 = md5ii(a3, b5, c4, d5, x6[i2], 6, -198630844), d5 = md5ii(d5, a3, b5, c4, x6[i2 + 7], 10, 1126891415), c4 = md5ii(c4, d5, a3, b5, x6[i2 + 14], 15, -1416354905), b5 = md5ii(b5, c4, d5, a3, x6[i2 + 5], 21, -57434055), a3 = md5ii(a3, b5, c4, d5, x6[i2 + 12], 6, 1700485571), d5 = md5ii(d5, a3, b5, c4, x6[i2 + 3], 10, -1894986606), c4 = md5ii(c4, d5, a3, b5, x6[i2 + 10], 15, -1051523), b5 = md5ii(b5, c4, d5, a3, x6[i2 + 1], 21, -2054922799), a3 = md5ii(a3, b5, c4, d5, x6[i2 + 8], 6, 1873313359), d5 = md5ii(d5, a3, b5, c4, x6[i2 + 15], 10, -30611744), c4 = md5ii(c4, d5, a3, b5, x6[i2 + 6], 15, -1560198380), b5 = md5ii(b5, c4, d5, a3, x6[i2 + 13], 21, 1309151649), a3 = md5ii(a3, b5, c4, d5, x6[i2 + 4], 6, -145523070), d5 = md5ii(d5, a3, b5, c4, x6[i2 + 11], 10, -1120210379), c4 = md5ii(c4, d5, a3, b5, x6[i2 + 2], 15, 718787259), b5 = md5ii(b5, c4, d5, a3, x6[i2 + 9], 21, -343485551), a3 = safeAdd(a3, olda), b5 = safeAdd(b5, oldb), c4 = safeAdd(c4, oldc), d5 = safeAdd(d5, oldd);
+  return [a3, b5, c4, d5];
 }
 function binl2rstr(input) {
   var i2, output = "", length32 = input.length * 32;
@@ -11115,11 +11221,11 @@ function rawMD5(s5) {
 function hexMD5(s5) {
   return rstr2hex(rawMD5(s5));
 }
-function rawHMACMD5(k5, d4) {
-  return rstrHMACMD5(str2rstrUTF8(k5), str2rstrUTF8(d4));
+function rawHMACMD5(k4, d5) {
+  return rstrHMACMD5(str2rstrUTF8(k4), str2rstrUTF8(d5));
 }
-function hexHMACMD5(k5, d4) {
-  return rstr2hex(rawHMACMD5(k5, d4));
+function hexHMACMD5(k4, d5) {
+  return rstr2hex(rawHMACMD5(k4, d5));
 }
 function md5(string, key, raw) {
   return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
@@ -11167,8 +11273,8 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
       } else if (currentText.length > maxLength) {
         let tempSplitedSentences = [];
         splitSentence(currentText, maxLength, tempSplitedSentences);
-        for (let k5 = 0; k5 < tempSplitedSentences.length; k5++) {
-          let tempSentence = tempSplitedSentences[k5], { text: text2, prefix, suffix } = tempSentence;
+        for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
+          let tempSentence = tempSplitedSentences[k4], { text: text2, prefix, suffix } = tempSentence;
           sentenceTotalParts++, currentTempSentences.push({
             from,
             to,
@@ -12995,10 +13101,13 @@ var defaultLimiter = new RateLimiter({ limit: 7, interval: 1250 }), limiterMap =
   strict: new RateLimiter({ limit: 1, interval: 1050 }),
   d: new RateLimiter({ limit: 1, interval: 1050 }),
   youdao: new RateLimiter({ limit: 5, interval: 1050 }),
+  you: new RateLimiter({ limit: 5, interval: 1050 }),
+  cai: new RateLimiter({ limit: 5, interval: 1050 }),
   google: new RateLimiter({ limit: 10, interval: 1050 }),
   deepl: new RateLimiter({ limit: 10, interval: 1050 }),
   transmart: new RateLimiter({ limit: 30, interval: 1050 }),
-  papago: new RateLimiter({ limit: 3, interval: 1150 })
+  papago: new RateLimiter({ limit: 3, interval: 1150 }),
+  openai: new RateLimiter({ limit: 3, interval: 1150 })
 };
 function getLimiter(key) {
   return limiterMap[key] || defaultLimiter;
@@ -13139,17 +13248,20 @@ var Translation = class {
         throttled().then((result) => {
           let { text: translatedTexts, sourceTempSentences } = result;
           for (let j6 = 0; j6 < translatedTexts.length; j6++) {
-            let translatedText = translatedTexts[j6], tempSentence = sourceTempSentences[j6], { index, prefix, suffix } = tempSentence;
-            addToSentenceCallback(index, {
-              sentence: {
-                ...sentences[index],
-                from: tempSentenceGroup.from,
-                to: tempSentenceGroup.to
-              },
-              sentenceTotalParts: tempSentence.sentenceTotalParts,
-              translatedTexts: [prefix + translatedText + suffix],
-              callback: everySentenceCallback
-            });
+            let translatedText = translatedTexts[j6], tempSentence = sourceTempSentences[j6];
+            if (tempSentence) {
+              let { index, prefix, suffix } = tempSentence;
+              addToSentenceCallback(index, {
+                sentence: {
+                  ...sentences[index],
+                  from: tempSentenceGroup.from,
+                  to: tempSentenceGroup.to
+                },
+                sentenceTotalParts: tempSentence.sentenceTotalParts,
+                translatedTexts: [prefix + translatedText + suffix],
+                callback: everySentenceCallback
+              });
+            }
           }
         }).catch((e3) => {
           if (log_default.warn("translate sentence error", sentences[i2], e3), everySentenceCallback) {
@@ -13331,12 +13443,12 @@ Sha256.prototype.finalize = function() {
   }
 };
 Sha256.prototype.hash = function() {
-  var a3 = this.h0, b5 = this.h1, c4 = this.h2, d4 = this.h3, e3 = this.h4, f5 = this.h5, g6 = this.h6, h3 = this.h7, blocks2 = this.blocks, j6, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+  var a3 = this.h0, b5 = this.h1, c4 = this.h2, d5 = this.h3, e3 = this.h4, f4 = this.h5, g6 = this.h6, h3 = this.h7, blocks2 = this.blocks, j6, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
   for (j6 = 16; j6 < 64; ++j6)
     t1 = blocks2[j6 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j6 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j6] = blocks2[j6 - 16] + s0 + blocks2[j6 - 7] + s1 << 0;
   for (bc = b5 & c4, j6 = 0; j6 < 64; j6 += 4)
-    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d4 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d4 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a3 >>> 2 | a3 << 30) ^ (a3 >>> 13 | a3 << 19) ^ (a3 >>> 22 | a3 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a3 & b5, maj = ab ^ a3 & c4 ^ bc, ch = e3 & f5 ^ ~e3 & g6, t1 = h3 + s1 + ch + K6[j6] + blocks2[j6], t22 = s0 + maj, h3 = d4 + t1 << 0, d4 = t1 + t22 << 0), s0 = (d4 >>> 2 | d4 << 30) ^ (d4 >>> 13 | d4 << 19) ^ (d4 >>> 22 | d4 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d4 & a3, maj = da ^ d4 & b5 ^ ab, ch = h3 & e3 ^ ~h3 & f5, t1 = g6 + s1 + ch + K6[j6 + 1] + blocks2[j6 + 1], t22 = s0 + maj, g6 = c4 + t1 << 0, c4 = t1 + t22 << 0, s0 = (c4 >>> 2 | c4 << 30) ^ (c4 >>> 13 | c4 << 19) ^ (c4 >>> 22 | c4 << 10), s1 = (g6 >>> 6 | g6 << 26) ^ (g6 >>> 11 | g6 << 21) ^ (g6 >>> 25 | g6 << 7), cd = c4 & d4, maj = cd ^ c4 & a3 ^ da, ch = g6 & h3 ^ ~g6 & e3, t1 = f5 + s1 + ch + K6[j6 + 2] + blocks2[j6 + 2], t22 = s0 + maj, f5 = b5 + t1 << 0, b5 = t1 + t22 << 0, s0 = (b5 >>> 2 | b5 << 30) ^ (b5 >>> 13 | b5 << 19) ^ (b5 >>> 22 | b5 << 10), s1 = (f5 >>> 6 | f5 << 26) ^ (f5 >>> 11 | f5 << 21) ^ (f5 >>> 25 | f5 << 7), bc = b5 & c4, maj = bc ^ b5 & d4 ^ cd, ch = f5 & g6 ^ ~f5 & h3, t1 = e3 + s1 + ch + K6[j6 + 3] + blocks2[j6 + 3], t22 = s0 + maj, e3 = a3 + t1 << 0, a3 = t1 + t22 << 0;
-  this.h0 = this.h0 + a3 << 0, this.h1 = this.h1 + b5 << 0, this.h2 = this.h2 + c4 << 0, this.h3 = this.h3 + d4 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f5 << 0, this.h6 = this.h6 + g6 << 0, this.h7 = this.h7 + h3 << 0;
+    this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d5 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d5 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a3 >>> 2 | a3 << 30) ^ (a3 >>> 13 | a3 << 19) ^ (a3 >>> 22 | a3 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a3 & b5, maj = ab ^ a3 & c4 ^ bc, ch = e3 & f4 ^ ~e3 & g6, t1 = h3 + s1 + ch + K6[j6] + blocks2[j6], t22 = s0 + maj, h3 = d5 + t1 << 0, d5 = t1 + t22 << 0), s0 = (d5 >>> 2 | d5 << 30) ^ (d5 >>> 13 | d5 << 19) ^ (d5 >>> 22 | d5 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d5 & a3, maj = da ^ d5 & b5 ^ ab, ch = h3 & e3 ^ ~h3 & f4, t1 = g6 + s1 + ch + K6[j6 + 1] + blocks2[j6 + 1], t22 = s0 + maj, g6 = c4 + t1 << 0, c4 = t1 + t22 << 0, s0 = (c4 >>> 2 | c4 << 30) ^ (c4 >>> 13 | c4 << 19) ^ (c4 >>> 22 | c4 << 10), s1 = (g6 >>> 6 | g6 << 26) ^ (g6 >>> 11 | g6 << 21) ^ (g6 >>> 25 | g6 << 7), cd = c4 & d5, maj = cd ^ c4 & a3 ^ da, ch = g6 & h3 ^ ~g6 & e3, t1 = f4 + s1 + ch + K6[j6 + 2] + blocks2[j6 + 2], t22 = s0 + maj, f4 = b5 + t1 << 0, b5 = t1 + t22 << 0, s0 = (b5 >>> 2 | b5 << 30) ^ (b5 >>> 13 | b5 << 19) ^ (b5 >>> 22 | b5 << 10), s1 = (f4 >>> 6 | f4 << 26) ^ (f4 >>> 11 | f4 << 21) ^ (f4 >>> 25 | f4 << 7), bc = b5 & c4, maj = bc ^ b5 & d5 ^ cd, ch = f4 & g6 ^ ~f4 & h3, t1 = e3 + s1 + ch + K6[j6 + 3] + blocks2[j6 + 3], t22 = s0 + maj, e3 = a3 + t1 << 0, a3 = t1 + t22 << 0;
+  this.h0 = this.h0 + a3 << 0, this.h1 = this.h1 + b5 << 0, this.h2 = this.h2 + c4 << 0, this.h3 = this.h3 + d5 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f4 << 0, this.h6 = this.h6 + g6 << 0, this.h7 = this.h7 + h3 << 0;
 };
 Sha256.prototype.hex = function() {
   this.finalize();
@@ -14231,6 +14343,11 @@ var globalState = null, rawLangMap2 = [
       serviceConfig.immersiveTranslateDeeplTokenUrl
     )), this.authKey = serviceConfig.authKey?.trim();
   }
+  static async clearState() {
+    globalState = null, await browserAPI.storage.local.remove(
+      immersiveTranslateGlobalConfigStorageKey
+    );
+  }
   async init() {
     if (!globalState) {
       globalState = {};
@@ -14240,7 +14357,7 @@ var globalState = null, rawLangMap2 = [
       globalStateValue && globalStateValue[immersiveTranslateGlobalConfigStorageKey] && (globalState = globalStateValue[immersiveTranslateGlobalConfigStorageKey]);
     }
     if (this.authKey.startsWith("immersive_")) {
-      let deeplInstance = new Z5(
+      let deeplInstance = new Q6(
         this.authKey,
         {
           state: globalState,
@@ -14254,12 +14371,17 @@ var globalState = null, rawLangMap2 = [
               ...options2
             });
           },
-          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl
+          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl,
+          onStateChange: (state) => {
+            globalState = state, browserAPI.storage.local.set({
+              [immersiveTranslateGlobalConfigStorageKey]: globalState
+            });
+          }
         }
       );
-      await deeplInstance.updateToken(), deeplInstance.getIsStateChanged() && (globalState = deeplInstance.getState(), await browserAPI.storage.local.set({
+      await deeplInstance.updateToken(), globalState = deeplInstance.getState(), deeplInstance.getIsStateChanged() && await browserAPI.storage.local.set({
         [immersiveTranslateGlobalConfigStorageKey]: globalState
-      }));
+      });
     }
   }
   getDefaultRateLimit() {
@@ -14277,7 +14399,7 @@ var globalState = null, rawLangMap2 = [
     this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
     let response;
     if (this.authKey.startsWith("immersive_")) {
-      let deeplInstance = new Z5(
+      let deeplInstance = new Q6(
         this.authKey,
         {
           state: globalState,
@@ -14291,7 +14413,12 @@ var globalState = null, rawLangMap2 = [
               ...options2
             });
           },
-          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl
+          refreshTokenEndpoint: this.immersiveTranslateDeeplTokenUrl,
+          onStateChange: (state) => {
+            globalState = state, browserAPI.storage.local.set({
+              [immersiveTranslateGlobalConfigStorageKey]: globalState
+            });
+          }
         }
       );
       response = await deeplInstance.translateApi(body), deeplInstance.getIsStateChanged() && (globalState = deeplInstance.getState(), await browserAPI.storage.local.set({
@@ -14581,6 +14708,171 @@ var rawLangMap5 = [
   }
 }, papago_default = Papago;
 
+// services/openai.ts
+var rawLangMap6 = [
+  ["auto", "auto"],
+  ["zh-CN", "zh-Hans"],
+  ["zh-TW", "zh-Hant"],
+  ["en", "en"],
+  ["yue", "\u7CA4\u8BED"],
+  ["wyw", "\u53E4\u6587"],
+  ["en", "en"],
+  ["ja", "ja"],
+  ["ko", "ko"],
+  ["fr", "fr"],
+  ["de", "de"],
+  ["es", "es"],
+  ["it", "it"],
+  ["ru", "ru"],
+  ["pt", "pt"],
+  ["nl", "nl"],
+  ["pl", "pl"],
+  ["ar", "ar"],
+  ["af", "af"],
+  ["am", "am"],
+  ["az", "az"],
+  ["be", "be"],
+  ["bg", "bg"],
+  ["bn", "bn"],
+  ["bs", "bs"],
+  ["ca", "ca"],
+  ["ceb", "ceb"],
+  ["co", "co"],
+  ["cs", "cs"],
+  ["cy", "cy"],
+  ["da", "da"],
+  ["el", "el"],
+  ["eo", "eo"],
+  ["et", "et"],
+  ["eu", "eu"],
+  ["fa", "fa"],
+  ["fi", "fi"],
+  ["fj", "fj"],
+  ["fy", "fy"],
+  ["ga", "ga"],
+  ["gd", "gd"],
+  ["gl", "gl"],
+  ["gu", "gu"],
+  ["ha", "ha"],
+  ["haw", "haw"],
+  ["he", "he"],
+  ["hi", "hi"],
+  ["hmn", "hmn"],
+  ["hr", "hr"],
+  ["ht", "ht"],
+  ["hu", "hu"],
+  ["hy", "hy"],
+  ["id", "id"],
+  ["ig", "ig"],
+  ["is", "is"],
+  ["jw", "jw"],
+  ["ka", "ka"],
+  ["kk", "kk"],
+  ["km", "km"],
+  ["kn", "kn"],
+  ["ku", "ku"],
+  ["ky", "ky"],
+  ["la", "lo"],
+  ["lb", "lb"],
+  ["lo", "lo"],
+  ["lt", "lt"],
+  ["lv", "lv"],
+  ["mg", "mg"],
+  ["mi", "mi"],
+  ["mk", "mk"],
+  ["ml", "ml"],
+  ["mn", "mn"],
+  ["mr", "mr"],
+  ["ms", "ms"],
+  ["mt", "mt"],
+  ["my", "my"],
+  ["ne", "ne"],
+  ["no", "no"],
+  ["ny", "ny"],
+  ["pa", "pa"],
+  ["ps", "ps"],
+  ["ro", "ro"],
+  ["si", "si"],
+  ["sk", "sk"],
+  ["sl", "sl"],
+  ["sm", "sm"],
+  ["sn", "sn"],
+  ["so", "so"],
+  ["sq", "sq"],
+  ["sr", "sr"],
+  ["sr-Cyrl", "sr"],
+  ["sr-Latn", "sr"],
+  ["st", "st"],
+  ["su", "su"],
+  ["sv", "sv"],
+  ["sw", "sw"],
+  ["ta", "ta"],
+  ["te", "te"],
+  ["tg", "tg"],
+  ["th", "th"],
+  ["tr", "tr"],
+  ["ug", "ug"],
+  ["uk", "uk"],
+  ["ur", "ur"],
+  ["uz", "uz"],
+  ["vi", "vi"],
+  ["xh", "xh"],
+  ["yi", "yi"],
+  ["yo", "yo"],
+  ["zu", "zu"]
+], langMap11 = new Map(rawLangMap6), OpenAI = class extends Translation {
+  constructor(serviceConfig, generalConfig, options2) {
+    super(serviceConfig, generalConfig, options2);
+    this.APIKEY = "";
+    this.isSupportList = !1;
+    this.maxTextLength = 1e3;
+    this.maxTextGroupLength = 2;
+    this.prompt = `translate to {{to}}:
+
+{{text}} =>`;
+    this.model = "text-davinci-003";
+    if (!serviceConfig || !serviceConfig.APIKEY)
+      throw new Error("APIKEY are required");
+    this.APIKEY = serviceConfig.APIKEY?.trim(), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
+  }
+  async translate(payload) {
+    let { text, from, to } = payload;
+    if (text.length === 0)
+      return {
+        from,
+        to,
+        text: ""
+      };
+    let prompt = this.prompt.replace(/{{to}}/g, langMap11.get(to) || to).replace(
+      /{{text}}/g,
+      text
+    ).replace(/{{from}}/g, langMap11.get(from) || from), options2 = {
+      url: "https://api.openai.com/v1/completions",
+      retry: 2,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + this.APIKEY
+      },
+      body: JSON.stringify({
+        model: this.model,
+        prompt,
+        temperature: 0,
+        max_tokens: 2048
+      })
+    }, response = await request2(options2);
+    if (response && response.choices && response.choices.length > 0 && response.choices[0].text) {
+      let text2 = response.choices[0].text.trim();
+      return {
+        from,
+        to,
+        text: text2
+      };
+    } else
+      throw new Error("server response invalid: " + JSON.stringify(response));
+  }
+}, openai_default = OpenAI;
+
 // services/volc/sign.ts
 var unsignableHeaders = [
   "authorization",
@@ -14748,7 +15040,7 @@ var unsignableHeaders = [
 };
 
 // services/volc/mod.ts
-var rawLangMap6 = [
+var rawLangMap7 = [
   ["af", "af"],
   ["am", "am"],
   ["ar", "ar"],
@@ -14853,8 +15145,8 @@ var rawLangMap6 = [
   ["zh-CN", "zh"],
   ["zh-TW", "zh-Hans"],
   ["zu", "zu"]
-], langMap11 = new Map(rawLangMap6), langMapReverse3 = new Map(
-  rawLangMap6.map(([translatorLang, lang]) => [lang, translatorLang])
+], langMap12 = new Map(rawLangMap7), langMapReverse3 = new Map(
+  rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
 ), Volc = class extends Translation {
   constructor(serviceConfig, generalConfig, options2) {
     super(serviceConfig, generalConfig, options2);
@@ -14907,8 +15199,8 @@ var rawLangMap6 = [
       throw new Error("response: " + JSON.stringify(response));
   }
   async translateList(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap11.get(from), bodyParams = {
-      TargetLanguage: langMap11.get(to) || to,
+    let { text, from, to } = payload, remoteFrom = langMap12.get(from), bodyParams = {
+      TargetLanguage: langMap12.get(to) || to,
       TextList: text
     };
     remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
@@ -14963,7 +15255,7 @@ var rawLangMap6 = [
 }, mod_default = Volc;
 
 // services/volc_alpha.ts
-var rawLangMap7 = [
+var rawLangMap8 = [
   ["auto", "detect"],
   ["af", "af"],
   ["am", "am"],
@@ -15069,8 +15361,8 @@ var rawLangMap7 = [
   ["zh-CN", "zh"],
   ["zh-TW", "zh-Hans"],
   ["zu", "zu"]
-], langMap12 = new Map(rawLangMap7), langMapReverse4 = new Map(
-  rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+], langMap13 = new Map(rawLangMap8), langMapReverse4 = new Map(
+  rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
 ), VolcAlpha = class extends Translation {
   constructor() {
     super(...arguments);
@@ -15078,7 +15370,7 @@ var rawLangMap7 = [
     this.isSupportList = !1;
   }
   async translate(payload) {
-    let { text, from, to } = payload, remoteFrom = langMap12.get(from) || "detect", remoteTo = langMap12.get(to) || to, response = await request2(
+    let { text, from, to } = payload, remoteFrom = langMap13.get(from) || "detect", remoteTo = langMap13.get(to) || to, response = await request2(
       {
         url: "https://translate.volcengine.com/crx/translate/v1/",
         method: "POST",
@@ -15107,7 +15399,7 @@ var rawLangMap7 = [
 };
 
 // services/deeplx.ts
-var rawLangMap8 = [
+var rawLangMap9 = [
   ["auto", "auto"],
   ["zh-CN", "ZH"],
   ["zh-TW", "ZH"],
@@ -15120,7 +15412,7 @@ var rawLangMap8 = [
   ["pt", "PT"],
   ["ru", "RU"],
   ["tr", "tr"]
-], langMap13 = new Map(rawLangMap8), Deeplx = class extends Translation {
+], langMap14 = new Map(rawLangMap9), Deeplx = class extends Translation {
   constructor(serviceConfig, generalConfig, options2) {
     super(serviceConfig, generalConfig, options2);
     this.url = "";
@@ -15142,8 +15434,8 @@ var rawLangMap8 = [
         },
         method: "POST",
         body: JSON.stringify({
-          source_lang: langMap13.get(from) || from,
-          target_lang: langMap13.get(to) || to,
+          source_lang: langMap14.get(from) || from,
+          target_lang: langMap14.get(to) || to,
           text
         })
       }
@@ -15159,7 +15451,7 @@ var rawLangMap8 = [
 };
 
 // services/bing/api.js
-var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap9 = [
+var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap10 = [
   ["auto", "auto-detect"],
   ["ar", "ar"],
   ["ga", "ga"],
@@ -15235,8 +15527,8 @@ var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_AP
   ["vi", "vi"],
   ["ku", "ku"],
   ["km", "kmr"]
-], langMap14 = new Map(rawLangMap9), langMapReverse5 = new Map(
-  rawLangMap9.map(([translatorLang, lang]) => [lang, translatorLang])
+], langMap15 = new Map(rawLangMap10), langMapReverse5 = new Map(
+  rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
 ), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
 function replaceSubdomain(url, subdomain) {
   return url.replace("{s}", subdomain ? subdomain + "." : "");
@@ -15313,7 +15605,7 @@ async function translate2(text, from, to) {
     throw new Error(
       `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
     );
-  globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap14.get(from) || from, to = langMap14.get(to) || to;
+  globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap15.get(from) || from, to = langMap15.get(to) || to;
   let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
     !1,
     text,
@@ -15369,7 +15661,7 @@ var Bing = class extends Translation {
 };
 
 // services/baidu.ts
-var rawLangMap10 = [
+var rawLangMap11 = [
   ["auto", "auto"],
   ["zh-CN", "zh"],
   ["en", "en"],
@@ -15399,8 +15691,8 @@ var rawLangMap10 = [
   ["hu", "hu"],
   ["zh-TW", "cht"],
   ["vi", "vie"]
-], langMap15 = new Map(rawLangMap10), langMapReverse6 = new Map(
-  rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
+], langMap16 = new Map(rawLangMap11), langMapReverse6 = new Map(
+  rawLangMap11.map(([translatorLang, lang]) => [lang, translatorLang])
 ), Baidu = class extends Translation {
   constructor(serviceConfig, generalConfig, options2) {
     super(serviceConfig, generalConfig, options2);
@@ -15415,8 +15707,8 @@ var rawLangMap10 = [
   }
   async translate(payload) {
     let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-      from: langMap15.get(from) || "auto",
-      to: langMap15.get(to) || to,
+      from: langMap16.get(from) || "auto",
+      to: langMap16.get(to) || to,
       q: text,
       salt,
       appid,
@@ -15449,57 +15741,18 @@ var rawLangMap10 = [
 }, baidu_default = Baidu;
 
 // services/caiyun.ts
-var rawLangMap11 = [
+var rawLangMap12 = [
   ["auto", "auto"],
   ["zh-CN", "zh"],
   ["en", "en"],
   ["ja", "ja"]
-], langMap16 = new Map(rawLangMap11), Caiyun = class extends Translation {
+], langMap17 = new Map(rawLangMap12), Caiyun = class extends Translation {
   constructor(serviceConfig, generalConfig, options2) {
     super(serviceConfig, generalConfig, options2);
     this.token = "";
     if (!serviceConfig || !serviceConfig.token)
       throw new Error("token are required");
     this.token = serviceConfig.token?.trim();
-  }
-  async translateList(payload) {
-    let { text, from, to } = payload;
-    if (!langMap16.get(to))
-      throw new Error(`Unsupported language: ${to}`);
-    from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
-    let source = text;
-    return {
-      text: (await request2(
-        {
-          retry: 2,
-          url: "https://api.interpreter.caiyunai.com/v1/translator",
-          headers: {
-            "content-type": "application/json",
-            "x-authorization": "token " + this.token
-          },
-          method: "POST",
-          body: JSON.stringify({
-            source,
-            trans_type: `${langMap16.get(from) || "auto"}2${langMap16.get(to)}`
-          })
-        }
-      )).target,
-      from,
-      to
-    };
-  }
-}, caiyun_default = Caiyun;
-
-// services/cai.ts
-var rawLangMap12 = [
-  ["auto", "auto"],
-  ["zh-CN", "zh"],
-  ["en", "en"],
-  ["ja", "ja"]
-], langMap17 = new Map(rawLangMap12), Cai = class extends Translation {
-  constructor(serviceConfig, generalConfig, options2) {
-    super(serviceConfig, generalConfig, options2);
-    this.token = "ssdj273ksdiwi923bsd9";
   }
   async translateList(payload) {
     let { text, from, to } = payload;
@@ -15527,10 +15780,49 @@ var rawLangMap12 = [
       to
     };
   }
+}, caiyun_default = Caiyun;
+
+// services/cai.ts
+var rawLangMap13 = [
+  ["auto", "auto"],
+  ["zh-CN", "zh"],
+  ["en", "en"],
+  ["ja", "ja"]
+], langMap18 = new Map(rawLangMap13), Cai = class extends Translation {
+  constructor(serviceConfig, generalConfig, options2) {
+    super(serviceConfig, generalConfig, options2);
+    this.token = "ssdj273ksdiwi923bsd9";
+  }
+  async translateList(payload) {
+    let { text, from, to } = payload;
+    if (!langMap18.get(to))
+      throw new Error(`Unsupported language: ${to}`);
+    from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
+    let source = text;
+    return {
+      text: (await request2(
+        {
+          retry: 2,
+          url: "https://api.interpreter.caiyunai.com/v1/translator",
+          headers: {
+            "content-type": "application/json",
+            "x-authorization": "token " + this.token
+          },
+          method: "POST",
+          body: JSON.stringify({
+            source,
+            trans_type: `${langMap18.get(from) || "auto"}2${langMap18.get(to)}`
+          })
+        }
+      )).target,
+      from,
+      to
+    };
+  }
 }, cai_default = Cai;
 
 // services/youdao.ts
-var rawLangMap13 = [
+var rawLangMap14 = [
   ["auto", "auto"],
   ["en", "en"],
   ["ru", "ru"],
@@ -15544,8 +15836,8 @@ var rawLangMap13 = [
   ["id", "id"],
   ["vi", "vi"],
   ["it", "it"]
-], langMap18 = new Map(rawLangMap13), langMapReverse7 = new Map(
-  rawLangMap13.map(([translatorLang, lang]) => [lang, translatorLang])
+], langMap19 = new Map(rawLangMap14), langMapReverse7 = new Map(
+  rawLangMap14.map(([translatorLang, lang]) => [lang, translatorLang])
 );
 function truncate(q7) {
   let len = q7.length;
@@ -15567,8 +15859,8 @@ var Youdao = class extends Translation {
       q: text,
       appKey: this.appId,
       salt: salt.toString(),
-      from: langMap18.get(from) || "auto",
-      to: langMap18.get(to) || to,
+      from: langMap19.get(from) || "auto",
+      to: langMap19.get(to) || to,
       sign,
       signType: "v3",
       curtime: curTime.toString()
@@ -15598,6 +15890,59 @@ function makeid(length) {
 }
 var youdao_default = Youdao;
 
+// services/you.ts
+var rawLangMap15 = [
+  ["auto", "auto"],
+  ["en", "en"],
+  ["ru", "ru"],
+  ["pt", "pt"],
+  ["es", "es"],
+  ["zh-CN", "zh-CHS"],
+  ["ja", "ja"],
+  ["ko", "ko"],
+  ["fr", "fr"],
+  ["ar", "ar"],
+  ["id", "id"],
+  ["vi", "vi"],
+  ["it", "it"]
+], langMap20 = new Map(rawLangMap15), langMapReverse8 = new Map(
+  rawLangMap15.map(([translatorLang, lang]) => [lang, translatorLang])
+);
+var You = class extends Translation {
+  constructor(serviceConfig, generalConfig, options2) {
+    super(serviceConfig, generalConfig, options2);
+    this.isSupportList = !1;
+    this.appId = "";
+    this.appSecret = "";
+    this.maxTextLength = 800;
+  }
+  async translate(payload) {
+    let { text, from, to } = payload, params = {
+      q: text,
+      from: langMap20.get(from) || "auto",
+      to: langMap20.get(to) || to
+    }, urlSearchParams = new URLSearchParams(params), res = await request2(
+      {
+        url: "https://aidemo.youdao.com/trans",
+        method: "POST",
+        body: urlSearchParams.toString(),
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+        }
+      }
+    );
+    if (res && res.translation)
+      return {
+        text: res.translation.join(`
+`),
+        from,
+        to
+      };
+    throw new Error("Youdao translation failed: " + JSON.stringify(res));
+  }
+}, you_default = You;
+
 // services/mod.ts
 var TranslationServicesClass = {
   mock: Mock,
@@ -15614,11 +15959,13 @@ var TranslationServicesClass = {
   cai: cai_default,
   openl: openl_default,
   youdao: youdao_default,
+  you: you_default,
   d: D9,
   dpro: D9,
   deeplx: Deeplx,
   niu: niu_default,
   azure: azure_default,
+  openai: openai_default,
   papago: papago_default
 }, TranslationServices = {};
 Object.keys(PureTranslationServices).forEach((key) => {
@@ -15722,16 +16069,14 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
       if (everySentenceCallback && (everySentenceCallback(err, a3, b5), !err && a3 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
         let cacheServiceKey = defaultTranslationEngine;
         defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
-          setDbStore(
-            {
-              translatedText: a3.text,
-              from: b5.from,
-              to: b5.to,
-              detectedFrom: a3.from,
-              key: md5(b5.text),
-              service: cacheServiceKey
-            }
-          ),
+          setDbStore({
+            translatedText: a3.text,
+            from: b5.from,
+            to: b5.to,
+            detectedFrom: a3.from,
+            key: md5(b5.text),
+            service: cacheServiceKey
+          }),
           3e3
         ).catch((e3) => {
           log_default.warn("set cache DB error", e3);
@@ -15879,6 +16224,7 @@ async function getContext(options2) {
     translationService: defaultTranslationService,
     isTranslateUrl,
     sourceLanguage,
+    mainFrame: document.body,
     isTranslateExcludeUrl,
     rule: config.generalRule,
     url,
@@ -15906,7 +16252,11 @@ async function getContext(options2) {
   let rules = config.rules, rule;
   globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
   let generalRule = config.generalRule;
-  return rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => !ctx.rule.bodyTranslateTags.includes(tag) && !ctx.rule.forceTranslateTags.includes(tag))), ctx;
+  if (rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => !ctx.rule.bodyTranslateTags.includes(tag) && !ctx.rule.forceTranslateTags.includes(tag))), ctx.rule.mainFrameSelector) {
+    let mainFrame = document.querySelector(ctx.rule.mainFrameSelector);
+    mainFrame && (ctx.mainFrame = mainFrame);
+  }
+  return ctx;
 }
 function isMatched(url, matchPattern) {
   if (!matchPattern)
@@ -15942,7 +16292,7 @@ async function toggleTranslationMask() {
     }), await translatePage(globalContext);
   else if (getPageStatus() === "Translated") {
     let allFrames = [
-      document.body,
+      globalContext.mainFrame,
       ...mutationObserverMap.keys()
     ], currentTranslationTheme = globalContext?.state.translationTheme;
     for (let frame of allFrames) {
@@ -15978,7 +16328,7 @@ async function toggleTranslationMask() {
 function restorePage() {
   clean();
   let allFrames = [
-    document.body,
+    globalContext.mainFrame,
     ...mutationObserverMap.keys()
   ];
   for (let rootFrame of allFrames)
@@ -16150,11 +16500,11 @@ async function translatePage(ctx) {
     }), allIntersectionObserver = [], waitToTranslateParagraphIds.clear();
   }), setPageTranslatedStatus("Translating");
   try {
-    let allFrames = [document.body];
+    let allFrames = [ctx.mainFrame];
     document.querySelectorAll("iframe").forEach((frame) => {
       isInlineIframe(frame) && allFrames.push(frame.contentDocument.body);
     }), ctx.rule.shadowRootSelectors && ctx.rule.shadowRootSelectors.length > 0 && getElementsBySelectors(
-      document.body,
+      ctx.mainFrame,
       ctx.rule.shadowRootSelectors
     ).forEach((host) => {
       host.shadowRoot && host.shadowRoot.mode === "open" && allFrames.push(host.shadowRoot);
@@ -16184,7 +16534,7 @@ async function translateFrame(rootFrame, ctx) {
   let { rule } = ctx;
   containers.length > 0 && await translateContainers(containers, rootFrame, ctx, !1);
   let observer = enableMutatinObserver(rootFrame, rule, ctx);
-  return rootFrame === document.body ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
+  return rootFrame === ctx.mainFrame ? mainMutaionObserver = observer : mutationObserverMap.set(rootFrame, observer), containers.length;
 }
 async function getGlobalContext(url, state) {
   let config = await getConfig2(), stateKeys = Object.keys(state);
@@ -16418,7 +16768,7 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
   log_default.debug("enableMutatinObserver for ", rootFrame), disableMutatinObserver(rootFrame), allNewDynamicElements = [], currentNewDynamicElements = [];
   let inlineAndIgnoreAndTextTags = rule.inlineTags.concat(rule.excludeTags).concat("#text", "BR"), mutationObserver = new MutationObserver(function(mutations) {
     mutations.forEach((mutation) => {
-      if (rootFrame === document.body) {
+      if (rootFrame === ctx.mainFrame) {
         let currentUrl = getRealUrl();
         if (currentUrl.split("#")[0] !== oldUrl && rule.observeUrlChange) {
           oldUrl = currentUrl.split("#")[0], clean(), disableMutatinObserver(rootFrame), disableTitleMutationObserver(), initPage();
@@ -16500,9 +16850,9 @@ async function initPage() {
   );
   let lang = ctx.sourceLanguage;
   lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
+    text: getMainText(ctx.mainFrame).slice(0, 1e3)
   }) : isInIframe ? lang = await detectLanguage({
-    text: getMainText(document.body).slice(0, 1e3)
+    text: getMainText(ctx.mainFrame).slice(0, 1e3)
   }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
   let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
   if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate)
@@ -16519,7 +16869,7 @@ function disableMutatinObserver(rootFrame) {
   if (mutationObserverMap.has(rootFrame)) {
     let mutationObserver = mutationObserverMap.get(rootFrame);
     mutationObserver.disconnect(), mutationObserver.takeRecords(), mutationObserverMap.delete(rootFrame);
-  } else if (rootFrame === document.body) {
+  } else if (globalContext && rootFrame === globalContext.mainFrame || rootFrame === document.body) {
     let mutationObserver = mainMutaionObserver;
     mutationObserver && (mutationObserver.disconnect(), mutationObserver.takeRecords());
   }
@@ -16912,11 +17262,11 @@ function useTranslate(rawOptions, translations2) {
 
 // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
 var a2 = 0;
-function p4(n3, s5, t4, f5, u3) {
+function p4(n3, s5, t4, f4, u3) {
   var r, o3, _3 = {};
   for (o3 in s5)
     o3 == "ref" ? r = s5[o3] : _3[o3] = s5[o3];
-  var e3 = { type: n3, props: _3, key: t4, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a2, __source: u3, __self: f5 };
+  var e3 = { type: n3, props: _3, key: t4, ref: r, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a2, __source: u3, __self: f4 };
   if (typeof n3 == "function" && (r = n3.defaultProps))
     for (o3 in r)
       _3[o3] === void 0 && (_3[o3] = r[o3]);
@@ -18102,7 +18452,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.68",
+  version: "0.2.69",
   default_locale: "en",
   background: {
     service_worker: "background.js"

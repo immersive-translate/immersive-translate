@@ -5,6 +5,9 @@
 
 ## Todo List
 
+- [ ] 支持 calibre
+- [ ] 还有个建议，能否在填写密钥的地方增加个测试按钮，来确认 API 是否正常？
+- [ ] when change translate service, clean translate service cache
 - [ ] yandex 搜索页面适配
 - [ ] 支持是否翻译标题设置，支持选择智能翻译的区域
 - [ ] 动态修改频率限制参数，防止参数设置不当

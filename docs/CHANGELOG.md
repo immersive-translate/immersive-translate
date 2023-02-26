@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.72
+
+- Fix: firefox mobile verify translation service net issue.
+
 ## 0.2.71
 
 - Fix: Open AI userscript permission

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.71
+// @version      0.2.72
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -68,7 +68,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-26T15:14:44.758Z", VERSION: "0.2.71", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:11.143Z", VERSION: "0.2.72", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5492,6 +5492,22 @@ body {
       name: "Google",
       homepage: "https://translate.google.com/"
     },
+    deepl: {
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator",
+      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+      allProps: [
+        {
+          name: "authKey",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    transmart: {
+      name: "Transmart",
+      homepage: "https://transmart.qq.com/"
+    },
     youdao: {
       name: "Youdao",
       homepage: "https://immersive-translate.owenyoung.com/services/youdao",
@@ -5521,18 +5537,6 @@ body {
         },
         {
           name: "secretKey",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    deepl: {
-      name: "DeepL",
-      homepage: "https://www.deepl.com/translator",
-      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
-      allProps: [
-        {
-          name: "authKey",
           required: !0,
           type: "password"
         }
@@ -5593,14 +5597,6 @@ body {
           type: "password"
         }
       ]
-    },
-    bing: {
-      name: "Bing",
-      homepage: "https://www.bing.com/translator"
-    },
-    transmart: {
-      name: "Transmart",
-      homepage: "https://transmart.qq.com/"
     },
     caiyun: {
       name: "Caiyun",
@@ -5710,6 +5706,10 @@ body {
           type: "password"
         }
       ]
+    },
+    bing: {
+      name: "Bing",
+      homepage: "https://www.bing.com/translator"
     }
   }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
@@ -11333,11 +11333,11 @@ body {
   var messageHandlers = /* @__PURE__ */ new Map();
   function ask(request3) {
     let id = makeid(64), event = new CustomEvent(documentMessageTypeIdentifierForAsk, {
-      detail: {
+      detail: JSON.stringify({
         ...request3,
         type: "ask",
         id
-      }
+      })
     });
     return document.dispatchEvent(event), new Promise((resolve, reject) => {
       messageHandlers.set(id, (e3, data) => {
@@ -16809,36 +16809,43 @@ ${injectedCss}}
       pageReadyElement.value = "true", pageReadyElement.dispatchEvent(new Event("change"));
     }, 100);
   }
-  async function answerMessage(event, fn) {
-    let id = event.detail.id || "default";
+  async function answerMessage(e3, fn) {
+    let detail;
     try {
-      let params = event.detail.data || {}, response = await fn(params), message = {
+      detail = JSON.parse(e3.detail);
+    } catch (e4) {
+      log_default.error("parse detail failed", e4);
+      return;
+    }
+    let id = detail.id || "default";
+    try {
+      let params = detail.data || {}, response = await fn(params), message = {
         id,
         ok: !0,
         data: response
       };
       document.dispatchEvent(
         new CustomEvent(documentMessageTypeIdentifierForHandler, {
-          detail: {
+          detail: JSON.stringify({
             ...message,
             type: "answer"
-          }
+          })
         })
       );
-    } catch (e3) {
+    } catch (e4) {
       let message = {
         ok: !1,
-        errorName: e3.name,
-        errorMessage: e3.message,
-        errorDetails: e3.details || e3.detail
+        errorName: e4.name,
+        errorMessage: e4.message,
+        errorDetails: e4.details || e4.detail
       };
       document.dispatchEvent(
         new CustomEvent(documentMessageTypeIdentifierForHandler, {
-          detail: {
+          detail: JSON.stringify({
             ...message,
             id,
             type: "answer"
-          }
+          })
         })
       );
     }
@@ -16846,7 +16853,16 @@ ${injectedCss}}
   function initOther() {
     document.addEventListener(documentMessageTypeIdentifierForAsk, (e3) => {
       let event = e3;
-      event && event.detail && event.detail.type === "ask" && event.detail.method === "request" && answerMessage(event, request2);
+      if (event && event.detail) {
+        let detail;
+        try {
+          detail = JSON.parse(event.detail);
+        } catch (e4) {
+          log_default.error("parse detail failed", e4);
+          return;
+        }
+        detail.type === "ask" && detail.method === "request" && answerMessage(event, request2);
+      }
     });
     let manifestElement = document.getElementById(
       "immersive-translate-manifest"
@@ -18161,7 +18177,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.71",
+    version: "0.2.72",
     default_locale: "en",
     background: {
       service_worker: "background.js"

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-26T15:14:44.758Z", VERSION: "0.2.71", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:11.143Z", VERSION: "0.2.72", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7892,6 +7892,22 @@ body {
       name: "Google",
       homepage: "https://translate.google.com/"
     },
+    deepl: {
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator",
+      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+      allProps: [
+        {
+          name: "authKey",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    transmart: {
+      name: "Transmart",
+      homepage: "https://transmart.qq.com/"
+    },
     youdao: {
       name: "Youdao",
       homepage: "https://immersive-translate.owenyoung.com/services/youdao",
@@ -7921,18 +7937,6 @@ body {
         },
         {
           name: "secretKey",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    deepl: {
-      name: "DeepL",
-      homepage: "https://www.deepl.com/translator",
-      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
-      allProps: [
-        {
-          name: "authKey",
           required: !0,
           type: "password"
         }
@@ -7993,14 +7997,6 @@ body {
           type: "password"
         }
       ]
-    },
-    bing: {
-      name: "Bing",
-      homepage: "https://www.bing.com/translator"
-    },
-    transmart: {
-      name: "Transmart",
-      homepage: "https://transmart.qq.com/"
     },
     caiyun: {
       name: "Caiyun",
@@ -8110,6 +8106,10 @@ body {
           type: "password"
         }
       ]
+    },
+    bing: {
+      name: "Bing",
+      homepage: "https://www.bing.com/translator"
     }
   }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
@@ -13406,19 +13406,26 @@ ${injectedCss}}
   function setupDocumentMesssageChannel() {
     document.addEventListener(documentMessageTypeIdentifierForHandler, (e3) => {
       let event = e3;
-      event && event.detail && messageHandlers.has(event.detail.id) && (event.detail.ok ? messageHandlers.get(event.detail.id)(null, event.detail.data) : messageHandlers.get(event.detail.id)(
-        new Error(event.detail.errorMessage),
-        null
-      ), messageHandlers.delete(event.detail.id));
+      if (event && event.detail) {
+        let detail;
+        try {
+          detail = JSON.parse(event.detail), messageHandlers.has(detail.id) && (detail.ok ? messageHandlers.get(detail.id)(null, detail.data) : messageHandlers.get(detail.id)(
+            new Error(detail.errorMessage),
+            null
+          ), messageHandlers.delete(detail.id));
+        } catch (e4) {
+          console.error("parse detail failed", e4);
+        }
+      }
     });
   }
   function ask(request3) {
     let id = makeid(64), event = new CustomEvent(documentMessageTypeIdentifierForAsk, {
-      detail: {
+      detail: JSON.stringify({
         ...request3,
         type: "ask",
         id
-      }
+      })
     });
     return document.dispatchEvent(event), new Promise((resolve, reject) => {
       messageHandlers.set(id, (e3, data) => {

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-26T15:14:43.423Z", VERSION: "0.2.71", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:09.535Z", VERSION: "0.2.72", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5610,6 +5610,22 @@ var openlProps = [
     name: "Google",
     homepage: "https://translate.google.com/"
   },
+  deepl: {
+    name: "DeepL",
+    homepage: "https://www.deepl.com/translator",
+    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+    allProps: [
+      {
+        name: "authKey",
+        required: !0,
+        type: "password"
+      }
+    ]
+  },
+  transmart: {
+    name: "Transmart",
+    homepage: "https://transmart.qq.com/"
+  },
   youdao: {
     name: "Youdao",
     homepage: "https://immersive-translate.owenyoung.com/services/youdao",
@@ -5639,18 +5655,6 @@ var openlProps = [
       },
       {
         name: "secretKey",
-        required: !0,
-        type: "password"
-      }
-    ]
-  },
-  deepl: {
-    name: "DeepL",
-    homepage: "https://www.deepl.com/translator",
-    docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
-    allProps: [
-      {
-        name: "authKey",
         required: !0,
         type: "password"
       }
@@ -5711,14 +5715,6 @@ var openlProps = [
         type: "password"
       }
     ]
-  },
-  bing: {
-    name: "Bing",
-    homepage: "https://www.bing.com/translator"
-  },
-  transmart: {
-    name: "Transmart",
-    homepage: "https://transmart.qq.com/"
   },
   caiyun: {
     name: "Caiyun",
@@ -5828,6 +5824,10 @@ var openlProps = [
         type: "password"
       }
     ]
+  },
+  bing: {
+    name: "Bing",
+    homepage: "https://www.bing.com/translator"
   }
 }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 

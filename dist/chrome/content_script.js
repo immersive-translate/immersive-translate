@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-26T10:47:45.946Z", VERSION: "0.2.69", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-26T11:42:12.640Z", VERSION: "0.2.70", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -6000,7 +6000,9 @@ var openlProps = [
         name: "prompt",
         required: !1,
         type: "textarea",
-        default: "translate to ${to}:\n\n${text} =>"
+        default: `translate to {{to}}:
+
+{{text}} =>`
       }
     ]
   },
@@ -9518,6 +9520,8 @@ var buildin_config_default = {
       "TEXTAREA",
       "SVG",
       "svg",
+      "G",
+      "TEXT",
       "NOSCRIPT",
       "INPUT",
       "BUTTON",
@@ -10810,6 +10814,12 @@ var buildin_config_default = {
     {
       matches: "https://beta.simp.red/trans*",
       mainFrameSelector: ".simpread-read-root"
+    },
+    {
+      matches: "https://www.lookintobitcoin.com/charts/*",
+      excludeSelectors: [
+        "svg"
+      ]
     }
   ]
 };
@@ -18452,7 +18462,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.69",
+  version: "0.2.70",
   default_locale: "en",
   background: {
     service_worker: "background.js"

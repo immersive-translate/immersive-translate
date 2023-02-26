@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.70
+
+- Fix: Open AI placeholder
+
 ## 0.2.69
 
 - Feat: Support Open AI as translation service.

@@ -1736,7 +1736,6 @@
       "matches": "https://www.nature.com/articles/*",
       "excludeSelectors": [
         ".c-header",
-        ".u-container",
         ".c-recommendations-header",
         ".c-recommendations-list-container",
         ".c-article-references__links",
@@ -1789,8 +1788,12 @@
       "shadowRootSelectors": [
         "div#coral_thread > div"
       ]
+    },
+    {
+      "matches": "https://beta.simp.red/trans*",
+      "mainFrameSelector": ".simpread-read-root"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-25T19:29:07.206Z",
-  "latestVersion": "0.2.68"
+  "buildinConfigUpdatedAt": "2023-02-26T10:49:40.866Z",
+  "latestVersion": "0.2.69"
 }

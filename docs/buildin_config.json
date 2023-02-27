@@ -608,7 +608,9 @@
         ".Layout-sidebar p",
         "div > span.search-match",
         "li.repo-list-item p",
-        "#responsive-meta-container p"
+        "#responsive-meta-container p",
+        "article p",
+        "div.repo-description p"
       ],
       "excludeSelectors": [
         ".css-truncate",
@@ -618,7 +620,8 @@
         "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
-        "div.jp-CodeCell"
+        "div.jp-CodeCell",
+        "a[data-hovercard-url]"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
@@ -1855,8 +1858,12 @@
       "excludeSelectors": [
         "svg"
       ]
+    },
+    {
+      "matches": "https://platform.openai.com/account/api-keys*",
+      "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T07:24:09.307Z",
-  "latestVersion": "0.2.72"
+  "buildinConfigUpdatedAt": "2023-02-27T09:58:47.719Z",
+  "latestVersion": "0.2.73"
 }

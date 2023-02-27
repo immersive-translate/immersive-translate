@@ -613,6 +613,7 @@
       "excludeSelectors": [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "[data-test-selector='create-branch.developmentForm']",
         "div.js-details-container.Details",
         "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
@@ -1856,6 +1857,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T06:26:43.721Z",
+  "buildinConfigUpdatedAt": "2023-02-27T07:24:09.307Z",
   "latestVersion": "0.2.72"
 }

@@ -1739,6 +1739,7 @@
       "selectors": [
         ".game_description_snippet",
         ".game_area_description",
+        "#earlyAccessHeader",
         "[id^='ReviewContent'] .content"
       ],
       "excludeSelectors": [
@@ -1855,6 +1856,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T05:55:45.534Z",
+  "buildinConfigUpdatedAt": "2023-02-27T06:26:43.721Z",
   "latestVersion": "0.2.72"
 }

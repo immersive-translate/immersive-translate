@@ -61,6 +61,12 @@
     },
     "dpro": {
       "apiUrl": "https://api.deepl.com/jsonrpc"
+    },
+    "openai": {
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
     }
   },
   "shortcuts": {
@@ -1864,6 +1870,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T13:01:15.896Z",
+  "buildinConfigUpdatedAt": "2023-02-27T15:25:33.659Z",
   "latestVersion": "0.2.73"
 }

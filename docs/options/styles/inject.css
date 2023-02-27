@@ -11,6 +11,7 @@
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+  --immersive-translate-theme-grey-textColor: #2f4f4f;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -52,6 +53,9 @@
 .immersive-translate-target-translation-pdf-block-wrapper {
   margin: 0 !important;
   display: block;
+}
+.immersive-translate-target-translation-theme-grey-inner {
+  color: var(--immersive-translate-theme-grey-textColor);
 }
 
 .immersive-translate-target-translation-inline-wrapper {

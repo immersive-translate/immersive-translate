@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.73
+
+- Feat: Support Grey Translation Theme
+- Fix: Github Trending Page
+
 ## 0.2.72
 
 - Fix: firefox mobile verify translation service net issue.

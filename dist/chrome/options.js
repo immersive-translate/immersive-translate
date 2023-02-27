@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:09.535Z", VERSION: "0.2.72", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-27T09:56:48.182Z", VERSION: "0.2.73", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -18,6 +18,7 @@ var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:09.535Z", VERSI
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
+  --immersive-translate-theme-grey-textColor: #2f4f4f;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -59,6 +60,9 @@ var define_process_env_default = { BUILD_TIME: "2023-02-26T16:48:09.535Z", VERSI
 .immersive-translate-target-translation-pdf-block-wrapper {
   margin: 0 !important;
   display: block;
+}
+.immersive-translate-target-translation-theme-grey-inner {
+  color: var(--immersive-translate-theme-grey-textColor);
 }
 
 .immersive-translate-target-translation-inline-wrapper {
@@ -3305,8 +3309,6 @@ textarea,
     transition-duration: 0s !important;
   }
 }
-
-/*# sourceMappingURL=custom.css.map */
 `, IMMERSIVE_TRANSLATE_COMMON_CSS: `#mount#mount {
   /* --primary: rgb(227, 59, 126); */
   --primary: #ea4c89;
@@ -7648,6 +7650,7 @@ var zh_CN_default = {
   syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
   previewAllThemes: "\u9884\u89C8\u5168\u90E8\u6837\u5F0F",
   "translationTheme.none": "\u65E0",
+  "translationTheme.grey": "\u9ED1\u7070\u8272",
   "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
   "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
   "translationTheme.dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
@@ -8287,6 +8290,7 @@ var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleM
   "marker",
   "blockquote",
   "weakening",
+  "grey",
   "paper",
   "italic",
   "bold",
@@ -10193,16 +10197,20 @@ var buildin_config_default = {
         ".Layout-sidebar p",
         "div > span.search-match",
         "li.repo-list-item p",
-        "#responsive-meta-container p"
+        "#responsive-meta-container p",
+        "article p",
+        "div.repo-description p"
       ],
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
+        "[data-test-selector='create-branch.developmentForm']",
         "div.js-details-container.Details",
         "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
-        "div.jp-CodeCell"
+        "div.jp-CodeCell",
+        "a[data-hovercard-url]"
       ],
       extraBlockSelectors: [],
       extraInlineSelectors: ["g-emoji"],
@@ -11102,6 +11110,60 @@ var buildin_config_default = {
       observeUrlChange: !0
     },
     {
+      matches: "store.steampowered.com/app/*",
+      selectors: [
+        ".game_description_snippet",
+        ".game_area_description",
+        "#earlyAccessHeader",
+        "[id^='ReviewContent'] .content"
+      ],
+      excludeSelectors: [
+        "#global_actions",
+        "#store_controls",
+        "#foryou_tab",
+        "[class*=persona]",
+        "[class*=game_title_area]",
+        "a.btn_medium",
+        ".persona_name",
+        ".hours.ellipsis",
+        ".checkcol",
+        ".postedDate",
+        ".dev_row .summary",
+        ".already_in_library",
+        ".game_header_image_ctn .grid_content",
+        ".ds_flag.ds_wishlist_flag",
+        ".early_access_review.tooltip",
+        ".communitylink_achievement_images",
+        ".user_reviews_summary_row.summary",
+        ".review_award_ctn",
+        ".add_to_wishlist_area",
+        ".next_in_queue_content",
+        ".glance_tags.popular_tags",
+        ".game_purchase_action",
+        ".vote_button_ctn",
+        "#VoteUpDownBtnCtn",
+        "#footer",
+        "#ViewAllReviewssummary"
+      ],
+      atomicBlockSelectors: [
+        ".game_area_sys_req_leftCol",
+        ".game_area_sys_req_rightCol"
+      ],
+      extraInlineSelectors: [
+        ".pulldown"
+      ],
+      additionalSelectors: [
+        ".game_page_autocollapse_ctn iframe"
+      ],
+      globalStyles: {
+        ".game_description_snippet": "max-height:unset; overflow: scroll;",
+        ".game_purchase_area_friends_want": "height: auto; padding-bottom: 6px;",
+        ".div.early_access_banner": "height: 84px",
+        ".franchise_notice > *": "height: 84px"
+      },
+      detectParagraphLanguage: !0
+    },
+    {
       matches: "https://www.nature.com/articles/*",
       excludeSelectors: [
         ".c-header",
@@ -11155,6 +11217,10 @@ var buildin_config_default = {
       excludeSelectors: [
         "svg"
       ]
+    },
+    {
+      matches: "https://platform.openai.com/account/api-keys*",
+      urlChangeDelay: 1500
     }
   ]
 };

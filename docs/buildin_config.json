@@ -621,7 +621,7 @@
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell",
-        "a[data-hovercard-url]"
+        "[aria-label=\"Account\"] .markdown-title"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
@@ -1864,6 +1864,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T09:58:47.719Z",
+  "buildinConfigUpdatedAt": "2023-02-27T13:01:15.896Z",
   "latestVersion": "0.2.73"
 }

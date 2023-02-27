@@ -11,7 +11,7 @@
 
 如果你对 DeepL 翻译服务有强需求，但是官方 API 的字符数限制让你感到困扰，那么你可以考虑通过[赞助沉浸式翻译](https://immersive-translate.owenyoung.com/donate)以获得无字符数量限制的 Deepl Auth Key
 
-打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 10$ 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
+打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
 
 > 说明：
 >

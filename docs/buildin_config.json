@@ -52,7 +52,12 @@
         "🚠"
       ]
     },
-    "deepl": {},
+    "deepl": {
+      "immediateTranslationTextCountForImmersiveDeepl": 50000
+    },
+    "d": {
+      "immediateTranslationTextCount": 0
+    },
     "papago": {
       "placeholderDelimiters": [
         "{",
@@ -1871,6 +1876,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T16:19:22.297Z",
+  "buildinConfigUpdatedAt": "2023-02-27T19:49:57.540Z",
   "latestVersion": "0.2.74"
 }

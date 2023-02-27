@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.74
+
+- Feat: Support Tencent (alpha)
+- Fix: openai translation
+- Fix: unknown tags inline check
+
 ## 0.2.73
 
 - Feat: Support Grey Translation Theme

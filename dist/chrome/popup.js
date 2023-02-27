@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-27T09:56:48.182Z", VERSION: "0.2.73", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-27T15:49:29.706Z", VERSION: "0.2.74", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7187,6 +7187,7 @@ var zh_CN_default = {
   "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
   "translationTheme.wavy": "\u6CE2\u6D6A\u7EBF",
   "translationServices.tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
+  "translationServices.tenAlpha": "\u817E\u8BAF\u7FFB\u8BD1\u541B(Alpha)",
   "translationServices.google": "\u8C37\u6B4C\u7FFB\u8BD1",
   "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8BD1",
@@ -7438,6 +7439,7 @@ var zh_TW_default = {
   "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
   "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
   "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
+  "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
   "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
   "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
@@ -7684,6 +7686,7 @@ var en_default = {
   "translationTheme.nativeUnderline": "System Straight Line Underline",
   "translationTheme.wavy": "Squiggle",
   "translationServices.tencent": "Tencent Translator",
+  "translationServices.tenAlpha": "Tencent Translator (Alpha)",
   "translationServices.google": "Google Translate",
   "translationServices.bai": "Baidu (Alpha)",
   "translationServices.baidu": "Baidu translation",
@@ -8254,6 +8257,11 @@ var openlProps = [
   mock2: {
     name: "Mock2",
     homepage: "https://www.google.com"
+  },
+  tenAlpha: {
+    name: "TenAlpha",
+    homepage: "https://fanyi.qq.com/",
+    alpha: !0
   },
   you: {
     name: "You",
@@ -8850,6 +8858,9 @@ var buildin_config_default = {
     },
     dpro: {
       apiUrl: "https://api.deepl.com/jsonrpc"
+    },
+    openai: {
+      placeholderDelimiters: ["{", "}"]
     }
   },
   shortcuts: {
@@ -9350,7 +9361,7 @@ var buildin_config_default = {
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell",
-        "a[data-hovercard-url]"
+        '[aria-label="Account"] .markdown-title'
       ],
       extraBlockSelectors: [],
       extraInlineSelectors: ["g-emoji"],
@@ -10416,7 +10427,13 @@ function getEnvUserConfig() {
     };
     defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
   }
-  return env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
+  if (env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.IMMERSIVE_TRANSLATE_SECRET_OPENAI_API_KEY) {
+    let openaiAuthConfig = {
+      APIKEY: env.IMMERSIVE_TRANSLATE_SECRET_OPENAI_API_KEY
+    };
+    defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.openai = openaiAuthConfig;
+  }
+  return env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
 }
 async function getLocalConfig() {
   let localConfig = await browserAPI.storage.local.get(localConfigStorageKey);

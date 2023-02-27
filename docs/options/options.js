@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-27T09:56:49.435Z", VERSION: "0.2.73", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-27T15:49:31.224Z", VERSION: "0.2.74", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -6867,6 +6867,7 @@ body {
     "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.wavy": "\u6CE2\u6D6A\u7EBF",
     "translationServices.tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
+    "translationServices.tenAlpha": "\u817E\u8BAF\u7FFB\u8BD1\u541B(Alpha)",
     "translationServices.google": "\u8C37\u6B4C\u7FFB\u8BD1",
     "translationServices.bai": "\u767E\u5EA6(Alpha)",
     "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8BD1",
@@ -7118,6 +7119,7 @@ body {
     "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
     "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
     "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
+    "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
     "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
     "translationServices.bai": "\u767E\u5EA6(Alpha)",
     "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
@@ -7364,6 +7366,7 @@ body {
     "translationTheme.nativeUnderline": "System Straight Line Underline",
     "translationTheme.wavy": "Squiggle",
     "translationServices.tencent": "Tencent Translator",
+    "translationServices.tenAlpha": "Tencent Translator (Alpha)",
     "translationServices.google": "Google Translate",
     "translationServices.bai": "Baidu (Alpha)",
     "translationServices.baidu": "Baidu translation",
@@ -8041,6 +8044,11 @@ body {
       name: "Mock2",
       homepage: "https://www.google.com"
     },
+    tenAlpha: {
+      name: "TenAlpha",
+      homepage: "https://fanyi.qq.com/",
+      alpha: !0
+    },
     you: {
       name: "You",
       alpha: !0,
@@ -8226,9 +8234,9 @@ body {
   // dom/util.ts
   var env2 = getEnv(), isProd = env2.PROD === "1";
   function duplicatedElements(root2, array, rule) {
-    let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers2 = [];
+    let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers3 = [];
     for (let header of allHeaders)
-      main2.length > 0 && main2[0].contains(header) || headers2.push(header);
+      main2.length > 0 && main2[0].contains(header) || headers3.push(header);
     for (let i2 = 0; i2 < array.length; i2++) {
       let a3 = array[i2].element;
       for (let j6 = i2 + 1; j6 < array.length; j6++) {
@@ -8247,7 +8255,7 @@ body {
       if (container.reserve)
         return !0;
       let isHeader = !1;
-      for (let header of headers2) {
+      for (let header of headers3) {
         if (isMatchTags(element.nodeName, ["H1"]))
           continue;
         let h1Container = header.querySelector("h1");
@@ -8339,8 +8347,6 @@ body {
           let style = globalThis.getComputedStyle(element);
           if (style.display === "block" || style.display === "flex")
             return !1;
-          if (style.display === "inline" || style.display === "inline-block" || style.display === "inline-flex")
-            return !0;
         }
         return isInlineElementByTreeWalker(element, rule);
       } else
@@ -8907,6 +8913,9 @@ ${injectedCss}}
       },
       dpro: {
         apiUrl: "https://api.deepl.com/jsonrpc"
+      },
+      openai: {
+        placeholderDelimiters: ["{", "}"]
       }
     },
     shortcuts: {
@@ -9407,7 +9416,7 @@ ${injectedCss}}
           "div.blob-wrapper-embedded",
           "div.Box.Box--condensed.my-2",
           "div.jp-CodeCell",
-          "a[data-hovercard-url]"
+          '[aria-label="Account"] .markdown-title'
         ],
         extraBlockSelectors: [],
         extraInlineSelectors: ["g-emoji"],
@@ -10512,7 +10521,13 @@ ${injectedCss}}
       };
       defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl = deeplAuthConfig;
     }
-    return env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
+    if (env.DEEPL_PROXY_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateApiUrl = env.DEEPL_PROXY_ENDPOINT), env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT && (defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.deepl || (defaultUserConfig.translationServices.deepl = {}), defaultUserConfig.translationServices.deepl.immersiveTranslateDeeplTokenUrl = env.IMMERSIVE_TRANSLATE_DEEPL_ENDPOINT), env.IMMERSIVE_TRANSLATE_SECRET_OPENAI_API_KEY) {
+      let openaiAuthConfig = {
+        APIKEY: env.IMMERSIVE_TRANSLATE_SECRET_OPENAI_API_KEY
+      };
+      defaultUserConfig.translationServices || (defaultUserConfig.translationServices = {}), defaultUserConfig.translationServices.openai = openaiAuthConfig;
+    }
+    return env.DEBUG === "1" && (defaultUserConfig.debug = !0, defaultUserConfig.cache = !1, defaultUserConfig.alpha = !0), env.MOCK === "1" && (defaultUserConfig.translationService = "mock"), env.IMMERSIVE_TRANSLATE_SERVICE && (defaultUserConfig.translationService = env.IMMERSIVE_TRANSLATE_SERVICE), defaultUserConfig;
   }
   async function getLocalConfig() {
     let localConfig = await browserAPI.storage.local.get(localConfigStorageKey);
@@ -12119,7 +12134,7 @@ ${injectedCss}}
                 let nodeElement = node;
                 if (node && nodeElement.style && nodeElement.style.display && nodeElement.style.display === "initial")
                   continue;
-                if ((computedStyle.display === "inline" || computedStyle.display === "inline-flex") && !isMarked(
+                if (computedStyle.display === "inline" && !isMarked(
                   node,
                   sourceBlockElementMarkAttributeName
                 )) {
@@ -13718,7 +13733,7 @@ ${injectedCss}}
         "tempSentenceGroups",
         tempSentenceGroups.map((item) => item)
       );
-      let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback) => {
+      let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback, error2) => {
         sentenceCallbacks[index] ? sentenceCallbacks[index].translatedTexts.push(
           ...sentenceCallback.translatedTexts
         ) : sentenceCallbacks[index] = sentenceCallback;
@@ -13762,9 +13777,17 @@ ${injectedCss}}
               to: tempSentenceGroup.to,
               url,
               options
-            }), { text } = result, translatedTexts = text.split(
+            }), { text } = result, rawTranslatedTexts = text.split(
               translationTextSeparator
-            );
+            ), translatedTexts = [];
+            if (rawTranslatedTexts.length > tempSentenceGroup.tempSentences.length) {
+              for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length - 1; j6++)
+                translatedTexts[j6] = rawTranslatedTexts[j6];
+              translatedTexts[tempSentenceGroup.tempSentences.length - 1] = rawTranslatedTexts.slice(
+                tempSentenceGroup.tempSentences.length - 1
+              ).join(translationTextSeparator);
+            } else
+              translatedTexts = rawTranslatedTexts;
             return {
               sourceTempSentences: tempSentenceGroup.tempSentences,
               text: translatedTexts,
@@ -13789,13 +13812,24 @@ ${injectedCss}}
                   sentenceTotalParts: tempSentence.sentenceTotalParts,
                   translatedTexts: [prefix + translatedText + suffix],
                   callback: everySentenceCallback
-                });
+                }, null);
               }
             }
           }).catch((e3) => {
-            if (log_default.warn("translate sentence error", sentences[i2], e3), everySentenceCallback) {
-              let sentence = sentences[i2];
-              everySentenceCallback(e3, null, sentence), globalError = e3;
+            if (everySentenceCallback) {
+              for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length; j6++) {
+                let tempSentence = tempSentenceGroup.tempSentences[j6];
+                tempSentence.sentenceTotalParts === 1 ? everySentenceCallback(e3, null, {
+                  ...sentences[tempSentence.index],
+                  from: tempSentenceGroup.from,
+                  to: tempSentenceGroup.to
+                }) : (everySentenceCallback(e3, null, {
+                  ...sentences[tempSentence.index],
+                  from: tempSentenceGroup.from,
+                  to: tempSentenceGroup.to
+                }), j6 += tempSentence.sentenceTotalParts - 1);
+              }
+              globalError = e3;
             } else
               globalError = e3;
           })
@@ -13962,8 +13996,66 @@ ${injectedCss}}
     langMap2.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
-  // services/google.ts
+  // services/ten_alpha.ts
   var langMap3 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["zh-TW", "zh-TW"],
+    ["de", "de"],
+    ["en", "en"],
+    ["es", "es"],
+    ["fr", "fr"],
+    ["id", "id"],
+    ["it", "it"],
+    ["ja", "jp"],
+    ["ko", "kr"],
+    ["ms", "ms"],
+    ["pt", "pt"],
+    ["ru", "ru"],
+    ["th", "th"],
+    ["tr", "tr"],
+    ["vi", "vi"]
+  ], headers = {
+    "content-type": "application/json",
+    Host: "wxapp.translator.qq.com",
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.32(0x18002035) NetType/WIFI Language/zh_TW",
+    Referer: "https://servicewechat.com/wxb1070eabc6f9107e/117/page-frame.html"
+  }, _TenAlpha = class extends Translation {
+    // throttleLimit = 1;
+    // maxTextGroupLength = 1;
+    constructor(serviceConfig, generalConfig, options) {
+      super(serviceConfig, generalConfig, options);
+      this.isSupportList = !1;
+    }
+    async translate(payload) {
+      let { text, from, to } = payload, params = new URLSearchParams({
+        source: from,
+        target: to,
+        sourceText: text,
+        platform: "WeChat_APP",
+        candidateLangs: "en|zh",
+        guid: "oqdgX0SIwhvM0TmqzTHghWBvfk22"
+      }).toString(), response = await request2({
+        url: `https://wxapp.translator.qq.com/api/translate?${params}`,
+        retry: 1,
+        method: "GET",
+        headers
+      });
+      return {
+        text: response.targetText,
+        from: _TenAlpha.langMapReverse.get(response.source) || from,
+        to: _TenAlpha.langMapReverse.get(response.target) || to
+      };
+    }
+  }, TenAlpha = _TenAlpha;
+  /** Translator lang to custom lang */
+  TenAlpha.langMap = new Map(langMap3), /** Custom lang to translator lang */
+  TenAlpha.langMapReverse = new Map(
+    langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
+  );
+
+  // services/google.ts
+  var langMap4 = [
     ["auto", "auto"],
     ["zh-CN", "zh-CN"],
     ["zh-TW", "zh-TW"],
@@ -14106,8 +14198,8 @@ ${injectedCss}}
       }) };
     }
   }, Google = _Google;
-  Google.langMap = new Map(langMap3), Google.langMapReverse = new Map(
-    langMap3.map(([translatorLang, lang]) => [lang, translatorLang])
+  Google.langMap = new Map(langMap4), Google.langMapReverse = new Map(
+    langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // services/d/hacks.ts
@@ -14167,7 +14259,7 @@ ${injectedCss}}
   }
 
   // services/d/api.ts
-  var headers = {
+  var headers2 = {
     Accept: "*/*",
     "Accept-Language": "en-US;q=0.8,en;q=0.7",
     "Content-Type": "application/json",
@@ -14215,7 +14307,7 @@ ${injectedCss}}
       method: "POST",
       url: API_URL2,
       body: stringifyJson(postData),
-      headers
+      headers: headers2
     }), finalResult = {
       from: response.result.lang,
       to: targetLanguage,
@@ -14246,7 +14338,7 @@ ${injectedCss}}
   }
 
   // services/d/mod.ts
-  var langMap4 = [
+  var langMap5 = [
     ["auto", "auto"],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -14283,13 +14375,13 @@ ${injectedCss}}
     }
   }, D9 = _D;
   /** Translator lang to custom lang */
-  D9.langMap = new Map(langMap4), /** Custom lang to translator lang */
+  D9.langMap = new Map(langMap5), /** Custom lang to translator lang */
   D9.langMapReverse = new Map(
-    langMap4.map(([translatorLang, lang]) => [lang, translatorLang])
+    langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // services/transmart.ts
-  var langMap5 = [
+  var langMap6 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["zh-TW", "zh-TW"],
@@ -14425,9 +14517,9 @@ ${injectedCss}}
     }
   }, Transmart = _Transmart;
   /** Translator lang to custom lang */
-  Transmart.langMap = new Map(langMap5), /** Custom lang to translator lang */
+  Transmart.langMap = new Map(langMap6), /** Custom lang to translator lang */
   Transmart.langMapReverse = new Map(
-    langMap5.map(([translatorLang, lang]) => [lang, translatorLang])
+    langMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
   // utils/random.ts
@@ -14439,13 +14531,12 @@ ${injectedCss}}
   var Mock = class extends Translation {
     constructor() {
       super(...arguments);
-      this.isSupportList = !0;
-      this.maxTextGroupLength = 50;
-      this.maxTextLength = 1800;
+      this.isSupportList = !1;
+      this.maxTextLength = 1e3;
     }
     async translate(payload) {
       let { text } = payload;
-      await mockRequest(), await delay(5e3);
+      await mockRequest(), await delay(5);
       let startSpaceLength = text.match(/^\s*/)[0].length;
       return {
         text: text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6),
@@ -14466,7 +14557,8 @@ ${injectedCss}}
         to,
         text: textList.map((text) => {
           let startSpaceLength = text.match(/^\s*/)[0].length;
-          return text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
+          return text.slice(0, startSpaceLength) + `\u6A21
+\u62DF\uFF1A` + text.slice(startSpaceLength, -6);
         })
       };
     }
@@ -14487,7 +14579,7 @@ ${injectedCss}}
     ["pl", "pl"],
     ["pt", "pt"],
     ["ru", "ru"]
-  ], langMap6 = new Map(rawLangMap), langMapReverse = new Map(
+  ], langMap7 = new Map(rawLangMap), langMapReverse = new Map(
     rawLangMap.map(([translatorLang, lang]) => [lang, translatorLang])
   ), _Openl = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
@@ -14512,8 +14604,8 @@ ${injectedCss}}
           body: JSON.stringify({
             apikey: this.apikey,
             text,
-            source_lang: langMap6.get(from) || "auto",
-            target_lang: langMap6.get(to) || to
+            source_lang: langMap7.get(from) || "auto",
+            target_lang: langMap7.get(to) || to
           })
         }
       );
@@ -14579,7 +14671,7 @@ ${injectedCss}}
     ["pl", "PL"],
     ["pt", "PT"],
     ["ru", "RU"]
-  ], langMap7 = new Map(rawLangMap2), langMapReverse2 = new Map(
+  ], langMap8 = new Map(rawLangMap2), langMapReverse2 = new Map(
     rawLangMap2.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Deepl = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
@@ -14646,8 +14738,8 @@ ${injectedCss}}
     }
     async translateList(payload) {
       let { from, to, text } = payload, bodyParams = {
-        source_lang: langMap7.get(from) || "",
-        target_lang: langMap7.get(to) || to
+        source_lang: langMap8.get(from) || "",
+        target_lang: langMap8.get(to) || to
       }, bodySearchParams = new URLSearchParams(bodyParams);
       text.forEach((item) => {
         bodySearchParams.append("text", item);
@@ -14736,7 +14828,7 @@ ${injectedCss}}
     ["de", "de"],
     ["ko", "ko"],
     ["fr", "fr"]
-  ], langMap8 = new Map(rawLangMap3), Niu = class extends Translation {
+  ], langMap9 = new Map(rawLangMap3), Niu = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.APIKEY = "";
@@ -14755,8 +14847,8 @@ ${injectedCss}}
         method: "POST",
         body: JSON.stringify({
           src_text: text,
-          from: langMap8.get(from) || from,
-          to: langMap8.get(to) || to,
+          from: langMap9.get(from) || from,
+          to: langMap9.get(to) || to,
           apikey: this.APIKEY
         })
       }, response = await request2(
@@ -14848,7 +14940,7 @@ ${injectedCss}}
     ["id", "id"],
     ["en", "en"],
     ["yua", "yua"]
-  ], langMap9 = new Map(rawLangMap4), Azure = class extends Translation {
+  ], langMap10 = new Map(rawLangMap4), Azure = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.APIKEY = "";
@@ -14868,9 +14960,9 @@ ${injectedCss}}
         };
       let paramsObj = {
         "api-version": "3.0",
-        to: langMap9.get(to) || to
+        to: langMap10.get(to) || to
       };
-      from !== "auto" && (paramsObj.from = langMap9.get(from) || from);
+      from !== "auto" && (paramsObj.from = langMap10.get(from) || from);
       let params = new URLSearchParams(paramsObj), bodyStr = JSON.stringify(text.map((t5) => ({ text: t5 }))), options = {
         url: "https://api.cognitive.microsofttranslator.com/translate?" + params.toString(),
         retry: 2,
@@ -14907,7 +14999,7 @@ ${injectedCss}}
     ["th", "th"],
     ["vi", "vi"],
     ["id", "id"]
-  ], langMap10 = new Map(rawLangMap5), Papago = class extends Translation {
+  ], langMap11 = new Map(rawLangMap5), Papago = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.isSupportList = !0;
@@ -14934,7 +15026,7 @@ ${injectedCss}}
         },
         body: ""
       };
-      from === "auto" || !langMap10.get(from) ? (langCode = (await request2({
+      from === "auto" || !langMap11.get(from) ? (langCode = (await request2({
         url: "https://api.papago-chrome.com/v2/translate/detect",
         method: "POST",
         headers: {
@@ -14944,12 +15036,12 @@ ${injectedCss}}
         body: bodyStr
       })).langCode, options.body = JSON.stringify({
         text: bodyStr,
-        source: langCode || langMap10.get(from) || from,
-        target: langMap10.get(to) || to
+        source: langCode || langMap11.get(from) || from,
+        target: langMap11.get(to) || to
       })) : options.body = JSON.stringify({
         text: bodyStr,
-        source: langMap10.get(from),
-        target: langMap10.get(to) || to
+        source: langMap11.get(from),
+        target: langMap11.get(to) || to
       });
       let response = await request2(options);
       if (response.translatedText === "")
@@ -15077,13 +15169,13 @@ ${injectedCss}}
     ["yi", "yi"],
     ["yo", "yo"],
     ["zu", "zu"]
-  ], langMap11 = new Map(rawLangMap6), OpenAI = class extends Translation {
+  ], langMap12 = new Map(rawLangMap6), OpenAI = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.APIKEY = "";
       this.isSupportList = !1;
       this.maxTextLength = 1e3;
-      this.maxTextGroupLength = 2;
+      this.maxTextGroupLength = 1;
       this.prompt = `translate to {{to}}:
 
 {{text}} =>`;
@@ -15100,10 +15192,10 @@ ${injectedCss}}
           to,
           text: ""
         };
-      let prompt = this.prompt.replace(/{{to}}/g, langMap11.get(to) || to).replace(
+      let prompt = this.prompt.replace(/{{to}}/g, langMap12.get(to) || to).replace(
         /{{text}}/g,
         text
-      ).replace(/{{from}}/g, langMap11.get(from) || from), options = {
+      ).replace(/{{from}}/g, langMap12.get(from) || from), options = {
         url: "https://api.openai.com/v1/completions",
         retry: 2,
         method: "POST",
@@ -15194,10 +15286,10 @@ ${injectedCss}}
       ), parts.push(`SignedHeaders=${this.signedHeaders()}`), parts.push(`Signature=${await this.signature(credentials, datetime)}`), parts.join(", ");
     }
     async getSignUrl(credentials, date) {
-      let datetime = this.getDateTime(date), query = { ...this.request.params }, params = this.request.params, headers2 = this.request.headers;
+      let datetime = this.getDateTime(date), query = { ...this.request.params }, params = this.request.params, headers3 = this.request.headers;
       credentials.sessionToken && (query[constant.tokenHeader] = credentials.sessionToken), query[constant.dateHeader] = datetime, query[constant.notSignBody] = "", query[constant.credential] = `${credentials.accessKeyId}/${this.credentialString(datetime)}`, query[constant.algorithmKey] = constant.algorithm, query[constant.signHeadersKey] = "", query[constant.signQueriesKey] = void 0, query[constant.signatureKey] = void 0, query = this.sortParams(query), this.request.params = query, this.request.headers = {};
       let sig = await this.signature(credentials, datetime);
-      return this.request.params = params, this.request.headers = headers2, query[constant.signQueriesKey] = Object.keys(query).sort().join(";"), query[constant.signatureKey] = sig, queryParamsToString(query);
+      return this.request.params = params, this.request.headers = headers3, query[constant.signQueriesKey] = Object.keys(query).sort().join(";"), query[constant.signatureKey] = sig, queryParamsToString(query);
     }
     getDateTime(date) {
       return this.iso8601(date).replace(/[:\-]|\.\d{3}/g, "");
@@ -15235,12 +15327,12 @@ ${injectedCss}}
 `);
     }
     canonicalHeaders() {
-      let headers2 = [];
+      let headers3 = [];
       Object.keys(this.request.headers).forEach((key) => {
-        headers2.push([key, this.request.headers[key]]);
-      }), headers2.sort((a3, b5) => a3[0].toLowerCase() < b5[0].toLowerCase() ? -1 : 1);
+        headers3.push([key, this.request.headers[key]]);
+      }), headers3.sort((a3, b5) => a3[0].toLowerCase() < b5[0].toLowerCase() ? -1 : 1);
       let parts = [];
-      return headers2.forEach((item) => {
+      return headers3.forEach((item) => {
         let key = item[0].toLowerCase();
         if (this.isSignableHeader(key)) {
           let value = item[1];
@@ -15402,7 +15494,7 @@ ${injectedCss}}
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap12 = new Map(rawLangMap7), langMapReverse3 = new Map(
+  ], langMap13 = new Map(rawLangMap7), langMapReverse3 = new Map(
     rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Volc = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
@@ -15456,8 +15548,8 @@ ${injectedCss}}
         throw new Error("response: " + JSON.stringify(response));
     }
     async translateList(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap12.get(from), bodyParams = {
-        TargetLanguage: langMap12.get(to) || to,
+      let { text, from, to } = payload, remoteFrom = langMap13.get(from), bodyParams = {
+        TargetLanguage: langMap13.get(to) || to,
         TextList: text
       };
       remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
@@ -15618,7 +15710,7 @@ ${injectedCss}}
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap13 = new Map(rawLangMap8), langMapReverse4 = new Map(
+  ], langMap14 = new Map(rawLangMap8), langMapReverse4 = new Map(
     rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
   ), VolcAlpha = class extends Translation {
     constructor() {
@@ -15627,7 +15719,7 @@ ${injectedCss}}
       this.isSupportList = !1;
     }
     async translate(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap13.get(from) || "detect", remoteTo = langMap13.get(to) || to, response = await request2(
+      let { text, from, to } = payload, remoteFrom = langMap14.get(from) || "detect", remoteTo = langMap14.get(to) || to, response = await request2(
         {
           url: "https://translate.volcengine.com/crx/translate/v1/",
           method: "POST",
@@ -15669,7 +15761,7 @@ ${injectedCss}}
     ["pt", "PT"],
     ["ru", "RU"],
     ["tr", "tr"]
-  ], langMap14 = new Map(rawLangMap9), Deeplx = class extends Translation {
+  ], langMap15 = new Map(rawLangMap9), Deeplx = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.url = "";
@@ -15691,8 +15783,8 @@ ${injectedCss}}
           },
           method: "POST",
           body: JSON.stringify({
-            source_lang: langMap14.get(from) || from,
-            target_lang: langMap14.get(to) || to,
+            source_lang: langMap15.get(from) || from,
+            target_lang: langMap15.get(to) || to,
             text
           })
         }
@@ -15784,7 +15876,7 @@ ${injectedCss}}
     ["vi", "vi"],
     ["ku", "ku"],
     ["km", "kmr"]
-  ], langMap15 = new Map(rawLangMap10), langMapReverse5 = new Map(
+  ], langMap16 = new Map(rawLangMap10), langMapReverse5 = new Map(
     rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
   ), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
   function replaceSubdomain(url, subdomain) {
@@ -15807,8 +15899,8 @@ ${injectedCss}}
         retry: 2,
         url: finalUrl,
         responseType: "raw"
-      }), { body, headers: headers2, url } = response;
-      subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1], cookie = headers2["set-cookie"], IG = body.match(/IG:"([^"]+)"/)[1], IID = body.match(/data-iid="([^"]+)"/)[1], [
+      }), { body, headers: headers3, url } = response;
+      subdomain = url.match(/^https?:\/\/(\w+)\.bing\.com/)[1], cookie = headers3["set-cookie"], IG = body.match(/IG:"([^"]+)"/)[1], IID = body.match(/data-iid="([^"]+)"/)[1], [
         key,
         token,
         tokenExpiryInterval,
@@ -15862,7 +15954,7 @@ ${injectedCss}}
       throw new Error(
         `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
       );
-    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap15.get(from) || from, to = langMap15.get(to) || to;
+    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap16.get(from) || from, to = langMap16.get(to) || to;
     let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
       !1,
       text,
@@ -15948,7 +16040,7 @@ ${injectedCss}}
     ["hu", "hu"],
     ["zh-TW", "cht"],
     ["vi", "vie"]
-  ], langMap16 = new Map(rawLangMap11), langMapReverse6 = new Map(
+  ], langMap17 = new Map(rawLangMap11), langMapReverse6 = new Map(
     rawLangMap11.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
@@ -15964,8 +16056,8 @@ ${injectedCss}}
     }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-        from: langMap16.get(from) || "auto",
-        to: langMap16.get(to) || to,
+        from: langMap17.get(from) || "auto",
+        to: langMap17.get(to) || to,
         q: text,
         salt,
         appid,
@@ -16003,52 +16095,13 @@ ${injectedCss}}
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
-  ], langMap17 = new Map(rawLangMap12), Caiyun = class extends Translation {
+  ], langMap18 = new Map(rawLangMap12), Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.token = "";
       if (!serviceConfig || !serviceConfig.token)
         throw new Error("token are required");
       this.token = serviceConfig.token?.trim();
-    }
-    async translateList(payload) {
-      let { text, from, to } = payload;
-      if (!langMap17.get(to))
-        throw new Error(`Unsupported language: ${to}`);
-      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
-      let source = text;
-      return {
-        text: (await request2(
-          {
-            retry: 2,
-            url: "https://api.interpreter.caiyunai.com/v1/translator",
-            headers: {
-              "content-type": "application/json",
-              "x-authorization": "token " + this.token
-            },
-            method: "POST",
-            body: JSON.stringify({
-              source,
-              trans_type: `${langMap17.get(from) || "auto"}2${langMap17.get(to)}`
-            })
-          }
-        )).target,
-        from,
-        to
-      };
-    }
-  }, caiyun_default = Caiyun;
-
-  // services/cai.ts
-  var rawLangMap13 = [
-    ["auto", "auto"],
-    ["zh-CN", "zh"],
-    ["en", "en"],
-    ["ja", "ja"]
-  ], langMap18 = new Map(rawLangMap13), Cai = class extends Translation {
-    constructor(serviceConfig, generalConfig, options) {
-      super(serviceConfig, generalConfig, options);
-      this.token = "ssdj273ksdiwi923bsd9";
     }
     async translateList(payload) {
       let { text, from, to } = payload;
@@ -16076,6 +16129,45 @@ ${injectedCss}}
         to
       };
     }
+  }, caiyun_default = Caiyun;
+
+  // services/cai.ts
+  var rawLangMap13 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ], langMap19 = new Map(rawLangMap13), Cai = class extends Translation {
+    constructor(serviceConfig, generalConfig, options) {
+      super(serviceConfig, generalConfig, options);
+      this.token = "ssdj273ksdiwi923bsd9";
+    }
+    async translateList(payload) {
+      let { text, from, to } = payload;
+      if (!langMap19.get(to))
+        throw new Error(`Unsupported language: ${to}`);
+      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
+      let source = text;
+      return {
+        text: (await request2(
+          {
+            retry: 2,
+            url: "https://api.interpreter.caiyunai.com/v1/translator",
+            headers: {
+              "content-type": "application/json",
+              "x-authorization": "token " + this.token
+            },
+            method: "POST",
+            body: JSON.stringify({
+              source,
+              trans_type: `${langMap19.get(from) || "auto"}2${langMap19.get(to)}`
+            })
+          }
+        )).target,
+        from,
+        to
+      };
+    }
   }, cai_default = Cai;
 
   // services/youdao.ts
@@ -16093,7 +16185,7 @@ ${injectedCss}}
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap19 = new Map(rawLangMap14), langMapReverse7 = new Map(
+  ], langMap20 = new Map(rawLangMap14), langMapReverse7 = new Map(
     rawLangMap14.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q7) {
@@ -16116,8 +16208,8 @@ ${injectedCss}}
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap19.get(from) || "auto",
-        to: langMap19.get(to) || to,
+        from: langMap20.get(from) || "auto",
+        to: langMap20.get(to) || to,
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -16162,7 +16254,7 @@ ${injectedCss}}
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap20 = new Map(rawLangMap15), langMapReverse8 = new Map(
+  ], langMap21 = new Map(rawLangMap15), langMapReverse8 = new Map(
     rawLangMap15.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var You = class extends Translation {
@@ -16176,8 +16268,8 @@ ${injectedCss}}
     async translate(payload) {
       let { text, from, to } = payload, params = {
         q: text,
-        from: langMap20.get(from) || "auto",
-        to: langMap20.get(to) || to
+        from: langMap21.get(from) || "auto",
+        to: langMap21.get(to) || to
       }, urlSearchParams = new URLSearchParams(params), res = await request2(
         {
           url: "https://aidemo.youdao.com/trans",
@@ -16211,6 +16303,7 @@ ${injectedCss}}
     volcAlpha: VolcAlpha,
     bing: Bing,
     tencent: Tencent,
+    tenAlpha: TenAlpha,
     baidu: baidu_default,
     caiyun: caiyun_default,
     cai: cai_default,

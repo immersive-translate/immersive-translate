@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [ ] 打开本地 html
 - [ ] fix deepl wikipedia 罗素 english
 - [ ] 支持 calibre
 - [ ] 还有个建议，能否在填写密钥的地方增加个测试按钮，来确认 API 是否正常？

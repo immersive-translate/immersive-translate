@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [ ] 点击展开更多设置，对于翻译引擎
 - [ ] 打开本地 html
 - [ ] fix deepl wikipedia 罗素 english
 - [ ] 支持 calibre

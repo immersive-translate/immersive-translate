@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.75
+
+- Feat: Support custom immediate translation text count for different translation service.
+
 ## 0.2.74
 
 - Feat: Support Tencent (alpha)

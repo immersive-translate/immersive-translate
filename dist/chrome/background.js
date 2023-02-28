@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-27T15:49:29.706Z", VERSION: "0.2.74", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-28T11:34:05.851Z", VERSION: "0.2.75", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5924,7 +5924,12 @@ var buildin_config_default = {
     youdao: {
       placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
     },
-    deepl: {},
+    deepl: {
+      immediateTranslationTextCountForImmersiveDeepl: 5e4
+    },
+    d: {
+      immediateTranslationTextCount: 0
+    },
     papago: {
       placeholderDelimiters: ["{", "}"]
     },
@@ -6104,7 +6109,8 @@ var buildin_config_default = {
       "META",
       "ASIDE",
       "FOOTER",
-      "MATH"
+      "MATH",
+      "TTS-SENTENCE"
     ],
     bodyTranslateTags: ["FOOTER", "ASIDE", "BUTTON", "NAV"],
     forceTranslateTags: [],

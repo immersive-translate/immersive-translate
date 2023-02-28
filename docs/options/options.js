@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-27T15:49:31.224Z", VERSION: "0.2.74", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-02-28T11:34:07.104Z", VERSION: "0.2.75", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8907,7 +8907,12 @@ ${injectedCss}}
       youdao: {
         placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
       },
-      deepl: {},
+      deepl: {
+        immediateTranslationTextCountForImmersiveDeepl: 5e4
+      },
+      d: {
+        immediateTranslationTextCount: 0
+      },
       papago: {
         placeholderDelimiters: ["{", "}"]
       },
@@ -9087,7 +9092,8 @@ ${injectedCss}}
         "META",
         "ASIDE",
         "FOOTER",
-        "MATH"
+        "MATH",
+        "TTS-SENTENCE"
       ],
       bodyTranslateTags: ["FOOTER", "ASIDE", "BUTTON", "NAV"],
       forceTranslateTags: [],
@@ -10554,6 +10560,27 @@ ${injectedCss}}
   }
   async function clearLocalConfig() {
     await browserAPI.storage.local.set({ [localConfigStorageKey]: {} });
+  }
+  async function getLatestBuildinConfig() {
+    let storageBuildInConfig = await browserAPI.storage.local.get(
+      buildinConfigStorageKey
+    ), finalBuildInConfig = {
+      ...getBuildInConfig(),
+      ...buildin_config_default,
+      buildinConfigUpdatedAt: env.BUILD_TIME
+    };
+    if (storageBuildInConfig[buildinConfigStorageKey]) {
+      let storageBuildInConfigValue = storageBuildInConfig[buildinConfigStorageKey];
+      if (storageBuildInConfigValue && storageBuildInConfigValue.buildinConfigUpdatedAt) {
+        let storageBuildinConfigUpdatedAt = new Date(
+          storageBuildInConfigValue.buildinConfigUpdatedAt
+        ), buildinConfigUpdatedAt = new Date(
+          finalBuildInConfig.buildinConfigUpdatedAt
+        );
+        storageBuildinConfigUpdatedAt > buildinConfigUpdatedAt && (finalBuildInConfig = storageBuildInConfigValue);
+      }
+    }
+    return finalBuildInConfig;
   }
   async function getConfig() {
     let storageBuildInConfig = await browserAPI.storage.local.get(
@@ -12665,7 +12692,7 @@ ${injectedCss}}
     sourceUrlMatched && (sourceLanguage = sourceLanguageReverseMap[sourceUrlMatched] ?? "auto", sourceLanguageReverseMap[sourceUrlMatched] && sourceLanguageReverseMap[sourceUrlMatched] !== "auto" && setCurrentPageLanguageByClient(
       sourceLanguageReverseMap[sourceUrlMatched]
     ));
-    let defaultTargetLanguage = targetLanguage || "zh-CN", hostname2 = urlObj.hostname, encryptedHostname = await sha256(hostname2), pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash, encryptedPath = await sha256(pathAndQueryAndHash), encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`, localConfig = await getLocalConfig(), translationStartMode = config.translationStartMode;
+    let defaultTargetLanguage = targetLanguage || "zh-CN", hostname2 = urlObj.hostname, encryptedHostname = await sha256(hostname2), pathAndQueryAndHash = urlObj.pathname + urlObj.search + urlObj.hash, encryptedPath = await sha256(pathAndQueryAndHash), encryptedUrl = `https://${encryptedHostname}.com/${encryptedPath}`, localConfig = await getLocalConfig(), buildinConfig = await getLatestBuildinConfig(), translationStartMode = config.translationStartMode;
     translationStartMode === "dynamic" && isImmediateTranslate && (translationStartMode = "immediate");
     let ctx = {
       targetLanguage: defaultTargetLanguage,
@@ -12681,6 +12708,7 @@ ${injectedCss}}
       state: state ? Object.assign({
         translationArea: config.translationArea,
         translationStartMode,
+        immediateTranslationTextCount: config.immediateTranslationTextCount,
         isAutoTranslate: !1,
         isNeedClean: !1,
         isDetectParagraphLanguage,
@@ -12688,6 +12716,7 @@ ${injectedCss}}
       }, state) : {
         translationArea: config.translationArea,
         translationStartMode,
+        immediateTranslationTextCount: config.immediateTranslationTextCount,
         isAutoTranslate: !1,
         isNeedClean: !1,
         isDetectParagraphLanguage,
@@ -12697,7 +12726,11 @@ ${injectedCss}}
     };
     ctx.state.translationArea === "body" && (ctx.config.generalRule.excludeTags = ctx.config.generalRule.excludeTags.filter((tag) => !ctx.config.generalRule.bodyTranslateTags.includes(tag)), ctx.config.generalRule.additionalExcludeSelectors = ctx.config.generalRule.additionalExcludeSelectors.filter(
       (selector) => selector !== ".btn"
-    )), ctx.translationService === "d" && (config.immediateTranslationTextCount = 0);
+    ));
+    let translationServiceConfig = config.translationServices[ctx.translationService] || {};
+    translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl);
+    let buildinImmediateTranslationTextCount = buildinConfig.immediateTranslationTextCount;
+    config.immediateTranslationTextCount !== buildinImmediateTranslationTextCount && (ctx.state.immediateTranslationTextCount = config.immediateTranslationTextCount);
     let rules = config.rules, rule;
     globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
     let generalRule = config.generalRule;
@@ -12913,7 +12946,7 @@ ${injectedCss}}
     currentParagraphIds.push(id), debounceTranslateCurrentQueue(ctx);
   }
   function addParagraphToQueue(paragraph, ctx) {
-    ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.config.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
+    ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
       ctx.rule.visibleDelay > 0 ? setTimeout(() => {
         translationParagraph(visibleParagraph, ctx);
       }, ctx.rule.visibleDelay) : translationParagraph(visibleParagraph, ctx);
@@ -12939,7 +12972,7 @@ ${injectedCss}}
     }
     ctx.state.isAutoTranslate = !0;
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-    currentScrollOffset >= currentWindowHeight && (ctx.config.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
+    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
       log_default.warn("init translation engine error", e3);
     })), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
       currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {

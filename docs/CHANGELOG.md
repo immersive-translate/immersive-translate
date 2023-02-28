@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.76
+
+- Fix: multiple code tag error [#178](https://github.com/immersive-translate/immersive-translate/issues/178)
+
 ## 0.2.75
 
 - Feat: Support custom immediate translation text count for different translation service.

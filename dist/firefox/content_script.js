@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-28T11:34:06.696Z", VERSION: "0.2.75", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:34.539Z", VERSION: "0.2.76", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -12448,7 +12448,7 @@ function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootF
         rootFrame,
         ctx
       );
-      return currentVariableIndex = 0, parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables))), NodeFilter.FILTER_REJECT;
+      return currentVariableIndex += parentElementParagraph?.variables?.length || 0, parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables))), NodeFilter.FILTER_REJECT;
     }
     return NodeFilter.FILTER_ACCEPT;
   }, treeWalker = document.createTreeWalker(
@@ -12481,7 +12481,7 @@ function getInlineElementsOfInlineElement(root2, isPreWhitespaceContainer, rootF
           rootFrame,
           ctx
         );
-        parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables)));
+        currentVariableIndex += parentElementParagraph?.variables?.length || 0, parentElementParagraph && (fullText += parentElementParagraph.text, parentElementParagraph && parentElementParagraph.variables && (variables = variables.concat(parentElementParagraph.variables)));
       }
       isWhiteSpaceNodeOfLastElement = !1;
     }
@@ -18739,7 +18739,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.75",
+  version: "0.2.76",
   default_locale: "en",
   background: {
     service_worker: "background.js"

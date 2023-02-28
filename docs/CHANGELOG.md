@@ -1,5 +1,80 @@
 # Change Log
 
+## 0.2.76
+
+- Fix: multiple code tag error [#178](https://github.com/immersive-translate/immersive-translate/issues/178)
+
+## 0.2.75
+
+- Feat: Support custom immediate translation text count for different translation service.
+
+## 0.2.74
+
+- Feat: Support Tencent (alpha)
+- Fix: openai translation
+- Fix: unknown tags inline check
+
+## 0.2.73
+
+- Feat: Support Grey Translation Theme
+- Fix: Github Trending Page
+
+## 0.2.72
+
+- Fix: firefox mobile verify translation service net issue.
+
+## 0.2.71
+
+- Fix: Open AI userscript permission
+
+## 0.2.70
+
+- Fix: Open AI placeholder
+
+## 0.2.69
+
+- Feat: Support Open AI as translation service.
+- Feat: Support verify translation service on options.html
+- Feat: Support custom main frame cuase some site is not using body as the main frame
+
+## 0.2.68
+
+- Support Caiyun (Alpha)
+- Fix unknow block tags
+
+## 0.2.67
+
+- Feat: Add `<all>` for always translate languages, so now you can use it to translate all language except the target language, and never translate languages
+- Fix: Allow config custom google API
+- Better: Deepl Free support
+- Fix: hight memory use for userscripts and extension (by removing opencc zh-CN to zh-TW, instead with Google translate)
+- Fix: Relingo [#159](https://github.com/immersive-translate/immersive-translate/issues/159)
+- Fix: Azure translate setup but still show (need setup)
+
+## 0.2.66
+
+- Fix: PDF file translation failed, Bug from 0.2.60 for supporting deepl from zh-CN to zh-TW
+
+## 0.2.65
+
+- Support throttle request for multiple frame
+- Do not translate page title when in iframe
+
+## 0.2.64
+
+- Fix: openl choose translation services
+- Feat: Support is translate title option
+
+## 0.2.63
+
+- Feat: Support Azure Translate Service
+- Feat: Support Papago Translate Service
+- Fix: native firefox android google drive sync.
+- Fix: change transparency from 0.4 to 0.618 [#147](https://github.com/immersive-translate/immersive-translate/pull/147)
+- Fix: popup shortcuts tips
+- Performance: serial to cocurrency requests
+- Better for detect Japanese count
+
 ## 0.2.62
 
 - Feat: Add waitForSelectors rule, for fixing some sites like reddit

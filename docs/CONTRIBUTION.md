@@ -5,7 +5,7 @@
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
 - 添加[你的建议](https://github.com/immersive-translate/immersive-translate/issues) 帮助我们改进功能。
 - 加入[Telegram 频道](https://t.me/immersivetranslate) 接收最新消息。
-- 关注[Github项目](https://github.com/immersive-translate/immersive-translate), 点击 Watch 这样可以及时收到新的 Issue 请求。
+- 关注[Github 项目](https://github.com/immersive-translate/immersive-translate), 点击 Watch 这样可以及时收到新的 Issue 请求。
 - [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求。
 - [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 尚未整理的待做功能项。
 
@@ -15,21 +15,25 @@
 
 请有意贡献或者想调试的同学加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道，然后私聊管理员申请加入 Github 团队。
 
+记得 Watch [Github 项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求。
 
 ## 搭建开发环境
 
 ### Windows
 
 安装包管理器，如 [Scoop](https://scoop.sh/) 或 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 这里介绍如何安装 Scoop。打开 PowerShell 输入以下命令
+
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 ```
+
 安装 make 工具
+
 ```
 scoop install gcc gow -u
 scoop install git
-scoop install unxutils 
+scoop install unxutils
 ```
 
 注：makefile 文件对 powershell 的兼容不同，参数跟命令需要放在同一行中，否则运行会报错。例如在 makefile 中对 make dev 的配置。
@@ -39,6 +43,7 @@ scoop install unxutils
 安装 Deno 需要最低 glibc_2.18。低版本需要下载源码包编译安装。
 
 **Requirements**
+
 1. Install [Deno](https://deno.land/manual@v1.28.2/getting_started/installation)
 2. Install [Firefox Devloper Edition](https://www.mozilla.org/en-US/firefox/developer/)
 3. Install [web-ext](https://github.com/mozilla/web-ext) globally.

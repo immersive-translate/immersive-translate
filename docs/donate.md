@@ -4,7 +4,9 @@
 
 ## 微信，支付宝
 
-你可以通过我的[爱发电主页](https://afdian.net/a/translate) 进行月度/一次性赞助，支持微信，支付宝。
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/wna.jpg" width="400" alt="wechat and alipay"></div>
+
+你也可以通过我的[爱发电主页](https://afdian.net/a/translate) 进行月度/一次性赞助，支持微信，支付宝。
 
 ## Github Sponsor
 

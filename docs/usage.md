@@ -65,6 +65,23 @@
 >
 > 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
+## 关于沉浸式扩展提供的 Deepl 翻译 Pro 服务
+
+如果你对 DeepL 翻译服务有强需求，但是[官方 API](./services/deepL.md) 的字符数限制让你感到困扰，那么你可以考虑通过[赞助沉浸式翻译](https://immersive-translate.owenyoung.com/donate)以获得无字符数量限制的 Deepl Auth Key
+
+打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
+
+> 说明：
+>
+> 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用
+> 2. 翻译服务依然使用的是 DeepL 官方的翻译接口，数据不会经过沉浸式翻译的服务器
+> 3. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
+> 4. 赞助后，你将会在邮件收到 DeepL Auth Key，在沉浸式翻译扩展的设置页面选择翻译服务【DeepL】，然后填入该 Auth Key 即可。
+> 5. 该 Auth Key 的有效性与赞助期限保持同步。
+> 6. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
+
+如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
+
 ## 了解更多
 
 - [翻译服务申请](https://immersive-translate.owenyoung.com/services.html)

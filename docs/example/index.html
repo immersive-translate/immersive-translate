@@ -15,18 +15,29 @@
       <div>Title need to translate</div>
     </header>
     <article>
-      <div class="note">
-        <strong>Note:</strong
-        ><span>
-          The ordering of where
-          <code translate="no" dir="ltr">animateContentSize</code> is placed in
-          your modifier chain matters. For smooth animations, ensure you place
-          it <em>before</em> any size modifiers such as
-          <code translate="no" dir="ltr">size</code> or
-          <code translate="no" dir="ltr">defaultMinSize</code> to ensure that
-          <code translate="no" dir="ltr">animateContentSize</code> reports the
-          animated value change to the Layout.</span
-        >
+      <div class="notecard note" id="sect1">
+        <p>
+          <strong>Note:</strong> <code>setEnd()</code> is commonly used in
+          conjunction with
+          <a href="/en-US/docs/Web/API/Range/setStart" title="setStart()"
+            ><code>setStart()</code></a
+          >
+          to fully configure a range.
+        </p>
+        <p>
+          Content within
+          <code translate="no" dir="ltr">AnimatedVisibility</code> (direct or
+          indirect children) can use the
+          <a
+            href="/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String)"
+            ><code translate="no" dir="ltr">animateEnterExit</code></a
+          >
+          modifier to specify different animation behavior for each of them. The
+          visual effect for each of these children is a combination of the
+          animations specified at the
+          <code translate="no" dir="ltr">AnimatedVisibility</code> composable
+          and the child's own enter and exit animations.
+        </p>
       </div>
     </article>
   </body>

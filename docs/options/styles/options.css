@@ -179,6 +179,7 @@ label {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 6rem;
 }
 .input-left {
   display: flex;

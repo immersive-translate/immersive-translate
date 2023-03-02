@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.78
+
+- Feat: support OpenAI CHATGPT 3.5 (支持 OpenAI ChatGPT 3.5 接口)
+- Feat: Add new theme Solid Border (新增新主题，实线边框)
+
 ## 0.2.77
 
 - Fix: multiple code tag error.[#178](https://github.com/immersive-translate/immersive-translate/issues/178)

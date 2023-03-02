@@ -214,7 +214,7 @@ _log.l("test2"); // info level
 
 ## 移动端调试谷歌 drive 授权
 
-移动端无法访问 localhost, googke 不允许设置 ip 为跳转域名。
+移动端无法访问 localhost, google 不允许设置 ip 为跳转域名。
 
 可以在电脑上使用 Whistle 代理软件(或者其他类似软件):
 

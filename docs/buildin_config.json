@@ -69,9 +69,12 @@
     },
     "openai": {
       "placeholderDelimiters": [
-        "{",
-        "}"
-      ]
+        "{{",
+        "}}"
+      ],
+      "immediateTranslationTextCount": 10000,
+      "translationDebounce": 300,
+      "translationTextSeparator": "\n\n🚠\n\n"
     }
   },
   "shortcuts": {
@@ -1876,6 +1879,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T19:49:57.540Z",
-  "latestVersion": "0.2.74"
+  "buildinConfigUpdatedAt": "2023-03-02T18:55:31.880Z",
+  "latestVersion": "0.2.78"
 }

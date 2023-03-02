@@ -13,6 +13,8 @@
 
 打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cciZptnoXCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 > 说明：
 >
 > 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用

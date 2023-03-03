@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.79
+
+- Fix: Open AI for space paragraph
+
 ## 0.2.78
 
 - Feat: support OpenAI CHATGPT 3.5 (支持 OpenAI ChatGPT 3.5 接口)

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.78
+// @version      0.2.79
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -68,7 +68,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-02T18:53:02.043Z", VERSION: "0.2.78", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-03T14:31:24.630Z", VERSION: "0.2.79", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4434,7 +4434,7 @@ body {
     "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
     "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
     localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u6CA1\u6709\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF08\u6BD4\u5982\u83B7\u53D6\u6CB9\u7334\u811A\u672C\u81EA\u8EAB\u7684\u7248\u672C\u53F7\u4FE1\u606F\uFF09\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982 Firefox",
     foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
     theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
     failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -5590,7 +5590,7 @@ body {
           required: !1,
           descriptionKey: "description.prompt",
           type: "textarea",
-          default: "Translate the following {{from}} text to {{to}}, please leave the placeholders `\u{1F6A0}` as they are, thanks!: \n\n{{text}}"
+          default: "Translate the following text to {{to}}: ```\n{{text}}\n```"
         }
       ]
     },
@@ -9100,9 +9100,7 @@ body {
         immediateTranslationTextCount: 1e4,
         translationDebounce: 300,
         translationTextSeparator: `
-
-\u{1F6A0}
-
+###
 `
       }
     },
@@ -11098,7 +11096,7 @@ body {
       let currentSentence = sentences[i3], { from, to, text, url } = currentSentence, sentenceTotalParts = 0, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
       for (let j7 = 0; j7 < textArrSplitedByNewLine.length; j7++) {
         let currentText = textArrSplitedByNewLine[j7];
-        if (currentText === "") {
+        if (currentText.trim() === "") {
           currentTempSentences.length > 0 ? j7 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `) : currentPrefix += `
 `;
@@ -14749,7 +14747,7 @@ ${injectedCss}}
       this.isSupportList = !1;
       this.maxTextLength = 1500;
       this.maxTextGroupLength = 100;
-      this.prompt = "Translate the following text to {{to}}, please leave the placeholders `\u{1F6A0}` as they are, thanks!: \n\n{{text}}";
+      this.prompt = "Translate the following text to {{to}}: ```\n{{text}}\n```";
       this.model = "gpt-3.5-turbo";
       if (!serviceConfig || !serviceConfig.APIKEY)
         throw new Error("APIKEY are required");
@@ -18509,7 +18507,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.78",
+    version: "0.2.79",
     default_locale: "en",
     background: {
       service_worker: "background.js"

@@ -4,6 +4,7 @@
   "interval": 3600000,
   "beta": false,
   "cache": true,
+  "enabled": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
@@ -1901,6 +1902,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T06:26:51.856Z",
+  "buildinConfigUpdatedAt": "2023-03-06T07:56:52.948Z",
   "latestVersion": "0.2.79"
 }

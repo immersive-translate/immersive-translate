@@ -75,7 +75,7 @@
       ],
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
-      "translationTextSeparator": "\n###\n"
+      "translationTextSeparator": "\n\n###\n\n"
     }
   },
   "shortcuts": {
@@ -1907,6 +1907,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T10:42:05.002Z",
+  "buildinConfigUpdatedAt": "2023-03-06T11:25:16.746Z",
   "latestVersion": "0.2.79"
 }

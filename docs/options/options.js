@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-06T12:31:23.654Z", VERSION: "0.2.80", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.907Z", VERSION: "0.2.81", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9004,11 +9004,19 @@ ${injectedCss}}
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 1e4,
         translationDebounce: 300,
-        translationTextSeparator: `
+        newlinePlaceholderDelimiters: [
+          `
 
-###
+###`,
+          `###
 
-`
+`,
+          `
+?
+?###\\d+###
+?
+?`
+        ]
       }
     },
     shortcuts: {
@@ -9545,11 +9553,18 @@ ${injectedCss}}
       },
       {
         matches: "m.youtube.com",
-        selectors: [".comment-text"],
+        selectors: [
+          ".comment-text",
+          ".media-item-headline",
+          ".slim-video-information-title"
+        ],
+        wrapperPrefix: "",
+        wrapperSuffix: "",
         observeUrlChange: !0,
         atomicBlockSelectors: [".comment-text"],
         globalStyles: {
-          ".comment-text": "max-height:unset;"
+          ".comment-text": "max-height:unset;",
+          ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
         },
         injectedCss: [
           ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -13942,17 +13957,32 @@ ${injectedCss}}
           {
             let finalTranslationTextSeparator = translationTextSeparator;
             this.serviceConfig && this.serviceConfig.translationTextSeparator && (finalTranslationTextSeparator = this.serviceConfig.translationTextSeparator);
-            let mergedText = tempSentenceGroup.tempSentences.map(
+            let newlinePlaceholderDelimiters = null;
+            this.serviceConfig && this.serviceConfig.newlinePlaceholderDelimiters && (newlinePlaceholderDelimiters = this.serviceConfig.newlinePlaceholderDelimiters);
+            let mergedText = "";
+            newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2 ? mergedText = tempSentenceGroup.tempSentences.map((item, index) => index === tempSentenceGroup.tempSentences.length - 1 ? item.text : item.text + newlinePlaceholderDelimiters[0] + (index + 1) + newlinePlaceholderDelimiters[1]).join("") : mergedText = tempSentenceGroup.tempSentences.map(
               (item) => item.text
-            ).join(finalTranslationTextSeparator), result = await this.translate({
+            ).join(finalTranslationTextSeparator);
+            let result = await this.translate({
               text: mergedText,
               from: finalFrom,
               to: tempSentenceGroup.to,
               url,
               options
-            }), { text } = result, rawTranslatedTexts = text.split(
-              finalTranslationTextSeparator
-            ), translatedTexts = [];
+            }), { text } = result, rawTranslatedTexts = [];
+            if (newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2) {
+              let defaultRegex = `${newlinePlaceholderDelimiters[0]}\\d+${newlinePlaceholderDelimiters[1]}`;
+              newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 3 && (defaultRegex = newlinePlaceholderDelimiters[2]);
+              let regex = new RegExp(
+                defaultRegex,
+                "g"
+              );
+              rawTranslatedTexts = text.split(regex);
+            } else
+              rawTranslatedTexts = text.split(
+                finalTranslationTextSeparator
+              );
+            let translatedTexts = [];
             if (rawTranslatedTexts.length > tempSentenceGroup.tempSentences.length) {
               for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length - 1; j6++)
                 translatedTexts[j6] = rawTranslatedTexts[j6];
@@ -15349,6 +15379,7 @@ ${injectedCss}}
     constructor(serviceConfig, generalConfig, options) {
       super(serviceConfig, generalConfig, options);
       this.APIKEY = "";
+      // api key list
       this.isSupportList = !1;
       this.maxTextLength = 1500;
       this.maxTextGroupLength = 100;
@@ -15356,10 +15387,18 @@ ${injectedCss}}
       this.model = "gpt-3.5-turbo";
       if (!serviceConfig || !serviceConfig.APIKEY)
         throw new Error("APIKEY are required");
-      this.APIKEY = serviceConfig.APIKEY?.trim(), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
+      this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
     }
     translate(payload) {
       return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
+    }
+    /**
+     * get random api key
+     * @returns random api key
+     */
+    getRandomKey() {
+      let index = Math.floor(Math.random() * this.apiKeys.length);
+      return this.apiKeys[index];
     }
     async translate3_5(payload) {
       let { text, from, to } = payload;
@@ -15377,7 +15416,7 @@ ${injectedCss}}
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + this.APIKEY
+          Authorization: "Bearer " + this.getRandomKey()
         },
         body: JSON.stringify({
           model: this.model,
@@ -16849,7 +16888,7 @@ ${injectedCss}}
     let { t: t5 } = useI18n(), inputStyle = {};
     props.width && (inputStyle = { width: `${props.width}px` });
     let { field } = props, finalLabel = field.name;
-    return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), /* @__PURE__ */ p4("div", { class: "mt-3 flex items-center", children: [
+    return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), /* @__PURE__ */ p4("div", { class: "mt-3", children: [
       /* @__PURE__ */ p4("label", { for: props.field.name, class: "mb-[var(--spacing)]", children: [
         finalLabel,
         "\uFF1A"
@@ -16940,11 +16979,10 @@ ${injectedCss}}
       return /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4(
         InputRow,
         {
-          leftClass: "input-raw-left",
           field,
           value,
           type: field.type,
-          width: 100,
+          width: 196,
           onChange
         }
       ) });
@@ -16960,17 +16998,14 @@ ${injectedCss}}
       ) });
     if (field.type === "color") {
       let theValue = value, defaultPlaceholder = "";
-      return theValue || (theValue = "#FFFFFF", defaultPlaceholder = "#FFFFFF"), /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4("label", { class: "border-color-selector", for: field.name, children: /* @__PURE__ */ p4("div", { class: "border-color-left", children: [
-        /* @__PURE__ */ p4("div", { class: "shrink-0", children: [
-          field.label || field.name,
-          ":"
-        ] }),
+      return theValue || (theValue = "#FFFFFF", defaultPlaceholder = "#FFFFFF"), /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4("label", { class: "flex items-center", for: field.name, children: [
+        /* @__PURE__ */ p4("span", { class: "mr-2", children: field.label || field.name }),
         /* @__PURE__ */ p4(
           "input",
           {
             type: "text",
             id: field.name,
-            class: "border-color-text",
+            class: "border-color-text mr-2",
             placeholder: defaultPlaceholder || "",
             value,
             onInput: (e3) => {
@@ -16990,7 +17025,7 @@ ${injectedCss}}
             }
           }
         )
-      ] }) }) });
+      ] }) });
     } else
       return null;
   }
@@ -18473,7 +18508,14 @@ ${injectedCss}}
           }
         ),
         config.translationTheme && getThemeProps(config.translationTheme).length > 0 ? /* @__PURE__ */ p4("details", { class: "pt-2 border-none", children: [
-          /* @__PURE__ */ p4("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("customTheme") }),
+          /* @__PURE__ */ p4(
+            "summary",
+            {
+              class: "text-sm",
+              style: { textAlign: "right", lineHeight: "1rem" },
+              children: t5("customTheme")
+            }
+          ),
           /* @__PURE__ */ p4("div", { class: "flex flex-col items-end", children: [
             getThemeProps(config.translationTheme).map(
               (props) => {
@@ -18548,7 +18590,14 @@ ${injectedCss}}
           ] })
         ] }) : null,
         /* @__PURE__ */ p4("details", { class: "pt-2 border-none", children: [
-          /* @__PURE__ */ p4("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("previewAllThemes") }),
+          /* @__PURE__ */ p4(
+            "summary",
+            {
+              class: "text-sm",
+              style: { textAlign: "right", lineHeight: "1rem" },
+              children: t5("previewAllThemes")
+            }
+          ),
           translationThemes.map((item) => /* @__PURE__ */ p4("div", { class: "pt-2", children: /* @__PURE__ */ p4("label", { children: [
             /* @__PURE__ */ p4("div", { class: "flex justify-between", children: /* @__PURE__ */ p4("div", { children: [
               /* @__PURE__ */ p4(

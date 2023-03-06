@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-06T12:31:23.216Z", VERSION: "0.2.80", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSION: "0.2.81", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9475,11 +9475,19 @@ var buildin_config_default = {
       placeholderDelimiters: ["{{", "}}"],
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
-      translationTextSeparator: `
+      newlinePlaceholderDelimiters: [
+        `
 
-###
+###`,
+        `###
 
-`
+`,
+        `
+?
+?###\\d+###
+?
+?`
+      ]
     }
   },
   shortcuts: {
@@ -10016,11 +10024,18 @@ var buildin_config_default = {
     },
     {
       matches: "m.youtube.com",
-      selectors: [".comment-text"],
+      selectors: [
+        ".comment-text",
+        ".media-item-headline",
+        ".slim-video-information-title"
+      ],
+      wrapperPrefix: "",
+      wrapperSuffix: "",
       observeUrlChange: !0,
       atomicBlockSelectors: [".comment-text"],
       globalStyles: {
-        ".comment-text": "max-height:unset;"
+        ".comment-text": "max-height:unset;",
+        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
       },
       injectedCss: [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -13487,17 +13502,32 @@ var Translation = class {
         {
           let finalTranslationTextSeparator = translationTextSeparator;
           this.serviceConfig && this.serviceConfig.translationTextSeparator && (finalTranslationTextSeparator = this.serviceConfig.translationTextSeparator);
-          let mergedText = tempSentenceGroup.tempSentences.map(
+          let newlinePlaceholderDelimiters = null;
+          this.serviceConfig && this.serviceConfig.newlinePlaceholderDelimiters && (newlinePlaceholderDelimiters = this.serviceConfig.newlinePlaceholderDelimiters);
+          let mergedText = "";
+          newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2 ? mergedText = tempSentenceGroup.tempSentences.map((item, index) => index === tempSentenceGroup.tempSentences.length - 1 ? item.text : item.text + newlinePlaceholderDelimiters[0] + (index + 1) + newlinePlaceholderDelimiters[1]).join("") : mergedText = tempSentenceGroup.tempSentences.map(
             (item) => item.text
-          ).join(finalTranslationTextSeparator), result = await this.translate({
+          ).join(finalTranslationTextSeparator);
+          let result = await this.translate({
             text: mergedText,
             from: finalFrom,
             to: tempSentenceGroup.to,
             url,
             options: options2
-          }), { text } = result, rawTranslatedTexts = text.split(
-            finalTranslationTextSeparator
-          ), translatedTexts = [];
+          }), { text } = result, rawTranslatedTexts = [];
+          if (newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2) {
+            let defaultRegex = `${newlinePlaceholderDelimiters[0]}\\d+${newlinePlaceholderDelimiters[1]}`;
+            newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 3 && (defaultRegex = newlinePlaceholderDelimiters[2]);
+            let regex = new RegExp(
+              defaultRegex,
+              "g"
+            );
+            rawTranslatedTexts = text.split(regex);
+          } else
+            rawTranslatedTexts = text.split(
+              finalTranslationTextSeparator
+            );
+          let translatedTexts = [];
           if (rawTranslatedTexts.length > tempSentenceGroup.tempSentences.length) {
             for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length - 1; j6++)
               translatedTexts[j6] = rawTranslatedTexts[j6];
@@ -15166,6 +15196,7 @@ var rawLangMap6 = [
   constructor(serviceConfig, generalConfig, options2) {
     super(serviceConfig, generalConfig, options2);
     this.APIKEY = "";
+    // api key list
     this.isSupportList = !1;
     this.maxTextLength = 1500;
     this.maxTextGroupLength = 100;
@@ -15173,10 +15204,18 @@ var rawLangMap6 = [
     this.model = "gpt-3.5-turbo";
     if (!serviceConfig || !serviceConfig.APIKEY)
       throw new Error("APIKEY are required");
-    this.APIKEY = serviceConfig.APIKEY?.trim(), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
+    this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
   }
   translate(payload) {
     return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
+  }
+  /**
+   * get random api key
+   * @returns random api key
+   */
+  getRandomKey() {
+    let index = Math.floor(Math.random() * this.apiKeys.length);
+    return this.apiKeys[index];
   }
   async translate3_5(payload) {
     let { text, from, to } = payload;
@@ -15194,7 +15233,7 @@ var rawLangMap6 = [
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + this.APIKEY
+        Authorization: "Bearer " + this.getRandomKey()
       },
       body: JSON.stringify({
         model: this.model,
@@ -17919,10 +17958,10 @@ function useI18n() {
 function PopupField(props) {
   let { field, onChange, value } = props;
   value = value || field.default || "";
-  let { t: t4 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+  let { t: t4 } = useI18n(), finalLabel = field.name;
+  return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t4(field.labelKey)), field.type === "select" ? /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
     /* @__PURE__ */ p4("label", { class: "inline-block", children: [
-      field.label ? t4(field.label) : field.name,
+      finalLabel,
       "\uFF1A"
     ] }),
     /* @__PURE__ */ p4(
@@ -18948,7 +18987,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.80",
+  version: "0.2.81",
   default_locale: "en",
   background: {
     service_worker: "background.js"

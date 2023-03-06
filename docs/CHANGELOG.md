@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.81
+
+- Fix: m.youtube.com
+- Fix: options form UI
+- Fix: Open AI prompt
+- Feat: Support OpenAI multiple keys, use `,` split them.
+
 ## 0.2.80
 
 - Feat: Add Enable/Disable Menu for popup -> more

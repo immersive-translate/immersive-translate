@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-06T12:31:23.216Z", VERSION: "0.2.80", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSION: "0.2.81", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8921,11 +8921,19 @@ var buildin_config_default = {
       placeholderDelimiters: ["{{", "}}"],
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
-      translationTextSeparator: `
+      newlinePlaceholderDelimiters: [
+        `
 
-###
+###`,
+        `###
 
-`
+`,
+        `
+?
+?###\\d+###
+?
+?`
+      ]
     }
   },
   shortcuts: {
@@ -9462,11 +9470,18 @@ var buildin_config_default = {
     },
     {
       matches: "m.youtube.com",
-      selectors: [".comment-text"],
+      selectors: [
+        ".comment-text",
+        ".media-item-headline",
+        ".slim-video-information-title"
+      ],
+      wrapperPrefix: "",
+      wrapperSuffix: "",
       observeUrlChange: !0,
       atomicBlockSelectors: [".comment-text"],
       globalStyles: {
-        ".comment-text": "max-height:unset;"
+        ".comment-text": "max-height:unset;",
+        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
       },
       injectedCss: [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -11343,10 +11358,10 @@ function useI18n() {
 function PopupField(props) {
   let { field, onChange, value } = props;
   value = value || field.default || "";
-  let { t: t3 } = useI18n();
-  return field.type === "select" ? /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+  let { t: t3 } = useI18n(), finalLabel = field.name;
+  return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t3(field.labelKey)), field.type === "select" ? /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
     /* @__PURE__ */ p4("label", { class: "inline-block", children: [
-      field.label ? t3(field.label) : field.name,
+      finalLabel,
       "\uFF1A"
     ] }),
     /* @__PURE__ */ p4(

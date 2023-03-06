@@ -618,6 +618,7 @@
     },
     {
       "matches": "github.com",
+      "observeUrlChange": true,
       "selectors": [
         ".markdown-title",
         ".markdown-body",
@@ -1906,6 +1907,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T10:07:59.314Z",
+  "buildinConfigUpdatedAt": "2023-03-06T10:42:05.002Z",
   "latestVersion": "0.2.79"
 }

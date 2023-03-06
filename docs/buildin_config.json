@@ -623,6 +623,9 @@
     {
       "matches": "github.com",
       "observeUrlChange": true,
+      "excludeMatches": [
+        "https://github.com/settings/profile"
+      ],
       "selectors": [
         ".markdown-title",
         ".markdown-body",
@@ -1916,6 +1919,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T16:23:28.146Z",
+  "buildinConfigUpdatedAt": "2023-03-06T17:35:04.494Z",
   "latestVersion": "0.2.81"
 }

@@ -75,7 +75,11 @@
       ],
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
-      "translationTextSeparator": "\n\n###\n\n"
+      "newlinePlaceholderDelimiters": [
+        "\n\n###",
+        "###\n\n",
+        "\n?\n?###\\d+###\n?\n?"
+      ]
     }
   },
   "shortcuts": {
@@ -695,14 +699,19 @@
     {
       "matches": "m.youtube.com",
       "selectors": [
-        ".comment-text"
+        ".comment-text",
+        ".media-item-headline",
+        ".slim-video-information-title"
       ],
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
       "observeUrlChange": true,
       "atomicBlockSelectors": [
         ".comment-text"
       ],
       "globalStyles": {
-        ".comment-text": "max-height:unset;"
+        ".comment-text": "max-height:unset;",
+        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
       },
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -1907,6 +1916,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T11:25:16.746Z",
-  "latestVersion": "0.2.79"
+  "buildinConfigUpdatedAt": "2023-03-06T16:23:28.146Z",
+  "latestVersion": "0.2.81"
 }

@@ -1347,6 +1347,28 @@
       }
     },
     {
+      "matches": "marketplace.visualstudio.com",
+      "additionalExcludeSelectors": [
+        ".core-info-second-row",
+        ".core-info-third-row",
+        ".meta-data-list",
+        ".item-title",
+        ".breadcrumb",
+        ".itemDetails-right",
+        ".ux-user-name",
+        ".ux-updated-date",
+        ".ux-item-second-row-wrapper",
+        ".stats-and-offer",
+        ".header-container"
+      ],
+      "atomicBlockSelectors": [
+        ".core-info-cell > div.name"
+      ],
+      "globalStyles": {
+        ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
+      }
+    },
+    {
       "matches": "www.bloomberg.com",
       "urlChangeDelay": 2000
     },
@@ -1879,6 +1901,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-03T14:30:49.330Z",
+  "buildinConfigUpdatedAt": "2023-03-06T06:26:51.856Z",
   "latestVersion": "0.2.79"
 }

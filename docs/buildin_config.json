@@ -626,7 +626,11 @@
         "li.repo-list-item p",
         "#responsive-meta-container p",
         "article p",
-        "div.repo-description p"
+        "div.repo-description p",
+        "[itemprop=description]"
+      ],
+      "atomicBlockSelectors": [
+        "[itemprop=description]"
       ],
       "excludeSelectors": [
         ".css-truncate",
@@ -1902,6 +1906,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T07:56:52.948Z",
+  "buildinConfigUpdatedAt": "2023-03-06T10:07:59.314Z",
   "latestVersion": "0.2.79"
 }

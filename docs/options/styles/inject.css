@@ -15,6 +15,7 @@
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -165,6 +166,15 @@
 }
 .immersive-translate-target-translation-block-wrapper-theme-marker {
   line-height: 1.5em;
+}
+
+.immersive-translate-target-translation-theme-marker2-inner {
+  font-weight: bold;
+  text-shadow: 10px 0px 3px
+  var(--immersive-translate-theme-marker2-backgroundColor),
+  16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
+  2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
+  -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important
 }
 
 .immersive-translate-target-translation-theme-marker-inner {

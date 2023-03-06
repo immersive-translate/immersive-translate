@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.80
+
+- Feat: Add Enable/Disable Menu for popup -> more
+- Fix: DingTalk Message conflict
+
 ## 0.2.79
 
 - Fix: Open AI for space paragraph

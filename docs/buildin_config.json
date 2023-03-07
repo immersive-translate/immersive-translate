@@ -56,6 +56,9 @@
     "deepl": {
       "immediateTranslationTextCountForImmersiveDeepl": 50000
     },
+    "deeplx": {
+      "limit": 3
+    },
     "d": {
       "immediateTranslationTextCount": 0
     },
@@ -1224,6 +1227,7 @@
         "mastodon.world",
         "infosec.exchange"
       ],
+      "isTranslateTitle": false,
       "selectorMatches": [
         "div#mastodon"
       ],
@@ -1919,6 +1923,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-06T17:35:04.494Z",
-  "latestVersion": "0.2.81"
+  "buildinConfigUpdatedAt": "2023-03-07T07:04:33.129Z",
+  "latestVersion": "0.2.82"
 }

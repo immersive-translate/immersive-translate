@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSION: "0.2.81", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-07T07:05:14.769Z", VERSION: "0.2.82", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -15,7 +15,7 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
   --immersive-translate-theme-blockquote-borderColor: #cc3355;
   --immersive-translate-theme-thinDashed-borderColor: #ff374f;
   --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
-  --immersive-translate-theme-dashedBorder-borderRadius:0;
+  --immersive-translate-theme-dashedBorder-borderRadius: 0;
   --immersive-translate-theme-solidBorder-borderColor: #94a3b8;
   --immersive-translate-theme-solidBorder-borderRadius: 0;
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
@@ -41,16 +41,15 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
   line-height: 1.3;
   font-size: 16px;
 }
-.immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper {
+.immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);
   white-space: normal;
   position: absolute;
 }
 
 .immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper
-  span {
+  .immersive-translate-target-wrapper
+  font {
   color: inherit;
   white-space: inherit;
   position: unset;
@@ -84,7 +83,9 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -92,13 +93,17 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -106,7 +111,9 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
@@ -178,10 +185,10 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:00.619Z", VERSI
 .immersive-translate-target-translation-theme-marker2-inner {
   font-weight: bold;
   text-shadow: 10px 0px 3px
-  var(--immersive-translate-theme-marker2-backgroundColor),
-  16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
-  2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
-  -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important
+      var(--immersive-translate-theme-marker2-backgroundColor),
+    16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
+    2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
+    -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important;
 }
 
 .immersive-translate-target-translation-theme-marker-inner {
@@ -5980,6 +5987,9 @@ var buildin_config_default = {
     deepl: {
       immediateTranslationTextCountForImmersiveDeepl: 5e4
     },
+    deeplx: {
+      limit: 3
+    },
     d: {
       immediateTranslationTextCount: 0
     },
@@ -6489,6 +6499,9 @@ var buildin_config_default = {
     {
       matches: "github.com",
       observeUrlChange: !0,
+      excludeMatches: [
+        "https://github.com/settings/profile"
+      ],
       selectors: [
         ".markdown-title",
         ".markdown-body",
@@ -6967,6 +6980,7 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
+      isTranslateTitle: !1,
       selectorMatches: ["div#mastodon"],
       selectors: ["div.status__content__text"],
       detectLanguage: !0

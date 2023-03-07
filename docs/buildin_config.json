@@ -230,7 +230,8 @@
       ".o-share",
       "[data-toolbar=share]",
       "rp",
-      "rt"
+      "rt",
+      "[spellcheck=false]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -1923,6 +1924,6 @@
       "urlChangeDelay": 1500
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-07T07:04:33.129Z",
-  "latestVersion": "0.2.82"
+  "buildinConfigUpdatedAt": "2023-03-07T10:24:37.865Z",
+  "latestVersion": "0.2.83"
 }

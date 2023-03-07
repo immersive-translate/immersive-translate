@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSION: "0.2.81", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-07T07:05:15.669Z", VERSION: "0.2.82", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -15,7 +15,7 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
   --immersive-translate-theme-blockquote-borderColor: #cc3355;
   --immersive-translate-theme-thinDashed-borderColor: #ff374f;
   --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
-  --immersive-translate-theme-dashedBorder-borderRadius:0;
+  --immersive-translate-theme-dashedBorder-borderRadius: 0;
   --immersive-translate-theme-solidBorder-borderColor: #94a3b8;
   --immersive-translate-theme-solidBorder-borderRadius: 0;
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
@@ -41,16 +41,15 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
   line-height: 1.3;
   font-size: 16px;
 }
-.immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper {
+.immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);
   white-space: normal;
   position: absolute;
 }
 
 .immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper
-  span {
+  .immersive-translate-target-wrapper
+  font {
   color: inherit;
   white-space: inherit;
   position: unset;
@@ -84,7 +83,9 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -92,13 +93,17 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -106,7 +111,9 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
@@ -178,10 +185,10 @@ var define_process_env_default = { BUILD_TIME: "2023-03-06T16:24:01.496Z", VERSI
 .immersive-translate-target-translation-theme-marker2-inner {
   font-weight: bold;
   text-shadow: 10px 0px 3px
-  var(--immersive-translate-theme-marker2-backgroundColor),
-  16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
-  2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
-  -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important
+      var(--immersive-translate-theme-marker2-backgroundColor),
+    16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
+    2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
+    -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important;
 }
 
 .immersive-translate-target-translation-theme-marker-inner {
@@ -9462,6 +9469,9 @@ var buildin_config_default = {
     deepl: {
       immediateTranslationTextCountForImmersiveDeepl: 5e4
     },
+    deeplx: {
+      limit: 3
+    },
     d: {
       immediateTranslationTextCount: 0
     },
@@ -9971,6 +9981,9 @@ var buildin_config_default = {
     {
       matches: "github.com",
       observeUrlChange: !0,
+      excludeMatches: [
+        "https://github.com/settings/profile"
+      ],
       selectors: [
         ".markdown-title",
         ".markdown-body",
@@ -10449,6 +10462,7 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
+      isTranslateTitle: !1,
       selectorMatches: ["div#mastodon"],
       selectors: ["div.status__content__text"],
       detectLanguage: !0
@@ -12209,13 +12223,13 @@ function applyUserConfigCss(root2, translationTheme, translationThemePatternConf
   if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
     let value = translationThemePatternConfig.textColor;
     otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
 `;
   }
   if (translationThemePatternConfig && translationThemePatternConfig.zoom) {
     let value = translationThemePatternConfig.zoom;
     otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
+.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
 `;
   }
   let finalCss = "";
@@ -12851,7 +12865,7 @@ function paragraphToHtml(sourceItem, sentence, ctx) {
   let innerClassList = getTranslationInnerClassNames(
     translationTheme
   ), blockStyleStr = "";
-  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
+  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<font ${blockStyleStr} class="${classList.join(" ")}"><font class="${innerClassList.join(" ")}">${html}</font></font>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<font class="notranslate">&#160;</font>${html}`), {
     html,
     position
   };
@@ -13011,7 +13025,7 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
       } else if (node.nodeType === Node.TEXT_NODE) {
         let text = node.textContent;
         if (text && text.trim().length > 0) {
-          let span = document.createElement("span");
+          let span = document.createElement("font");
           node.after(span), span.appendChild(node);
         }
       }
@@ -15198,7 +15212,7 @@ var rawLangMap6 = [
     this.APIKEY = "";
     // api key list
     this.isSupportList = !1;
-    this.maxTextLength = 1500;
+    this.maxTextLength = 1300;
     this.maxTextGroupLength = 100;
     this.prompt = "Translate the following text to {{to}}: ```\n{{text}}\n```";
     this.model = "gpt-3.5-turbo";
@@ -16888,7 +16902,7 @@ function translationParagraph(visibleParagraph, ctx) {
   if (visibleParagraph.isPdf) {
     let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
     isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
+    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("font");
     realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
     let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
       let left = getAttribute(current, sourceElementLeft);
@@ -16907,7 +16921,7 @@ function translationParagraph(visibleParagraph, ctx) {
       visibleParagraph.elements[0],
       ctx.rule
     ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-    let targetTranslationWrapper = document.createElement("span");
+    let targetTranslationWrapper = document.createElement("font");
     targetTranslationWrapper.classList.add(
       "notranslate",
       translationTargetElementWrapperClass
@@ -17074,7 +17088,7 @@ function setLoadingToParagraph(rootFrame, id, ctx) {
   element && (element.innerHTML = getLoadingHTML(ctx.config.loadingTheme));
 }
 function getLoadingHTML(theme) {
-  return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
+  return `&#160;<font class="${brandId}-loading-${theme} notranslate"></font>`;
 }
 async function translateContainers(containers, rootFrame, ctx, isDynamic) {
   let { rule } = ctx;
@@ -17147,7 +17161,7 @@ function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
     ), errorMessage = err.message.replaceAll(`
 `, "");
     errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-    let errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+    let errorHtml = `<font class="${brandId}-error notranslate"> <font class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></font> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></font>`;
     wrapper && (wrapper.innerHTML = errorHtml);
   } else {
     let paragraph = getParagraph(sentenceRequest.id);
@@ -18987,7 +19001,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.2.81",
+  version: "0.2.82",
   default_locale: "en",
   background: {
     service_worker: "background.js"

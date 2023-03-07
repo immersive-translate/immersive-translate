@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.82
+
+- Fix: Some site use `span` for styles, so we use `font` instead of span for translation target wrapper
+- Fix: OpenAI max tokens limit, change max chars from 1500 to 1300.
+
 ## 0.2.81
 
 - Fix: m.youtube.com

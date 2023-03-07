@@ -1,5 +1,11 @@
 # 使用案例
 
+## 视频介绍
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0nIzWCseLVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+- [Youtube](https://youtu.be/0nIzWCseLVo)
+
 ## 普通文章，译文无样式：
 
 ![](./assets/microsoft.png)

@@ -55,9 +55,11 @@
 
 ## 使用案例
 
-- [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
 - [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
 - [点此查看](https://immersive-translate.owenyoung.com/review) 用户的评价以及媒体报道
+- [Youtube 视频介绍](https://youtu.be/0nIzWCseLVo)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0nIzWCseLVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 安装
 

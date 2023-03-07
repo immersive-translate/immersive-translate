@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-07T07:05:15.669Z", VERSION: "0.2.82", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-07T10:25:20.830Z", VERSION: "0.2.83", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7811,7 +7811,8 @@ var zh_CN_default = {
   enabledExtension: "\u542F\u7528\u6269\u5C55",
   clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
   clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
-  hasBeenDisabled: "\u5DF2\u7981\u7528"
+  hasBeenDisabled: "\u5DF2\u7981\u7528",
+  "show password": "\u663E\u793A\u5BC6\u7801"
 };
 
 // locales/zh-TW.json
@@ -8305,7 +8306,8 @@ var en_default = {
   "customThemeLabel.backgroundColor": "Background color",
   "customThemeLabel.textColor": "Text color",
   "customThemeLabel.zoom": "Font scale (%)",
-  resetToDefaultColor: "Reset to default colors"
+  resetToDefaultColor: "Reset to default colors",
+  "show password": "Show password"
 };
 
 // constant.ts
@@ -9968,7 +9970,8 @@ var buildin_config_default = {
       ".o-share",
       "[data-toolbar=share]",
       "rp",
-      "rt"
+      "rt",
+      "[spellcheck=false]"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -17731,7 +17734,7 @@ function InputRow(props) {
 
 // components/option_field.tsx
 function OptionField(props) {
-  let { t: t5 } = useI18n(), { field, onChange, value } = props;
+  let { t: t5 } = useI18n(), [isPassword, setIsPassword] = P2(!0), { field, onChange, value } = props;
   value = value || field.default || "";
   let finalLabel = field.name;
   if (field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), field.type === "select")
@@ -17788,15 +17791,23 @@ function OptionField(props) {
       }
     ) });
   if (field.type === "password")
-    return /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4(
-      InputRow,
-      {
-        field,
-        value,
-        type: field.type,
-        onChange
-      }
-    ) });
+    return /* @__PURE__ */ p4("div", { children: [
+      /* @__PURE__ */ p4(
+        InputRow,
+        {
+          field,
+          value,
+          type: isPassword ? field.type : "text",
+          onChange
+        }
+      ),
+      /* @__PURE__ */ p4("label", { for: "translate", onClick: () => {
+        setIsPassword(!isPassword);
+      }, children: [
+        /* @__PURE__ */ p4("input", { type: "checkbox", id: "translate", name: "translate" }),
+        t5("show password")
+      ] })
+    ] });
   if (field.type === "color") {
     let theValue = value, defaultPlaceholder = "";
     return theValue || (theValue = "#FFFFFF", defaultPlaceholder = "#FFFFFF"), /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4("label", { class: "flex items-center", for: field.name, children: [

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-07T07:05:14.769Z", VERSION: "0.2.82", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-07T10:25:19.905Z", VERSION: "0.2.83", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7328,7 +7328,8 @@ var zh_CN_default = {
   enabledExtension: "\u542F\u7528\u6269\u5C55",
   clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
   clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
-  hasBeenDisabled: "\u5DF2\u7981\u7528"
+  hasBeenDisabled: "\u5DF2\u7981\u7528",
+  "show password": "\u663E\u793A\u5BC6\u7801"
 };
 
 // locales/zh-TW.json
@@ -7822,7 +7823,8 @@ var en_default = {
   "customThemeLabel.backgroundColor": "Background color",
   "customThemeLabel.textColor": "Text color",
   "customThemeLabel.zoom": "Font scale (%)",
-  resetToDefaultColor: "Reset to default colors"
+  resetToDefaultColor: "Reset to default colors",
+  "show password": "Show password"
 };
 
 // constant.ts
@@ -9082,7 +9084,8 @@ var buildin_config_default = {
       ".o-share",
       "[data-toolbar=share]",
       "rp",
-      "rt"
+      "rt",
+      "[spellcheck=false]"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],

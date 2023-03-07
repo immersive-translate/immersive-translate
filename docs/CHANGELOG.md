@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.83
+
+- Feat: Allow password input Form show password.
+
 ## 0.2.82
 
 - Fix: Some site use `span` for styles, so we use `font` instead of span for translation target wrapper

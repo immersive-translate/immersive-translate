@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.82
+// @version      0.2.83
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -69,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-07T07:05:16.159Z", VERSION: "0.2.82", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-07T10:25:21.351Z", VERSION: "0.2.83", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4631,7 +4631,8 @@ body {
     enabledExtension: "\u542F\u7528\u6269\u5C55",
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
-    hasBeenDisabled: "\u5DF2\u7981\u7528"
+    hasBeenDisabled: "\u5DF2\u7981\u7528",
+    "show password": "\u663E\u793A\u5BC6\u7801"
   };
 
   // locales/zh-TW.json
@@ -5125,7 +5126,8 @@ body {
     "customThemeLabel.backgroundColor": "Background color",
     "customThemeLabel.textColor": "Text color",
     "customThemeLabel.zoom": "Font scale (%)",
-    resetToDefaultColor: "Reset to default colors"
+    resetToDefaultColor: "Reset to default colors",
+    "show password": "Show password"
   };
 
   // constant.ts
@@ -9285,7 +9287,8 @@ body {
         ".o-share",
         "[data-toolbar=share]",
         "rp",
-        "rt"
+        "rt",
+        "[spellcheck=false]"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -18631,7 +18634,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.82",
+    version: "0.2.83",
     default_locale: "en",
     background: {
       service_worker: "background.js"

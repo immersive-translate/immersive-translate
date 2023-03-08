@@ -6867,10 +6867,7 @@ var Reader = class {
         e.preventDefault(), globalLoader || alert("Load failed"), toggleIframeContentediable();
       });
       for (let i = 0; i < bookSections.length; i++) {
-        let filePath = bookSections[i].id;
-        if (guidesPaths.includes(filePath))
-          continue;
-        let text = await book.loadText(filePath), doc = new DOMParser().parseFromString(
+        let filePath = bookSections[i].id, text = await book.loadText(filePath), doc = new DOMParser().parseFromString(
           text,
           "application/xhtml+xml"
         ), flexDiv = document.createElement("div");

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.85
+
+- Fix: some epub file can not be found.
+
 ## 0.2.84
 
 - Feat: Support Ebook Reader and Maker

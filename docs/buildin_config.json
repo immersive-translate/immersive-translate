@@ -613,7 +613,8 @@
         "faceplate-batch .md"
       ],
       "excludeMatches": [
-        "https://www.reddit.com/r/*/wiki/*"
+        "https://www.reddit.com/r/*/wiki/*",
+        "https://www.reddit.com/settings/*"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -1966,6 +1967,6 @@
       "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-08T02:45:24.976Z",
-  "latestVersion": "0.2.84"
+  "buildinConfigUpdatedAt": "2023-03-08T12:39:52.624Z",
+  "latestVersion": "0.2.85"
 }

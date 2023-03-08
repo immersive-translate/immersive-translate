@@ -158,6 +158,8 @@
     "_comment": "",
     "normalizeBody": "",
     "injectedCss": [],
+    "isEbook": false,
+    "isEbookBuilder": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "initTranslationServiceAsSoonAsPossible": true,
@@ -1922,8 +1924,48 @@
     {
       "matches": "https://platform.openai.com/account/api-keys*",
       "urlChangeDelay": 1500
+    },
+    {
+      "isEbook": true,
+      "isTranslateTitle": false,
+      "urlChangeDelay": 200,
+      "selectorMatches": [
+        "meta[name='immersive-translate-ebook-viewer'][content='true']"
+      ],
+      "excludeSelectors": [
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title"
+      ],
+      "extraInlineSelectors": [
+        "span.dropcaps"
+      ],
+      "paragraphMinTextCount": 1,
+      "paragraphMinWordCount": 1,
+      "blockMinTextCount": 1,
+      "blockMinWordCount": 1,
+      "containerMinTextCount": 1,
+      "wrapperPrefix": "<p></p>"
+    },
+    {
+      "isEbookBuilder": true,
+      "isTranslateTitle": false,
+      "excludeSelectors": [
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title",
+        "#tool"
+      ],
+      "paragraphMinTextCount": 1,
+      "paragraphMinWordCount": 1,
+      "blockMinTextCount": 1,
+      "blockMinWordCount": 1,
+      "containerMinTextCount": 1,
+      "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-07T10:24:37.865Z",
-  "latestVersion": "0.2.83"
+  "buildinConfigUpdatedAt": "2023-03-08T02:45:24.976Z",
+  "latestVersion": "0.2.84"
 }

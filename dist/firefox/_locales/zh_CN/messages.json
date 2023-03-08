@@ -26,6 +26,15 @@
   "translateLocalPdfFile": {
     "message": "翻译本地 PDF 文件"
   },
+  "openEbookViewer": {
+    "message": "阅读本地电子书"
+  },
+  "openEbookBuilder": {
+    "message": "制作双语 Epub 电子书"
+  },
+  "translateLocalHTMLFile": {
+    "message": "翻译本地 HTML 文件"
+  },
   "openAboutPage": {
     "message": "关于/反馈/赞助"
   }

@@ -83,7 +83,7 @@ git clone git@github.com:immersive-translate/next-translator.git
 First time, download [tampermonkey](https://www.tampermonkey.net/) extension,
 open tampermonkey dashboard, to create a script:
 
-replace the whole code with `dist/userscript/immersive-translate-dev.user.js`
+replace the whole code with `dist/userscript/dev-entry.js`
 UserScript header, like this:
 
 ```

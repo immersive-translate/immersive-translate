@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.84
+
+- Feat: Support Ebook Reader and Maker
+
 ## 0.2.83
 
 - Feat: Allow password input Form show password.

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.86
+
+- Add max text length option for per request with Open AI
+- Fix: ebook identifier duplicated
+- Feat: Support txt web page translation
+
 ## 0.2.85
 
 - Fix: some epub file can not be found.

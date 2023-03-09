@@ -3,7 +3,7 @@
     "message": "沉浸式翻譯"
   },
   "brandDescription": {
-    "message": "沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。"
+    "message": "沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。"
   },
   "toggleTranslatePage": {
     "message": "翻譯網頁/顯示原文"
@@ -18,15 +18,24 @@
     "message": "翻譯頁面主要區域/顯示原文"
   },
   "openOptionsPage": {
-    "message": "打開設置頁"
+    "message": "開啟設定頁面"
   },
   "toggleTranslationMask": {
     "message": "顯示/隱藏譯文模糊效果"
   },
   "translateLocalPdfFile": {
-    "message": "翻譯本地 PDF 文件"
+    "message": "翻譯本機 PDF 檔案"
+  },
+  "openEbookViewer": {
+    "message": "閱讀本機電子書"
+  },
+  "openEbookBuilder": {
+    "message": "製作雙語 Epub 電子書"
+  },
+  "translateLocalHTMLFile": {
+    "message": "翻譯本機 HTML 檔案"
   },
   "openAboutPage": {
-    "message": "關於/反饋/贊助"
+    "message": "關於/問題回報/贊助"
   }
 }

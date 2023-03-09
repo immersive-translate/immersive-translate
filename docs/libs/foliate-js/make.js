@@ -1411,7 +1411,7 @@
   };
 
   // libs/foliate-js/fb2.js
-  var trim = (str) => str?.trim()?.replace(/\s{2,}/g, " "), getElementText = (el) => trim(el?.textContent), NS = {
+  var trim = (str) => str?.trim()?.replace(/\s{2,}/g, " "), getElementText = (el) => trim(el?.textContent), NS2 = {
     XLINK: "http://www.w3.org/1999/xlink",
     EPUB: "http://www.idpf.org/2007/ops"
   }, MIME = {
@@ -1464,11 +1464,11 @@
     epigraph: ["section", SECTION],
     section: ["section", SECTION]
   }, getImageSrc = (el) => {
-    let href = el.getAttributeNS(NS.XLINK, "href"), [, id] = href.split("#"), bin = el.getRootNode().getElementById(id);
+    let href = el.getAttributeNS(NS2.XLINK, "href"), [, id] = href.split("#"), bin = el.getRootNode().getElementById(id);
     return bin ? `data:${bin.getAttribute("content-type")};base64,${bin.textContent}` : href;
   }, FB2Converter = class {
     constructor(fb2) {
-      this.fb2 = fb2, this.doc = document.implementation.createDocument(NS.XHTML, "html");
+      this.fb2 = fb2, this.doc = document.implementation.createDocument(NS2.XHTML, "html");
     }
     image(node) {
       let el = this.doc.createElement("img");
@@ -1476,7 +1476,7 @@
     }
     anchor(node) {
       let el = this.convert(node, { a: ["a", STYLE] });
-      return el.setAttribute("href", node.getAttributeNS(NS.XLINK, "href")), node.getAttribute("type") === "note" && el.setAttributeNS(NS.EPUB, "epub:type", "noteref"), el;
+      return el.setAttribute("href", node.getAttributeNS(NS2.XLINK, "href")), node.getAttribute("type") === "note" && el.setAttributeNS(NS2.EPUB, "epub:type", "noteref"), el;
     }
     stanza(node) {
       let el = this.convert(node, {
@@ -2563,7 +2563,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   };
 
   // libs/foliate-js/epub.js
-  var NS2 = {
+  var NS3 = {
     CONTAINER: "urn:oasis:names:tc:opendocument:xmlns:container",
     XHTML: "http://www.w3.org/1999/xhtml",
     OPF: "http://www.idpf.org/2007/opf",
@@ -2657,7 +2657,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       ]
     }
   ], getMetadata = (opf) => {
-    let { $: $4, $$ } = childGetter(opf, NS2.OPF), $metadata = $4(opf.documentElement, "metadata"), els = Array.from($metadata.children), getValue = (obj, el) => {
+    let { $: $4, $$ } = childGetter(opf, NS3.OPF), $metadata = $4(opf.documentElement, "metadata"), els = Array.from($metadata.children), getValue = (obj, el) => {
       if (!el)
         return null;
       let { props = [], attrs = [] } = obj, value = getElementText2(el);
@@ -2677,7 +2677,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       );
     }, arr = els.filter(filterAttribute("refines", null)), metadata = Object.fromEntries(
       METADATA.map((obj) => {
-        let { type, name, many } = obj, filter2 = type === "meta" ? (el) => el.namespaceURI === NS2.OPF && el.getAttribute("property") === name : (el) => el.namespaceURI === NS2.DC && el.localName === name;
+        let { type, name, many } = obj, filter2 = type === "meta" ? (el) => el.namespaceURI === NS3.OPF && el.getAttribute("property") === name : (el) => el.namespaceURI === NS3.DC && el.localName === name;
         return [
           camel(name),
           many ? arr.filter(filter2).map((el) => getValue(obj, el)) : getValue(obj, arr.find(filter2))
@@ -2691,12 +2691,12 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     ), rendition = getProperties("rendition:"), media = getProperties("media:");
     return { metadata, rendition, media };
   }, parseNav = (doc, resolve = (f) => f) => {
-    let { $: $4, $$, $$$ } = childGetter(doc, NS2.XHTML), resolveHref = (href) => href ? decodeURI(resolve(href)) : null, parseLI = (getType) => ($li) => {
+    let { $: $4, $$, $$$ } = childGetter(doc, NS3.XHTML), resolveHref = (href) => href ? decodeURI(resolve(href)) : null, parseLI = (getType) => ($li) => {
       let $a2 = $4($li, "a") ?? $4($li, "span"), $ol = $4($li, "ol"), href = resolveHref($a2?.getAttribute("href")), result = { label: getElementText2($a2) || $a2?.getAttribute("title"), href, subitems: parseOL($ol) };
-      return getType && (result.type = $a2?.getAttributeNS(NS2.EPUB, "type")?.split(/\s/)), result;
+      return getType && (result.type = $a2?.getAttributeNS(NS3.EPUB, "type")?.split(/\s/)), result;
     }, parseOL = ($ol, getType) => $ol ? $$($ol, "li").map(parseLI(getType)) : null, parseNav2 = ($nav, getType) => parseOL($4($nav, "ol"), getType), $$nav = $$$(doc, "nav"), toc = null, pageList = null, landmarks = null, others = [];
     for (let $nav of $$nav) {
-      let type = $nav.getAttributeNS(NS2.EPUB, "type")?.split(/\s/) ?? [];
+      let type = $nav.getAttributeNS(NS3.EPUB, "type")?.split(/\s/) ?? [];
       type.includes("toc") ? toc ??= parseNav2($nav) : type.includes("page-list") ? pageList ??= parseNav2($nav) : type.includes("landmarks") ? landmarks ??= parseNav2($nav, !0) : others.push({
         label: getElementText2($nav.firstElementChild),
         type,
@@ -2705,7 +2705,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     }
     return { toc, pageList, landmarks, others };
   }, parseNCX = (doc, resolve = (f) => f) => {
-    let { $: $4, $$ } = childGetter(doc, NS2.NCX), resolveHref = (href) => href ? decodeURI(resolve(href)) : null, parseItem = (el) => {
+    let { $: $4, $$ } = childGetter(doc, NS3.NCX), resolveHref = (href) => href ? decodeURI(resolve(href)) : null, parseItem = (el) => {
       let $label = $4(el, "navLabel"), $content = $4(el, "content"), label = getElementText2($label), href = resolveHref($content.getAttribute("src"));
       if (el.localName === "navPoint") {
         let els = $$(el, "navPoint");
@@ -2739,7 +2739,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     let [x, unit] = str.split(/(?=[^\d.])/), n = parseFloat(x), f = unit === "h" ? 60 * 60 : unit === "min" ? 60 : unit === "ms" ? 1e-3 : 1;
     return n * f;
   }, parseSMIL = (doc, resolve = (f) => f) => {
-    let { $: $4, $$$ } = childGetter(doc, NS2.SMIL), resolveHref = (href) => href ? decodeURI(resolve(href)) : null;
+    let { $: $4, $$$ } = childGetter(doc, NS3.SMIL), resolveHref = (href) => href ? decodeURI(resolve(href)) : null;
     return $$$(doc, "par").map(($par) => {
       let id = $4($par, "text")?.getAttribute("src")?.split("#")?.[1], $audio = $4($par, "audio");
       return $audio ? {
@@ -2752,14 +2752,14 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       } : { id };
     });
   }, isUUID = /([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})/, getUUID = (opf) => {
-    for (let el of opf.getElementsByTagNameNS(NS2.DC, "identifier")) {
+    for (let el of opf.getElementsByTagNameNS(NS3.DC, "identifier")) {
       let [id] = getElementText2(el).split(":").slice(-1);
       if (isUUID.test(id))
         return id;
     }
     return "";
   }, getIdentifier = (opf) => getElementText2(
-    opf.getElementById(opf.documentElement.getAttribute("unique-identifier")) ?? opf.getElementsByTagNameNS(NS2.DC, "identifier")[0]
+    opf.getElementById(opf.documentElement.getAttribute("unique-identifier")) ?? opf.getElementsByTagNameNS(NS3.DC, "identifier")[0]
   ), deobfuscate = async (key, length, blob) => {
     let array = new Uint8Array(await blob.slice(0, length).arrayBuffer());
     length = Math.min(length, array.length);
@@ -2797,10 +2797,10 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       if (!encryption)
         return;
       let data = Array.from(
-        encryption.getElementsByTagNameNS(NS2.ENC, "EncryptedData"),
+        encryption.getElementsByTagNameNS(NS3.ENC, "EncryptedData"),
         (el) => ({
-          algorithm: el.getElementsByTagNameNS(NS2.ENC, "EncryptionMethod")[0]?.getAttribute("Algorithm"),
-          uri: el.getElementsByTagNameNS(NS2.ENC, "CipherReference")[0]?.getAttribute("URI")
+          algorithm: el.getElementsByTagNameNS(NS3.ENC, "EncryptionMethod")[0]?.getAttribute("Algorithm"),
+          uri: el.getElementsByTagNameNS(NS3.ENC, "CipherReference")[0]?.getAttribute("URI")
         })
       );
       for (let { algorithm, uri } of data) {
@@ -2822,7 +2822,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   }, Resources = class {
     constructor({ opf, resolveHref }) {
       this.opf = opf;
-      let { $: $4, $$, $$$ } = childGetter(opf, NS2.OPF), $manifest = $4(opf.documentElement, "manifest"), $spine = $4(opf.documentElement, "spine"), $$itemref = $$($spine, "itemref");
+      let { $: $4, $$, $$$ } = childGetter(opf, NS3.OPF), $manifest = $4(opf.documentElement, "manifest"), $spine = $4(opf.documentElement, "spine"), $$itemref = $$($spine, "itemref");
       this.manifest = $$($manifest, "item").map(
         getAttributes("href", "id", "media-type", "properties", "media-overlay")
       ).map((item) => (item.href = resolveHref(item.href), item.properties = item.properties?.split(/\s/), item)), this.spine = $$itemref.map(getAttributes("idref", "id", "linear", "properties")).map((item) => (item.properties = item.properties?.split(/\s/), item)), this.pageProgressionDirection = $spine.getAttribute(
@@ -2944,10 +2944,10 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           await replace(el, "data");
         for (let el of doc.querySelectorAll("[*|href]:not([href]"))
           el.setAttributeNS(
-            NS2.XLINK,
+            NS3.XLINK,
             "href",
             await this.loadHref(
-              el.getAttributeNS(NS2.XLINK, "href"),
+              el.getAttributeNS(NS3.XLINK, "href"),
               href,
               parents
             )
@@ -3031,17 +3031,20 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     async #loadXML(uri) {
       return this.#parseXML(await this.loadText(uri));
     }
+    opfPath = null;
     async init() {
       let $container = await this.#loadXML("META-INF/container.xml");
       if (!$container)
         throw new Error("Failed to load container file");
       let opfs = Array.from(
-        $container.getElementsByTagNameNS(NS2.CONTAINER, "rootfile"),
+        $container.getElementsByTagNameNS(NS3.CONTAINER, "rootfile"),
         getAttributes("full-path", "media-type")
       ).filter((file) => file.mediaType === "application/oebps-package+xml");
       if (!opfs.length)
         throw new Error("No package document defined in container");
-      let opfPath = opfs[0].fullPath, opf = await this.#loadXML(opfPath);
+      let opfPath = opfs[0].fullPath;
+      this.opfPath = opfPath;
+      let opf = await this.#loadXML(opfPath);
       if (!opf)
         throw new Error("Failed to load package document");
       let $encryption = await this.#loadXML("META-INF/encryption.xml");
@@ -6713,7 +6716,13 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     let arr = new Uint8Array(await file.slice(0, 4).arrayBuffer());
     return arr[0] === 80 && arr[1] === 75 && arr[2] === 3 && arr[3] === 4;
   }, globalLoader = null, makeZipLoader = async (file) => {
-    let entries = await new ZipReader(new BlobReader(file)).getEntries(), map = new Map(entries.map((entry) => [entry.filename, entry])), load = (f) => (name, ...args) => map.has(name) ? f(map.get(name), ...args) : null, loadText = load((entry) => entry.getData(new TextWriter())), loadBlob = load((entry, type) => entry.getData(new BlobWriter(type)));
+    let entries = await new ZipReader(new BlobReader(file)).getEntries();
+    file.name && file.name.endsWith(".zip") && entries.every(
+      (entry) => entry.filename.startsWith(file.name.slice(0, -4) + "/")
+    ) && (entries = entries.map((entry) => (entry.filename = entry.filename.slice(file.name.length - 3), entry)));
+    let map = new Map(
+      entries.map((entry) => [entry.filename, entry])
+    ), load = (f) => (name, ...args) => map.has(name) ? f(map.get(name), ...args) : null, loadText = load((entry) => entry.getData(new TextWriter())), loadBlob = load((entry, type) => entry.getData(new BlobWriter(type)));
     return { entries, loadText, loadBlob, getSize: (name) => map.get(name)?.uncompressedSize ?? 0 };
   }, getFileEntries = async (entry) => entry.isFile ? entry : (await Promise.all(
     Array.from(
@@ -6726,7 +6735,9 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       getFileEntries
     )
   )).flat(), makeDirectoryLoader = async (entry) => {
-    let entries = await getFileEntries(entry), files = await Promise.all(
+    let entries = await getFileEntries(entry);
+    entries = entries.map((entry2) => entry2);
+    let newEntries = [], files = await Promise.all(
       entries.map(
         (entry2) => new Promise(
           (resolve, reject) => entry2.file(
@@ -6736,9 +6747,12 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         )
       )
     ), map = new Map(
-      files.map(([file, path]) => [path.replace(entry.fullPath + "/", ""), file])
+      files.map(([file, path]) => {
+        let key = path.replace(entry.fullPath + "/", "");
+        return newEntries.push({ filename: key, ...file }), [key, file];
+      })
     ), decoder2 = new TextDecoder(), decode = (x) => x ? decoder2.decode(x) : null, getBuffer = (name) => map.get(name)?.arrayBuffer() ?? null;
-    return { loadText: async (name) => decode(await getBuffer(name)), loadBlob: (name) => map.get(name), getSize: (name) => map.get(name)?.size ?? 0 };
+    return { entries: newEntries, loadText: async (name) => decode(await getBuffer(name)), loadBlob: async (name) => map.get(name), getSize: (name) => map.get(name)?.size ?? 0 };
   }, isCBZ = ({ name, type }) => type === "application/vnd.comicbook+zip" || name.endsWith(".cbz"), isFB2 = ({ name, type }) => type === "application/x-fictionbook+xml" || name.endsWith(".fb2"), isFBZ = ({ name, type }) => type === "application/x-zip-compressed-fb2" || name.endsWith(".fb2.zip") || name.endsWith(".fbz"), getView = async (file, emit) => {
     let book;
     if (file.isDirectory) {
@@ -6848,30 +6862,60 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           e.preventDefault(), globalLoader || alert("Load failed"), disableIframeContentediable();
           let entries = globalLoader.entries, zipFileWriter = new BlobWriter("application/epub+zip"), zipWriter = new ZipWriter(zipFileWriter);
           for (let i = 0; i < entries.length; i++) {
-            let entry = entries[i], entryFilename = entry.filename, iframe = document.querySelector(
+            let entry = entries[i], entryFilename = entry.filename;
+            if (!entryFilename)
+              continue;
+            let iframe = document.querySelector(
               "iframe[id='" + entryFilename + "']"
             );
             if (iframe) {
               let iframeDom = iframe.contentDocument.cloneNode(!0), xmlString = new XMLSerializer().serializeToString(iframeDom), iframeContentReader = new TextReader(xmlString);
               await zipWriter.add(entry.filename, iframeContentReader);
             } else {
-              let blob = await entry.getData(new BlobWriter());
-              await zipWriter.add(entry.filename, new BlobReader(blob));
+              let metadata2 = book.metadata;
+              if (entry.filename === book.opfPath && metadata2 && metadata2.identifier)
+                try {
+                  let opfText = await globalLoader.loadText(entry.filename), opf = new DOMParser().parseFromString(
+                    opfText,
+                    "text/xml"
+                  ), opfElement = opf.getElementById(
+                    opf.documentElement.getAttribute("unique-identifier")
+                  ) ?? opf.getElementsByTagNameNS(NS.DC, "identifier")[0], random13digitText = Math.random().toString(10).slice(2, 15);
+                  opfElement.textContent = random13digitText;
+                  let newOpfString = new XMLSerializer().serializeToString(opf), newOpfReader = new TextReader(newOpfString);
+                  await zipWriter.add(entry.filename, newOpfReader);
+                } catch (e2) {
+                  console.warn("change unique number failed", e2);
+                  let blob = await globalLoader.loadBlob(entry.filename);
+                  await zipWriter.add(entry.filename, new BlobReader(blob));
+                }
+              else {
+                let blob = await globalLoader.loadBlob(entry.filename);
+                await zipWriter.add(entry.filename, new BlobReader(blob));
+              }
             }
           }
           await zipWriter.close();
           let zipFileBlob = await zipFileWriter.getData(), elm = document.createElement("a");
           elm.href = URL.createObjectURL(zipFileBlob);
-          let newName = file.name, index = newName.lastIndexOf(".");
+          let newName = file.name;
+          file.name.endsWith(".epub.zip") && (newName = newName.replace(".epub.zip", ".epub"));
+          let index = newName.lastIndexOf(".");
           newName = newName.substring(0, index) + " (Translated)" + newName.substring(index), elm.setAttribute("download", newName), elm.click();
         }), $3("#edit").addEventListener("click", (e) => {
           e.preventDefault(), globalLoader || alert("Load failed"), toggleIframeContentediable();
         });
+        let metadata = book.metadata || {};
+        console.log("metadata", metadata);
+        let title = metadata.title || "Unknown", h1 = document.createElement("h1");
+        h1.classList.add("notranslate"), h1.innerText = title, chapters.append(h1);
         for (let i = 0; i < bookSections.length; i++) {
           let filePath = bookSections[i].id, text = await book.loadText(filePath), doc = new DOMParser().parseFromString(
             text,
             "application/xhtml+xml"
-          ), flexDiv = document.createElement("div");
+          ), p2 = document.createElement("p");
+          p2.classList.add("notranslate"), p2.innerText = "Click on the extension icon to start translating the book. (\u70B9\u51FB\u6269\u5C55/\u811A\u672C\u56FE\u6807\u5F00\u59CB\u7FFB\u8BD1)", chapters.append(p2);
+          let flexDiv = document.createElement("div");
           flexDiv.classList.add("flex"), flexDiv.classList.add("justify-center"), flexDiv.classList.add("items-center"), chapters.append(flexDiv);
           let h2 = document.createElement("h2");
           h2.classList.add("notranslate"), h2.innerText = filePath, flexDiv.append(h2);

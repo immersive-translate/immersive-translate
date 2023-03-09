@@ -3181,6 +3181,7 @@ var NS2 = {
   async #loadXML(uri) {
     return this.#parseXML(await this.loadText(uri));
   }
+  opfPath = null;
   async init() {
     let $container = await this.#loadXML("META-INF/container.xml");
     if (!$container)
@@ -3191,7 +3192,9 @@ var NS2 = {
     ).filter((file) => file.mediaType === "application/oebps-package+xml");
     if (!opfs.length)
       throw new Error("No package document defined in container");
-    let opfPath = opfs[0].fullPath, opf = await this.#loadXML(opfPath);
+    let opfPath = opfs[0].fullPath;
+    this.opfPath = opfPath;
+    let opf = await this.#loadXML(opfPath);
     if (!opf)
       throw new Error("Failed to load package document");
     let $encryption = await this.#loadXML("META-INF/encryption.xml");
@@ -6863,7 +6866,13 @@ var isZip = async (file) => {
   let arr = new Uint8Array(await file.slice(0, 4).arrayBuffer());
   return arr[0] === 80 && arr[1] === 75 && arr[2] === 3 && arr[3] === 4;
 }, makeZipLoader = async (file) => {
-  let entries = await new ZipReader(new BlobReader(file)).getEntries(), map = new Map(entries.map((entry) => [entry.filename, entry])), load = (f) => (name, ...args) => map.has(name) ? f(map.get(name), ...args) : null, loadText = load((entry) => entry.getData(new TextWriter())), loadBlob = load((entry, type) => entry.getData(new BlobWriter(type)));
+  let entries = await new ZipReader(new BlobReader(file)).getEntries();
+  file.name && file.name.endsWith(".zip") && entries.every(
+    (entry) => entry.filename.startsWith(file.name.slice(0, -4) + "/")
+  ) && (entries = entries.map((entry) => (entry.filename = entry.filename.slice(file.name.length - 3), entry)));
+  let map = new Map(
+    entries.map((entry) => [entry.filename, entry])
+  ), load = (f) => (name, ...args) => map.has(name) ? f(map.get(name), ...args) : null, loadText = load((entry) => entry.getData(new TextWriter())), loadBlob = load((entry, type) => entry.getData(new BlobWriter(type)));
   return { entries, loadText, loadBlob, getSize: (name) => map.get(name)?.uncompressedSize ?? 0 };
 }, getFileEntries = async (entry) => entry.isFile ? entry : (await Promise.all(
   Array.from(

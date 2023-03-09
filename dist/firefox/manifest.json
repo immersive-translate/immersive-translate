@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.2.86",
+  "version": "0.3.0",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -67,7 +67,34 @@
   ],
   "browser_action": {
     "default_icon": "icons/32.png",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "theme_icons": [
+      {
+        "dark": "icons/32.png",
+        "light": "icons/dark-32.png",
+        "size": 32
+      },
+      {
+        "dark": "icons/48.png",
+        "light": "icons/dark-48.png",
+        "size": 48
+      },
+      {
+        "dark": "icons/64.png",
+        "light": "icons/dark-64.png",
+        "size": 64
+      },
+      {
+        "dark": "icons/128.png",
+        "light": "icons/dark-128.png",
+        "size": 128
+      },
+      {
+        "dark": "icons/256.png",
+        "light": "icons/dark-256.png",
+        "size": 256
+      }
+    ]
   },
   "icons": {
     "32": "icons/32.png",

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.86
+// @version      0.3.0
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -69,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-09T03:05:03.056Z", VERSION: "0.2.86", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-09T04:14:15.113Z", VERSION: "0.3.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -18069,7 +18069,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.86",
+    version: "0.3.0",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -18155,7 +18155,28 @@ ${injectedCss}}
     },
     browser_action: {
       default_icon: "icons/32.png",
-      default_popup: "popup.html"
+      default_popup: "popup.html",
+      theme_icons: [{
+        dark: "icons/32.png",
+        light: "icons/dark-32.png",
+        size: 32
+      }, {
+        dark: "icons/48.png",
+        light: "icons/dark-48.png",
+        size: 48
+      }, {
+        dark: "icons/64.png",
+        light: "icons/dark-64.png",
+        size: 64
+      }, {
+        dark: "icons/128.png",
+        light: "icons/dark-128.png",
+        size: 128
+      }, {
+        dark: "icons/256.png",
+        light: "icons/dark-256.png",
+        size: 256
+      }]
     },
     icons: {
       "32": "icons/32.png",

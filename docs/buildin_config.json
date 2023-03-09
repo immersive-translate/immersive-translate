@@ -174,7 +174,8 @@
     "mutationChangeDelay": 10,
     "visibleDelay": 0,
     "additionalStayOriginalSelectors": [
-      "span.katex"
+      "span.katex",
+      ".notranslate"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -2008,6 +2009,6 @@
       "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-09T01:19:49.044Z",
+  "buildinConfigUpdatedAt": "2023-03-09T03:03:27.126Z",
   "latestVersion": "0.2.85"
 }

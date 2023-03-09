@@ -1998,6 +1998,7 @@
         "meta[name='immersive-translate-ebook-builder'][content='true']"
       ],
       "excludeSelectors": [
+        "h1.notranslate",
         "#drop-target",
         "#drop-target h1",
         "#side-bar",
@@ -2012,6 +2013,6 @@
       "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-09T13:22:07.527Z",
+  "buildinConfigUpdatedAt": "2023-03-09T13:38:05.691Z",
   "latestVersion": "0.3.0"
 }

@@ -424,6 +424,44 @@
       }
     },
     {
+      "matches": "*://*/*.txt",
+      "selectors": [
+        "body"
+      ],
+      "isTransformPreTagNewLine": true,
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "G",
+        "TEXT",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH",
+        "TTS-SENTENCE"
+      ]
+    },
+    {
       "matches": [
         "mail.jabber.org",
         "antirez.com"
@@ -1970,6 +2008,6 @@
       "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-09T00:34:22.706Z",
+  "buildinConfigUpdatedAt": "2023-03-09T01:19:49.044Z",
   "latestVersion": "0.2.85"
 }

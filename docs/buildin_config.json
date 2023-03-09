@@ -56,6 +56,9 @@
     "deepl": {
       "immediateTranslationTextCountForImmersiveDeepl": 50000
     },
+    "bing": {
+      "maxTextLengthPerRequest": 800
+    },
     "deeplx": {
       "limit": 3
     },
@@ -2009,6 +2012,6 @@
       "wrapperPrefix": "<br /><br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-09T03:03:27.126Z",
-  "latestVersion": "0.2.85"
+  "buildinConfigUpdatedAt": "2023-03-09T13:22:07.527Z",
+  "latestVersion": "0.3.0"
 }

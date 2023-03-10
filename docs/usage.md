@@ -32,20 +32,11 @@
 
 > Tips: 油猴脚本的浮窗可以任意拖动位置～
 
-## 配置同步功能
-
-你可以将配置信息在本地导出进行同步，也可以使用 Google Drive 进行同步。
-
-![](assets/sync.png)
-
 ## Epub 文件翻译
 
-可以配合任何 Epub 在线阅读网站使用，比如：
+点击插件图标，【更多】，阅读电子书（支持 Epub，Mobi 等常见格式）或者制作双语电子书。
 
-- <https://epub-reader.online> ，一次性 Epub 在线阅读网站。
-- <https://1paragraph.app> ，建议离线本地保存 Epub，下次不用重新导入。
-- <https://readwise.io/read> ，Readwise，体验很好但收费，可以保存进度，做笔记等等。
-- <https://bookfusion.com> ，免费版可存放 10 本电子书。
+![](assets/epub.png)
 
 ## PDF 文件翻译
 
@@ -60,6 +51,12 @@
 ![pdf icon](https://immersive-translate.owenyoung.com/assets/pdf-browser-action.png)
 
 2. 如果是本地的 PDF 文件，直接右键扩展的图标（或者左键点击扩展图标，然后点击「更多」，点击「翻译本地 PDF 文件」），进入页面后，点击页面右上角上传你的 PDF 文件即可。
+
+## 配置同步功能
+
+你可以将配置信息在本地导出进行同步，也可以使用 Google Drive 进行同步。
+
+![](assets/sync.png)
 
 > 该扩展免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
 >

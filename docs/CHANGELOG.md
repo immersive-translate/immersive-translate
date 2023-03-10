@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.1
+
+- Feat: update dark icon to transparency.
+- Fix: Wrong order for long paragraph
+
 ## 0.3.0
 
 - Version: From now on, we will change the minor version number once a month, for example, now in March, the version will start from 0.3.0, in April, the version number will start from 0.4.0, next April, the version number will be 1.4.0, and so on. This is because it does not make sense for extensions to follow semantics, but standardizing version numbers according to the laws of time is motivation for development to keep updating, and for users to find problems more easily.

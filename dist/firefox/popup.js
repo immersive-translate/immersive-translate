@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-09T04:14:14.614Z", VERSION: "0.3.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-10T10:14:32.343Z", VERSION: "0.3.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8188,6 +8188,9 @@ var buildin_config_default = {
     deepl: {
       immediateTranslationTextCountForImmersiveDeepl: 5e4
     },
+    bing: {
+      maxTextLengthPerRequest: 800
+    },
     deeplx: {
       limit: 3
     },
@@ -9836,6 +9839,7 @@ var buildin_config_default = {
         "meta[name='immersive-translate-ebook-builder'][content='true']"
       ],
       excludeSelectors: [
+        "h1.notranslate",
         "#drop-target",
         "#drop-target h1",
         "#side-bar",
@@ -9847,7 +9851,7 @@ var buildin_config_default = {
       blockMinTextCount: 1,
       blockMinWordCount: 1,
       containerMinTextCount: 1,
-      wrapperPrefix: "<br /><br />"
+      wrapperPrefix: "<br />"
     }
   ]
 };

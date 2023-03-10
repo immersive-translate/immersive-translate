@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-09T04:14:15.113Z", VERSION: "0.3.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-10T10:14:32.820Z", VERSION: "0.3.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9075,6 +9075,9 @@ ${injectedCss}}
       deepl: {
         immediateTranslationTextCountForImmersiveDeepl: 5e4
       },
+      bing: {
+        maxTextLengthPerRequest: 800
+      },
       deeplx: {
         limit: 3
       },
@@ -10723,6 +10726,7 @@ ${injectedCss}}
           "meta[name='immersive-translate-ebook-builder'][content='true']"
         ],
         excludeSelectors: [
+          "h1.notranslate",
           "#drop-target",
           "#drop-target h1",
           "#side-bar",
@@ -10734,7 +10738,7 @@ ${injectedCss}}
         blockMinTextCount: 1,
         blockMinWordCount: 1,
         containerMinTextCount: 1,
-        wrapperPrefix: "<br /><br />"
+        wrapperPrefix: "<br />"
       }
     ]
   };
@@ -11104,7 +11108,8 @@ ${injectedCss}}
               suffix,
               index: i2,
               url,
-              sentenceTotalParts
+              sentenceTotalParts,
+              partIndex: sentenceTotalParts - 1
             }), sentenceTotalPartsGroups[i2] = sentenceTotalParts;
           }
         } else
@@ -11116,7 +11121,8 @@ ${injectedCss}}
             to,
             index: i2,
             url,
-            sentenceTotalParts
+            sentenceTotalParts,
+            partIndex: sentenceTotalParts - 1
           }), sentenceTotalPartsGroups[i2] = sentenceTotalParts;
         currentTempSentences.length > 0 && j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `);
@@ -14127,11 +14133,12 @@ ${injectedCss}}
         tempSentenceGroups.map((item) => item)
       );
       let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback, error2) => {
-        sentenceCallbacks[index] ? sentenceCallbacks[index].translatedTexts.push(
-          ...sentenceCallback.translatedTexts
-        ) : sentenceCallbacks[index] = sentenceCallback;
-        let currentSentenceCallback = sentenceCallbacks[index];
-        if (currentSentenceCallback.translatedTexts.length === currentSentenceCallback.sentenceTotalParts) {
+        let currentText = sentenceCallback.translatedTexts[0];
+        sentenceCallbacks[index] || (sentenceCallbacks[index] = sentenceCallback, sentenceCallbacks[index].translatedTexts = Array(4).fill(null)), sentenceCallbacks[index].translatedTexts[sentenceCallback.partIndex] = currentText;
+        let currentSentenceCallback = sentenceCallbacks[index], realLength = 0;
+        for (let i2 = 0; i2 < currentSentenceCallback.sentenceTotalParts; i2++)
+          currentSentenceCallback.translatedTexts[i2] !== null && (realLength += 1);
+        if (realLength === currentSentenceCallback.sentenceTotalParts) {
           let translatedText = currentSentenceCallback.translatedTexts.join(""), translatedSentence = {
             ...currentSentenceCallback.sentence,
             text: translatedText
@@ -14223,6 +14230,7 @@ ${injectedCss}}
                     to: tempSentenceGroup.to
                   },
                   sentenceTotalParts: tempSentence.sentenceTotalParts,
+                  partIndex: tempSentence.partIndex,
                   translatedTexts: [prefix + translatedText + suffix],
                   callback: everySentenceCallback
                 }, null);
@@ -16464,7 +16472,7 @@ ${injectedCss}}
     constructor() {
       super(...arguments);
       this.isSupportList = !1;
-      this.maxTextLength = 1e3;
+      this.maxTextLength = 800;
     }
     async translate(payload) {
       let { text, from, to } = payload;

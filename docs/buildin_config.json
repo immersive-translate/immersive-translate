@@ -2010,9 +2010,9 @@
       "blockMinTextCount": 1,
       "blockMinWordCount": 1,
       "containerMinTextCount": 1,
-      "wrapperPrefix": "<br /><br />"
+      "wrapperPrefix": "<br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-09T13:38:05.691Z",
+  "buildinConfigUpdatedAt": "2023-03-10T07:22:34.053Z",
   "latestVersion": "0.3.0"
 }

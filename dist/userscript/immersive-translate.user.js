@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.3.0
+// @version      0.3.1
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -54,12 +54,12 @@
 // @connect    aidemo.youdao.com
 // @connect    localhost
 // @run-at       document-end
-// @name:fa     ترجمه همه‌جانبه
-// @description:fa     افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود.
-// @name:zh-TW     沉浸式翻譯
-// @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // @name:zh-CN     沉浸式翻译
 // @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
+// @name:zh-TW     沉浸式翻譯
+// @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
+// @name:fa     ترجمه همه‌جانبه
+// @description:fa     افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود.
 // ==/UserScript==
 (() => {
   var __defProp = Object.defineProperty;
@@ -69,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-09T04:14:15.113Z", VERSION: "0.3.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-10T10:14:32.820Z", VERSION: "0.3.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7988,6 +7988,9 @@ body {
       deepl: {
         immediateTranslationTextCountForImmersiveDeepl: 5e4
       },
+      bing: {
+        maxTextLengthPerRequest: 800
+      },
       deeplx: {
         limit: 3
       },
@@ -9636,6 +9639,7 @@ body {
           "meta[name='immersive-translate-ebook-builder'][content='true']"
         ],
         excludeSelectors: [
+          "h1.notranslate",
           "#drop-target",
           "#drop-target h1",
           "#side-bar",
@@ -9647,7 +9651,7 @@ body {
         blockMinTextCount: 1,
         blockMinWordCount: 1,
         containerMinTextCount: 1,
-        wrapperPrefix: "<br /><br />"
+        wrapperPrefix: "<br />"
       }
     ]
   };
@@ -10148,7 +10152,8 @@ body {
               suffix,
               index: i3,
               url,
-              sentenceTotalParts
+              sentenceTotalParts,
+              partIndex: sentenceTotalParts - 1
             }), sentenceTotalPartsGroups[i3] = sentenceTotalParts;
           }
         } else
@@ -10160,7 +10165,8 @@ body {
             to,
             index: i3,
             url,
-            sentenceTotalParts
+            sentenceTotalParts,
+            partIndex: sentenceTotalParts - 1
           }), sentenceTotalPartsGroups[i3] = sentenceTotalParts;
         currentTempSentences.length > 0 && j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `);
@@ -12088,11 +12094,12 @@ ${injectedCss}}
         tempSentenceGroups.map((item) => item)
       );
       let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback, error) => {
-        sentenceCallbacks[index] ? sentenceCallbacks[index].translatedTexts.push(
-          ...sentenceCallback.translatedTexts
-        ) : sentenceCallbacks[index] = sentenceCallback;
-        let currentSentenceCallback = sentenceCallbacks[index];
-        if (currentSentenceCallback.translatedTexts.length === currentSentenceCallback.sentenceTotalParts) {
+        let currentText = sentenceCallback.translatedTexts[0];
+        sentenceCallbacks[index] || (sentenceCallbacks[index] = sentenceCallback, sentenceCallbacks[index].translatedTexts = Array(4).fill(null)), sentenceCallbacks[index].translatedTexts[sentenceCallback.partIndex] = currentText;
+        let currentSentenceCallback = sentenceCallbacks[index], realLength = 0;
+        for (let i3 = 0; i3 < currentSentenceCallback.sentenceTotalParts; i3++)
+          currentSentenceCallback.translatedTexts[i3] !== null && (realLength += 1);
+        if (realLength === currentSentenceCallback.sentenceTotalParts) {
           let translatedText = currentSentenceCallback.translatedTexts.join(""), translatedSentence = {
             ...currentSentenceCallback.sentence,
             text: translatedText
@@ -12184,6 +12191,7 @@ ${injectedCss}}
                     to: tempSentenceGroup.to
                   },
                   sentenceTotalParts: tempSentence.sentenceTotalParts,
+                  partIndex: tempSentence.partIndex,
                   translatedTexts: [prefix + translatedText + suffix],
                   callback: everySentenceCallback
                 }, null);
@@ -14697,7 +14705,7 @@ ${injectedCss}}
     constructor() {
       super(...arguments);
       this.isSupportList = !1;
-      this.maxTextLength = 1e3;
+      this.maxTextLength = 800;
     }
     async translate(payload) {
       let { text, from, to } = payload;
@@ -18069,7 +18077,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.3.0",
+    version: "0.3.1",
     default_locale: "en",
     background: {
       service_worker: "background.js"

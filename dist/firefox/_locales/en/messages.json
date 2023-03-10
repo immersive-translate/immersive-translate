@@ -3,7 +3,7 @@
     "message": "Immersive Translate"
   },
   "brandDescription": {
-    "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari."
+    "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari."
   },
   "toggleTranslatePage": {
     "message": "Toggle translate webpage "
@@ -27,13 +27,13 @@
     "message": "Translate local PDF files"
   },
   "openEbookViewer": {
-    "message": "阅读本地电子书"
+    "message": "Read local e-book"
   },
   "openEbookBuilder": {
-    "message": "制作双语 Epub 电子书"
+    "message": "Make Dual Epub ebook"
   },
   "translateLocalHTMLFile": {
-    "message": "翻译本地 HTML 文件"
+    "message": "Translate local HTML files"
   },
   "openAboutPage": {
     "message": "About / Feedback/Sponsor"

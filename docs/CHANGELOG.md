@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.2
+
+- Fix: Options Form Input cursor moving.
+- Feat: OpenAI support custom apiUrl for develope settings.
+
 ## 0.3.1
 
 - Feat: update dark icon to transparency.

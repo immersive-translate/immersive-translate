@@ -193,13 +193,16 @@
     "secretId": "xxx",
     "secretKey": "xxx",
     "matches":["*.twitter.com"],
-    "limit": 3
+    "limit": 3,
+    "apiUrl":""
   }
 }
 ```
 
 `matches` 字段, 为特定网站使用该翻译服务。
 `limit`字段，指定该翻译服务的每秒最多请求数（有些服务会限制每秒最大请求数）。
+
+`apiUrl` 可以自定义翻译接口的地址。
 
 ### 总是翻译特定网站
 

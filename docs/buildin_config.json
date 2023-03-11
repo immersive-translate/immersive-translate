@@ -409,6 +409,10 @@
   },
   "rules": [
     {
+      "selectorMatches": "div.simpread-read-root.simpread-read-root-show > sr-read",
+      "mainFrameSelector": "div.simpread-read-root.simpread-read-root-show > sr-read"
+    },
+    {
       "matches": [
         "moz-extension://*/pdf/index.html*"
       ],
@@ -2017,6 +2021,6 @@
       "wrapperPrefix": "<br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-11T12:28:07.880Z",
+  "buildinConfigUpdatedAt": "2023-03-11T14:07:25.024Z",
   "latestVersion": "0.3.2"
 }

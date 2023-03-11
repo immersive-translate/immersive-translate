@@ -779,7 +779,8 @@
         "yt-formatted-string#video-title",
         "span#video-title",
         "a#video-title",
-        "yt-formatted-string.ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -794,7 +795,8 @@
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
-        "span#video-title"
+        "span#video-title",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       "excludeSelectors": [
         "[class^='lln-']"
@@ -1070,7 +1072,9 @@
     },
     {
       "matches": "web.telegram.org/z/*",
+      "isTranslateTitle": false,
       "selectors": [
+        ".text-content",
         ".message",
         ".reply-markup-button-text",
         ".bot-commands-list-element-description"
@@ -1989,7 +1993,7 @@
       "blockMinTextCount": 1,
       "blockMinWordCount": 1,
       "containerMinTextCount": 1,
-      "wrapperPrefix": "<p></p>"
+      "wrapperPrefix": "<br />"
     },
     {
       "isEbookBuilder": true,
@@ -2013,6 +2017,6 @@
       "wrapperPrefix": "<br />"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-10T07:22:34.053Z",
-  "latestVersion": "0.3.0"
+  "buildinConfigUpdatedAt": "2023-03-11T12:28:07.880Z",
+  "latestVersion": "0.3.2"
 }

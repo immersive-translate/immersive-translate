@@ -2019,8 +2019,19 @@
       "blockMinWordCount": 1,
       "containerMinTextCount": 1,
       "wrapperPrefix": "<br />"
+    },
+    {
+      "matches": [
+        "https://www.explainpaper.com/reader*"
+      ],
+      "isTranslateTitle": false,
+      "selectors": [
+        ".leading-relaxed",
+        ".chat-messages p",
+        ".text-sm"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-11T14:07:25.024Z",
+  "buildinConfigUpdatedAt": "2023-03-11T14:45:48.888Z",
   "latestVersion": "0.3.2"
 }

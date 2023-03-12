@@ -166,6 +166,7 @@
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "initTranslationServiceAsSoonAsPossible": true,
+    "targetWrapperTag": "font",
     "additionalInjectedCss": [],
     "isTranslateTitle": true,
     "languageDetectMinTextCount": 50,
@@ -193,6 +194,7 @@
     "containerMinTextCount": 18,
     "lineBreakMaxTextCount": 0,
     "globalAttributes": {},
+    "globalMeta": {},
     "globalStyles": {
       ".sr-only": "display:none"
     },
@@ -352,7 +354,9 @@
     ],
     "extraBlockSelectors": [
       "turbo-frame",
-      "readme-toc"
+      "readme-toc",
+      "#hs_cos_wrapper_post_body",
+      "#hs_cos_wrapper_post_body"
     ],
     "allBlockTags": [
       "HGROUP",
@@ -2003,14 +2007,17 @@
       "blockMinTextCount": 1,
       "blockMinWordCount": 1,
       "containerMinTextCount": 1,
-      "wrapperPrefix": "<br />"
+      "wrapperPrefix": "<br />",
+      "targetWrapperTag": "span"
     },
     {
       "isEbookBuilder": true,
       "isTranslateTitle": false,
+      "targetWrapperTag": "span",
       "selectorMatches": [
         "meta[name='immersive-translate-ebook-builder'][content='true']"
       ],
+      "globalMeta": {},
       "excludeSelectors": [
         "h1.notranslate",
         "#drop-target",
@@ -2038,6 +2045,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-12T12:32:21.919Z",
-  "latestVersion": "0.3.2"
+  "buildinConfigUpdatedAt": "2023-03-12T22:04:56.784Z",
+  "latestVersion": "0.3.3"
 }

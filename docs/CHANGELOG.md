@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.4
+
+- CI: Build failed
+
 ## 0.3.3
 
 - Fix: ebook maker for Kindle

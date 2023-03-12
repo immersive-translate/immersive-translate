@@ -127,6 +127,10 @@
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/wna.jpg" width="400" alt="wechat and alipay"></div>
+
+你也可以通过我的[Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), [爱发电主页](https://afdian.net/a/translate), [Patreon 主页](https://www.patreon.com/theowenyoung)进行赞助。
+
 Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
 
 - 帮助我在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN), [Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)， [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里评价该扩展。

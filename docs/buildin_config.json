@@ -178,7 +178,9 @@
     "visibleDelay": 0,
     "additionalStayOriginalSelectors": [
       "span.katex",
-      ".notranslate"
+      ".notranslate",
+      ".MathJax_Preview",
+      ".MathJax"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -339,11 +341,15 @@
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
       "RELIN-TARGET",
-      "XQDD_HIGHLIGHT_NEW_WORD"
+      "XQDD_HIGHLIGHT_NEW_WORD",
+      "NOBR"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
-    "additionalInlineSelectors": [],
+    "additionalInlineSelectors": [
+      ".MathJax_Preview",
+      ".MathJax"
+    ],
     "extraBlockSelectors": [
       "turbo-frame",
       "readme-toc"
@@ -2032,6 +2038,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-11T14:45:48.888Z",
+  "buildinConfigUpdatedAt": "2023-03-12T12:32:21.919Z",
   "latestVersion": "0.3.2"
 }

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-12T22:03:28.160Z", VERSION: "0.3.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-12T22:11:29.207Z", VERSION: "0.3.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4723,7 +4723,6 @@ var zh_CN_default = {
   "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
   "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
-  "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
   "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
   "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
   "browser.translateLocalHTMLFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
@@ -5266,7 +5265,6 @@ var en_default = {
   "browser.openOptionsPage": "Open Settings Page",
   "browser.toggleTranslationMask": "Toggle translation mask style",
   "browser.translateLocalPdfFile": "Translate local PDF files",
-  "browser.translateLocalHtmlFile": "Translate local HTML files",
   "browser.openEbookViewer": "Read local e-book",
   "browser.openEbookBuilder": "Make Dual Epub ebook",
   "browser.translateLocalHTMLFile": "Translate local HTML files",

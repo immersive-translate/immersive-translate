@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.3
+
+- Fix: ebook maker for Kindle
+- Change: Loading icon color, from black to blue, for adapt the dark mode web page.
+- Feat: Support local html translate for extension
+
 ## 0.3.2
 
 - Fix: Options Form Input cursor moving.

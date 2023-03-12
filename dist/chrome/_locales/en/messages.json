@@ -26,6 +26,9 @@
   "translateLocalPdfFile": {
     "message": "Translate local PDF files"
   },
+  "translateLocalHtmlFile": {
+    "message": "Translate local HTML files"
+  },
   "openEbookViewer": {
     "message": "Read local e-book"
   },

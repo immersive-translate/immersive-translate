@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-10T12:39:15.855Z", VERSION: "0.3.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-12T22:03:28.160Z", VERSION: "0.3.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -301,8 +301,8 @@ var define_process_env_default = { BUILD_TIME: "2023-03-10T12:39:15.855Z", VERSI
   height: 10px !important;
   display: inline-block !important;
   margin: 0 4px !important;
-  border: 2px rgba(0, 0, 0, 0.25) solid !important;
-  border-top: 2px rgba(0, 0, 0, 1) solid !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(9, 105, 218, 0.8) solid !important;
   border-radius: 50% !important;
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
@@ -7570,6 +7570,7 @@ var zh_CN_default = {
   "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
   "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
+  "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
   "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
   "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
   "browser.translateLocalHTMLFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
@@ -8112,6 +8113,7 @@ var en_default = {
   "browser.openOptionsPage": "Open Settings Page",
   "browser.toggleTranslationMask": "Toggle translation mask style",
   "browser.translateLocalPdfFile": "Translate local PDF files",
+  "browser.translateLocalHtmlFile": "Translate local HTML files",
   "browser.openEbookViewer": "Read local e-book",
   "browser.openEbookBuilder": "Make Dual Epub ebook",
   "browser.translateLocalHTMLFile": "Translate local HTML files",
@@ -9990,6 +9992,7 @@ var buildin_config_default = {
     waitForSelectors: [],
     waitForSelectorsTimeout: 3e3,
     initTranslationServiceAsSoonAsPossible: !0,
+    targetWrapperTag: "font",
     additionalInjectedCss: [],
     isTranslateTitle: !0,
     languageDetectMinTextCount: 50,
@@ -10000,7 +10003,12 @@ var buildin_config_default = {
     urlChangeDelay: 20,
     mutationChangeDelay: 10,
     visibleDelay: 0,
-    additionalStayOriginalSelectors: ["span.katex", ".notranslate"],
+    additionalStayOriginalSelectors: [
+      "span.katex",
+      ".notranslate",
+      ".MathJax_Preview",
+      ".MathJax"
+    ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -10012,6 +10020,7 @@ var buildin_config_default = {
     containerMinTextCount: 18,
     lineBreakMaxTextCount: 0,
     globalAttributes: {},
+    globalMeta: {},
     globalStyles: {
       ".sr-only": "display:none"
     },
@@ -10141,12 +10150,18 @@ var buildin_config_default = {
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
       "RELIN-TARGET",
-      "XQDD_HIGHLIGHT_NEW_WORD"
+      "XQDD_HIGHLIGHT_NEW_WORD",
+      "NOBR"
     ],
     additionalInlineTags: [],
     extraInlineSelectors: [],
-    additionalInlineSelectors: [],
-    extraBlockSelectors: ["turbo-frame", "readme-toc"],
+    additionalInlineSelectors: [".MathJax_Preview", ".MathJax"],
+    extraBlockSelectors: [
+      "turbo-frame",
+      "readme-toc",
+      "#hs_cos_wrapper_post_body",
+      "#hs_cos_wrapper_post_body"
+    ],
     allBlockTags: [
       "HGROUP",
       "CONTENT",
@@ -10207,6 +10222,10 @@ var buildin_config_default = {
     fingerCountToToggleTranslationMaskWhenTouching: 0
   },
   rules: [
+    {
+      selectorMatches: "div.simpread-read-root.simpread-read-root-show > sr-read",
+      mainFrameSelector: "div.simpread-read-root.simpread-read-root-show > sr-read"
+    },
     {
       matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
@@ -10520,7 +10539,8 @@ var buildin_config_default = {
         "yt-formatted-string#video-title",
         "span#video-title",
         "a#video-title",
-        "yt-formatted-string.ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -10535,7 +10555,8 @@ var buildin_config_default = {
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
-        "span#video-title"
+        "span#video-title",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       excludeSelectors: ["[class^='lln-']"],
       extraBlockSelectors: [
@@ -10772,7 +10793,9 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
+      isTranslateTitle: !1,
       selectors: [
+        ".text-content",
         ".message",
         ".reply-markup-button-text",
         ".bot-commands-list-element-description"
@@ -11524,14 +11547,17 @@ var buildin_config_default = {
       blockMinTextCount: 1,
       blockMinWordCount: 1,
       containerMinTextCount: 1,
-      wrapperPrefix: "<br />"
+      wrapperPrefix: "<br />",
+      targetWrapperTag: "span"
     },
     {
       isEbookBuilder: !0,
       isTranslateTitle: !1,
+      targetWrapperTag: "span",
       selectorMatches: [
         "meta[name='immersive-translate-ebook-builder'][content='true']"
       ],
+      globalMeta: {},
       excludeSelectors: [
         "h1.notranslate",
         "#drop-target",
@@ -11546,6 +11572,17 @@ var buildin_config_default = {
       blockMinWordCount: 1,
       containerMinTextCount: 1,
       wrapperPrefix: "<br />"
+    },
+    {
+      matches: [
+        "https://www.explainpaper.com/reader*"
+      ],
+      isTranslateTitle: !1,
+      selectors: [
+        ".leading-relaxed",
+        ".chat-messages p",
+        ".text-sm"
+      ]
     }
   ]
 };
@@ -13203,7 +13240,7 @@ function paragraphToHtml(sourceItem, sentence, ctx) {
   let innerClassList = getTranslationInnerClassNames(
     translationTheme
   ), blockStyleStr = "";
-  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<font ${blockStyleStr} class="${classList.join(" ")}"><font class="${innerClassList.join(" ")}">${html}</font></font>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<font class="notranslate">&#160;</font>${html}`), {
+  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<${ctx.rule.targetWrapperTag} ${blockStyleStr} class="${classList.join(" ")}"><${rule.targetWrapperTag} class="${innerClassList.join(" ")}">${html}</${rule.targetWrapperTag}></${rule.targetWrapperTag}>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<${rule.targetWrapperTag} class="notranslate">&#160;</${rule.targetWrapperTag}>${html}`), {
     html,
     position
   };
@@ -13363,7 +13400,7 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
       } else if (node.nodeType === Node.TEXT_NODE) {
         let text = node.textContent;
         if (text && text.trim().length > 0) {
-          let span = document.createElement("font");
+          let span = document.createElement(rule.targetWrapperTag);
           node.after(span), span.appendChild(node);
         }
       }
@@ -14060,7 +14097,7 @@ function translationParagraph(visibleParagraph, ctx) {
   if (visibleParagraph.isPdf) {
     let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
     isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("font");
+    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement(ctx.rule.targetWrapperTag);
     realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
     let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
       let left = getAttribute(current, sourceElementLeft);
@@ -14079,13 +14116,16 @@ function translationParagraph(visibleParagraph, ctx) {
       visibleParagraph.elements[0],
       ctx.rule
     ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-    let targetTranslationWrapper = document.createElement("font");
+    let { rule } = ctx, targetTranslationWrapper = document.createElement(
+      rule.targetWrapperTag
+    );
     targetTranslationWrapper.classList.add(
       "notranslate",
       translationTargetElementWrapperClass
     ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
     let loadingHtml = getLoadingHTML(
-      ctx.config.loadingTheme
+      ctx.config.loadingTheme,
+      ctx.rule
     );
     if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
       let innerElement = getTheLastTextNodeParentElement(lastElement);
@@ -14240,8 +14280,8 @@ async function translateTitle(ctx) {
     throw e3;
   }
 }
-function getLoadingHTML(theme) {
-  return `&#160;<font class="${brandId}-loading-${theme} notranslate"></font>`;
+function getLoadingHTML(theme, rule) {
+  return `&#160;<${rule.targetWrapperTag} class="${brandId}-loading-${theme} notranslate"></${rule.targetWrapperTag}>`;
 }
 async function translateContainers(containers, rootFrame, ctx, isDynamic) {
   let { rule } = ctx;
@@ -14288,12 +14328,12 @@ function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
   let paragraphWithState = getParagraph(sentenceRequest.id);
   if (paragraphWithState && (err || !translatedSentence)) {
     err || (log_default.error("translate error", sentenceRequest, err, translatedSentence), err = new Error("no response from server"));
-    let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+    let { rule } = ctx, wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
       `#${translationTargetElementWrapperClass}-${wrapperId}`
     ), errorMessage = err.message.replaceAll(`
 `, "");
     errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-    let errorHtml = `<font class="${brandId}-error notranslate"> <font class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></font> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></font>`;
+    let errorHtml = `<${rule.targetWrapperTag} class="${brandId}-error notranslate"> <${rule.targetWrapperTag} class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></${rule.targetWrapperTag}> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></${rule.targetWrapperTag}>`;
     wrapper && (wrapper.innerHTML = errorHtml);
   } else {
     let paragraph = getParagraph(sentenceRequest.id);
@@ -14471,7 +14511,10 @@ async function initPage() {
   ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
     ctx.rule.waitForSelectors,
     ctx.rule.waitForSelectorsTimeout
-  );
+  ), ctx.rule.globalMeta && Object.keys(ctx.rule.globalMeta).forEach((key) => {
+    let meta = document.createElement("meta");
+    meta.name = key, meta.content = ctx.rule.globalMeta[key], document.head.appendChild(meta);
+  });
   let lang = ctx.sourceLanguage;
   lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
     text: getMainText(ctx.mainFrame).slice(0, 1e3)

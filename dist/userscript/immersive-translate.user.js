@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.3.2
+// @version      0.3.3
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -69,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-10T12:39:17.806Z", VERSION: "0.3.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-12T22:03:30.066Z", VERSION: "0.3.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -365,8 +365,8 @@
   height: 10px !important;
   display: inline-block !important;
   margin: 0 4px !important;
-  border: 2px rgba(0, 0, 0, 0.25) solid !important;
-  border-top: 2px rgba(0, 0, 0, 1) solid !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(9, 105, 218, 0.8) solid !important;
   border-radius: 50% !important;
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
@@ -3842,7 +3842,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // https://esm.sh/v111/n-gram@2.0.2/deno/n-gram.js
   var c = o(2), f = o(3);
@@ -4406,6 +4406,7 @@ body {
     "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
     "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
     "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
     "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
     "browser.translateLocalHTMLFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
@@ -4948,6 +4949,7 @@ body {
     "browser.openOptionsPage": "Open Settings Page",
     "browser.toggleTranslationMask": "Toggle translation mask style",
     "browser.translateLocalPdfFile": "Translate local PDF files",
+    "browser.translateLocalHtmlFile": "Translate local HTML files",
     "browser.openEbookViewer": "Read local e-book",
     "browser.openEbookBuilder": "Make Dual Epub ebook",
     "browser.translateLocalHTMLFile": "Translate local HTML files",
@@ -8100,6 +8102,7 @@ body {
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
       initTranslationServiceAsSoonAsPossible: !0,
+      targetWrapperTag: "font",
       additionalInjectedCss: [],
       isTranslateTitle: !0,
       languageDetectMinTextCount: 50,
@@ -8110,7 +8113,12 @@ body {
       urlChangeDelay: 20,
       mutationChangeDelay: 10,
       visibleDelay: 0,
-      additionalStayOriginalSelectors: ["span.katex", ".notranslate"],
+      additionalStayOriginalSelectors: [
+        "span.katex",
+        ".notranslate",
+        ".MathJax_Preview",
+        ".MathJax"
+      ],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
       observeUrlChange: !1,
@@ -8122,6 +8130,7 @@ body {
       containerMinTextCount: 18,
       lineBreakMaxTextCount: 0,
       globalAttributes: {},
+      globalMeta: {},
       globalStyles: {
         ".sr-only": "display:none"
       },
@@ -8251,12 +8260,18 @@ body {
         "RELIN-HIGHLIGHT",
         "RELIN-ORIGIN",
         "RELIN-TARGET",
-        "XQDD_HIGHLIGHT_NEW_WORD"
+        "XQDD_HIGHLIGHT_NEW_WORD",
+        "NOBR"
       ],
       additionalInlineTags: [],
       extraInlineSelectors: [],
-      additionalInlineSelectors: [],
-      extraBlockSelectors: ["turbo-frame", "readme-toc"],
+      additionalInlineSelectors: [".MathJax_Preview", ".MathJax"],
+      extraBlockSelectors: [
+        "turbo-frame",
+        "readme-toc",
+        "#hs_cos_wrapper_post_body",
+        "#hs_cos_wrapper_post_body"
+      ],
       allBlockTags: [
         "HGROUP",
         "CONTENT",
@@ -8317,6 +8332,10 @@ body {
       fingerCountToToggleTranslationMaskWhenTouching: 0
     },
     rules: [
+      {
+        selectorMatches: "div.simpread-read-root.simpread-read-root-show > sr-read",
+        mainFrameSelector: "div.simpread-read-root.simpread-read-root-show > sr-read"
+      },
       {
         matches: ["moz-extension://*/pdf/index.html*"],
         isPdf: !0,
@@ -8630,7 +8649,8 @@ body {
           "yt-formatted-string#video-title",
           "span#video-title",
           "a#video-title",
-          "yt-formatted-string.ytd-transcript-segment-renderer"
+          "yt-formatted-string.ytd-transcript-segment-renderer",
+          "#description-inline-expander > yt-attributed-string > span"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -8645,7 +8665,8 @@ body {
           "yt-formatted-string[slot=content].ytd-comment-renderer",
           "h1 > yt-formatted-string.ytd-watch-metadata",
           "yt-formatted-string#video-title",
-          "span#video-title"
+          "span#video-title",
+          "#description-inline-expander > yt-attributed-string > span"
         ],
         excludeSelectors: ["[class^='lln-']"],
         extraBlockSelectors: [
@@ -8882,7 +8903,9 @@ body {
       },
       {
         matches: "web.telegram.org/z/*",
+        isTranslateTitle: !1,
         selectors: [
+          ".text-content",
           ".message",
           ".reply-markup-button-text",
           ".bot-commands-list-element-description"
@@ -9634,14 +9657,17 @@ body {
         blockMinTextCount: 1,
         blockMinWordCount: 1,
         containerMinTextCount: 1,
-        wrapperPrefix: "<br />"
+        wrapperPrefix: "<br />",
+        targetWrapperTag: "span"
       },
       {
         isEbookBuilder: !0,
         isTranslateTitle: !1,
+        targetWrapperTag: "span",
         selectorMatches: [
           "meta[name='immersive-translate-ebook-builder'][content='true']"
         ],
+        globalMeta: {},
         excludeSelectors: [
           "h1.notranslate",
           "#drop-target",
@@ -9656,6 +9682,17 @@ body {
         blockMinWordCount: 1,
         containerMinTextCount: 1,
         wrapperPrefix: "<br />"
+      },
+      {
+        matches: [
+          "https://www.explainpaper.com/reader*"
+        ],
+        isTranslateTitle: !1,
+        selectors: [
+          ".leading-relaxed",
+          ".chat-messages p",
+          ".text-sm"
+        ]
       }
     ]
   };
@@ -11480,7 +11517,7 @@ ${injectedCss}}
     let innerClassList = getTranslationInnerClassNames(
       translationTheme
     ), blockStyleStr = "";
-    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<font ${blockStyleStr} class="${classList.join(" ")}"><font class="${innerClassList.join(" ")}">${html}</font></font>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<font class="notranslate">&#160;</font>${html}`), {
+    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<${ctx.rule.targetWrapperTag} ${blockStyleStr} class="${classList.join(" ")}"><${rule.targetWrapperTag} class="${innerClassList.join(" ")}">${html}</${rule.targetWrapperTag}></${rule.targetWrapperTag}>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<${rule.targetWrapperTag} class="notranslate">&#160;</${rule.targetWrapperTag}>${html}`), {
       html,
       position
     };
@@ -11640,7 +11677,7 @@ ${injectedCss}}
         } else if (node.nodeType === Node.TEXT_NODE) {
           let text = node.textContent;
           if (text && text.trim().length > 0) {
-            let span = document.createElement("font");
+            let span = document.createElement(rule.targetWrapperTag);
             node.after(span), span.appendChild(node);
           }
         }
@@ -15525,7 +15562,7 @@ ${injectedCss}}
     if (visibleParagraph.isPdf) {
       let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
       isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-      let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("font");
+      let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement(ctx.rule.targetWrapperTag);
       realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
       let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
         let left = getAttribute(current, sourceElementLeft);
@@ -15544,13 +15581,16 @@ ${injectedCss}}
         visibleParagraph.elements[0],
         ctx.rule
       ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-      let targetTranslationWrapper = document.createElement("font");
+      let { rule } = ctx, targetTranslationWrapper = document.createElement(
+        rule.targetWrapperTag
+      );
       targetTranslationWrapper.classList.add(
         "notranslate",
         translationTargetElementWrapperClass
       ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
       let loadingHtml = getLoadingHTML(
-        ctx.config.loadingTheme
+        ctx.config.loadingTheme,
+        ctx.rule
       );
       if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
         let innerElement = getTheLastTextNodeParentElement(lastElement);
@@ -15709,10 +15749,13 @@ ${injectedCss}}
     let element = rootFrame.querySelector(
       "#" + translationTargetElementWrapperClass + "-" + id
     );
-    element && (element.innerHTML = getLoadingHTML(ctx.config.loadingTheme));
+    element && (element.innerHTML = getLoadingHTML(
+      ctx.config.loadingTheme,
+      ctx.rule
+    ));
   }
-  function getLoadingHTML(theme) {
-    return `&#160;<font class="${brandId}-loading-${theme} notranslate"></font>`;
+  function getLoadingHTML(theme, rule) {
+    return `&#160;<${rule.targetWrapperTag} class="${brandId}-loading-${theme} notranslate"></${rule.targetWrapperTag}>`;
   }
   async function translateContainers(containers, rootFrame, ctx, isDynamic) {
     let { rule } = ctx;
@@ -15780,12 +15823,12 @@ ${injectedCss}}
     let paragraphWithState = getParagraph(sentenceRequest.id);
     if (paragraphWithState && (err || !translatedSentence)) {
       err || (log_default.error("translate error", sentenceRequest, err, translatedSentence), err = new Error("no response from server"));
-      let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+      let { rule } = ctx, wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
         `#${translationTargetElementWrapperClass}-${wrapperId}`
       ), errorMessage = err.message.replaceAll(`
 `, "");
       errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-      let errorHtml = `<font class="${brandId}-error notranslate"> <font class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></font> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></font>`;
+      let errorHtml = `<${rule.targetWrapperTag} class="${brandId}-error notranslate"> <${rule.targetWrapperTag} class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></${rule.targetWrapperTag}> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></${rule.targetWrapperTag}>`;
       wrapper && (wrapper.innerHTML = errorHtml);
     } else {
       let paragraph = getParagraph(sentenceRequest.id);
@@ -15963,7 +16006,10 @@ ${injectedCss}}
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
       ctx.rule.waitForSelectors,
       ctx.rule.waitForSelectorsTimeout
-    );
+    ), ctx.rule.globalMeta && Object.keys(ctx.rule.globalMeta).forEach((key) => {
+      let meta = document.createElement("meta");
+      meta.name = key, meta.content = ctx.rule.globalMeta[key], document.head.appendChild(meta);
+    });
     let lang = ctx.sourceLanguage;
     lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
       text: getMainText(ctx.mainFrame).slice(0, 1e3)
@@ -17173,6 +17219,7 @@ ${injectedCss}}
       onTranslateTheMainPage,
       onUserConfigChange,
       request: request3,
+      onTranslateLocalHtmlFile,
       onSetBuildinConfig,
       pageStatus: pageStatus2,
       openEbookBuilderPage: openEbookBuilderPage3,
@@ -17618,7 +17665,7 @@ ${injectedCss}}
             label: t4("more"),
             showArrow: !0,
             onSelected: (item) => {
-              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" ? openAboutPage3() : item.value === "toggleEnabled" ? onToggleEnabled() : item.value === "openEbookViewer" ? openEbookViewerPage3() : item.value === "openEbookBuilder" && openEbookBuilderPage3());
+              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "translateLocalHtmlFile" ? onTranslateLocalHtmlFile && onTranslateLocalHtmlFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" ? openAboutPage3() : item.value === "toggleEnabled" ? onToggleEnabled() : item.value === "openEbookViewer" ? openEbookViewerPage3() : item.value === "openEbookBuilder" && openEbookBuilderPage3());
             },
             menus: [
               config.translationArea === "main" && {
@@ -17644,6 +17691,10 @@ ${injectedCss}}
               !isMonkey() && {
                 label: "\u{1F4C1} " + t4("browser.translateLocalPdfFile"),
                 value: "translateLocalPdfFile"
+              },
+              !isMonkey() && {
+                label: "\u{1F310} " + t4("browser.translateLocalHtmlFile"),
+                value: "translateLocalHtmlFile"
               },
               {
                 label: (config.enabled ? "\u{1F6AB} " : "\u{1F44B} ") + (config.enabled ? t4("clickToDisableExtension") : t4("clickToEnableExtension")),
@@ -17847,6 +17898,8 @@ ${injectedCss}}
       {
         openEbookViewerPage: handleOpenEbookViewerPage,
         openEbookBuilderPage: handleOpenEbookBuilderPage,
+        onTranslateLocalHtmlFile: () => {
+        },
         request: request2,
         onClose: handleClose,
         onToggleEnabled: handleToggleEnabled,
@@ -18082,7 +18135,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.3.2",
+    version: "0.3.3",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -18090,6 +18143,7 @@ ${injectedCss}}
     web_accessible_resources: [
       "styles/inject.css",
       "pdf/index.html",
+      "ebook/index.html",
       "ebook/index.html",
       "ebook/make/index.html"
     ],

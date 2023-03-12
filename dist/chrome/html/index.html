@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="immersive-translate-ebook-builder" content="true" />
+    <meta name="immersive-translate-ebook-viewer" content="true" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self' blob:; script-src 'self'; style-src 'self' blob: 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src blob: data:; object-src blob: data:; form-action 'none';"
     />
-    <title>E-Book Maker</title>
-    <link rel="stylesheet" href="../../styles/inject.css" />
+    <title>Local HTML</title>
+    <link rel="stylesheet" href="../styles/inject.css" />
     <style>
       :root {
         --active-bg: rgba(0, 0, 0, 0.05);
@@ -21,19 +21,6 @@
             --active-bg: rgba(255, 255, 255, 0.1);
           }
         }
-      }
-      a,
-      a:visited,
-      a:hover,
-      a:active {
-        color: rgb(43, 108, 176);
-      }
-      a.contrast,
-      a.contrast:visited,
-      a.contrast:hover,
-      a.contrast:active {
-        color: inherit;
-        text-decoration: none;
       }
       body {
         margin: 0;
@@ -50,24 +37,6 @@
       #drop-target h1 {
         font-weight: 900;
       }
-      #tips {
-        width: 80%;
-        margin: 8px auto;
-        text-align: left;
-      }
-      blockquote {
-        border-left: 4px solid #cc3355 !important;
-        text-align: left;
-        padding-left: 12px !important;
-        margin-top: 4px;
-        margin-bottom: 4px;
-        margin-left: 0;
-        margin-right: 0;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        display: block;
-      }
-
       #file-button {
         font: inherit;
         background: none;
@@ -82,20 +51,8 @@
         stroke: currentcolor;
         stroke-width: 2px;
       }
-      .flex {
-        display: flex;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .items-center {
-        align-items: center;
-      }
-
       .empty-state-icon {
         margin: auto;
-      }
-      #editor {
       }
       .toolbar {
         box-sizing: border-box;
@@ -251,9 +208,6 @@
       .menu-container {
         position: relative;
       }
-      .none {
-        display: none;
-      }
       .menu,
       .menu ul {
         list-style: none;
@@ -302,42 +256,47 @@
         fill: Canvas;
         filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.2));
       }
-      #chapters {
-        text-align: center;
-        flex: 1;
-      }
-      #tool {
-        width: 80%;
-        margin: 0 auto;
-        font-size: 15px;
-      }
-
-      #headers {
-        width: 80%;
-        margin: 0 auto;
-      }
-      #fix-tool {
-        position: sticky;
-        top: 20px;
-      }
-      #tool-inner {
+      .left-big-bar {
+        position: fixed;
+        top: 48px;
+        left: 0;
+        bottom: 48px;
+        width: 32px;
+        background: rgba(0, 0, 0, 0.03);
+        z-index: 1;
         display: flex;
-        flex-wrap: wrap;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
-      .mr-3 {
-        margin-right: 1rem;
+      .left-big-bar:hover {
+        background: rgba(0, 0, 0, 0.08);
       }
-      .mb-3 {
-        margin-bottom: 0.5rem;
+      .right-big-bar {
+        position: fixed;
+        cursor: pointer;
+        top: 48px;
+        right: 0;
+        bottom: 48px;
+        width: 32px;
+        background: rgba(0, 0, 0, 0.03);
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
-      #stats {
-        margin: 0 auto;
-        width: 80%;
+      .right-big-bar:hover {
+        background: rgba(0, 0, 0, 0.08);
+      }
+      .none {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <input type="file" id="file-input" hidden />
+    <input type="file" id="file-input" accept=".html,.htm,.xhtml" hidden />
     <div id="drop-target" class="filter">
       <div>
         <svg
@@ -350,8 +309,9 @@
             d="M36 18s-6-6-12-6-15 6-15 6v42s9-6 15-6 12 6 12 6c4-4 8-6 12-6s12 2 15 6V18c-6-4-12-6-15-6-4 0-8 2-12 6m0 0v42"
           />
         </svg>
+
         <h1 class="notranslate">
-          Drop a book here! (把要制作的电子书 Epub 文件拖到这里)
+          Drop a HTML file here! (把本地 HTML 文件拖到这里！)
         </h1>
         <h2 class="notranslate">
           Or <button id="file-button">choose a file （选择一个文件）</button> to
@@ -387,6 +347,17 @@
         </button>
       </div>
     </div>
+
+    <div id="left-big-bar" class="left-big-bar none">
+      <svg class="icon" width="24" height="24" aria-hidden="true">
+        <path d="M 15 6 L 9 12 L 15 18" />
+      </svg>
+    </div>
+    <div id="right-big-bar" class="right-big-bar none">
+      <svg class="icon" width="24" height="24" aria-hidden="true">
+        <path d="M 9 6 L 15 12 L 9 18" />
+      </svg>
+    </div>
     <div id="nav-bar" class="toolbar">
       <button id="left-button" aria-label="Go left">
         <svg class="icon" width="24" height="24" aria-hidden="true">
@@ -408,58 +379,7 @@
         </svg>
       </button>
     </div>
-    <div id="editor">
-      <div id="headers">
-        <h1 class="notranslate">
-          正在用<a
-            class="notranslate contrast"
-            href="https://immersive-translate.owenyoung.com/"
-            target="_blank"
-            >沉浸式双语翻译扩展</a
-          >翻译《<span id="bookTitle"></span>》
-        </h1>
-      </div>
-
-      <div id="tool" class="none">
-        <div id="fix-tool">
-          <div id="tool-inner">
-            <a href="#" id="open" class="mr-3 mb-3">New (打开一本新书)</a>
-            <a href="#" id="edit" class="mr-3 mb-3">Edit (编辑)</a>
-
-            <a href="#" id="export" class="mr-3 mb-3">Export (导出)</a>
-            <a
-              target="_blank"
-              href="https://immersive-translate.owenyoung.com/services/deepL"
-              class="mr-3 mb-3"
-              >使用 DeepL 翻译电子书？</a
-            >
-
-            <a
-              target="_blank"
-              href="https://immersive-translate.owenyoung.com/services/openai"
-              class="mr-3 mb-3"
-              >使用 OpenAI 翻译电子书？</a
-            >
-            <a
-              target="_blank"
-              href="https://immersive-translate.owenyoung.com/donate"
-              class="mr-3 mb-3"
-              >请我喝咖啡?☕️</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <details id="tips">
-        <summary>
-          Help (查看帮助，要开始翻译请手动点击沉浸式翻译扩展/脚本浮窗的翻译按钮)
-        </summary>
-      </details>
-      <div id="stats"></div>
-      <div id="chapters"></div>
-    </div>
-    <script src="../../libs/foliate-js/make.js" type="module"></script>
-    <script src="../ebook-builder-global.js"></script>
-    <script src="../../content_script.js"></script>
+    <script src="./html.js"></script>
+    <script src="../content_script.js"></script>
   </body>
 </html>

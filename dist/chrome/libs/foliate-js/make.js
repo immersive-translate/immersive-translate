@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-13T08:40:36.553Z", VERSION: "0.3.5", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-13T09:25:48.942Z", VERSION: "0.3.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -11917,7 +11917,7 @@ var Reader = class {
 }, open = async (file) => {
   document.body.removeChild($3("#drop-target"));
   let reader = new Reader();
-  globalThis.reader = reader, await reader.open(file), $3("#tool").classList.remove("none");
+  globalThis.reader = reader, await reader.open(file), $3("#editor").classList.remove("none");
 }, dragOverHandler = (e) => e.preventDefault(), dropHandler = (e) => {
   e.preventDefault();
   let item = Array.from(e.dataTransfer.items).find(

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.6
+
+- UI: better for make ebook page UI
+
 ## 0.3.5
 
 - Fix: userscript ebook export

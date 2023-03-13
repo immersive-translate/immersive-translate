@@ -241,7 +241,8 @@
       "[data-toolbar=share]",
       "rp",
       "rt",
-      "[spellcheck=false]"
+      "[spellcheck=false]",
+      ".prism-code"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -2045,6 +2046,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-12T22:04:56.784Z",
-  "latestVersion": "0.3.3"
+  "buildinConfigUpdatedAt": "2023-03-13T15:44:08.737Z",
+  "latestVersion": "0.3.7"
 }

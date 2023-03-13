@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.5
+
+- Fix: userscript ebook export
+- Feat: add custom API endpoint for OpenAI
+- Feat: add temp translate website time options on `Advanced Settings`
+
 ## 0.3.4
 
 - CI: Build failed

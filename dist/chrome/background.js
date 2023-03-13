@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-13T09:25:48.942Z", VERSION: "0.3.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-13T15:44:38.653Z", VERSION: "0.3.7", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4725,7 +4725,7 @@ var zh_CN_default = {
   "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
   "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
   "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
-  "browser.translateLocalHTMLFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
+  "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
   confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -4997,7 +4997,7 @@ var zh_TW_default = {
   "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
   "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
   "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
-  "browser.translateLocalHTMLFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
+  "browser.translateLocalHtmlFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
   confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
   translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
   smartLineBreak: "\u667A\u6167\u63DB\u884C",
@@ -5268,7 +5268,7 @@ var en_default = {
   "browser.translateLocalPdfFile": "Translate local PDF files",
   "browser.openEbookViewer": "Read local e-book",
   "browser.openEbookBuilder": "Make Dual Epub ebook",
-  "browser.translateLocalHTMLFile": "Translate local HTML files",
+  "browser.translateLocalHtmlFile": "Translate local HTML files",
   confirmResetConfig: "Are you sure you want to reset the settings?",
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
@@ -6238,7 +6238,8 @@ var buildin_config_default = {
       "[data-toolbar=share]",
       "rp",
       "rt",
-      "[spellcheck=false]"
+      "[spellcheck=false]",
+      ".prism-code"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],

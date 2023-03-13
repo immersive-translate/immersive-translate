@@ -32,7 +32,7 @@
   "openEbookBuilder": {
     "message": "制作双语 Epub 电子书"
   },
-  "translateLocalHTMLFile": {
+  "translateLocalHtmlFile": {
     "message": "翻译本地 HTML 文件"
   },
   "openAboutPage": {

@@ -2744,7 +2744,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     try {
       if (relativeTo.includes(":"))
         return new URL(url, relativeTo);
-      let root = "whatever:///";
+      let root = "file:///";
       return decodeURI(new URL(url, root + relativeTo).href.replace(root, ""));
     } catch (e) {
       return console.warn(e), url;

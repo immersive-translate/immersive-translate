@@ -32,7 +32,7 @@
   "openEbookBuilder": {
     "message": "Make Dual Epub ebook"
   },
-  "translateLocalHTMLFile": {
+  "translateLocalHtmlFile": {
     "message": "Translate local HTML files"
   },
   "openAboutPage": {

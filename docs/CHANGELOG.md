@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.7
+
+- Fix: ebook reader can not load images on Chrome.
+
 ## 0.3.6
 
 - UI: better for make ebook page UI

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.3.8
+
+- UI: loading color more transparent
+- Fix: Detect Ebook Language.
+- Feat: Add translate progress for ebook builder, and a beautiful confetti after success.
+- Feat: Add retry all failed paragraphs for retry button.
+- Fix: Deepl Error handle
+
 ## 0.3.7
 
 - Fix: ebook reader can not load images on Chrome.

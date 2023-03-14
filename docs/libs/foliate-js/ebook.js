@@ -7037,7 +7037,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       document.documentElement.classList.toggle("scrolled", scrolled);
     };
     #handleEvent(obj) {
-      switch (console.debug(obj), obj.type) {
+      switch (obj.type) {
         case "loaded":
           this.#onLoaded(obj);
           break;

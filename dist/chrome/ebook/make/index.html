@@ -7,7 +7,7 @@
     <meta name="immersive-translate-ebook-builder" content="true" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' blob:; script-src 'self'; style-src 'self' blob: 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src blob: data:; object-src blob: data:; form-action 'none';"
+      content="default-src 'self' blob:; script-src 'self' blob: 'unsafe-inline'; style-src 'self' blob: 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src blob: data:; object-src blob: data:; form-action 'none';"
     />
     <title>E-Book Maker</title>
     <link rel="stylesheet" href="../../styles/inject.css" />
@@ -16,6 +16,12 @@
         --active-bg: rgba(0, 0, 0, 0.05);
         --bg: white;
       }
+      .link {
+        color: rgb(43, 108, 176);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
       @supports (color-scheme: light dark) {
         @media (prefers-color-scheme: dark) {
           :root {
@@ -24,6 +30,7 @@
           }
         }
       }
+
       a,
       a:visited,
       a:hover,
@@ -68,6 +75,9 @@
         padding-top: 2px;
         padding-bottom: 2px;
         display: block;
+      }
+      #error {
+        color: red;
       }
 
       #file-button {
@@ -356,7 +366,8 @@
       .mb-3 {
         margin-bottom: 0.5rem;
       }
-      #stats {
+      #stats,
+      #progress {
         margin: 0 auto;
         width: 80%;
       }
@@ -364,6 +375,7 @@
   </head>
   <body>
     <input type="file" id="file-input" hidden />
+    <div class="js-cc-container cc-container" style="top: 0px !important"></div>
     <div id="drop-target" class="filter">
       <div>
         <svg
@@ -442,8 +454,11 @@
             href="https://immersive-translate.owenyoung.com/"
             target="_blank"
             >沉浸式双语翻译扩展</a
-          >翻译《<span id="bookTitle"></span>》
+          >翻译《<span id="bookTitle"></span>》&nbsp;<span
+            id="progress-number"
+          ></span>
         </h1>
+        <p id="error"></p>
       </div>
 
       <div id="tool">
@@ -462,6 +477,8 @@
         </summary>
       </details>
       <div id="stats"></div>
+
+      <div id="progress"></div>
 
       <div id="more" class="flex">
         <a
@@ -486,6 +503,7 @@
       </div>
       <div id="chapters"></div>
     </div>
+
     <script src="../../libs/foliate-js/make.js" type="module"></script>
     <script src="../ebook-builder-global.js"></script>
     <script src="../../content_script.js" type="module"></script>

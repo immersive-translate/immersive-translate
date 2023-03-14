@@ -36,6 +36,14 @@
 
 沉浸式翻譯的 DeepL 服務也支持繁體中文哦！ （由於 DeepL 官方不支持繁體中文，導致很多繁體的朋友們無法使用 DeepL 的優質翻譯服務，為了解決這部分繁體中文朋友的困擾，沉浸式翻譯擴展會將 DeepL 的簡體中文再轉為繁體中文。
 
+## 自建DeepL API
+
+1. 开发者设置中开启 Beta 测试特性
+2. 基本设置中找到DeepLX(Beta)，输入自建DeepL API URL，如http://your-url/translate
+
+> Q：如何自建？  
+> A：[OwO-Network/DeepLX](https://github.com/OwO-Network/DeepLX#setup-on-immersive-translate)或是[zu1k/deepl](https://github.com/KyleChoy/zotero-pdf-translate/blob/CustomDeepL/README.md) (注：自建API并发量受限，可能会出现错误)
+
 ## 常见问题
 
 ### 1. 填入的密钥不可用。

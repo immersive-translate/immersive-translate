@@ -6,7 +6,7 @@
 - 双语显示，中文/英文对照。按照段落自然分割，或可设置“将段落以句子分割”，实现每句话对照翻译。
 - 定制优化了常见的主流网站，比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
 - 支持 10 余种常见的翻译服务，包括 Deepl，OpenAI(ChatGPT 3.5), 谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
-- 支持 PDF 文件，EPUB 电子书双语翻译。EPUB 需配合 epub 在线阅读网站使用，比如 <https://epub-reader.online> 或 <https://readwise.io/read> 等。
+- 支持 PDF 文件，EPUB 电子书双语翻译，制作与导出
 - 支持全平台浏览器，对桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等都有很好的支持。
 - 提供多种译文样式选择，包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
 

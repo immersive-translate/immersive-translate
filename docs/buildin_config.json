@@ -242,7 +242,8 @@
       "rp",
       "rt",
       "[spellcheck=false]",
-      ".prism-code"
+      ".prism-code",
+      "[role=code]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -2046,6 +2047,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-13T15:44:08.737Z",
+  "buildinConfigUpdatedAt": "2023-03-14T15:58:23.747Z",
   "latestVersion": "0.3.7"
 }

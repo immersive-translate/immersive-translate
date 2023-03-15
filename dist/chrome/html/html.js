@@ -1,7 +1,6 @@
 const $$$ = document.querySelector.bind(document);
 const open = (file) => {
   document.body.removeChild($$$("#drop-target"));
-  console.log("file", file);
   if (file) {
     const reader = new FileReader();
     reader.readAsText(file, "UTF-8");

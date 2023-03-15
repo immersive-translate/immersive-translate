@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-14T21:00:13.360Z", VERSION: "0.3.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:37.489Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9305,9 +9305,11 @@ async function rawRequest(options) {
     } catch (_e2) {
       log_default.error("parse response failed", _e2);
     }
-    throw details && log_default.error("fail response", details), new CommonError(
+    details && log_default.error("fail response", details);
+    let shortDetail = "";
+    throw details && (shortDetail = details.slice(0, 150)), new CommonError(
       "fetchError",
-      response.status + ": " + response.statusText || "",
+      response.status + ": " + (response.statusText || "") + shortDetail,
       details
     );
   }

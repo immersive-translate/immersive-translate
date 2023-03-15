@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.9
+
+- Fix: Options UI switch translation services input state not changed.
+
 ## 0.3.8
 
 - UI: loading color more transparent

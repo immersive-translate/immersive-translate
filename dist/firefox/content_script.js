@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-14T21:00:13.360Z", VERSION: "0.3.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:37.489Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -10406,9 +10406,11 @@ async function rawRequest(options2) {
     } catch (_e3) {
       log_default.error("parse response failed", _e3);
     }
-    throw details && log_default.error("fail response", details), new CommonError(
+    details && log_default.error("fail response", details);
+    let shortDetail = "";
+    throw details && (shortDetail = details.slice(0, 150)), new CommonError(
       "fetchError",
-      response.status + ": " + response.statusText || "",
+      response.status + ": " + (response.statusText || "") + shortDetail,
       details
     );
   }
@@ -15339,7 +15341,10 @@ var Youdao = class extends Translation {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }
-    ), l2 = result.l, [remoteFrom, _3] = l2.split("2");
+    );
+    if (!result.translation)
+      throw new Error(JSON.stringify(result));
+    let l2 = result.l, [remoteFrom, _3] = l2.split("2");
     return {
       text: result.translation.join(`
 `),
@@ -17472,7 +17477,7 @@ function SelectLink(props) {
         let value = e.target.value, item = items.find((item2) => item2.value === value);
         item && item.onSelected(item);
       },
-      children: items.map((item) => /* @__PURE__ */ p3("option", { value: item.value, selected: item.selected, children: item.label }))
+      children: items.map((item, index) => /* @__PURE__ */ p3("option", { value: item.value, selected: item.selected, children: item.label }, "selectlink" + index))
     }
   );
 }
@@ -17505,7 +17510,7 @@ function SelectDropDown(props) {
           value: DEFAULT_VALUE,
           label: props.label
         }
-      ].concat(menus).map((item) => /* @__PURE__ */ p3("option", { value: item.value, children: item.label }))
+      ].concat(menus).map((item, index) => /* @__PURE__ */ p3("option", { value: item.value, children: item.label }, "option-" + index))
     }
   );
 }
@@ -17918,7 +17923,7 @@ function Popup(props) {
             }
           },
           "field-" + index
-        ) }))
+        ) }, "service" + index))
       ] }),
       currentUrlObj && /* @__PURE__ */ p3("div", { class: "flex justify-between mb-2", children: [
         /* @__PURE__ */ p3("label", { class: "inline-block", children: t3("forThisSite") }),
@@ -18569,7 +18574,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.3.8",
+  version: "0.3.9",
   default_locale: "en",
   background: {
     service_worker: "background.js"

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-14T21:00:13.869Z", VERSION: "0.3.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:38.079Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -11321,9 +11321,11 @@ ${injectedCss}}
       } catch (_e4) {
         log_default.error("parse response failed", _e4);
       }
-      throw details && log_default.error("fail response", details), new CommonError(
+      details && log_default.error("fail response", details);
+      let shortDetail = "";
+      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
         "fetchError",
-        response.status + ": " + response.statusText || "",
+        response.status + ": " + (response.statusText || "") + shortDetail,
         details
       );
     }
@@ -16838,7 +16840,10 @@ ${injectedCss}}
             "Content-Type": "application/x-www-form-urlencoded"
           }
         }
-      ), l2 = result.l, [remoteFrom, _4] = l2.split("2");
+      );
+      if (!result.translation)
+        throw new Error(JSON.stringify(result));
+      let l2 = result.l, [remoteFrom, _4] = l2.split("2");
       return {
         text: result.translation.join(`
 `),
@@ -17235,7 +17240,7 @@ ${injectedCss}}
           let value = e3.target.value, item = items.find((item2) => item2.value === value);
           item && item.onSelected(item);
         },
-        children: items.map((item) => /* @__PURE__ */ p4("option", { value: item.value, selected: item.selected, children: item.label }))
+        children: items.map((item, index) => /* @__PURE__ */ p4("option", { value: item.value, selected: item.selected, children: item.label }, "selectlink" + index))
       }
     );
   }
@@ -17246,7 +17251,7 @@ ${injectedCss}}
     props.width && (inputStyle = { width: `${props.width}px` });
     let [currentValue, setCurrentValue] = P2(
       props.value
-    ), { field } = props, finalLabel = field.name;
+    ), { field, onFinish } = props, finalLabel = field.name;
     return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), /* @__PURE__ */ p4("div", { class: "mt-3", children: [
       /* @__PURE__ */ p4("label", { for: props.field.name, class: "mb-[var(--spacing)]", children: [
         finalLabel,
@@ -17257,6 +17262,7 @@ ${injectedCss}}
           "textarea",
           {
             style: inputStyle,
+            autoComplete: "off",
             required: props.field.required,
             placeholder: props.field.placeholder || props.field.name,
             class: "input",
@@ -17264,6 +17270,9 @@ ${injectedCss}}
             type: props.type,
             onInput: (e3) => {
               setCurrentValue(e3.target.value), props.onChange(e3.target.value);
+            },
+            onChange: () => {
+              onFinish && onFinish();
             }
           }
         ),
@@ -17277,8 +17286,13 @@ ${injectedCss}}
             placeholder: props.field.placeholder || props.field.name,
             value: currentValue,
             type: props.type,
+            name: props.field.name,
+            autoComplete: "off",
             onInput: (e3) => {
               setCurrentValue(e3.target.value), props.onChange(e3.target.value);
+            },
+            onChange: () => {
+              (props.type === "text" || props.type === "password") && onFinish && onFinish();
             }
           }
         ),
@@ -17289,7 +17303,7 @@ ${injectedCss}}
 
   // components/option_field.tsx
   function OptionField(props) {
-    let { t: t5 } = useI18n(), [isPassword, setIsPassword] = P2(!0), { field, onChange, value } = props;
+    let { t: t5 } = useI18n(), [isPassword, setIsPassword] = P2(!0), { onFinish, field, onChange, value } = props;
     value = value === void 0 ? field.default || "" : value;
     let finalLabel = field.name;
     if (field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), field.type === "select")
@@ -17319,7 +17333,8 @@ ${injectedCss}}
           field,
           value,
           type: field.type,
-          onChange
+          onChange,
+          onFinish
         }
       ) });
     if (field.type === "textarea")
@@ -17329,7 +17344,8 @@ ${injectedCss}}
           field,
           value,
           type: field.type,
-          onChange
+          onChange,
+          onFinish
         }
       ) });
     if (field.type === "number")
@@ -17351,7 +17367,8 @@ ${injectedCss}}
             field,
             value,
             type: isPassword ? field.type : "text",
-            onChange
+            onChange,
+            onFinish
           }
         ),
         /* @__PURE__ */ p4(
@@ -17465,7 +17482,7 @@ ${injectedCss}}
     let { t: t5, lang } = useI18n();
     return /* @__PURE__ */ p4("details", { role: "list", class: "nav-right", children: [
       /* @__PURE__ */ p4("summary", { "aria-haspopup": "listbox", children: t5("edit") }),
-      /* @__PURE__ */ p4("ul", { role: "listbox", class: "option-list", children: props.options.map((item) => {
+      /* @__PURE__ */ p4("ul", { role: "listbox", class: "option-list", children: props.options.map((item, index) => {
         let label = getLanguageName(item.value, lang);
         return /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4("label", { children: [
           /* @__PURE__ */ p4(
@@ -17480,7 +17497,7 @@ ${injectedCss}}
             }
           ),
           label
-        ] }) });
+        ] }) }, "language-" + index);
       }) })
     ] });
   }
@@ -17778,7 +17795,15 @@ ${injectedCss}}
             onChange: (e3) => {
               e3.preventDefault(), selectTargetLanguage(e3.target.value);
             },
-            children: languages2.filter((lang) => lang !== "auto").map((lang) => /* @__PURE__ */ p4("option", { value: lang, selected: lang === config.targetLanguage, children: getLanguageName(lang, config.interfaceLanguage) }))
+            children: languages2.filter((lang) => lang !== "auto").map((lang, index) => /* @__PURE__ */ p4(
+              "option",
+              {
+                value: lang,
+                selected: lang === config.targetLanguage,
+                children: getLanguageName(lang, config.interfaceLanguage)
+              },
+              "language" + index
+            ))
           }
         )
       ] }),
@@ -17797,13 +17822,14 @@ ${injectedCss}}
             onChange: (e3) => {
               e3.preventDefault(), setVerifiedErrorMessage(""), setVerifiedSuccessMessage(""), selectService(e3.target.value);
             },
-            children: translationServiceItems.map((item) => /* @__PURE__ */ p4(
+            children: translationServiceItems.map((item, index) => /* @__PURE__ */ p4(
               "option",
               {
                 value: item.id,
                 selected: item.id === config.translationService,
                 children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
-              }
+              },
+              "service-item=" + index
             ))
           }
         )
@@ -17831,7 +17857,7 @@ ${injectedCss}}
           }
         )
       ] }) : null,
-      currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => /* @__PURE__ */ p4("div", { class: "mt-2", children: /* @__PURE__ */ p4(
+      currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop, index) => /* @__PURE__ */ p4("div", { class: "mt-2", children: /* @__PURE__ */ p4(
         OptionField,
         {
           field: prop,
@@ -17850,9 +17876,13 @@ ${injectedCss}}
                 }
               };
             });
+          },
+          onFinish: () => {
+            success(t5("saved"));
           }
-        }
-      ) })),
+        },
+        prop.name + index
+      ) }, "service-item-prop-" + prop.name + index)),
       currentTranslationServiceConfig && curentTranslationServiceItem && /* @__PURE__ */ p4("div", { class: "text-right", children: [
         verifiedSuccessMessage && /* @__PURE__ */ p4("span", { class: "verified text-green-500 mr-2", children: t5("verified") }),
         verifiedErrorMessage && /* @__PURE__ */ p4("span", { class: "verified text-red-500 mr-2", children: verifiedErrorMessage }),
@@ -17922,7 +17952,7 @@ ${injectedCss}}
             }
           }
         )
-      ] })) }),
+      ] }, "lang-" + i2)) }),
       /* @__PURE__ */ p4("div", { class: "nav", children: [
         /* @__PURE__ */ p4(
           NavLeft,
@@ -17957,7 +17987,7 @@ ${injectedCss}}
             }
           }
         )
-      ] })) }),
+      ] }, "never-lang-" + i2)) }),
       /* @__PURE__ */ p4("div", { class: "nav", children: [
         /* @__PURE__ */ p4(
           NavLeft,
@@ -18109,13 +18139,14 @@ ${injectedCss}}
               };
               onChange(finalValue);
             },
-            children: [0, 2, 3, 4, 5].map((item) => /* @__PURE__ */ p4(
+            children: [0, 2, 3, 4, 5].map((item, index) => /* @__PURE__ */ p4(
               "option",
               {
                 value: item,
                 selected: item === fingerCountToToggleTranslagePageWhenTouching,
                 children: `${t5("fingers." + item)}`
-              }
+              },
+              "finger-" + index
             ))
           }
         )
@@ -18133,13 +18164,14 @@ ${injectedCss}}
               };
               onChange(finalValue);
             },
-            children: [0, 2, 3, 4, 5].map((item) => /* @__PURE__ */ p4(
+            children: [0, 2, 3, 4, 5].map((item, index) => /* @__PURE__ */ p4(
               "option",
               {
                 value: item,
                 selected: item === fingerCountToToggleTranslationMaskWhenTouching,
                 children: `${t5("fingers." + item)}`
-              }
+              },
+              "finger-" + index
             ))
           }
         )
@@ -18538,12 +18570,14 @@ ${injectedCss}}
     }), props.push({
       name: "zoom",
       type: "number",
-      default: "100",
+      default: 100,
       required: !1
     }), props;
   }
   function Options() {
-    let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(!1), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(!1), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2("");
+    let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(!1), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
+      !1
+    ), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2("");
     j2(() => (v2("esc", () => {
       setIsShowAddUrlModal(!1), setIsShowShortcutsModal(!1);
     }), () => {
@@ -18645,11 +18679,19 @@ ${injectedCss}}
                 updateContextMenu();
               }, 200);
             },
-            children: allLocales.map((item) => /* @__PURE__ */ p4("option", { value: item, selected: item === config.interfaceLanguage, children: getLanguageName(
-              item,
-              config.interfaceLanguage,
-              !0
-            ) }))
+            children: allLocales.map((item, index) => /* @__PURE__ */ p4(
+              "option",
+              {
+                value: item,
+                selected: item === config.interfaceLanguage,
+                children: getLanguageName(
+                  item,
+                  config.interfaceLanguage,
+                  !0
+                )
+              },
+              "locale" + index
+            ))
           }
         )
       ] }),
@@ -18779,7 +18821,15 @@ ${injectedCss}}
             onChange: (e3) => {
               selectDisplay(e3.target.value);
             },
-            children: translationThemes.map((item) => /* @__PURE__ */ p4("option", { value: item, selected: item === config.translationTheme, children: t5(`translationTheme.${item}`) }))
+            children: translationThemes.map((item, index) => /* @__PURE__ */ p4(
+              "option",
+              {
+                value: item,
+                selected: item === config.translationTheme,
+                children: t5(`translationTheme.${item}`)
+              },
+              "theme" + index
+            ))
           }
         )
       ] }),
@@ -18817,36 +18867,39 @@ ${injectedCss}}
             }
           ),
           /* @__PURE__ */ p4("div", { class: "flex flex-col items-end", children: [
-            getThemeProps(config.translationTheme).map((props) => {
-              props.label = t5(`customThemeLabel.${props.name}`);
-              let pattern = config.translationThemePatterns || {}, translationTheme = config.translationTheme, translationThemeConfig = pattern[translationTheme] || {}, cssVariableName = `theme-${translationTheme}-${props.name}`, initialValue = getDefaultValueFromInjectedCss(cssVariableName) || "", currentValue = translationThemeConfig[props.name] || initialValue;
-              return /* @__PURE__ */ p4(
-                OptionField,
-                {
-                  field: props,
-                  value: currentValue,
-                  onChange: (value) => {
-                    setSettings((state) => {
-                      let currentThemePatterns = state.translationThemePatterns || {}, newThemeConfig = {
-                        ...currentThemePatterns[config.translationTheme] || {},
-                        [props.name]: value
-                      }, newState = {
-                        ...state,
-                        translationThemePatterns: {
-                          ...currentThemePatterns,
-                          [config.translationTheme]: newThemeConfig
-                        }
-                      };
-                      return applyUserConfigCss(
-                        document,
-                        config.translationTheme,
-                        newThemeConfig
-                      ), newState;
-                    });
-                  }
-                }
-              );
-            }),
+            getThemeProps(config.translationTheme).map(
+              (props, index) => {
+                props.label = t5(`customThemeLabel.${props.name}`);
+                let pattern = config.translationThemePatterns || {}, translationTheme = config.translationTheme, translationThemeConfig = pattern[translationTheme] || {}, cssVariableName = `theme-${translationTheme}-${props.name}`, initialValue = getDefaultValueFromInjectedCss(cssVariableName) || void 0, currentValue = translationThemeConfig[props.name] || initialValue;
+                return /* @__PURE__ */ p4(
+                  OptionField,
+                  {
+                    field: props,
+                    value: currentValue,
+                    onChange: (value) => {
+                      setSettings((state) => {
+                        let currentThemePatterns = state.translationThemePatterns || {}, newThemeConfig = {
+                          ...currentThemePatterns[config.translationTheme] || {},
+                          [props.name]: value
+                        }, newState = {
+                          ...state,
+                          translationThemePatterns: {
+                            ...currentThemePatterns,
+                            [config.translationTheme]: newThemeConfig
+                          }
+                        };
+                        return applyUserConfigCss(
+                          document,
+                          config.translationTheme,
+                          newThemeConfig
+                        ), newState;
+                      });
+                    }
+                  },
+                  "theme-prop" + index
+                );
+              }
+            ),
             /* @__PURE__ */ p4(
               "a",
               {
@@ -18894,7 +18947,7 @@ ${injectedCss}}
               children: t5("previewAllThemes")
             }
           ),
-          translationThemes.map((item) => /* @__PURE__ */ p4("div", { class: "pt-2", children: /* @__PURE__ */ p4("label", { children: [
+          translationThemes.map((item, index) => /* @__PURE__ */ p4("div", { class: "pt-2", children: /* @__PURE__ */ p4("label", { children: [
             /* @__PURE__ */ p4("div", { class: "flex justify-between", children: /* @__PURE__ */ p4("div", { children: [
               /* @__PURE__ */ p4(
                 "input",
@@ -18929,7 +18982,7 @@ ${injectedCss}}
                 )
               }
             ) })
-          ] }) }))
+          ] }) }, "theme-index-" + index))
         ] })
       ] }) }),
       /* @__PURE__ */ p4("div", { class: "nav", children: [
@@ -19070,13 +19123,18 @@ ${injectedCss}}
       }));
     }, handleChangeRules = (e3) => {
       try {
-        let newRules = JSON.parse(e3.target.value);
-        if (!Array.isArray(newRules)) {
-          error("Invalid rules, rules must be an array");
-          return;
+        let value = e3.target.value, currentSettings = { ...settings };
+        if (!value)
+          delete currentSettings.rules;
+        else {
+          let newRules = JSON.parse(value);
+          if (!Array.isArray(newRules)) {
+            error("Invalid rules, rules must be an array");
+            return;
+          }
+          currentSettings.rules = newRules;
         }
-        let currentSettings = { ...settings };
-        currentSettings.rules = newRules, handleChangeValue(currentSettings), success(t5("saved"));
+        handleChangeValue(currentSettings), success(t5("saved"));
       } catch (e4) {
         error(`Invalid JSON ${e4.message}`);
       }
@@ -19417,7 +19475,7 @@ ${injectedCss}}
             }
           )
         ] })
-      ] })) }),
+      ] }, "file" + index)) }),
       /* @__PURE__ */ p4("div", { className: "flex items-center", children: [
         /* @__PURE__ */ p4(
           "a",

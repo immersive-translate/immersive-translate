@@ -12,6 +12,19 @@
 
 我也开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击 [这里](https://github.com/sponsors/theowenyoung?frequency=recurring) 可以进行月度或一次性赞助，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
 
+> 插播一条月度赞助者福利：**无字符数限制的 Deepl 翻译服务**
+>
+> 如果你对 DeepL 翻译服务有强需求，但是[官方 API](./services/deepL.md) 的字符数限制让你感到困扰，那么你可以考虑通过[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
+>
+> 1. 该 Auth Key 仅限在沉浸式翻译扩展/油猴脚本中使用
+> 2. 翻译服务依然使用的是 DeepL 官方的翻译接口，数据不会经过沉浸式翻译的服务器
+> 3. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
+> 4. 赞助后，你将会在邮件收到 DeepL Auth Key，在沉浸式翻译扩展的设置页面选择翻译服务【DeepL】，然后填入该 Auth Key 即可。
+> 5. 该 Auth Key 的有效性与赞助期限保持同步。
+> 6. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
+>
+> 如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
+
 ## Patreon
 
 你也可以选择 [Patreon 平台](https://www.patreon.com/theowenyoung) 进行赞助，$1 起即可小额支持，同样支持 Paypal，以及信用卡。

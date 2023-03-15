@@ -179,6 +179,7 @@ label {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 6rem;
 }
 .input-left {
   display: flex;
@@ -288,20 +289,14 @@ nav details[role="list"] summary + ul li {
   width: 6rem;
   text-align: center;
 }
-label.border-color-selector {
-  display: flex;
-  justify-content: space-between;
-}
 .border-color-left {
   display: flex;
   align-items: center;
 }
 input.border-color-text {
   width: 8rem;
-  margin: 1.5rem 2rem 1.5rem 1rem;
 }
 input[type="color"] {
-  margin: 0rem;
   width: 5rem;
 }
 .reset-color {

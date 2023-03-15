@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
-// @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.
-// @version      0.2.76
+// @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
+// @version      0.3.9
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -52,13 +52,14 @@
 // @connect    api.interpreter.caiyunai.com
 // @connect    api.cognitive.microsofttranslator.com
 // @connect    aidemo.youdao.com
+// @connect    localhost
 // @run-at       document-end
-// @name:fa     ترجمه همه‌جانبه
-// @description:fa     افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود.
-// @name:zh-TW     沉浸式翻譯
-// @description:zh-TW     沉浸式網頁雙語翻譯擴展，完全免費使用，支持 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支持 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // @name:zh-CN     沉浸式翻译
 // @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
+// @name:zh-TW     沉浸式翻譯
+// @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
+// @name:fa     ترجمه همه‌جانبه
+// @description:fa     افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود.
 // ==/UserScript==
 (() => {
   var __defProp = Object.defineProperty;
@@ -68,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:35.034Z", VERSION: "0.2.76", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:38.079Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -78,10 +79,14 @@
   --immersive-translate-theme-blockquote-borderColor: #cc3355;
   --immersive-translate-theme-thinDashed-borderColor: #ff374f;
   --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dashedBorder-borderRadius: 0;
+  --immersive-translate-theme-solidBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-solidBorder-borderRadius: 0;
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -100,16 +105,15 @@
   line-height: 1.3;
   font-size: 16px;
 }
-.immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper {
+.immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);
   white-space: normal;
   position: absolute;
 }
 
 .immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper
-  span {
+  .immersive-translate-target-wrapper
+  font {
   color: inherit;
   white-space: inherit;
   position: unset;
@@ -143,6 +147,9 @@
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -150,6 +157,27 @@
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
+  padding: 2px;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-solidBorder {
+  border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
+  padding: 6px;
+  margin-top: 2px;
+  display: block;
+}
+
+.immersive-translate-target-translation-inline-wrapper-theme-solidBorder {
+  border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
@@ -216,6 +244,15 @@
 }
 .immersive-translate-target-translation-block-wrapper-theme-marker {
   line-height: 1.5em;
+}
+
+.immersive-translate-target-translation-theme-marker2-inner {
+  font-weight: bold;
+  text-shadow: 10px 0px 3px
+      var(--immersive-translate-theme-marker2-backgroundColor),
+    16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
+    2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
+    -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important;
 }
 
 .immersive-translate-target-translation-theme-marker-inner {
@@ -328,8 +365,8 @@
   height: 10px !important;
   display: inline-block !important;
   margin: 0 4px !important;
-  border: 2px rgba(0, 0, 0, 0.25) solid !important;
-  border-top: 2px rgba(0, 0, 0, 1) solid !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(9, 105, 218, 0.5) solid !important;
   border-radius: 50% !important;
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
@@ -3805,148 +3842,148 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
-  // https://esm.sh/v108/n-gram@2.0.2/deno/n-gram.js
+  // https://esm.sh/v111/n-gram@2.0.2/deno/n-gram.js
   var c = o(2), f = o(3);
   function o(r2) {
     if (typeof r2 != "number" || Number.isNaN(r2) || r2 < 1 || r2 === Number.POSITIVE_INFINITY)
       throw new Error("`" + r2 + "` is not a valid argument for `n-gram`");
-    return s7;
-    function s7(t5) {
-      let e3 = [];
-      if (t5 == null)
-        return e3;
-      let i3 = typeof t5.slice == "function" ? t5 : String(t5), n3 = i3.length - r2 + 1;
-      if (n3 < 1)
-        return e3;
-      for (; n3--; )
-        e3[n3] = i3.slice(n3, n3 + r2);
-      return e3;
+    return s6;
+    function s6(t4) {
+      let e = [];
+      if (t4 == null)
+        return e;
+      let i3 = typeof t4.slice == "function" ? t4 : String(t4), n2 = i3.length - r2 + 1;
+      if (n2 < 1)
+        return e;
+      for (; n2--; )
+        e[n2] = i3.slice(n2, n2 + r2);
+      return e;
     }
   }
 
-  // https://esm.sh/v108/collapse-white-space@2.1.0/deno/collapse-white-space.js
+  // https://esm.sh/v111/collapse-white-space@2.1.0/deno/collapse-white-space.js
   var l = /\s+/g, a = /[\t\n\v\f\r ]+/g;
-  function i(r2, e3) {
-    e3 ? typeof e3 == "string" && (e3 = { style: e3 }) : e3 = {};
-    let n3 = e3.preserveLineEndings ? f2 : u;
-    return String(r2).replace(e3.style === "html" ? a : l, e3.trim ? g(n3) : n3);
+  function i(r2, e) {
+    e ? typeof e == "string" && (e = { style: e }) : e = {};
+    let n2 = e.preserveLineEndings ? f2 : u;
+    return String(r2).replace(e.style === "html" ? a : l, e.trim ? g(n2) : n2);
   }
   function f2(r2) {
-    let e3 = /\r?\n|\r/.exec(r2);
-    return e3 ? e3[0] : " ";
+    let e = /\r?\n|\r/.exec(r2);
+    return e ? e[0] : " ";
   }
   function u() {
     return " ";
   }
   function g(r2) {
-    return e3;
-    function e3(n3, t5, c6) {
-      return t5 === 0 || t5 + n3.length === c6.length ? "" : r2(n3);
+    return e;
+    function e(n2, t4, c5) {
+      return t4 === 0 || t4 + n2.length === c5.length ? "" : r2(n2);
     }
   }
 
-  // https://esm.sh/v108/trigram-utils@2.0.1/deno/trigram-utils.js
+  // https://esm.sh/v111/trigram-utils@2.0.1/deno/trigram-utils.js
   var o2 = {}.hasOwnProperty;
-  function s(t5) {
-    return t5 == null ? "" : i(String(t5).replace(/[\u0021-\u0040]+/g, " ")).trim().toLowerCase();
+  function s(t4) {
+    return t4 == null ? "" : i(String(t4).replace(/[\u0021-\u0040]+/g, " ")).trim().toLowerCase();
   }
-  function l2(t5) {
-    return f(" " + s(t5) + " ");
+  function l2(t4) {
+    return f(" " + s(t4) + " ");
   }
-  function u2(t5) {
-    let r2 = l2(t5), n3 = {}, e3 = -1;
-    for (; ++e3 < r2.length; )
-      o2.call(n3, r2[e3]) ? n3[r2[e3]]++ : n3[r2[e3]] = 1;
-    return n3;
+  function u2(t4) {
+    let r2 = l2(t4), n2 = {}, e = -1;
+    for (; ++e < r2.length; )
+      o2.call(n2, r2[e]) ? n2[r2[e]]++ : n2[r2[e]] = 1;
+    return n2;
   }
-  function m(t5) {
-    let r2 = u2(t5), n3 = [], e3;
-    for (e3 in r2)
-      o2.call(r2, e3) && n3.push([e3, r2[e3]]);
-    return n3.sort(a2), n3;
+  function m(t4) {
+    let r2 = u2(t4), n2 = [], e;
+    for (e in r2)
+      o2.call(r2, e) && n2.push([e, r2[e]]);
+    return n2.sort(a2), n2;
   }
-  function a2(t5, r2) {
-    return t5[1] - r2[1];
+  function a2(t4, r2) {
+    return t4[1] - r2[1];
   }
 
-  // https://esm.sh/v108/franc-min@6.1.0/deno/franc-min.js
+  // https://esm.sh/v111/franc-min@6.1.0/deno/franc-min.js
   var k = { cmn: /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFA6D\uFA70-\uFAD9]|\uD81B[\uDFE2\uDFE3\uDFF0\uDFF1]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883\uD885-\uD887][\uDC00-\uDFFF]|\uD869[\uDC00-\uDEDF\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF39\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A\uDF50-\uDFFF]|\uD888[\uDC00-\uDFAF]/g, Latin: /[A-Za-z\u00AA\u00BA\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u02E0-\u02E4\u1D00-\u1D25\u1D2C-\u1D5C\u1D62-\u1D65\u1D6B-\u1D77\u1D79-\u1DBE\u1E00-\u1EFF\u2071\u207F\u2090-\u209C\u212A\u212B\u2132\u214E\u2160-\u2188\u2C60-\u2C7F\uA722-\uA787\uA78B-\uA7CA\uA7D0\uA7D1\uA7D3\uA7D5-\uA7D9\uA7F2-\uA7FF\uAB30-\uAB5A\uAB5C-\uAB64\uAB66-\uAB69\uFB00-\uFB06\uFF21-\uFF3A\uFF41-\uFF5A]|\uD801[\uDF80-\uDF85\uDF87-\uDFB0\uDFB2-\uDFBA]|\uD837[\uDF00-\uDF1E\uDF25-\uDF2A]/g, Cyrillic: /[\u0400-\u0484\u0487-\u052F\u1C80-\u1C88\u1D2B\u1D78\u2DE0-\u2DFF\uA640-\uA69F\uFE2E\uFE2F]|\uD838[\uDC30-\uDC6D\uDC8F]/g, Arabic: /[\u0600-\u0604\u0606-\u060B\u060D-\u061A\u061C-\u061E\u0620-\u063F\u0641-\u064A\u0656-\u066F\u0671-\u06DC\u06DE-\u06FF\u0750-\u077F\u0870-\u088E\u0890\u0891\u0898-\u08E1\u08E3-\u08FF\uFB50-\uFBC2\uFBD3-\uFD3D\uFD40-\uFD8F\uFD92-\uFDC7\uFDCF\uFDF0-\uFDFF\uFE70-\uFE74\uFE76-\uFEFC]|\uD803[\uDE60-\uDE7E\uDEFD-\uDEFF]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB\uDEF0\uDEF1]/g, ben: /[\u0980-\u0983\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BC-\u09C4\u09C7\u09C8\u09CB-\u09CE\u09D7\u09DC\u09DD\u09DF-\u09E3\u09E6-\u09FE]/g, Devanagari: /[\u0900-\u0950\u0955-\u0963\u0966-\u097F\uA8E0-\uA8FF]|\uD806[\uDF00-\uDF09]/g, jpn: /[\u3041-\u3096\u309D-\u309F]|\uD82C[\uDC01-\uDD1F\uDD32\uDD50-\uDD52]|\uD83C\uDE00|[\u30A1-\u30FA\u30FD-\u30FF\u31F0-\u31FF\u32D0-\u32FE\u3300-\u3357\uFF66-\uFF6F\uFF71-\uFF9D]|\uD82B[\uDFF0-\uDFF3\uDFF5-\uDFFB\uDFFD\uDFFE]|\uD82C[\uDC00\uDD20-\uDD22\uDD55\uDD64-\uDD67]|[㐀-䶵一-龯]/g, jav: /[\uA980-\uA9CD\uA9D0-\uA9D9\uA9DE\uA9DF]/g, kor: /[\u1100-\u11FF\u302E\u302F\u3131-\u318E\u3200-\u321E\u3260-\u327E\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uFFA0-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]/g, tel: /[\u0C00-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3C-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C58-\u0C5A\u0C5D\u0C60-\u0C63\u0C66-\u0C6F\u0C77-\u0C7F]/g, tam: /[\u0B82\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD0\u0BD7\u0BE6-\u0BFA]|\uD807[\uDFC0-\uDFF1\uDFFF]/g, guj: /[\u0A81-\u0A83\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABC-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AD0\u0AE0-\u0AE3\u0AE6-\u0AF1\u0AF9-\u0AFF]/g, kan: /[\u0C80-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBC-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CDD\u0CDE\u0CE0-\u0CE3\u0CE6-\u0CEF\u0CF1-\u0CF3]/g, mal: /[\u0D00-\u0D0C\u0D0E-\u0D10\u0D12-\u0D44\u0D46-\u0D48\u0D4A-\u0D4F\u0D54-\u0D63\u0D66-\u0D7F]/g, mya: /[\u1000-\u109F\uA9E0-\uA9FE\uAA60-\uAA7F]/g, pan: /[\u0A01-\u0A03\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A59-\u0A5C\u0A5E\u0A66-\u0A76]/g, amh: /[\u1200-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u135D-\u137C\u1380-\u1399\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E]|\uD839[\uDFE0-\uDFE6\uDFE8-\uDFEB\uDFED\uDFEE\uDFF0-\uDFFE]/g, tha: /[\u0E01-\u0E3A\u0E40-\u0E5B]/g, sin: /[\u0D81-\u0D83\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2-\u0DF4]|\uD804[\uDDE1-\uDDF4]/g, ell: /[\u0370-\u0373\u0375-\u0377\u037A-\u037D\u037F\u0384\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03E1\u03F0-\u03FF\u1D26-\u1D2A\u1D5D-\u1D61\u1D66-\u1D6A\u1DBF\u1F00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FC4\u1FC6-\u1FD3\u1FD6-\u1FDB\u1FDD-\u1FEF\u1FF2-\u1FF4\u1FF6-\u1FFE\u2126\uAB65]|\uD800[\uDD40-\uDD8E\uDDA0]|\uD834[\uDE00-\uDE45]/g }, s2 = { Latin: { spa: " de|de |os | la| a |la | y |\xF3n |i\xF3n|es |ere|rec|ien|o a|der|ci\xF3|a p|cho|ech|en |ent|a l|aci|e d|el |ona|na | co|as |al |da | to|ene|e l| en| el| pe|nte|tod|ho | su|per|ad | ti|a t|ers|tie| se|rso| pr|son|e s|te |oda|cia|n d|o d|dad|ida| in|ne | es|ion|cio|s d|con|est|a e| po|men| li|res|nci|su |to |tra| re|n e| lo|tad| na|los|a s| o |ia |que| pa|r\xE1 |pro| un|s y|ual|s e|lib|nac|do |ra |er |nal|ue | qu|e e|a d|ar |nes|ica|a c|sta|ser|or |ter|se |por|cci|io |des|ado|les|one|a a|del|l d|ndi| so| cu|s p|ale|s n|ame|par|ici|oci|una|ber|s t|rta|com| di|e a|imi|o s|e c|ert|o e|dos|las|o p|ant|dic|nto| al|ara|ibe|enc|cas| as|e p|ten|ali|o t|soc|y l|n c|s l|l t|pre|nta|so |tos|y a|ria|n t|die|a u| fu|no |l p|ial|qui|dis|s o|hos|gua|igu| ig| ca|sar| ma|l e| ac|tiv|s a|re |nad|vid|era| tr|ier|cua|n p|cla|ade|bre|s s|esa|ntr|ecc|a i| le|lid|das|d d|ido|ari|ind|ada|nda|fun|mie|ca |tic|eli|ta |y d|nid|e i|n l|ios|o y|esp|iva|y e|mat|bli|r a|dr\xE1|tri|cti|tal|rim|ont|er\xE1|us |sus|end|pen|tor|ito|ond|ori|uie|lig|n a|ist|rac|lar|rse|tar|mo |omo|ibr|odo|edi|med| me|nio|a y|eda|isf|lo |aso|l m|ias|ico|lic|ple|ste|act|tec|ote|rot|ele|ura| ni|ie |adi|u p|seg|s i|un |und|a n|lqu|alq|o i|inc|sti| si|n s|ern", eng: "the| th| an|he |nd |ion|and| to|to |tio| of|on |of | in|al |ati|or |ght|igh|rig| ri|ne |ent|one|ll |is |as |ver|ed | be|e r|in |t t|all|eve|ht | or|ery|s t|ty | ev|e h|yon| ha|ryo|e a|be |his| fr|ng |d t|has| sh|ing| hi|sha| pr| co| re|hal|nal|y a|s a|n t|ce |men|ree|fre|e s|l b|nat|for|ts |nt |n a|ity|ry |her|nce|ect|d i| pe|pro|n o|cti| fo|e e|ly |es | no|ona|ny |any|er |re |f t|e o| de|s o| wi|ter|nte|e i|ons| en| ar|res|ers|y t|per|d f| a | on|ith|l a|e t|oci|soc|lit| as| se|dom|edo|eed|nti|s e|t o|oth|wit| di|equ|t a|ted|st |y o|int|e p| ma| so| na|l o|e c|ch |d a|enc|th |are|ns |ic | un| fu|tat|ial|cia| ac|hts|nit|qua| eq| al|om |e w|d o|f h|ali|ote|n e| wh|r t|sta|ge |thi|o a|tit|ual|an |te |ess| ch|le |ary|e f|by | by|y i|tec|uni|o t|o o| li|no | la|s r| su|inc|led|rot|con| pu| he|ere|imi|r a|ntr| st| ot|eli|age|dis|s d|tle|itl|hou|son|duc|edu| wo|ate|ble|ces|at | at| fa|com|ive|o s|eme|o e|aw |law|tra|und|pen|nde|unt|oun|n s|s f|f a|tho|ms | is|act|cie|cat|uca| ed|anc|wor|ral|t i| me|o f|ily|pri|ren|ose|s c|en |d n|l c|ful|rar|nta|nst| ag|l p|min|din|sec|y e| tr|rso|ich|hic|whi|cou|ern|uri|r o|tic|iti|igi|lig|rat|rth|t f|oms|rit|d r|ee |e b|era|rou|se |ay |rs | ho|abl|e u", por: "de | de| se|\xE3o |os |to |em | e |do |o d| di|er |ito|eit|ser|ent|\xE7\xE3o| a |dir|ire|rei|o s|ade|dad|uma|as |no |e d| to|nte| co|o t|tod| ou|men|que|s e|man| pr| in| qu|es | te|hum|odo|e a|da | hu|ano|te |al |tem|o e|s d|ida|m d| pe| re|o a|ou |r h|e s|cia|a e| li|o p| es|res| do| da| \xE0 |ual| em| su|a\xE7\xE3|dos|a p|tra|est|ia |con|pro|ar |e p|is | na|r\xE1 |qua|a d| pa|com|ais|o c|ame|er\xE1| po|uer|sta|ber|ter| o |ess|ra |e e|das|o \xE0|nto|nal|o o|a c|ido|rda|erd| as|nci|sua|ona|des|ibe|lib|e t|ado|s n|ua |s t|ue | so|ica|ma |lqu|alq|tos|m s|a l|per|ada|oci|soc|cio|a n|par|aci|s a|pre|ont|m o|ura|a s| um|ion|e o|or |e r|pel|nta|ntr|a i|io |nac|\xEAnc|str|ali|ria|nst| tr|a q|int|o n|a o|ca |ela|u\xE7\xE3|lid|e l| at|sen|ese|r d|s p|egu|seg|vid|pri|sso|\xE9m |ime|tic|dis|ra\xE7|eci|ara| ca|nid|tru|\xF5es|ass|seu|por|a a|m p| ex|so |r i|e\xE7\xE3|te\xE7|ote|rot| le| ma|ing|a t|ran|era|rio|l d|eli|\xE7a |sti| ne|cid|ern|utr|out|r e|e c|tad|gua|igu| ig| os|s o|ru\xE7|ins|\xE7\xF5e|ios| fa|e n|sse| no|re |art|r p|rar|u p|inc|lei|cas|ico|u\xE9m|gu\xE9|ngu|nin| ni|gur|la |pen|n\xE7a|na |i\xE7\xE3|i\xE3o|cie|ist|sem|ta |ele|e f|om |tro| ao|rel|m a|s s|tar|eda|ied|uni|e m|s i|a f|ias| cu| ac|r a|\xE1 a|rem|ei |omo|rec|for|s f|esc|ant|\xE0 s| vi|o q|ver|a u|nda|und|fun", ind: "an |ang|ng | da|ak | pe|ata| se| ke| me|dan| di| be|ber|kan|ran|hak|per|yan| ya|nga|nya|gan| at|ara| ha|eng|asa|ora|men|n p|n k|erh|rha|n d|ya |ap |at |as |tan|n b|ala|a d| or|a s|san|tas|eti|uk |pen|g b|set|ntu|n y|tia|iap|k m|eba|aan| un|n s|tuk|k a|p o|am |lam| ma|unt| de|ter|bas|beb|dak|end|i d|pun|mem|tau|dal|ama|keb|aka|ika|n m| ba|di |ma | sa|den|au |nda|n h|eri| ti|ela|k d|un |n a|ebe|ana|ah |ra |ida|uka| te|al |ada|ri |ole|tid|ngg|lak|leh|dap|a p|dil|g d|ena|eh |gar|na |ert|apa|um |tu |atu|a m|sam|ila|har|n t|asi|ban|erl|t d|bat|uat|ta |lan|adi|h d|neg| ne|kum|mas|nan|pat|aha| in|l d|emp|sem|rus|sua|ser|uan|era|ari|erb|kat|man|a b|g s|rta|ai |nny|n u|ung|ndi|han|uku|huk| hu|sa |ers|in | la|ka | su|ann|car|kes|aku|dip|i s|a a|erk|n i|lai|rga|aru|k h|i m|rka|a u|us |nak|emb|gga|nta|iba| pu|ind|s p|ent|mel|ina|min|ian|dar|ni |rma|lua|rik|ndu|lin|sia|rbu|g p|k s|da |aya|ese|u d|ega|nas|ar |ipe|yar|sya|ik |aga| ta|ain|ua |arg|uar|iny|pem|ut |si |dun|eor|seo|rak|ngs|ami|kel|ini|g t|dik|mer|emu|aks|rat|uru|ewa|il |enu|any|kep|pel|asu|rli|ia |dir|jam|mba|mat|pan|g m|ses|sar|das|kuk|bol|ili|u k|gsa|u p|a k|ern|ant|raa|t p|ema|mua|idi|did|t s|i k|rin|erm|esu|ger|elu|nja|enj|ga |dit", fra: " de|es |de |ion|nt |tio|et |ne |on | et|ent|le |oit|e d| la|e p|la |it | \xE0 |t d|roi|dro| dr| le|t\xE9 |e s|ati|te |re | to|s d|men|tou|e l|ns | pe| co|son|que| au| so|e a|onn|out| un| qu| sa| pr|ute|eme| l\u2019|t \xE0| a |e e|con|des| pa|ue |ers|e c| li|a d|per|ont|s e|t l|les|ts |tre|s l|ant| ou|cti|rso|ou |ce |ux |\xE0 l|nne|ons|it\xE9|en |un | en|er |une|n d|sa |lle| in|nte|e t| se|lib|res|a l|ire| d\u2019| re|\xE9 d|nat|iqu|ur |r l|t a|s s|aux|par|nal|a p|ans|dan|qui|t p| d\xE9|pro|s p|air| ne| fo|ert|s a|nce|au |ui |ect|du |ond|ale|lit| po|san| ch|\xE9s | na|us |com|our|ali|tra| ce|al |e o|e n|rt\xE9|ber|ibe|tes|r d|e r|its| di|\xEAtr|pou|\xE9t\xE9|s c|\xE0 u|ell|int|fon|oci|soc|ut |ter| da|aut|ien|rai| do|iss|s n| ma|bli|ge |est|s o| du|ona|n p|pri|rs |\xE9ga| \xEAt|ous|ens|ar |age|s t| su|cia|u d|cun|rat| es|ir |n c|e m| \xE9t|t \xEA|a c| ac|ote|n t|ein| tr|a s|ndi|e q|sur|\xE9e |ser|l n| pl|anc|lig|t s|n e|s i|t e| \xE9g|ain|omm|act|ntr|tec|gal|ul | nu| vi|me |nda|ind|soi|st | te|pay|tat|era|il |rel|n a|dis|n s|pr\xE9|peu|rit|\xE9 e|t \xE9|bre|sen|ill|l\u2019a|d\u2019a| mo|ass|lic|art| pu|abl|nta|t c|rot| on| lo|ure|l\u2019e|ava|ten|nul|ivi|t i|ess|ys |ays| fa|ine|eur|r\xE9s|cla|t\xE9s|oir|eut|e f|utr|doi|ibr|ais|ins|\xE9ra|\u2019en|i\xE9t|l e|s \xE9|nt\xE9| r\xE9|ssi| as|nse|ces|\xE9 a", deu: "en |er |der|ein| un|nd |und|ung|cht|ich| de|sch|ng | ge|ine|ech|gen|rec|che|ie | re|eit| au|ht |die| di| ha|ch | da|ver| zu|lic|t d|in |auf| ei| in| be|hen|nde|n d|uf |ede| ve|it |ten|n s|sei|at |jed| je| se|and|rei|s r|den|ter|ne |hat|t a|r h|zu |das|ode| od|as |es | an|fre|nge| we|n u|run| fr|ere|e u|lle|ner|nte|hei|ese| so|rde|wer|ige| al|ers|n g|hte|d d| st|n j|lei|all|n a|nen|ege|ent|bei|g d|erd|t u|ren|nsc|chu| gr|kei|ens|le |ben|aft|haf|cha|tli|ges|e s| si|men| vo|lun|em |r s|ion|te |len|gru|gun|tig|unt|uch|spr|n e|ft |ei |e f| wi| sc|r d|n n|geh|r g|dar|sta|erk| er|r e|sen|eic|gle| gl|lie|e e|tz |fen|n i|nie|f g|t w|des|chl|ite|ihe|eih|ies|ruc|st |ist|n w|h a|n z|e a| ni|ang|rf |arf|gem|ale|ati|on |he |t s|ach| na|end|n o|pru|ans|sse|ern|aat|taa|ehe|e d|hli|hre|int|tio|her|nsp|de |mei| ar|r a|ffe|e b|wie|erf|abe|hab|ndl|n v|sic|t i|han|ema|nat|ber|ied|geg|d s|nun|d f|ind| me|gke|igk|ie\xDF| fa|igu|hul|r v|dig|rch|urc|dur| du|utz|hut|tra|aus|alt|bes|str|ell|ste|ger|r o|esc|e g|rbe|arb|ohn|r b|mit|d g|r w|ntl|sow|n h|nne|etz|raf|dlu| ih|lte|man|iem|erh|eru| is|dem|lan|rt |son|isc|eli|rel|n r|e i|rli|r i| mi|e m|ild|bil| bi|eme| en|ins|f\xFCr| f\xFC|gel|\xF6ff| \xF6f|owi|ill|wil|e v|ric|f e", jav: "ng |an | ka|ang|ing|kan| sa|ak |lan| la|hak| pa| ha|ara|ne |abe| in|n k|ngg|ong|ane|nga|ant|won|uwo| an| uw|nin|ata|n u|en |ra |tan| da|ran|ana| ma|nth|ake|ben|beb|hi |ke |sab|nda| ng|adi|thi|nan|a k| ba|san|asa|ni |e h|e k|g k| ut|pan|awa| be|eba|gan|g p|dan| wa|bas|aka|dha|yan|sa |arb|man| di|wa |g d| na|g n|ban| tu|n s|ung|wen|g s|rbe|dar|dak|di |g u|ora|aya|be |ah |a s|eni| or|han|as | pr|a n|na |iya|a a|kar|at |a l|mar|uwe|duw|uta|und|n p|asi|pa | si|ala|n n| un|kab|oni|ya |i h|gar|g b|yat|tum|ta |n m|i k|apa|taw| li|ani| ke|al |ka |kal|ngk|ega| ne|nal|n i|g a|ggo|ina|we |ena|dad|iba|awi|aga|a p| ta|sar|adh|awe|and|uju|ind|min|sin|ndu|uwa|gge|n l|ggu|ngs|n b|a b|pra|iji|n a|ha | bi|kat|go | ku|e p|ron|kak|ngu|a u|gsa|war|nya|g t|pad|bis|k b|i w|ae |wae| nd|ali|a m|er |sak|e s|ku |liy|ama|i l|eh |isa|arg|n t|a d|kap|i s|ayo|gay| pe|ndh|bad|pri|neg|tow|uto|eda|bed|il |ih | ik|ur |k k|rta|art|i p|rga|lak|ami|ro |aro|yom|r k|e d|a w|kon|rib|eng|ger|g l|ras|dil| ti|k l|rap|mra|uma| pi|k h|n d|gaw|wat|ga |k n|ar |per| we|oma|k p|jro|ajr|saj|ase|ini|ken|saw|ona|nas|kas|h k|i t| um|tin|wo | me|aba|rak|pag|yar|sya|t k| te| mu|ngl| ni|i b|men|ate|a i|aku|ebu|a t| du|g m|owo|mat| lu|amp", vie: "ng |\u0323c |\u0301c | qu|a\u0300 | th|nh | ng|\u0323i |\u0300n |va\u0300| va| nh|uy\xEA| ph|quy| ca|\xEA\u0300n|y\xEA\u0300|\u0300nh|\u0300i |\u0323t | ch|o\u0301 | tr|ng\u01B0|i n| gi|g\u01B0\u01A1|\u01A1\u0300i|\u01B0\u01A1\u0300|\u0301t | co|\u01B0\u01A1\u0323| cu|a\u0301c|\u01B0\u0323 |\u01A1\u0323c| kh| \u0111\u01B0|\u0111\u01B0\u01A1| t\u01B0|co\u0301| ha|\xF4ng|c t| \u0111\xEA|n t|i \u0111|i\u0300n|\u0300u |ca\u0301|gia|\u0301i |o\u0323i|mo\u0323| mo|\xEA\u0300u|i\xEA\u0323|\u0111\xEA\u0300|u c|nh\u01B0|pha| ba| bi|\xE2\u0301t|\u0309a |u\u0309a|cu\u0309|h\xF4n| \u0111\xF4|g t|\u0301 q|\u0303ng| ti|t\u01B0\u0323|t c|\u0323n | la|n \u0111|n c|n n|hi\xEA|ch |ay |hay| vi|\xE2n | \u0111i| na|ba\u0309| ho|do | do| t\xF4| hi|\xF4\u0323i|ha\u0301|i\u0323 |na\u0300|\u0300 t|\u01A1\u0301i|h\xE2n| m\xF4|\u0301p |a\u0300n|\u0323 d|\u0301ch|\u0323p |\u0300o |a\u0300o|kh\xF4|\u0301n |\xF4\u0323t|m\xF4\u0323| h\xF4|ia |\xF4\u0301c|c h|h\u01B0\u0303|i v|g n|\u0301ng|u\xF4\u0301|qu\xF4|h t|\xF4n |\xEAn |n v|nh\xE2|\u0323 t| b\xE2|i c|g v|\u0309ng|i\xEA\u0301|c c|\xE2\u0323t|th\u01B0|h\u01B0 |\u01B0\u01A1\u0301|\u0309n | v\u01A1| c\xF4|c \u0111| \u0111o| s\u01B0|t t|\xF4\u0323c|\u01B0\u0303n|v\u01A1\u0301| v\xEA|a\u0309 |\u0323ng|g \u0111|\u0309o |a\u0309o|u\xE2\u0323| \u0111a|bi\u0323|la\u0300|s\u01B0\u0323|b\xE2\u0301|ha\u0300|h\xF4\u0323|i t|a\u0309n|h\u01B0\u01A1|\u0300ng|tro|\u0309m |o v| mi|\xEA\u0309 |u\u0323c|i h|\u01B0\u0301c|a\u0301p|g c|\u0303 h|ia\u0301|n b|\u0309i |a m|h c|c\xF4n|\xEA\u0323n|\u01A1\u0301c|ha\u0323|\u0111\xF4\u0323| du| c\u01B0|a c|n h|tha|a\u0303 | xa|\u0301o |a\u0301o|i\u0301n|\u0300y |g b| h\u01B0|g h|ong|ron|\u0300 c|cho|\u0300 n|mi\u0300|\u01B0\u0323c|h v|c b| lu|i b|\xEA\u0323 |ai |\xEA\u0301 |\u0323 c|xa\u0303|kha|c q|i\xEA\u0309|t\xF4\u0323|\xF4\u0301i|\u0111\xF4\u0301|a\u0301 |hoa|o h|h \u0111|ca\u0309|n l|ho\u0323|ti\xEA|y t|\u0309 c|a\u0323i|a\u0301n|\u0300 \u0111|oa\u0300|y \u0111|chi|\u0309 n|ph\xE2|\xEA\u0300 |thu|i\xEAn|du\u0323|o c|i m|lu\xE2|c p|\xF4\u0301n|c l|\u0301 c|u\u0303n|cu\u0303|c g|c n|qua|n g|c m|o n|a\u0309i|ha\u0309|\u0301 t|ho |v\xEA\u0300| t\xE2| h\u01A1|o t|\u01A1\u0309 |h\u01B0\u0301|hi\u0300|vi\xEA|\u0300m |\u0309 t|\u0111o\u0301|th\xF4|\u01B0\u0301 |c\u01B0\u0301|hi\u0301|\u0301nh|a\u0300y|\u01A1\u0309n|\u01B0\u01A1\u0309| b\u0103|tri| ta|m v|c v|\u01A1\u0323p|h\u01A1\u0323|h m| n\u01B0|\xEA\u0301t|thi|\u0103\u0323c|ngh|uy ", ita: " di|to | in|ion|la | de|di |re |e d|ne | e |zio|rit|a d|one|o d|ni |le |lla|itt|ess| al|iri|dir|tto|ent|ell|i i|del|ndi|ere|ind|o a| co|te |t\xE0 |ti |a s|uo |e e|gni|azi| pr|idu|ivi|duo|vid|div|ogn| og| es|i e| ha|all|ale|nte|e a|men|ser| su| ne|e l|za |i d|per|a p|ha | pe| un|con|no |sse|li |e i| o | so| li| la|pro|ia |o i|e p|o s|i s|in |ato|o h|na |e s|a l|e o|nza|ali|tti|o p|ta |so |ber|ibe|lib|o e|un | a | ri|ua |il | il|nto|pri|el | po|una|are|ame| qu|a c|ro |oni|nel|e n| ad|ual|gli|sua|ond| re|a a|i c|ri |o o|sta|ita|i o| le|ad |i a|ers|enz|ssi|\xE0 e|it\xE0|gua|i p|e c|io | pa|ter|soc|nal|ona|naz|ist|cia|rso|ver|a e|i r|tat|lle|sia| si|rio|tra|che| se|rt\xE0|ert|anz|eri|tut|\xE0 d|he | da|al |ant|qua|on |ari|o c| st|oci|er |dis|tri|si |ed | ed|ono| tu|ei |dei|uzi|com|att|a n|opr|rop|par|nes|i l|zza|ese|res|ien|son| eg|n c|ont|nti|pos|int|ico|r\xE0 |sun|ial|lit|sen|pre|tta|dev|nit|era|eve|ll |l i| l |nda|ina|non| no|o n|ria|str|d a|art|se |ssu|ica|raz|ett|sci|gio|ati|egu| na|i u|utt|ve | ma|do |e r|ssa|sa |a f|n p|fon| ch|d u|rim| fo|a t| sc|tr\xE0|otr|pot|n i| cu|l p|ra |ezz|a o|ini|sso|dic|ltr|uni|cie| ra|i n|ruz|tru|ste| is|der|l m|a r|pie|lia|est|dal|nta| at|tal|ntr| pu|nno|ann|ten|vit|a v", tur: " ve| ha|ve |ir |ler|hak| he|her|in |lar|r h|bir|ya |er |ak |kk\u0131|akk|eti| ka| bi|eya|an |eri|iye|yet|ara|ek | ol|de |vey|\u0131n |\u0131r |nda|ar\u0131|esi|\u0131n\u0131|d\u0131r| ta|tle|e h|as\u0131|etl|e k| va|\u0131 v|s\u0131n|ile|ne |rke|erk|ard|ine| sa|\u0131nd|ini|k h|k\u0131n|ama|le |tin|rd\u0131|var|a v| me|e m|na |sin|ere|k v| \u015Fa| bu|lan|kes|dir|rin|dan| ma|k\u0131 |mak|\u015Fah|da | te|mek| ge|n\u0131 | hi|nin|en |n h| se|lik|rle|ana|lma|e a|\u0131 h|r \u015F|ill|si | de|aya|zdi|izd|aiz|hai|ret|hi\xE7|\u0131na| i\u015F|e b| ba|kla|et | h\xFC|r\u0131n|n k|ola|nma|e t| ya|eme|riy|n v|e i|a h|li |mil|eli|ket|ik |kar|irl|h\xFCr|im |evl|mes|e d|ahs|ma |rak|ala|let|lle|un | ed|rri|\xFCrr|bu | mi|i v|dil| il| e\u015F|n i|la |el |mal| m\xFC| ko|e g|se | ki|mas|lek|mle|mem|n b|ili|e e|ser| i\xE7|n s|din| di|es |mel|eke|tir|\u015Fit|e\u015Fi|r b|akl|yla|n m|len| ke|edi|oru|nde|re |ele|ni |t\xFCr|a k|eye|\u0131k |ken|u\u011Fu| uy|eml|erd|ede|ame| g\xF6|e s|i m|tim|i b|rde|r\u015F\u0131|ar\u015F|a s|it |t v|siy|ar |rme|est|bes|rbe|erb|te |al\u0131| an|ndi|end|hs\u0131|unm|r\u0131 |kor|n\u0131n| ce|maz|mse|ims|kim|i\xE7 | ay|a m|lam|ri |s\u0131z|a b|ade|n t|nam|lme|ilm|k g|il |tme|etm|r v|e v|n e|\u011Fre|\xF6\u011Fr| \xF6\u011F|al |\u0131yl|olm|vle|\u015Fma|i s|ger|me | da|ind|lem|i o|may|cak|\xE7in|i\xE7i|nun|kan|ye |e y|r t|az |\xE7 k|ece|s\u0131 |eni| mu|ulu|und|den|lun| fa|\u015F\u0131 |ahi|l v|r a|san|kat| so|enm| ev|i\u015F ", pol: " pr|nie|pra| i |nia|ie |go |ani|raw|ia | po|ego| do|wie|iek|awo| ni|owi|ch |ek |do | ma|wo |a p|\u015Bci|ci |ej | cz| za| w |ych|o\u015Bc|rze|prz| ka|wa |eni| na| je|a\u017Cd|ka\u017C|ma |z\u0142o|cz\u0142|no\u015B|o d|\u0142ow|y c|dy |\u017Cdy|i p|wol| lu|ny |oln| wy|stw| wo|ub |lub|lno|rod|k m|twa|dzi|na | sw|rzy|aj\u0105|ecz|czn|sta| sp|owa|o p|spo|i w|kie|a w|zys|obo|est|neg|a\u0107 |mi |cze|e w|nyc|nic|jak| ja|wsz| z |jeg|wan|\u0144st|o s|a i|awa|e p|yst|pos|pow| r\xF3|o o|j\u0105c|ony|nej|owo|dow|\xF3w | ko|kol|aki|bez|rac|sze|iej| in|zen|pod|i i|ni | ro|cy |o w|zan|e\u0144s|no |zne|a s|lwi|olw|ez |odn|r\xF3w|odz|o u|ne |i n|i k|czy| be|acj|wob|inn| ob|\xF3wn|zie| ws|aln|orz|nik|o n|icz|zyn|\u0142ec|o\u0142e|po\u0142|aro|nar|a j|i z|t\u0119p|st\u0119|ien|cza|o z|ym |zec|ron|i l|ami| os|kra| kr|owe| od|ji |cji|mie|a z|bod|swo|dni|zes|e\u0142n|pe\u0142|iu |edn|iko|a n|raj| st|odo|zna|wyc|em |lni|szy|wia|nym|\u0105 p|j\u0105 |ze\u0144|iec|pie|st |jes| to|sob|kt\xF3|ale|y w|ieg|och|du |ini|war|zaw|nny|roz|i o|wej|i\u0119 |si\u0119| si|nau| or|o r|kor|e s|pop|zas|niu|z p|owy|w k|ywa| ta|ymi|hro|chr| oc|jed|ki |o t|ogo|oby|ran|any|oso|a o|t\xF3r| kt|w z|dne|to |tan|h i|nan|ejs|ada|a k|iem|aw |h p|wni|ucz|ora|a d| w\u0142|ian| dz| mo|e m|awi|\u0107 s|gan|zez|mu |taw|dst|wi\u0105|w c|y p|kow|o j|i m|y s|bow|kog|by |j o|ier|mow|sza|b o|ju |yna", swh: "a k| ya|na |wa |ya | ku|a m| na| ha|i y| wa|a h|a n|ana|aki|ki |la |hak| ka|kwa|tu | kw| ma|li |a a|ila|i k| ki|ni |a w|ali|a u| an| mt|ke |mtu|a y|ake|ati|kil|ka |ika|kat|ili|te |ote|we |a s|e k|ia |zi |u a|za |azi|ifa|ma |yak|yo |i n|ama| yo|au | au|e a|kut|amb|o y|ha |asi|fa |u w|hal|ara|sha|ish|ata|ayo| as|tik|u k| za|i z|ina|u n|mba|uhu|hi |hur|cha|yot|ru |uru|wat| ch|eri|ngi|e y|u y|i a|aif|tai| sh|nay|chi|ra |ani| bi| uh|sa | hi|i h|awa|iwa|a j|ti |mu |o k|ja |kan|uli|iwe|any|i w| am|e n|end|atu|kaz|o h|ria|her|she|shi|nch| nc|uta|ye |wak|ii |ele|ami|adh|eza| wo|iki|oja|moj|jam| ja|aka|bu |kam|kul|mat|fan|a l|agu|ind|ne |iri|lim|wen|da |kup|uto|i m|a b|ini|wan|bil| ta|sta|dha| sa| ni|ao | hu|e w|wot| zi|rik|kuf|aji|ta |wez|nya|har| ye|e m|si |lin| ut|ine|gin|ing| la|a t|zim|imu|ima|tak|e b|uni|ibu|azo|kos|yan|nye|uba|ari|ahi|nde|asa|ri |ham|dhi|eli|hir|ush|pat| nd|kus|maa|di |nda|oa |bar|bo |mbo|oka|tok|ndw|ala|wal| si|uzi|hii|tah|i s|o n|liw| el|upa|zin|hag|a c|ndi|ais|mai|eny|mwe|aa |ewe| al|ndo|e h|lo |umi|kuh|jib|osa|mam|a z|ufu|dwa|u i| in|iyo|nyi| ny|u m|sil|ang|o w|guz|zwa|uwa|kuw|hil|saw|uch|ufa|laz|und|aha|ua | mw|bal| lo|o l|a i|del|nun|anu|nji| ba|lik|le |uku|i i", sun: "an |na |eun|ng | ka|ana| sa| di|ang|ung|un |nga|ak | ha|keu| ba|a b| an|nu |hak| bo|anu|ata|nan|a h|ina| je|aha|ga |ah |awa|jeu| na|ara|ing|oga|bog|gan| ng|asa|kan|a s|ha |ae |bae|n k|a k| pa|a p|sah|g s|sar| si|sin|a n|din|n s|ma | at|aga|a a|tan| ku| ma|n a|san|man|wa |lah|pan|taw|u d|ra |ari|eu | pi|gar| pe|kat| te|n p|sa |per|a d|a m|e b|aan|ban|ran|ala|ike|n n|kum| ti|ama|a j|pik|ima|n d|al |at | ja|ila|ta |nda|bas|rim|teu|n b|eba|beb|udu|aya|ika|ngg|nag|kab|rta|art| me|ola|k n|uma|atu|aba|g k|adi|aca| po|ngt|nar|una|ate|oh |boh|awe|di |tin|asi|uku|n h|dan|aka|iba|car|sac|gaw|are|ent|um |jen|abe|u s|dil|pol|ar |ku |kud|u m|upa|han| hu|ake|bar|ur |hna|aru|h s|a t|sak|wat|kaw| so|n t|pa |mpa|du |ngk|g d|ena|huk| mi|mas|ngs|ti |n j|ka |aku|ren|n m| ta|law|isa| tu|und|a u|h a|tay|ula|aja|ali|nte|gsa|en |gam| wa|ieu|ere|k h|jal|h b|il |dit|ngu|lan|asu|yun|ayu|gta|k d|a r|g n|mah|uda|dip|kas|rup|geu| be|ter|sej|min|ri |ern|u p|k k|amp|ura|kal|e a|k a|ut |g b|nak|bis| bi|k p|tes|end|we |h k|tun|uan| un| de|u n|h t|ksa|u k|ian|wil|u b|ona|nas|uka|rak|eje| se|ami| ke|war| ra| ie|k j|eh |ya |lma|alm|pen|tur|wan|lak|h j|g a|ean|up |rga|arg|r k|u t| ne|deu|gal|gke|e t|h p| ge|g t| da|i n", ron: " de|re | \xEEn|\u0219i |are|de | \u0219i|te |ul | sa|rep|e d|ea |ept|dre|tul|e a| dr|ie |\xEEn |ptu|le |ate|la |e p| la| pe|ori| pr|ce |e s| or|au |tat| ar|ice|ii |or |a s| fi| a |ric|ale|per| co|n\u0103 |\u0103 a|rea|ers|i s| li|sau| ca|rso|ent|lor|a\u021Bi|al |a d|e o|men|l l|ei |e c|pri|an\u0103| ac| re|uri|ber|ibe|lib|a p|oan|soa| in|i l|ter| al| s\u0103|tea|l\u0103 |car|t\u0103\u021B|s\u0103 |tur|i a|i d|nal| ni|ri |ita|e \xEE|e \u0219|se |ilo|in |ia |\u021Bie|pre|fie|\u021Bii|\u0103\u021Bi|con|ere|e f|a o|eni|nte| nu| se|ace|ire|ici| cu|i \xEE|a c|i n|a l|pen|ui |nu |\u0103ri|al\u0103|ona|l d|r\u0103 |ert|ril| su|ntr|n c|rin| as|ni |i o|eri|t\u0103 |c\u0103 |ile|\u0103 d|i c|e n|ele|sa | mo|i p|fi |sal|tor|va |oci|soc|nic|pro| un| tr|est|in\u021B|a \xEE|uni|n m|a a| di|ecu|lui|sta|lit| po|tre|gal|ega|oat|ra |act|\u0103 \xEE|leg|u d|e l|nde|int|a f|n a| so|na\u021B|ara|i f|uie|iun| to|tar|ste|ces|rar|at | ce|eme|i \u0219|rec|dep| c\u0103| o | \xEEm|bui|ebu|reb| eg| na|m\xE2n|ntu|ili|v\u0103\u021B|\xE2nd|iei|r \u0219|bil|pli|od |mod|res|din|e e|c\u021Bi| au|ali|\u0103 p|\u0103 f|\xEEmp|ial|cia|ion|\u0103 c|dec|nta| om|it\u0103| fa|\u021B\u0103 |cu |tra|\u0103\u021B\u0103|nv\u0103|\xEEnv|\xE2t |ite|i i|lic| pu| ex|riv|tri|rot|\u021Ba |\u021Bi |l c|rta|imi|ulu|\u021Bio|ic\u0103|lig|rel|ta |cla|t \xEE|nt |nit|e m|\xE2nt|\u0103m\xE2|\u021B\u0103m|ger|n\u021Ba|ru |tru|gur|u c|bli|abi|at\u0103|art|par|ar |rim|iva|l \u0219| sc|ime|nim|era|sup|ind|u a|dic|ic | st| va|ini|igi|e r", hau: "da | da|in |a k|ya |a d| ya|an |a a| ko| wa|na | a |sa | ha|kin|wan|ta | ba|a s| ta|a y|a h|wa |ko | na|n d|a t|ba |ma |n a| ma|iya|hak|asa| sa|ar |ata|yan| za|akk|a w|ama| ka|i d|iki|a m|owa|a b| ci| mu| sh|anc|nci|kow|a z|ai |nsa|a c|shi| \u0199a|cik|ne |ana|i k|ci |kki|e d|a \u0199| ku|su |n y|uma|ka |uwa|kum|hi |a n|utu| yi|ani| ga| ra|aka|ali|mut|\u2018ya|tar| do|\u0257an|ars| \u2018y|sam|\u0199as|nda|ane|man|tum|i a|yi |ni | du|ada| su|and|a g|cin| ad|a i|ke | \u0257a|n k|yin|um |e m| ab|ins|nan|ki |mi |ami|yar|min|oka|re |i b|kam|mas|i y|mat|za |ann|en |a\u0257a| ja|m n|li |duk|dai|e s|n s|ra |n w|n h|aik| ai|ida|ga |san|rsa|aba|sar|ce |nin| la|o n|ban|nna|kan|abi|una|dam|me |ara|i m|hal|a r|add|are|n j|abu| ne|zai|a \u0257|wat|ari| \u0199u|on |ans|wa\u0257|ame|ake|kar|din|zam| fa|a l|\u0199un|buw|r d| hu|oki|kok|a \u2018|u d|n t|abb|aur| id|rin|yak|dok|kiy|ray|jam|n b|ubu|bub|n m|i s| an|am |ili|bba|omi|dan|gam|ayu|ash|nce|tsa|ayi|har|yya|ika|bin|han|kko|rsu|aif|imi|fa | am|i i|dom| ki|yuw|dun|o a|fan|n \u0199|aya|fi |n r|she|uni|bay|riy|n \u2018|sab| iy|bat|tab|aga| ir|mar|o w|i w|sha|awa| ak|uns|unc|tun|u k| il|\u0257in|mfa|amf|aci|ewa|kas|lin|n n|don|n i|ure|ifi|lai|dda| ts|iri|aye|un |tan|wad|gwa|afi| ay|ace|mba|amb|aid|nta|ant|war|lim|kya| al|a\u0257i", fuv: "de | e |e n| ha|nde|la | wa|ina| ka|akk| nd|\u0257o |na | in|e e|hak|al |di |i h|kke|ii |um |ko |ala|ndi| mu| ne|lla| jo|wal|e\u0257\u0257|ne\u0257|all|mum| fo|kal|jog|ke |aaw|taa| ko|eed|\u0257\u0257o|aa | le|ji |ade|aad|laa|o k| ng|e h| ta|re |ogi|a j|e w|e m|nnd|gii|e l|ley|awa|aag|ede|waa|e k|gu |e d| go|gal|\u0253e |ti |fot|aan|eyd|ydi|\u0257e |ee | re|ol |oto|i e|oti|m e|taw|nga|a i|kee|to |ann|eji|am |ni | wo|een|goo|eej|e f| he|enn|gol|agu|pot| po|dee|ay | fa|ka |a k|ond|oot| de|a f|o f|a n|wa |maa|ota|le |hay|i k|o n|ngo|e j|o t| ja|\xF1aa|hee|nka|i w|awi|a w|ngu|der| to|e t|dim|i n|fof|i f|e g|tee|naa|aak| do|too|a e|ndo|ren|dii|oor|er |o e|i m|of | sa| so|gaa|ani|kam| ma| \xF1a|o w|i l|u m|kaa|ima|dir| ba|igg|lig| li|aar| \u0253e|o i|e s| o |e r|so |ooj| nj| la|won|awo|dow|woo|faw|and|e i|ore|nge|nan|are|a t|tin|aam| mo|\u0257ee|ita|ira|aa\u0257|e p|nng|ma |ank|yan|nda|oo |e \u0253|njo|ude|nee|e y|e a|je | ya|en |ine|iin| di|ral| na|\u0257i |und| hu|inn|\u014Bde|a\u014Bd|ja\u014B|a d|den| fe| te|go | su|a h|haa|tal|e\u0257e|e b|y g|baa|tde| yi|\u0257\u0257a|o h|ii\u0257|ow | da|do |l n|alt| ho|l e|aga|mii| aa|a a|ama|nna|m t| ke|edd|oga|m w|l m|o j|a\u0257e|ree|oje|yee| no|ele|ne |ago| pa| al|guu|wi |ge |aa\u0253|daa|ind|dew|i j|jey| je|ent|tan|o \u0257|ge\u0257| ge|\xF1ee|a l| \u0257u|kko|mak|a s| ga", bos: " pr| i |je |rav|na |ma |pra| na|ima| sv|a s|da |a p|vo |nje|ko |ako|anj|o i| po|avo|ja |e s|a i|ti | im| da| u |sva|no |ju | za|o n|va |i p|ili|vak|li | ko|ne | il|koj| ne|nja| dr|ost| sl|van|im |i s|u s|i i|a n|ava|ije|a u| bi|stv|se |a d|om |jed|bod|obo|lob|slo| se| ra|ih |sti| ob| je|pri|enj|dru|u i|o d|iti|voj|raz|ova|dje| os|e i|lo |e p| nj|uje|i d|bra|tre| tr| su|jeg|i n|u z|a k|og |u p|oje|cij|reb|a o|a b|lju|i u|ran|mij|ni |nos|jen|ba |edn|svo| iz|jel|pro|e d|\u017Eav|bit| ni|i o|sta|a z|avn|vje| ka|bil|ovo|a j|aju|ist|nih|tu |red|gov| od|e o|oji| sm|lje|o k|ilo|ji |aci|e u|e n|pre|o p|eba|u o|su |vim|i\u010Dn| sa|u n| dj|a t|ija|\u010Dno|jem|r\u017Ea|dr\u017E|elj|stu|dna|odn|eni|za |iva|olj|\u0161ti|nom|em |du |vno|smi|jer|e b|de |pos|m i| do|u d|nak|a r|obr| mo|lja|nim|ego| kr|tit|kri|ve |nju|an |iko|nik|nu |i m|nog|eno|sno| st|e k|tup|rug|ka |oda|riv|vol|aln|m s|itu|a\u0161t|za\u0161|ani|sam|akv|ovi|osn|rod|aro| mi|tva|dno|nst|jan|ak |ite|vi\u010D|rad|u m| ta|dst|tiv|nac|rim|kon|ku |odu|\u017Eiv|amo|tvo|tel|pod|g p|nov|ina|nar| vj|o s|i b|oj | ov|ave|vu |ans|oja|zov|azo|ude|bud| bu|e t|i v|din|edi|nic|tan|nap|mje| is|jal|slu|pun|eds|o o|zak|jav|i k|m p|tno|ivo|ere|ni\u010D|m n|jim|kak|ada|vni|ugi| ro|mov|ven|pol|to |te | vr", hrv: " pr| i |ma |rav|ima|pra|je |na | sv|ti | na|a p|vo |vat|ko |a s|nje| po|anj|avo|o i|tko| im|a i|sva|no |i p|e s|ja |o n| za|ju |ili| u |va |li | bi|ne |i s|atk| il|iti|da | ne| ko| dr| sl|van|nja|koj|ije| ra|ova| os|u s|i i|ost|bod|obo|lob|slo|pri|a n|om |jed|ati|ih |im |voj|ava| ob|stv|se | mo|i u|bit|dru| je| se|dje|i o|enj| ka|i n|sti|lo |u i|svo|mij|ni |e i|raz|a o|e n|bra|o p| su|a b|u p|ran|a k|og |i d|bil|ako|e p|a d|edn|aju|mor|eni| nj|iva|jel|\u017Eav| ni|a z|avn|ovi|eno|ra |oje|a j| da|a u|ora|jeg| iz|nih|r\u017Ea|dr\u017E|oji|sno|nit|jen|vje|ilo|cij|oda|nim| dj|pro|tit|u z|e d|red|nom|jem| od|nos|sta|nov|osn| sm|lje|o s|ji |ovo|stu|pos|vim| do|odn|rad|ist| sa|e o|tu |nju|em |gov|o d|rod|i m|jer|aci|oj |pre|m i|nak|dna|a r|lju|uje|e m|obr|za |olj|ve |o o|m s|an |nu |du |aro|vno|smi|aln|e k|o k|i b|e u|tva|u u|tup|rug|dno|u o|su |u d|ka |vol| ta|ija|itu|\u0161ti|a\u0161t|za\u0161|itk|\u017Eiv|ani|sam|elj| st|sob|oso|nar|akv|ada| mi|te |ona|nst|jan|lja|i v|ite|ego|elo|rim|ku |odu|amo|tvo|tel|jim|pod|nog|vi |ina| vj|to |e b|ans|zov|azo|ak | sk|edi|tan|oju|pun|pot|oti|kon|zak|i k|m p|tno|ivo|ere|ni\u010D|kak|vni|ugi| ro|mov|ven|\u0161tv| be|ara|kla|ave|u b|avi|oja|jal|u m|dni|mje|rak|din|\u0107i |ju\u010D|klj|nic|u k|nap|obi|atn", nld: "en |an |de | de| he|ing|cht| en|der|van| va|ng |een|et |ech| ge| ee|n e|rec| re|n v|n d|nde|ver| be|er |ede|den| op|het|n i| te|lij|gen|zij| zi|ht |ijk|eli| in|t o| ve|op |and|ten|ke |ijn|e v|jn |ied| on|eft| ie|sch|n z|n o|aan|ft |eid|te |oor| we|ond|eef|ere|hee|id |in |rde|n w|t r|aar|rij|ord|wor|ens|of | of|hei|n g| vr| vo| aa|r h|hte| wo|n h|al |nd |vri|e o|ren|le |or |n a|jke|lle|eni|n b|ij |e e|g v| st|ige|die|e g|men|nge|t h|e b| za|e s|om |t e|ati|wel|erk|sta|ers| al| om|n t|zal|dig| me|ste|voo|ter|gin|re |ege|ge |g e|bes|nat| na|eke|che|ig |gel|nie|nst|e a|nig|est|e w|erw|r d|end|ona|d v|jhe|ijh|d e|ele| di|ie | do|del|n n|at |it | da|tie|e r|elk|ich|jk |vol|ijd|tel|min|len|str|lin|n s|per|t d|han| zo|hap|cha|wet| to|ven| ni|aat|ion|tio|taa|lke|eze|met|ard|waa|uit|sti|e n|doo|pen|eve|el |toe|ale|ien|ach|st |ns | wa|eme|nin|e d|bij| gr|n m|p v|esc|t w|ont|ite|man|ema| ma|nal|g o|rin|hed|t a|t v|beg|all|ijs|wij|rwi|e h| bi|gro|p d|rmi|erm|her|oon| pe|eit|kin|t z|iet|iem|e i|gem|igi| an|d o|r e|ete|e m|js | hu|oep|g z|edi|arb|zen|tin|ron|daa|teg|g t|raf|tra|eri|soo|nsc|t b| er|lan| la|ern|ar |lit|zon|d z|ze |dez|eho|d m|tig|loo|mee|ger|ali|gev|ije|ezi|gez|nli|l v|tij|eer| ar", srp: " pr| i |rav|na |pra| na|ma | sv|ima|da |ja |a p|vo |je |ko |ti |avo| po|a i|ako|a s| za| u |ju |o i| im|nje|i p|va |sva|anj|vak| da|o n|nja|e s|ost| ko|a n|li |ili|ne |om | ne|i s| sl| il| dr|no |koj|u s|ava| ra|og |slo|im |enj|sti|bod|obo|lob|iti|a o|stv|i u|a d|ni |jed|u p|pri|edn| bi|i i|a k|o d|sta|ih |dru|a u| je| os| ni|nos|pro|aju|i o|ran| de| su|u i|se |van|ova|i d|cij| ob|uje|red|\u017Eav|e i|i n|voj|e p|a j|dna| se| od|ve | ka|eni|r\u017Ea|dr\u017E|a z|avn|aci|ovo|u u|m i|oja| iz|lja| nj|ija|u z|e o|rod|jen|lje|e b|raz|jan|lju|svo|za |gov|i\u010Dn| st|nov|sno|osn|du |ji |pre| tr|su |vu |odn|a b|jeg|nim|nih|tu |tit|\u0161ti|ku |nom|bit|e d|me |iko|\u010Dno|oji|lo |vno|nik|e n|\u0111en|ika|bez|ara|de |u o|vim|nak| sa|u n|riv|ave|an |olj|vol| kr|o p|sme|e k|nog| ov|e u|tva|bra|rug|reb|tre|u d|oda| mo| vr|vlj|avl|ego|jav|del|m s|kri|o k|a\u0161t|za\u0161|nju| sm|ani| li|dno|e\u0111u|aln|la |akv|oj |\u0161en|kom|stu|ugi|avi|a r|ka |rad|oju|tan|odi|vi\u010D|tav|itu|ude|bud| bu|pot|odu|\u017Eiv|ere|m n|tvo|ilo|bil|aro|ovi|por|eno|\u0161tv|nac|ove|m p|tup|pos|rem|dni|ba |nst|a t|ast|iva|e m|vre|nu |be\u0111|ist|pun|en |te |dst|rot|zak|ao |kao|i k|ju\u0107|o s|st |sam|ter|nar| me|i m|kol|e r|u\u0161t|ru\u0161|ver|kak| be|i b|kla|ada|eba|ena|ona| on|tvu|ans| do|rak|slu", ckb: " he| \xFB |\xEAn | bi| ma|na |in |maf| di|an |xwe| xw|ku | ku|kes| de| ji|her|kir|iya|ya |rin|iri|ji |bi |es | ne|ye |y\xEAn|e b|er |af\xEA|tin|ke | an|iy\xEA|eye|rke|erk|we | be|e h|de | we|hey|f\xEA |i b|y\xEA |ina| b\xEA| li|diy|ber|li |re |\xEE \xFB|n\xEA |\xEA d| se| ci|eke|di |w\xEE | na|\xEE y|af |ete|hem| w\xEE|sti| ki|r\xEE |k\xEE |\xEE a|yek|n d|kar| te|ne |y\xEE |i h|e k|t\xEE |t\xEA |a w|e d|\xEE b|s m|ast|n b|be |yan|ser|tew|net| tu| ew|hev|aza|ara|\xFB b|n k|adi|ev |zad| az|ras|est|an\xEA| ya|n h|n \xFB|wed| t\xEA|wek|bat|bo | bo| y\xEA|st |n n|\xEA k|dan|\xEA h|ema|\xEA b|iye|\xEE h|din|b\xFBn|r k|ek\xEE| me|par|\xFBna|ta |wle|ewl|\xEE m| ke|nav|ewe|man|\xEA t|d\xEE |\xFB m|m\xFB |em\xFB|a m|ika|e \xFB|n w|a x|\xEA m|e n| ta|ela|n j|ey\xEA|n x|civ|wey|ana| re|khe|ekh|bik|k\xEA |j\xEE |f h|er\xEE| pa|\xEEna|bin|erb|vak|iva|a s| ni|cih|v\xEA |e j|ari| p\xEA|\xEE d|n\xEAn|ike|e t|a k|\xEA x| ye|n a|ey\xEE|n e|ama|b\xEA |ar |ewa|at\xEA|bes|rbe|av |ibe|ist|m\xEE |tem|awa|are|h\xEE |geh|nge|ing|nek|n\xFBn|an\xFB|qan| qa|v\xEE |rti|uke|tuk| \u015Fe|eza| da|u d|\xFB a|f \xFB|edi| ra|tu |tiy|t\xEAn| mi|xeb| ge|h\xEEn| h\xEE|et\xEA|\xEE j|st\xEE|mal|bib|ra |i d|e m|mam|i a|nik|i m|\xEE k| wi|\xFBn | ko|a \u015F|\xEA j|riy|lat|wel|e e|ine|ane|\xFB h|\xEEn |a d|siy|end|aye| za|ija|a n|\xEE n|ek |tek|yet|mbe|emb|\xFB d|rov|iro|mir|eba| xe|m\xEAn| \xEAn| hu|n\xEEn|an\xEE|t \xFB|ten|n m|dem|\xEA \xFB|en\xEA|te |art|i r| j\xEE|u j|ek\xEA|dew", yor: " n\xED|ti |\u1ECD\u0301 |n\xED | l\xE1| \u1EB9\u0300|\xE0n |\u1EB9\u0301 |kan|t\xED | t\xED|an |\u1EB9\u0300 |t\u1ECD\u0301|\u1ECD\u0300 | \u1EB9n|\u1ECDn |w\u1ECDn|\xED \u1EB9|b\xED |\xE1ti|l\xE1t|\u0300t\u1ECD|\u1EB9\u0300t| gb| \xE0t| \xE0w|n l|\xE0ti| a |l\u1EB9\u0300|\u1EB9n\xEC| \xF3 |k\u1ECD\u0300| l\xF3|\xEC k|s\xED |\u1ECD\u0300k| k\u1ECD|ra |ni |\xE0b\xED|t\xE0b| t\xE0|n\xEC | s\xED|\u0300ka|\u1ECD\u0300\u1ECD|n \u1EB9|\xE0w\u1ECD|n t|\xF3 n|\u0300\u1ECD\u0300|\xEDl\u1EB9|or\xED|l\xF3 | w\u1ECD|t\xF3 |d\xE8 |\xECy\xE0|\xFAn | t\xF3| or|\xED \xEC|\xE8d\xE8|k\xF2 |\u2010\xE8d|\u0300\u2010\xE8|\u1EB9\u0300\u2010|r\xEDl|\xED \xF3|r\u1EB9\u0300|\xED \xE0| s\xEC|y\xE0n|gbo|\u1E63e | k\xF2|\xED a| r\u1EB9| j\u1EB9|s\xEC | b\xE1|r\xE0n| \u1E63e|w\u1ECD\u0301|n\xECy|f\xFAn| f\xFA|n \xE0|ba |n n|gb\xE0|gb\u1ECD|j\u1EB9\u0301|un |\xEC\xED | k\xED|gba|\xE8n\xEC| \xE8n|b\xE1 |\u0301 l|a k| ka|d\u1ECD\u0300|k\xED | \xF2m|in | fi|b\xF2 |fi |b\u1EB9\u0301|\u1ECDd\u1ECD|b\u1ECDd|\u0301 s|hun|n\xFA |n\xEDn|w\xE0 |ira|nir|\xF2m\xEC|\xECgb| \xECg|\u0301 t|\u1EB9ni|\xEDn\xFA|i l|\xECni|m\xECn|b\xE0 |\xE1\xE0 |i \xEC|ohu| oh|\xED i|ara| ti|bo |\xF2 l| p\xE9|r\xFA |\xEDr\xE0| \u1ECD\u0300|\xED \xF2|ogb|k\u1ECD\u0301|p\u1ECD\u0300|\xF3 b|\xE0 t|i n|l\u1ECD\u0301|\u1EB9\u0301n| \xECb|y\xEC\xED|gb\xE9|g\u1EB9\u0301|bog|\xF3\xF2 |y\xF3\xF2| y\xF3|n k|p\xE9 |d\xE1 |\u0301w\u1ECD|\u1ECD\u0301w|\xE0 l|\xED k| w\xE0|n o|j\u1ECD | ir|\u1ECD\u0300r|\xFA \xEC|\u0301 \xE0|\xF3 s|i t|\u1E63\u1EB9\u0301|\u0300k\u1ECD|\xED t|y\xE9 |l\xE8 | l\xE8|fin|\xE0b\xF2| l\u1ECD|\xE0 n|\xF9j\u1ECD|w\xF9j|ir\xFA|\xF3 j| ar|\xED w|a w| \xECm|\xFA \xE0|\u0300 t|\xF2fi| \xF2f| \xE0\xE0|f\u1EB9\u0301|\xE0w\xF9|\u0301ni|w\xF9 |\xEC\xEDr|m\xEC\xED| m\xEC|l\xE1\xEC| y\xEC|\xED g|\u1ECD\u0301n|n s|i \u1EB9|\u1EB9\u0300k|\xE0gb|\xEDgb|n\xEDg|a n| k\xFA|l\xE1\xE0|\xED o|n\xE1\xE0| n\xE1|k\u1EB9\u0301|\xEDpa|n\xEDp|\xECn | \xECk|b\xE9 |i g|\u1ECDm\u1ECD| \u1ECDm|i \xE0|i\u1E63\u1EB9|\u0300 \xE0|\xECm\u1ECD|n a|n f|j\u1EB9 |y\xED |\u0301 \u1ECD|\xF3 d|\u0301 \xF2| d\xE1| m\xFA|\xE0\xE0b|\xE1b\u1EB9|l\xE1b|\xECb\xE1|\xF2 g|j\xFA |i o|l\xFA | \xE8t|\u0300 \u1EB9|t\u1ECD\u0300|de |\u0300 n|i \xF2| \xECy|k\xE0n|\u0301n | b\xED| i\u1E63|m\u1ECD\u0300|e \u1EB9|\u0300 l| f\xE0|\xE8y\xED| \xE8y| \xECd|m\u1ECD\u0301|d\xE9 |\u0300 k|\u0301 p|\xF2 t|m\xFA | f\u1EB9| \xECj|r\xED |\xECk\u1EB9|n\xECk|\xECn\xED|n \xEC|n \xE8|s\xECn|\xE8 \u1EB9| i |r\u1ECD\u0300| \xE0n|\u0301 b|\xF9n |\u0301gb|\u1ECD\u0301g|d\u1ECD\u0301| d\u1ECD|\xED n|rin|\u0300 j", uzn: "ish|an |lar|ga |ir | bi|ar | va|da |iga| hu|va |bir|sh |uqu|quq|huq| ha|shi| bo|r b|gan|a e|ida| ta|ini|lis|adi|ng |dir|lik|iy |ili|o\u02BBl|har|ari| o\u02BB|uqi|ins|lan|hi |ing|dan|nin|kin| yo|son|nso| in| mu|on |qig| ma|ega|r i|bo\u02BB| eg|o\u02BBz|ni |gad|ash|i b|ki |oki|ila|yok|a b|n b|osh|ala|at |in |r h|erk| er|lga| qa|rki|h h| sh|i h|ara|n m| ba|nis|ik |igi|lig|bos|ri |qil|a t|bil|las|eti| et|n o|ani|nli|kla|i v|a q|a h|a o|yat| qo|im |a s|i m|iya|atl|oli|osi|siy|qla|cha|til| ol|ati|a y|mas|qar|inl|lat| qi|ta\u02BC|ham|gi |ib |\u02BBli|mla|h v|\u02BBz |hun|n e|mum| da| bu| to|un |mki|umk|sha|tla|ris|iro|ha |rch|bar|iri|oya|ali| be|i o|asi|aro| ke|i t|rla| te|arc|hda|shu|tis|n h|tga| sa| xa|rak|lin|ada|ola|imo|hqa|shq|li | tu|aml|lla|sid| as|nid|a i| ki|ch |n t|nda|k b|era|siz|or |hla|a m|r v|eng|ten|mat|mda|amd|lim|miy|y t|ayo|i a|ino|ilg|tni| is|ana|as |ema| em|ech|a a|tar|kat|aka|ak |rat| de|aza|ill| si| so|g\u02BBi|uql|n q|oda|\u02BCli|a\u02BCl|nik| ni|tda|uch|gin|a u|him|uni|sit|ay |qon| ja|atn|kim|h k|hec| he|\u02BBzi|lak|ker|ikl| ch|liy|lli|chi|ur |zar|shl|rig|irl|dam|koh|iko|a d|am |n v|rti|tib|yot|tal|chu| uc|sla|rin|sos|aso| un|na | ka|muh|dig|asl|lma|ra |bu |ush|xal|\u02BBlg|i k|ekl|r d|qat|aga|i q|oiy|mil| mi|qa |i s|jin", zlm: "an |ang| ke|ng | se| da|ada|ara|dan| pe|ran| be|ak |ber|hak|ata|ala|a s|ah |nya| me|da |per|n s|ya | di|kan|lah|n k|aan|gan|dal|pad|kep|a p|n d|erh|eba|nga|yan|rha| ya|nda|ora|tia|asa| ha|ama|epa| or|iap|ap |a b| at| ma|eti|ra |tau|n a|set|au | ba|pa | ad|n p|tan|p o|eng|a d|men|apa|h b|h d|dak|man|a a|ter| te|k k| sa|n b|ana|g a|end|leh|ole|a k|am |n y|aka|eh |lam|bas|beb|n m| un|pen|sa |keb|sam|n t| ti|ela|san|car|uan|ma |di |han|ega|ban|eri|at |sia|a m|ika|kes|ian|gar|seb|ta |mas|und|neg|nan|ngs|i d|erl|na |epe|emb|bar| la|atu|kla|pem|mem|emu|eca|sec|ngg|nny|any|bol|al |aha|gsa|ebe|ind|akl|n h|erk|ung|ena| bo|a t| ap|ers| de|in |tu |pun|as |agi|ann|g b|bag| ne|ain|hen| he|era|rat|sem| su|adi|lan|g s|dia|mat|ses|iad| ta|iha|g t|tin|k m|k h|i k|gi |i s|ing|uka|enu|den|lai|k d|ert|ti |rka|aja|rga|lua|ker|mel|dun|ndu|lin|rli|nak|ntu|esi|aya|un |uat|jua| in|rma|erm|ai |emp|kem|ri |dil|ua |uk |h m|l d|g m|mba|kat|ese|tik|ni |ini| an|mpu|ka |dar|mar|rja|erj|arg|u k|sua| ol|esa|dap|ar |g u|si |ent|g d| pu|awa|iri|dir|sal|gam|mbe|n i|har|a h|raa|ema|tar|i a|saa|ira|ari|pel|jar|laj|uju|tuj|rak|ura|uar|elu|t d|unt|il |wen|asi|gga|ipa|ksa|tuk|ula|sek|sas|ibu|rta|sep|rsa|nta|ati|ila|mua|yar", ibo: "a n|e n|ke | na| \u1ECD |na | b\u1EE5|\u1ECD b|nwe|nye|ere|re | n |ya |la | nk|ye | nw| ma|e \u1ECD| ya| ik|a o|a \u1ECD|ma |\u1EE5la|b\u1EE5l|ike| on|nke|e i|a m|ony|\u1EE5 n|kik|iki|b\u1EE5 | a |ka |wer|ta |i n|do |di | nd| ga|a a|e a|a i|he |kwa| ok| ob|e o|hi |any|ga\u2010|ha |d\u1EE5 | mm|ndi|\u1ECD n|wa |r\u1EE5 |e m|che|a e|oke|wu |aka|ite|o n|a g|odo|bod|obo| d\u1ECB| ez|ara|we | ih|a\u2010e|h\u1ECB |ri |n o|zi |mma|chi|d\u1ECB |ghi|\u1EE5ta|iri|ihe| an| oh|a y|gba|\u1EE5 \u1ECD| \u1ECDz| ak| iw|nya|te |iwu| nt|ro |oro|e \u1ECB|z\u1ECD |ezi|me |e e|u n|her|ohe| si|a\u2010a|i m|ala|\u1EE5 i| ka|akw| in|gh\u1ECB|kpe|n e|p\u1EE5t| e |i i|i o|ide|inw|\u1EE5 o|h\u1EE5 |ah\u1EE5|weg|ra |o i|kpa|ad\u1EE5|mad|si |sit|a s| me|sor|i \u1ECD|gid|edo|u o|e y|n a| en|tar|ozu|toz|bi |be |\u1EE5 m|\u1EE5r\u1EE5|\u1ECDr\u1EE5| \u1ECDr|mak|uso|ama|de |\u1ECB o| \u1ECDn|\u1ECDz\u1ECD|ch\u1ECB|egh|enw|ap\u1EE5|ru | to|i a|a \u1EE5|osi|r\u1ECB |wet|hed|nch| nc| eb| al|n\u1ECDd|\u1ECDn\u1ECD|uru|sir| kw|yer|ji |eny| mk|\u1ECBr\u1ECB|eta| us|tu |\u1ECD d|u \u1ECD| o |ba | mb|\u1ECDd\u1EE5|\u1ECBch| ch|a d|pa | ag|kwe| ha|a u|e s|mkp|n u|nta|ebe|n \u1ECD|o m|kwu|nkw|nwa|obi| \u1ECBk|esi|i e|nha| nh|le |ile|nil| ni|eme| og|e k|n i|ch\u1ECD|o y|as\u1ECB|otu| ot|ram|u m|\u1ECBgh|d\u1ECBg|zu |n\u1ECD |mba| gb|e g|\u1ECB m|\u1ECDch|ich|pe |agb|i \u1ECB|uch|z\u1EE5z|uny|wun|\u1ECDr\u1ECD| nn|na\u2010| di|ge |oge|iji| ij|\u1ECDha| \u1ECDh|ikp|egi|meg|o o|\u1EE5h\u1EE5|h\u1EE5h|mah|n \u1EE5|\u1ECD g|\u1ECDta|ek\u1ECD|\u1ECB n|kw\u1EE5|agh|\u1EE5m\u1EE5|ban|kpu|okp| ah|\u1ECBkp|a k|ime| im|z\u1EE5 |\u1EE5z\u1EE5|\u1ECDz\u1EE5| \u1EE5z|lit|ali|nat", ceb: "sa | sa|ng |ang| ka| pa|an |ga |nga| ma|pag| ng|on |a p|od |kat|ay | an|g m|a k|ug |ana| ug|ung|ata|ngo|atu|n s|ala|san|d s|tun|ag |a m|god|g s|a a|a s|g k|g p|yon|n u|ong|tag|usa|pan|ing|una|mat|g u|mga| mg|y k| us|ali|syo| o |aga|tan|iya|kin|dun|nay|man|nan|a i| na|ina|nsa|isa|bis|a b|adu| ad|n n| bi|asy|asa|lay|awa|lan|non|a n|nas|o s|al |agp|lin|nal|wal| wa|ili|was|gaw|han| iy| ki|nah|ban|nag|yan|ahi|n k|gan| gi|him| di|a u| ba| un|ini|ama|ya |kas|asu|n a|g a|gka|agk|kan|ags|agt|l n|a g|kag| ta|imo|uns|sam| su|g n|n o|gal|kal|og |taw|aho|uka|gpa|ipo|ika|o p|a t| og| si|gsa|g t|aba|ano|gla|y s|o a|aki|hat|kau|sud|gpi|a w|g i|aha|ot |ran|i s|n m|bal|lip|gon|ud | ga|li |uba|ig |ara|g d|na |kab|aka|gba|ngl|ayo| la| hu|a h|ati|d a|d n| pu| in|uga|ok |ihi|d u|ma |may|awo|agb|ami|say|apa|pod|uha|t n|agh|buh|ins|ad | ub| bu|at |iin|a d|ip |uta|sal|hon|wo |ho |tra|lak|iko|as |aod|bah|mo |aug|ona|dil|gik|sos|lih|pin| pi|k s|nin|oon|abu|la |rab|hun| ti|mah|tar|t s|ngb|uma|hin|bat|lao|mak|it | at|s s|sno|asn|ni |aan|ahu| hi|agi|n p|inu|ulo|y p| ni|iha|mag|o n|duk|edu| ed|a e|til|ura|tin|kip|agl|gay|g h|g b|ato|ghi|nab|kon|in |ter|o u|o o|yal|sya|osy| so|tik| re| tr|hig|a o|ha |but|pak|aya", tgl: "ng |ang| pa|an |sa | ka| sa|at | ma| ng|apa|ala|ata|g p|pan|pag|ay | an| na|ara| at|tan|a p|pat|n a| ba|ga |awa|rap|kar|g k|aya|lan|g m|n n|g b|nga|mga| mg|a k|na |ama|n s|a a|gan|yan|gka| ta|may|tao|agk|asa|man|aka|ao |y m|ana|g a|nan|aha|kan|y k|baw|kal|a m|g n|ing|wat| y |t t|pam|a n|o y|ban| la|ali|san|wal|mag| o |g i|aga|lay|any|g s|in |nya|yon|kas|a s|isa|una|ong|aan|kat|t p| wa|ina|tay|ya |on |o m|ila|ag |nta|t n|aba|ili| ay|o a| ga|no |a i|gal|ant|han|t s|kap|kak|lah|ari|agt|agp|ran|g l|lin|as |lal|gaw|ans|to |ito| it|hay|wa |t m| is|pap|mam|nsa|ahi|nag|bat|lip|gta| di|gay|gpa|pin| si|ngk|ung|aki|y n|iti|tat|ano|yaa|y s|mal|hat|kai|sal|hin|uma|mak|di |agi|pun|ihi|a l|i a|ira|gga|nah|s n|ap | ha|usa|nin|o p|gin|ipu|ika|ngi|i n|lag|la |y p|ini|g t|uka|nap| tu|a g|tas|aru|ipa| ip|li |al |n o|a o|t k|alo| pi|sin|syo|asy|ita|aho|nar|par|o s|pak|t a|uha|sas|gsa|ags|kin|a h|iba|lit|ula|o n|nak|a t| bu|duk|kab|sam|g e|ain|ami|mas|lab|ani|kil|it | al|agb|buh|a b|g g|ba | ib|iyo|ri |yag|ad | da|edu| ed|anl|ma |ais|iga|mba|tun|ipi| ki|od |ayu| li|lih|sar|gi |g w|pah|wir|oob|loo|agg|nli|bay|map|git|mil|ok |hon|ngg|sah|iya|pas|g h|agl|tar|ngu|amb|uku|ayo|s a|p n|n m|rus|i m|l a|abu| aa", hun: "en | sz| va| a |\xE9s |min|ek | \xE9s| mi|jog| jo|an |ind|nek|sze|s\xE1g|nde|a v|den|oga|sza|val|ga |m\xE9l|ala|em\xE9|gy |n a|van|zem|ele| me|egy|\xE9ly| eg|zab|t\xE1s| az|n s|bad|aba|ni |az |gye| el|ak | se|meg|sen|\xE9ny|s\xE9g|k j|yne|lyn| ne|ben|lam|tt |t a|et |agy|oz |hoz|vag|zet| te|n m|ez |nak|int|re |et\xE9|tet|mel|tel|s a|em |ely|let|hez| al|s s| ki|ete|at\xE1|z a| le|yen|es |ra |t\xE9s|ell|nt |sem|t s|len|nem|a s|ese|nki|enk|a m|\xE1s\xE1|i m|ban|kin|k m|szt| \xE1l|ame|k\xF6z|k a|ds\xE1|ads|l\xF3 | k\xF6|\xE1s |ly |on |\xE9be|tat|a t|n v|\xE1ll|m\xE9n| v\xE9|nye|k\xFCl|l\u0151 |a n| cs|i \xE9|ok |\xE9sz|\xE9rt|lla|lap|\xE1go|gok|nyi|tek| ke|nd |\xE9te|ami|z\xE9s|yes|szo|t m|a a|het|fel|lat|lem|lle|el |z e|s e|k \xE9|mbe|emb|el\xE9|ot |lis|vet|kor|\xE1g |olg| am|sz\xE1|ehe|leh|ogo|ott|\xFCl |nte|\xE9le|i v|ogy|hog| ho|kel|n k|tes|nl\u0151|enl|ss\xE1|\xE1za|h\xE1z|\xE9g |vel|\xE1ba|lek|\xE9ge| ha|a h|r\xE9s| fe|\xE1ny|del|el\u0151|\xE1t |al\xE1|art|tar|zto|z\xE1s|t\u0151 |yil|koz|tko|al\xF3|s k|i e|\xE1rs|t\xE1r|mze|emz| ny|m\xE1s|ett|ny |fej|ass|zas| h\xE1|d a|t \xE9|is |\xE9s\xE9|ez\xE9|t\xE9b| mu|\xE1so|s\xEDt|lye|elm|\xE9de|v\xE9d|ine|t k|os |it |izt|biz| bi|y a|m l|tot|a j|atk|n\xE9l|t n|ti | m\xE1|ai |l\xE1s|eve|nev|zte| b\xE1|sel|ll |al |ere|n e|unk|mun|t e| ak|ife|kif|ako|s \xE9| \xE9r|\xE1na| es|s t|got|s\xFCl| be|v\xE1l|csa|se |\xE9se|ad |ges|tos|ja | gy|asz|ten|lm\xE9| t\xE1|eze|\xE1rm|b\xE1r|ess|l s|\xFCle", azj: " v\u0259|v\u0259 |\u0259r |ir | h\u0259| bi| h\xFC| ol|\xFCqu|h\xFCq|quq|na |in |lar|h\u0259r|d\u0259 | \u015F\u0259|bir|l\u0259r|lik|mal|r b|lma|r h| t\u0259|\u0259xs|\u015F\u0259x|\u0259n |dir|uqu|una|an |ali|a m| ma|ikd|ini|r \u015F|d\u0259n|ar |il\u0259|qun|aq |as\u0131| ya|m\u0259k|y\u0259t| m\u0259| m\xFC|kdi|\u0259si|\u0259k |ilm|nin|nd\u0259|olm|\u0259ti|\u0259 y|sin|xs |nda|lm\u0259|yy\u0259|i v| qa| az|olu|iyy|ya |ind|zad|qla|\xFCn |ni |l\u0259 |tin|n m|aza|ar\u0131|\u0259t |n t|maq|lun|l\u0131q|\u0259 b|un |nun|q v|n h|dan|\u0131n | et|tm\u0259|\u0259r\u0259| \xF6z|da |\u0259 v| on|\u0259 a|\u0131na|\u0131n\u0131|bil|a b|s\u0131 |il |\u0259mi|ara|si | di|\u0259 m|\u0259ri|rl\u0259| va|\u0259 h|etm|\u0131\u011F\u0131|ama|dl\u0131|adl|rin|b\u0259r|r\u0131n|n i|m\xFCd|n\u0131n| he|mas|ik |n a|dil|al\u0131|irl|\u0259l\u0259|\xFCda|s\u0131n|\u0131nd|xsi|li |\u0259 d|n\u0259 | b\u0259|\u0259ya| in|\u0259 i|l\u0259t| s\u0259|n\u0131 | i\u015F|an\u0131|e\xE7 |he\xE7|q h|eyn|\u0259 e|d\u0131r| da|asi|r\u0131 |i\u015F |ifa|l\u0131\u011F|i s|fi\u0259|afi|daf| ed|m\u0259z|u v|kil| ha|ola|n v|\u0259ni|\u0131r |uq |unm| bu| as|sia|osi|sos|ili|\u0131d\u0131|l\u0131d|nma|\u0131q |in\u0259|\u0259ra|sil|xil|axi|dax|ad\u0259|man|a h|\u0259 o|onu|a q|\u0259z | ki|se\xE7| se|\u0131 h|min|lan|\u0259d\u0259|bu |raq|l\u0131 |\u0131l\u0131|al |\u0259 q|r v|nla|hsi|\u0259hs|t\u0259h|\xF6z |ist| is|m\u0259s| \u0259s|ina|\u0259 t|\u0259tl|a v|i\u0259 |n b|t\u0259r| ta| c\u0259|edi|ala|kim|qu |i t|ulm|m\u0259h|n o|aya|\u0131 o|ial| so|ill|siy| d\u0259|var|ins|mi |\u011F\u0131 |nik|r i|aql|k h|t\u0259m|tam|\xE7\xFCn|\xFC\xE7\xFC| \xFC\xE7|\u011F\u0131n|sas|\u0259sa|z h|\u0259m\u0259|zam| za|sti|r\u0259f|n e|r a|ild|h\u0259m|\u0131ql|yan|may|n \u0259|m\u0259n|mil| mi|\u0259qi|din|n d|t\xFCn| d\xF6|miy|kah|ika| ni|fad|tif|l o|s\u0259r|yni| ey|ana|l\u0259n|am |ril|ay\u0259|a\u015F\u0131", ces: " pr|n\xED | a | ne|pr\xE1|r\xE1v|na |ost| po|ho | sv|o n| na|vo |neb|\xE1vo|bo |ebo|nos|m\xE1 | m\xE1|a\u017Ed|ka\u017E| ka| ro|ch |d\xFD |\u017Ed\xFD|ti |ou |a s| p\u0159| za|\xE1n\xED|\xE1 p| je| v |svo|\xE9ho| st|\xFD m|sti|n\u011B | by|obo|vob|ter|pro|en\xED|bod| z\xE1| sp|\xED a|rod|kte|by |mu |u p|o p| n\xE1|v\xE1n|jak| ja|a p|o v|\xED n|ov\xE1|oli|v\xED |spo|roz| kt|mi |\xED p|ny | ma|\xEDm |i a|do | so|odn|\xE1ro|n\xE1r|li |n\xE9 |tv\xED|at |\xFDch|a z| vy|byl|vol|en |\xFDt |b\xFDt| b\xFD|t s|tn\xED|stn|o s|\xED b|to | do|sv\xE9|v\xE9 |ran|ejn|z\xE1k|eho|jeh|nes|p\u0159\xED|m\xED |\u010Din|kol|aj\xED|sou| v\u0161|\xEDch|it |n\xFDm|\xFDm |nu |hra|nou|u s|\xE9mu| k |du |\u017Een|pod| ze|kla|a v|stv|pol|dn\xED|er\xE9|m p|st\xE1|je |ci |e\u010Dn| ni|n\xE9h|a n|ak\xE9|\xE1va|maj|em |rov|\xED m|k\xE9 |ole|n\xFDc|ova| ve|ako| ta|i k|chr|och| oc|kon|i p|\xED v|sm\xED|esm|kdo|st |i n|o z|ave|odu|bez| to|sta|ech|j\xED |o d|sob|se | se|\xED s|\xFDmi|i s| i |i v| vz|n\xEDm|pra|ln\u011B|p\u0159i|t\xE1t|ste|a j|aby| ab| s |oln|a o|m n|\u010Den|slu|\u0159\xEDs| os|zem|mez| \u010Di|ln\xED|\xE1ln|oci|jin| ji|y b|\xED z|y s|va |v\u0161e|t v|ovn|chn|d\u011Bl|n\xEDc|le\u010D| pl|vat| vo|vin|rav|vou|lad|inn|\xE9 v|anu|tej|u k|stu|est| tr|ky |ikd|nik|ivo|nit|zen|u o|n\xE9m|nez|i\xE1l|\xEDho|len|ens|o\u017Ee|oko|k\xE9h|rac|ven|\xED k|e s|l\xE1n|\u011Bl\xE1|zd\u011B|vzd|t k|din|odi|t\xED | od|r\xE9 |tup|pov|pln|\u0161t\u011B|\xE1kl|nno|tak|er\xE1|\u0159ed|o a|a t|res|j\xEDc| mu|u z|rok| ob|\u010Dno|u a|y k|i j|\xE9 n|lu\u0161|\xEDsl|oso|ci\xE1|soc|n\xEDh|o j|ck\xE9", run: "ra |we |wa |e a| mu|a k|se | n | um| ku|ira|ash|tu |ntu|a i|mu |umu|mun|unt|ere|zwa|ege|ye |ora|teg|a n|a a|ing|ko | bi|sho|iri| ar| we|shi|aba|e n|ese|go |a m|o a|gu |uba|ngo|nga|hir| ca|ugu|obo|hob|za |ndi|ish|gih| at|ara|wes| kw|ger|ate|a b| ba| gu|e k|can|ama|ung|bor|u w|mwe|di | ab|nke|ke |kwi|ka |ank|yo |ezw|n u|na |iwe|e m|rez|ri |a g|gir| am|igi|e i|ro |a u|ngi|e b|ban| ak| in|ari|n i|hug|ihu|e u|riz|ang|nta| vy|ata| ub|and|aka|rwa| nt|kur|ta |iki|kan|iza|u b|ran|sha|o n|i n| ig|ivy| iv|ahi|bah|u n|ana| bu| as|aku|ga |uko|o u|ho | ka|ose|ubu|ako|guk|ite|o y|ba |i b|any|kir|o k|aho|iye|kub|amw|nye|aha| ng|o m|nya| it|re | im|o b|izw|kun|hin|e c|vyo|o i|vyi|ngu|uri|imi|imw|gin|ene|u m|zi |ha |kug|bur|uru|jwe| zi|u g|era|aga|ron|abi| y |e y| uk|gek|ani| gi|eye|ind|wo |u a|i a| ib|i i|ras|bat|gan|amb|n a|onk|rik|ne |ihe|agi|kor| ic|ze |tun|ibi|wub|nge|o z|tse|nka|he |rek|twa|gen|eko|mat|ber| ah|ni |ush|umw| bw|mak|bik|ury|yiw|bwo| nk|ma |no |kiz|uro|gis|aro|ika| ya|gus|y i|wir|ugi|uki| ki|a c|ryo|bir| ma| yi|iro|bwa|mur|eng|ukw|hat|tan|utu|wit|w i| mw|y a|mbe| ha|uza|ham|rah| is|irw|o v|umv|ura|eny|him|eka|bak|bun| ny|bo |yig|kuv|wab|key|eke|yer|vye|i y|ita|ya |a r| ko|kwa|o c", plt: "ny |na |ana| ny|a n|sy |y f|a a|aha|ra | ma|nan|n n|any|y n|a m|y m|y a| fi|an |tra|han|ara| fa| am|ka | ts| na|in |ami| mi|a t|olo|min|man|iza|lon| iz|fan| ol| ha| sy|aka|a i|reh|ay |ian|tsy|ina| ar|on |o a|etr|het|ona|y o|o h|zan|y t|a h|ala| hi|a f|y h|ehe|ira|a s|zo |y i|ndr|jo | jo|n j| an| az|ran|dia| dr|y s|fah|ena|ire|tan|dre| zo|mba| ka|m p|afa| di|n d|and|azo|zy |amp|ia |ren|iny|rah|y z|ry |ika|oan|ao |amb|lal|ho | ho|isy|ony|tsa|asa|a d|ha |fia|mis|ava|ray| pi|am |dra| to|rin| ta|ant|eo |zay|rai|tsi|itr|sa | fo| ra|van|ova|nen|azy| vo|mpi|ari|o f|tok|a k| ir|kan|oto|mah|ly |sia| la|n i|voa|haf|a r|ito|y k|oka|y r|y l|ano|ita|ene|its|ial|zon|aza|ain| re| as|fot|aro|fit|nat|nin|aly|har| ko|ham| no|fa |ary|atr|ila|ata|iha|nam|kon|oko| sa|elo|nja|anj|ive|isa|oa |dy |y d|o m|nto|ank|o n|otr|pan|fir|air|sir|ty |a v|sam|o s|tov|mit|rak|reo|o t|pia|tao| ao|no |y v|iar|a e|a z|hit|hoa| it|to |za |ton|eha|end|vy |idi|tin|ati|adi|lna|aln|rov|ban| za|nga|hah|oni|osi|sos|vah|ino|ity| at|hia|pir|ifa|omb|ame|era|vel|kar|va |tso|jak|fid|ifi|ais|o i|idy|la |ama|ba | pa|tot|ani|rar|mpa|haz|kam| eo| il|iva|aho|nao|n k|ato|lah|ovy| te|dro|lan|ela| mo| si|fin|miv|san|koa| he|aso| mb|sak|kav", qug: "ta | ka|ka |na |una|cha|ash|ari|a k|ana|pak|ish|ach|hka|shk|mi |kta|hay|man| ch|apa|ak |rin|ata|kun|har|akt|ita| ha|ami|lla| pa|ama|pas|shp| ma|tak|ay\xF1|y\xF1i|in |sh |ina|uku|nka|chi|aka|a c|yta|kuy|all|tap|a h|kan| tu|\xF1it|tuk| ru|run|chu|an |pay|ayt|ris| ki|aku|hpa|ank|a p|kam| sh|nam|a s|uy |i k|ayp|nak|pi |nta|a m| li|ay |lia|hin|kaw|nap|ant|tam|a t|iri|nat| wa|y r|kay|aws| ya|n t|ypa|wsa|pa |lak|shi|a a|lli|iku|hu |n k|iak|yay|kis| al|shu|a w|ipa| sa| il|api|kas|yku|yac|kat|a r|huk|i c|wan|hik|a i|ill|ush| ti|ayk|hpi| ku|kac|say|hun|uya|ila|ika|yuy|pir|ich|mac|ima|a y|yll|ayl|i p|kin|a l| wi|kus| yu|lan|tan|llu|kpi| ta| pi|aya|la |yan|awa| ni|kak|lat|rik|war|ull|kll|li |ink|nch|un |akp|n s|may| ay|uch|i s|nac|sha|iki|kik|h m|ukt|pip|tin|n p|iya|nal|aki| ri|ura|tik|mak|ypi|i m|i w|n m|his|k i|riy|iwa|y h| hu|han|akl|k t|mas|pik|kap| \xF1a|u t|nmi|nis|k a|i y|k l|kar| im|i i|wil|yma|aym|ksi|iks|uma| su|h k|has| ak|unk|huc|kir|anc|k m|pal|k k|ik |i\xF1i| i\xF1|ma |n y|mun| mu|mam|tac|a n|i t|k r|sam|ian|asi|k h|was|ywa|iyt|llp|san|sum|ray|si |pan|nki|tar| ii|u k|\xF1ik|uk |i\xF1a|kuk|wpa|awp|akk|a u|wat|uri| mi|yar|uyk|ayw|h c|ha |tay|rmi|arm|uta|las|yka|llk|kul|wi\xF1|ati|ska| ll|kit|n h|uti|kic|mat", mad: "an |eng|ng |ban| sa| ka|dha|ren| se| ba|ak | ha|adh|hak| dh|ang|se | pa|aba|a s|na |aga|ha | or|n s|ore|ara| ag|gad|are|ana|n o|ngg|ale|gan|a k|ala|dhu|tab|sar|ota|asa|eba| ot| ke|sab|ba |wi |uwi|abb|i h|huw|aan|n k|a b|bba| ta| ma|pan|hal|bas|ako|dhi|ra |kab|em |beb|ka |lak|gi |lem|g a|eka|n b|ama|nga|san|at |ong|ran|nge|a o|ggu|sa |a d|ane|n p|ken|par|aja|man|gar|ata|nek|apa| na|agi|abe| ga|e e|sal|a a|tan|g s|al |kal|gen|ta |i s|aka|e a|a p|a e| la| pe|nan| an|era|e d| e | be|n a| al|ena|uy |guy|n n|ate| bi|mas|e k|kat|uan|oan|kon|k k|a m|i d|g e|n t|g k|ada|koa|lan|ela| da|bad|ma |ne |as |lab|ega| mo|ar |car|one|i p|bi |kaa|bat|ri |on |pon| so|e b|le |ah |abi|ase|adi|epa| ep|k h|and|pam|te |ok |ste|aon|om |oko|aha|ari|ona|asi|ter| di|di |pad|e s|sad|yar|neg|ton|set|rga|ost|mos|gap|nda|a l|har|i k|ina| a | ng|kom|isa|si |a t|a h| kl|jan|daj|iga|hig|idh|hid|ndh|n m|ngs|tto|ett|arg|la |k b|ler|k d|nna| to|nao|n d|mat| ca|tad|bis|aya|epo|aen| po|bin|nya|kas|k s|n h|sya|nta|gsa|en |ant|n g|kar|i e|das|e t|e p|iba| pr|g p| ho| el|i a|hi |os |sao|uwa|tes| ja|nag|nas|lae|sia|t s|k o|nto|int|yat|arn|m p|duw|adu|eta| ko|i b|ni |g n|kla|rak|ame|mpo|jua|sok|aso|ggi|eja|pel|jam|ele| et|dil", nya: "ali|ndi|a m|a k| nd|wa |na | al|yen| ku|nth|ra |di |se |nse| mu|a n|thu|hu |nga| wa|la |mun|u a|unt|iye| ka|ce |ace| lo|a l|ang|e a| la| pa|liy|a u|ens| ma|idw|ons|dwa|e m|i n|ala|kha|lo |li |ira|era|ene|ga |ana|za |o m| mo|yo |o w| ci|we |dzi|ko |o l|and|dan|hal|zik|chi|oyo|pa |ner|ulu|ena|moy| um|a p| da|ape|kap|ka |iko| an|pen|a c|to |ito|hit|nch| nc|iri|lir|wac|umo|e k|lu |a a|aye| dz|kuk|a z|dwe|tha|mal| za|ing|ufu|mu |ro |ful| uf|o c|i d|lin|e l|zo |edw| zo|o a|mwa|u w|iro|o n|lan|amu|ere| mw|nzi|dza|alo|ri | li|fun|lid|gan|so | ca|kul|ofu|nso|o z|ulo|unz|o k|mul|lam|i c|san|a b|kwa| na|a d| a |una|u k|i l|nkh|ant|aku|ca |cit|oli|ipo|dip|ama|lac|wir|han|yan|osa|uli|tsa|i m|pon|kup|u d|ti |gwi|ukh|ung|hun|lon|ank|nda|iki|ina| ko|ao |diz|phu|ati|oma|i a|tsi|pat|iya|siy|kut| ya|zid|eze|ma |i k|mer|ome|mol|u n|u o|aph|ogw|izo|mba|sid|ku |sam|awi|adz| ad|izi|ula|say|e n|khu| kh|rez|vom|bvo|okh|lok|win|akh|o o| am| on|zir|map| zi|eza|ja |go |ngo|ika|its|ats|osi|gwe| co|isa|ya |haw|ani|o p|zi |ndu|kho|ezo|kir|uni|i u| ay|lal|gal|sa |bom| bo|ola|amb|wak|ha |ba |nja|anj|ban| ba|iza| bu|udz|ngw|bun|oye|o d|nal|kus|i p|i o|i y|wi | nt|e p| si|aka|ne |men|jir|nji|sed|ets|end|eka|uma|du ", zyb: "bou|iz |aeu|enz|eng|uz | bo|ih |oux|nz | di|ing|z g|ux |uq |dih|ngh| ca|ng |gen|ung|z c| mi|miz|ij |cae|z d| gi| de| ge|euq|you| ci|ngz|ouj|aen|uj | yi|ien|gya| gu|ngj|mbo| mb|zli|dae|gij|cin|ang|j d|nae| se| ba|z y|euz| cu|de |x m|oz |j g|ouz|x b|li |z b|h g| da| yo|nj |xna|oxn|rox| ro|h c|nzl|vei|yau|wz |z m|ix | si|i c|iq |gh |j b| cw|nda|yin| hi| nd|dan|vun|inh| ga|can|ei |cun|yie|q g|hoz|bau| li| gy|wyo|cwy|z h|gue|gz |gun|faz|unz|yen|uh |den|ciz| go|q c|gj | bi|ej |aej| fa|hin|zci| wn|j n|goz|gai|au |z s|q d| vu|h m|gva|hu |auj|ouq|az |h d|ya |uek|ci |nh |u d|ou |sou|jso|gjs|din|awz|enj| do|h s|eve|sev|z r|nq |sin|nhy|g g|g b|liz|kgy|ekg|sen|eix|wng|lij|ngq|bin|i d|ghc| ha|bae|hix|h y|j c|ghg|i b|ouh|en |n d|h f|j s|z v|j y|law|hci|anh|inz|q y|nei|anj|ozc|ez |enh|q s|aiq|uen|zsi|zda|hye|ujc|e c|siz|eiz|anz|g y|i g|q n|bie| ne| ae|giz|u c|hgy|g d|gda|ngd|cou| la|z l|auy|ai |in |iuz|zdi|jhu|ujh|yuz| du|j m| fu|cuz|eiq|g c|gzd| co|uyu|coz|zbi|biu| dw|i s|i n|aw |dun|yun|izy|daw| he|nho| ho|enq|x l|cie|q b|cij|uzl|x d|iuj|awj| ya|eij|dei|nde|sae|izc|wnq|wnh|sei|h b|aih|gzs|bwn|a d|u g|ngg|jca|e b|ran| ra|hcu| me|iet|van| bu|guh|hen|si |wnj| ve|u b|azl|inj|gak|gan|ozg|siu|yaw|i m", kin: "ra | ku|se | mu|a k|ntu|tu |nga|umu|ye | um|unt|mun|e n| gu|we |ira|a n| n |wa |ere|mu |ko |gom|a b|e a| ab|li |e k|mba|a a|e b|aba|ga |e u|ba |omb|o k| ba|a u|ose|u b|o a| cy|ash|eng| ag|kwi| bu|za |gih|ren|ndi| ub|ang|yo |aka|gu |igi| ib|a g|a m| nt|uli|o b|ama|ihu|e i|nta| ak|ago|ro |ora| ka|ugu|hug|di |iye|ban| am|cya|ku |ta | bw|and|sha|re | ig|gan|ubu|na | kw|obo| by| bi|a i|yan|ka |sho|kub|era|ese| we|kan|aga|hob|bor|ana|byo|ura|uru|ibi|rwa|wes|u w|no |uko|i m|mo |u a|ure|ili|uba|o n|uha|uga|n a| im|ish|bwa|bwo|wiy|ali|ber|ze |ne |ush|are|o i|u m|ger|bur|ran| ki| no|ane|bye| y |ege|teg|guh| uk|n i|rag|i a|ya |u g|e m|anz|bo |abo|gar|wo |y i|ho |age|ind|o m|eke|a s|ara|zir|ite|kug|kim|aci| as|u n|ani|kir|mbe| gi|yos|kur|ugo|gir|e c|iza|aho|i b|tur|ata|o u| se|u u|zo |i i|aha|nge|mwe|iro|akw|any|eza|uki|imi|o y|ate|u k|iki|atu|bat| in|go |tan|n u|bos| bo| na|hak|iby| at|ihe|ung|ha |bul|kar|eye|eko|gek|nya|o g|shy|e y|awe|ngo|bit|mul|nzi|rer|bag|ge |imw|bah|cir|gac|bak|je |gez|imu|eze|tse|ets|mat| ru|irw|he | ni| ur| yi|ako|ngi| ng|i n|rez|ubi|gus|fit|afi|ugi|uka|amb|o c|utu|ufa|ruk|mug|bas|bis|uku|hin|e g|ige|amo|ing| af|yem|ni | ry|a r|gaz|te |erw|bwe|ubw|hwa|iko| al|ant|zi ", zul: "nge|oku| ng|a n|lo |ung|nga|la |le | no|elo|lun| um|e n|wa |we |gel|e u|ele|nel|thi|ke |nom|ezi|ma |ntu|oma|hi |o n|ngo|tu |nke|onk|o l|uth|ni |a u|lek|unt| wo|o e| lo|mun|umu|pha| ku|ang|ho |kwe|ulu| ne|won|une|lul|elu| un|a i|gok|kul|ath|hla|lok|khe|eni|tho|ela|zwe|akh|kel|a k|enz|ana|ban|aka|u u|ing|ule|elw|kho|uku|ala|lwa|gen| uk|wen|ama|na |e k|ko |gan|a e|he |zin|enk|o y| ez|kat| kw|lan|eth|het|o o| ok|okw|i n|nzi|aba|e a|hak|lel|lwe|eko|ane|ka |so |yo |ayo|o a|uhl|nku|nye| na|thu|mph|do |ben|ise|kut|ike|kun| is| im|hol|obu|fan|i k|e w|nhl|nok|ini|and|kuh|ukh|kuk| ak|e i|isi|aph|zi |ile|eki|ekh| ba|eka|the|a a| le| ye|kwa|e e|fut| fu|za |mal| ab|ebe|isa| em|o w|kub|mth|i w|ndl|emp|any|olo|ga | ko|nen|nis|alu|ith|eli|ndo|seb|nda| ya|i i|eke|vik|ake|uba|abe|ezw|yok|ba |ale|zo |olu|ume|ye |esi|kil|khu|yen|emi|nez|hlo|a l|ase|ula|kek|a o|iph|o u|no |azw|kan|mel|uny|ne |ufa|ahl|lin|hul|ant|und|sa |enh|kus|kuv|lak| in|o i|din|kom|amb|zis|ind|ola|uph|wez|eng|yez|phe|phi|mba|nya|han|kuf|nem|isw|ani|iyo| iy|fun| yo|uvi|i a|ene|izi| el|cal|i e|eze|ano|nay|hwe|kup|lal|uyo|ubu|kol|oko|ulo| la|e l|tha|nan|mfu|hon|nza|hin| ey|omp|da |bo |ilu|wak|lon|iso|kug|nka|ink|i l|sek|eku| ek|thw|gez", swe: "ar |er |tt |ch |och| oc|ing|\xE4tt|ill|r\xE4t|en | ti|til|f\xF6r|ll | r\xE4|nde| f\xF6|var|et |and| en|ell| ha|om |het|lle|lig|de |nin| de|ng | in| fr|as |ler| el|gen|nva|und|att|env|r h| i |r r|ska|fri| so|har|der| at|\xF6r |ter|all|t t| ut|den|ka |lla|som|av |sam|ghe|ga | sk| vi| av|ete|la |ens|t a| si|r s|iga|igh|tig| va|ig |a s| st|ion|ra |tti|a o| \xE4r|ten|ns |t e|na | be|han| un| an| sa|a f| la| gr| m\xE5|nge|n s|vis|lan|m\xE5 |ati|nat| \xE5t|an |nna| li| al|t f|ans|nsk|sni|gru|\xE4ll|tio|ad | me|isk|kli|s f|t i|st\xE4|t s|ri |med|sta|h r|lik|da |dig|ta |r o|run|on | re|lag|tta|\xE4r |kap|a i|a r|\xE4nd|erv|n e|kte|n f|rvi|nom|itt|id | mo|sky|r e|ver|\xE4ns|vil|gt |igt| na|tan|uta|dra|t o|ro |isn| fa|kal|ihe|rih|erk|r u|e s|per|l v|vid|one|rel|ber|ran|ot |mot|ndl|d f|ed |ika|m\xE4n|l s|bet|t b|dd |ydd|kyd|n o|s s|str|n m|tet|sin|r f| om|rna|int|r i|end|nad|l a|ap |ers|nda|t v|ent|rbe|arb| h\xE4|ets|h\xE4l|amh|ckl|gar|nga|r m|je |rje|arj|n i|s e|lin|r t|i s|r\xE4n| pe|ilk|t l|ern|p\xE5 | p\xE5|t\xE4l|d e|dom|ege|g e|tni|r a|lit|ras| s\xE5|lln|kil|ski|enn|i o|a d|er\xE4|n a|ara| ge|\xE4ro|a m| ar|t d|ilj|els|yck| ve|g o|fr\xE5|nas|tra|ess|del|m s|liv|l l|in |v s|g a|ast|e e|val|son|rso|e t|age|nd | eg|ial|cia|oci|soc|upp|igi|eli|g s|rkl|gad|ndr|nte|\xF6ra", lin: "na | na| ya|ya |a m| mo|to | ko|li |a b| li|o n| bo|i n|a y|a n|ki |a l|kok|la | ma|zal|i y|oki| pe|ngo|ali|pe |so |nso|oto|ons| ba|ala|mot|a k|eng|nyo|eko|o e|nge|yon| ny|kol|lik|iko|a e|o y|ang|ye | ye|oko|ma |o a|go | ek|ko |e m|aza|te |olo|sal|ama|si | az|mak|e b|lo | te|ta |isa|ako|amb|sen|ong|e n|ela|oyo|i k|ani| es|o m|ni |osa| to|ban|bat|a t|mba|ing|yo | oy|eli|a p|mbo|o p|mi | mi| nd|ba |i m|bok|i p|isi|mok|lis|nga|ge |nde|koz|bo |gel|ato|o t|mos|aka|oba|ese|lam|kop| ez|lon|den|omb|o b|ota|sa |ga |e a|e y|eza|kos|lin|esa|e e|kob|e k|sam|kot|kan|bot|ika|ngi|kam|ka | po|gom|oli|ope|yan|elo| lo|ata| el|bon|oka|po |bik|ate| bi|a s|i t|i b|omi|pes|wa | se|oza|lok|bom|oke|som|zwa|mis|i e|bek|iki| at|ola|ti |ozw|lib|o l|osu|oso|e t|nda|ase|ele|kel|omo|bos|su |usu|sus|bal|i l|ami|o o|bak| nz|pon|tel|mob|mu | ep|nza|asi|mbi|ati|kat|le |gi |ana|oti|ndi|tan|a o|wan|obe|kum|nya|mab|bis|nis|opo|tal|mat| ka|bol|and|aye|baz|u y|eta| ta|ne |ene|emb|sem|e l|gis|ben| ak| en|mal|obo|gob|ike|se |ibo|\u2019te| \u2019t|umb| so|mik|oku|be |mbe|bi |i a|eni|i o| mb|tey|san| et|abo|ebe|geb|eba|yeb|bu | as|ote|sik|ema|eya|ibe|mib|ai |pai|mwa|kes|da |may|boz|amu|a a|kom|mel|ona|ebi|ia |ina|tin| ti|bwa|sol|son", som: " ka|ka |ay |uu |an |yo |oo |aan|aha| wa|da | qo| in| u |sha| xa|a i|ada|iyo| iy|ma |ama| ah| la|qof|aa |hay|ga |a a|a w|ah | dh|a s| da|in |xaq| oo|a d|aad|yah|eey| le|isa|lee|u l|q u|aq | si|taa|eya|ast|la |of |iya|sa |y i|u x|sta|kas|xuu|uxu|wux| wu|iis|nuu|inu|ro | am| ma|a q|wax|dha|ala|kal|nay|f k|a k|le |ku | ku| sh|o i|a l|ta |maa|a u|dii|loo| lo|o a|ale|ara|ana|iga|o d| uu|ha |lo |o m|o x|doo|aro|kar|yaa|gu |si |ima|na | xo| fa|adk|do |a x|ad |aas| qa| so|a o| ba|lag| aa| he|dka|adi|soo|o k|aqa| is|ash|u d|had| ga|eed|san|u k|a m|iin|i k| ca|u s|n l|yad|rka|axa|elo|hel|aga|hii|o h|o q| ha|id |n k| mi|baa| xu|har|xor|aar|ax |mad|add|nta|mid|aal|waa|haa|ina|qaa|daa|agu|ark|o w|nka|u h|dad|ihi| bu| ho|naa|n a|ays|haq|a h|o l| gu|o s|aya|saa|lka| ee| sa|dda|ab |nim|quu|gga|ank|kii|rci|arc|n s|a g| ji|gel| ge|eli|ysa|a f|siy|int|laa|uuq|uqu|xuq| mu|i a|uur|mar|ra |iri|o u| ci|riy|ya |ado|alk|dal|ee |al |rri|ayn|asa| di|ooc|aam|ofk|oon|to |ayo|dar| xi|dhi|jee|a c| ay|yih|a j|ban|caa|lad|sho|d k|ida|uqd|agg|sag|ras|bar|ar | ko| ra|o f|gaa|gal|fal|u a| de| ya|o c|ii |xay|eel|aab|sig|aba|orr|hoo|u q|y d|ed |ho |sad|qda|h q|fka|n i|xag|n x|qay|lsh|uls|bul|u w|jin| do|raa| ug|ido|ood", hms: "ang|gd |ngd|ib | na|nan|ex | ji|eb |id |d n|b n|ud | li|nl |ad | le|jid|leb|l l| ga|ot | me|x n|anl|aot|mex|d g|b l|d d|ob |gs |ngs|jan| ne|ul | ni|nja| nj|lib|ong|nd | zh|jex| je|b j| sh|ngb| gh|gb | gu|gao|l n|han| ad|gan| da|t n| wu|il |x g|nb |b m| nh|she|is |l j|d l|nha|l g|d j|b g|el |end|wud|nex|gho|d s|d z|oul|hob|ub |nis| ch| ya|it |b y|eib| gi|s g|lie| yo| zi|oud|s j|d b|nx | de|es |d y| hu|uel|gue|ies|aob|you| ba|d m|chu|gia|dao|b d|s n|zib| go|zha|eit|hei|al |hud| do|nt |ol | fa|t g|hen|ut |gx |ngx|ab |fal|x j|b z|ian|d h|don|b w|t j|iad|nen| xi|gou|d c|b h|hao|x z|nib|anx|ant|gua| mi|s z|dan|ox |inl|hib|lil|uan|and| xa|b x| se|x m|uib|hui|d x|anb|enl| we|od |enb| du|at |ix |s m|bao| ho|hub| ng|zhi|jil|l s|yad|t m|t l|yan| ze| ju|heb|had|os |aos|t h|l d|nga| he|b a|xan|b s|sen|xin|dud|jul|d a|lou| lo|dei|d w| bi|b c| di|zhe|gt |ngt|x l|bad|x b| ja|hon|zho|blo| bl|d k| ma|deb|l z|wei| yi| qi|b b|x d|d p|eud| ge|x a|can| ca|t w|lol| si|hol|s w|aod|pao| pa|ren| re|x s|eut|pud| pu|aox|mis|gl |ngl|x w|zei|gon|enx|gha|s a|b f|l y|oub|eab|hea| to|did| ko|unb|ghu|t p|x c|geu|t s|x x|jao|ed |t c|l m|l h|jib|ax |l c|d f|nia| pi|eul|d r| no|min|l t|heu|ux |tou|ns |s y|iel|s l|hun", hnj: "it | zh| ni|ab |at |ang| sh|nit| do|uat|os |ax |ox |ol |nx |ob | nd|t d|zhi|nf |x n|if |uax| mu|d n|tab| ta| cu|mua|cua|as |ad |ef |uf |id |dos|gd |ngd|hit|ib |us |enx|f n|she|s d|t l|nb |ux |x z|ed |inf|b n|l n|t n|aob|b z| lo|ong|ix |dol| go|zhe|f g| ho| yi|t z|d z|b d| le|euf|d s|ut |yao| yo| zi|gb |ngb|ndo|enb|len| dr|zha|uab|dro|hox| ge|nen| ne|han| ja|das|x d|x c|x j|f z|shi|f h|il | da|oux|nda|s n|nd |s z|b g| ny|heu| de|gf |ngf| du|od |gox| na|uad| gu|inx|b c| ya|uef| xa| ji|ous| ua| hu|xan|hen|zhu|nil|jai|rou|t g|f d| la|enf|ged|ik | bu|nya|you|f y|lob|af |bua|uk |is |yin|out|of |l m|ud |hua| qi|ot |t s| ba|ait| kh|s s|nad| di|aib|x l|lol| id|dou|ex |aod|bao| re| ga|d d|b y|las|hed|b h|b s|f b|t y|jua| ju| dl|x s|hue|b l| xi|zif|dus|b b|x g|hif|x y|hai| nz|sha| li|x t| be|d j|und|hun|ren|d y|hef|xin| ib|b t|l d|aos|s l| ha|gai|nzh|gx |ngx| ao|s b|s x|el |gt |ngt|hik|aid|s t|x m|f l|f t| pi|aof|t r|eb | gh|s y|d l|gua| bi| za| fu|t h| zu|hou|deu|lb | lb|d g| mo|b k| bo|iao|ros|gon|eut|x h|al |uaf|hab|t t|k n|f x|hix|pin|yua| no|t b|ak | zo|s m| nb| we|d b|gha|f s|mol|euk|dax|l b|nof| ko|lou|guk|end|uas|t k|dis|dan|yol|uan|d t|x b|lan|t m| ch|jix|x x| hl|aox|zis|x i|et | ro", ilo: "ti |iti|an |nga|ga | ng| it| pa|en | ma| ka| a | ke| ti|ana|pan|ken|ang|a n|agi|a k|n a|gan|a m|a a|lin|ali|aya|man|int|teg|n t|i p|nte| na|awa|a p|na |kal|ng |dag|git|ega|sa |da |add|way|n i|n n|no |ysa|al |dda|n k|ada|aba|nag|nna|ngg|eys| me|a i|i a|mey|ann|pag|wen|i k|gal|gga| tu|enn| da| sa|nno| we|ung| ad|tun|mai| ba|l m| ag|ya |i s|i n|yan|nan|ata|nak| si|aka|kad|aan|kas|asa|wan|ami|aki|ay |li |i m|apa|yaw|a t|mak| an|i t|g k|a s|ina|eng|ala|ika|ama|ong|ara|ili|dad| aw|gpa|nai|et |yon|ani|aik|on |at |oma|sin|bal|ipa|n d|uma|g i|ket|ag |in |aen|n p|ram|sab|aga|nom|ino|lya|ily|syo|i b| ki|nia|agp|gim|kab|asi|kin|iam|ags|bab|oy |toy|n m|agt| ta|bag|sia|g a|gil|mil| um|o p|ngi|n w|i i|pad|pap|daa|iwa|naa|eg |ias|ed |nat|bae|o k|saa|san|pam|gsa|ta |kit|ma |dum|yto|tan|i e|t n|uka|t k|apu|lan|sta|sal| li|a b|ari|g n|den|mid|ad |o i|y a|ida|ar |aar|y n|dey| de| wa|a d|ak |bia|ao |tao|min|asy|mon|imo| gi|maa|sap|abi|i u|aib|kni|i l|gin|ged|o a| ar|kap|pul|eyt|abs|ibi| am|akn|i g|kip|isu|g t|bas|nay|ing|i d|kar|ban|iba|nib|t i|as |d n|y i|ura|a w|nal|aad|i w|lak|adu|kai|bsa|duk|edu| ed|may|agb|agk|tra|gge|sol|aso|agr|ngs|ian|ila|dde|edd|tal|aip|kua|umi|pay|sas|ita|pak|g d|ulo|inn|aw " }, Cyrillic: { rus: " \u043F\u0440| \u0438 |\u0440\u0430\u0432| \u043D\u0430|\u043F\u0440\u0430|\u0441\u0442\u0432|\u0433\u043E |\u0435\u043D\u0438|\u0432\u043E |\u043E\u0432\u0435| \u043A\u0430|\u043D\u0430 |\u0442\u044C | \u043F\u043E|\u0438\u044F |\u043E \u043D| \u043E\u0431|\u0435\u0442 | \u0432 |\u0441\u0432\u043E| \u0441\u0432|\u0430\u0432\u043E|\u0430\u043D\u0438|\u043E\u0441\u0442|\u043E\u0433\u043E|\u044B\u0439 |\u0430\u0436\u0434|\u043B\u043E\u0432|\u0442 \u043F| \u0438\u043C|\u043D\u0438\u044F| \u0447\u0435| \u0441\u043E|\u0435\u043B\u043E|\u0438\u043C\u0435| \u043D\u0435|\u043B\u044C\u043D|\u043B\u0438 |\u0447\u0435\u043B|\u043A\u0430\u0436|\u0435\u0441\u0442|\u0432\u0435\u043A|\u0430\u0442\u044C|\u043E\u0432\u0430|\u0438\u043B\u0438| \u0440\u0430|\u0435\u043A |\u0439 \u0447|\u0434\u044B\u0439|\u0436\u0434\u044B| \u0434\u043E|\u0438\u0435 |\u0435\u0435\u0442|\u043C\u0435\u0435|\u043D\u043E | \u0438\u043B|\u0438\u0438 |\u0441\u044F |\u0435\u0433\u043E|\u043E\u0431\u043E|\u0438 \u043F|\u043D\u0438\u0435|\u043A \u0438| \u0431\u044B|\u0438 \u0441|\u0438 \u0438|\u043C\u0438 |\u0431\u043E\u0434|\u0432\u043E\u0431|\u0432\u0430\u043D| \u0437\u0430|\u043E\u0439 |\u044B\u0445 |\u043E\u043C |\u043B\u0435\u043D|\u0430\u0446\u0438|\u0435\u043D\u043D|\u043E \u0441|\u043E \u043F|\u044C\u043D\u043E|\u0442\u0432\u0430|\u0442\u0432\u043E|\u043F\u0440\u0438|\u043D\u043E\u0433|\u0430\u043B\u044C|\u0430\u043A\u043E|\u0432\u0430 |\u0438 \u043D|\u0441\u0442\u0438|\u043D\u044B\u0445|\u0442\u043E |\u0431\u0440\u0430|\u043E\u043B\u0436|\u0434\u043E\u043B|\u0441\u0442\u043E|\u0438 \u0432|\u043D\u044B\u043C|\u043E\u0435 | \u0435\u0433|\u043D\u043E\u0432|\u0438\u0445 |\u0435\u043B\u044C|\u0442\u0435\u043B|\u0442\u0438 |\u043D\u043E\u0441|\u043D\u0435 |\u043F\u043E\u043B|\u0440\u0430\u0437| \u0432\u0441|\u0438 \u043E| \u043B\u0438|\u0438 \u0440|\u044B\u0442\u044C|\u0431\u044B\u0442|\u0432\u043B\u0435|\u0440\u0435\u0434|\u0438\u044E |\u0442\u043E\u0440| \u043E\u0441|\u044C\u0441\u044F|\u0442\u044C\u0441|\u043E\u0434\u0438|\u0449\u0435\u0441|\u044F \u0438|\u043A\u0430\u043A|\u043F\u0440\u043E|\u0436\u0435\u043D|\u044B\u043C |\u043F\u0440\u0435|\u0430 \u0441|\u0441\u043D\u043E|\u0435 \u0434|\u043D\u043D\u043E|\u043E \u0438|\u0438\u0439 | \u043A\u043E|\u043E \u0432| \u043D\u0438| \u0434\u0435|\u0441\u0442\u0443|\u043B\u0436\u043D|\u0441\u043E\u0432|\u0435 \u0432|\u043D\u043E\u043C|\u043E\u043B\u044C|\u0440\u0430\u043D|\u043E\u0436\u0435|\u0438\u0447\u0435|\u0435\u0439 |\u0430\u0441\u0442|\u043D\u043D\u044B| \u043E\u0442|\u0442\u0443\u043F|\u043C \u0438|\u043E\u0434\u043D|\u0437\u043E\u0432|\u0440\u0435\u0441| \u043C\u043E|\u043E\u0441\u0443|\u043B\u044F |\u043E\u0441\u043D|\u0430 \u043E|\u0432\u0435\u043D| \u0442\u043E|\u043E \u0431|\u0448\u0435\u043D|\u0442\u0432\u0435|\u043E\u0431\u0449|\u0430 \u0438|\u0435 \u043C|\u044C\u043D\u044B|\u043E\u0431\u0440|\u0432\u0435\u0440|\u0447\u0435\u043D|\u044F \u043D|\u0436\u043D\u043E|\u0447\u0435\u0441|\u0430\u043A |\u043B\u0438\u0447|\u043D\u0438\u0438|\u0435 \u0438|\u0432\u0441\u0435|\u0431\u0449\u0435|\u0432\u0430\u0442|\u0435\u0441\u043F|\u043C\u043E\u0436|\u0439 \u0438|\u043D\u043E\u0435|\u043E \u0434|\u0431\u0435\u0441| \u0432\u043E|\u044F \u0432|\u0434\u0443 | \u0441\u0442|\u0434\u043D\u043E|\u043E\u043D\u0430|\u043D\u0430\u0446|\u0434\u0435\u043D|\u0435\u0436\u0434|\u0445 \u0438| \u0431\u0435|\u0438 \u0434|\u043D\u044B |\u0434\u043E\u0441|\u0434\u043B\u044F| \u0434\u043B| \u0442\u0430|\u043B\u044C\u0441|\u0430\u0442\u0435|\u0446\u0438\u0438|\u044F \u043F|\u0443\u044E |\u0438\u0442\u0435|\u0435 \u043E|\u043D\u043E\u0439|\u043F\u043E\u0434|\u043E\u0442\u043E|\u0441\u0442\u0440|\u0441\u0442\u0430| \u043C\u0435|\u0435\u043B\u0438| \u0440\u0435|\u044F \u043A|\u0442\u043E\u044F|\u0430\u043C\u0438|\u0435\u043D |\u044C \u0432|\u044E \u0438|\u0430\u0437\u043E|\u0433\u043E\u0441|\u043C \u043F|\u044C \u043F|\u0442 \u0431|\u0436\u0435\u0442|\u0443\u0447\u0430|\u0441\u0443\u0434|\u044C\u0441\u0442|\u0434\u0441\u0442|\u0449\u0438\u0442|\u0430\u0449\u0438|\u0437\u0430\u0449|\u043A\u043E\u043D|\u043D\u0438\u044E|\u0430\u043C |\u043E\u0434\u0443|\u0435\u0440\u0435|\u0433\u0440\u0430|\u043F\u0435\u0447|\u043E \u043E|\u043E\u0440\u043E|\u043A\u043E\u0442|\u0438 \u043A|\u0442\u0440\u0430|\u043D\u0438\u043A|\u0443\u0449\u0435|\u0446\u0438\u0430|\u043E\u0446\u0438|\u0441\u043E\u0446|\u043D\u0430\u043B|\u0435\u0441\u043A|\u043E \u0440|\u043A\u043E\u0433|\u0434\u0440\u0443| \u0434\u0440|\u043D\u0438 |\u0430\u0432\u0430|\u043D\u0441\u0442|\u0435\u043C |\u0430\u0432\u043D|\u044B\u043C\u0438|\u0435\u0434\u0441|\u0434\u0438\u043D|\u0434\u043E\u0432| \u0433\u043E| \u0432\u044B|\u0432 \u043A|\u044B\u0435 |\u043E\u0431\u0435|\u043C\u0443 |\u044F \u0435|\u0441\u043B\u0443|\u0443\u0434\u0430|\u0442\u0430\u043A|\u043A\u043E\u0439|\u0442\u0443 |\u0438\u0442\u0443|\u0437\u0430\u043A|\u0445\u043E\u0434|\u0432\u043E\u043B|\u0440\u0430\u0431|\u043A\u0442\u043E|\u0438\u043A\u0442|\u0438\u0447\u043D|\u043D\u0438\u0447|\u043E\u0442 |\u0438\u043D\u0430| \u043A |\u0442\u0435\u0440|\u0440\u043E\u0434|\u043D\u0430\u0440", ukr: "\u043D\u0430 | \u043F\u0440|\u043F\u0440\u0430| \u0456 |\u0440\u0430\u0432| \u043D\u0430| \u043F\u043E|\u043D\u044F |\u043D\u043D\u044F| \u0437\u0430|\u043E\u0433\u043E|\u0442\u0438 |\u0432\u043E |\u0433\u043E | \u043A\u043E|\u0430\u0432\u043E| \u043C\u0430|\u043B\u044E\u0434|\u043E \u043D| \u043D\u0435| \u043B\u044E|\u044E\u0434\u0438|\u043E\u0436\u043D|\u043A\u043E\u0436|\u043B\u044C\u043D|\u0436\u043D\u0430|\u0434\u0438\u043D|\u0430\u0442\u0438|\u0430\u0454 |\u0438\u0445 |\u0438\u043D\u0430|\u043F\u043E\u0432|\u0441\u0432\u043E| \u0441\u0432|\u0430\u043D\u043D|\u0454 \u043F|\u043C\u0430\u0454|\u0430\u0431\u043E|\u0430 \u043B| \u0431\u0443|\u043D\u0435 |\u0435\u043D\u043D|\u0431\u043E | \u0430\u0431|\u0430 \u043C|\u043E\u0432\u0438|\u043D\u0456 | \u0432\u0438| \u043E\u0441|\u0430\u0446\u0456|\u0432\u0438\u043D| \u0442\u0430|\u0431\u0435\u0437|\u043E\u0431\u043E| \u0432\u0456| \u044F\u043A|\u0435\u0440\u0435| \u0434\u043E|\u0456 \u043F|\u0443\u0432\u0430|\u043E \u043F|\u0430\u043B\u044C|\u043D\u0438\u0445|\u043E\u043C |\u043C\u0438 |\u0456\u043B\u044C|\u043D\u043E\u0433|\u0442\u0430 |\u0438\u0439 |\u043F\u0440\u0438|\u043E\u044E |\u0442\u044C |\u0441\u0442\u0430| \u043E\u0431|\u0432\u0430\u043D|\u0438\u043D\u043D|\u0442\u0456 |\u043E\u0441\u0442| \u0443 |\u0441\u044F |\u0432\u0430\u0442|\u0431\u0443\u0442|\u0438\u0441\u0442| \u043C\u043E|\u0435\u0437\u043F|\u0443\u0442\u0438|\u043D\u043E\u0432|\u043F\u0435\u0440|\u0456\u0457 |\u0438 \u043F|\u0431\u043E\u0434|\u0432\u043E\u0431|\u0441\u0442\u0432| \u0432 |\u043E \u0432|\u0432\u0456\u0434| \u0431\u0435|\u0430\u043A\u043E|\u043F\u0456\u0434|\u0442\u0438\u0441|\u043A\u043E\u043D|\u043D\u043E |\u0432\u0430 |\u043D\u043D\u0456|\u0456 \u0441|\u0430 \u043F|\u0441\u0442\u0456| \u0441\u043F|\u043D\u0438\u0439|\u0434\u0443 |\u044C\u043D\u043E|\u043E\u043D\u0430| \u0456\u043D|\u0434\u043D\u043E|\u043D\u0438\u043C|\u0456\u0439 |\u0430 \u0437|\u043D\u0443 |\u043C\u043E\u0436|\u0457\u0457 | \u0457\u0457|\u043B\u044F |\u0441\u043E\u0431|\u043C\u0443 |\u043E\u0457 |\u044F\u043A\u043E| \u043F\u0435| \u0440\u0430|\u0456\u0434 | \u0434\u0435|\u0456 \u0432|\u0438 \u0456|\u0447\u0438\u043D|\u0432\u043D\u043E|\u043E\u043C\u0443|\u043D\u043E\u043C|\u0443 \u043F|\u0456 \u043D|\u0430 \u0441| \u0441\u0443|\u0430 \u043E|\u043D\u0435\u043D|\u0438\u0441\u044F|\u043E\u0432\u043E|\u043D\u0430\u043D|\u043E\u0434\u043D|\u0443 \u0432|\u0456 \u0434|\u0430\u0432\u0430|\u0456\u0434\u043D|\u0440\u0456\u0432| \u0440\u0456|\u0456 \u0440|\u0438\u043C\u0438|\u0432\u0456\u043B|\u0438\u043C |\u0446\u0456\u0457|\u043E \u0434|\u0430 \u0432|\u0441\u0442\u0443|\u043E\u0434\u0443|\u0431\u0443\u0434|\u043E\u0432\u0430| \u043F\u0456| \u043D\u0456|\u044F \u043D|\u0435 \u043F|\u043D\u0430\u0446|\u0438 \u0441|\u043D\u043D\u0430| \u043E\u0434| \u0440\u043E|\u043D\u043E\u0441|\u044C\u043D\u0438|\u044E\u0442\u044C|\u0438 \u0437|\u043A\u0438 |\u0456 \u0437|\u0430 \u0431|\u0441\u043F\u0440|\u0447\u0435\u043D|\u0436\u0435 |\u043E\u0436\u0435|\u0435 \u043C|\u043E\u0432\u043D|\u0440\u0438\u043C|\u0435 \u0431|\u0442\u043E |\u043D\u0456\u0445|\u043E\u0441\u043E|\u0443\u0434\u044C|\u0432\u0456 | \u0440\u0435| \u0441\u0442|\u0440\u0430\u0446|\u0434\u043E | \u0441\u043E|\u0440\u043E\u0437|\u043B\u0435\u043D|\u0432\u043D\u0438|\u0456\u0432\u043D|\u0440\u043E\u0434| \u0432\u0441|\u0441\u043F\u0456|\u043A\u043E\u0432|\u0437\u043F\u0435|\u0456\u0432 |\u0434\u043B\u044F| \u0434\u043B|\u0457 \u043E|\u0445\u0438\u0441|\u0430\u0445\u0438|\u0437\u0430\u0445|\u2010\u044F\u043A|\u044C\u2010\u044F|\u0434\u044C\u2010|\u044F \u0456|\u0442\u0430\u043A|\u0437\u043D\u0430|\u0437\u0430\u0431|\u0441\u0442\u044C|\u0442\u0443 |\u043D\u043E\u044E|\u0430 \u043D|\u0442\u043E\u0440|\u0441\u043D\u043E|\u043E \u0441|\u0436\u0435\u043D|\u0446\u0456\u0430|\u043E\u0446\u0456|\u0441\u043E\u0446|\u0456\u043D\u0448|\u0456 \u043C|\u043A\u043B\u0430|\u0438 \u0432|\u0442\u0435\u0440| \u0434\u0456|\u0456\u0441\u0442|\u043E\u0432\u0456|\u0443 \u0441|\u044F \u0432|\u0430\u0440\u043E|\u0441\u0456 |\u0432\u0456\u0442|\u0441\u0432\u0456|\u043E\u0441\u0432|\u0440\u043E\u0431|\u043F\u0456\u043B|\u0440\u0435\u0441|\u0437\u0430 |\u043F\u0435\u0447|\u0430\u0431\u0435|\u043A\u0443 |\u043B\u0438\u0432|\u0435\u0440\u0436|\u0434\u0435\u0440|\u0432 \u0456|\u0430\u0432\u043D|\u0442\u0430\u0432|\u0430\u0432 |\u0430\u043C\u0438|\u043A\u043E\u043C|\u0432\u043B\u0435|\u043E \u0431|\u044C \u043F| \u0449\u043E|\u0457\u0445 |\u0442\u0432\u043E|\u0445\u0442\u043E|\u0456\u0445\u0442|\u043A\u043E\u0433| \u043A\u0440|\u0430\u043D\u043E|\u0442\u0430\u043D|\u0456\u0430\u043B|\u043D\u0430\u043B|\u043D\u044C |\u0445 \u043F|\u0436\u043D\u043E|\u043B\u0435\u0436|\u0430\u043B\u0435|\u043F\u0440\u043E|\u0442\u0432\u0430|\u0440\u0430\u0442|\u043E \u043E|\u0445 \u0432|\u043D\u0430\u0440|\u043B\u044C\u0441|\u0446\u0456\u0439|\u043A\u043E\u0440|\u0447\u0430\u0441|\u0440\u0436\u0430|\u0457 \u0441|\u0438\u043D\u0443|\u0434\u0441\u0442|\u043E \u0437|\u0440\u0430\u0437|\u043C\u0456\u043D|\u0430 \u0440|\u0437\u0430\u043A", bos: " \u043F\u0440| \u0438 |\u0440\u0430\u0432|\u043D\u0430 |\u043C\u0430 |\u043F\u0440\u0430| \u043D\u0430|\u0438\u043C\u0430| \u0441\u0432|\u0430 \u0441|\u0434\u0430 |\u0430 \u043F|\u0432\u043E |\u0458\u0435 |\u043A\u043E |\u0430\u043A\u043E|\u043E \u0438| \u043F\u043E|\u0430\u0432\u043E|\u0435 \u0441|\u0430 \u0438|\u0442\u0438 | \u0438\u043C| \u0434\u0430| \u0443 |\u0441\u0432\u0430|\u043D\u043E | \u0437\u0430|\u043E \u043D|\u0432\u0430 |\u0438 \u043F|\u0438\u043B\u0438|\u0432\u0430\u043A|\u043B\u0438 | \u043A\u043E|\u043D\u0435 | \u0438\u043B|\u043A\u043E\u0458| \u043D\u0435| \u0434\u0440|\u043E\u0441\u0442| \u0441\u043B|\u045A\u0430 |\u0438\u043C |\u0438 \u0441|\u0443 \u0441|\u0438 \u0438|\u0430\u0432\u0430|\u0438\u0458\u0435|\u0430 \u0443| \u0431\u0438|\u0441\u0442\u0432|\u0441\u0435 |\u0432\u0430\u045A|\u0430 \u0434|\u043E\u043C |\u0458\u0435\u0434|\u0431\u043E\u0434|\u043E\u0431\u043E|\u043B\u043E\u0431|\u0441\u043B\u043E| \u0441\u0435| \u0440\u0430|\u0438\u0445 |\u0441\u0442\u0438|\u0430 \u043D|\u045A\u0435 | \u043E\u0431| \u0458\u0435|\u043F\u0440\u0438|\u0434\u0440\u0443|\u0443 \u0438|\u0458\u0443 |\u043E \u0434|\u0438\u0442\u0438|\u0432\u043E\u0458|\u0440\u0430\u0437|\u0430\u045A\u0435|\u043E\u0432\u0430|\u0434\u0458\u0435| \u043E\u0441|\u0435 \u0438|\u043B\u043E |\u0435 \u043F|\u0430\u045A\u0430|\u0443\u0458\u0435|\u0438 \u0434|\u0431\u0440\u0430|\u0442\u0440\u0435| \u0442\u0440| \u0441\u0443|\u0443 \u0437|\u0430 \u043A|\u043E\u0433 |\u0443 \u043F|\u043E\u0458\u0435|\u0446\u0438\u0458|\u0440\u0435\u0431|\u0430 \u043E|\u0430 \u0431| \u045A\u0435|\u0438 \u0443|\u043C\u0438\u0458|\u043D\u0438 |\u043D\u043E\u0441|\u0431\u0430 |\u0435\u0434\u043D|\u0441\u0432\u043E|\u045A\u0435\u0433| \u0438\u0437|\u043F\u0440\u043E|\u0435 \u0434|\u0436\u0430\u0432|\u0431\u0438\u0442| \u043D\u0438|\u0438 \u043E|\u0441\u0442\u0430|\u0430 \u0437|\u0430\u0432\u043D|\u0432\u0458\u0435| \u043A\u0430|\u0431\u0438\u043B|\u043E\u0432\u043E|\u0430 \u0458|\u0430\u0458\u0443|\u0438\u0441\u0442|\u0438 \u043D|\u043D\u0438\u0445|\u0458\u0435\u043B|\u0442\u0443 |\u0440\u0435\u0434|\u0433\u043E\u0432| \u043E\u0434|\u0435 \u043E|\u043E\u0458\u0438| \u0441\u043C|\u0458\u0430 |\u043E \u043A|\u0438\u043B\u043E|\u0430\u0446\u0438|\u0435 \u0443|\u043F\u0440\u0435|\u043E \u043F|\u0435\u0431\u0430|\u0443 \u043E|\u0441\u0443 |\u0432\u0438\u043C|\u0438\u0447\u043D| \u0441\u0430| \u0434\u0458|\u0430 \u0442|\u0438\u0458\u0430|\u0448\u0442\u0438|\u0447\u043D\u043E|\u0440\u0436\u0430|\u0434\u0440\u0436|\u0441\u0442\u0443|\u0434\u043D\u0430|\u043E\u0434\u043D|\u0435\u043D\u0438|\u0437\u0430 |\u0438\u0432\u0430|\u043D\u043E\u043C|\u0435\u043C |\u0434\u0443 |\u0440\u0430\u043D|\u0432\u043D\u043E|\u0441\u043C\u0438|\u0458\u0435\u0440|\u0435 \u0431|\u0435 \u043D|\u0434\u0435 |\u043F\u043E\u0441|\u043C \u0438| \u0434\u043E|\u0443 \u0434|\u043D\u0430\u043A|\u0430 \u0440|\u043E\u0431\u0440| \u043C\u043E|\u043D\u0438\u043C|\u0435\u0433\u043E| \u043A\u0440|\u0442\u0438\u0442|\u043A\u0440\u0438|\u0432\u0435 |\u0430\u043D |\u0438\u043A\u043E|\u043D\u0438\u043A|\u043D\u0443 |\u0438 \u043C|\u043D\u043E\u0433|\u0435\u043D\u043E|\u0441\u043D\u043E|\u0435 \u043A|\u0442\u0443\u043F|\u0440\u0443\u0433|\u043A\u0430 |\u043E\u0434\u0430|\u0440\u0438\u0432|\u0432\u043E\u0459|\u0430\u043B\u043D|\u043C \u0441|\u0438\u0442\u0443|\u0430\u0448\u0442|\u0437\u0430\u0448|\u0430\u043D\u0438|\u0441\u0430\u043C| \u0441\u0442|\u0430\u043A\u0432|\u043E\u0432\u0438|\u043E\u0441\u043D|\u0440\u043E\u0434|\u0430\u0440\u043E| \u043C\u0438|\u0458\u0438 |\u0442\u0432\u0430|\u0434\u043D\u043E|\u043D\u0441\u0442|\u0430\u043A |\u0438\u0442\u0435|\u0459\u0443 |\u0432\u0438\u0447|\u0440\u0430\u0434|\u0443 \u043D|\u0443 \u043C| \u0442\u0430|\u0434\u0441\u0442|\u0442\u0438\u0432|\u043D\u0430\u0446|\u0440\u0438\u043C|\u043A\u043E\u043D|\u043A\u0443 |\u045A\u0443 |\u043E\u0434\u0443|\u0436\u0438\u0432|\u0430\u043C\u043E|\u0442\u0432\u043E|\u0442\u0435\u0459|\u043F\u043E\u0434|\u0435\u0452\u0443|\u0433 \u043F|\u043D\u043E\u0432|\u0438\u043D\u0430|\u043D\u0430\u0440| \u0432\u0458|\u0438 \u0431|\u043E\u0458 | \u043E\u0432|\u0430\u0432\u0435|\u0432\u0443 |\u0430\u043D\u0441|\u043E\u0458\u0430|\u0437\u043E\u0432|\u0430\u0437\u043E|\u0443\u0434\u0435|\u0431\u0443\u0434| \u0431\u0443|\u0435 \u0442|\u0438 \u0432|\u0435\u045A\u0430|\u0435\u0434\u0438|\u043D\u0438\u0446|\u043D\u0430\u043F|\u043C\u0458\u0435| \u0438\u0441|\u0441\u043B\u0443|\u0435\u0434\u0441|\u043E \u043E|\u0437\u0430\u043A|\u0438 \u043A|\u043C \u043F|\u0442\u043D\u043E|\u0438\u0432\u043E|\u0435\u0440\u0435|\u043D\u0438\u0447|\u043A\u0430\u043A|\u0430\u0434\u0430|\u0432\u043D\u0438|\u0443\u0433\u0438| \u0440\u043E|\u043C\u043E\u0432|\u0432\u0435\u043D|\u043E \u0441|\u0442\u043E |\u0442\u0435 | \u0432\u0440| \u0431\u0435|\u0430\u0440\u0430|\u043A\u043B\u0430| \u0431\u0440|\u0443 \u0431|\u0443 \u0443|\u0438 \u0442|\u043E\u043D\u0430| \u043E\u043D|\u0430\u0432\u0438|\u0458\u0430\u043B|\u0434\u043D\u0438| \u0441\u043A", srp: " \u043F\u0440| \u0438 |\u0440\u0430\u0432|\u043D\u0430 |\u043F\u0440\u0430| \u043D\u0430|\u043C\u0430 | \u0441\u0432|\u0438\u043C\u0430|\u0434\u0430 |\u0430 \u043F|\u0432\u043E |\u043A\u043E |\u0442\u0438 |\u0430\u0432\u043E| \u043F\u043E|\u0430 \u0438|\u0430\u043A\u043E|\u0430 \u0441| \u0437\u0430| \u0443 |\u043E \u0438| \u0438\u043C|\u0438 \u043F|\u0432\u0430 |\u0441\u0432\u0430|\u0432\u0430\u043A| \u0434\u0430|\u043E \u043D|\u0435 \u0441|\u043E\u0441\u0442| \u043A\u043E|\u045A\u0430 |\u043B\u0438 |\u0438\u043B\u0438|\u043D\u0435 |\u043E\u043C | \u043D\u0435|\u0430 \u043D| \u0441\u043B| \u0438\u043B|\u0458\u0435 | \u0434\u0440|\u0438 \u0441|\u043D\u043E |\u043A\u043E\u0458|\u0443 \u0441|\u0430\u0432\u0430| \u0440\u0430|\u043E\u0433 |\u0441\u043B\u043E|\u0458\u0443 |\u0438\u043C |\u0441\u0442\u0438|\u0431\u043E\u0434|\u043E\u0431\u043E|\u043B\u043E\u0431|\u0438\u0442\u0438|\u0430 \u043E|\u0441\u0442\u0432|\u0438 \u0443|\u0430 \u0434|\u043D\u0438 |\u0458\u0435\u0434|\u0443 \u043F|\u043F\u0440\u0438|\u0435\u0434\u043D| \u0431\u0438|\u0438 \u0438|\u0430 \u043A|\u043E \u0434|\u0441\u0442\u0430|\u0438\u0445 |\u0434\u0440\u0443|\u0430 \u0443| \u0458\u0435|\u0430\u045A\u0430| \u043E\u0441| \u043D\u0438|\u043D\u043E\u0441|\u043F\u0440\u043E|\u0430\u0458\u0443|\u0438 \u043E| \u0434\u0435| \u0441\u0443|\u0443 \u0438|\u0441\u0435 |\u045A\u0435 |\u0458\u0430 |\u043E\u0432\u0430|\u0438 \u0434|\u0446\u0438\u0458| \u043E\u0431|\u0443\u0458\u0435|\u0440\u0435\u0434|\u0436\u0430\u0432|\u0435 \u0438|\u0435 \u043F|\u0430 \u0458|\u0434\u043D\u0430| \u0441\u0435| \u043E\u0434|\u0432\u0435 | \u043A\u0430|\u0435\u043D\u0438|\u0440\u0436\u0430|\u0434\u0440\u0436|\u0430 \u0437|\u0430\u0432\u043D|\u0435\u045A\u0430|\u0430\u0446\u0438|\u0432\u043E\u0458|\u043E\u0432\u043E|\u0443 \u0443|\u043C \u0438|\u043E\u0458\u0430|\u0432\u0430\u045A| \u0438\u0437|\u0438\u0458\u0430|\u0443 \u0437|\u0430\u045A\u0435|\u0440\u0430\u043D|\u0435 \u043E|\u0440\u043E\u0434|\u0438 \u043D|\u0435 \u0431|\u0440\u0430\u0437|\u0437\u0430 | \u045A\u0435|\u0433\u043E\u0432|\u0438\u0447\u043D| \u0441\u0442|\u043D\u043E\u0432|\u0441\u043D\u043E|\u043E\u0441\u043D|\u0434\u0443 |\u043F\u0440\u0435| \u0442\u0440|\u0441\u0443 |\u0432\u0443 |\u043E\u0434\u043D|\u0430 \u0431|\u0441\u0432\u043E|\u045A\u0435\u0433|\u043D\u0438\u043C|\u043D\u0438\u0445|\u0442\u0443 |\u0442\u0438\u0442|\u0448\u0442\u0438|\u043A\u0443 |\u043D\u043E\u043C|\u0431\u0438\u0442|\u0435 \u0434|\u043C\u0435 |\u0438\u043A\u043E|\u0447\u043D\u043E|\u043E\u0458\u0438|\u043B\u043E |\u0432\u043D\u043E|\u043D\u0438\u043A|\u0438\u043A\u0430|\u0431\u0435\u0437|\u0430\u0440\u0430|\u0434\u0435 |\u0443 \u043E|\u0432\u0438\u043C|\u043D\u0430\u043A| \u0441\u0430|\u0440\u0438\u0432|\u0430\u0432\u0435|\u0430\u043D |\u0432\u043E\u0459| \u043A\u0440|\u043E \u043F|\u0441\u043C\u0435|\u0435 \u043A|\u043D\u043E\u0433|\u0458\u0438 | \u043E\u0432|\u0435 \u0443|\u0442\u0432\u0430|\u0431\u0440\u0430|\u0440\u0443\u0433|\u0440\u0435\u0431|\u0442\u0440\u0435|\u0443 \u0434|\u043E\u0434\u0430| \u043C\u043E| \u0432\u0440|\u0430\u0432\u0459|\u0443 \u043D|\u0435\u0433\u043E|\u0434\u0435\u043B|\u043C \u0441|\u043A\u0440\u0438|\u043E \u043A|\u0430\u0448\u0442|\u0437\u0430\u0448|\u045A\u0443 | \u0441\u043C|\u0430\u043D\u0438| \u043B\u0438|\u0434\u043D\u043E|\u0435\u0452\u0443|\u0430\u043B\u043D|\u043B\u0430 |\u0430\u043A\u0432|\u043E\u0458 |\u043A\u043E\u043C|\u0441\u0442\u0443|\u0443\u0433\u0438|\u0430\u0432\u0438|\u0430 \u0440|\u043A\u0430 |\u0440\u0430\u0434|\u043E\u0434\u0438|\u0432\u0438\u0447|\u0442\u0430\u0432|\u0438\u0442\u0443|\u0443\u0434\u0435|\u0431\u0443\u0434| \u0431\u0443|\u043F\u043E\u0442|\u043E\u0434\u0443|\u0436\u0438\u0432|\u0435\u0440\u0435|\u0442\u0432\u043E|\u0438\u043B\u043E|\u0431\u0438\u043B|\u0430\u0440\u043E|\u0435 \u043D|\u043E\u0432\u0438|\u043F\u043E\u0440|\u0435\u043D\u043E|\u0448\u0442\u0432|\u043D\u0430\u0446|\u043E\u0432\u0435|\u043C \u043F|\u0442\u0443\u043F|\u043F\u043E\u0441|\u0440\u0435\u043C|\u0434\u043D\u0438|\u0431\u0430 |\u043D\u0441\u0442|\u0430 \u0442|\u043E\u0458\u0443|\u0430\u0441\u0442|\u0438\u0432\u0430|\u0435 \u043C|\u0432\u0440\u0435|\u0432\u0459\u0430|\u043D\u0443 |\u0431\u0435\u0452|\u0438\u0441\u0442|\u0435\u043D |\u0442\u0435 |\u0434\u0441\u0442|\u0440\u043E\u0442|\u0437\u0430\u043A|\u0430\u043E |\u043A\u0430\u043E|\u0438 \u043A|\u0458\u0443\u045B|\u043E \u0441|\u0441\u0442 |\u0441\u0430\u043C|\u043C \u043D|\u0442\u0435\u0440|\u043D\u0430\u0440| \u043C\u0435|\u0438 \u043C|\u043A\u043E\u043B|\u0435 \u0440|\u0443\u0448\u0442|\u0440\u0443\u0448|\u0432\u0435\u0440|\u043A\u0430\u043A| \u0431\u0435|\u0438 \u0431|\u043A\u043B\u0430|\u0430\u0434\u0430|\u0435\u0431\u0430|\u0435\u043D\u0430|\u043E\u043D\u0430| \u043E\u043D|\u0442\u0432\u0443|\u0430\u043D\u0441| \u0434\u043E|\u0440\u0430\u043A|\u0441\u043B\u0443|\u0438 \u0432|\u043D\u0438\u0446|\u0443 \u043A|\u043C\u0435\u043D|\u0432\u0440\u0448|\u0435\u043C\u0435|\u0435\u0434\u0441|\u0438\u0432\u0438|\u043E \u043E|\u0458\u0430\u0432", uzn: "\u0430\u043D |\u043B\u0430\u0440|\u0433\u0430 |\u0438\u0440 | \u0431\u0438|\u0430\u0440 | \u0432\u0430|\u0434\u0430 |\u0438\u0433\u0430| \u04B3\u0443|\u0432\u0430 |\u0431\u0438\u0440|\u0443\u049B\u0443|\u049B\u0443\u049B|\u04B3\u0443\u049B| \u04B3\u0430|\u0440 \u0431|\u0433\u0430\u043D|\u0438\u0448 |\u0438\u0434\u0430| \u0442\u0430|\u0430 \u044D|\u0438\u043D\u0438|\u0430\u0434\u0438|\u043D\u0433 |\u0434\u0438\u0440|\u0438\u0448\u0438|\u043B\u0438\u043A|\u043B\u0438\u0448|\u0438\u0439 |\u0438\u043B\u0438|\u0430\u0440\u0438|\u0443\u049B\u0438|\u04B3\u0430\u0440|\u043B\u0430\u043D|\u0438\u043D\u0433|\u0448\u0438 |\u0434\u0430\u043D|\u043D\u0438\u043D|\u0438\u043D\u0441|\u043A\u0438\u043D|\u0441\u043E\u043D|\u043D\u0441\u043E| \u0438\u043D| \u043C\u0443|\u049B\u0438\u0433| \u043C\u0430|\u043E\u043D |\u0440 \u0438| \u0431\u045E|\u044D\u0433\u0430| \u044D\u0433| \u045E\u0437|\u043D\u0438 |\u0431\u045E\u043B|\u0433\u0430\u0434|\u0438 \u0431|\u043A\u0438 |\u0438\u043B\u0430|\u0451\u043A\u0438| \u0451\u043A|\u0430 \u0431|\u043D \u0431|\u0438\u043D |\u0440 \u04B3|\u0430\u043B\u0430|\u044D\u0440\u043A| \u044D\u0440|\u043B\u0433\u0430| \u049B\u0430|\u0440\u043A\u0438|\u0448 \u04B3|\u0438 \u04B3|\u043D \u043C| \u0431\u043E| \u0431\u0430|\u0438\u043A |\u0430\u0440\u0430|\u0438\u0433\u0438|\u043B\u0438\u0433|\u0440\u0438 |\u049B\u0438\u043B|\u0430 \u0442|\u0431\u0438\u043B| \u044D\u0442|\u043D\u0438\u0448|\u043D\u043B\u0438|\u043A\u043B\u0430|\u0438 \u0432|\u0431\u043E\u0448|\u044D\u0442\u0438|\u0430\u043D\u0438|\u0438\u043C |\u0438 \u043C|\u043E\u043B\u0438|\u049B\u043B\u0430|\u0430 \u04B3|\u043B\u0430\u0448|\u0430\u0442\u043B|\u0442\u0438\u043B|\u0430 \u049B| \u043E\u043B|\u043E\u0441\u0438|\u043C\u0430\u0441|\u049B\u0430\u0440|\u0438\u043D\u043B|\u043B\u0430\u0442| \u049B\u0438|\u0442\u0430\u044A|\u04B3\u0430\u043C|\u0433\u0438 |\u0438\u0431 |\u043C\u043B\u0430|\u045E\u0437 |\u043D \u044D|\u043C\u0443\u043C| \u0434\u0430| \u0431\u0443|\u0430\u0442 |\u0448 \u0432|\u0443\u043D |\u0430\u0442\u0438|\u043C\u043A\u0438|\u0443\u043C\u043A|\u0442\u043B\u0430|\u0438\u0440\u043E|\u045E\u043B\u0438|\u0431\u0430\u0440|\u0438\u0440\u0438|\u0440\u0438\u0448|\u0438\u044F\u0442|\u0430\u043B\u0438| \u0431\u0435| \u049B\u043E|\u0430 \u0448|\u0430\u0440\u043E| \u043A\u0435|\u0438 \u0442|\u0440\u043B\u0430| \u0442\u0435|\u0447\u0430 |\u0440\u0447\u0430|\u0430\u0440\u0447|\u0430 \u045E| \u0448\u0443|\u0442\u0438\u0448|\u043D \u04B3|\u0442\u0433\u0430| \u0441\u0430|\u0430\u0441\u0438| \u0445\u0430|\u0440\u0430\u043A|\u043B\u0438\u043D|\u043E\u043B\u0430|\u0438\u043C\u043E|\u0448\u049B\u0430|\u043B\u0438 | \u0442\u0443|\u0430\u043C\u043B|\u043B\u043B\u0430|\u0441\u0438\u0434|\u043D \u045E| \u0430\u0441|\u043D\u0438\u0434|\u0430 \u0438| \u043A\u0438|\u043D \u0442|\u043D\u0434\u0430|\u043A \u0431|\u0435\u0440\u0430|\u043E\u0448\u049B|\u0441\u0438\u0437|\u043E\u0440 |\u0430 \u043C|\u0440 \u0432|\u0435\u043D\u0433|\u0442\u0435\u043D|\u043C\u0430\u0442|\u043C\u0434\u0430|\u0430\u043C\u0434|\u043B\u0438\u043C|\u0439 \u0442|\u044F\u0442 |\u0438 \u0430|\u0438\u043D\u043E|\u0438\u043B\u0433| \u0442\u043E|\u0442\u043D\u0438|\u0430\u043D\u0430|\u0430\u0441 |\u044D\u043C\u0430| \u044D\u043C|\u0430 \u0451| \u0448\u0430|\u0430\u0448 |\u0430 \u0430|\u0442\u0430\u0440|\u043A\u0430\u0442|\u0430\u043A\u0430|\u0430\u043A | \u0434\u0435|\u0430\u0437\u0430|\u0438\u043B\u043B|\u0441\u0438\u0439| \u0441\u0438| \u0441\u043E|\u0443\u049B\u043B|\u043D \u049B|\u043E\u0434\u0430|\u044A\u043B\u0438|\u0430\u044A\u043B|\u043D\u0438\u043A|\u0430\u0434\u0430| \u043D\u0438|\u0442\u0434\u0430|\u0433\u0438\u043D|\u0443\u043D\u0438|\u0441\u0438\u0442|\u0430\u0439 |\u049B\u043E\u043D|\u043D \u043E| \u0436\u0430|\u043A\u0438\u043C|\u0435\u0447 |\u04B3\u0435\u0447| \u04B3\u0435|\u045E\u0437\u0438|\u043B\u0430\u043A|\u043A\u0435\u0440|\u0438\u043A\u043B|\u043B\u043B\u0438|\u0443\u0440 |\u0437\u0430\u0440|\u0448\u043B\u0430|\u0440\u0438\u0433|\u0438\u0440\u043B|\u0434\u0430\u043C|\u043A\u043E\u04B3|\u0438\u043A\u043E|\u0430 \u0434|\u0430\u043C |\u043D \u0432|\u0440\u0442\u0438|\u0442\u0438\u0431|\u0442\u0430\u043B| \u0438\u0448|\u0447\u0443\u043D|\u0443\u0447\u0443| \u0443\u0447|\u0441\u043B\u0430|\u0430 \u0443|\u0440\u0438\u043D|\u0441\u043E\u0441|\u0430\u0441\u043E| \u0443\u043D|\u043D\u0430 | \u043A\u0430|\u043C\u0443\u04B3|\u0434\u0438\u0433|\u0447 \u043A|\u0430\u0441\u043B|\u043B\u043C\u0430|\u0440\u0430 |\u0431\u0443 |\u0445\u0430\u043B|\u045E\u043B\u0433|\u0438 \u043A|\u0435\u043A\u043B|\u0440 \u0434|\u049B\u0430\u0442|\u0430\u0433\u0430|\u0438 \u049B|\u043E\u0438\u0439|\u043C\u0438\u043B| \u043C\u0438|\u049B\u0430 |\u0438 \u0441|\u0436\u0438\u043D| \u0436\u0438|\u0441\u0438\u043D|\u0440\u043E\u0440|\u0430 \u0432|\u043B\u0430\u0434|\u0430 \u043E|\u0442\u043B\u0438|\u043C\u0438\u044F|\u043D \u0438|\u0430\u0431 |\u0442\u0438\u0440|\u0437 \u043C|\u0434\u0430\u0432|\u0440\u0433\u0430|\u0430\u0433\u0438|\u0430 \u043A|\u043D\u043B\u0430|\u0430\u049B\u0442|\u0432\u0430\u049B|\u0430\u0440\u0442|\u0430\u0451\u0442|\u043B\u0430\u0431", azj: " \u0432\u04D9|\u0432\u04D9 |\u04D9\u0440 |\u0438\u0440 | \u04BB\u04D9| \u0431\u0438| \u04BB\u04AF| \u043E\u043B|\u04AF\u0433\u0443|\u04BB\u04AF\u0433|\u0433\u0443\u0433|\u043D\u0430 |\u0438\u043D |\u043B\u0430\u0440|\u04BB\u04D9\u0440|\u0434\u04D9 | \u0448\u04D9|\u0431\u0438\u0440|\u043B\u04D9\u0440|\u043B\u0438\u043A|\u043C\u0430\u043B|\u0440 \u0431|\u043B\u043C\u0430|\u0440 \u04BB| \u0442\u04D9|\u04D9\u0445\u0441|\u0448\u04D9\u0445|\u04D9\u043D |\u0434\u0438\u0440|\u0443\u0433\u0443|\u0443\u043D\u0430|\u0430\u043D |\u0430\u043B\u0438|\u0430 \u043C| \u043C\u0430|\u0438\u043A\u0434|\u0438\u043D\u0438|\u0440 \u0448|\u0434\u04D9\u043D|\u0430\u0440 |\u0438\u043B\u04D9|\u0433\u0443\u043D|\u0430\u0433 |\u0430\u0441\u044B| \u0458\u0430|\u043C\u04D9\u043A|\u0458\u04D9\u0442| \u043C\u04D9| \u043C\u04AF|\u043A\u0434\u0438|\u04D9\u0441\u0438|\u04D9\u043A |\u0438\u043B\u043C|\u043D\u0438\u043D|\u043D\u0434\u04D9|\u043E\u043B\u043C|\u04D9\u0442\u0438|\u04D9 \u0458|\u0441\u0438\u043D|\u0445\u0441 |\u043D\u0434\u0430|\u043B\u043C\u04D9|\u0458\u0458\u04D9|\u0438 \u0432| \u0433\u0430| \u0430\u0437|\u043E\u043B\u0443|\u0438\u0458\u0458|\u0458\u0430 |\u0438\u043D\u0434|\u0437\u0430\u0434|\u0433\u043B\u0430|\u04AF\u043D |\u043D\u0438 |\u043B\u04D9 |\u0442\u0438\u043D|\u043D \u043C|\u0430\u0437\u0430|\u0430\u0440\u044B|\u04D9\u0442 |\u043D \u0442|\u043C\u0430\u0433|\u043B\u0443\u043D|\u043B\u044B\u0433|\u04D9 \u0431|\u0443\u043D |\u043D\u0443\u043D|\u0433 \u0432|\u043D \u04BB|\u0434\u0430\u043D|\u044B\u043D | \u0435\u0442|\u0442\u043C\u04D9|\u04D9\u0440\u04D9| \u04E9\u0437|\u0434\u0430 |\u04D9 \u0432| \u043E\u043D|\u04D9 \u0430|\u044B\u043D\u0430|\u044B\u043D\u044B|\u0431\u0438\u043B|\u0430 \u0431|\u0441\u044B |\u0438\u043B |\u04D9\u043C\u0438|\u0430\u0440\u0430|\u0441\u0438 | \u0434\u0438|\u04D9 \u043C|\u04D9\u0440\u0438|\u0440\u043B\u04D9| \u0432\u0430|\u04D9 \u04BB|\u0435\u0442\u043C|\u044B\u0493\u044B|\u0430\u043C\u0430|\u0434\u043B\u044B|\u0430\u0434\u043B|\u0440\u0438\u043D|\u0431\u04D9\u0440|\u0440\u044B\u043D|\u043D \u0438|\u043C\u04AF\u0434|\u043D\u044B\u043D| \u04BB\u0435|\u043C\u0430\u0441|\u0438\u043A |\u043D \u0430|\u0434\u0438\u043B|\u0430\u043B\u044B|\u0438\u0440\u043B|\u04D9\u043B\u04D9|\u04AF\u0434\u0430|\u0441\u044B\u043D|\u044B\u043D\u0434|\u0445\u0441\u0438|\u043B\u0438 |\u04D9 \u0434|\u043D\u04D9 | \u0431\u04D9|\u04D9\u0458\u0430| \u0438\u043D|\u04D9 \u0438|\u043B\u04D9\u0442| \u0441\u04D9|\u043D\u044B | \u0438\u0448|\u0430\u043D\u044B|\u0435\u0447 |\u04BB\u0435\u0447|\u0433 \u04BB|\u0435\u0458\u043D|\u04D9 \u0435|\u0434\u044B\u0440| \u0434\u0430|\u0430\u0441\u0438|\u0440\u044B |\u0438\u0448 |\u0438\u0444\u0430|\u043B\u044B\u0493|\u0438 \u0441|\u0444\u0438\u04D9|\u0430\u0444\u0438|\u0434\u0430\u0444| \u0435\u0434|\u043C\u04D9\u0437|\u0443 \u0432|\u043A\u0438\u043B| \u04BB\u0430|\u043E\u043B\u0430|\u043D \u0432|\u04D9\u043D\u0438|\u044B\u0440 |\u0443\u0433 |\u0443\u043D\u043C| \u0431\u0443| \u0430\u0441|\u0441\u0438\u0430|\u043E\u0441\u0438|\u0441\u043E\u0441|\u0438\u043B\u0438|\u044B\u0434\u044B|\u043B\u044B\u0434|\u043D\u043C\u0430|\u044B\u0433 |\u0438\u043D\u04D9|\u04D9\u0440\u0430|\u0441\u0438\u043B|\u0445\u0438\u043B|\u0430\u0445\u0438|\u0434\u0430\u0445|\u0430\u0434\u04D9|\u043C\u0430\u043D|\u0430 \u04BB|\u04D9 \u043E|\u043E\u043D\u0443|\u0430 \u0433|\u04D9\u0437 | \u043A\u0438|\u0441\u0435\u0447| \u0441\u0435|\u044B \u04BB|\u043C\u0438\u043D|\u043B\u0430\u043D|\u04D9\u0434\u04D9|\u0431\u0443 |\u0440\u0430\u0433|\u043B\u044B |\u044B\u043B\u044B|\u0430\u043B |\u04D9 \u0433|\u0440 \u0432|\u043D\u043B\u0430|\u04BB\u0441\u0438|\u04D9\u04BB\u0441|\u0442\u04D9\u04BB|\u04E9\u0437 |\u0438\u0441\u0442| \u0438\u0441|\u043C\u04D9\u0441| \u04D9\u0441|\u0438\u043D\u0430|\u04D9 \u0442|\u04D9\u0442\u043B|\u0430 \u0432|\u0438\u04D9 |\u043D \u0431|\u0442\u04D9\u0440| \u0442\u0430| \u04B9\u04D9|\u0435\u0434\u0438|\u0430\u043B\u0430|\u043A\u0438\u043C|\u0433\u0443 |\u0438 \u0442|\u0443\u043B\u043C|\u043C\u04D9\u04BB|\u043D \u043E|\u0430\u0458\u0430|\u044B \u043E|\u0438\u0430\u043B| \u0441\u043E|\u0438\u043B\u043B|\u0441\u0438\u0458| \u0434\u04D9|\u0432\u0430\u0440|\u0438\u043D\u0441|\u043C\u0438 |\u0493\u044B |\u043D\u0438\u043A|\u0440 \u0438|\u0430\u0433\u043B|\u043A \u04BB|\u0442\u04D9\u043C|\u0442\u0430\u043C|\u0447\u04AF\u043D|\u04AF\u0447\u04AF| \u04AF\u0447|\u0493\u044B\u043D|\u0441\u0430\u0441|\u04D9\u0441\u0430|\u0437 \u04BB|\u04D9\u043C\u04D9|\u0437\u0430\u043C| \u0437\u0430|\u0441\u0442\u0438|\u0440\u04D9\u0444|\u043D \u0435|\u0440 \u0430|\u0438\u043B\u0434|\u04BB\u04D9\u043C|\u044B\u0433\u043B|\u0458\u0430\u043D|\u043C\u0430\u0458|\u043D \u04D9|\u043C\u04D9\u043D|\u043C\u0438\u043B| \u043C\u0438|\u04D9\u0433\u0438|\u0434\u0438\u043D|\u043D \u0434|\u0442\u04AF\u043D| \u0434\u04E9|\u043C\u0438\u0458|\u043A\u0430\u04BB|\u0438\u043A\u0430| \u043D\u0438|\u0444\u0430\u0434|\u0442\u0438\u0444|\u043B \u043E|\u0441\u04D9\u0440|\u0458\u043D\u0438| \u0435\u0458|\u0430\u043D\u0430|\u043B\u04D9\u043D|\u0430\u043C |\u0440\u0438\u043B|\u0430\u0458\u04D9|\u0430\u0448\u044B", koi: "\u043D\u044B |\u04E7\u043D | \u0431\u044B|\u0434\u0430 | \u043F\u0440|\u043B\u04E7\u043D|\u0440\u0430\u0432| \u043C\u043E|\u043F\u0440\u0430| \u0434\u0430|\u0431\u044B\u0434| \u0432\u0435|\u043E\u0440\u0442|\u043B\u04E7 |\u04E7\u0439 |\u043C\u043E\u0440|\u04E7\u043C |\u0430\u0432\u043E| \u043D\u0435|\u0432\u043E |\u044B\u0434 |\u044B\u0441 |\u043D\u04E7\u0439|\u044B\u043D |\u043C \u043F|\u0434 \u043C|\u044B\u043D\u044B|\u0442\u043D\u044B| \u0430\u0441|\u0442\u04E7\u043C|\u043B\u044C\u043D| \u044D\u043C|\u0432\u0435\u0440|\u0441\u044C |\u044C\u043D\u04E7|\u044D\u043C |\u043D \u044D|\u0442\u043B\u04E7| \u043A\u044B|\u0441\u04E7 | \u043F\u043E|\u0435\u0440\u043C|\u0441\u044C\u04E7|\u0440\u0442\u043B|\u0430\u043B\u044C| \u043A\u04E7|\u044D\u0437 | \u04E7\u0442|\u04E7 \u0432|\u0442\u043E |\u0435\u0442\u043E|\u043D\u0435\u0442|\u044B\u043B\u04E7| \u043A\u043E|\u0442\u0448\u04E7| \u043E\u0442| \u0438 |\u044B \u0441|\u0431\u044B |\u04E7 \u0431|\u0441\u0442\u0432|\u043A\u04E7\u0440| \u0432\u04E7|\u0448\u04E7\u043C|\u043A\u044B\u0442|\u0442\u0430 |\u043D\u0430 |\u0437 \u0432| \u0441\u0435| \u0434\u043E|\u0432\u043E\u043B|\u04E7\u0441 | \u0441\u044B|\u044B \u0430|\u043E\u043B\u0430|\u0440\u043C\u04E7|\u0430\u0441 |\u043E\u0437 | \u043E\u0437| \u0441\u0456|\u0430 \u0441|\u0442\u0432\u043E|\u0441 \u043E| \u0432\u044B|\u043B\u0456\u0441|\u04E7 \u043A|\u044B\u0442\u0448|\u04E7 \u0434|\u0438\u0441 |\u0456\u0441\u044C|\u04E7\u0442\u043D|\u0430\u0441\u044C| \u043E\u043B| \u043D\u0430|\u0430\u0446\u0438| \u044D\u0442|\u0430 \u0432|\u0437\u043B\u04E7|\u0441\u0435\u0442| \u0432\u043E| \u0447\u0443|\u043B\u0430\u0441|\u043B\u0430\u043D|\u043C\u04E7 |\u0442\u044B\u0441|\u0440\u0442\u044B|\u04E7\u0440\u0442|\u044B \u043F|\u04E7\u0442\u043B|\u043E \u0441|\u044D\u0442\u0430|\u0434\u0437 |\u043A\u04E7\u0442|\u04E7\u0434\u043D|\u0432\u043D\u044B| \u043C\u044B|\u043D \u043D|\u0443\u0434\u0436| \u0443\u0434|\u0432\u044B\u043B|\u04E7 \u043C|\u0440\u0442\u0456|\u043E\u0440\u0439|\u0438\u0441\u044C| \u0441\u043E|\u0432\u043E\u044D|\u044B\u0434\u04E7|\u0439 \u043E|\u043A\u043E\u043B| \u0433\u043E|\u0441 \u0441|\u0441\u0441\u0438|\u0441\u044B\u043B|\u044B\u0441\u043B|\u0439\u044B\u043D|\u043A\u0438\u043D|\u043E\u043B\u04E7|\u0442\u04E7\u043D| \u0441\u044C|\u0430\u043D\u0430|\u04E7\u0440 |\u0446\u0438\u044F|\u0430 \u0434|\u04E7\u043C\u04E7| \u0432\u0438|\u0437 \u043A| \u044D\u0437|\u044B \u0431|\u0442\u04E7\u0433|\u04E7\u0442 |\u043C\u04E7\u0434|\u0435\u0441\u0442|\u043E\u0441\u0442|\u04E7\u043D\u044B|\u0442\u0438\u0440|\u043E\u0442\u0438|\u0443\u043A\u04E7|\u0447\u0443\u043A|\u043D \u043F|\u043E\u043D\u0434|\u043F\u043E\u043D|\u0441\u043B\u04E7|\u043A\u0435\u0440| \u043A\u0435| \u043E\u0431|\u0441\u0438\u0441|\u0441\u0443\u0434|\u0430 \u043D|\u0434\u043E\u0440|\u043A\u043E\u043D|\u043D\u0435\u043A|\u043D \u0431|\u043B\u04E7\u0442|\u0441 \u0432|\u0442\u0456 |\u044C\u04E7\u0440|\u0442\u0440\u0430| \u0441\u0442|\u043D\u0430\u043B|\u043E\u043D\u0430|\u043D\u0430\u0446|\u043D \u043A|\u043A\u04E7\u0434|\u04E7\u0433 |\u0441\u043A\u04E7|\u0442\u044C |\u0435\u0442\u04E7|\u0434\u04E7\u0441|\u0431\u044B\u0442|\u0440\u043D\u044B|\u04E7 \u043D|\u0442\u0441\u04E7|\u0440\u0440\u0435|\u0430 \u0431|\u043D\u0434\u0430|\u0441 \u0434|\u0430\u0441\u0441|\u044B \u043A|\u0430\u0441\u043B| \u043B\u043E|\u044C\u043D\u044B|\u0441\u044C\u043D|\u044B \u043C|\u0435\u043A\u0438|\u044B \u0434| \u043C\u04E7|\u044C \u043C|\u044B \u043D|\u044B\u0442\u04E7| \u043C\u0435|\u0440\u0439\u04E7|\u0438\u0430\u043B|\u0439 \u0434|\u0438\u0442\u04E7|\u0430 \u043A|\u04E7\u0441\u044C|\u043C\u04E7\u0441|\u043E\u0432\u043D|\u0437\u044B\u043D|\u0430 \u043F|\u043E\u0442\u0441| \u043B\u0438|\u043E\u043B\u044F|\u04E7 \u0430|\u043E\u0441\u0443|\u04E7\u044F |\u043D\u04E7\u044F|\u0435\u0437\u043B|\u0440\u0435\u0437|\u043C\u0435\u0434|\u0441 \u043C| \u0441\u044D|\u044C \u043A|\u0440\u0439\u044B|\u0430\u043A\u043E|\u0437\u0430\u043A| \u0437\u0430|\u044C\u044B\u043D|\u043D\u043D\u0451|\u043C\u04E7\u043B|\u0443\u043C\u04E7| \u0443\u043C|\u044B \u0443|\u043D \u0432|\u043C \u0434|\u043D \u0441| \u0434\u0437|\u043D \u043E|\u0440\u0430\u043D|\u0441\u0442\u0440|\u043E\u0437\u044C|\u043F\u043E\u0437|\u0437 \u043F|\u043E \u0434|\u0446\u0438\u0430|\u043E\u0446\u0438|\u0441\u043E\u0446|\u0438\u043E\u043D|\u0430 \u043C|\u0435\u0441\u043A|\u0447\u0435\u0441|\u043D\u04E7 |\u0437 \u0434|\u0442\u0441\u044C|\u0431\u04E7\u0440| \u0431\u04E7| \u043E\u0432|\u0432\u0435\u0441|\u043A\u044B\u0434|\u04E7 \u0441|\u0432\u043E\u044B|\u043A\u043E\u0434|\u0442\u043A\u043E|\u04E7\u0442\u043A|\u043E\u043B\u044C|\u0434\u0431\u044B|\u0435\u0434\u0431|\u0441\u044C\u044B|\u0447\u044B\u043D|\u0442\u0447\u044B|\u04E7\u0442\u0447|\u0442\u043B\u0430|\u043C\u04E7\u043D|\u0441\u043B\u0430|\u0439\u04E7\u0437| \u0439\u04E7|\u0442 \u0432|\u044B \u0438|\u0435\u0437 |\u043E \u0432|\u043E\u043D\u044B|\u0439\u04E7 |\u0430\u043D\u043D|\u04E7\u043B\u044C| \u043F\u044B|\u0430\u043D |\u043D\u04E7\u0441|\u043D\u0438\u0442| \u0441\u0443|\u043C \u0441", bel: " \u043F\u0440|\u043F\u0440\u0430| \u0456 |\u0430\u0432\u0430|\u043D\u0430 |\u0440\u0430\u0432| \u043D\u0430| \u043F\u0430|\u043D\u044B |\u0432\u0430 |\u0430\u0431\u043E|\u0446\u044C | \u0430\u0431|\u0430\u0435 | \u043C\u0430|\u0430\u0432\u0435|\u0430\u043D\u043D|\u0430\u0446\u044B|\u0441\u0432\u0430| \u0441\u0432|\u0435 \u043F|\u043B\u044C\u043D| \u0447\u0430|\u043D\u0435 |\u043D\u043D\u044F|\u0430\u043B\u0430|\u0430 \u043D|\u0430\u0439 |\u043B\u0430\u0432|\u0447\u0430\u043B| \u043A\u043E| \u0430\u0434| \u043D\u0435|\u0433\u0430 |\u043E\u0436\u043D|\u043A\u043E\u0436|\u0432\u0435\u043A|\u043D\u044F | \u044F\u043A|\u0436\u043D\u044B|\u044B \u0447|\u043C\u0430\u0435|\u0430 \u043F|\u0430\u0433\u0430|\u0431\u043E |\u0435\u043A |\u0430 \u0430|\u0446\u0430 |\u0446\u0446\u0430| \u045E | \u0437\u0430|\u044B\u0445 |\u043F\u0430\u0432|\u0430 \u0441|\u0433\u043E |\u0432\u0456\u043D|\u0434\u043D\u0430|\u0431\u043E\u0434|\u043C\u0456 |\u0432\u0430\u0431|\u0432\u0430\u043D|\u0430\u043C | \u0432\u044B| \u0441\u0430| \u0434\u0430|\u0441\u0442\u0430|\u0430\u0432\u0456|\u043D\u043D\u0435|\u0430\u0441\u0446|\u043D\u0430\u0439|\u0446\u044B\u044F|\u043D\u0430\u0433|\u0430\u0440\u0430|\u0456 \u043D|\u043A \u043C|\u044F\u0433\u043E| \u044F\u0433|\u044C\u043D\u0430|\u043F\u0440\u044B|\u0430\u0446\u044C|\u0456 \u043F|\u043E\u0434\u043D|\u0441\u0442\u0432|\u0430\u043C\u0430|\u043D\u044B\u0445| \u0431\u044B|\u0442\u0432\u0430|\u0434\u0437\u0435|\u0430\u043B\u044C| \u0440\u0430|\u043D\u0456 |\u0456 \u0441|\u0456 \u0430|\u044B\u0446\u044C|\u0430 \u0431|\u0435\u043D\u043D|\u043B\u0435\u043D|\u0446\u0456 |\u043E\u045E\u043D|\u044B\u043C |\u0440\u0430\u0446|\u0456\u043D\u043D|\u0456\u0445 | \u0430\u0441| \u0442\u0430|\u0442\u043E |\u043D\u0430\u0441|\u044F\u043A\u0456| \u0434\u0437|\u0447\u044B\u043D|\u043E\u043B\u044C|\u0456 \u0434|\u0430\u0432\u043E|\u0430\u0434 | \u043D\u0456|\u0441\u0446\u0456|\u044B\u043C\u0456|\u043D\u044B\u043C|\u0431\u044B\u0446|\u044F \u043F|\u044C\u043D\u044B|\u044B\u044F |\u0430\u0440\u043E|\u0430\u043D\u0430|\u0456\u043D\u0430|\u0456 \u0456|\u0440\u0430\u0434| \u0433\u0440|\u043B\u044F |\u045E\u043B\u0435|\u043E \u043F|\u0430 \u045E|\u0440\u044B\u043C|\u043F\u0430\u0434|\u044B\u0456 | \u0456\u043D|\u0430\u043C\u0456|\u0434\u0437\u044F|\u0440\u0430\u043C|\u0446\u044B\u0456|\u0430\u0431\u0430|\u0430 \u0456|\u0434\u0443 |\u0436\u043D\u0430|\u045E\u043D\u0430|\u043D\u0430\u043B|\u043D\u0430\u0446|\u0440\u044B |\u044D\u0442\u0430|\u0433\u044D\u0442| \u0433\u044D|\u043D\u0435\u043D|\u0434\u0430 |\u0430\u0445 |\u0433\u0440\u0430|\u043A\u0430\u0446|\u0443\u043A\u0430|\u0430 \u0437|\u043A\u0456 |\u0430\u0434\u0441|\u045E \u0456|\u043D\u0441\u0442|\u044D\u043D\u043D|\u044F \u0430|\u043D\u043D\u0456|\u043E\u0434\u0443|\u0430 \u0440|\u043D\u043D\u0430|\u0445\u043E\u0434|\u043D\u0430\u043D|\u043F\u0435\u0440|\u0445 \u043F| \u0443 |\u0430\u0434\u0437|\u0456 \u0440|\u043C\u0430\u0434|\u043C \u043F|\u0435 \u043C|\u0430\u0434\u0443|\u0434\u0441\u0442|\u0434\u043B\u044F| \u0434\u043B|\u043E\u045E |\u043D\u0430\u0435|\u0456 \u043C|\u0430\u043A\u043E| \u043A\u0430|\u044B \u045E|\u0431\u0430\u0440|\u0435 \u0430|\u0430\u0446\u0446|\u0443\u044E |\u044B\u0446\u0446|\u0441\u0430\u043C|\u044F\u045E\u043B|\u0430\u043B\u0435|\u0440\u043E\u0434|\u0440\u0430\u0431| \u043F\u0435|\u0448\u0442\u043E| \u045E\u0441|\u0430\u0434\u043D| \u0441\u0443|\u0440\u043E\u045E| \u0440\u043E|\u0434\u0443\u043A|\u043B\u044E\u0431|\u044C \u0441| \u0448\u043B|\u0440\u0430\u0437|\u043D\u0430\u0432|\u0437\u043D\u0430|\u0432\u043E\u043B|\u0443\u0434\u0437|\u0430\u0434\u0430|\u0436\u044B\u0446|\u0447\u043D\u0430|\u0432\u0435 |\u0430 \u0442|\u0430\u0441\u043D|\u0441\u0430\u0446|\u0435\u0440\u0430| \u0440\u044D|\u044F\u043A\u043E|\u043A\u043B\u0430|\u0430\u043D\u044B| \u0448\u0442|\u044C \u0443|\u0430\u044E\u0446|\u043D\u0430\u0440| \u0443\u0441|\u0441\u043E\u0431|\u0430\u0441\u043E|\u043F\u0430\u043C|\u044F \u045E|\u0430\u0432\u044F|\u0447\u044D\u043D|\u0432\u043E\u045E|\u0442\u0430\u043A|\u043D\u0443 |\u044E \u0430|\u044C \u043F|\u0437\u0430\u043A|\u043A\u0430\u0440|\u0435 \u0456|\u044C \u0430|\u0431\u0435\u0441|\u0456\u044F |\u043A\u0456\u044F|\u0445 \u0456|\u0437\u0430\u0431|\u0430\u0441\u0430|\u0456\u043C |\u0436\u0430\u0432|\u0456 \u0437|\u043B\u0435\u0436|\u0442\u0430\u043D|\u0430\u0445\u043E|\u044F\u043B\u044C|\u044B\u044F\u043B|\u043E \u0441|\u044F\u043D\u0430|\u043A\u0430\u043D|\u0430\u043A\u0430|\u0456\u043D\u0448|\u0430\u043B\u0456|\u0432\u044B | \u043C\u043E|\u043D\u0430\u0445|\u044F \u044F|\u043C \u043D|\u043E\u0433\u0430| \u0431\u0435|\u0439 \u0434|\u043E \u0430| \u0441\u0442|\u0435\u043D\u044B|\u0456 \u045E|\u0430 \u0434|\u0435\u0441\u043F|\u0448\u043B\u044E|\u0446\u0446\u044F|\u044B \u0456|\u044B\u0441\u0442|\u0440\u044B\u0441|\u043B\u044E\u0447|\u043A\u043B\u044E|\u0442\u0430\u0446|\u0443\u043B\u044C|\u044B\u043D\u0441|\u0430\u0447\u044B|\u0441\u043F\u0440| \u0441\u043F|\u0430\u045E |\u044B\u043C\u0430|\u0430\u0440\u044B|\u043A\u0430\u043C|\u0435 \u045E|\u0456 \u043A|\u043A\u043E\u043D", bul: " \u043D\u0430|\u043D\u0430 | \u043F\u0440|\u0442\u043E | \u0438 |\u0440\u0430\u0432|\u0434\u0430 | \u0434\u0430|\u043F\u0440\u0430|\u0441\u0442\u0432|\u0432\u0430 |\u0430 \u0441|\u0430 \u043F|\u0432\u043E |\u043D\u043E |\u0438\u0442\u0435|\u0442\u0430 |\u043E \u0438|\u0435\u043D\u0438| \u0437\u0430|\u043D\u0435 | \u043D\u0435| \u0432\u0441|\u0432\u0430\u043D|\u0430\u0432\u043E|\u0430 \u043D|\u043E\u0442\u043E|\u0435 \u043D|\u043E \u043D|\u0430 \u0438|\u043A\u0438 |\u0438\u0435 |\u0442\u0435 |\u043D\u0438 |\u0438\u043C\u0430| \u0438\u043C|\u043B\u0438 |\u0438\u043B\u0438|\u0438\u044F | \u043F\u043E|\u043E\u0432\u0435|\u0430\u043D\u0435|\u0447\u043E\u0432|\u043C\u0430 | \u0447\u043E|\u0438 \u0447|\u0430 \u0434|\u043D\u0438\u0435|\u0430\u043D\u0438|\u0438 \u0434|\u0435\u0441\u0442| \u0438\u043B|\u0432\u0435\u043A|\u0432\u0441\u0435| \u043E\u0431|\u0435\u043A |\u0435\u043A\u0438|\u0441\u0435\u043A|\u0430\u0432\u0430|\u0442\u0432\u043E|\u0441\u0432\u043E| \u0441\u0432|\u0432\u043E\u0442|\u0430 \u0432|\u0438 \u0441|\u043E\u0441\u0442| \u0440\u0430|\u043E\u0432\u0430|\u0430 \u043E|\u0435 \u0438|\u0432\u0430\u0442|\u0438 \u043D|\u0435 \u043F|\u043A \u0438|\u0430 \u0431| \u0432 |\u0438 \u043F|\u043B\u043D\u043E|\u043E \u0434| \u0441\u0435| \u0431\u044A|\u043F\u0440\u0438|\u0440\u0430\u0437|\u0435\u0442\u043E|\u044A\u0434\u0435|\u0431\u044A\u0434|\u0430\u0442\u0430| \u043A\u043E| \u0442\u0440| \u043E\u0441|\u0430\u0446\u0438| \u0441\u044A|\u0431\u043E\u0434|\u043E\u0431\u043E|\u0432\u043E\u0431|\u0430\u0442 |\u0437\u0430 |\u0442\u0435\u043B| \u0435 |\u043E \u0441|\u0434\u0435 |\u043E \u043F|\u0435\u043D |\u0438 \u0432| \u043E\u0442|\u0441\u0435 |\u043D\u0438\u044F|\u0440\u0430\u043D|\u0430\u043B\u043D| \u0434\u0435|\u0431\u0440\u0430|\u0435\u0433\u043E|\u043D\u0435\u0433| \u0438\u0437|\u043E\u0442 |\u044F\u0442\u0430|\u043A\u0430\u043A|\u043E\u0434\u0438|\u0435 \u0441|\u0438 \u0438|\u0434\u0435\u043D|\u043F\u0440\u0435|\u0431\u0432\u0430|\u044F\u0431\u0432|\u0440\u044F\u0431|\u0442\u0440\u044F|\u043D\u0438\u0442| \u043A\u0430|\u044F\u0432\u0430|\u043F\u0440\u043E|\u0441\u0442 |\u0430 \u0437|\u0433\u043E\u0432|\u0432\u0435\u043D|\u0442\u0432\u0435|\u043E \u043E|\u0430 \u0440|\u0430\u043A\u0432|\u043E \u0432|\u0438 \u0437|\u0440\u0435\u0434|\u043D\u043E\u0441|\u0438\u044F\u0442|\u0435 \u0434|\u0449\u0435\u0441|\u043D\u043E\u0432| \u043D\u0438|\u0446\u0438\u044F| \u0434\u043E|\u0439\u0441\u0442|\u043E \u0442|\u0435 \u0442|\u0440\u0436\u0430|\u044A\u0440\u0436|\u0434\u044A\u0440|\u0435\u043D\u043E|\u043F\u043E\u043B| \u0441 |\u043E\u0431\u0440|\u0442\u0432\u0430|\u043D\u043E\u0442|\u0440\u0435\u0441|\u0435\u0439\u0441|\u0438 \u043E|\u0435 \u0432|\u043A\u043E\u0439|\u043E\u0431\u0449|\u043B\u0435\u043D|\u043E\u043D\u0430|\u043D\u0430\u0446|\u0438\u0447\u0435|\u0435\u0437 |\u0431\u0435\u0437| \u0431\u0435|\u0435\u0436\u0434|\u0443\u0432\u0430|\u0432\u0438\u0442|\u0440\u0438 |\u0437\u0430\u043A|\u0438 \u043A| \u043B\u0438|\u0430 \u0435|\u043F\u043E\u0434|\u0435\u043B\u0438|\u043D\u0438\u043A|\u0441\u0438 |\u0435 \u043E|\u0430 \u0442|\u0438 \u0440|\u0442 \u0441|\u043A\u0430 |\u043E\u0435\u0442|\u0435\u043B\u043D|\u043D\u0435\u043D|\u043E\u0439 |\u0433\u0440\u0430|\u0436\u0435\u043D|\u0434\u0440\u0443| \u0440\u0435|\u0430 \u043A|\u0441\u043D\u043E|\u043E\u0441\u043D|\u043B\u0438\u0447|\u0437\u0438 | \u0442\u0430|\u0441\u0430 |\u043D\u0441\u0442|\u0430\u0432\u043D|\u0447\u043A\u0438|\u0438\u0447\u043A|\u0441\u0438\u0447|\u0432\u0441\u0438|\u043B\u044E\u0447|\u043A\u043B\u044E|\u0434\u043D\u043E| \u043C\u043E|\u0435\u043C\u0435|\u0442\u044A\u043F|\u0430 \u0443|\u0438\u0437\u0432|\u0442\u0432\u0438|\u0434\u0435\u0439|\u044F \u043D|\u043A\u0440\u0438|\u0430\u0442\u043E|\u043E \u0440|\u0439 \u043D|\u0438\u043A\u043E|\u0438\u0447\u043D|\u0436\u0430\u0432| \u0434\u044A| \u0442\u043E|\u0431\u0449\u0435| \u0441\u043E|\u043B\u0438\u0442|\u0442 \u043D| \u0441\u0438|\u0442 \u0438|\u0432\u043D\u0438|\u043E\u0434\u043D|\u0436\u0434\u0430|\u0437\u043E\u0432|\u0430\u0437\u043E|\u0443\u0447\u0430| \u0433\u0440|\u043A\u043E\u0435|\u0441\u0442\u044A|\u0432\u043E\u043B|\u043B\u043D\u0438|\u0441\u0440\u0435| \u0441\u0440|\u043A\u0432\u0430|\u043A\u043E\u043D|\u0442\u043D\u043E|\u0430\u043A\u0430|\u0438 \u0443|\u043A\u043E |\u0433\u0430\u043D|\u043E\u0434\u0430|\u0447\u0435\u043D|\u043B\u0441\u0442|\u0435\u043B\u0441|\u0441\u0442\u0440| \u043A\u044A|\u0441\u0442\u0430|\u0440\u043E\u0434|\u043D\u0430\u0440|\u0438 \u043C|\u0438\u0430\u043B|\u043D\u0430\u043B|\u0440\u0443\u0433| \u0434\u0440|\u0447\u0435\u0441|\u0434\u0438 | \u0441\u0430| \u0442\u0435|\u0441\u0442\u043E|\u0434\u043E\u0441|\u0440\u0430\u0436|\u0440\u0435\u0437|\u0447\u0440\u0435|\u0433\u0430\u0442|\u0435\u043E\u0431|\u0430 \u043C|\u043E \u0435|\u0438\u043D\u0435|\u0430\u0441\u0442|\u043E\u0432\u043E|\u0447\u043D\u043E|\u0430\u0432\u0435|\u043C\u0443 | \u043C\u0443|\u0430\u043D\u043E|\u0438\u0442\u0430|\u0438\u043C\u0438|\u0430\u043A\u043E|\u043D\u0430\u043A|\u043B\u0430\u0433|\u043E\u0432\u0438|\u0430\u043D ", kaz: "\u043D\u0435 | \u049B\u04B1|\u0435\u043D |\u04B1\u049B\u044B| \u0431\u0430| \u049B\u0430|\u049B\u04B1\u049B|\u044B\u049B |\u0493\u0430 | \u0436\u04D9|\u04D9\u043D\u0435|\u0436\u04D9\u043D| \u043D\u0435| \u0431\u043E|\u0434\u0435 |\u0434\u0430\u043C|\u0430\u0434\u0430|\u0430 \u049B|\u0442\u0430\u0440|\u044B\u043D\u0430| \u0430\u0434|\u044B\u043B\u044B| \u04D9\u0440|\u044B\u04A3 |\u0430\u043D |\u0456\u043D |\u049B\u044B\u043B|\u0430\u0440 |\u0435\u043C\u0435|\u043D\u0430 |\u0440 \u0430|\u043B\u044B\u049B|\u0443\u0493\u0430|\u0430\u043B\u0430|\u044B\u049B\u0442| \u04E9\u0437|\u043C\u0435\u0441|\u04D9\u0440 | \u0436\u0430|\u043C\u0435\u043D|\u044B\u0493\u044B|\u043B\u044B | \u0434\u0435|\u049B\u0442\u0430|\u043D\u044B\u04A3|\u043D \u049B|\u0493\u0430\u043D|\u0456\u043D\u0435|\u0431\u0430\u0441|\u0430\u0440\u044B| \u043C\u0435| \u049B\u043E|\u0435\u043A\u0435|\u044B\u043D |\u0434\u0430 |\u0435 \u049B|\u0434\u044B |\u0430\u0441\u044B|\u0441\u0435 |\u0435\u0441\u0435|\u0430\u043C |\u0431\u043E\u043B|\u0430\u043D\u0434|\u043D\u0435\u043C| \u0431\u0456|\u0430\u0440\u0430|\u044B \u0431|\u0441\u0442\u0430|\u0442\u0430\u043D|\u043D\u0434\u044B|\u043D \u0431|\u0456\u04A3 |\u0435 \u0431|\u0456\u043B\u0456|\u0442\u0438\u0456| \u0442\u0438|\u0431\u0430\u0440|\u0493\u044B |\u043D\u0434\u0435|\u0435\u0442\u0442|\u0438\u0456\u0441|\u049B\u044B\u0493|\u0456\u0441 |\u043B\u0430\u0440|\u0433\u0435 |\u044B \u0442|\u0456\u043D\u0434|\u0456\u043A |\u0431\u0456\u0440| \u0431\u0435| \u043A\u0435|\u0430\u043B\u0443|\u0435 \u0430|\u0430\u043B\u044B|\u043B\u0443\u044B|\u0430 \u0436|\u0435\u0440\u0456|\u043E\u043B\u044B| \u0442\u0435|\u049B\u044B\u049B|\u043D \u043A| \u0442\u0430|\u043D \u0436|\u0493\u044B\u043D|\u0442\u0442\u0456|\u0456\u043D\u0456|\u0442\u044B\u043D| \u0435\u0440|\u043D\u0434\u0430|\u0456\u043C | \u0441\u0430|\u0435 \u0436|\u0430\u0442\u044B| \u0430\u0440|\u0440\u0493\u0430|\u0435\u0442\u0456|\u0430\u043D\u0430|\u044B \u04D9|\u0443\u044B\u043D|\u043B\u0493\u0430|\u04E9\u0437\u0456|\u043E\u0441\u0442|\u0435\u0433\u0456|\u0442\u0456\u043A|\u049B\u0430 |\u0441\u049B\u0430|\u0440\u044B\u043D|\u043A\u0456\u043D|\u043B\u0443\u0493|\u04A3 \u049B|\u043D\u0456\u04A3|\u0443\u044B |\u0431\u043E\u0441|\u0430\u0441\u049B|\u049B\u0430\u0440|\u0434\u044B\u049B|\u043D\u0430\u043D|\u043C\u044B\u0441|\u043C\u043D\u044B|\u0430\u043C\u043D|\u044B \u043C|\u0430\u0439\u0434|\u043A\u0435 | \u0436\u0435|\u0437\u0456\u043D|\u0440\u0434\u0435|\u0440\u0456\u043D|\u0435 \u0442|\u0433\u0435\u043D|\u044B\u043F |\u0440\u044B |\u0442\u0456 |\u0441\u044B\u043D|\u049B\u0430\u043C|\u0434\u0435\u043D|\u0456 \u0431|\u0433\u0456\u0437|\u0440\u0430\u043B|\u0435 \u04E9|\u043B\u0430\u043D|\u0441\u044B |\u0430\u043C\u0430|\u0442\u0442\u0430|\u0442\u044B\u049B|\u0431\u0435\u0440|\u0434\u0456 |\u0431\u0456\u043B|\u0440\u043A\u0456|\u04E9\u0437 |\u0437\u0434\u0435|\u043A\u0435\u0442|\u049B\u043E\u0440|\u0434\u0430\u0439|\u0443\u0433\u0435|\u044B \u0435|\u044B\u043D\u0434|\u043D\u0435\u0433|\u043E\u043D\u044B|\u0435\u0439 |\u043C\u0435\u0442|\u0430\u043D\u044B|\u0430 \u0442|\u0436\u0430\u0441|\u0430\u0443\u044B|\u043B\u0433\u0435|\u0430\u0441\u0430|\u0435\u0433\u0435|\u0434\u0430\u0440|\u0440\u0443 |\u0430\u0443 |\u0435\u0440\u043A|\u044B \u0436|\u0440\u044B\u043B| \u0442\u043E|\u043D \u043D|\u0435 \u043D|\u0442\u0456\u043D|\u0456\u0440 |\u0441\u0456\u0437|\u0442\u0435\u0440|\u043B\u043C\u0430|\u0456 \u0442|\u043A\u0456\u043C| \u0430\u043B|\u0440 \u043C|\u043B\u0456\u043A| \u043C\u04AF|\u0435 \u043C|\u0442\u04AF\u0440| \u0442\u04AF|\u043A\u0435\u043B|\u043B\u044B\u043F|\u0435\u04A3 |\u0442\u0435\u04A3|\u0440\u043B\u044B|\u043B\u0456\u043C|\u0440\u0434\u044B|\u0430\u0440\u0434|\u0430\u0442\u0442|\u0441 \u0431|\u044B\u0440\u044B|\u0441\u044B\u0437|\u044B\u0441 |\u0435\u043B\u0433|\u0434\u0430\u043B|\u0439\u0434\u0430|\u043E\u0440\u0493|\u0440\u049B\u044B|\u0430\u0440\u049B| \u0436\u04AF|\u0442\u0430\u043B|\u044B\u043B\u043C|\u0430 \u0431|\u0456\u0433\u0456|\u043B\u0434\u0435|\u0456\u0437 |\u049B\u0442\u044B| \u0435\u0448|\u0434\u0435\u0439|\u0430\u0439 |\u0436\u0430\u0493|\u043A\u0442\u0456|\u0456\u043A\u0442|\u0433\u0456\u043D| \u04D9\u043B|\u0442\u0442\u044B|\u04B1\u043B\u0442| \u04B1\u043B|\u0435 \u0434|\u044B\u043D\u044B|\u043B\u0456\u043D|\u0440 \u0431|\u0435\u043B\u0435|\u043A\u04B1\u049B| \u043A\u04B1|\u0430\u043C\u0434|\u043C \u0431| \u0435\u0442|\u043E\u0493\u0430|\u049B\u04B1\u0440| \u043A\u04E9|\u0430\u0493\u0430|\u0442\u043E\u043B|\u0448\u0456\u043D|\u0430\u0439\u044B| \u049B\u044B|\u049B\u0430\u043B|\u0436\u0435\u043A|\u0456 \u043D|\u0435\u0441 |\u0430\u0493\u044B|\u0435 \u043E|\u0435\u043B\u0456| \u0435\u043B|\u043D \u0435|\u0437\u0456 |\u0448\u043A\u0456|\u0435\u0448\u043A|\u043E\u043B\u0443|\u0446\u0438\u044F|\u043C\u0430\u0441|\u0493\u0434\u0430|\u0430\u0493\u0434|\u043B\u0442\u0442|\u0456\u043C\u0434|\u043D\u044B\u043C| \u0434\u0430|\u0430 \u0434|\u04D9\u0441\u0456|\u0441 \u04D9|\u049B\u0430\u0442|\u0456\u0440\u0456| \u0441\u043E|\u04A3 \u0431|\u0430\u0437\u0430|\u043C\u0434\u0430|\u0430\u0439\u043B| \u0430\u0441|\u0493\u0430\u043C|\u049B\u043E\u0493" }, Arabic: { arb: " \u0627\u0644|\u064A\u0629 |\u0641\u064A | \u0641\u064A|\u0627\u0644\u062D| \u0623\u0648|\u0623\u0648 | \u0648\u0627|\u0648\u0627\u0644|\u062D\u0642 |\u0629 \u0627|\u0644\u062D\u0642|\u0627\u0644\u062A|\u0643\u0644 |\u0627\u0644\u0645|\u0644\u0643\u0644| \u0644\u0643|\u0644\u0649 |\u0642 \u0641|\u062A\u0647 |\u0648 \u0627|\u0629 \u0648|\u0634\u062E\u0635|\u0629 \u0644|\u0627\u062A |\u0627\u0644\u0623|\u064A \u0623|\u0648\u0646 | \u0634\u062E|\u0645 \u0627|\u0623\u064A | \u0623\u064A|\u0627\u0646 |\u0623\u0646 |\u0645\u0629 |\u064A \u0627|\u0627\u0644\u0627|\u0644\u0627 |\u0647\u0627 |\u0627\u0621 | \u0623\u0646| \u0639\u0644|\u062E\u0635 |\u0646 \u0627| \u0644\u0644|\u062F \u0627|\u0645\u0646 |\u0641\u0631\u062F|\u0645\u0627 |\u0627\u0644\u0639|\u062A \u0627|\u062D\u0631\u064A|\u0639\u0644\u0649|\u0644 \u0641|\u0631\u062F |\u0644 \u0634| \u0644\u0627|\u0631\u064A\u0629| \u0625\u0644|\u0629 \u0623|\u0627 \u0627|\u0646 \u064A| \u0648\u0644|\u0627 \u0644|\u0627 \u064A| \u0641\u0631| \u0645\u0646|\u0629 \u0645|\u0627\u0644\u0642|\u062C\u062A\u0645|\u0646 \u0623|\u0642 \u0627|\u0627\u0644\u0625| \u062D\u0631|\u0644\u0647 |\u0647 \u0644|\u0627\u064A\u0629|\u0644\u0643 |\u0647 \u0627| \u062F\u0648|\u062F\u0629 |\u0627\u064B |\u064A\u0646 |\u0647 \u0648|\u0644\u0629 |\u064A \u062D| \u0639\u0646|\u0645\u0627\u0639|\u064A \u062A|\u0630\u0627 | \u062D\u0642|\u0642\u0648\u0642|\u062D\u0642\u0648|\u060C \u0648|\u0646 \u062A|\u0645\u0639 |\u0635 \u0627|\u0627\u0645 |\u062F \u0623| \u0643\u0627|\u0647\u0630\u0627|\u0627\u0644\u0648| \u0625\u0646|\u0645\u0644 |\u0627\u0645\u0629|\u0639 \u0627|\u0625\u0644\u0649|\u0629 \u0639|\u0645\u0627\u064A|\u062D\u0645\u0627|\u0646 \u0648|\u0644\u062A\u0639| \u0648\u064A|\u064A\u0631 |\u0646\u0648\u0646|\u064A \u0648|\u0627\u0633\u064A|\u0627\u0644\u062C| \u0647\u0630|\u0646\u0633\u0627|\u0648\u0642 |\u062A\u0631\u0627|\u0639\u064A\u0629|\u0647 \u0623| \u0644\u0647|\u0633\u064A\u0629| \u064A\u062C| \u0628\u0627|\u062F\u0648\u0644|\u0627\u0646\u0648|\u0642\u0627\u0646|\u0644\u0642\u0627|\u0629 \u0628|\u0629 \u062A|\u062A\u0645\u0627|\u0627\u0644\u062F|\u064A\u0627\u062A|\u0639 \u0628|\u0633\u0627\u0646|\u0625\u0646\u0633|\u0647\u0645 |\u0639\u0644\u064A| \u0645\u062A|\u0644\u0645\u062C|\u0630\u0644\u0643|\u0639\u0645\u0644|\u0644\u0623\u0633|\u0648\u0632 |\u062C\u0648\u0632|\u064A\u062C\u0648|\u0628\u0627\u0644|\u063A\u064A\u0631|\u0643 \u0627|\u0643\u0627\u0646|\u0633\u0627\u0633|\u0623\u0633\u0627|\u062F\u0645 |\u0644\u0627\u062F|\u0627\u0639\u064A|\u0627\u0644\u0631|\u062A\u0645\u064A|\u062F\u0648\u0646|\u062A\u0645\u062A|\u0644\u062A\u0645| \u064A\u0639|\u0644\u064A\u0647|\u0633\u0627\u0648|\u0627\u062C\u062A|\u064A \u0645|\u0644\u0639\u0627|\u0644\u062C\u0645|\u062A\u0639\u0644|\u0631 \u0648|\u062A\u0645\u0639|\u0645\u062C\u062A| \u0645\u0639|\u064A\u0647 |\u0649 \u0623|\u0641\u064A\u0647|\u0649 \u0627| \u0643\u0644|\u0644\u0627\u062A|\u0645\u0644\u0627|\u0648\u062F |\u0627\u0646\u062A|\u0627\u0644\u0641|\u064A\u0647\u0627|\u064A \u0625|\u062A\u064A |\u0627\u0644\u0628|\u0644\u064A |\u0642\u062F\u0645|\u0627\u0644 |\u0627\u062F |\u0644 \u0627|\u064A\u0632 |\u064A\u064A\u0632|\u0645\u064A\u064A| \u062A\u0645|\u0644\u062D\u0631|\u062A\u0639 |\u0645\u062A\u0639|\u0627 \u0628|\u0639\u0627\u0645|\u0627 \u0648|\u0642 \u0648|\u0631\u0627\u0645|\u0644 \u0644|\u0644\u0627\u062C|\u0631\u0627 |\u0627\u0644\u0634| \u0648\u0625|\u064A\u0645 |\u0644\u064A\u0645|\u0634\u062A\u0631|\u0627 \u062D|\u0648\u0627\u062C|\u0644\u0632\u0648|\u0648\u0644 |\u0627 \u0641|\u0648\u0644\u0629|\u0644\u062D\u0645|\u0623\u0633\u0631| \u0630\u0644|\u0647 \u0641|\u0627\u062A\u0647|\u0645\u0633\u0627|\u0644\u0645\u0633| \u062A\u0639|\u0639\u0646 |\u0647 \u0639|\u0648\u0644\u0647|\u064A\u062A\u0647|\u0646 \u0644|\u0631\u0629 | \u0648\u0633|\u0627\u0629 |\u064A\u062F | \u062A\u062D| \u0645\u0633|\u064A \u064A|\u0644\u062A\u064A|\u0639\u0629 |\u0648\u0644\u064A|\u0644\u062F\u0648| \u0623\u0633| \u0648\u0641|\u0644 \u0648|\u0623\u064A\u0629|\u0646\u064A |\u0627\u0644\u0633|\u0644\u0627\u0646|\u0644\u0625\u0639|\u0629 \u0641|\u0631\u064A\u0627|\u0644 \u0625|\u0645 \u0628|\u0627\u0645\u0644|\u0643\u0631\u0627|\u062A\u0633\u0627|\u0645\u064A\u0639|\u062C\u0645\u064A| \u062C\u0645|\u0623\u0648\u0644|\u0628\u064A\u0629|\u0639\u064A\u0634|\u062A\u062D\u0642|\u0627\u062F\u0629|\u0633 \u0627| \u0645\u0645|\u0645\u0639\u064A|\u062C\u0645\u0627|\u0639\u0627\u062A|\u0627\u0639\u0627|\u0627\u0631\u0633|\u0645\u0627\u0631|\u0645\u0645\u0627|\u0645 \u0648|\u0631\u0627\u0643|\u0627\u0634\u062A|\u0627\u0644\u0637|\u0627\u062C |\u0632\u0648\u0627|\u0627\u0644\u0632| \u0648\u0645|\u062D\u062F\u0629|\u062A\u062D\u062F|\u0644\u0645\u062A|\u0645\u0645 |\u0644\u0623\u0645|\u062F\u0647 |\u0628\u0644\u0627| \u0628\u0644|\u0627\u0631 |\u064A\u0627\u0631|\u062A\u064A\u0627|\u062E\u062A\u064A|\u0627\u062E\u062A|\u0646 \u0645| \u0645\u0631", urd: "\u0648\u0631 | \u0627\u0648|\u0627\u0648\u0631|\u06A9\u06D2 | \u06A9\u06D2| \u06A9\u06CC| \u06A9\u0627|\u06CC\u06BA | \u062D\u0642|\u06A9\u06CC |\u06A9\u0627 | \u06A9\u0648|\u0626\u06D2 |\u06D2 \u06A9|\u06CC\u0627 |\u0633\u06D2 |\u06A9\u0648 |\u0634\u062E\u0635| \u0634\u062E|\u0646\u06D2 | \u0627\u0633| \u06C1\u06D2|\u0645\u06CC\u06BA|\u062D\u0642 | \u06C1\u0648| \u0645\u06CC|\u062E\u0635 |\u06D2 \u0627| \u062C\u0627|\u0627\u0633 | \u0633\u06D2| \u06CC\u0627|\u06C1\u0631 |\u06CC \u0627| \u06A9\u0631| \u06C1\u0631|\u06D2\u06D4 |\u0633\u06CC |\u06C1\u06CC\u06BA|\u0627 \u062D|\u0635 \u06A9|\u0648\u06BA |\u06D2 \u0645| \u0627\u0646|\u0631 \u0634|\u06D4 \u06C1|\u0627\u0626\u06D2|\u0632\u0627\u062F|\u0622\u0632\u0627| \u0622\u0632|\u0627\u0645 |\u0631 \u0627|\u0642 \u06C1|\u0627\u062F\u06CC|\u062C\u0627\u0626|\u06BA \u06A9|\u06C1\u06D2\u06D4|\u0645 \u06A9| \u06A9\u0633|\u0627 \u062C|\u06CC \u06A9|\u0633 \u06A9|\u06A9\u0633\u06CC| \u067E\u0631|\u06D2 \u06AF|\u06C1\u06D2 |\u0627\u0631 |\u062A \u06A9|\u062F\u06CC |\u067E\u0631 |\u0648 \u0627| \u062D\u0627| \u062C\u0648| \u06C1\u06CC|\u0627\u0646 |\u06CC \u062C|\u0631\u06CC | \u0646\u06C1| \u0645\u0639|\u062C\u0648 |\u0644 \u06A9|\u06CC \u062A|\u0646 \u06A9|\u06A9\u0631\u0646|\u0626\u06CC |\u0644 \u06C1|\u062A\u06CC |\u06C1\u0648 |\u06C1 \u0627| \u0627\u06CC|\u0635\u0644 |\u0627\u0635\u0644|\u062D\u0627\u0635|\u0631\u0646\u06D2|\u06CC \u0634|\u0646\u06C1 |\u06D4 \u0627|\u06BA\u06D4 |\u06CC\u06BA\u06D4|\u0631 \u06A9|\u0631 \u0645| \u0645\u0644|\u0648\u06C1 |\u0645\u0639\u0627|\u0631\u06D2 |\u06BA \u0627|\u0646\u06C1\u06CC|\u06D2 \u06C1|\u06D2 \u0628|\u0627\u06CC\u0633|\u06D2 \u0644| \u062A\u0639| \u06AF\u0627|\u06CC\u062A |\u06CC \u062D|\u0627 \u0627|\u06CC \u0645|\u0627\u067E\u0646| \u0627\u067E|\u06A9\u06CC\u0627|\u0645\u06CC |\u06CC \u0633| \u062C\u0633|\u06C1 \u06A9|\u0646\u06CC |\u0627\u0634\u0631|\u0639\u0627\u0634| \u062F\u0648|\u0644\u0626\u06D2| \u0644\u0626|\u0627\u0646\u06C1|\u0648\u0642 |\u0642\u0648\u0642|\u062D\u0642\u0648|\u0645\u0644 | \u0642\u0627|\u06A9\u06C1 | \u06AF\u06CC|\u0631 \u0628|\u06C1 \u0645| \u0648\u06C1| \u0628\u0646|\u06CC \u0628|\u0645\u0644\u06A9|\u062C\u0633 |\u0627\u06D4 |\u0631\u06CC\u0642|\u0631 \u0646|\u06D2 \u062C|\u0627\u062F |\u0627\u062A |\u06AF\u06CC |\u062F \u06A9|\u06D2 \u062D|\u062F\u0627\u0631|\u0631 \u06C1|\u06AF\u0627\u06D4|\u0642\u0648\u0645| \u0642\u0648|\u06D2\u060C |\u0627 \u0633|\u062F\u0648\u0633|\u0631 \u067E| \u0648 | \u0634\u0627|\u06CC \u0622|\u06BA \u0645|\u0642 \u062D| \u067E\u0648| \u0628\u0627|\u062E\u0644\u0627|\u0627\u0646\u06D2|\u06CC\u0645 |\u0644\u06CC\u0645|\u0648 \u062A|\u0648\u0646 | \u06A9\u06C1|\u06CC\u060C |\u06D4 \u06A9|\u0627 \u067E|\u0646 \u0627|\u0644\u06A9 |\u0639\u0644\u0627|\u0627 \u0645|\u0642 \u06A9|\u0627\u0626\u06CC|\u0648\u0633\u0631|\u06CC \u06C1|\u0648\u0626\u06CC|\u06CC\u0631 |\u0627 \u06C1|\u0639\u0644\u06CC|\u0648 \u06AF|\u0648\u0631\u06CC|\u062F\u06AF\u06CC|\u0646\u062F\u06AF|\u0648 \u06A9|\u06CC\u0633\u06D2| \u0645\u0646|\u0627\u0626\u062F|\u0631\u0627\u0626| \u0645\u0631|\u067E\u0648\u0631| \u0637\u0631|\u0648\u0645\u06CC|\u06D2 \u062E|\u0633\u0628 |\u0646\u0648\u0646|\u0627\u0646\u0648|\u0642\u0627\u0646| \u0633\u06A9|\u0648\u0627\u0645|\u06CC\u0646 | \u0631\u06A9|\u062A\u0639\u0644|\u0644\u0627\u0642|\u063A\u06CC\u0631|\u062F\u0627\u0646|\u060C \u0627| \u0628\u06CC| \u0645\u0633|\u06CC\u0648\u06BA|\u0646\u0627 | \u0628\u06BE| \u0628\u0631|\u0631\u062A\u06CC|\u0627\u062F\u0627|\u0627\u0645\u0644|\u06CC\u06C1 | \u06CC\u06C1|\u06C1 \u0648| \u0639\u0627|\u06CC \u067E| \u0628\u0686|\u0627\u0641 |\u0644\u0627\u0641| \u062E\u0644|\u06CC\u06D4 |\u06AF\u06CC\u06D4| \u062F\u06CC|\u06BE\u06CC |\u0628\u06BE\u06CC|\u062F\u06C1 |\u062C\u0627 |\u067E\u0646\u06CC|\u0642\u0648\u0627|\u0627\u0642\u0648|\u0631\u06A9\u06BE|\u06D2 \u06CC| \u0639\u0644|\u06A9\u0648\u0626|\u060C \u0645| \u0686\u0627|\u06D2 \u0633|\u0631 \u0639| \u067E\u06CC|\u0628\u0631\u0627|\u0631 \u0633|\u0631 \u062D|\u0633\u0627\u0646|\u0645 \u0627|\u06A9\u0627\u0645|\u0634\u0631\u062A| \u0631\u0627|\u0634\u0627\u0645|\u0645\u0646 |\u0632\u0646\u062F| \u0632\u0646|\u0628 \u06A9|\u062A \u0645|\u0627\u06C1 |\u0627\u0631\u06CC|\u0633 \u0645|\u0631 \u062C| \u0645\u062D|\u0648\u0631\u0627|\u06D2 \u067E|\u0637\u0631\u06CC|\u06C1\u0648\u06BA|\u0627\u0644 |\u06BA \u0633|\u06CC \u0646|\u06A9\u0631\u06D2| \u0645\u0642|\u062A \u0633|\u062A\u062D\u0641| \u062A\u062D|\u0648\u06D4 |\u06C1\u0648\u06D4|\u0628\u0646\u062F| \u0627\u0642|\u062F \u06C1| \u0627\u0645|\u0627\u0645\u06CC|\u0627\u0644\u0627|\u0644\u062A |\u0634\u0631\u06D2|\u06D2 \u0639|\u0627 \u06A9|\u0641\u0631\u06CC", pes: " \u0648 | \u062D\u0642| \u0628\u0627|\u0646\u062F |\u0631\u062F |\u062F\u0627\u0631| \u062F\u0627|\u06A9\u0647 |\u0647\u0631 | \u062F\u0631| \u06A9\u0647|\u062F\u0631 | \u0647\u0631|\u0631 \u06A9|\u062D\u0642 |\u062F \u0647|\u0627\u0632 |\u06CC\u062A | \u0627\u0632|\u06CC\u0627 |\u06A9\u0633 |\u0648\u062F |\u0627\u0631\u062F| \u06CC\u0627| \u06A9\u0633|\u0627\u06CC |\u062F \u0648| \u0628\u0631| \u062E\u0648|\u0642 \u062F|\u0628\u0627\u0634|\u0634\u062F |\u062F \u06A9|\u0627\u0631 |\u062F \u0628| \u0631\u0627|\u0647 \u0628|\u0627\u0646 |\u0622\u0632\u0627| \u0622\u0632|\u0631\u0627 |\u0627\u0634\u062F|\u06CC \u0648|\u0647 \u0627|\u06CC\u0646 |\u06CC\u062F |\u0632\u0627\u062F|\u0633 \u062D|\u062E\u0648\u062F|\u06CC \u0628| \u0627\u0633|\u062F\u0647 |\u062F\u06CC |\u0648\u0631 |\u0627\u06CC\u062F|\u0647 \u062F|\u0631\u06CC |\u0648 \u0627|\u062A\u0645\u0627|\u0627\u062A | \u0646\u0645|\u06CC \u06A9|\u0627\u062F\u06CC|\u0646\u0647 |\u0631\u0627\u06CC|\u062F \u0627| \u0622\u0646|\u0627\u0633\u062A|\u0631 \u0627|\u0631 \u0645| \u0627\u062C|\u0645\u0627\u06CC|\u0648\u0646 |\u0642\u0648\u0642|\u062D\u0642\u0648|\u0648 \u0645| \u0627\u0646|\u0627\u0646\u0647| \u0647\u0645|\u0648\u0642 |\u0627\u06CC\u062A| \u0634\u0648|\u06CC \u0627| \u0645\u0648| \u0628\u06CC|\u0628\u0627 | \u062A\u0627|\u0648\u0631\u062F|\u0627\u0646\u0648|\u0633\u062A |\u0648\u0627\u0646|\u0628\u0631\u0627|\u0627\u0645 |\u0634\u0648\u062F|\u0622\u0646 |\u062C\u062A\u0645|\u06CC \u06CC| \u06A9\u0646|\u0631 \u0628|\u06A9\u0646\u062F| \u0645\u0631|\u062A \u0645|\u0647\u0627\u06CC|\u062A \u0627| \u0645\u0633|\u06CC\u060C |\u0645\u0627\u0639|\u0627\u062C\u062A|\u062A\u0648\u0627|\u06CC\u06AF\u0631|\u0648 \u0628|\u062F\u0627\u0646|\u062A \u0648|\u0627 \u0645| \u0628\u062F|\u0639\u06CC |\u06A9\u0627\u0631| \u0645\u0646|\u0645\u0648\u0631| \u0645\u0642|\u06CC \u062F| \u0632\u0646|\u06CC \u0645|\u0646 \u0628|\u0631 \u062E|\u0627\u0647 |\u0627 \u0628|\u0627\u0631\u06CC|\u062F \u0622|\u0645\u0644 | \u0628\u0647|\u0627\u0639\u06CC|\u062F\u060C |\u062F\u06CC\u06AF|\u062A \u0628|\u0628\u0627\u06CC|\u0627\u06CC\u0646| \u0645\u06CC|\u0646 \u0648|\u0642 \u0645| \u0639\u0645| \u06A9\u0627|\u0646 \u0627|\u0648 \u0622| \u062D\u0645|\u0646\u0648\u0646|\u0647 \u0648|\u0648 \u062F|\u062F \u0634| \u0627\u06CC|\u0634\u0648\u0631|\u06A9\u0634\u0648| \u06A9\u0634|\u0644\u06CC |\u0646\u06CC |\u0647 \u0645|\u0628\u0639\u06CC|\u0631 \u0634|\u06CC\u0647 | \u0645\u0644|\u0645\u06CC\u062A|\u06CC \u0631|\u0631\u0646\u062F| \u0634\u0631|\u0645\u06CC |\u0648\u06CC |\u0633\u0627\u0648|\u0642\u0627\u0646| \u0642\u0627|\u0645\u0642\u0627|\u0627\u0648 | \u0627\u0648|\u062F \u0645|\u06AF\u06CC |\u0646\u0645\u06CC| \u0627\u062D| \u0645\u062D|\u0645\u06CC\u0646|\u0626\u06CC |\u0627\u062F\u0627| \u0622\u0645|\u062E\u0648\u0627|\u06AF\u0631\u062F| \u06AF\u0631|\u0645\u0646\u062F| \u0634\u062F|\u0627\u0626\u06CC| \u062F\u06CC|\u0632 \u062D|\u0647\u06CC\u0686| \u0647\u06CC|\u0627\u062F\u0647| \u0645\u062A|\u0646\u0645\u0627|\u062A \u06A9|\u0631\u0627\u0646| \u0628\u0645|\u0646 \u062D|\u0631 \u062A|\u062D\u0645\u0627|\u0627\u0631\u0646|\u0645\u0633\u0627|\u062F\u06AF\u06CC|\u0648\u0645\u06CC|\u0646 \u062A|\u0645\u0644\u0644|\u0628\u0631 |\u0647\u062F |\u0648\u0627\u0647|\u0628\u0647\u0631| \u0627\u0639|\u200C\u0647\u0627|\u0642 \u0648|\u060C \u0627|\u0639\u06CC\u062A|\u06CC\u062A\u0648|\u0627 \u0631|\u0646 \u0645| \u0639\u0642|\u0647\u0645\u0647|\u0627 \u0647|\u0632\u0634 |\u0648\u0632\u0634|\u0645\u0648\u0632|\u0622\u0645\u0648|\u0627\u0646\u062A|\u062A\u06CC |\u062C\u0627\u0645|\u0645\u0648\u0645|\u0639\u0645\u0648|\u062A\u062E\u0627| \u0641\u0631|\u0637\u0648\u0631|\u062F \u062F|\u0647 \u062D|\u0631\u062F\u0627|\u0627\u0648\u06CC|\u0646\u0648\u0627|\u0627\u0646\u06CC|\u0631\u0627\u0631| \u0645\u062C|\u06CC \u0646|\u062D\u062F\u06CC|\u0627\u062D\u062F|\u0646\u062F\u06AF|\u0632\u0646\u062F|\u0634\u062E\u0635| \u0634\u062E|\u200C\u0645\u0646|\u0647\u200C\u0645|\u0631\u0647\u200C|\u0647\u0631\u0647|\u0634\u062F\u0647|\u0639 \u0627|\u0648 \u0647|\u0627\u0633\u06CC|\u0647\u0654 |\u06CC\u062F\u0647|\u0639\u0642\u06CC|\u0627 \u0627|\u0645\u0647 | \u0628\u0634|\u0627\u062F |\u062F\u06CC\u0647|\u0627 \u062F|\u062F\u0648\u0627|\u06CC \u062D|\u0627\u0628\u0639|\u06CC \u062A|\u062E\u0627\u0628|\u0646\u062A\u062E|\u0631\u0648\u0631|\u0648 \u0631|\u0634\u0631\u0627| \u062E\u0627|\u0654\u0645\u06CC|\u0627\u0654\u0645|\u062A\u0627\u0654|\u0627\u064B |\u0627\u0645\u0644|\u0644\u0647 |\u062F \u0631|\u0627\u0633\u0627|\u062E\u0648\u0631|\u0628\u0644 |\u0627\u0628\u0644|\u0642\u0627\u0628|\u06CC\u06A9 |\u0633\u0627\u0646|\u0642\u0631\u0627|\u0627 \u0646|\u062E\u0635\u06CC| \u0627\u0645| \u0628\u0648|\u06CC\u0631 |\u0627\u0644\u0645|\u0628\u06CC\u0646|\u0627\u0647\u062F|\u062A\u0628\u0639| \u062A\u0628", zlm: " \u062F\u0627|\u0627\u0646 |\u062F\u0627\u0646| \u0628\u0631| \u0627\u0648|\u0646 \u0633|\u0631\u06A0 |\u062F\u0627\u0644| \u06A4\u0631|\u0644\u0647 |\u0643\u0646 | \u0643\u06A4|\u0646 \u0627|\u0646 \u0643|\u0646 \u062F|\u064A\u06A0 | \u064A\u06A0|\u06A4\u062F |\u062D\u0642 |\u0648\u0631\u06A0|\u062A\u064A\u0627|\u064A\u0627\u06A4|\u0627\u0631\u0627|\u0643\u06A4\u062F|\u0627\u0648\u0631|\u0631\u062D\u0642|\u0628\u0631\u062D|\u0627\u0644\u0647|\u0623\u0646 |\u0648\u0644\u064A| \u0627\u062A|\u0627\u062A\u0627|\u06A0\u0646 |\u062A\u0627\u0648|\u0627\u06A4 |\u0633\u062A\u064A|\u0644\u064A\u0647|\u0627\u0648 | \u0633\u062A|\u06A4 \u0627|\u064A\u0647 |\u0631\u0627 |\u0647 \u0628|\u0647 \u062F|\u0639\u062F\u0627| \u0639\u062F|\u0646 \u06A4|\u0646 \u0628|\u064A\u0646 | \u062A\u0631|\u0642 \u0643|\u0646 \u064A|\u064A\u0628\u0633|\u0628\u064A\u0628| \u062A\u064A| \u0633\u0648| \u0643\u0628| \u0633\u0627|\u0646 \u0645|\u0646 \u062A|\u0644\u0645 |\u0627\u0644\u0645|\u062F \u0633|\u06A0 \u0639| \u0645\u0646|\u0686\u0627\u0631|\u062F \u06A4|\u0631\u0646 |\u0633\u0627\u0645| \u0645\u0627|\u06BD \u0633|\u0646\u060C | \u0628\u0648| \u0627\u064A|\u0646\u062F\u0642| \u062D\u0642|\u06AC\u0627\u0631|\u0646\u06AC\u0627|\u0628\u0648\u0644|\u0633\u0628\u0627| \u0633\u0628|\u0627\u062A\u0648|\u0627 \u0633|\u0642\u0644\u0647| \u06A4\u0645| \u0645\u0645|\u0648\u0627\u0646|\u0633\u0686\u0627| \u0633\u0686| \u0643\u0633|\u0627 \u0628|\u0633\u0646 | \u0633\u0645|\u06A4\u0631\u0644|\u0627\u0648\u0646|\u0646\u06BD |\u062A\u0646 | \u0628\u0627|\u0647\u0646 |\u0633\u064A\u0627|\u0627 \u06A4|\u0627\u0631\u06A0|\u0628\u0627\u0631|\u06A4\u0627 |\u0628\u0633\u0646|\u0643\u0628\u064A|\u0627\u0645 |\u064A\u0646\u062F|\u064A \u062F|\u0627\u06AC\u064A|\u06A0 \u0628|\u0628\u0627\u06AC|\u064A \u0627|\u0645\u0627\u0646| \u0644\u0627| \u062F |\u062F\u0642\u0644|\u0647\u0646\u062F| \u0647\u0646|\u062A \u062F|\u0627\u062F\u064A|\u0648\u064A\u0646|\u064A\u0643\u0646| \u0646\u06AC|\u060C \u0643|\u0646\u0662 | \u06A4\u0648|\u0628\u06A0\u0633|\u0642\u0662 |\u0627\u062A |\u0627\u0648\u0644|\u0627\u0643\u0646|\u0627\u06BD | \u0633\u0633|\u0648\u0646 |\u0627\u062F | \u0643\u0648|\u0627\u064A\u0646|\u062F\u06A0\u0646| \u062F\u06A0|\u0627\u0626\u0646|\u062A\u0648 |\u062A\u064A |\u0646 \u0647|\u06AC\u064A |\u0633\u064A |\u0642 \u0645|\u0648\u06A0\u0646|\u062F\u0648\u06A0|\u0646\u062F\u0648|\u0644\u064A\u0646|\u0631\u0644\u064A|\u0646\u062A\u0648|\u06A4\u0648\u0646|\u0648\u0627\u062A|\u064A\u0627\u062F|\u062A\u064A\u0643|\u06A0\u0633\u0627|\u06A4\u0645\u0628|\u062A\u0631\u0645|\u0662 \u062F|\u062D\u0642\u0662|\u0648\u0627 |\u0644\u0648\u0627|\u0645\u0627\u0633|\u0648\u0642 |\u0647 \u0645|\u0644 \u062F| \u0645\u0644|\u0648\u0646\u062F| \u06A4\u06A0|\u0627\u060C |\u060C \u062A|\u0644\u0627\u0626|\u0627\u064A |\u0645\u06A4\u0648|\u064A\u0643 |\u064A \u0643|\u0631\u0627\u062A|\u0645\u0631\u0627| \u0628\u064A|\u0633\u0645\u0648|\u0648 \u0643|\u060C \u062F|\u0633\u0648\u0627|\u06A0 \u0645|\u06A0 \u0633|\u06A0\u0662 |\u06A4\u0631\u064A|\u064A\u0631\u064A|\u062F\u064A\u0631|\u0627 \u0627|\u0627\u0633\u0627|\u06A4\u0662 |\u062A\u0627 |\u0633\u0648\u0633|\u060C \u0633|\u062C\u0648\u0627|\u06A0 \u062A|\u0631\u0623\u0646| \u0627\u0646|\u0633\u0623\u0646|\u0631\u064A\u0643|\u064A\u0623\u0646|\u0631\u064A | \u062F\u0631|\u0627\u0645\u0631|\u0643\u0631\u062C| \u06A4\u0644|\u0627 \u062F|\u062C\u0631\u0646|\u0627\u062C\u0631|\u0627\u0631\u0643|\u0644\u0627\u062C|\u062F \u0643|\u0648\u0627\u0631|\u0628\u0631\u0633|\u0648\u0646\u062A|\u0645\u0646\u0648|\u0633\u0627\u0644|\u064A\u0646\u06A0|\u062F\u06A0\u0662|\u0646\u062F\u06A0| \u0645\u06A0|\u0627\u06A4\u0627|\u0633\u0633\u064A|\u0633\u0627\u0633|\u0646\u0646 |\u06A4\u0648\u0644|\u0627\u06AC\u0627| \u0628\u06A0| \u0633\u06A4|\u0645\u0628\u064A| \u0627\u06A4|\u06A0 \u0627|\u0627\u0631\u0623|\u06A4\u0631\u0627|\u064A \u0633|\u0628\u0633 | \u062F\u0644|\u0627 \u0645|\u0645\u0648\u0627|\u06A4\u0644\u0627|\u0645\u0644\u0627|\u06A4\u0631\u0643|\u0643\u0648\u0631|\u0648\u0628\u0648| \u0643\u0623|\u0648\u0643\u0646|\u0623\u0646\u06BD|\u0643\u0633\u0627|\u06A0\u06AC\u0648|\u0627\u062F\u06A4|\u0647\u0627\u062F|\u0631\u0647\u0627|\u062A\u0631\u0647|\u0643\u0648\u0645|\u062A\u0648\u0642|\u0645 \u0633|\u06A0 \u062F|\u062F\u064A | \u062F\u064A|\u0662 \u0633|\u0646\u062F\u064A|\u0627\u0633 |\u0627\u062F\u0627|\u0628\u0648\u0627| \u062F\u0628|\u06A0 \u06A4|\u06BD\u060C |\u0627\u06A4\u0662|\u0631\u062A\u0627|\u0627\u0644 |\u064A\u0627\u0644|\u0648\u0633\u064A| \u0643\u062A|\u0623\u0646\u060C|\u0646\u06A4\u0627|\u062A\u0646\u06A4| \u062A\u0646|\u0645 \u06A4|\u0631\u0633\u0627|\u0645\u0645\u06A4| \u0645\u0631|\u0646 \u062D| \u0643\u0645|\u0646\u0633\u064A|\u062C\u0623\u0646|\u0624\u064A |\u0644\u0624\u064A|\u0627\u0644\u0624|\u0644\u0627\u0644|\u0643\u06A4\u0631|\u0643\u062A |\u0631\u0643\u062A|\u0634\u0627\u0631|\u0645\u0634\u0627| \u0645\u0634|\u062C\u0627\u062F|\u0631\u06AC\u0627", skr: "\u062A\u06D2 |\u0627\u06BA |\u062F\u06CC |\u062F\u06D2 | \u06D4 |\u0648\u06BA | \u062A\u06D2| \u062F\u0627| \u06A9\u0648|\u06A9\u0648\u06BA| \u062D\u0642|\u062F\u0627 | \u062F\u06CC|\u06CC\u0627\u06BA| \u062F\u06D2|\u06CC\u06BA |\u06D2 \u0627|\u0634\u062E\u0635| \u0634\u062E|\u06C1\u0631 |\u06D2 \u06D4|\u0627\u0635\u0644| \u062D\u0627|\u062D\u0642 |\u062E\u0635 | \u06C1\u0631|\u0635\u0644 |\u062D\u0627\u0635|\u06C1\u06D2 | \u06C1\u06D2|\u0627\u0644 |\u0642 \u062D|\u0644 \u06C1| \u0646\u0627| \u06A9\u06CC| \u0648\u0686|\u06D4 \u06C1|\u06CC\u0627 |\u0633\u06CC |\u06D2 \u0645| \u0627\u0648|\u0648\u0686 |\u0627\u062A\u06D2|\u06A9\u06CC\u062A|\u0627 \u062D|\u0627\u062F\u06CC|\u0646\u0627\u0644|\u0635 \u06A9| \u0627\u062A|\u0631 \u0634|\u06C1\u06CC\u06BA| \u06CC\u0627|\u06BA \u062F| \u0627\u06CC|\u06CC\u0633\u06CC| \u0645\u0644|\u0648\u0646\u062F|\u06A9\u06C1\u06CC| \u06A9\u06C1|\u06CC \u062A|\u0632\u0627\u062F|\u0627\u0632\u0627| \u0627\u0632|\u0646\u062F\u06D2|\u06BA \u06A9|\u0627\u0631 | \u0648\u06CC|\u06D2 \u06A9|\u0626\u06D2 | \u0627\u0646|\u06BB \u062F|\u0646\u06C1 | \u06A9\u0631|\u0627\u0648\u0646|\u06D2 \u0648|\u062F\u06CC\u0627|\u06CC \u062F|\u06BA \u0627|\u06D2 \u0628|\u0648\u06CC\u0633|\u0648\u06BB |\u06CC \u0646| \u06C1\u0648|\u062A\u06CC |\u06CC \u06D4| \u0646\u06C1|\u06CC \u0627|\u06CC\u0646\u062F|\u0648 \u0684|\u0622\u067E\u06BB| \u0622\u067E|\u0627 \u0648|\u06D2 \u062C| \u06A9\u0646|\u06D2 \u0646|\u0646\u062F\u06CC|\u062A \u062F|\u06D2 \u062D|\u06CC \u06A9|\u0626\u06CC |\u0645\u0644\u06A9|\u06CC\u062A\u06D2|\u0646 \u06D4|\u062A\u06BE\u06CC| \u062A\u06BE|\u0648\u0646 |\u06BA \u0645| \u0628\u0686|\u06D4 \u0627|\u0646\u0648\u06BA|\u06A9\u0646\u0648|\u06BB\u06D2 |\u0627\u0631\u06CC|\u0627 \u0627|\u06D2 \u06C1|\u0644 \u062A| \u0684\u0626|\u0648\u0642 |\u0642\u0648\u0642|\u062D\u0642\u0648|\u0644 \u06A9|\u062E\u0644\u0627| \u062C\u06CC|\u0644\u06A9 |\u062F\u0627\u0631|\u06CC\u062A |\u06A9\u0631\u06BB|\u0627\u0646\u06C1|\u06A9\u0648 |\u06C1\u06A9\u0648| \u06C1\u06A9|\u0646 \u0627|\u0645\u0644 | \u0648\u0633|\u06BA \u0648|\u067E\u06BB\u06D2| \u062A\u0639|\u06CC \u0645|\u0627\u0641 |\u06D2 \u062E|\u0646\u0648\u0646|\u0642\u0646\u0648| \u0642\u0646| \u0644\u0648|\u06D4 \u06A9|\u0631\u06CC |\u0644\u06D2 |\u062A\u0627 |\u06CC\u062A\u0627| \u0642\u0648| \u0686\u0627|\u06C1\u0627\u06BA|\u0684\u0626\u06D2|\u0642 \u062A|\u0627\u06CC\u06C1|\u0631\u06BB |\u06D2 \u062F|\u0631 \u06A9| \u0648 |\u0644\u0627\u0641| \u062E\u0644| \u062C\u0648|\u06CC \u0648|\u0627\u0648 |\u06C1\u0648 |\u0626\u0648 |\u0686\u0626\u0648|\u0628\u0686\u0626|\u06CC\u0631 |\u06C1\u0648\u0648|\u0627 \u0645|\u06CC \u062C|\u0627\u0644\u0627|\u06CC\u0646 | \u062C\u0627|\u0645\u06CC |\u0646\u06C1\u0627|\u0627\u0646 |\u0627\u062A |\u0633\u06B1\u062F| \u0633\u06B1|\u06CC\u0628 |\u0633\u06CC\u0628|\u0648\u0633\u06CC| \u0634\u0627|\u0628 \u062F|\u06CC\u0648\u06BB|\u0627\u0645 |\u0627\u0648\u06BB|\u06D2 \u062A|\u06BB \u06A9| \u0645\u0637|\u06BA \u062A| \u0648\u0646| \u06A9\u0645|\u0646 \u062F|\u0631\u06A9\u06BE| \u0631\u06A9|\u06BB\u06CC |\u06BA \u0622|\u0631\u06CC\u0627|\u06CC \u06C1|\u0627\u062F |\u06CC\u0627\u062F|\u0639\u0644\u0627|\u0631 \u06C1|\u06BA \u0633|\u06CC \u062D|\u062C\u06BE\u06CC|\u0627\u0626\u062F|\u06C1\u06CC |\u0644\u0648\u06A9| \u068B\u0648| \u0633\u0645| \u0633\u0627| \u0645\u0646| \u0645\u0639|\u0628\u0642 |\u0627\u0628\u0642|\u0637\u0627\u0628|\u0645\u0637\u0627|\u06BE\u06CC\u0648|\u06BA \u0641|\u06C1\u0646 | \u06C1\u0646|\u062C\u0648 |\u0648 \u06A9|\u06BA \u0634|\u0631 \u062A|\u06A9\u0627\u0631|\u0645 \u062F|\u06BE\u06CC\u0627| \u067B\u0627|\u063A\u06CC\u0631|\u0648 \u0644|\u0648\u0626\u06CC|\u062C\u06CC\u0627|\u0648\u0627\u0645|\u0642\u0648\u0627|\u06CC \u0633| \u062C\u06BE|\u0644 \u0627|\u0642\u0648\u0645| \u0633\u06CC|\u0630\u06C1\u0628|\u0645\u0630\u06C1| \u0645\u0630|\u0627\u06D2 | \u0627\u06D2|\u062F\u0646 |\u0627 \u062A|\u0633\u0627\u0646|\u0646\u0633\u0627|\u0627\u0646\u0633|\u0631\u06D2 |\u0644\u06CC\u0645|\u0639\u0644\u06CC|\u062A\u0639\u0644|\u0627\u0645\u0644|\u06C1 \u062F|\u06D2 \u0631|\u062F \u0627|\u06A9\u0645 |\u06CC\u06C1\u0648|\u0641\u0627\u0626|\u0686 \u0627| \u06A9\u06BE|\u0645 \u062A|\u0631\u0627 |\u0648\u0631\u0627|\u067E\u0648\u0631|\u06BA \u0628|\u0642 \u062F|\u06D2 \u0642|\u0648\u06A9\u0648|\u06A9\u06BE\u06CC|\u0627 \u06A9|\u0648 \u062F|\u06D2 \u0630|\u067E\u06BB\u06CC|\u0628\u0646\u062F| \u0641\u0631|\u06A9\u0648\u0626|\u0627\u0645\u06CC|\u06CC \u06CC|\u0627\u0626\u06CC|\u0644\u0627\u0642|\u0627\u06CC\u06BA|\u06C1 \u0627| \u0646\u0638|\u0633\u0645\u0627|\u0648\u0645\u06CC|\u06CC\u060C |\u06D2 \u0633|\u062A \u0648|\u06BE\u06CC\u0646|\u06D2 \u0639|\u06CC\u0645 |\u0633\u06C1\u0648| \u0633\u06C1", pbu: " \u062F | \u0627\u0648|\u0627\u0648 |\u067E\u0647 | \u067E\u0647|\u064A\u06D4 | \u062D\u0642|\u0686\u06D0 | \u0686\u06D0|\u0631\u0647 |\u064A \u0627|\u06D0 \u062F| \u0647\u0631|\u0646\u0647 |\u0647\u0631 |\u062D\u0642 | \u0685\u0648|\u0648\u06A9 |\u0685\u0648\u06A9|\u0648 \u0627|\u0647 \u062F|\u0647 \u0627|\u06D4 \u0647|\u0647 \u0648| \u0634\u064A| \u0644\u0631|\u064A \u0686|\u0648 \u062F|\u0631\u064A |\u0644\u0631\u064A|\u0642 \u0644| \u06A9\u069A|\u0648\u064A |\u069A\u06D0 |\u06A9\u069A\u06D0|\u0647 \u06A9|\u063A\u0647 |\u0644\u0648 |\u0631 \u0685|\u0633\u0631\u0647| \u0633\u0631|\u0647 \u067E| \u067C\u0648|\u0648 \u067E|\u0644\u0647 |\u064A\u062A |\u067C\u0648\u0644|\u064A\u0627 |\u06A9\u0693\u064A| \u06A9\u0648|\u062E\u0647 |\u064A\u060C |\u062F\u064A | \u0644\u0647| \u0627\u0632|\u062F \u0645| \u0647\u064A| \u0648\u0627| \u064A\u0627| \u0685\u062E|\u0627\u0632\u0627|\u062F \u0627|\u0648\u0644\u0648|\u0647 \u062A|\u0685\u062E\u0647| \u06A9\u0693|\u0648\u0644 |\u0647\u063A\u0647|\u0647 \u0634|\u064A \u062F| \u0647\u063A|\u06A9\u0648\u0644|\u0632\u0627\u062F|\u0646\u0648 | \u0648\u064A|\u0648 \u064A|\u0647 \u0628|\u0634\u064A\u06D4|\u062F\u06D0 |\u064A\u0648 | \u062F\u064A|\u062A\u0647 |\u062E\u067E\u0644| \u067E\u0631|\u0627\u062F |\u062F \u062F|\u06A9 \u062D| \u062A\u0648|\u0647 \u0645|\u06AB\u0647 |\u0647 \u0647|\u0642\u0648\u0642|\u062D\u0642\u0648|\u0648 \u0645|\u0647 \u062D|\u062F \u0647| \u062A\u0631| \u0645\u0633|\u0634\u064A | \u0646\u0647|\u0693\u064A\u06D4|\u0646\u064A |\u062F \u067E|\u0648\u0627\u062F|\u06D0 \u067E|\u0627\u062F\u064A|\u0648\u0644\u0646| \u064A\u0648|\u062F \u062A|\u0648\u0646\u0648|\u0648\u06AB\u0647|\u064A \u0648|\u0644\u064A | \u062F\u0627|\u064A\u062F | \u0628\u0627|\u062A\u0648\u0646| \u062E\u067E|\u064A \u067E|\u062A\u0648\u06AB|\u0627\u0631 |\u0627\u0646\u062F|\u064A\u0648\u0627|\u06D0 \u0648|\u062F\u0627\u0646| \u0628\u0631|\u0693\u064A | \u0639\u0645|\u0627\u0646\u0647| \u062F\u0647|\u064A\u0685 |\u0647\u064A\u0685|\u0627\u0645\u064A|\u0644\u0646\u064A|\u0628\u0639\u064A|\u0689\u0648\u0644| \u0689\u0648|\u0647 \u0644|\u0627\u064A\u062F|\u0628\u0627\u064A|\u0627\u062A\u0648|\u0647 \u06AB| \u062A\u0627|\u067E\u0644 | \u0645\u0644|\u0627\u064A\u062A|\u0648\u0645 |\u0648\u0646 | \u0644\u0627|\u0647\u064A\u0648| \u0634\u0648| \u062F\u063A|\u0645 \u062F|\u062F\u0647 |\u06D0 \u0627|\u0627\u0646 | \u062A\u0647|\u06A9\u0627\u0631|\u062A\u0648 |\u0645\u064A |\u0627\u0631\u0647|\u0627\u0648\u064A|\u0633\u0627\u0648|\u0645\u0633\u0627|\u0646\u0648\u0646|\u062F\u0647\u063A|\u0648 \u062A|\u064A \u0634|\u0627\u0646\u0648| \u0645\u062D|\u064A\u0646 |\u0627\u062E\u0644| \u06AB\u067C|\u0634\u0648\u064A|\u062F\u063A\u0647|\u0648 \u062D|\u0648\u064A\u060C|\u0646\u064A\u0632|\u0633\u064A |\u0627\u0633\u064A|\u0648\u0646\u062F|\u0642\u0648 |\u0648\u0642\u0648|\u0648 \u06A9|\u0648\u0646\u0647|\u0648\u0645\u064A| \u0648\u06A9|\u064A \u062A| \u0627\u0646|\u0642\u0627\u0646|\u0646\u062F\u06D0|\u0648 \u0631|\u06A9 \u062F|\u0647 \u064A|\u0645\u064A\u0646|\u067E\u0631 |\u067C\u0647 |\u0644\u0627\u0645|\u063A\u0648 |\u0647\u063A\u0648|\u062F \u067C|\u0648 \u0647|\u0644 \u062A|\u0644\u06D2 |\u0648\u0644\u06D2|\u0648\u0648\u0646|\u06A9\u064A |\u0631\u0648 |\u0646 \u06A9|\u0645\u0648\u0645|\u0648\u06A9\u0693|\u067E\u0627\u0631|\u0646 \u0634|\u0645\u0646 | \u0646\u0648| \u0648\u0693| \u0642\u0627|\u06D0 \u0686| \u0648\u0633|\u0685 \u0685|\u0634\u062E\u0635| \u0634\u062E|\u0698\u0648\u0646| \u0698\u0648|\u062A\u0631 |\u06AB\u067C\u0647|\u0648 \u0685|\u0647\u0645 |\u0639\u0642\u064A|\u0631\u062A\u0647| \u0648\u0631|\u0628\u0644 | \u0628\u0644|\u0648 \u0628|\u0647 \u0633|\u069A\u0648\u0648| \u069A\u0648| \u06A9\u0627|\u06D0 \u06A9|\u0648 \u0633|\u0627\u062F\u0647|\u0648\u0646\u06A9| \u063A\u0648|\u062F\u0648 |\u0648 \u0646|\u062A \u06A9|\u0645\u0644 |\u0639\u0645\u0648|\u0644 \u0647| \u067E\u064A|\u0648\u0633\u064A|\u0693\u0627\u0646|\u0648\u0693\u0627|\u064A\u0632 |\u062E\u0635\u064A|\u064A \u0645|\u0627 \u0628|\u0627\u062F\u0627|\u0647 \u0646|\u062E\u0644\u064A|\u0648\u0627\u062E|\u062F\u064A\u0648|\u060C \u062F|\u062F \u0642| \u0647\u0645|\u0627 \u062F| \u0628\u064A|\u062A\u0628\u0639| \u062A\u0628|\u0647 \u0686| \u0639\u0642|\u067E\u0644\u0648|\u0648 \u0644| \u0631\u0627|\u062F \u0628|\u0631\u0627\u064A| \u062F\u062E|\u0646\u06D0 |\u0646\u06A9\u064A|\u062A \u062F|\u0627\u0628\u0639| \u0645\u0642|\u062F \u062E|\u0648\u0631\u0647|\u0634\u0631\u0627| \u0634\u0631|\u0631 \u0645|\u0631\u0633\u0631|\u062A\u0627\u0645|\u0647 \u067C| \u0645\u0646|\u0637\u0647 |\u0633\u0637\u0647|\u0627\u0633\u0637|\u0648\u0627\u0633|\u0644\u06D0 | \u0627\u0633|\u06D4 \u062F|\u0628\u0631\u062E|\u06D0 \u0646" }, Devanagari: { hin: "\u0915\u0947 |\u092A\u094D\u0930| \u092A\u094D| \u0915\u093E| \u0915\u0947| \u0964 |\u0914\u0930 | \u0914\u0930|\u0915\u093E | \u0915\u094B|\u0915\u093E\u0930|\u093E\u0930 |\u0924\u093F |\u092F\u093E |\u0915\u094B |\u0928\u0947 |\u094B\u0902 |\u093F\u0915\u093E|\u094D\u0930\u0924| \u0939\u0948| \u0915\u093F|\u0902 \u0915|\u0939\u0948 |\u0927\u093F\u0915|\u0935\u094D\u092F|\u0905\u0927\u093F| \u0905\u0927|\u094D\u0924\u093F| \u0938\u092E|\u094D\u092F\u0915|\u093F \u0915|\u0915\u094D\u0924|\u093E \u0905|\u0915\u0940 |\u093E \u0915| \u0935\u094D|\u0947\u0902 | \u0939\u094B|\u092F\u0915\u094D|\u0938\u0940 |\u0938\u0947 |\u0947 \u0915| \u092F\u093E| \u0915\u0940|\u092E\u0947\u0902|\u0928\u094D\u0924| \u092E\u0947|\u0924\u094D\u092F|\u0948 \u0964|\u0924\u093E |\u0930\u0924\u094D|\u0915\u094D\u0937|\u0947\u0915 |\u092F\u0947\u0915|\u094D\u092F\u0947|\u093F\u0915 |\u0930 \u0939|\u092D\u0940 |\u0915\u093F\u0938| \u091C\u093E| \u0938\u094D|\u0915 \u0935|\u093E \u091C|\u093F\u0938\u0940|\u092E\u093E\u0928| \u0935\u093F|\u0930 \u0938|\u0924\u094D\u0930|\u0940 \u0938|\u0964 \u092A| \u0915\u0930|\u094D\u0930\u093E|\u0917\u093E |\u093F\u0924 | \u0905\u092A| \u092A\u0930|\u0938\u094D\u0935|\u0940 \u0915| \u0938\u0947|\u093E \u0938|\u094D\u092F | \u0905\u0928|\u094D\u0924\u094D|\u093F\u092F\u093E|\u093E \u0939| \u0938\u093E|\u0928\u093E |\u094D\u0924 |\u092A\u094D\u0924|\u0938\u092E\u093E|\u093E\u0928 |\u0930 \u0915|\u093E\u092A\u094D|\u0924\u0928\u094D| \u092D\u0940| \u0909\u0938|\u0930\u093E\u092A|\u0935\u0924\u0928|\u094D\u0935\u0924|\u0930\u094B\u0902|\u0935\u093E\u0930|\u0947 \u0938|\u0925\u093E |\u0939\u094B |\u0947 \u0905|\u093E \u0964|\u0928 \u0915| \u0928 |\u0926\u0947\u0936| \u0930\u093E|\u0937\u093E |\u0905\u0928\u094D|\u0924 \u0939|\u094D\u0937\u093E|\u094D\u0935\u093E|\u091C\u093E\u090F|\u0940 \u092A|\u0915\u0930\u0928|\u093E \u092A|\u0905\u092A\u0928|\u0937\u094D\u091F| \u0938\u0902|\u0947 \u0935|\u0939\u094B\u0917|\u093F\u0935\u093E|\u091F\u094D\u0930|\u094D\u091F\u094D|\u093E\u0937\u094D|\u0930\u093E\u0937|\u0938\u0915\u0947| \u092E\u093E|\u0913\u0902 |\u093E\u0913\u0902|\u0930\u0940 |\u0915 \u0938|\u0947 \u092A| \u0928\u093F|\u0940\u092F |\u0930\u0915\u094D|\u094B \u0938|\u093E\u090F\u0917|\u0930\u0928\u0947| \u0907\u0938|\u0935 \u0915|\u092A\u0930 |\u0930\u0924\u093E|\u0930 \u0905| \u0938\u092D|\u0924\u0925\u093E| \u0924\u0925| \u0910\u0938|\u0930\u093E |\u092A\u0928\u0947|\u094D\u0930\u0940|\u093F\u0915\u094D|\u0915\u093F\u092F|\u093E \u0935|\u092E\u093E\u091C|\u0902 \u0914|\u0930 \u0909|\u0926\u094D\u0927|\u0938\u092D\u0940|\u0936\u094D\u092F| \u091C\u093F|\u093E\u0928\u0947|\u093E\u0930\u094D|\u093E\u0930\u093E|\u0926\u094D\u0935| \u0926\u094D|\u090F\u0917\u093E|\u0938\u092E\u094D|\u0947\u0936 |\u093F\u090F |\u093E\u0935 |\u0930 \u092A| \u0926\u0947|\u094D\u0924\u0930|\u093E \u0914|\u093E\u0930\u094B|\u092F\u094B\u0902|\u092A\u0930\u093E|\u092A\u0942\u0930|\u091A\u093F\u0924|\u094D\u0927 |\u0930\u0942\u092A| \u0930\u0942| \u0938\u0941| \u0932\u093F|\u0924 \u0915|\u094B \u092A|\u0902 \u0938|\u0947 \u0932|\u0936\u093F\u0915| \u0936\u093F|\u0935\u093E\u0939|\u0947 \u0914|\u091C\u094B |\u0930\u093E\u0927|\u091C\u093F\u0938|\u0942\u0930\u094D|\u0940 \u092D|\u0942\u092A |\u094B\u0917\u093E|\u0938\u094D\u0925|\u0930\u0940\u092F|\u0924\u093F\u0915|\u094D\u0930 |\u0964 \u0907|\u0907\u0938 | \u0909\u0928|\u0932\u0947 |\u0947 \u092E|\u0932\u093F\u090F|\u092E \u0915|\u0915\u0924\u093E|\u0947 \u092F| \u091C\u094B|\u0928 \u092E|\u0905\u092A\u0930| \u092A\u0942|\u094B \u0915|\u093E \u0909|\u093E\u0939 |\u0928\u0942\u0928|\u093E\u0928\u0942|\u0917\u0940 |\u0926\u0940 |\u093E\u0930\u0940|\u0902 \u092E|\u0964 \u0915|\u0924\u0930\u094D|\u0940 \u0930|\u0936 \u0915|\u092A\u0930\u093F|\u0938\u094D\u0924|\u094B\u0908 |\u0915\u094B\u0908|\u0930\u094D\u092F|\u0940 \u0905|\u0939\u093F\u0924|\u092D\u093E\u0935| \u092D\u093E|\u0924\u093E\u0913|\u093E\u0938 |\u0938\u093E\u092E|\u0935\u093F\u0915|\u0935\u093F\u0935|\u092E\u094D\u092E| \u0938\u0915|\u0915\u0930 |\u093E\u0928\u093E|\u0927 \u0915|\u0928\u093F\u0915|\u092F \u0915|\u0909\u0938\u0915|\u0915\u0943\u0924| \u0958\u093E|\u0928 \u0938|\u091C\u0940\u0935|\u094D\u092F\u093E|\u0930\u0915\u093E|\u094D\u0930\u0915|\u093E\u091C |\u0928\u094D\u092F|\u094D\u092E |\u0930\u094D\u0923|\u0958 \u0939|\u0939\u0958 | \u0939\u0958|\u0940 \u092E|\u091C\u093F\u0915|\u093E\u091C\u093F|\u093E\u092E\u093E|\u0915 \u0914|\u092E\u093F\u0932|\u0947\u0928\u0947|\u0932\u0947\u0928| \u0932\u0947|\u092F\u0947 |\u094B \u0905|\u0947 \u091C|\u0930\u093F\u0935|\u092E\u092F |\u0938\u092E\u092F|\u0935\u0936\u094D|\u0906\u0935\u0936| \u0906\u0935|\u0910\u0938\u0940|\u093E\u0927 |\u0930 \u0926|\u0930\u094D\u0935|\u0938\u093E\u0930|\u092A \u0938|\u092C\u0928\u094D| \u0938\u0939|\u093F\u0927\u093E|\u0935\u093F\u0927|\u0940 \u0928|\u0942\u0928 |\u0958\u093E\u0928", mar: "\u094D\u092F\u093E|\u092F\u093E |\u0924\u094D\u092F|\u092F\u093E\u091A|\u091A\u093E |\u0923\u094D\u092F|\u093E\u091A\u093E| \u0935 |\u0915\u093E\u0930|\u092A\u094D\u0930| \u092A\u094D|\u093F\u0915\u093E|\u0927\u093F\u0915|\u093E\u0930 | \u0905\u0927|\u0905\u0927\u093F|\u091A\u094D\u092F|\u0906\u0939\u0947| \u0906\u0939|\u093E \u0905|\u0939\u0947 |\u093E \u0915|\u093E\u0938 |\u0935\u093E |\u094D\u092F\u0947|\u094D\u0930\u0924| \u0938\u094D|\u0924\u093E |\u093E \u0938| \u0905\u0938| \u0915\u0930|\u0938\u094D\u0935| \u0915\u093E|\u0932\u094D\u092F|\u0930\u0924\u094D|\u093E\u0939\u093F|\u0915\u094B\u0923| \u0915\u094B|\u093F\u0915 |\u092F\u0947\u0915|\u094D\u0935\u093E|\u093E \u0935| \u0924\u094D|\u0930 \u0906|\u094D\u092F |\u0924\u094D\u0930|\u0947\u0915\u093E|\u0915\u094D\u0937|\u093E \u0928| \u0938\u0902|\u093E\u092E\u093E|\u093E\u091A\u094D|\u0902\u0935\u093E|\u093F\u0902\u0935|\u0915\u093F\u0902| \u0915\u093F|\u093E\u0924 |\u0937\u094D\u091F|\u0915\u093E\u0938| \u092F\u093E|\u092F\u093E\u0902|\u093E\u0902\u091A|\u0930\u094D\u092F|\u092E\u093F\u0933| \u092E\u093F| \u0938\u093E|\u0935\u094D\u092F|\u094B\u0923\u0924|\u0928\u0947 |\u0947 \u092A|\u0915\u093E\u092E| \u0938\u092E|\u0902\u0924\u094D|\u092F\u0947 | \u0930\u093E|\u0938\u092E\u093E|\u0924\u0902\u0924|\u0915\u0930\u0923|\u093E \u0906|\u0947 \u0915|\u0939\u093F |\u0947 \u0938|\u0928\u093E |\u093F\u0933\u0923|\u0942\u0928 |\u093E \u092A|\u091F\u094D\u0930|\u094D\u091F\u094D|\u093E\u0937\u094D|\u0930\u093E\u0937|\u0940\u092F |\u0935 \u0938|\u0915\u094D\u0924|\u092E\u093E\u0928|\u0930\u094D\u0935| \u0906\u092A|\u0933\u0923\u094D|\u094D\u0930\u094D|\u093E\u0924\u0902|\u0935\u093E\u0924|\u091A\u0947 | \u0935\u093F|\u094D\u0937\u0923|\u0930\u0923\u094D| \u0926\u0947| \u0935\u094D|\u0906\u092A\u0932|\u0939\u0940 |\u093E\u0930\u094D|\u0928\u092F\u0947| \u0928\u092F|\u092E\u093E |\u092F\u093E\u0938| \u091C\u093E|\u0932\u0947\u0932| \u0928\u093F|\u0947 \u0905| \u092A\u093E|\u093E \u092E|\u0932\u0947 |\u093E\u0939\u0940|\u092C\u0902\u0927|\u0947 \u0935|\u094D\u092F\u0915| \u092E\u093E|\u0936\u093F\u0915| \u0936\u093F|\u0926\u0947\u0936|\u093E \u0926|\u092E\u093E\u091C|\u094D\u0930\u0940|\u0932\u0940 |\u093E\u0928 |\u093E\u0902\u0928|\u092A\u0932\u094D| \u0939\u094B|\u093E \u0939|\u0937\u0923 |\u091C\u0947 |\u093F\u091C\u0947|\u0939\u093F\u091C|\u092A\u093E\u0939|\u093E\u0930\u093E|\u092F\u093E\u0924|\u0938\u0930\u094D| \u0938\u0930|\u0930\u093E\u0902|\u0905\u0938\u0932|\u0902\u092C\u0902|\u0938\u0902\u092C|\u093F\u0915\u094D|\u0940 \u092A|\u0902\u091A\u094D|\u0930\u0915\u094D|\u0923\u0924\u094D| \u0906\u0923|\u0932\u093E |\u0938\u094D\u0925|\u0930\u0940\u092F|\u0940\u0924 |\u0902\u0928\u093E|\u0924 \u0935|\u094D\u0935 |\u0915 \u0935|\u0923\u0947 |\u093E\u091A\u0947|\u0928 \u0915|\u0924 \u0915|\u0930\u0924\u093E|\u094D\u0930\u093E|\u092F\u093E\u0939|\u094D\u0924 |\u091A\u0940 |\u092F \u0915|\u0926\u094D\u0927|\u094D\u0935\u0924|\u092F\u0915\u094D|\u0923\u093F |\u0906\u0923\u093F|\u0938 \u0938|\u0902\u0927\u093E|\u0915 \u0938|\u091A\u094D\u091B|\u092F \u0905|\u0924 \u0938|\u0940\u0928\u0947|\u094B\u0923\u093E|\u0915\u0930\u0924|\u0924\u094D\u0935|\u0940\u0932 |\u0940 \u0905|\u0938\u093E\u0930|\u0930 \u0935|\u092D\u093E\u0935|\u0935 \u0924|\u0925\u0935\u093E|\u0905\u0925\u0935| \u0905\u0925|\u0947 \u0924|\u0947 \u091C|\u092F\u093E\u092F|\u0902\u091A\u093E|\u0947\u0932\u094D|\u093E\u0928\u0947|\u0947\u0923\u094D|\u0915 \u0906|\u0915\u094D\u0915|\u0939\u0915\u094D| \u0939\u0915|\u0923 \u092E|\u0902\u0930\u0915|\u0938\u0902\u0930|\u0928\u094D\u092F|\u093E\u092F\u0926|\u093E \u0924|\u0924 \u0906| \u0909\u092A|\u0935\u0938\u094D|\u093F\u0935\u093E|\u0947\u0936\u093E|\u0938\u093E\u092E|\u0947 \u092F|\u0947 \u0906|\u0940 \u0935|\u0935 \u092E|\u0924\u0940\u0928|\u0935 \u0906|\u0927\u094D\u092F| \u0905\u0936|\u0927\u093E\u0924|\u0915\u0943\u0924|\u094D\u0915 |\u0926\u094D\u092F|\u093F\u0924 |\u0938\u0932\u0947|\u0947\u0936 |\u0924\u094B |\u0947\u0932 |\u0924\u0940 |\u094D\u0924\u0940|\u0905\u0938\u0947|\u0907\u0924\u0930| \u0907\u0924|\u0938\u094D\u0924|\u0930\u094D\u0923|\u093E \u092C|\u0947\u0932\u0947| \u0915\u0947|\u0939\u0940\u0930|\u091C\u093E\u0939|\u093E \u091C|\u0947\u0924 |\u0942\u0930\u094D|\u092A\u0942\u0930|\u0947\u091A | \u0935\u093E|\u093E\u091C\u093E|\u0940 \u0938|\u0936\u093E |\u092F \u0935| \u0928\u094D|\u092F\u093E\u0935|\u0926\u094D\u0926|\u094D\u0927 |\u0930\u0942\u0928|\u092F\u0926\u094D|\u0915\u093E\u092F|\u093E \u0936|\u0917\u0923\u094D|\u0915 \u0915|\u0930\u093E\u0927| \u0936\u093E|\u092F\u0924\u094D|\u0932 \u0905|\u094D\u092F\u0935|\u0940 \u0915|\u093E\u0935 |\u093E \u092F|\u0924\u094D\u0924|\u091C\u093F\u0915|\u093E\u091C\u093F|\u0930\u0923\u093E| \u0927\u0930|\u093E \u0927|\u092D\u0947\u0926| \u092C\u093E|\u0930\u0915\u093E|\u094D\u0930\u0915|\u0915\u0947\u0932|\u093F \u0935|\u093F\u0937\u094D|\u0924\u0940\u0932|\u092F\u094B\u0917|\u0938\u093E\u0927|\u093E\u0902\u0924|\u0935\u093F\u0935|\u0936\u094D\u0930| \u0927\u0947| \u092E\u0941|\u0935\u0924\u0903", mai: "\u093E\u0915 |\u092A\u094D\u0930|\u0915\u093E\u0930| \u092A\u094D|\u093E\u0930 |\u093F\u0915\u093E|\u094D\u092F\u0915|\u0927\u093F\u0915|\u0915 \u0905|\u094D\u0930\u0924|\u094D\u0924\u093F|\u0935\u094D\u092F| \u0905\u0927|\u0947\u0901 |\u0905\u0927\u093F|\u093F\u0915 | \u0935\u094D|\u0906\u02BC | \u0906\u02BC|\u0915\u094D\u0924|\u092F\u0915\u094D|\u0924\u093F\u0915|\u0915\u0947\u0901|\u0915 \u0935|\u092C\u093E\u0915|\u0915 \u0938|\u091B\u0948\u0915| \u091B\u0948|\u0924\u094D\u092F|\u092E\u0947 |\u0947\u0915 | \u0938\u092E|\u0915\u094D\u0937|\u0939\u093F |\u0930\u0924\u094D|\u0930 \u091B|\u092F\u0947\u0915|\u094D\u092F\u0947|\u0928\u094D\u0924|\u0935\u093E |\u093F\u0915\u0947|\u0915\u0964 |\u0948\u0915\u0964|\u0964 \u092A| \u0905\u092A| \u0938\u094D| \u0935\u093F| \u091C\u093E|\u093F\u0924 |\u0938\u0901 | \u0939\u094B|\u0915\u094B\u0928| \u0915\u094B|\u0924\u094D\u0930|\u0938\u094D\u0935| \u0935\u093E|\u0915 \u0906|\u0937\u094D\u091F| \u0915\u0930|\u0905\u092A\u0928|\u092E\u093E\u0928| \u0915\u093E| \u0905\u0928|\u0924\u093F |\u094D\u0924\u094D|\u0928\u094B |\u0928\u0939\u093F| \u092A\u0930|\u091F\u094D\u0930|\u094D\u092F | \u090F\u0939|\u093F \u0915|\u094D\u091F\u094D|\u093E\u0937\u094D|\u0930\u093E\u0937| \u0930\u093E|\u0938\u092E\u093E|\u094B\u0928\u094B|\u0932 \u091C| \u0928\u0939|\u0924\u093E\u0915|\u093E\u0930\u094D|\u092A\u0928 |\u0924\u0928\u094D|\u0935\u0924\u0928|\u094D\u0935\u0924|\u094D\u0937\u093E| \u0915\u090F| \u0938\u093E|\u094D\u0930\u0940| \u0928\u093F|\u093E \u0906|\u093F\u0935\u093E| \u0938\u0902| \u0926\u0947|\u091C\u093E\u090F|\u0940\u092F |\u0915\u0930\u092C|\u0925\u093E |\u090F\u092C\u093E|\u093E \u092A|\u0928\u093E |\u094D\u0935\u093E|\u0926\u0947\u0936|\u0924\u0964 |\u0930\u0915 |\u0915 \u0939|\u0901 \u0905| \u0938\u092D| \u0906 |\u0924 \u0915|\u091A\u093F\u0924|\u094D\u0924 |\u0935\u093E\u0930|\u0924\u093E |\u093E\u0930\u0915|\u092E\u093E\u091C|\u093E \u0938|\u0930\u0940\u092F|\u0928\u094D\u092F|\u0930\u0924\u093E|\u093E\u0928 |\u094D\u0930\u093E|\u094D\u092F\u093E|\u0930\u0915\u094D|\u093E\u0930\u0923|\u092A\u0930\u093F|\u090F\u0932 |\u0915\u090F\u0932|\u0905\u0928\u094D|\u0930\u092C\u093E|\u0915 \u092A|\u0913\u0930 |\u0906\u0913\u0930| \u0906\u0913|\u0905\u091B\u093F| \u0905\u091B|\u093F\u0930\u094D|\u093E\u0928\u094D|\u0928\u0915 |\u0939\u094B\u090F|\u0915\u0930 |\u0927\u093E\u0930|\u0938\u094D\u0925|\u093E \u0905|\u093F\u092E\u0947|\u0930 \u0906|\u090F\u0939\u093F| \u090F\u0915|\u0947 \u0938|\u0924\u0925\u093E| \u0924\u0925| \u092E\u093E|\u093F\u0915\u094D|\u0936\u093F\u0915| \u0936\u093F|\u092A\u094D\u0924|\u0930\u094D\u0935|\u0928\u093F\u0930|\u091A\u094D\u091B|\u0930\u094D\u092F|\u0901 \u0938|\u0915 \u0915|\u0939\u094B |\u093E\u0939\u093F|\u090F\u0924\u0964|\u0930 \u092A|\u093E\u092E\u093E|\u0938\u093E\u092E|\u0937\u093E |\u02BC \u0938|\u0901 \u090F|\u0948\u0915 |\u0926\u094D\u0927|\u0930 \u0905|\u0915 \u091C|\u0938\u094D\u0924|\u093E\u092A\u094D|\u0901 \u0915| \u0938\u0915|\u092F\u0915 |\u0915\u093E\u0928|\u0939\u0928 |\u090F\u0939\u0928|\u0947\u0932 |\u094B\u090F\u0924|\u0924 \u0906|\u093E \u0935|\u0964 \u0915|\u094D\u0924\u0930|\u093E\u090F\u0924|\u094D\u0930\u0915|\u0939\u0941 |\u0915 \u0909|\u092A\u0942\u0930|\u0935\u093F\u0935|\u02BC \u0905|\u091B\u093F | \u0932\u0947|\u0928 \u092A|\u093E\u0938 |\u0930\u093E\u092A|\u0927\u0915 |\u092A\u090F\u092C| \u092A\u090F|\u0930\u093E |\u092F\u0924\u093E|\u0930\u0942\u092A|\u0928 \u0935| \u0915\u0947|\u0937\u093E\u0915|\u092F \u092A|\u0924 \u0939|\u091C\u093E\u0939| \u0913 |\u092D\u093E\u0935|\u092A\u0930 |\u0925\u0935\u093E|\u0905\u0925\u0935| \u0905\u0925|\u0938\u092E\u094D|\u091C\u093F\u0915|\u093E\u091C\u093F|\u0942\u0930\u094D|\u0930\u0924\u093F| \u0926\u094B|\u0938\u092D\u0915|\u0964 \u0938| \u091C\u0928|\u0938\u092D |\u092C\u093E\u0927|\u0905\u0928\u0941|\u093F\u0938\u0901| \u0938\u0939|\u0901 \u0935|\u090F \u0938|\u0930\u093F\u0935|\u0924\u0941 |\u0947\u0924\u0941|\u0939\u0947\u0924| \u0939\u0947|\u093E\u0927 |\u0947\u092C\u093E|\u0928 \u0938|\u093F\u0937\u094D|\u0930\u093E\u0927| \u0905\u0935|\u093F\u0924\u094D|\u0935\u093E\u0938|\u091A\u093E\u0930| \u0909\u091A|\u093E\u0930\u093E|\u0928 \u0915|\u0935\u0915 |\u093E \u0915|\u0928\u0942\u0928|\u093E\u0928\u0942|\u090F\u0924 |\u0930\u0940 |\u0947\u0913 |\u0915\u0947\u0913|\u0930\u0923 |\u094D\u0930\u0938|\u093F \u0926|\u0913 \u0935| \u092D\u0947|\u0928\u0939\u0941|\u094B\u0928\u0939|\u094D\u0925\u093F|\u092A\u0924\u094D|\u092E\u094D\u092A|\u0930\u093E\u091C| \u092D\u093E|\u0939\u093F\u092E| \u0939\u0915|\u093E\u092E\u0947|\u094D\u0923 |\u0930\u094D\u0923|\u0939\u093E\u0930|\u093F \u0938|\u0915 \u0926|\u0928 \u0905|\u0924 \u0905|\u0932\u0947\u092C| \u0905\u092D|\u093F\u0936\u094D|\u091C\u0915 |\u093E\u091C\u0915|\u0928 \u0906|\u0935\u093E\u0939|\u0915\u093E\u091C|\u0936\u094D\u092F|\u0935\u0938\u094D|\u0913\u0939\u093F| \u0913\u0939|\u092F\u094B\u0917|\u0964 \u090F|\u0915\u090F |\u0947 \u0913|\u0905\u092A\u0930", bho: " \u0915\u0947|\u0915\u0947 |\u0947 \u0915|\u093E\u0930 |\u0915\u093E\u0930|\u093F\u0915\u093E|\u0927\u093F\u0915|\u0905\u0927\u093F| \u0905\u0927|\u0913\u0930 |\u0906\u0913\u0930| \u0906\u0913|\u0947 \u0905|\u0947 \u0938|\u093E \u0915| \u0938\u0902|\u093F\u0915 |\u0930 \u0939|\u093E \u0938| \u0939\u094B|\u0930 \u0938|\u0947\u0902 |\u092E\u0947\u0902| \u092E\u0947| \u0915\u0930| \u0938\u0947|\u0928\u094B |\u0915\u094D\u0937|\u0938\u0947 | \u0915\u093E|\u0964 \u0938|\u0916\u0947 |\u093E\u0964 |\u0930\u093E | \u0938\u092E| \u0938\u092C|\u094D\u0930\u093E| \u0938\u0915|\u0930 \u0915|\u0928 \u0915|\u0935\u0947 |\u094C\u0928\u094B|\u0915\u094C\u0928| \u0915\u094C|\u091A\u093E\u0939| \u091A\u093E| \u092C\u093E|\u092A\u094D\u0930| \u092A\u094D|\u0925\u093E |\u093F \u0915|\u0924\u093F | \u091C\u093E| \u0938\u093E|\u0947 \u0906|\u092A\u0928 |\u0915\u0930\u0947|\u0924\u093E |\u0939\u094B\u0916|\u0924 \u0915|\u0947\u0964 |\u0947 \u092C|\u0924\u0925\u093E| \u0924\u0925| \u0906\u092A|\u0915\u0947\u0932|\u0938\u0915\u0947| \u0938\u094D|\u0930\u0947 |\u0938\u092C\u0939|\u0915\u0930 |\u0906\u092A\u0928|\u0947 \u0913|\u091C\u093E | \u092A\u0930|\u0937\u094D\u091F| \u0930\u093E|\u0928\u093E |\u0939\u0935\u0947| \u0939\u0935|\u0932\u093E |\u0947\u0932\u093E|\u092C\u0939\u093F| \u0913\u0915|\u094B\u0916\u0947|\u0930 \u092C|\u0939\u0964 | \u0939\u0964|\u0928 \u0938|\u093E\u0937\u094D|\u0930\u093E\u0937|\u094D\u0924 | \u0914\u0930|\u0947 \u091A|\u0964 \u0915|\u0938\u0902\u0917|\u0930 \u0906|\u091F\u094D\u0930|\u094D\u091F\u094D|\u0937\u093E |\u092E\u093E\u0928|\u093E \u0906|\u0902 \u0915|\u093E \u092A|\u094D\u0937\u093E|\u0930\u0915\u094D|\u0939\u0947 |\u093E\u0939\u0947|\u093E\u0924\u093F|\u093E\u0935\u0947| \u091C\u0947|\u0939\u0940 |\u0913\u0915\u0930|\u092E\u093F\u0932|\u093F\u0924 |\u094B \u0938|\u0932 \u091C|\u0907\u0916\u0947|\u0928\u0907\u0916| \u0928\u0907|\u0924\u094D\u0930|\u092E\u093E\u091C| \u092C\u093F|\u0935\u0947\u0964|\u0947 \u091C|\u0915 \u0938|\u093F\u0902 |\u0939\u093F\u0902|\u0915\u0930\u093E|\u0914\u0930 |\u0947 \u092E|\u0938\u092E\u093E|\u0939\u0941 | \u0913 |\u092A\u0930 |\u0947 \u0928|\u0938\u094D\u0925|\u0930\u0940\u092F|\u094D\u0930\u0940|\u0932\u093E\u0964|\u093E\u091C |\u093E\u0928 |\u0915\u093E\u0928|\u0947 \u0924|\u093F\u0930 |\u0924\u093F\u0930|\u0916\u093E\u0924| \u0916\u093E|\u0947 \u0909|\u0928\u0942\u0928|\u093E\u0928\u0942|\u093E\u092E | \u0938\u0941| \u0926\u0947|\u0940 \u0915| \u092E\u093E|\u0930 \u092E|\u092A\u094D\u0924|\u093F\u092F\u093E|\u093E\u0939\u0940|\u092C\u093E\u0964|\u092F\u094B\u0917|\u0940 \u0938|\u0932 \u0939|\u0942\u0928 |\u0935\u094D\u092F|\u0941 \u0915|\u090F \u0915|\u0947 \u0935|\u0902\u0924\u094D|\u0938\u094D\u0935|\u0915\u0947\u0939|\u0940\u092F |\u0916\u0932 |\u0938\u093E\u092E|\u092F\u0924\u093E|\u0924\u093F\u0915|\u0947 \u0939|\u093E\u092A\u094D|\u0930\u093E\u092A|\u0930 \u092A|\u0930 \u0905| \u0932\u094B| \u0938\u0939|\u091C\u0947 |\u094B\u0917 |\u092E \u0915|\u0932\u0947 | \u0928\u093F|\u0947\u0915\u0930|\u093E \u0939|\u092A\u0942\u0930|\u0930 \u0928|\u0947\u0939\u0941|\u094D\u092F |\u092F\u093E | \u092F\u093E|\u0926\u0947\u0936|\u0926\u0940 |\u093E \u092E|\u093E\u0935 | \u0926\u094B|\u0947 \u0926| \u092A\u093E|\u0939\u093F |\u093F\u0915\u094D|\u0936\u093F\u0915| \u0936\u093F|\u092C\u093E |\u093F\u0932 | \u0909\u092A|\u094D\u0930\u0924| \u0935\u093F| \u0939\u0940| \u0932\u0947|\u0930\u094B |\u0947 \u0916|\u0920\u0928 |\u0917\u0920\u0928|\u0902\u0917\u0920| \u092E\u093F|\u0937\u0923 |\u094D\u0937\u0923|\u0902\u0930\u0915|\u0938\u0902\u0930| \u0906\u0926| \u090F\u0915|\u0928\u0947 | \u0905\u092A|\u0924\u0902\u0924|\u0935\u0924\u0902|\u094D\u0935\u0924|\u094D\u0924\u0930|\u094D\u092F\u093E|\u0947\u0936 |\u093E\u0926\u0940|\u094D\u0924\u093F|\u091C\u093F\u0915|\u093E\u091C\u093F|\u0915 \u0906|\u094D\u092E |\u091A\u093E\u0930| \u0909\u091A| \u0936\u093E|\u0930\u0940 |\u093E\u0939 |\u092F\u093E\u0939|\u092C\u093F\u092F|\u091A\u093F\u0924|\u0915\u094D\u0924|\u092A\u092F\u094B|\u0909\u092A\u092F|\u0930\u0924\u093E|\u0930 \u0935|\u0928 \u092E|\u0932\u094B\u0917|\u0939 \u0915|\u0928 \u092A|\u0915\u093E\u092E| \u092A\u0942| \u0907 |\u0906\u0926\u093F|\u0908\u0932 | \u0915\u0908| \u0935\u094D|\u092E\u0940 |\u0941\u0930\u0915|\u0938\u0941\u0930| \u091C\u0940|\u0927\u093E\u0930|\u092F \u0938|\u0924\u0930\u094D|\u092D\u0947 |\u0938\u092D\u0947| \u0938\u092D|\u092D\u093E\u0935|\u094D\u0925\u093F|\u093E\u092E\u093E|\u0938\u0930 |\u0930\u094D\u092E| \u0915\u094B| \u092C\u0947|\u094B\u0938\u0930|\u0926\u094B\u0938|\u0923 \u0915|\u093E\u0938 |\u0947 \u092A|\u091C\u093E\u0926|\u0906\u091C\u093E| \u0906\u091C|\u0909\u091A\u093F|\u0917 \u0915|\u093E\u0930\u0940| \u091C\u0930|\u0917\u0947 |\u091C \u0915|\u0940 \u092C|\u0938\u0928 |\u0939\u094B |\u093E \u0924", npi: "\u0915\u094B |\u0928\u0947 | \u0930 |\u093E\u0930 |\u0915\u094D\u0924|\u0915\u093E\u0930|\u092A\u094D\u0930| \u092A\u094D|\u094D\u092F\u0915|\u0935\u094D\u092F| \u0917\u0930|\u093F\u0915\u093E| \u0935\u094D|\u094D\u0930\u0924|\u0927\u093F\u0915|\u094D\u0924\u093F|\u092F\u0915\u094D|\u0905\u0927\u093F| \u0905\u0927|\u093E\u0908 |\u092E\u093E |\u0932\u093E\u0908|\u0924\u094D\u092F|\u093F\u0915 | \u0964 | \u0938\u092E|\u0935\u093E | \u0935\u093E|\u0915 \u0935|\u094D\u0928\u0947|\u0930\u094D\u0928|\u0917\u0930\u094D|\u0928\u094D\u0924|\u091B \u0964|\u0924\u093F\u0932|\u0930\u0924\u094D|\u0924\u094D\u0930|\u0947\u0915 |\u092F\u0947\u0915|\u094D\u092F\u0947|\u093F\u0932\u093E|\u0930 \u0938|\u094B \u0938| \u0938\u094D|\u092E\u093E\u0928|\u0915\u094D\u0937| \u0935\u093F|\u0939\u0941\u0928|\u093E \u0938| \u0939\u0941| \u091B |\u0930 \u091B|\u094D\u0924\u094D|\u0938\u092E\u093E|\u0938\u094D\u0935|\u0964 \u092A| \u0938\u0902|\u0928\u0947\u091B|\u0941\u0928\u0947|\u0939\u0930\u0941|\u0924\u0928\u094D|\u0935\u0924\u0928|\u0947 \u0905|\u093F\u0928\u0947|\u094B \u0905|\u094D\u0935\u0924| \u0915\u093E|\u0947 \u091B|\u0917\u0930\u093F| \u0930\u093E|\u094D\u0930 |\u0924\u093F |\u093E\u0915\u094B| \u0915\u0941|\u0937\u094D\u091F|\u0928\u093E |\u0938\u094D\u0924|\u0915 \u0938|\u0941\u0928\u0948|\u0915\u0941\u0928|\u091F\u094D\u0930|\u0932\u0947 | \u0928\u093F|\u093E\u0928 |\u091B\u0948\u0928| \u091B\u0948|\u094D\u091F\u094D|\u093E\u0937\u094D|\u0930\u093E\u0937|\u0924\u093F\u0915|\u091B\u0964 |\u093E\u0930\u094D|\u0924\u093E |\u093F\u0924 |\u0928\u0948 |\u093E \u0905| \u0938\u093E|\u093E \u0935|\u0930\u0941 | \u092E\u093E| \u0905\u0928|\u093E \u0930|\u0930\u0924\u093E|\u0930 \u0930|\u0939\u0930\u0942|\u0947\u091B |\u093E \u092A|\u0930\u0915\u094D|\u094D\u0924 | \u092A\u0930|\u0925\u093E | \u0932\u093E|\u092A\u0930\u093F|\u0926\u0947\u0936|\u0938\u0915\u094B| \u092F\u0938|\u092E\u093E\u091C|\u093E\u092E\u093E|\u094D\u0930\u093E|\u093F\u0935\u093E|\u093E\u0939\u0930|\u094B \u092A|\u094D\u092F |\u0935\u093E\u0930|\u0928 \u0938|\u0964 \u0915|\u0928\u093F |\u094D\u0937\u093E| \u0924\u094D|\u0926\u094D\u0927|\u0930 \u0939|\u0924\u0925\u093E| \u0924\u0925|\u092F\u0938\u094D|\u094D\u092F\u0938|\u0930\u0940 |\u0930 \u0935|\u092A\u0928\u093F|\u0930\u093F\u0928|\u0902\u0930\u0915|\u0938\u0902\u0930|\u092D\u093E\u0935|\u0948 \u0935|\u0938\u092C\u0948| \u0938\u092C| \u0936\u093F| \u0938\u0939|\u0924\u093E\u0915|\u0947 \u0930|\u0924 \u0930|\u0932\u093E\u0917| \u0938\u0941|\u094D\u0937\u0923|\u0926\u094D\u0926| \u0905\u092A|\u0948\u0928 |\u094B \u0935|\u093F\u0915\u094D|\u093E\u0935 |\u0927\u093E\u0930|\u094D\u092F\u093E|\u094D\u0930\u093F|\u093E \u092D|\u090F\u0915\u094B|\u0930 \u092E|\u0928 \u0905|\u094B \u0932| \u0909\u0938|\u0936\u093F\u0915|\u093E\u0924\u094D|\u0938\u094D\u0925|\u0935\u093E\u0939|\u0942\u0930\u094D|\u0936\u094D\u092F|\u093F\u0924\u094D|\u0930\u0915\u094B|\u093E\u0930\u0915|\u0941\u0926\u094D|\u0924\u094B |\u094D\u0924\u094B|\u093E\u0909\u0928|\u0915\u093E\u0928|\u093F\u090F\u0915|\u093E \u0928| \u092A\u0928|\u0928\u0964 |\u0948\u0928\u0964|\u0915\u093E |\u0947\u091B\u0964| \u092D\u0947|\u0930\u094D\u092F|\u0938\u092E\u094D|\u0924\u094D\u092A|\u0938\u093E\u092E|\u0930\u093F\u092F|\u091A\u093E\u0930|\u0928\u093F\u091C|\u0941\u0928 |\u0917\u093F |\u093E\u0917\u093F|\u0909\u0938\u0915| \u092E\u0924| \u0905\u092D|\u092A\u0942\u0930|\u0930 \u0924| \u0938\u0915|\u0938\u093E\u0930|\u0930\u093E\u0927|\u092A\u0930\u093E|\u0905\u092A\u0930|\u0941\u0915\u094D|\u091C\u0915\u094B| \u0909\u092A|\u0930\u093E |\u093E\u0930\u093E|\u094D\u0935\u093E|\u0935\u093F\u0927|\u094D\u0928 |\u093E \u0924|\u0928 \u0917|\u0923\u0915\u094B| \u092A\u093E| \u0926\u093F|\u0915 \u0930|\u0930 \u092A|\u0905\u0928\u094D|\u092D\u0947\u0926|\u093E\u0930\u092E|\u094B \u0906| \u0905\u0930|\u091C\u093F\u0915|\u093E\u091C\u093F|\u093F\u092F |\u0937\u093E |\u093E\u091F |\u092C\u093E\u091F| \u092C\u093E|\u093F \u0930| \u091B\u0964|\u0924\u094D\u0935|\u0924 \u0938|\u0930\u0942 |\u091B \u0930|\u0930\u0915\u093E|\u0935\u093F\u0915|\u0930 \u0909|\u094B\u0917 |\u094D\u0926\u0947|\u0930\u093F\u0935|\u0938\u0915\u093F|\u0948 \u092A|\u0930\u0924\u093F|\u0905\u0928\u0941| \u0906\u0935|\u092F\u0941\u0915|\u093E \u0917|\u0928\u092E\u093E|\u092F\u094B\u0917|\u0917 \u0917|\u0915 \u0905|\u0926\u094D\u0935|\u094D\u0927 |\u0930\u0941\u0926| \u092C\u093F|\u0964 \u0938|\u0909\u0928\u0947|\u093E\u0928\u094D|\u093E \u092E|\u093F\u0915\u094B|\u0930\u094D\u0926|\u093E\u0930\u0940|\u094D\u0924\u0930|\u094B \u0939|\u0939\u093F\u0924| \u0926\u0947|\u0930\u093F\u0915|\u093E \u0915| \u0906\u0927|\u0930\u093E\u091C|\u0930\u094D\u092E|\u094D\u0923 |\u0930\u094D\u0923|\u093F \u0935|\u094D\u092F\u0935|\u0935\u093F\u091A|\u092C\u0948 |\u0938\u0939\u093F|\u0930\u094B\u091C|\u0930\u094D\u0938|\u0908 \u0909|\u094D\u092A |\u0930\u093E\u0924|\u0928\u093F\u0915|\u092E\u093F\u0915|\u091A\u094D\u091B|\u094D\u0925\u093E|\u0935\u093F\u0935|\u0915\u0924\u093E|\u0905\u092D\u093F|\u094D\u0927\u093E", mag: " \u0915\u0947|\u0915\u0947 |\u093E\u0930 | \u0939\u0908|\u0915\u093E\u0930|\u0908\u0964 |\u0939\u0908\u0964|\u093F\u0915\u093E|\u0947 \u0905|\u0927\u093F\u0915|\u0905\u0927\u093F| \u0905\u0927|\u0930 \u0939|\u0947 \u0915|\u0914\u0930 | \u0914\u0930|\u093E \u0915|\u0947 \u0938|\u0938\u092C | \u0938\u092C| \u0915\u0930|\u0947\u0902 |\u0925\u093E |\u092E\u0947\u0902| \u092E\u0947|\u0924\u0925\u093E| \u0924\u0925|\u093F\u0915 | \u0939\u094B| \u0938\u092E|\u0915\u094D\u0937|\u0928\u093E |\u092C \u0915|\u0930 \u0938| \u0938\u0902|\u093E \u0938|\u0915\u0930 | \u092D\u0940|\u0964 \u0938| \u0938\u093E| \u0938\u0947| \u0915\u093E| \u0905\u092A|\u094D\u0930\u093E|\u092A\u094D\u0930| \u092A\u094D|\u0938\u0947 |\u092D\u0940 | \u0915\u094B|\u0924 \u0915| \u092A\u0930|\u0930\u093E |\u0915 \u0939|\u092A\u0928 |\u0905\u092A\u0928| \u0938\u0915|\u092F\u093E |\u0924\u093F |\u0930 \u0915|\u0940 \u0915| \u092F\u093E|\u0915\u0930\u0947| \u091C\u093E|\u0930\u0947 | \u0913\u0915|\u094D\u0924 |\u0938\u0915 |\u0928\u094B |\u093E\u0928 |\u092E\u093E\u0928|\u0913\u0915\u0930|\u093E \u092A|\u0928 \u0915|\u0947\u0932 | \u0928\u093E|\u0964 \u0915|\u0930\u0915\u094D| \u0938\u094D|\u0939\u0940 |\u0939\u094B\u090F| \u090F\u0915|\u092A\u0930 |\u0926\u0940 |\u091F\u094D\u0930|\u0924\u093E |\u0935\u094D\u092F|\u0939\u0908 | \u0936\u093E|\u0947 \u0909| \u0926\u0947|\u0924\u094D\u0930|\u093E\u0926\u0940| \u0930\u093E| \u0939\u0940|\u0915\u093E\u0928|\u093F\u0924 |\u092E \u0915|\u0932 \u091C|\u093E\u092E |\u0940 \u0938|\u0947 \u092D|\u0928 \u0938|\u092E\u093E\u091C|\u0937\u094D\u091F|\u0937\u093E | \u0932\u0947|\u0915 \u0938|\u092C\u0947 |\u0935\u0947 |\u093E\u0935\u0947|\u092E\u093F\u0932|\u0930 \u092E|\u094D\u092F |\u093E \u0939|\u0932\u093E |\u092A\u094D\u0924|\u0928\u0942\u0928|\u093E\u0928\u0942|\u091C\u093E |\u0947\u0915\u0930|\u094D\u0937\u093E|\u094D\u0930\u0924|\u0902\u0924\u094D|\u0930 \u0914|\u094B\u0908 |\u0915\u094B\u0908|\u094D\u091F\u094D|\u093E\u0937\u094D|\u0930\u093E\u0937| \u092E\u093E|\u0930\u094B | \u091C\u0947|\u0915\u0930\u093E|\u094B\u090F |\u093E\u092A\u094D|\u0930\u093E\u092A|\u0938\u092E\u093E|\u0942\u0928 |\u094B \u0938|\u0938\u094D\u0935|\u094D\u0924\u093F|\u0938\u093E\u092E|\u094B\u0928\u094B|\u0915\u094B\u0928| \u0935\u094D|\u0930 \u0905|\u094D\u092E | \u0935\u093F| \u0938\u0939|\u0947 \u092E|\u0915\u094D\u0924|\u092F\u094B\u0917|\u0930 \u0935|\u0915\u093E\u092E|\u0932 \u0939| \u0928\u093F|\u0926\u0947\u0936|\u092A\u0942\u0930|\u0935\u093E\u0930| \u0907 |\u0902\u0930\u0915|\u0938\u0902\u0930|\u090F \u0915|\u0930 \u092A| \u0938\u0941|\u0924\u0902\u0924|\u0935\u0924\u0902|\u094D\u0935\u0924|\u093E \u092E|\u0935 \u0915|\u0947 \u0935|\u093E\u0925 |\u0938\u093E\u0925| \u0926\u094B|\u0939\u094B\u092C| \u092A\u093E|\u094B \u0915|\u0947 \u092C|\u094B\u0917 | \u0909\u092A|\u0938\u094D\u0924|\u092A\u0930\u093F|\u0928 \u092A|\u0947 \u0924|\u094D\u0924\u0930|\u0932\u0947\u0932|\u0947 \u0913|\u091A\u093E\u0939| \u091A\u093E|\u092F \u0915|\u0935\u093E |\u0947\u0936 |\u092F \u0938|\u0928 \u0939|\u0937\u0923 |\u093E \u092C|\u0964 \u0924|\u090F\u0915 |\u090F\u0932 |\u0940\u092F |\u0915\u0947\u0915|\u0947 \u0939|\u0930 \u0906|\u093F \u0915|\u0938\u094D\u0925|\u091C\u093F\u0915|\u093E\u091C\u093F|\u093E\u092E\u093E|\u0930\u0940\u092F|\u094D\u0930\u0940|\u0924\u093F\u0915|\u093E\u0924\u093F| \u092C\u093F|\u091A\u093E\u0930|\u0947 \u0906|\u093E\u0938 | \u0909\u091A|\u093E \u0924|\u092F\u0915\u094D|\u094D\u092F\u0915|\u093F\u0932 |\u092E\u092F |\u0938\u092E\u092F|\u0936\u093E\u0926|\u092A\u092F\u094B|\u0909\u092A\u092F|\u0947 \u0916|\u0930\u093F\u0935| \u092A\u0942|\u0947 \u0932|\u0947 \u091A|\u094C\u0928\u094B|\u0915\u094C\u0928| \u0915\u094C|\u0902 \u0915|\u0938\u0902\u0917|\u0928 \u0926|\u0902 \u0938|\u0923 \u092A|\u094D\u0937\u0923|\u0930 \u0928|\u0947 \u0928|\u094B \u092D|\u0915\u0930\u094B|\u093E \u0914|\u0930\u0924\u093E|\u093E\u0935 |\u092D\u093E\u0935|\u0915 \u0914|\u0930\u094D\u092E|\u094B\u0938\u0930|\u0926\u094B\u0938|\u0923 \u0915|\u0947 \u092A|\u0928 \u0914|\u092C \u0939|\u093F\u0915\u094D|\u0936\u093F\u0915| \u0936\u093F|\u093E\u092C\u0947|\u0928\u093F\u092F|\u091A\u093F\u0924|\u0909\u091A\u093F|\u093F\u0924\u094D|\u0917 \u0915|\u0947\u0964 |\u0924 \u0938|\u0940 \u0936|\u0902 \u0936|\u090F\u0915\u0930|\u0964 \u090F|\u0924\u0928 | \u0913 |\u0930\u0940 |\u094D\u0930 |\u091C\u0947 |\u0915 \u0915| \u0938\u0940|\u0938\u0928 |\u093F\u0935\u093E| \u0905\u0928|\u0942\u0930\u093E| \u092C\u091A|\u090F\u0964 | \u092C\u0947|\u0924 \u0939| \u0924\u0915| \u092E\u093F|\u0927\u093E\u0930|\u0925\u0935\u093E|\u0905\u0925\u0935| \u0905\u0925|\u093F\u0932\u093E|\u094D\u0935\u093E|\u093F \u092E| \u0906\u0926|\u0928\u0947 |\u0915\u090F\u0932| \u0915\u090F|\u094D\u092F\u093E" } }, y = 2048, p = 10, m2 = 300, r = {}.hasOwnProperty, t, l3 = {};
   for (t in s2)
     if (r.call(s2, t)) {
-      let n3 = s2[t], a5;
+      let n2 = s2[t], a5;
       l3[t] = {};
-      for (a5 in n3)
-        if (r.call(n3, a5)) {
-          let e3 = n3[a5].split("|"), o5 = {}, i3 = e3.length;
+      for (a5 in n2)
+        if (r.call(n2, a5)) {
+          let e = n2[a5].split("|"), o4 = {}, i3 = e.length;
           for (; i3--; )
-            o5[e3[i3]] = i3;
-          l3[t][a5] = o5;
+            o4[e[i3]] = i3;
+          l3[t][a5] = o4;
         }
     }
-  function c2(n3, a5 = {}) {
-    let e3 = [...a5.whitelist || [], ...a5.only || []], o5 = [...a5.blacklist || [], ...a5.ignore || []], i3 = a5.minLength !== null && a5.minLength !== void 0 ? a5.minLength : p;
-    if (!n3 || n3.length < i3)
+  function c2(n2, a5 = {}) {
+    let e = [...a5.whitelist || [], ...a5.only || []], o4 = [...a5.blacklist || [], ...a5.ignore || []], i3 = a5.minLength !== null && a5.minLength !== void 0 ? a5.minLength : p;
+    if (!n2 || n2.length < i3)
       return d();
-    n3 = n3.slice(0, y);
-    let u5 = z(n3, k);
-    return !u5[0] || !(u5[0] in l3) ? !u5[0] || u5[1] === 0 || !g2(u5[0], e3, o5) ? d() : h(u5[0]) : w(n3, j(m(n3), l3[u5[0]], e3, o5));
+    n2 = n2.slice(0, y);
+    let u4 = z(n2, k);
+    return !u4[0] || !(u4[0] in l3) ? !u4[0] || u4[1] === 0 || !g2(u4[0], e, o4) ? d() : h(u4[0]) : w(n2, j(m(n2), l3[u4[0]], e, o4));
   }
-  function w(n3, a5) {
-    let e3 = a5[0][1], o5 = n3.length * m2 - e3, i3 = -1;
+  function w(n2, a5) {
+    let e = a5[0][1], o4 = n2.length * m2 - e, i3 = -1;
     for (; ++i3 < a5.length; )
-      a5[i3][1] = 1 - (a5[i3][1] - e3) / o5 || 0;
+      a5[i3][1] = 1 - (a5[i3][1] - e) / o4 || 0;
     return a5;
   }
-  function z(n3, a5) {
-    let e3 = -1, o5, i3;
+  function z(n2, a5) {
+    let e = -1, o4, i3;
     for (i3 in a5)
       if (r.call(a5, i3)) {
-        let u5 = D(n3, a5[i3]);
-        u5 > e3 && (e3 = u5, o5 = i3);
+        let u4 = D(n2, a5[i3]);
+        u4 > e && (e = u4, o4 = i3);
       }
-    return [o5, e3];
+    return [o4, e];
   }
-  function D(n3, a5) {
-    let e3 = n3.match(a5);
-    return (e3 ? e3.length : 0) / n3.length || 0;
+  function D(n2, a5) {
+    let e = n2.match(a5);
+    return (e ? e.length : 0) / n2.length || 0;
   }
-  function j(n3, a5, e3, o5) {
-    a5 = f3(a5, e3, o5);
-    let i3 = [], u5;
+  function j(n2, a5, e, o4) {
+    a5 = f3(a5, e, o4);
+    let i3 = [], u4;
     if (a5)
-      for (u5 in a5)
-        r.call(a5, u5) && i3.push([u5, v(n3, a5[u5])]);
+      for (u4 in a5)
+        r.call(a5, u4) && i3.push([u4, v(n2, a5[u4])]);
     return i3.length === 0 ? d() : i3.sort(F);
   }
-  function v(n3, a5) {
-    let e3 = 0, o5 = -1;
-    for (; ++o5 < n3.length; ) {
-      let i3 = n3[o5], u5 = m2;
-      i3[0] in a5 && (u5 = i3[1] - a5[i3[0]] - 1, u5 < 0 && (u5 = -u5)), e3 += u5;
+  function v(n2, a5) {
+    let e = 0, o4 = -1;
+    for (; ++o4 < n2.length; ) {
+      let i3 = n2[o4], u4 = m2;
+      i3[0] in a5 && (u4 = i3[1] - a5[i3[0]] - 1, u4 < 0 && (u4 = -u4)), e += u4;
     }
-    return e3;
+    return e;
   }
-  function f3(n3, a5, e3) {
-    if (a5.length === 0 && e3.length === 0)
-      return n3;
-    let o5 = {}, i3;
-    for (i3 in n3)
-      g2(i3, a5, e3) && (o5[i3] = n3[i3]);
-    return o5;
+  function f3(n2, a5, e) {
+    if (a5.length === 0 && e.length === 0)
+      return n2;
+    let o4 = {}, i3;
+    for (i3 in n2)
+      g2(i3, a5, e) && (o4[i3] = n2[i3]);
+    return o4;
   }
-  function g2(n3, a5, e3) {
-    return a5.length === 0 && e3.length === 0 ? !0 : (a5.length === 0 || a5.includes(n3)) && !e3.includes(n3);
+  function g2(n2, a5, e) {
+    return a5.length === 0 && e.length === 0 ? !0 : (a5.length === 0 || a5.includes(n2)) && !e.includes(n2);
   }
   function d() {
     return h("und");
   }
-  function h(n3) {
-    return [[n3, 1]];
+  function h(n2) {
+    return [[n2, 1]];
   }
-  function F(n3, a5) {
-    return n3[1] - a5[1];
+  function F(n2, a5) {
+    return n2[1] - a5[1];
   }
 
   // utils/detect_chinese.ts
@@ -4142,8 +4179,8 @@ body {
       if (typeof key == "string")
         await GM.deleteValue(key);
       else if (Array.isArray(key))
-        for (let k5 of key)
-          await GM.deleteValue(k5);
+        for (let k4 of key)
+          await GM.deleteValue(k4);
     }
   };
   function getManifest() {
@@ -4172,6 +4209,20 @@ body {
     else
       throw new Error("options url not found");
   }
+  function openEbookViewerPage(newTab = !1) {
+    let optionsUrl = getEnv().EBOOK_VIEWER_URL;
+    if (optionsUrl)
+      newTab ? globalThis.open(optionsUrl, "_blank") : globalThis.location.href = optionsUrl;
+    else
+      throw new Error("ebook url not found");
+  }
+  function openEbookBuilderPage(newTab = !1) {
+    let optionsUrl = getEnv().EBOOK_BUILDER_URL;
+    if (optionsUrl)
+      newTab ? globalThis.open(optionsUrl, "_blank") : globalThis.location.href = optionsUrl;
+    else
+      throw new Error("ebook url not found");
+  }
   function getAcceptLanguages() {
     return globalThis.navigator.languages || // @ts-ignore: it's ok
     [globalThis.navigator.language || globalThis.navigator.userLanguage];
@@ -4188,7 +4239,9 @@ body {
     },
     extra: {
       detectLanguage: languageDetect,
-      openAboutPage
+      openAboutPage,
+      openEbookViewerPage,
+      openEbookBuilderPage
     },
     i18n: {
       getAcceptLanguages,
@@ -4353,6 +4406,9 @@ body {
     "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
     "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
+    "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
+    "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -4362,7 +4418,7 @@ body {
     betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
     translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
     tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
+    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1\uFF0C\u53EF\u8BBE\u7F6E\u4E34\u65F6\u65F6\u957F",
     xMinutes: "{count} \u5206\u949F",
     disabled: "\u7981\u7528",
     changelog: "\u66F4\u65B0\u65E5\u5FD7",
@@ -4415,7 +4471,7 @@ body {
     "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
     "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
     localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u6CA1\u6709\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF08\u6BD4\u5982\u83B7\u53D6\u6CB9\u7334\u811A\u672C\u81EA\u8EAB\u7684\u7248\u672C\u53F7\u4FE1\u606F\uFF09\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982 Firefox",
     foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
     theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
     failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -4473,12 +4529,14 @@ body {
     "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
     "translationTheme.dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
+    "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
     "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
     "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
     "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
     "translationTheme.highlight": "\u9AD8\u4EAE",
     "translationTheme.marker": "\u9A6C\u514B\u7B14",
+    "translationTheme.marker2": "\u9A6C\u514B\u7B142",
     "translationTheme.blockquote": "\u5F15\u7528\u6837\u5F0F",
     "translationTheme.weakening": "\u5F31\u5316",
     "translationTheme.italic": "\u659C\u4F53",
@@ -4575,137 +4633,154 @@ body {
     successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
     customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
     "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
-    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+    "customThemeLabel.borderRadius": "\u8FB9\u6846\u5706\u89D2",
     "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
     "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
     resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
     isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
     isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
     verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
-    verified: "\u9A8C\u8BC1\u6210\u529F"
+    verified: "\u9A8C\u8BC1\u6210\u529F",
+    "field.model": "\u6A21\u578B",
+    "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
+    "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
+    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
+    "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
+    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0C\u9ED8\u8BA4\u8BBE\u7F6E\u4E3A OpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u76F4\u63A5\u6539\u4E3A1000\u4EE5\u4E0A",
+    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+    "description.maxTextLengthPerRequest": "\u9ED8\u8BA4\u4F1A\u5408\u5E76\u591A\u4E2A\u6BB5\u843D\uFF0C\u4EE5\u51CF\u5C11\u8BF7\u6C42\u6B21\u6570\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u603B\u957F\u5EA6\u8FC7\u957F\uFF0C\u4E5F\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+    enabledExtension: "\u542F\u7528\u6269\u5C55",
+    clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
+    clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
+    hasBeenDisabled: "\u5DF2\u7981\u7528",
+    "show password": "\u663E\u793A\u5BC6\u7801"
   };
 
   // locales/zh-TW.json
   var zh_TW_default = {
-    lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u7B26\u6578\u91CF",
-    "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6F PDF",
-    "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3 PDF",
-    enableLineBreak: "\u662F\u5426\u958B\u5553\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
-    sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005 (\u6309\u6708\u6216\u4E00\u6B21\u6027\u5747\u53EF)",
-    help: "\u5E6B\u52A9",
-    browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762 `about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
-    browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5145\u529F\u80FD\u9801\u9762\uFF0C\u5728\u2019\u64F4\u5145\u529F\u80FD\u2018\u9762\u677F(\u2019chrome://extensions/shortcuts\u2018)\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
+    lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u5143\u6578\u91CF",
+    "translate-pdf": "\u9EDE\u9078\u7FFB\u8B6F PDF",
+    "translate-firefox-local-pdf": "\u9EDE\u9078\u4E0A\u50B3 PDF",
+    enableLineBreak: "\u958B\u555F\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
+    sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
+    help: "\u8AAA\u660E",
+    browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
+    browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
     browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
-    enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+    enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
     "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
-    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
     "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
     "browser.toggleTranslateTheWholePage": "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF/\u986F\u793A\u539F\u6587",
     "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
     "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
-    "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
+    "browser.openOptionsPage": "\u958B\u555F\u8A2D\u5B9A\u9801\u9762",
     "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-    "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
-    confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u7F6E\u8A2D\u7F6E\u55CE\uFF1F",
-    translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u7F6E",
-    smartLineBreak: "\u667A\u80FD\u63DB\u884C",
+    "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
+    "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
+    "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
+    confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
+    translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
+    smartLineBreak: "\u667A\u6167\u63DB\u884C",
     alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
-    isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
-    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u7279\u6027",
-    betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
-    translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+    isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
+    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u5BE6\u9A57\u6027\u529F\u80FD",
+    betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
+    translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
     tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
     tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
     xMinutes: "{count} \u5206\u9418",
     disabled: "\u505C\u7528",
-    changelog: "\u66F4\u65B0\u65E5\u8A8C",
+    changelog: "\u66F4\u65B0\u8A18\u9304",
     toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
     toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
     addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
-    general: "\u57FA\u672C\u8A2D\u7F6E",
+    general: "\u57FA\u672C\u8A2D\u5B9A",
     clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
-    import: "\u5F9E\u6587\u4EF6\u532F\u5165",
-    export: "\u5C0E\u51FA\u5230\u6587\u4EF6",
-    toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
+    import: "\u5F9E\u6A94\u6848\u532F\u5165",
+    export: "\u532F\u51FA\u70BA\u6A94\u6848",
+    toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
     "fingers.0": "\u95DC\u9589",
     "fingers.2": "\u96D9\u6307\u89F8\u6478",
     "fingers.3": "\u4E09\u6307\u89F8\u6478",
     "fingers.4": "\u56DB\u6307\u89F8\u6478",
     "fingers.5": "\u4E94\u6307\u89F8\u6478",
-    document: "\u6587\u6A94",
-    resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
-    resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
-    saved: "\u6210\u529F\u5132\u5B58",
+    document: "\u8AAA\u660E\u6587\u4EF6",
+    resetSuccess: "\u91CD\u8A2D\u6240\u6709\u8A2D\u5B9A\u6210\u529F",
+    resetThisSuccess: "\u91CD\u8A2D\u6210\u529F",
+    saved: "\u5132\u5B58\u6210\u529F",
     successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
-    goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
-    goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u8A2D\u7F6E\u9801\u9762",
-    advanced: "\u9032\u968E\u8A2D\u7F6E",
-    advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
-    developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
+    goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+    goAdvancedInterfaceSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+    advanced: "\u9032\u968E\u8A2D\u5B9A",
+    advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
+    developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
     donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
-    "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
-    feedback: "\u554F\u984C\u53CD\u994B",
+    "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+    feedback: "\u554F\u984C\u56DE\u5831",
     toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-    translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+    translateToThePageEndImmediatelyDescription: "\u555F\u7528\u5F8C\uFF0C\u9032\u5165\u7DB2\u9801\u5C07\u7ACB\u5373\u7FFB\u8B6F\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\u3002\u95DC\u9589\u5247\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u555F\uFF09",
     "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-    translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
-    "interface language": "\u754C\u9762\u8A9E\u8A00",
+    translationAreaDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6240\u6709\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\u3002\u95DC\u9589\u5247\u4F7F\u7528\u9810\u8A2D\u7684\u667A\u6167\u8FA8\u8B58\uFF0C\u50C5\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\u3002(\u4E0D\u63A8\u85A6\u958B\u555F)",
+    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8B6F\u9801\u9762\u524D\u591A\u5C11\u500B\u5B57\u5143\uFF0C\u800C\u7121\u9700\u7B49\u5F85\u6372\u52D5\u81F3\u53EF\u898B\u5340\u57DF",
+    "interface language": "\u4ECB\u9762\u8A9E\u8A00",
     "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
-    "keyboard shortcuts": "\u9375\u76E4\u5FEB\u6377\u9375",
-    modify: "\u4FEE\u6539\u5FEB\u6377\u9375",
+    "keyboard shortcuts": "\u9375\u76E4\u5FEB\u901F\u9375",
+    modify: "\u8B8A\u66F4\u5FEB\u901F\u9375",
     reset: "\u91CD\u8A2D",
     close: "\u95DC\u9589",
-    homepage: "\u4E3B\u9801",
+    homepage: "\u9996\u9801",
     more: "\u66F4\u591A",
     translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
     changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
     changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
     translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
-    translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
-    "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
-    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9069\u914D\u898F\u5247\uFF1A",
+    translateTheMainPage: "\u667A\u6167\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
+    "The local rules are up to date": "\u672C\u6A5F\u898F\u5247\u5DF2\u70BA\u6700\u65B0\uFF1A",
+    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\uFF1A",
     "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
-    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
-    localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
-    foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
-    theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
-    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
+    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u5B98\u65B9\u898F\u5247",
+    localVersionIsTooOld: "\u672C\u6A5F\u5957\u4EF6\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u5957\u4EF6\u81F3 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5617\u8A66\u540C\u6B65",
+    badUserscriptBrowser: "\u76EE\u524D\u700F\u89BD\u5668\u7121\u6CD5\u6B63\u78BA\u5BE6\u73FE\u6CB9\u7334\u5957\u4EF6\u7684\u4ECB\u9762\uFF0C\u8ACB\u4F7F\u7528\u5176\u4ED6<1>\u652F\u63F4\u6CB9\u7334\u5957\u4EF6</1>\u7684\u700F\u89BD\u5668\u5982(Firefox Nightly \u7248\u672C)",
+    foundNewVersion: "\u6709\u65B0\u7248\u672C\u53EF\u7528",
+    theLocalExtensionIsUpToUpdate: "\u76EE\u524D\u5957\u4EF6\u5DF2\u662F\u6700\u65B0\u7248\u672C",
+    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\u5931\u6557",
     retry: "\u9EDE\u6B64\u91CD\u8A66",
     failedReason: "\u5931\u6557\u539F\u56E0",
-    currentRuleVersion: "\u7576\u524D\u898F\u5247\u7248\u672C",
-    calculating: "\u8A08\u7B97\u4E2D",
-    unknownError: "\u672A\u77E5\u932F\u8AA4",
-    canNotFetchRemoteRule: "\u7121\u6CD5\u7372\u53D6\u9060\u7A0B\u898F\u5247",
-    enableAlphaSuccess: "\u5DF2\u958B\u5553Alpha\u529F\u80FD",
-    disableAlphaSuccess: "\u5DF2\u95DC\u9589Alpha\u529F\u80FD",
-    cacheSize: "\u7DE9\u5B58\u5927\u5C0F\uFF1A",
-    cleaning: "\u6E05\u7406\u4E2D",
-    cleanCache: "\u6E05\u9664\u7DE9\u5B58",
+    currentRuleVersion: "\u76EE\u524D\u898F\u5247\u7248\u672C",
+    calculating: "\u6B63\u5728\u8A08\u7B97",
+    unknownError: "\u672A\u77E5\u7684\u932F\u8AA4",
+    canNotFetchRemoteRule: "\u7121\u6CD5\u53D6\u5F97\u9060\u7AEF\u898F\u5247",
+    enableAlphaSuccess: "\u5DF2\u555F\u7528 Alpha \u529F\u80FD",
+    disableAlphaSuccess: "\u5DF2\u505C\u7528 Alpha \u529F\u80FD",
+    cacheSize: "\u5FEB\u53D6\u5927\u5C0F\uFF1A",
+    cleaning: "\u6B63\u5728\u6E05\u7406",
+    cleanCache: "\u6E05\u9664\u5FEB\u53D6",
     options: "\u9078\u9805",
     about: "\u95DC\u65BC",
     service: "\u7FFB\u8B6F\u670D\u52D9",
-    needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
-    goSettings: "\u53BB\u8A2D\u7F6E",
-    needActionForOptions: "(\u9700\u8A2D\u7F6E)",
+    needAction: "(\u524D\u5F80\u8A2D\u5B9A)",
+    goSettings: "\u524D\u5F80\u8A2D\u5B9A",
+    needActionForOptions: "(\u9700\u8A2D\u5B9A)",
     translationEngine: "\u5F15\u64CE\u9078\u9805",
     sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
     target: "\u76EE\u6A19\u8A9E\u8A00",
     popupSourceLanguage: "\u539F\u6587\u8A9E\u8A00",
     popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
     popupService: "\u7FFB\u8B6F\u670D\u52D9",
-    forThisSite: "\u5C0D\u65BC\u8A72\u7DB2\u7AD9\uFF1A",
-    alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
-    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
+    forThisSite: "\u91DD\u5C0D\u8A72\u7DB2\u7AD9\uFF1A",
+    alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F {language}",
+    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F {language}",
     alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
     neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
-    add: "\u589E\u52A0",
-    default: "\u9ED8\u8A8D",
-    forThisLanguage: "\u5C0D\u65BC\u8A72\u8A9E\u8A00\uFF1A",
-    "add url": "\u8F38\u5165URL",
+    add: "\u65B0\u589E",
+    default: "\u9810\u8A2D",
+    forThisLanguage: "\u91DD\u5C0D\u8A72\u8A9E\u8A00\uFF1A",
+    "add url": "\u8F38\u5165 URL",
     edit: "\u7DE8\u8F2F",
-    "translate other languages into specific language": "\u5C07\u5176\u4ED6\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u7F6E\u7684\u8A9E\u8A00",
+    "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
     "select translation service": "\u9078\u64C7\u4E00\u9805\u7FFB\u8B6F\u670D\u52D9",
     language: "\u8A9E\u8A00",
     "show-original": "\u986F\u793A\u539F\u6587",
@@ -4713,42 +4788,45 @@ body {
     Translated: "\u5DF2\u7FFB\u8B6F",
     Translating: "\u7FFB\u8B6F\u4E2D",
     Error: "\u932F\u8AA4",
-    allowCacheTranslations: "\u958B\u555F\u672C\u5730\u7FFB\u8B6F\u7DE9\u5B58\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8ACB\u6C42\uFF09",
+    allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
     "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
     "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
-    interface: "\u754C\u9762\u8A2D\u7F6E",
-    import_export: "\u5C0E\u5165/\u5C0E\u51FA",
-    import_export_title: "\u5C0E\u5165/\u5C0E\u51FA\u914D\u7F6E",
+    interface: "\u4ECB\u9762\u8A2D\u5B9A",
+    import_export: "\u532F\u5165/\u532F\u51FA",
+    import_export_title: "\u532F\u5165/\u532F\u51FA\u8A2D\u5B9A",
     syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
     previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
     "translationTheme.none": "\u7121",
-    "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
-    "translationTheme.dotted": "\u9EDE\u72C0\u4E0B\u5283\u7DDA",
-    "translationTheme.dashedBorder": "\u865B\u7DDA\u908A\u6846",
-    "translationTheme.underline": "\u76F4\u7DDA\u4E0B\u5283\u7DDA",
+    "translationTheme.grey": "\u9ED1\u7070\u8272",
+    "translationTheme.dashed": "\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.dotted": "\u9EDE\u72C0\u5E95\u7DDA",
+    "translationTheme.dashedBorder": "\u865B\u7DDA\u6846\u7DDA",
+    "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
+    "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
     "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
-    "translationTheme.dividingLine": "\u5206\u5272\u7DDA",
-    "translationTheme.highlight": "\u9AD8\u4EAE",
+    "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
+    "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
     "translationTheme.marker": "\u99AC\u514B\u7B46",
+    "translationTheme.marker2": "\u99AC\u514B\u7B462",
     "translationTheme.blockquote": "\u5F15\u7528\u6A23\u5F0F",
     "translationTheme.weakening": "\u5F31\u5316",
     "translationTheme.italic": "\u659C\u9AD4",
     "translationTheme.bold": "\u7C97\u9AD4",
-    "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
-    "translationTheme.nativeDashed": "\u7CFB\u7D71\u81EA\u5E36\u865B\u7DDA\u4E0B\u5283\u7DDA",
-    "translationTheme.nativeDotted": "\u7CFB\u7D71\u81EA\u5E36\u9EDE\u72C0\u4E0B\u5283\u7DDA",
-    "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
-    "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
+    "translationTheme.thinDashed": "\u7D30\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.nativeDashed": "\u7CFB\u7D71\u5167\u5EFA\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.nativeDotted": "\u7CFB\u7D71\u5167\u5EFA\u9EDE\u72C0\u5E95\u7DDA",
+    "translationTheme.nativeUnderline": "\u7CFB\u7D71\u5167\u5EFA\u76F4\u7DDA\u5E95\u7DDA",
+    "translationTheme.wavy": "\u6CE2\u5F62\u66F2\u7DDA",
     "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
     "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
-    "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
+    "translationServices.google": "Google \u7FFB\u8B6F",
     "translationServices.bai": "\u767E\u5EA6(Alpha)",
     "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
     "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
     "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
     "translationServices.deeplx": "DeeplX(Beta)",
-    "translationServices.bing": "\u5FC5\u61C9\u7FFB\u8B6F",
+    "translationServices.bing": "Bing \u7FFB\u8B6F",
     "translationServices.deepl": "Deepl",
     "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
     "translationServices.azure": "\u5FAE\u8EDF\u7FFB\u8B6F",
@@ -4767,69 +4845,87 @@ body {
     "translationServices.papago": "Papago\u7FFB\u8B6F",
     "translationServices.d": "Deepl(Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
+    "translationServices.openai": "OpenAI",
     "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
     "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
-    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-    neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
-    enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
+    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
+    neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
+    enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
     enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
     "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
     "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
-    "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
+    "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
     "never sites": "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-    "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
-    "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
-    KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-    useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
-    currentUrl: "\u7576\u524D\u7DB2\u5740",
+    "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
+    "please refer to": "\u9700\u8981\u586B\u5BEB\u91D1\u9470\u5F8C\u624D\u53EF\u4F7F\u7528\uFF0C\u8A73\u7D30\u8CC7\u8A0A\u8ACB\u53C3\u8003",
+    KeyAndConfigurationTutorial: "\u300A\u91D1\u9470\u7533\u8ACB\u548C\u8A2D\u5B9A\u6559\u5B78\u300B",
+    useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
+    currentUrl: "\u76EE\u524D\u7DB2\u5740",
     confirm: "\u5132\u5B58",
     cancel: "\u53D6\u6D88",
     delete: "\u522A\u9664",
     "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-    syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
-    syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+    syncToCloud: "\u540C\u6B65\u81F3\u96F2\u7AEF",
+    syncToCloudDescription: "\u4E0A\u50B3\u81F3\u96F2\u7AEF\u5F8C\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u700F\u89BD\u5668/\u6CB9\u7334\u8173\u672C\u4E4B\u9593\u540C\u6B65\u8A2D\u5B9A\uFF0C\u4EE5\u6700\u5F8C\u8B8A\u66F4\u6642\u9593\u70BA\u6E96\u3002",
     authFail: "\u6388\u6B0A\u5931\u6557",
     syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
-    import_hint: "\u5C0E\u5165",
+    import_hint: "\u532F\u5165",
     upload: "\u4E0A\u50B3",
     revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
     uploadFail: "\u4E0A\u50B3\u5931\u6557",
     download: "\u4E0B\u8F09",
-    importSuccess: "\u5C0E\u5165\u6210\u529F",
-    importFail: "\u5C0E\u5165\u5931\u6557",
+    importSuccess: "\u532F\u5165\u6210\u529F",
+    importFail: "\u532F\u5165\u5931\u6557",
     deleteFail: "\u522A\u9664\u5931\u6557",
-    backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6587\u4EF6",
+    backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6A94\u6848",
     create_new_backup: "\u65B0\u589E\u5099\u4EFD\u7BC0\u9EDE",
-    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE, \u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
-    backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u6062\u5FA9\u5099\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8A313\u500B\u4E0D\u540C\u7684\u5099\u4EFD",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE\uFF0C\u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
+    backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u9084\u539F\u5099\u4EFD\u6A94\u6848\uFF0C\u6700\u591A\u5141\u8A31 3 \u500B\u4E0D\u540C\u7684\u5099\u4EFD",
     successSyncConfig: "\u6210\u529F\u8207\u96F2\u7AEF\u4FDD\u6301\u540C\u6B65",
     syncFail: "\u540C\u6B65\u5931\u6557",
     updatedAt: "\u66F4\u65B0\u65BC {date}",
     lastSyncedAt: "\u4E0A\u6B21\u6AA2\u67E5\u65BC {date}",
     downloadFail: "\u4E0B\u8F09\u5931\u6557",
-    clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
-    aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
-    "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
-    aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
-    projectHomepage: "\u9805\u76EE\u4E3B\u9801",
-    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
-    joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u7372\u53D6\u6700\u65B0\u66F4\u65B0",
-    feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
+    clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
+    aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
+    "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
+    aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u9078\u9019\u88E1\u8D0A\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+    projectHomepage: "\u5C08\u6848\u9996\u9801",
+    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+    joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
+    feedbackAndJoin: "\u554F\u984C\u56DE\u5831/\u52A0\u5165\u7FA4\u7D44",
     autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
     loadingThemeTitle: "Loading \u6A23\u5F0F",
-    loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
-    "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
+    loadingThemeDescription: "\u8A2D\u5B9A\u7B49\u5F85\u8B6F\u6587\u8F09\u5165\u6642\u7684\u6A23\u5F0F",
+    "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B",
     "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
     "loadingTheme.none": "\u4E0D\u986F\u793A",
-    developerDescription: "\u53EF\u4EE5\u9EDE\u64CA<1>\u9019\u88E1</1>\u67E5\u770B\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u76F8\u95DC\u7684\u6587\u6A94",
-    "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
-    successSyncButNoChange: "\u7576\u524D\u914D\u7F6E\u8207\u96F2\u7AEF\u4E00\u81F4",
-    customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
-    "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
-    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
-    "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
-    "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
-    resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
+    developerDescription: "\u53EF\u4EE5\u9EDE\u9078<1>\u6B64\u8655</1>\u6AA2\u8996\u9032\u968E\u81EA\u8A02\u529F\u80FD\u76F8\u95DC\u7684\u8AAA\u660E\u6587\u4EF6",
+    "edit border color": "\u8B8A\u66F4\u908A\u6846\u8272\u5F69",
+    successSyncButNoChange: "\u76EE\u524D\u8A2D\u5B9A\u8207\u96F2\u7AEF\u4E00\u81F4",
+    customTheme: "\u81EA\u8A02\u8272\u5F69\u548C\u5927\u5C0F",
+    "customThemeLabel.borderColor": "\u908A\u6846\u8272\u5F69",
+    "customThemeLabel.borderRadius": "\u908A\u6846\u5713\u89D2",
+    "customThemeLabel.textColor": "\u6587\u5B57\u8272\u5F69",
+    "customThemeLabel.backgroundColor": "\u80CC\u666F\u8272\u5F69",
+    "customThemeLabel.zoom": "\u5B57\u578B\u7E2E\u653E\u6BD4\u4F8B (%)",
+    resetToDefaultColor: "\u9084\u539F\u70BA\u9810\u8A2D\u8272\u5F69",
+    isTranslateTitle: "\u555F\u7528\u7DB2\u9801\u6A19\u984C\u7FFB\u8B6F",
+    isTranslateTitleDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6A19\u984C\u6703\u88AB\u7FFB\u8B6F",
+    verifyService: "\u9EDE\u6B64\u6E2C\u8A66\u670D\u52D9",
+    verified: "\u9A57\u8B49\u6210\u529F",
+    "field.model": "\u6A21\u578B",
+    "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
+    "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
+    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
+    "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
+    "description.prompt": "\u4EE5\u4F7F\u7528\u8005\u8EAB\u4EFD\u50B3\u9001\u7D66 OpenAI \u7684\u5C0D\u8A71\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u5B57\u5167\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8A9E\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6A19\u8A9E\u8A00",
+    "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
+    enabledExtension: "\u555F\u7528\u5957\u4EF6",
+    clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
+    clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
+    hasBeenDisabled: "\u5DF2\u505C\u7528",
+    "show password": "\u986F\u793A\u5BC6\u78BC"
   };
 
   // locales/en.json
@@ -4845,7 +4941,7 @@ body {
     browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
     enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
     "browser.brandName": "Immersive Translate",
-    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.",
+    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
     "browser.toggleTranslatePage": "Toggle translate webpage ",
     "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
     "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
@@ -4853,6 +4949,9 @@ body {
     "browser.openOptionsPage": "Open Settings Page",
     "browser.toggleTranslationMask": "Toggle translation mask style",
     "browser.translateLocalPdfFile": "Translate local PDF files",
+    "browser.openEbookViewer": "Read local e-book",
+    "browser.openEbookBuilder": "Make Dual Epub ebook",
+    "browser.translateLocalHtmlFile": "Translate local HTML files",
     confirmResetConfig: "Are you sure you want to reset the settings?",
     translationLineBreakSettingTitle: "Line break setting",
     smartLineBreak: "Smart Wrap",
@@ -4969,15 +5068,18 @@ body {
     syncToGoogleDrive: "Sync Now with Google Drive",
     previewAllThemes: "Preview all themes",
     "translationTheme.none": "None",
+    "translationTheme.grey": "Black Gray",
     "translationTheme.dashed": "Dashed underline",
     "translationTheme.dotted": "Dotted Underline",
     "translationTheme.dashedBorder": "Dashed Border",
+    "translationTheme.solidBorder": "Dashed Border",
     "translationTheme.underline": "Straight underline",
     "translationTheme.mask": "Blur effect",
     "translationTheme.paper": "White paper shadow effect",
     "translationTheme.dividingLine": "Dividing line",
     "translationTheme.highlight": "Highlight",
     "translationTheme.marker": "Maker",
+    "translationTheme.marker2": "Maker2",
     "translationTheme.blockquote": "quote style",
     "translationTheme.weakening": "Weakening",
     "translationTheme.italic": "Italic",
@@ -5014,6 +5116,7 @@ body {
     "translationServices.papago": "Papago Translation",
     "translationServices.d": "DeeplX (Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
+    "translationServices.openai": "OpenAI",
     "translate title": "Translate page title",
     "always languages": "Always translate the following languages",
     neverTranslateLanguagesLabel: "Never Translated Languages",
@@ -5073,10 +5176,27 @@ body {
     successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
     customTheme: "Customize colors and sizes",
     "customThemeLabel.borderColor": "Border color",
-    "customThemeLabel.backgroundColor": "Background color",
+    "customThemeLabel.borderRadius": "Border Round Corner",
     "customThemeLabel.textColor": "Text color",
+    "customThemeLabel.backgroundColor": "Background color",
     "customThemeLabel.zoom": "Font scale (%)",
-    resetToDefaultColor: "Reset to default colors"
+    resetToDefaultColor: "Reset to default colors",
+    isTranslateTitle: "Enable translate page title",
+    isTranslateTitleDescription: "When enabled, the page title will be translated",
+    verifyService: "Click on this test service",
+    verified: "Successful",
+    "field.model": "Model",
+    "field.translationEngine": "Translation engine",
+    "field.limitPerMinute": "Max requests per minute",
+    "field.maxTextLengthPerRequest": "Maximum text length per request",
+    "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
+    "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language",
+    "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
+    enabledExtension: "Enable extensions",
+    clickToDisableExtension: "Click to disable extension",
+    clickToEnableExtension: "Click to enable the extension",
+    hasBeenDisabled: "Disabled",
+    "show password": "Show password"
   };
 
   // constant.ts
@@ -5099,8 +5219,8 @@ body {
   var brandName = "Immersive Translate", brandId = "immersive-translate";
   var brandIdForJs = "immersiveTranslate";
   var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
-  var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
-  var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
+  var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage", contextOpenAboutMenuId = "openAboutPage";
+  var contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`, lastRunTimeStorageKey = "lastRunTime", sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
   var themeOptions = {
     underline: [
@@ -5175,7 +5295,33 @@ body {
     ],
     dashedBorder: [
       {
+        name: "borderRadius",
+        required: !1,
+        type: "number",
+        default: "0"
+      },
+      {
         name: "borderColor",
+        required: !1,
+        type: "color"
+      }
+    ],
+    solidBorder: [
+      {
+        name: "borderRadius",
+        required: !1,
+        type: "number",
+        default: "0"
+      },
+      {
+        name: "borderColor",
+        required: !1,
+        type: "color"
+      }
+    ],
+    marker2: [
+      {
+        name: "backgroundColor",
         required: !1,
         type: "color"
       }
@@ -5443,7 +5589,7 @@ body {
     {
       type: "select",
       name: "codename",
-      label: "translationEngine",
+      labelKey: "field.translationEngine",
       default: "youdao",
       required: !1,
       options: [
@@ -5505,6 +5651,7 @@ body {
       allProps: [
         {
           name: "authKey",
+          label: "Auth Key",
           required: !0,
           type: "password"
         }
@@ -5513,6 +5660,56 @@ body {
     transmart: {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
+    },
+    openai: {
+      name: "Open AI",
+      homepage: "https://openai.com/api/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+      allProps: [
+        {
+          name: "APIKEY",
+          required: !0,
+          type: "password"
+        },
+        {
+          name: "model",
+          labelKey: "field.model",
+          required: !1,
+          type: "text",
+          default: "gpt-3.5-turbo"
+        },
+        {
+          name: "limit",
+          required: !1,
+          labelKey: "field.limitPerMinute",
+          descriptionKey: "description.limitPerMinute",
+          type: "number",
+          default: 10
+        },
+        {
+          name: "maxTextLengthPerRequest",
+          required: !1,
+          labelKey: "field.maxTextLengthPerRequest",
+          descriptionKey: "description.maxTextLengthPerRequest",
+          type: "number",
+          default: 1300
+        },
+        {
+          name: "apiUrl",
+          labelKey: "field.apiUrl",
+          required: !1,
+          type: "text",
+          default: "https://api.openai.com/v1/chat/completions"
+        },
+        {
+          name: "prompt",
+          label: "Prompt",
+          required: !1,
+          descriptionKey: "description.prompt",
+          type: "textarea",
+          default: "Translate the following text to {{to}}: ```\n{{text}}\n```"
+        }
+      ]
     },
     youdao: {
       name: "Youdao",
@@ -5621,20 +5818,6 @@ body {
       homepage: "https://fanyi.caiyunapp.com/",
       alpha: !0
     },
-    openl: {
-      name: "Openl",
-      homepage: "https://openl.club/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/openL",
-      allProps: [
-        ...openlProps,
-        {
-          type: "password",
-          name: "apikey",
-          required: !0
-        }
-      ],
-      props: openlProps
-    },
     mock: {
       name: "Mock",
       homepage: "https://www.google.com"
@@ -5653,31 +5836,19 @@ body {
       alpha: !0,
       homepage: "https://immersive-translate.owenyoung.com/services/youdao"
     },
-    openai: {
-      name: "Open AI",
-      homepage: "https://openai.com/api/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+    openl: {
+      name: "Openl",
+      homepage: "https://openl.club/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/openL",
       allProps: [
+        ...openlProps,
         {
-          name: "APIKEY",
-          required: !0,
-          type: "password"
-        },
-        {
-          name: "model",
-          required: !1,
-          type: "text",
-          default: "text-davinci-003"
-        },
-        {
-          name: "prompt",
-          required: !1,
-          type: "textarea",
-          default: `translate to {{to}}:
-
-{{text}} =>`
+          type: "password",
+          name: "apikey",
+          required: !0
         }
-      ]
+      ],
+      props: openlProps
     },
     volcAlpha: {
       name: "Volc Alpha",
@@ -5701,6 +5872,7 @@ body {
       allProps: [
         {
           name: "url",
+          label: "API URL",
           required: !0,
           type: "text"
         }
@@ -5746,9 +5918,9 @@ body {
       super("Deadline"), this.name = "DeadlineError";
     }
   };
-  function deadline(p6, delay2) {
-    let d6 = deferred(), t5 = setTimeout(() => d6.reject(new DeadlineError()), delay2);
-    return Promise.race([p6, d6]).finally(() => clearTimeout(t5));
+  function deadline(p5, delay2) {
+    let d6 = deferred(), t4 = setTimeout(() => d6.reject(new DeadlineError()), delay2);
+    return Promise.race([p5, d6]).finally(() => clearTimeout(t4));
   }
 
   // https://deno.land/std@0.171.0/async/delay.ts
@@ -5785,8 +5957,8 @@ body {
       try {
         let { value, done } = await iterator.next();
         done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
-      } catch (e3) {
-        this.#throws.push(e3);
+      } catch (e) {
+        this.#throws.push(e);
       }
       this.#signal.resolve();
     }
@@ -5798,8 +5970,8 @@ body {
           yield value, this.#callIteratorNext(iterator);
         }
         if (this.#throws.length) {
-          for (let e3 of this.#throws)
-            throw e3;
+          for (let e of this.#throws)
+            throw e;
           this.#throws.length = 0;
         }
         this.#yields.length = 0, this.#signal = deferred();
@@ -6002,8 +6174,8 @@ body {
   function bgBrightWhite(str) {
     return run(str, code([107], 49));
   }
-  function clampAndTruncate(n3, max = 255, min = 0) {
-    return Math.trunc(Math.max(Math.min(n3, max), min));
+  function clampAndTruncate(n2, max = 255, min = 0) {
+    return Math.trunc(Math.max(Math.min(n2, max), min));
   }
   function rgb8(str, color) {
     return run(str, code([38, 5, clampAndTruncate(color)], 39));
@@ -6108,1358 +6280,143 @@ body {
     throw new RetryError(error, options2.maxAttempts);
   }
 
-  // https://esm.sh/stable/preact@10.11.0/deno/preact.js
-  var P, d2, $, Y, S, F2, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
-  function k2(e3, t5) {
-    for (var _3 in t5)
-      e3[_3] = t5[_3];
-    return e3;
-  }
-  function j2(e3) {
-    var t5 = e3.parentNode;
-    t5 && t5.removeChild(e3);
-  }
-  function ee(e3, t5, _3) {
-    var r2, l5, o5, s7 = {};
-    for (o5 in t5)
-      o5 == "key" ? r2 = t5[o5] : o5 == "ref" ? l5 = t5[o5] : s7[o5] = t5[o5];
-    if (arguments.length > 2 && (s7.children = arguments.length > 3 ? P.call(arguments, 2) : _3), typeof e3 == "function" && e3.defaultProps != null)
-      for (o5 in e3.defaultProps)
-        s7[o5] === void 0 && (s7[o5] = e3.defaultProps[o5]);
-    return w2(e3, s7, r2, l5, null);
-  }
-  function w2(e3, t5, _3, r2, l5) {
-    var o5 = { type: e3, props: t5, key: _3, ref: r2, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l5 ?? ++$ };
-    return l5 == null && d2.vnode != null && d2.vnode(o5), o5;
-  }
-  function L(e3) {
-    return e3.children;
-  }
-  function U(e3, t5) {
-    this.props = e3, this.context = t5;
-  }
-  function C(e3, t5) {
-    if (t5 == null)
-      return e3.__ ? C(e3.__, e3.__.__k.indexOf(e3) + 1) : null;
-    for (var _3; t5 < e3.__k.length; t5++)
-      if ((_3 = e3.__k[t5]) != null && _3.__e != null)
-        return _3.__e;
-    return typeof e3.type == "function" ? C(e3) : null;
-  }
-  function z2(e3) {
-    var t5, _3;
-    if ((e3 = e3.__) != null && e3.__c != null) {
-      for (e3.__e = e3.__c.base = null, t5 = 0; t5 < e3.__k.length; t5++)
-        if ((_3 = e3.__k[t5]) != null && _3.__e != null) {
-          e3.__e = e3.__c.base = _3.__e;
-          break;
-        }
-      return z2(e3);
-    }
-  }
-  function M(e3) {
-    (!e3.__d && (e3.__d = !0) && S.push(e3) && !D2.__r++ || F2 !== d2.debounceRendering) && ((F2 = d2.debounceRendering) || setTimeout)(D2);
-  }
-  function D2() {
-    for (var e3; D2.__r = S.length; )
-      e3 = S.sort(function(t5, _3) {
-        return t5.__v.__b - _3.__v.__b;
-      }), S = [], e3.some(function(t5) {
-        var _3, r2, l5, o5, s7, f7;
-        t5.__d && (s7 = (o5 = (_3 = t5).__v).__e, (f7 = _3.__P) && (r2 = [], (l5 = k2({}, o5)).__v = o5.__v + 1, W(f7, o5, l5, _3.__n, f7.ownerSVGElement !== void 0, o5.__h != null ? [s7] : null, r2, s7 ?? C(o5), o5.__h), K(r2, o5), o5.__e != s7 && z2(o5)));
-      });
-  }
-  function G(e3, t5, _3, r2, l5, o5, s7, f7, p6, a5) {
-    var n3, h4, c6, i3, u5, b5, v5, y5 = r2 && r2.__k || V, g8 = y5.length;
-    for (_3.__k = [], n3 = 0; n3 < t5.length; n3++)
-      if ((i3 = _3.__k[n3] = (i3 = t5[n3]) == null || typeof i3 == "boolean" ? null : typeof i3 == "string" || typeof i3 == "number" || typeof i3 == "bigint" ? w2(null, i3, null, null, i3) : Array.isArray(i3) ? w2(L, { children: i3 }, null, null, null) : i3.__b > 0 ? w2(i3.type, i3.props, i3.key, i3.ref ? i3.ref : null, i3.__v) : i3) != null) {
-        if (i3.__ = _3, i3.__b = _3.__b + 1, (c6 = y5[n3]) === null || c6 && i3.key == c6.key && i3.type === c6.type)
-          y5[n3] = void 0;
-        else
-          for (h4 = 0; h4 < g8; h4++) {
-            if ((c6 = y5[h4]) && i3.key == c6.key && i3.type === c6.type) {
-              y5[h4] = void 0;
-              break;
-            }
-            c6 = null;
-          }
-        W(e3, i3, c6 = c6 || T, l5, o5, s7, f7, p6, a5), u5 = i3.__e, (h4 = i3.ref) && c6.ref != h4 && (v5 || (v5 = []), c6.ref && v5.push(c6.ref, null, i3), v5.push(h4, i3.__c || u5, i3)), u5 != null ? (b5 == null && (b5 = u5), typeof i3.type == "function" && i3.__k === c6.__k ? i3.__d = p6 = q(i3, p6, e3) : p6 = J(e3, i3, c6, y5, u5, p6), typeof _3.type == "function" && (_3.__d = p6)) : p6 && c6.__e == p6 && p6.parentNode != e3 && (p6 = C(c6));
-      }
-    for (_3.__e = b5, n3 = g8; n3--; )
-      y5[n3] != null && (typeof _3.type == "function" && y5[n3].__e != null && y5[n3].__e == _3.__d && (_3.__d = C(r2, n3 + 1)), X(y5[n3], y5[n3]));
-    if (v5)
-      for (n3 = 0; n3 < v5.length; n3++)
-        Q(v5[n3], v5[++n3], v5[++n3]);
-  }
-  function q(e3, t5, _3) {
-    for (var r2, l5 = e3.__k, o5 = 0; l5 && o5 < l5.length; o5++)
-      (r2 = l5[o5]) && (r2.__ = e3, t5 = typeof r2.type == "function" ? q(r2, t5, _3) : J(_3, r2, r2, l5, r2.__e, t5));
-    return t5;
-  }
-  function J(e3, t5, _3, r2, l5, o5) {
-    var s7, f7, p6;
-    if (t5.__d !== void 0)
-      s7 = t5.__d, t5.__d = void 0;
-    else if (_3 == null || l5 != o5 || l5.parentNode == null)
-      e:
-        if (o5 == null || o5.parentNode !== e3)
-          e3.appendChild(l5), s7 = null;
-        else {
-          for (f7 = o5, p6 = 0; (f7 = f7.nextSibling) && p6 < r2.length; p6 += 2)
-            if (f7 == l5)
-              break e;
-          e3.insertBefore(l5, o5), s7 = o5;
-        }
-    return s7 !== void 0 ? s7 : l5.nextSibling;
-  }
-  function _e(e3, t5, _3, r2, l5) {
-    var o5;
-    for (o5 in _3)
-      o5 === "children" || o5 === "key" || o5 in t5 || N(e3, o5, null, _3[o5], r2);
-    for (o5 in t5)
-      l5 && typeof t5[o5] != "function" || o5 === "children" || o5 === "key" || o5 === "value" || o5 === "checked" || _3[o5] === t5[o5] || N(e3, o5, t5[o5], _3[o5], r2);
-  }
-  function I(e3, t5, _3) {
-    t5[0] === "-" ? e3.setProperty(t5, _3) : e3[t5] = _3 == null ? "" : typeof _3 != "number" || Z.test(t5) ? _3 : _3 + "px";
-  }
-  function N(e3, t5, _3, r2, l5) {
-    var o5;
-    e:
-      if (t5 === "style")
-        if (typeof _3 == "string")
-          e3.style.cssText = _3;
-        else {
-          if (typeof r2 == "string" && (e3.style.cssText = r2 = ""), r2)
-            for (t5 in r2)
-              _3 && t5 in _3 || I(e3.style, t5, "");
-          if (_3)
-            for (t5 in _3)
-              r2 && _3[t5] === r2[t5] || I(e3.style, t5, _3[t5]);
-        }
-      else if (t5[0] === "o" && t5[1] === "n")
-        o5 = t5 !== (t5 = t5.replace(/Capture$/, "")), t5 = t5.toLowerCase() in e3 ? t5.toLowerCase().slice(2) : t5.slice(2), e3.l || (e3.l = {}), e3.l[t5 + o5] = _3, _3 ? r2 || e3.addEventListener(t5, o5 ? R : O, o5) : e3.removeEventListener(t5, o5 ? R : O, o5);
-      else if (t5 !== "dangerouslySetInnerHTML") {
-        if (l5)
-          t5 = t5.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
-        else if (t5 !== "href" && t5 !== "list" && t5 !== "form" && t5 !== "tabIndex" && t5 !== "download" && t5 in e3)
-          try {
-            e3[t5] = _3 ?? "";
-            break e;
-          } catch {
-          }
-        typeof _3 == "function" || (_3 != null && (_3 !== !1 || t5[0] === "a" && t5[1] === "r") ? e3.setAttribute(t5, _3) : e3.removeAttribute(t5));
-      }
-  }
-  function O(e3) {
-    this.l[e3.type + !1](d2.event ? d2.event(e3) : e3);
-  }
-  function R(e3) {
-    this.l[e3.type + !0](d2.event ? d2.event(e3) : e3);
-  }
-  function W(e3, t5, _3, r2, l5, o5, s7, f7, p6) {
-    var a5, n3, h4, c6, i3, u5, b5, v5, y5, g8, x6, H8, E4, m6 = t5.type;
-    if (t5.constructor !== void 0)
-      return null;
-    _3.__h != null && (p6 = _3.__h, f7 = t5.__e = _3.__e, t5.__h = null, o5 = [f7]), (a5 = d2.__b) && a5(t5);
-    try {
-      e:
-        if (typeof m6 == "function") {
-          if (v5 = t5.props, y5 = (a5 = m6.contextType) && r2[a5.__c], g8 = a5 ? y5 ? y5.props.value : a5.__ : r2, _3.__c ? b5 = (n3 = t5.__c = _3.__c).__ = n3.__E : ("prototype" in m6 && m6.prototype.render ? t5.__c = n3 = new m6(v5, g8) : (t5.__c = n3 = new U(v5, g8), n3.constructor = m6, n3.render = oe), y5 && y5.sub(n3), n3.props = v5, n3.state || (n3.state = {}), n3.context = g8, n3.__n = r2, h4 = n3.__d = !0, n3.__h = []), n3.__s == null && (n3.__s = n3.state), m6.getDerivedStateFromProps != null && (n3.__s == n3.state && (n3.__s = k2({}, n3.__s)), k2(n3.__s, m6.getDerivedStateFromProps(v5, n3.__s))), c6 = n3.props, i3 = n3.state, h4)
-            m6.getDerivedStateFromProps == null && n3.componentWillMount != null && n3.componentWillMount(), n3.componentDidMount != null && n3.__h.push(n3.componentDidMount);
-          else {
-            if (m6.getDerivedStateFromProps == null && v5 !== c6 && n3.componentWillReceiveProps != null && n3.componentWillReceiveProps(v5, g8), !n3.__e && n3.shouldComponentUpdate != null && n3.shouldComponentUpdate(v5, n3.__s, g8) === !1 || t5.__v === _3.__v) {
-              n3.props = v5, n3.state = n3.__s, t5.__v !== _3.__v && (n3.__d = !1), n3.__v = t5, t5.__e = _3.__e, t5.__k = _3.__k, t5.__k.forEach(function(A5) {
-                A5 && (A5.__ = t5);
-              }), n3.__h.length && s7.push(n3);
-              break e;
-            }
-            n3.componentWillUpdate != null && n3.componentWillUpdate(v5, n3.__s, g8), n3.componentDidUpdate != null && n3.__h.push(function() {
-              n3.componentDidUpdate(c6, i3, u5);
-            });
-          }
-          if (n3.context = g8, n3.props = v5, n3.__v = t5, n3.__P = e3, x6 = d2.__r, H8 = 0, "prototype" in m6 && m6.prototype.render)
-            n3.state = n3.__s, n3.__d = !1, x6 && x6(t5), a5 = n3.render(n3.props, n3.state, n3.context);
-          else
-            do
-              n3.__d = !1, x6 && x6(t5), a5 = n3.render(n3.props, n3.state, n3.context), n3.state = n3.__s;
-            while (n3.__d && ++H8 < 25);
-          n3.state = n3.__s, n3.getChildContext != null && (r2 = k2(k2({}, r2), n3.getChildContext())), h4 || n3.getSnapshotBeforeUpdate == null || (u5 = n3.getSnapshotBeforeUpdate(c6, i3)), E4 = a5 != null && a5.type === L && a5.key == null ? a5.props.children : a5, G(e3, Array.isArray(E4) ? E4 : [E4], t5, _3, r2, l5, o5, s7, f7, p6), n3.base = t5.__e, t5.__h = null, n3.__h.length && s7.push(n3), b5 && (n3.__E = n3.__ = null), n3.__e = !1;
-        } else
-          o5 == null && t5.__v === _3.__v ? (t5.__k = _3.__k, t5.__e = _3.__e) : t5.__e = ne(_3.__e, t5, _3, r2, l5, o5, s7, p6);
-      (a5 = d2.diffed) && a5(t5);
-    } catch (A5) {
-      t5.__v = null, (p6 || o5 != null) && (t5.__e = f7, t5.__h = !!p6, o5[o5.indexOf(f7)] = null), d2.__e(A5, t5, _3);
-    }
-  }
-  function K(e3, t5) {
-    d2.__c && d2.__c(t5, e3), e3.some(function(_3) {
-      try {
-        e3 = _3.__h, _3.__h = [], e3.some(function(r2) {
-          r2.call(_3);
-        });
-      } catch (r2) {
-        d2.__e(r2, _3.__v);
-      }
-    });
-  }
-  function ne(e3, t5, _3, r2, l5, o5, s7, f7) {
-    var p6, a5, n3, h4 = _3.props, c6 = t5.props, i3 = t5.type, u5 = 0;
-    if (i3 === "svg" && (l5 = !0), o5 != null) {
-      for (; u5 < o5.length; u5++)
-        if ((p6 = o5[u5]) && "setAttribute" in p6 == !!i3 && (i3 ? p6.localName === i3 : p6.nodeType === 3)) {
-          e3 = p6, o5[u5] = null;
-          break;
-        }
-    }
-    if (e3 == null) {
-      if (i3 === null)
-        return document.createTextNode(c6);
-      e3 = l5 ? document.createElementNS("http://www.w3.org/2000/svg", i3) : document.createElement(i3, c6.is && c6), o5 = null, f7 = !1;
-    }
-    if (i3 === null)
-      h4 === c6 || f7 && e3.data === c6 || (e3.data = c6);
-    else {
-      if (o5 = o5 && P.call(e3.childNodes), a5 = (h4 = _3.props || T).dangerouslySetInnerHTML, n3 = c6.dangerouslySetInnerHTML, !f7) {
-        if (o5 != null)
-          for (h4 = {}, u5 = 0; u5 < e3.attributes.length; u5++)
-            h4[e3.attributes[u5].name] = e3.attributes[u5].value;
-        (n3 || a5) && (n3 && (a5 && n3.__html == a5.__html || n3.__html === e3.innerHTML) || (e3.innerHTML = n3 && n3.__html || ""));
-      }
-      if (_e(e3, c6, h4, l5, f7), n3)
-        t5.__k = [];
-      else if (u5 = t5.props.children, G(e3, Array.isArray(u5) ? u5 : [u5], t5, _3, r2, l5 && i3 !== "foreignObject", o5, s7, o5 ? o5[0] : _3.__k && C(_3, 0), f7), o5 != null)
-        for (u5 = o5.length; u5--; )
-          o5[u5] != null && j2(o5[u5]);
-      f7 || ("value" in c6 && (u5 = c6.value) !== void 0 && (u5 !== e3.value || i3 === "progress" && !u5 || i3 === "option" && u5 !== h4.value) && N(e3, "value", u5, h4.value, !1), "checked" in c6 && (u5 = c6.checked) !== void 0 && u5 !== e3.checked && N(e3, "checked", u5, h4.checked, !1));
-    }
-    return e3;
-  }
-  function Q(e3, t5, _3) {
-    try {
-      typeof e3 == "function" ? e3(t5) : e3.current = t5;
-    } catch (r2) {
-      d2.__e(r2, _3);
-    }
-  }
-  function X(e3, t5, _3) {
-    var r2, l5;
-    if (d2.unmount && d2.unmount(e3), (r2 = e3.ref) && (r2.current && r2.current !== e3.__e || Q(r2, null, t5)), (r2 = e3.__c) != null) {
-      if (r2.componentWillUnmount)
-        try {
-          r2.componentWillUnmount();
-        } catch (o5) {
-          d2.__e(o5, t5);
-        }
-      r2.base = r2.__P = null, e3.__c = void 0;
-    }
-    if (r2 = e3.__k)
-      for (l5 = 0; l5 < r2.length; l5++)
-        r2[l5] && X(r2[l5], t5, typeof e3.type != "function");
-    _3 || e3.__e == null || j2(e3.__e), e3.__ = e3.__e = e3.__d = void 0;
-  }
-  function oe(e3, t5, _3) {
-    return this.constructor(e3, _3);
-  }
-  function re(e3, t5, _3) {
-    var r2, l5, o5;
-    d2.__ && d2.__(e3, t5), l5 = (r2 = typeof _3 == "function") ? null : _3 && _3.__k || t5.__k, o5 = [], W(t5, e3 = (!r2 && _3 || t5).__k = ee(L, null, [e3]), l5 || T, T, t5.ownerSVGElement !== void 0, !r2 && _3 ? [_3] : l5 ? null : t5.firstChild ? P.call(t5.childNodes) : null, o5, !r2 && _3 ? _3 : l5 ? l5.__e : t5.firstChild, r2), K(o5, e3);
-  }
-  function ce(e3, t5) {
-    var _3 = { __c: t5 = "__cC" + B++, __: e3, Consumer: function(r2, l5) {
-      return r2.children(l5);
-    }, Provider: function(r2) {
-      var l5, o5;
-      return this.getChildContext || (l5 = [], (o5 = {})[t5] = this, this.getChildContext = function() {
-        return o5;
-      }, this.shouldComponentUpdate = function(s7) {
-        this.props.value !== s7.value && l5.some(M);
-      }, this.sub = function(s7) {
-        l5.push(s7);
-        var f7 = s7.componentWillUnmount;
-        s7.componentWillUnmount = function() {
-          l5.splice(l5.indexOf(s7), 1), f7 && f7.call(s7);
-        };
-      }), r2.children;
-    } };
-    return _3.Provider.__ = _3.Consumer.contextType = _3;
-  }
-  P = V.slice, d2 = { __e: function(e3, t5, _3, r2) {
-    for (var l5, o5, s7; t5 = t5.__; )
-      if ((l5 = t5.__c) && !l5.__)
-        try {
-          if ((o5 = l5.constructor) && o5.getDerivedStateFromError != null && (l5.setState(o5.getDerivedStateFromError(e3)), s7 = l5.__d), l5.componentDidCatch != null && (l5.componentDidCatch(e3, r2 || {}), s7 = l5.__d), s7)
-            return l5.__E = l5;
-        } catch (f7) {
-          e3 = f7;
-        }
-    throw e3;
-  } }, $ = 0, Y = function(e3) {
-    return e3 != null && e3.constructor === void 0;
-  }, U.prototype.setState = function(e3, t5) {
-    var _3;
-    _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k2({}, this.state), typeof e3 == "function" && (e3 = e3(k2({}, _3), this.props)), e3 && k2(_3, e3), e3 != null && this.__v && (t5 && this.__h.push(t5), M(this));
-  }, U.prototype.forceUpdate = function(e3) {
-    this.__v && (this.__e = !0, e3 && this.__h.push(e3), M(this));
-  }, U.prototype.render = L, S = [], D2.__r = 0, B = 0;
-
-  // https://esm.sh/stable/preact@10.11.0/deno/hooks.js
-  var i2, n, d3, N2, f4 = 0, q2 = [], l4 = [], V2 = d2.__b, g3 = d2.__r, b = d2.diffed, C2 = d2.__c, A = d2.unmount;
-  function a3(_3, t5) {
-    d2.__h && d2.__h(n, _3, f4 || t5), f4 = 0;
-    var u5 = n.__H || (n.__H = { __: [], __h: [] });
-    return _3 >= u5.__.length && u5.__.push({ __V: l4 }), u5.__[_3];
-  }
-  function P2(_3) {
-    return f4 = 1, B2(D3, _3);
-  }
-  function B2(_3, t5, u5) {
-    var o5 = a3(i2++, 2);
-    if (o5.t = _3, !o5.__c && (o5.__ = [u5 ? u5(t5) : D3(void 0, t5), function(v5) {
-      var s7 = o5.__N ? o5.__N[0] : o5.__[0], h4 = o5.t(s7, v5);
-      s7 !== h4 && (o5.__N = [h4, o5.__[1]], o5.__c.setState({}));
-    }], o5.__c = n, !n.u)) {
-      n.u = !0;
-      var r2 = n.shouldComponentUpdate;
-      n.shouldComponentUpdate = function(v5, s7, h4) {
-        if (!o5.__c.__H)
-          return !0;
-        var y5 = o5.__c.__H.__.filter(function(c6) {
-          return c6.__c;
-        });
-        if (y5.every(function(c6) {
-          return !c6.__N;
-        }))
-          return !r2 || r2.call(this, v5, s7, h4);
-        var E4 = !1;
-        return y5.forEach(function(c6) {
-          if (c6.__N) {
-            var k5 = c6.__[0];
-            c6.__ = c6.__N, c6.__N = void 0, k5 !== c6.__[0] && (E4 = !0);
-          }
-        }), !!E4 && (!r2 || r2.call(this, v5, s7, h4));
-      };
-    }
-    return o5.__N || o5.__;
-  }
-  function j3(_3, t5) {
-    var u5 = a3(i2++, 3);
-    !d2.__s && H(u5.__H, t5) && (u5.__ = _3, u5.i = t5, n.__H.__h.push(u5));
-  }
-  function w3(_3) {
-    return f4 = 5, x(function() {
-      return { current: _3 };
-    }, []);
-  }
-  function x(_3, t5) {
-    var u5 = a3(i2++, 7);
-    return H(u5.__H, t5) ? (u5.__V = _3(), u5.i = t5, u5.__h = _3, u5.__V) : u5.__;
-  }
-  function L2(_3, t5) {
-    return f4 = 8, x(function() {
-      return _3;
-    }, t5);
-  }
-  function M2(_3) {
-    var t5 = n.context[_3.__c], u5 = a3(i2++, 9);
-    return u5.c = _3, t5 ? (u5.__ == null && (u5.__ = !0, t5.sub(n)), t5.props.value) : _3.__;
-  }
-  function R2() {
-    for (var _3; _3 = q2.shift(); )
-      if (_3.__P && _3.__H)
-        try {
-          _3.__H.__h.forEach(m3), _3.__H.__h.forEach(p2), _3.__H.__h = [];
-        } catch (t5) {
-          _3.__H.__h = [], d2.__e(t5, _3.__v);
-        }
-  }
-  d2.__b = function(_3) {
-    typeof _3.type != "function" || _3.o || _3.type === L ? _3.o || (_3.o = _3.__ && _3.__.o ? _3.__.o : "") : _3.o = (_3.__ && _3.__.o ? _3.__.o : "") + (_3.__ && _3.__.__k ? _3.__.__k.indexOf(_3) : 0), n = null, V2 && V2(_3);
-  }, d2.__r = function(_3) {
-    g3 && g3(_3), i2 = 0;
-    var t5 = (n = _3.__c).__H;
-    t5 && (d3 === n ? (t5.__h = [], n.__h = [], t5.__.forEach(function(u5) {
-      u5.__N && (u5.__ = u5.__N), u5.__V = l4, u5.__N = u5.i = void 0;
-    })) : (t5.__h.forEach(m3), t5.__h.forEach(p2), t5.__h = [])), d3 = n;
-  }, d2.diffed = function(_3) {
-    b && b(_3);
-    var t5 = _3.__c;
-    t5 && t5.__H && (t5.__H.__h.length && (q2.push(t5) !== 1 && N2 === d2.requestAnimationFrame || ((N2 = d2.requestAnimationFrame) || S2)(R2)), t5.__H.__.forEach(function(u5) {
-      u5.i && (u5.__H = u5.i), u5.__V !== l4 && (u5.__ = u5.__V), u5.i = void 0, u5.__V = l4;
-    })), d3 = n = null;
-  }, d2.__c = function(_3, t5) {
-    t5.some(function(u5) {
-      try {
-        u5.__h.forEach(m3), u5.__h = u5.__h.filter(function(o5) {
-          return !o5.__ || p2(o5);
-        });
-      } catch (o5) {
-        t5.some(function(r2) {
-          r2.__h && (r2.__h = []);
-        }), t5 = [], d2.__e(o5, u5.__v);
-      }
-    }), C2 && C2(_3, t5);
-  }, d2.unmount = function(_3) {
-    A && A(_3);
-    var t5, u5 = _3.__c;
-    u5 && u5.__H && (u5.__H.__.forEach(function(o5) {
-      try {
-        m3(o5);
-      } catch (r2) {
-        t5 = r2;
-      }
-    }), u5.__H = void 0, t5 && d2.__e(t5, u5.__v));
-  };
-  var F3 = typeof requestAnimationFrame == "function";
-  function S2(_3) {
-    var t5, u5 = function() {
-      clearTimeout(o5), F3 && cancelAnimationFrame(t5), setTimeout(_3);
-    }, o5 = setTimeout(u5, 100);
-    F3 && (t5 = requestAnimationFrame(u5));
-  }
-  function m3(_3) {
-    var t5 = n, u5 = _3.__c;
-    typeof u5 == "function" && (_3.__c = void 0, u5()), n = t5;
-  }
-  function p2(_3) {
-    var t5 = n;
-    _3.__c = _3.__(), n = t5;
-  }
-  function H(_3, t5) {
-    return !_3 || _3.length !== t5.length || t5.some(function(u5, o5) {
-      return u5 !== _3[o5];
-    });
-  }
-  function D3(_3, t5) {
-    return typeof t5 == "function" ? t5(_3) : t5;
-  }
-
-  // https://esm.sh/v108/memoize-one@6.0.0/deno/memoize-one.js
+  // https://esm.sh/v111/memoize-one@6.0.0/deno/memoize-one.js
   var s3 = Number.isNaN || function(r2) {
     return typeof r2 == "number" && r2 !== r2;
   };
 
-  // https://esm.sh/v108/lodash.throttle@4.1.1/deno/lodash.throttle.js
-  var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D4 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e3, t5) => () => (t5 || e3((t5 = { exports: {} }).exports, t5), t5.exports), q3 = (e3, t5) => {
-    for (var n3 in t5)
-      I2(e3, n3, { get: t5[n3], enumerable: !0 });
-  }, v2 = (e3, t5, n3, f7) => {
-    if (t5 && typeof t5 == "object" || typeof t5 == "function")
-      for (let i3 of G2(t5))
-        !U2.call(e3, i3) && i3 !== n3 && I2(e3, i3, { get: () => t5[i3], enumerable: !(f7 = D4(t5, i3)) || f7.enumerable });
-    return e3;
-  }, s4 = (e3, t5, n3) => (v2(e3, t5, "default"), n3 && v2(n3, t5, "default")), L3 = (e3, t5, n3) => (n3 = e3 != null ? P3(H2(e3)) : {}, v2(t5 || !e3 || !e3.__esModule ? I2(n3, "default", { value: e3, enumerable: !0 }) : n3, e3)), h2 = X2((ge2, N8) => {
-    var M6 = "Expected a function", W7 = NaN, z7 = "[object Symbol]", J5 = /^\s+|\s+$/g, K7 = /^[-+]0x[0-9a-f]+$/i, Q7 = /^0b[01]+$/i, V7 = /^0o[0-7]+$/i, Y6 = parseInt, Z6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w6 = typeof self == "object" && self && self.Object === Object && self, ee4 = Z6 || w6 || Function("return this")(), te2 = Object.prototype, ne4 = te2.toString, re4 = Math.max, ie4 = Math.min, O5 = function() {
-      return ee4.Date.now();
+  // https://esm.sh/v111/lodash.throttle@4.1.1/deno/lodash.throttle.js
+  var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D2 = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t4) => () => (t4 || e((t4 = { exports: {} }).exports, t4), t4.exports), q = (e, t4) => {
+    for (var n2 in t4)
+      I(e, n2, { get: t4[n2], enumerable: !0 });
+  }, v2 = (e, t4, n2, f6) => {
+    if (t4 && typeof t4 == "object" || typeof t4 == "function")
+      for (let i3 of G(t4))
+        !U.call(e, i3) && i3 !== n2 && I(e, i3, { get: () => t4[i3], enumerable: !(f6 = D2(t4, i3)) || f6.enumerable });
+    return e;
+  }, s4 = (e, t4, n2) => (v2(e, t4, "default"), n2 && v2(n2, t4, "default")), L = (e, t4, n2) => (n2 = e != null ? P(H(e)) : {}, v2(t4 || !e || !e.__esModule ? I(n2, "default", { value: e, enumerable: !0 }) : n2, e)), h2 = X((ge, N6) => {
+    var M5 = "Expected a function", W4 = NaN, z6 = "[object Symbol]", J4 = /^\s+|\s+$/g, K4 = /^[-+]0x[0-9a-f]+$/i, Q4 = /^0b[01]+$/i, V5 = /^0o[0-7]+$/i, Y3 = parseInt, Z3 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w5 = typeof self == "object" && self && self.Object === Object && self, ee2 = Z3 || w5 || Function("return this")(), te = Object.prototype, ne2 = te.toString, re2 = Math.max, ie = Math.min, O4 = function() {
+      return ee2.Date.now();
     };
-    function fe(e3, t5, n3) {
-      var f7, i3, b5, l5, a5, u5, d6 = 0, S8 = !1, g8 = !1, T7 = !0;
-      if (typeof e3 != "function")
-        throw new TypeError(M6);
-      t5 = C6(t5) || 0, p6(n3) && (S8 = !!n3.leading, g8 = "maxWait" in n3, b5 = g8 ? re4(C6(n3.maxWait) || 0, t5) : b5, T7 = "trailing" in n3 ? !!n3.trailing : T7);
-      function j7(r2) {
-        var o5 = f7, m6 = i3;
-        return f7 = i3 = void 0, d6 = r2, l5 = e3.apply(m6, o5), l5;
+    function fe(e, t4, n2) {
+      var f6, i3, b4, l5, a5, u4, d6 = 0, S6 = !1, g7 = !1, T4 = !0;
+      if (typeof e != "function")
+        throw new TypeError(M5);
+      t4 = C5(t4) || 0, p5(n2) && (S6 = !!n2.leading, g7 = "maxWait" in n2, b4 = g7 ? re2(C5(n2.maxWait) || 0, t4) : b4, T4 = "trailing" in n2 ? !!n2.trailing : T4);
+      function j6(r2) {
+        var o4 = f6, m6 = i3;
+        return f6 = i3 = void 0, d6 = r2, l5 = e.apply(m6, o4), l5;
       }
-      function A5(r2) {
-        return d6 = r2, a5 = setTimeout(y5, t5), S8 ? j7(r2) : l5;
+      function A4(r2) {
+        return d6 = r2, a5 = setTimeout(y3, t4), S6 ? j6(r2) : l5;
       }
-      function B10(r2) {
-        var o5 = r2 - u5, m6 = r2 - d6, k5 = t5 - o5;
-        return g8 ? ie4(k5, b5 - m6) : k5;
+      function B7(r2) {
+        var o4 = r2 - u4, m6 = r2 - d6, k4 = t4 - o4;
+        return g7 ? ie(k4, b4 - m6) : k4;
       }
-      function E4(r2) {
-        var o5 = r2 - u5, m6 = r2 - d6;
-        return u5 === void 0 || o5 >= t5 || o5 < 0 || g8 && m6 >= b5;
+      function E3(r2) {
+        var o4 = r2 - u4, m6 = r2 - d6;
+        return u4 === void 0 || o4 >= t4 || o4 < 0 || g7 && m6 >= b4;
       }
-      function y5() {
-        var r2 = O5();
-        if (E4(r2))
+      function y3() {
+        var r2 = O4();
+        if (E3(r2))
           return _3(r2);
-        a5 = setTimeout(y5, B10(r2));
+        a5 = setTimeout(y3, B7(r2));
       }
       function _3(r2) {
-        return a5 = void 0, T7 && f7 ? j7(r2) : (f7 = i3 = void 0, l5);
+        return a5 = void 0, T4 && f6 ? j6(r2) : (f6 = i3 = void 0, l5);
       }
-      function F9() {
-        a5 !== void 0 && clearTimeout(a5), d6 = 0, f7 = u5 = i3 = a5 = void 0;
+      function F6() {
+        a5 !== void 0 && clearTimeout(a5), d6 = 0, f6 = u4 = i3 = a5 = void 0;
       }
       function R5() {
-        return a5 === void 0 ? l5 : _3(O5());
+        return a5 === void 0 ? l5 : _3(O4());
       }
-      function x6() {
-        var r2 = O5(), o5 = E4(r2);
-        if (f7 = arguments, i3 = this, u5 = r2, o5) {
+      function x4() {
+        var r2 = O4(), o4 = E3(r2);
+        if (f6 = arguments, i3 = this, u4 = r2, o4) {
           if (a5 === void 0)
-            return A5(u5);
-          if (g8)
-            return a5 = setTimeout(y5, t5), j7(u5);
+            return A4(u4);
+          if (g7)
+            return a5 = setTimeout(y3, t4), j6(u4);
         }
-        return a5 === void 0 && (a5 = setTimeout(y5, t5)), l5;
+        return a5 === void 0 && (a5 = setTimeout(y3, t4)), l5;
       }
-      return x6.cancel = F9, x6.flush = R5, x6;
+      return x4.cancel = F6, x4.flush = R5, x4;
     }
-    function ae4(e3, t5, n3) {
-      var f7 = !0, i3 = !0;
-      if (typeof e3 != "function")
-        throw new TypeError(M6);
-      return p6(n3) && (f7 = "leading" in n3 ? !!n3.leading : f7, i3 = "trailing" in n3 ? !!n3.trailing : i3), fe(e3, t5, { leading: f7, maxWait: t5, trailing: i3 });
+    function ae(e, t4, n2) {
+      var f6 = !0, i3 = !0;
+      if (typeof e != "function")
+        throw new TypeError(M5);
+      return p5(n2) && (f6 = "leading" in n2 ? !!n2.leading : f6, i3 = "trailing" in n2 ? !!n2.trailing : i3), fe(e, t4, { leading: f6, maxWait: t4, trailing: i3 });
     }
-    function p6(e3) {
-      var t5 = typeof e3;
-      return !!e3 && (t5 == "object" || t5 == "function");
+    function p5(e) {
+      var t4 = typeof e;
+      return !!e && (t4 == "object" || t4 == "function");
     }
-    function oe4(e3) {
-      return !!e3 && typeof e3 == "object";
+    function oe2(e) {
+      return !!e && typeof e == "object";
     }
-    function ue3(e3) {
-      return typeof e3 == "symbol" || oe4(e3) && ne4.call(e3) == z7;
+    function ue(e) {
+      return typeof e == "symbol" || oe2(e) && ne2.call(e) == z6;
     }
-    function C6(e3) {
-      if (typeof e3 == "number")
-        return e3;
-      if (ue3(e3))
-        return W7;
-      if (p6(e3)) {
-        var t5 = typeof e3.valueOf == "function" ? e3.valueOf() : e3;
-        e3 = p6(t5) ? t5 + "" : t5;
+    function C5(e) {
+      if (typeof e == "number")
+        return e;
+      if (ue(e))
+        return W4;
+      if (p5(e)) {
+        var t4 = typeof e.valueOf == "function" ? e.valueOf() : e;
+        e = p5(t4) ? t4 + "" : t4;
       }
-      if (typeof e3 != "string")
-        return e3 === 0 ? e3 : +e3;
-      e3 = e3.replace(J5, "");
-      var n3 = Q7.test(e3);
-      return n3 || V7.test(e3) ? Y6(e3.slice(2), n3 ? 2 : 8) : K7.test(e3) ? W7 : +e3;
+      if (typeof e != "string")
+        return e === 0 ? e : +e;
+      e = e.replace(J4, "");
+      var n2 = Q4.test(e);
+      return n2 || V5.test(e) ? Y3(e.slice(2), n2 ? 2 : 8) : K4.test(e) ? W4 : +e;
     }
-    N8.exports = ae4;
+    N6.exports = ae;
   }), c3 = {};
-  q3(c3, { default: () => se });
-  var ce2 = L3(h2());
-  s4(c3, L3(h2()));
-  var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
+  q(c3, { default: () => se });
+  var ce = L(h2());
+  s4(c3, L(h2()));
+  var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v108/@twind/core@1.0.1/deno/core.js
-  var F4;
-  function lt(t5) {
-    return [...t5.v, (t5.i ? "!" : "") + t5.n].join(":");
-  }
-  function st(t5, e3 = ",") {
-    return t5.map(lt).join(e3);
-  }
-  var W2 = typeof CSS < "u" && CSS.escape || ((t5) => t5.replace(/[!"'`*+.,;:\\/<=>?@#$%&^|~()[\]{}]/g, "\\$&").replace(/^\d/, "\\3$& "));
-  function V3(t5) {
-    for (var e3 = 9, r2 = t5.length; r2--; )
-      e3 = Math.imul(e3 ^ t5.charCodeAt(r2), 1597334677);
-    return "#" + ((e3 ^ e3 >>> 9) >>> 0).toString(36);
-  }
-  function kt(t5, e3 = "@media ") {
-    return e3 + x2(t5).map((r2) => (typeof r2 == "string" && (r2 = { min: r2 }), r2.raw || Object.keys(r2).map((n3) => `(${n3}-width:${r2[n3]})`).join(" and "))).join(",");
-  }
-  function x2(t5 = []) {
-    return Array.isArray(t5) ? t5 : t5 == null ? [] : [t5];
-  }
-  function D5() {
-  }
-  var w4 = { d: 0, b: 134217728, c: 268435456, a: 671088640, u: 805306368, o: 939524096 };
-  function jt(t5) {
-    var e3;
-    return ((e3 = t5.match(/[-=:;]/g)) == null ? void 0 : e3.length) || 0;
-  }
-  function X3(t5) {
-    return Math.min(/(?:^|width[^\d]+)(\d+(?:.\d+)?)(p)?/.test(t5) ? +RegExp.$1 / (RegExp.$2 ? 15 : 1) / 10 : 0, 15) << 22 | Math.min(jt(t5), 15) << 18;
-  }
-  var qt = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad-on", "cus-w", "ver", "cus", "cus-v", "tive", "sable", "tiona", "quire"];
-  function at({ n: t5, i: e3, v: r2 = [] }, n3, i3, l5) {
-    for (let a5 of (t5 && (t5 = lt({ n: t5, i: e3, v: r2 })), l5 = [...x2(l5)], r2)) {
-      let s7 = n3.theme("screens", a5);
-      for (let u5 of x2(s7 && kt(s7) || n3.v(a5))) {
-        var o5;
-        l5.push(u5), i3 |= s7 ? 67108864 | X3(u5) : a5 == "dark" ? 1073741824 : u5[0] == "@" ? X3(u5) : (o5 = u5, 1 << ~(/:([a-z-]+)/.test(o5) && ~qt.indexOf(RegExp.$1.slice(2, 7)) || -18));
-      }
-    }
-    return { n: t5, p: i3, r: l5, i: e3 };
-  }
-  var ut = /* @__PURE__ */ new Map();
-  function tt(t5) {
-    if (t5.d) {
-      let e3 = [], r2 = Y2(t5.r.reduce((n3, i3) => i3[0] == "@" ? (e3.push(i3), n3) : i3 ? Y2(n3, (l5) => Y2(i3, (o5) => {
-        let a5 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o5);
-        if (a5) {
-          let s7 = l5.indexOf(a5[1]);
-          return ~s7 ? l5.slice(0, s7) + a5[0] + l5.slice(s7 + a5[1].length) : Z2(l5, o5);
-        }
-        return Z2(o5, l5);
-      })) : n3, "&"), (n3) => Z2(n3, t5.n ? "." + W2(t5.n) : ""));
-      return r2 && e3.push(r2.replace(/:merge\((.+?)\)/g, "$1")), e3.reduceRight((n3, i3) => i3 + "{" + n3 + "}", t5.d);
-    }
-  }
-  function Y2(t5, e3) {
-    return t5.replace(/ *((?:\(.+?\)|\[.+?\]|[^,])+) *(,|$)/g, (r2, n3, i3) => e3(n3) + i3);
-  }
-  function Z2(t5, e3) {
-    return t5.replace(/&/g, e3);
-  }
-  var Dt = new Intl.Collator("en", { numeric: !0 });
-  function St(t5, e3) {
-    for (var r2 = 0, n3 = t5.length; r2 < n3; ) {
-      let i3 = n3 + r2 >> 1;
-      0 >= Mt(t5[i3], e3) ? r2 = i3 + 1 : n3 = i3;
-    }
-    return n3;
-  }
-  function Mt(t5, e3) {
-    let r2 = t5.p & w4.o;
-    return r2 == (e3.p & w4.o) && (r2 == w4.b || r2 == w4.o) ? 0 : t5.p - e3.p || t5.o - e3.o || Dt.compare(t5.n, e3.n);
-  }
-  function H3(t5, e3) {
-    return Math.round(parseInt(t5, 16) * e3);
-  }
-  function T2(t5, e3 = {}) {
-    if (typeof t5 == "function")
-      return t5(e3);
-    let { opacityValue: r2 = "1", opacityVariable: n3 } = e3, i3 = n3 ? `var(${n3})` : r2;
-    if (t5.includes("<alpha-value>"))
-      return t5.replace("<alpha-value>", i3);
-    if (t5[0] == "#" && (t5.length == 4 || t5.length == 7)) {
-      let l5 = (t5.length - 1) / 3, o5 = [17, 1, 0.062272][l5 - 1];
-      return `rgba(${[H3(t5.substr(1, l5), o5), H3(t5.substr(1 + l5, l5), o5), H3(t5.substr(1 + 2 * l5, l5), o5), i3]})`;
-    }
-    return i3 == "1" ? t5 : i3 == "0" ? "#0000" : t5.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i3})`);
-  }
-  function ct(t5, e3, r2, n3, i3 = []) {
-    return function l5(o5, { n: a5, p: s7, r: u5 = [], i: f7 }, c6) {
-      let p6 = [], d6 = "", v5 = 0, g8 = 0;
-      for (let h4 in o5 || {}) {
-        var y5, A5;
-        let b5 = o5[h4];
-        if (h4[0] == "@") {
-          if (!b5)
-            continue;
-          if (h4[1] == "a") {
-            p6.push(...ht(a5, s7, N3("" + b5), c6, s7, u5, f7, !0));
-            continue;
-          }
-          if (h4[1] == "l") {
-            for (let m6 of x2(b5))
-              p6.push(...l5(m6, { n: a5, p: (y5 = w4[h4[7]], s7 & ~w4.o | y5), r: u5, i: f7 }, c6));
-            continue;
-          }
-          if (h4[1] == "i") {
-            p6.push(...x2(b5).map((m6) => ({ p: -1, o: 0, r: [], d: h4 + " " + m6 })));
-            continue;
-          }
-          if (h4[1] == "k") {
-            p6.push({ p: w4.d, o: 0, r: [h4], d: l5(b5, { p: w4.d }, c6).map(tt).join("") });
-            continue;
-          }
-          if (h4[1] == "f") {
-            p6.push(...x2(b5).map((m6) => ({ p: w4.d, o: 0, r: [h4], d: l5(m6, { p: w4.d }, c6).map(tt).join("") })));
-            continue;
-          }
-        }
-        if (typeof b5 != "object" || Array.isArray(b5))
-          h4 == "label" && b5 ? a5 = b5 + V3(JSON.stringify([s7, f7, o5])) : (b5 || b5 === 0) && (h4 = h4.replace(/[A-Z]/g, (m6) => "-" + m6.toLowerCase()), g8 += 1, v5 = Math.max(v5, (A5 = h4)[0] == "-" ? 0 : jt(A5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.test(A5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), d6 += (d6 ? ";" : "") + x2(b5).map((m6) => c6.s(h4, ft("" + m6, c6.theme) + (f7 ? " !important" : ""))).join(";"));
-        else if (h4[0] == "@" || h4.includes("&")) {
-          let m6 = s7;
-          h4[0] == "@" && (h4 = h4.replace(/\bscreen\(([^)]+)\)/g, (C6, $6) => {
-            let j7 = c6.theme("screens", $6);
-            return j7 ? (m6 |= 67108864, kt(j7, "")) : C6;
-          }), m6 |= X3(h4)), p6.push(...l5(b5, { n: a5, p: m6, r: [...u5, h4], i: f7 }, c6));
-        } else
-          p6.push(...l5(b5, { p: s7, r: [...u5, h4] }, c6));
-      }
-      return p6.unshift({ n: a5, p: s7, o: Math.max(0, 15 - g8) + 1.5 * Math.min(v5 || 15, 15), r: u5, d: d6 }), p6.sort(Mt);
-    }(t5, at(e3, r2, n3, i3), r2);
-  }
-  function ft(t5, e3) {
-    return t5.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r2, n3, i3, l5, o5) => {
-      let a5 = e3(i3, o5);
-      return typeof a5 == "function" && /color|fill|stroke/i.test(i3) ? T2(a5) : "" + a5;
-    });
-  }
-  function pt(t5, e3) {
-    let r2, n3 = [];
-    for (let i3 of t5)
-      i3.d && i3.n ? r2?.p == i3.p && "" + r2.r == "" + i3.r ? (r2.c = [r2.c, i3.c].filter(Boolean).join(" "), r2.d = r2.d + ";" + i3.d) : n3.push(r2 = { ...i3, n: i3.n && e3 }) : n3.push({ ...i3, n: i3.n && e3 });
-    return n3;
-  }
-  function B3(t5, e3, r2 = w4.u, n3, i3) {
-    let l5 = [];
-    for (let o5 of t5)
-      for (let a5 of function(s7, u5, f7, c6, p6) {
-        var d6;
-        s7 = { ...s7, i: s7.i || p6 };
-        let v5 = function(g8, y5) {
-          let A5 = ut.get(g8.n);
-          return A5 ? A5(g8, y5) : y5.r(g8.n, g8.v[0] == "dark");
-        }(s7, u5);
-        return v5 ? typeof v5 == "string" ? ({ r: c6, p: f7 } = at(s7, u5, f7, c6), pt(B3(N3(v5), u5, f7, c6, s7.i), s7.n)) : Array.isArray(v5) ? v5.map((g8) => {
-          var y5, A5;
-          return { o: 0, ...g8, r: [...x2(c6), ...x2(g8.r)], p: (y5 = f7, A5 = (d6 = g8.p) != null ? d6 : f7, y5 & ~w4.o | A5) };
-        }) : ct(v5, s7, u5, f7, c6) : [{ c: lt(s7), p: 0, o: 0, r: [] }];
-      }(o5, e3, r2, n3, i3))
-        l5.splice(St(l5, a5), 0, a5);
-    return l5;
-  }
-  function ht(t5, e3, r2, n3, i3, l5, o5, a5) {
-    return pt((a5 ? r2.flatMap((s7) => B3([s7], n3, i3, l5, o5)) : B3(r2, n3, i3, l5, o5)).map((s7) => s7.p & w4.o && (s7.n || e3 == w4.b) ? { ...s7, p: s7.p & ~w4.o | e3, o: 0 } : s7), t5);
-  }
-  function Ot(t5, e3, r2, n3) {
-    var i3;
-    return i3 = (l5, o5) => {
-      let { n: a5, p: s7, r: u5, i: f7 } = at(l5, o5, e3);
-      return r2 && ht(a5, e3, r2, o5, s7, u5, f7, n3);
-    }, ut.set(t5, i3), t5;
-  }
-  function K2(t5, e3) {
-    if (t5[t5.length - 1] != "(") {
-      let r2 = [], n3 = !1, i3 = !1, l5 = "";
-      for (let o5 of t5)
-        if (!(o5 == "(" || /[~@]$/.test(o5))) {
-          if (o5[0] == "!" && (o5 = o5.slice(1), n3 = !n3), o5.endsWith(":")) {
-            r2[o5 == "dark:" ? "unshift" : "push"](o5.slice(0, -1));
-            continue;
-          }
-          o5[0] == "-" && (o5 = o5.slice(1), i3 = !i3), o5.endsWith("-") && (o5 = o5.slice(0, -1)), o5 && o5 != "&" && (l5 += (l5 && "-") + o5);
-        }
-      l5 && (i3 && (l5 = "-" + l5), e3[0].push({ n: l5, v: r2.filter(Jt), i: n3 }));
-    }
-  }
-  function Jt(t5, e3, r2) {
-    return r2.indexOf(t5) == e3;
-  }
-  var yt = /* @__PURE__ */ new Map();
-  function N3(t5) {
-    let e3 = yt.get(t5);
-    if (!e3) {
-      let r2 = [], n3 = [[]], i3 = 0, l5 = 0, o5 = null, a5 = 0, s7 = (u5, f7 = 0) => {
-        i3 != a5 && (r2.push(t5.slice(i3, a5 + f7)), u5 && K2(r2, n3)), i3 = a5 + 1;
-      };
-      for (; a5 < t5.length; a5++) {
-        let u5 = t5[a5];
-        if (l5)
-          t5[a5 - 1] != "\\" && (l5 += +(u5 == "[") || -(u5 == "]"));
-        else if (u5 == "[")
-          l5 += 1;
-        else if (o5)
-          t5[a5 - 1] != "\\" && o5.test(t5.slice(a5)) && (o5 = null, i3 = a5 + RegExp.lastMatch.length);
-        else if (u5 == "/" && t5[a5 - 1] != "\\" && (t5[a5 + 1] == "*" || t5[a5 + 1] == "/"))
-          o5 = t5[a5 + 1] == "*" ? /^\*\// : /^[\r\n]/;
-        else if (u5 == "(")
-          s7(), r2.push(u5);
-        else if (u5 == ":")
-          t5[a5 + 1] != ":" && s7(!1, 1);
-        else if (/[\s,)]/.test(u5)) {
-          s7(!0);
-          let f7 = r2.lastIndexOf("(");
-          if (u5 == ")") {
-            let c6 = r2[f7 - 1];
-            if (/[~@]$/.test(c6)) {
-              let p6 = n3.shift();
-              r2.length = f7, K2([...r2, "#"], n3);
-              let { v: d6 } = n3[0].pop();
-              for (let v5 of p6)
-                v5.v.splice(+(v5.v[0] == "dark") - +(d6[0] == "dark"), d6.length);
-              K2([...r2, Ot(c6.length > 1 ? c6.slice(0, -1) + V3(JSON.stringify([c6, p6])) : c6 + "(" + st(p6) + ")", w4.a, p6, /@$/.test(c6))], n3);
-            }
-            f7 = r2.lastIndexOf("(", f7 - 1);
-          }
-          r2.length = f7 + 1;
-        } else
-          /[~@]/.test(u5) && t5[a5 + 1] == "(" && n3.unshift([]);
-      }
-      s7(!0), yt.set(t5, e3 = n3[0]);
-    }
-    return e3;
-  }
-  function Ct(t5, e3, r2) {
-    return e3.reduce((n3, i3, l5) => n3 + r2(i3) + t5[l5 + 1], t5[0]);
-  }
-  function G3(t5, e3) {
-    return Array.isArray(t5) && Array.isArray(t5.raw) ? Ct(t5, e3, (r2) => Q2(r2).trim()) : e3.filter(Boolean).reduce((r2, n3) => r2 + Q2(n3), t5 ? Q2(t5) : "");
-  }
-  function Q2(t5) {
-    let e3, r2 = "";
-    if (t5 && typeof t5 == "object")
-      if (Array.isArray(t5))
-        (e3 = G3(t5[0], t5.slice(1))) && (r2 += " " + e3);
-      else
-        for (let n3 in t5)
-          t5[n3] && (r2 += " " + n3);
-    else
-      t5 != null && typeof t5 != "boolean" && (r2 += " " + t5);
-    return r2;
-  }
-  var ae = Et("@"), ue = Et("~");
-  function Et(t5) {
-    return new Proxy(function(r2, ...n3) {
-      return e3("", r2, n3);
-    }, { get: (r2, n3) => n3 in r2 ? r2[n3] : function(i3, ...l5) {
-      return e3(n3, i3, l5);
-    } });
-    function e3(r2, n3, i3) {
-      return st(N3(r2 + t5 + "(" + G3(n3, i3) + ")"));
-    }
-  }
-  function U3(t5, e3) {
-    return Array.isArray(t5) ? mt(Ct(t5, e3, (r2) => r2 != null && typeof r2 != "boolean" ? r2 : "")) : typeof t5 == "string" ? mt(t5) : [t5];
-  }
-  var Bt = / *(?:(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}))/g;
-  function mt(t5) {
-    let e3;
-    t5 = t5.replace(/\/\*[^]*?\*\/|\s\s+|\n/gm, " ");
-    let r2 = [{}], n3 = [r2[0]], i3 = [];
-    for (; e3 = Bt.exec(t5); )
-      e3[4] && (r2.shift(), i3.shift()), e3[3] ? (i3.unshift(e3[3]), r2.unshift({}), n3.push(i3.reduce((l5, o5) => ({ [o5]: l5 }), r2[0]))) : e3[4] || (r2[0][e3[1]] && (r2.unshift({}), n3.push(i3.reduce((l5, o5) => ({ [o5]: l5 }), r2[0]))), r2[0][e3[1]] = e3[2]);
-    return n3;
-  }
-  function dt(t5, ...e3) {
-    var r2, n3;
-    let i3 = U3(t5, e3), l5 = (((r2 = i3.find((o5) => o5.label)) == null ? void 0 : r2.label) || "css") + V3(JSON.stringify(i3));
-    return n3 = (o5, a5) => pt(i3.flatMap((s7) => ct(s7, o5, a5, w4.o)), l5), ut.set(l5, n3), l5;
-  }
-  var ce3 = new Proxy(function(t5, e3) {
-    return bt("animation", t5, e3);
-  }, { get: (t5, e3) => e3 in t5 ? t5[e3] : function(r2, n3) {
-    return bt(e3, r2, n3);
-  } });
-  function bt(t5, e3, r2) {
-    return { toString: () => dt({ label: t5, "@layer components": { ...typeof e3 == "object" ? e3 : { animation: e3 }, animationName: "" + r2 } }) };
-  }
-  var Ut = Symbol();
-  var z3 = new Proxy(D5, { apply: (t5, e3, r2) => F4(r2[0]), get(t5, e3) {
-    let r2 = F4[e3];
-    return typeof r2 == "function" ? function() {
-      return r2.apply(F4, arguments);
-    } : r2;
-  } });
-  var xe = function t2(e3) {
-    return new Proxy(function(r2, ...n3) {
-      return xt(e3, "", r2, n3);
-    }, { get: (r2, n3) => n3 === "bind" ? t2 : n3 in r2 ? r2[n3] : function(i3, ...l5) {
-      return xt(e3, n3, i3, l5);
-    } });
-  }();
-  function xt(t5, e3, r2, n3) {
-    return { toString() {
-      let i3 = U3(r2, n3), l5 = W2(e3 + V3(JSON.stringify([e3, i3])));
-      return (typeof t5 == "function" ? t5 : z3)(dt({ [`@keyframes ${l5}`]: U3(r2, n3) })), l5;
-    } };
-  }
-
-  // https://esm.sh/v108/@twind/core@1.1.3/deno/core.js
-  var B4;
-  function ae2(e3) {
-    return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
-  }
-  function ue2(e3, t5 = ",") {
-    return e3.map(ae2).join(t5);
-  }
-  var Y3 = typeof CSS < "u" && CSS.escape || ((e3) => e3.replace(/[!"'`*+.,;:\\/<=>?@#$%&^|~()[\]{}]/g, "\\$&").replace(/^\d/, "\\3$& "));
-  function T3(e3) {
-    for (var t5 = 9, r2 = e3.length; r2--; )
-      t5 = Math.imul(t5 ^ e3.charCodeAt(r2), 1597334677);
-    return "#" + ((t5 ^ t5 >>> 9) >>> 0).toString(36);
-  }
-  function Ce(e3, t5 = "@media ") {
-    return t5 + b2(e3).map((r2) => (typeof r2 == "string" && (r2 = { min: r2 }), r2.raw || Object.keys(r2).map((i3) => `(${i3}-width:${r2[i3]})`).join(" and "))).join(",");
-  }
-  function b2(e3 = []) {
-    return Array.isArray(e3) ? e3 : e3 == null ? [] : [e3];
-  }
-  function F5() {
-  }
-  var S3 = { d: 0, b: 134217728, c: 268435456, a: 671088640, u: 805306368, o: 939524096 };
-  function Ee(e3) {
-    return e3.match(/[-=:;]/g)?.length || 0;
-  }
-  function re2(e3) {
-    return Math.min(/(?:^|width[^\d]+)(\d+(?:.\d+)?)(p)?/.test(e3) ? Math.max(0, 29.63 * (+RegExp.$1 / (RegExp.$2 ? 15 : 1)) ** 0.137 - 43) : 0, 15) << 22 | Math.min(Ee(e3), 15) << 18;
-  }
-  var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad-on", "cus-w", "ver", "cus", "cus-v", "tive", "sable", "tiona", "quire"];
-  function ce4({ n: e3, i: t5, v: r2 = [] }, i3, n3, l5) {
-    e3 && (e3 = ae2({ n: e3, i: t5, v: r2 })), l5 = [...b2(l5)];
-    for (let s7 of r2) {
-      let f7 = i3.theme("screens", s7);
-      for (let a5 of b2(f7 && Ce(f7) || i3.v(s7))) {
-        var o5;
-        l5.push(a5), n3 |= f7 ? 67108864 | re2(a5) : s7 == "dark" ? 1073741824 : a5[0] == "@" ? re2(a5) : (o5 = a5, 1 << ~(/:([a-z-]+)/.test(o5) && ~Ue.indexOf(RegExp.$1.slice(2, 7)) || -18));
-      }
-    }
-    return { n: e3, p: n3, r: l5, i: t5 };
-  }
-  var pe = /* @__PURE__ */ new Map();
-  function ne2(e3) {
-    if (e3.d) {
-      let t5 = [], r2 = H4(e3.r.reduce((i3, n3) => n3[0] == "@" ? (t5.push(n3), i3) : n3 ? H4(i3, (l5) => H4(n3, (o5) => {
-        let s7 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o5);
-        if (s7) {
-          let f7 = l5.indexOf(s7[1]);
-          return ~f7 ? l5.slice(0, f7) + s7[0] + l5.slice(f7 + s7[1].length) : Q3(l5, o5);
-        }
-        return Q3(o5, l5);
-      })) : i3, "&"), (i3) => Q3(i3, e3.n ? "." + Y3(e3.n) : ""));
-      return r2 && t5.push(r2.replace(/:merge\((.+?)\)/g, "$1")), t5.reduceRight((i3, n3) => n3 + "{" + i3 + "}", e3.d);
-    }
-  }
-  function H4(e3, t5) {
-    return e3.replace(/ *((?:\(.+?\)|\[.+?\]|[^,])+) *(,|$)/g, (r2, i3, n3) => t5(i3) + n3);
-  }
-  function Q3(e3, t5) {
-    return e3.replace(/&/g, t5);
-  }
-  var $e = new Intl.Collator("en", { numeric: !0 });
-  function Me(e3, t5) {
-    for (var r2 = 0, i3 = e3.length; r2 < i3; ) {
-      let n3 = i3 + r2 >> 1;
-      0 >= Ne(e3[n3], t5) ? r2 = n3 + 1 : i3 = n3;
-    }
-    return i3;
-  }
-  function Ne(e3, t5) {
-    let r2 = e3.p & S3.o;
-    return r2 == (t5.p & S3.o) && (r2 == S3.b || r2 == S3.o) ? 0 : e3.p - t5.p || e3.o - t5.o || $e.compare(we(e3.n), we(t5.n)) || $e.compare(Ae(e3.n), Ae(t5.n));
-  }
-  function we(e3) {
-    return (e3 || "").split(/:/).pop().split("/").pop() || "\0";
-  }
-  function Ae(e3) {
-    return (e3 || "").replace(/\W/g, (t5) => String.fromCharCode(127 + t5.charCodeAt(0))) + "\0";
-  }
-  function X4(e3, t5) {
-    return Math.round(parseInt(e3, 16) * t5);
-  }
-  function P4(e3, t5 = {}) {
-    if (typeof e3 == "function")
-      return e3(t5);
-    let { opacityValue: r2 = "1", opacityVariable: i3 } = t5, n3 = i3 ? `var(${i3})` : r2;
-    if (e3.includes("<alpha-value>"))
-      return e3.replace("<alpha-value>", n3);
-    if (e3[0] == "#" && (e3.length == 4 || e3.length == 7)) {
-      let l5 = (e3.length - 1) / 3, o5 = [17, 1, 0.062272][l5 - 1];
-      return `rgba(${[X4(e3.substr(1, l5), o5), X4(e3.substr(1 + l5, l5), o5), X4(e3.substr(1 + 2 * l5, l5), o5), n3]})`;
-    }
-    return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
-  }
-  function de(e3, t5, r2, i3, n3 = []) {
-    return function l5(o5, { n: s7, p: f7, r: a5 = [], i: c6 }, u5) {
-      let p6 = [], g8 = "", y5 = 0, $6 = 0;
-      for (let h4 in o5 || {}) {
-        var A5, R5;
-        let d6 = o5[h4];
-        if (h4[0] == "@") {
-          if (!d6)
-            continue;
-          if (h4[1] == "a") {
-            p6.push(...ge(s7, f7, I3("" + d6), u5, f7, a5, c6, !0));
-            continue;
-          }
-          if (h4[1] == "l") {
-            for (let w6 of b2(d6))
-              p6.push(...l5(w6, { n: s7, p: (A5 = S3[h4[7]], f7 & ~S3.o | A5), r: h4[7] == "d" ? [] : a5, i: c6 }, u5));
-            continue;
-          }
-          if (h4[1] == "i") {
-            p6.push(...b2(d6).map((w6) => ({ p: -1, o: 0, r: [], d: h4 + " " + w6 })));
-            continue;
-          }
-          if (h4[1] == "k") {
-            p6.push({ p: S3.d, o: 0, r: [h4], d: l5(d6, { p: S3.d }, u5).map(ne2).join("") });
-            continue;
-          }
-          if (h4[1] == "f") {
-            p6.push(...b2(d6).map((w6) => ({ p: S3.d, o: 0, r: [h4], d: l5(w6, { p: S3.d }, u5).map(ne2).join("") })));
-            continue;
-          }
-        }
-        if (typeof d6 != "object" || Array.isArray(d6))
-          h4 == "label" && d6 ? s7 = d6 + T3(JSON.stringify([f7, c6, o5])) : (d6 || d6 === 0) && (h4 = h4.replace(/[A-Z]/g, (w6) => "-" + w6.toLowerCase()), $6 += 1, y5 = Math.max(y5, (R5 = h4)[0] == "-" ? 0 : Ee(R5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g8 += (g8 ? ";" : "") + b2(d6).map((w6) => u5.s(h4, he("" + w6, u5.theme) + (c6 ? " !important" : ""))).join(";"));
-        else if (h4[0] == "@" || h4.includes("&")) {
-          let w6 = f7;
-          h4[0] == "@" && (h4 = h4.replace(/\bscreen\(([^)]+)\)/g, (j7, M6) => {
-            let N8 = u5.theme("screens", M6);
-            return N8 ? (w6 |= 67108864, Ce(N8, "")) : j7;
-          }), w6 |= re2(h4)), p6.push(...l5(d6, { n: s7, p: w6, r: [...a5, h4], i: c6 }, u5));
-        } else
-          p6.push(...l5(d6, { p: f7, r: [...a5, h4] }, u5));
-      }
-      return p6.unshift({ n: s7, p: f7, o: Math.max(0, 15 - $6) + 1.5 * Math.min(y5 || 15, 15), r: a5, d: g8 }), p6.sort(Ne);
-    }(e3, ce4(t5, r2, i3, n3), r2);
-  }
-  function he(e3, t5) {
-    return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r2, i3, n3, l5, o5 = "") => {
-      let s7 = t5(n3, o5);
-      return typeof s7 == "function" && /color|fill|stroke/i.test(n3) ? P4(s7) : "" + b2(s7).filter((f7) => Object(f7) !== f7);
-    });
-  }
-  function ye(e3, t5) {
-    let r2, i3 = [];
-    for (let n3 of e3)
-      n3.d && n3.n ? r2?.p == n3.p && "" + r2.r == "" + n3.r ? (r2.c = [r2.c, n3.c].filter(Boolean).join(" "), r2.d = r2.d + ";" + n3.d) : i3.push(r2 = { ...n3, n: n3.n && t5 }) : i3.push({ ...n3, n: n3.n && t5 });
-    return i3;
-  }
-  function W3(e3, t5, r2 = S3.u, i3, n3) {
-    let l5 = [];
-    for (let o5 of e3)
-      for (let s7 of function(f7, a5, c6, u5, p6) {
-        f7 = { ...f7, i: f7.i || p6 };
-        let g8 = function(y5, $6) {
-          let A5 = pe.get(y5.n);
-          return A5 ? A5(y5, $6) : $6.r(y5.n, y5.v[0] == "dark");
-        }(f7, a5);
-        return g8 ? typeof g8 == "string" ? ({ r: u5, p: c6 } = ce4(f7, a5, c6, u5), ye(W3(I3(g8), a5, c6, u5, f7.i), f7.n)) : Array.isArray(g8) ? g8.map((y5) => {
-          var $6, A5;
-          return { o: 0, ...y5, r: [...b2(u5), ...b2(y5.r)], p: ($6 = c6, A5 = y5.p ?? c6, $6 & ~S3.o | A5) };
-        }) : de(g8, f7, a5, c6, u5) : [{ c: ae2(f7), p: 0, o: 0, r: [] }];
-      }(o5, t5, r2, i3, n3))
-        l5.splice(Me(l5, s7), 0, s7);
-    return l5;
-  }
-  function ge(e3, t5, r2, i3, n3, l5, o5, s7) {
-    return ye((s7 ? r2.flatMap((f7) => W3([f7], i3, n3, l5, o5)) : W3(r2, i3, n3, l5, o5)).map((f7) => f7.p & S3.o && (f7.n || t5 == S3.b) ? { ...f7, p: f7.p & ~S3.o | t5, o: 0 } : f7), e3);
-  }
-  function _e2(e3, t5, r2, i3) {
-    var n3;
-    return n3 = (l5, o5) => {
-      let { n: s7, p: f7, r: a5, i: c6 } = ce4(l5, o5, t5);
-      return r2 && ge(s7, t5, r2, o5, f7, a5, c6, i3);
-    }, pe.set(e3, n3), e3;
-  }
-  function K3(e3, t5, r2) {
-    if (e3[e3.length - 1] != "(") {
-      let i3 = [], n3 = !1, l5 = !1, o5 = "";
-      for (let s7 of e3)
-        if (!(s7 == "(" || /[~@]$/.test(s7))) {
-          if (s7[0] == "!" && (s7 = s7.slice(1), n3 = !n3), s7.endsWith(":")) {
-            i3[s7 == "dark:" ? "unshift" : "push"](s7.slice(0, -1));
-            continue;
-          }
-          s7[0] == "-" && (s7 = s7.slice(1), l5 = !l5), s7.endsWith("-") && (s7 = s7.slice(0, -1)), s7 && s7 != "&" && (o5 += (o5 && "-") + s7);
-        }
-      o5 && (l5 && (o5 = "-" + o5), t5[0].push({ n: o5, v: i3.filter(Be), i: n3 }));
-    }
-  }
-  function Be(e3, t5, r2) {
-    return r2.indexOf(e3) == t5;
-  }
-  var Se = /* @__PURE__ */ new Map();
-  function I3(e3) {
-    let t5 = Se.get(e3);
-    if (!t5) {
-      let r2 = [], i3 = [[]], n3 = 0, l5 = 0, o5 = null, s7 = 0, f7 = (a5, c6 = 0) => {
-        n3 != s7 && (r2.push(e3.slice(n3, s7 + c6)), a5 && K3(r2, i3)), n3 = s7 + 1;
-      };
-      for (; s7 < e3.length; s7++) {
-        let a5 = e3[s7];
-        if (l5)
-          e3[s7 - 1] != "\\" && (l5 += +(a5 == "[") || -(a5 == "]"));
-        else if (a5 == "[")
-          l5 += 1;
-        else if (o5)
-          e3[s7 - 1] != "\\" && o5.test(e3.slice(s7)) && (o5 = null, n3 = s7 + RegExp.lastMatch.length);
-        else if (a5 == "/" && e3[s7 - 1] != "\\" && (e3[s7 + 1] == "*" || e3[s7 + 1] == "/"))
-          o5 = e3[s7 + 1] == "*" ? /^\*\// : /^[\r\n]/;
-        else if (a5 == "(")
-          f7(), r2.push(a5);
-        else if (a5 == ":")
-          e3[s7 + 1] != ":" && f7(!1, 1);
-        else if (/[\s,)]/.test(a5)) {
-          f7(!0);
-          let c6 = r2.lastIndexOf("(");
-          if (a5 == ")") {
-            let u5 = r2[c6 - 1];
-            if (/[~@]$/.test(u5)) {
-              let p6 = i3.shift();
-              r2.length = c6, K3([...r2, "#"], i3);
-              let { v: g8 } = i3[0].pop();
-              for (let y5 of p6)
-                y5.v.splice(+(y5.v[0] == "dark") - +(g8[0] == "dark"), g8.length);
-              K3([...r2, _e2(u5.length > 1 ? u5.slice(0, -1) + T3(JSON.stringify([u5, p6])) : u5 + "(" + ue2(p6) + ")", S3.a, p6, /@$/.test(u5))], i3);
-            }
-            c6 = r2.lastIndexOf("(", c6 - 1);
-          }
-          r2.length = c6 + 1;
-        } else
-          /[~@]/.test(a5) && e3[s7 + 1] == "(" && i3.unshift([]);
-      }
-      f7(!0), Se.set(e3, t5 = i3[0]);
-    }
-    return t5;
-  }
-  function Ve(e3, t5, r2) {
-    return t5.reduce((i3, n3, l5) => i3 + r2(n3) + e3[l5 + 1], e3[0]);
-  }
-  function Z3(e3, t5) {
-    return Array.isArray(e3) && Array.isArray(e3.raw) ? Ve(e3, t5, (r2) => ee2(r2).trim()) : t5.filter(Boolean).reduce((r2, i3) => r2 + ee2(i3), e3 ? ee2(e3) : "");
-  }
-  function ee2(e3) {
-    let t5, r2 = "";
-    if (e3 && typeof e3 == "object")
-      if (Array.isArray(e3))
-        (t5 = Z3(e3[0], e3.slice(1))) && (r2 += " " + t5);
-      else
-        for (let i3 in e3)
-          e3[i3] && (r2 += " " + i3);
-    else
-      e3 != null && typeof e3 != "boolean" && (r2 += " " + e3);
-    return r2;
-  }
-  var pt2 = ze("@"), dt2 = ze("~");
-  function ze(e3) {
-    return new Proxy(function(i3, ...n3) {
-      return t5("", i3, n3);
-    }, { get(r2, i3) {
-      return i3 in r2 ? r2[i3] : function(l5, ...o5) {
-        return t5(i3, l5, o5);
-      };
-    } });
-    function t5(r2, i3, n3) {
-      return ue2(I3(r2 + e3 + "(" + Z3(i3, n3) + ")"));
-    }
-  }
-  function G4(e3, t5) {
-    return Array.isArray(e3) ? ve(Ve(e3, t5, (r2) => r2 != null && typeof r2 != "boolean" ? r2 : "")) : typeof e3 == "string" ? ve(e3) : [e3];
-  }
-  var We = / *(?:(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}))/g;
-  function ve(e3) {
-    let t5;
-    e3 = e3.replace(/\/\*[^]*?\*\/|\s\s+|\n/gm, " ");
-    let r2 = [{}], i3 = [r2[0]], n3 = [];
-    for (; t5 = We.exec(e3); )
-      t5[4] && (r2.shift(), n3.shift()), t5[3] ? (n3.unshift(t5[3]), r2.unshift({}), i3.push(n3.reduce((l5, o5) => ({ [o5]: l5 }), r2[0]))) : t5[4] || (r2[0][t5[1]] && (r2.unshift({}), i3.push(n3.reduce((l5, o5) => ({ [o5]: l5 }), r2[0]))), r2[0][t5[1]] = t5[2]);
-    return i3;
-  }
-  function me(e3, ...t5) {
-    var r2;
-    let i3 = G4(e3, t5), n3 = (i3.find((l5) => l5.label)?.label || "css") + T3(JSON.stringify(i3));
-    return r2 = (l5, o5) => ye(i3.flatMap((s7) => de(s7, l5, o5, S3.o)), n3), pe.set(n3, r2), n3;
-  }
-  var ht2 = new Proxy(function(e3, t5) {
-    return Re("animation", e3, t5);
-  }, { get(e3, t5) {
-    return t5 in e3 ? e3[t5] : function(i3, n3) {
-      return Re(t5, i3, n3);
-    };
-  } });
-  function Re(e3, t5, r2) {
-    return { toString() {
-      return me({ label: e3, "@layer components": { ...typeof t5 == "object" ? t5 : { animation: t5 }, animationName: "" + r2 } });
-    } };
-  }
-  function yt2(e3, t5, r2) {
-    return [e3, ie(t5, r2)];
-  }
-  function ie(e3, t5) {
-    return typeof e3 == "function" ? e3 : typeof e3 == "string" && /^[\w-]+$/.test(e3) ? (r2, i3) => ({ [e3]: t5 ? t5(r2, i3) : le2(r2, 1) }) : (r2) => e3 || { [r2[1]]: le2(r2, 2) };
-  }
-  function le2(e3, t5, r2 = e3.slice(t5).find(Boolean) || e3.$$ || e3.input) {
-    return e3.input[0] == "-" ? `calc(${r2} * -1)` : r2;
-  }
-  function gt(e3, t5, r2, i3) {
-    return [e3, Ge(t5, r2, i3)];
-  }
-  function Ge(e3, t5, r2) {
-    let i3 = typeof t5 == "string" ? (n3, l5) => ({ [t5]: r2 ? r2(n3, l5) : n3._ }) : t5 || (({ 1: n3, _: l5 }, o5, s7) => ({ [n3 || s7]: l5 }));
-    return (n3, l5) => {
-      let o5 = ke(e3 || n3[1]), s7 = l5.theme(o5, n3.$$) ?? oe2(n3.$$, o5, l5);
-      if (s7 != null)
-        return n3._ = le2(n3, 0, s7), i3(n3, l5, o5);
-    };
-  }
-  function mt2(e3, t5 = {}, r2) {
-    return [e3, Ye(t5, r2)];
-  }
-  function Ye(e3 = {}, t5) {
-    return (r2, i3) => {
-      let { section: n3 = ke(r2[0]).replace("-", "") + "Color" } = e3, [l5, o5] = Ze(r2.$$);
-      if (!l5)
-        return;
-      let s7 = i3.theme(n3, l5) || oe2(l5, n3, i3);
-      if (!s7 || typeof s7 == "object")
-        return;
-      let { opacityVariable: f7 = `--tw-${r2[0].replace(/-$/, "")}-opacity`, opacitySection: a5 = n3.replace("Color", "Opacity"), property: c6 = n3, selector: u5 } = e3, p6 = i3.theme(a5, o5 || "DEFAULT") || o5 && oe2(o5, a5, i3), g8 = t5 || (({ _: $6 }) => {
-        let A5 = He(c6, $6);
-        return u5 ? { [u5]: A5 } : A5;
-      });
-      r2._ = { value: P4(s7, { opacityVariable: f7 || void 0, opacityValue: p6 || void 0 }), color: ($6) => P4(s7, $6), opacityVariable: f7 || void 0, opacityValue: p6 || void 0 };
-      let y5 = g8(r2, i3);
-      if (!r2.dark) {
-        let $6 = i3.d(n3, l5, s7);
-        $6 && $6 !== s7 && (r2._ = { value: P4($6, { opacityVariable: f7 || void 0, opacityValue: p6 || "1" }), color: (A5) => P4($6, A5), opacityVariable: f7 || void 0, opacityValue: p6 || void 0 }, y5 = { "&": y5, [i3.v("dark")]: g8(r2, i3) });
-      }
-      return y5;
-    };
-  }
-  function Ze(e3) {
-    return (e3.match(/^(\[[^\]]+]|[^/]+?)(?:\/(.+))?$/) || []).slice(1);
-  }
-  function He(e3, t5) {
-    let r2 = {};
-    return typeof t5 == "string" ? r2[e3] = t5 : (t5.opacityVariable && t5.value.includes(t5.opacityVariable) && (r2[t5.opacityVariable] = t5.opacityValue || "1"), r2[e3] = t5.value), r2;
-  }
-  function oe2(e3, t5, r2) {
-    if (e3[0] == "[" && e3.slice(-1) == "]") {
-      if (e3 = se2(he(e3.slice(1, -1), r2.theme)), !t5)
-        return e3;
-      if (!(/color|fill|stroke/i.test(t5) && !(/^color:/.test(e3) || /^(#|((hsl|rgb)a?|hwb|lab|lch|color)\(|[a-z]+$)/.test(e3)) || /image/i.test(t5) && !(/^image:/.test(e3) || /^[a-z-]+\(/.test(e3)) || /weight/i.test(t5) && !(/^(number|any):/.test(e3) || /^\d+$/.test(e3)) || /position/i.test(t5) && /^(length|size):/.test(e3)))
-        return e3.replace(/^[a-z-]+:/, "");
-    }
-  }
-  function ke(e3) {
-    return e3.replace(/-./g, (t5) => t5[1].toUpperCase());
-  }
-  function se2(e3) {
-    return e3.includes("url(") ? e3.replace(/(.*?)(url\(.*?\))(.*?)/g, (t5, r2 = "", i3, n3 = "") => se2(r2) + i3 + se2(n3)) : e3.replace(/(^|[^\\])_+/g, (t5, r2) => r2 + " ".repeat(t5.length - r2.length)).replace(/\\_/g, "_").replace(/(calc|min|max|clamp)\(.+\)/g, (t5) => t5.replace(/(-?\d*\.?\d(?!\b-.+[,)](?![^+\-/*])\D)(?:%|[a-z]+)?|\))([+\-/*])/g, "$1 $2 "));
-  }
-  var Qe = Symbol();
-  var D6 = new Proxy(F5, { apply(e3, t5, r2) {
-    return B4(r2[0]);
-  }, get(e3, t5) {
-    let r2 = B4[t5];
-    return typeof r2 == "function" ? function() {
-      return r2.apply(B4, arguments);
-    } : r2;
-  } });
-  var Rt = function e2(t5) {
-    return new Proxy(function(i3, ...n3) {
-      return xe2(t5, "", i3, n3);
-    }, { get(r2, i3) {
-      return i3 === "bind" ? e2 : i3 in r2 ? r2[i3] : function(l5, ...o5) {
-        return xe2(t5, i3, l5, o5);
-      };
-    } });
-  }();
-  function xe2(e3, t5, r2, i3) {
-    return { toString() {
-      let n3 = G4(r2, i3), l5 = Y3(t5 + T3(JSON.stringify([t5, n3])));
-      return (typeof e3 == "function" ? e3 : D6)(me({ [`@keyframes ${l5}`]: G4(r2, i3) })), l5;
-    } };
-  }
-
-  // https://esm.sh/v108/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
-  var L4 = "inherit", U4 = "currentColor", j4 = "transparent", V4 = "#000", B5 = "#fff", H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I4 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q4 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X5 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee3 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re3 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie2 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne3 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se3 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L4, current: U4, transparent: j4, black: V4, white: B5, slate: H5, gray: I4, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q4, amber: Y4, yellow: X5, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee3, sky: te, blue: oe3, indigo: re3, violet: ae3, purple: ie2, fuchsia: ne3, pink: le3, rose: se3 }, h3 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c4(4, "rem", 4, 0.5, 0.5), ...c4(12, "rem", 4, 5), 14: "3.5rem", ...c4(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c4(200, "", 100, 0, 50), ...c4(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f5(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c4(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c4(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r2 }) => ({ ...r2(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c4(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f5(8, "px"), outlineWidth: f5(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f5(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f5(8, "px") }, rotate: { ...f5(2, "deg"), ...f5(12, "deg", 3), ...f5(180, "deg", 45) }, saturate: c4(200, "", 100, 0, 50), scale: { ...c4(150, "", 100, 0, 50), ...c4(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f5(2, "deg"), ...f5(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c4(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f5(8, "px") }, textUnderlineOffset: { auto: "auto", ...f5(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c4(50, "", 1, 0, 10), auto: "auto" } };
-  function x3(e3, r2) {
-    let a5 = {};
-    do
-      for (var i3 = 1; i3 < e3; i3++)
-        a5[`${i3}/${e3}`] = Number((i3 / e3 * 100).toFixed(6)) + "%";
-    while (++e3 <= r2);
-    return a5;
-  }
-  function f5(e3, r2, a5 = 0) {
-    let i3 = {};
-    for (; a5 <= e3; a5 = 2 * a5 || 1)
-      i3[a5] = a5 + r2;
-    return i3;
-  }
-  function c4(e3, r2 = "", a5 = 1, i3 = 0, l5 = 1, d6 = {}) {
-    for (; i3 <= e3; i3 += l5)
-      d6[i3] = i3 / a5 + r2;
-    return d6;
-  }
-  function n2(e3) {
-    return ({ theme: r2 }) => r2(e3);
-  }
-  var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h3.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h3.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r2 }, a5) => ({ "@layer overrides": { "&": { [e3]: oe2(`[${r2}]`, e3, a5) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r2 }) => [{ c: r2(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r2 }) => {
-    let { screens: a5 = r2("screens"), center: i3, padding: l5 } = r2("container"), d6 = { width: "100%", marginRight: i3 && "auto", marginLeft: i3 && "auto", ...m6("xs") };
-    for (let w6 in a5) {
-      let b5 = a5[w6];
-      typeof b5 == "string" && (d6[Ce(b5)] = { "&": { maxWidth: b5, ...m6(w6) } });
-    }
-    return d6;
-    function m6(w6) {
-      let b5 = l5 && (typeof l5 == "string" ? l5 : l5[w6] || l5.DEFAULT);
-      if (b5)
-        return { paddingRight: b5, paddingLeft: b5 };
-    }
-  }), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y3), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r2 }) => ({ ["overscroll-behavior" + e3]: r2 })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r2 }) => ({ top: e3 != "-x" && r2, right: e3 != "-y" && r2, bottom: e3 != "-x" && r2, left: e3 != "-y" && r2 })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F6), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D7), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W4), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D7), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W4), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y3(F6(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r2 }) => ({ [e3]: ("wun".includes(r2[3]) ? "space-" : "") + r2 })), gt("p([xytrbl])?(?:$|-)", "padding", u3("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u3("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r2 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r2} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r2} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p3), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r2 = "", 3: a5 }) => r2 == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a5 ? "numeric-fraction" : "pt".includes(r2[0]) ? "numeric-spacing" : r2 ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g4(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y3), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r2 }) => {
-    let a5 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
-    return { [`border-${g4(a5[0])}-radius`]: r2, [`border-${g4(a5[1])}-radius`]: r2 };
-  }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: e3, _: r2 }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (e3 || "-x")]: r2, ["--tw-border-spacing" + (e3 || "-y")]: r2, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, u3("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", u3("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": e3 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: e3 } })), yt2("divide-([xy]-reverse)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + e3]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: e3, _: r2 }) => {
-    let a5 = { x: "lr", y: "tb" }[e3];
-    return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g4(a5[0])}Width`]: `calc(${r2} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g4(a5[1])}Width`]: `calc(${r2} * var(--tw-divide-${e3}-reverse))` } };
-  }), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r2 }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r2("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r2("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r2("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r2("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p3(e3), "--tw-shadow-colored": p3(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A2(), ...A2("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r2 }) => ({ transitionProperty: p3(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p3(r2("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p3(r2("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p3), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p3), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p3), gt("animate(?:$|-)", "animation", (e3, { theme: r2, h: a5 }) => {
-    let i3 = p3(e3), l5 = i3.split(" "), d6 = r2("keyframes", l5[0]);
-    return d6 ? { ["@keyframes " + (l5[0] = a5(l5[0]))]: d6, animation: l5.join(" ") } : { animation: i3 };
-  }), "(transform)-(none)", yt2("transform", $3), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r2 }) => ({ ["--tw-scale" + (e3 || "-x")]: r2, ["--tw-scale" + (e3 || "-y")]: r2, ...$3() })), gt("-?(rotate)-", "rotate", k3), gt("-?(translate-[xy])-", "translate", k3), gt("-?(skew-[xy])-", "skew", k3), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y3), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u3("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u3("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r2, 3: a5 }) => ({ [`--tw-${r2 ? "pan-x" : a5 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
-  function y3(e3) {
-    return (typeof e3 == "string" ? e3 : e3[1]).replace(/-/g, " ").trim();
-  }
-  function F6(e3) {
-    return (typeof e3 == "string" ? e3 : e3[1]).replace("col", "column");
-  }
-  function g4(e3, r2 = "-") {
-    let a5 = [];
-    for (let i3 of e3)
-      a5.push({ t: "top", r: "right", b: "bottom", l: "left" }[i3]);
-    return a5.join(r2);
-  }
-  function p3(e3) {
-    return e3 && "" + (e3._ || e3);
-  }
-  function T4({ $$: e3 }) {
-    return ({ r: "flex-", "": "flex-", w: "space-", u: "space-", n: "space-" }[e3[3] || ""] || "") + e3;
-  }
-  function u3(e3, r2 = "") {
-    return ({ 1: a5, _: i3 }) => {
-      let l5 = { x: "lr", y: "tb" }[a5] || a5 + a5;
-      return l5 ? { ...He(e3 + "-" + g4(l5[0]) + r2, i3), ...He(e3 + "-" + g4(l5[1]) + r2, i3) } : He(e3 + r2, i3);
-    };
-  }
-  function A2(e3 = "") {
-    let r2 = ["blur", "brightness", "contrast", "grayscale", "hue-rotate", "invert", e3 && "opacity", "saturate", "sepia", !e3 && "drop-shadow"].filter(Boolean), a5 = {};
-    for (let i3 of r2)
-      a5[`--tw-${e3}${i3}`] = "var(--tw-empty,/*!*/ /*!*/)";
-    return a5 = { [`${e3}filter`]: r2.map((i3) => `var(--tw-${e3}${i3})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a5 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a5), ...r2.map((i3) => gt(`${i3[0] == "h" ? "-?" : ""}(${e3}${i3})(?:$|-)`, i3, ({ 1: l5, _: d6 }) => ({ [`--tw-${l5}`]: b2(d6).map((m6) => `${i3}(${m6})`).join(" "), ...a5 })))];
-  }
-  function k3({ 1: e3, _: r2 }) {
-    return { ["--tw-" + e3]: r2, ...$3() };
-  }
-  function $3() {
-    return { transform: "var(--tw-transform)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-translate-x": "0", "--tw-translate-y": "0", "--tw-rotate": "0", "--tw-skew-x": "0", "--tw-skew-y": "0", "--tw-scale-x": "1", "--tw-scale-y": "1", "--tw-transform": E() } } };
-  }
-  function E(e3) {
-    return [e3 ? "translate3d(var(--tw-translate-x),var(--tw-translate-y),0)" : "translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y))", "rotate(var(--tw-rotate))", "skewX(var(--tw-skew-x))", "skewY(var(--tw-skew-y))", "scaleX(var(--tw-scale-x))", "scaleY(var(--tw-scale-y))"].join(" ");
-  }
-  function W4({ 1: e3, 2: r2 }) {
-    return `${e3} ${r2} / ${e3} ${r2}`;
-  }
-  function D7({ 1: e3 }) {
-    return `repeat(${e3},minmax(0,1fr))`;
-  }
-
-  // https://esm.sh/v108/notie@4.3.1/deno/notie.js
-  var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne2 = (v5, i3) => () => (i3 || v5((i3 = { exports: {} }).exports, i3), i3.exports), Pe = (v5, i3) => {
+  // https://esm.sh/v111/notie@4.3.1/deno/notie.js
+  var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v5, i3) => () => (i3 || v5((i3 = { exports: {} }).exports, i3), i3.exports), Pe = (v5, i3) => {
     for (var l5 in i3)
-      ve2(v5, l5, { get: i3[l5], enumerable: !0 });
-  }, me2 = (v5, i3, l5, x6) => {
+      ve(v5, l5, { get: i3[l5], enumerable: !0 });
+  }, me = (v5, i3, l5, x4) => {
     if (i3 && typeof i3 == "object" || typeof i3 == "function")
-      for (let b5 of De(i3))
-        !je.call(v5, b5) && b5 !== l5 && ve2(v5, b5, { get: () => i3[b5], enumerable: !(x6 = Ae2(i3, b5)) || x6.enumerable });
+      for (let b4 of De(i3))
+        !je.call(v5, b4) && b4 !== l5 && ve(v5, b4, { get: () => i3[b4], enumerable: !(x4 = Ae(i3, b4)) || x4.enumerable });
     return v5;
-  }, X6 = (v5, i3, l5) => (me2(v5, i3, "default"), l5 && me2(l5, i3, "default")), ke2 = (v5, i3, l5) => (l5 = v5 != null ? Oe(Ie(v5)) : {}, me2(i3 || !v5 || !v5.__esModule ? ve2(l5, "default", { value: v5, enumerable: !0 }) : l5, v5)), xe3 = Ne2((oe4, be) => {
+  }, X2 = (v5, i3, l5) => (me(v5, i3, "default"), l5 && me(l5, i3, "default")), ke = (v5, i3, l5) => (l5 = v5 != null ? Oe(Ie(v5)) : {}, me(i3 || !v5 || !v5.__esModule ? ve(l5, "default", { value: v5, enumerable: !0 }) : l5, v5)), xe = Ne((oe2, be) => {
     (function(v5, i3) {
-      typeof oe4 == "object" && typeof be == "object" ? be.exports = i3() : typeof define == "function" && define.amd ? define([], i3) : typeof oe4 == "object" ? oe4.notie = i3() : v5.notie = i3();
-    })(oe4, function() {
+      typeof oe2 == "object" && typeof be == "object" ? be.exports = i3() : typeof define == "function" && define.amd ? define([], i3) : typeof oe2 == "object" ? oe2.notie = i3() : v5.notie = i3();
+    })(oe2, function() {
       return function(v5) {
-        function i3(x6) {
-          if (l5[x6])
-            return l5[x6].exports;
-          var b5 = l5[x6] = { i: x6, l: !1, exports: {} };
-          return v5[x6].call(b5.exports, b5, b5.exports, i3), b5.l = !0, b5.exports;
+        function i3(x4) {
+          if (l5[x4])
+            return l5[x4].exports;
+          var b4 = l5[x4] = { i: x4, l: !1, exports: {} };
+          return v5[x4].call(b4.exports, b4, b4.exports, i3), b4.l = !0, b4.exports;
         }
         var l5 = {};
-        return i3.m = v5, i3.c = l5, i3.i = function(x6) {
-          return x6;
-        }, i3.d = function(x6, b5, re4) {
-          i3.o(x6, b5) || Object.defineProperty(x6, b5, { configurable: !1, enumerable: !0, get: re4 });
-        }, i3.n = function(x6) {
-          var b5 = x6 && x6.__esModule ? function() {
-            return x6.default;
+        return i3.m = v5, i3.c = l5, i3.i = function(x4) {
+          return x4;
+        }, i3.d = function(x4, b4, re2) {
+          i3.o(x4, b4) || Object.defineProperty(x4, b4, { configurable: !1, enumerable: !0, get: re2 });
+        }, i3.n = function(x4) {
+          var b4 = x4 && x4.__esModule ? function() {
+            return x4.default;
           } : function() {
-            return x6;
+            return x4;
           };
-          return i3.d(b5, "a", b5), b5;
-        }, i3.o = function(x6, b5) {
-          return Object.prototype.hasOwnProperty.call(x6, b5);
+          return i3.d(b4, "a", b4), b4;
+        }, i3.o = function(x4, b4) {
+          return Object.prototype.hasOwnProperty.call(x4, b4);
         }, i3.p = "", i3(i3.s = 1);
       }([function(v5, i3) {
         v5.exports = function(l5) {
@@ -7472,516 +6429,516 @@ body {
         };
       }, function(v5, i3, l5) {
         "use strict";
-        (function(x6) {
-          var b5, re4, de2, $6 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A5) {
-            return typeof A5;
-          } : function(A5) {
-            return A5 && typeof Symbol == "function" && A5.constructor === Symbol && A5 !== Symbol.prototype ? "symbol" : typeof A5;
+        (function(x4) {
+          var b4, re2, de, $5 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A4) {
+            return typeof A4;
+          } : function(A4) {
+            return A4 && typeof Symbol == "function" && A4.constructor === Symbol && A4 !== Symbol.prototype ? "symbol" : typeof A4;
           };
-          (function(A5, p6) {
-            $6(i3) === "object" && $6(x6) === "object" ? x6.exports = p6() : (re4 = [], b5 = p6, de2 = typeof b5 == "function" ? b5.apply(i3, re4) : b5, de2 !== void 0 && (x6.exports = de2));
+          (function(A4, p5) {
+            $5(i3) === "object" && $5(x4) === "object" ? x4.exports = p5() : (re2 = [], b4 = p5, de = typeof b4 == "function" ? b4.apply(i3, re2) : b4, de !== void 0 && (x4.exports = de));
           })(void 0, function() {
-            return function(A5) {
-              function p6(g8) {
-                if (ee4[g8])
-                  return ee4[g8].exports;
-                var T7 = ee4[g8] = { i: g8, l: !1, exports: {} };
-                return A5[g8].call(T7.exports, T7, T7.exports, p6), T7.l = !0, T7.exports;
+            return function(A4) {
+              function p5(g7) {
+                if (ee2[g7])
+                  return ee2[g7].exports;
+                var T4 = ee2[g7] = { i: g7, l: !1, exports: {} };
+                return A4[g7].call(T4.exports, T4, T4.exports, p5), T4.l = !0, T4.exports;
               }
-              var ee4 = {};
-              return p6.m = A5, p6.c = ee4, p6.i = function(g8) {
-                return g8;
-              }, p6.d = function(g8, T7, J5) {
-                p6.o(g8, T7) || Object.defineProperty(g8, T7, { configurable: !1, enumerable: !0, get: J5 });
-              }, p6.n = function(g8) {
-                var T7 = g8 && g8.__esModule ? function() {
-                  return g8.default;
+              var ee2 = {};
+              return p5.m = A4, p5.c = ee2, p5.i = function(g7) {
+                return g7;
+              }, p5.d = function(g7, T4, J4) {
+                p5.o(g7, T4) || Object.defineProperty(g7, T4, { configurable: !1, enumerable: !0, get: J4 });
+              }, p5.n = function(g7) {
+                var T4 = g7 && g7.__esModule ? function() {
+                  return g7.default;
                 } : function() {
-                  return g8;
+                  return g7;
                 };
-                return p6.d(T7, "a", T7), T7;
-              }, p6.o = function(g8, T7) {
-                return Object.prototype.hasOwnProperty.call(g8, T7);
-              }, p6.p = "", p6(p6.s = 0);
-            }([function(A5, p6, ee4) {
-              function g8(t5, o5) {
-                var s7 = {};
-                for (var u5 in t5)
-                  o5.indexOf(u5) >= 0 || Object.prototype.hasOwnProperty.call(t5, u5) && (s7[u5] = t5[u5]);
-                return s7;
+                return p5.d(T4, "a", T4), T4;
+              }, p5.o = function(g7, T4) {
+                return Object.prototype.hasOwnProperty.call(g7, T4);
+              }, p5.p = "", p5(p5.s = 0);
+            }([function(A4, p5, ee2) {
+              function g7(t4, o4) {
+                var s6 = {};
+                for (var u4 in t4)
+                  o4.indexOf(u4) >= 0 || Object.prototype.hasOwnProperty.call(t4, u4) && (s6[u4] = t4[u4]);
+                return s6;
               }
-              Object.defineProperty(p6, "__esModule", { value: !0 });
-              var T7 = typeof Symbol == "function" && $6(Symbol.iterator) === "symbol" ? function(t5) {
-                return typeof t5 > "u" ? "undefined" : $6(t5);
-              } : function(t5) {
-                return t5 && typeof Symbol == "function" && t5.constructor === Symbol && t5 !== Symbol.prototype ? "symbol" : typeof t5 > "u" ? "undefined" : $6(t5);
-              }, J5 = Object.assign || function(t5) {
-                for (var o5 = 1; o5 < arguments.length; o5++) {
-                  var s7 = arguments[o5];
-                  for (var u5 in s7)
-                    Object.prototype.hasOwnProperty.call(s7, u5) && (t5[u5] = s7[u5]);
+              Object.defineProperty(p5, "__esModule", { value: !0 });
+              var T4 = typeof Symbol == "function" && $5(Symbol.iterator) === "symbol" ? function(t4) {
+                return typeof t4 > "u" ? "undefined" : $5(t4);
+              } : function(t4) {
+                return t4 && typeof Symbol == "function" && t4.constructor === Symbol && t4 !== Symbol.prototype ? "symbol" : typeof t4 > "u" ? "undefined" : $5(t4);
+              }, J4 = Object.assign || function(t4) {
+                for (var o4 = 1; o4 < arguments.length; o4++) {
+                  var s6 = arguments[o4];
+                  for (var u4 in s6)
+                    Object.prototype.hasOwnProperty.call(s6, u4) && (t4[u4] = s6[u4]);
                 }
-                return t5;
-              }, R5 = { top: "top", bottom: "bottom" }, e3 = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R5.top, force: R5.top, confirm: R5.top, input: R5.top, select: R5.bottom, date: R5.top } }, Ee2 = p6.setOptions = function(t5) {
-                e3 = J5({}, e3, t5, { classes: J5({}, e3.classes, t5.classes), ids: J5({}, e3.ids, t5.ids), positions: J5({}, e3.positions, t5.positions) });
-              }, ye2 = function() {
-                return new Promise(function(t5) {
-                  return setTimeout(t5, 0);
+                return t4;
+              }, R5 = { top: "top", bottom: "bottom" }, e = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R5.top, force: R5.top, confirm: R5.top, input: R5.top, select: R5.bottom, date: R5.top } }, Ee = p5.setOptions = function(t4) {
+                e = J4({}, e, t4, { classes: J4({}, e.classes, t4.classes), ids: J4({}, e.ids, t4.ids), positions: J4({}, e.positions, t4.positions) });
+              }, ye = function() {
+                return new Promise(function(t4) {
+                  return setTimeout(t4, 0);
                 });
-              }, le4 = function(t5) {
-                return new Promise(function(o5) {
-                  return setTimeout(o5, 1e3 * t5);
+              }, le2 = function(t4) {
+                return new Promise(function(o4) {
+                  return setTimeout(o4, 1e3 * t4);
                 });
-              }, W7 = function() {
+              }, W4 = function() {
                 document.activeElement && document.activeElement.blur();
-              }, K7 = function() {
-                var t5 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(o5) {
-                  var s7 = 16 * Math.random() | 0, u5 = o5 === "x" ? s7 : 3 & s7 | 8;
-                  return u5.toString(16);
+              }, K4 = function() {
+                var t4 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(o4) {
+                  var s6 = 16 * Math.random() | 0, u4 = o4 === "x" ? s6 : 3 & s6 | 8;
+                  return u4.toString(16);
                 });
-                return "notie-" + t5;
-              }, ue3 = { 1: e3.classes.backgroundSuccess, success: e3.classes.backgroundSuccess, 2: e3.classes.backgroundWarning, warning: e3.classes.backgroundWarning, 3: e3.classes.backgroundError, error: e3.classes.backgroundError, 4: e3.classes.backgroundInfo, info: e3.classes.backgroundInfo, 5: e3.classes.backgroundNeutral, neutral: e3.classes.backgroundNeutral }, Le = function() {
-                return e3.transitionSelector + " " + e3.transitionDuration + "s " + e3.transitionCurve;
-              }, te2 = function(t5) {
-                return t5.keyCode === 13;
-              }, ne4 = function(t5) {
-                return t5.keyCode === 27;
-              }, Z6 = function(t5, o5) {
-                t5.classList.add(e3.classes.container), t5.style[o5] = "-10000px", document.body.appendChild(t5), t5.style[o5] = "-" + t5.offsetHeight + "px", t5.listener && window.addEventListener("keydown", t5.listener), ye2().then(function() {
-                  t5.style.transition = Le(), t5.style[o5] = 0;
+                return "notie-" + t4;
+              }, ue = { 1: e.classes.backgroundSuccess, success: e.classes.backgroundSuccess, 2: e.classes.backgroundWarning, warning: e.classes.backgroundWarning, 3: e.classes.backgroundError, error: e.classes.backgroundError, 4: e.classes.backgroundInfo, info: e.classes.backgroundInfo, 5: e.classes.backgroundNeutral, neutral: e.classes.backgroundNeutral }, Le = function() {
+                return e.transitionSelector + " " + e.transitionDuration + "s " + e.transitionCurve;
+              }, te = function(t4) {
+                return t4.keyCode === 13;
+              }, ne2 = function(t4) {
+                return t4.keyCode === 27;
+              }, Z3 = function(t4, o4) {
+                t4.classList.add(e.classes.container), t4.style[o4] = "-10000px", document.body.appendChild(t4), t4.style[o4] = "-" + t4.offsetHeight + "px", t4.listener && window.addEventListener("keydown", t4.listener), ye().then(function() {
+                  t4.style.transition = Le(), t4.style[o4] = 0;
                 });
-              }, O5 = function(t5, o5) {
-                var s7 = document.getElementById(t5);
-                s7 && (s7.style[o5] = "-" + s7.offsetHeight + "px", s7.listener && window.removeEventListener("keydown", s7.listener), le4(e3.transitionDuration).then(function() {
-                  s7.parentNode && s7.parentNode.removeChild(s7);
+              }, O4 = function(t4, o4) {
+                var s6 = document.getElementById(t4);
+                s6 && (s6.style[o4] = "-" + s6.offsetHeight + "px", s6.listener && window.removeEventListener("keydown", s6.listener), le2(e.transitionDuration).then(function() {
+                  s6.parentNode && s6.parentNode.removeChild(s6);
                 }));
-              }, se4 = function(t5, o5) {
-                var s7 = document.createElement("div");
-                s7.id = e3.ids.overlay, s7.classList.add(e3.classes.overlay), s7.classList.add(e3.classes.backgroundOverlay), s7.style.opacity = 0, t5 && e3.overlayClickDismiss && (s7.onclick = function() {
-                  O5(t5.id, o5), j7();
-                }), document.body.appendChild(s7), ye2().then(function() {
-                  s7.style.transition = Le(), s7.style.opacity = e3.overlayOpacity;
+              }, se2 = function(t4, o4) {
+                var s6 = document.createElement("div");
+                s6.id = e.ids.overlay, s6.classList.add(e.classes.overlay), s6.classList.add(e.classes.backgroundOverlay), s6.style.opacity = 0, t4 && e.overlayClickDismiss && (s6.onclick = function() {
+                  O4(t4.id, o4), j6();
+                }), document.body.appendChild(s6), ye().then(function() {
+                  s6.style.transition = Le(), s6.style.opacity = e.overlayOpacity;
                 });
-              }, j7 = function() {
-                var t5 = document.getElementById(e3.ids.overlay);
-                t5.style.opacity = 0, le4(e3.transitionDuration).then(function() {
-                  t5.parentNode && t5.parentNode.removeChild(t5);
+              }, j6 = function() {
+                var t4 = document.getElementById(e.ids.overlay);
+                t4.style.opacity = 0, le2(e.transitionDuration).then(function() {
+                  t4.parentNode && t4.parentNode.removeChild(t4);
                 });
-              }, F9 = p6.hideAlerts = function(t5) {
-                var o5 = document.getElementsByClassName(e3.classes.alert);
-                if (o5.length) {
-                  for (var s7 = 0; s7 < o5.length; s7++) {
-                    var u5 = o5[s7];
-                    O5(u5.id, u5.position);
+              }, F6 = p5.hideAlerts = function(t4) {
+                var o4 = document.getElementsByClassName(e.classes.alert);
+                if (o4.length) {
+                  for (var s6 = 0; s6 < o4.length; s6++) {
+                    var u4 = o4[s6];
+                    O4(u4.id, u4.position);
                   }
-                  t5 && le4(e3.transitionDuration).then(function() {
-                    return t5();
+                  t4 && le2(e.transitionDuration).then(function() {
+                    return t4();
                   });
                 }
-              }, Te = p6.alert = function(t5) {
-                var o5 = t5.type, s7 = o5 === void 0 ? 4 : o5, u5 = t5.text, c6 = t5.time, k5 = c6 === void 0 ? e3.alertTime : c6, H8 = t5.stay, S8 = H8 !== void 0 && H8, h4 = t5.position, f7 = h4 === void 0 ? e3.positions.alert || f7.top : h4;
-                W7(), F9();
-                var d6 = document.createElement("div"), m6 = K7();
-                d6.id = m6, d6.position = f7, d6.classList.add(e3.classes.textbox), d6.classList.add(ue3[s7]), d6.classList.add(e3.classes.alert), d6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u5 + "</div>", d6.onclick = function() {
-                  return O5(m6, f7);
-                }, d6.listener = function(n3) {
-                  (te2(n3) || ne4(n3)) && F9();
-                }, Z6(d6, f7), k5 && k5 < 1 && (k5 = 1), !S8 && k5 && le4(k5).then(function() {
-                  return O5(m6, f7);
+              }, Te = p5.alert = function(t4) {
+                var o4 = t4.type, s6 = o4 === void 0 ? 4 : o4, u4 = t4.text, c5 = t4.time, k4 = c5 === void 0 ? e.alertTime : c5, H5 = t4.stay, S6 = H5 !== void 0 && H5, h3 = t4.position, f6 = h3 === void 0 ? e.positions.alert || f6.top : h3;
+                W4(), F6();
+                var d6 = document.createElement("div"), m6 = K4();
+                d6.id = m6, d6.position = f6, d6.classList.add(e.classes.textbox), d6.classList.add(ue[s6]), d6.classList.add(e.classes.alert), d6.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u4 + "</div>", d6.onclick = function() {
+                  return O4(m6, f6);
+                }, d6.listener = function(n2) {
+                  (te(n2) || ne2(n2)) && F6();
+                }, Z3(d6, f6), k4 && k4 < 1 && (k4 = 1), !S6 && k4 && le2(k4).then(function() {
+                  return O4(m6, f6);
                 });
-              }, Me2 = p6.force = function(t5, o5) {
-                var s7 = t5.type, u5 = s7 === void 0 ? 5 : s7, c6 = t5.text, k5 = t5.buttonText, H8 = k5 === void 0 ? "OK" : k5, S8 = t5.callback, h4 = t5.position, f7 = h4 === void 0 ? e3.positions.force || f7.top : h4;
-                W7(), F9();
-                var d6 = document.createElement("div"), m6 = K7();
+              }, Me = p5.force = function(t4, o4) {
+                var s6 = t4.type, u4 = s6 === void 0 ? 5 : s6, c5 = t4.text, k4 = t4.buttonText, H5 = k4 === void 0 ? "OK" : k4, S6 = t4.callback, h3 = t4.position, f6 = h3 === void 0 ? e.positions.force || f6.top : h3;
+                W4(), F6();
+                var d6 = document.createElement("div"), m6 = K4();
                 d6.id = m6;
-                var n3 = document.createElement("div");
-                n3.classList.add(e3.classes.textbox), n3.classList.add(e3.classes.backgroundInfo), n3.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + c6 + "</div>";
+                var n2 = document.createElement("div");
+                n2.classList.add(e.classes.textbox), n2.classList.add(e.classes.backgroundInfo), n2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + c5 + "</div>";
                 var r2 = document.createElement("div");
-                r2.classList.add(e3.classes.button), r2.classList.add(ue3[u5]), r2.innerHTML = H8, r2.onclick = function() {
-                  O5(m6, f7), j7(), S8 ? S8() : o5 && o5();
-                }, d6.appendChild(n3), d6.appendChild(r2), d6.listener = function(C6) {
-                  te2(C6) && r2.click();
-                }, Z6(d6, f7), se4();
-              }, He2 = p6.confirm = function(t5, o5, s7) {
-                var u5 = t5.text, c6 = t5.submitText, k5 = c6 === void 0 ? "Yes" : c6, H8 = t5.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h4 = t5.submitCallback, f7 = t5.cancelCallback, d6 = t5.position, m6 = d6 === void 0 ? e3.positions.confirm || m6.top : d6;
-                W7(), F9();
-                var n3 = document.createElement("div"), r2 = K7();
-                n3.id = r2;
-                var C6 = document.createElement("div");
-                C6.classList.add(e3.classes.textbox), C6.classList.add(e3.classes.backgroundInfo), C6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u5 + "</div>";
-                var y5 = document.createElement("div");
-                y5.classList.add(e3.classes.button), y5.classList.add(e3.classes.elementHalf), y5.classList.add(e3.classes.backgroundSuccess), y5.innerHTML = k5, y5.onclick = function() {
-                  O5(r2, m6), j7(), h4 ? h4() : o5 && o5();
+                r2.classList.add(e.classes.button), r2.classList.add(ue[u4]), r2.innerHTML = H5, r2.onclick = function() {
+                  O4(m6, f6), j6(), S6 ? S6() : o4 && o4();
+                }, d6.appendChild(n2), d6.appendChild(r2), d6.listener = function(C5) {
+                  te(C5) && r2.click();
+                }, Z3(d6, f6), se2();
+              }, He = p5.confirm = function(t4, o4, s6) {
+                var u4 = t4.text, c5 = t4.submitText, k4 = c5 === void 0 ? "Yes" : c5, H5 = t4.cancelText, S6 = H5 === void 0 ? "Cancel" : H5, h3 = t4.submitCallback, f6 = t4.cancelCallback, d6 = t4.position, m6 = d6 === void 0 ? e.positions.confirm || m6.top : d6;
+                W4(), F6();
+                var n2 = document.createElement("div"), r2 = K4();
+                n2.id = r2;
+                var C5 = document.createElement("div");
+                C5.classList.add(e.classes.textbox), C5.classList.add(e.classes.backgroundInfo), C5.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u4 + "</div>";
+                var y3 = document.createElement("div");
+                y3.classList.add(e.classes.button), y3.classList.add(e.classes.elementHalf), y3.classList.add(e.classes.backgroundSuccess), y3.innerHTML = k4, y3.onclick = function() {
+                  O4(r2, m6), j6(), h3 ? h3() : o4 && o4();
                 };
                 var a5 = document.createElement("div");
-                a5.classList.add(e3.classes.button), a5.classList.add(e3.classes.elementHalf), a5.classList.add(e3.classes.backgroundError), a5.innerHTML = S8, a5.onclick = function() {
-                  O5(r2, m6), j7(), f7 ? f7() : s7 && s7();
-                }, n3.appendChild(C6), n3.appendChild(y5), n3.appendChild(a5), n3.listener = function(E4) {
-                  te2(E4) ? y5.click() : ne4(E4) && a5.click();
-                }, Z6(n3, m6), se4(n3, m6);
-              }, ge2 = function(t5, o5, s7) {
-                var u5 = t5.text, c6 = t5.submitText, k5 = c6 === void 0 ? "Submit" : c6, H8 = t5.cancelText, S8 = H8 === void 0 ? "Cancel" : H8, h4 = t5.submitCallback, f7 = t5.cancelCallback, d6 = t5.position, m6 = d6 === void 0 ? e3.positions.input || m6.top : d6, n3 = g8(t5, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
-                W7(), F9();
-                var r2 = document.createElement("div"), C6 = K7();
-                r2.id = C6;
-                var y5 = document.createElement("div");
-                y5.classList.add(e3.classes.textbox), y5.classList.add(e3.classes.backgroundInfo), y5.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + u5 + "</div>";
+                a5.classList.add(e.classes.button), a5.classList.add(e.classes.elementHalf), a5.classList.add(e.classes.backgroundError), a5.innerHTML = S6, a5.onclick = function() {
+                  O4(r2, m6), j6(), f6 ? f6() : s6 && s6();
+                }, n2.appendChild(C5), n2.appendChild(y3), n2.appendChild(a5), n2.listener = function(E3) {
+                  te(E3) ? y3.click() : ne2(E3) && a5.click();
+                }, Z3(n2, m6), se2(n2, m6);
+              }, ge = function(t4, o4, s6) {
+                var u4 = t4.text, c5 = t4.submitText, k4 = c5 === void 0 ? "Submit" : c5, H5 = t4.cancelText, S6 = H5 === void 0 ? "Cancel" : H5, h3 = t4.submitCallback, f6 = t4.cancelCallback, d6 = t4.position, m6 = d6 === void 0 ? e.positions.input || m6.top : d6, n2 = g7(t4, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+                W4(), F6();
+                var r2 = document.createElement("div"), C5 = K4();
+                r2.id = C5;
+                var y3 = document.createElement("div");
+                y3.classList.add(e.classes.textbox), y3.classList.add(e.classes.backgroundInfo), y3.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u4 + "</div>";
                 var a5 = document.createElement("input");
-                a5.classList.add(e3.classes.inputField), a5.setAttribute("autocapitalize", n3.autocapitalize || "none"), a5.setAttribute("autocomplete", n3.autocomplete || "off"), a5.setAttribute("autocorrect", n3.autocorrect || "off"), a5.setAttribute("autofocus", n3.autofocus || "true"), a5.setAttribute("inputmode", n3.inputmode || "verbatim"), a5.setAttribute("max", n3.max || ""), a5.setAttribute("maxlength", n3.maxlength || ""), a5.setAttribute("min", n3.min || ""), a5.setAttribute("minlength", n3.minlength || ""), a5.setAttribute("placeholder", n3.placeholder || ""), a5.setAttribute("spellcheck", n3.spellcheck || "default"), a5.setAttribute("step", n3.step || "any"), a5.setAttribute("type", n3.type || "text"), a5.value = n3.value || "", n3.allowed && (a5.oninput = function() {
-                  var M6 = void 0;
-                  if (Array.isArray(n3.allowed)) {
-                    for (var w6 = "", _3 = n3.allowed, P8 = 0; P8 < _3.length; P8++)
-                      _3[P8] === "an" ? w6 += "0-9a-zA-Z" : _3[P8] === "a" ? w6 += "a-zA-Z" : _3[P8] === "n" && (w6 += "0-9"), _3[P8] === "s" && (w6 += " ");
-                    M6 = new RegExp("[^" + w6 + "]", "g");
+                a5.classList.add(e.classes.inputField), a5.setAttribute("autocapitalize", n2.autocapitalize || "none"), a5.setAttribute("autocomplete", n2.autocomplete || "off"), a5.setAttribute("autocorrect", n2.autocorrect || "off"), a5.setAttribute("autofocus", n2.autofocus || "true"), a5.setAttribute("inputmode", n2.inputmode || "verbatim"), a5.setAttribute("max", n2.max || ""), a5.setAttribute("maxlength", n2.maxlength || ""), a5.setAttribute("min", n2.min || ""), a5.setAttribute("minlength", n2.minlength || ""), a5.setAttribute("placeholder", n2.placeholder || ""), a5.setAttribute("spellcheck", n2.spellcheck || "default"), a5.setAttribute("step", n2.step || "any"), a5.setAttribute("type", n2.type || "text"), a5.value = n2.value || "", n2.allowed && (a5.oninput = function() {
+                  var M5 = void 0;
+                  if (Array.isArray(n2.allowed)) {
+                    for (var w5 = "", _3 = n2.allowed, P6 = 0; P6 < _3.length; P6++)
+                      _3[P6] === "an" ? w5 += "0-9a-zA-Z" : _3[P6] === "a" ? w5 += "a-zA-Z" : _3[P6] === "n" && (w5 += "0-9"), _3[P6] === "s" && (w5 += " ");
+                    M5 = new RegExp("[^" + w5 + "]", "g");
                   } else
-                    T7(n3.allowed) === "object" && (M6 = n3.allowed);
-                  a5.value = a5.value.replace(M6, "");
+                    T4(n2.allowed) === "object" && (M5 = n2.allowed);
+                  a5.value = a5.value.replace(M5, "");
                 });
-                var E4 = document.createElement("div");
-                E4.classList.add(e3.classes.button), E4.classList.add(e3.classes.elementHalf), E4.classList.add(e3.classes.backgroundSuccess), E4.innerHTML = k5, E4.onclick = function() {
-                  O5(C6, m6), j7(), h4 ? h4(a5.value) : o5 && o5(a5.value);
+                var E3 = document.createElement("div");
+                E3.classList.add(e.classes.button), E3.classList.add(e.classes.elementHalf), E3.classList.add(e.classes.backgroundSuccess), E3.innerHTML = k4, E3.onclick = function() {
+                  O4(C5, m6), j6(), h3 ? h3(a5.value) : o4 && o4(a5.value);
                 };
-                var D11 = document.createElement("div");
-                D11.classList.add(e3.classes.button), D11.classList.add(e3.classes.elementHalf), D11.classList.add(e3.classes.backgroundError), D11.innerHTML = S8, D11.onclick = function() {
-                  O5(C6, m6), j7(), f7 ? f7(a5.value) : s7 && s7(a5.value);
-                }, r2.appendChild(y5), r2.appendChild(a5), r2.appendChild(E4), r2.appendChild(D11), r2.listener = function(M6) {
-                  te2(M6) ? E4.click() : ne4(M6) && D11.click();
-                }, Z6(r2, m6), a5.focus(), se4(r2, m6);
+                var D8 = document.createElement("div");
+                D8.classList.add(e.classes.button), D8.classList.add(e.classes.elementHalf), D8.classList.add(e.classes.backgroundError), D8.innerHTML = S6, D8.onclick = function() {
+                  O4(C5, m6), j6(), f6 ? f6(a5.value) : s6 && s6(a5.value);
+                }, r2.appendChild(y3), r2.appendChild(a5), r2.appendChild(E3), r2.appendChild(D8), r2.listener = function(M5) {
+                  te(M5) ? E3.click() : ne2(M5) && D8.click();
+                }, Z3(r2, m6), a5.focus(), se2(r2, m6);
               };
-              p6.input = ge2;
-              var Se2 = p6.select = function(t5, o5) {
-                var s7 = t5.text, u5 = t5.cancelText, c6 = u5 === void 0 ? "Cancel" : u5, k5 = t5.cancelCallback, H8 = t5.choices, S8 = t5.position, h4 = S8 === void 0 ? e3.positions.select || h4.top : S8;
-                W7(), F9();
-                var f7 = document.createElement("div"), d6 = K7();
-                f7.id = d6;
+              p5.input = ge;
+              var Se = p5.select = function(t4, o4) {
+                var s6 = t4.text, u4 = t4.cancelText, c5 = u4 === void 0 ? "Cancel" : u4, k4 = t4.cancelCallback, H5 = t4.choices, S6 = t4.position, h3 = S6 === void 0 ? e.positions.select || h3.top : S6;
+                W4(), F6();
+                var f6 = document.createElement("div"), d6 = K4();
+                f6.id = d6;
                 var m6 = document.createElement("div");
-                m6.classList.add(e3.classes.textbox), m6.classList.add(e3.classes.backgroundInfo), m6.innerHTML = '<div class="' + e3.classes.textboxInner + '">' + s7 + "</div>", f7.appendChild(m6), H8.forEach(function(r2, C6) {
-                  var y5 = r2.type, a5 = y5 === void 0 ? 1 : y5, E4 = r2.text, D11 = r2.handler, M6 = document.createElement("div");
-                  M6.classList.add(ue3[a5]), M6.classList.add(e3.classes.button), M6.classList.add(e3.classes.selectChoice);
-                  var w6 = H8[C6 + 1];
-                  w6 && !w6.type && (w6.type = 1), w6 && w6.type === a5 && M6.classList.add(e3.classes.selectChoiceRepeated), M6.innerHTML = E4, M6.onclick = function() {
-                    O5(d6, h4), j7(), D11();
-                  }, f7.appendChild(M6);
+                m6.classList.add(e.classes.textbox), m6.classList.add(e.classes.backgroundInfo), m6.innerHTML = '<div class="' + e.classes.textboxInner + '">' + s6 + "</div>", f6.appendChild(m6), H5.forEach(function(r2, C5) {
+                  var y3 = r2.type, a5 = y3 === void 0 ? 1 : y3, E3 = r2.text, D8 = r2.handler, M5 = document.createElement("div");
+                  M5.classList.add(ue[a5]), M5.classList.add(e.classes.button), M5.classList.add(e.classes.selectChoice);
+                  var w5 = H5[C5 + 1];
+                  w5 && !w5.type && (w5.type = 1), w5 && w5.type === a5 && M5.classList.add(e.classes.selectChoiceRepeated), M5.innerHTML = E3, M5.onclick = function() {
+                    O4(d6, h3), j6(), D8();
+                  }, f6.appendChild(M5);
                 });
-                var n3 = document.createElement("div");
-                n3.classList.add(e3.classes.backgroundNeutral), n3.classList.add(e3.classes.button), n3.innerHTML = c6, n3.onclick = function() {
-                  O5(d6, h4), j7(), k5 ? k5() : o5 && o5();
-                }, f7.appendChild(n3), f7.listener = function(r2) {
-                  ne4(r2) && n3.click();
-                }, Z6(f7, h4), se4(f7, h4);
-              }, we2 = p6.date = function(t5, o5, s7) {
-                var u5 = t5.value, c6 = u5 === void 0 ? /* @__PURE__ */ new Date() : u5, k5 = t5.submitText, H8 = k5 === void 0 ? "OK" : k5, S8 = t5.cancelText, h4 = S8 === void 0 ? "Cancel" : S8, f7 = t5.submitCallback, d6 = t5.cancelCallback, m6 = t5.position, n3 = m6 === void 0 ? e3.positions.date || n3.top : m6;
-                W7(), F9();
-                var r2 = "&#9662", C6 = document.createElement("div"), y5 = document.createElement("div"), a5 = document.createElement("div"), E4 = function(L7) {
-                  C6.innerHTML = e3.dateMonths[L7.getMonth()], y5.innerHTML = L7.getDate(), a5.innerHTML = L7.getFullYear();
-                }, D11 = function(L7) {
-                  var N8 = new Date(c6.getFullYear(), c6.getMonth() + 1, 0).getDate(), V7 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
-                  Number(V7) > N8 && (V7 = N8.toString()), L7.target.textContent = V7, Number(V7) < 1 && (V7 = "1"), c6.setDate(Number(V7));
-                }, M6 = function(L7) {
-                  var N8 = L7.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
-                  L7.target.textContent = N8, c6.setFullYear(Number(N8));
-                }, w6 = function(L7) {
-                  E4(c6);
-                }, _3 = function(L7) {
-                  var N8 = new Date(c6.getFullYear(), c6.getMonth() + L7 + 1, 0).getDate();
-                  c6.getDate() > N8 && c6.setDate(N8), c6.setMonth(c6.getMonth() + L7), E4(c6);
-                }, P8 = function(L7) {
-                  c6.setDate(c6.getDate() + L7), E4(c6);
-                }, he2 = function(L7) {
-                  var N8 = c6.getFullYear() + L7;
-                  N8 < 0 ? c6.setFullYear(0) : c6.setFullYear(c6.getFullYear() + L7), E4(c6);
-                }, Y6 = document.createElement("div"), pe2 = K7();
-                Y6.id = pe2;
+                var n2 = document.createElement("div");
+                n2.classList.add(e.classes.backgroundNeutral), n2.classList.add(e.classes.button), n2.innerHTML = c5, n2.onclick = function() {
+                  O4(d6, h3), j6(), k4 ? k4() : o4 && o4();
+                }, f6.appendChild(n2), f6.listener = function(r2) {
+                  ne2(r2) && n2.click();
+                }, Z3(f6, h3), se2(f6, h3);
+              }, we = p5.date = function(t4, o4, s6) {
+                var u4 = t4.value, c5 = u4 === void 0 ? /* @__PURE__ */ new Date() : u4, k4 = t4.submitText, H5 = k4 === void 0 ? "OK" : k4, S6 = t4.cancelText, h3 = S6 === void 0 ? "Cancel" : S6, f6 = t4.submitCallback, d6 = t4.cancelCallback, m6 = t4.position, n2 = m6 === void 0 ? e.positions.date || n2.top : m6;
+                W4(), F6();
+                var r2 = "&#9662", C5 = document.createElement("div"), y3 = document.createElement("div"), a5 = document.createElement("div"), E3 = function(L6) {
+                  C5.innerHTML = e.dateMonths[L6.getMonth()], y3.innerHTML = L6.getDate(), a5.innerHTML = L6.getFullYear();
+                }, D8 = function(L6) {
+                  var N6 = new Date(c5.getFullYear(), c5.getMonth() + 1, 0).getDate(), V5 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
+                  Number(V5) > N6 && (V5 = N6.toString()), L6.target.textContent = V5, Number(V5) < 1 && (V5 = "1"), c5.setDate(Number(V5));
+                }, M5 = function(L6) {
+                  var N6 = L6.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
+                  L6.target.textContent = N6, c5.setFullYear(Number(N6));
+                }, w5 = function(L6) {
+                  E3(c5);
+                }, _3 = function(L6) {
+                  var N6 = new Date(c5.getFullYear(), c5.getMonth() + L6 + 1, 0).getDate();
+                  c5.getDate() > N6 && c5.setDate(N6), c5.setMonth(c5.getMonth() + L6), E3(c5);
+                }, P6 = function(L6) {
+                  c5.setDate(c5.getDate() + L6), E3(c5);
+                }, he = function(L6) {
+                  var N6 = c5.getFullYear() + L6;
+                  N6 < 0 ? c5.setFullYear(0) : c5.setFullYear(c5.getFullYear() + L6), E3(c5);
+                }, Y3 = document.createElement("div"), pe = K4();
+                Y3.id = pe;
                 var fe = document.createElement("div");
-                fe.classList.add(e3.classes.backgroundInfo);
-                var I6 = document.createElement("div");
-                I6.classList.add(e3.classes.dateSelectorInner);
-                var q7 = document.createElement("div");
-                q7.classList.add(e3.classes.button), q7.classList.add(e3.classes.elementThird), q7.classList.add(e3.classes.dateSelectorUp), q7.innerHTML = r2;
-                var G8 = document.createElement("div");
-                G8.classList.add(e3.classes.button), G8.classList.add(e3.classes.elementThird), G8.classList.add(e3.classes.dateSelectorUp), G8.innerHTML = r2;
-                var Q7 = document.createElement("div");
-                Q7.classList.add(e3.classes.button), Q7.classList.add(e3.classes.elementThird), Q7.classList.add(e3.classes.dateSelectorUp), Q7.innerHTML = r2, C6.classList.add(e3.classes.element), C6.classList.add(e3.classes.elementThird), C6.innerHTML = e3.dateMonths[c6.getMonth()], y5.classList.add(e3.classes.element), y5.classList.add(e3.classes.elementThird), y5.setAttribute("contentEditable", !0), y5.addEventListener("input", D11), y5.addEventListener("blur", w6), y5.innerHTML = c6.getDate(), a5.classList.add(e3.classes.element), a5.classList.add(e3.classes.elementThird), a5.setAttribute("contentEditable", !0), a5.addEventListener("input", M6), a5.addEventListener("blur", w6), a5.innerHTML = c6.getFullYear();
-                var ae4 = document.createElement("div");
-                ae4.classList.add(e3.classes.button), ae4.classList.add(e3.classes.elementThird), ae4.innerHTML = r2;
-                var ie4 = document.createElement("div");
-                ie4.classList.add(e3.classes.button), ie4.classList.add(e3.classes.elementThird), ie4.innerHTML = r2;
-                var ce5 = document.createElement("div");
-                ce5.classList.add(e3.classes.button), ce5.classList.add(e3.classes.elementThird), ce5.innerHTML = r2, q7.onclick = function() {
+                fe.classList.add(e.classes.backgroundInfo);
+                var I4 = document.createElement("div");
+                I4.classList.add(e.classes.dateSelectorInner);
+                var q6 = document.createElement("div");
+                q6.classList.add(e.classes.button), q6.classList.add(e.classes.elementThird), q6.classList.add(e.classes.dateSelectorUp), q6.innerHTML = r2;
+                var G5 = document.createElement("div");
+                G5.classList.add(e.classes.button), G5.classList.add(e.classes.elementThird), G5.classList.add(e.classes.dateSelectorUp), G5.innerHTML = r2;
+                var Q4 = document.createElement("div");
+                Q4.classList.add(e.classes.button), Q4.classList.add(e.classes.elementThird), Q4.classList.add(e.classes.dateSelectorUp), Q4.innerHTML = r2, C5.classList.add(e.classes.element), C5.classList.add(e.classes.elementThird), C5.innerHTML = e.dateMonths[c5.getMonth()], y3.classList.add(e.classes.element), y3.classList.add(e.classes.elementThird), y3.setAttribute("contentEditable", !0), y3.addEventListener("input", D8), y3.addEventListener("blur", w5), y3.innerHTML = c5.getDate(), a5.classList.add(e.classes.element), a5.classList.add(e.classes.elementThird), a5.setAttribute("contentEditable", !0), a5.addEventListener("input", M5), a5.addEventListener("blur", w5), a5.innerHTML = c5.getFullYear();
+                var ae = document.createElement("div");
+                ae.classList.add(e.classes.button), ae.classList.add(e.classes.elementThird), ae.innerHTML = r2;
+                var ie = document.createElement("div");
+                ie.classList.add(e.classes.button), ie.classList.add(e.classes.elementThird), ie.innerHTML = r2;
+                var ce3 = document.createElement("div");
+                ce3.classList.add(e.classes.button), ce3.classList.add(e.classes.elementThird), ce3.innerHTML = r2, q6.onclick = function() {
                   return _3(1);
-                }, G8.onclick = function() {
-                  return P8(1);
-                }, Q7.onclick = function() {
-                  return he2(1);
-                }, ae4.onclick = function() {
+                }, G5.onclick = function() {
+                  return P6(1);
+                }, Q4.onclick = function() {
+                  return he(1);
+                }, ae.onclick = function() {
                   return _3(-1);
-                }, ie4.onclick = function() {
-                  return P8(-1);
-                }, ce5.onclick = function() {
-                  return he2(-1);
+                }, ie.onclick = function() {
+                  return P6(-1);
+                }, ce3.onclick = function() {
+                  return he(-1);
                 };
-                var z7 = document.createElement("div");
-                z7.classList.add(e3.classes.button), z7.classList.add(e3.classes.elementHalf), z7.classList.add(e3.classes.backgroundSuccess), z7.innerHTML = H8, z7.onclick = function() {
-                  O5(pe2, n3), j7(), f7 ? f7(c6) : o5 && o5(c6);
+                var z6 = document.createElement("div");
+                z6.classList.add(e.classes.button), z6.classList.add(e.classes.elementHalf), z6.classList.add(e.classes.backgroundSuccess), z6.innerHTML = H5, z6.onclick = function() {
+                  O4(pe, n2), j6(), f6 ? f6(c5) : o4 && o4(c5);
                 };
-                var U7 = document.createElement("div");
-                U7.classList.add(e3.classes.button), U7.classList.add(e3.classes.elementHalf), U7.classList.add(e3.classes.backgroundError), U7.innerHTML = h4, U7.onclick = function() {
-                  O5(pe2, n3), j7(), d6 ? d6(c6) : s7 && s7(c6);
-                }, I6.appendChild(q7), I6.appendChild(G8), I6.appendChild(Q7), I6.appendChild(C6), I6.appendChild(y5), I6.appendChild(a5), I6.appendChild(ae4), I6.appendChild(ie4), I6.appendChild(ce5), fe.appendChild(I6), Y6.appendChild(fe), Y6.appendChild(z7), Y6.appendChild(U7), Y6.listener = function(L7) {
-                  te2(L7) ? z7.click() : ne4(L7) && U7.click();
-                }, Z6(Y6, n3), se4(Y6, n3);
+                var U5 = document.createElement("div");
+                U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h3, U5.onclick = function() {
+                  O4(pe, n2), j6(), d6 ? d6(c5) : s6 && s6(c5);
+                }, I4.appendChild(q6), I4.appendChild(G5), I4.appendChild(Q4), I4.appendChild(C5), I4.appendChild(y3), I4.appendChild(a5), I4.appendChild(ae), I4.appendChild(ie), I4.appendChild(ce3), fe.appendChild(I4), Y3.appendChild(fe), Y3.appendChild(z6), Y3.appendChild(U5), Y3.listener = function(L6) {
+                  te(L6) ? z6.click() : ne2(L6) && U5.click();
+                }, Z3(Y3, n2), se2(Y3, n2);
               };
-              p6.default = { alert: Te, force: Me2, confirm: He2, input: ge2, select: Se2, date: we2, setOptions: Ee2, hideAlerts: F9 };
+              p5.default = { alert: Te, force: Me, confirm: He, input: ge, select: Se, date: we, setOptions: Ee, hideAlerts: F6 };
             }]);
           });
         }).call(i3, l5(0)(v5));
       }]);
     });
-  }), B6 = {};
-  Pe(B6, { default: () => Ye2 });
-  var Fe = ke2(xe3());
-  X6(B6, ke2(xe3()));
-  var { default: Ce3, ..._e3 } = Fe, Ye2 = Ce3 !== void 0 ? Ce3 : _e3;
+  }), B = {};
+  Pe(B, { default: () => Ye });
+  var Fe = ke(xe());
+  X2(B, ke(xe()));
+  var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v108/nanostores@0.7.4/deno/nanostores.js
-  var S5 = Symbol("clean");
-  var m4 = Symbol();
+  // https://esm.sh/v111/nanostores@0.7.4/deno/nanostores.js
+  var S = Symbol("clean");
+  var m3 = Symbol();
 
-  // https://esm.sh/v108/@nanostores/i18n@0.7.1/deno/i18n.js
-  function g5(r2, n3) {
+  // https://esm.sh/v111/@nanostores/i18n@0.7.1/deno/i18n.js
+  function g3(r2, n2) {
     if (typeof r2 == "string")
-      return n3(r2);
+      return n2(r2);
     {
-      let e3 = {};
-      for (let t5 in r2)
-        e3[t5] = g5(r2[t5], n3);
-      return e3;
+      let e = {};
+      for (let t4 in r2)
+        e[t4] = g3(r2[t4], n2);
+      return e;
     }
   }
-  function p4(r2) {
-    return (n3) => {
-      if (n3.transform) {
-        let e3 = n3.transform;
-        return n3 = n3.input, { input: n3, transform(t5, o5, s7) {
-          let f7 = r2(t5, o5, ...s7);
-          return (...l5) => e3(t5, f7, l5);
+  function p2(r2) {
+    return (n2) => {
+      if (n2.transform) {
+        let e = n2.transform;
+        return n2 = n2.input, { input: n2, transform(t4, o4, s6) {
+          let f6 = r2(t4, o4, ...s6);
+          return (...l5) => e(t4, f6, l5);
         } };
       } else
-        return { input: n3, transform(e3, t5, o5) {
-          return r2(e3, t5, ...o5);
+        return { input: n2, transform(e, t4, o4) {
+          return r2(e, t4, ...o4);
         } };
     };
   }
-  var N5 = p4((r2, n3, e3) => g5(n3, (t5) => {
-    for (let o5 in e3)
-      t5 = t5.replace(new RegExp(`{${o5}}`, "g"), e3[o5]);
-    return t5;
-  })), R3 = p4((r2, n3, e3) => {
-    let t5 = new Intl.PluralRules(r2).select(e3);
-    return t5 in n3 || (t5 = "many"), g5(n3[t5], (o5) => o5.replace(/{count}/g, e3));
+  var N = p2((r2, n2, e) => g3(n2, (t4) => {
+    for (let o4 in e)
+      t4 = t4.replace(new RegExp(`{${o4}}`, "g"), e[o4]);
+    return t4;
+  })), R = p2((r2, n2, e) => {
+    let t4 = new Intl.PluralRules(r2).select(e);
+    return t4 in n2 || (t4 = "many"), g3(n2[t4], (o4) => o4.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v108/hotkeys-js@3.10.1/deno/hotkeys-js.js
-  var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
-  function P6(e3, t5, i3, r2) {
-    e3.addEventListener ? e3.addEventListener(t5, i3, r2) : e3.attachEvent && e3.attachEvent("on".concat(t5), function() {
+  // https://esm.sh/v111/hotkeys-js@3.10.1/deno/hotkeys-js.js
+  var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
+  function P2(e, t4, i3, r2) {
+    e.addEventListener ? e.addEventListener(t4, i3, r2) : e.attachEvent && e.attachEvent("on".concat(t4), function() {
       i3(window.event);
     });
   }
-  function T5(e3, t5) {
-    for (var i3 = t5.slice(0, t5.length - 1), r2 = 0; r2 < i3.length; r2++)
-      i3[r2] = e3[i3[r2].toLowerCase()];
+  function T(e, t4) {
+    for (var i3 = t4.slice(0, t4.length - 1), r2 = 0; r2 < i3.length; r2++)
+      i3[r2] = e[i3[r2].toLowerCase()];
     return i3;
   }
-  function U5(e3) {
-    typeof e3 != "string" && (e3 = ""), e3 = e3.replace(/\s/g, "");
-    for (var t5 = e3.split(","), i3 = t5.lastIndexOf(""); i3 >= 0; )
-      t5[i3 - 1] += ",", t5.splice(i3, 1), i3 = t5.lastIndexOf("");
-    return t5;
+  function U2(e) {
+    typeof e != "string" && (e = ""), e = e.replace(/\s/g, "");
+    for (var t4 = e.split(","), i3 = t4.lastIndexOf(""); i3 >= 0; )
+      t4[i3 - 1] += ",", t4.splice(i3, 1), i3 = t4.lastIndexOf("");
+    return t4;
   }
-  function G6(e3, t5) {
-    for (var i3 = e3.length >= t5.length ? e3 : t5, r2 = e3.length >= t5.length ? t5 : e3, n3 = !0, a5 = 0; a5 < i3.length; a5++)
-      r2.indexOf(i3[a5]) === -1 && (n3 = !1);
-    return n3;
+  function G2(e, t4) {
+    for (var i3 = e.length >= t4.length ? e : t4, r2 = e.length >= t4.length ? t4 : e, n2 = !0, a5 = 0; a5 < i3.length; a5++)
+      r2.indexOf(i3[a5]) === -1 && (n2 = !1);
+    return n2;
   }
-  var b3 = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M4 ? 173 : 189, "=": M4 ? 61 : 187, ";": M4 ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g6 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L5 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u4 = { 16: !1, 18: !1, 17: !1, 91: !1 }, s6 = {};
-  for (O3 = 1; O3 < 20; O3++)
-    b3["f".concat(O3)] = 111 + O3;
-  var O3, f6 = [], A3 = !1, D8 = "all", H6 = [], C4 = function(t5) {
-    return b3[t5.toLowerCase()] || g6[t5.toLowerCase()] || t5.toUpperCase().charCodeAt(0);
-  }, R4 = function(t5) {
-    return Object.keys(b3).find(function(i3) {
-      return b3[i3] === t5;
+  var b = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M ? 173 : 189, "=": M ? 61 : 187, ";": M ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g4 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L2 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u3 = { 16: !1, 18: !1, 17: !1, 91: !1 }, s5 = {};
+  for (O = 1; O < 20; O++)
+    b["f".concat(O)] = 111 + O;
+  var O, f4 = [], A = !1, D3 = "all", H2 = [], C = function(t4) {
+    return b[t4.toLowerCase()] || g4[t4.toLowerCase()] || t4.toUpperCase().charCodeAt(0);
+  }, R2 = function(t4) {
+    return Object.keys(b).find(function(i3) {
+      return b[i3] === t4;
     });
-  }, V5 = function(t5) {
-    return Object.keys(g6).find(function(i3) {
-      return g6[i3] === t5;
+  }, V = function(t4) {
+    return Object.keys(g4).find(function(i3) {
+      return g4[i3] === t4;
     });
   };
-  function F7(e3) {
-    D8 = e3 || "all";
+  function F2(e) {
+    D3 = e || "all";
   }
-  function E2() {
-    return D8 || "all";
+  function E() {
+    return D3 || "all";
   }
-  function X7() {
-    return f6.slice(0);
+  function X3() {
+    return f4.slice(0);
   }
-  function $4() {
-    return f6.map(function(e3) {
-      return R4(e3) || V5(e3) || String.fromCharCode(e3);
+  function $2() {
+    return f4.map(function(e) {
+      return R2(e) || V(e) || String.fromCharCode(e);
     });
   }
-  function q5(e3) {
-    var t5 = e3.target || e3.srcElement, i3 = t5.tagName, r2 = !0;
-    return (t5.isContentEditable || (i3 === "INPUT" || i3 === "TEXTAREA" || i3 === "SELECT") && !t5.readOnly) && (r2 = !1), r2;
+  function q2(e) {
+    var t4 = e.target || e.srcElement, i3 = t4.tagName, r2 = !0;
+    return (t4.isContentEditable || (i3 === "INPUT" || i3 === "TEXTAREA" || i3 === "SELECT") && !t4.readOnly) && (r2 = !1), r2;
   }
-  function z5(e3) {
-    return typeof e3 == "string" && (e3 = C4(e3)), f6.indexOf(e3) !== -1;
+  function z3(e) {
+    return typeof e == "string" && (e = C(e)), f4.indexOf(e) !== -1;
   }
-  function J3(e3, t5) {
+  function J(e, t4) {
     var i3, r2;
-    e3 || (e3 = E2());
-    for (var n3 in s6)
-      if (Object.prototype.hasOwnProperty.call(s6, n3))
-        for (i3 = s6[n3], r2 = 0; r2 < i3.length; )
-          i3[r2].scope === e3 ? i3.splice(r2, 1) : r2++;
-    E2() === e3 && F7(t5 || "all");
+    e || (e = E());
+    for (var n2 in s5)
+      if (Object.prototype.hasOwnProperty.call(s5, n2))
+        for (i3 = s5[n2], r2 = 0; r2 < i3.length; )
+          i3[r2].scope === e ? i3.splice(r2, 1) : r2++;
+    E() === e && F2(t4 || "all");
   }
-  function N6(e3) {
-    var t5 = e3.keyCode || e3.which || e3.charCode, i3 = f6.indexOf(t5);
-    if (i3 >= 0 && f6.splice(i3, 1), e3.key && e3.key.toLowerCase() === "meta" && f6.splice(0, f6.length), (t5 === 93 || t5 === 224) && (t5 = 91), t5 in u4) {
-      u4[t5] = !1;
-      for (var r2 in g6)
-        g6[r2] === t5 && (v3[r2] = !1);
+  function N2(e) {
+    var t4 = e.keyCode || e.which || e.charCode, i3 = f4.indexOf(t4);
+    if (i3 >= 0 && f4.splice(i3, 1), e.key && e.key.toLowerCase() === "meta" && f4.splice(0, f4.length), (t4 === 93 || t4 === 224) && (t4 = 91), t4 in u3) {
+      u3[t4] = !1;
+      for (var r2 in g4)
+        g4[r2] === t4 && (v3[r2] = !1);
     }
   }
-  function Q5(e3) {
-    if (typeof e3 > "u")
-      Object.keys(s6).forEach(function(o5) {
-        return delete s6[o5];
+  function Q(e) {
+    if (typeof e > "u")
+      Object.keys(s5).forEach(function(o4) {
+        return delete s5[o4];
       });
-    else if (Array.isArray(e3))
-      e3.forEach(function(o5) {
-        o5.key && S6(o5);
+    else if (Array.isArray(e))
+      e.forEach(function(o4) {
+        o4.key && S2(o4);
       });
-    else if (typeof e3 == "object")
-      e3.key && S6(e3);
-    else if (typeof e3 == "string") {
-      for (var t5 = arguments.length, i3 = new Array(t5 > 1 ? t5 - 1 : 0), r2 = 1; r2 < t5; r2++)
+    else if (typeof e == "object")
+      e.key && S2(e);
+    else if (typeof e == "string") {
+      for (var t4 = arguments.length, i3 = new Array(t4 > 1 ? t4 - 1 : 0), r2 = 1; r2 < t4; r2++)
         i3[r2 - 1] = arguments[r2];
-      var n3 = i3[0], a5 = i3[1];
-      typeof n3 == "function" && (a5 = n3, n3 = ""), S6({ key: e3, scope: n3, method: a5, splitKey: "+" });
+      var n2 = i3[0], a5 = i3[1];
+      typeof n2 == "function" && (a5 = n2, n2 = ""), S2({ key: e, scope: n2, method: a5, splitKey: "+" });
     }
   }
-  var S6 = function(t5) {
-    var i3 = t5.key, r2 = t5.scope, n3 = t5.method, a5 = t5.splitKey, o5 = a5 === void 0 ? "+" : a5, l5 = U5(i3);
-    l5.forEach(function(c6) {
-      var p6 = c6.split(o5), m6 = p6.length, y5 = p6[m6 - 1], d6 = y5 === "*" ? "*" : C4(y5);
-      if (s6[d6]) {
-        r2 || (r2 = E2());
-        var K7 = m6 > 1 ? T5(g6, p6) : [];
-        s6[d6] = s6[d6].filter(function(h4) {
-          var w6 = n3 ? h4.method === n3 : !0;
-          return !(w6 && h4.scope === r2 && G6(h4.mods, K7));
+  var S2 = function(t4) {
+    var i3 = t4.key, r2 = t4.scope, n2 = t4.method, a5 = t4.splitKey, o4 = a5 === void 0 ? "+" : a5, l5 = U2(i3);
+    l5.forEach(function(c5) {
+      var p5 = c5.split(o4), m6 = p5.length, y3 = p5[m6 - 1], d6 = y3 === "*" ? "*" : C(y3);
+      if (s5[d6]) {
+        r2 || (r2 = E());
+        var K4 = m6 > 1 ? T(g4, p5) : [];
+        s5[d6] = s5[d6].filter(function(h3) {
+          var w5 = n2 ? h3.method === n2 : !0;
+          return !(w5 && h3.scope === r2 && G2(h3.mods, K4));
         });
       }
     });
   };
-  function _(e3, t5, i3, r2) {
-    if (t5.element === r2) {
-      var n3;
-      if (t5.scope === i3 || t5.scope === "all") {
-        n3 = t5.mods.length > 0;
-        for (var a5 in u4)
-          Object.prototype.hasOwnProperty.call(u4, a5) && (!u4[a5] && t5.mods.indexOf(+a5) > -1 || u4[a5] && t5.mods.indexOf(+a5) === -1) && (n3 = !1);
-        (t5.mods.length === 0 && !u4[16] && !u4[18] && !u4[17] && !u4[91] || n3 || t5.shortcut === "*") && t5.method(e3, t5) === !1 && (e3.preventDefault ? e3.preventDefault() : e3.returnValue = !1, e3.stopPropagation && e3.stopPropagation(), e3.cancelBubble && (e3.cancelBubble = !0));
+  function _(e, t4, i3, r2) {
+    if (t4.element === r2) {
+      var n2;
+      if (t4.scope === i3 || t4.scope === "all") {
+        n2 = t4.mods.length > 0;
+        for (var a5 in u3)
+          Object.prototype.hasOwnProperty.call(u3, a5) && (!u3[a5] && t4.mods.indexOf(+a5) > -1 || u3[a5] && t4.mods.indexOf(+a5) === -1) && (n2 = !1);
+        (t4.mods.length === 0 && !u3[16] && !u3[18] && !u3[17] && !u3[91] || n2 || t4.shortcut === "*") && t4.method(e, t4) === !1 && (e.preventDefault ? e.preventDefault() : e.returnValue = !1, e.stopPropagation && e.stopPropagation(), e.cancelBubble && (e.cancelBubble = !0));
       }
     }
   }
-  function k4(e3, t5) {
-    var i3 = s6["*"], r2 = e3.keyCode || e3.which || e3.charCode;
-    if (v3.filter.call(this, e3)) {
-      if ((r2 === 93 || r2 === 224) && (r2 = 91), f6.indexOf(r2) === -1 && r2 !== 229 && f6.push(r2), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(h4) {
-        var w6 = L5[h4];
-        e3[h4] && f6.indexOf(w6) === -1 ? f6.push(w6) : !e3[h4] && f6.indexOf(w6) > -1 ? f6.splice(f6.indexOf(w6), 1) : h4 === "metaKey" && e3[h4] && f6.length === 3 && (e3.ctrlKey || e3.shiftKey || e3.altKey || (f6 = f6.slice(f6.indexOf(w6))));
-      }), r2 in u4) {
-        u4[r2] = !0;
-        for (var n3 in g6)
-          g6[n3] === r2 && (v3[n3] = !0);
+  function k2(e, t4) {
+    var i3 = s5["*"], r2 = e.keyCode || e.which || e.charCode;
+    if (v3.filter.call(this, e)) {
+      if ((r2 === 93 || r2 === 224) && (r2 = 91), f4.indexOf(r2) === -1 && r2 !== 229 && f4.push(r2), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(h3) {
+        var w5 = L2[h3];
+        e[h3] && f4.indexOf(w5) === -1 ? f4.push(w5) : !e[h3] && f4.indexOf(w5) > -1 ? f4.splice(f4.indexOf(w5), 1) : h3 === "metaKey" && e[h3] && f4.length === 3 && (e.ctrlKey || e.shiftKey || e.altKey || (f4 = f4.slice(f4.indexOf(w5))));
+      }), r2 in u3) {
+        u3[r2] = !0;
+        for (var n2 in g4)
+          g4[n2] === r2 && (v3[n2] = !0);
         if (!i3)
           return;
       }
-      for (var a5 in u4)
-        Object.prototype.hasOwnProperty.call(u4, a5) && (u4[a5] = e3[L5[a5]]);
-      e3.getModifierState && !(e3.altKey && !e3.ctrlKey) && e3.getModifierState("AltGraph") && (f6.indexOf(17) === -1 && f6.push(17), f6.indexOf(18) === -1 && f6.push(18), u4[17] = !0, u4[18] = !0);
-      var o5 = E2();
+      for (var a5 in u3)
+        Object.prototype.hasOwnProperty.call(u3, a5) && (u3[a5] = e[L2[a5]]);
+      e.getModifierState && !(e.altKey && !e.ctrlKey) && e.getModifierState("AltGraph") && (f4.indexOf(17) === -1 && f4.push(17), f4.indexOf(18) === -1 && f4.push(18), u3[17] = !0, u3[18] = !0);
+      var o4 = E();
       if (i3)
         for (var l5 = 0; l5 < i3.length; l5++)
-          i3[l5].scope === o5 && (e3.type === "keydown" && i3[l5].keydown || e3.type === "keyup" && i3[l5].keyup) && _(e3, i3[l5], o5, t5);
-      if (r2 in s6) {
-        for (var c6 = 0; c6 < s6[r2].length; c6++)
-          if ((e3.type === "keydown" && s6[r2][c6].keydown || e3.type === "keyup" && s6[r2][c6].keyup) && s6[r2][c6].key) {
-            for (var p6 = s6[r2][c6], m6 = p6.splitKey, y5 = p6.key.split(m6), d6 = [], K7 = 0; K7 < y5.length; K7++)
-              d6.push(C4(y5[K7]));
-            d6.sort().join("") === f6.sort().join("") && _(e3, p6, o5, t5);
+          i3[l5].scope === o4 && (e.type === "keydown" && i3[l5].keydown || e.type === "keyup" && i3[l5].keyup) && _(e, i3[l5], o4, t4);
+      if (r2 in s5) {
+        for (var c5 = 0; c5 < s5[r2].length; c5++)
+          if ((e.type === "keydown" && s5[r2][c5].keydown || e.type === "keyup" && s5[r2][c5].keyup) && s5[r2][c5].key) {
+            for (var p5 = s5[r2][c5], m6 = p5.splitKey, y3 = p5.key.split(m6), d6 = [], K4 = 0; K4 < y3.length; K4++)
+              d6.push(C(y3[K4]));
+            d6.sort().join("") === f4.sort().join("") && _(e, p5, o4, t4);
           }
       }
     }
   }
-  function W5(e3) {
-    return H6.indexOf(e3) > -1;
+  function W(e) {
+    return H2.indexOf(e) > -1;
   }
-  function v3(e3, t5, i3) {
-    f6 = [];
-    var r2 = U5(e3), n3 = [], a5 = "all", o5 = document, l5 = 0, c6 = !1, p6 = !0, m6 = "+", y5 = !1;
-    for (i3 === void 0 && typeof t5 == "function" && (i3 = t5), Object.prototype.toString.call(t5) === "[object Object]" && (t5.scope && (a5 = t5.scope), t5.element && (o5 = t5.element), t5.keyup && (c6 = t5.keyup), t5.keydown !== void 0 && (p6 = t5.keydown), t5.capture !== void 0 && (y5 = t5.capture), typeof t5.splitKey == "string" && (m6 = t5.splitKey)), typeof t5 == "string" && (a5 = t5); l5 < r2.length; l5++)
-      e3 = r2[l5].split(m6), n3 = [], e3.length > 1 && (n3 = T5(g6, e3)), e3 = e3[e3.length - 1], e3 = e3 === "*" ? "*" : C4(e3), e3 in s6 || (s6[e3] = []), s6[e3].push({ keyup: c6, keydown: p6, scope: a5, mods: n3, shortcut: r2[l5], method: i3, key: r2[l5], splitKey: m6, element: o5 });
-    typeof o5 < "u" && !W5(o5) && window && (H6.push(o5), P6(o5, "keydown", function(d6) {
-      k4(d6, o5);
-    }, y5), A3 || (A3 = !0, P6(window, "focus", function() {
-      f6 = [];
-    }, y5)), P6(o5, "keyup", function(d6) {
-      k4(d6, o5), N6(d6);
-    }, y5));
+  function v3(e, t4, i3) {
+    f4 = [];
+    var r2 = U2(e), n2 = [], a5 = "all", o4 = document, l5 = 0, c5 = !1, p5 = !0, m6 = "+", y3 = !1;
+    for (i3 === void 0 && typeof t4 == "function" && (i3 = t4), Object.prototype.toString.call(t4) === "[object Object]" && (t4.scope && (a5 = t4.scope), t4.element && (o4 = t4.element), t4.keyup && (c5 = t4.keyup), t4.keydown !== void 0 && (p5 = t4.keydown), t4.capture !== void 0 && (y3 = t4.capture), typeof t4.splitKey == "string" && (m6 = t4.splitKey)), typeof t4 == "string" && (a5 = t4); l5 < r2.length; l5++)
+      e = r2[l5].split(m6), n2 = [], e.length > 1 && (n2 = T(g4, e)), e = e[e.length - 1], e = e === "*" ? "*" : C(e), e in s5 || (s5[e] = []), s5[e].push({ keyup: c5, keydown: p5, scope: a5, mods: n2, shortcut: r2[l5], method: i3, key: r2[l5], splitKey: m6, element: o4 });
+    typeof o4 < "u" && !W(o4) && window && (H2.push(o4), P2(o4, "keydown", function(d6) {
+      k2(d6, o4);
+    }, y3), A || (A = !0, P2(window, "focus", function() {
+      f4 = [];
+    }, y3)), P2(o4, "keyup", function(d6) {
+      k2(d6, o4), N2(d6);
+    }, y3));
   }
-  function Y5(e3) {
-    var t5 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "all";
-    Object.keys(s6).forEach(function(i3) {
-      var r2 = s6[i3].filter(function(n3) {
-        return n3.scope === t5 && n3.shortcut === e3;
+  function Y(e) {
+    var t4 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "all";
+    Object.keys(s5).forEach(function(i3) {
+      var r2 = s5[i3].filter(function(n2) {
+        return n2.scope === t4 && n2.shortcut === e;
       });
-      r2.forEach(function(n3) {
-        n3 && n3.method && n3.method();
+      r2.forEach(function(n2) {
+        n2 && n2.method && n2.method();
       });
     });
   }
-  var j5 = { getPressedKeyString: $4, setScope: F7, getScope: E2, deleteScope: J3, getPressedKeyCodes: X7, isPressed: z5, filter: q5, trigger: Y5, unbind: Q5, keyMap: b3, modifier: g6, modifierMap: L5 };
-  for (x4 in j5)
-    Object.prototype.hasOwnProperty.call(j5, x4) && (v3[x4] = j5[x4]);
-  var x4;
-  typeof document < "u" && (B8 = window.hotkeys, v3.noConflict = function(e3) {
-    return e3 && window.hotkeys === v3 && (window.hotkeys = B8), v3;
+  var j2 = { getPressedKeyString: $2, setScope: F2, getScope: E, deleteScope: J, getPressedKeyCodes: X3, isPressed: z3, filter: q2, trigger: Y, unbind: Q, keyMap: b, modifier: g4, modifierMap: L2 };
+  for (x in j2)
+    Object.prototype.hasOwnProperty.call(j2, x) && (v3[x] = j2[x]);
+  var x;
+  typeof document < "u" && (B3 = window.hotkeys, v3.noConflict = function(e) {
+    return e && window.hotkeys === v3 && (window.hotkeys = B3), v3;
   }, window.hotkeys = v3);
-  var B8;
+  var B3;
 
-  // https://esm.sh/v108/immersive-translate@1.0.8/deno/immersive-translate.js
-  var d5 = "Immersive Translate", v4 = class {
+  // https://esm.sh/v111/immersive-translate@1.0.9/deno/immersive-translate.js
+  var d3 = "Immersive Translate", v4 = class {
     #e = performance.now();
     reset() {
       this.#e = performance.now();
     }
-    stop(e3) {
-      let t5 = performance.now(), n3 = Math.round(t5 - this.#e);
-      console.debug(d5 + " TIMING:", e3, "in", n3 + "ms"), this.#e = t5;
+    stop(e) {
+      let t4 = performance.now(), n2 = Math.round(t4 - this.#e);
+      console.debug(d3 + " TIMING:", e, "in", n2 + "ms"), this.#e = t4;
     }
-  }, D9 = class {
+  }, D4 = class {
     #e = 1;
     get level() {
       return this.#e;
     }
-    setLevel(e3) {
-      switch (e3) {
+    setLevel(e) {
+      switch (e) {
         case "debug":
           this.#e = 0;
           break;
@@ -7999,299 +6956,299 @@ body {
           break;
       }
     }
-    debug(...e3) {
-      this.#e <= 0 && console.log(d5 + " DEBUG:", ...e3);
+    debug(...e) {
+      this.#e <= 0 && console.log(d3 + " DEBUG:", ...e);
     }
-    v(...e3) {
-      this.#e <= 0 && console.log(d5 + " VERBOSE:", ...e3);
+    v(...e) {
+      this.#e <= 0 && console.log(d3 + " VERBOSE:", ...e);
     }
-    info(...e3) {
-      this.#e <= 1 && console.log(d5 + " INFO:", ...e3);
+    info(...e) {
+      this.#e <= 1 && console.log(d3 + " INFO:", ...e);
     }
-    l(...e3) {
-      this.#e <= 1 && console.log(d5 + " TEMP INFO:", ...e3);
+    l(...e) {
+      this.#e <= 1 && console.log(d3 + " TEMP INFO:", ...e);
     }
-    warn(...e3) {
-      this.#e <= 2 && console.warn(d5 + " WARN:", ...e3);
+    warn(...e) {
+      this.#e <= 2 && console.warn(d3 + " WARN:", ...e);
     }
-    error(...e3) {
-      this.#e <= 3 && console.error(d5 + " ERROR:", ...e3);
+    error(...e) {
+      this.#e <= 3 && console.error(d3 + " ERROR:", ...e);
     }
-    fatal(...e3) {
-      this.#e <= 4 && console.error(d5 + " FATAL:", ...e3);
+    fatal(...e) {
+      this.#e <= 4 && console.error(d3 + " FATAL:", ...e);
     }
     timing() {
       return this.level === 0 ? new v4() : { reset: () => {
       }, stop: () => {
       } };
     }
-  }, E3 = new D9(), L6 = "poegempjloogba", I5 = "ension://", N7 = "me-";
-  function T6(e3) {
-    if (!e3)
+  }, E2 = new D4(), L3 = "poegempjloogba", I2 = "ension://", N3 = "me-";
+  function T2(e) {
+    if (!e)
       return [!1, !0];
-    let t5 = new Date(e3).getTime(), n3 = (/* @__PURE__ */ new Date()).getTime(), o5 = t5 - n3 < 15e3;
-    return [t5 - n3 > 3e3, o5];
+    let t4 = new Date(e).getTime(), n2 = (/* @__PURE__ */ new Date()).getTime(), o4 = t4 - n2 < 15e3;
+    return [t4 - n2 > 3e3, o4];
   }
-  function b4(e3) {
-    return e3 ? e3.PROD === "1" : !0;
+  function b2(e) {
+    return e ? e.PROD === "1" : !0;
   }
-  function F8(e3) {
-    return e3 ? e3.MOCK === "1" : !1;
+  function F3(e) {
+    return e ? e.MOCK === "1" : !1;
   }
-  function O4(e3) {
-    return new Promise((t5, n3) => {
+  function O2(e) {
+    return new Promise((t4, n2) => {
       setTimeout(() => {
-        t5();
-      }, e3);
+        t4();
+      }, e);
     });
   }
-  var U6 = "rome-ext";
-  function $5(e3, t5) {
-    return t5 ? e3 + (t5 - e3 % t5) : e3;
+  var U3 = "rome-ext";
+  function $3(e, t4) {
+    return t4 ? e + (t4 - e % t4) : e;
   }
-  function j6(e3, t5) {
-    return e3.split(t5).length - 1;
+  function j3(e, t4) {
+    return e.split(t4).length - 1;
   }
-  function P7(e3) {
-    let t5 = Date.now(), n3 = 1;
-    for (let o5 of e3)
-      n3 += j6(o5, "i");
-    return $5(t5, n3);
+  function P3(e) {
+    let t4 = Date.now(), n2 = 1;
+    for (let o4 of e)
+      n2 += j3(o4, "i");
+    return $3(t4, n2);
   }
-  function K5(e3, t5) {
-    return Math.floor(Math.random() * (t5 - e3 + 1)) + e3;
+  function K(e, t4) {
+    return Math.floor(Math.random() * (t4 - e + 1)) + e;
   }
-  var M5 = "extension", z6 = "chro";
-  function B9() {
-    return K5(1e6, 1e8);
+  var M2 = "extension", z4 = "chro";
+  function B4() {
+    return K(1e6, 1e8);
   }
-  var S7 = "BrowserExt";
-  function J4(e3) {
-    return JSON.stringify(e3).replace('"method":"', () => {
-      let t5 = e3;
-      return (t5.id + 3) % 13 === 0 || (t5.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
+  var S3 = "BrowserExt";
+  function J2(e) {
+    return JSON.stringify(e).replace('"method":"', () => {
+      let t4 = e;
+      return (t4.id + 3) % 13 === 0 || (t4.id + 5) % 29 === 0 ? '"method" : "' : '"method": "';
     });
   }
-  var y4 = "DeepL", x5 = "ension", V6 = "ch" + U6 + I5 + "cofdb" + L6 + "gkncekinflcnj";
-  function C5(e3) {
-    let { contentType: t5, userAgent: n3, url: o5, authorization: r2, clientVersion: s7 } = e3, i3 = new URL(o5), a5 = new Headers();
-    if (a5.append("authority", i3.hostname), a5.append("accept", "*/*"), a5.append("accept-language", "ja"), r2 && a5.append("authorization", `Bearer ${r2}`), a5.append("cache-control", "no-cache"), t5 ? a5.append("content-type", t5) : a5.append("content-type", "application/json; charset=utf-8"), a5.append("origin", V6), a5.append("pragma", "no-cache"), a5.append("referer", "https://www.deepl.com/"), a5.append("sec-fetch-dest", "empty"), a5.append("sec-fetch-mode", "cors"), a5.append("sec-fetch-site", "none"), n3)
-      a5.append("user-agent", n3);
+  var y2 = "DeepL", x2 = "ension", V2 = "ch" + U3 + I2 + "cofdb" + L3 + "gkncekinflcnj";
+  function C2(e) {
+    let { contentType: t4, userAgent: n2, url: o4, authorization: r2, clientVersion: s6 } = e, i3 = new URL(o4), a5 = new Headers();
+    if (a5.append("authority", i3.hostname), a5.append("accept", "*/*"), a5.append("accept-language", "ja"), r2 && a5.append("authorization", `Bearer ${r2}`), a5.append("cache-control", "no-cache"), t4 ? a5.append("content-type", t4) : a5.append("content-type", "application/json; charset=utf-8"), a5.append("origin", V2), a5.append("pragma", "no-cache"), a5.append("referer", "https://www.deepl.com/"), a5.append("sec-fetch-dest", "empty"), a5.append("sec-fetch-mode", "cors"), a5.append("sec-fetch-site", "none"), n2)
+      a5.append("user-agent", n2);
     else if (globalThis && globalThis.navigator && globalThis.navigator.userAgent) {
-      let p6 = globalThis.navigator.userAgent;
-      a5.append("user-agent", `${y4}${S7}${x5}/${s7 || "1.1.1"} ${p6}`);
+      let p5 = globalThis.navigator.userAgent;
+      a5.append("user-agent", `${y2}${S3}${x2}/${s6 || "1.1.1"} ${p5}`);
     } else
-      a5.append("user-agent", `${y4}${S7}${x5}/${s7 || "1.1.1"} Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78`);
-    let c6 = {};
-    for (let [p6, f7] of a5.entries())
-      c6[p6] = f7;
-    return c6;
+      a5.append("user-agent", `${y2}${S3}${x2}/${s6 || "1.1.1"} Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78`);
+    let c5 = {};
+    for (let [p5, f6] of a5.entries())
+      c5[p5] = f6;
+    return c5;
   }
-  function q6(e3) {
-    let t5 = "1.1.1", { texts: n3, target_lang: o5, source_lang: r2 } = e3, s7 = { jsonrpc: "2.0", method: "LMT_handle_texts", params: { texts: n3.map((a5) => ({ text: a5 })), splitting: "newlines", lang: { target_lang: o5, source_lang_user_selected: r2 || "auto", preference: { weight: { BG: 119e-5, CS: 0.04360000000000001, DA: 0.007090000000000001, DE: 0.02142, EL: 287e-5, EN: 4.79277, ES: 0.029710000000000004, ET: 0.007300000000000001, FI: 0.013850000000000001, FR: 0.04227, HU: 0.019000000000000003, ID: 423e-5, IT: 0.03592, JA: 453e-5, LT: 0.031700000000000006, LV: 27e-4, NL: 0.02375, PL: 0.044520000000000004, PT: 0.017320000000000002, RO: 0.009040000000000001, RU: 234e-5, SK: 0.04977, SL: 691e-5, SV: 0.0049700000000000005, TR: 0.01076, UK: 201e-5, ZH: 0.004880000000000001 } } }, timestamp: P7(n3) }, id: B9() }, i3 = C5({ url: "https://api.deepl.com/jsonrpc", clientVersion: t5, authorization: e3.authorization });
-    return { url: `https://api.deepl.com/jsonrpc?client=${z6 + N7 + M5},${t5}`, headers: i3, body: J4(s7), method: "POST" };
+  function q3(e) {
+    let t4 = "1.1.1", { texts: n2, target_lang: o4, source_lang: r2 } = e, s6 = { jsonrpc: "2.0", method: "LMT_handle_texts", params: { texts: n2.map((a5) => ({ text: a5 })), splitting: "newlines", lang: { target_lang: o4, source_lang_user_selected: r2 || "auto", preference: { weight: { BG: 119e-5, CS: 0.04360000000000001, DA: 0.007090000000000001, DE: 0.02142, EL: 287e-5, EN: 4.79277, ES: 0.029710000000000004, ET: 0.007300000000000001, FI: 0.013850000000000001, FR: 0.04227, HU: 0.019000000000000003, ID: 423e-5, IT: 0.03592, JA: 453e-5, LT: 0.031700000000000006, LV: 27e-4, NL: 0.02375, PL: 0.044520000000000004, PT: 0.017320000000000002, RO: 0.009040000000000001, RU: 234e-5, SK: 0.04977, SL: 691e-5, SV: 0.0049700000000000005, TR: 0.01076, UK: 201e-5, ZH: 0.004880000000000001 } } }, timestamp: P3(n2) }, id: B4() }, i3 = C2({ url: "https://api.deepl.com/jsonrpc", clientVersion: t4, authorization: e.authorization });
+    return { url: `https://api.deepl.com/jsonrpc?client=${z4 + N3 + M2},${t4}`, headers: i3, body: J2(s6), method: "POST" };
   }
-  function G7(e3) {
-    let t5 = e3.split(".");
-    if (t5.length <= 1)
+  function G3(e) {
+    let t4 = e.split(".");
+    if (t4.length <= 1)
       throw new Error("invlaid token");
-    let n3 = t5[1];
-    if (!n3)
+    let n2 = t4[1];
+    if (!n2)
       throw new Error("invalid base64 url token");
-    let o5 = n3.replace(/-/g, "+").replace(/_/g, "/"), r2 = decodeURIComponent(globalThis.atob(o5).split("").map(function(a5) {
+    let o4 = n2.replace(/-/g, "+").replace(/_/g, "/"), r2 = decodeURIComponent(globalThis.atob(o4).split("").map(function(a5) {
       return "%" + ("00" + a5.charCodeAt(0).toString(16)).slice(-2);
-    }).join("")), s7 = JSON.parse(r2), i3 = new Date(s7.exp * 1e3);
-    return { accessToken: e3, accessTokenExpiresAt: i3.toISOString() };
+    }).join("")), s6 = JSON.parse(r2), i3 = new Date(s6.exp * 1e3);
+    return { accessToken: e, accessTokenExpiresAt: i3.toISOString() };
   }
-  var g7 = {}, w5 = {};
-  async function _2(e3, t5) {
-    if (!e3)
+  var g5 = {}, w2 = {};
+  async function _2(e, t4) {
+    if (!e)
       throw new Error("auth key is required");
-    let { state: n3 } = t5, { refreshToken: o5, refreshTokenExpiresAt: r2, refreshTokenChecksAt: s7 } = n3, [i3, a5] = T6(r2);
-    a5 || (a5 = T6(s7)[1]);
-    let c6 = { refreshToken: o5, refreshTokenExpiresAt: r2, refreshTokenChecksAt: s7 || (/* @__PURE__ */ new Date()).toISOString() };
-    i3 || (c6 = await m5(e3, t5));
-    let [p6, f7] = T6(c6.refreshTokenExpiresAt);
-    a5 = f7, a5 || (a5 = T6(c6.refreshTokenChecksAt)[1]);
-    let h4 = c6.refreshToken;
-    if (g7[h4])
-      return new Promise((u5, l5) => {
-        g7[h4].push((k5, R5) => {
-          k5 ? l5(k5) : u5(R5);
+    let { state: n2 } = t4, { refreshToken: o4, refreshTokenExpiresAt: r2, refreshTokenChecksAt: s6 } = n2, [i3, a5] = T2(r2);
+    a5 || (a5 = T2(s6)[1]);
+    let c5 = { refreshToken: o4, refreshTokenExpiresAt: r2, refreshTokenChecksAt: s6 || (/* @__PURE__ */ new Date()).toISOString() };
+    i3 || (c5 = await m4(e, t4));
+    let [p5, f6] = T2(c5.refreshTokenExpiresAt);
+    a5 = f6, a5 || (a5 = T2(c5.refreshTokenChecksAt)[1]);
+    let h3 = c5.refreshToken;
+    if (g5[h3])
+      return new Promise((u4, l5) => {
+        g5[h3].push((k4, R5) => {
+          k4 ? l5(k4) : u4(R5);
         });
       });
-    g7[h4] = [];
+    g5[h3] = [];
     try {
-      let u5 = await H7(h4, t5.onFetch), l5 = { state: { ...n3, ...c6, ...u5 }, shouldUpdateRefreshToken: a5 };
-      return g7[h4].forEach((k5) => {
-        k5(null, l5);
-      }), delete g7[h4], l5;
-    } catch (u5) {
-      throw g7[h4].forEach((l5) => {
-        l5(u5);
-      }), delete g7[h4], u5;
+      let u4 = await H3(h3, t4.onFetch), l5 = { state: { ...n2, ...c5, ...u4 }, shouldUpdateRefreshToken: a5 };
+      return g5[h3].forEach((k4) => {
+        k4(null, l5);
+      }), delete g5[h3], l5;
+    } catch (u4) {
+      throw g5[h3].forEach((l5) => {
+        l5(u4);
+      }), delete g5[h3], u4;
     }
   }
-  async function m5(e3, t5) {
-    if (!e3)
+  async function m4(e, t4) {
+    if (!e)
       throw new Error("auth key is required");
-    let { refreshTokenEndpoint: n3, onFetch: o5 } = t5;
-    if (w5[e3])
-      return new Promise((r2, s7) => {
-        w5[e3].push((i3, a5) => {
-          i3 ? s7(i3) : r2(a5);
+    let { refreshTokenEndpoint: n2, onFetch: o4 } = t4;
+    if (w2[e])
+      return new Promise((r2, s6) => {
+        w2[e].push((i3, a5) => {
+          i3 ? s6(i3) : r2(a5);
         });
       });
     try {
-      w5[e3] = [];
-      let r2 = new URLSearchParams({ grant_type: "auth_key", auth_key: e3 }), s7 = new URL("/refresh_token?" + r2.toString(), n3), i3 = await o5(s7.toString()), a5 = (/* @__PURE__ */ new Date()).getTime(), c6 = a5 + i3.refresh_token_expires_in * 1e3, p6 = a5 + i3.refresh_token_checks_in * 1e3, f7 = { refreshToken: i3.refresh_token, refreshTokenExpiresAt: new Date(c6).toISOString(), refreshTokenChecksAt: new Date(p6).toISOString() };
-      return w5[e3].forEach((h4) => {
-        h4(null, f7);
-      }), delete w5[e3], f7;
+      w2[e] = [];
+      let r2 = new URLSearchParams({ grant_type: "auth_key", auth_key: e }), s6 = new URL("/refresh_token?" + r2.toString(), n2), i3 = await o4(s6.toString()), a5 = (/* @__PURE__ */ new Date()).getTime(), c5 = a5 + i3.refresh_token_expires_in * 1e3, p5 = a5 + i3.refresh_token_checks_in * 1e3, f6 = { refreshToken: i3.refresh_token, refreshTokenExpiresAt: new Date(c5).toISOString(), refreshTokenChecksAt: new Date(p5).toISOString() };
+      return w2[e].forEach((h3) => {
+        h3(null, f6);
+      }), delete w2[e], f6;
     } catch (r2) {
-      throw w5[e3].forEach((s7) => {
-        s7(r2);
-      }), delete w5[e3], r2;
+      throw w2[e].forEach((s6) => {
+        s6(r2);
+      }), delete w2[e], r2;
     }
   }
-  async function H7(e3, t5) {
-    if (!e3)
+  async function H3(e, t4) {
+    if (!e)
       throw new Error("refreshToken is required");
-    let n3 = b4(), o5 = F8();
-    if (!n3 && !o5) {
-      await O4(400);
+    let n2 = b2(), o4 = F3();
+    if (!n2 && !o4) {
+      await O2(400);
       let a5 = /* @__PURE__ */ new Date();
       return { accessToken: "test", accessTokenExpiresAt: new Date(a5.getTime() + 1e3 * 5).toISOString() };
     }
-    let r2 = "https://w.deepl.com/oidc/token", s7 = await t5(r2, { headers: C5({ url: r2, contentType: "application/x-www-form-urlencoded" }), body: `grant_type=refresh_token&refresh_token=${e3}`, method: "POST" }), i3 = G7(s7.access_token);
-    if (s7.expires_in) {
-      let a5 = /* @__PURE__ */ new Date(), c6 = new Date(a5.getTime() + s7.expires_in * 1e3);
-      i3.accessTokenExpiresAt = c6.toISOString();
+    let r2 = "https://w.deepl.com/oidc/token", s6 = await t4(r2, { headers: C2({ url: r2, contentType: "application/x-www-form-urlencoded" }), body: `grant_type=refresh_token&refresh_token=${e}`, method: "POST" }), i3 = G3(s6.access_token);
+    if (s6.expires_in) {
+      let a5 = /* @__PURE__ */ new Date(), c5 = new Date(a5.getTime() + s6.expires_in * 1e3);
+      i3.accessTokenExpiresAt = c5.toISOString();
     }
     return i3;
   }
-  async function A4(e3, t5, n3) {
-    if (!t5)
+  async function A2(e, t4, n2) {
+    if (!t4)
       throw new Error("body is required");
-    let o5 = new URLSearchParams(t5), r2 = o5.getAll("text");
+    let o4 = new URLSearchParams(t4), r2 = o4.getAll("text");
     if (r2.length < 1)
       throw new Error("No text to translate");
-    if (W6(r2) > 5e3)
+    if (W2(r2) > 5e3)
       throw new Error("text too long, the max length is 5000 characters.");
-    let s7 = o5.get("target_lang");
-    if (!s7)
+    let s6 = o4.get("target_lang");
+    if (!s6)
       throw new Error("No target language");
-    let i3 = o5.get("source_lang"), a5 = { ...q6({ texts: r2, authorization: e3, target_lang: s7, source_lang: i3 }), responseType: "raw" }, c6 = b4(), p6 = F8();
-    if (!c6 && !p6)
-      return await O4(50), { translations: r2.map((l5) => ({ text: "mock: " + l5, detected_source_language: "EN" })) };
-    let f7 = await n3(a5.url, a5), h4 = JSON.parse(f7.body), u5 = [];
-    if (h4.result && h4.result.texts)
-      u5 = h4.result.texts.map((l5) => ({ text: l5.text, detected_source_language: h4.result.lang }));
+    let i3 = o4.get("source_lang"), a5 = { ...q3({ texts: r2, authorization: e, target_lang: s6, source_lang: i3 }), responseType: "raw" }, c5 = b2(), p5 = F3();
+    if (!c5 && !p5)
+      return await O2(50), { translations: r2.map((l5) => ({ text: "mock: " + l5, detected_source_language: "EN" })) };
+    let f6 = await n2(a5.url, a5), h3 = JSON.parse(f6.body), u4 = [];
+    if (h3.result && h3.result.texts)
+      u4 = h3.result.texts.map((l5) => ({ text: l5.text, detected_source_language: h3.result.lang }));
     else
       throw new Error("No response from deepl api");
-    return { translations: u5 };
+    return { translations: u4 };
   }
-  function W6(e3) {
-    let t5 = 0;
-    for (let n3 of e3)
-      t5 += n3.length;
-    return t5;
+  function W2(e) {
+    let t4 = 0;
+    for (let n2 of e)
+      t4 += n2.length;
+    return t4;
   }
-  async function X8(e3) {
-    e3.body;
-    let { url: t5, responseType: n3, ...o5 } = e3;
-    n3 || (n3 = "json"), o5 = { redirect: "follow", ...o5 };
-    let r2 = await Z5(t5, o5);
+  async function X4(e) {
+    e.body;
+    let { url: t4, responseType: n2, ...o4 } = e;
+    n2 || (n2 = "json"), o4 = { redirect: "follow", ...o4 };
+    let r2 = await Z(t4, o4);
     if (r2.ok && r2.status >= 200 && r2.status < 400)
-      if (n3 === "json") {
-        let s7 = await r2.json();
-        return E3.debug("response", JSON.stringify(s7, null, 2)), s7;
+      if (n2 === "json") {
+        let s6 = await r2.json();
+        return E2.debug("response", JSON.stringify(s6, null, 2)), s6;
       } else {
-        if (n3 === "text")
+        if (n2 === "text")
           return await r2.text();
-        if (n3 === "raw") {
-          let s7 = await r2.text(), i3 = Object.fromEntries([...r2.headers.entries()]), a5 = r2.url;
-          return { body: s7, headers: i3, status: r2.status, statusText: r2.statusText, url: a5 };
+        if (n2 === "raw") {
+          let s6 = await r2.text(), i3 = Object.fromEntries([...r2.headers.entries()]), a5 = r2.url;
+          return { body: s6, headers: i3, status: r2.status, statusText: r2.statusText, url: a5 };
         }
       }
     else {
-      let s7;
+      let s6;
       try {
-        s7 = await r2.text();
+        s6 = await r2.text();
       } catch (i3) {
-        E3.error("parse response failed", i3);
+        E2.error("parse response failed", i3);
       }
-      throw new Error(r2.status + ": " + r2.statusText || " " + s7 || "");
+      throw new Error(r2.status + ": " + r2.statusText || " " + s6 || "");
     }
   }
-  async function Z5(e3, t5) {
-    let n3 = 15e3;
-    t5 && t5.timeout && (n3 = t5.timeout);
-    let o5 = new AbortController(), r2 = setTimeout(() => o5.abort(), n3), s7 = await fetch(e3, { ...t5, signal: o5.signal });
-    return clearTimeout(r2), s7;
+  async function Z(e, t4) {
+    let n2 = 15e3;
+    t4 && t4.timeout && (n2 = t4.timeout);
+    let o4 = new AbortController(), r2 = setTimeout(() => o4.abort(), n2), s6 = await fetch(e, { ...t4, signal: o4.signal });
+    return clearTimeout(r2), s6;
   }
-  var Q6 = class {
-    constructor(e3, t5) {
-      this.state = {}, this.isStateChanged = !1, this.onFetch = (n3, o5) => X8({ url: n3, ...o5 }), this.refreshTokenEndpoint = "https://api.immersivetranslate.com", this.authKey = e3, t5 = t5 || {}, t5.state && (this.state = t5.state), t5.onFetch && (this.onFetch = t5.onFetch), t5.refreshTokenEndpoint && (this.refreshTokenEndpoint = t5.refreshTokenEndpoint), t5.onStateChange && (this.onStateChange = t5.onStateChange);
+  var Q2 = class {
+    constructor(e, t4) {
+      this.state = {}, this.isStateChanged = !1, this.onFetch = (n2, o4) => X4({ url: n2, ...o4 }), this.refreshTokenEndpoint = "https://api.immersivetranslate.com", this.authKey = e, t4 = t4 || {}, t4.state && (this.state = t4.state), t4.onFetch && (this.onFetch = t4.onFetch), t4.refreshTokenEndpoint && (this.refreshTokenEndpoint = t4.refreshTokenEndpoint), t4.onStateChange && (this.onStateChange = t4.onStateChange);
     }
     getState() {
       return this.state;
     }
     getIsStateChanged() {
-      let e3 = this.isStateChanged;
-      return this.isStateChanged = !1, e3;
+      let e = this.isStateChanged;
+      return this.isStateChanged = !1, e;
     }
-    setState(e3) {
-      this.state = e3, this.isStateChanged = !0, this.onStateChange && this.onStateChange(e3);
+    setState(e) {
+      this.state = e, this.isStateChanged = !0, this.onStateChange && this.onStateChange(e);
     }
-    async translateText(e3, t5, n3) {
+    async translateText(e, t4, n2) {
       await this.updateToken();
-      let o5 = new URLSearchParams();
-      (Array.isArray(e3) ? e3 : [e3]).forEach((s7, i3) => {
-        o5.append("text", s7);
-      }), t5 && o5.append("source_lang", t5), n3 && o5.append("target_lang", n3);
-      let r2 = await A4(this.state.accessToken, o5.toString(), this.onFetch);
+      let o4 = new URLSearchParams();
+      (Array.isArray(e) ? e : [e]).forEach((s6, i3) => {
+        o4.append("text", s6);
+      }), t4 && o4.append("source_lang", t4), n2 && o4.append("target_lang", n2);
+      let r2 = await A2(this.state.accessToken, o4.toString(), this.onFetch);
       if (r2 && r2.translations && r2.translations.length > 0)
-        return Array.isArray(e3) ? r2.translations.map((s7) => ({ text: s7.text, detectedSourceLanguage: s7.detected_source_language })) : { text: r2.translations[0].text, detectedSourceLanguage: r2.translations[0].detected_source_language };
+        return Array.isArray(e) ? r2.translations.map((s6) => ({ text: s6.text, detectedSourceLanguage: s6.detected_source_language })) : { text: r2.translations[0].text, detectedSourceLanguage: r2.translations[0].detected_source_language };
       throw new Error("No translation result");
     }
-    async translateApi(e3) {
-      return await this.updateToken(), await A4(this.state.accessToken, e3, this.onFetch);
+    async translateApi(e) {
+      return await this.updateToken(), await A2(this.state.accessToken, e, this.onFetch);
     }
     async forceUpdateRefreshToken() {
-      await m5(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((e3) => {
-        this.setState({ ...this.state, ...e3 });
+      await m4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((e) => {
+        this.setState({ ...this.state, ...e });
       });
     }
-    onFetchTokenError(e3) {
-      throw E3.error("onFetchTokenError", e3), e3 && e3.message && e3.message.indexOf("401") > -1 && this.setState({}), e3;
+    onFetchTokenError(e) {
+      throw E2.error("onFetchTokenError", e), e && e.message && (e.message.indexOf("401") > -1 || e.message.indexOf("400") > -1) && this.setState({}), e;
     }
     async updateToken() {
-      let { accessTokenExpiresAt: e3 } = this.state, [t5, n3] = T6(e3);
-      if (t5)
-        n3 && _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then(({ state: o5, shouldUpdateRefreshToken: r2 }) => {
-          this.setState({ ...this.state, ...o5 }), r2 && m5(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s7) => {
-            this.setState({ ...this.state, ...s7 });
+      let { accessTokenExpiresAt: e } = this.state, [t4, n2] = T2(e);
+      if (t4)
+        n2 && _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then(({ state: o4, shouldUpdateRefreshToken: r2 }) => {
+          this.setState({ ...this.state, ...o4 }), r2 && m4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s6) => {
+            this.setState({ ...this.state, ...s6 });
           });
-        }).catch((o5) => {
-          this.onFetchTokenError(o5);
+        }).catch((o4) => {
+          this.onFetchTokenError(o4);
         });
       else
         try {
-          let { state: o5, shouldUpdateRefreshToken: r2 } = await _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint });
-          this.setState(o5), r2 && m5(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s7) => {
-            this.setState({ ...this.state, ...s7 });
-          }).catch((s7) => {
-            console.warn("fetch refresh token error", s7);
+          let { state: o4, shouldUpdateRefreshToken: r2 } = await _2(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint });
+          this.setState(o4), r2 && m4(this.authKey, { state: this.state, onFetch: this.onFetch, refreshTokenEndpoint: this.refreshTokenEndpoint }).then((s6) => {
+            this.setState({ ...this.state, ...s6 });
+          }).catch((s6) => {
+            console.warn("fetch refresh token error", s6);
           });
-        } catch (o5) {
-          this.onFetchTokenError(o5);
+        } catch (o4) {
+          this.onFetchTokenError(o4);
         }
     }
   };
 
   // deps.ts
-  var toast = Ye2.alert;
+  var toast = Ye.alert;
 
   // log.ts
   var Timing = class {
@@ -8370,22 +7327,22 @@ body {
   }
 
   // dom/util.ts
-  var env2 = getEnv(), isProd = env2.PROD === "1";
+  var env2 = getEnv(), isProd = env2.PROD === "1", isInUserscript = isMonkey();
   function duplicatedElements(root2, array, rule) {
     let allHeaders = root2.querySelectorAll("header"), main3 = root2.querySelectorAll("main"), headers3 = [];
     for (let header of allHeaders)
       main3.length > 0 && main3[0].contains(header) || headers3.push(header);
     for (let i3 = 0; i3 < array.length; i3++) {
       let a5 = array[i3].element;
-      for (let j7 = i3 + 1; j7 < array.length; j7++) {
-        let b5 = array[j7].element;
-        if (a5.contains(b5))
-          array.splice(j7, 1), j7--;
-        else if (b5.contains(a5)) {
+      for (let j6 = i3 + 1; j6 < array.length; j6++) {
+        let b4 = array[j6].element;
+        if (a5.contains(b4))
+          array.splice(j6, 1), j6--;
+        else if (b4.contains(a5)) {
           array.splice(i3, 1), i3--;
           break;
         } else
-          a5 === b5 && (array.splice(j7, 1), j7--);
+          a5 === b4 && (array.splice(j6, 1), j6--);
       }
     }
     return array.filter((container) => {
@@ -8464,7 +7421,9 @@ body {
             return !0;
           continue;
         }
-        if (!isMatchTags(node.nodeName, rule.inlineTags))
+        if (isMatchTags(node.nodeName, rule.inlineTags))
+          return !0;
+        if (!isUnknowTag(node, rule))
           return !1;
       }
     }
@@ -8495,8 +7454,8 @@ body {
     return !1;
   }
   function isDuplicateElement(element, elements) {
-    for (let e3 of elements)
-      if (e3 === element)
+    for (let e of elements)
+      if (e === element)
         return !0;
     return !1;
   }
@@ -8570,6 +7529,15 @@ body {
   function getMainText(root2) {
     return (root2.innerText || root2.textContent || "").trim();
   }
+  function getAllIframeMainText(root2) {
+    let iframes = root2.querySelectorAll("iframe"), text = "";
+    for (let i3 = 0; i3 < iframes.length; i3++) {
+      let doc = iframes[i3].contentDocument;
+      if (doc && (text += getMainText(doc.body), text.length > 2e3))
+        break;
+    }
+    return text;
+  }
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
@@ -8637,8 +7605,8 @@ body {
     if (!getIsInIframe())
       return globalThis.location.href;
     try {
-      let currentUrl = globalThis.location.href;
-      if (new URL(currentUrl).protocol === "about:") {
+      let currentUrl = globalThis.location.href, currentUrlObj = new URL(currentUrl);
+      if (currentUrlObj.protocol === "about:" || currentUrlObj.protocol === "blob:") {
         if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
           return globalThis.location.ancestorOrigins[0];
         let href = "";
@@ -8670,7 +7638,16 @@ body {
       );
   }
   function isInlineIframe(frame) {
-    return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+    let src = frame.getAttribute("src");
+    if (src) {
+      if (isInUserscript) {
+        if (src.startsWith("blob:"))
+          return !0;
+      } else if (src.startsWith("blob:") && !src.startsWith("blob:http"))
+        return !0;
+      return !1;
+    }
+    return !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
   }
   function isMatchTags(nodeName, tags) {
     if (!nodeName || !tags)
@@ -9001,6 +7978,7 @@ body {
     interval: 36e5,
     beta: !1,
     cache: !0,
+    enabled: !0,
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
@@ -9031,6 +8009,12 @@ body {
       deepl: {
         immediateTranslationTextCountForImmersiveDeepl: 5e4
       },
+      bing: {
+        maxTextLengthPerRequest: 800
+      },
+      deeplx: {
+        limit: 3
+      },
       d: {
         immediateTranslationTextCount: 0
       },
@@ -9041,7 +8025,22 @@ body {
         apiUrl: "https://api.deepl.com/jsonrpc"
       },
       openai: {
-        placeholderDelimiters: ["{", "}"]
+        placeholderDelimiters: ["{{", "}}"],
+        immediateTranslationTextCount: 1e4,
+        translationDebounce: 300,
+        newlinePlaceholderDelimiters: [
+          `
+
+###`,
+          `###
+
+`,
+          `
+?
+?###\\d+###
+?
+?`
+        ]
       }
     },
     shortcuts: {
@@ -9113,9 +8112,12 @@ body {
       _comment: "",
       normalizeBody: "",
       injectedCss: [],
+      isEbook: !1,
+      isEbookBuilder: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
       initTranslationServiceAsSoonAsPossible: !0,
+      targetWrapperTag: "font",
       additionalInjectedCss: [],
       isTranslateTitle: !0,
       languageDetectMinTextCount: 50,
@@ -9126,7 +8128,12 @@ body {
       urlChangeDelay: 20,
       mutationChangeDelay: 10,
       visibleDelay: 0,
-      additionalStayOriginalSelectors: ["span.katex"],
+      additionalStayOriginalSelectors: [
+        "span.katex",
+        ".notranslate",
+        ".MathJax_Preview",
+        ".MathJax"
+      ],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
       observeUrlChange: !1,
@@ -9138,6 +8145,7 @@ body {
       containerMinTextCount: 18,
       lineBreakMaxTextCount: 0,
       globalAttributes: {},
+      globalMeta: {},
       globalStyles: {
         ".sr-only": "display:none"
       },
@@ -9180,7 +8188,10 @@ body {
         ".o-share",
         "[data-toolbar=share]",
         "rp",
-        "rt"
+        "rt",
+        "[spellcheck=false]",
+        ".prism-code",
+        "[role=code]"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -9266,12 +8277,18 @@ body {
         "RELIN-HIGHLIGHT",
         "RELIN-ORIGIN",
         "RELIN-TARGET",
-        "XQDD_HIGHLIGHT_NEW_WORD"
+        "XQDD_HIGHLIGHT_NEW_WORD",
+        "NOBR"
       ],
       additionalInlineTags: [],
       extraInlineSelectors: [],
-      additionalInlineSelectors: [],
-      extraBlockSelectors: ["turbo-frame", "readme-toc"],
+      additionalInlineSelectors: [".MathJax_Preview", ".MathJax"],
+      extraBlockSelectors: [
+        "turbo-frame",
+        "readme-toc",
+        "#hs_cos_wrapper_post_body",
+        "#hs_cos_wrapper_post_body"
+      ],
       allBlockTags: [
         "HGROUP",
         "CONTENT",
@@ -9333,6 +8350,10 @@ body {
     },
     rules: [
       {
+        selectorMatches: "div.simpread-read-root.simpread-read-root-show > sr-read",
+        mainFrameSelector: "div.simpread-read-root.simpread-read-root-show > sr-read"
+      },
+      {
         matches: ["moz-extension://*/pdf/index.html*"],
         isPdf: !0,
         wrapperPrefix: "",
@@ -9344,6 +8365,42 @@ body {
           "div.page": "width: 98%;",
           ".textLayer": "overflow:visible;opacity: 1;"
         }
+      },
+      {
+        matches: "*://*/*.txt",
+        selectors: ["body"],
+        isTransformPreTagNewLine: !0,
+        excludeTags: [
+          "TITLE",
+          "SCRIPT",
+          "STYLE",
+          "TEXTAREA",
+          "SVG",
+          "svg",
+          "G",
+          "TEXT",
+          "NOSCRIPT",
+          "INPUT",
+          "BUTTON",
+          "BASE",
+          "SELECT",
+          "OPTION",
+          "IMG",
+          "SUB",
+          "SUP",
+          "HR",
+          "CODE",
+          "KBD",
+          "WBR",
+          "TT",
+          "RT",
+          "RP",
+          "META",
+          "ASIDE",
+          "FOOTER",
+          "MATH",
+          "TTS-SENTENCE"
+        ]
       },
       {
         matches: ["mail.jabber.org", "antirez.com"],
@@ -9511,7 +8568,8 @@ body {
           "faceplate-batch .md"
         ],
         excludeMatches: [
-          "https://www.reddit.com/r/*/wiki/*"
+          "https://www.reddit.com/r/*/wiki/*",
+          "https://www.reddit.com/settings/*"
         ],
         detectParagraphLanguage: !0,
         globalStyles: {
@@ -9524,6 +8582,10 @@ body {
       },
       {
         matches: "github.com",
+        observeUrlChange: !0,
+        excludeMatches: [
+          "https://github.com/settings/profile"
+        ],
         selectors: [
           ".markdown-title",
           ".markdown-body",
@@ -9532,8 +8594,10 @@ body {
           "li.repo-list-item p",
           "#responsive-meta-container p",
           "article p",
-          "div.repo-description p"
+          "div.repo-description p",
+          "[itemprop=description]"
         ],
+        atomicBlockSelectors: ["[itemprop=description]"],
         excludeSelectors: [
           ".css-truncate",
           "[data-test-selector='commit-tease-commit-message']",
@@ -9575,11 +8639,18 @@ body {
       },
       {
         matches: "m.youtube.com",
-        selectors: [".comment-text"],
+        selectors: [
+          ".comment-text",
+          ".media-item-headline",
+          ".slim-video-information-title"
+        ],
+        wrapperPrefix: "",
+        wrapperSuffix: "",
         observeUrlChange: !0,
         atomicBlockSelectors: [".comment-text"],
         globalStyles: {
-          ".comment-text": "max-height:unset;"
+          ".comment-text": "max-height:unset;",
+          ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
         },
         injectedCss: [
           ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -9595,7 +8666,8 @@ body {
           "yt-formatted-string#video-title",
           "span#video-title",
           "a#video-title",
-          "yt-formatted-string.ytd-transcript-segment-renderer"
+          "yt-formatted-string.ytd-transcript-segment-renderer",
+          "#description-inline-expander > yt-attributed-string > span"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -9610,7 +8682,8 @@ body {
           "yt-formatted-string[slot=content].ytd-comment-renderer",
           "h1 > yt-formatted-string.ytd-watch-metadata",
           "yt-formatted-string#video-title",
-          "span#video-title"
+          "span#video-title",
+          "#description-inline-expander > yt-attributed-string > span"
         ],
         excludeSelectors: ["[class^='lln-']"],
         extraBlockSelectors: [
@@ -9847,7 +8920,9 @@ body {
       },
       {
         matches: "web.telegram.org/z/*",
+        isTranslateTitle: !1,
         selectors: [
+          ".text-content",
           ".message",
           ".reply-markup-button-text",
           ".bot-commands-list-element-description"
@@ -9993,6 +9068,7 @@ body {
           "mastodon.world",
           "infosec.exchange"
         ],
+        isTranslateTitle: !1,
         selectorMatches: ["div#mastodon"],
         selectors: ["div.status__content__text"],
         detectLanguage: !0
@@ -10098,6 +9174,28 @@ body {
         globalStyles: {
           ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
           "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
+        }
+      },
+      {
+        matches: "marketplace.visualstudio.com",
+        additionalExcludeSelectors: [
+          ".core-info-second-row",
+          ".core-info-third-row",
+          ".meta-data-list",
+          ".item-title",
+          ".breadcrumb",
+          ".itemDetails-right",
+          ".ux-user-name",
+          ".ux-updated-date",
+          ".ux-item-second-row-wrapper",
+          ".stats-and-offer",
+          ".header-container"
+        ],
+        atomicBlockSelectors: [
+          ".core-info-cell > div.name"
+        ],
+        globalStyles: {
+          ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
         }
       },
       {
@@ -10554,6 +9652,64 @@ body {
       {
         matches: "https://platform.openai.com/account/api-keys*",
         urlChangeDelay: 1500
+      },
+      {
+        isEbook: !0,
+        isTranslateTitle: !1,
+        urlChangeDelay: 200,
+        selectorMatches: [
+          "meta[name='immersive-translate-ebook-viewer'][content='true']"
+        ],
+        excludeSelectors: [
+          "#drop-target",
+          "#drop-target h1",
+          "#side-bar",
+          "h1#side-bar-title"
+        ],
+        extraInlineSelectors: [
+          "span.dropcaps"
+        ],
+        paragraphMinTextCount: 1,
+        paragraphMinWordCount: 1,
+        blockMinTextCount: 1,
+        blockMinWordCount: 1,
+        containerMinTextCount: 1,
+        wrapperPrefix: "<br />",
+        targetWrapperTag: "span"
+      },
+      {
+        isEbookBuilder: !0,
+        isTranslateTitle: !1,
+        targetWrapperTag: "span",
+        selectorMatches: [
+          "meta[name='immersive-translate-ebook-builder'][content='true']"
+        ],
+        globalMeta: {},
+        excludeSelectors: [
+          "h1.notranslate",
+          "#drop-target",
+          "#drop-target h1",
+          "#side-bar",
+          "h1#side-bar-title",
+          "#tool"
+        ],
+        paragraphMinTextCount: 1,
+        paragraphMinWordCount: 1,
+        blockMinTextCount: 1,
+        blockMinWordCount: 1,
+        containerMinTextCount: 1,
+        wrapperPrefix: "<br />"
+      },
+      {
+        matches: [
+          "https://www.explainpaper.com/reader*"
+        ],
+        isTranslateTitle: !1,
+        selectors: [
+          ".leading-relaxed",
+          ".chat-messages p",
+          ".text-sm"
+        ]
       }
     ]
   };
@@ -10876,8 +10032,8 @@ body {
           multiplier: 2,
           maxAttempts: options2.retry
         });
-      } catch (e3) {
-        throw e3 && e3.name === "RetryError" && e3.cause ? e3.cause : e3;
+      } catch (e) {
+        throw e && e.name === "RetryError" && e.cause ? e.cause : e;
       }
     else
       response = await rawRequest(options2);
@@ -10912,46 +10068,48 @@ body {
       let details;
       try {
         details = await response.text();
-      } catch (_e4) {
-        log_default.error("parse response failed", _e4);
+      } catch (_e3) {
+        log_default.error("parse response failed", _e3);
       }
-      throw details && log_default.error("fail response", details), new CommonError(
+      details && log_default.error("fail response", details);
+      let shortDetail = "";
+      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
         "fetchError",
-        response.status + ": " + response.statusText || "",
+        response.status + ": " + (response.statusText || "") + shortDetail,
         details
       );
     }
   }
 
   // utils/md5.js
-  function safeAdd(x6, y5) {
-    var lsw = (x6 & 65535) + (y5 & 65535), msw = (x6 >> 16) + (y5 >> 16) + (lsw >> 16);
+  function safeAdd(x4, y3) {
+    var lsw = (x4 & 65535) + (y3 & 65535), msw = (x4 >> 16) + (y3 >> 16) + (lsw >> 16);
     return msw << 16 | lsw & 65535;
   }
   function bitRotateLeft(num, cnt) {
     return num << cnt | num >>> 32 - cnt;
   }
-  function md5cmn(q7, a5, b5, x6, s7, t5) {
-    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a5, q7), safeAdd(x6, t5)), s7), b5);
+  function md5cmn(q6, a5, b4, x4, s6, t4) {
+    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a5, q6), safeAdd(x4, t4)), s6), b4);
   }
-  function md5ff(a5, b5, c6, d6, x6, s7, t5) {
-    return md5cmn(b5 & c6 | ~b5 & d6, a5, b5, x6, s7, t5);
+  function md5ff(a5, b4, c5, d6, x4, s6, t4) {
+    return md5cmn(b4 & c5 | ~b4 & d6, a5, b4, x4, s6, t4);
   }
-  function md5gg(a5, b5, c6, d6, x6, s7, t5) {
-    return md5cmn(b5 & d6 | c6 & ~d6, a5, b5, x6, s7, t5);
+  function md5gg(a5, b4, c5, d6, x4, s6, t4) {
+    return md5cmn(b4 & d6 | c5 & ~d6, a5, b4, x4, s6, t4);
   }
-  function md5hh(a5, b5, c6, d6, x6, s7, t5) {
-    return md5cmn(b5 ^ c6 ^ d6, a5, b5, x6, s7, t5);
+  function md5hh(a5, b4, c5, d6, x4, s6, t4) {
+    return md5cmn(b4 ^ c5 ^ d6, a5, b4, x4, s6, t4);
   }
-  function md5ii(a5, b5, c6, d6, x6, s7, t5) {
-    return md5cmn(c6 ^ (b5 | ~d6), a5, b5, x6, s7, t5);
+  function md5ii(a5, b4, c5, d6, x4, s6, t4) {
+    return md5cmn(c5 ^ (b4 | ~d6), a5, b4, x4, s6, t4);
   }
-  function binlMD5(x6, len) {
-    x6[len >> 5] |= 128 << len % 32, x6[(len + 64 >>> 9 << 4) + 14] = len;
-    var i3, olda, oldb, oldc, oldd, a5 = 1732584193, b5 = -271733879, c6 = -1732584194, d6 = 271733878;
-    for (i3 = 0; i3 < x6.length; i3 += 16)
-      olda = a5, oldb = b5, oldc = c6, oldd = d6, a5 = md5ff(a5, b5, c6, d6, x6[i3], 7, -680876936), d6 = md5ff(d6, a5, b5, c6, x6[i3 + 1], 12, -389564586), c6 = md5ff(c6, d6, a5, b5, x6[i3 + 2], 17, 606105819), b5 = md5ff(b5, c6, d6, a5, x6[i3 + 3], 22, -1044525330), a5 = md5ff(a5, b5, c6, d6, x6[i3 + 4], 7, -176418897), d6 = md5ff(d6, a5, b5, c6, x6[i3 + 5], 12, 1200080426), c6 = md5ff(c6, d6, a5, b5, x6[i3 + 6], 17, -1473231341), b5 = md5ff(b5, c6, d6, a5, x6[i3 + 7], 22, -45705983), a5 = md5ff(a5, b5, c6, d6, x6[i3 + 8], 7, 1770035416), d6 = md5ff(d6, a5, b5, c6, x6[i3 + 9], 12, -1958414417), c6 = md5ff(c6, d6, a5, b5, x6[i3 + 10], 17, -42063), b5 = md5ff(b5, c6, d6, a5, x6[i3 + 11], 22, -1990404162), a5 = md5ff(a5, b5, c6, d6, x6[i3 + 12], 7, 1804603682), d6 = md5ff(d6, a5, b5, c6, x6[i3 + 13], 12, -40341101), c6 = md5ff(c6, d6, a5, b5, x6[i3 + 14], 17, -1502002290), b5 = md5ff(b5, c6, d6, a5, x6[i3 + 15], 22, 1236535329), a5 = md5gg(a5, b5, c6, d6, x6[i3 + 1], 5, -165796510), d6 = md5gg(d6, a5, b5, c6, x6[i3 + 6], 9, -1069501632), c6 = md5gg(c6, d6, a5, b5, x6[i3 + 11], 14, 643717713), b5 = md5gg(b5, c6, d6, a5, x6[i3], 20, -373897302), a5 = md5gg(a5, b5, c6, d6, x6[i3 + 5], 5, -701558691), d6 = md5gg(d6, a5, b5, c6, x6[i3 + 10], 9, 38016083), c6 = md5gg(c6, d6, a5, b5, x6[i3 + 15], 14, -660478335), b5 = md5gg(b5, c6, d6, a5, x6[i3 + 4], 20, -405537848), a5 = md5gg(a5, b5, c6, d6, x6[i3 + 9], 5, 568446438), d6 = md5gg(d6, a5, b5, c6, x6[i3 + 14], 9, -1019803690), c6 = md5gg(c6, d6, a5, b5, x6[i3 + 3], 14, -187363961), b5 = md5gg(b5, c6, d6, a5, x6[i3 + 8], 20, 1163531501), a5 = md5gg(a5, b5, c6, d6, x6[i3 + 13], 5, -1444681467), d6 = md5gg(d6, a5, b5, c6, x6[i3 + 2], 9, -51403784), c6 = md5gg(c6, d6, a5, b5, x6[i3 + 7], 14, 1735328473), b5 = md5gg(b5, c6, d6, a5, x6[i3 + 12], 20, -1926607734), a5 = md5hh(a5, b5, c6, d6, x6[i3 + 5], 4, -378558), d6 = md5hh(d6, a5, b5, c6, x6[i3 + 8], 11, -2022574463), c6 = md5hh(c6, d6, a5, b5, x6[i3 + 11], 16, 1839030562), b5 = md5hh(b5, c6, d6, a5, x6[i3 + 14], 23, -35309556), a5 = md5hh(a5, b5, c6, d6, x6[i3 + 1], 4, -1530992060), d6 = md5hh(d6, a5, b5, c6, x6[i3 + 4], 11, 1272893353), c6 = md5hh(c6, d6, a5, b5, x6[i3 + 7], 16, -155497632), b5 = md5hh(b5, c6, d6, a5, x6[i3 + 10], 23, -1094730640), a5 = md5hh(a5, b5, c6, d6, x6[i3 + 13], 4, 681279174), d6 = md5hh(d6, a5, b5, c6, x6[i3], 11, -358537222), c6 = md5hh(c6, d6, a5, b5, x6[i3 + 3], 16, -722521979), b5 = md5hh(b5, c6, d6, a5, x6[i3 + 6], 23, 76029189), a5 = md5hh(a5, b5, c6, d6, x6[i3 + 9], 4, -640364487), d6 = md5hh(d6, a5, b5, c6, x6[i3 + 12], 11, -421815835), c6 = md5hh(c6, d6, a5, b5, x6[i3 + 15], 16, 530742520), b5 = md5hh(b5, c6, d6, a5, x6[i3 + 2], 23, -995338651), a5 = md5ii(a5, b5, c6, d6, x6[i3], 6, -198630844), d6 = md5ii(d6, a5, b5, c6, x6[i3 + 7], 10, 1126891415), c6 = md5ii(c6, d6, a5, b5, x6[i3 + 14], 15, -1416354905), b5 = md5ii(b5, c6, d6, a5, x6[i3 + 5], 21, -57434055), a5 = md5ii(a5, b5, c6, d6, x6[i3 + 12], 6, 1700485571), d6 = md5ii(d6, a5, b5, c6, x6[i3 + 3], 10, -1894986606), c6 = md5ii(c6, d6, a5, b5, x6[i3 + 10], 15, -1051523), b5 = md5ii(b5, c6, d6, a5, x6[i3 + 1], 21, -2054922799), a5 = md5ii(a5, b5, c6, d6, x6[i3 + 8], 6, 1873313359), d6 = md5ii(d6, a5, b5, c6, x6[i3 + 15], 10, -30611744), c6 = md5ii(c6, d6, a5, b5, x6[i3 + 6], 15, -1560198380), b5 = md5ii(b5, c6, d6, a5, x6[i3 + 13], 21, 1309151649), a5 = md5ii(a5, b5, c6, d6, x6[i3 + 4], 6, -145523070), d6 = md5ii(d6, a5, b5, c6, x6[i3 + 11], 10, -1120210379), c6 = md5ii(c6, d6, a5, b5, x6[i3 + 2], 15, 718787259), b5 = md5ii(b5, c6, d6, a5, x6[i3 + 9], 21, -343485551), a5 = safeAdd(a5, olda), b5 = safeAdd(b5, oldb), c6 = safeAdd(c6, oldc), d6 = safeAdd(d6, oldd);
-    return [a5, b5, c6, d6];
+  function binlMD5(x4, len) {
+    x4[len >> 5] |= 128 << len % 32, x4[(len + 64 >>> 9 << 4) + 14] = len;
+    var i3, olda, oldb, oldc, oldd, a5 = 1732584193, b4 = -271733879, c5 = -1732584194, d6 = 271733878;
+    for (i3 = 0; i3 < x4.length; i3 += 16)
+      olda = a5, oldb = b4, oldc = c5, oldd = d6, a5 = md5ff(a5, b4, c5, d6, x4[i3], 7, -680876936), d6 = md5ff(d6, a5, b4, c5, x4[i3 + 1], 12, -389564586), c5 = md5ff(c5, d6, a5, b4, x4[i3 + 2], 17, 606105819), b4 = md5ff(b4, c5, d6, a5, x4[i3 + 3], 22, -1044525330), a5 = md5ff(a5, b4, c5, d6, x4[i3 + 4], 7, -176418897), d6 = md5ff(d6, a5, b4, c5, x4[i3 + 5], 12, 1200080426), c5 = md5ff(c5, d6, a5, b4, x4[i3 + 6], 17, -1473231341), b4 = md5ff(b4, c5, d6, a5, x4[i3 + 7], 22, -45705983), a5 = md5ff(a5, b4, c5, d6, x4[i3 + 8], 7, 1770035416), d6 = md5ff(d6, a5, b4, c5, x4[i3 + 9], 12, -1958414417), c5 = md5ff(c5, d6, a5, b4, x4[i3 + 10], 17, -42063), b4 = md5ff(b4, c5, d6, a5, x4[i3 + 11], 22, -1990404162), a5 = md5ff(a5, b4, c5, d6, x4[i3 + 12], 7, 1804603682), d6 = md5ff(d6, a5, b4, c5, x4[i3 + 13], 12, -40341101), c5 = md5ff(c5, d6, a5, b4, x4[i3 + 14], 17, -1502002290), b4 = md5ff(b4, c5, d6, a5, x4[i3 + 15], 22, 1236535329), a5 = md5gg(a5, b4, c5, d6, x4[i3 + 1], 5, -165796510), d6 = md5gg(d6, a5, b4, c5, x4[i3 + 6], 9, -1069501632), c5 = md5gg(c5, d6, a5, b4, x4[i3 + 11], 14, 643717713), b4 = md5gg(b4, c5, d6, a5, x4[i3], 20, -373897302), a5 = md5gg(a5, b4, c5, d6, x4[i3 + 5], 5, -701558691), d6 = md5gg(d6, a5, b4, c5, x4[i3 + 10], 9, 38016083), c5 = md5gg(c5, d6, a5, b4, x4[i3 + 15], 14, -660478335), b4 = md5gg(b4, c5, d6, a5, x4[i3 + 4], 20, -405537848), a5 = md5gg(a5, b4, c5, d6, x4[i3 + 9], 5, 568446438), d6 = md5gg(d6, a5, b4, c5, x4[i3 + 14], 9, -1019803690), c5 = md5gg(c5, d6, a5, b4, x4[i3 + 3], 14, -187363961), b4 = md5gg(b4, c5, d6, a5, x4[i3 + 8], 20, 1163531501), a5 = md5gg(a5, b4, c5, d6, x4[i3 + 13], 5, -1444681467), d6 = md5gg(d6, a5, b4, c5, x4[i3 + 2], 9, -51403784), c5 = md5gg(c5, d6, a5, b4, x4[i3 + 7], 14, 1735328473), b4 = md5gg(b4, c5, d6, a5, x4[i3 + 12], 20, -1926607734), a5 = md5hh(a5, b4, c5, d6, x4[i3 + 5], 4, -378558), d6 = md5hh(d6, a5, b4, c5, x4[i3 + 8], 11, -2022574463), c5 = md5hh(c5, d6, a5, b4, x4[i3 + 11], 16, 1839030562), b4 = md5hh(b4, c5, d6, a5, x4[i3 + 14], 23, -35309556), a5 = md5hh(a5, b4, c5, d6, x4[i3 + 1], 4, -1530992060), d6 = md5hh(d6, a5, b4, c5, x4[i3 + 4], 11, 1272893353), c5 = md5hh(c5, d6, a5, b4, x4[i3 + 7], 16, -155497632), b4 = md5hh(b4, c5, d6, a5, x4[i3 + 10], 23, -1094730640), a5 = md5hh(a5, b4, c5, d6, x4[i3 + 13], 4, 681279174), d6 = md5hh(d6, a5, b4, c5, x4[i3], 11, -358537222), c5 = md5hh(c5, d6, a5, b4, x4[i3 + 3], 16, -722521979), b4 = md5hh(b4, c5, d6, a5, x4[i3 + 6], 23, 76029189), a5 = md5hh(a5, b4, c5, d6, x4[i3 + 9], 4, -640364487), d6 = md5hh(d6, a5, b4, c5, x4[i3 + 12], 11, -421815835), c5 = md5hh(c5, d6, a5, b4, x4[i3 + 15], 16, 530742520), b4 = md5hh(b4, c5, d6, a5, x4[i3 + 2], 23, -995338651), a5 = md5ii(a5, b4, c5, d6, x4[i3], 6, -198630844), d6 = md5ii(d6, a5, b4, c5, x4[i3 + 7], 10, 1126891415), c5 = md5ii(c5, d6, a5, b4, x4[i3 + 14], 15, -1416354905), b4 = md5ii(b4, c5, d6, a5, x4[i3 + 5], 21, -57434055), a5 = md5ii(a5, b4, c5, d6, x4[i3 + 12], 6, 1700485571), d6 = md5ii(d6, a5, b4, c5, x4[i3 + 3], 10, -1894986606), c5 = md5ii(c5, d6, a5, b4, x4[i3 + 10], 15, -1051523), b4 = md5ii(b4, c5, d6, a5, x4[i3 + 1], 21, -2054922799), a5 = md5ii(a5, b4, c5, d6, x4[i3 + 8], 6, 1873313359), d6 = md5ii(d6, a5, b4, c5, x4[i3 + 15], 10, -30611744), c5 = md5ii(c5, d6, a5, b4, x4[i3 + 6], 15, -1560198380), b4 = md5ii(b4, c5, d6, a5, x4[i3 + 13], 21, 1309151649), a5 = md5ii(a5, b4, c5, d6, x4[i3 + 4], 6, -145523070), d6 = md5ii(d6, a5, b4, c5, x4[i3 + 11], 10, -1120210379), c5 = md5ii(c5, d6, a5, b4, x4[i3 + 2], 15, 718787259), b4 = md5ii(b4, c5, d6, a5, x4[i3 + 9], 21, -343485551), a5 = safeAdd(a5, olda), b4 = safeAdd(b4, oldb), c5 = safeAdd(c5, oldc), d6 = safeAdd(d6, oldd);
+    return [a5, b4, c5, d6];
   }
   function binl2rstr(input) {
     var i3, output = "", length32 = input.length * 32;
@@ -10968,8 +10126,8 @@ body {
       output[i3 >> 5] |= (input.charCodeAt(i3 / 8) & 255) << i3 % 32;
     return output;
   }
-  function rstrMD5(s7) {
-    return binl2rstr(binlMD5(rstr2binl(s7), s7.length * 8));
+  function rstrMD5(s6) {
+    return binl2rstr(binlMD5(rstr2binl(s6), s6.length * 8));
   }
   function rstrHMACMD5(key, data) {
     var i3, bkey = rstr2binl(key), ipad = [], opad = [], hash;
@@ -10978,25 +10136,25 @@ body {
     return hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8), binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
   }
   function rstr2hex(input) {
-    var hexTab = "0123456789abcdef", output = "", x6, i3;
+    var hexTab = "0123456789abcdef", output = "", x4, i3;
     for (i3 = 0; i3 < input.length; i3 += 1)
-      x6 = input.charCodeAt(i3), output += hexTab.charAt(x6 >>> 4 & 15) + hexTab.charAt(x6 & 15);
+      x4 = input.charCodeAt(i3), output += hexTab.charAt(x4 >>> 4 & 15) + hexTab.charAt(x4 & 15);
     return output;
   }
   function str2rstrUTF8(input) {
     return unescape(encodeURIComponent(input));
   }
-  function rawMD5(s7) {
-    return rstrMD5(str2rstrUTF8(s7));
+  function rawMD5(s6) {
+    return rstrMD5(str2rstrUTF8(s6));
   }
-  function hexMD5(s7) {
-    return rstr2hex(rawMD5(s7));
+  function hexMD5(s6) {
+    return rstr2hex(rawMD5(s6));
   }
-  function rawHMACMD5(k5, d6) {
-    return rstrHMACMD5(str2rstrUTF8(k5), str2rstrUTF8(d6));
+  function rawHMACMD5(k4, d6) {
+    return rstrHMACMD5(str2rstrUTF8(k4), str2rstrUTF8(d6));
   }
-  function hexHMACMD5(k5, d6) {
-    return rstr2hex(rawHMACMD5(k5, d6));
+  function hexHMACMD5(k4, d6) {
+    return rstr2hex(rawHMACMD5(k4, d6));
   }
   function md5(string, key, raw) {
     return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
@@ -11034,18 +10192,18 @@ body {
     let allTempSentences = [], sentenceTotalPartsGroups = [];
     for (let i3 = 0; i3 < sentences.length; i3++) {
       let currentSentence = sentences[i3], { from, to, text, url } = currentSentence, sentenceTotalParts = 0, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
-      for (let j7 = 0; j7 < textArrSplitedByNewLine.length; j7++) {
-        let currentText = textArrSplitedByNewLine[j7];
-        if (currentText === "") {
-          currentTempSentences.length > 0 ? j7 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
+      for (let j6 = 0; j6 < textArrSplitedByNewLine.length; j6++) {
+        let currentText = textArrSplitedByNewLine[j6];
+        if (currentText.trim() === "") {
+          currentTempSentences.length > 0 ? j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `) : currentPrefix += `
 `;
           continue;
         } else if (currentText.length > maxLength) {
           let tempSplitedSentences = [];
           splitSentence(currentText, maxLength, tempSplitedSentences);
-          for (let k5 = 0; k5 < tempSplitedSentences.length; k5++) {
-            let tempSentence = tempSplitedSentences[k5], { text: text2, prefix, suffix } = tempSentence;
+          for (let k4 = 0; k4 < tempSplitedSentences.length; k4++) {
+            let tempSentence = tempSplitedSentences[k4], { text: text2, prefix, suffix } = tempSentence;
             sentenceTotalParts++, currentTempSentences.push({
               from,
               to,
@@ -11054,7 +10212,8 @@ body {
               suffix,
               index: i3,
               url,
-              sentenceTotalParts
+              sentenceTotalParts,
+              partIndex: sentenceTotalParts - 1
             }), sentenceTotalPartsGroups[i3] = sentenceTotalParts;
           }
         } else
@@ -11066,9 +10225,10 @@ body {
             to,
             index: i3,
             url,
-            sentenceTotalParts
+            sentenceTotalParts,
+            partIndex: sentenceTotalParts - 1
           }), sentenceTotalPartsGroups[i3] = sentenceTotalParts;
-        currentTempSentences.length > 0 && j7 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
+        currentTempSentences.length > 0 && j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `);
       }
       allTempSentences.push(...currentTempSentences);
@@ -11280,12 +10440,12 @@ body {
                 ok: !0,
                 data: handlerResult
               });
-            } catch (e3) {
+            } catch (e) {
               sendResponse({
                 ok: !1,
-                errorName: e3.name,
-                errorMessage: e3.message,
-                errorDetails: e3.details
+                errorName: e.name,
+                errorMessage: e.message,
+                errorDetails: e.details
               });
             }
             return !1;
@@ -11299,12 +10459,12 @@ body {
                 data
               });
             }).catch(
-              (e3) => {
+              (e) => {
                 sendResponse({
                   ok: !1,
-                  errorName: e3.name,
-                  errorMessage: e3.message,
-                  errorDetails: e3.details
+                  errorName: e.name,
+                  errorMessage: e.message,
+                  errorDetails: e.details
                 });
               }
             ), !0;
@@ -11345,19 +10505,19 @@ body {
         try {
           let response = await browserAPI.runtime.sendMessage(message);
           return handleResponse(message, response, this.logger);
-        } catch (e3) {
+        } catch (e) {
           if (type === "popup") {
             let errorMessage = `popup ${to} is not active, so the message does not send, ignore this error, ${JSON.stringify(messagePayload)}`;
             return this.logger.debug(
               errorMessage,
               messagePayload,
               to,
-              e3
+              e
             ), Promise.resolve({
               message: errorMessage
             });
           } else
-            throw e3;
+            throw e;
         }
       } else {
         let message = {
@@ -11407,7 +10567,7 @@ body {
   // content_message_listeners.ts
   var asyncMessageHandler = async function(payload, _author) {
     let { method, data } = payload;
-    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
+    method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" ? setCurrentPageLanguageByClient(data) : method === "retryFailedParagraphs" && retryFailedParagraphs();
   }, syncMessageHandler = function(payload, _author) {
     let { method, data } = payload;
     if (log_default.debug(
@@ -11423,7 +10583,7 @@ body {
   function setupMessageListeners() {
     let asyncConnection = getConnection();
     getIsInIframe() || getSyncConnection(), asyncConnection.sendMessage("popup:main_sync", { method: "ready" }).catch(
-      (_e4) => {
+      (_e3) => {
       }
     );
   }
@@ -11447,8 +10607,8 @@ body {
       })
     });
     return document.dispatchEvent(event), new Promise((resolve, reject) => {
-      messageHandlers.set(id, (e3, data) => {
-        e3 ? reject(e3) : resolve(data);
+      messageHandlers.set(id, (e, data) => {
+        e ? reject(e) : resolve(data);
       });
     });
   }
@@ -11543,7 +10703,7 @@ body {
     getConnection().sendMessage("popup:main_sync", {
       method: "setPageStatus",
       data: status
-    }).catch((_e4) => {
+    }).catch((_e3) => {
     });
   }
   function queryDb(query) {
@@ -11581,6 +10741,16 @@ body {
   function openAboutPage2(newTab = !1) {
     return isMonkey() ? (browserAPI.extra.openAboutPage(newTab), Promise.resolve()) : sendMessage({
       method: "openAboutPage"
+    });
+  }
+  function openEbookViewerPage2(newTab = !1) {
+    return isMonkey() ? (browserAPI.extra.openEbookViewerPage(newTab), Promise.resolve()) : sendMessage({
+      method: "openEbookViewerPage"
+    });
+  }
+  function openEbookBuilderPage2(newTab = !1) {
+    return isMonkey() ? (browserAPI.extra.openEbookBuilderPage(newTab), Promise.resolve()) : sendMessage({
+      method: "openEbookBuilderPage"
     });
   }
   function autoSyncLatestConfig() {
@@ -11683,8 +10853,8 @@ body {
       );
     }
     let finalContainers = duplicatedElements(root2, contentContainers, rule);
-    return finalContainers.sort(function(a5, b5) {
-      return a5.compareDocumentPosition(b5) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    return finalContainers.sort(function(a5, b4) {
+      return a5.compareDocumentPosition(b4) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
     }), finalContainers;
   }
 
@@ -11704,7 +10874,7 @@ body {
       let { name } = prop;
       if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
         let value = translationThemePatternConfig[name];
-        injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+        ["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
 `;
       }
     });
@@ -11712,13 +10882,13 @@ body {
     if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
       let value = translationThemePatternConfig.textColor;
       otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
 `;
     }
     if (translationThemePatternConfig && translationThemePatternConfig.zoom) {
       let value = translationThemePatternConfig.zoom;
       otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
+.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
 `;
     }
     let finalCss = "";
@@ -11738,7 +10908,11 @@ ${injectedCss}}
   // dom/inject_css_to_frame.ts
   function injectCssToFrame(root2, ctx) {
     let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
-    injectCSS(root2, defaultInjectedCss);
+    injectCSS(
+      root2,
+      defaultInjectedCss,
+      "immersive-translate-default-injected-css"
+    );
     let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.state.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
     applyUserConfigCss(
       root2,
@@ -11749,7 +10923,7 @@ ${injectedCss}}
     (ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
 `)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
 ` + ctx.rule.additionalInjectedCss.join(`
-`))), injectedCss && injectCSS(root2, injectedCss);
+`))), injectedCss && injectCSS(root2, injectedCss, "immersive-translate-dynamic-injected-css");
   }
 
   // dom/elements_to_paragraph.ts
@@ -11770,7 +10944,7 @@ ${injectedCss}}
     for (let i3 = 0; i3 < elements.length; i3++) {
       let elementState = elements[i3], element = elementState.element;
       if (elementState.text) {
-        text += elementState.text, elementState.variables && elementState.variables.length > 0 && variables.push(...elementState.variables);
+        text += elementState.text, elementState.variables && elementState.variables.length > 0 && variables.push(...elementState.variables), isHasMeaningfulText = !0;
         continue;
       }
       if (typeof element == "string") {
@@ -11792,9 +10966,17 @@ ${injectedCss}}
             continue;
         }
         isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
+        let variableElement = element;
+        if (isStayOriginal && element.tagName === "IMG") {
+          let clonedElement = element.cloneNode(!0), originalStyle = clonedElement.getAttribute("style") || "", rect = element.getBoundingClientRect();
+          clonedElement.setAttribute(
+            "style",
+            `${originalStyle} width: ${rect.width}px; height: ${rect.height}px;`
+          ), variableElement = clonedElement;
+        }
         let variable = {
           type: "element",
-          value: element
+          value: variableElement
         };
         variables.push(variable);
         let index = variables.length - 1 + currentVariableIndex, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
@@ -11982,7 +11164,7 @@ ${injectedCss}}
               ctx,
               currentVariableIndex
             ).currentVariableIndex, NodeFilter.FILTER_REJECT;
-          if (inlineElementGroups.length > 0) {
+          if (console.log("no inline", node2), inlineElementGroups.length > 0) {
             let paragraph = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
@@ -12151,9 +11333,9 @@ ${injectedCss}}
       ctx.rule,
       !1
     ))
-      isMetaElement(node, ctx.rule) || inlineElementGroups.push(node);
+      isMetaElement(node, ctx.rule) || (isStayOriginalElement(node, ctx.rule) && (currentVariableIndex += 1), inlineElementGroups.push(node));
     else if (isStayOriginalElement(node, ctx.rule))
-      inlineElementGroups.push(node);
+      inlineElementGroups.push(node), currentVariableIndex += 1;
     else if (isContainsStayOriginalElement(node, ctx.rule)) {
       let inlineGroupElementState = getInlineElementsOfInlineElement(
         node,
@@ -12354,7 +11536,7 @@ ${injectedCss}}
     let innerClassList = getTranslationInnerClassNames(
       translationTheme
     ), blockStyleStr = "";
-    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
+    return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<${ctx.rule.targetWrapperTag} ${blockStyleStr} class="${classList.join(" ")}"><${rule.targetWrapperTag} class="${innerClassList.join(" ")}">${html}</${rule.targetWrapperTag}></${rule.targetWrapperTag}>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<${rule.targetWrapperTag} class="notranslate">&#160;</${rule.targetWrapperTag}>${html}`), {
       html,
       position
     };
@@ -12514,7 +11696,7 @@ ${injectedCss}}
         } else if (node.nodeType === Node.TEXT_NODE) {
           let text = node.textContent;
           if (text && text.trim().length > 0) {
-            let span = document.createElement("span");
+            let span = document.createElement(rule.targetWrapperTag);
             node.after(span), span.appendChild(node);
           }
         }
@@ -12624,8 +11806,8 @@ ${injectedCss}}
     if (hasValue(payload)) {
       let payloadType = payload.type;
       if (hasValue(payloadType) && hasValue(payload.body)) {
-        let [p6, a5, t5] = payloadType.split("#");
-        return p6 === protocol.type && a5 === action && t5 === type;
+        let [p5, a5, t4] = payloadType.split("#");
+        return p5 === protocol.type && a5 === action && t4 === type;
       } else
         return !1;
     } else
@@ -12635,15 +11817,15 @@ ${injectedCss}}
     if (hasValue(payload)) {
       let payloadType = payload.type;
       if (hasValue(payloadType) && hasValue(payload.response)) {
-        let [p6, a5, t5] = payloadType.split("#");
-        return p6 === protocol.type && a5 === "ask" && t5 === type;
+        let [p5, a5, t4] = payloadType.split("#");
+        return p5 === protocol.type && a5 === "ask" && t4 === type;
       } else
         return !1;
     } else
       return !1;
   }
   function destroyAll(listeners3) {
-    listeners3.forEach(([w6, l5]) => w6.removeEventListener("message", l5)), listeners3.length = 0;
+    listeners3.forEach(([w5, l5]) => w5.removeEventListener("message", l5)), listeners3.length = 0;
   }
   function awaitResponse(thisWindow, protocol, type, id) {
     return new Promise((accept) => {
@@ -12863,8 +12045,8 @@ ${injectedCss}}
           targetWindow: topFrame
         }
       );
-      theChannel = topFrameInstance, await ProtoframePubsub.connect(topFrameInstance).catch((e3) => {
-        log_default.error("connect with parent frame error", e3);
+      theChannel = topFrameInstance, await ProtoframePubsub.connect(topFrameInstance).catch((e) => {
+        log_default.error("connect with parent frame error", e);
       });
     }
   }
@@ -12885,7 +12067,7 @@ ${injectedCss}}
     deepl: new RateLimiter({ limit: 10, interval: 1050 }),
     transmart: new RateLimiter({ limit: 30, interval: 1050 }),
     papago: new RateLimiter({ limit: 3, interval: 1150 }),
-    openai: new RateLimiter({ limit: 3, interval: 1150 })
+    openai: new RateLimiter({ limit: 10, interval: 65e3 })
   };
   function getLimiter(key) {
     return limiterMap[key] || defaultLimiter;
@@ -12898,8 +12080,8 @@ ${injectedCss}}
           return (await channel.ask("getRateLimitDelay", {
             key
           })).value;
-        } catch (e3) {
-          return log_default.error("can not comunicate with root frame, use strict limiter", e3), getLimiter("strict").getDelay();
+        } catch (e) {
+          return log_default.error("can not comunicate with root frame, use strict limiter", e), getLimiter("strict").getDelay();
         }
       else
         return getLimiter("strict").getDelay();
@@ -12949,30 +12131,35 @@ ${injectedCss}}
         sentence.from && sentence.from !== "auto" && languages2.add(sentence.from);
       let isMultipleLanguage = !1;
       languages2.size > 1 && (isMultipleLanguage = !0);
+      let maxTextLength = this.maxTextLength;
+      this.serviceConfig && this.serviceConfig.maxTextLengthPerRequest && (maxTextLength = this.serviceConfig.maxTextLengthPerRequest);
+      let maxTextGroupLength = this.maxTextGroupLength;
+      this.serviceConfig && this.serviceConfig.maxTextGroupLengthPerRequest && (maxTextGroupLength = this.serviceConfig.maxTextGroupLengthPerRequest);
       try {
         tempSentenceGroups = splitSentences(
           sentences,
-          this.maxTextLength,
-          this.maxTextGroupLength
+          maxTextLength,
+          maxTextGroupLength
         );
-      } catch (e3) {
+      } catch (e) {
         if (everySentenceCallback)
           for (let i3 = 0; i3 < sentences.length; i3++) {
             let sentence = sentences[i3];
-            everySentenceCallback(e3, null, sentence);
+            everySentenceCallback(e, null, sentence);
           }
-        throw e3;
+        throw e;
       }
       log_default.debug(
         "tempSentenceGroups",
         tempSentenceGroups.map((item) => item)
       );
       let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback, error) => {
-        sentenceCallbacks[index] ? sentenceCallbacks[index].translatedTexts.push(
-          ...sentenceCallback.translatedTexts
-        ) : sentenceCallbacks[index] = sentenceCallback;
-        let currentSentenceCallback = sentenceCallbacks[index];
-        if (currentSentenceCallback.translatedTexts.length === currentSentenceCallback.sentenceTotalParts) {
+        let currentText = sentenceCallback.translatedTexts[0];
+        sentenceCallbacks[index] || (sentenceCallbacks[index] = sentenceCallback, sentenceCallbacks[index].translatedTexts = Array(4).fill(null)), sentenceCallbacks[index].translatedTexts[sentenceCallback.partIndex] = currentText;
+        let currentSentenceCallback = sentenceCallbacks[index], realLength = 0;
+        for (let i3 = 0; i3 < currentSentenceCallback.sentenceTotalParts; i3++)
+          currentSentenceCallback.translatedTexts[i3] !== null && (realLength += 1);
+        if (realLength === currentSentenceCallback.sentenceTotalParts) {
           let translatedText = currentSentenceCallback.translatedTexts.join(""), translatedSentence = {
             ...currentSentenceCallback.sentence,
             text: translatedText
@@ -13003,24 +12190,44 @@ ${injectedCss}}
               sourceTempSentences: tempSentenceGroup.tempSentences
             };
           {
-            let mergedText = tempSentenceGroup.tempSentences.map(
+            let finalTranslationTextSeparator = translationTextSeparator;
+            this.serviceConfig && this.serviceConfig.translationTextSeparator && (finalTranslationTextSeparator = this.serviceConfig.translationTextSeparator);
+            let newlinePlaceholderDelimiters = null;
+            this.serviceConfig && this.serviceConfig.newlinePlaceholderDelimiters && (newlinePlaceholderDelimiters = this.serviceConfig.newlinePlaceholderDelimiters);
+            let mergedText = "";
+            newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2 ? mergedText = tempSentenceGroup.tempSentences.map((item, index) => index === tempSentenceGroup.tempSentences.length - 1 ? item.text : item.text + newlinePlaceholderDelimiters[0] + (index + 1) + newlinePlaceholderDelimiters[1]).join("") : mergedText = tempSentenceGroup.tempSentences.map(
               (item) => item.text
-            ).join(translationTextSeparator), result = await this.translate({
+            ).join(finalTranslationTextSeparator);
+            let result = await this.translate({
               text: mergedText,
               from: finalFrom,
               to: tempSentenceGroup.to,
               url,
               options: options2
-            }), { text } = result, rawTranslatedTexts = text.split(
-              translationTextSeparator
-            ), translatedTexts = [];
+            }), { text } = result, rawTranslatedTexts = [];
+            if (newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2) {
+              let defaultRegex = `${newlinePlaceholderDelimiters[0]}\\d+${newlinePlaceholderDelimiters[1]}`;
+              newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 3 && (defaultRegex = newlinePlaceholderDelimiters[2]);
+              let regex = new RegExp(
+                defaultRegex,
+                "g"
+              );
+              rawTranslatedTexts = text.split(regex);
+            } else
+              rawTranslatedTexts = text.split(
+                finalTranslationTextSeparator
+              );
+            let translatedTexts = [];
             if (rawTranslatedTexts.length > tempSentenceGroup.tempSentences.length) {
-              for (let j7 = 0; j7 < tempSentenceGroup.tempSentences.length - 1; j7++)
-                translatedTexts[j7] = rawTranslatedTexts[j7];
+              for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length - 1; j6++)
+                translatedTexts[j6] = rawTranslatedTexts[j6];
               translatedTexts[tempSentenceGroup.tempSentences.length - 1] = rawTranslatedTexts.slice(
                 tempSentenceGroup.tempSentences.length - 1
-              ).join(translationTextSeparator);
-            } else
+              ).join(finalTranslationTextSeparator);
+            } else if (rawTranslatedTexts.length < tempSentenceGroup.tempSentences.length)
+              for (let j6 = rawTranslatedTexts.length; j6 < tempSentenceGroup.tempSentences.length; j6++)
+                rawTranslatedTexts[j6] = "";
+            else
               translatedTexts = rawTranslatedTexts;
             return {
               sourceTempSentences: tempSentenceGroup.tempSentences,
@@ -13033,8 +12240,8 @@ ${injectedCss}}
         promises.push(
           throttled().then((result) => {
             let { text: translatedTexts, sourceTempSentences } = result;
-            for (let j7 = 0; j7 < translatedTexts.length; j7++) {
-              let translatedText = translatedTexts[j7], tempSentence = sourceTempSentences[j7];
+            for (let j6 = 0; j6 < translatedTexts.length; j6++) {
+              let translatedText = translatedTexts[j6], tempSentence = sourceTempSentences[j6];
               if (tempSentence) {
                 let { index, prefix, suffix } = tempSentence;
                 addToSentenceCallback(index, {
@@ -13044,28 +12251,29 @@ ${injectedCss}}
                     to: tempSentenceGroup.to
                   },
                   sentenceTotalParts: tempSentence.sentenceTotalParts,
+                  partIndex: tempSentence.partIndex,
                   translatedTexts: [prefix + translatedText + suffix],
                   callback: everySentenceCallback
                 }, null);
               }
             }
-          }).catch((e3) => {
+          }).catch((e) => {
             if (everySentenceCallback) {
-              for (let j7 = 0; j7 < tempSentenceGroup.tempSentences.length; j7++) {
-                let tempSentence = tempSentenceGroup.tempSentences[j7];
-                tempSentence.sentenceTotalParts === 1 ? everySentenceCallback(e3, null, {
+              for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length; j6++) {
+                let tempSentence = tempSentenceGroup.tempSentences[j6];
+                tempSentence.sentenceTotalParts === 1 ? everySentenceCallback(e, null, {
                   ...sentences[tempSentence.index],
                   from: tempSentenceGroup.from,
                   to: tempSentenceGroup.to
-                }) : (everySentenceCallback(e3, null, {
+                }) : (everySentenceCallback(e, null, {
                   ...sentences[tempSentence.index],
                   from: tempSentenceGroup.from,
                   to: tempSentenceGroup.to
-                }), j7 += tempSentence.sentenceTotalParts - 1);
+                }), j6 += tempSentence.sentenceTotalParts - 1);
               }
-              globalError = e3;
+              globalError = e;
             } else
-              globalError = e3;
+              globalError = e;
           })
         );
       }
@@ -13097,7 +12305,7 @@ ${injectedCss}}
   root.JS_SHA256_NO_WINDOW && (WINDOW = !1);
   var WEB_WORKER = !WINDOW && typeof self == "object", NODE_JS = !root.JS_SHA256_NO_NODE_JS && typeof process == "object" && process.versions && process.versions.node;
   NODE_JS ? root = global : WEB_WORKER && (root = self);
-  var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && module.exports, AMD = typeof define == "function" && define.amd, ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer < "u", HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [-2147483648, 8388608, 32768, 128], SHIFT = [24, 16, 8, 0], K6 = [
+  var COMMON_JS = !root.JS_SHA256_NO_COMMON_JS && typeof module == "object" && module.exports, AMD = typeof define == "function" && define.amd, ARRAY_BUFFER = !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer < "u", HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [-2147483648, 8388608, 32768, 128], SHIFT = [24, 16, 8, 0], K2 = [
     1116352408,
     1899447441,
     3049323471,
@@ -13240,22 +12448,22 @@ ${injectedCss}}
     }
   };
   Sha256.prototype.hash = function() {
-    var a5 = this.h0, b5 = this.h1, c6 = this.h2, d6 = this.h3, e3 = this.h4, f7 = this.h5, g8 = this.h6, h4 = this.h7, blocks2 = this.blocks, j7, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
-    for (j7 = 16; j7 < 64; ++j7)
-      t1 = blocks2[j7 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j7 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j7] = blocks2[j7 - 16] + s0 + blocks2[j7 - 7] + s1 << 0;
-    for (bc = b5 & c6, j7 = 0; j7 < 64; j7 += 4)
-      this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h4 = t1 - 150054599 << 0, d6 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h4 = t1 - 1521486534 << 0, d6 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a5 >>> 2 | a5 << 30) ^ (a5 >>> 13 | a5 << 19) ^ (a5 >>> 22 | a5 << 10), s1 = (e3 >>> 6 | e3 << 26) ^ (e3 >>> 11 | e3 << 21) ^ (e3 >>> 25 | e3 << 7), ab = a5 & b5, maj = ab ^ a5 & c6 ^ bc, ch = e3 & f7 ^ ~e3 & g8, t1 = h4 + s1 + ch + K6[j7] + blocks2[j7], t22 = s0 + maj, h4 = d6 + t1 << 0, d6 = t1 + t22 << 0), s0 = (d6 >>> 2 | d6 << 30) ^ (d6 >>> 13 | d6 << 19) ^ (d6 >>> 22 | d6 << 10), s1 = (h4 >>> 6 | h4 << 26) ^ (h4 >>> 11 | h4 << 21) ^ (h4 >>> 25 | h4 << 7), da = d6 & a5, maj = da ^ d6 & b5 ^ ab, ch = h4 & e3 ^ ~h4 & f7, t1 = g8 + s1 + ch + K6[j7 + 1] + blocks2[j7 + 1], t22 = s0 + maj, g8 = c6 + t1 << 0, c6 = t1 + t22 << 0, s0 = (c6 >>> 2 | c6 << 30) ^ (c6 >>> 13 | c6 << 19) ^ (c6 >>> 22 | c6 << 10), s1 = (g8 >>> 6 | g8 << 26) ^ (g8 >>> 11 | g8 << 21) ^ (g8 >>> 25 | g8 << 7), cd = c6 & d6, maj = cd ^ c6 & a5 ^ da, ch = g8 & h4 ^ ~g8 & e3, t1 = f7 + s1 + ch + K6[j7 + 2] + blocks2[j7 + 2], t22 = s0 + maj, f7 = b5 + t1 << 0, b5 = t1 + t22 << 0, s0 = (b5 >>> 2 | b5 << 30) ^ (b5 >>> 13 | b5 << 19) ^ (b5 >>> 22 | b5 << 10), s1 = (f7 >>> 6 | f7 << 26) ^ (f7 >>> 11 | f7 << 21) ^ (f7 >>> 25 | f7 << 7), bc = b5 & c6, maj = bc ^ b5 & d6 ^ cd, ch = f7 & g8 ^ ~f7 & h4, t1 = e3 + s1 + ch + K6[j7 + 3] + blocks2[j7 + 3], t22 = s0 + maj, e3 = a5 + t1 << 0, a5 = t1 + t22 << 0;
-    this.h0 = this.h0 + a5 << 0, this.h1 = this.h1 + b5 << 0, this.h2 = this.h2 + c6 << 0, this.h3 = this.h3 + d6 << 0, this.h4 = this.h4 + e3 << 0, this.h5 = this.h5 + f7 << 0, this.h6 = this.h6 + g8 << 0, this.h7 = this.h7 + h4 << 0;
+    var a5 = this.h0, b4 = this.h1, c5 = this.h2, d6 = this.h3, e = this.h4, f6 = this.h5, g7 = this.h6, h3 = this.h7, blocks2 = this.blocks, j6, s0, s1, maj, t1, t22, ch, ab, da, cd, bc;
+    for (j6 = 16; j6 < 64; ++j6)
+      t1 = blocks2[j6 - 15], s0 = (t1 >>> 7 | t1 << 25) ^ (t1 >>> 18 | t1 << 14) ^ t1 >>> 3, t1 = blocks2[j6 - 2], s1 = (t1 >>> 17 | t1 << 15) ^ (t1 >>> 19 | t1 << 13) ^ t1 >>> 10, blocks2[j6] = blocks2[j6 - 16] + s0 + blocks2[j6 - 7] + s1 << 0;
+    for (bc = b4 & c5, j6 = 0; j6 < 64; j6 += 4)
+      this.first ? (this.is224 ? (ab = 300032, t1 = blocks2[0] - 1413257819, h3 = t1 - 150054599 << 0, d6 = t1 + 24177077 << 0) : (ab = 704751109, t1 = blocks2[0] - 210244248, h3 = t1 - 1521486534 << 0, d6 = t1 + 143694565 << 0), this.first = !1) : (s0 = (a5 >>> 2 | a5 << 30) ^ (a5 >>> 13 | a5 << 19) ^ (a5 >>> 22 | a5 << 10), s1 = (e >>> 6 | e << 26) ^ (e >>> 11 | e << 21) ^ (e >>> 25 | e << 7), ab = a5 & b4, maj = ab ^ a5 & c5 ^ bc, ch = e & f6 ^ ~e & g7, t1 = h3 + s1 + ch + K2[j6] + blocks2[j6], t22 = s0 + maj, h3 = d6 + t1 << 0, d6 = t1 + t22 << 0), s0 = (d6 >>> 2 | d6 << 30) ^ (d6 >>> 13 | d6 << 19) ^ (d6 >>> 22 | d6 << 10), s1 = (h3 >>> 6 | h3 << 26) ^ (h3 >>> 11 | h3 << 21) ^ (h3 >>> 25 | h3 << 7), da = d6 & a5, maj = da ^ d6 & b4 ^ ab, ch = h3 & e ^ ~h3 & f6, t1 = g7 + s1 + ch + K2[j6 + 1] + blocks2[j6 + 1], t22 = s0 + maj, g7 = c5 + t1 << 0, c5 = t1 + t22 << 0, s0 = (c5 >>> 2 | c5 << 30) ^ (c5 >>> 13 | c5 << 19) ^ (c5 >>> 22 | c5 << 10), s1 = (g7 >>> 6 | g7 << 26) ^ (g7 >>> 11 | g7 << 21) ^ (g7 >>> 25 | g7 << 7), cd = c5 & d6, maj = cd ^ c5 & a5 ^ da, ch = g7 & h3 ^ ~g7 & e, t1 = f6 + s1 + ch + K2[j6 + 2] + blocks2[j6 + 2], t22 = s0 + maj, f6 = b4 + t1 << 0, b4 = t1 + t22 << 0, s0 = (b4 >>> 2 | b4 << 30) ^ (b4 >>> 13 | b4 << 19) ^ (b4 >>> 22 | b4 << 10), s1 = (f6 >>> 6 | f6 << 26) ^ (f6 >>> 11 | f6 << 21) ^ (f6 >>> 25 | f6 << 7), bc = b4 & c5, maj = bc ^ b4 & d6 ^ cd, ch = f6 & g7 ^ ~f6 & h3, t1 = e + s1 + ch + K2[j6 + 3] + blocks2[j6 + 3], t22 = s0 + maj, e = a5 + t1 << 0, a5 = t1 + t22 << 0;
+    this.h0 = this.h0 + a5 << 0, this.h1 = this.h1 + b4 << 0, this.h2 = this.h2 + c5 << 0, this.h3 = this.h3 + d6 << 0, this.h4 = this.h4 + e << 0, this.h5 = this.h5 + f6 << 0, this.h6 = this.h6 + g7 << 0, this.h7 = this.h7 + h3 << 0;
   };
   Sha256.prototype.hex = function() {
     this.finalize();
-    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h32 >> 28 & 15] + HEX_CHARS[h32 >> 24 & 15] + HEX_CHARS[h32 >> 20 & 15] + HEX_CHARS[h32 >> 16 & 15] + HEX_CHARS[h32 >> 12 & 15] + HEX_CHARS[h32 >> 8 & 15] + HEX_CHARS[h32 >> 4 & 15] + HEX_CHARS[h32 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, hex2 = HEX_CHARS[h0 >> 28 & 15] + HEX_CHARS[h0 >> 24 & 15] + HEX_CHARS[h0 >> 20 & 15] + HEX_CHARS[h0 >> 16 & 15] + HEX_CHARS[h0 >> 12 & 15] + HEX_CHARS[h0 >> 8 & 15] + HEX_CHARS[h0 >> 4 & 15] + HEX_CHARS[h0 & 15] + HEX_CHARS[h1 >> 28 & 15] + HEX_CHARS[h1 >> 24 & 15] + HEX_CHARS[h1 >> 20 & 15] + HEX_CHARS[h1 >> 16 & 15] + HEX_CHARS[h1 >> 12 & 15] + HEX_CHARS[h1 >> 8 & 15] + HEX_CHARS[h1 >> 4 & 15] + HEX_CHARS[h1 & 15] + HEX_CHARS[h22 >> 28 & 15] + HEX_CHARS[h22 >> 24 & 15] + HEX_CHARS[h22 >> 20 & 15] + HEX_CHARS[h22 >> 16 & 15] + HEX_CHARS[h22 >> 12 & 15] + HEX_CHARS[h22 >> 8 & 15] + HEX_CHARS[h22 >> 4 & 15] + HEX_CHARS[h22 & 15] + HEX_CHARS[h3 >> 28 & 15] + HEX_CHARS[h3 >> 24 & 15] + HEX_CHARS[h3 >> 20 & 15] + HEX_CHARS[h3 >> 16 & 15] + HEX_CHARS[h3 >> 12 & 15] + HEX_CHARS[h3 >> 8 & 15] + HEX_CHARS[h3 >> 4 & 15] + HEX_CHARS[h3 & 15] + HEX_CHARS[h4 >> 28 & 15] + HEX_CHARS[h4 >> 24 & 15] + HEX_CHARS[h4 >> 20 & 15] + HEX_CHARS[h4 >> 16 & 15] + HEX_CHARS[h4 >> 12 & 15] + HEX_CHARS[h4 >> 8 & 15] + HEX_CHARS[h4 >> 4 & 15] + HEX_CHARS[h4 & 15] + HEX_CHARS[h5 >> 28 & 15] + HEX_CHARS[h5 >> 24 & 15] + HEX_CHARS[h5 >> 20 & 15] + HEX_CHARS[h5 >> 16 & 15] + HEX_CHARS[h5 >> 12 & 15] + HEX_CHARS[h5 >> 8 & 15] + HEX_CHARS[h5 >> 4 & 15] + HEX_CHARS[h5 & 15] + HEX_CHARS[h6 >> 28 & 15] + HEX_CHARS[h6 >> 24 & 15] + HEX_CHARS[h6 >> 20 & 15] + HEX_CHARS[h6 >> 16 & 15] + HEX_CHARS[h6 >> 12 & 15] + HEX_CHARS[h6 >> 8 & 15] + HEX_CHARS[h6 >> 4 & 15] + HEX_CHARS[h6 & 15];
     return this.is224 || (hex2 += HEX_CHARS[h7 >> 28 & 15] + HEX_CHARS[h7 >> 24 & 15] + HEX_CHARS[h7 >> 20 & 15] + HEX_CHARS[h7 >> 16 & 15] + HEX_CHARS[h7 >> 12 & 15] + HEX_CHARS[h7 >> 8 & 15] + HEX_CHARS[h7 >> 4 & 15] + HEX_CHARS[h7 & 15]), hex2;
   };
   Sha256.prototype.toString = Sha256.prototype.hex;
   Sha256.prototype.digest = function() {
     this.finalize();
-    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h32 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, arr = [
+    var h0 = this.h0, h1 = this.h1, h22 = this.h2, h3 = this.h3, h4 = this.h4, h5 = this.h5, h6 = this.h6, h7 = this.h7, arr = [
       h0 >> 24 & 255,
       h0 >> 16 & 255,
       h0 >> 8 & 255,
@@ -13268,10 +12476,10 @@ ${injectedCss}}
       h22 >> 16 & 255,
       h22 >> 8 & 255,
       h22 & 255,
-      h32 >> 24 & 255,
-      h32 >> 16 & 255,
-      h32 >> 8 & 255,
-      h32 & 255,
+      h3 >> 24 & 255,
+      h3 >> 16 & 255,
+      h3 >> 8 & 255,
+      h3 & 255,
       h4 >> 24 & 255,
       h4 >> 16 & 255,
       h4 >> 8 & 255,
@@ -13312,8 +12520,8 @@ ${injectedCss}}
     key.length > 64 && (key = new Sha256(is224, !0).update(key).array());
     var oKeyPad = [], iKeyPad = [];
     for (i3 = 0; i3 < 64; ++i3) {
-      var b5 = key[i3] || 0;
-      oKeyPad[i3] = 92 ^ b5, iKeyPad[i3] = 54 ^ b5;
+      var b4 = key[i3] || 0;
+      oKeyPad[i3] = 92 ^ b4, iKeyPad[i3] = 54 ^ b4;
     }
     Sha256.call(this, is224, sharedMemory), this.update(iKeyPad), this.oKeyPad = oKeyPad, this.inner = !0, this.sharedMemory = sharedMemory;
   }
@@ -13338,7 +12546,7 @@ ${injectedCss}}
     return Promise.resolve(sha256Fn(message));
   }
   function hex(hashBuffer) {
-    return Array.from(new Uint8Array(hashBuffer)).map((b5) => b5.toString(16).padStart(2, "0")).join(
+    return Array.from(new Uint8Array(hashBuffer)).map((b4) => b4.toString(16).padStart(2, "0")).join(
       ""
     );
   }
@@ -13799,9 +13007,9 @@ ${injectedCss}}
   }
   async function requestTranslation2(API_URL2, text, targetLanguage, sourceLanguage, identifier, alternatives, formalityTone) {
     let id = generateId(), postData = initData(sourceLanguage, targetLanguage), textObjList = [];
-    text.forEach((t5) => {
+    text.forEach((t4) => {
       textObjList.push({
-        text: t5,
+        text: t4,
         requestAlternatives: 3
       });
     }), postData.id = id, postData.params.texts = textObjList, postData.params.timestamp = generateTimestamp(text);
@@ -13816,8 +13024,8 @@ ${injectedCss}}
       to: targetLanguage,
       text: []
     };
-    return response.result.texts.forEach((t5) => {
-      finalResult.text.push(t5.text);
+    return response.result.texts.forEach((t4) => {
+      finalResult.text.push(t4.text);
     }), finalResult;
   }
   async function translate(API_URL2, text, targetLanguage, sourceLanguage = AUTO, identifier, alternatives, formalityTone) {
@@ -13876,10 +13084,10 @@ ${injectedCss}}
         to: _D.langMapReverse.get(result.to)
       };
     }
-  }, D10 = _D;
+  }, D5 = _D;
   /** Translator lang to custom lang */
-  D10.langMap = new Map(langMap6), /** Custom lang to translator lang */
-  D10.langMapReverse = new Map(
+  D5.langMap = new Map(langMap6), /** Custom lang to translator lang */
+  D5.langMapReverse = new Map(
     langMap6.map(([translatorLang, lang]) => [lang, translatorLang])
   );
 
@@ -14034,13 +13242,11 @@ ${injectedCss}}
   var Mock = class extends Translation {
     constructor() {
       super(...arguments);
-      this.isSupportList = !1;
-      this.maxTextLength = 1e3;
+      this.isSupportList = !0;
+      this.maxTextLength = 5e3;
     }
     async translate(payload) {
-      let { text } = payload;
-      await mockRequest(), await delay(5);
-      let startSpaceLength = text.match(/^\s*/)[0].length;
+      let { text } = payload, startSpaceLength = text.match(/^\s*/)[0].length;
       return {
         text: text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6),
         from: payload.from,
@@ -14060,8 +13266,7 @@ ${injectedCss}}
         to,
         text: textList.map((text) => {
           let startSpaceLength = text.match(/^\s*/)[0].length;
-          return text.slice(0, startSpaceLength) + `\u6A21
-\u62DF\uFF1A` + text.slice(startSpaceLength, -6);
+          return text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
         })
       };
     }
@@ -14136,8 +13341,8 @@ ${injectedCss}}
     throttleRequestMap.set(key, promise);
     try {
       return await promise;
-    } catch (e3) {
-      throw e3;
+    } catch (e) {
+      throw e;
     } finally {
       setTimeout(() => {
         throttleRequestMap.delete(key);
@@ -14153,8 +13358,8 @@ ${injectedCss}}
       if (channel)
         try {
           return await channel.ask("throttleRequest", options2);
-        } catch (e3) {
-          throw log_default.error("can not comunicate with root frame, use strict limiter", e3), e3;
+        } catch (e) {
+          throw log_default.error("can not comunicate with root frame, use strict limiter", e), e;
         }
       else
         return rawThrottleRequest(options2);
@@ -14212,7 +13417,7 @@ ${injectedCss}}
         globalStateValue && globalStateValue[immersiveTranslateGlobalConfigStorageKey] && (globalState = globalStateValue[immersiveTranslateGlobalConfigStorageKey]);
       }
       if (this.authKey.startsWith("immersive_")) {
-        let deeplInstance = new Q6(
+        let deeplInstance = new Q2(
           this.authKey,
           {
             state: globalState,
@@ -14254,7 +13459,7 @@ ${injectedCss}}
       this.authKey.endsWith(":im") ? deeplEndpoint = this.immersiveTranslateApiUrl : this.authKey.endsWith(":fx") || (deeplEndpoint = this.proApiUrl);
       let response;
       if (this.authKey.startsWith("immersive_")) {
-        let deeplInstance = new Q6(
+        let deeplInstance = new Q2(
           this.authKey,
           {
             state: globalState,
@@ -14469,7 +13674,7 @@ ${injectedCss}}
         to: langMap11.get(to) || to
       };
       from !== "auto" && (paramsObj.from = langMap11.get(from) || from);
-      let params = new URLSearchParams(paramsObj), bodyStr = JSON.stringify(text.map((t5) => ({ text: t5 }))), options2 = {
+      let params = new URLSearchParams(paramsObj), bodyStr = JSON.stringify(text.map((t4) => ({ text: t4 }))), options2 = {
         url: "https://api.cognitive.microsofttranslator.com/translate?" + params.toString(),
         retry: 2,
         method: "POST",
@@ -14679,18 +13884,73 @@ ${injectedCss}}
     constructor(serviceConfig, generalConfig, options2) {
       super(serviceConfig, generalConfig, options2);
       this.APIKEY = "";
+      // api key list
       this.isSupportList = !1;
-      this.maxTextLength = 1e3;
-      this.maxTextGroupLength = 1;
-      this.prompt = `translate to {{to}}:
-
-{{text}} =>`;
-      this.model = "text-davinci-003";
+      this.maxTextLength = 1300;
+      this.maxTextGroupLength = 100;
+      this.prompt = "Translate the following text to {{to}}: ```\n{{text}}\n```";
+      this.model = "gpt-3.5-turbo";
+      this.apiUrl = "https://api.openai.com/v1/chat/completions";
       if (!serviceConfig || !serviceConfig.APIKEY)
         throw new Error("APIKEY are required");
-      this.APIKEY = serviceConfig.APIKEY?.trim(), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
+      this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
     }
-    async translate(payload) {
+    translate(payload) {
+      return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
+    }
+    /**
+     * get random api key
+     * @returns random api key
+     */
+    getRandomKey() {
+      let index = Math.floor(Math.random() * this.apiKeys.length);
+      return this.apiKeys[index];
+    }
+    async translate3_5(payload) {
+      let { text, from, to } = payload;
+      if (text.length === 0)
+        return {
+          from,
+          to,
+          text: ""
+        };
+      let remoteFrom = langMap13.get(from) || from, remoteTo = langMap13.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, langMap13.get(to) || to).replace(
+        /{{text}}/g,
+        text
+      ).replace(/{{from}}/g, langMap13.get(from) || from), options2 = {
+        url: this.apiUrl,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + this.getRandomKey()
+        },
+        body: JSON.stringify({
+          model: this.model,
+          temperature: 0,
+          max_tokens: 2048,
+          messages: [
+            {
+              role: "system",
+              content: `You are a helpful assistant that translates ${remoteFrom} to ${remoteTo}.`
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ]
+        })
+      }, response = await request2(options2);
+      if (response && response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
+        let text2 = response.choices[0].message.content.trim();
+        return {
+          from,
+          to,
+          text: text2
+        };
+      } else
+        throw new Error("server response invalid: " + JSON.stringify(response));
+    }
+    async translate3(payload) {
       let { text, from, to } = payload;
       if (text.length === 0)
         return {
@@ -14703,7 +13963,6 @@ ${injectedCss}}
         text
       ).replace(/{{from}}/g, langMap13.get(from) || from), options2 = {
         url: "https://api.openai.com/v1/completions",
-        retry: 2,
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -14818,9 +14077,9 @@ ${injectedCss}}
     async stringToSign(datetime) {
       let parts = [];
       parts.push(constant.algorithm), parts.push(datetime), parts.push(this.credentialString(datetime));
-      let x6 = await this.canonicalString();
+      let x4 = await this.canonicalString();
       return parts.push(
-        await this.hexEncodedHash(x6)
+        await this.hexEncodedHash(x4)
       ), parts.join(`
 `);
     }
@@ -14836,7 +14095,7 @@ ${injectedCss}}
       let headers3 = [];
       Object.keys(this.request.headers).forEach((key) => {
         headers3.push([key, this.request.headers[key]]);
-      }), headers3.sort((a5, b5) => a5[0].toLowerCase() < b5[0].toLowerCase() ? -1 : 1);
+      }), headers3.sort((a5, b4) => a5[0].toLowerCase() < b4[0].toLowerCase() ? -1 : 1);
       let parts = [];
       return headers3.forEach((item) => {
         let key = item[0].toLowerCase();
@@ -15416,8 +14675,8 @@ ${injectedCss}}
       ] = JSON.parse(
         body.match(/params_AbusePreventionHelper\s?=\s?([^\]]+\])/)[1]
       );
-    } catch (e3) {
-      throw console.error("failed to fetch global config", e3), e3;
+    } catch (e) {
+      throw console.error("failed to fetch global config", e), e;
     }
     return globalConfig = {
       subdomain,
@@ -15507,7 +14766,7 @@ ${injectedCss}}
     constructor() {
       super(...arguments);
       this.isSupportList = !1;
-      this.maxTextLength = 1e3;
+      this.maxTextLength = 800;
     }
     async translate(payload) {
       let { text, from, to } = payload;
@@ -15694,9 +14953,9 @@ ${injectedCss}}
   ], langMap21 = new Map(rawLangMap14), langMapReverse7 = new Map(
     rawLangMap14.map(([translatorLang, lang]) => [lang, translatorLang])
   );
-  function truncate(q7) {
-    let len = q7.length;
-    return len <= 20 ? q7 : q7.substring(0, 10) + len + q7.substring(len - 10, len);
+  function truncate(q6) {
+    let len = q6.length;
+    return len <= 20 ? q6 : q6.substring(0, 10) + len + q6.substring(len - 10, len);
   }
   var Youdao = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
@@ -15728,7 +14987,10 @@ ${injectedCss}}
             "Content-Type": "application/x-www-form-urlencoded"
           }
         }
-      ), l5 = result.l, [remoteFrom, _3] = l5.split("2");
+      );
+      if (!result.translation)
+        throw new Error(JSON.stringify(result));
+      let l5 = result.l, [remoteFrom, _3] = l5.split("2");
       return {
         text: result.translation.join(`
 `),
@@ -15816,8 +15078,8 @@ ${injectedCss}}
     openl: openl_default,
     youdao: youdao_default,
     you: you_default,
-    d: D10,
-    dpro: D10,
+    d: D5,
+    dpro: D5,
     deeplx: Deeplx,
     niu: niu_default,
     azure: azure_default,
@@ -15855,7 +15117,7 @@ ${injectedCss}}
         translationService: defaultTranslationEngine
       }
     ), defaultRateLimit = translator.getDefaultRateLimit();
-    defaultRateLimit && serviceConfig && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
+    defaultRateLimit && serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
       defaultTranslationEngine,
       serviceConfig
     ), await translator.init();
@@ -15865,7 +15127,12 @@ ${injectedCss}}
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
+    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+    defaultTranslationEngine === "openai" && (payload.sentences = payload.sentences.map((sentence) => ({
+      ...sentence,
+      from: "auto"
+    })));
+    let noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
     if (config.cache)
@@ -15884,8 +15151,8 @@ ${injectedCss}}
             }),
             1e3
           );
-        } catch (e3) {
-          log_default.warn("query cache DB error, but it's ok", e3);
+        } catch (e) {
+          log_default.warn("query cache DB error, but it's ok", e);
         }
         if (res) {
           let result = {
@@ -15910,38 +15177,38 @@ ${injectedCss}}
           translationService: defaultTranslationEngine
         }
       ), await translator.init();
-    } catch (e3) {
+    } catch (e) {
       if (everySentenceCallback)
         for (let sentence of noCacheSentences)
-          everySentenceCallback(e3, null, sentence);
-      throw e3;
+          everySentenceCallback(e, null, sentence);
+      throw e;
     }
     let noCacheResult = await translator.multipleTranslate(
       {
         sentences: noCacheSentences
       },
       serviceConfig,
-      (err, a5, b5) => {
-        if (everySentenceCallback && (everySentenceCallback(err, a5, b5), !err && a5 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
+      (err, a5, b4) => {
+        if (everySentenceCallback && (everySentenceCallback(err, a5, b4), !err && a5 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
           let cacheServiceKey = defaultTranslationEngine;
           defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
             setDbStore({
               translatedText: a5.text,
-              from: b5.from,
-              to: b5.to,
+              from: b4.from,
+              to: b4.to,
               detectedFrom: a5.from,
-              key: md5(b5.text),
+              key: md5(b4.text),
               service: cacheServiceKey
             }),
             3e3
-          ).catch((e3) => {
-            log_default.warn("set cache DB error", e3);
+          ).catch((e) => {
+            log_default.warn("set cache DB error", e);
           });
         }
       }
     );
     for (let sentence of noCacheResult.sentences) {
-      let index = finalResult.sentences.findIndex((s7) => !s7);
+      let index = finalResult.sentences.findIndex((s6) => !s6);
       if (index === -1)
         throw new CommonError("translateFailed", "can not match the result");
       finalResult.sentences[index] = sentence;
@@ -15976,7 +15243,11 @@ ${injectedCss}}
           return !1;
         } else {
           let scheme, rawMatch2 = match;
-          match.includes("://") ? scheme = match.split("://")[0] : (scheme = "*", match = "https://" + match);
+          if (match.includes("://")) {
+            let parts = match.split("://");
+            scheme = parts[0], scheme === "*" && parts.length > 1 && (scheme = "*", match = "https://" + parts[1]);
+          } else
+            scheme = "*", match = "https://" + match;
           let validUrlMatch = match.replace(
             /\*/g,
             placeholder
@@ -16090,6 +15361,7 @@ ${injectedCss}}
         translationStartMode,
         immediateTranslationTextCount: config.immediateTranslationTextCount,
         isAutoTranslate: !1,
+        translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
         translationTheme: defaultTheme
@@ -16098,6 +15370,7 @@ ${injectedCss}}
         translationStartMode,
         immediateTranslationTextCount: config.immediateTranslationTextCount,
         isAutoTranslate: !1,
+        translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
         translationTheme: defaultTheme
@@ -16108,11 +15381,11 @@ ${injectedCss}}
       (selector) => selector !== ".btn"
     ));
     let translationServiceConfig = config.translationServices[ctx.translationService] || {};
-    translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl);
+    translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
     let buildinImmediateTranslationTextCount = buildinConfig.immediateTranslationTextCount;
     config.immediateTranslationTextCount !== buildinImmediateTranslationTextCount && (ctx.state.immediateTranslationTextCount = config.immediateTranslationTextCount);
     let rules = config.rules, rule;
-    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
+    globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : globalThis.immersiveTranslateEbookViewer ? rule = rules.find((rule2) => rule2.isEbook) : globalThis.immersiveTranslateEbookBuilder ? rule = rules.find((rule2) => rule2.isEbookBuilder) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
     let generalRule = config.generalRule;
     if (rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => !ctx.rule.bodyTranslateTags.includes(tag) && !ctx.rule.forceTranslateTags.includes(tag))), ctx.rule.mainFrameSelector) {
       let mainFrame = document.querySelector(ctx.rule.mainFrameSelector);
@@ -16134,10 +15407,33 @@ ${injectedCss}}
   }
 
   // dom/translate_page.ts
-  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, debounceTranslateCurrentQueue = se(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
-    translateNewDynamicNodes,
-    200
-  ), env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, throttleMap = {
+    300: se(
+      translateCurrentQueue,
+      300
+    ),
+    1e3: se(
+      translateCurrentQueue,
+      1e3
+    ),
+    3e3: se(
+      translateCurrentQueue,
+      3e3
+    )
+  }, debounceMap = {
+    300: debounce(
+      translateNewDynamicNodes,
+      300
+    ),
+    1e3: debounce(
+      translateNewDynamicNodes,
+      1e3
+    ),
+    3e3: debounce(
+      translateNewDynamicNodes,
+      3e3
+    )
+  }, env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     if (getPageStatus() === "Original") {
       let ctx = await getGlobalContext(getRealUrl(), {});
@@ -16188,7 +15484,8 @@ ${injectedCss}}
     }
   }
   function restorePage() {
-    clean();
+    if (clean(), !globalContext || !globalContext.mainFrame)
+      return;
     let allFrames = [
       globalContext.mainFrame,
       ...mutationObserverMap.keys()
@@ -16272,8 +15569,8 @@ ${injectedCss}}
           allContainers.push(...containers);
         }
         await translateContainers(allContainers, rootFrame, ctx, !0);
-      } catch (e3) {
-        log_default.error(`translateNewDynamicNodes error: ${e3.message}`);
+      } catch (e) {
+        log_default.error(`translateNewDynamicNodes error: ${e.message}`);
       }
   }
   function translationParagraph(visibleParagraph, ctx) {
@@ -16288,7 +15585,7 @@ ${injectedCss}}
     if (visibleParagraph.isPdf) {
       let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
       isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-      let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
+      let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement(ctx.rule.targetWrapperTag);
       realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
       let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
         let left = getAttribute(current, sourceElementLeft);
@@ -16307,13 +15604,16 @@ ${injectedCss}}
         visibleParagraph.elements[0],
         ctx.rule
       ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-      let targetTranslationWrapper = document.createElement("span");
+      let { rule } = ctx, targetTranslationWrapper = document.createElement(
+        rule.targetWrapperTag
+      );
       targetTranslationWrapper.classList.add(
         "notranslate",
         translationTargetElementWrapperClass
       ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
       let loadingHtml = getLoadingHTML(
-        ctx.config.loadingTheme
+        ctx.config.loadingTheme,
+        ctx.rule
       );
       if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
         let innerElement = getTheLastTextNodeParentElement(lastElement);
@@ -16323,10 +15623,10 @@ ${injectedCss}}
       else
         throw new Error("not support position");
     }
-    currentParagraphIds.push(id), debounceTranslateCurrentQueue(ctx);
+    currentParagraphIds.push(id), throttleMap[ctx.state.translationDebounce](ctx);
   }
   function addParagraphToQueue(paragraph, ctx) {
-    ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
+    ctx.state.translationStartMode === "dynamic" && !ctx.rule.isEbookBuilder && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
       ctx.rule.visibleDelay > 0 ? setTimeout(() => {
         translationParagraph(visibleParagraph, ctx);
       }, ctx.rule.visibleDelay) : translationParagraph(visibleParagraph, ctx);
@@ -16336,7 +15636,9 @@ ${injectedCss}}
     if (pageStatus === "Translating")
       return;
     let isInIframe = getIsInIframe();
-    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), document.querySelectorAll("iframe").forEach((frame) => {
+      isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
+    }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;
@@ -16352,8 +15654,8 @@ ${injectedCss}}
     }
     ctx.state.isAutoTranslate = !0;
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
-      log_default.warn("init translation engine error", e3);
+    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e) => {
+      log_default.warn("init translation engine error", e);
     })), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
       currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
         observer.disconnect();
@@ -16377,16 +15679,27 @@ ${injectedCss}}
         let containerCount = await translateFrame(rootFrame, ctx);
         containersCount += containerCount;
       }
-      containersCount === 0 && setPageTranslatedStatus("Translated"), ctx.rule.isTranslateTitle && !isInIframe && (translateTitle(ctx).catch((e3) => {
+      containersCount === 0 && setPageTranslatedStatus("Translated"), ctx.rule.isTranslateTitle && !isInIframe && (translateTitle(ctx).catch((e) => {
         log_default.error(
           "translateTitle error:",
-          e3.name,
-          e3.message,
-          e3.details || ""
+          e.name,
+          e.message,
+          e.details || ""
         );
       }), enableTitleMutationObserver(ctx));
-    } catch (e3) {
-      setPageTranslatedStatus("Error"), log_default.error(e3);
+      let paragraphEntities2 = getParagraphEntities();
+      document.dispatchEvent(
+        new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+          detail: JSON.stringify({
+            type: "totalParagraphsCount",
+            payload: {
+              totalParagraphsCount: paragraphEntities2.size
+            }
+          })
+        })
+      );
+    } catch (e) {
+      setPageTranslatedStatus("Error"), log_default.error(e);
     }
   }
   async function translateFrame(rootFrame, ctx) {
@@ -16435,7 +15748,6 @@ ${injectedCss}}
   }
   async function translateToThePageEndImmediately() {
     globalContext = await getGlobalContext(getRealUrl(), {
-      translationArea: "body",
       translationStartMode: "immediate"
     }), await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
   }
@@ -16463,18 +15775,21 @@ ${injectedCss}}
         fromByClient: currentLang
       }, ctx);
       result && result.text && (document.title = originalPageTitle + titleDelimiters + result.text);
-    } catch (e3) {
-      throw e3;
+    } catch (e) {
+      throw e;
     }
   }
   function setLoadingToParagraph(rootFrame, id, ctx) {
     let element = rootFrame.querySelector(
       "#" + translationTargetElementWrapperClass + "-" + id
     );
-    element && (element.innerHTML = getLoadingHTML(ctx.config.loadingTheme));
+    element && (element.innerHTML = getLoadingHTML(
+      ctx.config.loadingTheme,
+      ctx.rule
+    ));
   }
-  function getLoadingHTML(theme) {
-    return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
+  function getLoadingHTML(theme, rule) {
+    return `&#160;<${rule.targetWrapperTag} class="${brandId}-loading-${theme} notranslate"></${rule.targetWrapperTag}>`;
   }
   async function translateContainers(containers, rootFrame, ctx, isDynamic) {
     let { rule } = ctx;
@@ -16517,37 +15832,56 @@ ${injectedCss}}
       addParagraphToQueue(paragraph, ctx);
     setPageTranslatedStatus("Translated");
   }
-  async function translateParagraphById(id) {
-    let paragraph = getParagraph(id);
-    if (!paragraph)
-      throw new Error("paragraph not found");
-    let ctx = await getGlobalContext(getRealUrl(), {});
-    setLoadingToParagraph(paragraph.rootFrame, id, ctx);
-    let sentence = {
-      id: paragraph.id,
-      text: paragraph.text,
-      from: paragraph.languageByLocal,
-      fromByClient: paragraph.languageByClient,
-      to: ctx.targetLanguage,
-      url: ctx.encryptedUrl
+  async function retryFailedParagraphs() {
+    let allParagraphEntities = getParagraphEntities(), ids = [];
+    for (let [id, paragraph] of allParagraphEntities)
+      paragraph.state === "Error" && ids.push(id);
+    let currentParagraphLang = "auto", ctx = await getGlobalContext(getRealUrl(), {});
+    ctx.state.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
+    let payload = {
+      sentences: ids.filter((id) => getParagraph(id)).map((id) => {
+        let paragraph = getParagraph(id), from = paragraph.languageByLocal;
+        return from === "auto" && (from = currentParagraphLang), setLoadingToParagraph(paragraph.rootFrame, id, ctx), {
+          id: paragraph.id,
+          url: ctx.encryptedUrl,
+          text: paragraph.text,
+          from,
+          fromByClient: paragraph.languageByClient,
+          to: ctx.targetLanguage
+        };
+      })
     };
-    try {
-      let result = await translateSingleSentence(sentence, ctx);
-      onParagraphTranslated(null, result, sentence, ctx);
-    } catch (e3) {
-      onParagraphTranslated(e3, null, sentence, ctx);
+    if (payload.sentences.length > 0) {
+      setPageTranslatedStatus("Translating");
+      try {
+        await translateMultipleSentences(
+          payload,
+          ctx,
+          (err, translatedSentence, sentenceRequest) => {
+            onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx);
+          }
+        );
+      } catch (e) {
+        setPageTranslatedStatus("Error"), log_default.error(
+          "translateCurrentQueue error",
+          e.name,
+          e.message,
+          e.details || " "
+        );
+        return;
+      }
     }
   }
   function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
-    let paragraphWithState = getParagraph(sentenceRequest.id);
+    let translatedOk = !1, paragraphWithState = getParagraph(sentenceRequest.id);
     if (paragraphWithState && (err || !translatedSentence)) {
       err || (log_default.error("translate error", sentenceRequest, err, translatedSentence), err = new Error("no response from server"));
-      let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+      let { rule } = ctx, wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
         `#${translationTargetElementWrapperClass}-${wrapperId}`
       ), errorMessage = err.message.replaceAll(`
 `, "");
       errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-      let errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+      let errorHtml = `<${rule.targetWrapperTag} class="${brandId}-error notranslate"> <${rule.targetWrapperTag} class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></${rule.targetWrapperTag}> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></${rule.targetWrapperTag}>`;
       wrapper && (wrapper.innerHTML = errorHtml);
     } else {
       let paragraph = getParagraph(sentenceRequest.id);
@@ -16575,11 +15909,21 @@ ${injectedCss}}
               sourceElementTranslatedMarkAttributeName,
               "1"
             );
-          });
+          }), translatedOk = !0;
         }
       } else
         log_default.error("paragraph not found", sentenceRequest.id);
     }
+    document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+        detail: JSON.stringify({
+          type: "paragraphTranslated",
+          payload: {
+            ok: translatedOk
+          }
+        })
+      })
+    );
   }
   async function translateCurrentQueue(ctx) {
     if (currentParagraphIds.length === 0)
@@ -16611,12 +15955,12 @@ ${injectedCss}}
             onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx);
           }
         );
-      } catch (e3) {
+      } catch (e) {
         setPageTranslatedStatus("Error"), log_default.error(
           "translateCurrentQueue error",
-          e3.name,
-          e3.message,
-          e3.details || " "
+          e.name,
+          e.message,
+          e.details || " "
         );
         return;
       }
@@ -16650,15 +15994,15 @@ ${injectedCss}}
                 ), translateFrame(
                   element.contentDocument.body,
                   ctx
-                ).catch((e3) => {
+                ).catch((e) => {
                   log_default.error(
                     "translateFrame error",
-                    e3.details || " ",
-                    e3
+                    e.details || " ",
+                    e
                   );
                 });
               }, ctx.rule.urlChangeDelay);
-            else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
+            else if (mutationElementIsBlock(rule, element) || !inlineAndIgnoreAndTextTags.includes(
               element.nodeName
             )) {
               if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
@@ -16667,8 +16011,24 @@ ${injectedCss}}
                 currentNewDynamicElements.push({
                   element,
                   rootFrame
-                }), debounceTranslateNewDynamicNodes(ctx);
-              }, rule.mutationChangeDelay || 0));
+                }), debounceMap[ctx.state.translationDebounce](ctx);
+              }, rule.mutationChangeDelay || 0)), element && element.querySelectorAll && element.querySelectorAll("iframe").forEach((inlineIframe) => {
+                isInlineIframe(inlineIframe) && setTimeout(() => {
+                  injectCssToFrame(
+                    inlineIframe.contentDocument,
+                    ctx
+                  ), translateFrame(
+                    inlineIframe.contentDocument.body,
+                    ctx
+                  ).catch((e) => {
+                    log_default.error(
+                      "translateFrame error",
+                      e.details || " ",
+                      e
+                    );
+                  });
+                }, ctx.rule.urlChangeDelay);
+              });
             }
           }
         });
@@ -16682,12 +16042,12 @@ ${injectedCss}}
   function enableTitleMutationObserver(ctx) {
     let titleElement = document.querySelector("title");
     titleElement && (titleMutationObserver = new MutationObserver(function(mutations) {
-      mutations.length > 0 && (mutations[0].target.text.includes(titleDelimiters) || translateTitle(ctx).catch((e3) => {
+      mutations.length > 0 && (mutations[0].target.text.includes(titleDelimiters) || translateTitle(ctx).catch((e) => {
         log_default.error(
           "translateTitle error:",
-          e3.name,
-          e3.message,
-          e3.details || ""
+          e.name,
+          e.message,
+          e.details || ""
         );
       }));
     }), titleMutationObserver.observe(titleElement, {
@@ -16696,7 +16056,7 @@ ${injectedCss}}
       childList: !0
     }));
   }
-  function mutationElementIsInline(rule, element) {
+  function mutationElementIsBlock(rule, element) {
     if (rule.extraBlockSelectors) {
       for (let match of rule.extraBlockSelectors)
         if (element.matches(match))
@@ -16709,21 +16069,33 @@ ${injectedCss}}
     ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
       ctx.rule.waitForSelectors,
       ctx.rule.waitForSelectorsTimeout
-    );
+    ), ctx.rule.globalMeta && Object.keys(ctx.rule.globalMeta).forEach((key) => {
+      let meta = document.createElement("meta");
+      meta.name = key, meta.content = ctx.rule.globalMeta[key], document.head.appendChild(meta);
+    });
     let lang = ctx.sourceLanguage;
-    lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
-      text: getMainText(ctx.mainFrame).slice(0, 1e3)
-    }) : isInIframe ? lang = await detectLanguage({
-      text: getMainText(ctx.mainFrame).slice(0, 1e3)
-    }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
+    if (lang === "auto") {
+      if (!isMonkey())
+        isInIframe ? lang = await detectLanguage({
+          text: getMainText(ctx.mainFrame).slice(0, 1e3)
+        }) : lang = await detectTabLanguage();
+      else {
+        let mainText = "";
+        ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
+          text: mainText
+        });
+      }
+      lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
+    } else
+      setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate)
+    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
       globalContext.state.isAutoTranslate = !0, await translatePage(globalContext);
     else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
       if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
         return;
-      ctx.config && ctx.config.translationServices && ctx.config.translationServices.deepl && ctx.config.translationServices.deepl.authKey && typeof ctx.config.translationServices.deepl.authKey == "string" && ctx.config.translationServices.deepl.authKey.startsWith("immersive_") && (isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
-        log_default.warn("init translation engine error", e3);
+      ctx.config && ctx.config.translationServices && ctx.config.translationServices.deepl && ctx.config.translationServices.deepl.authKey && typeof ctx.config.translationServices.deepl.authKey == "string" && ctx.config.translationServices.deepl.authKey.startsWith("immersive_") && (isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e) => {
+        log_default.warn("init translation engine error", e);
       })));
     }
   }
@@ -16795,7 +16167,7 @@ ${injectedCss}}
     } while (keys.length);
     return localeData;
   }
-  function t3(data, key, lang, fallbackLang, params) {
+  function t2(data, key, lang, fallbackLang, params) {
     if (!data.hasOwnProperty(lang))
       return key;
     let value = getValue(data, lang, key);
@@ -16850,8 +16222,8 @@ ${injectedCss}}
       ...translations["zh-TW"]
     }
   }, locales_default = finalTranslations;
-  function t4(key, interfaceLanguage, params) {
-    return t3(
+  function t3(key, interfaceLanguage, params) {
+    return t2(
       finalTranslations,
       key,
       interfaceLanguage,
@@ -16860,7 +16232,7 @@ ${injectedCss}}
     );
   }
   var getLanguageName = (lang, interfaceLanguage, useOriginal) => {
-    let translation = t3(
+    let translation = t2(
       finalTranslations,
       `languages.${lang}`,
       interfaceLanguage,
@@ -16868,6 +16240,32 @@ ${injectedCss}}
     );
     return useOriginal ? langMap2[lang] || lang : translation !== `languages.${lang}` ? translation : langMap2[lang];
   };
+
+  // userscript_message.ts
+  function sendMessageToContent(request3) {
+    asyncMessageHandler(request3, {
+      // @ts-ignore: it's ok
+      tab: {
+        id: 1,
+        url: "https://www.fake.com",
+        active: !0
+      }
+    }).catch((e) => {
+      log_default.error("send content message request failed", request3, e);
+    }), document.querySelectorAll("iframe").forEach((iframe) => {
+      iframe.contentWindow && iframe.contentWindow.postMessage(
+        {
+          author: iframeMessageIdentifier,
+          payload: request3
+        },
+        "*"
+      );
+    });
+    let event = new CustomEvent(userscriptCommandEventName, {
+      detail: request3
+    });
+    globalThis.document.dispatchEvent(event);
+  }
 
   // content_dom_listeners.ts
   var throttleToggleTranslatePage = se(() => {
@@ -16888,16 +16286,29 @@ ${injectedCss}}
     globalThis.document.dispatchEvent(event);
   }, 200);
   async function setupDomListeners(ctx) {
-    if (document.addEventListener("click", (e3) => {
-      let target = e3.target, action = target.getAttribute("data-immersive-translate-action");
-      if (action && action === "retry") {
-        let paragraphId = target.getAttribute(
-          "data-immersive-translate-paragraph-id"
-        );
-        paragraphId && translateParagraphById(Number(paragraphId));
+    if (document.addEventListener("immersiveTranslateEbookLoaded", () => {
+      setTimeout(() => {
+        initPage();
+      }, 10);
+    }), document.addEventListener(
+      documentMessageTypeIdentifierForThirdPartyTell,
+      (e) => {
+        let event = e;
+        if (log_default.debug("receive third party message", event), event && event.detail)
+          try {
+            let detailObj = JSON.parse(event.detail);
+            detailObj && detailObj.type && detailObj.type === "retryFailedParagraphs" && sendMessageToContent({
+              method: "retryFailedParagraphs"
+            });
+          } catch (e2) {
+            log_default.warn("parse message error", e2);
+          }
       }
-    }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e3) => {
-      e3.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e3.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
+    ), document.addEventListener("click", (e) => {
+      let action = e.target.getAttribute("data-immersive-translate-action");
+      action && action === "retry" && retryFailedParagraphs();
+    }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e) => {
+      e.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
     }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
       event && event.data && event.data.payload && event.data.author === iframeMessageIdentifier && asyncMessageHandler(event.data.payload, {
         // @ts-ignore: it's ok
@@ -16917,8 +16328,8 @@ ${injectedCss}}
   }
 
   // utils/compare_version.ts
-  function isAVersionGreaterOrEqualWithB(a5, b5) {
-    return a5.localeCompare(b5, void 0, {
+  function isAVersionGreaterOrEqualWithB(a5, b4) {
+    return a5.localeCompare(b4, void 0, {
       numeric: !0,
       sensitivity: "base"
     }) >= 0;
@@ -16934,8 +16345,8 @@ ${injectedCss}}
       ), await browserAPI.storage.local.set({
         [lastRunTimeStorageKey]: now.toISOString()
       }), await syncRules(), isMonkey() || await autoSyncLatestConfig();
-    } catch (e3) {
-      log_default.error("run cron task failed", e3);
+    } catch (e) {
+      log_default.error("run cron task failed", e);
     }
   }
   async function checkCronAndRunOnce() {
@@ -16966,8 +16377,8 @@ ${injectedCss}}
       )) : log_default.debug(`no need to sync rules, latest: ${localConfigUpdatedAt}`) : log_default.info(
         `local version is too old, please update to ${remoteMinVersion} or later`
       );
-    } catch (e3) {
-      log_default.error("sync rules error: ", e3);
+    } catch (e) {
+      log_default.error("sync rules error: ", e);
     }
   }
 
@@ -17000,12 +16411,12 @@ ${injectedCss}}
       pageReadyElement.value = "true", pageReadyElement.dispatchEvent(new Event("change"));
     }, 100);
   }
-  async function answerMessage(e3, fn) {
+  async function answerMessage(e, fn) {
     let detail;
     try {
-      detail = JSON.parse(e3.detail);
-    } catch (e4) {
-      log_default.error("parse detail failed", e4);
+      detail = JSON.parse(e.detail);
+    } catch (e2) {
+      log_default.error("parse detail failed", e2);
       return;
     }
     let id = detail.id || "default";
@@ -17023,12 +16434,12 @@ ${injectedCss}}
           })
         })
       );
-    } catch (e4) {
+    } catch (e2) {
       let message = {
         ok: !1,
-        errorName: e4.name,
-        errorMessage: e4.message,
-        errorDetails: e4.details || e4.detail
+        errorName: e2.name,
+        errorMessage: e2.message,
+        errorDetails: e2.details || e2.detail
       };
       document.dispatchEvent(
         new CustomEvent(documentMessageTypeIdentifierForHandler, {
@@ -17042,14 +16453,14 @@ ${injectedCss}}
     }
   }
   function initOther() {
-    document.addEventListener(documentMessageTypeIdentifierForAsk, (e3) => {
-      let event = e3;
+    document.addEventListener(documentMessageTypeIdentifierForAsk, (e) => {
+      let event = e;
       if (event && event.detail) {
         let detail;
         try {
           detail = JSON.parse(event.detail);
-        } catch (e4) {
-          log_default.error("parse detail failed", e4);
+        } catch (e2) {
+          log_default.error("parse detail failed", e2);
           return;
         }
         detail.type === "ask" && detail.method === "request" && answerMessage(event, request2);
@@ -17074,8 +16485,8 @@ ${injectedCss}}
           messageObj && messageObj.method === "removeStorageKey" && messageObj.data && messageObj.data.area && messageObj.data.keys && browserAPI.storage[messageObj.data.area].remove(
             messageObj.data.keys
           );
-        } catch (e3) {
-          log_default.error("parse message error", e3);
+        } catch (e) {
+          log_default.error("parse message error", e);
         }
       }
     );
@@ -17093,8 +16504,8 @@ ${injectedCss}}
         try {
           let storageObj = JSON.parse(event.target.value);
           browserAPI.storage[area].set(storageObj);
-        } catch (e3) {
-          log_default.error("save to storage error", e3);
+        } catch (e) {
+          log_default.error("save to storage error", e);
         }
       });
     } else {
@@ -17103,43 +16514,442 @@ ${injectedCss}}
     }
   }
 
-  // userscript_message.ts
-  function sendMessageToContent(request3) {
-    asyncMessageHandler(request3, {
-      // @ts-ignore: it's ok
-      tab: {
-        id: 1,
-        url: "https://www.fake.com",
-        active: !0
-      }
-    }).catch((e3) => {
-      log_default.error("send content message request failed", request3, e3);
-    }), document.querySelectorAll("iframe").forEach((iframe) => {
-      iframe.contentWindow && iframe.contentWindow.postMessage(
-        {
-          author: iframeMessageIdentifier,
-          payload: request3
-        },
-        "*"
-      );
-    });
-    let event = new CustomEvent(userscriptCommandEventName, {
-      detail: request3
-    });
-    globalThis.document.dispatchEvent(event);
-  }
-
   // userscript_command_listeners.ts
   function setupCommandListeners(config) {
     let shortcuts = config.shortcuts || {}, keyMap = Object.keys(shortcuts).reduce((acc, key) => (acc[shortcuts[key]] = key, acc), {}), shortcutsKeys = Object.keys(keyMap);
     for (let key of shortcutsKeys) {
       let realKey = key.replace(/MacCtrl/ig, "Ctrl");
-      realKey && v3(realKey, (e3) => {
-        e3.preventDefault(), sendMessageToContent({
+      realKey && v3(realKey, (e) => {
+        e.preventDefault(), sendMessageToContent({
           method: keyMap[key]
         });
       });
     }
+  }
+
+  // https://esm.sh/stable/preact@10.11.0/deno/preact.js
+  var P4, d4, $4, Y2, S4, F4, B5, T3 = {}, V3 = [], Z2 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
+  function k3(e, t4) {
+    for (var _3 in t4)
+      e[_3] = t4[_3];
+    return e;
+  }
+  function j4(e) {
+    var t4 = e.parentNode;
+    t4 && t4.removeChild(e);
+  }
+  function ee(e, t4, _3) {
+    var r2, l5, o4, s6 = {};
+    for (o4 in t4)
+      o4 == "key" ? r2 = t4[o4] : o4 == "ref" ? l5 = t4[o4] : s6[o4] = t4[o4];
+    if (arguments.length > 2 && (s6.children = arguments.length > 3 ? P4.call(arguments, 2) : _3), typeof e == "function" && e.defaultProps != null)
+      for (o4 in e.defaultProps)
+        s6[o4] === void 0 && (s6[o4] = e.defaultProps[o4]);
+    return w3(e, s6, r2, l5, null);
+  }
+  function w3(e, t4, _3, r2, l5) {
+    var o4 = { type: e, props: t4, key: _3, ref: r2, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: l5 ?? ++$4 };
+    return l5 == null && d4.vnode != null && d4.vnode(o4), o4;
+  }
+  function L4(e) {
+    return e.children;
+  }
+  function U4(e, t4) {
+    this.props = e, this.context = t4;
+  }
+  function C3(e, t4) {
+    if (t4 == null)
+      return e.__ ? C3(e.__, e.__.__k.indexOf(e) + 1) : null;
+    for (var _3; t4 < e.__k.length; t4++)
+      if ((_3 = e.__k[t4]) != null && _3.__e != null)
+        return _3.__e;
+    return typeof e.type == "function" ? C3(e) : null;
+  }
+  function z5(e) {
+    var t4, _3;
+    if ((e = e.__) != null && e.__c != null) {
+      for (e.__e = e.__c.base = null, t4 = 0; t4 < e.__k.length; t4++)
+        if ((_3 = e.__k[t4]) != null && _3.__e != null) {
+          e.__e = e.__c.base = _3.__e;
+          break;
+        }
+      return z5(e);
+    }
+  }
+  function M3(e) {
+    (!e.__d && (e.__d = !0) && S4.push(e) && !D6.__r++ || F4 !== d4.debounceRendering) && ((F4 = d4.debounceRendering) || setTimeout)(D6);
+  }
+  function D6() {
+    for (var e; D6.__r = S4.length; )
+      e = S4.sort(function(t4, _3) {
+        return t4.__v.__b - _3.__v.__b;
+      }), S4 = [], e.some(function(t4) {
+        var _3, r2, l5, o4, s6, f6;
+        t4.__d && (s6 = (o4 = (_3 = t4).__v).__e, (f6 = _3.__P) && (r2 = [], (l5 = k3({}, o4)).__v = o4.__v + 1, W3(f6, o4, l5, _3.__n, f6.ownerSVGElement !== void 0, o4.__h != null ? [s6] : null, r2, s6 ?? C3(o4), o4.__h), K3(r2, o4), o4.__e != s6 && z5(o4)));
+      });
+  }
+  function G4(e, t4, _3, r2, l5, o4, s6, f6, p5, a5) {
+    var n2, h3, c5, i3, u4, b4, v5, y3 = r2 && r2.__k || V3, g7 = y3.length;
+    for (_3.__k = [], n2 = 0; n2 < t4.length; n2++)
+      if ((i3 = _3.__k[n2] = (i3 = t4[n2]) == null || typeof i3 == "boolean" ? null : typeof i3 == "string" || typeof i3 == "number" || typeof i3 == "bigint" ? w3(null, i3, null, null, i3) : Array.isArray(i3) ? w3(L4, { children: i3 }, null, null, null) : i3.__b > 0 ? w3(i3.type, i3.props, i3.key, i3.ref ? i3.ref : null, i3.__v) : i3) != null) {
+        if (i3.__ = _3, i3.__b = _3.__b + 1, (c5 = y3[n2]) === null || c5 && i3.key == c5.key && i3.type === c5.type)
+          y3[n2] = void 0;
+        else
+          for (h3 = 0; h3 < g7; h3++) {
+            if ((c5 = y3[h3]) && i3.key == c5.key && i3.type === c5.type) {
+              y3[h3] = void 0;
+              break;
+            }
+            c5 = null;
+          }
+        W3(e, i3, c5 = c5 || T3, l5, o4, s6, f6, p5, a5), u4 = i3.__e, (h3 = i3.ref) && c5.ref != h3 && (v5 || (v5 = []), c5.ref && v5.push(c5.ref, null, i3), v5.push(h3, i3.__c || u4, i3)), u4 != null ? (b4 == null && (b4 = u4), typeof i3.type == "function" && i3.__k === c5.__k ? i3.__d = p5 = q4(i3, p5, e) : p5 = J3(e, i3, c5, y3, u4, p5), typeof _3.type == "function" && (_3.__d = p5)) : p5 && c5.__e == p5 && p5.parentNode != e && (p5 = C3(c5));
+      }
+    for (_3.__e = b4, n2 = g7; n2--; )
+      y3[n2] != null && (typeof _3.type == "function" && y3[n2].__e != null && y3[n2].__e == _3.__d && (_3.__d = C3(r2, n2 + 1)), X5(y3[n2], y3[n2]));
+    if (v5)
+      for (n2 = 0; n2 < v5.length; n2++)
+        Q3(v5[n2], v5[++n2], v5[++n2]);
+  }
+  function q4(e, t4, _3) {
+    for (var r2, l5 = e.__k, o4 = 0; l5 && o4 < l5.length; o4++)
+      (r2 = l5[o4]) && (r2.__ = e, t4 = typeof r2.type == "function" ? q4(r2, t4, _3) : J3(_3, r2, r2, l5, r2.__e, t4));
+    return t4;
+  }
+  function J3(e, t4, _3, r2, l5, o4) {
+    var s6, f6, p5;
+    if (t4.__d !== void 0)
+      s6 = t4.__d, t4.__d = void 0;
+    else if (_3 == null || l5 != o4 || l5.parentNode == null)
+      e:
+        if (o4 == null || o4.parentNode !== e)
+          e.appendChild(l5), s6 = null;
+        else {
+          for (f6 = o4, p5 = 0; (f6 = f6.nextSibling) && p5 < r2.length; p5 += 2)
+            if (f6 == l5)
+              break e;
+          e.insertBefore(l5, o4), s6 = o4;
+        }
+    return s6 !== void 0 ? s6 : l5.nextSibling;
+  }
+  function _e2(e, t4, _3, r2, l5) {
+    var o4;
+    for (o4 in _3)
+      o4 === "children" || o4 === "key" || o4 in t4 || N4(e, o4, null, _3[o4], r2);
+    for (o4 in t4)
+      l5 && typeof t4[o4] != "function" || o4 === "children" || o4 === "key" || o4 === "value" || o4 === "checked" || _3[o4] === t4[o4] || N4(e, o4, t4[o4], _3[o4], r2);
+  }
+  function I3(e, t4, _3) {
+    t4[0] === "-" ? e.setProperty(t4, _3) : e[t4] = _3 == null ? "" : typeof _3 != "number" || Z2.test(t4) ? _3 : _3 + "px";
+  }
+  function N4(e, t4, _3, r2, l5) {
+    var o4;
+    e:
+      if (t4 === "style")
+        if (typeof _3 == "string")
+          e.style.cssText = _3;
+        else {
+          if (typeof r2 == "string" && (e.style.cssText = r2 = ""), r2)
+            for (t4 in r2)
+              _3 && t4 in _3 || I3(e.style, t4, "");
+          if (_3)
+            for (t4 in _3)
+              r2 && _3[t4] === r2[t4] || I3(e.style, t4, _3[t4]);
+        }
+      else if (t4[0] === "o" && t4[1] === "n")
+        o4 = t4 !== (t4 = t4.replace(/Capture$/, "")), t4 = t4.toLowerCase() in e ? t4.toLowerCase().slice(2) : t4.slice(2), e.l || (e.l = {}), e.l[t4 + o4] = _3, _3 ? r2 || e.addEventListener(t4, o4 ? R3 : O3, o4) : e.removeEventListener(t4, o4 ? R3 : O3, o4);
+      else if (t4 !== "dangerouslySetInnerHTML") {
+        if (l5)
+          t4 = t4.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
+        else if (t4 !== "href" && t4 !== "list" && t4 !== "form" && t4 !== "tabIndex" && t4 !== "download" && t4 in e)
+          try {
+            e[t4] = _3 ?? "";
+            break e;
+          } catch {
+          }
+        typeof _3 == "function" || (_3 != null && (_3 !== !1 || t4[0] === "a" && t4[1] === "r") ? e.setAttribute(t4, _3) : e.removeAttribute(t4));
+      }
+  }
+  function O3(e) {
+    this.l[e.type + !1](d4.event ? d4.event(e) : e);
+  }
+  function R3(e) {
+    this.l[e.type + !0](d4.event ? d4.event(e) : e);
+  }
+  function W3(e, t4, _3, r2, l5, o4, s6, f6, p5) {
+    var a5, n2, h3, c5, i3, u4, b4, v5, y3, g7, x4, H5, E3, m6 = t4.type;
+    if (t4.constructor !== void 0)
+      return null;
+    _3.__h != null && (p5 = _3.__h, f6 = t4.__e = _3.__e, t4.__h = null, o4 = [f6]), (a5 = d4.__b) && a5(t4);
+    try {
+      e:
+        if (typeof m6 == "function") {
+          if (v5 = t4.props, y3 = (a5 = m6.contextType) && r2[a5.__c], g7 = a5 ? y3 ? y3.props.value : a5.__ : r2, _3.__c ? b4 = (n2 = t4.__c = _3.__c).__ = n2.__E : ("prototype" in m6 && m6.prototype.render ? t4.__c = n2 = new m6(v5, g7) : (t4.__c = n2 = new U4(v5, g7), n2.constructor = m6, n2.render = oe), y3 && y3.sub(n2), n2.props = v5, n2.state || (n2.state = {}), n2.context = g7, n2.__n = r2, h3 = n2.__d = !0, n2.__h = []), n2.__s == null && (n2.__s = n2.state), m6.getDerivedStateFromProps != null && (n2.__s == n2.state && (n2.__s = k3({}, n2.__s)), k3(n2.__s, m6.getDerivedStateFromProps(v5, n2.__s))), c5 = n2.props, i3 = n2.state, h3)
+            m6.getDerivedStateFromProps == null && n2.componentWillMount != null && n2.componentWillMount(), n2.componentDidMount != null && n2.__h.push(n2.componentDidMount);
+          else {
+            if (m6.getDerivedStateFromProps == null && v5 !== c5 && n2.componentWillReceiveProps != null && n2.componentWillReceiveProps(v5, g7), !n2.__e && n2.shouldComponentUpdate != null && n2.shouldComponentUpdate(v5, n2.__s, g7) === !1 || t4.__v === _3.__v) {
+              n2.props = v5, n2.state = n2.__s, t4.__v !== _3.__v && (n2.__d = !1), n2.__v = t4, t4.__e = _3.__e, t4.__k = _3.__k, t4.__k.forEach(function(A4) {
+                A4 && (A4.__ = t4);
+              }), n2.__h.length && s6.push(n2);
+              break e;
+            }
+            n2.componentWillUpdate != null && n2.componentWillUpdate(v5, n2.__s, g7), n2.componentDidUpdate != null && n2.__h.push(function() {
+              n2.componentDidUpdate(c5, i3, u4);
+            });
+          }
+          if (n2.context = g7, n2.props = v5, n2.__v = t4, n2.__P = e, x4 = d4.__r, H5 = 0, "prototype" in m6 && m6.prototype.render)
+            n2.state = n2.__s, n2.__d = !1, x4 && x4(t4), a5 = n2.render(n2.props, n2.state, n2.context);
+          else
+            do
+              n2.__d = !1, x4 && x4(t4), a5 = n2.render(n2.props, n2.state, n2.context), n2.state = n2.__s;
+            while (n2.__d && ++H5 < 25);
+          n2.state = n2.__s, n2.getChildContext != null && (r2 = k3(k3({}, r2), n2.getChildContext())), h3 || n2.getSnapshotBeforeUpdate == null || (u4 = n2.getSnapshotBeforeUpdate(c5, i3)), E3 = a5 != null && a5.type === L4 && a5.key == null ? a5.props.children : a5, G4(e, Array.isArray(E3) ? E3 : [E3], t4, _3, r2, l5, o4, s6, f6, p5), n2.base = t4.__e, t4.__h = null, n2.__h.length && s6.push(n2), b4 && (n2.__E = n2.__ = null), n2.__e = !1;
+        } else
+          o4 == null && t4.__v === _3.__v ? (t4.__k = _3.__k, t4.__e = _3.__e) : t4.__e = ne(_3.__e, t4, _3, r2, l5, o4, s6, p5);
+      (a5 = d4.diffed) && a5(t4);
+    } catch (A4) {
+      t4.__v = null, (p5 || o4 != null) && (t4.__e = f6, t4.__h = !!p5, o4[o4.indexOf(f6)] = null), d4.__e(A4, t4, _3);
+    }
+  }
+  function K3(e, t4) {
+    d4.__c && d4.__c(t4, e), e.some(function(_3) {
+      try {
+        e = _3.__h, _3.__h = [], e.some(function(r2) {
+          r2.call(_3);
+        });
+      } catch (r2) {
+        d4.__e(r2, _3.__v);
+      }
+    });
+  }
+  function ne(e, t4, _3, r2, l5, o4, s6, f6) {
+    var p5, a5, n2, h3 = _3.props, c5 = t4.props, i3 = t4.type, u4 = 0;
+    if (i3 === "svg" && (l5 = !0), o4 != null) {
+      for (; u4 < o4.length; u4++)
+        if ((p5 = o4[u4]) && "setAttribute" in p5 == !!i3 && (i3 ? p5.localName === i3 : p5.nodeType === 3)) {
+          e = p5, o4[u4] = null;
+          break;
+        }
+    }
+    if (e == null) {
+      if (i3 === null)
+        return document.createTextNode(c5);
+      e = l5 ? document.createElementNS("http://www.w3.org/2000/svg", i3) : document.createElement(i3, c5.is && c5), o4 = null, f6 = !1;
+    }
+    if (i3 === null)
+      h3 === c5 || f6 && e.data === c5 || (e.data = c5);
+    else {
+      if (o4 = o4 && P4.call(e.childNodes), a5 = (h3 = _3.props || T3).dangerouslySetInnerHTML, n2 = c5.dangerouslySetInnerHTML, !f6) {
+        if (o4 != null)
+          for (h3 = {}, u4 = 0; u4 < e.attributes.length; u4++)
+            h3[e.attributes[u4].name] = e.attributes[u4].value;
+        (n2 || a5) && (n2 && (a5 && n2.__html == a5.__html || n2.__html === e.innerHTML) || (e.innerHTML = n2 && n2.__html || ""));
+      }
+      if (_e2(e, c5, h3, l5, f6), n2)
+        t4.__k = [];
+      else if (u4 = t4.props.children, G4(e, Array.isArray(u4) ? u4 : [u4], t4, _3, r2, l5 && i3 !== "foreignObject", o4, s6, o4 ? o4[0] : _3.__k && C3(_3, 0), f6), o4 != null)
+        for (u4 = o4.length; u4--; )
+          o4[u4] != null && j4(o4[u4]);
+      f6 || ("value" in c5 && (u4 = c5.value) !== void 0 && (u4 !== e.value || i3 === "progress" && !u4 || i3 === "option" && u4 !== h3.value) && N4(e, "value", u4, h3.value, !1), "checked" in c5 && (u4 = c5.checked) !== void 0 && u4 !== e.checked && N4(e, "checked", u4, h3.checked, !1));
+    }
+    return e;
+  }
+  function Q3(e, t4, _3) {
+    try {
+      typeof e == "function" ? e(t4) : e.current = t4;
+    } catch (r2) {
+      d4.__e(r2, _3);
+    }
+  }
+  function X5(e, t4, _3) {
+    var r2, l5;
+    if (d4.unmount && d4.unmount(e), (r2 = e.ref) && (r2.current && r2.current !== e.__e || Q3(r2, null, t4)), (r2 = e.__c) != null) {
+      if (r2.componentWillUnmount)
+        try {
+          r2.componentWillUnmount();
+        } catch (o4) {
+          d4.__e(o4, t4);
+        }
+      r2.base = r2.__P = null, e.__c = void 0;
+    }
+    if (r2 = e.__k)
+      for (l5 = 0; l5 < r2.length; l5++)
+        r2[l5] && X5(r2[l5], t4, typeof e.type != "function");
+    _3 || e.__e == null || j4(e.__e), e.__ = e.__e = e.__d = void 0;
+  }
+  function oe(e, t4, _3) {
+    return this.constructor(e, _3);
+  }
+  function re(e, t4, _3) {
+    var r2, l5, o4;
+    d4.__ && d4.__(e, t4), l5 = (r2 = typeof _3 == "function") ? null : _3 && _3.__k || t4.__k, o4 = [], W3(t4, e = (!r2 && _3 || t4).__k = ee(L4, null, [e]), l5 || T3, T3, t4.ownerSVGElement !== void 0, !r2 && _3 ? [_3] : l5 ? null : t4.firstChild ? P4.call(t4.childNodes) : null, o4, !r2 && _3 ? _3 : l5 ? l5.__e : t4.firstChild, r2), K3(o4, e);
+  }
+  function ce2(e, t4) {
+    var _3 = { __c: t4 = "__cC" + B5++, __: e, Consumer: function(r2, l5) {
+      return r2.children(l5);
+    }, Provider: function(r2) {
+      var l5, o4;
+      return this.getChildContext || (l5 = [], (o4 = {})[t4] = this, this.getChildContext = function() {
+        return o4;
+      }, this.shouldComponentUpdate = function(s6) {
+        this.props.value !== s6.value && l5.some(M3);
+      }, this.sub = function(s6) {
+        l5.push(s6);
+        var f6 = s6.componentWillUnmount;
+        s6.componentWillUnmount = function() {
+          l5.splice(l5.indexOf(s6), 1), f6 && f6.call(s6);
+        };
+      }), r2.children;
+    } };
+    return _3.Provider.__ = _3.Consumer.contextType = _3;
+  }
+  P4 = V3.slice, d4 = { __e: function(e, t4, _3, r2) {
+    for (var l5, o4, s6; t4 = t4.__; )
+      if ((l5 = t4.__c) && !l5.__)
+        try {
+          if ((o4 = l5.constructor) && o4.getDerivedStateFromError != null && (l5.setState(o4.getDerivedStateFromError(e)), s6 = l5.__d), l5.componentDidCatch != null && (l5.componentDidCatch(e, r2 || {}), s6 = l5.__d), s6)
+            return l5.__E = l5;
+        } catch (f6) {
+          e = f6;
+        }
+    throw e;
+  } }, $4 = 0, Y2 = function(e) {
+    return e != null && e.constructor === void 0;
+  }, U4.prototype.setState = function(e, t4) {
+    var _3;
+    _3 = this.__s != null && this.__s !== this.state ? this.__s : this.__s = k3({}, this.state), typeof e == "function" && (e = e(k3({}, _3), this.props)), e && k3(_3, e), e != null && this.__v && (t4 && this.__h.push(t4), M3(this));
+  }, U4.prototype.forceUpdate = function(e) {
+    this.__v && (this.__e = !0, e && this.__h.push(e), M3(this));
+  }, U4.prototype.render = L4, S4 = [], D6.__r = 0, B5 = 0;
+
+  // https://esm.sh/stable/preact@10.11.0/deno/hooks.js
+  var i2, n, d5, N5, f5 = 0, q5 = [], l4 = [], V4 = d4.__b, g6 = d4.__r, b3 = d4.diffed, C4 = d4.__c, A3 = d4.unmount;
+  function a3(_3, t4) {
+    d4.__h && d4.__h(n, _3, f5 || t4), f5 = 0;
+    var u4 = n.__H || (n.__H = { __: [], __h: [] });
+    return _3 >= u4.__.length && u4.__.push({ __V: l4 }), u4.__[_3];
+  }
+  function P5(_3) {
+    return f5 = 1, B6(D7, _3);
+  }
+  function B6(_3, t4, u4) {
+    var o4 = a3(i2++, 2);
+    if (o4.t = _3, !o4.__c && (o4.__ = [u4 ? u4(t4) : D7(void 0, t4), function(v5) {
+      var s6 = o4.__N ? o4.__N[0] : o4.__[0], h3 = o4.t(s6, v5);
+      s6 !== h3 && (o4.__N = [h3, o4.__[1]], o4.__c.setState({}));
+    }], o4.__c = n, !n.u)) {
+      n.u = !0;
+      var r2 = n.shouldComponentUpdate;
+      n.shouldComponentUpdate = function(v5, s6, h3) {
+        if (!o4.__c.__H)
+          return !0;
+        var y3 = o4.__c.__H.__.filter(function(c5) {
+          return c5.__c;
+        });
+        if (y3.every(function(c5) {
+          return !c5.__N;
+        }))
+          return !r2 || r2.call(this, v5, s6, h3);
+        var E3 = !1;
+        return y3.forEach(function(c5) {
+          if (c5.__N) {
+            var k4 = c5.__[0];
+            c5.__ = c5.__N, c5.__N = void 0, k4 !== c5.__[0] && (E3 = !0);
+          }
+        }), !!E3 && (!r2 || r2.call(this, v5, s6, h3));
+      };
+    }
+    return o4.__N || o4.__;
+  }
+  function j5(_3, t4) {
+    var u4 = a3(i2++, 3);
+    !d4.__s && H4(u4.__H, t4) && (u4.__ = _3, u4.i = t4, n.__H.__h.push(u4));
+  }
+  function w4(_3) {
+    return f5 = 5, x3(function() {
+      return { current: _3 };
+    }, []);
+  }
+  function x3(_3, t4) {
+    var u4 = a3(i2++, 7);
+    return H4(u4.__H, t4) ? (u4.__V = _3(), u4.i = t4, u4.__h = _3, u4.__V) : u4.__;
+  }
+  function L5(_3, t4) {
+    return f5 = 8, x3(function() {
+      return _3;
+    }, t4);
+  }
+  function M4(_3) {
+    var t4 = n.context[_3.__c], u4 = a3(i2++, 9);
+    return u4.c = _3, t4 ? (u4.__ == null && (u4.__ = !0, t4.sub(n)), t4.props.value) : _3.__;
+  }
+  function R4() {
+    for (var _3; _3 = q5.shift(); )
+      if (_3.__P && _3.__H)
+        try {
+          _3.__H.__h.forEach(m5), _3.__H.__h.forEach(p3), _3.__H.__h = [];
+        } catch (t4) {
+          _3.__H.__h = [], d4.__e(t4, _3.__v);
+        }
+  }
+  d4.__b = function(_3) {
+    typeof _3.type != "function" || _3.o || _3.type === L4 ? _3.o || (_3.o = _3.__ && _3.__.o ? _3.__.o : "") : _3.o = (_3.__ && _3.__.o ? _3.__.o : "") + (_3.__ && _3.__.__k ? _3.__.__k.indexOf(_3) : 0), n = null, V4 && V4(_3);
+  }, d4.__r = function(_3) {
+    g6 && g6(_3), i2 = 0;
+    var t4 = (n = _3.__c).__H;
+    t4 && (d5 === n ? (t4.__h = [], n.__h = [], t4.__.forEach(function(u4) {
+      u4.__N && (u4.__ = u4.__N), u4.__V = l4, u4.__N = u4.i = void 0;
+    })) : (t4.__h.forEach(m5), t4.__h.forEach(p3), t4.__h = [])), d5 = n;
+  }, d4.diffed = function(_3) {
+    b3 && b3(_3);
+    var t4 = _3.__c;
+    t4 && t4.__H && (t4.__H.__h.length && (q5.push(t4) !== 1 && N5 === d4.requestAnimationFrame || ((N5 = d4.requestAnimationFrame) || S5)(R4)), t4.__H.__.forEach(function(u4) {
+      u4.i && (u4.__H = u4.i), u4.__V !== l4 && (u4.__ = u4.__V), u4.i = void 0, u4.__V = l4;
+    })), d5 = n = null;
+  }, d4.__c = function(_3, t4) {
+    t4.some(function(u4) {
+      try {
+        u4.__h.forEach(m5), u4.__h = u4.__h.filter(function(o4) {
+          return !o4.__ || p3(o4);
+        });
+      } catch (o4) {
+        t4.some(function(r2) {
+          r2.__h && (r2.__h = []);
+        }), t4 = [], d4.__e(o4, u4.__v);
+      }
+    }), C4 && C4(_3, t4);
+  }, d4.unmount = function(_3) {
+    A3 && A3(_3);
+    var t4, u4 = _3.__c;
+    u4 && u4.__H && (u4.__H.__.forEach(function(o4) {
+      try {
+        m5(o4);
+      } catch (r2) {
+        t4 = r2;
+      }
+    }), u4.__H = void 0, t4 && d4.__e(t4, u4.__v));
+  };
+  var F5 = typeof requestAnimationFrame == "function";
+  function S5(_3) {
+    var t4, u4 = function() {
+      clearTimeout(o4), F5 && cancelAnimationFrame(t4), setTimeout(_3);
+    }, o4 = setTimeout(u4, 100);
+    F5 && (t4 = requestAnimationFrame(u4));
+  }
+  function m5(_3) {
+    var t4 = n, u4 = _3.__c;
+    typeof u4 == "function" && (_3.__c = void 0, u4()), n = t4;
+  }
+  function p3(_3) {
+    var t4 = n;
+    _3.__c = _3.__(), n = t4;
+  }
+  function H4(_3, t4) {
+    return !_3 || _3.length !== t4.length || t4.some(function(u4, o4) {
+      return u4 !== _3[o4];
+    });
+  }
+  function D7(_3, t4) {
+    return typeof t4 == "function" ? t4(_3) : t4;
   }
 
   // libs/preact-translation/useTranslate.tsx
@@ -17155,7 +16965,7 @@ ${injectedCss}}
       rawOptions
     );
     cache = translations2 || cache;
-    let [lang, setLang] = P2(options2.lang), [data, setData] = P2(cache), [isReady2, setReady] = P2(!1), loadData = (langKey) => {
+    let [lang, setLang] = P5(options2.lang), [data, setData] = P5(cache), [isReady2, setReady] = P5(!1), loadData = (langKey) => {
       if (data.hasOwnProperty(langKey))
         return;
       setReady(!1);
@@ -17166,7 +16976,7 @@ ${injectedCss}}
         setData({ ...cache }), setReady(!0);
       }));
     };
-    return j3(() => {
+    return j5(() => {
       loadData(options2.fallbackLang || "en"), loadData(lang);
     }, [lang]), { lang, setLang, t: (key, params) => {
       if (!data.hasOwnProperty(lang))
@@ -17178,24 +16988,24 @@ ${injectedCss}}
 
   // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
   var a4 = 0;
-  function p5(n3, s7, t5, f7, u5) {
-    var r2, o5, _3 = {};
-    for (o5 in s7)
-      o5 == "ref" ? r2 = s7[o5] : _3[o5] = s7[o5];
-    var e3 = { type: n3, props: _3, key: t5, ref: r2, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a4, __source: u5, __self: f7 };
-    if (typeof n3 == "function" && (r2 = n3.defaultProps))
-      for (o5 in r2)
-        _3[o5] === void 0 && (_3[o5] = r2[o5]);
-    return d2.vnode && d2.vnode(e3), e3;
+  function p4(n2, s6, t4, f6, u4) {
+    var r2, o4, _3 = {};
+    for (o4 in s6)
+      o4 == "ref" ? r2 = s6[o4] : _3[o4] = s6[o4];
+    var e = { type: n2, props: _3, key: t4, ref: r2, __k: null, __: null, __b: 0, __e: null, __d: void 0, __c: null, __h: null, constructor: void 0, __v: --a4, __source: u4, __self: f6 };
+    if (typeof n2 == "function" && (r2 = n2.defaultProps))
+      for (o4 in r2)
+        _3[o4] === void 0 && (_3[o4] = r2[o4]);
+    return d4.vnode && d4.vnode(e), e;
   }
 
   // libs/preact-translation/translateProvider.tsx
-  var TranslateContext = ce(null), defaultOptions2 = {
+  var TranslateContext = ce2(null), defaultOptions2 = {
     root: "assets",
     lang: "en",
     fallbackLang: "en"
   }, TranslateProvider = (props) => {
-    let { t: t5, setLang, lang, isReady: isReady2 } = useTranslate(
+    let { t: t4, setLang, lang, isReady: isReady2 } = useTranslate(
       {
         root: props.root || defaultOptions2.root,
         lang: props.lang || defaultOptions2.lang,
@@ -17204,11 +17014,11 @@ ${injectedCss}}
       },
       props.translations
     );
-    return /* @__PURE__ */ p5(
+    return /* @__PURE__ */ p4(
       TranslateContext.Provider,
       {
         value: {
-          t: t5,
+          t: t4,
           setLang,
           lang,
           isReady: isReady2
@@ -17260,8 +17070,8 @@ ${injectedCss}}
   function onClickMultipleTimes(requiredClicks, timeLimit = 2e3) {
     return (cb) => {
       let timer2, clicked = 0;
-      return (e3) => {
-        ++clicked == requiredClicks && (cb(e3), clicked = 0), clearTimeout(timer2), timer2 = setTimeout(
+      return (e) => {
+        ++clicked == requiredClicks && (cb(e), clicked = 0), clearTimeout(timer2), timer2 = setTimeout(
           () => clicked = 0,
           // reset the number of clicks after a traditional 300ms duration
           timeLimit
@@ -17302,18 +17112,18 @@ ${injectedCss}}
   // components/select_link.tsx
   function SelectLink(props) {
     let { items, maxWidth } = props;
-    return maxWidth = maxWidth || 128, /* @__PURE__ */ p5(
+    return maxWidth = maxWidth || 128, /* @__PURE__ */ p4(
       "select",
       {
         autoComplete: "off",
         class: "min-select",
         style: { maxWidth: `${maxWidth}px` },
         value: items.find((item) => item.selected)?.value,
-        onChange: (e3) => {
-          let value = e3.target.value, item = items.find((item2) => item2.value === value);
+        onChange: (e) => {
+          let value = e.target.value, item = items.find((item2) => item2.value === value);
           item && item.onSelected(item);
         },
-        children: items.map((item) => /* @__PURE__ */ p5("option", { value: item.value, selected: item.selected, children: item.label }))
+        children: items.map((item, index) => /* @__PURE__ */ p4("option", { value: item.value, selected: item.selected, children: item.label }, "selectlink" + index))
       }
     );
   }
@@ -17323,8 +17133,8 @@ ${injectedCss}}
   function SelectDropDown(props) {
     let { showArrow, onSelected, className, menus, maxWidth } = props;
     className = className || "", showArrow = showArrow ?? !0, maxWidth = maxWidth || 60;
-    let ref = w3(null);
-    return /* @__PURE__ */ p5(
+    let ref = w4(null);
+    return /* @__PURE__ */ p4(
       "select",
       {
         ref,
@@ -17332,44 +17142,46 @@ ${injectedCss}}
         class: `min-select ${showArrow ? "" : "min-select-no-arrow"} ${className || ""}`,
         value: DEFAULT_VALUE,
         style: { maxWidth: `${maxWidth}px` },
-        onChange: (e3) => {
-          e3.preventDefault();
-          let value = e3.target.value;
+        onChange: (e) => {
+          e.preventDefault();
+          let value = e.target.value;
           if (ref.current && value !== DEFAULT_VALUE) {
             ref.current.value = DEFAULT_VALUE, ref.current?.dispatchEvent(new Event("change"));
             let item = menus.find((item2) => item2.value === value);
             item && onSelected(item);
           }
         },
-        children: [{
-          value: DEFAULT_VALUE,
-          label: props.label
-        }].concat(menus).map((item) => /* @__PURE__ */ p5("option", { value: item.value, children: item.label }))
+        children: [
+          {
+            value: DEFAULT_VALUE,
+            label: props.label
+          }
+        ].concat(menus).map((item, index) => /* @__PURE__ */ p4("option", { value: item.value, children: item.label }, "option-" + index))
       }
     );
   }
 
   // hooks/use_i18n.ts
   function useI18n() {
-    return M2(TranslateContext);
+    return M4(TranslateContext);
   }
 
   // components/popup_field.tsx
   function PopupField(props) {
     let { field, onChange, value } = props;
     value = value || field.default || "";
-    let { t: t5 } = useI18n();
-    return field.type === "select" ? /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
-      /* @__PURE__ */ p5("label", { class: "inline-block", children: [
-        field.label ? t5(field.label) : field.name,
+    let { t: t4 } = useI18n(), finalLabel = field.name;
+    return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t4(field.labelKey)), field.type === "select" ? /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+      /* @__PURE__ */ p4("label", { class: "inline-block", children: [
+        finalLabel,
         "\uFF1A"
       ] }),
-      /* @__PURE__ */ p5(
+      /* @__PURE__ */ p4(
         SelectLink,
         {
           items: field.options.map(
             (fieldOption) => ({
-              label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
+              label: `${fieldOption.label ? t4(fieldOption.label) : fieldOption.value}`,
               value: fieldOption.value,
               selected: value === fieldOption.value,
               onSelected: () => {
@@ -17384,77 +17196,71 @@ ${injectedCss}}
 
   // components/sync_latest.tsx
   var SyncSuccess = ({ date }) => {
-    let { t: t5 } = useI18n(), [isHide, setIsHide] = P2(!1);
-    return j3(() => {
+    let { t: t4 } = useI18n(), [isHide, setIsHide] = P5(!1);
+    return j5(() => {
       setTimeout(() => {
         setIsHide(!0);
       }, 5e3);
-    }, []), isHide ? null : /* @__PURE__ */ p5("p", { class: "text-sm", children: [
-      t5("Successfully synchronized with the latest official rules:"),
+    }, []), isHide ? null : /* @__PURE__ */ p4("p", { class: "text-sm", children: [
+      t4("Successfully synchronized with the latest official rules:"),
       " ",
       new Date(date).toLocaleString()
     ] });
   }, LocalVersionIsTooOld = ({ minVersion }) => {
-    let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p5("p", { class: "text-sm", children: t5(
-      "localVersionIsTooOld",
-      {
-        minVersion
-      }
-    ) });
+    let { t: t4 } = useI18n();
+    return /* @__PURE__ */ p4("p", { class: "text-sm", children: t4("localVersionIsTooOld", {
+      minVersion
+    }) });
   }, BadUserscriptBrowser = () => {
-    let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p5(
+    let { t: t4 } = useI18n();
+    return /* @__PURE__ */ p4(
       "p",
       {
         class: "text-sm",
         dangerouslySetInnerHTML: {
-          __html: t5(
-            "badUserscriptBrowser",
-            {
-              1: "https://immersive-translate.owenyoung.com/installation.html"
-            }
-          )
+          __html: t4("badUserscriptBrowser", {
+            1: "https://immersive-translate.owenyoung.com/installation.html"
+          })
         }
       }
     );
-  }, SyncFailed = ({ message, handleSyncing, date }) => {
-    let { t: t5 } = useI18n();
-    return /* @__PURE__ */ p5("p", { class: "text-sm", children: [
-      t5("failToSyncRules"),
+  }, SyncFailed = ({
+    message,
+    handleSyncing,
+    date
+  }) => {
+    let { t: t4 } = useI18n();
+    return /* @__PURE__ */ p4("p", { class: "text-sm", children: [
+      t4("failToSyncRules"),
       " ",
-      /* @__PURE__ */ p5("a", { onClick: handleSyncing, children: t5("retry") }),
-      /* @__PURE__ */ p5("br", {}),
-      t5("failedReason"),
+      /* @__PURE__ */ p4("a", { onClick: handleSyncing, children: t4("retry") }),
+      /* @__PURE__ */ p4("br", {}),
+      t4("failedReason"),
       "\uFF1A",
       message,
-      /* @__PURE__ */ p5("br", {}),
-      t5("currentRuleVersion"),
+      /* @__PURE__ */ p4("br", {}),
+      t4("currentRuleVersion"),
       "\uFF1A",
       date
     ] });
   };
   function SyncLatest(props) {
-    let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [remoteConfig, setRemoteConfig] = P2(null), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
-      !1
-    ), [isBadUserscriptBrowser, setIsBadUserscriptBrowser] = P2(
-      !1
-    ), [config, setConfig] = P2(null), [_isLatestVersion, setIsLatestVersion] = P2(null), version = getVersion(), handleSyncing = async () => {
+    let { request: request3 } = props, [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P5(null), { t: t4 } = useI18n(), [remoteConfig, setRemoteConfig] = P5(null), [isNeedUpdate, setIsNeedUpdate] = P5(null), [syncErrorMessage, setSyncErrorMessage] = P5(""), [isSyncSuccess, setIsSyncSuccess] = P5(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P5(!1), [isBadUserscriptBrowser, setIsBadUserscriptBrowser] = P5(!1), [config, setConfig] = P5(null), [_isLatestVersion, setIsLatestVersion] = P5(null), version = getVersion(), handleSyncing = async () => {
       setSyncErrorMessage("");
       let finalRemoteConfig = remoteConfig;
       if (remoteConfig === null)
         try {
-          let response = await request3({ url: buildinConfigSyncUrl });
-          response ? (setRemoteConfig(response), finalRemoteConfig = response, setIsSyncSuccess(!0)) : (setSyncErrorMessage(t5("unknownError")), setIsNeedUpdate(null));
-        } catch (e3) {
-          setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
+          let response = await request3({
+            url: buildinConfigSyncUrl
+          });
+          response ? (setRemoteConfig(response), finalRemoteConfig = response, setIsSyncSuccess(!0)) : (setSyncErrorMessage(t4("unknownError")), setIsNeedUpdate(null));
+        } catch (e) {
+          setIsNeedUpdate(null), setSyncErrorMessage(e.message);
           return;
         }
-      finalRemoteConfig !== null ? (props.setStorageBuildinConfig(finalRemoteConfig), setIsNeedUpdate(!1), setLocalBuildinConfigUpdatedAt(
-        finalRemoteConfig.buildinConfigUpdatedAt
-      )) : (setSyncErrorMessage(t5("canNotFetchRemoteRule")), setIsNeedUpdate(null));
+      finalRemoteConfig !== null ? (props.setStorageBuildinConfig(finalRemoteConfig), setIsNeedUpdate(!1), setLocalBuildinConfigUpdatedAt(finalRemoteConfig.buildinConfigUpdatedAt)) : (setSyncErrorMessage(t4("canNotFetchRemoteRule")), setIsNeedUpdate(null));
     };
-    return j3(() => {
+    return j5(() => {
       getConfig().then((localConfig2) => {
         let localConfigUpdatedAtIsoString = localConfig2.buildinConfigUpdatedAt;
         setConfig(localConfig2);
@@ -17474,22 +17280,22 @@ ${injectedCss}}
             new Date(latestIsoTime) > localConfigUpdatedAt ? (setIsNeedUpdate(!0), handleSyncing()) : setIsNeedUpdate(!1);
           } else
             setIsInvalidLocalVersion(!0), setIsNeedUpdate(null);
-        }).catch((e3) => {
-          setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
+        }).catch((e) => {
+          setIsNeedUpdate(null), setSyncErrorMessage(e.message);
         });
       });
-    }, []), j3(() => {
+    }, []), j5(() => {
       getConfig().then((config2) => {
         setConfig(config2);
       });
-    }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p5("div", { class: "text-sm mt-2", style: { maxWidth: 218 }, children: isBadUserscriptBrowser ? /* @__PURE__ */ p5(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p5(
+    }, [localBuildinConfigUpdatedAt]), config ? /* @__PURE__ */ p4("div", { class: "text-sm mt-2", style: { maxWidth: 218 }, children: isBadUserscriptBrowser ? /* @__PURE__ */ p4(BadUserscriptBrowser, {}) : syncErrorMessage ? /* @__PURE__ */ p4(
       SyncFailed,
       {
         handleSyncing,
         message: syncErrorMessage,
         date: localBuildinConfigUpdatedAt || ""
       }
-    ) : isInvalidLocalVersion ? /* @__PURE__ */ p5(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p5(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : null }) : null;
+    ) : isInvalidLocalVersion ? /* @__PURE__ */ p4(LocalVersionIsTooOld, { minVersion: remoteConfig.minVersion }) : isNeedUpdate === null || isNeedUpdate === !0 ? null : isSyncSuccess ? /* @__PURE__ */ p4(SyncSuccess, { date: localBuildinConfigUpdatedAt }) : null }) : null;
   }
 
   // components/popup.tsx
@@ -17498,11 +17304,15 @@ ${injectedCss}}
       onTranslateTheMainPage,
       onUserConfigChange,
       request: request3,
+      onTranslateLocalHtmlFile,
       onSetBuildinConfig,
       pageStatus: pageStatus2,
+      openEbookBuilderPage: openEbookBuilderPage3,
+      openEbookViewerPage: openEbookViewerPage3,
       config,
       openAboutPage: openAboutPage3,
       onTranslateTheWholePage,
+      onToggleEnabled,
       openOptionsPage: openOptionsPage3,
       ontranslateToThePageEndImmediately,
       onSetPageLanguage,
@@ -17516,7 +17326,7 @@ ${injectedCss}}
       onClose,
       onTranslatePage,
       onSetLocalConfig
-    } = props, setSettings = onUserConfigChange, [message, setMessage] = P2(""), [errorMessage, _setErrorMessage] = P2(""), { t: t5 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null;
+    } = props, setSettings = onUserConfigChange, [message, setMessage] = P5(""), [errorMessage, _setErrorMessage] = P5(""), { t: t4 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null;
     if (config) {
       let { translationService, translationServices, translationUrlPattern } = config;
       if (PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
@@ -17536,9 +17346,9 @@ ${injectedCss}}
       let { translationLanguagePattern } = config, { matches } = translationLanguagePattern;
       matches.includes(currentLang) ? isAlwaysTranslateLang = !0 : isAlwaysTranslateLang = !1;
     }
-    let handleOpenOptions = (e3) => {
-      e3.preventDefault(), openOptionsPage3();
-    }, handleToggleAlpha = (_e4) => {
+    let handleOpenOptions = (e) => {
+      e.preventDefault(), openOptionsPage3();
+    }, handleToggleAlpha = (_e3) => {
       setSettings((settings) => (settings.alpha ? setMessage("Success disable alpha!") : setMessage("Success enable alpha!"), {
         ...settings,
         alpha: !settings.alpha
@@ -17642,25 +17452,27 @@ ${injectedCss}}
       }), name === "matches" && pageStatus2 === "Original" && setTimeout(() => {
         onTranslatePage(), onClose();
       }, 100);
-    }, isPdfUrl = currentUrlObj?.pathname.toLowerCase().endsWith(".pdf"), buttonLabel = t5("translate");
-    pageStatus2 === "Translated" ? buttonLabel = t5("show-original") : pageStatus2 === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t5("translate-firefox-local-pdf") : buttonLabel = t5("translate-pdf") : buttonLabel = t5("translate") : buttonLabel = t5(pageStatus2);
-    let translateToThePageEndImmediatelyLabel = t5(
+    }, isPdfUrl = currentUrlObj?.pathname.toLowerCase().endsWith(".pdf"), buttonLabel = t4("translate");
+    pageStatus2 === "Translated" || pageStatus2 === "Error" ? buttonLabel = t4("show-original") : pageStatus2 === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t4("translate-firefox-local-pdf") : buttonLabel = t4("translate-pdf") : buttonLabel = t4("translate") : buttonLabel = t4(pageStatus2);
+    let translateToThePageEndImmediatelyLabel = t4(
       "translateToThePageEndImmediately"
     );
-    (pageStatus2 === "Original" || pageStatus2 === "Translated") && (config.shortcuts.toggleTranslatePage && (isTouchDevice() && ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 ? buttonLabel += ` (${t5(`fingers.${ctx.rule.fingerCountToToggleTranslagePageWhenTouching}`)})` : buttonLabel += ` (${config.shortcuts.toggleTranslatePage})`), config.shortcuts.toggleTranslateToThePageEndImmediately && (translateToThePageEndImmediatelyLabel += ` (${config.shortcuts.toggleTranslateToThePageEndImmediately})`));
+    (pageStatus2 === "Original" || pageStatus2 === "Translated") && (config.shortcuts.toggleTranslatePage && (isTouchDevice() && ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 ? buttonLabel += ` (${t4(
+      `fingers.${ctx.rule.fingerCountToToggleTranslagePageWhenTouching}`
+    )})` : buttonLabel += ` (${config.shortcuts.toggleTranslatePage})`), config.shortcuts.toggleTranslateToThePageEndImmediately && (translateToThePageEndImmediatelyLabel += ` (${config.shortcuts.toggleTranslateToThePageEndImmediately})`));
     let translationServiceItems = [];
     ctx && (translationServiceItems = getTranslationServices(ctx));
-    let handleClosePopup = (e3) => {
-      e3.preventDefault(), onClose();
+    let handleClosePopup = (e) => {
+      e.preventDefault(), onClose();
     };
-    return /* @__PURE__ */ p5("div", { class: "p-3", children: [
-      /* @__PURE__ */ p5("div", { class: "text-sm", children: [
-        /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
-          /* @__PURE__ */ p5("label", { class: "inline-block", children: [
-            t5("popupSourceLanguage"),
+    return /* @__PURE__ */ p4("div", { class: "p-3", children: [
+      /* @__PURE__ */ p4("div", { class: "text-sm", children: [
+        /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p4("label", { class: "inline-block", children: [
+            t4("popupSourceLanguage"),
             "\uFF1A"
           ] }),
-          /* @__PURE__ */ p5(
+          /* @__PURE__ */ p4(
             SelectLink,
             {
               items: languages.map((code2) => ({
@@ -17674,12 +17486,12 @@ ${injectedCss}}
             }
           )
         ] }),
-        config && config.targetLanguage && /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
-          /* @__PURE__ */ p5("label", { class: "inline-block", children: [
-            t5("popupTarget"),
+        config && config.targetLanguage && /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p4("label", { class: "inline-block", children: [
+            t4("popupTarget"),
             "\uFF1A"
           ] }),
-          /* @__PURE__ */ p5(
+          /* @__PURE__ */ p4(
             SelectLink,
             {
               items: languages.filter((code2) => code2 !== "auto").map((code2) => ({
@@ -17696,44 +17508,44 @@ ${injectedCss}}
             }
           )
         ] }),
-        curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p5(L, { children: [
-          /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
-            /* @__PURE__ */ p5("label", { class: "inline-block", children: [
-              t5("popupService"),
+        curentTranslationServiceItem && translationServiceItems.length > 0 && /* @__PURE__ */ p4(L4, { children: [
+          /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+            /* @__PURE__ */ p4("label", { class: "inline-block", children: [
+              t4("popupService"),
               "\uFF1A"
             ] }),
-            /* @__PURE__ */ p5(
+            /* @__PURE__ */ p4(
               SelectLink,
               {
-                items: translationServiceItems.map(
-                  (translationServiceItem) => ({
-                    label: `${t5("translationServices." + translationServiceItem.id)}${translationServiceItem.ok ? "" : " " + t5("needAction")}`,
-                    value: translationServiceItem.id,
-                    selected: translationServiceItem.selected,
-                    onSelected: (option) => {
-                      let selectedItem = translationServiceItems.find(
-                        (item) => item.id === option.value
-                      );
-                      selectedItem.ok ? (setSettings((state) => ({
-                        ...state,
-                        translationService: selectedItem.id
-                      })), selectedItem.props.length === 0 ? setTimeout(() => {
-                        onTranslatePage();
-                      }, 1) : setTimeout(() => {
-                        onRestorePage();
-                      }, 1)) : (setSettings((state) => ({
-                        ...state,
-                        translationService: selectedItem.id
-                      })), setTimeout(() => {
-                        openOptionsPage3();
-                      }, 100));
-                    }
-                  })
-                )
+                items: translationServiceItems.map((translationServiceItem) => ({
+                  label: `${t4(
+                    "translationServices." + translationServiceItem.id
+                  )}${translationServiceItem.ok ? "" : " " + t4("needAction")}`,
+                  value: translationServiceItem.id,
+                  selected: translationServiceItem.selected,
+                  onSelected: (option) => {
+                    let selectedItem = translationServiceItems.find(
+                      (item) => item.id === option.value
+                    );
+                    selectedItem.ok ? (setSettings((state) => ({
+                      ...state,
+                      translationService: selectedItem.id
+                    })), selectedItem.props.length === 0 ? setTimeout(() => {
+                      onTranslatePage();
+                    }, 1) : setTimeout(() => {
+                      onRestorePage();
+                    }, 1)) : (setSettings((state) => ({
+                      ...state,
+                      translationService: selectedItem.id
+                    })), setTimeout(() => {
+                      openOptionsPage3();
+                    }, 100));
+                  }
+                }))
               }
             )
           ] }),
-          currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p5("div", { class: "pl-4 text-sm", children: /* @__PURE__ */ p5(
+          currentTranslationServiceConfig && curentTranslationServiceItem.props.length > 0 && curentTranslationServiceItem.props.map((prop, index) => /* @__PURE__ */ p4("div", { class: "pl-4 text-sm", children: /* @__PURE__ */ p4(
             PopupField,
             {
               field: prop,
@@ -17757,16 +17569,16 @@ ${injectedCss}}
               }
             },
             "field-" + index
-          ) }))
+          ) }, "service" + index))
         ] }),
-        currentUrlObj && /* @__PURE__ */ p5("div", { class: "flex justify-between mb-2", children: [
-          /* @__PURE__ */ p5("label", { class: "inline-block", children: t5("forThisSite") }),
-          /* @__PURE__ */ p5(
+        currentUrlObj && /* @__PURE__ */ p4("div", { class: "flex justify-between mb-2", children: [
+          /* @__PURE__ */ p4("label", { class: "inline-block", children: t4("forThisSite") }),
+          /* @__PURE__ */ p4(
             SelectLink,
             {
               items: [
                 {
-                  label: t5("default"),
+                  label: t4("default"),
                   value: "default",
                   selected: isAlwaysTranslateDomain === !1 && isNeverTranslaateDomain === !1 && !isAlwaysTranslateWildDomain && !isNeverTranslateWildDomain && !isAlwaysTranslateUrl && !isNeverTranslateUrl,
                   onSelected: () => {
@@ -17781,15 +17593,13 @@ ${injectedCss}}
                     ), isChanged = !1;
                     filteredDomains.length !== currentTempTranslationDomains.length && (isChanged = !0), isChanged && onSetLocalConfig({
                       ...ctx.localConfig,
-                      tempTranslationUrlMatches: [
-                        ...filteredDomains
-                      ]
+                      tempTranslationUrlMatches: [...filteredDomains]
                     });
                   }
                 },
                 currentUrlWithoutHash && {
-                  label: t5("alwaysTranslateSomeSite", {
-                    hostname: t5("currentUrl")
+                  label: t4("alwaysTranslateSomeSite", {
+                    hostname: t4("currentUrl")
                   }),
                   value: "matchesUrl",
                   selected: isAlwaysTranslateUrl,
@@ -17803,7 +17613,7 @@ ${injectedCss}}
                   }
                 },
                 {
-                  label: t5("alwaysTranslateSomeSite", {
+                  label: t4("alwaysTranslateSomeSite", {
                     hostname: currentUrlObj.hostname
                   }),
                   value: "matches",
@@ -17822,7 +17632,7 @@ ${injectedCss}}
                   }
                 },
                 currentWildHostname && {
-                  label: t5("alwaysTranslateSomeSite", {
+                  label: t4("alwaysTranslateSomeSite", {
                     hostname: currentWildHostname
                   }),
                   value: "matchesWild",
@@ -17841,8 +17651,8 @@ ${injectedCss}}
                   }
                 },
                 currentUrlWithoutHash && {
-                  label: t5("neverTranslateSomeSite", {
-                    hostname: t5("currentUrl")
+                  label: t4("neverTranslateSomeSite", {
+                    hostname: t4("currentUrl")
                   }),
                   value: "excludeMatchesUrl",
                   selected: isNeverTranslateUrl,
@@ -17856,7 +17666,7 @@ ${injectedCss}}
                   }
                 },
                 {
-                  label: t5("neverTranslateSomeSite", {
+                  label: t4("neverTranslateSomeSite", {
                     hostname: currentUrlObj.hostname
                   }),
                   value: "excludeMatches",
@@ -17875,7 +17685,7 @@ ${injectedCss}}
                   }
                 },
                 currentWildHostname && {
-                  label: t5("neverTranslateSomeSite", {
+                  label: t4("neverTranslateSomeSite", {
                     hostname: currentWildHostname
                   }),
                   value: "excludeMatchesWild",
@@ -17898,7 +17708,7 @@ ${injectedCss}}
           )
         ] })
       ] }),
-      /* @__PURE__ */ p5("div", { class: "", children: /* @__PURE__ */ p5(
+      /* @__PURE__ */ p4("div", { class: "", children: /* @__PURE__ */ p4(
         "button",
         {
           class: "py-2 mt-1 mb-2 main-button ",
@@ -17910,84 +17720,106 @@ ${injectedCss}}
           children: buttonLabel
         }
       ) }),
-      /* @__PURE__ */ p5("div", { class: "flex justify-between", children: [
-        currentLang && currentLang !== "auto" ? /* @__PURE__ */ p5("label", { for: "alwaysTranslateThisLanugage", class: "text-sm", children: [
-          /* @__PURE__ */ p5(
+      /* @__PURE__ */ p4("div", { class: "flex justify-between", children: [
+        currentLang && currentLang !== "auto" ? /* @__PURE__ */ p4("label", { for: "alwaysTranslateThisLanugage", class: "text-sm", children: [
+          /* @__PURE__ */ p4(
             "input",
             {
               type: "checkbox",
               id: "alwaysTranslateThisLanugage",
               name: "alwaysTranslateThisLanugage",
               checked: !!isAlwaysTranslateLang,
-              onChange: (e3) => {
-                let checked = e3.target.checked;
+              onChange: (e) => {
+                let checked = e.target.checked;
                 handleTranslationLanguagePatternSelected(
                   checked ? "matches" : void 0
                 );
               }
             }
           ),
-          t5("alwaysTranslateSomeLanguage", {
+          t4("alwaysTranslateSomeLanguage", {
             language: getLanguageName(
               currentLang,
               config.interfaceLanguage
             )
           })
-        ] }) : /* @__PURE__ */ p5("span", {}),
-        /* @__PURE__ */ p5(
+        ] }) : /* @__PURE__ */ p4("span", {}),
+        /* @__PURE__ */ p4(
           SelectDropDown,
           {
-            label: t5("more"),
+            label: t4("more"),
             showArrow: !0,
             onSelected: (item) => {
-              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" && openAboutPage3());
+              item.value === "translateTheWholePage" ? onTranslateTheWholePage() : item.value === "translateToThePageEndImmediately" ? ontranslateToThePageEndImmediately() : item.value === "translateTheMainPage" ? onTranslateTheMainPage() : item.value === "showTranslationOnly" || (item.value === "translateLocalPdfFile" ? onTranslateLocalPdfFile && onTranslateLocalPdfFile() : item.value === "translateLocalHtmlFile" ? onTranslateLocalHtmlFile && onTranslateLocalHtmlFile() : item.value === "donate" ? (globalThis.open(config.donateUrl), onClose()) : item.value === "feedback" ? (globalThis.open(config.feedbackUrl), onClose()) : item.value === "options" ? (openOptionsPage3(), onClose()) : item.value === "changeToTranslateTheWholePage" ? handleChangeToTranslateTheWholePage() : item.value === "changeToTranslateTheMainPage" ? handleChangeToTranslateTheMainPage() : item.value === "about" ? openAboutPage3() : item.value === "toggleEnabled" ? onToggleEnabled() : item.value === "openEbookViewer" ? openEbookViewerPage3() : item.value === "openEbookBuilder" && openEbookBuilderPage3());
             },
             menus: [
               config.translationArea === "main" && {
-                label: "\u{1F480} " + t5("changeToTranslateTheWholePage"),
+                label: "\u{1F480} " + t4("changeToTranslateTheWholePage"),
                 value: "changeToTranslateTheWholePage"
               },
               config.translationArea === "body" && {
-                label: "\u{1F4D6} " + t5("changeToTranslateTheMainPage"),
+                label: "\u{1F4D6} " + t4("changeToTranslateTheMainPage"),
                 value: "changeToTranslateTheMainPage"
               },
               {
                 label: "\u26A1 " + translateToThePageEndImmediatelyLabel,
                 value: "translateToThePageEndImmediately"
               },
-              !isMonkey() && {
-                label: "\u{1F4C1} " + t5("browser.translateLocalPdfFile"),
-                value: "translateLocalPdfFile"
+              {
+                label: "\u{1F4D8} " + t4("browser.openEbookViewer"),
+                value: "openEbookViewer"
               },
               {
-                label: "\u2764\uFE0F " + t5("aboutLabel"),
+                label: "\u{1F4DA} " + t4("browser.openEbookBuilder"),
+                value: "openEbookBuilder"
+              },
+              !isMonkey() && {
+                label: "\u{1F4C1} " + t4("browser.translateLocalPdfFile"),
+                value: "translateLocalPdfFile"
+              },
+              !isMonkey() && {
+                label: "\u{1F310} " + t4("browser.translateLocalHtmlFile"),
+                value: "translateLocalHtmlFile"
+              },
+              {
+                label: (config.enabled ? "\u{1F6AB} " : "\u{1F44B} ") + (config.enabled ? t4("clickToDisableExtension") : t4("clickToEnableExtension")),
+                value: "toggleEnabled"
+              },
+              {
+                label: "\u2764\uFE0F " + t4("aboutLabel"),
                 value: "about"
               }
             ].filter(Boolean)
           }
         )
       ] }),
-      /* @__PURE__ */ p5("div", { class: "text-sm", children: message }),
-      /* @__PURE__ */ p5("div", { class: "text-sm", children: errorMessage }),
-      /* @__PURE__ */ p5("footer", { children: [
-        /* @__PURE__ */ p5(
+      /* @__PURE__ */ p4("div", { class: "text-sm", children: message }),
+      /* @__PURE__ */ p4("div", { class: "text-sm", children: errorMessage }),
+      /* @__PURE__ */ p4("footer", { children: [
+        /* @__PURE__ */ p4(
           SyncLatest,
           {
             request: request3,
             setStorageBuildinConfig: onSetBuildinConfig
           }
         ),
-        /* @__PURE__ */ p5("div", { class: "mt-3 text-sm flex justify-between", children: [
-          /* @__PURE__ */ p5("a", { href: "#", class: "secondary", onClick: handleOpenOptions, children: t5("options") }),
-          isMonkey() && /* @__PURE__ */ p5("a", { href: "#", class: "secondary", onClick: handleClosePopup, children: t5("close") }),
-          /* @__PURE__ */ p5(
+        /* @__PURE__ */ p4("div", { class: "mt-3 text-sm flex justify-between", children: [
+          /* @__PURE__ */ p4("a", { href: "#", class: "secondary", onClick: handleOpenOptions, children: t4("options") }),
+          isMonkey() && /* @__PURE__ */ p4("a", { href: "#", class: "secondary", onClick: handleClosePopup, children: t4("close") }),
+          /* @__PURE__ */ p4(
             "span",
             {
               class: "immersive-translate-no-select muted",
               onClick: onClickMultipleTimes(7)(handleToggleAlpha),
               children: [
                 "V",
-                version
+                version,
+                config.enabled ? null : /* @__PURE__ */ p4("a", { href: "#", onClick: onToggleEnabled, children: [
+                  " ",
+                  "(",
+                  t4("hasBeenDisabled"),
+                  ")"
+                ] })
               ]
             }
           )
@@ -18009,15 +17841,15 @@ ${injectedCss}}
 
   // libs/use-chrome-storage/useChromeStorage.ts
   function useChromeStorage(key, initialValue, storageArea) {
-    let [INITIAL_VALUE2] = P2(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P2(storageArea), [state, setState] = P2(INITIAL_VALUE2), [isPersistent, setIsPersistent] = P2(!1), [error, setError] = P2("");
-    j3(() => {
+    let [INITIAL_VALUE2] = P5(() => typeof initialValue == "function" ? initialValue() : initialValue), [STORAGE_AREA] = P5(storageArea), [state, setState] = P5(INITIAL_VALUE2), [isPersistent, setIsPersistent] = P5(!1), [error, setError] = P5("");
+    j5(() => {
       storage.get(key, INITIAL_VALUE2, STORAGE_AREA).then((res) => {
         res[key] && setState(res[key]), setIsPersistent(!0), setError("");
       }).catch((error2) => {
         setIsPersistent(!1), setError(error2);
       });
     }, [key, INITIAL_VALUE2, STORAGE_AREA]);
-    let updateValue = L2(
+    let updateValue = L5(
       // @ts-ignore: npm package is not typed
       (newValue) => {
         let toStore = typeof newValue == "function" ? newValue(state) : newValue;
@@ -18040,11 +17872,11 @@ ${injectedCss}}
         key,
         initialValue,
         storageArea
-      ), setValueAll = L2((newValue) => {
+      ), setValueAll = L5((newValue) => {
         for (let consumer of consumers)
           consumer(newValue);
       }, []);
-      return j3(() => (consumers.push(setValue), () => {
+      return j5(() => (consumers.push(setValue), () => {
         consumers.splice(consumers.indexOf(setValue), 1);
       }), [setValue]), [value, setValueAll, isPersistent, error];
     };
@@ -18061,7 +17893,7 @@ ${injectedCss}}
     INITIAL_VALUE
   );
   function useUserConfig() {
-    let [value, setValue, isPersistent, error] = rawUseUserConfig(), formatSetValue = L2((newValue) => {
+    let [value, setValue, isPersistent, error] = rawUseUserConfig(), formatSetValue = L5((newValue) => {
       let toStore = typeof newValue == "function" ? newValue(value) : newValue;
       toStore && (toStore.updatedAt = (/* @__PURE__ */ new Date()).toISOString()), setValue(toStore);
     }, [value]);
@@ -18070,9 +17902,9 @@ ${injectedCss}}
 
   // userscript/popup_app.tsx
   function PopupApp(props) {
-    let { onClose } = props, [pageStatus2, setPageStatus] = P2("Original"), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), [currentUrl, setCurrentUrl] = P2(
+    let { onClose } = props, [pageStatus2, setPageStatus] = P5("Original"), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P5(null), [currentUrl, setCurrentUrl] = P5(
       globalThis.location.href
-    ), [currentLang, setCurrentLang] = P2("auto"), [ctx, setContext] = P2(null), onToggleTranslate = (event) => {
+    ), [currentLang, setCurrentLang] = P5("auto"), [ctx, setContext] = P5(null), onToggleTranslate = (event) => {
       setPageStatus(event.detail);
     }, onSetPageLanguage = (lang) => {
       setCurrentLang(lang);
@@ -18088,7 +17920,7 @@ ${injectedCss}}
     }, onUrlChange = () => {
       setCurrentUrl(globalThis.location.href);
     };
-    j3(() => (document.addEventListener(
+    j5(() => (document.addEventListener(
       pageTranslatedStatusEventName,
       onToggleTranslate,
       !1
@@ -18100,11 +17932,11 @@ ${injectedCss}}
       setPageStatus(currentPageStatus), runCron(result.interval);
     }), document.addEventListener("urlChange", onUrlChange), () => {
       document.removeEventListener("pageTranslatedStatus", onToggleTranslate), document.removeEventListener("urlChange", onUrlChange);
-    }), []), j3(() => {
+    }), []), j5(() => {
       getConfig2().then((config2) => {
         setConfig(config2);
       });
-    }, [settings]), j3(() => {
+    }, [settings]), j5(() => {
       currentUrl && config && getContext({
         url: currentUrl,
         config
@@ -18118,6 +17950,13 @@ ${injectedCss}}
       }), isClose && onClose();
     }, handleClose = () => {
       onClose();
+    }, handleToggleEnabled = () => {
+      setSettings((state) => ({
+        ...state,
+        enabled: !state.enabled
+      })), setTimeout(() => {
+        handleClose();
+      }, 50);
     }, handleTranslatePdf = () => {
       globalThis.alert("Not implemented yet"), onClose();
     }, handleTranslateLocalPdfFile = () => {
@@ -18130,12 +17969,25 @@ ${injectedCss}}
       openAboutPage2(), setTimeout(() => {
         onClose();
       }, 50);
+    }, handleOpenEbookViewerPage = () => {
+      openEbookViewerPage2(), setTimeout(() => {
+        onClose();
+      }, 50);
+    }, handleOpenEbookBuilderPage = () => {
+      openEbookBuilderPage2(), setTimeout(() => {
+        onClose();
+      }, 50);
     };
-    return !config || !ctx ? null : /* @__PURE__ */ p5(
+    return !config || !ctx ? null : /* @__PURE__ */ p4(
       Popup,
       {
+        openEbookViewerPage: handleOpenEbookViewerPage,
+        openEbookBuilderPage: handleOpenEbookBuilderPage,
+        onTranslateLocalHtmlFile: () => {
+        },
         request: request2,
         onClose: handleClose,
+        onToggleEnabled: handleToggleEnabled,
         onTranslateTheWholePage: handleSendMessageToContent(
           "translateTheWholePage",
           !0
@@ -18204,7 +18056,7 @@ ${injectedCss}}
     btnRef = btn, mountPointRef = shadow.querySelector("#mount"), rootRef.setAttribute(
       "style",
       objToStyle(currentPagePopupConfig)
-    ), setBtnTransform(), btn.addEventListener("mousedown", onMouseDown), btn.addEventListener("touchstart", onTouchStart), globalThis.addEventListener("resize", (_e4) => {
+    ), setBtnTransform(), btn.addEventListener("mousedown", onMouseDown), btn.addEventListener("touchstart", onTouchStart), globalThis.addEventListener("resize", (_e3) => {
       rootRef.setAttribute(
         "style",
         objToStyle(currentPagePopupConfig)
@@ -18219,30 +18071,30 @@ ${injectedCss}}
   function renderPopup(shadow) {
     let mountPoint = shadow.querySelector("#mount"), handleOnClose = () => {
       showButton();
-    }, handleClickOverLay = (e3) => {
-      e3 && e3.target && e3.target.id === "immersive-translate-popup-overlay" && handleOnClose();
+    }, handleClickOverLay = (e) => {
+      e && e.target && e.target.id === "immersive-translate-popup-overlay" && handleOnClose();
     };
     (async () => {
       let config = await getConfig2();
       re(
-        /* @__PURE__ */ p5(
+        /* @__PURE__ */ p4(
           TranslateProvider,
           {
             lang: config.interfaceLanguage,
             fallbackLang: "zh-CN",
             translations: locales_default,
-            children: /* @__PURE__ */ p5(
+            children: /* @__PURE__ */ p4(
               "div",
               {
                 onClick: handleClickOverLay,
                 id: "immersive-translate-popup-overlay",
                 class: "immersive-translate-popup-overlay",
-                children: /* @__PURE__ */ p5(
+                children: /* @__PURE__ */ p4(
                   "div",
                   {
                     class: "immersive-translate-popup-wrapper",
                     style: calculateMountPointPosition(),
-                    children: /* @__PURE__ */ p5(PopupApp, { onClose: handleOnClose })
+                    children: /* @__PURE__ */ p4(PopupApp, { onClose: handleOnClose })
                   }
                 )
               }
@@ -18273,31 +18125,31 @@ ${injectedCss}}
       )
     };
   }
-  function onMouseDown(e3) {
-    lastRootStyle = rootRef.getAttribute("style"), startX = e3.pageX, startY = e3.pageY, timer && clearTimeout(timer), positionChanged = !1, btnRef.style.opacity = "1", btnRef.style.transform = "none", lastBtnStyle = btnRef.getAttribute("style"), globalThis.addEventListener("mousemove", onMouseMove), globalThis.addEventListener("mouseup", onMouseUp), globalThis.addEventListener("touchmove", onTouchMove), globalThis.addEventListener("touchend", onTouchEnd), globalThis.addEventListener("touchcancel", onTouchEnd);
+  function onMouseDown(e) {
+    lastRootStyle = rootRef.getAttribute("style"), startX = e.pageX, startY = e.pageY, timer && clearTimeout(timer), positionChanged = !1, btnRef.style.opacity = "1", btnRef.style.transform = "none", lastBtnStyle = btnRef.getAttribute("style"), globalThis.addEventListener("mousemove", onMouseMove), globalThis.addEventListener("mouseup", onMouseUp), globalThis.addEventListener("touchmove", onTouchMove), globalThis.addEventListener("touchend", onTouchEnd), globalThis.addEventListener("touchcancel", onTouchEnd);
   }
-  function onTouchStart(e3) {
-    e3.preventDefault && e3.preventDefault(), onMouseDown(e3.changedTouches[0]);
+  function onTouchStart(e) {
+    e.preventDefault && e.preventDefault(), onMouseDown(e.changedTouches[0]);
   }
-  function onTouchMove(e3) {
-    onMouseMove(e3.changedTouches[0]);
+  function onTouchMove(e) {
+    onMouseMove(e.changedTouches[0]);
   }
-  function onTouchEnd(e3) {
-    e3.preventDefault && e3.preventDefault(), onMouseUp(e3.changedTouches[0]);
+  function onTouchEnd(e) {
+    e.preventDefault && e.preventDefault(), onMouseUp(e.changedTouches[0]);
   }
-  function onMouseMove(e3) {
-    e3.preventDefault && e3.preventDefault(), positionChanged = !0, rootRef.setAttribute(
+  function onMouseMove(e) {
+    e.preventDefault && e.preventDefault(), positionChanged = !0, rootRef.setAttribute(
       "style",
-      `left:${e3.clientX}px;top:${e3.clientY}px;transform:scale(1.6);`
+      `left:${e.clientX}px;top:${e.clientY}px;transform:scale(1.6);`
     );
   }
-  function onMouseUp(e3) {
-    e3.preventDefault && e3.preventDefault(), removeListeners(), timer && clearTimeout(timer), startX = startX || 0, startY = startY || 0;
-    let diffX = Math.abs(e3.pageX - startX), diffY = Math.abs(e3.pageY - startY);
-    diffX < delta && diffY < delta ? (rootRef.setAttribute("style", lastRootStyle), btnRef.setAttribute("style", lastBtnStyle), renderPopup(shadowRef)) : positionChanged ? snapToSide(e3) : renderPopup(shadowRef), positionChanged = !1;
+  function onMouseUp(e) {
+    e.preventDefault && e.preventDefault(), removeListeners(), timer && clearTimeout(timer), startX = startX || 0, startY = startY || 0;
+    let diffX = Math.abs(e.pageX - startX), diffY = Math.abs(e.pageY - startY);
+    diffX < delta && diffY < delta ? (rootRef.setAttribute("style", lastRootStyle), btnRef.setAttribute("style", lastBtnStyle), renderPopup(shadowRef)) : positionChanged ? snapToSide(e) : renderPopup(shadowRef), positionChanged = !1;
   }
-  function snapToSide(e3) {
-    let screenSize = getScreenSize(), left = e3.clientX, top = e3.clientY, toTop = top, toBottom = screenSize.height - top, toLeft = left, toRight = screenSize.width - left;
+  function snapToSide(e) {
+    let screenSize = getScreenSize(), left = e.clientX, top = e.clientY, toTop = top, toBottom = screenSize.height - top, toLeft = left, toRight = screenSize.width - left;
     toTop < toBottom && toTop < toLeft && toTop < toRight ? currentPagePopupConfig = {
       position: "top",
       left,
@@ -18305,15 +18157,15 @@ ${injectedCss}}
     } : toBottom < toTop && toBottom < toLeft && toBottom < toRight ? currentPagePopupConfig = {
       position: "bottom",
       bottom: 0,
-      left: e3.clientX
+      left: e.clientX
     } : toLeft < toTop && toLeft < toBottom && toLeft < toRight ? currentPagePopupConfig = {
       position: "left",
       left: 0,
-      top: e3.clientY
+      top: e.clientY
     } : toRight < toTop && toRight < toBottom && toRight < toLeft && (currentPagePopupConfig = {
       position: "right",
       right: 0,
-      top: e3.clientY
+      top: e.clientY
     });
     let finalStyle = objToStyle(currentPagePopupConfig);
     rootRef.setAttribute(
@@ -18353,13 +18205,13 @@ ${injectedCss}}
     config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
       userscriptCommandEventName,
       // @ts-ignore: hard to type
-      (_e4) => {
-        isInit || (isInit = !0, initPopup().catch((e3) => {
-          log_default.error("init popup error", e3);
+      (_e3) => {
+        isInit || (isInit = !0, initPopup().catch((e) => {
+          log_default.error("init popup error", e);
         }));
       }
-    ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e3) => {
-      log_default.error("init popup error", e3);
+    ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e) => {
+      log_default.error("init popup error", e);
     })));
   }
 
@@ -18368,12 +18220,18 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.2.76",
+    version: "0.3.9",
     default_locale: "en",
     background: {
       service_worker: "background.js"
     },
-    web_accessible_resources: ["styles/inject.css", "pdf/index.html"],
+    web_accessible_resources: [
+      "styles/inject.css",
+      "pdf/index.html",
+      "ebook/index.html",
+      "ebook/index.html",
+      "ebook/make/index.html"
+    ],
     content_scripts: [
       {
         matches: [
@@ -18449,7 +18307,28 @@ ${injectedCss}}
     },
     browser_action: {
       default_icon: "icons/32.png",
-      default_popup: "popup.html"
+      default_popup: "popup.html",
+      theme_icons: [{
+        dark: "icons/32.png",
+        light: "icons/dark-32.png",
+        size: 32
+      }, {
+        dark: "icons/48.png",
+        light: "icons/dark-48.png",
+        size: 48
+      }, {
+        dark: "icons/64.png",
+        light: "icons/dark-64.png",
+        size: 64
+      }, {
+        dark: "icons/128.png",
+        light: "icons/dark-128.png",
+        size: 128
+      }, {
+        dark: "icons/256.png",
+        light: "icons/dark-256.png",
+        size: 256
+      }]
     },
     icons: {
       "32": "icons/32.png",
@@ -18468,42 +18347,50 @@ ${injectedCss}}
   };
 
   // dom/main.ts
+  var hardCodeBlackDomains = ["oapi.dingtalk.com", "login.dingtalk.com"];
   async function main2() {
     let config = await getConfig2(), ctx = await getContext({
       config,
       url: getRealUrl()
-    });
-    if (ctx.isTranslateExcludeUrl && isWebOptionsPage2())
-      log_default.debug("detect web options page"), setupWebOptionsPage();
-    else {
-      if (await setupDomListeners(ctx), isMonkey() ? (setupCommandListeners(config), registerCommands(config)) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e3) => {
-        log_default.error(`init popup page error: ${e3}`);
-      }), !ctx.isTranslateExcludeUrl) {
-        if (ctx.rule.isPdf) {
-          let isFirstTextRendered = !1;
-          globalThis.PDFViewerApplication && globalThis.PDFViewerApplication.initializedPromise.then(() => {
-            let pdfViewer = globalThis.PDFViewerApplication;
-            pdfViewer.eventBus.on("pagesdestroy", () => {
-              restorePage();
-            }), pdfViewer.eventBus.on("textlayerrendered", async () => {
-              isFirstTextRendered || (isFirstTextRendered = !0, await initPage());
-            }), pdfViewer.eventBus.on("fileinputchange", () => {
-              isFirstTextRendered = !1;
+    }), realUrlObj = new URL(ctx.url);
+    if (!hardCodeBlackDomains.includes(realUrlObj.hostname))
+      if (ctx.isTranslateExcludeUrl && isWebOptionsPage2())
+        log_default.debug("detect web options page"), setupWebOptionsPage();
+      else {
+        if (!ctx.config.enabled)
+          return;
+        if (await setupDomListeners(ctx), isMonkey() ? (setupCommandListeners(config), registerCommands(config)) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e) => {
+          log_default.error(`init popup page error: ${e}`);
+        }), !ctx.isTranslateExcludeUrl) {
+          if (ctx.rule.isPdf) {
+            let isFirstTextRendered = !1;
+            globalThis.PDFViewerApplication && globalThis.PDFViewerApplication.initializedPromise.then(() => {
+              let pdfViewer = globalThis.PDFViewerApplication;
+              pdfViewer.eventBus.on("pagesdestroy", () => {
+                restorePage();
+              }), pdfViewer.eventBus.on("textlayerrendered", async () => {
+                isFirstTextRendered || (isFirstTextRendered = !0, await initPage());
+              }), pdfViewer.eventBus.on("fileinputchange", () => {
+                isFirstTextRendered = !1;
+              });
             });
-          });
-        } else
-          await initPage();
-        checkCronAndRunOnce();
+          } else
+            ctx.rule.isEbook || ctx.rule.isEbookBuilder || await initPage();
+          checkCronAndRunOnce();
+        }
+        injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
+          isInlineIframe(frame) ? injectCssToFrame(frame.contentDocument, ctx) : ctx.rule.isEbook && injectCssToFrame(frame.contentDocument, ctx);
+        });
       }
-      injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
-        isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
-      });
-    }
   }
   var debounceOpenOptionsPage = se(async () => {
     await openOptionsPage2();
   }, 50), debounceOpenAboutPage = se(async () => {
     await openAboutPage2();
+  }, 50), deboundOpenEbookBuilder = se(async () => {
+    await openEbookBuilderPage2();
+  }, 50), deboundOpenEbookViewer = se(async () => {
+    await openEbookViewerPage2();
   }, 50), debounceToggleTranslatePage = se((id) => {
     sendMessageToContent2({
       method: id
@@ -18514,7 +18401,7 @@ ${injectedCss}}
       let commandsMap = manifest_default.commands, menus = [
         ...Object.keys(commandsMap).filter((item) => item === "toggleTranslatePage").map((command) => {
           let titlePlaceholder = commandsMap[command].description, title = titlePlaceholder;
-          return titlePlaceholder.startsWith("__MSG_") && titlePlaceholder.endsWith("__") && (title = t4(
+          return titlePlaceholder.startsWith("__MSG_") && titlePlaceholder.endsWith("__") && (title = t3(
             `browser.${titlePlaceholder.slice(6, -2)}`,
             config.interfaceLanguage
           )), {
@@ -18523,21 +18410,31 @@ ${injectedCss}}
           };
         }),
         {
+          id: contextOpenLocalEbookViewer,
+          title: t3("browser.openEbookViewer", config.interfaceLanguage),
+          key: "e"
+        },
+        {
+          id: contextOpenLocalEbookBuilder,
+          title: t3("browser.openEbookBuilder", config.interfaceLanguage),
+          key: "m"
+        },
+        {
           id: contextOpenOptionsMenuId,
-          title: t4("browser.openOptionsPage", config.interfaceLanguage),
+          title: t3("browser.openOptionsPage", config.interfaceLanguage),
           key: "o"
         },
         {
           id: contextOpenAboutMenuId,
-          title: t4("browser.openAboutPage", config.interfaceLanguage),
-          key: "o"
+          title: t3("browser.openAboutPage", config.interfaceLanguage),
+          key: "a"
         }
       ];
       for (let menu of menus)
         GM.registerMenuCommand(
           menu.title,
           () => {
-            menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : menu.id === contextOpenAboutMenuId ? debounceOpenAboutPage() : debounceToggleTranslatePage(menu.id);
+            menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : menu.id === contextOpenAboutMenuId ? debounceOpenAboutPage() : menu.id === contextOpenLocalEbookBuilder ? deboundOpenEbookBuilder() : menu.id === contextOpenLocalEbookViewer ? deboundOpenEbookViewer() : debounceToggleTranslatePage(menu.id);
           },
           menu.key
         );
@@ -18551,8 +18448,8 @@ ${injectedCss}}
         url: "https://www.fake.com",
         active: !0
       }
-    }).catch((e3) => {
-      log_default.error("send content message request failed", request3, e3);
+    }).catch((e) => {
+      log_default.error("send content message request failed", request3, e);
     });
     let event = new CustomEvent(userscriptCommandEventName, {
       detail: request3
@@ -18757,30 +18654,30 @@ ${this._lastError.message}`;
           return !0;
         throw new Error("there is no main text");
       }, { timeout: 1e4 }), !0;
-    } catch (e3) {
-      throw e3;
+    } catch (e) {
+      throw e;
     }
   }
 
   // content_main.ts
   ready_state_default.domready.then(() => {
     waitForDomElementReady().then(() => {
-      main2().catch((e3) => {
-        e3 && log_default.error(
+      main2().catch((e) => {
+        e && log_default.error(
           "translate page error",
-          e3.name,
-          e3.message,
-          e3.details || "",
-          e3
+          e.name,
+          e.message,
+          e.details || "",
+          e
         );
       });
-    }).catch((e3) => {
-      log_default.debug("can not detect a valid body: ", e3);
+    }).catch((e) => {
+      log_default.debug("can not detect a valid body: ", e);
     });
-  }).catch((e3) => {
-    e3 && log_default.error(
+  }).catch((e) => {
+    e && log_default.error(
       "translate dom ready detect error",
-      e3
+      e
     );
   });
 })();

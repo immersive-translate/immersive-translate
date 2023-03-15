@@ -13,11 +13,16 @@
 
 打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cciZptnoXCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 > 说明：
 >
 > 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用
 > 2. 翻译服务依然使用的是 DeepL 官方的翻译接口，数据不会经过沉浸式翻译的服务器
 > 3. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
+> 4. 赞助后，你将会在邮件收到 DeepL Auth Key，在沉浸式翻译扩展的设置页面选择翻译服务【DeepL】，然后填入该 Auth Key 即可。
+> 5. 该 Auth Key 的有效性与赞助期限保持同步。
+> 6. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
 
 如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
 
@@ -26,6 +31,18 @@
 如果你只是轻量使用，你可以在淘宝或其他平台购买已开通 DeepL API Free 的账号，每月有 50 万免费字符翻译额度。当你购买了账号后，除了账号密码外，卖家一般也会把 auth key 给你，直接把 authkey 填入本扩展的 DeepL 翻译中即可。
 
 > 如果你提供 DeepL 的 Auth Key，可以在此处投放赞助广告。请通过[这些方式](https://www.owenyoung.com/contact/)联系我了解更多。
+
+## DeepL 繁體中文
+
+沉浸式翻譯的 DeepL 服務也支持繁體中文哦！ （由於 DeepL 官方不支持繁體中文，導致很多繁體的朋友們無法使用 DeepL 的優質翻譯服務，為了解決這部分繁體中文朋友的困擾，沉浸式翻譯擴展會將 DeepL 的簡體中文再轉為繁體中文。
+
+## 自建DeepL API
+
+1. 开发者设置中开启 Beta 测试特性
+2. 基本设置中找到DeepLX(Beta)，输入自建DeepL API URL，如http://your-url/translate
+
+> Q：如何自建？  
+> A：[OwO-Network/DeepLX](https://github.com/OwO-Network/DeepLX#setup-on-immersive-translate)或是[zu1k/deepl](https://github.com/KyleChoy/zotero-pdf-translate/blob/CustomDeepL/README.md) (注：自建API并发量受限，可能会出现错误)
 
 ## 常见问题
 

@@ -1,4 +1,4 @@
-import { Fragment, install as _install, render } from "../deps.ts";
+import { Fragment, install as _install, render } from "../popup_deps.ts";
 import log from "../log.ts";
 import ButtonDropDown from "../components/button_drop_down.tsx";
 function main() {
@@ -6,10 +6,7 @@ function main() {
   if (mountPoint) {
     // _install(twindConfig);
     log.setLevel("debug");
-    render(
-      <App />,
-      mountPoint,
-    );
+    render(<App />, mountPoint);
   }
 }
 
@@ -23,15 +20,17 @@ function App() {
             label="更多"
             showArrow={false}
             maxWidth={60}
-            onSelected={(item) => {
-            }}
-            menus={[{
-              label: "translateTheWholePage",
-              value: "translateTheWholePage",
-            }, {
-              label: "translateToThePageEndImmediately",
-              value: "translateToThePageEndImmediately",
-            }]}
+            onSelected={(item) => {}}
+            menus={[
+              {
+                label: "translateTheWholePage",
+                value: "translateTheWholePage",
+              },
+              {
+                label: "translateToThePageEndImmediately",
+                value: "translateToThePageEndImmediately",
+              },
+            ]}
           />
         </div>
       </main>

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSION: "0.2.76", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:35.803Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -15,10 +15,14 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
   --immersive-translate-theme-blockquote-borderColor: #cc3355;
   --immersive-translate-theme-thinDashed-borderColor: #ff374f;
   --immersive-translate-theme-dashedBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-dashedBorder-borderRadius: 0;
+  --immersive-translate-theme-solidBorder-borderColor: #94a3b8;
+  --immersive-translate-theme-solidBorder-borderRadius: 0;
   --immersive-translate-theme-dotted-borderColor: #94a3b8;
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -37,16 +41,15 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
   line-height: 1.3;
   font-size: 16px;
 }
-.immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper {
+.immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);
   white-space: normal;
   position: absolute;
 }
 
 .immersive-translate-pdf-target-container
-  span.immersive-translate-target-wrapper
-  span {
+  .immersive-translate-target-wrapper
+  font {
   color: inherit;
   white-space: inherit;
   position: unset;
@@ -80,6 +83,9 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -87,6 +93,27 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-dashedBorder-borderRadius
+  ) !important;
+  padding: 2px;
+}
+
+.immersive-translate-target-translation-block-wrapper-theme-solidBorder {
+  border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
+  padding: 6px;
+  margin-top: 2px;
+  display: block;
+}
+
+.immersive-translate-target-translation-inline-wrapper-theme-solidBorder {
+  border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
+  border-radius: var(
+    --immersive-translate-theme-solidBorder-borderRadius
+  ) !important;
   padding: 2px;
 }
 
@@ -153,6 +180,15 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
 }
 .immersive-translate-target-translation-block-wrapper-theme-marker {
   line-height: 1.5em;
+}
+
+.immersive-translate-target-translation-theme-marker2-inner {
+  font-weight: bold;
+  text-shadow: 10px 0px 3px
+      var(--immersive-translate-theme-marker2-backgroundColor),
+    16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
+    2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
+    -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important;
 }
 
 .immersive-translate-target-translation-theme-marker-inner {
@@ -265,8 +301,8 @@ var define_process_env_default = { BUILD_TIME: "2023-02-28T15:14:33.592Z", VERSI
   height: 10px !important;
   display: inline-block !important;
   margin: 0 4px !important;
-  border: 2px rgba(0, 0, 0, 0.25) solid !important;
-  border-top: 2px rgba(0, 0, 0, 1) solid !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(9, 105, 218, 0.5) solid !important;
   border-radius: 50% !important;
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
@@ -3744,7 +3780,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-// https://esm.sh/v108/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
+// https://esm.sh/v111/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
 var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 }, __export2 = (target, all) => {
@@ -3763,7 +3799,7 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
-  "esm-build-59d68f3acfee06c9af551cb788e2eceb125e3a8b-74587886/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
+  "esm-build-ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1-f220b894/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
     (function(global2, factory) {
       if (typeof define == "function" && define.amd)
         define("webextension-polyfill", ["module"], factory);
@@ -4655,400 +4691,16 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
         module22.exports = globalThis.browser;
     });
   }
-}), esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports = {};
-__export2(esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports, {
-  default: () => esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default
+}), esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports = {};
+__export2(esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports, {
+  default: () => esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default
 });
 var __module = __toESM(require_browser_polyfill());
-__reExport(esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_exports, __toESM(require_browser_polyfill()));
-var { default: __default, ...__rest } = __module, esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default = __default !== void 0 ? __default : __rest;
+__reExport(esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports, __toESM(require_browser_polyfill()));
+var { default: __default, ...__rest } = __module, esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default = __default !== void 0 ? __default : __rest;
 
 // browser/import_browser_polyfill.ts
-globalThis.immersiveTranslateBrowserAPI = esm_build_59d68f3acfee06c9af551cb788e2eceb125e3a8b_74587886_default;
-
-// https://deno.land/std@0.171.0/async/deferred.ts
-function deferred() {
-  let methods, state = "pending", promise = new Promise((resolve, reject) => {
-    methods = {
-      async resolve(value) {
-        await value, state = "fulfilled", resolve(value);
-      },
-      // deno-lint-ignore no-explicit-any
-      reject(reason) {
-        state = "rejected", reject(reason);
-      }
-    };
-  });
-  return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
-}
-
-// https://deno.land/std@0.171.0/async/deadline.ts
-var DeadlineError = class extends Error {
-  constructor() {
-    super("Deadline"), this.name = "DeadlineError";
-  }
-};
-function deadline(p5, delay3) {
-  let d5 = deferred(), t5 = setTimeout(() => d5.reject(new DeadlineError()), delay3);
-  return Promise.race([p5, d5]).finally(() => clearTimeout(t5));
-}
-
-// https://deno.land/std@0.171.0/async/delay.ts
-function delay(ms, options = {}) {
-  let { signal, persistent } = options;
-  return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
-    let abort = () => {
-      clearTimeout(i2), reject(new DOMException("Delay was aborted.", "AbortError"));
-    }, i2 = setTimeout(() => {
-      signal?.removeEventListener("abort", abort), resolve();
-    }, ms);
-    if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
-      try {
-        Deno.unrefTimer(i2);
-      } catch (error2) {
-        if (!(error2 instanceof ReferenceError))
-          throw error2;
-        console.error("`persistent` option is only available in Deno");
-      }
-  });
-}
-
-// https://deno.land/std@0.171.0/async/mux_async_iterator.ts
-var MuxAsyncIterator = class {
-  #iteratorCount = 0;
-  #yields = [];
-  // deno-lint-ignore no-explicit-any
-  #throws = [];
-  #signal = deferred();
-  add(iterable) {
-    ++this.#iteratorCount, this.#callIteratorNext(iterable[Symbol.asyncIterator]());
-  }
-  async #callIteratorNext(iterator) {
-    try {
-      let { value, done } = await iterator.next();
-      done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
-    } catch (e3) {
-      this.#throws.push(e3);
-    }
-    this.#signal.resolve();
-  }
-  async *iterate() {
-    for (; this.#iteratorCount > 0; ) {
-      await this.#signal;
-      for (let i2 = 0; i2 < this.#yields.length; i2++) {
-        let { iterator, value } = this.#yields[i2];
-        yield value, this.#callIteratorNext(iterator);
-      }
-      if (this.#throws.length) {
-        for (let e3 of this.#throws)
-          throw e3;
-        this.#throws.length = 0;
-      }
-      this.#yields.length = 0, this.#signal = deferred();
-    }
-  }
-  [Symbol.asyncIterator]() {
-    return this.iterate();
-  }
-};
-
-// https://deno.land/std@0.167.0/fmt/colors.ts
-var colors_exports = {};
-__export(colors_exports, {
-  bgBlack: () => bgBlack,
-  bgBlue: () => bgBlue,
-  bgBrightBlack: () => bgBrightBlack,
-  bgBrightBlue: () => bgBrightBlue,
-  bgBrightCyan: () => bgBrightCyan,
-  bgBrightGreen: () => bgBrightGreen,
-  bgBrightMagenta: () => bgBrightMagenta,
-  bgBrightRed: () => bgBrightRed,
-  bgBrightWhite: () => bgBrightWhite,
-  bgBrightYellow: () => bgBrightYellow,
-  bgCyan: () => bgCyan,
-  bgGreen: () => bgGreen,
-  bgMagenta: () => bgMagenta,
-  bgRed: () => bgRed,
-  bgRgb24: () => bgRgb24,
-  bgRgb8: () => bgRgb8,
-  bgWhite: () => bgWhite,
-  bgYellow: () => bgYellow,
-  black: () => black,
-  blue: () => blue,
-  bold: () => bold,
-  brightBlack: () => brightBlack,
-  brightBlue: () => brightBlue,
-  brightCyan: () => brightCyan,
-  brightGreen: () => brightGreen,
-  brightMagenta: () => brightMagenta,
-  brightRed: () => brightRed,
-  brightWhite: () => brightWhite,
-  brightYellow: () => brightYellow,
-  cyan: () => cyan,
-  dim: () => dim,
-  getColorEnabled: () => getColorEnabled,
-  gray: () => gray,
-  green: () => green,
-  hidden: () => hidden,
-  inverse: () => inverse,
-  italic: () => italic,
-  magenta: () => magenta,
-  red: () => red,
-  reset: () => reset,
-  rgb24: () => rgb24,
-  rgb8: () => rgb8,
-  setColorEnabled: () => setColorEnabled,
-  strikethrough: () => strikethrough,
-  stripColor: () => stripColor,
-  underline: () => underline,
-  white: () => white,
-  yellow: () => yellow
-});
-var { Deno: Deno2 } = globalThis, noColor = typeof Deno2?.noColor == "boolean" ? Deno2.noColor : !0, enabled = !noColor;
-function setColorEnabled(value) {
-  noColor || (enabled = value);
-}
-function getColorEnabled() {
-  return enabled;
-}
-function code(open, close) {
-  return {
-    open: `\x1B[${open.join(";")}m`,
-    close: `\x1B[${close}m`,
-    regexp: new RegExp(`\\x1b\\[${close}m`, "g")
-  };
-}
-function run(str, code2) {
-  return enabled ? `${code2.open}${str.replace(code2.regexp, code2.open)}${code2.close}` : str;
-}
-function reset(str) {
-  return run(str, code([0], 0));
-}
-function bold(str) {
-  return run(str, code([1], 22));
-}
-function dim(str) {
-  return run(str, code([2], 22));
-}
-function italic(str) {
-  return run(str, code([3], 23));
-}
-function underline(str) {
-  return run(str, code([4], 24));
-}
-function inverse(str) {
-  return run(str, code([7], 27));
-}
-function hidden(str) {
-  return run(str, code([8], 28));
-}
-function strikethrough(str) {
-  return run(str, code([9], 29));
-}
-function black(str) {
-  return run(str, code([30], 39));
-}
-function red(str) {
-  return run(str, code([31], 39));
-}
-function green(str) {
-  return run(str, code([32], 39));
-}
-function yellow(str) {
-  return run(str, code([33], 39));
-}
-function blue(str) {
-  return run(str, code([34], 39));
-}
-function magenta(str) {
-  return run(str, code([35], 39));
-}
-function cyan(str) {
-  return run(str, code([36], 39));
-}
-function white(str) {
-  return run(str, code([37], 39));
-}
-function gray(str) {
-  return brightBlack(str);
-}
-function brightBlack(str) {
-  return run(str, code([90], 39));
-}
-function brightRed(str) {
-  return run(str, code([91], 39));
-}
-function brightGreen(str) {
-  return run(str, code([92], 39));
-}
-function brightYellow(str) {
-  return run(str, code([93], 39));
-}
-function brightBlue(str) {
-  return run(str, code([94], 39));
-}
-function brightMagenta(str) {
-  return run(str, code([95], 39));
-}
-function brightCyan(str) {
-  return run(str, code([96], 39));
-}
-function brightWhite(str) {
-  return run(str, code([97], 39));
-}
-function bgBlack(str) {
-  return run(str, code([40], 49));
-}
-function bgRed(str) {
-  return run(str, code([41], 49));
-}
-function bgGreen(str) {
-  return run(str, code([42], 49));
-}
-function bgYellow(str) {
-  return run(str, code([43], 49));
-}
-function bgBlue(str) {
-  return run(str, code([44], 49));
-}
-function bgMagenta(str) {
-  return run(str, code([45], 49));
-}
-function bgCyan(str) {
-  return run(str, code([46], 49));
-}
-function bgWhite(str) {
-  return run(str, code([47], 49));
-}
-function bgBrightBlack(str) {
-  return run(str, code([100], 49));
-}
-function bgBrightRed(str) {
-  return run(str, code([101], 49));
-}
-function bgBrightGreen(str) {
-  return run(str, code([102], 49));
-}
-function bgBrightYellow(str) {
-  return run(str, code([103], 49));
-}
-function bgBrightBlue(str) {
-  return run(str, code([104], 49));
-}
-function bgBrightMagenta(str) {
-  return run(str, code([105], 49));
-}
-function bgBrightCyan(str) {
-  return run(str, code([106], 49));
-}
-function bgBrightWhite(str) {
-  return run(str, code([107], 49));
-}
-function clampAndTruncate(n3, max = 255, min = 0) {
-  return Math.trunc(Math.max(Math.min(n3, max), min));
-}
-function rgb8(str, color) {
-  return run(str, code([38, 5, clampAndTruncate(color)], 39));
-}
-function bgRgb8(str, color) {
-  return run(str, code([48, 5, clampAndTruncate(color)], 49));
-}
-function rgb24(str, color) {
-  return typeof color == "number" ? run(
-    str,
-    code(
-      [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-      39
-    )
-  ) : run(
-    str,
-    code(
-      [
-        38,
-        2,
-        clampAndTruncate(color.r),
-        clampAndTruncate(color.g),
-        clampAndTruncate(color.b)
-      ],
-      39
-    )
-  );
-}
-function bgRgb24(str, color) {
-  return typeof color == "number" ? run(
-    str,
-    code(
-      [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-      49
-    )
-  ) : run(
-    str,
-    code(
-      [
-        48,
-        2,
-        clampAndTruncate(color.r),
-        clampAndTruncate(color.g),
-        clampAndTruncate(color.b)
-      ],
-      49
-    )
-  );
-}
-var ANSI_PATTERN = new RegExp(
-  [
-    "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
-    "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-nq-uy=><~]))"
-  ].join("|"),
-  "g"
-);
-function stripColor(string) {
-  return string.replace(ANSI_PATTERN, "");
-}
-
-// https://deno.land/std@0.167.0/async/debounce.ts
-function debounce(fn, wait) {
-  let timeout = null, flush = null, debounced = (...args) => {
-    debounced.clear(), flush = () => {
-      debounced.clear(), fn.call(debounced, ...args);
-    }, timeout = setTimeout(flush, wait);
-  };
-  return debounced.clear = () => {
-    typeof timeout == "number" && (clearTimeout(timeout), timeout = null, flush = null);
-  }, debounced.flush = () => {
-    flush?.();
-  }, Object.defineProperty(debounced, "pending", {
-    get: () => typeof timeout == "number"
-  }), debounced;
-}
-
-// https://deno.land/std@0.170.0/async/retry.ts
-var RetryError = class extends Error {
-  constructor(cause, count2) {
-    super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
-  }
-}, defaultRetryOptions = {
-  multiplier: 2,
-  maxTimeout: 6e4,
-  maxAttempts: 5,
-  minTimeout: 1e3
-};
-async function retry(fn, opts) {
-  let options = {
-    ...defaultRetryOptions,
-    ...opts
-  };
-  if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
-    throw new RangeError("minTimeout is greater than maxTimeout");
-  let timeout = options.minTimeout, error2;
-  for (let i2 = 0; i2 < options.maxAttempts; i2++)
-    try {
-      return await fn();
-    } catch (err) {
-      await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error2 = err;
-    }
-  throw new RetryError(error2, options.maxAttempts);
-}
+globalThis.immersiveTranslateBrowserAPI = esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default;
 
 // https://esm.sh/stable/preact@10.11.0/deno/preact.js
 var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
@@ -5475,110 +5127,7 @@ function D2(_4, t5) {
   return typeof t5 == "function" ? t5(_4) : t5;
 }
 
-// https://esm.sh/v108/memoize-one@6.0.0/deno/memoize-one.js
-var s = Number.isNaN || function(r) {
-  return typeof r == "number" && r !== r;
-};
-
-// https://esm.sh/v108/lodash.throttle@4.1.1/deno/lodash.throttle.js
-var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e3, t5) => () => (t5 || e3((t5 = { exports: {} }).exports, t5), t5.exports), q3 = (e3, t5) => {
-  for (var n3 in t5)
-    I2(e3, n3, { get: t5[n3], enumerable: !0 });
-}, v = (e3, t5, n3, f4) => {
-  if (t5 && typeof t5 == "object" || typeof t5 == "function")
-    for (let i2 of G2(t5))
-      !U2.call(e3, i2) && i2 !== n3 && I2(e3, i2, { get: () => t5[i2], enumerable: !(f4 = D3(t5, i2)) || f4.enumerable });
-  return e3;
-}, s2 = (e3, t5, n3) => (v(e3, t5, "default"), n3 && v(n3, t5, "default")), L3 = (e3, t5, n3) => (n3 = e3 != null ? P3(H2(e3)) : {}, v(t5 || !e3 || !e3.__esModule ? I2(n3, "default", { value: e3, enumerable: !0 }) : n3, e3)), h = X2((ge2, N8) => {
-  var M6 = "Expected a function", W7 = NaN, z6 = "[object Symbol]", J5 = /^\s+|\s+$/g, K7 = /^[-+]0x[0-9a-f]+$/i, Q7 = /^0b[01]+$/i, V7 = /^0o[0-7]+$/i, Y6 = parseInt, Z6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w5 = typeof self == "object" && self && self.Object === Object && self, ee5 = Z6 || w5 || Function("return this")(), te3 = Object.prototype, ne5 = te3.toString, re5 = Math.max, ie4 = Math.min, O5 = function() {
-    return ee5.Date.now();
-  };
-  function fe(e3, t5, n3) {
-    var f4, i2, b5, l2, a3, u3, d5 = 0, S8 = !1, g6 = !1, T7 = !0;
-    if (typeof e3 != "function")
-      throw new TypeError(M6);
-    t5 = C6(t5) || 0, p5(n3) && (S8 = !!n3.leading, g6 = "maxWait" in n3, b5 = g6 ? re5(C6(n3.maxWait) || 0, t5) : b5, T7 = "trailing" in n3 ? !!n3.trailing : T7);
-    function j6(r) {
-      var o3 = f4, m4 = i2;
-      return f4 = i2 = void 0, d5 = r, l2 = e3.apply(m4, o3), l2;
-    }
-    function A5(r) {
-      return d5 = r, a3 = setTimeout(y4, t5), S8 ? j6(r) : l2;
-    }
-    function B10(r) {
-      var o3 = r - u3, m4 = r - d5, k4 = t5 - o3;
-      return g6 ? ie4(k4, b5 - m4) : k4;
-    }
-    function E4(r) {
-      var o3 = r - u3, m4 = r - d5;
-      return u3 === void 0 || o3 >= t5 || o3 < 0 || g6 && m4 >= b5;
-    }
-    function y4() {
-      var r = O5();
-      if (E4(r))
-        return _4(r);
-      a3 = setTimeout(y4, B10(r));
-    }
-    function _4(r) {
-      return a3 = void 0, T7 && f4 ? j6(r) : (f4 = i2 = void 0, l2);
-    }
-    function F8() {
-      a3 !== void 0 && clearTimeout(a3), d5 = 0, f4 = u3 = i2 = a3 = void 0;
-    }
-    function R5() {
-      return a3 === void 0 ? l2 : _4(O5());
-    }
-    function x6() {
-      var r = O5(), o3 = E4(r);
-      if (f4 = arguments, i2 = this, u3 = r, o3) {
-        if (a3 === void 0)
-          return A5(u3);
-        if (g6)
-          return a3 = setTimeout(y4, t5), j6(u3);
-      }
-      return a3 === void 0 && (a3 = setTimeout(y4, t5)), l2;
-    }
-    return x6.cancel = F8, x6.flush = R5, x6;
-  }
-  function ae4(e3, t5, n3) {
-    var f4 = !0, i2 = !0;
-    if (typeof e3 != "function")
-      throw new TypeError(M6);
-    return p5(n3) && (f4 = "leading" in n3 ? !!n3.leading : f4, i2 = "trailing" in n3 ? !!n3.trailing : i2), fe(e3, t5, { leading: f4, maxWait: t5, trailing: i2 });
-  }
-  function p5(e3) {
-    var t5 = typeof e3;
-    return !!e3 && (t5 == "object" || t5 == "function");
-  }
-  function oe4(e3) {
-    return !!e3 && typeof e3 == "object";
-  }
-  function ue3(e3) {
-    return typeof e3 == "symbol" || oe4(e3) && ne5.call(e3) == z6;
-  }
-  function C6(e3) {
-    if (typeof e3 == "number")
-      return e3;
-    if (ue3(e3))
-      return W7;
-    if (p5(e3)) {
-      var t5 = typeof e3.valueOf == "function" ? e3.valueOf() : e3;
-      e3 = p5(t5) ? t5 + "" : t5;
-    }
-    if (typeof e3 != "string")
-      return e3 === 0 ? e3 : +e3;
-    e3 = e3.replace(J5, "");
-    var n3 = Q7.test(e3);
-    return n3 || V7.test(e3) ? Y6(e3.slice(2), n3 ? 2 : 8) : K7.test(e3) ? W7 : +e3;
-  }
-  N8.exports = ae4;
-}), c = {};
-q3(c, { default: () => se });
-var ce2 = L3(h());
-s2(c, L3(h()));
-var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
-
-// https://esm.sh/v108/@twind/core@1.0.1/deno/core.js
+// https://esm.sh/v111/@twind/core@1.0.1/deno/core.js
 var F3;
 function lt(t5) {
   return [...t5.v, (t5.i ? "!" : "") + t5.n].join(":");
@@ -5601,14 +5150,14 @@ function x2(t5 = []) {
 function At(t5) {
   return t5;
 }
-function D4() {
+function D3() {
 }
 var w3 = { d: 0, b: 134217728, c: 268435456, a: 671088640, u: 805306368, o: 939524096 };
 function jt(t5) {
   var e3;
   return ((e3 = t5.match(/[-=:;]/g)) == null ? void 0 : e3.length) || 0;
 }
-function X3(t5) {
+function X2(t5) {
   return Math.min(/(?:^|width[^\d]+)(\d+(?:.\d+)?)(p)?/.test(t5) ? +RegExp.$1 / (RegExp.$2 ? 15 : 1) / 10 : 0, 15) << 22 | Math.min(jt(t5), 15) << 18;
 }
 var qt = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad-on", "cus-w", "ver", "cus", "cus-v", "tive", "sable", "tiona", "quire"];
@@ -5617,7 +5166,7 @@ function at({ n: t5, i: e3, v: r = [] }, n3, i2, l2) {
     let s5 = n3.theme("screens", a3);
     for (let u3 of x2(s5 && kt(s5) || n3.v(a3))) {
       var o3;
-      l2.push(u3), i2 |= s5 ? 67108864 | X3(u3) : a3 == "dark" ? 1073741824 : u3[0] == "@" ? X3(u3) : (o3 = u3, 1 << ~(/:([a-z-]+)/.test(o3) && ~qt.indexOf(RegExp.$1.slice(2, 7)) || -18));
+      l2.push(u3), i2 |= s5 ? 67108864 | X2(u3) : a3 == "dark" ? 1073741824 : u3[0] == "@" ? X2(u3) : (o3 = u3, 1 << ~(/:([a-z-]+)/.test(o3) && ~qt.indexOf(RegExp.$1.slice(2, 7)) || -18));
     }
   }
   return { n: t5, p: i2, r: l2, i: e3 };
@@ -5654,7 +5203,7 @@ function Mt(t5, e3) {
   let r = t5.p & w3.o;
   return r == (e3.p & w3.o) && (r == w3.b || r == w3.o) ? 0 : t5.p - e3.p || t5.o - e3.o || Dt.compare(t5.n, e3.n);
 }
-function H3(t5, e3) {
+function H2(t5, e3) {
   return Math.round(parseInt(t5, 16) * e3);
 }
 function T2(t5, e3 = {}) {
@@ -5665,7 +5214,7 @@ function T2(t5, e3 = {}) {
     return t5.replace("<alpha-value>", i2);
   if (t5[0] == "#" && (t5.length == 4 || t5.length == 7)) {
     let l2 = (t5.length - 1) / 3, o3 = [17, 1, 0.062272][l2 - 1];
-    return `rgba(${[H3(t5.substr(1, l2), o3), H3(t5.substr(1 + l2, l2), o3), H3(t5.substr(1 + 2 * l2, l2), o3), i2]})`;
+    return `rgba(${[H2(t5.substr(1, l2), o3), H2(t5.substr(1 + l2, l2), o3), H2(t5.substr(1 + 2 * l2, l2), o3), i2]})`;
   }
   return i2 == "1" ? t5 : i2 == "0" ? "#0000" : t5.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${i2})`);
 }
@@ -5707,7 +5256,7 @@ function ct(t5, e3, r, n3, i2 = []) {
         h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (C6, $6) => {
           let j6 = c5.theme("screens", $6);
           return j6 ? (m4 |= 67108864, kt(j6, "")) : C6;
-        }), m4 |= X3(h3)), p5.push(...l2(b5, { n: a3, p: m4, r: [...u3, h3], i: f4 }, c5));
+        }), m4 |= X2(h3)), p5.push(...l2(b5, { n: a3, p: m4, r: [...u3, h3], i: f4 }, c5));
       } else
         p5.push(...l2(b5, { p: s5, r: [...u3, h3] }, c5));
     }
@@ -5818,14 +5367,14 @@ function N3(t5) {
 function Ct(t5, e3, r) {
   return e3.reduce((n3, i2, l2) => n3 + r(i2) + t5[l2 + 1], t5[0]);
 }
-function G3(t5, e3) {
+function G2(t5, e3) {
   return Array.isArray(t5) && Array.isArray(t5.raw) ? Ct(t5, e3, (r) => Q2(r).trim()) : e3.filter(Boolean).reduce((r, n3) => r + Q2(n3), t5 ? Q2(t5) : "");
 }
 function Q2(t5) {
   let e3, r = "";
   if (t5 && typeof t5 == "object")
     if (Array.isArray(t5))
-      (e3 = G3(t5[0], t5.slice(1))) && (r += " " + e3);
+      (e3 = G2(t5[0], t5.slice(1))) && (r += " " + e3);
     else
       for (let n3 in t5)
         t5[n3] && (r += " " + n3);
@@ -5841,10 +5390,10 @@ function Et(t5) {
     return e3(n3, i2, l2);
   } });
   function e3(r, n3, i2) {
-    return st(N3(r + t5 + "(" + G3(n3, i2) + ")"));
+    return st(N3(r + t5 + "(" + G2(n3, i2) + ")"));
   }
 }
-function U3(t5, e3) {
+function U2(t5, e3) {
   return Array.isArray(t5) ? mt(Ct(t5, e3, (r) => r != null && typeof r != "boolean" ? r : "")) : typeof t5 == "string" ? mt(t5) : [t5];
 }
 var Bt = / *(?:(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}))/g;
@@ -5858,10 +5407,10 @@ function mt(t5) {
 }
 function dt(t5, ...e3) {
   var r, n3;
-  let i2 = U3(t5, e3), l2 = (((r = i2.find((o3) => o3.label)) == null ? void 0 : r.label) || "css") + V3(JSON.stringify(i2));
+  let i2 = U2(t5, e3), l2 = (((r = i2.find((o3) => o3.label)) == null ? void 0 : r.label) || "css") + V3(JSON.stringify(i2));
   return n3 = (o3, a3) => pt(i2.flatMap((s5) => ct(s5, o3, a3, w3.o)), l2), ut.set(l2, n3), l2;
 }
-var ce3 = new Proxy(function(t5, e3) {
+var ce2 = new Proxy(function(t5, e3) {
   return bt("animation", t5, e3);
 }, { get: (t5, e3) => e3 in t5 ? t5[e3] : function(r, n3) {
   return bt(e3, r, n3);
@@ -6068,7 +5617,7 @@ function ee2(t5) {
     } catch {
       e3.insertRule(":root{}", n3), /:-[mwo]/.test(r);
     }
-  }, resume: D4 };
+  }, resume: D3 };
 }
 function re2(t5) {
   let e3 = t5 && typeof t5 != "string" ? t5 : _t(t5);
@@ -6083,7 +5632,7 @@ function re2(t5) {
     e3.remove();
   }, insert(r, n3) {
     e3.insertBefore(document.createTextNode(r), e3.childNodes[n3] || null);
-  }, resume: D4 };
+  }, resume: D3 };
 }
 function Pt(t5, e3) {
   let r = t5 ? re2() : ee2();
@@ -6103,7 +5652,7 @@ function ne2(t5, e3) {
       ;
   }
 }
-var z2 = new Proxy(D4, { apply: (t5, e3, r) => F3(r[0]), get(t5, e3) {
+var z2 = new Proxy(D3, { apply: (t5, e3, r) => F3(r[0]), get(t5, e3) {
   let r = F3[e3];
   return typeof r == "function" ? function() {
     return r.apply(F3, arguments);
@@ -6126,39 +5675,39 @@ var xe = function t(e3) {
 }();
 function xt(t5, e3, r, n3) {
   return { toString() {
-    let i2 = U3(r, n3), l2 = W2(e3 + V3(JSON.stringify([e3, i2])));
-    return (typeof t5 == "function" ? t5 : z2)(dt({ [`@keyframes ${l2}`]: U3(r, n3) })), l2;
+    let i2 = U2(r, n3), l2 = W2(e3 + V3(JSON.stringify([e3, i2])));
+    return (typeof t5 == "function" ? t5 : z2)(dt({ [`@keyframes ${l2}`]: U2(r, n3) })), l2;
   } };
 }
 
-// https://esm.sh/v108/style-vendorizer@2.2.3/deno/style-vendorizer.js
+// https://esm.sh/v111/style-vendorizer@2.2.3/deno/style-vendorizer.js
 var t2 = /* @__PURE__ */ new Map([["align-self", "-ms-grid-row-align"], ["color-adjust", "-webkit-print-color-adjust"], ["column-gap", "grid-column-gap"], ["forced-color-adjust", "-ms-high-contrast-adjust"], ["gap", "grid-gap"], ["grid-template-columns", "-ms-grid-columns"], ["grid-template-rows", "-ms-grid-rows"], ["justify-self", "-ms-grid-column-align"], ["margin-inline-end", "-webkit-margin-end"], ["margin-inline-start", "-webkit-margin-start"], ["mask-border", "-webkit-mask-box-image"], ["mask-border-outset", "-webkit-mask-box-image-outset"], ["mask-border-slice", "-webkit-mask-box-image-slice"], ["mask-border-source", "-webkit-mask-box-image-source"], ["mask-border-repeat", "-webkit-mask-box-image-repeat"], ["mask-border-width", "-webkit-mask-box-image-width"], ["overflow-wrap", "word-wrap"], ["padding-inline-end", "-webkit-padding-end"], ["padding-inline-start", "-webkit-padding-start"], ["print-color-adjust", "color-adjust"], ["row-gap", "grid-row-gap"], ["scroll-margin-bottom", "scroll-snap-margin-bottom"], ["scroll-margin-left", "scroll-snap-margin-left"], ["scroll-margin-right", "scroll-snap-margin-right"], ["scroll-margin-top", "scroll-snap-margin-top"], ["scroll-margin", "scroll-snap-margin"], ["text-combine-upright", "-ms-text-combine-horizontal"]]);
 function e(r) {
   return t2.get(r);
 }
-function s3(r) {
+function s(r) {
   var i2 = /^(?:(text-(?:decoration$|e|or|si)|back(?:ground-cl|d|f)|box-d|mask(?:$|-[ispro]|-cl)|pr|hyphena|flex-d)|(tab-|column(?!-s)|text-align-l)|(ap)|u|hy)/i.exec(r);
   return i2 ? i2[1] ? 1 : i2[2] ? 2 : i2[3] ? 3 : 5 : 0;
 }
-function o2(r, i2) {
+function o(r, i2) {
   var a3 = /^(?:(pos)|(cli)|(background-i)|(flex(?:$|-b)|(?:max-|min-)?(?:block-s|inl|he|widt))|dis)/i.exec(r);
   return a3 ? a3[1] ? /^sti/i.test(i2) ? 1 : 0 : a3[2] ? /^pat/i.test(i2) ? 1 : 0 : a3[3] ? /^image-/i.test(i2) ? 1 : 0 : a3[4] ? i2[3] === "-" ? 2 : 0 : /^(?:inline-)?grid$/i.test(i2) ? 4 : 0 : 0;
 }
 
-// https://esm.sh/v108/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.js
-var c2 = [["-webkit-", 1], ["-moz-", 2], ["-ms-", 4]];
+// https://esm.sh/v111/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.js
+var c = [["-webkit-", 1], ["-moz-", 2], ["-ms-", 4]];
 function y() {
   return ({ stringify: t5 }) => ({ stringify(r, s5, e3) {
     let a3 = "", f4 = e(r);
     f4 && (a3 += t5(f4, s5, e3) + ";");
-    let u3 = s3(r), i2 = o2(r, s5);
-    for (let o3 of c2)
+    let u3 = s(r), i2 = o(r, s5);
+    for (let o3 of c)
       u3 & o3[1] && (a3 += t5(o3[0] + r, s5, e3) + ";"), i2 & o3[1] && (a3 += t5(r, o3[0] + s5, e3) + ";");
     return a3 + t5(r, s5, e3);
   } });
 }
 
-// https://esm.sh/v108/@twind/core@1.1.3/deno/core.js
+// https://esm.sh/v111/@twind/core@1.1.3/deno/core.js
 var B4;
 function ae2(e3) {
   return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -6188,7 +5737,7 @@ function re3(e3) {
   return Math.min(/(?:^|width[^\d]+)(\d+(?:.\d+)?)(p)?/.test(e3) ? Math.max(0, 29.63 * (+RegExp.$1 / (RegExp.$2 ? 15 : 1)) ** 0.137 - 43) : 0, 15) << 22 | Math.min(Ee(e3), 15) << 18;
 }
 var Ue = ["rst-c", "st-ch", "h-chi", "y-lin", "nk", "sited", "ecked", "pty", "ad-on", "cus-w", "ver", "cus", "cus-v", "tive", "sable", "tiona", "quire"];
-function ce4({ n: e3, i: t5, v: r = [] }, i2, n3, l2) {
+function ce3({ n: e3, i: t5, v: r = [] }, i2, n3, l2) {
   e3 && (e3 = ae2({ n: e3, i: t5, v: r })), l2 = [...b2(l2)];
   for (let s5 of r) {
     let f4 = i2.theme("screens", s5);
@@ -6202,7 +5751,7 @@ function ce4({ n: e3, i: t5, v: r = [] }, i2, n3, l2) {
 var pe = /* @__PURE__ */ new Map();
 function ne3(e3) {
   if (e3.d) {
-    let t5 = [], r = H4(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t5.push(n3), i2) : n3 ? H4(i2, (l2) => H4(n3, (o3) => {
+    let t5 = [], r = H3(e3.r.reduce((i2, n3) => n3[0] == "@" ? (t5.push(n3), i2) : n3 ? H3(i2, (l2) => H3(n3, (o3) => {
       let s5 = /(:merge\(.+?\))(:[a-z-]+|\\[.+])/.exec(o3);
       if (s5) {
         let f4 = l2.indexOf(s5[1]);
@@ -6213,7 +5762,7 @@ function ne3(e3) {
     return r && t5.push(r.replace(/:merge\((.+?)\)/g, "$1")), t5.reduceRight((i2, n3) => n3 + "{" + i2 + "}", e3.d);
   }
 }
-function H4(e3, t5) {
+function H3(e3, t5) {
   return e3.replace(/ *((?:\(.+?\)|\[.+?\]|[^,])+) *(,|$)/g, (r, i2, n3) => t5(i2) + n3);
 }
 function Q3(e3, t5) {
@@ -6237,10 +5786,10 @@ function we(e3) {
 function Ae(e3) {
   return (e3 || "").replace(/\W/g, (t5) => String.fromCharCode(127 + t5.charCodeAt(0))) + "\0";
 }
-function X4(e3, t5) {
+function X3(e3, t5) {
   return Math.round(parseInt(e3, 16) * t5);
 }
-function P4(e3, t5 = {}) {
+function P3(e3, t5 = {}) {
   if (typeof e3 == "function")
     return e3(t5);
   let { opacityValue: r = "1", opacityVariable: i2 } = t5, n3 = i2 ? `var(${i2})` : r;
@@ -6248,7 +5797,7 @@ function P4(e3, t5 = {}) {
     return e3.replace("<alpha-value>", n3);
   if (e3[0] == "#" && (e3.length == 4 || e3.length == 7)) {
     let l2 = (e3.length - 1) / 3, o3 = [17, 1, 0.062272][l2 - 1];
-    return `rgba(${[X4(e3.substr(1, l2), o3), X4(e3.substr(1 + l2, l2), o3), X4(e3.substr(1 + 2 * l2, l2), o3), n3]})`;
+    return `rgba(${[X3(e3.substr(1, l2), o3), X3(e3.substr(1 + l2, l2), o3), X3(e3.substr(1 + 2 * l2, l2), o3), n3]})`;
   }
   return n3 == "1" ? e3 : n3 == "0" ? "#0000" : e3.replace(/^(rgb|hsl)(\([^)]+)\)$/, `$1a$2,${n3})`);
 }
@@ -6262,7 +5811,7 @@ function de(e3, t5, r, i2, n3 = []) {
         if (!d5)
           continue;
         if (h3[1] == "a") {
-          p5.push(...ge(s5, f4, I3("" + d5), u3, f4, a3, c5, !0));
+          p5.push(...ge(s5, f4, I2("" + d5), u3, f4, a3, c5, !0));
           continue;
         }
         if (h3[1] == "l") {
@@ -6287,20 +5836,20 @@ function de(e3, t5, r, i2, n3 = []) {
         h3 == "label" && d5 ? s5 = d5 + T3(JSON.stringify([f4, c5, o3])) : (d5 || d5 === 0) && (h3 = h3.replace(/[A-Z]/g, (w5) => "-" + w5.toLowerCase()), $6 += 1, y4 = Math.max(y4, (R5 = h3)[0] == "-" ? 0 : Ee(R5) + (/^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7,8}$)|([fl].{5}l|g.{8}$|pl))/.test(R5) ? +!!RegExp.$1 || -!!RegExp.$2 : 0) + 1), g6 += (g6 ? ";" : "") + b2(d5).map((w5) => u3.s(h3, he("" + w5, u3.theme) + (c5 ? " !important" : ""))).join(";"));
       else if (h3[0] == "@" || h3.includes("&")) {
         let w5 = f4;
-        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (j6, M6) => {
+        h3[0] == "@" && (h3 = h3.replace(/\bscreen\(([^)]+)\)/g, (x6, M6) => {
           let N8 = u3.theme("screens", M6);
-          return N8 ? (w5 |= 67108864, Ce(N8, "")) : j6;
+          return N8 ? (w5 |= 67108864, Ce(N8, "")) : x6;
         }), w5 |= re3(h3)), p5.push(...l2(d5, { n: s5, p: w5, r: [...a3, h3], i: c5 }, u3));
       } else
         p5.push(...l2(d5, { p: f4, r: [...a3, h3] }, u3));
     }
     return p5.unshift({ n: s5, p: f4, o: Math.max(0, 15 - $6) + 1.5 * Math.min(y4 || 15, 15), r: a3, d: g6 }), p5.sort(Ne);
-  }(e3, ce4(t5, r, i2, n3), r);
+  }(e3, ce3(t5, r, i2, n3), r);
 }
 function he(e3, t5) {
   return e3.replace(/theme\((["'`])?(.+?)\1(?:\s*,\s*(["'`])?(.+?)\3)?\)/g, (r, i2, n3, l2, o3 = "") => {
     let s5 = t5(n3, o3);
-    return typeof s5 == "function" && /color|fill|stroke/i.test(n3) ? P4(s5) : "" + b2(s5).filter((f4) => Object(f4) !== f4);
+    return typeof s5 == "function" && /color|fill|stroke/i.test(n3) ? P3(s5) : "" + b2(s5).filter((f4) => Object(f4) !== f4);
   });
 }
 function ye(e3, t5) {
@@ -6318,7 +5867,7 @@ function W3(e3, t5, r = S3.u, i2, n3) {
         let A5 = pe.get(y4.n);
         return A5 ? A5(y4, $6) : $6.r(y4.n, y4.v[0] == "dark");
       }(f4, a3);
-      return g6 ? typeof g6 == "string" ? ({ r: u3, p: c5 } = ce4(f4, a3, c5, u3), ye(W3(I3(g6), a3, c5, u3, f4.i), f4.n)) : Array.isArray(g6) ? g6.map((y4) => {
+      return g6 ? typeof g6 == "string" ? ({ r: u3, p: c5 } = ce3(f4, a3, c5, u3), ye(W3(I2(g6), a3, c5, u3, f4.i), f4.n)) : Array.isArray(g6) ? g6.map((y4) => {
         var $6, A5;
         return { o: 0, ...y4, r: [...b2(u3), ...b2(y4.r)], p: ($6 = c5, A5 = y4.p ?? c5, $6 & ~S3.o | A5) };
       }) : de(g6, f4, a3, c5, u3) : [{ c: ae2(f4), p: 0, o: 0, r: [] }];
@@ -6332,7 +5881,7 @@ function ge(e3, t5, r, i2, n3, l2, o3, s5) {
 function _e2(e3, t5, r, i2) {
   var n3;
   return n3 = (l2, o3) => {
-    let { n: s5, p: f4, r: a3, i: c5 } = ce4(l2, o3, t5);
+    let { n: s5, p: f4, r: a3, i: c5 } = ce3(l2, o3, t5);
     return r && ge(s5, t5, r, o3, f4, a3, c5, i2);
   }, pe.set(e3, n3), e3;
 }
@@ -6354,7 +5903,7 @@ function Be(e3, t5, r) {
   return r.indexOf(e3) == t5;
 }
 var Se = /* @__PURE__ */ new Map();
-function I3(e3) {
+function I2(e3) {
   let t5 = Se.get(e3);
   if (!t5) {
     let r = [], i2 = [[]], n3 = 0, l2 = 0, o3 = null, s5 = 0, f4 = (a3, c5 = 0) => {
@@ -6425,10 +5974,10 @@ function ze(e3) {
     };
   } });
   function t5(r, i2, n3) {
-    return ue2(I3(r + e3 + "(" + Z3(i2, n3) + ")"));
+    return ue2(I2(r + e3 + "(" + Z3(i2, n3) + ")"));
   }
 }
-function G4(e3, t5) {
+function G3(e3, t5) {
   return Array.isArray(e3) ? ve(Ve(e3, t5, (r) => r != null && typeof r != "boolean" ? r : "")) : typeof e3 == "string" ? ve(e3) : [e3];
 }
 var We = / *(?:(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}))/g;
@@ -6442,7 +5991,7 @@ function ve(e3) {
 }
 function me(e3, ...t5) {
   var r;
-  let i2 = G4(e3, t5), n3 = (i2.find((l2) => l2.label)?.label || "css") + T3(JSON.stringify(i2));
+  let i2 = G3(e3, t5), n3 = (i2.find((l2) => l2.label)?.label || "css") + T3(JSON.stringify(i2));
   return r = (l2, o3) => ye(i2.flatMap((s5) => de(s5, l2, o3, S3.o)), n3), pe.set(n3, r), n3;
 }
 var ht2 = new Proxy(function(e3, t5) {
@@ -6461,9 +6010,9 @@ function yt2(e3, t5, r) {
   return [e3, ie2(t5, r)];
 }
 function ie2(e3, t5) {
-  return typeof e3 == "function" ? e3 : typeof e3 == "string" && /^[\w-]+$/.test(e3) ? (r, i2) => ({ [e3]: t5 ? t5(r, i2) : le2(r, 1) }) : (r) => e3 || { [r[1]]: le2(r, 2) };
+  return typeof e3 == "function" ? e3 : typeof e3 == "string" && /^[\w-]+$/.test(e3) ? (r, i2) => ({ [e3]: t5 ? t5(r, i2) : le(r, 1) }) : (r) => e3 || { [r[1]]: le(r, 2) };
 }
-function le2(e3, t5, r = e3.slice(t5).find(Boolean) || e3.$$ || e3.input) {
+function le(e3, t5, r = e3.slice(t5).find(Boolean) || e3.$$ || e3.input) {
   return e3.input[0] == "-" ? `calc(${r} * -1)` : r;
 }
 function gt(e3, t5, r, i2) {
@@ -6474,7 +6023,7 @@ function Ge(e3, t5, r) {
   return (n3, l2) => {
     let o3 = ke(e3 || n3[1]), s5 = l2.theme(o3, n3.$$) ?? oe2(n3.$$, o3, l2);
     if (s5 != null)
-      return n3._ = le2(n3, 0, s5), i2(n3, l2, o3);
+      return n3._ = le(n3, 0, s5), i2(n3, l2, o3);
   };
 }
 function mt2(e3, t5 = {}, r) {
@@ -6492,11 +6041,11 @@ function Ye(e3 = {}, t5) {
       let A5 = He(c5, $6);
       return u3 ? { [u3]: A5 } : A5;
     });
-    r._ = { value: P4(s5, { opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }), color: ($6) => P4(s5, $6), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 };
+    r._ = { value: P3(s5, { opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }), color: ($6) => P3(s5, $6), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 };
     let y4 = g6(r, i2);
     if (!r.dark) {
       let $6 = i2.d(n3, l2, s5);
-      $6 && $6 !== s5 && (r._ = { value: P4($6, { opacityVariable: f4 || void 0, opacityValue: p5 || "1" }), color: (A5) => P4($6, A5), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }, y4 = { "&": y4, [i2.v("dark")]: g6(r, i2) });
+      $6 && $6 !== s5 && (r._ = { value: P3($6, { opacityVariable: f4 || void 0, opacityValue: p5 || "1" }), color: (A5) => P3($6, A5), opacityVariable: f4 || void 0, opacityValue: p5 || void 0 }, y4 = { "&": y4, [i2.v("dark")]: g6(r, i2) });
     }
     return y4;
   };
@@ -6510,7 +6059,7 @@ function He(e3, t5) {
 }
 function oe2(e3, t5, r) {
   if (e3[0] == "[" && e3.slice(-1) == "]") {
-    if (e3 = se2(he(e3.slice(1, -1), r.theme)), !t5)
+    if (e3 = se(he(e3.slice(1, -1), r.theme)), !t5)
       return e3;
     if (!(/color|fill|stroke/i.test(t5) && !(/^color:/.test(e3) || /^(#|((hsl|rgb)a?|hwb|lab|lch|color)\(|[a-z]+$)/.test(e3)) || /image/i.test(t5) && !(/^image:/.test(e3) || /^[a-z-]+\(/.test(e3)) || /weight/i.test(t5) && !(/^(number|any):/.test(e3) || /^\d+$/.test(e3)) || /position/i.test(t5) && /^(length|size):/.test(e3)))
       return e3.replace(/^[a-z-]+:/, "");
@@ -6519,11 +6068,11 @@ function oe2(e3, t5, r) {
 function ke(e3) {
   return e3.replace(/-./g, (t5) => t5[1].toUpperCase());
 }
-function se2(e3) {
-  return e3.includes("url(") ? e3.replace(/(.*?)(url\(.*?\))(.*?)/g, (t5, r = "", i2, n3 = "") => se2(r) + i2 + se2(n3)) : e3.replace(/(^|[^\\])_+/g, (t5, r) => r + " ".repeat(t5.length - r.length)).replace(/\\_/g, "_").replace(/(calc|min|max|clamp)\(.+\)/g, (t5) => t5.replace(/(-?\d*\.?\d(?!\b-.+[,)](?![^+\-/*])\D)(?:%|[a-z]+)?|\))([+\-/*])/g, "$1 $2 "));
+function se(e3) {
+  return e3.includes("url(") ? e3.replace(/(.*?)(url\(.*?\))(.*?)/g, (t5, r = "", i2, n3 = "") => se(r) + i2 + se(n3)) : e3.replace(/(^|[^\\])_+/g, (t5, r) => r + " ".repeat(t5.length - r.length)).replace(/\\_/g, "_").replace(/(calc|min|max|clamp)\(.+\)/g, (t5) => t5.replace(/(-?\d*\.?\d(?!\b-.+[,)](?![^+\-/*])\D)(?:%|[a-z]+)?|\))([+\-/*])/g, "$1 $2 "));
 }
 var Qe = Symbol();
-var D5 = new Proxy(F4, { apply(e3, t5, r) {
+var D4 = new Proxy(F4, { apply(e3, t5, r) {
   return B4(r[0]);
 }, get(e3, t5) {
   let r = B4[t5];
@@ -6533,22 +6082,22 @@ var D5 = new Proxy(F4, { apply(e3, t5, r) {
 } });
 var Rt2 = function e2(t5) {
   return new Proxy(function(i2, ...n3) {
-    return xe2(t5, "", i2, n3);
+    return je(t5, "", i2, n3);
   }, { get(r, i2) {
     return i2 === "bind" ? e2 : i2 in r ? r[i2] : function(l2, ...o3) {
-      return xe2(t5, i2, l2, o3);
+      return je(t5, i2, l2, o3);
     };
   } });
 }();
-function xe2(e3, t5, r, i2) {
+function je(e3, t5, r, i2) {
   return { toString() {
-    let n3 = G4(r, i2), l2 = Y3(t5 + T3(JSON.stringify([t5, n3])));
-    return (typeof e3 == "function" ? e3 : D5)(me({ [`@keyframes ${l2}`]: G4(r, i2) })), l2;
+    let n3 = G3(r, i2), l2 = Y3(t5 + T3(JSON.stringify([t5, n3])));
+    return (typeof e3 == "function" ? e3 : D4)(me({ [`@keyframes ${l2}`]: G3(r, i2) })), l2;
   } };
 }
 
-// https://esm.sh/v108/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
-var L4 = "inherit", U4 = "currentColor", j3 = "transparent", V4 = "#000", B5 = "#fff", H5 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I4 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P5 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G5 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q4 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X5 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le3 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se3 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L4, current: U4, transparent: j3, black: V4, white: B5, slate: H5, gray: I4, zinc: M3, neutral: P5, stone: N4, red: G5, orange: q4, amber: Y4, yellow: X5, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe3, indigo: re4, violet: ae3, purple: ie3, fuchsia: ne4, pink: le3, rose: se3 }, h2 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c3(4, "rem", 4, 0.5, 0.5), ...c3(12, "rem", 4, 5), 14: "3.5rem", ...c3(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c3(200, "", 100, 0, 50), ...c3(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c3(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c3(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c3(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c3(200, "", 100, 0, 50), scale: { ...c3(150, "", 100, 0, 50), ...c3(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c3(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c3(50, "", 1, 0, 10), auto: "auto" } };
+// https://esm.sh/v111/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.js
+var L3 = "inherit", U3 = "currentColor", j3 = "transparent", V4 = "#000", B5 = "#fff", H4 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P4 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G4 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le2 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L3, current: U3, transparent: j3, black: V4, white: B5, slate: H4, gray: I3, zinc: M3, neutral: P4, stone: N4, red: G4, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe3, indigo: re4, violet: ae3, purple: ie3, fuchsia: ne4, pink: le2, rose: se2 }, h = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
 function x3(e3, r) {
   let a3 = {};
   do
@@ -6563,7 +6112,7 @@ function f2(e3, r, a3 = 0) {
     i2[a3] = a3 + r;
   return i2;
 }
-function c3(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d5 = {}) {
+function c2(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d5 = {}) {
   for (; i2 <= e3; i2 += l2)
     d5[i2] = i2 / a3 + r;
   return d5;
@@ -6571,7 +6120,7 @@ function c3(e3, r = "", a3 = 1, i2 = 0, l2 = 1, d5 = {}) {
 function n2(e3) {
   return ({ theme: r }) => r(e3);
 }
-var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h2.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h2.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a3) => ({ "@layer overrides": { "&": { [e3]: oe2(`[${r}]`, e3, a3) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
+var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", borderStyle: "solid", borderColor: "theme(borderColor.DEFAULT, currentColor)" }, "::before,::after": { "--tw-content": "''" }, html: { lineHeight: 1.5, WebkitTextSizeAdjust: "100%", MozTabSize: "4", tabSize: 4, fontFamily: `theme(fontFamily.sans, ${h.fontFamily.sans})` }, body: { margin: "0", lineHeight: "inherit" }, hr: { height: "0", color: "inherit", borderTopWidth: "1px" }, "abbr:where([title])": { textDecoration: "underline dotted" }, "h1,h2,h3,h4,h5,h6": { fontSize: "inherit", fontWeight: "inherit" }, a: { color: "inherit", textDecoration: "inherit" }, "b,strong": { fontWeight: "bolder" }, "code,kbd,samp,pre": { fontFamily: `theme(fontFamily.mono, ${h.fontFamily.mono})`, fontSize: "1em" }, small: { fontSize: "80%" }, "sub,sup": { fontSize: "75%", lineHeight: 0, position: "relative", verticalAlign: "baseline" }, sub: { bottom: "-0.25em" }, sup: { top: "-0.5em" }, table: { textIndent: "0", borderColor: "inherit", borderCollapse: "collapse" }, "button,input,optgroup,select,textarea": { fontFamily: "inherit", fontSize: "100%", lineHeight: "inherit", color: "inherit", margin: "0", padding: "0" }, "button,select": { textTransform: "none" }, "button,[type='button'],[type='reset'],[type='submit']": { WebkitAppearance: "button", backgroundColor: "transparent", backgroundImage: "none" }, ":-moz-focusring": { outline: "auto" }, ":-moz-ui-invalid": { boxShadow: "none" }, progress: { verticalAlign: "baseline" }, "::-webkit-inner-spin-button,::-webkit-outer-spin-button": { height: "auto" }, "[type='search']": { WebkitAppearance: "textfield", outlineOffset: "-2px" }, "::-webkit-search-decoration": { WebkitAppearance: "none" }, "::-webkit-file-upload-button": { WebkitAppearance: "button", font: "inherit" }, summary: { display: "list-item" }, "blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre": { margin: "0" }, fieldset: { margin: "0", padding: "0" }, legend: { padding: "0" }, "ol,ul,menu": { listStyle: "none", margin: "0", padding: "0" }, textarea: { resize: "vertical" }, "input::placeholder,textarea::placeholder": { opacity: 1, color: "theme(colors.gray.400, #9ca3af)" }, 'button,[role="button"]': { cursor: "pointer" }, ":disabled": { cursor: "default" }, "img,svg,video,canvas,audio,iframe,embed,object": { display: "block", verticalAlign: "middle" }, "img,video": { maxWidth: "100%", height: "auto" }, "[hidden]": { display: "none" } }, O2 = [yt2("\\[([-\\w]+):(.+)]", ({ 1: e3, 2: r }, a3) => ({ "@layer overrides": { "&": { [e3]: oe2(`[${r}]`, e3, a3) } } })), yt2("(group|peer)(~[^-[]+)?", ({ input: e3 }, { h: r }) => [{ c: r(e3) }]), gt("aspect-", "aspectRatio"), yt2("container", (e3, { theme: r }) => {
   let { screens: a3 = r("screens"), center: i2, padding: l2 } = r("container"), d5 = { width: "100%", marginRight: i2 && "auto", marginLeft: i2 && "auto", ...m4("xs") };
   for (let w5 in a3) {
     let b5 = a3[w5];
@@ -6583,16 +6132,16 @@ var C3 = { "*,::before,::after": { boxSizing: "border-box", borderWidth: "0", bo
     if (b5)
       return { paddingRight: b5, paddingLeft: b5 };
   }
-}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F5), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D6), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W4), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D6), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W4), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F5(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a3 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a3 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
+}), gt("content-", "content", ({ _: e3 }) => ({ "--tw-content": e3, content: "var(--tw-content)" })), yt2("(?:box-)?decoration-(slice|clone)", "boxDecorationBreak"), yt2("box-(border|content)", "boxSizing", ({ 1: e3 }) => e3 + "-box"), yt2("hidden", { display: "none" }), yt2("table-(auto|fixed)", "tableLayout"), yt2(["(block|flex|table|grid|inline|contents|flow-root|list-item)", "(inline-(block|flex|table|grid))", "(table-(caption|cell|column|row|(column|row|footer|header)-group))"], "display"), "(float)-(left|right|none)", "(clear)-(left|right|none|both)", "(overflow(?:-[xy])?)-(auto|hidden|clip|visible|scroll)", "(isolation)-(auto)", yt2("isolate", "isolation"), yt2("object-(contain|cover|fill|none|scale-down)", "objectFit"), gt("object-", "objectPosition"), yt2("object-(top|bottom|center|(left|right)(-(top|bottom))?)", "objectPosition", y2), yt2("overscroll(-[xy])?-(auto|contain|none)", ({ 1: e3 = "", 2: r }) => ({ ["overscroll-behavior" + e3]: r })), yt2("(static|fixed|absolute|relative|sticky)", "position"), gt("-?inset(-[xy])?(?:$|-)", "inset", ({ 1: e3, _: r }) => ({ top: e3 != "-x" && r, right: e3 != "-y" && r, bottom: e3 != "-x" && r, left: e3 != "-y" && r })), gt("-?(top|bottom|left|right)(?:$|-)", "inset"), yt2("visible", "visibility"), yt2("invisible", { visibility: "hidden" }), gt("-?z-", "zIndex"), yt2("flex-((row|col)(-reverse)?)", "flexDirection", F5), yt2("flex-(wrap|wrap-reverse|nowrap)", "flexWrap"), gt("(flex-(?:grow|shrink))(?:$|-)"), gt("(flex)-"), gt("grow(?:$|-)", "flexGrow"), gt("shrink(?:$|-)", "flexShrink"), gt("basis-", "flexBasis"), gt("-?(order)-"), "-?(order)-(\\d+)", gt("grid-cols-", "gridTemplateColumns"), yt2("grid-cols-(\\d+)", "gridTemplateColumns", D5), gt("col-", "gridColumn"), yt2("col-(span)-(\\d+)", "gridColumn", W4), gt("col-start-", "gridColumnStart"), yt2("col-start-(auto|\\d+)", "gridColumnStart"), gt("col-end-", "gridColumnEnd"), yt2("col-end-(auto|\\d+)", "gridColumnEnd"), gt("grid-rows-", "gridTemplateRows"), yt2("grid-rows-(\\d+)", "gridTemplateRows", D5), gt("row-", "gridRow"), yt2("row-(span)-(\\d+)", "gridRow", W4), gt("row-start-", "gridRowStart"), yt2("row-start-(auto|\\d+)", "gridRowStart"), gt("row-end-", "gridRowEnd"), yt2("row-end-(auto|\\d+)", "gridRowEnd"), yt2("grid-flow-((row|col)(-dense)?)", "gridAutoFlow", (e3) => y2(F5(e3))), yt2("grid-flow-(dense)", "gridAutoFlow"), gt("auto-cols-", "gridAutoColumns"), gt("auto-rows-", "gridAutoRows"), gt("gap-x(?:$|-)", "gap", "columnGap"), gt("gap-y(?:$|-)", "gap", "rowGap"), gt("gap(?:$|-)", "gap"), "(justify-(?:items|self))-", yt2("justify-", "justifyContent", T4), yt2("(content|items|self)-", (e3) => ({ ["align-" + e3[1]]: T4(e3) })), yt2("(place-(content|items|self))-", ({ 1: e3, $$: r }) => ({ [e3]: ("wun".includes(r[3]) ? "space-" : "") + r })), gt("p([xytrbl])?(?:$|-)", "padding", u("padding")), gt("-?m([xytrbl])?(?:$|-)", "margin", u("margin")), gt("-?space-(x|y)(?:$|-)", "space", ({ 1: e3, _: r }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "0", ["margin-" + { y: "top", x: "left" }[e3]]: `calc(${r} * calc(1 - var(--tw-space-${e3}-reverse)))`, ["margin-" + { y: "bottom", x: "right" }[e3]]: `calc(${r} * var(--tw-space-${e3}-reverse))` } })), yt2("space-(x|y)-reverse", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { [`--tw-space-${e3}-reverse`]: "1" } })), gt("w-", "width"), gt("min-w-", "minWidth"), gt("max-w-", "maxWidth"), gt("h-", "height"), gt("min-h-", "minHeight"), gt("max-h-", "maxHeight"), gt("font-", "fontWeight"), gt("font-", "fontFamily", "fontFamily", p2), yt2("antialiased", { WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }), yt2("subpixel-antialiased", { WebkitFontSmoothing: "auto", MozOsxFontSmoothing: "auto" }), yt2("italic", "fontStyle"), yt2("not-italic", { fontStyle: "normal" }), yt2("(ordinal|slashed-zero|(normal|lining|oldstyle|proportional|tabular)-nums|(diagonal|stacked)-fractions)", ({ 1: e3, 2: r = "", 3: a3 }) => r == "normal" ? { fontVariantNumeric: "normal" } : { ["--tw-" + (a3 ? "numeric-fraction" : "pt".includes(r[0]) ? "numeric-spacing" : r ? "numeric-figure" : e3)]: e3, fontVariantNumeric: "var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ordinal": "var(--tw-empty,/*!*/ /*!*/)", "--tw-slashed-zero": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-figure": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-spacing": "var(--tw-empty,/*!*/ /*!*/)", "--tw-numeric-fraction": "var(--tw-empty,/*!*/ /*!*/)" } } }), gt("tracking-", "letterSpacing"), gt("leading-", "lineHeight"), yt2("list-(inside|outside)", "listStylePosition"), gt("list-", "listStyleType"), yt2("list-", "listStyleType"), gt("placeholder-opacity-", "placeholderOpacity", ({ _: e3 }) => ({ "&::placeholder": { "--tw-placeholder-opacity": e3 } })), mt2("placeholder-", { property: "color", selector: "&::placeholder" }), yt2("text-(left|center|right|justify|start|end)", "textAlign"), yt2("text-(ellipsis|clip)", "textOverflow"), gt("text-opacity-", "textOpacity", "--tw-text-opacity"), mt2("text-", { property: "color" }), gt("text-", "fontSize", ({ _: e3 }) => typeof e3 == "string" ? { fontSize: e3 } : { fontSize: e3[0], ...typeof e3[1] == "string" ? { lineHeight: e3[1] } : e3[1] }), gt("indent-", "textIndent"), yt2("(overline|underline|line-through)", "textDecorationLine"), yt2("no-underline", { textDecorationLine: "none" }), gt("underline-offset-", "textUnderlineOffset"), mt2("decoration-", { section: "textDecorationColor", opacityVariable: !1, opacitySection: "opacity" }), gt("decoration-", "textDecorationThickness"), yt2("decoration-", "textDecorationStyle"), yt2("(uppercase|lowercase|capitalize)", "textTransform"), yt2("normal-case", { textTransform: "none" }), yt2("truncate", { overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }), yt2("align-", "verticalAlign"), yt2("whitespace-", "whiteSpace"), yt2("break-normal", { wordBreak: "normal", overflowWrap: "normal" }), yt2("break-words", { overflowWrap: "break-word" }), yt2("break-all", { wordBreak: "break-all" }), mt2("caret-", { opacityVariable: !1, opacitySection: "opacity" }), mt2("accent-", { opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-gradient-to-([trbl]|[tb][rl])", "backgroundImage", ({ 1: e3 }) => `linear-gradient(to ${g2(e3, " ")},var(--tw-gradient-stops))`), mt2("from-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-from": e3.value, "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": "var(--tw-gradient-from),var(--tw-gradient-to)" })), mt2("via-", { section: "gradientColorStops", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-gradient-to": e3.color({ opacityValue: "0" }), "--tw-gradient-stops": `var(--tw-gradient-from),${e3.value},var(--tw-gradient-to)` })), mt2("to-", { section: "gradientColorStops", property: "--tw-gradient-to", opacityVariable: !1, opacitySection: "opacity" }), yt2("bg-(fixed|local|scroll)", "backgroundAttachment"), yt2("bg-origin-(border|padding|content)", "backgroundOrigin", ({ 1: e3 }) => e3 + "-box"), yt2(["bg-(no-repeat|repeat(-[xy])?)", "bg-repeat-(round|space)"], "backgroundRepeat"), yt2("bg-blend-", "backgroundBlendMode"), yt2("bg-clip-(border|padding|content|text)", "backgroundClip", ({ 1: e3 }) => e3 + (e3 == "text" ? "" : "-box")), gt("bg-opacity-", "backgroundOpacity", "--tw-bg-opacity"), mt2("bg-", { section: "backgroundColor" }), gt("bg-", "backgroundImage"), gt("bg-", "backgroundPosition"), yt2("bg-(top|bottom|center|(left|right)(-(top|bottom))?)", "backgroundPosition", y2), gt("bg-", "backgroundSize"), gt("rounded(?:$|-)", "borderRadius"), gt("rounded-([trbl]|[tb][rl])(?:$|-)", "borderRadius", ({ 1: e3, _: r }) => {
   let a3 = { t: ["tl", "tr"], r: ["tr", "br"], b: ["bl", "br"], l: ["bl", "tl"] }[e3] || [e3, e3];
   return { [`border-${g2(a3[0])}-radius`]: r, [`border-${g2(a3[1])}-radius`]: r };
 }), yt2("border-(collapse|separate)", "borderCollapse"), gt("border-opacity(?:$|-)", "borderOpacity", "--tw-border-opacity"), yt2("border-(solid|dashed|dotted|double|none)", "borderStyle"), gt("border-spacing(-[xy])?(?:$|-)", "borderSpacing", ({ 1: e3, _: r }) => ({ "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-border-spacing-x": 0, "--tw-border-spacing-y": 0 } }, ["--tw-border-spacing" + (e3 || "-x")]: r, ["--tw-border-spacing" + (e3 || "-y")]: r, "border-spacing": "var(--tw-border-spacing-x) var(--tw-border-spacing-y)" })), mt2("border-([xytrbl])-", { section: "borderColor" }, u("border", "Color")), mt2("border-"), gt("border-([xytrbl])(?:$|-)", "borderWidth", u("border", "Width")), gt("border(?:$|-)", "borderWidth"), gt("divide-opacity(?:$|-)", "divideOpacity", ({ _: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { "--tw-divide-opacity": e3 } })), yt2("divide-(solid|dashed|dotted|double|none)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { borderStyle: e3 } })), yt2("divide-([xy]-reverse)", ({ 1: e3 }) => ({ "&>:not([hidden])~:not([hidden])": { ["--tw-divide-" + e3]: "1" } })), gt("divide-([xy])(?:$|-)", "divideWidth", ({ 1: e3, _: r }) => {
   let a3 = { x: "lr", y: "tb" }[e3];
   return { "&>:not([hidden])~:not([hidden])": { [`--tw-divide-${e3}-reverse`]: "0", [`border-${g2(a3[0])}Width`]: `calc(${r} * calc(1 - var(--tw-divide-${e3}-reverse)))`, [`border-${g2(a3[1])}Width`]: `calc(${r} * var(--tw-divide-${e3}-reverse))` } };
-}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P4(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P4(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A2(), ...A2("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a3 }) => {
+}), mt2("divide-", { property: "borderColor", selector: "&>:not([hidden])~:not([hidden])" }), gt("ring-opacity(?:$|-)", "ringOpacity", "--tw-ring-opacity"), mt2("ring-offset-", { property: "--tw-ring-offset-color", opacityVariable: !1 }), gt("ring-offset(?:$|-)", "ringOffsetWidth", "--tw-ring-offset-width"), yt2("ring-inset", { "--tw-ring-inset": "inset" }), mt2("ring-", { property: "--tw-ring-color" }), gt("ring(?:$|-)", "ringWidth", ({ _: e3 }, { theme: r }) => ({ "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)", "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${e3} + var(--tw-ring-offset-width)) var(--tw-ring-color)`, boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000", "&": { "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)", "--tw-ring-offset-width": r("ringOffsetWidth", "", "0px"), "--tw-ring-offset-color": P3(r("ringOffsetColor", "", "#fff")), "--tw-ring-color": P3(r("ringColor", "", "#93c5fd"), { opacityVariable: "--tw-ring-opacity" }), "--tw-ring-opacity": r("ringOpacity", "", "0.5") } } } })), mt2("shadow-", { section: "boxShadowColor", opacityVariable: !1, opacitySection: "opacity" }, ({ _: e3 }) => ({ "--tw-shadow-color": e3.value, "--tw-shadow": "var(--tw-shadow-colored)" })), gt("shadow(?:$|-)", "boxShadow", ({ _: e3 }) => ({ "--tw-shadow": p2(e3), "--tw-shadow-colored": p2(e3).replace(/([^,]\s+)(?:#[a-f\d]+|(?:(?:hsl|rgb)a?|hwb|lab|lch|color|var)\(.+?\)|[a-z]+)(,|$)/g, "$1var(--tw-shadow-color)$2"), boxShadow: "var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-ring-offset-shadow": "0 0 #0000", "--tw-ring-shadow": "0 0 #0000", "--tw-shadow": "0 0 #0000", "--tw-shadow-colored": "0 0 #0000" } } })), gt("(opacity)-"), yt2("mix-blend-", "mixBlendMode"), ...A2(), ...A2("backdrop-"), gt("transition(?:$|-)", "transitionProperty", (e3, { theme: r }) => ({ transitionProperty: p2(e3), transitionTimingFunction: e3._ == "none" ? void 0 : p2(r("transitionTimingFunction", "")), transitionDuration: e3._ == "none" ? void 0 : p2(r("transitionDuration", "")) })), gt("duration(?:$|-)", "transitionDuration", "transitionDuration", p2), gt("ease(?:$|-)", "transitionTimingFunction", "transitionTimingFunction", p2), gt("delay(?:$|-)", "transitionDelay", "transitionDelay", p2), gt("animate(?:$|-)", "animation", (e3, { theme: r, h: a3 }) => {
   let i2 = p2(e3), l2 = i2.split(" "), d5 = r("keyframes", l2[0]);
   return d5 ? { ["@keyframes " + (l2[0] = a3(l2[0]))]: d5, animation: l2.join(" ") } : { animation: i2 };
-}), "(transform)-(none)", yt2("transform", $3), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$3() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a3 }) => ({ [`--tw-${r ? "pan-x" : a3 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
+}), "(transform)-(none)", yt2("transform", $2), yt2("transform-(cpu|gpu)", ({ 1: e3 }) => ({ "--tw-transform": E(e3 == "gpu") })), gt("scale(-[xy])?-", "scale", ({ 1: e3, _: r }) => ({ ["--tw-scale" + (e3 || "-x")]: r, ["--tw-scale" + (e3 || "-y")]: r, ...$2() })), gt("-?(rotate)-", "rotate", k2), gt("-?(translate-[xy])-", "translate", k2), gt("-?(skew-[xy])-", "skew", k2), yt2("origin-(center|((top|bottom)(-(left|right))?)|left|right)", "transformOrigin", y2), "(appearance)-", gt("(columns)-"), "(columns)-(\\d+)", "(break-(?:before|after|inside))-", gt("(cursor)-"), "(cursor)-", yt2("snap-(none)", "scroll-snap-type"), yt2("snap-(x|y|both)", ({ 1: e3 }) => ({ "scroll-snap-type": e3 + " var(--tw-scroll-snap-strictness)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-scroll-snap-strictness": "proximity" } } })), yt2("snap-(mandatory|proximity)", "--tw-scroll-snap-strictness"), yt2("snap-(?:(start|end|center)|align-(none))", "scroll-snap-align"), yt2("snap-(normal|always)", "scroll-snap-stop"), yt2("scroll-(auto|smooth)", "scroll-behavior"), gt("scroll-p([xytrbl])?(?:$|-)", "padding", u("scroll-padding")), gt("-?scroll-m([xytrbl])?(?:$|-)", "scroll-margin", u("scroll-margin")), yt2("touch-(auto|none|manipulation)", "touch-action"), yt2("touch-(pinch-zoom|pan-(?:(x|left|right)|(y|up|down)))", ({ 1: e3, 2: r, 3: a3 }) => ({ [`--tw-${r ? "pan-x" : a3 ? "pan-y" : e3}`]: e3, "touch-action": "var(--tw-touch-action)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-pan-x": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pan-y": "var(--tw-empty,/*!*/ /*!*/)", "--tw-pinch-zoom": "var(--tw-empty,/*!*/ /*!*/)", "--tw-touch-action": "var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom)" } } })), yt2("outline-none", { outline: "2px solid transparent", "outline-offset": "2px" }), yt2("outline", { outlineStyle: "solid" }), yt2("outline-(dashed|dotted|double|hidden)", "outlineStyle"), gt("(outline-offset)-"), mt2("outline-", { opacityVariable: !1, opacitySection: "opacity" }), gt("outline-", "outlineWidth"), "(pointer-events)-", gt("(will-change)-"), "(will-change)-", ["resize(?:-(none|x|y))?", "resize", ({ 1: e3 }) => ({ x: "horizontal", y: "vertical" })[e3] || e3 || "both"], yt2("select-(none|text|all|auto)", "userSelect"), mt2("fill-", { section: "fill", opacityVariable: !1, opacitySection: "opacity" }), mt2("stroke-", { section: "stroke", opacityVariable: !1, opacitySection: "opacity" }), gt("stroke-", "strokeWidth"), yt2("sr-only", { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", whiteSpace: "nowrap", clip: "rect(0,0,0,0)", borderWidth: "0" }), yt2("not-sr-only", { position: "static", width: "auto", height: "auto", padding: "0", margin: "0", overflow: "visible", whiteSpace: "normal", clip: "auto" })];
 function y2(e3) {
   return (typeof e3 == "string" ? e3 : e3[1]).replace(/-/g, " ").trim();
 }
@@ -6624,9 +6173,9 @@ function A2(e3 = "") {
   return a3 = { [`${e3}filter`]: r.map((i2) => `var(--tw-${e3}${i2})`).join(" "), "@layer defaults": { "*,::before,::after,::backdrop": a3 } }, [`(${e3}filter)-(none)`, yt2(`${e3}filter`, a3), ...r.map((i2) => gt(`${i2[0] == "h" ? "-?" : ""}(${e3}${i2})(?:$|-)`, i2, ({ 1: l2, _: d5 }) => ({ [`--tw-${l2}`]: b2(d5).map((m4) => `${i2}(${m4})`).join(" "), ...a3 })))];
 }
 function k2({ 1: e3, _: r }) {
-  return { ["--tw-" + e3]: r, ...$3() };
+  return { ["--tw-" + e3]: r, ...$2() };
 }
-function $3() {
+function $2() {
   return { transform: "var(--tw-transform)", "@layer defaults": { "*,::before,::after,::backdrop": { "--tw-translate-x": "0", "--tw-translate-y": "0", "--tw-rotate": "0", "--tw-skew-x": "0", "--tw-skew-y": "0", "--tw-scale-x": "1", "--tw-scale-y": "1", "--tw-transform": E() } } };
 }
 function E(e3) {
@@ -6635,27 +6184,514 @@ function E(e3) {
 function W4({ 1: e3, 2: r }) {
   return `${e3} ${r} / ${e3} ${r}`;
 }
-function D6({ 1: e3 }) {
+function D5({ 1: e3 }) {
   return `repeat(${e3},minmax(0,1fr))`;
 }
 var _ = [["sticky", "@supports ((position: -webkit-sticky) or (position:sticky))"], ["motion-reduce", "@media (prefers-reduced-motion:reduce)"], ["motion-safe", "@media (prefers-reduced-motion:no-preference)"], ["print", "@media print"], ["portrait", "@media (orientation:portrait)"], ["landscape", "@media (orientation:landscape)"], ["contrast-more", "@media (prefers-contrast:more)"], ["contrast-less", "@media (prefers-contrast:less)"], ["marker", "& *::marker,&::marker"], ["selection", "& *::selection,&::selection"], ["first-letter", "&::first-letter"], ["first-line", "&::first-line"], ["file", "&::file-selector-button"], ["placeholder", "&::placeholder"], ["backdrop", "&::backdrop"], ["first", "&:first-child"], ["last", "&:last-child"], ["even", "&:nth-child(2n)"], ["odd", "&:nth-child(odd)"], ["open", "&[open]"], ["((group|peer)(~[^-[]+)?)(-[a-z-]+|-\\[(.+)]|\\[.+])", ({ 1: e3, 4: r, 5: a3 }, { e: i2, h: l2, v: d5 }) => {
-  let m4 = a3 && se2(a3) || (r[0] == "[" ? r : d5(r.slice(1)));
+  let m4 = a3 && se(a3) || (r[0] == "[" ? r : d5(r.slice(1)));
   return `${(m4.includes("&") ? m4 : "&" + m4).replace(/&/g, `:merge(.${i2(l2(e3))})`)}${e3[0] == "p" ? "~" : " "}&`;
-}], ["(ltr|rtl)", ({ 1: e3 }) => `[dir="${e3}"] &`], [/^\[(.+)]$/, ({ 1: e3 }) => /[&@]/.test(e3) && se2(e3).replace(/[}]+$/, "").split("{")]];
+}], ["(ltr|rtl)", ({ 1: e3 }) => `[dir="${e3}"] &`], [/^\[(.+)]$/, ({ 1: e3 }) => /[&@]/.test(e3) && se(e3).replace(/[}]+$/, "").split("{")]];
 function Ce2({ disablePreflight: e3 } = {}) {
-  return { preflight: e3 ? void 0 : C3, theme: h2, variants: _, rules: O2 };
+  return { preflight: e3 ? void 0 : C3, theme: h, variants: _, rules: O2 };
 }
 
-// https://esm.sh/v108/notie@4.3.1/deno/notie.js
-var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne2 = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
+// https://deno.land/std@0.171.0/async/deferred.ts
+function deferred() {
+  let methods, state = "pending", promise = new Promise((resolve, reject) => {
+    methods = {
+      async resolve(value) {
+        await value, state = "fulfilled", resolve(value);
+      },
+      // deno-lint-ignore no-explicit-any
+      reject(reason) {
+        state = "rejected", reject(reason);
+      }
+    };
+  });
+  return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
+}
+
+// https://deno.land/std@0.171.0/async/deadline.ts
+var DeadlineError = class extends Error {
+  constructor() {
+    super("Deadline"), this.name = "DeadlineError";
+  }
+};
+function deadline(p5, delay2) {
+  let d5 = deferred(), t5 = setTimeout(() => d5.reject(new DeadlineError()), delay2);
+  return Promise.race([p5, d5]).finally(() => clearTimeout(t5));
+}
+
+// https://deno.land/std@0.171.0/async/delay.ts
+function delay(ms, options = {}) {
+  let { signal, persistent } = options;
+  return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
+    let abort = () => {
+      clearTimeout(i2), reject(new DOMException("Delay was aborted.", "AbortError"));
+    }, i2 = setTimeout(() => {
+      signal?.removeEventListener("abort", abort), resolve();
+    }, ms);
+    if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
+      try {
+        Deno.unrefTimer(i2);
+      } catch (error2) {
+        if (!(error2 instanceof ReferenceError))
+          throw error2;
+        console.error("`persistent` option is only available in Deno");
+      }
+  });
+}
+
+// https://deno.land/std@0.171.0/async/mux_async_iterator.ts
+var MuxAsyncIterator = class {
+  #iteratorCount = 0;
+  #yields = [];
+  // deno-lint-ignore no-explicit-any
+  #throws = [];
+  #signal = deferred();
+  add(iterable) {
+    ++this.#iteratorCount, this.#callIteratorNext(iterable[Symbol.asyncIterator]());
+  }
+  async #callIteratorNext(iterator) {
+    try {
+      let { value, done } = await iterator.next();
+      done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
+    } catch (e3) {
+      this.#throws.push(e3);
+    }
+    this.#signal.resolve();
+  }
+  async *iterate() {
+    for (; this.#iteratorCount > 0; ) {
+      await this.#signal;
+      for (let i2 = 0; i2 < this.#yields.length; i2++) {
+        let { iterator, value } = this.#yields[i2];
+        yield value, this.#callIteratorNext(iterator);
+      }
+      if (this.#throws.length) {
+        for (let e3 of this.#throws)
+          throw e3;
+        this.#throws.length = 0;
+      }
+      this.#yields.length = 0, this.#signal = deferred();
+    }
+  }
+  [Symbol.asyncIterator]() {
+    return this.iterate();
+  }
+};
+
+// https://deno.land/std@0.167.0/fmt/colors.ts
+var colors_exports = {};
+__export(colors_exports, {
+  bgBlack: () => bgBlack,
+  bgBlue: () => bgBlue,
+  bgBrightBlack: () => bgBrightBlack,
+  bgBrightBlue: () => bgBrightBlue,
+  bgBrightCyan: () => bgBrightCyan,
+  bgBrightGreen: () => bgBrightGreen,
+  bgBrightMagenta: () => bgBrightMagenta,
+  bgBrightRed: () => bgBrightRed,
+  bgBrightWhite: () => bgBrightWhite,
+  bgBrightYellow: () => bgBrightYellow,
+  bgCyan: () => bgCyan,
+  bgGreen: () => bgGreen,
+  bgMagenta: () => bgMagenta,
+  bgRed: () => bgRed,
+  bgRgb24: () => bgRgb24,
+  bgRgb8: () => bgRgb8,
+  bgWhite: () => bgWhite,
+  bgYellow: () => bgYellow,
+  black: () => black,
+  blue: () => blue,
+  bold: () => bold,
+  brightBlack: () => brightBlack,
+  brightBlue: () => brightBlue,
+  brightCyan: () => brightCyan,
+  brightGreen: () => brightGreen,
+  brightMagenta: () => brightMagenta,
+  brightRed: () => brightRed,
+  brightWhite: () => brightWhite,
+  brightYellow: () => brightYellow,
+  cyan: () => cyan,
+  dim: () => dim,
+  getColorEnabled: () => getColorEnabled,
+  gray: () => gray,
+  green: () => green,
+  hidden: () => hidden,
+  inverse: () => inverse,
+  italic: () => italic,
+  magenta: () => magenta,
+  red: () => red,
+  reset: () => reset,
+  rgb24: () => rgb24,
+  rgb8: () => rgb8,
+  setColorEnabled: () => setColorEnabled,
+  strikethrough: () => strikethrough,
+  stripColor: () => stripColor,
+  underline: () => underline,
+  white: () => white,
+  yellow: () => yellow
+});
+var { Deno: Deno2 } = globalThis, noColor = typeof Deno2?.noColor == "boolean" ? Deno2.noColor : !0, enabled = !noColor;
+function setColorEnabled(value) {
+  noColor || (enabled = value);
+}
+function getColorEnabled() {
+  return enabled;
+}
+function code(open, close) {
+  return {
+    open: `\x1B[${open.join(";")}m`,
+    close: `\x1B[${close}m`,
+    regexp: new RegExp(`\\x1b\\[${close}m`, "g")
+  };
+}
+function run(str, code2) {
+  return enabled ? `${code2.open}${str.replace(code2.regexp, code2.open)}${code2.close}` : str;
+}
+function reset(str) {
+  return run(str, code([0], 0));
+}
+function bold(str) {
+  return run(str, code([1], 22));
+}
+function dim(str) {
+  return run(str, code([2], 22));
+}
+function italic(str) {
+  return run(str, code([3], 23));
+}
+function underline(str) {
+  return run(str, code([4], 24));
+}
+function inverse(str) {
+  return run(str, code([7], 27));
+}
+function hidden(str) {
+  return run(str, code([8], 28));
+}
+function strikethrough(str) {
+  return run(str, code([9], 29));
+}
+function black(str) {
+  return run(str, code([30], 39));
+}
+function red(str) {
+  return run(str, code([31], 39));
+}
+function green(str) {
+  return run(str, code([32], 39));
+}
+function yellow(str) {
+  return run(str, code([33], 39));
+}
+function blue(str) {
+  return run(str, code([34], 39));
+}
+function magenta(str) {
+  return run(str, code([35], 39));
+}
+function cyan(str) {
+  return run(str, code([36], 39));
+}
+function white(str) {
+  return run(str, code([37], 39));
+}
+function gray(str) {
+  return brightBlack(str);
+}
+function brightBlack(str) {
+  return run(str, code([90], 39));
+}
+function brightRed(str) {
+  return run(str, code([91], 39));
+}
+function brightGreen(str) {
+  return run(str, code([92], 39));
+}
+function brightYellow(str) {
+  return run(str, code([93], 39));
+}
+function brightBlue(str) {
+  return run(str, code([94], 39));
+}
+function brightMagenta(str) {
+  return run(str, code([95], 39));
+}
+function brightCyan(str) {
+  return run(str, code([96], 39));
+}
+function brightWhite(str) {
+  return run(str, code([97], 39));
+}
+function bgBlack(str) {
+  return run(str, code([40], 49));
+}
+function bgRed(str) {
+  return run(str, code([41], 49));
+}
+function bgGreen(str) {
+  return run(str, code([42], 49));
+}
+function bgYellow(str) {
+  return run(str, code([43], 49));
+}
+function bgBlue(str) {
+  return run(str, code([44], 49));
+}
+function bgMagenta(str) {
+  return run(str, code([45], 49));
+}
+function bgCyan(str) {
+  return run(str, code([46], 49));
+}
+function bgWhite(str) {
+  return run(str, code([47], 49));
+}
+function bgBrightBlack(str) {
+  return run(str, code([100], 49));
+}
+function bgBrightRed(str) {
+  return run(str, code([101], 49));
+}
+function bgBrightGreen(str) {
+  return run(str, code([102], 49));
+}
+function bgBrightYellow(str) {
+  return run(str, code([103], 49));
+}
+function bgBrightBlue(str) {
+  return run(str, code([104], 49));
+}
+function bgBrightMagenta(str) {
+  return run(str, code([105], 49));
+}
+function bgBrightCyan(str) {
+  return run(str, code([106], 49));
+}
+function bgBrightWhite(str) {
+  return run(str, code([107], 49));
+}
+function clampAndTruncate(n3, max = 255, min = 0) {
+  return Math.trunc(Math.max(Math.min(n3, max), min));
+}
+function rgb8(str, color) {
+  return run(str, code([38, 5, clampAndTruncate(color)], 39));
+}
+function bgRgb8(str, color) {
+  return run(str, code([48, 5, clampAndTruncate(color)], 49));
+}
+function rgb24(str, color) {
+  return typeof color == "number" ? run(
+    str,
+    code(
+      [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+      39
+    )
+  ) : run(
+    str,
+    code(
+      [
+        38,
+        2,
+        clampAndTruncate(color.r),
+        clampAndTruncate(color.g),
+        clampAndTruncate(color.b)
+      ],
+      39
+    )
+  );
+}
+function bgRgb24(str, color) {
+  return typeof color == "number" ? run(
+    str,
+    code(
+      [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+      49
+    )
+  ) : run(
+    str,
+    code(
+      [
+        48,
+        2,
+        clampAndTruncate(color.r),
+        clampAndTruncate(color.g),
+        clampAndTruncate(color.b)
+      ],
+      49
+    )
+  );
+}
+var ANSI_PATTERN = new RegExp(
+  [
+    "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
+    "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-nq-uy=><~]))"
+  ].join("|"),
+  "g"
+);
+function stripColor(string) {
+  return string.replace(ANSI_PATTERN, "");
+}
+
+// https://deno.land/std@0.167.0/async/debounce.ts
+function debounce(fn, wait) {
+  let timeout = null, flush = null, debounced = (...args) => {
+    debounced.clear(), flush = () => {
+      debounced.clear(), fn.call(debounced, ...args);
+    }, timeout = setTimeout(flush, wait);
+  };
+  return debounced.clear = () => {
+    typeof timeout == "number" && (clearTimeout(timeout), timeout = null, flush = null);
+  }, debounced.flush = () => {
+    flush?.();
+  }, Object.defineProperty(debounced, "pending", {
+    get: () => typeof timeout == "number"
+  }), debounced;
+}
+
+// https://deno.land/std@0.170.0/async/retry.ts
+var RetryError = class extends Error {
+  constructor(cause, count2) {
+    super(`Exceeded max retry count (${count2})`), this.name = "RetryError", this.cause = cause;
+  }
+}, defaultRetryOptions = {
+  multiplier: 2,
+  maxTimeout: 6e4,
+  maxAttempts: 5,
+  minTimeout: 1e3
+};
+async function retry(fn, opts) {
+  let options = {
+    ...defaultRetryOptions,
+    ...opts
+  };
+  if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
+    throw new RangeError("minTimeout is greater than maxTimeout");
+  let timeout = options.minTimeout, error2;
+  for (let i2 = 0; i2 < options.maxAttempts; i2++)
+    try {
+      return await fn();
+    } catch (err) {
+      await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error2 = err;
+    }
+  throw new RetryError(error2, options.maxAttempts);
+}
+
+// https://esm.sh/v111/memoize-one@6.0.0/deno/memoize-one.js
+var s2 = Number.isNaN || function(r) {
+  return typeof r == "number" && r !== r;
+};
+
+// https://esm.sh/v111/lodash.throttle@4.1.1/deno/lodash.throttle.js
+var __global$ = globalThis || (typeof window < "u" ? window : self), P5 = Object.create, I4 = Object.defineProperty, D6 = Object.getOwnPropertyDescriptor, G5 = Object.getOwnPropertyNames, H5 = Object.getPrototypeOf, U4 = Object.prototype.hasOwnProperty, X5 = (e3, t5) => () => (t5 || e3((t5 = { exports: {} }).exports, t5), t5.exports), q4 = (e3, t5) => {
+  for (var n3 in t5)
+    I4(e3, n3, { get: t5[n3], enumerable: !0 });
+}, v = (e3, t5, n3, f4) => {
+  if (t5 && typeof t5 == "object" || typeof t5 == "function")
+    for (let i2 of G5(t5))
+      !U4.call(e3, i2) && i2 !== n3 && I4(e3, i2, { get: () => t5[i2], enumerable: !(f4 = D6(t5, i2)) || f4.enumerable });
+  return e3;
+}, s3 = (e3, t5, n3) => (v(e3, t5, "default"), n3 && v(n3, t5, "default")), L4 = (e3, t5, n3) => (n3 = e3 != null ? P5(H5(e3)) : {}, v(t5 || !e3 || !e3.__esModule ? I4(n3, "default", { value: e3, enumerable: !0 }) : n3, e3)), h2 = X5((ge2, N8) => {
+  var M6 = "Expected a function", W7 = NaN, z6 = "[object Symbol]", J5 = /^\s+|\s+$/g, K7 = /^[-+]0x[0-9a-f]+$/i, Q7 = /^0b[01]+$/i, V7 = /^0o[0-7]+$/i, Y6 = parseInt, Z6 = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w5 = typeof self == "object" && self && self.Object === Object && self, ee5 = Z6 || w5 || Function("return this")(), te3 = Object.prototype, ne5 = te3.toString, re5 = Math.max, ie4 = Math.min, O5 = function() {
+    return ee5.Date.now();
+  };
+  function fe(e3, t5, n3) {
+    var f4, i2, b5, l2, a3, u3, d5 = 0, S8 = !1, g6 = !1, T7 = !0;
+    if (typeof e3 != "function")
+      throw new TypeError(M6);
+    t5 = C6(t5) || 0, p5(n3) && (S8 = !!n3.leading, g6 = "maxWait" in n3, b5 = g6 ? re5(C6(n3.maxWait) || 0, t5) : b5, T7 = "trailing" in n3 ? !!n3.trailing : T7);
+    function j6(r) {
+      var o3 = f4, m4 = i2;
+      return f4 = i2 = void 0, d5 = r, l2 = e3.apply(m4, o3), l2;
+    }
+    function A5(r) {
+      return d5 = r, a3 = setTimeout(y4, t5), S8 ? j6(r) : l2;
+    }
+    function B10(r) {
+      var o3 = r - u3, m4 = r - d5, k4 = t5 - o3;
+      return g6 ? ie4(k4, b5 - m4) : k4;
+    }
+    function E4(r) {
+      var o3 = r - u3, m4 = r - d5;
+      return u3 === void 0 || o3 >= t5 || o3 < 0 || g6 && m4 >= b5;
+    }
+    function y4() {
+      var r = O5();
+      if (E4(r))
+        return _4(r);
+      a3 = setTimeout(y4, B10(r));
+    }
+    function _4(r) {
+      return a3 = void 0, T7 && f4 ? j6(r) : (f4 = i2 = void 0, l2);
+    }
+    function F8() {
+      a3 !== void 0 && clearTimeout(a3), d5 = 0, f4 = u3 = i2 = a3 = void 0;
+    }
+    function R5() {
+      return a3 === void 0 ? l2 : _4(O5());
+    }
+    function x6() {
+      var r = O5(), o3 = E4(r);
+      if (f4 = arguments, i2 = this, u3 = r, o3) {
+        if (a3 === void 0)
+          return A5(u3);
+        if (g6)
+          return a3 = setTimeout(y4, t5), j6(u3);
+      }
+      return a3 === void 0 && (a3 = setTimeout(y4, t5)), l2;
+    }
+    return x6.cancel = F8, x6.flush = R5, x6;
+  }
+  function ae4(e3, t5, n3) {
+    var f4 = !0, i2 = !0;
+    if (typeof e3 != "function")
+      throw new TypeError(M6);
+    return p5(n3) && (f4 = "leading" in n3 ? !!n3.leading : f4, i2 = "trailing" in n3 ? !!n3.trailing : i2), fe(e3, t5, { leading: f4, maxWait: t5, trailing: i2 });
+  }
+  function p5(e3) {
+    var t5 = typeof e3;
+    return !!e3 && (t5 == "object" || t5 == "function");
+  }
+  function oe4(e3) {
+    return !!e3 && typeof e3 == "object";
+  }
+  function ue3(e3) {
+    return typeof e3 == "symbol" || oe4(e3) && ne5.call(e3) == z6;
+  }
+  function C6(e3) {
+    if (typeof e3 == "number")
+      return e3;
+    if (ue3(e3))
+      return W7;
+    if (p5(e3)) {
+      var t5 = typeof e3.valueOf == "function" ? e3.valueOf() : e3;
+      e3 = p5(t5) ? t5 + "" : t5;
+    }
+    if (typeof e3 != "string")
+      return e3 === 0 ? e3 : +e3;
+    e3 = e3.replace(J5, "");
+    var n3 = Q7.test(e3);
+    return n3 || V7.test(e3) ? Y6(e3.slice(2), n3 ? 2 : 8) : K7.test(e3) ? W7 : +e3;
+  }
+  N8.exports = ae4;
+}), c3 = {};
+q4(c3, { default: () => se3 });
+var ce4 = L4(h2());
+s3(c3, L4(h2()));
+var { default: $3, ...le3 } = ce4, se3 = $3 !== void 0 ? $3 : le3;
+
+// https://esm.sh/v111/notie@4.3.1/deno/notie.js
+var Oe = Object.create, ve2 = Object.defineProperty, Ae3 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je2 = Object.prototype.hasOwnProperty, Ne2 = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
   for (var l2 in i2)
     ve2(v4, l2, { get: i2[l2], enumerable: !0 });
 }, me2 = (v4, i2, l2, x6) => {
   if (i2 && typeof i2 == "object" || typeof i2 == "function")
     for (let b5 of De(i2))
-      !je.call(v4, b5) && b5 !== l2 && ve2(v4, b5, { get: () => i2[b5], enumerable: !(x6 = Ae2(i2, b5)) || x6.enumerable });
+      !je2.call(v4, b5) && b5 !== l2 && ve2(v4, b5, { get: () => i2[b5], enumerable: !(x6 = Ae3(i2, b5)) || x6.enumerable });
   return v4;
-}, X6 = (v4, i2, l2) => (me2(v4, i2, "default"), l2 && me2(l2, i2, "default")), ke2 = (v4, i2, l2) => (l2 = v4 != null ? Oe(Ie(v4)) : {}, me2(i2 || !v4 || !v4.__esModule ? ve2(l2, "default", { value: v4, enumerable: !0 }) : l2, v4)), xe3 = Ne2((oe4, be) => {
+}, X6 = (v4, i2, l2) => (me2(v4, i2, "default"), l2 && me2(l2, i2, "default")), ke2 = (v4, i2, l2) => (l2 = v4 != null ? Oe(Ie(v4)) : {}, me2(i2 || !v4 || !v4.__esModule ? ve2(l2, "default", { value: v4, enumerable: !0 }) : l2, v4)), xe2 = Ne2((oe4, be) => {
   (function(v4, i2) {
     typeof oe4 == "object" && typeof be == "object" ? be.exports = i2() : typeof define == "function" && define.amd ? define([], i2) : typeof oe4 == "object" ? oe4.notie = i2() : v4.notie = i2();
   })(oe4, function() {
@@ -6959,15 +6995,15 @@ var Oe = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnProperty
   });
 }), B6 = {};
 Pe(B6, { default: () => Ye2 });
-var Fe = ke2(xe3());
-X6(B6, ke2(xe3()));
+var Fe = ke2(xe2());
+X6(B6, ke2(xe2()));
 var { default: Ce3, ..._e3 } = Fe, Ye2 = Ce3 !== void 0 ? Ce3 : _e3;
 
-// https://esm.sh/v108/nanostores@0.7.4/deno/nanostores.js
+// https://esm.sh/v111/nanostores@0.7.4/deno/nanostores.js
 var S5 = Symbol("clean");
 var m2 = Symbol();
 
-// https://esm.sh/v108/@nanostores/i18n@0.7.1/deno/i18n.js
+// https://esm.sh/v111/@nanostores/i18n@0.7.1/deno/i18n.js
 function g3(r, n3) {
   if (typeof r == "string")
     return n3(r);
@@ -7001,7 +7037,7 @@ var N5 = p3((r, n3, e3) => g3(n3, (t5) => {
   return t5 in n3 || (t5 = "many"), g3(n3[t5], (o3) => o3.replace(/{count}/g, e3));
 });
 
-// https://esm.sh/v108/hotkeys-js@3.10.1/deno/hotkeys-js.js
+// https://esm.sh/v111/hotkeys-js@3.10.1/deno/hotkeys-js.js
 var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
 function P6(e3, t5, i2, r) {
   e3.addEventListener ? e3.addEventListener(t5, i2, r) : e3.attachEvent && e3.attachEvent("on".concat(t5), function() {
@@ -7185,7 +7221,7 @@ typeof document < "u" && (B8 = window.hotkeys, v2.noConflict = function(e3) {
 }, window.hotkeys = v2);
 var B8;
 
-// https://esm.sh/v108/immersive-translate@1.0.8/deno/immersive-translate.js
+// https://esm.sh/v111/immersive-translate@1.0.9/deno/immersive-translate.js
 var d4 = "Immersive Translate", v3 = class {
   #e = performance.now();
   reset() {
@@ -7484,7 +7520,7 @@ var Q6 = class {
     });
   }
   onFetchTokenError(e3) {
-    throw E3.error("onFetchTokenError", e3), e3 && e3.message && e3.message.indexOf("401") > -1 && this.setState({}), e3;
+    throw E3.error("onFetchTokenError", e3), e3 && e3.message && (e3.message.indexOf("401") > -1 || e3.message.indexOf("400") > -1) && this.setState({}), e3;
   }
   async updateToken() {
     let { accessTokenExpiresAt: e3 } = this.state, [t5, n3] = T6(e3);
@@ -7534,6 +7570,9 @@ var zh_CN_default = {
   "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
   "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
   "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
+  "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
+  "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
+  "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
   confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -7543,7 +7582,7 @@ var zh_CN_default = {
   betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
   translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
   tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-  tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1",
+  tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1\uFF0C\u53EF\u8BBE\u7F6E\u4E34\u65F6\u65F6\u957F",
   xMinutes: "{count} \u5206\u949F",
   disabled: "\u7981\u7528",
   changelog: "\u66F4\u65B0\u65E5\u5FD7",
@@ -7596,7 +7635,7 @@ var zh_CN_default = {
   "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
   "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
   localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u6CA1\u6709\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF08\u6BD4\u5982\u83B7\u53D6\u6CB9\u7334\u811A\u672C\u81EA\u8EAB\u7684\u7248\u672C\u53F7\u4FE1\u606F\uFF09\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982 Firefox",
   foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
   theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
   failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
@@ -7654,12 +7693,14 @@ var zh_CN_default = {
   "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
   "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
   "translationTheme.dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
+  "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
   "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
   "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
   "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
   "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
   "translationTheme.highlight": "\u9AD8\u4EAE",
   "translationTheme.marker": "\u9A6C\u514B\u7B14",
+  "translationTheme.marker2": "\u9A6C\u514B\u7B142",
   "translationTheme.blockquote": "\u5F15\u7528\u6837\u5F0F",
   "translationTheme.weakening": "\u5F31\u5316",
   "translationTheme.italic": "\u659C\u4F53",
@@ -7756,137 +7797,154 @@ var zh_CN_default = {
   successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
   customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
   "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
-  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+  "customThemeLabel.borderRadius": "\u8FB9\u6846\u5706\u89D2",
   "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
   isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
   isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
   verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
-  verified: "\u9A8C\u8BC1\u6210\u529F"
+  verified: "\u9A8C\u8BC1\u6210\u529F",
+  "field.model": "\u6A21\u578B",
+  "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
+  "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
+  "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
+  "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
+  "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0C\u9ED8\u8BA4\u8BBE\u7F6E\u4E3A OpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u76F4\u63A5\u6539\u4E3A1000\u4EE5\u4E0A",
+  "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+  "description.maxTextLengthPerRequest": "\u9ED8\u8BA4\u4F1A\u5408\u5E76\u591A\u4E2A\u6BB5\u843D\uFF0C\u4EE5\u51CF\u5C11\u8BF7\u6C42\u6B21\u6570\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u603B\u957F\u5EA6\u8FC7\u957F\uFF0C\u4E5F\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+  enabledExtension: "\u542F\u7528\u6269\u5C55",
+  clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
+  clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
+  hasBeenDisabled: "\u5DF2\u7981\u7528",
+  "show password": "\u663E\u793A\u5BC6\u7801"
 };
 
 // locales/zh-TW.json
 var zh_TW_default = {
-  lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u7B26\u6578\u91CF",
-  "translate-pdf": "\u9EDE\u64CA\u7FFB\u8B6F PDF",
-  "translate-firefox-local-pdf": "\u9EDE\u64CA\u4E0A\u50B3 PDF",
-  enableLineBreak: "\u662F\u5426\u958B\u5553\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
-  sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005 (\u6309\u6708\u6216\u4E00\u6B21\u6027\u5747\u53EF)",
-  help: "\u5E6B\u52A9",
-  browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5C55\u7BA1\u7406\u9801\u9762 `about:addons`\uFF0C\u7136\u5F8C\u9EDE\u64CA\u300C\u8A2D\u7F6E\u300D\uFF0C\u518D\u9EDE\u64CA\u300C\u7BA1\u7406\u5FEB\u6377\u9375\u300D\u5373\u53EF\u8A2D\u7F6E",
-  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u4FEE\u6539\u5FEB\u6377\u9375\u9700\u8981\u6253\u958B\u64F4\u5145\u529F\u80FD\u9801\u9762\uFF0C\u5728\u2019\u64F4\u5145\u529F\u80FD\u2018\u9762\u677F(\u2019chrome://extensions/shortcuts\u2018)\u8A2D\u7F6E\uFF0C\u9EDE\u64CA\u4E0B\u65B9\u6309\u9215\u8DF3\u8F49\u5230\u5FEB\u6377\u9375\u7BA1\u7406\u9801\u9762\u3002",
+  lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u5143\u6578\u91CF",
+  "translate-pdf": "\u9EDE\u9078\u7FFB\u8B6F PDF",
+  "translate-firefox-local-pdf": "\u9EDE\u9078\u4E0A\u50B3 PDF",
+  enableLineBreak: "\u958B\u555F\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
+  sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
+  help: "\u8AAA\u660E",
+  browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
+  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
   browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
-  enableLineBreakDescription: "\u958B\u5553\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u77ED\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u7B26\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+  enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
-  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u64F4\u5C55\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+  "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
   "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateTheWholePage": "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
   "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
-  "browser.openOptionsPage": "\u6253\u958B\u8A2D\u7F6E\u9801",
+  "browser.openOptionsPage": "\u958B\u555F\u8A2D\u5B9A\u9801\u9762",
   "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-  "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u5730 PDF \u6587\u4EF6",
-  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u7F6E\u8A2D\u7F6E\u55CE\uFF1F",
-  translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u7F6E",
-  smartLineBreak: "\u667A\u80FD\u63DB\u884C",
+  "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
+  "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
+  "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
+  "browser.translateLocalHtmlFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
+  confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
+  translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
+  smartLineBreak: "\u667A\u6167\u63DB\u884C",
   alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
-  isShowContextMenu: "\u5275\u5EFA\u53F3\u9375\u83DC\u55AE",
-  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u7279\u6027",
-  betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
-  translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+  isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
+  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u5BE6\u9A57\u6027\u529F\u80FD",
+  betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
+  translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
   tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
   tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
   xMinutes: "{count} \u5206\u9418",
   disabled: "\u505C\u7528",
-  changelog: "\u66F4\u65B0\u65E5\u8A8C",
+  changelog: "\u66F4\u65B0\u8A18\u9304",
   toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
   toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
   addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
-  general: "\u57FA\u672C\u8A2D\u7F6E",
+  general: "\u57FA\u672C\u8A2D\u5B9A",
   clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
-  import: "\u5F9E\u6587\u4EF6\u532F\u5165",
-  export: "\u5C0E\u51FA\u5230\u6587\u4EF6",
-  toggleDebug: "\u5728\u63A7\u5236\u6AAF\u6253\u5370\u8ABF\u8A66\u65E5\u8A8C",
+  import: "\u5F9E\u6A94\u6848\u532F\u5165",
+  export: "\u532F\u51FA\u70BA\u6A94\u6848",
+  toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
   "fingers.0": "\u95DC\u9589",
   "fingers.2": "\u96D9\u6307\u89F8\u6478",
   "fingers.3": "\u4E09\u6307\u89F8\u6478",
   "fingers.4": "\u56DB\u6307\u89F8\u6478",
   "fingers.5": "\u4E94\u6307\u89F8\u6478",
-  document: "\u6587\u6A94",
-  resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8A2D\u7F6E\u6210\u529F",
-  resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
-  saved: "\u6210\u529F\u5132\u5B58",
+  document: "\u8AAA\u660E\u6587\u4EF6",
+  resetSuccess: "\u91CD\u8A2D\u6240\u6709\u8A2D\u5B9A\u6210\u529F",
+  resetThisSuccess: "\u91CD\u8A2D\u6210\u529F",
+  saved: "\u5132\u5B58\u6210\u529F",
   successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
-  goAdvancedSettings: "\u53BB\u9032\u968E\u8A2D\u7F6E\u9801",
-  goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u8A2D\u7F6E\u9801\u9762",
-  advanced: "\u9032\u968E\u8A2D\u7F6E",
-  advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
-  developer: "\u958B\u767C\u8005\u8A2D\u7F6E",
+  goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+  goAdvancedInterfaceSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+  advanced: "\u9032\u968E\u8A2D\u5B9A",
+  advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
+  developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
   donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
-  "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
-  feedback: "\u554F\u984C\u53CD\u994B",
+  "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+  feedback: "\u554F\u984C\u56DE\u5831",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-  translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+  translateToThePageEndImmediatelyDescription: "\u555F\u7528\u5F8C\uFF0C\u9032\u5165\u7DB2\u9801\u5C07\u7ACB\u5373\u7FFB\u8B6F\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\u3002\u95DC\u9589\u5247\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u555F\uFF09",
   "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-  translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
-  "interface language": "\u754C\u9762\u8A9E\u8A00",
+  translationAreaDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6240\u6709\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\u3002\u95DC\u9589\u5247\u4F7F\u7528\u9810\u8A2D\u7684\u667A\u6167\u8FA8\u8B58\uFF0C\u50C5\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\u3002(\u4E0D\u63A8\u85A6\u958B\u555F)",
+  "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8B6F\u9801\u9762\u524D\u591A\u5C11\u500B\u5B57\u5143\uFF0C\u800C\u7121\u9700\u7B49\u5F85\u6372\u52D5\u81F3\u53EF\u898B\u5340\u57DF",
+  "interface language": "\u4ECB\u9762\u8A9E\u8A00",
   "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
-  "keyboard shortcuts": "\u9375\u76E4\u5FEB\u6377\u9375",
-  modify: "\u4FEE\u6539\u5FEB\u6377\u9375",
+  "keyboard shortcuts": "\u9375\u76E4\u5FEB\u901F\u9375",
+  modify: "\u8B8A\u66F4\u5FEB\u901F\u9375",
   reset: "\u91CD\u8A2D",
   close: "\u95DC\u9589",
-  homepage: "\u4E3B\u9801",
+  homepage: "\u9996\u9801",
   more: "\u66F4\u591A",
   translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
   changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
   changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
   translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
-  translateTheMainPage: "\u667A\u80FD\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
-  "The local rules are up to date": "\u672C\u5730\u9069\u914D\u898F\u5247\u5DF2\u662F\u6700\u65B0\uFF1A",
-  "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9069\u914D\u898F\u5247\uFF1A",
+  translateTheMainPage: "\u667A\u6167\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
+  "The local rules are up to date": "\u672C\u6A5F\u898F\u5247\u5DF2\u70BA\u6700\u65B0\uFF1A",
+  "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\uFF1A",
   "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
-  "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9069\u914D\u898F\u5247",
-  localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-  badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u65E0\u6CD5\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982(Firefox Nightly \u7248\u672C)",
-  foundNewVersion: "\u767C\u73FE\u65B0\u7248\u672C",
-  theLocalExtensionIsUpToUpdate: "\u7576\u524D\u64F4\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C",
-  failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9069\u914D\u898F\u5247\u5931\u6557",
+  "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u5B98\u65B9\u898F\u5247",
+  localVersionIsTooOld: "\u672C\u6A5F\u5957\u4EF6\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u5957\u4EF6\u81F3 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5617\u8A66\u540C\u6B65",
+  badUserscriptBrowser: "\u76EE\u524D\u700F\u89BD\u5668\u7121\u6CD5\u6B63\u78BA\u5BE6\u73FE\u6CB9\u7334\u5957\u4EF6\u7684\u4ECB\u9762\uFF0C\u8ACB\u4F7F\u7528\u5176\u4ED6<1>\u652F\u63F4\u6CB9\u7334\u5957\u4EF6</1>\u7684\u700F\u89BD\u5668\u5982(Firefox Nightly \u7248\u672C)",
+  foundNewVersion: "\u6709\u65B0\u7248\u672C\u53EF\u7528",
+  theLocalExtensionIsUpToUpdate: "\u76EE\u524D\u5957\u4EF6\u5DF2\u662F\u6700\u65B0\u7248\u672C",
+  failToSyncRules: "\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\u5931\u6557",
   retry: "\u9EDE\u6B64\u91CD\u8A66",
   failedReason: "\u5931\u6557\u539F\u56E0",
-  currentRuleVersion: "\u7576\u524D\u898F\u5247\u7248\u672C",
-  calculating: "\u8A08\u7B97\u4E2D",
-  unknownError: "\u672A\u77E5\u932F\u8AA4",
-  canNotFetchRemoteRule: "\u7121\u6CD5\u7372\u53D6\u9060\u7A0B\u898F\u5247",
-  enableAlphaSuccess: "\u5DF2\u958B\u5553Alpha\u529F\u80FD",
-  disableAlphaSuccess: "\u5DF2\u95DC\u9589Alpha\u529F\u80FD",
-  cacheSize: "\u7DE9\u5B58\u5927\u5C0F\uFF1A",
-  cleaning: "\u6E05\u7406\u4E2D",
-  cleanCache: "\u6E05\u9664\u7DE9\u5B58",
+  currentRuleVersion: "\u76EE\u524D\u898F\u5247\u7248\u672C",
+  calculating: "\u6B63\u5728\u8A08\u7B97",
+  unknownError: "\u672A\u77E5\u7684\u932F\u8AA4",
+  canNotFetchRemoteRule: "\u7121\u6CD5\u53D6\u5F97\u9060\u7AEF\u898F\u5247",
+  enableAlphaSuccess: "\u5DF2\u555F\u7528 Alpha \u529F\u80FD",
+  disableAlphaSuccess: "\u5DF2\u505C\u7528 Alpha \u529F\u80FD",
+  cacheSize: "\u5FEB\u53D6\u5927\u5C0F\uFF1A",
+  cleaning: "\u6B63\u5728\u6E05\u7406",
+  cleanCache: "\u6E05\u9664\u5FEB\u53D6",
   options: "\u9078\u9805",
   about: "\u95DC\u65BC",
   service: "\u7FFB\u8B6F\u670D\u52D9",
-  needAction: "\uFF08\u53BB\u8A2D\u7F6E\uFF09",
-  goSettings: "\u53BB\u8A2D\u7F6E",
-  needActionForOptions: "(\u9700\u8A2D\u7F6E)",
+  needAction: "(\u524D\u5F80\u8A2D\u5B9A)",
+  goSettings: "\u524D\u5F80\u8A2D\u5B9A",
+  needActionForOptions: "(\u9700\u8A2D\u5B9A)",
   translationEngine: "\u5F15\u64CE\u9078\u9805",
   sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
   target: "\u76EE\u6A19\u8A9E\u8A00",
   popupSourceLanguage: "\u539F\u6587\u8A9E\u8A00",
   popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
   popupService: "\u7FFB\u8B6F\u670D\u52D9",
-  forThisSite: "\u5C0D\u65BC\u8A72\u7DB2\u7AD9\uFF1A",
-  alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
-  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
+  forThisSite: "\u91DD\u5C0D\u8A72\u7DB2\u7AD9\uFF1A",
+  alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F {language}",
+  neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F {language}",
   alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
   neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
-  add: "\u589E\u52A0",
-  default: "\u9ED8\u8A8D",
-  forThisLanguage: "\u5C0D\u65BC\u8A72\u8A9E\u8A00\uFF1A",
-  "add url": "\u8F38\u5165URL",
+  add: "\u65B0\u589E",
+  default: "\u9810\u8A2D",
+  forThisLanguage: "\u91DD\u5C0D\u8A72\u8A9E\u8A00\uFF1A",
+  "add url": "\u8F38\u5165 URL",
   edit: "\u7DE8\u8F2F",
-  "translate other languages into specific language": "\u5C07\u5176\u4ED6\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u7F6E\u7684\u8A9E\u8A00",
+  "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
   "select translation service": "\u9078\u64C7\u4E00\u9805\u7FFB\u8B6F\u670D\u52D9",
   language: "\u8A9E\u8A00",
   "show-original": "\u986F\u793A\u539F\u6587",
@@ -7894,42 +7952,45 @@ var zh_TW_default = {
   Translated: "\u5DF2\u7FFB\u8B6F",
   Translating: "\u7FFB\u8B6F\u4E2D",
   Error: "\u932F\u8AA4",
-  allowCacheTranslations: "\u958B\u555F\u672C\u5730\u7FFB\u8B6F\u7DE9\u5B58\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8ACB\u6C42\uFF09",
+  allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
   "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
   "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
-  interface: "\u754C\u9762\u8A2D\u7F6E",
-  import_export: "\u5C0E\u5165/\u5C0E\u51FA",
-  import_export_title: "\u5C0E\u5165/\u5C0E\u51FA\u914D\u7F6E",
+  interface: "\u4ECB\u9762\u8A2D\u5B9A",
+  import_export: "\u532F\u5165/\u532F\u51FA",
+  import_export_title: "\u532F\u5165/\u532F\u51FA\u8A2D\u5B9A",
   syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
   previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
   "translationTheme.none": "\u7121",
-  "translationTheme.dashed": "\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.dotted": "\u9EDE\u72C0\u4E0B\u5283\u7DDA",
-  "translationTheme.dashedBorder": "\u865B\u7DDA\u908A\u6846",
-  "translationTheme.underline": "\u76F4\u7DDA\u4E0B\u5283\u7DDA",
+  "translationTheme.grey": "\u9ED1\u7070\u8272",
+  "translationTheme.dashed": "\u7834\u6298\u865F\u5E95\u7DDA",
+  "translationTheme.dotted": "\u9EDE\u72C0\u5E95\u7DDA",
+  "translationTheme.dashedBorder": "\u865B\u7DDA\u6846\u7DDA",
+  "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
+  "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
   "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
   "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
-  "translationTheme.dividingLine": "\u5206\u5272\u7DDA",
-  "translationTheme.highlight": "\u9AD8\u4EAE",
+  "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
+  "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
   "translationTheme.marker": "\u99AC\u514B\u7B46",
+  "translationTheme.marker2": "\u99AC\u514B\u7B462",
   "translationTheme.blockquote": "\u5F15\u7528\u6A23\u5F0F",
   "translationTheme.weakening": "\u5F31\u5316",
   "translationTheme.italic": "\u659C\u9AD4",
   "translationTheme.bold": "\u7C97\u9AD4",
-  "translationTheme.thinDashed": "\u7D30\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeDashed": "\u7CFB\u7D71\u81EA\u5E36\u865B\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeDotted": "\u7CFB\u7D71\u81EA\u5E36\u9EDE\u72C0\u4E0B\u5283\u7DDA",
-  "translationTheme.nativeUnderline": "\u7CFB\u7D71\u81EA\u5E36\u76F4\u7DDA\u4E0B\u5283\u7DDA",
-  "translationTheme.wavy": "\u6CE2\u6D6A\u7DDA",
+  "translationTheme.thinDashed": "\u7D30\u7834\u6298\u865F\u5E95\u7DDA",
+  "translationTheme.nativeDashed": "\u7CFB\u7D71\u5167\u5EFA\u7834\u6298\u865F\u5E95\u7DDA",
+  "translationTheme.nativeDotted": "\u7CFB\u7D71\u5167\u5EFA\u9EDE\u72C0\u5E95\u7DDA",
+  "translationTheme.nativeUnderline": "\u7CFB\u7D71\u5167\u5EFA\u76F4\u7DDA\u5E95\u7DDA",
+  "translationTheme.wavy": "\u6CE2\u5F62\u66F2\u7DDA",
   "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
   "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
-  "translationServices.google": "\u8C37\u6B4C\u7FFB\u8B6F",
+  "translationServices.google": "Google \u7FFB\u8B6F",
   "translationServices.bai": "\u767E\u5EA6(Alpha)",
   "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
   "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
   "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
   "translationServices.deeplx": "DeeplX(Beta)",
-  "translationServices.bing": "\u5FC5\u61C9\u7FFB\u8B6F",
+  "translationServices.bing": "Bing \u7FFB\u8B6F",
   "translationServices.deepl": "Deepl",
   "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
   "translationServices.azure": "\u5FAE\u8EDF\u7FFB\u8B6F",
@@ -7948,69 +8009,87 @@ var zh_TW_default = {
   "translationServices.papago": "Papago\u7FFB\u8B6F",
   "translationServices.d": "Deepl(Alpha)",
   "translationServices.dpro": "D Pro (Canary)",
+  "translationServices.openai": "OpenAI",
   "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
   "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
-  neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
-  enableUserscriptPagePopup: "\u603B\u662F\u5728\u9875\u9762\u4E0A\u5C55\u793A Popup \u6D6E\u7A97",
+  neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
+  neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
+  enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
   enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
   "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
   "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
+  "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
   "never sites": "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-  "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
-  "please refer to": "\u9700\u8981\u586B\u5BEB\u5BC6\u9470\u5F8C\u624D\u53EF\u7528\uFF0C\u8A73\u60C5\u53C3\u8003",
-  KeyAndConfigurationTutorial: "\u300A\u5BC6\u9470\u7533\u8ACB\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-  useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u57DF\u540D\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
-  currentUrl: "\u7576\u524D\u7DB2\u5740",
+  "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
+  "please refer to": "\u9700\u8981\u586B\u5BEB\u91D1\u9470\u5F8C\u624D\u53EF\u4F7F\u7528\uFF0C\u8A73\u7D30\u8CC7\u8A0A\u8ACB\u53C3\u8003",
+  KeyAndConfigurationTutorial: "\u300A\u91D1\u9470\u7533\u8ACB\u548C\u8A2D\u5B9A\u6559\u5B78\u300B",
+  useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
+  currentUrl: "\u76EE\u524D\u7DB2\u5740",
   confirm: "\u5132\u5B58",
   cancel: "\u53D6\u6D88",
   delete: "\u522A\u9664",
   "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-  syncToCloud: "\u540C\u6B65\u5230\u96F2\u7AEF",
-  syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+  syncToCloud: "\u540C\u6B65\u81F3\u96F2\u7AEF",
+  syncToCloudDescription: "\u4E0A\u50B3\u81F3\u96F2\u7AEF\u5F8C\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u700F\u89BD\u5668/\u6CB9\u7334\u8173\u672C\u4E4B\u9593\u540C\u6B65\u8A2D\u5B9A\uFF0C\u4EE5\u6700\u5F8C\u8B8A\u66F4\u6642\u9593\u70BA\u6E96\u3002",
   authFail: "\u6388\u6B0A\u5931\u6557",
   syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
-  import_hint: "\u5C0E\u5165",
+  import_hint: "\u532F\u5165",
   upload: "\u4E0A\u50B3",
   revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
   uploadFail: "\u4E0A\u50B3\u5931\u6557",
   download: "\u4E0B\u8F09",
-  importSuccess: "\u5C0E\u5165\u6210\u529F",
-  importFail: "\u5C0E\u5165\u5931\u6557",
+  importSuccess: "\u532F\u5165\u6210\u529F",
+  importFail: "\u532F\u5165\u5931\u6557",
   deleteFail: "\u522A\u9664\u5931\u6557",
-  backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6587\u4EF6",
+  backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6A94\u6848",
   create_new_backup: "\u65B0\u589E\u5099\u4EFD\u7BC0\u9EDE",
-  maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE, \u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
-  backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u6062\u5FA9\u5099\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8A313\u500B\u4E0D\u540C\u7684\u5099\u4EFD",
+  maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE\uFF0C\u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
+  backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u9084\u539F\u5099\u4EFD\u6A94\u6848\uFF0C\u6700\u591A\u5141\u8A31 3 \u500B\u4E0D\u540C\u7684\u5099\u4EFD",
   successSyncConfig: "\u6210\u529F\u8207\u96F2\u7AEF\u4FDD\u6301\u540C\u6B65",
   syncFail: "\u540C\u6B65\u5931\u6557",
   updatedAt: "\u66F4\u65B0\u65BC {date}",
   lastSyncedAt: "\u4E0A\u6B21\u6AA2\u67E5\u65BC {date}",
   downloadFail: "\u4E0B\u8F09\u5931\u6557",
-  clickToDownload: "\u9EDE\u64CA\u4E0B\u8F09",
-  aboutLabel: "\u95DC\u65BC - \u53CD\u994B - \u8D0A\u52A9",
-  "browser.openAboutPage": "\u95DC\u65BC/\u53CD\u994B/\u8D0A\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
-  projectHomepage: "\u9805\u76EE\u4E3B\u9801",
-  joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
-  joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u7372\u53D6\u6700\u65B0\u66F4\u65B0",
-  feedbackAndJoin: "\u554F\u984C\u53CD\u994B/\u52A0\u7FA4",
+  clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
+  aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
+  "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
+  aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u9078\u9019\u88E1\u8D0A\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+  projectHomepage: "\u5C08\u6848\u9996\u9801",
+  joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+  joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
+  feedbackAndJoin: "\u554F\u984C\u56DE\u5831/\u52A0\u5165\u7FA4\u7D44",
   autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
   loadingThemeTitle: "Loading \u6A23\u5F0F",
-  loadingThemeDescription: "\u8A2D\u7F6E\u7B49\u5F85\u8B6F\u6587\u52A0\u8F09\u6642\u7684\u6A23\u5F0F",
-  "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
+  loadingThemeDescription: "\u8A2D\u5B9A\u7B49\u5F85\u8B6F\u6587\u8F09\u5165\u6642\u7684\u6A23\u5F0F",
+  "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B",
   "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
   "loadingTheme.none": "\u4E0D\u986F\u793A",
-  developerDescription: "\u53EF\u4EE5\u9EDE\u64CA<1>\u9019\u88E1</1>\u67E5\u770B\u9AD8\u7D1A\u81EA\u5B9A\u7FA9\u76F8\u95DC\u7684\u6587\u6A94",
-  "edit border color": "\u4FEE\u6539\u908A\u6846\u984F\u8272",
-  successSyncButNoChange: "\u7576\u524D\u914D\u7F6E\u8207\u96F2\u7AEF\u4E00\u81F4",
-  customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
-  "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
-  "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
-  "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
-  "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
-  resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272"
+  developerDescription: "\u53EF\u4EE5\u9EDE\u9078<1>\u6B64\u8655</1>\u6AA2\u8996\u9032\u968E\u81EA\u8A02\u529F\u80FD\u76F8\u95DC\u7684\u8AAA\u660E\u6587\u4EF6",
+  "edit border color": "\u8B8A\u66F4\u908A\u6846\u8272\u5F69",
+  successSyncButNoChange: "\u76EE\u524D\u8A2D\u5B9A\u8207\u96F2\u7AEF\u4E00\u81F4",
+  customTheme: "\u81EA\u8A02\u8272\u5F69\u548C\u5927\u5C0F",
+  "customThemeLabel.borderColor": "\u908A\u6846\u8272\u5F69",
+  "customThemeLabel.borderRadius": "\u908A\u6846\u5713\u89D2",
+  "customThemeLabel.textColor": "\u6587\u5B57\u8272\u5F69",
+  "customThemeLabel.backgroundColor": "\u80CC\u666F\u8272\u5F69",
+  "customThemeLabel.zoom": "\u5B57\u578B\u7E2E\u653E\u6BD4\u4F8B (%)",
+  resetToDefaultColor: "\u9084\u539F\u70BA\u9810\u8A2D\u8272\u5F69",
+  isTranslateTitle: "\u555F\u7528\u7DB2\u9801\u6A19\u984C\u7FFB\u8B6F",
+  isTranslateTitleDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6A19\u984C\u6703\u88AB\u7FFB\u8B6F",
+  verifyService: "\u9EDE\u6B64\u6E2C\u8A66\u670D\u52D9",
+  verified: "\u9A57\u8B49\u6210\u529F",
+  "field.model": "\u6A21\u578B",
+  "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
+  "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
+  "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
+  "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
+  "description.prompt": "\u4EE5\u4F7F\u7528\u8005\u8EAB\u4EFD\u50B3\u9001\u7D66 OpenAI \u7684\u5C0D\u8A71\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u5B57\u5167\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8A9E\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6A19\u8A9E\u8A00",
+  "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
+  enabledExtension: "\u555F\u7528\u5957\u4EF6",
+  clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
+  clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
+  hasBeenDisabled: "\u5DF2\u505C\u7528",
+  "show password": "\u986F\u793A\u5BC6\u78BC"
 };
 
 // locales/en.json
@@ -8026,7 +8105,7 @@ var en_default = {
   browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
   enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
   "browser.brandName": "Immersive Translate",
-  "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Youdao, etc. it also works on iOS Safari.",
+  "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
   "browser.toggleTranslatePage": "Toggle translate webpage ",
   "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
   "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
@@ -8034,6 +8113,9 @@ var en_default = {
   "browser.openOptionsPage": "Open Settings Page",
   "browser.toggleTranslationMask": "Toggle translation mask style",
   "browser.translateLocalPdfFile": "Translate local PDF files",
+  "browser.openEbookViewer": "Read local e-book",
+  "browser.openEbookBuilder": "Make Dual Epub ebook",
+  "browser.translateLocalHtmlFile": "Translate local HTML files",
   confirmResetConfig: "Are you sure you want to reset the settings?",
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
@@ -8150,15 +8232,18 @@ var en_default = {
   syncToGoogleDrive: "Sync Now with Google Drive",
   previewAllThemes: "Preview all themes",
   "translationTheme.none": "None",
+  "translationTheme.grey": "Black Gray",
   "translationTheme.dashed": "Dashed underline",
   "translationTheme.dotted": "Dotted Underline",
   "translationTheme.dashedBorder": "Dashed Border",
+  "translationTheme.solidBorder": "Dashed Border",
   "translationTheme.underline": "Straight underline",
   "translationTheme.mask": "Blur effect",
   "translationTheme.paper": "White paper shadow effect",
   "translationTheme.dividingLine": "Dividing line",
   "translationTheme.highlight": "Highlight",
   "translationTheme.marker": "Maker",
+  "translationTheme.marker2": "Maker2",
   "translationTheme.blockquote": "quote style",
   "translationTheme.weakening": "Weakening",
   "translationTheme.italic": "Italic",
@@ -8195,6 +8280,7 @@ var en_default = {
   "translationServices.papago": "Papago Translation",
   "translationServices.d": "DeeplX (Alpha)",
   "translationServices.dpro": "D Pro (Canary)",
+  "translationServices.openai": "OpenAI",
   "translate title": "Translate page title",
   "always languages": "Always translate the following languages",
   neverTranslateLanguagesLabel: "Never Translated Languages",
@@ -8254,10 +8340,27 @@ var en_default = {
   successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
   customTheme: "Customize colors and sizes",
   "customThemeLabel.borderColor": "Border color",
-  "customThemeLabel.backgroundColor": "Background color",
+  "customThemeLabel.borderRadius": "Border Round Corner",
   "customThemeLabel.textColor": "Text color",
+  "customThemeLabel.backgroundColor": "Background color",
   "customThemeLabel.zoom": "Font scale (%)",
-  resetToDefaultColor: "Reset to default colors"
+  resetToDefaultColor: "Reset to default colors",
+  isTranslateTitle: "Enable translate page title",
+  isTranslateTitleDescription: "When enabled, the page title will be translated",
+  verifyService: "Click on this test service",
+  verified: "Successful",
+  "field.model": "Model",
+  "field.translationEngine": "Translation engine",
+  "field.limitPerMinute": "Max requests per minute",
+  "field.maxTextLengthPerRequest": "Maximum text length per request",
+  "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
+  "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language",
+  "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
+  enabledExtension: "Enable extensions",
+  clickToDisableExtension: "Click to disable extension",
+  clickToEnableExtension: "Click to enable the extension",
+  hasBeenDisabled: "Disabled",
+  "show password": "Show password"
 };
 
 // constant.ts
@@ -8278,19 +8381,21 @@ var interfaceTranslations = [
 for (let translation of interfaceTranslations)
   translations[translation.code] = translation.messages;
 var brandName = "Immersive Translate", brandId = "immersive-translate";
-var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
-var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
+var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
+var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
 var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
   "none",
   "dashed",
   "underline",
   "dashedBorder",
+  "solidBorder",
   "mask",
   "dotted",
   "dividingLine",
   "highlight",
   "marker",
+  "marker2",
   "blockquote",
   "weakening",
   "grey",
@@ -8375,7 +8480,33 @@ var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleM
   ],
   dashedBorder: [
     {
+      name: "borderRadius",
+      required: !1,
+      type: "number",
+      default: "0"
+    },
+    {
       name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  solidBorder: [
+    {
+      name: "borderRadius",
+      required: !1,
+      type: "number",
+      default: "0"
+    },
+    {
+      name: "borderColor",
+      required: !1,
+      type: "color"
+    }
+  ],
+  marker2: [
+    {
+      name: "backgroundColor",
       required: !1,
       type: "color"
     }
@@ -8647,7 +8778,7 @@ var allSupportedShortcuts = [
   {
     type: "select",
     name: "codename",
-    label: "translationEngine",
+    labelKey: "field.translationEngine",
     default: "youdao",
     required: !1,
     options: [
@@ -8709,6 +8840,7 @@ var allSupportedShortcuts = [
     allProps: [
       {
         name: "authKey",
+        label: "Auth Key",
         required: !0,
         type: "password"
       }
@@ -8717,6 +8849,56 @@ var allSupportedShortcuts = [
   transmart: {
     name: "Transmart",
     homepage: "https://transmart.qq.com/"
+  },
+  openai: {
+    name: "Open AI",
+    homepage: "https://openai.com/api/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+    allProps: [
+      {
+        name: "APIKEY",
+        required: !0,
+        type: "password"
+      },
+      {
+        name: "model",
+        labelKey: "field.model",
+        required: !1,
+        type: "text",
+        default: "gpt-3.5-turbo"
+      },
+      {
+        name: "limit",
+        required: !1,
+        labelKey: "field.limitPerMinute",
+        descriptionKey: "description.limitPerMinute",
+        type: "number",
+        default: 10
+      },
+      {
+        name: "maxTextLengthPerRequest",
+        required: !1,
+        labelKey: "field.maxTextLengthPerRequest",
+        descriptionKey: "description.maxTextLengthPerRequest",
+        type: "number",
+        default: 1300
+      },
+      {
+        name: "apiUrl",
+        labelKey: "field.apiUrl",
+        required: !1,
+        type: "text",
+        default: "https://api.openai.com/v1/chat/completions"
+      },
+      {
+        name: "prompt",
+        label: "Prompt",
+        required: !1,
+        descriptionKey: "description.prompt",
+        type: "textarea",
+        default: "Translate the following text to {{to}}: ```\n{{text}}\n```"
+      }
+    ]
   },
   youdao: {
     name: "Youdao",
@@ -8825,20 +9007,6 @@ var allSupportedShortcuts = [
     homepage: "https://fanyi.caiyunapp.com/",
     alpha: !0
   },
-  openl: {
-    name: "Openl",
-    homepage: "https://openl.club/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/openL",
-    allProps: [
-      ...openlProps,
-      {
-        type: "password",
-        name: "apikey",
-        required: !0
-      }
-    ],
-    props: openlProps
-  },
   mock: {
     name: "Mock",
     homepage: "https://www.google.com"
@@ -8857,31 +9025,19 @@ var allSupportedShortcuts = [
     alpha: !0,
     homepage: "https://immersive-translate.owenyoung.com/services/youdao"
   },
-  openai: {
-    name: "Open AI",
-    homepage: "https://openai.com/api/",
-    docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+  openl: {
+    name: "Openl",
+    homepage: "https://openl.club/",
+    docUrl: "https://immersive-translate.owenyoung.com/services/openL",
     allProps: [
+      ...openlProps,
       {
-        name: "APIKEY",
-        required: !0,
-        type: "password"
-      },
-      {
-        name: "model",
-        required: !1,
-        type: "text",
-        default: "text-davinci-003"
-      },
-      {
-        name: "prompt",
-        required: !1,
-        type: "textarea",
-        default: `translate to {{to}}:
-
-{{text}} =>`
+        type: "password",
+        name: "apikey",
+        required: !0
       }
-    ]
+    ],
+    props: openlProps
   },
   volcAlpha: {
     name: "Volc Alpha",
@@ -8905,6 +9061,7 @@ var allSupportedShortcuts = [
     allProps: [
       {
         name: "url",
+        label: "API URL",
         required: !0,
         type: "text"
       }
@@ -9035,7 +9192,7 @@ function getIsInIframe() {
 }
 
 // dom/util.ts
-var env2 = getEnv(), isProd = env2.PROD === "1";
+var env2 = getEnv(), isProd = env2.PROD === "1", isInUserscript = isMonkey();
 function duplicatedElements(root2, array, rule) {
   let allHeaders = root2.querySelectorAll("header"), main2 = root2.querySelectorAll("main"), headers3 = [];
   for (let header of allHeaders)
@@ -9129,7 +9286,9 @@ function isInlineElementByTreeWalker(element, rule) {
           return !0;
         continue;
       }
-      if (!isMatchTags(node.nodeName, rule.inlineTags))
+      if (isMatchTags(node.nodeName, rule.inlineTags))
+        return !0;
+      if (!isUnknowTag(node, rule))
         return !1;
     }
   }
@@ -9235,6 +9394,15 @@ function hasMark(element, markedAttribute, explicit = !1) {
 function getMainText(root2) {
   return (root2.innerText || root2.textContent || "").trim();
 }
+function getAllIframeMainText(root2) {
+  let iframes = root2.querySelectorAll("iframe"), text = "";
+  for (let i2 = 0; i2 < iframes.length; i2++) {
+    let doc = iframes[i2].contentDocument;
+    if (doc && (text += getMainText(doc.body), text.length > 2e3))
+      break;
+  }
+  return text;
+}
 function isMatchSelectors(selectors) {
   return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
 }
@@ -9302,8 +9470,8 @@ function getRealUrl() {
   if (!getIsInIframe())
     return globalThis.location.href;
   try {
-    let currentUrl = globalThis.location.href;
-    if (new URL(currentUrl).protocol === "about:") {
+    let currentUrl = globalThis.location.href, currentUrlObj = new URL(currentUrl);
+    if (currentUrlObj.protocol === "about:" || currentUrlObj.protocol === "blob:") {
       if (globalThis.location.ancestorOrigins && globalThis.location.ancestorOrigins.length > 0)
         return globalThis.location.ancestorOrigins[0];
       let href = "";
@@ -9335,7 +9503,16 @@ function injectCSS(rootDocument, css, id) {
     );
 }
 function isInlineIframe(frame) {
-  return frame.getAttribute("src") ? !1 : !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
+  let src = frame.getAttribute("src");
+  if (src) {
+    if (isInUserscript) {
+      if (src.startsWith("blob:"))
+        return !0;
+    } else if (src.startsWith("blob:") && !src.startsWith("blob:http"))
+      return !0;
+    return !1;
+  }
+  return !!(frame.getAttribute("srcdoc") && frame.contentDocument && frame.contentDocument.body);
 }
 function isMatchTags(nodeName, tags) {
   if (!nodeName || !tags)
@@ -9354,7 +9531,7 @@ function applyUserConfigCss(root2, translationTheme, translationThemePatternConf
     let { name } = prop;
     if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
       let value = translationThemePatternConfig[name];
-      injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+      ["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
 `;
     }
   });
@@ -9362,13 +9539,13 @@ function applyUserConfigCss(root2, translationTheme, translationThemePatternConf
   if (translationThemePatternConfig && translationThemePatternConfig.textColor) {
     let value = translationThemePatternConfig.textColor;
     otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
+.immersive-translate-target-translation-theme-${theme}-inner{color: ${value};}
 `;
   }
   if (translationThemePatternConfig && translationThemePatternConfig.zoom) {
     let value = translationThemePatternConfig.zoom;
     otherCss += `
-span.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
+.immersive-translate-target-translation-theme-${theme}-inner{font-size: max(13px, ${value}%);}
 `;
   }
   let finalCss = "";
@@ -9388,7 +9565,11 @@ ${injectedCss}}
 // dom/inject_css_to_frame.ts
 function injectCssToFrame(root2, ctx) {
   let defaultInjectedCss = getEnv().IMMERSIVE_TRANSLATE_INJECTED_CSS;
-  injectCSS(root2, defaultInjectedCss);
+  injectCSS(
+    root2,
+    defaultInjectedCss,
+    "immersive-translate-default-injected-css"
+  );
   let translationThemePattern = ctx.config.translationThemePatterns || {}, translationTheme = ctx.state.translationTheme, translationThemePatternConfig = translationThemePattern[translationTheme] || {};
   applyUserConfigCss(
     root2,
@@ -9399,7 +9580,7 @@ function injectCssToFrame(root2, ctx) {
   (ctx.rule.injectedCss || ctx.rule.additionalInjectedCss) && (ctx.rule.injectedCss && ctx.rule.injectedCss.length > 0 && (injectedCss += ctx.rule.injectedCss.join(`
 `)), ctx.rule.additionalInjectedCss && ctx.rule.additionalInjectedCss.length > 0 && (injectedCss += `
 ` + ctx.rule.additionalInjectedCss.join(`
-`))), injectedCss && injectCSS(root2, injectedCss);
+`))), injectedCss && injectCSS(root2, injectedCss, "immersive-translate-dynamic-injected-css");
 }
 
 // https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js
@@ -9416,7 +9597,11 @@ function p4(n3, s5, t5, f4, u3) {
 }
 
 // components/switch.tsx
-function Switch({ value, defaultCase = null, cases }) {
+function Switch({
+  value,
+  defaultCase = null,
+  cases
+}) {
   return value == null ? null : /* @__PURE__ */ p4(L, { children: cases[value] != null ? cases[value] : defaultCase });
 }
 
@@ -9683,6 +9868,7 @@ var buildin_config_default = {
   interval: 36e5,
   beta: !1,
   cache: !0,
+  enabled: !0,
   donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
   feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
   isShowContextMenu: !0,
@@ -9713,6 +9899,12 @@ var buildin_config_default = {
     deepl: {
       immediateTranslationTextCountForImmersiveDeepl: 5e4
     },
+    bing: {
+      maxTextLengthPerRequest: 800
+    },
+    deeplx: {
+      limit: 3
+    },
     d: {
       immediateTranslationTextCount: 0
     },
@@ -9723,7 +9915,22 @@ var buildin_config_default = {
       apiUrl: "https://api.deepl.com/jsonrpc"
     },
     openai: {
-      placeholderDelimiters: ["{", "}"]
+      placeholderDelimiters: ["{{", "}}"],
+      immediateTranslationTextCount: 1e4,
+      translationDebounce: 300,
+      newlinePlaceholderDelimiters: [
+        `
+
+###`,
+        `###
+
+`,
+        `
+?
+?###\\d+###
+?
+?`
+      ]
     }
   },
   shortcuts: {
@@ -9795,9 +10002,12 @@ var buildin_config_default = {
     _comment: "",
     normalizeBody: "",
     injectedCss: [],
+    isEbook: !1,
+    isEbookBuilder: !1,
     waitForSelectors: [],
     waitForSelectorsTimeout: 3e3,
     initTranslationServiceAsSoonAsPossible: !0,
+    targetWrapperTag: "font",
     additionalInjectedCss: [],
     isTranslateTitle: !0,
     languageDetectMinTextCount: 50,
@@ -9808,7 +10018,12 @@ var buildin_config_default = {
     urlChangeDelay: 20,
     mutationChangeDelay: 10,
     visibleDelay: 0,
-    additionalStayOriginalSelectors: ["span.katex"],
+    additionalStayOriginalSelectors: [
+      "span.katex",
+      ".notranslate",
+      ".MathJax_Preview",
+      ".MathJax"
+    ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
@@ -9820,6 +10035,7 @@ var buildin_config_default = {
     containerMinTextCount: 18,
     lineBreakMaxTextCount: 0,
     globalAttributes: {},
+    globalMeta: {},
     globalStyles: {
       ".sr-only": "display:none"
     },
@@ -9862,7 +10078,10 @@ var buildin_config_default = {
       ".o-share",
       "[data-toolbar=share]",
       "rp",
-      "rt"
+      "rt",
+      "[spellcheck=false]",
+      ".prism-code",
+      "[role=code]"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -9948,12 +10167,18 @@ var buildin_config_default = {
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
       "RELIN-TARGET",
-      "XQDD_HIGHLIGHT_NEW_WORD"
+      "XQDD_HIGHLIGHT_NEW_WORD",
+      "NOBR"
     ],
     additionalInlineTags: [],
     extraInlineSelectors: [],
-    additionalInlineSelectors: [],
-    extraBlockSelectors: ["turbo-frame", "readme-toc"],
+    additionalInlineSelectors: [".MathJax_Preview", ".MathJax"],
+    extraBlockSelectors: [
+      "turbo-frame",
+      "readme-toc",
+      "#hs_cos_wrapper_post_body",
+      "#hs_cos_wrapper_post_body"
+    ],
     allBlockTags: [
       "HGROUP",
       "CONTENT",
@@ -10015,6 +10240,10 @@ var buildin_config_default = {
   },
   rules: [
     {
+      selectorMatches: "div.simpread-read-root.simpread-read-root-show > sr-read",
+      mainFrameSelector: "div.simpread-read-root.simpread-read-root-show > sr-read"
+    },
+    {
       matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
       wrapperPrefix: "",
@@ -10026,6 +10255,42 @@ var buildin_config_default = {
         "div.page": "width: 98%;",
         ".textLayer": "overflow:visible;opacity: 1;"
       }
+    },
+    {
+      matches: "*://*/*.txt",
+      selectors: ["body"],
+      isTransformPreTagNewLine: !0,
+      excludeTags: [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "G",
+        "TEXT",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH",
+        "TTS-SENTENCE"
+      ]
     },
     {
       matches: ["mail.jabber.org", "antirez.com"],
@@ -10193,7 +10458,8 @@ var buildin_config_default = {
         "faceplate-batch .md"
       ],
       excludeMatches: [
-        "https://www.reddit.com/r/*/wiki/*"
+        "https://www.reddit.com/r/*/wiki/*",
+        "https://www.reddit.com/settings/*"
       ],
       detectParagraphLanguage: !0,
       globalStyles: {
@@ -10206,6 +10472,10 @@ var buildin_config_default = {
     },
     {
       matches: "github.com",
+      observeUrlChange: !0,
+      excludeMatches: [
+        "https://github.com/settings/profile"
+      ],
       selectors: [
         ".markdown-title",
         ".markdown-body",
@@ -10214,8 +10484,10 @@ var buildin_config_default = {
         "li.repo-list-item p",
         "#responsive-meta-container p",
         "article p",
-        "div.repo-description p"
+        "div.repo-description p",
+        "[itemprop=description]"
       ],
+      atomicBlockSelectors: ["[itemprop=description]"],
       excludeSelectors: [
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
@@ -10257,11 +10529,18 @@ var buildin_config_default = {
     },
     {
       matches: "m.youtube.com",
-      selectors: [".comment-text"],
+      selectors: [
+        ".comment-text",
+        ".media-item-headline",
+        ".slim-video-information-title"
+      ],
+      wrapperPrefix: "",
+      wrapperSuffix: "",
       observeUrlChange: !0,
       atomicBlockSelectors: [".comment-text"],
       globalStyles: {
-        ".comment-text": "max-height:unset;"
+        ".comment-text": "max-height:unset;",
+        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
       },
       injectedCss: [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -10277,7 +10556,8 @@ var buildin_config_default = {
         "yt-formatted-string#video-title",
         "span#video-title",
         "a#video-title",
-        "yt-formatted-string.ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       wrapperPrefix: "",
       wrapperSuffix: "",
@@ -10292,7 +10572,8 @@ var buildin_config_default = {
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
-        "span#video-title"
+        "span#video-title",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       excludeSelectors: ["[class^='lln-']"],
       extraBlockSelectors: [
@@ -10529,7 +10810,9 @@ var buildin_config_default = {
     },
     {
       matches: "web.telegram.org/z/*",
+      isTranslateTitle: !1,
       selectors: [
+        ".text-content",
         ".message",
         ".reply-markup-button-text",
         ".bot-commands-list-element-description"
@@ -10675,6 +10958,7 @@ var buildin_config_default = {
         "mastodon.world",
         "infosec.exchange"
       ],
+      isTranslateTitle: !1,
       selectorMatches: ["div#mastodon"],
       selectors: ["div.status__content__text"],
       detectLanguage: !0
@@ -10780,6 +11064,28 @@ var buildin_config_default = {
       globalStyles: {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
+      }
+    },
+    {
+      matches: "marketplace.visualstudio.com",
+      additionalExcludeSelectors: [
+        ".core-info-second-row",
+        ".core-info-third-row",
+        ".meta-data-list",
+        ".item-title",
+        ".breadcrumb",
+        ".itemDetails-right",
+        ".ux-user-name",
+        ".ux-updated-date",
+        ".ux-item-second-row-wrapper",
+        ".stats-and-offer",
+        ".header-container"
+      ],
+      atomicBlockSelectors: [
+        ".core-info-cell > div.name"
+      ],
+      globalStyles: {
+        ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
       }
     },
     {
@@ -11236,6 +11542,64 @@ var buildin_config_default = {
     {
       matches: "https://platform.openai.com/account/api-keys*",
       urlChangeDelay: 1500
+    },
+    {
+      isEbook: !0,
+      isTranslateTitle: !1,
+      urlChangeDelay: 200,
+      selectorMatches: [
+        "meta[name='immersive-translate-ebook-viewer'][content='true']"
+      ],
+      excludeSelectors: [
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title"
+      ],
+      extraInlineSelectors: [
+        "span.dropcaps"
+      ],
+      paragraphMinTextCount: 1,
+      paragraphMinWordCount: 1,
+      blockMinTextCount: 1,
+      blockMinWordCount: 1,
+      containerMinTextCount: 1,
+      wrapperPrefix: "<br />",
+      targetWrapperTag: "span"
+    },
+    {
+      isEbookBuilder: !0,
+      isTranslateTitle: !1,
+      targetWrapperTag: "span",
+      selectorMatches: [
+        "meta[name='immersive-translate-ebook-builder'][content='true']"
+      ],
+      globalMeta: {},
+      excludeSelectors: [
+        "h1.notranslate",
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title",
+        "#tool"
+      ],
+      paragraphMinTextCount: 1,
+      paragraphMinWordCount: 1,
+      blockMinTextCount: 1,
+      blockMinWordCount: 1,
+      containerMinTextCount: 1,
+      wrapperPrefix: "<br />"
+    },
+    {
+      matches: [
+        "https://www.explainpaper.com/reader*"
+      ],
+      isTranslateTitle: !1,
+      selectors: [
+        ".leading-relaxed",
+        ".chat-messages p",
+        ".text-sm"
+      ]
     }
   ]
 };
@@ -11587,7 +11951,7 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
     let currentSentence = sentences[i2], { from, to, text, url } = currentSentence, sentenceTotalParts = 0, textArrSplitedByNewLine = text.split(/\r?\n/), currentTempSentences = [], currentPrefix = "";
     for (let j6 = 0; j6 < textArrSplitedByNewLine.length; j6++) {
       let currentText = textArrSplitedByNewLine[j6];
-      if (currentText === "") {
+      if (currentText.trim() === "") {
         currentTempSentences.length > 0 ? j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `) : currentPrefix += `
 `;
@@ -11605,7 +11969,8 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
             suffix,
             index: i2,
             url,
-            sentenceTotalParts
+            sentenceTotalParts,
+            partIndex: sentenceTotalParts - 1
           }), sentenceTotalPartsGroups[i2] = sentenceTotalParts;
         }
       } else
@@ -11617,7 +11982,8 @@ function splitStentenceWithMaxLength(sentences, maxLength) {
           to,
           index: i2,
           url,
-          sentenceTotalParts
+          sentenceTotalParts,
+          partIndex: sentenceTotalParts - 1
         }), sentenceTotalPartsGroups[i2] = sentenceTotalParts;
       currentTempSentences.length > 0 && j6 < textArrSplitedByNewLine.length - 1 && (currentTempSentences[currentTempSentences.length - 1].suffix += `
 `);
@@ -11758,9 +12124,11 @@ async function rawRequest(options) {
     } catch (_e4) {
       log_default.error("parse response failed", _e4);
     }
-    throw details && log_default.error("fail response", details), new CommonError(
+    details && log_default.error("fail response", details);
+    let shortDetail = "";
+    throw details && (shortDetail = details.slice(0, 150)), new CommonError(
       "fetchError",
-      response.status + ": " + response.statusText || "",
+      response.status + ": " + (response.statusText || "") + shortDetail,
       details
     );
   }
@@ -12299,7 +12667,7 @@ function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
   for (let i2 = 0; i2 < elements.length; i2++) {
     let elementState = elements[i2], element = elementState.element;
     if (elementState.text) {
-      text += elementState.text, elementState.variables && elementState.variables.length > 0 && variables.push(...elementState.variables);
+      text += elementState.text, elementState.variables && elementState.variables.length > 0 && variables.push(...elementState.variables), isHasMeaningfulText = !0;
       continue;
     }
     if (typeof element == "string") {
@@ -12321,9 +12689,17 @@ function elementsToParagraph(elements, isPreWhitespace, rootFrame, ctx) {
           continue;
       }
       isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
+      let variableElement = element;
+      if (isStayOriginal && element.tagName === "IMG") {
+        let clonedElement = element.cloneNode(!0), originalStyle = clonedElement.getAttribute("style") || "", rect = element.getBoundingClientRect();
+        clonedElement.setAttribute(
+          "style",
+          `${originalStyle} width: ${rect.width}px; height: ${rect.height}px;`
+        ), variableElement = clonedElement;
+      }
       let variable = {
         type: "element",
-        value: element
+        value: variableElement
       };
       variables.push(variable);
       let index = variables.length - 1 + currentVariableIndex, delimiter = `${delimiters[0]}${index}${delimiters[1]}`;
@@ -12511,7 +12887,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
             ctx,
             currentVariableIndex
           ).currentVariableIndex, NodeFilter.FILTER_REJECT;
-        if (inlineElementGroups.length > 0) {
+        if (console.log("no inline", node2), inlineElementGroups.length > 0) {
           let paragraph = elementsToParagraph(
             [...inlineElementGroups],
             isPreWhitespaceContainer,
@@ -12680,9 +13056,9 @@ function handleInlineElement(node, inlineElementGroups, allParagraphs, isPreWhit
     ctx.rule,
     !1
   ))
-    isMetaElement(node, ctx.rule) || inlineElementGroups.push(node);
+    isMetaElement(node, ctx.rule) || (isStayOriginalElement(node, ctx.rule) && (currentVariableIndex += 1), inlineElementGroups.push(node));
   else if (isStayOriginalElement(node, ctx.rule))
-    inlineElementGroups.push(node);
+    inlineElementGroups.push(node), currentVariableIndex += 1;
   else if (isContainsStayOriginalElement(node, ctx.rule)) {
     let inlineGroupElementState = getInlineElementsOfInlineElement(
       node,
@@ -12883,7 +13259,7 @@ function paragraphToHtml(sourceItem, sentence, ctx) {
   let innerClassList = getTranslationInnerClassNames(
     translationTheme
   ), blockStyleStr = "";
-  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<span ${blockStyleStr} class="${classList.join(" ")}"><span class="${innerClassList.join(" ")}">${html}</span></span>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<span class="notranslate">&#160;</span>${html}`), {
+  return rule.translationBlockStyle && (blockStyleStr = `style="${rule.translationBlockStyle}"`), html = `<${ctx.rule.targetWrapperTag} ${blockStyleStr} class="${classList.join(" ")}"><${rule.targetWrapperTag} class="${innerClassList.join(" ")}">${html}</${rule.targetWrapperTag}></${rule.targetWrapperTag}>`, sourceItem.inline || (wrapperPrefix === "smart" ? html = `<br />${html}` : html = `${wrapperPrefix}${html}`, wrapperSuffix === "smart" ? html = `${html}` : html = `${html}${wrapperSuffix}`), sourceItem.inline && (html = `<${rule.targetWrapperTag} class="notranslate">&#160;</${rule.targetWrapperTag}>${html}`), {
     html,
     position
   };
@@ -13043,7 +13419,7 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
       } else if (node.nodeType === Node.TEXT_NODE) {
         let text = node.textContent;
         if (text && text.trim().length > 0) {
-          let span = document.createElement("span");
+          let span = document.createElement(rule.targetWrapperTag);
           node.after(span), span.appendChild(node);
         }
       }
@@ -13130,7 +13506,11 @@ function getMatchedUrl(rawUrl, rawMatches) {
         return !1;
       } else {
         let scheme, rawMatch2 = match;
-        match.includes("://") ? scheme = match.split("://")[0] : (scheme = "*", match = "https://" + match);
+        if (match.includes("://")) {
+          let parts = match.split("://");
+          scheme = parts[0], scheme === "*" && parts.length > 1 && (scheme = "*", match = "https://" + parts[1]);
+        } else
+          scheme = "*", match = "https://" + match;
         let validUrlMatch = match.replace(
           /\*/g,
           placeholder
@@ -13513,6 +13893,7 @@ async function getContext(options) {
       translationStartMode,
       immediateTranslationTextCount: config.immediateTranslationTextCount,
       isAutoTranslate: !1,
+      translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
       translationTheme: defaultTheme
@@ -13521,6 +13902,7 @@ async function getContext(options) {
       translationStartMode,
       immediateTranslationTextCount: config.immediateTranslationTextCount,
       isAutoTranslate: !1,
+      translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
       translationTheme: defaultTheme
@@ -13531,11 +13913,11 @@ async function getContext(options) {
     (selector) => selector !== ".btn"
   ));
   let translationServiceConfig = config.translationServices[ctx.translationService] || {};
-  translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl);
+  translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
   let buildinImmediateTranslationTextCount = buildinConfig.immediateTranslationTextCount;
   config.immediateTranslationTextCount !== buildinImmediateTranslationTextCount && (ctx.state.immediateTranslationTextCount = config.immediateTranslationTextCount);
   let rules = config.rules, rule;
-  globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
+  globalThis.PDFViewerApplication ? rule = rules.find((rule2) => rule2.isPdf) : globalThis.immersiveTranslateEbookViewer ? rule = rules.find((rule2) => rule2.isEbook) : globalThis.immersiveTranslateEbookBuilder ? rule = rules.find((rule2) => rule2.isEbookBuilder) : rule = rules.find((rule2) => isMatched(url, rule2)), ctx.rule.isPdf && (ctx.state.translationArea = "main"), ctx.state.translationArea === "body" && (ctx.rule.paragraphMinTextCount = 1, ctx.rule.paragraphMinWordCount = 1);
   let generalRule = config.generalRule;
   if (rule && (ctx.rule = mergeRule(generalRule, rule)), ctx.state.translationArea === "body" && ctx.rule.excludeTags && (ctx.rule.excludeTags = ctx.rule.excludeTags.filter((tag) => !ctx.rule.bodyTranslateTags.includes(tag) && !ctx.rule.forceTranslateTags.includes(tag))), ctx.rule.mainFrameSelector) {
     let mainFrame = document.querySelector(ctx.rule.mainFrameSelector);
@@ -13557,10 +13939,33 @@ function isMatchedExclude(url, matchPattern) {
 }
 
 // dom/translate_page.ts
-var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, debounceTranslateCurrentQueue = se(translateCurrentQueue, 300), debounceTranslateNewDynamicNodes = debounce(
-  translateNewDynamicNodes,
-  200
-), env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, throttleMap = {
+  300: se3(
+    translateCurrentQueue,
+    300
+  ),
+  1e3: se3(
+    translateCurrentQueue,
+    1e3
+  ),
+  3e3: se3(
+    translateCurrentQueue,
+    3e3
+  )
+}, debounceMap = {
+  300: debounce(
+    translateNewDynamicNodes,
+    300
+  ),
+  1e3: debounce(
+    translateNewDynamicNodes,
+    1e3
+  ),
+  3e3: debounce(
+    translateNewDynamicNodes,
+    3e3
+  )
+}, env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
 async function toggleTranslatePage() {
   if (getPageStatus() === "Original") {
     let ctx = await getGlobalContext(getRealUrl(), {});
@@ -13611,7 +14016,8 @@ async function toggleTranslationMask() {
   }
 }
 function restorePage() {
-  clean();
+  if (clean(), !globalContext || !globalContext.mainFrame)
+    return;
   let allFrames = [
     globalContext.mainFrame,
     ...mutationObserverMap.keys()
@@ -13711,7 +14117,7 @@ function translationParagraph(visibleParagraph, ctx) {
   if (visibleParagraph.isPdf) {
     let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
     isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
-    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement("span");
+    let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement(ctx.rule.targetWrapperTag);
     realElements.length === 1 && (paragraphTarget.style.fontSize = fontSize), paragraphTarget.id = `${translationTargetElementWrapperClass}-${id}`, paragraphTarget.style.top = top;
     let firstElementLeft = getAttribute(firstElement, sourceElementLeft), minLeft = realElements.reduce((prev, current) => {
       let left = getAttribute(current, sourceElementLeft);
@@ -13730,13 +14136,16 @@ function translationParagraph(visibleParagraph, ctx) {
       visibleParagraph.elements[0],
       ctx.rule
     ) || (position = "beforeend")), ctx.rule.insertPosition && (position = ctx.rule.insertPosition);
-    let targetTranslationWrapper = document.createElement("span");
+    let { rule } = ctx, targetTranslationWrapper = document.createElement(
+      rule.targetWrapperTag
+    );
     targetTranslationWrapper.classList.add(
       "notranslate",
       translationTargetElementWrapperClass
     ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
     let loadingHtml = getLoadingHTML(
-      ctx.config.loadingTheme
+      ctx.config.loadingTheme,
+      ctx.rule
     );
     if (targetTranslationWrapper.innerHTML = loadingHtml, position === "beforeend") {
       let innerElement = getTheLastTextNodeParentElement(lastElement);
@@ -13746,10 +14155,10 @@ function translationParagraph(visibleParagraph, ctx) {
     else
       throw new Error("not support position");
   }
-  currentParagraphIds.push(id), debounceTranslateCurrentQueue(ctx);
+  currentParagraphIds.push(id), throttleMap[ctx.state.translationDebounce](ctx);
 }
 function addParagraphToQueue(paragraph, ctx) {
-  ctx.state.translationStartMode === "dynamic" && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
+  ctx.state.translationStartMode === "dynamic" && !ctx.rule.isEbookBuilder && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
     ctx.rule.visibleDelay > 0 ? setTimeout(() => {
       translationParagraph(visibleParagraph, ctx);
     }, ctx.rule.visibleDelay) : translationParagraph(visibleParagraph, ctx);
@@ -13759,7 +14168,9 @@ async function translatePage(ctx) {
   if (pageStatus === "Translating")
     return;
   let isInIframe = getIsInIframe();
-  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), document.querySelectorAll("iframe").forEach((frame) => {
+    isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
+  }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
     let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
       (item) => item.match === currentDomain && item.expiredAt > now
     ), isChanged = !1;
@@ -13808,6 +14219,17 @@ async function translatePage(ctx) {
         e3.details || ""
       );
     }), enableTitleMutationObserver(ctx));
+    let paragraphEntities2 = getParagraphEntities();
+    document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+        detail: JSON.stringify({
+          type: "totalParagraphsCount",
+          payload: {
+            totalParagraphsCount: paragraphEntities2.size
+          }
+        })
+      })
+    );
   } catch (e3) {
     setPageTranslatedStatus("Error"), log_default.error(e3);
   }
@@ -13858,7 +14280,6 @@ async function toggleTranslateTheWholePage() {
 }
 async function translateToThePageEndImmediately() {
   globalContext = await getGlobalContext(getRealUrl(), {
-    translationArea: "body",
     translationStartMode: "immediate"
   }), await translatePage(globalContext), await translateNewDynamicNodes(globalContext);
 }
@@ -13890,8 +14311,17 @@ async function translateTitle(ctx) {
     throw e3;
   }
 }
-function getLoadingHTML(theme) {
-  return `&#160;<span class="${brandId}-loading-${theme} notranslate"></span>`;
+function setLoadingToParagraph(rootFrame, id, ctx) {
+  let element = rootFrame.querySelector(
+    "#" + translationTargetElementWrapperClass + "-" + id
+  );
+  element && (element.innerHTML = getLoadingHTML(
+    ctx.config.loadingTheme,
+    ctx.rule
+  ));
+}
+function getLoadingHTML(theme, rule) {
+  return `&#160;<${rule.targetWrapperTag} class="${brandId}-loading-${theme} notranslate"></${rule.targetWrapperTag}>`;
 }
 async function translateContainers(containers, rootFrame, ctx, isDynamic) {
   let { rule } = ctx;
@@ -13934,16 +14364,56 @@ async function translateContainers(containers, rootFrame, ctx, isDynamic) {
     addParagraphToQueue(paragraph, ctx);
   setPageTranslatedStatus("Translated");
 }
+async function retryFailedParagraphs() {
+  let allParagraphEntities = getParagraphEntities(), ids = [];
+  for (let [id, paragraph] of allParagraphEntities)
+    paragraph.state === "Error" && ids.push(id);
+  let currentParagraphLang = "auto", ctx = await getGlobalContext(getRealUrl(), {});
+  ctx.state.isDetectParagraphLanguage || (currentParagraphLang = getCurrentPageLanguage());
+  let payload = {
+    sentences: ids.filter((id) => getParagraph(id)).map((id) => {
+      let paragraph = getParagraph(id), from = paragraph.languageByLocal;
+      return from === "auto" && (from = currentParagraphLang), setLoadingToParagraph(paragraph.rootFrame, id, ctx), {
+        id: paragraph.id,
+        url: ctx.encryptedUrl,
+        text: paragraph.text,
+        from,
+        fromByClient: paragraph.languageByClient,
+        to: ctx.targetLanguage
+      };
+    })
+  };
+  if (payload.sentences.length > 0) {
+    setPageTranslatedStatus("Translating");
+    try {
+      await translateMultipleSentences(
+        payload,
+        ctx,
+        (err, translatedSentence, sentenceRequest) => {
+          onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx);
+        }
+      );
+    } catch (e3) {
+      setPageTranslatedStatus("Error"), log_default.error(
+        "translateCurrentQueue error",
+        e3.name,
+        e3.message,
+        e3.details || " "
+      );
+      return;
+    }
+  }
+}
 function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
-  let paragraphWithState = getParagraph(sentenceRequest.id);
+  let translatedOk = !1, paragraphWithState = getParagraph(sentenceRequest.id);
   if (paragraphWithState && (err || !translatedSentence)) {
     err || (log_default.error("translate error", sentenceRequest, err, translatedSentence), err = new Error("no response from server"));
-    let wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
+    let { rule } = ctx, wrapperId = sentenceRequest.id, wrapper = paragraphWithState.rootFrame.querySelector(
       `#${translationTargetElementWrapperClass}-${wrapperId}`
     ), errorMessage = err.message.replaceAll(`
 `, "");
     errorMessage = errorMessage.replaceAll('"', "&quot;"), paragraphWithState && (paragraphWithState.state = "Error", setParagraph(paragraphWithState.id, paragraphWithState));
-    let errorHtml = `<span class="${brandId}-error notranslate"> <span class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></span> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></span>`;
+    let errorHtml = `<${rule.targetWrapperTag} class="${brandId}-error notranslate"> <${rule.targetWrapperTag} class="immersive-translate-tooltip" data-immersive-translate-tooltip-text="${errorMessage}"><button class="${brandId}-clickable-button notranslate" title="${errorMessage}">\u2757</button></${rule.targetWrapperTag}> <button class="${brandId}-clickable-button notranslate" data-${brandId}-paragraph-id="${wrapperId}" data-${brandId}-action="retry">\u{1F504}</button></${rule.targetWrapperTag}>`;
     wrapper && (wrapper.innerHTML = errorHtml);
   } else {
     let paragraph = getParagraph(sentenceRequest.id);
@@ -13971,11 +14441,21 @@ function onParagraphTranslated(err, translatedSentence, sentenceRequest, ctx) {
             sourceElementTranslatedMarkAttributeName,
             "1"
           );
-        });
+        }), translatedOk = !0;
       }
     } else
       log_default.error("paragraph not found", sentenceRequest.id);
   }
+  document.dispatchEvent(
+    new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+      detail: JSON.stringify({
+        type: "paragraphTranslated",
+        payload: {
+          ok: translatedOk
+        }
+      })
+    })
+  );
 }
 async function translateCurrentQueue(ctx) {
   if (currentParagraphIds.length === 0)
@@ -14054,7 +14534,7 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
                 );
               });
             }, ctx.rule.urlChangeDelay);
-          else if (mutationElementIsInline(rule, element) || !inlineAndIgnoreAndTextTags.includes(
+          else if (mutationElementIsBlock(rule, element) || !inlineAndIgnoreAndTextTags.includes(
             element.nodeName
           )) {
             if (element.classList.contains("notranslate") || element.getAttribute("translate") === "no")
@@ -14063,8 +14543,24 @@ function enableMutatinObserver(rootFrame, rule, ctx) {
               currentNewDynamicElements.push({
                 element,
                 rootFrame
-              }), debounceTranslateNewDynamicNodes(ctx);
-            }, rule.mutationChangeDelay || 0));
+              }), debounceMap[ctx.state.translationDebounce](ctx);
+            }, rule.mutationChangeDelay || 0)), element && element.querySelectorAll && element.querySelectorAll("iframe").forEach((inlineIframe) => {
+              isInlineIframe(inlineIframe) && setTimeout(() => {
+                injectCssToFrame(
+                  inlineIframe.contentDocument,
+                  ctx
+                ), translateFrame(
+                  inlineIframe.contentDocument.body,
+                  ctx
+                ).catch((e3) => {
+                  log_default.error(
+                    "translateFrame error",
+                    e3.details || " ",
+                    e3
+                  );
+                });
+              }, ctx.rule.urlChangeDelay);
+            });
           }
         }
       });
@@ -14092,7 +14588,7 @@ function enableTitleMutationObserver(ctx) {
     childList: !0
   }));
 }
-function mutationElementIsInline(rule, element) {
+function mutationElementIsBlock(rule, element) {
   if (rule.extraBlockSelectors) {
     for (let match of rule.extraBlockSelectors)
       if (element.matches(match))
@@ -14105,15 +14601,27 @@ async function initPage() {
   ctx.rule.urlChangeDelay && await delay(ctx.rule.urlChangeDelay), ctx.rule.waitForSelectors && ctx.rule.waitForSelectors.length > 0 && await waitForSelectors(
     ctx.rule.waitForSelectors,
     ctx.rule.waitForSelectorsTimeout
-  );
+  ), ctx.rule.globalMeta && Object.keys(ctx.rule.globalMeta).forEach((key) => {
+    let meta = document.createElement("meta");
+    meta.name = key, meta.content = ctx.rule.globalMeta[key], document.head.appendChild(meta);
+  });
   let lang = ctx.sourceLanguage;
-  lang === "auto" ? (isMonkey() ? lang = await detectLanguage({
-    text: getMainText(ctx.mainFrame).slice(0, 1e3)
-  }) : isInIframe ? lang = await detectLanguage({
-    text: getMainText(ctx.mainFrame).slice(0, 1e3)
-  }) : lang = await detectTabLanguage(), lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang)) : setCurrentPageLanguageByClient(lang);
+  if (lang === "auto") {
+    if (!isMonkey())
+      isInIframe ? lang = await detectLanguage({
+        text: getMainText(ctx.mainFrame).slice(0, 1e3)
+      }) : lang = await detectTabLanguage();
+    else {
+      let mainText = "";
+      ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
+        text: mainText
+      });
+    }
+    lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
+  } else
+    setCurrentPageLanguageByClient(lang);
   let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), isAutoTranslate)
+  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
     globalContext.state.isAutoTranslate = !0, await translatePage(globalContext);
   else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
     if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
@@ -14311,7 +14819,7 @@ function parseType(str) {
 // content_message_listeners.ts
 var asyncMessageHandler = async function(payload, _author) {
   let { method, data } = payload;
-  method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" && setCurrentPageLanguageByClient(data);
+  method === "translateTheWholePage" ? await translateTheWholePage() : method === "translateTheMainPage" ? await translateTheMainPage() : method === "translateToThePageEndImmediately" ? await translateToThePageEndImmediately() : method === "toggleTranslatePage" ? await toggleTranslatePage() : method === "toggleTranslateTheWholePage" ? await toggleTranslateTheWholePage() : method === "toggleTranslateTheMainPage" ? await toggleTranslateTheMainPage() : method === "translatePage" ? await translatePage() : method === "toggleTranslationMask" ? await toggleTranslationMask() : method === "restorePage" ? restorePage() : method === "showTranslationOnly" ? void 0 : method === "setCurrentPageLanguageByClient" ? setCurrentPageLanguageByClient(data) : method === "retryFailedParagraphs" && retryFailedParagraphs();
 };
 var connection;
 function getConnection() {
@@ -14475,7 +14983,7 @@ var defaultLimiter = new RateLimiter({ limit: 7, interval: 1250 }), limiterMap =
   deepl: new RateLimiter({ limit: 10, interval: 1050 }),
   transmart: new RateLimiter({ limit: 30, interval: 1050 }),
   papago: new RateLimiter({ limit: 3, interval: 1150 }),
-  openai: new RateLimiter({ limit: 3, interval: 1150 })
+  openai: new RateLimiter({ limit: 10, interval: 65e3 })
 };
 function getLimiter(key) {
   return limiterMap[key] || defaultLimiter;
@@ -14535,11 +15043,15 @@ var Translation = class {
       sentence.from && sentence.from !== "auto" && languages3.add(sentence.from);
     let isMultipleLanguage = !1;
     languages3.size > 1 && (isMultipleLanguage = !0);
+    let maxTextLength = this.maxTextLength;
+    this.serviceConfig && this.serviceConfig.maxTextLengthPerRequest && (maxTextLength = this.serviceConfig.maxTextLengthPerRequest);
+    let maxTextGroupLength = this.maxTextGroupLength;
+    this.serviceConfig && this.serviceConfig.maxTextGroupLengthPerRequest && (maxTextGroupLength = this.serviceConfig.maxTextGroupLengthPerRequest);
     try {
       tempSentenceGroups = splitSentences(
         sentences,
-        this.maxTextLength,
-        this.maxTextGroupLength
+        maxTextLength,
+        maxTextGroupLength
       );
     } catch (e3) {
       if (everySentenceCallback)
@@ -14554,11 +15066,12 @@ var Translation = class {
       tempSentenceGroups.map((item) => item)
     );
     let promises = [], sentenceCallbacks = [], addToSentenceCallback = (index, sentenceCallback, error2) => {
-      sentenceCallbacks[index] ? sentenceCallbacks[index].translatedTexts.push(
-        ...sentenceCallback.translatedTexts
-      ) : sentenceCallbacks[index] = sentenceCallback;
-      let currentSentenceCallback = sentenceCallbacks[index];
-      if (currentSentenceCallback.translatedTexts.length === currentSentenceCallback.sentenceTotalParts) {
+      let currentText = sentenceCallback.translatedTexts[0];
+      sentenceCallbacks[index] || (sentenceCallbacks[index] = sentenceCallback, sentenceCallbacks[index].translatedTexts = Array(4).fill(null)), sentenceCallbacks[index].translatedTexts[sentenceCallback.partIndex] = currentText;
+      let currentSentenceCallback = sentenceCallbacks[index], realLength = 0;
+      for (let i2 = 0; i2 < currentSentenceCallback.sentenceTotalParts; i2++)
+        currentSentenceCallback.translatedTexts[i2] !== null && (realLength += 1);
+      if (realLength === currentSentenceCallback.sentenceTotalParts) {
         let translatedText = currentSentenceCallback.translatedTexts.join(""), translatedSentence = {
           ...currentSentenceCallback.sentence,
           text: translatedText
@@ -14589,24 +15102,44 @@ var Translation = class {
             sourceTempSentences: tempSentenceGroup.tempSentences
           };
         {
-          let mergedText = tempSentenceGroup.tempSentences.map(
+          let finalTranslationTextSeparator = translationTextSeparator;
+          this.serviceConfig && this.serviceConfig.translationTextSeparator && (finalTranslationTextSeparator = this.serviceConfig.translationTextSeparator);
+          let newlinePlaceholderDelimiters = null;
+          this.serviceConfig && this.serviceConfig.newlinePlaceholderDelimiters && (newlinePlaceholderDelimiters = this.serviceConfig.newlinePlaceholderDelimiters);
+          let mergedText = "";
+          newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2 ? mergedText = tempSentenceGroup.tempSentences.map((item, index) => index === tempSentenceGroup.tempSentences.length - 1 ? item.text : item.text + newlinePlaceholderDelimiters[0] + (index + 1) + newlinePlaceholderDelimiters[1]).join("") : mergedText = tempSentenceGroup.tempSentences.map(
             (item) => item.text
-          ).join(translationTextSeparator), result = await this.translate({
+          ).join(finalTranslationTextSeparator);
+          let result = await this.translate({
             text: mergedText,
             from: finalFrom,
             to: tempSentenceGroup.to,
             url,
             options
-          }), { text } = result, rawTranslatedTexts = text.split(
-            translationTextSeparator
-          ), translatedTexts = [];
+          }), { text } = result, rawTranslatedTexts = [];
+          if (newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 2) {
+            let defaultRegex = `${newlinePlaceholderDelimiters[0]}\\d+${newlinePlaceholderDelimiters[1]}`;
+            newlinePlaceholderDelimiters && newlinePlaceholderDelimiters.length >= 3 && (defaultRegex = newlinePlaceholderDelimiters[2]);
+            let regex = new RegExp(
+              defaultRegex,
+              "g"
+            );
+            rawTranslatedTexts = text.split(regex);
+          } else
+            rawTranslatedTexts = text.split(
+              finalTranslationTextSeparator
+            );
+          let translatedTexts = [];
           if (rawTranslatedTexts.length > tempSentenceGroup.tempSentences.length) {
             for (let j6 = 0; j6 < tempSentenceGroup.tempSentences.length - 1; j6++)
               translatedTexts[j6] = rawTranslatedTexts[j6];
             translatedTexts[tempSentenceGroup.tempSentences.length - 1] = rawTranslatedTexts.slice(
               tempSentenceGroup.tempSentences.length - 1
-            ).join(translationTextSeparator);
-          } else
+            ).join(finalTranslationTextSeparator);
+          } else if (rawTranslatedTexts.length < tempSentenceGroup.tempSentences.length)
+            for (let j6 = rawTranslatedTexts.length; j6 < tempSentenceGroup.tempSentences.length; j6++)
+              rawTranslatedTexts[j6] = "";
+          else
             translatedTexts = rawTranslatedTexts;
           return {
             sourceTempSentences: tempSentenceGroup.tempSentences,
@@ -14630,6 +15163,7 @@ var Translation = class {
                   to: tempSentenceGroup.to
                 },
                 sentenceTotalParts: tempSentence.sentenceTotalParts,
+                partIndex: tempSentence.partIndex,
                 translatedTexts: [prefix + translatedText + suffix],
                 callback: everySentenceCallback
               }, null);
@@ -15351,13 +15885,11 @@ function getRandomBoolean() {
 var Mock = class extends Translation {
   constructor() {
     super(...arguments);
-    this.isSupportList = !1;
-    this.maxTextLength = 1e3;
+    this.isSupportList = !0;
+    this.maxTextLength = 5e3;
   }
   async translate(payload) {
-    let { text } = payload;
-    await mockRequest(), await delay(5);
-    let startSpaceLength = text.match(/^\s*/)[0].length;
+    let { text } = payload, startSpaceLength = text.match(/^\s*/)[0].length;
     return {
       text: text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6),
       from: payload.from,
@@ -15377,8 +15909,7 @@ var Mock = class extends Translation {
       to,
       text: textList.map((text) => {
         let startSpaceLength = text.match(/^\s*/)[0].length;
-        return text.slice(0, startSpaceLength) + `\u6A21
-\u62DF\uFF1A` + text.slice(startSpaceLength, -6);
+        return text.slice(0, startSpaceLength) + "\u6A21\u62DF\uFF1A" + text.slice(startSpaceLength, -6);
       })
     };
   }
@@ -15993,18 +16524,73 @@ var rawLangMap6 = [
   constructor(serviceConfig, generalConfig, options) {
     super(serviceConfig, generalConfig, options);
     this.APIKEY = "";
+    // api key list
     this.isSupportList = !1;
-    this.maxTextLength = 1e3;
-    this.maxTextGroupLength = 1;
-    this.prompt = `translate to {{to}}:
-
-{{text}} =>`;
-    this.model = "text-davinci-003";
+    this.maxTextLength = 1300;
+    this.maxTextGroupLength = 100;
+    this.prompt = "Translate the following text to {{to}}: ```\n{{text}}\n```";
+    this.model = "gpt-3.5-turbo";
+    this.apiUrl = "https://api.openai.com/v1/chat/completions";
     if (!serviceConfig || !serviceConfig.APIKEY)
       throw new Error("APIKEY are required");
-    this.APIKEY = serviceConfig.APIKEY?.trim(), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model);
+    this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
   }
-  async translate(payload) {
+  translate(payload) {
+    return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
+  }
+  /**
+   * get random api key
+   * @returns random api key
+   */
+  getRandomKey() {
+    let index = Math.floor(Math.random() * this.apiKeys.length);
+    return this.apiKeys[index];
+  }
+  async translate3_5(payload) {
+    let { text, from, to } = payload;
+    if (text.length === 0)
+      return {
+        from,
+        to,
+        text: ""
+      };
+    let remoteFrom = langMap12.get(from) || from, remoteTo = langMap12.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, langMap12.get(to) || to).replace(
+      /{{text}}/g,
+      text
+    ).replace(/{{from}}/g, langMap12.get(from) || from), options = {
+      url: this.apiUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + this.getRandomKey()
+      },
+      body: JSON.stringify({
+        model: this.model,
+        temperature: 0,
+        max_tokens: 2048,
+        messages: [
+          {
+            role: "system",
+            content: `You are a helpful assistant that translates ${remoteFrom} to ${remoteTo}.`
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
+      })
+    }, response = await request2(options);
+    if (response && response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
+      let text2 = response.choices[0].message.content.trim();
+      return {
+        from,
+        to,
+        text: text2
+      };
+    } else
+      throw new Error("server response invalid: " + JSON.stringify(response));
+  }
+  async translate3(payload) {
     let { text, from, to } = payload;
     if (text.length === 0)
       return {
@@ -16017,7 +16603,6 @@ var rawLangMap6 = [
       text
     ).replace(/{{from}}/g, langMap12.get(from) || from), options = {
       url: "https://api.openai.com/v1/completions",
-      retry: 2,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16821,7 +17406,7 @@ var Bing = class extends Translation {
   constructor() {
     super(...arguments);
     this.isSupportList = !1;
-    this.maxTextLength = 1e3;
+    this.maxTextLength = 800;
   }
   async translate(payload) {
     let { text, from, to } = payload;
@@ -17042,7 +17627,10 @@ var Youdao = class extends Translation {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }
-    ), l2 = result.l, [remoteFrom, _4] = l2.split("2");
+    );
+    if (!result.translation)
+      throw new Error(JSON.stringify(result));
+    let l2 = result.l, [remoteFrom, _4] = l2.split("2");
     return {
       text: result.translation.join(`
 `),
@@ -17191,7 +17779,7 @@ async function initTranslationEngine(ctx) {
       translationService: defaultTranslationEngine
     }
   ), defaultRateLimit = translator.getDefaultRateLimit();
-  defaultRateLimit && serviceConfig && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
+  defaultRateLimit && serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
     defaultTranslationEngine,
     serviceConfig
   ), await translator.init();
@@ -17201,7 +17789,12 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
     return {
       ...payload
     };
-  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {}, noCacheSentences = [], finalResult = {
+  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+  defaultTranslationEngine === "openai" && (payload.sentences = payload.sentences.map((sentence) => ({
+    ...sentence,
+    from: "auto"
+  })));
+  let noCacheSentences = [], finalResult = {
     sentences: Array(payload.sentences.length)
   }, sourceLength = payload.sentences.length, sentenceIndex = -1;
   if (config.cache)
@@ -17434,71 +18027,89 @@ function SelectLink(props) {
         let value = e3.target.value, item = items.find((item2) => item2.value === value);
         item && item.onSelected(item);
       },
-      children: items.map((item) => /* @__PURE__ */ p4("option", { value: item.value, selected: item.selected, children: item.label }))
+      children: items.map((item, index) => /* @__PURE__ */ p4("option", { value: item.value, selected: item.selected, children: item.label }, "selectlink" + index))
     }
   );
 }
 
 // components/input_row.tsx
 function InputRow(props) {
-  let { t: t5 } = useI18n(), { leftClass } = props, inputStyle = {};
-  return props.width && (inputStyle = { width: `${props.width}px` }), /* @__PURE__ */ p4("div", { class: "input-row", children: [
-    /* @__PURE__ */ p4("div", { class: leftClass || "input-left", children: /* @__PURE__ */ p4("label", { for: props.field.name, children: [
-      props.field.label ? t5(props.field.label) : props.field.name,
+  let { t: t5 } = useI18n(), inputStyle = {};
+  props.width && (inputStyle = { width: `${props.width}px` });
+  let [currentValue, setCurrentValue] = P2(
+    props.value
+  ), { field, onFinish } = props, finalLabel = field.name;
+  return field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), /* @__PURE__ */ p4("div", { class: "mt-3", children: [
+    /* @__PURE__ */ p4("label", { for: props.field.name, class: "mb-[var(--spacing)]", children: [
+      finalLabel,
       "\uFF1A"
-    ] }) }),
-    /* @__PURE__ */ p4("div", { class: "input-right", children: props.field.type === "textarea" ? /* @__PURE__ */ p4(
-      "textarea",
-      {
-        style: inputStyle,
-        required: props.field.required,
-        placeholder: props.field.placeholder || props.field.name,
-        class: "input",
-        value: props.value,
-        type: props.type,
-        onChange: (e3) => {
-          props.onChange(e3.target.value);
+    ] }),
+    props.field.type === "textarea" ? /* @__PURE__ */ p4(L, { children: [
+      /* @__PURE__ */ p4(
+        "textarea",
+        {
+          style: inputStyle,
+          autoComplete: "off",
+          required: props.field.required,
+          placeholder: props.field.placeholder || props.field.name,
+          class: "input",
+          value: currentValue,
+          type: props.type,
+          onInput: (e3) => {
+            setCurrentValue(e3.target.value), props.onChange(e3.target.value);
+          },
+          onChange: () => {
+            onFinish && onFinish();
+          }
         }
-      }
-    ) : /* @__PURE__ */ p4(
-      "input",
-      {
-        style: inputStyle,
-        required: props.field.required,
-        placeholder: props.field.placeholder || props.field.name,
-        class: "input",
-        value: props.value,
-        type: props.type,
-        onChange: (e3) => {
-          props.onChange(e3.target.value);
+      ),
+      props.field.descriptionKey ? /* @__PURE__ */ p4("small", { children: t5(props.field.descriptionKey) }) : null
+    ] }) : /* @__PURE__ */ p4(L, { children: [
+      /* @__PURE__ */ p4(
+        "input",
+        {
+          style: inputStyle,
+          required: props.field.required,
+          placeholder: props.field.placeholder || props.field.name,
+          value: currentValue,
+          type: props.type,
+          name: props.field.name,
+          autoComplete: "off",
+          onInput: (e3) => {
+            setCurrentValue(e3.target.value), props.onChange(e3.target.value);
+          },
+          onChange: () => {
+            (props.type === "text" || props.type === "password") && onFinish && onFinish();
+          }
         }
-      }
-    ) })
+      ),
+      props.field.descriptionKey ? /* @__PURE__ */ p4("small", { children: t5(props.field.descriptionKey) }) : null
+    ] })
   ] });
 }
 
 // components/option_field.tsx
 function OptionField(props) {
-  let { t: t5 } = useI18n(), { field, onChange, value } = props;
-  if (value = value || field.default || "", field.type === "select")
+  let { t: t5 } = useI18n(), [isPassword, setIsPassword] = P2(!0), { onFinish, field, onChange, value } = props;
+  value = value === void 0 ? field.default || "" : value;
+  let finalLabel = field.name;
+  if (field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t5(field.labelKey)), field.type === "select")
     return /* @__PURE__ */ p4("div", { class: "flex justify-end mb-2", children: [
       /* @__PURE__ */ p4("label", { class: "engine", children: [
-        field.label ? t5(field.label) : field.name,
+        finalLabel,
         "\uFF1A"
       ] }),
       /* @__PURE__ */ p4(
         SelectLink,
         {
-          items: field.options.map(
-            (fieldOption) => ({
-              label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
-              value: fieldOption.value,
-              selected: value === fieldOption.value,
-              onSelected: () => {
-                onChange(fieldOption.value);
-              }
-            })
-          )
+          items: field.options.map((fieldOption) => ({
+            label: `${fieldOption.label ? t5(fieldOption.label) : fieldOption.value}`,
+            value: fieldOption.value,
+            selected: value === fieldOption.value,
+            onSelected: () => {
+              onChange(fieldOption.value);
+            }
+          }))
         }
       )
     ] });
@@ -17509,7 +18120,8 @@ function OptionField(props) {
         field,
         value,
         type: field.type,
-        onChange
+        onChange,
+        onFinish
       }
     ) });
   if (field.type === "textarea")
@@ -17519,44 +18131,57 @@ function OptionField(props) {
         field,
         value,
         type: field.type,
-        onChange
+        onChange,
+        onFinish
       }
     ) });
   if (field.type === "number")
     return /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4(
       InputRow,
       {
-        leftClass: "input-raw-left",
         field,
         value,
         type: field.type,
-        width: 100,
+        width: 196,
         onChange
       }
     ) });
   if (field.type === "password")
-    return /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4(
-      InputRow,
-      {
-        field,
-        value,
-        type: field.type,
-        onChange
-      }
-    ) });
+    return /* @__PURE__ */ p4("div", { children: [
+      /* @__PURE__ */ p4(
+        InputRow,
+        {
+          field,
+          value,
+          type: isPassword ? field.type : "text",
+          onChange,
+          onFinish
+        }
+      ),
+      /* @__PURE__ */ p4(
+        "label",
+        {
+          for: "translate",
+          onClick: () => {
+            setIsPassword(!isPassword);
+          },
+          children: [
+            /* @__PURE__ */ p4("input", { type: "checkbox", id: "translate", name: "translate" }),
+            t5("show password")
+          ]
+        }
+      )
+    ] });
   if (field.type === "color") {
     let theValue = value, defaultPlaceholder = "";
-    return theValue || (theValue = "#FFFFFF", defaultPlaceholder = "#FFFFFF"), /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4("label", { class: "border-color-selector", for: field.name, children: /* @__PURE__ */ p4("div", { class: "border-color-left", children: [
-      /* @__PURE__ */ p4("div", { class: "shrink-0", children: [
-        field.label || field.name,
-        ":"
-      ] }),
+    return theValue || (theValue = "#FFFFFF", defaultPlaceholder = "#FFFFFF"), /* @__PURE__ */ p4("div", { children: /* @__PURE__ */ p4("label", { class: "flex items-center", for: field.name, children: [
+      /* @__PURE__ */ p4("span", { class: "mr-2", children: field.label || field.name }),
       /* @__PURE__ */ p4(
         "input",
         {
           type: "text",
           id: field.name,
-          class: "border-color-text",
+          class: "border-color-text mr-2",
           placeholder: defaultPlaceholder || "",
           value,
           onInput: (e3) => {
@@ -17576,7 +18201,7 @@ function OptionField(props) {
           }
         }
       )
-    ] }) }) });
+    ] }) });
   } else
     return null;
 }
@@ -17644,7 +18269,7 @@ function AlwaysLang(props) {
   let { t: t5, lang } = useI18n();
   return /* @__PURE__ */ p4("details", { role: "list", class: "nav-right", children: [
     /* @__PURE__ */ p4("summary", { "aria-haspopup": "listbox", children: t5("edit") }),
-    /* @__PURE__ */ p4("ul", { role: "listbox", class: "option-list", children: props.options.map((item) => {
+    /* @__PURE__ */ p4("ul", { role: "listbox", class: "option-list", children: props.options.map((item, index) => {
       let label = getLanguageName(item.value, lang);
       return /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4("label", { children: [
         /* @__PURE__ */ p4(
@@ -17659,7 +18284,7 @@ function AlwaysLang(props) {
           }
         ),
         label
-      ] }) });
+      ] }) }, "language-" + index);
     }) })
   ] });
 }
@@ -17712,14 +18337,7 @@ function AddUrlModal(props) {
       }
     ),
     /* @__PURE__ */ p4("div", { class: "add-text", children: t5("add url") }),
-    /* @__PURE__ */ p4(
-      "input",
-      {
-        placeholder: "URL",
-        ref: textInput,
-        value: props.urlValue
-      }
-    ),
+    /* @__PURE__ */ p4("input", { placeholder: "URL", ref: textInput, value: props.urlValue }),
     /* @__PURE__ */ p4("blockquote", { children: /* @__PURE__ */ p4("p", { class: "text-sm", children: t5("addUrlDescription") }) }),
     /* @__PURE__ */ p4("div", { class: "flex", children: [
       /* @__PURE__ */ p4("div", { class: "footer-button", children: /* @__PURE__ */ p4(
@@ -17800,9 +18418,7 @@ var languages2 = getLanguages();
 function General() {
   let { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error, rawSetValue] = useUserConfig(), [config, setConfig] = P2(null), [ctx, setContext] = P2(null), [matchesIndex, setMatchesIndex] = P2(0), [isVerifingService, setIsVerifingService] = P2(!1), [verifiedErrorMessage, setVerifiedErrorMessage] = P2(""), [verifiedSuccessMessage, setVerifiedSuccessMessage] = P2(
     ""
-  ), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
-    !1
-  ), [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
+  ), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(!1), [isShowNeverUrlModal, setIsShowNeverUrlModal] = P2(
     !1
   ), [urlValue, setUrlValue] = P2(""), translationServiceItems = [];
   ctx && (translationServiceItems = getTranslationServices(ctx));
@@ -17812,15 +18428,13 @@ function General() {
     PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService2(
       translationService,
       ctx
-    )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, alwaysTranslatedLangs = languages2.concat("<all>").map(
-      (code2) => config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2) ? {
-        checked: !0,
-        value: code2
-      } : {
-        checked: !1,
-        value: code2
-      }
-    ), neverTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2) ? {
+    )), translationServices && translationServices[translationService] ? currentTranslationServiceConfig = translationServices[translationService] || {} : currentTranslationServiceConfig = {}, alwaysTranslatedLangs = languages2.concat("<all>").map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.matches && config.translationLanguagePattern.matches.includes(code2) ? {
+      checked: !0,
+      value: code2
+    } : {
+      checked: !1,
+      value: code2
+    }), neverTranslatedLangs = languages2.map((code2) => config.translationLanguagePattern && config.translationLanguagePattern.excludeMatches && config.translationLanguagePattern.excludeMatches.includes(code2) ? {
       checked: !0,
       value: code2
     } : {
@@ -17968,13 +18582,14 @@ function General() {
           onChange: (e3) => {
             e3.preventDefault(), selectTargetLanguage(e3.target.value);
           },
-          children: languages2.filter((lang) => lang !== "auto").map((lang) => /* @__PURE__ */ p4(
+          children: languages2.filter((lang) => lang !== "auto").map((lang, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: lang,
               selected: lang === config.targetLanguage,
               children: getLanguageName(lang, config.interfaceLanguage)
-            }
+            },
+            "language" + index
           ))
         }
       )
@@ -17994,13 +18609,14 @@ function General() {
           onChange: (e3) => {
             e3.preventDefault(), setVerifiedErrorMessage(""), setVerifiedSuccessMessage(""), selectService(e3.target.value);
           },
-          children: translationServiceItems.map((item) => /* @__PURE__ */ p4(
+          children: translationServiceItems.map((item, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: item.id,
               selected: item.id === config.translationService,
               children: `${t5("translationServices." + item.id)}${item.ok ? "" : " " + t5("needActionForOptions")}`
-            }
+            },
+            "service-item=" + index
           ))
         }
       )
@@ -18028,7 +18644,7 @@ function General() {
         }
       )
     ] }) : null,
-    currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop) => /* @__PURE__ */ p4(
+    currentTranslationServiceConfig && curentTranslationServiceItem && curentTranslationServiceItem.allProps.length > 0 && curentTranslationServiceItem.allProps.map((prop, index) => /* @__PURE__ */ p4("div", { class: "mt-2", children: /* @__PURE__ */ p4(
       OptionField,
       {
         field: prop,
@@ -18047,9 +18663,13 @@ function General() {
               }
             };
           });
+        },
+        onFinish: () => {
+          success(t5("saved"));
         }
-      }
-    )),
+      },
+      prop.name + index
+    ) }, "service-item-prop-" + prop.name + index)),
     currentTranslationServiceConfig && curentTranslationServiceItem && /* @__PURE__ */ p4("div", { class: "text-right", children: [
       verifiedSuccessMessage && /* @__PURE__ */ p4("span", { class: "verified text-green-500 mr-2", children: t5("verified") }),
       verifiedErrorMessage && /* @__PURE__ */ p4("span", { class: "verified text-red-500 mr-2", children: verifiedErrorMessage }),
@@ -18062,16 +18682,19 @@ function General() {
           onClick: async (e3) => {
             e3.preventDefault();
             try {
-              setVerifiedErrorMessage(""), setVerifiedSuccessMessage(""), setIsVerifingService(!0);
+              setVerifiedErrorMessage(""), setVerifiedSuccessMessage(""), setIsVerifingService(!0), await delay(500);
               let translationClass = curentTranslationServiceItem.class;
-              translationClass && translationClass.clearState && await translationClass.clearState(), await translateSingleSentence({
-                id: 1e6,
-                text: "Hello world",
-                from: "en",
-                to: "zh-CN",
-                url: "https://google.com",
-                fromByClient: "auto"
-              }, ctx), setVerifiedSuccessMessage("verified");
+              translationClass && translationClass.clearState && await translationClass.clearState(), await translateSingleSentence(
+                {
+                  id: 1e6,
+                  text: "Hello world",
+                  from: "en",
+                  to: "zh-CN",
+                  url: "https://google.com",
+                  fromByClient: "auto"
+                },
+                ctx
+              ), setVerifiedSuccessMessage("verified");
             } catch (e4) {
               console.error(e4), setVerifiedErrorMessage(e4.message);
             } finally {
@@ -18087,9 +18710,7 @@ function General() {
         NavLeft,
         {
           title: t5("always languages"),
-          description: t5(
-            "always translate the following languages"
-          )
+          description: t5("always translate the following languages")
         }
       ),
       /* @__PURE__ */ p4(
@@ -18118,15 +18739,13 @@ function General() {
           }
         }
       )
-    ] })) }),
+    ] }, "lang-" + i2)) }),
     /* @__PURE__ */ p4("div", { class: "nav", children: [
       /* @__PURE__ */ p4(
         NavLeft,
         {
           title: t5("neverTranslateLanguagesLabel"),
-          description: t5(
-            "neverTranslateTheFollowingLanguagesDescription"
-          )
+          description: t5("neverTranslateTheFollowingLanguagesDescription")
         }
       ),
       /* @__PURE__ */ p4(
@@ -18155,15 +18774,13 @@ function General() {
           }
         }
       )
-    ] })) }),
+    ] }, "never-lang-" + i2)) }),
     /* @__PURE__ */ p4("div", { class: "nav", children: [
       /* @__PURE__ */ p4(
         NavLeft,
         {
           title: t5("always sites"),
-          description: t5(
-            "always translate the following sites"
-          )
+          description: t5("always translate the following sites")
         }
       ),
       /* @__PURE__ */ p4("div", { class: "nav-right", children: /* @__PURE__ */ p4(
@@ -18205,9 +18822,7 @@ function General() {
         NavLeft,
         {
           title: t5("never sites"),
-          description: t5(
-            "never translate the following sites"
-          )
+          description: t5("never translate the following sites")
         }
       ),
       /* @__PURE__ */ p4("div", { class: "nav-right", children: /* @__PURE__ */ p4(
@@ -18307,25 +18922,18 @@ function ShortcutsModal(props) {
           onChange: (e3) => {
             e3.preventDefault();
             let value = e3.target.value, finalValue = {
-              fingerCountToToggleTranslagePageWhenTouching: parseInt(
-                value
-              )
+              fingerCountToToggleTranslagePageWhenTouching: parseInt(value)
             };
             onChange(finalValue);
           },
-          children: [
-            0,
-            2,
-            3,
-            4,
-            5
-          ].map((item) => /* @__PURE__ */ p4(
+          children: [0, 2, 3, 4, 5].map((item, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: item,
               selected: item === fingerCountToToggleTranslagePageWhenTouching,
               children: `${t5("fingers." + item)}`
-            }
+            },
+            "finger-" + index
           ))
         }
       )
@@ -18339,25 +18947,18 @@ function ShortcutsModal(props) {
           onChange: (e3) => {
             e3.preventDefault();
             let value = e3.target.value, finalValue = {
-              fingerCountToToggleTranslationMaskWhenTouching: parseInt(
-                value
-              )
+              fingerCountToToggleTranslationMaskWhenTouching: parseInt(value)
             };
             onChange(finalValue);
           },
-          children: [
-            0,
-            2,
-            3,
-            4,
-            5
-          ].map((item) => /* @__PURE__ */ p4(
+          children: [0, 2, 3, 4, 5].map((item, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: item,
               selected: item === fingerCountToToggleTranslationMaskWhenTouching,
               children: `${t5("fingers." + item)}`
-            }
+            },
+            "finger-" + index
           ))
         }
       )
@@ -18697,10 +19298,18 @@ function getAccessToken(state, userscriptSyncStartAuthFlow = !1) {
 var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
   {
     id: "toggleTranslatePage",
-    contexts: ["page", "selection", ...actions]
+    contexts: ["page", "selection", "frame", ...actions]
   },
   {
     id: contextOpenOptionsMenuId,
+    contexts: actions
+  },
+  {
+    id: contextOpenLocalEbookViewer,
+    contexts: actions
+  },
+  {
+    id: contextOpenLocalEbookBuilder,
     contexts: actions
   },
   {
@@ -18748,14 +19357,12 @@ function getThemeProps(theme) {
   }), props.push({
     name: "zoom",
     type: "number",
-    default: "100",
+    default: 100,
     required: !1
   }), props;
 }
 function Options() {
-  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(
-    !1
-  ), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
+  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isShowAddUrlModal, setIsShowAddUrlModal] = P2(!1), [isShowShortcutsModal, setIsShowShortcutsModal] = P2(
     !1
   ), [matchesIndex, setMatchesIndex] = P2(0), [ctx, setCtx] = P2(null), { t: t5, setLang } = useI18n(), [urlValue, setUrlValue] = P2("");
   j2(() => (v2("esc", () => {
@@ -18778,11 +19385,7 @@ function Options() {
         matches: [],
         excludeMatches: []
       };
-      return state && state.translationThemePatterns && state.translationThemePatterns[theme] && (currentThemeConfig = state.translationThemePatterns[theme]), applyUserConfigCss(
-        document,
-        theme,
-        currentThemeConfig
-      ), { ...state, translationTheme: theme };
+      return state && state.translationThemePatterns && state.translationThemePatterns[theme] && (currentThemeConfig = state.translationThemePatterns[theme]), applyUserConfigCss(document, theme, currentThemeConfig), { ...state, translationTheme: theme };
     });
   }, selectInterfaceLanguage = (lang) => {
     setSettings((state) => ({ ...state, interfaceLanguage: lang }));
@@ -18853,12 +19456,7 @@ function Options() {
   ] }), corfirmText = "") : (note = () => /* @__PURE__ */ p4("blockquote", { class: "text-sm", children: t5("browserShortcutsNoteForChrome") }), corfirmText = t5("goSettings"))), /* @__PURE__ */ p4("div", { children: [
     /* @__PURE__ */ p4("div", { class: "nav", children: /* @__PURE__ */ p4("strong", { class: "text-lg", children: t5("interface") }) }),
     /* @__PURE__ */ p4("div", { class: "nav", children: [
-      /* @__PURE__ */ p4(
-        NavLeft,
-        {
-          title: t5("interface language")
-        }
-      ),
+      /* @__PURE__ */ p4(NavLeft, { title: t5("interface language") }),
       /* @__PURE__ */ p4(
         "select",
         {
@@ -18868,7 +19466,7 @@ function Options() {
               updateContextMenu();
             }, 200);
           },
-          children: allLocales.map((item) => /* @__PURE__ */ p4(
+          children: allLocales.map((item, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: item,
@@ -18878,18 +19476,14 @@ function Options() {
                 config.interfaceLanguage,
                 !0
               )
-            }
+            },
+            "locale" + index
           ))
         }
       )
     ] }),
     /* @__PURE__ */ p4("div", { class: "nav", children: [
-      /* @__PURE__ */ p4(
-        NavLeft,
-        {
-          title: t5("keyboard shortcuts")
-        }
-      ),
+      /* @__PURE__ */ p4(NavLeft, { title: t5("keyboard shortcuts") }),
       /* @__PURE__ */ p4("div", { class: "nav-right", children: /* @__PURE__ */ p4(
         "a",
         {
@@ -18936,12 +19530,7 @@ function Options() {
       ) })
     ] }),
     ctx.rule.lineBreakMaxTextCount > 0 && /* @__PURE__ */ p4("div", { class: "nav", children: [
-      /* @__PURE__ */ p4(
-        NavLeft,
-        {
-          title: t5("lineBreakMaxTextCount")
-        }
-      ),
+      /* @__PURE__ */ p4(NavLeft, { title: t5("lineBreakMaxTextCount") }),
       /* @__PURE__ */ p4("label", { for: "count", children: /* @__PURE__ */ p4(
         "input",
         {
@@ -19009,9 +19598,7 @@ function Options() {
         NavLeft,
         {
           title: t5("translation display"),
-          description: t5(
-            "select diplay style"
-          )
+          description: t5("select diplay style")
         }
       ),
       /* @__PURE__ */ p4(
@@ -19021,13 +19608,14 @@ function Options() {
           onChange: (e3) => {
             selectDisplay(e3.target.value);
           },
-          children: translationThemes.map((item) => /* @__PURE__ */ p4(
+          children: translationThemes.map((item, index) => /* @__PURE__ */ p4(
             "option",
             {
               value: item,
               selected: item === config.translationTheme,
               children: t5(`translationTheme.${item}`)
-            }
+            },
+            "theme" + index
           ))
         }
       )
@@ -19036,7 +19624,7 @@ function Options() {
       sampleSourceText,
       /* @__PURE__ */ p4("div", { class: "pt-2" }),
       /* @__PURE__ */ p4(
-        "span",
+        "font",
         {
           class: getTranslationWrapperClassNames(
             config.translationTheme,
@@ -19044,11 +19632,9 @@ function Options() {
             [],
             !1,
             !1
-          ).join(
-            " "
-          ),
+          ).join(" "),
           children: /* @__PURE__ */ p4(
-            "span",
+            "font",
             {
               class: getTranslationInnerClassNames(
                 config.translationTheme
@@ -19059,14 +19645,19 @@ function Options() {
         }
       ),
       config.translationTheme && getThemeProps(config.translationTheme).length > 0 ? /* @__PURE__ */ p4("details", { class: "pt-2 border-none", children: [
-        /* @__PURE__ */ p4("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("customTheme") }),
+        /* @__PURE__ */ p4(
+          "summary",
+          {
+            class: "text-sm",
+            style: { textAlign: "right", lineHeight: "1rem" },
+            children: t5("customTheme")
+          }
+        ),
         /* @__PURE__ */ p4("div", { class: "flex flex-col items-end", children: [
           getThemeProps(config.translationTheme).map(
-            (props) => {
+            (props, index) => {
               props.label = t5(`customThemeLabel.${props.name}`);
-              let pattern = config.translationThemePatterns || {}, translationTheme = config.translationTheme, translationThemeConfig = pattern[translationTheme] || {}, cssVariableName = `theme-${translationTheme}-${props.name}`, initialValue = getDefaultValueFromInjectedCss(
-                cssVariableName
-              ) || "", currentValue = translationThemeConfig[props.name] || initialValue;
+              let pattern = config.translationThemePatterns || {}, translationTheme = config.translationTheme, translationThemeConfig = pattern[translationTheme] || {}, cssVariableName = `theme-${translationTheme}-${props.name}`, initialValue = getDefaultValueFromInjectedCss(cssVariableName) || void 0, currentValue = translationThemeConfig[props.name] || initialValue;
               return /* @__PURE__ */ p4(
                 OptionField,
                 {
@@ -19091,7 +19682,8 @@ function Options() {
                       ), newState;
                     });
                   }
-                }
+                },
+                "theme-prop" + index
               );
             }
           ),
@@ -19134,8 +19726,15 @@ function Options() {
         ] })
       ] }) : null,
       /* @__PURE__ */ p4("details", { class: "pt-2 border-none", children: [
-        /* @__PURE__ */ p4("summary", { class: "text-sm", style: { textAlign: "right" }, children: t5("previewAllThemes") }),
-        translationThemes.map((item) => /* @__PURE__ */ p4("div", { class: "pt-2", children: /* @__PURE__ */ p4("label", { children: [
+        /* @__PURE__ */ p4(
+          "summary",
+          {
+            class: "text-sm",
+            style: { textAlign: "right", lineHeight: "1rem" },
+            children: t5("previewAllThemes")
+          }
+        ),
+        translationThemes.map((item, index) => /* @__PURE__ */ p4("div", { class: "pt-2", children: /* @__PURE__ */ p4("label", { children: [
           /* @__PURE__ */ p4("div", { class: "flex justify-between", children: /* @__PURE__ */ p4("div", { children: [
             /* @__PURE__ */ p4(
               "input",
@@ -19152,7 +19751,7 @@ function Options() {
             t5(`translationTheme.${item}`)
           ] }) }),
           /* @__PURE__ */ p4("p", { children: /* @__PURE__ */ p4(
-            "span",
+            "font",
             {
               class: getTranslationWrapperClassNames(
                 item,
@@ -19160,21 +19759,17 @@ function Options() {
                 [],
                 !1,
                 !1
-              ).join(
-                " "
-              ),
+              ).join(" "),
               children: /* @__PURE__ */ p4(
-                "span",
+                "font",
                 {
-                  class: getTranslationInnerClassNames(
-                    item
-                  ).join(" "),
+                  class: getTranslationInnerClassNames(item).join(" "),
                   children: sampleTargetText
                 }
               )
             }
           ) })
-        ] }) }))
+        ] }) }, "theme-index-" + index))
       ] })
     ] }) }),
     /* @__PURE__ */ p4("div", { class: "nav", children: [
@@ -19287,7 +19882,9 @@ function Options() {
 
 // pages/developer.tsx
 function Options2() {
-  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n(), [allStorageObjects, setAllStorageObjects] = P2({}), [allLocalStorageObjects, setAllLocalStorageObjects] = P2({});
+  let [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P2(null), { t: t5 } = useI18n(), [allStorageObjects, setAllStorageObjects] = P2({}), [allLocalStorageObjects, setAllLocalStorageObjects] = P2(
+    {}
+  );
   j2(() => {
     getConfig().then((config2) => {
       setConfig(config2);
@@ -19313,15 +19910,18 @@ function Options2() {
     }));
   }, handleChangeRules = (e3) => {
     try {
-      let newRules = JSON.parse(
-        e3.target.value
-      );
-      if (!Array.isArray(newRules)) {
-        error("Invalid rules, rules must be an array");
-        return;
+      let value = e3.target.value, currentSettings = { ...settings };
+      if (!value)
+        delete currentSettings.rules;
+      else {
+        let newRules = JSON.parse(value);
+        if (!Array.isArray(newRules)) {
+          error("Invalid rules, rules must be an array");
+          return;
+        }
+        currentSettings.rules = newRules;
       }
-      let currentSettings = { ...settings };
-      currentSettings.rules = newRules, handleChangeValue(currentSettings), success(t5("saved"));
+      handleChangeValue(currentSettings), success(t5("saved"));
     } catch (e4) {
       error(`Invalid JSON ${e4.message}`);
     }
@@ -19555,11 +20155,7 @@ function DeleteButton(prop) {
   );
 }
 function ConfigSyncModal(prop) {
-  let {
-    onClose,
-    accessToken,
-    authExpire
-  } = prop, { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [files, setFiles] = P2([]), [firstLoad, setFirstLoad] = P2(!0), [exportLoading, setExportLoading] = P2(!1), [importLoadings, setImportLoadings] = P2({});
+  let { onClose, accessToken, authExpire } = prop, { t: t5 } = useI18n(), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [files, setFiles] = P2([]), [firstLoad, setFirstLoad] = P2(!0), [exportLoading, setExportLoading] = P2(!1), [importLoadings, setImportLoadings] = P2({});
   j2(() => {
     accessToken && listAllFiles().then(() => setFirstLoad(!1));
   }, [accessToken]);
@@ -19573,9 +20169,11 @@ function ConfigSyncModal(prop) {
   }
   function exportConfig(e3) {
     if (e3.preventDefault(), files.length >= 10)
-      return error(t5("maxBackupFiles", {
-        count: 10
-      }));
+      return error(
+        t5("maxBackupFiles", {
+          count: 10
+        })
+      );
     setExportLoading(!0);
     let filename = "immersive-translate-config-" + formatFileNameDate() + ".json";
     new GoogleDriveAPI(accessToken).uploadConfig(settings, filename).catch((error2) => {
@@ -19639,9 +20237,7 @@ function ConfigSyncModal(prop) {
         /* @__PURE__ */ p4("div", { class: "text-xs text-gray-500", children: [
           new Date(file.modifiedTime).toLocaleString(),
           ",\xA0",
-          humanReadableSize(
-            parseInt(file.size)
-          )
+          humanReadableSize(parseInt(file.size))
         ] })
       ] }),
       /* @__PURE__ */ p4("div", { children: [
@@ -19666,7 +20262,7 @@ function ConfigSyncModal(prop) {
           }
         )
       ] })
-    ] })) }),
+    ] }, "file" + index)) }),
     /* @__PURE__ */ p4("div", { className: "flex items-center", children: [
       /* @__PURE__ */ p4(
         "a",
@@ -19756,20 +20352,26 @@ function ImportExport() {
     }
   }, [isPersistent]);
   function handlerDriveAuth() {
-    setAuthLoading(!0), getAccessToken({
-      source: globalThis.location.href,
-      mode: "auto"
-    }, !0).then((token) => {
+    setAuthLoading(!0), getAccessToken(
+      {
+        source: globalThis.location.href,
+        mode: "auto"
+      },
+      !0
+    ).then((token) => {
       log_default.debug("import_export", "Google OAuth:" + token), token !== null && syncLatestWithDrive(token);
     }).catch((error2) => {
       error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
     });
   }
   function handlerManualDriveAuth() {
-    setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken({
-      source: globalThis.location.href,
-      mode: "manual"
-    }, !0).then((token) => {
+    setManualAuthLoading(!0), setShowSyncModal(!1), getAccessToken(
+      {
+        source: globalThis.location.href,
+        mode: "manual"
+      },
+      !0
+    ).then((token) => {
       log_default.debug("import_export", "Google OAuth:" + token), token !== null && afterAuthSuccess(token);
     }).catch((error2) => {
       error2 && error2.message === "tokenValidateErrorRedirectToAuthUrl" ? log_default.debug("tokenValidateErrorRedirectToAuthUrl, ignore") : afterAuthFail(error2);
@@ -20001,12 +20603,9 @@ var AlreadyLatest = ({ date }) => {
   ] });
 }, LocalVersionIsTooOld = ({ minVersion }) => {
   let { t: t5 } = useI18n();
-  return /* @__PURE__ */ p4("p", { class: "text-sm", children: t5(
-    "localVersionIsTooOld",
-    {
-      minVersion
-    }
-  ) });
+  return /* @__PURE__ */ p4("p", { class: "text-sm", children: t5("localVersionIsTooOld", {
+    minVersion
+  }) });
 }, NewVersion = ({ latestVersion }) => {
   let { t: t5 } = useI18n();
   return /* @__PURE__ */ p4("p", { class: "text-sm", children: [
@@ -20018,7 +20617,11 @@ var AlreadyLatest = ({ date }) => {
 }, CurrentLatestVersion = () => {
   let { t: t5 } = useI18n();
   return /* @__PURE__ */ p4("p", { class: "text-sm", children: t5("theLocalExtensionIsUpToUpdate") });
-}, SyncFailed = ({ message, handleSyncing, date }) => {
+}, SyncFailed = ({
+  message,
+  handleSyncing,
+  date
+}) => {
   let { t: t5 } = useI18n();
   return /* @__PURE__ */ p4("p", { class: "text-sm", children: [
     t5("failToSyncRules"),
@@ -20035,9 +20638,7 @@ var AlreadyLatest = ({ date }) => {
   ] });
 };
 function About() {
-  let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_4, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
-    !1
-  ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
+  let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_4, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(!1), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
     setSyncErrorMessage("");
     let finalRemoteConfig = remoteConfig;
     if (remoteConfig === null)
@@ -20048,9 +20649,7 @@ function About() {
         setIsNeedUpdate(null), setSyncErrorMessage(e3.message);
         return;
       }
-    finalRemoteConfig !== null ? (setStorageBuildinConfig(finalRemoteConfig), setIsNeedUpdate(!1), setLocalBuildinConfigUpdatedAt(
-      finalRemoteConfig.buildinConfigUpdatedAt
-    )) : (setSyncErrorMessage(t5("canNotFetchRemoteRule")), setIsNeedUpdate(null));
+    finalRemoteConfig !== null ? (setStorageBuildinConfig(finalRemoteConfig), setIsNeedUpdate(!1), setLocalBuildinConfigUpdatedAt(finalRemoteConfig.buildinConfigUpdatedAt)) : (setSyncErrorMessage(t5("canNotFetchRemoteRule")), setIsNeedUpdate(null));
   };
   j2(() => {
     getConfig().then((localConfig) => {
@@ -20102,6 +20701,11 @@ function About() {
       ...state,
       cache: checked
     }));
+  }, handleEnabledOption = (checked) => {
+    setSettings((state) => ({
+      ...state,
+      enabled: checked
+    }));
   };
   return config ? /* @__PURE__ */ p4("div", { class: "text-sm", children: [
     /* @__PURE__ */ p4("div", { class: "nav", children: /* @__PURE__ */ p4(
@@ -20130,6 +20734,22 @@ function About() {
         "input",
         {
           type: "checkbox",
+          id: "enabled",
+          name: "enabled",
+          role: "switch",
+          onChange: () => {
+            handleEnabledOption(!config.enabled);
+          },
+          checked: config.enabled
+        }
+      ),
+      t5("enabledExtension")
+    ] }) }),
+    /* @__PURE__ */ p4("fieldset", { children: /* @__PURE__ */ p4("label", { for: "switch", children: [
+      /* @__PURE__ */ p4(
+        "input",
+        {
+          type: "checkbox",
           id: "cache",
           name: "cache",
           role: "switch",
@@ -20145,7 +20765,8 @@ function About() {
       t5("cacheSize"),
       "\xA0",
       cacheSize,
-      " \xA0 ",
+      " \xA0",
+      " ",
       isCleaning ? /* @__PURE__ */ p4("span", { children: [
         t5("cleaning"),
         "..."
@@ -20183,22 +20804,8 @@ function About() {
           children: t5("feedback")
         }
       ) }),
-      /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4(
-        "a",
-        {
-          class: "secondary",
-          href: telegramGroupLink,
-          children: t5("joinTelegramGroup")
-        }
-      ) }),
-      /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4(
-        "a",
-        {
-          class: "secondary",
-          href: "https://t.me/immersivetranslate",
-          children: t5("joinTelegramChannel")
-        }
-      ) }),
+      /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4("a", { class: "secondary", href: telegramGroupLink, children: t5("joinTelegramGroup") }) }),
+      /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4("a", { class: "secondary", href: "https://t.me/immersivetranslate", children: t5("joinTelegramChannel") }) }),
       /* @__PURE__ */ p4("li", { children: /* @__PURE__ */ p4(
         "a",
         {
@@ -20322,12 +20929,7 @@ function Options3() {
       ) })
     ] }),
     !isMonkey() && /* @__PURE__ */ p4("div", { class: "nav", children: [
-      /* @__PURE__ */ p4(
-        NavLeft,
-        {
-          title: t5("isShowContextMenu")
-        }
-      ),
+      /* @__PURE__ */ p4(NavLeft, { title: t5("isShowContextMenu") }),
       /* @__PURE__ */ p4("label", { for: "isShowContextMenu", children: /* @__PURE__ */ p4(
         "input",
         {
@@ -20383,9 +20985,7 @@ function Options3() {
         NavLeft,
         {
           title: t5("loadingThemeTitle"),
-          description: t5(
-            "loadingThemeDescription"
-          )
+          description: t5("loadingThemeDescription")
         }
       ),
       /* @__PURE__ */ p4(
@@ -20407,14 +21007,7 @@ function Options3() {
                 children: t5("loadingTheme.spinner")
               }
             ),
-            /* @__PURE__ */ p4(
-              "option",
-              {
-                value: "text",
-                selected: config.loadingTheme === "text",
-                children: t5("loadingTheme.text")
-              }
-            ),
+            /* @__PURE__ */ p4("option", { value: "text", selected: config.loadingTheme === "text", children: t5("loadingTheme.text") }),
             /* @__PURE__ */ p4("option", { value: "none", selected: config.loadingTheme === "none", children: t5("loadingTheme.none") })
           ]
         }
@@ -20425,12 +21018,9 @@ function Options3() {
         NavLeft,
         {
           title: t5("translationLineBreakSettingTitle"),
-          description: t5(
-            "translationLineBreakSettingDescription",
-            {
-              count: buildInConfig.generalRule.blockMinTextCount
-            }
-          )
+          description: t5("translationLineBreakSettingDescription", {
+            count: buildInConfig.generalRule.blockMinTextCount
+          })
         }
       ),
       /* @__PURE__ */ p4(
@@ -20440,9 +21030,7 @@ function Options3() {
           onChange: (e3) => {
             setSettings((state) => {
               let currentGeneralRule = state.generalRule || {};
-              return parseInt(
-                e3.target.value
-              ) === 0 ? currentGeneralRule = {
+              return parseInt(e3.target.value) === 0 ? currentGeneralRule = {
                 ...currentGeneralRule,
                 blockMinTextCount: 0,
                 blockMinWordCount: 0
@@ -20482,9 +21070,7 @@ function Options3() {
         NavLeft,
         {
           title: t5("tempTranslateDomainTitle"),
-          description: t5(
-            "tempTranslateDomainDescription"
-          )
+          description: t5("tempTranslateDomainDescription")
         }
       ),
       /* @__PURE__ */ p4(
@@ -20500,24 +21086,10 @@ function Options3() {
             }));
           },
           children: [
-            /* @__PURE__ */ p4(
-              "option",
-              {
-                value: 0,
-                selected: config.tempTranslateDomainMinutes === 0,
-                children: t5("disabled")
-              }
-            ),
-            /* @__PURE__ */ p4(
-              "option",
-              {
-                value: 5,
-                selected: config.tempTranslateDomainMinutes === 5,
-                children: t5("xMinutes", {
-                  count: 5
-                })
-              }
-            ),
+            /* @__PURE__ */ p4("option", { value: 0, selected: config.tempTranslateDomainMinutes === 0, children: t5("disabled") }),
+            /* @__PURE__ */ p4("option", { value: 5, selected: config.tempTranslateDomainMinutes === 5, children: t5("xMinutes", {
+              count: 5
+            }) }),
             /* @__PURE__ */ p4(
               "option",
               {
@@ -20531,10 +21103,30 @@ function Options3() {
             /* @__PURE__ */ p4(
               "option",
               {
+                value: 15,
+                selected: config.tempTranslateDomainMinutes === 15,
+                children: t5("xMinutes", {
+                  count: 15
+                })
+              }
+            ),
+            /* @__PURE__ */ p4(
+              "option",
+              {
                 value: 30,
                 selected: config.tempTranslateDomainMinutes === 30,
                 children: t5("xMinutes", {
                   count: 30
+                })
+              }
+            ),
+            /* @__PURE__ */ p4(
+              "option",
+              {
+                value: 60,
+                selected: config.tempTranslateDomainMinutes === 60,
+                children: t5("xMinutes", {
+                  count: 60
                 })
               }
             )
@@ -20655,25 +21247,11 @@ function App(props) {
         /* @__PURE__ */ p4("ul", { class: "flex flex-wrap  justify-between md:block text-sm md:text-base", children: navs.map((nav, index) => /* @__PURE__ */ p4("li", { class: "li", children: /* @__PURE__ */ p4("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
       ] }),
       /* @__PURE__ */ p4("div", { class: "m-0 p-0 flex flex-col", children: [
-        /* @__PURE__ */ p4(
-          "a",
-          {
-            class: "py-3 text-xs no-focus secondary",
-            href: props.donateUrl,
-            children: [
-              t5("donateCafe"),
-              "\u2615\uFE0F"
-            ]
-          }
-        ),
-        /* @__PURE__ */ p4(
-          "a",
-          {
-            class: "py-3 text-xs no-focus secondary",
-            href: "#about",
-            children: t5("feedbackAndJoin")
-          }
-        ),
+        /* @__PURE__ */ p4("a", { class: "py-3 text-xs no-focus secondary", href: props.donateUrl, children: [
+          t5("donateCafe"),
+          "\u2615\uFE0F"
+        ] }),
+        /* @__PURE__ */ p4("a", { class: "py-3 text-xs no-focus secondary", href: "#about", children: t5("feedbackAndJoin") }),
         /* @__PURE__ */ p4(
           "a",
           {
@@ -20682,14 +21260,7 @@ function App(props) {
             children: t5("document")
           }
         ),
-        /* @__PURE__ */ p4(
-          "a",
-          {
-            class: "py-3 text-xs no-focus secondary",
-            href: "#developer",
-            children: t5("developer")
-          }
-        )
+        /* @__PURE__ */ p4("a", { class: "py-3 text-xs no-focus secondary", href: "#developer", children: t5("developer") })
       ] })
     ] }) }),
     /* @__PURE__ */ p4("div", { role: "main", children: /* @__PURE__ */ p4(

@@ -5,11 +5,12 @@
 
 ## Todo List
 
+- [x] Click on the extension icon to start translating the book. (点击扩展/脚本图标开始翻译), remove it
+- [x] change the loading color
+- [x] epub reload
 - [ ] 点击展开更多设置，对于翻译引擎
-- [ ] 打开本地 html
-- [ ] fix deepl wikipedia 罗素 english
+- [x] 打开本地 html
 - [ ] 支持 calibre
-- [ ] 还有个建议，能否在填写密钥的地方增加个测试按钮，来确认 API 是否正常？
 - [ ] when change translate service, clean translate service cache
 - [ ] yandex 搜索页面适配
 - [ ] 支持是否翻译标题设置，支持选择智能翻译的区域
@@ -73,6 +74,10 @@
 
 ## Done
 
+- [x] 还有个建议，能否在填写密钥的地方增加个测试按钮，来确认 API 是否正常？
+- [x] fix deepl wikipedia 罗素 english
+- [x] 密码输入框添加一个眼睛的图标
+- [x] deepl auth key ui
 - [x] fix cron task, save the latest sync time, for save the sync times
 - [x] should I solve the web crypto?
 - [x] grease monkey add shortcut support, and shortcut config ui

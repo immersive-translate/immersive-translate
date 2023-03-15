@@ -5,8 +5,8 @@
 - 智能识别网页主内容区进行翻译，区别于同类插件翻译网页所有区域的行为，降低对原网页的“侵入性”，增强阅读体验，所以该扩展被命名为“沉浸式翻译”。
 - 双语显示，中文/英文对照。按照段落自然分割，或可设置“将段落以句子分割”，实现每句话对照翻译。
 - 定制优化了常见的主流网站，比如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
-- 支持 10 余种常见的翻译服务，包括 Deepl，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
-- 支持 PDF 文件，EPUB 电子书双语翻译。EPUB 需配合 epub 在线阅读网站使用，比如 <https://epub-reader.online> 或 <https://readwise.io/read> 等。
+- 支持 10 余种常见的翻译服务，包括 Deepl，OpenAI(ChatGPT 3.5), 谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
+- 支持 PDF 文件，EPUB 电子书双语翻译，制作与导出
 - 支持全平台浏览器，对桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等都有很好的支持。
 - 提供多种译文样式选择，包括弱化、模糊、下划线、分隔线等样式，随心所欲的个性化你的翻译体验。
 
@@ -55,9 +55,11 @@
 
 ## 使用案例
 
-- [点击查看视频演示](https://www.youtube.com/watch?v=sQevumpUprc)
 - [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
 - [点此查看](https://immersive-translate.owenyoung.com/review) 用户的评价以及媒体报道
+- [Youtube 视频介绍](https://youtu.be/0nIzWCseLVo)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0nIzWCseLVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 安装
 
@@ -124,6 +126,10 @@
 我还创建了一些其他的免费工具，你可以点击 [这里](https://www.owenyoung.com/projects/) 了解我所有的项目。
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
+
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/wna.jpg" width="400" alt="wechat and alipay"></div>
+
+你也可以通过我的[Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), [爱发电主页](https://afdian.net/a/translate), [Patreon 主页](https://www.patreon.com/theowenyoung)进行赞助。
 
 Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
 

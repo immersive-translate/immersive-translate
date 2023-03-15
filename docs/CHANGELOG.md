@@ -1,5 +1,104 @@
 # Change Log
 
+## 0.3.9
+
+- Fix: Options UI switch translation services input state not changed.
+
+## 0.3.8
+
+- UI: loading color more transparent
+- Fix: Detect Ebook Language.
+- Feat: Add translate progress for ebook builder, and a beautiful confetti after success.
+- Feat: Add retry all failed paragraphs for retry button.
+- Fix: Deepl Error handle
+
+## 0.3.7
+
+- Fix: ebook reader can not load images on Chrome.
+
+## 0.3.6
+
+- UI: better for make ebook page UI
+
+## 0.3.5
+
+- Fix: userscript ebook export
+- Feat: add custom API endpoint for OpenAI
+- Feat: add temp translate website time options on `Advanced Settings`
+
+## 0.3.4
+
+- CI: Build failed
+
+## 0.3.3
+
+- Fix: ebook maker for Kindle
+- Change: Loading icon color, from black to blue, for adapt the dark mode web page.
+- Feat: Support local html translate for extension
+
+## 0.3.2
+
+- Fix: Options Form Input cursor moving.
+- Feat: OpenAI support custom apiUrl for develope settings.
+
+## 0.3.1
+
+- Feat: update dark icon to transparency.
+- Fix: Wrong order for long paragraph
+
+## 0.3.0
+
+- Version: From now on, we will change the minor version number once a month, for example, now in March, the version will start from 0.3.0, in April, the version number will start from 0.4.0, next April, the version number will be 1.4.0, and so on. This is because it does not make sense for extensions to follow semantics, but standardizing version numbers according to the laws of time is motivation for development to keep updating, and for users to find problems more easily.
+- Feat: Support dark icon for firefox
+
+## 0.2.86
+
+- Add max text length option for per request with Open AI
+- Fix: ebook identifier duplicated
+- Feat: Support txt web page translation
+
+## 0.2.85
+
+- Fix: some epub file can not be found.
+
+## 0.2.84
+
+- Feat: Support Ebook Reader and Maker
+
+## 0.2.83
+
+- Feat: Allow password input Form show password.
+
+## 0.2.82
+
+- Fix: Some site use `span` for styles, so we use `font` instead of span for translation target wrapper
+- Fix: OpenAI max tokens limit, change max chars from 1500 to 1300.
+
+## 0.2.81
+
+- Fix: m.youtube.com
+- Fix: options form UI
+- Fix: Open AI prompt
+- Feat: Support OpenAI multiple keys, use `,` split them.
+
+## 0.2.80
+
+- Feat: Add Enable/Disable Menu for popup -> more
+- Fix: DingTalk Message conflict
+
+## 0.2.79
+
+- Fix: Open AI for space paragraph
+
+## 0.2.78
+
+- Feat: support OpenAI CHATGPT 3.5 (支持 OpenAI ChatGPT 3.5 接口)
+- Feat: Add new theme Solid Border (新增新主题，实线边框)
+
+## 0.2.77
+
+- Fix: multiple code tag error.[#178](https://github.com/immersive-translate/immersive-translate/issues/178)
+
 ## 0.2.76
 
 - Fix: multiple code tag error [#178](https://github.com/immersive-translate/immersive-translate/issues/178)

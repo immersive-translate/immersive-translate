@@ -7,14 +7,17 @@
 通过 `Rules` 可以对特定的网站进行自定义配置，决定哪些内容是否需要被翻译，或调整网页样式等。
 
 ```json
-[{
-  "matches": "www.google.com",
-  "selectors": [".title"]
-}, {
-  "matches": "*.twitter.com",
-  "selectors": [".text"],
-  "excludeSelectors": ["nav", "footer"]
-}]
+[
+  {
+    "matches": "www.google.com",
+    "selectors": [".title"]
+  },
+  {
+    "matches": "*.twitter.com",
+    "selectors": [".text"],
+    "excludeSelectors": ["nav", "footer"]
+  }
+]
 ```
 
 使用 `matches` 来匹配对应的网站。允许通配符，如 `*.google.com`,`www.google.com/test/*`,`file://*`
@@ -26,11 +29,13 @@
 使用 `additional` 系列的选择器，在智能翻译的基础上增加或减少翻译范围
 
 ```json
-[{
-  "matches": "www.google.com",
-  "additionalSelectors": [],
-  "additionalExcludeSelectors": []
-}]
+[
+  {
+    "matches": "www.google.com",
+    "additionalSelectors": [],
+    "additionalExcludeSelectors": []
+  }
+]
 ```
 
 如果希望翻译某个区域时，将元素视为一个整体，不将其分行，可以用 `atomicBlockSelectors` 选择器。比如 Instagram 的个人简介。要注意的是，使用 `atomicBlockSelectors` 前需要先用 `selectors` 进行选择。
@@ -69,7 +74,9 @@
 也可以像常规的网页样式管理器那样，对网站进行更加个性化的样式设计。（甚至利用 `display:none` 去广告）
 
 ```css
-.title { color: red }
+.title {
+  color: red;
+}
 ```
 
 ## User Config
@@ -83,7 +90,7 @@
     "tencent": {
       "secretId": "xxx",
       "secretKey": "xxx",
-      "matches":["*.twitter.com"]
+      "matches": ["*.twitter.com"]
     }
   },
   "translationUrlPattern": {
@@ -176,26 +183,32 @@
 | "transmart"
 ```
 
-使用 `translationServices` 配置各家翻译服务的 `apikey`，不同服务商需要的参数不一样，它们的API密钥均可在各自官网的开发者中心申请。
+使用 `translationServices` 配置各家翻译服务的 `apikey`，不同服务商需要的参数不一样，它们的 API 密钥均可在各自官网的开发者中心申请。
 
-如腾讯翻译君，需要配置 `secretId`, `secretKey`。你可以前往腾讯云申请API密钥，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
+如腾讯翻译君，需要配置 `secretId`, `secretKey`。你可以前往腾讯云申请 API 密钥，每月免费字符 500 万。具体申请过程参考[这里](https://immersive-translate.owenyoung.com/services/tencent)
 
 ```json
 "translationServices": {
   "tencent": {
     "secretId": "xxx",
     "secretKey": "xxx",
-    "matches":["*.twitter.com"]
+    "matches":["*.twitter.com"],
+    "limit": 3,
+    "apiUrl":""
   }
 }
 ```
-也可配置 `matches` 字段, 为特定网站使用指定的翻译服务。
+
+`matches` 字段, 为特定网站使用该翻译服务。
+`limit`字段，指定该翻译服务的每秒最多请求数（有些服务会限制每秒最大请求数）。
+
+`apiUrl` 可以自定义翻译接口的地址。
 
 ### 总是翻译特定网站
 
 `translationUrlPattern` 配置总是翻译的网站，以及永不翻译的网站。
 
-- `matches` 配置总是翻译的网站， 
+- `matches` 配置总是翻译的网站，
 - `excludeMatches` 配置永不翻译的网站。
 
 配置值可以是域名或带有 `*` 的网址，比如：`www.google.com/mail/*`
@@ -213,7 +226,6 @@ translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的�
 
 - `matches` 配置总是翻译的语言，比如 `en`,
 - `excludeMatches` 配置永不翻译的语言。
-
 
 ### 段落语言检测
 
@@ -273,7 +285,7 @@ translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的�
 }
 ```
 
-### Rules 
+### Rules
 
 `rules` 为数组对象，可以配置针对特别网站的规则，比如让推特只翻译某一部分区域:
 
@@ -302,72 +314,71 @@ translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的�
 
 ```typescript
 export interface Rule {
-
   // 匹配网站
-  matches?: string | string[];           // 该条Rule将仅匹配此处的网站。
-  excludeMatches?: string | string[];    // 排除特定的网站。
-  selectorMatches?: string | string[];   // 用选择器来匹配，而无需指定所有url
+  matches?: string | string[]; // 该条Rule将仅匹配此处的网站。
+  excludeMatches?: string | string[]; // 排除特定的网站。
+  selectorMatches?: string | string[]; // 用选择器来匹配，而无需指定所有url
   excludeSelectorMatches?: string | string[]; // 排除规则，同上。
 
   // 指定翻译范围
-  selectors?: string | string[];         // 仅翻译匹配到的元素
-  excludeSelectors?: string | string[];  // 排除元素，不翻译匹配的元素
-  excludeTags?: string | string[];       // 排除Tags，不翻译匹配的Tag
+  selectors?: string | string[]; // 仅翻译匹配到的元素
+  excludeSelectors?: string | string[]; // 排除元素，不翻译匹配的元素
+  excludeTags?: string | string[]; // 排除Tags，不翻译匹配的Tag
 
   // 追加翻译范围，而不是覆盖
-  additionalSelectors?: string | string[];        // 追加翻译范围。在智能翻译的区域，追加翻译位置。
+  additionalSelectors?: string | string[]; // 追加翻译范围。在智能翻译的区域，追加翻译位置。
   additionalExcludeSelectors?: string | string[]; // 追加排除元素，让智能翻译不翻译特定位置。
-  additionalExcludeTags?: string | string[];      // 追加排除Tags
+  additionalExcludeTags?: string | string[]; // 追加排除Tags
 
   // 保持原样
   stayOriginalSelectors?: string | string[]; // 匹配的元素将保持原样。常用于论坛网站的标签。
-  stayOriginalTags?: string | string[];      // 匹配到的Tag将保持原样，比如 `code`
+  stayOriginalTags?: string | string[]; // 匹配到的Tag将保持原样，比如 `code`
 
   // 区域翻译
   atomicBlockSelectors?: string | string[]; // 区域选择器, 匹配的元素将被视为一个整体, 不会分段翻译
-  atomicBlockTags?: string | string[];      // 区域Tag选择器,  同上
+  atomicBlockTags?: string | string[]; // 区域Tag选择器,  同上
 
   // Block or Inline
-  extraBlockSelectors?: string | string[];  // 额外的选择器，匹配的元素将作为 block 元素，独占一行。
+  extraBlockSelectors?: string | string[]; // 额外的选择器，匹配的元素将作为 block 元素，独占一行。
   extraInlineSelectors?: string | string[]; // 额外的选择器，匹配的元素将作为 inline 元素。
 
-  inlineTags?: string | string[];                // 匹配的 Tag 将作为 inline 元素
+  inlineTags?: string | string[]; // 匹配的 Tag 将作为 inline 元素
   preWhitespaceDetectedTags?: string | string[]; // 匹配的 Tag 将自动换行
-  
+
   // 译文样式
-  translationClasses?: string | string | string[];   // 为译文添加额外的 Class
-  
+  translationClasses?: string | string | string[]; // 为译文添加额外的 Class
+
   // 全局样式
-  globalStyles?: Record<string, string>;                     // 修改页面样式，若译文导致页面错乱，这个很有用。`
+  globalStyles?: Record<string, string>; // 修改页面样式，若译文导致页面错乱，这个很有用。`
   globalAttributes?: Record<string, Record<string, string>>; // 修改页面元素的属性
-  
+
   // 嵌入样式
-  injectedCss?: string | string[];           // 嵌入CSS样式
+  injectedCss?: string | string[]; // 嵌入CSS样式
   additionalInjectedCss?: string | string[]; // 追加CSS样式，而不是直接覆盖。
 
   // 上下文
-  wrapperPrefix?: string;   // 译文区域的前缀，默认为 smart，根据字数决定是否换行。
-  wrapperSuffix?: string;   // 译文区域的后缀
+  wrapperPrefix?: string; // 译文区域的前缀，默认为 smart，根据字数决定是否换行。
+  wrapperSuffix?: string; // 译文区域的后缀
 
   // 译文换行字数
-  blockMinTextCount?: number;    // 将译文作为 block 的最小字符数，否则译文为 inline 元素。
-  blockMinWordCount?: number;    // 同上。如果希望它们始终换行, 可以都填0.
+  blockMinTextCount?: number; // 将译文作为 block 的最小字符数，否则译文为 inline 元素。
+  blockMinWordCount?: number; // 同上。如果希望它们始终换行, 可以都填0.
 
   // 内容可翻译的最小字数
   containerMinTextCount?: number; // 智能识别时，元素最少包含的字符数，才会被翻译，默认为18
   paragraphMinTextCount?: number; // 原文段落的最小字符数, 大于数字的内容将被翻译
   paragraphMinWordCount?: number; // 原文段落的最小单词数
-  
+
   // 长段落强制换行字数
   lineBreakMaxTextCount?: number; // 开启翻译长段落时，强制进行分行的段落最大字符数。
-  
+
   // 启动翻译的时机
-  urlChangeDelay?: number;        // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
-  observeUrlChange?: boolean;     // 检测url地址发生变化时，再次启动翻译，默认为true。
+  urlChangeDelay?: number; // 进入页面后，延迟多少毫秒开始翻译。为了等网页的初始化，目前默认为250ms
+  observeUrlChange?: boolean; // 检测url地址发生变化时，再次启动翻译，默认为true。
 
   // 移动端
-  isShowUserscriptPagePopup?: boolean;                    // 在移动设备上展示页面内的浮窗, 默认为true.
-  fingerCountToToggleTranslagePageWhenTouching?: number;  // 四指触摸则翻译，可以设置为 0，2，3，4，5
+  isShowUserscriptPagePopup?: boolean; // 在移动设备上展示页面内的浮窗, 默认为true.
+  fingerCountToToggleTranslagePageWhenTouching?: number; // 四指触摸则翻译，可以设置为 0，2，3，4，5
 }
 ```
 
@@ -377,4 +388,3 @@ Block 和 inline 的区别，如果想了解更多可以看[这里](https://deve
 
 - block 元素会独占一行，多个相邻的 block 元素会各自新起一行.
 - inline 元素不会独占一行，多个相邻的 inline 元素会排列在同一行里,直到一行排列不下才会新换一行。
-

@@ -4,6 +4,7 @@
   "interval": 3600000,
   "beta": false,
   "cache": true,
+  "enabled": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
@@ -55,6 +56,12 @@
     "deepl": {
       "immediateTranslationTextCountForImmersiveDeepl": 50000
     },
+    "bing": {
+      "maxTextLengthPerRequest": 800
+    },
+    "deeplx": {
+      "limit": 3
+    },
     "d": {
       "immediateTranslationTextCount": 0
     },
@@ -69,8 +76,15 @@
     },
     "openai": {
       "placeholderDelimiters": [
-        "{",
-        "}"
+        "{{",
+        "}}"
+      ],
+      "immediateTranslationTextCount": 10000,
+      "translationDebounce": 300,
+      "newlinePlaceholderDelimiters": [
+        "\n\n###",
+        "###\n\n",
+        "\n?\n?###\\d+###\n?\n?"
       ]
     }
   },
@@ -147,9 +161,12 @@
     "_comment": "",
     "normalizeBody": "",
     "injectedCss": [],
+    "isEbook": false,
+    "isEbookBuilder": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "initTranslationServiceAsSoonAsPossible": true,
+    "targetWrapperTag": "font",
     "additionalInjectedCss": [],
     "isTranslateTitle": true,
     "languageDetectMinTextCount": 50,
@@ -161,7 +178,10 @@
     "mutationChangeDelay": 10,
     "visibleDelay": 0,
     "additionalStayOriginalSelectors": [
-      "span.katex"
+      "span.katex",
+      ".notranslate",
+      ".MathJax_Preview",
+      ".MathJax"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -174,6 +194,7 @@
     "containerMinTextCount": 18,
     "lineBreakMaxTextCount": 0,
     "globalAttributes": {},
+    "globalMeta": {},
     "globalStyles": {
       ".sr-only": "display:none"
     },
@@ -219,7 +240,10 @@
       ".o-share",
       "[data-toolbar=share]",
       "rp",
-      "rt"
+      "rt",
+      "[spellcheck=false]",
+      ".prism-code",
+      "[role=code]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -321,14 +345,20 @@
       "RELIN-HIGHLIGHT",
       "RELIN-ORIGIN",
       "RELIN-TARGET",
-      "XQDD_HIGHLIGHT_NEW_WORD"
+      "XQDD_HIGHLIGHT_NEW_WORD",
+      "NOBR"
     ],
     "additionalInlineTags": [],
     "extraInlineSelectors": [],
-    "additionalInlineSelectors": [],
+    "additionalInlineSelectors": [
+      ".MathJax_Preview",
+      ".MathJax"
+    ],
     "extraBlockSelectors": [
       "turbo-frame",
-      "readme-toc"
+      "readme-toc",
+      "#hs_cos_wrapper_post_body",
+      "#hs_cos_wrapper_post_body"
     ],
     "allBlockTags": [
       "HGROUP",
@@ -391,6 +421,10 @@
   },
   "rules": [
     {
+      "selectorMatches": "div.simpread-read-root.simpread-read-root-show > sr-read",
+      "mainFrameSelector": "div.simpread-read-root.simpread-read-root-show > sr-read"
+    },
+    {
       "matches": [
         "moz-extension://*/pdf/index.html*"
       ],
@@ -408,6 +442,44 @@
         "div.page": "width: 98%;",
         ".textLayer": "overflow:visible;opacity: 1;"
       }
+    },
+    {
+      "matches": "*://*/*.txt",
+      "selectors": [
+        "body"
+      ],
+      "isTransformPreTagNewLine": true,
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "G",
+        "TEXT",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH",
+        "TTS-SENTENCE"
+      ]
     },
     {
       "matches": [
@@ -599,7 +671,8 @@
         "faceplate-batch .md"
       ],
       "excludeMatches": [
-        "https://www.reddit.com/r/*/wiki/*"
+        "https://www.reddit.com/r/*/wiki/*",
+        "https://www.reddit.com/settings/*"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -614,6 +687,10 @@
     },
     {
       "matches": "github.com",
+      "observeUrlChange": true,
+      "excludeMatches": [
+        "https://github.com/settings/profile"
+      ],
       "selectors": [
         ".markdown-title",
         ".markdown-body",
@@ -622,7 +699,11 @@
         "li.repo-list-item p",
         "#responsive-meta-container p",
         "article p",
-        "div.repo-description p"
+        "div.repo-description p",
+        "[itemprop=description]"
+      ],
+      "atomicBlockSelectors": [
+        "[itemprop=description]"
       ],
       "excludeSelectors": [
         ".css-truncate",
@@ -686,14 +767,19 @@
     {
       "matches": "m.youtube.com",
       "selectors": [
-        ".comment-text"
+        ".comment-text",
+        ".media-item-headline",
+        ".slim-video-information-title"
       ],
+      "wrapperPrefix": "",
+      "wrapperSuffix": "",
       "observeUrlChange": true,
       "atomicBlockSelectors": [
         ".comment-text"
       ],
       "globalStyles": {
-        ".comment-text": "max-height:unset;"
+        ".comment-text": "max-height:unset;",
+        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
       },
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
@@ -709,7 +795,8 @@
         "yt-formatted-string#video-title",
         "span#video-title",
         "a#video-title",
-        "yt-formatted-string.ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -724,7 +811,8 @@
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "h1 > yt-formatted-string.ytd-watch-metadata",
         "yt-formatted-string#video-title",
-        "span#video-title"
+        "span#video-title",
+        "#description-inline-expander > yt-attributed-string > span"
       ],
       "excludeSelectors": [
         "[class^='lln-']"
@@ -1000,7 +1088,9 @@
     },
     {
       "matches": "web.telegram.org/z/*",
+      "isTranslateTitle": false,
       "selectors": [
+        ".text-content",
         ".message",
         ".reply-markup-button-text",
         ".bot-commands-list-element-description"
@@ -1203,6 +1293,7 @@
         "mastodon.world",
         "infosec.exchange"
       ],
+      "isTranslateTitle": false,
       "selectorMatches": [
         "div#mastodon"
       ],
@@ -1341,6 +1432,28 @@
       "globalStyles": {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
+      }
+    },
+    {
+      "matches": "marketplace.visualstudio.com",
+      "additionalExcludeSelectors": [
+        ".core-info-second-row",
+        ".core-info-third-row",
+        ".meta-data-list",
+        ".item-title",
+        ".breadcrumb",
+        ".itemDetails-right",
+        ".ux-user-name",
+        ".ux-updated-date",
+        ".ux-item-second-row-wrapper",
+        ".stats-and-offer",
+        ".header-container"
+      ],
+      "atomicBlockSelectors": [
+        ".core-info-cell > div.name"
+      ],
+      "globalStyles": {
+        ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
       }
     },
     {
@@ -1874,8 +1987,66 @@
     {
       "matches": "https://platform.openai.com/account/api-keys*",
       "urlChangeDelay": 1500
+    },
+    {
+      "isEbook": true,
+      "isTranslateTitle": false,
+      "urlChangeDelay": 200,
+      "selectorMatches": [
+        "meta[name='immersive-translate-ebook-viewer'][content='true']"
+      ],
+      "excludeSelectors": [
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title"
+      ],
+      "extraInlineSelectors": [
+        "span.dropcaps"
+      ],
+      "paragraphMinTextCount": 1,
+      "paragraphMinWordCount": 1,
+      "blockMinTextCount": 1,
+      "blockMinWordCount": 1,
+      "containerMinTextCount": 1,
+      "wrapperPrefix": "<br />",
+      "targetWrapperTag": "span"
+    },
+    {
+      "isEbookBuilder": true,
+      "isTranslateTitle": false,
+      "targetWrapperTag": "span",
+      "selectorMatches": [
+        "meta[name='immersive-translate-ebook-builder'][content='true']"
+      ],
+      "globalMeta": {},
+      "excludeSelectors": [
+        "h1.notranslate",
+        "#drop-target",
+        "#drop-target h1",
+        "#side-bar",
+        "h1#side-bar-title",
+        "#tool"
+      ],
+      "paragraphMinTextCount": 1,
+      "paragraphMinWordCount": 1,
+      "blockMinTextCount": 1,
+      "blockMinWordCount": 1,
+      "containerMinTextCount": 1,
+      "wrapperPrefix": "<br />"
+    },
+    {
+      "matches": [
+        "https://www.explainpaper.com/reader*"
+      ],
+      "isTranslateTitle": false,
+      "selectors": [
+        ".leading-relaxed",
+        ".chat-messages p",
+        ".text-sm"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-02-27T19:49:57.540Z",
-  "latestVersion": "0.2.74"
+  "buildinConfigUpdatedAt": "2023-03-14T15:58:23.747Z",
+  "latestVersion": "0.3.7"
 }

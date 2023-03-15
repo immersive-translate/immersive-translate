@@ -83,7 +83,7 @@ git clone git@github.com:immersive-translate/next-translator.git
 First time, download [tampermonkey](https://www.tampermonkey.net/) extension,
 open tampermonkey dashboard, to create a script:
 
-replace the whole code with `dist/userscript/immersive-translate-dev.user.js`
+replace the whole code with `dist/userscript/dev-entry.js`
 UserScript header, like this:
 
 ```
@@ -184,6 +184,17 @@ Edit `web/app.js`, add `return` to the validateFileURL, cause we don't need chec
 
 Then, run `npm install` at the `pdf.js` project.
 
+### chrome ban pdf.js
+
+Code Readability Requirements
+
+Violation reference ID: Red Titanium
+Violation: Having obfuscated code in the package.
+Violating content:
+Code snippet: build/pdf.js:null:null: const testFont = atob("T1RUTwALAIAAAwAwQ0ZGIDHtZg4AAAOYAAAAgUZGVE1lkzZwAAAEHAAAABxHREVGABQA" + "FQAABDgAAAAeT1MvMlYNYwkAAAEgAAAAYGNtYXABDQLUAAACNAAAAUJoZWFk/xVFDQAA")
+
+// change this to string
+
 Then, back to translate project, run:
 
 ```bash
@@ -214,7 +225,7 @@ _log.l("test2"); // info level
 
 ## 移动端调试谷歌 drive 授权
 
-移动端无法访问 localhost, googke 不允许设置 ip 为跳转域名。
+移动端无法访问 localhost, google 不允许设置 ip 为跳转域名。
 
 可以在电脑上使用 Whistle 代理软件(或者其他类似软件):
 

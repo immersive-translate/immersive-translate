@@ -37,27 +37,27 @@ Thanks to these [sponsors] (https://immersive-translate.owenyoung.com/thanks ), 
 
 ## Table of Contents
 
--[Installation] (https://immersive-translate.owenyoung.com/installation.html )
--[How to use] (https://immersive-translate.owenyoung.com/usage.html )
--[Application for Translation service] (https://immersive-translate.owenyoung.com/services.html )
--[Advanced custom configuration] (https://immersive-translate.owenyoung.com/advanced.html )
--[Changelog](https://immersive-translate.owenyoung.com/CHANGELOG.html )
--[Online documentation] (https://immersive-translate.owenyoung.com /)
+- [Installation] (https://immersive-translate.owenyoung.com/installation.html )
+- [How to use] (https://immersive-translate.owenyoung.com/usage.html )
+- [Application for Translation service] (https://immersive-translate.owenyoung.com/services.html )
+- [Advanced custom configuration] (https://immersive-translate.owenyoung.com/advanced.html )
+- [Changelog](https://immersive-translate.owenyoung.com/CHANGELOG.html )
+- [Online documentation] (https://immersive-translate.owenyoung.com /)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## Keep in touch
 
--[Subscribe to Immersive translation via email] (https://immersivetranslate.substack.com /) Get the latest updates and (benefits) in a timely manner.
--[Join Telegram group] (https://t.me/+rq848Z09nehlOTgx ) Participate in the discussion of functions.
--[Join Telegram channel] (https://t.me/immersivetranslate ) Receive the latest news
--[Question feedback] (https://github.com/immersive-translate/immersive-translate/issues /)
--[Ask the developer for a cup of coffee️️] (https://immersive-translate.owenyoung.com/donate.html )
+- [Subscribe to Immersive translation via email] (https://immersivetranslate.substack.com /) Get the latest updates and (benefits) in a timely manner.
+- [Join Telegram group] (https://t.me/+rq848Z09nehlOTgx ) Participate in the discussion of functions.
+- [Join Telegram channel] (https://t.me/immersivetranslate ) Receive the latest news
+- [Question feedback] (https://github.com/immersive-translate/immersive-translate/issues /)
+- [Ask the developer for a cup of coffee️️] (https://immersive-translate.owenyoung.com/donate.html )
 
 ## Use case
 
--[Click here] (https://immersive-translate.owenyoung.com/usecase.html ) View usage screenshots
--[Click here to view] (https://immersive-translate.owenyoung.com/review ) User reviews and media reports
--[Youtube video introduction] (https://youtu.be/0nIzWCseLVo )
+- [Click here] (https://immersive-translate.owenyoung.com/usecase.html ) View usage screenshots
+- [Click here to view] (https://immersive-translate.owenyoung.com/review ) User reviews and media reports
+- [Youtube video introduction] (https://youtu.be/0nIzWCseLVo )
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0nIzWCseLVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -110,10 +110,10 @@ You can also pass [Greasy Fork] (https://greasyfork.org/zh-CN/scripts/457196-imm
 
 The advantage of manual installation is that there is no need to wait for the store to review, and you can immediately experience the features of the latest development version.
 
--Download the installation package.Use git clone to download the warehouse locally:'git clone https://github.com/immersive-translate/next-immersive-translate.git `. (If you are not used to command-line operations, you can directly go to [Publish page] (https://github.com/immersive-translate/immersive-translate/releases /) Download the compressed package.In addition, you can also download [GitHub Desktop client] (https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop ) Send the [GitHub repo] (https://github.com/immersive-translate/immersive-translate ) Sync to local.）
--Chrome-like browser installation: (1) Enter: `chrome://extensions` in the address bar to open the extension management window; (2) Open “Developer Mode”, select “Load unzipped extensions”, and select "dist/chrome" to load.
--Firefox browser installation: (1) Enter: `about: debugging#/runtime/this-firefox` in the address bar to open the extension management window; (2) Temporarily load the add-on and select 'dist/firefox/manifest.json` is enough.
--Update method: If you use the installation package downloaded by git, then use "git pull" to pull the latest file, and then select "Reload" on the extension management page.If you are on [publish page] (https://github.com/immersive-translate/immersive-translate/releases /) Download the installation package, then download the latest version here to replace the old one.
+- Download the installation package.Use git clone to download the warehouse locally:'git clone https://github.com/immersive-translate/next-immersive-translate.git `. (If you are not used to command-line operations, you can directly go to [Publish page] (https://github.com/immersive-translate/immersive-translate/releases /) Download the compressed package.In addition, you can also download [GitHub Desktop client] (https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop ) Send the [GitHub repo] (https://github.com/immersive-translate/immersive-translate ) Sync to local.）
+- Chrome-like browser installation: (1) Enter: `chrome://extensions` in the address bar to open the extension management window; (2) Open “Developer Mode”, select “Load unzipped extensions”, and select "dist/chrome" to load.
+- Firefox browser installation: (1) Enter: `about: debugging#/runtime/this-firefox` in the address bar to open the extension management window; (2) Temporarily load the add-on and select 'dist/firefox/manifest.json` is enough.
+- Update method: If you use the installation package downloaded by git, then use "git pull" to pull the latest file, and then select "Reload" on the extension management page.If you are on [publish page] (https://github.com/immersive-translate/immersive-translate/releases /) Download the installation package, then download the latest version here to replace the old one.
 
 ## Sponsor my work
 
@@ -133,12 +133,12 @@ You can also go through my [Github Sponsor homepage] (https://github.com/sponsor
 
 Ps. I also fully understand the users who have no spare time for the time being (because that's how I came here!), but you can also help me complete some tasks within my ability：
 
--Help me in [Chrome Store] (https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh ), [Edge Store] (https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN ), [Firefox Store] (https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate /), [GreasyFork] (https://greasyfork.org/zh-CN/scripts/457196-immersive-translate ) Evaluate the extension.
--[Star] (https://github.com/immersive-translate/immersive-translate /) This GitHub project.
--Help [contribute document] (https://immersive-translate.owenyoung.com /), click the edit button in the upper right corner.
--Help [translate] (https://crowdin.com/project/immersive-translate ) The interface language of the extension.
--Help answer users in [Telegram group] (https://t.me/+rq848Z09nehlOTgx ) and [GitHub Issue] (https://github.com/immersive-translate/immersive-translate/issues ) The question in.
--Even, if you have the ability to develop code, you can directly participate in the development of this extension, please add [Telegram group] (https://t.me/+rq848Z09nehlOTgx ) To understand the development channel.
+- Help me in [Chrome Store] (https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh ), [Edge Store] (https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN ), [Firefox Store] (https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate /), [GreasyFork] (https://greasyfork.org/zh-CN/scripts/457196-immersive-translate ) Evaluate the extension.
+- [Star] (https://github.com/immersive-translate/immersive-translate /) This GitHub project.
+- Help [contribute document] (https://immersive-translate.owenyoung.com /), click the edit button in the upper right corner.
+- Help [translate] (https://crowdin.com/project/immersive-translate ) The interface language of the extension.
+- Help answer users in [Telegram group] (https://t.me/+rq848Z09nehlOTgx ) and [GitHub Issue] (https://github.com/immersive-translate/immersive-translate/issues ) The question in.
+- Even, if you have the ability to develop code, you can directly participate in the development of this extension, please add [Telegram group] (https://t.me/+rq848Z09nehlOTgx ) To understand the development channel.
 
 > Psssss. I spent more time and energy developing this [Immersive Translation extension] than I expected (https://immersive-translate.owenyoung.com /), your support is really important to me, thank you for your support!
 

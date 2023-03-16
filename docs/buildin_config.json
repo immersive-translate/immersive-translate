@@ -244,7 +244,8 @@
       "[spellcheck=false]",
       ".prism-code",
       "[role=code]",
-      "#omni-extension"
+      "#omni-extension",
+      ".omni-item"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -2048,6 +2049,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-16T15:02:11.454Z",
+  "buildinConfigUpdatedAt": "2023-03-16T15:58:54.258Z",
   "latestVersion": "0.3.9"
 }

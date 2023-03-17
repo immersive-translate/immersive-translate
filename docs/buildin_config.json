@@ -1253,6 +1253,7 @@
         "notion.site",
         "www.notion.so"
       ],
+      "normalizeBody": "body",
       "selectors": [
         "div[data-block-id]"
       ]
@@ -2049,6 +2050,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-16T15:58:54.258Z",
+  "buildinConfigUpdatedAt": "2023-03-17T01:51:55.947Z",
   "latestVersion": "0.3.9"
 }

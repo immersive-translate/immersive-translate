@@ -1992,6 +1992,18 @@
       "urlChangeDelay": 1500
     },
     {
+      "matches": "https://pkg.go.dev/std",
+      "selectors": [
+        "td.UnitDirectories-desktopSynopsis"
+      ]
+    },
+    {
+      "matches": "https://pkg.go.dev/*",
+      "selectors": [
+        "div.UnitDetails p"
+      ]
+    },
+    {
       "isEbook": true,
       "isTranslateTitle": false,
       "urlChangeDelay": 200,
@@ -2050,6 +2062,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-17T01:51:55.947Z",
+  "buildinConfigUpdatedAt": "2023-03-17T13:46:20.225Z",
   "latestVersion": "0.3.9"
 }

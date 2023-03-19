@@ -32,6 +32,15 @@
 <sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
 </div>
 </a>
+<br>
+<br>
+<div>
+  <a target="_blank" href="https://xiaobot.net/p/pmthinking2023?refer=bd3e6e4e-70c4-48e6-a6a5-21fdc75184d5"><img src="https://immersive-translate.owenyoung.com/assets/pmthinking.png" width="80" alt="产品沉思录"></a>
+</div>
+<a target="_blank" href="https://xiaobot.net/p/pmthinking2023?refer=bd3e6e4e-70c4-48e6-a6a5-21fdc75184d5">
+<b>产品沉思录 - 中文社区里为数不多的优质信息源</b>
+</a>
+<div><sup>一个关于产品的知识库，也是一个 Newsletter （邮件组），始于 2017 年, 主理人<a href="https://twitter.com/plidezus">少楠</a>, <a href="https://web.okjike.com/u/EF3F1743-C2BE-47FC-AE0B-89B380AE048E">fonter</a></sup></div>
 </p>
 </div>
 

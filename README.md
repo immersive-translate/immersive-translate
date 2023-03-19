@@ -20,18 +20,18 @@
 
 <div align="center">
 <p>
-		<sup>特别鸣谢以下品牌的赞助:</sup>
-		<br>
-		<br>
-			<div>
-				<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
-			</div>
-      <a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
-			<b>API 设计、开发、测试一体化协作平台</b>
-			<div>
-				<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
-			</div>
-      </a>
+<sup>特别鸣谢以下品牌的赞助:</sup>
+<br>
+<br>
+<div>
+<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
+</div>
+<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
+<b>API 设计、开发、测试一体化协作平台</b>
+<div>
+<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
+</div>
+</a>
 </p>
 </div>
 
@@ -130,6 +130,7 @@
 您还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung) 进行赞助。
 
 附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
+
 - 在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)、[Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN)、[Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 和 [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里为该扩展评价。
 - 给这个 [GitHub 项目](https://github.com/immersive-translate/immersive-translate/) 点个 Star。
 - 协助 [完善文档](https://immersive-translate.owenyoung.com/)，点击右上角编辑按钮即可。

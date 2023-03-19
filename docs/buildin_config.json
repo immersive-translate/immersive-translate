@@ -970,15 +970,13 @@
     },
     {
       "matches": "outlook.live.com",
-      "normalizeBody": "#ReadingPaneContainerId",
-      "detectParagraphLanguage": true,
-      "atomicBlockSelectors": [
-        "div p:has(span)"
-      ],
       "excludeSelectors": [
         ".jHAG3.XG5Jd",
         ".OZZZK",
         ".lDdSm"
+      ],
+      "selectors": [
+        "[role=region]"
       ]
     },
     {
@@ -2070,6 +2068,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-18T13:25:11.603Z",
+  "buildinConfigUpdatedAt": "2023-03-19T08:20:42.598Z",
   "latestVersion": "0.3.9"
 }

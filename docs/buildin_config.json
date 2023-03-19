@@ -192,6 +192,7 @@
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
     "containerMinTextCount": 18,
+    "containerMinWordCount": 3,
     "lineBreakMaxTextCount": 0,
     "globalAttributes": {},
     "globalMeta": {},
@@ -2068,6 +2069,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-19T08:20:42.598Z",
-  "latestVersion": "0.3.9"
+  "buildinConfigUpdatedAt": "2023-03-19T10:39:20.716Z",
+  "latestVersion": "0.3.10"
 }

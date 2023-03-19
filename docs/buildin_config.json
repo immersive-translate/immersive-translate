@@ -449,7 +449,10 @@
       }
     },
     {
-      "matches": "*://*/*.txt",
+      "matches": [
+        "*://*/*.txt",
+        "file://*/*.txt"
+      ],
       "selectors": [
         "body"
       ],
@@ -2069,6 +2072,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-19T10:39:20.716Z",
+  "buildinConfigUpdatedAt": "2023-03-19T15:41:44.832Z",
   "latestVersion": "0.3.10"
 }

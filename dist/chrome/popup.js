@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:35.803Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:53.676Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8334,6 +8334,7 @@ var buildin_config_default = {
     blockMinTextCount: 32,
     blockMinWordCount: 5,
     containerMinTextCount: 18,
+    containerMinWordCount: 3,
     lineBreakMaxTextCount: 0,
     globalAttributes: {},
     globalMeta: {},
@@ -8382,7 +8383,11 @@ var buildin_config_default = {
       "rt",
       "[spellcheck=false]",
       ".prism-code",
-      "[role=code]"
+      "[role=code]",
+      "#omni-extension",
+      ".omni-item",
+      "[data-paste-markdown-skip]",
+      "table.highlight"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -9002,10 +9007,10 @@ var buildin_config_default = {
     },
     {
       matches: "outlook.live.com",
-      normalizeBody: "#ReadingPaneContainerId",
-      detectParagraphLanguage: !0,
-      atomicBlockSelectors: ["div p:has(span)"],
-      excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
+      excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
+      selectors: [
+        "[role=region]"
+      ]
     },
     {
       matches: "www.producthunt.com",
@@ -9227,6 +9232,7 @@ var buildin_config_default = {
     },
     {
       matches: ["notion.site", "www.notion.so"],
+      normalizeBody: "body",
       selectors: ["div[data-block-id]"]
     },
     {
@@ -9845,6 +9851,14 @@ var buildin_config_default = {
       urlChangeDelay: 1500
     },
     {
+      matches: "https://pkg.go.dev/std",
+      selectors: ["td.UnitDirectories-desktopSynopsis"]
+    },
+    {
+      matches: "https://pkg.go.dev/*",
+      selectors: ["div.UnitDetails p"]
+    },
+    {
       isEbook: !0,
       isTranslateTitle: !1,
       urlChangeDelay: 200,
@@ -9901,6 +9915,12 @@ var buildin_config_default = {
         ".chat-messages p",
         ".text-sm"
       ]
+    },
+    {
+      matches: [
+        "www.wsj.com"
+      ],
+      urlChangeDelay: 2e3
     }
   ]
 };
@@ -10241,6 +10261,7 @@ async function getContext(options) {
       translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
+      cache: config.cache,
       translationTheme: defaultTheme
     }, state) : {
       translationArea: config.translationArea,
@@ -10250,6 +10271,7 @@ async function getContext(options) {
       translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
+      cache: config.cache,
       translationTheme: defaultTheme
     },
     localConfig

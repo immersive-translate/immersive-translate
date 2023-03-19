@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:35.803Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:53.676Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8478,6 +8478,7 @@ var buildin_config_default = {
     blockMinTextCount: 32,
     blockMinWordCount: 5,
     containerMinTextCount: 18,
+    containerMinWordCount: 3,
     lineBreakMaxTextCount: 0,
     globalAttributes: {},
     globalMeta: {},
@@ -8526,7 +8527,11 @@ var buildin_config_default = {
       "rt",
       "[spellcheck=false]",
       ".prism-code",
-      "[role=code]"
+      "[role=code]",
+      "#omni-extension",
+      ".omni-item",
+      "[data-paste-markdown-skip]",
+      "table.highlight"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -9146,10 +9151,10 @@ var buildin_config_default = {
     },
     {
       matches: "outlook.live.com",
-      normalizeBody: "#ReadingPaneContainerId",
-      detectParagraphLanguage: !0,
-      atomicBlockSelectors: ["div p:has(span)"],
-      excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
+      excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
+      selectors: [
+        "[role=region]"
+      ]
     },
     {
       matches: "www.producthunt.com",
@@ -9371,6 +9376,7 @@ var buildin_config_default = {
     },
     {
       matches: ["notion.site", "www.notion.so"],
+      normalizeBody: "body",
       selectors: ["div[data-block-id]"]
     },
     {
@@ -9989,6 +9995,14 @@ var buildin_config_default = {
       urlChangeDelay: 1500
     },
     {
+      matches: "https://pkg.go.dev/std",
+      selectors: ["td.UnitDirectories-desktopSynopsis"]
+    },
+    {
+      matches: "https://pkg.go.dev/*",
+      selectors: ["div.UnitDetails p"]
+    },
+    {
       isEbook: !0,
       isTranslateTitle: !1,
       urlChangeDelay: 200,
@@ -10045,6 +10059,12 @@ var buildin_config_default = {
         ".chat-messages p",
         ".text-sm"
       ]
+    },
+    {
+      matches: [
+        "www.wsj.com"
+      ],
+      urlChangeDelay: 2e3
     }
   ]
 };
@@ -11187,9 +11207,16 @@ function getContainers(root2, ctx) {
     let detectedContainers = [], treeFilter = (node) => {
       if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !0))
         return NodeFilter.FILTER_REJECT;
-      if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
-        let parentNode = node.parentNode;
-        parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+      if (node.nodeType === Node.TEXT_NODE) {
+        let trimedText = node.textContent ? node.textContent.trim() : "";
+        if (isValidTextByCount(
+          trimedText,
+          ctx.rule.containerMinTextCount,
+          ctx.rule.containerMinWordCount
+        )) {
+          let parentNode = node.parentNode;
+          parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+        }
       }
       return NodeFilter.FILTER_ACCEPT;
     }, walk = document.createTreeWalker(
@@ -11518,7 +11545,7 @@ async function getParagraphs(rootFrame, containers, ctx) {
             ctx,
             currentVariableIndex
           ).currentVariableIndex, NodeFilter.FILTER_REJECT;
-        if (console.log("no inline", node2), inlineElementGroups.length > 0) {
+        if (inlineElementGroups.length > 0) {
           let paragraph = elementsToParagraph(
             [...inlineElementGroups],
             isPreWhitespaceContainer,
@@ -15481,7 +15508,7 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
     return {
       ...payload
     };
-  let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+  let { config, translationService, state } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
   defaultTranslationEngine === "openai" && (payload.sentences = payload.sentences.map((sentence) => ({
     ...sentence,
     from: "auto"
@@ -15489,7 +15516,7 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
   let noCacheSentences = [], finalResult = {
     sentences: Array(payload.sentences.length)
   }, sourceLength = payload.sentences.length, sentenceIndex = -1;
-  if (config.cache)
+  if (state.cache)
     for (let sentence of payload.sentences) {
       sentenceIndex++;
       let cacheServiceKey = defaultTranslationEngine;
@@ -15543,9 +15570,9 @@ async function translateMultipleSentences(payload, ctx, everySentenceCallback) {
     },
     serviceConfig,
     (err, a3, b4) => {
-      if (everySentenceCallback && (everySentenceCallback(err, a3, b4), !err && a3 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
+      if (everySentenceCallback && everySentenceCallback(err, a3, b4), !err && a3 && !defaultTranslationEngine.startsWith("mock") && state.cache) {
         let cacheServiceKey = defaultTranslationEngine;
-        defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
+        defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), state.cache && deadline(
           setDbStore({
             translatedText: a3.text,
             from: b4.from,
@@ -15718,6 +15745,7 @@ async function getContext(options2) {
       translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
+      cache: config.cache,
       translationTheme: defaultTheme
     }, state) : {
       translationArea: config.translationArea,
@@ -15727,6 +15755,7 @@ async function getContext(options2) {
       translationDebounce: 300,
       isNeedClean: !1,
       isDetectParagraphLanguage,
+      cache: config.cache,
       translationTheme: defaultTheme
     },
     localConfig: localConfig2
@@ -16429,16 +16458,22 @@ async function initPage() {
   });
   let lang = ctx.sourceLanguage;
   if (lang === "auto") {
-    if (!isMonkey())
-      isInIframe ? lang = await detectLanguage({
-        text: getMainText(ctx.mainFrame).slice(0, 1e3)
-      }) : lang = await detectTabLanguage();
-    else {
+    if (isMonkey()) {
       let mainText = "";
       ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
         text: mainText
       });
-    }
+    } else if (isInIframe)
+      lang = await detectLanguage({
+        text: getMainText(ctx.mainFrame).slice(0, 1e3)
+      });
+    else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
+      let mainText = "";
+      mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
+        text: mainText
+      });
+    } else
+      lang = await detectTabLanguage();
     lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
   } else
     setCurrentPageLanguageByClient(lang);
@@ -16659,8 +16694,11 @@ async function setupDomListeners(ctx) {
         }
     }
   ), document.addEventListener("click", (e) => {
-    let action = e.target.getAttribute("data-immersive-translate-action");
-    action && action === "retry" && retryFailedParagraphs();
+    let target = e.target;
+    if (!target || !target.getAttribute)
+      return;
+    let action = target.getAttribute("data-immersive-translate-action");
+    action && action === "retry" && (e.preventDefault(), typeof e.stopPropagation == "function" && e.stopPropagation(), retryFailedParagraphs());
   }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e) => {
     e.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
   }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
@@ -18574,7 +18612,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.3.9",
+  version: "0.3.10",
   default_locale: "en",
   background: {
     service_worker: "background.js"

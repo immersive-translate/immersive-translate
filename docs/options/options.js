@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:38.079Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:55.675Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9230,6 +9230,7 @@ ${injectedCss}}
       blockMinTextCount: 32,
       blockMinWordCount: 5,
       containerMinTextCount: 18,
+      containerMinWordCount: 3,
       lineBreakMaxTextCount: 0,
       globalAttributes: {},
       globalMeta: {},
@@ -9278,7 +9279,11 @@ ${injectedCss}}
         "rt",
         "[spellcheck=false]",
         ".prism-code",
-        "[role=code]"
+        "[role=code]",
+        "#omni-extension",
+        ".omni-item",
+        "[data-paste-markdown-skip]",
+        "table.highlight"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -9898,10 +9903,10 @@ ${injectedCss}}
       },
       {
         matches: "outlook.live.com",
-        normalizeBody: "#ReadingPaneContainerId",
-        detectParagraphLanguage: !0,
-        atomicBlockSelectors: ["div p:has(span)"],
-        excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
+        excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
+        selectors: [
+          "[role=region]"
+        ]
       },
       {
         matches: "www.producthunt.com",
@@ -10123,6 +10128,7 @@ ${injectedCss}}
       },
       {
         matches: ["notion.site", "www.notion.so"],
+        normalizeBody: "body",
         selectors: ["div[data-block-id]"]
       },
       {
@@ -10741,6 +10747,14 @@ ${injectedCss}}
         urlChangeDelay: 1500
       },
       {
+        matches: "https://pkg.go.dev/std",
+        selectors: ["td.UnitDirectories-desktopSynopsis"]
+      },
+      {
+        matches: "https://pkg.go.dev/*",
+        selectors: ["div.UnitDetails p"]
+      },
+      {
         isEbook: !0,
         isTranslateTitle: !1,
         urlChangeDelay: 200,
@@ -10797,6 +10811,12 @@ ${injectedCss}}
           ".chat-messages p",
           ".text-sm"
         ]
+      },
+      {
+        matches: [
+          "www.wsj.com"
+        ],
+        urlChangeDelay: 2e3
       }
     ]
   };
@@ -11797,9 +11817,16 @@ ${injectedCss}}
       let detectedContainers = [], treeFilter = (node) => {
         if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !0))
           return NodeFilter.FILTER_REJECT;
-        if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
-          let parentNode = node.parentNode;
-          parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+        if (node.nodeType === Node.TEXT_NODE) {
+          let trimedText = node.textContent ? node.textContent.trim() : "";
+          if (isValidTextByCount(
+            trimedText,
+            ctx.rule.containerMinTextCount,
+            ctx.rule.containerMinWordCount
+          )) {
+            let parentNode = node.parentNode;
+            parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+          }
         }
         return NodeFilter.FILTER_ACCEPT;
       }, walk = document.createTreeWalker(
@@ -12084,7 +12111,7 @@ ${injectedCss}}
               ctx,
               currentVariableIndex
             ).currentVariableIndex, NodeFilter.FILTER_REJECT;
-          if (console.log("no inline", node2), inlineElementGroups.length > 0) {
+          if (inlineElementGroups.length > 0) {
             let paragraph = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
@@ -13093,6 +13120,7 @@ ${injectedCss}}
         translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
+        cache: config.cache,
         translationTheme: defaultTheme
       }, state) : {
         translationArea: config.translationArea,
@@ -13102,6 +13130,7 @@ ${injectedCss}}
         translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
+        cache: config.cache,
         translationTheme: defaultTheme
       },
       localConfig
@@ -13804,16 +13833,22 @@ ${injectedCss}}
     });
     let lang = ctx.sourceLanguage;
     if (lang === "auto") {
-      if (!isMonkey())
-        isInIframe ? lang = await detectLanguage({
-          text: getMainText(ctx.mainFrame).slice(0, 1e3)
-        }) : lang = await detectTabLanguage();
-      else {
+      if (isMonkey()) {
         let mainText = "";
         ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
           text: mainText
         });
-      }
+      } else if (isInIframe)
+        lang = await detectLanguage({
+          text: getMainText(ctx.mainFrame).slice(0, 1e3)
+        });
+      else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
+        let mainText = "";
+        mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
+          text: mainText
+        });
+      } else
+        lang = await detectTabLanguage();
       lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
     } else
       setCurrentPageLanguageByClient(lang);
@@ -17002,7 +17037,7 @@ ${injectedCss}}
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+    let { config, translationService, state } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
     defaultTranslationEngine === "openai" && (payload.sentences = payload.sentences.map((sentence) => ({
       ...sentence,
       from: "auto"
@@ -17010,7 +17045,7 @@ ${injectedCss}}
     let noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
-    if (config.cache)
+    if (state.cache)
       for (let sentence of payload.sentences) {
         sentenceIndex++;
         let cacheServiceKey = defaultTranslationEngine;
@@ -17064,9 +17099,9 @@ ${injectedCss}}
       },
       serviceConfig,
       (err, a3, b5) => {
-        if (everySentenceCallback && (everySentenceCallback(err, a3, b5), !err && a3 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
+        if (everySentenceCallback && everySentenceCallback(err, a3, b5), !err && a3 && !defaultTranslationEngine.startsWith("mock") && state.cache) {
           let cacheServiceKey = defaultTranslationEngine;
-          defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
+          defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), state.cache && deadline(
             setDbStore({
               translatedText: a3.text,
               from: b5.from,
@@ -17668,7 +17703,10 @@ ${injectedCss}}
     }, [settings]), j2(() => {
       config && getContext({
         url: "http://localhost",
-        config
+        config,
+        state: {
+          cache: !1
+        }
       }).then((ctx2) => {
         setContext(ctx2);
       });
@@ -19851,7 +19889,9 @@ ${injectedCss}}
     ] });
   };
   function About() {
-    let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_4, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(!1), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
+    let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_4, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
+      !1
+    ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
       setSyncErrorMessage("");
       let finalRemoteConfig = remoteConfig;
       if (remoteConfig === null)
@@ -19978,8 +20018,7 @@ ${injectedCss}}
         t5("cacheSize"),
         "\xA0",
         cacheSize,
-        " \xA0",
-        " ",
+        " \xA0 ",
         isCleaning ? /* @__PURE__ */ p4("span", { children: [
           t5("cleaning"),
           "..."

@@ -1038,6 +1038,7 @@
     },
     {
       "matches": "https://discord.com/channels/*",
+      "isTranslateTitle": false,
       "selectors": [
         "li[id^=chat-messages] div[id^=message-content]",
         "h3[data-text-variant='heading-lg/semibold']",
@@ -2072,6 +2073,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-20T16:30:56.463Z",
+  "buildinConfigUpdatedAt": "2023-03-20T16:51:19.291Z",
   "latestVersion": "0.3.10"
 }

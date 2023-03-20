@@ -186,8 +186,8 @@
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
-    "paragraphMinTextCount": 8,
-    "paragraphMinWordCount": 2,
+    "paragraphMinTextCount": 18,
+    "paragraphMinWordCount": 3,
     "shadowRootSelectors": [],
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
@@ -1466,7 +1466,10 @@
     },
     {
       "matches": "www.bloomberg.com",
-      "urlChangeDelay": 2000
+      "urlChangeDelay": 2000,
+      "excludeSelectors": [
+        ".ticker-bar"
+      ]
     },
     {
       "matches": "xueshu.baidu.com",
@@ -2073,6 +2076,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-20T16:51:19.291Z",
+  "buildinConfigUpdatedAt": "2023-03-20T21:51:20.900Z",
   "latestVersion": "0.3.10"
 }

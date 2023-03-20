@@ -3,18 +3,21 @@
 ## Main features
 
 - Intelligent identification of the main content area of the web page for translation, which is different from the behavior of similar plug-ins in translating all areas of the web page, reducing the “intrusiveness” of the original web page and enhancing the reading experience, so the extension is named “Immersive translation”.
-- Bilingual display, Chinese/English comparison. Divide naturally according to paragraphs, or you can set “divide paragraphs by sentences” to achieve comparative translation of each sentence.
+- Bilingual display, Chinese/English comparison.Divide naturally according to paragraphs, or you can set “divide paragraphs by sentences” to achieve comparative translation of each sentence.
 - Customized and optimized common mainstream websites, such as Twitter, Reddit, Discord, Gmail, Telegram, Youtube, Hacker News, etc.
 - Support more than 10 common translation services, including Deepl, OpenAI (ChatGPT 3.5), Google, Caiyun Xiaoyi, Tencent Translation, Baidu Translation, Volcano Translation, etc.
 - Support bilingual translation, production and export of PDF files and EPUB e-books
 - Support all platform browsers, desktop, mobile, iOS, Chrome, Edge, Firefox, Safari, etc. Have good support.
 - Provide a variety of translation style options, including weakening, blurring, underlining, divider and other styles, to personalize your translation experience as you please.
 
-[Click here to view use cases/screenshots](https://immersive-translate.owenyoung.com/usecase)
+
+[Click here to view use cases/screenshots](https://immersive-translate.owenyoung.com/usecase )
 
 This extension is free to use. I hope everyone can easily, happily and gracefully obtain a large amount of foreign language information on the Internet, and don't let language become an obstacle ❤️
 
-Thanks to these [sponsors](https://immersive-translate.owenyoung.com/thanks), due to his/their support, more people can use this tool for free. If you have the ability, please [click here](https://immersive-translate.owenyoung.com/donate) Sponsor my work.You can pass [Twitter](https://twitter.com/OwenYoungZh ), [Telegram channel](https://t.me/owenyoungzh) or [other methods](https://www.owenyoung.com/contact) Keep in touch with me.
+Thanks to these [sponsors](https://immersive-translate.owenyoung.com/thanks ), due to his/their support, more people can use this tool for free. If you have the ability, please [click here](https://immersive-translate.owenyoung.com/donate ) Sponsor my work.You can pass [Twitter](https://twitter.com/OwenYoungZh ), [Telegram channel](https://t.me/owenyoungzh ) or [other methods](https://www.owenyoung.com/contact/) Keep in touch with me.
+
+
 (This location is waiting for [brand sponsorship](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86 ), Your sponsorship will provide great help for the continuous maintenance of this extension, thank you very much for your support!)
 
 <div align="center">
@@ -41,61 +44,68 @@ Thanks to these [sponsors](https://immersive-translate.owenyoung.com/thanks), du
 - [Application for Translation service](https://immersive-translate.owenyoung.com/services.html )
 - [Advanced custom configuration](https://immersive-translate.owenyoung.com/advanced.html )
 - [Changelog](https://immersive-translate.owenyoung.com/CHANGELOG.html )
-- [Online documentation](https://immersive-translate.owenyoung.com)
+
+- [Online documentation](https://immersive-translate.owenyoung.com/)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## Keep in touch
 
-- [Subscribe to Immersive translation via email](https://immersivetranslate.substack.com) Get the latest updates and (benefits) in a timely manner.
-- [Join Telegram group](https://t.me/+rq848Z09nehlOTgx) Participate in the discussion of functions.
-- [Join Telegram channel](https://t.me/immersivetranslate) Receive the latest news
-- [Question feedback](https://github.com/immersive-translate/immersive-translate/issues)
+- [Subscribe to Immersive translation via email](https://immersivetranslate.substack.com/) Get the latest updates and (benefits) in a timely manner.
+- [Join Telegram group](https://t.me/+rq848Z09nehlOTgx ) Participate in the discussion of functions.
+- [Join Telegram channel](https://t.me/immersivetranslate ) Receive the latest news
+- [Question feedback](https://github.com/immersive-translate/immersive-translate/issues/)
+
 - [Ask the developer for a cup of coffee️️](https://immersive-translate.owenyoung.com/donate.html )
 
 ## Use case
 
-- [Click here](https://immersive-translate.owenyoung.com/usecase.html) to view usage screenshots
-- [Click here to view](https://immersive-translate.owenyoung.com/review) user reviews and media reports
+
+- [Click here](https://immersive-translate.owenyoung.com/usecase.html ) View usage screenshots
+- [Click here to view](https://immersive-translate.owenyoung.com/review ) User reviews and media reports
 - [Youtube video introduction](https://youtu.be/0nIzWCseLVo )
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0nIzWCseLVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Install
 
 ### Edge browser
 
-Available on the [Edge Store](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg ), [click here](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg) to install
+Already on the shelves [Edge Store](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg ), [click here](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg ) Install
 
-### Chrome-like browser
+### Class Chrome browser
 
-Available on the [Chrome Store](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh ), [click here](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) to install
+Already on the shelves [Chrome Store](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh ), [click here](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh ) Install
 
 ### Firefox
 
-Available on the [Firefox Addon Store](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate), [click here](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate) to install.
+Already on the shelves [Firefox Addon Store](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/), [click here](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) Install.
 
-### Tampermonkey script address
+### Oil Monkey script address
 
-Tampermonkey script address: <https://immersive-translate.owenyoung.com/immersive-translate.user.js>, open this address in the browser where the Tampermonkey extension is installed, and you can install it.
+Oil Monkey script address: <https://immersive-translate.owenyoung.com/immersive-translate.user.js >, open this address in the browser where the Oil Monkey extension is installed, and you can install it.
 
 ## Apple iOS/macOS system
 
-Using the Safari browser, both the desktop version and the mobile version are supported. You need to install the Tampermonkey plug-in to [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) as follows:
+Using the Safari browser, both the desktop version and the mobile version are supported. You need to install the Oil monkey plug-in to [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887 ) For example:
 
-1. Install [Userscripts Safari plugin](https://itunes.apple.com/us/app/userscripts/id1463298887), and grant it the right to "always allow access to any website."
-2. Install this extension of [Tampermonkey Script](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (Open the link in the Safari browser to see the installation page)
-3. After installation, open any Web page to refresh, and a floating window of this extension will appear on the right side of the web page. (If you encounter a problem where there is no floating window, it is recommended to refresh the Web page more, or force Safari to restart to make it take effect)
+1. Install [Userscripts safari plugin](https://itunes.apple.com/us/app/userscripts/id1463298887 ), and grant it the right to ”always allow access to any website".
+2. Install this extension of [Oil Monkey Script](https://immersive-translate.owenyoung.com/immersive-translate.user.js ) (Open the link in the Safari browser to see the installation page)
+3. After installation, open any Web page to refresh, and a floating window of this extension will appear on the right side of the web page.(If you encounter a problem where there is no floating window, it is recommended to refresh the Web page more, or force Safari to restart to make it take effect)
 
-If the installation is difficult, you can click to refer to [YouTube video tutorial](https://youtu.be/vOaCFjYmQNM), [TikTok video tutorial](https://v.douyin.com/B4aeGYt).
+If the installation is difficult, you can click to refer to [YouTube video tutorial](https://youtu.be/vOaCFjYmQNM ), [Shaking audio and video tutorial](https://v.douyin.com/B4aeGYt/).
+
 
 ## Android terminal (Android)
 
 #### Firefox
-
 1. Download [Firefox latest version](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US)
 2. Find [Tampermonkey](https://www.tampermonkey.net) in Firefox's add-on recommendation, install
 3. Install this extension of [Tampermonkey Script](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (Open the link in the Firefox Beta browser to see the installation page)
 4. After installation, open any web page, and a floating window icon for the immersive translation extension will appear on the right.
 
 #### Other browsers
+
 
 For example, Kiwi browser, Lemur browser, etc., as long as the browser supports the Tampermonkey script, you can install this extension through the Tampermonkey script. If you support the Chrome store, you can also install the store version directly.
 

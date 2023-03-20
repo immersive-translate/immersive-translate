@@ -7,7 +7,7 @@
     <meta name="immersive-translate-ebook-builder" content="true" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' blob:; script-src 'self' blob: 'unsafe-inline'; style-src 'self' blob: 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src blob: data:; object-src blob: data:; form-action 'none';"
+      content="default-src 'self' blob:; script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; style-src 'self' blob: 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src blob: data:; object-src blob: data:; form-action 'none';"
     />
     <title>E-Book Maker</title>
     <link rel="stylesheet" href="../../styles/inject.css" />
@@ -15,6 +15,7 @@
       :root {
         --active-bg: rgba(0, 0, 0, 0.05);
         --bg: white;
+        --muted: rgba(0, 0, 0, 0.6);
       }
       .link {
         color: rgb(43, 108, 176);
@@ -27,6 +28,7 @@
           :root {
             --active-bg: rgba(255, 255, 255, 0.1);
             --bg: #1e1e1e;
+            --muted: rgba(255, 255, 255, 0.6);
           }
         }
       }
@@ -336,7 +338,7 @@
       a.muted:visited,
       a.muted:hover,
       a.muted:active {
-        color: rgba(0, 0, 0, 0.6);
+        color: var(--muted);
       }
 
       #tool {

@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [ ] 提供到网站的延时设置
 - [x] Click on the extension icon to start translating the book. (点击扩展/脚本图标开始翻译), remove it
 - [x] change the loading color
 - [x] epub reload

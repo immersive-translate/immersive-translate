@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.10
+
+- Better: detect Japanese/Korean container.
+- Fix: Ebook Builder Progress 99% stopped.
+
 ## 0.3.9
 
 - Fix: Options UI switch translation services input state not changed.

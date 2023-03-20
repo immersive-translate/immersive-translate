@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.3.9
+// @version      0.3.10
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -54,10 +54,10 @@
 // @connect    aidemo.youdao.com
 // @connect    localhost
 // @run-at       document-end
-// @name:zh-CN     沉浸式翻译
-// @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
 // @name:zh-TW     沉浸式翻譯
 // @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
+// @name:zh-CN     沉浸式翻译
+// @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
 // @name:fa     ترجمه همه‌جانبه
 // @description:fa     افزونه برگرداننده همه‌جانبه دوزبانه تارنما، کاملاً رایگان برای استفاده است. از چندین سرویس برگرداننده مانند Deepl/Google/Tencent/Volcano Translation پشتیبانی می کند، از پردازه‌نویس Firefox/Chrome/Grease Monkey پشتیبانی می‌کند و همچنین می‌تواند در Safari iOS استفاده شود.
 // ==/UserScript==
@@ -69,7 +69,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-15T09:24:38.079Z", VERSION: "0.3.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:55.675Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8143,6 +8143,7 @@ body {
       blockMinTextCount: 32,
       blockMinWordCount: 5,
       containerMinTextCount: 18,
+      containerMinWordCount: 3,
       lineBreakMaxTextCount: 0,
       globalAttributes: {},
       globalMeta: {},
@@ -8191,7 +8192,11 @@ body {
         "rt",
         "[spellcheck=false]",
         ".prism-code",
-        "[role=code]"
+        "[role=code]",
+        "#omni-extension",
+        ".omni-item",
+        "[data-paste-markdown-skip]",
+        "table.highlight"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -8811,10 +8816,10 @@ body {
       },
       {
         matches: "outlook.live.com",
-        normalizeBody: "#ReadingPaneContainerId",
-        detectParagraphLanguage: !0,
-        atomicBlockSelectors: ["div p:has(span)"],
-        excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"]
+        excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
+        selectors: [
+          "[role=region]"
+        ]
       },
       {
         matches: "www.producthunt.com",
@@ -9036,6 +9041,7 @@ body {
       },
       {
         matches: ["notion.site", "www.notion.so"],
+        normalizeBody: "body",
         selectors: ["div[data-block-id]"]
       },
       {
@@ -9654,6 +9660,14 @@ body {
         urlChangeDelay: 1500
       },
       {
+        matches: "https://pkg.go.dev/std",
+        selectors: ["td.UnitDirectories-desktopSynopsis"]
+      },
+      {
+        matches: "https://pkg.go.dev/*",
+        selectors: ["div.UnitDetails p"]
+      },
+      {
         isEbook: !0,
         isTranslateTitle: !1,
         urlChangeDelay: 200,
@@ -9710,6 +9724,12 @@ body {
           ".chat-messages p",
           ".text-sm"
         ]
+      },
+      {
+        matches: [
+          "www.wsj.com"
+        ],
+        urlChangeDelay: 2e3
       }
     ]
   };
@@ -10833,9 +10853,16 @@ body {
       let detectedContainers = [], treeFilter = (node) => {
         if (node.nodeType === Node.ELEMENT_NODE && isExcludeElement(node, ctx.rule, !0))
           return NodeFilter.FILTER_REJECT;
-        if (node.nodeType === Node.TEXT_NODE && (node.textContent ? node.textContent.trim() : "").length >= rule.containerMinTextCount) {
-          let parentNode = node.parentNode;
-          parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+        if (node.nodeType === Node.TEXT_NODE) {
+          let trimedText = node.textContent ? node.textContent.trim() : "";
+          if (isValidTextByCount(
+            trimedText,
+            ctx.rule.containerMinTextCount,
+            ctx.rule.containerMinWordCount
+          )) {
+            let parentNode = node.parentNode;
+            parentNode && parentNode.parentNode && (parentNode = parentNode.parentNode), parentNode && parentNode.nodeType === Node.ELEMENT_NODE && (detectedContainers.includes(parentNode) || detectedContainers.push(parentNode));
+          }
         }
         return NodeFilter.FILTER_ACCEPT;
       }, walk = document.createTreeWalker(
@@ -11164,7 +11191,7 @@ ${injectedCss}}
               ctx,
               currentVariableIndex
             ).currentVariableIndex, NodeFilter.FILTER_REJECT;
-          if (console.log("no inline", node2), inlineElementGroups.length > 0) {
+          if (inlineElementGroups.length > 0) {
             let paragraph = elementsToParagraph(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
@@ -15127,7 +15154,7 @@ ${injectedCss}}
       return {
         ...payload
       };
-    let { config, translationService } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
+    let { config, translationService, state } = ctx, generalConfig = config.translationGeneralConfig, services = config.translationServices, defaultTranslationEngine = translationService, serviceConfig = services[defaultTranslationEngine] || {};
     defaultTranslationEngine === "openai" && (payload.sentences = payload.sentences.map((sentence) => ({
       ...sentence,
       from: "auto"
@@ -15135,7 +15162,7 @@ ${injectedCss}}
     let noCacheSentences = [], finalResult = {
       sentences: Array(payload.sentences.length)
     }, sourceLength = payload.sentences.length, sentenceIndex = -1;
-    if (config.cache)
+    if (state.cache)
       for (let sentence of payload.sentences) {
         sentenceIndex++;
         let cacheServiceKey = defaultTranslationEngine;
@@ -15189,9 +15216,9 @@ ${injectedCss}}
       },
       serviceConfig,
       (err, a5, b4) => {
-        if (everySentenceCallback && (everySentenceCallback(err, a5, b4), !err && a5 && !defaultTranslationEngine.startsWith("mock") && config.cache)) {
+        if (everySentenceCallback && everySentenceCallback(err, a5, b4), !err && a5 && !defaultTranslationEngine.startsWith("mock") && state.cache) {
           let cacheServiceKey = defaultTranslationEngine;
-          defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), config.cache && deadline(
+          defaultTranslationEngine === "openl" && (cacheServiceKey = defaultTranslationEngine + "-" + serviceConfig.codename || openl_default.DEFAULT_CODENAME), state.cache && deadline(
             setDbStore({
               translatedText: a5.text,
               from: b4.from,
@@ -15364,6 +15391,7 @@ ${injectedCss}}
         translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
+        cache: config.cache,
         translationTheme: defaultTheme
       }, state) : {
         translationArea: config.translationArea,
@@ -15373,6 +15401,7 @@ ${injectedCss}}
         translationDebounce: 300,
         isNeedClean: !1,
         isDetectParagraphLanguage,
+        cache: config.cache,
         translationTheme: defaultTheme
       },
       localConfig: localConfig2
@@ -16075,16 +16104,22 @@ ${injectedCss}}
     });
     let lang = ctx.sourceLanguage;
     if (lang === "auto") {
-      if (!isMonkey())
-        isInIframe ? lang = await detectLanguage({
-          text: getMainText(ctx.mainFrame).slice(0, 1e3)
-        }) : lang = await detectTabLanguage();
-      else {
+      if (isMonkey()) {
         let mainText = "";
         ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
           text: mainText
         });
-      }
+      } else if (isInIframe)
+        lang = await detectLanguage({
+          text: getMainText(ctx.mainFrame).slice(0, 1e3)
+        });
+      else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
+        let mainText = "";
+        mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
+          text: mainText
+        });
+      } else
+        lang = await detectTabLanguage();
       lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
     } else
       setCurrentPageLanguageByClient(lang);
@@ -16305,8 +16340,11 @@ ${injectedCss}}
           }
       }
     ), document.addEventListener("click", (e) => {
-      let action = e.target.getAttribute("data-immersive-translate-action");
-      action && action === "retry" && retryFailedParagraphs();
+      let target = e.target;
+      if (!target || !target.getAttribute)
+        return;
+      let action = target.getAttribute("data-immersive-translate-action");
+      action && action === "retry" && (e.preventDefault(), typeof e.stopPropagation == "function" && e.stopPropagation(), retryFailedParagraphs());
     }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e) => {
       e.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
     }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
@@ -18220,7 +18258,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.3.9",
+    version: "0.3.10",
     default_locale: "en",
     background: {
       service_worker: "background.js"

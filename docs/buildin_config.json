@@ -192,6 +192,7 @@
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
     "containerMinTextCount": 18,
+    "containerMinWordCount": 3,
     "lineBreakMaxTextCount": 0,
     "globalAttributes": {},
     "globalMeta": {},
@@ -243,7 +244,11 @@
       "rt",
       "[spellcheck=false]",
       ".prism-code",
-      "[role=code]"
+      "[role=code]",
+      "#omni-extension",
+      ".omni-item",
+      "[data-paste-markdown-skip]",
+      "table.highlight"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -444,7 +449,10 @@
       }
     },
     {
-      "matches": "*://*/*.txt",
+      "matches": [
+        "*://*/*.txt",
+        "file://*/*.txt"
+      ],
       "selectors": [
         "body"
       ],
@@ -966,15 +974,13 @@
     },
     {
       "matches": "outlook.live.com",
-      "normalizeBody": "#ReadingPaneContainerId",
-      "detectParagraphLanguage": true,
-      "atomicBlockSelectors": [
-        "div p:has(span)"
-      ],
       "excludeSelectors": [
         ".jHAG3.XG5Jd",
         ".OZZZK",
         ".lDdSm"
+      ],
+      "selectors": [
+        "[role=region]"
       ]
     },
     {
@@ -1251,6 +1257,7 @@
         "notion.site",
         "www.notion.so"
       ],
+      "normalizeBody": "body",
       "selectors": [
         "div[data-block-id]"
       ]
@@ -1989,6 +1996,18 @@
       "urlChangeDelay": 1500
     },
     {
+      "matches": "https://pkg.go.dev/std",
+      "selectors": [
+        "td.UnitDirectories-desktopSynopsis"
+      ]
+    },
+    {
+      "matches": "https://pkg.go.dev/*",
+      "selectors": [
+        "div.UnitDetails p"
+      ]
+    },
+    {
       "isEbook": true,
       "isTranslateTitle": false,
       "urlChangeDelay": 200,
@@ -2045,8 +2064,14 @@
         ".chat-messages p",
         ".text-sm"
       ]
+    },
+    {
+      "matches": [
+        "www.wsj.com"
+      ],
+      "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-14T15:58:23.747Z",
-  "latestVersion": "0.3.7"
+  "buildinConfigUpdatedAt": "2023-03-19T15:41:44.832Z",
+  "latestVersion": "0.3.10"
 }

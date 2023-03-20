@@ -604,7 +604,7 @@
       "additionalSelectors": [
         ".puppeteer_test_question_title",
         ".puppeteer_test_answer_content",
-        ".q-text"
+        "p.q-text"
       ],
       "globalStyles": {
         ".qu-truncateLines--3": "-webkit-line-clamp: unset;"
@@ -2072,6 +2072,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-19T15:41:44.832Z",
+  "buildinConfigUpdatedAt": "2023-03-20T16:30:56.463Z",
   "latestVersion": "0.3.10"
 }

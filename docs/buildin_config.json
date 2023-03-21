@@ -247,7 +247,7 @@
       "[role=code]",
       "#omni-extension",
       ".omni-item",
-      "[data-paste-markdown-skip]",
+      "div[data-paste-markdown-skip]",
       "table.highlight"
     ],
     "translationClasses": [],
@@ -2076,6 +2076,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-20T21:51:20.900Z",
+  "buildinConfigUpdatedAt": "2023-03-21T14:26:52.721Z",
   "latestVersion": "0.3.10"
 }

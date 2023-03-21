@@ -1,5 +1,14 @@
 # 沉浸式双语网页翻译扩展
 
+<video
+autoPlay
+loop
+muted
+plays-inline
+width="1200px"
+poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png"><source src="https://immersive-translate.owenyoung.com/assets/immersive-translate-intro-demo.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+</video>
+
 ## 主要特性
 
 - 智能识别网页主内容区进行翻译，与同类插件翻译整个网页不同，降低对原网页的“侵入性”，提升阅读体验，因此得名“沉浸式翻译”。

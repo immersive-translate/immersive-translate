@@ -3,7 +3,7 @@
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object type="image/svg+xml" data="./assets/sponsorkit/sponsors.svg"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<object style="max-width: 100%;" type="image/svg+xml" data="./assets/sponsorkit/sponsors.svg"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
 <img alt="sponsors" src="./assets/sponsorkit/sponsors.svg"></a></object>
 </p>
 

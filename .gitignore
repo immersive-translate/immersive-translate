@@ -1,6 +1,8 @@
 # Logs
 logs
 book/
+scripts/sponsorkit/dist
+.cache.json
 *.log
 /index.html
 npm-debug.log*

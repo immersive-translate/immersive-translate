@@ -2,76 +2,8 @@
 
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
-- feeneyko
-- hafei
-- Burgess
-- FAUST0
-- dob
-- 爱发电用户\_RmwC
-- ikun
-- Aimer
-- Shaun
-- 爱发电用户\_uYPC
-- 乔森
-- Secluded
-- 爱发电用户\_qmQ5
-- 爱发电用户\_AVaq
-- 爱发电用户\_UpEw
-- qingliangx
-- 爱发电用户\_GaJQ
-- sana
-- 爱发电用户\_h56N
-- yorks0n
-- coyoteshkw
-- 爱发电用户\_rbpe
-- hjl5691
-- dddd1007
-- eliaszon
-- GuoJing
-- d0zingcat
-- VcFe
-- CyberBacchus
-- ChasLui
-- 张超
-- yetone
-- laosh1
-- moonlune
-- halcatt
-- taolx0
-- TraWada
-- geekdada
-- ObjectiveCharm
-- FLY_Q
-- Timothy Yip
-- tianheg
-- Ovler-Young
-- Hccake
-- janzen0816
-- kinxuchen
-- OoguroxRyuuya
-- Augus2008
-- Taction
-- HaveF
-- edr1412
-- KaPen-z
-- kewell2000
-- chzzfly
-- Nickilism
-- scturtle
-- XHXIAIEIN
-- weiwei950326
-- lovedebug
-- tshu-w
-- question2u
-- lbq81624
-- DemoChen
-- sailfish
-- pink
-- Chen Zi
-- yuranruo
-- Wing CHAN
-- Sebastiano Poggi
-- 扶苏
-- Ömer Faruk Aplak
+<p align="center">
+    <img src="./assets/sponsorkit/sponsors.svg"/>
+</p>
 
 此页面可能更新不及时，具体可在 [Github Sponsors](https://github.com/sponsors/theowenyoung/) 和 [爱发电主页](https://afdian.net/a/translate?tab=sponsor) 里查看，谢谢！

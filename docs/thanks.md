@@ -7,4 +7,6 @@
 <img alt="sponsors" src="./assets/sponsorkit/sponsors.svg"></a></object>
 </p>
 
-此页面可能更新不及时，具体可在 [Github Sponsors](https://github.com/sponsors/theowenyoung/) 和 [爱发电主页](https://afdian.net/a/translate?tab=sponsor) 里查看，谢谢！
+> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
+>
+> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！

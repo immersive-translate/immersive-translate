@@ -162,6 +162,19 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
 
+## 赞助者们
+
+非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg"></a></object>
+</p>
+
+> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
+>
+> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=immersive-translate/immersive-translate&type=Date)](https://star-history.com/#immersive-translate/immersive-translate&Date)

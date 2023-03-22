@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:55.176Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:32.652Z", VERSION: "0.3.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7007,7 +7007,7 @@ __export(zip_no_worker_exports, {
   terminateWorkers: () => Ss
 });
 
-// https://esm.sh/v111/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
+// https://esm.sh/v112/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
 function kt(t) {
   return vt(t.map(([n, e]) => new Array(n).fill(e, 0, n)));
 }
@@ -9535,7 +9535,7 @@ function j(...t) {
 }
 or({ Deflate: Zi, Inflate: ar });
 
-// https://esm.sh/v111/fflate@0.7.4/deno/fflate.js
+// https://esm.sh/v112/fflate@0.7.4/deno/fflate.mjs
 var vn2 = {}, Jn2 = function(n, r, t, e, i) {
   var a = new Worker(vn2[r] || (vn2[r] = URL.createObjectURL(new Blob([n + ';addEventListener("error",function(e){e=e.error;postMessage({$e$:[e.message,e.code,e.stack]})})'], { type: "text/javascript" }))));
   return a.onmessage = function(o) {
@@ -10860,7 +10860,7 @@ var zh_CN_default = {
   advanced: "\u8FDB\u9636\u8BBE\u7F6E",
   advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
-  donateCafe: "\u8BF7\u5F00\u53D1\u8005\u559D\u676F\u5496\u5561",
+  donateCafe: "\u4EF7\u683C",
   "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u95EE\u9898\u53CD\u9988",
   toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
@@ -11132,7 +11132,7 @@ var zh_TW_default = {
   advanced: "\u9032\u968E\u8A2D\u5B9A",
   advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
-  donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
+  donateCafe: "\u50F9\u683C",
   "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u554F\u984C\u56DE\u5831",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
@@ -11403,7 +11403,7 @@ var en_default = {
   advanced: "Advanced",
   advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
   developer: "Developer settings",
-  donateCafe: "Buy Me a Coffee",
+  donateCafe: "Pricing",
   "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
   feedback: "Feedback",
   toggleTranslatePage: "Toggle Translate",
@@ -11747,7 +11747,7 @@ var openlProps = [
         labelKey: "field.maxTextLengthPerRequest",
         descriptionKey: "description.maxTextLengthPerRequest",
         type: "number",
-        default: 1300
+        default: 1200
       },
       {
         name: "apiUrl",
@@ -11762,7 +11762,7 @@ var openlProps = [
         required: !1,
         descriptionKey: "description.prompt",
         type: "textarea",
-        default: "Translate the following text to {{to}}: ```\n{{text}}\n```"
+        default: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```"
       }
     ]
   },

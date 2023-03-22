@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.11
+
+- Fix: ebook reader dark mode text color
+- Fix: openAI prompt
+
 ## 0.3.10
 
 - Better: detect Japanese/Korean container.

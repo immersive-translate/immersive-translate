@@ -45,7 +45,7 @@ export function genSvgImage(
     const bgColor = getRandomColor();
     const textColor = "#ffffff";
     // to upper case
-    const firstLetter = name?.slice(0, 1).toUpperCase();
+    const firstLetter = name?.slice(0, 2).toUpperCase();
 
     // draw a circle avatar
     if (name) {

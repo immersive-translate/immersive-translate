@@ -160,15 +160,9 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 <img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2012"></a></object>
 </p>
 
-> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
+> 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，以上信息会由程序每天自动更新。
 >
-> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
-
-## 贡献者们
-
-<p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
-</p>
+> 通过其他方式（比如扫微信/支付宝二维码/加密货币），我会手工录入信息，但是可能不那么及时，谢谢理解！同时你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加速我的进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
 
 附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
 
@@ -180,6 +174,14 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 如果你具备代码开发能力，可以直接参与这个扩展的开发，请加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解详情。
 
 > Psssss. 我在开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/) 时投入了比预期更多的时间和精力，你的支持对我非常重要，感谢你的支持！
+
+## 贡献者们
+
+非常感谢这些贡献者，没有他们就不会有这个扩展！
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
+</p>
 
 ## Star History
 

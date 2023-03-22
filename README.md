@@ -143,9 +143,32 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
-<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/wna.jpg" width="400" alt="wechat and alipay"></div>
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
 您还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung) 进行赞助。
+
+## 成为品牌赞助商
+
+沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
+
+## 赞助者们
+
+非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2023"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2012"></a></object>
+</p>
+
+> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
+>
+> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+
+## 贡献者们
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
+</p>
 
 附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
 
@@ -157,23 +180,6 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 如果你具备代码开发能力，可以直接参与这个扩展的开发，请加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解详情。
 
 > Psssss. 我在开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/) 时投入了比预期更多的时间和精力，你的支持对我非常重要，感谢你的支持！
-
-## 成为品牌赞助商
-
-沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
-
-## 赞助者们
-
-非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
-
-<p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2022"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2012"></a></object>
-</p>
-
-> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
->
-> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
 
 ## Star History
 

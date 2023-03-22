@@ -143,20 +143,9 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
-<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/wna.jpg" width="400" alt="wechat and alipay"></div>
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
 您还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung) 进行赞助。
-
-附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
-
-- 在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)、[Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN)、[Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 和 [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里为该扩展评价。
-- 给这个 [GitHub 项目](https://github.com/immersive-translate/immersive-translate/) 点个 Star。
-- 协助 [完善文档](https://immersive-translate.owenyoung.com/)，点击右上角编辑按钮即可。
-- 帮助 [翻译](https://crowdin.com/project/immersive-translate) 该扩展的界面语言。
-- 在 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 和 [GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues) 里回答用户的问题。
-- 如果你具备代码开发能力，可以直接参与这个扩展的开发，请加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解详情。
-
-> Psssss. 我在开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/) 时投入了比预期更多的时间和精力，你的支持对我非常重要，感谢你的支持！
 
 ## 成为品牌赞助商
 
@@ -180,6 +169,17 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 <p align="center">
 <object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
 </p>
+
+附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
+
+- 在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)、[Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN)、[Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 和 [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里为该扩展评价。
+- 给这个 [GitHub 项目](https://github.com/immersive-translate/immersive-translate/) 点个 Star。
+- 协助 [完善文档](https://immersive-translate.owenyoung.com/)，点击右上角编辑按钮即可。
+- 帮助 [翻译](https://crowdin.com/project/immersive-translate) 该扩展的界面语言。
+- 在 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 和 [GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues) 里回答用户的问题。
+- 如果你具备代码开发能力，可以直接参与这个扩展的开发，请加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 的开发频道了解详情。
+
+> Psssss. 我在开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/) 时投入了比预期更多的时间和精力，你的支持对我非常重要，感谢你的支持！
 
 ## Star History
 

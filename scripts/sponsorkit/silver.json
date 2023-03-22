@@ -1,0 +1,49 @@
+[
+  {
+    "sponsor": {
+      "type": "Organization",
+      "name": "ApiFox",
+      "login": "apifox",
+      "description": "API 设计、开发、测试一体化协作平台",
+      "avatarUrl": "https://cdn.apifox.cn/logo/apifox-logo-128.png",
+      "linkUrl": "https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"
+    },
+    "monthlyDollars": 50,
+    "privacyLevel": "PUBLIC",
+    "createdAt": "2023-02-16",
+    "expiresAt": "2024-02-16",
+    "provider": "custom"
+  },
+
+  {
+    "sponsor": {
+      "type": "User",
+      "name": "发明者量化-张超",
+      "login": "fmz.com",
+      "description": "交易策略开发、量化学习资源、策略出租出售、在线交流社区",
+      "avatarUrl": "https://www.fmz.com/images/badge.svg",
+      "linkUrl": "https://www.fmz.com/"
+    },
+    "monthlyDollars": 50,
+    "privacyLevel": "PUBLIC",
+    "createdAt": "2023-02-26",
+    "expiresAt": "2024-02-26",
+    "provider": "custom"
+  },
+
+  {
+    "sponsor": {
+      "type": "User",
+      "name": "产品沉思录",
+      "description": "一个关于产品的知识库，也是一个 Newsletter （邮件组），始于 2017 年",
+      "login": "pmthinking",
+      "avatarUrl": "https://static.xiaobot.net/paper/2022-12-31/5/82c8c49f1004d4c44fd6e1edc62a707a.png",
+      "linkUrl": "https://xiaobot.net/p/pmthinking2023?refer=bd3e6e4e-70c4-48e6-a6a5-21fdc75184d5"
+    },
+    "monthlyDollars": 50,
+    "privacyLevel": "PUBLIC",
+    "createdAt": "2023-03-20",
+    "expiresAt": "2023-04-20",
+    "provider": "custom"
+  }
+]

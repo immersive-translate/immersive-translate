@@ -1,0 +1,78 @@
+{
+  "name": "sponsorkit",
+  "version": "0.8.3",
+  "packageManager": "pnpm@7.29.1",
+  "description": "Toolkit for generating sponsors images",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/antfu",
+  "homepage": "https://github.com/antfu/sponsorkit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antfu/sponsorkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antfu/sponsorkit/issues"
+  },
+  "keywords": [
+    "sponsors",
+    "github-sponsors"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "sponsorkit": "./bin/sponsorkit.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "dev": "esno src/cli.ts",
+    "start": "esno src/start.ts",
+    "contributors": "esno src/contributors.ts",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && pnpm publish"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.0",
+    "image-data-uri": "^2.0.1",
+    "node-html-parser": "^6.1.5",
+    "ofetch": "^1.0.1",
+    "picocolors": "^1.0.0",
+    "sharp": "^0.31.3",
+    "unconfig": "^0.3.7",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.36.0",
+    "@antfu/ni": "^0.20.0",
+    "@antfu/utils": "^0.7.2",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^18.15.0",
+    "@types/sharp": "^0.31.1",
+    "@types/yargs": "^17.0.22",
+    "bumpp": "^9.0.0",
+    "eslint": "^8.35.0",
+    "esno": "^0.16.3",
+    "jiti": "^1.17.2",
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.2",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.2"
+  }
+}

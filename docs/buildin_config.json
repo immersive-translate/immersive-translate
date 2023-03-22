@@ -81,6 +81,8 @@
       ],
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
+      "maxTextGroupLengthPerRequest": 25,
+      "prompt": "If the text contains ###, don't change it, do not explain, translate the following text to {{to}}: ```\n{{text}}\n```",
       "newlinePlaceholderDelimiters": [
         "\n\n###",
         "###\n\n",
@@ -2076,6 +2078,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-21T14:26:52.721Z",
+  "buildinConfigUpdatedAt": "2023-03-22T15:55:49.069Z",
   "latestVersion": "0.3.10"
 }

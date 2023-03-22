@@ -1,44 +1,24 @@
-# 捐赠支持
+# 价格 / Pricing
 
-感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks), 由于他/她们的支持，更多的人可以免费使用这个工具。你也可以关注我的 [推特](https://twitter.com/OwenYoungZh) 或 [Telegram 频道](https://t.me/owenyoungzh) 获取最新更新,还可以加入 [Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论或者加入该扩展的 [Telegram 频道](https://t.me/immersivetranslate) 接收最新更新。如果你在赞助方面遇到任何问题，请通过 [这里](https://www.owenyoung.com/contact/) 提供的联系方式联系我。
+**所有沉浸式翻译的用户都可以完全免费地使用这个扩展，这得益于这些[赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，而这个价格页面是为了强调这件事～**
 
-## 微信，支付宝
+我和其他贡献者花费了巨大的精力不断的更新这个扩展，所以，如果有余力，请考虑成为一名赞助者：
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
-你也可以通过我的[爱发电主页](https://afdian.net/a/translate) 进行月度/一次性赞助，支持微信，支付宝。
+你还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
 
-## Github Sponsor
+## 赞助方案
 
-我也开通了 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring), 点击 [这里](https://github.com/sponsors/theowenyoung?frequency=recurring) 可以进行月度或一次性赞助，$1 起即可小额支持，支持 Paypal，以及 Stripe 支付（貌似 Stripe 需要外币信用卡，比如 Visa/万事达）
+我觉得免费工具可以和各位亲爱的赞助者们建立一种更加良性的关系，所以我想出了以下赞助方案，这些赞助方案能让我为你做点什么（当然，如果你对下面的方案不感兴趣，你还是可以按照你的意愿随意金额赞助哦 🙏）：
 
-> 插播一条月度赞助者福利: 在我的[Github Sponsor 主页](https://github.com/sponsors/theowenyoung) 或 [爱发电主页（微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，可在赞助期间无限量使用[DeepL Pro 翻译服务](https://immersive-translate.owenyoung.com/services/deepL#%E9%80%9A%E8%BF%87%E8%B5%9E%E5%8A%A9%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%89%A9%E5%B1%95%E8%8E%B7%E5%BE%97%E6%97%A0%E5%AD%97%E7%AC%A6%E6%95%B0%E9%99%90%E5%88%B6%E7%9A%84-deepl-auth-key)。如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
+| $5                                                                                                                                                                                                                                                                                                                                                                                                     | $10/月                                                                                                                                                                                                                                                                                                                                                                                          | $50/月                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ 加入 Sponsor 群组<br>✅ 问题的优先解决<br>✅ 名字和头像在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=221762)<br>👉 通过[爱发电](https://afdian.net/order/create?plan_id=47d61798a7c311ed985652540025c377&product_type=0)(微信/支付宝) | ✅ 包含以上所有<br>✅ 不限字符数使用 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)<br>✅ 查看沉浸式翻译源代码<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=221765&preview=false)<br>👉 通过[爱发电](https://afdian.net/order/create?plan_id=cd916d78b44411edac0e5254001e7c00&product_type=0)（微信/支付宝) | ✅ 包含以上所有<br>✅ 在[主页](https://immersive-translate.owenyoung.com/)显眼处展示你的品牌<br>✅ 一对一邮件/聊天支持<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955&preview=false)加入<br>👉 [联系我](https://www.owenyoung.com/contact/)进一步了解 |
 
-## Patreon
+> 也可以通过扫上面的微信/支付宝二维码或者[加密货币](https://www.owenyoung.com/contact/)等进行赞助！（注意：上面的价格为美元，如果选择国内的平台赞助的话，$5 => 35 人民币, $10 => 69 人民币，$50 => 345 人民币），如果通过微信/支付宝/加密货币赞助的话，需要在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！
 
-你也可以选择 [Patreon 平台](https://www.patreon.com/theowenyoung) 进行赞助，$1 起即可小额支持，同样支持 Paypal，以及信用卡。
-
-## 品牌赞助
-
-沉浸式翻译目前正处于高速发展阶段，每天都有成千上万的用户访问该扩展的主页，如果你有想宣传或者推广的产品，可以 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式，可以在主页显眼位置放置你的产品，你的品牌赞助会为这个扩展的持续维护提供巨大的帮助，非常感谢你的支持！ （目前每月 [$50 刀](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263194) 即可成为品牌赞助商）
-
-## 加密货币一次性赞助
-
-### 1. USDT 或 USDC 或 ETH (ERC20): `0xA9e3dE8C304D907F92E6C73E21D07Cd3f2f2D708`
-
-<details>
-<summary>点击展开二维码</summary>
-<img src="https://immersive-translate.owenyoung.com/usdt-erc20-immersive-translate-400.jpg" alt="qrcode"></img>
-</details>
-
-### 2. USDT 或 USDC (TRC20): `TRWaYy8Z3Gnydm1mpKetX7ahwCbFqRszv6`
-
-<details>
-<summary>点击展开二维码</summary>
-<img src="https://immersive-translate.owenyoung.com/usdt-trc20-immersive-translate-400.jpg" alt="qrcode"></img>
-</details>
-
-## 说明
+## 一个更长的说明
 
 我是 Owen，最近一直在努力开发沉浸式双语网页翻译扩展，所以近期最开心的事就是听到用户反馈说**因为这个扩展，Ta 真正爱上了阅读外语信息**。我自己在过去也得益于无数志愿者们开发的免费工具，从而收获了太多受益终生的知识，这使我更加坚信**平等**地获取信息是我们每个人最应拥有的权利。所以我创建了很多免费的双语工具来帮助人们更有效地获取互联网上[巨大的外语信息资源](https://www.owenyoung.com/sources/)（同时也期待我们有一天能脱离这些辅助工具）
 
@@ -48,7 +28,20 @@
 
 我还创建了一些其他的免费工具，你可以点击[这里](https://www.owenyoung.com/projects/)了解我所有的项目。
 
-时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你[**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
+时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你[**赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
+
+## 所有赞助者
+
+非常感谢以下用户的支持，由于他/她们的支持，更多的人才可以免费使用这个工具。
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=5c59ccf6b2a62addfb59427fd73a7d76b992ca60"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=5c59ccf6b2a62addfb59427fd73a7d76b992ca60"></a></object>
+</p>
+
+> 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，以上信息会由程序每天自动更新。
+>
+> 通过其他方式（比如扫微信/支付宝二维码/加密货币），我会手工录入信息，但是可能不那么及时，谢谢理解！同时你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加速我的进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
 
 Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过来的！），不过你也可以帮助我完成一些力所能及的任务：
 

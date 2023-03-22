@@ -6,3 +6,4 @@ src = "docs"
 [output.html]
 git-repository-url = "https://github.com/immersive-translate/next-immersive-translate/"
 edit-url-template = "https://github.com/immersive-translate/next-immersive-translate/edit/main/{path}"
+additional-css = ["custom.css"]

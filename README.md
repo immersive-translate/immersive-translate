@@ -62,6 +62,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [在线文档](https://immersive-translate.owenyoung.com/)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
+- [价格 / Pricing](https://immersive-translate.owenyoung.com/donate)
 
 ## 保持联系
 
@@ -81,21 +82,21 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 ### Edge 浏览器
 
-已上架 [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)，[点击这里](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg) 安装
+[点击这里](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg) 安装
 
 ### 类 Chrome 浏览器
 
-已上架 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [点击这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装
+[点击这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装
 
 ### Firefox
 
-已上架 [Firefox Addon 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)，[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
+[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
 
 ### 油猴脚本地址
 
 油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js> ， 在已安装油猴扩展的浏览器中打开该地址，即可安装。
 
-## 苹果 iOS/macOS 系统
+## 苹果 iOS/macOS 系统 Safari 浏览器
 
 使用 Safari 浏览器，桌面版和移动版都支持，需配合油猴插件安装，以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例:
 
@@ -111,7 +112,8 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox Beta 浏览器中打开该链接即可看到安装页面）
+3. 在 Firefox 浏览器中打开[该链接](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
+   即可看到安装页面。
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
 ### 其他浏览器

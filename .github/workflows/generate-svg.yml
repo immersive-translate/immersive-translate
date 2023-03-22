@@ -29,11 +29,12 @@ jobs:
       - run: make contributor
         env:
           SPONSORKIT_GITHUB_CONTRIBUTOR_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_CONTRIBUTOR_TOKEN }}
+      - run: make svghash
       - name: Commit
         uses: EndBug/add-and-commit@v4
         with:
           message: "chore: update sponsors.svg contributor.svg"
-          add: "docs/assets"
+          add: "docs README.md"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup mdBook

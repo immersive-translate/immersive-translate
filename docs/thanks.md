@@ -7,6 +7,14 @@
 <img alt="sponsors" src="./assets/sponsorkit/sponsors.svg?v=2012"></a></object>
 </p>
 
-> 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
+> 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，以上信息会由程序每天自动更新。
 >
-> 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+> 通过其他方式（比如扫微信/支付宝二维码/加密货币），我会手工录入信息，但是可能不那么及时，谢谢理解！同时你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加速我的进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+
+## 贡献者们
+
+非常感谢这些贡献者，没有他们就不会有这个扩展！
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=8fc025cad14d6ef2ee95c5bb2426837c6ff945a1"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=8fc025cad14d6ef2ee95c5bb2426837c6ff945a1"></object>
+</p>

@@ -1,8 +1,12 @@
 import type { BadgePreset, Sponsor, Sponsorship } from "./types";
+import { createHash } from "node:crypto";
 import type { SponsorkitConfig } from ".";
 
-export function getRandomColor() {
-  const colros = [
+export function getRandomColor(name: string) {
+  const nameMd5 = md5(name);
+  const nameMd5Int = parseInt(nameMd5, 16);
+
+  const colors = [
     "#1abc9c",
     "#16a085",
     "#f1c40f",
@@ -30,7 +34,11 @@ export function getRandomColor() {
     "#b49255",
     "#a94136",
   ];
-  return colros[Math.floor(Math.random() * colros.length)];
+
+  // get colors by name
+  const colorIndex = nameMd5Int % colors.length;
+  return colors[colorIndex];
+  // return colros[Math.floor(Math.random() * colros.length)];
 }
 export function genSvgImage(
   x: number,
@@ -42,7 +50,7 @@ export function genSvgImage(
 ) {
   if (!url && name) {
     // generate text avatar
-    const bgColor = getRandomColor();
+    const bgColor = getRandomColor(name);
     const textColor = "#ffffff";
     // to upper case
     const firstLetter = name?.slice(0, 2).toUpperCase();
@@ -218,4 +226,9 @@ function encodeHtmlEntities(str: string) {
     />/g,
     "&gt;",
   ).replace(/"/g, "&quot;");
+}
+function md5(text: string) {
+  return createHash("md5").update(
+    text,
+  ).digest("hex");
 }

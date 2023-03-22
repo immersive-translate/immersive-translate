@@ -19,6 +19,10 @@ sponsor:
 contributor:
 	cd scripts/sponsorkit && npm run contributors
 
+.PHONY: svghash
+svghash:
+	node scripts/add-svg-version.mjs
+
 # .Phony: contributor
 # contributor:
 # 	npx github-contributors-list --owner immersive-translate --repo next-translator --cols 6 --authToken $(PERSONAL_GITHUB_TOKEN) --filter "github-actions[bot]"

@@ -167,13 +167,19 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2022"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2023"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
 <img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=2012"></a></object>
 </p>
 
 > 说明： 如果通过我的 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的话，以上信息会由程序每天自动自动更新。
 >
 > 如果你通过其他方式（比如扫微信/支付宝二维码），我会手工录入信息，但是可能不那么及时,谢谢理解！当然你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加快进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+
+## 贡献者们
+
+<p align="center">
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
+</p>
 
 ## Star History
 

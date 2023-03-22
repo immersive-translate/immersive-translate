@@ -11,7 +11,7 @@ import silverSponsors from "../silver.json" assert { type: "json" };
 export const defaultTiers: Tier[] = [
   {
     title: "Contributors",
-    monthlyDollars: 1024,
+    monthlyDollars: 1,
     preset: {
       avatar: {
         size: 50,
@@ -26,6 +26,10 @@ export const defaultTiers: Tier[] = [
       },
     },
   },
+  {
+    title: "Backers",
+    preset: presets.base,
+  },
 ];
 async function main() {
   const outputDir = "../../docs/assets/contributors";
@@ -35,16 +39,18 @@ async function main() {
     customComposer: defaultComposer,
     tiers: defaultTiers,
     includePastSponsors: true,
+    name: "contributors",
     providers: [
       "githubContributor",
     ],
     githubContributor: {
       repos: [
         "immersive-translate/immersive-translate",
+        "immersive-translate/next-translator",
       ],
       token: process.env.SPONSORKIT_GITHUB_CONTRIBUTOR_TOKEN,
     },
-    // force: true,
+    force: true,
   });
 
   // write

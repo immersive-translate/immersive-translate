@@ -6,7 +6,7 @@ import fs from "node:fs/promises";
 // afdian api docs https://afdian.net/p/9c65d9cc617011ed81c352540025c377
 
 export const GithubContributorProvider: Provider = {
-  name: "afdian",
+  name: "githubContributor",
   fetchSponsors(config) {
     return fetchGithubContributors(
       config.githubContributor?.token,
@@ -26,7 +26,43 @@ export async function fetchGithubContributors(
   // return [];
 
   const sponsors: any[] = [];
-  const sponsorshipApi = "https://afdian.net/api/open/query-sponsor";
+  const sponsorMap: Record<string, boolean> = {};
+  for (const repo of repos) {
+    const sponsorshipApi = `https://api.github.com/repos/${repo}/contributors`;
 
-  return [];
+    const response = await $fetch(sponsorshipApi, {
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": "Bearer " + token,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    });
+
+    for (const contributor of response) {
+      const { login, contributions } = contributor;
+      if (sponsorMap[login]) {
+        continue;
+      }
+      if (login === "github-actions[bot]") {
+        continue;
+      }
+      if (contributions < 3) {
+        continue;
+      }
+      sponsorMap[login] = true;
+      sponsors.push({
+        sponsor: {
+          type: "User",
+          login,
+          name: login,
+          avatarUrl: contributor.avatar_url,
+          linkUrl: contributor.html_url,
+        },
+        monthlyDollars: contributions,
+        privacyLevel: "PUBLIC",
+      });
+    }
+  }
+
+  return sponsors;
 }

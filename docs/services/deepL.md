@@ -3,9 +3,9 @@
 ## 通过 DeepL 官方注册 DeepL API 账户 获得 DeepL Auth Key
 
 1. 官方介绍：[DeepL API Pro](https://www.deepl.com/zh/pro/select-country#developer)
-2. 注册账号和开通 DeepL API，需要你有一张在 DeepL 支持的国家或地区发行的 VISA 或 MASTER 信用卡，目前并不支持国内发行的任何信用卡，包括双币卡和外币卡。如果没有那就注册不了。
+2. 注册账号和开通 DeepL API，需要你有一张在 DeepL 支持的国家或地区发行的 VISA 或 MASTER 信用卡，目前并不支持国内发行的任何信用卡（包括双币卡和外币卡），所以如果没有的话，目前就注册不了。
 3. DeepL API Free 的账号，每月提供 50 万免费字符的翻译额度。
-4. DeepL API Pro 的官方费用是：每 100 万字符 $25 刀。
+4. DeepL API Pro 的官方费用是：每 100 万字符 $25 刀, 一个高频使用的用户，一个月正常用量大约是 1000 万字符， 所以价格大约是：$250
 
 ## 通过赞助沉浸式扩展获得无字符数限制的 DeepL Auth Key
 
@@ -18,10 +18,11 @@
 > 说明：
 >
 > 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用
-> 2. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
+> 2. Auth Key 可以在多台设备使用，但同时只能在一台设备使用。
 > 3. 赞助后，你将会在邮件收到 DeepL Auth Key，在沉浸式翻译扩展的设置页面选择翻译服务【DeepL】，然后填入该 Auth Key 即可。
 > 4. 该 Auth Key 的有效性与赞助期限保持同步。
-> 5. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
+> 5. 使用时请遵循 DeepL 官方的合理使用政策，避免滥用资源。
+> 6. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
 
 如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
 
@@ -35,13 +36,13 @@
 
 沉浸式翻譯的 DeepL 服務也支持繁體中文哦！ （由於 DeepL 官方不支持繁體中文，導致很多繁體的朋友們無法使用 DeepL 的優質翻譯服務，為了解決這部分繁體中文朋友的困擾，沉浸式翻譯擴展會將 DeepL 的簡體中文再轉為繁體中文。
 
-## 自建DeepL API
+## 自建 DeepL API
 
 1. 开发者设置中开启 Beta 测试特性
-2. 基本设置中找到DeepLX(Beta)，输入自建DeepL API URL，如http://your-url/translate
+2. 基本设置中找到 DeepLX(Beta)，输入自建 DeepL API URL，如 http://your-url/translate
 
 > Q：如何自建？  
-> A：[OwO-Network/DeepLX](https://github.com/OwO-Network/DeepLX#setup-on-immersive-translate)或是[zu1k/deepl](https://github.com/KyleChoy/zotero-pdf-translate/blob/CustomDeepL/README.md) (注：自建API并发量受限，可能会出现错误)
+> A：[OwO-Network/DeepLX](https://github.com/OwO-Network/DeepLX#setup-on-immersive-translate)或是[zu1k/deepl](https://github.com/KyleChoy/zotero-pdf-translate/blob/CustomDeepL/README.md) (注：自建 API 并发量受限，可能会出现错误)
 
 ## 常见问题
 

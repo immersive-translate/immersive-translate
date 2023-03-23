@@ -1,22 +1,26 @@
 # 价格 / Pricing
 
-**所有沉浸式翻译的用户都可以完全免费地使用这个扩展，这完全得益于这些[赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，而这个价格页面是为了强调这件事～**
+**好吧，所有沉浸式翻译的用户都可以完全免费地使用这个扩展！这完全得益于这些[赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，而这个价格页面是为了说明这件事。**
 
-我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，所以，如果有余力，请考虑成为一名赞助者：
+> 我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，如果有余力，请考虑成为一名赞助者：
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
-你还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
+你还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页（微信/支付宝）](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
 
 ## 赞助方案
 
-我觉得免费工具可以和各位亲爱的赞助者们建立一种更加良性的关系，所以我想出了以下赞助方案，这些赞助方案能让我为你做点什么（当然，如果你对下面的方案不感兴趣，你还是可以按照你的意愿随意金额赞助哦 🙏）：
+我觉得免费工具可以和赞助者们建立一种更加良性的关系，所以我想出了以下赞助方案，这些赞助方案能让我为你做点什么（当然，如果你对以下的方案不感兴趣，你还是可以按照你的意愿随意赞助 🙏）
 
-| $5                                                                                                                                                                                                                                                                                                                                                                                                     | $10/月                                                                                                                                                                                                                                                                                                                                                                                          | $50/月                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ 加入 Sponsor 群组<br>✅ 问题的优先解决<br>✅ 名字和头像在[主页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=221762)<br>👉 通过[爱发电](https://afdian.net/order/create?plan_id=47d61798a7c311ed985652540025c377&product_type=0)(微信/支付宝) | ✅ 包含以上所有<br>✅ 不限字符数使用 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)<br>✅ 查看沉浸式翻译源代码<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=221765&preview=false)<br>👉 通过[爱发电](https://afdian.net/order/create?plan_id=cd916d78b44411edac0e5254001e7c00&product_type=0)（微信/支付宝) | ✅ 包含以上所有<br>✅ 在[主页](https://immersive-translate.owenyoung.com/)突出展示你的品牌<br>✅ 一对一邮件/聊天支持<br>👉 通过[Github Sponsor](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955&preview=false)加入<br>👉 [联系我](https://www.owenyoung.com/contact/)进一步了解 |
+| $5                                                                                                                                                      | $10/月                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ 加入 Sponsor 群组<br>✅ 问题的优先解决<br>✅ 名字和头像在[主页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示 | ✅ 包含以上所有<br>✅ 不限字符数使用 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)<br>✅ 查看沉浸式翻译源代码 |
 
-> 也可以通过扫上面的微信/支付宝二维码或者通过 [加密货币](https://www.owenyoung.com/contact/) 进行赞助！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（注意：上面的价格为美元，如果选择国内平台赞助的话，$5 ≈ 35 人民币, $10 ≈ 69 人民币，$50 ≈ 345 人民币）
+**现在就通过我的[爱发电主页](https://afdian.net/a/translate) (支持微信/支付宝) 或者 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)成为我的赞助者！**
+
+> Ps. 你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（注意：上面的价格为美元，如果选择国内平台赞助的话，$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
+
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
 ## 一个更长的说明
 
@@ -24,11 +28,11 @@
 
 在 <https://www.buzzing.cc/> 这个网站里我精选了英文世界里最有声誉的媒体（比如纽约时报，卫报，金融时报，彭博社，经济学人等），信息质量较高的论坛（比如 [HackerNews](https://news.ycombinator.com/)，[Reddit 精神食粮小组](https://depth.buzzing.cc/) 等），以及其他热门的社交媒体讨论。我使用 [Deepl](https://www.deepl.com/translator) 把这些信息的标题翻译成中文（同时也保留英文标题方便对照），最后提供了一个排版良好，没有登录，没有广告，没有废话的 [静态页面](https://www.buzzing.cc/)（支持无图模式，以减少分心），提供了一流的 RSS 支持。
 
-[沉浸式双语网页翻译扩展](https://immersive-translate.owenyoung.com/) 是我最近一直在持续努力开发的工具。这是一款基于浏览器的双语网页翻译扩展，提供了排版精美的双语网页翻译体验，能智能识别网页的主要内容区域，同时也针对一些主流网站比如推特，Reddit，Youtube 等做了定制优化。这款扩展支持几乎全平台的浏览器，允许用户选择数 10 个不同的翻译引擎，也支持开箱即用的 PDF 文件翻译。
+[沉浸式双语网页翻译扩展](https://immersive-translate.owenyoung.com/) 是我最近一直在持续努力开发的工具。这是一款基于浏览器的双语网页翻译扩展，提供了排版精美的双语网页翻译体验，能智能识别网页的主要内容区域，同时也针对一些主流网站比如推特，Reddit，Youtube 等做了定制优化。这款扩展支持几乎全平台的浏览器，允许用户选择数 10 个不同的翻译引擎，隐私友好，也支持开箱即用的 PDF 文件 / Epub 文件翻译，制作。
 
 我还创建了一些其他的免费工具，你可以点击 [这里](https://www.owenyoung.com/projects/) 了解我所有的项目。
 
-时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
+时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨地赞助。这种至关重要的支持意味着成千上万的人（目前已有 15 万用户）可以继续免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
 ## 所有赞助者
 

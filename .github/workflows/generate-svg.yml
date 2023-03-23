@@ -1,6 +1,7 @@
 name: Generate SVG
-
 on:
+  repository_dispatch:
+    types: [schedule]
   workflow_dispatch:
   schedule:
     - cron: '0 16 * * *'

@@ -2,7 +2,7 @@
 
 **所有沉浸式翻译的用户都可以完全免费地使用这个扩展，这完全得益于这些[赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，而这个价格页面是为了强调这件事～**
 
-我和其他贡献者花费了巨大的精力不断的更新这个扩展，所以，如果有余力，请考虑成为一名赞助者：
+我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，所以，如果有余力，请考虑成为一名赞助者：
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 

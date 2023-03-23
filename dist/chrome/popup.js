@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-19T10:39:53.676Z", VERSION: "0.3.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:22.786Z", VERSION: "0.3.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3780,7 +3780,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-// https://esm.sh/v111/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.js
+// https://esm.sh/v112/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
 var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 }, __export2 = (target, all) => {
@@ -3799,7 +3799,7 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
-  "esm-build-ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1-f220b894/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
+  "esm-build-webextension-polyfill-0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
     (function(global2, factory) {
       if (typeof define == "function" && define.amd)
         define("webextension-polyfill", ["module"], factory);
@@ -4691,18 +4691,18 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
         module22.exports = globalThis.browser;
     });
   }
-}), esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports = {};
-__export2(esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports, {
-  default: () => esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default
+}), esm_build_webextension_polyfill_0_10_exports = {};
+__export2(esm_build_webextension_polyfill_0_10_exports, {
+  default: () => esm_build_webextension_polyfill_0_10_default
 });
 var __module = __toESM(require_browser_polyfill());
-__reExport(esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_exports, __toESM(require_browser_polyfill()));
-var { default: __default, ...__rest } = __module, esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default = __default !== void 0 ? __default : __rest;
+__reExport(esm_build_webextension_polyfill_0_10_exports, __toESM(require_browser_polyfill()));
+var { default: __default, ...__rest } = __module, esm_build_webextension_polyfill_0_10_default = __default !== void 0 ? __default : __rest;
 
 // browser/import_browser_polyfill.ts
-globalThis.immersiveTranslateBrowserAPI = esm_build_ea83bb2b09ea0b45e3901ba5c3bf669e28b9d8e1_f220b894_default;
+globalThis.immersiveTranslateBrowserAPI = esm_build_webextension_polyfill_0_10_default;
 
-// https://esm.sh/stable/preact@10.11.0/deno/preact.js
+// https://esm.sh/stable/preact@10.11.0/deno/preact.mjs
 var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function k(e, t2) {
   for (var _2 in t2)
@@ -5290,7 +5290,7 @@ var zh_CN_default = {
   advanced: "\u8FDB\u9636\u8BBE\u7F6E",
   advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
   developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
-  donateCafe: "\u8BF7\u5F00\u53D1\u8005\u559D\u676F\u5496\u5561",
+  donateCafe: "\u4EF7\u683C",
   "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u95EE\u9898\u53CD\u9988",
   toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
@@ -5562,7 +5562,7 @@ var zh_TW_default = {
   advanced: "\u9032\u968E\u8A2D\u5B9A",
   advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
-  donateCafe: "\u8ACB\u958B\u767C\u8005\u559D\u676F\u5496\u5561",
+  donateCafe: "\u50F9\u683C",
   "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
   feedback: "\u554F\u984C\u56DE\u5831",
   toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
@@ -5833,7 +5833,7 @@ var en_default = {
   advanced: "Advanced",
   advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
   developer: "Developer settings",
-  donateCafe: "Buy Me a Coffee",
+  donateCafe: "Pricing",
   "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
   feedback: "Feedback",
   toggleTranslatePage: "Toggle Translate",
@@ -6429,7 +6429,7 @@ var openlProps = [
         labelKey: "field.maxTextLengthPerRequest",
         descriptionKey: "description.maxTextLengthPerRequest",
         type: "number",
-        default: 1300
+        default: 1200
       },
       {
         name: "apiUrl",
@@ -6444,7 +6444,7 @@ var openlProps = [
         required: !1,
         descriptionKey: "description.prompt",
         type: "textarea",
-        default: "Translate the following text to {{to}}: ```\n{{text}}\n```"
+        default: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```"
       }
     ]
   },
@@ -6979,12 +6979,12 @@ async function retry(fn, opts) {
   throw new RetryError(error, options.maxAttempts);
 }
 
-// https://esm.sh/v111/memoize-one@6.0.0/deno/memoize-one.js
+// https://esm.sh/v112/memoize-one@6.0.0/deno/memoize-one.mjs
 var s = Number.isNaN || function(r) {
   return typeof r == "number" && r !== r;
 };
 
-// https://esm.sh/v111/lodash.throttle@4.1.1/deno/lodash.throttle.js
+// https://esm.sh/v112/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
 var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e, t2) => () => (t2 || e((t2 = { exports: {} }).exports, t2), t2.exports), q3 = (e, t2) => {
   for (var n2 in t2)
     I2(e, n2, { get: t2[n2], enumerable: !0 });
@@ -7082,7 +7082,7 @@ var ce2 = L3(h());
 s2(c, L3(h()));
 var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
 
-// https://esm.sh/v111/notie@4.3.1/deno/notie.js
+// https://esm.sh/v112/notie@4.3.1/deno/notie.mjs
 var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
   for (var l2 in i2)
     ve(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7399,11 +7399,11 @@ var Fe = ke(xe());
 X3(B3, ke(xe()));
 var { default: Ce, ..._e2 } = Fe, Ye = Ce !== void 0 ? Ce : _e2;
 
-// https://esm.sh/v111/nanostores@0.7.4/deno/nanostores.js
+// https://esm.sh/v112/nanostores@0.7.4/deno/nanostores.mjs
 var S3 = Symbol("clean");
 var m2 = Symbol();
 
-// https://esm.sh/v111/@nanostores/i18n@0.7.1/deno/i18n.js
+// https://esm.sh/v112/@nanostores/i18n@0.7.1/deno/i18n.mjs
 function g2(r, n2) {
   if (typeof r == "string")
     return n2(r);
@@ -7437,7 +7437,7 @@ var N3 = p2((r, n2, e) => g2(n2, (t2) => {
   return t2 in n2 || (t2 = "many"), g2(n2[t2], (o2) => o2.replace(/{count}/g, e));
 });
 
-// https://esm.sh/v111/hotkeys-js@3.10.1/deno/hotkeys-js.js
+// https://esm.sh/v112/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
 var M3 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
 function P4(e, t2, i2, r) {
   e.addEventListener ? e.addEventListener(t2, i2, r) : e.attachEvent && e.attachEvent("on".concat(t2), function() {
@@ -7621,7 +7621,7 @@ typeof document < "u" && (B5 = window.hotkeys, v2.noConflict = function(e) {
 }, window.hotkeys = v2);
 var B5;
 
-// https://esm.sh/v111/immersive-translate@1.0.9/deno/immersive-translate.js
+// https://esm.sh/v112/immersive-translate@1.0.9/deno/immersive-translate.mjs
 var d4 = "Immersive Translate", v3 = class {
   #e = performance.now();
   reset() {
@@ -8219,6 +8219,8 @@ var buildin_config_default = {
       placeholderDelimiters: ["{{", "}}"],
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
+      maxTextGroupLengthPerRequest: 25,
+      prompt: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```",
       newlinePlaceholderDelimiters: [
         `
 
@@ -8328,8 +8330,8 @@ var buildin_config_default = {
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
     observeUrlChange: !1,
-    paragraphMinTextCount: 8,
-    paragraphMinWordCount: 2,
+    paragraphMinTextCount: 18,
+    paragraphMinWordCount: 3,
     shadowRootSelectors: [],
     blockMinTextCount: 32,
     blockMinWordCount: 5,
@@ -8386,7 +8388,7 @@ var buildin_config_default = {
       "[role=code]",
       "#omni-extension",
       ".omni-item",
-      "[data-paste-markdown-skip]",
+      "div[data-paste-markdown-skip]",
       "table.highlight"
     ],
     translationClasses: [],
@@ -8563,7 +8565,7 @@ var buildin_config_default = {
       }
     },
     {
-      matches: "*://*/*.txt",
+      matches: ["*://*/*.txt", "file://*/*.txt"],
       selectors: ["body"],
       isTransformPreTagNewLine: !0,
       excludeTags: [
@@ -8697,7 +8699,7 @@ var buildin_config_default = {
       additionalSelectors: [
         ".puppeteer_test_question_title",
         ".puppeteer_test_answer_content",
-        ".q-text"
+        "p.q-text"
       ],
       globalStyles: {
         ".qu-truncateLines--3": "-webkit-line-clamp: unset;"
@@ -9060,6 +9062,7 @@ var buildin_config_default = {
     },
     {
       matches: "https://discord.com/channels/*",
+      isTranslateTitle: !1,
       selectors: [
         "li[id^=chat-messages] div[id^=message-content]",
         "h3[data-text-variant='heading-lg/semibold']",
@@ -9397,7 +9400,10 @@ var buildin_config_default = {
     },
     {
       matches: "www.bloomberg.com",
-      urlChangeDelay: 2e3
+      urlChangeDelay: 2e3,
+      excludeSelectors: [
+        ".ticker-bar"
+      ]
     },
     {
       matches: "xueshu.baidu.com",

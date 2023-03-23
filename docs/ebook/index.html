@@ -15,11 +15,16 @@
     <style>
       :root {
         --active-bg: rgba(0, 0, 0, 0.05);
+        --text-color: rgba(0, 0, 0, 0.8);
       }
       @supports (color-scheme: light dark) {
         @media (prefers-color-scheme: dark) {
           :root {
             --active-bg: rgba(255, 255, 255, 0.1);
+            --text-color: rgba(255, 255, 255, 0.8);
+          }
+          body {
+            color: var(--text-color);
           }
         }
       }

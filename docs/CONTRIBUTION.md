@@ -17,12 +17,6 @@
 
 记得 Watch [Github 项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求。
 
-## 贡献者们
-
-<p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=2023"></object>
-</p>
-
 ## 搭建开发环境
 
 ### Windows

@@ -1,10 +1,10 @@
 # 价格 / Pricing
 
-**声明：所有沉浸式翻译的用户都可以完全免费地，不受任何限制地使用这个扩展！**
+**声明：所有用户都可以完全免费地，不受任何限制地使用沉浸式翻译扩展！**
 
-**但我们必须了解：这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，这个价格页面正是为了强调这一点。**
+**这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，这个价格页面正是为了强调这一点。**
 
-我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（随意金额）：
+我在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（金额随意）：
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
@@ -12,7 +12,9 @@
 
 ## 赞助方案
 
-我们认为免费工具可以和赞助者之间建立一种更加良性的关系，我想出了以下的赞助方案，这能让我为赞助者做点什么（Ps. 如果你对以下的方案不感兴趣，完全没关系，你还是可以按照你的意愿随意赞助）
+我觉得免费工具作者可以和赞助者之间建立一种双赢的关系，我想出了以下的赞助方案，这能让我为赞助者做点什么（Ps. 如果你对以下的方案不感兴趣，完全没关系，你还是可以按照你的意愿随意赞助）
+
+<br>
 
 | $5                                                                                                                                          | $10/月                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -20,9 +22,7 @@
 
 **现在就通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
 
-> Ps. 你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
-
-<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
+> Ps. 你也可以扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省爱发电 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
 
 ## 一个更长的说明
 

@@ -1,24 +1,26 @@
 # 价格 / Pricing
 
-**好吧，所有沉浸式翻译的用户都可以完全免费地使用这个扩展！这完全得益于这些[赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，而这个价格页面是为了说明这件事。**
+**声明：所有沉浸式翻译的用户都可以完全免费地，不受任何限制地使用这个扩展！**
 
-> 我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，如果有余力，请考虑成为一名赞助者：
+**但我们必须了解：这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，这个价格页面正是为了强调这一点。**
+
+我和其他贡献者在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（随意金额）：
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 
-你还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页（微信/支付宝）](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
+你也可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页（微信/支付宝）](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
 
 ## 赞助方案
 
-我觉得免费工具可以和赞助者们建立一种更加良性的关系，所以我想出了以下赞助方案，这些赞助方案能让我为你做点什么（当然，如果你对以下的方案不感兴趣，你还是可以按照你的意愿随意赞助 🙏）
+我们认为免费工具可以和赞助者之间建立一种更加良性的关系，我想出了以下赞助方案，这些方案能让我为赞助者做点什么（PS. 如果你对以下的方案不感兴趣，完全没关系，你还是可以按照你的意愿随意赞助 🙏）
 
-| $5                                                                                                                                                      | $10/月                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ 加入 Sponsor 群组<br>✅ 问题的优先解决<br>✅ 名字和头像在[主页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示 | ✅ 包含以上所有<br>✅ 不限字符数使用 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)<br>✅ 查看沉浸式翻译源代码 |
+| $5                                                                                                                                          | $10/月                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 1500 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
 
-**现在就通过我的[爱发电主页](https://afdian.net/a/translate) (支持微信/支付宝) 或者 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)成为我的赞助者！**
+**现在就通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
 
-> Ps. 你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（注意：上面的价格为美元，如果选择国内平台赞助的话，$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
+> Ps. 你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 

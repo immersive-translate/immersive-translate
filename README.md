@@ -12,7 +12,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 ## 主要特性
 
 - 智能识别网页主内容区进行翻译，与同类插件翻译整个网页不同，降低对原网页的“侵入性”，提升阅读体验，因此得名“沉浸式翻译”。
-- 双语显示，中英文对照。按段落自然分割，或可设置“将段落以句子分割”，实现逐句对照翻译。
+- 双语显示，中英文对照。
 - 针对常见主流网站进行定制优化，如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
 - 支持 10 余种常用翻译服务，包括 Deepl，OpenAI(ChatGPT 3.5)，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
 - 支持 PDF 文件，EPUB 电子书双语翻译，制作与导出。

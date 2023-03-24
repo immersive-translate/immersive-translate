@@ -18,11 +18,11 @@
 
 | $5                                                                                                                                          | $10/月                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 1500 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
+| ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 2000 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
 
 **现在就通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
 
-> Ps. 你也可以扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省爱发电 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
+> Ps. 你也可以扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
 
 ## 一个更长的说明
 

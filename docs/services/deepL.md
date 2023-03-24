@@ -17,19 +17,19 @@
 
 4. 注册账号和开通 [DeepL API](https://www.deepl.com/zh/pro#developer)，需要提供一张 DeepL [支持的国家或地区](https://support.deepl.com/hc/zh-cn/articles/360020016339-DeepL-Pro%E5%9C%A8%E6%88%91%E6%89%80%E5%9C%A8%E5%9B%BD%E5%AE%B6%E6%97%A0%E6%B3%95%E8%AE%A2%E9%98%85)发行的 VISA 或 MASTER 信用卡，可惜的是，目前国内发行的任何信用卡（包括双币卡和外币卡）均不被支持。
 
-## 2. 通过赞助沉浸式扩展获得 1500 万字符/月的 DeepL 翻译服务
+## 2. 通过赞助沉浸式扩展获得 2000 万字符/月的 DeepL 翻译服务
 
 很多同学都对 DeepL 出色的翻译引擎有强烈的偏好（尤其是英文/中文互译，英文/日文互译，长篇文章），但是官方目前并不支持[国内发行的信用卡](https://support.deepl.com/hc/zh-cn/articles/360020016339-DeepL-Pro%E5%9C%A8%E6%88%91%E6%89%80%E5%9C%A8%E5%9B%BD%E5%AE%B6%E6%97%A0%E6%B3%95%E8%AE%A2%E9%98%85)。
 
-为了满足这部分同学的需求，同时为沉浸式翻译的持续发展获得必要的[财务支持](https://immersive-translate.owenyoung.com/donate)，我们现在开始为 [$10/月](https://immersive-translate.owenyoung.com/donate) 的赞助者提供每月 1500 万字符的 DeepL 翻译服务。
+为了满足这部分同学的需求，同时为沉浸式翻译的持续发展获得必要的[财务支持](https://immersive-translate.owenyoung.com/donate)，我们现在开始为 [$10/月](https://immersive-translate.owenyoung.com/donate) 的赞助者提供每月 2000 万字符的 DeepL 翻译服务。
 
 现在[打开我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung) 或 [爱发电主页（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 人民币每月的赞助方案，你将会获得以下福利：
 
-- 每月 1500 万字符的 Deepl 翻译服务
+- 每月 2000 万字符的 Deepl 翻译服务
 - 加入沉浸式翻译的 Pro 群组，你的问题将会被更优先的解决，你也可以参与群里新功能优先级的投票
 - 你的头像，用户名，主页地址将会展示在沉浸式翻译的[首页](https://immersive-translate.owenyoung.com/)
 
-> Ps. 除了通过[Github Sponsor 主页](https://github.com/sponsors/theowenyoung) 和 [爱发电主页](https://afdian.net/a/translate)赞助之外，你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（这可以帮我节省爱发电 6% 的手续费！如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（$10 = 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元）
+> Ps. 除了通过[Github Sponsor 主页](https://github.com/sponsors/theowenyoung) 和 [爱发电主页](https://afdian.net/a/translate)赞助之外，你也可以通过扫下面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（$10 = 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元）
 
 <div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
 

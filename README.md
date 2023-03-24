@@ -133,7 +133,33 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，选择 `dist/firefox/manifest.json` 即可。
 - 更新方法：如果你使用 git 下载的安装包，那么使用 `git pull` 拉取最新文件，然后在扩展管理页面选择 `Reload` 即可。如果你在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载的安装包，那么还在这里下载最新的版本替换旧的即可。
 
-## 支持我的工作
+## 价格 / Pricing
+
+**所有用户都可以完全免费地，不受任何限制地使用沉浸式翻译扩展！**
+
+**这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，这个价格页面正是为了强调这一点。**
+
+我在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（金额随意）：
+
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
+
+你也可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页（微信/支付宝）](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
+
+### 赞助方案
+
+免费工具作者似乎可以和赞助者之间建立一种双赢的关系！所以我想出了以下的赞助方案，这能让我为赞助者做点什么（Ps. 如果你对以下的方案不感兴趣，完全没关系，你还是可以按照你的意愿随意赞助）
+
+<br>
+
+| $5                                                                                                                                          | $10/月                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 2000 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
+
+**现在就通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
+
+> Ps. 你也可以扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
+
+### 一个更长的说明
 
 我是 Owen，近期一直在努力开发沉浸式双语网页翻译扩展。最近，听到用户反馈说**因为这个扩展，Ta 真正爱上了阅读外语信息**，这让我非常开心。过去，我也从无数志愿者开发的免费工具中受益匪浅，收获了许多终身受用的知识。这使我更加坚信**平等地获取信息是我们每个人最应拥有的权利**。因此，我创建了许多免费的双语工具，帮助人们更有效地获取互联网上 [丰富的外语信息资源](https://www.owenyoung.com/sources/)（同时也期待我们有一天能摆脱这些辅助工具的依赖）。
 

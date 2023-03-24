@@ -1236,7 +1236,7 @@
     },
     {
       "matches": "www.linkedin.com",
-      "addtionalSelectors": [
+      "additionalSelectors": [
         "span.break-words > span > span[dir=ltr]"
       ]
     },
@@ -1336,7 +1336,7 @@
     },
     {
       "matches": "www.aljazeera.com",
-      "addtionalSelectors": [
+      "additionalSelectors": [
         "h1",
         ".article__subhead"
       ]
@@ -2078,6 +2078,6 @@
       "urlChangeDelay": 2000
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-22T21:03:19.663Z",
-  "latestVersion": "0.3.10"
+  "buildinConfigUpdatedAt": "2023-03-24T08:52:13.255Z",
+  "latestVersion": "0.3.11"
 }

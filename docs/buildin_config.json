@@ -167,6 +167,7 @@
     "isEbookBuilder": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
+    "minZIndex": 0,
     "initTranslationServiceAsSoonAsPossible": true,
     "targetWrapperTag": "font",
     "additionalInjectedCss": [],
@@ -2077,8 +2078,12 @@
         "code",
         "view-line"
       ]
+    },
+    {
+      "matches": "www.gatesnotes.com",
+      "minZIndex": -1
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-24T15:15:39.898Z",
+  "buildinConfigUpdatedAt": "2023-03-24T15:54:05.474Z",
   "latestVersion": "0.3.11"
 }

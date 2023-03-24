@@ -2072,12 +2072,13 @@
       ]
     },
     {
-      "matches": [
-        "www.wsj.com"
-      ],
-      "urlChangeDelay": 2000
+      "matches": "https://colab.research.google.com/*",
+      "excludeSelectors": [
+        "code",
+        "view-line"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-24T08:52:13.255Z",
+  "buildinConfigUpdatedAt": "2023-03-24T15:15:39.898Z",
   "latestVersion": "0.3.11"
 }

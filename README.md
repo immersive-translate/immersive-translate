@@ -155,9 +155,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 2000 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
 
-**现在就通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
-
-> Ps. 你也可以扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助（如果通过微信/支付宝/加密货币赞助的话，请在支付完成后填写一下这个[表格](https://tally.so/r/mYPplv)，让我可以联系到你！（说明：$5 ≈ 35 人民币, $10 ≈ 69 人民币，按年付费 [$108](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=268529&preview=false) / 745 元！）
+**现在就 [进入我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
 
 ### 一个更长的说明
 
@@ -171,9 +169,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 时代很艰难，我知道不是每个人都有能力为越来越多的工具和内容付费，所以我完全免费地提供这个工具给所有需要的人。但作为一位独立开发者，我之所以能持续的做这项工作，是因为那些能负担得起的人持续慷慨的赞助。这种至关重要的支持意味着成千上万的人可以继续完全免费，也没有广告地使用我提供的工具。所以，如果有余力，我想邀请你 [**$1 起赞助我的工作**](https://immersive-translate.owenyoung.com/donate.html)，非常感谢有你的支持！
 
-<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
-
-您还可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung) 进行赞助。
+> 补充： 如果你直接扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助的话，可以在支付完成后填写一下这个[表单](https://tally.so/r/mYPplv)，这样我就可以联系到你。
 
 ## 成为品牌赞助商
 

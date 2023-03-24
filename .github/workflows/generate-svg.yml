@@ -5,9 +5,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 16 * * *'
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/sponsorkit/**'
 jobs:
   deploy:
     name: Deploy to GitHub Pages

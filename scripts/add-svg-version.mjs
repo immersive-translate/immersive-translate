@@ -9,7 +9,7 @@ export async function main() {
 
   // replace svg url
 
-  const docs = ["./README.md", "./docs/thanks.md"];
+  const docs = ["./README.md", "./docs/thanks.md", "./docs/donate.md"];
   for (const doc of docs) {
     const content = await fs.readFile(doc, "utf8");
     // replace https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=xxx

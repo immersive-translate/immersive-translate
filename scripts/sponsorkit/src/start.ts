@@ -73,6 +73,7 @@ async function main() {
           return sponsor;
         }
       });
+      // console.log("finalSilverSponsors", finalSilverSponsors);
 
       return [
         ...sponsors,
@@ -90,7 +91,7 @@ async function main() {
 
       return newSponsors;
     },
-    // force: true,
+    force: true,
   });
 
   const data = await fsPromises.readFile(outputDir + "/sponsors.svg", {

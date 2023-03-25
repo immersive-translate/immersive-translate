@@ -148,7 +148,7 @@ async function fetchCustomSponsors(filepath: string) {
               name = trimedPart;
               break;
             case 1:
-              monthlyDollars = parseFloat(trimedPart) / 6.5;
+              monthlyDollars = parseFloat(trimedPart) / 6.9;
               break;
             case 2:
               let dateStr = trimedPart;
@@ -167,6 +167,8 @@ async function fetchCustomSponsors(filepath: string) {
       // start date
       const startDate = expired - 1000 * 60 * 60 * 24 * 30;
 
+      const isExpired = expired && expired < Date.now();
+
       // add to sponsors
       const sponsor: Sponsorship = {
         sponsor: {
@@ -180,7 +182,7 @@ async function fetchCustomSponsors(filepath: string) {
           websiteUrl: "",
           linkUrl: "",
         },
-        monthlyDollars: monthlyDollars,
+        monthlyDollars: isExpired ? -1 : monthlyDollars,
         privacyLevel: "PUBLIC",
         createdAt: new Date(startDate).toISOString(),
         isOneTime: true,

@@ -75,7 +75,7 @@ export async function fetchAfdianSponsors(
           linkUrl: `https://afdian.net/u/${raw.user.user_id}`,
         },
         // all_sum_amount is based on cny
-        monthlyDollars: parseFloat(raw.current_plan.price) / 6.5,
+        monthlyDollars: parseFloat(raw.current_plan.price) / 6.9,
         privacyLevel: "PUBLIC",
         tierName: "Afdian",
         createdAt: new Date(raw.first_pay_time * 1000).toISOString(),

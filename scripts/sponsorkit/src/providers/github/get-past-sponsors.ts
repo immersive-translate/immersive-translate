@@ -21,6 +21,13 @@ function pickSponsorsInfo(html: string): Sponsorship[] {
     const avatarUrl = isPublic
       ? isPublic?.getAttribute("src")
       : FALLBACK_AVATAR;
+    let linkUrl = isPublic
+      ? el.querySelector("a")?.getAttribute("href")
+      : undefined;
+    if (linkUrl) {
+      linkUrl = `https://github.com${linkUrl}`;
+    }
+
     const login = isPublic
       ? el.querySelector("a")?.getAttribute("href")?.replace("/", "")
       : undefined;
@@ -34,6 +41,7 @@ function pickSponsorsInfo(html: string): Sponsorship[] {
         name,
         avatarUrl,
         type,
+        linkUrl,
       },
       isOneTime: undefined,
       monthlyDollars: -1,

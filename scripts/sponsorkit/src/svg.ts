@@ -191,6 +191,16 @@ export class SvgComposer {
   }
 
   addSponsorGrid(sponsors: Sponsorship[], preset: BadgePreset) {
+    // console.log(
+    //   "sponsors",
+    //   sponsors.map((item) => {
+    //     return {
+    //       name: item.sponsor.name,
+    //       createdAt: item.createdAt,
+    //       monthlyAmount: item.monthlyDollars,
+    //     };
+    //   }),
+    // );
     const perLine = Math.floor(
       (this.config.width - (preset.container?.sidePadding || 0) * 2) /
         preset.boxWidth,

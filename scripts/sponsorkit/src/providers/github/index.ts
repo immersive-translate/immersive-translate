@@ -84,7 +84,6 @@ export async function fetchGitHubSponsors(
       createdAt: raw.createdAt,
     }));
 
-  console.log("config.includePastSponsors", config.includePastSponsors);
   if (config.includePastSponsors) {
     try {
       processed.push(...await getPastSponsors(login));

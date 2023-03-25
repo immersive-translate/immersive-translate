@@ -43,9 +43,6 @@ export async function run(inlineConfig?: SponsorkitConfig, t = consola) {
     t.info("Resolving avatars...");
     await resolveAvatars(allSponsors, config.fallbackAvatar);
     t.success("Avatars resolved");
-
-    await fs.ensureDir(dirname(cacheFile));
-    await fs.writeJSON(cacheFile, allSponsors, { spaces: 2 });
   } else {
     allSponsors = await fs.readJSON(cacheFile);
     t.success(`Loaded from cache ${r(cacheFile)}`);
@@ -59,6 +56,11 @@ export async function run(inlineConfig?: SponsorkitConfig, t = consola) {
       a.sponsor.login || a.sponsor.name,
     ) // ASC name
   );
+
+  if (!fs.existsSync(cacheFile) || config.force) {
+    await fs.ensureDir(dirname(cacheFile));
+    await fs.writeJSON(cacheFile, allSponsors, { spaces: 2 });
+  }
 
   await fs.ensureDir(dir);
   if (config.formats?.includes("json")) {

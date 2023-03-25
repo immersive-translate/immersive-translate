@@ -141,7 +141,12 @@ export function partitionTiers(sponsors: Sponsorship[], tiers: Tier[]) {
   }
 
   sponsors
-    .sort((a, b) => Date.parse(a.createdAt!) - Date.parse(b.createdAt!))
+    .sort((a, b) => {
+      if (a.monthlyDollars === b.monthlyDollars) {
+        return Date.parse(b.createdAt!) - Date.parse(a.createdAt!);
+      }
+      return b.monthlyDollars - a.monthlyDollars;
+    })
     .forEach((sponsor) => {
       const tier = tierMappings.find((t) =>
         sponsor.monthlyDollars >= t.monthlyDollars

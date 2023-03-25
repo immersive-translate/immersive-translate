@@ -31,7 +31,11 @@ export async function main() {
     .update(contributorsSvg)
     .digest("hex");
 
-  const contributorsDocs = ["./README.md", "./docs/thanks.md"];
+  const contributorsDocs = [
+    "./README.md",
+    "./docs/thanks.md",
+    "./docs/donate.md",
+  ];
   for (const doc of contributorsDocs) {
     const content = await fs.readFile(doc, "utf8");
     // replace https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=xxxx

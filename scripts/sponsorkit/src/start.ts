@@ -94,19 +94,21 @@ async function main() {
     force: true,
   });
 
-  const data = await fsPromises.readFile(outputDir + "/sponsors.svg", {
-    encoding: "utf8",
-  });
-
-  const thanksMd = await fsPromises.readFile("../../docs/thanks.md", {
-    encoding: "utf8",
-  });
+  // const data = await fsPromises.readFile(outputDir + "/sponsors.svg", {
+  //   encoding: "utf8",
+  // });
+  //
+  // const thanksMd = await fsPromises.readFile("../../docs/thanks.md", {
+  //   encoding: "utf8",
+  // });
 
   // replace <!-- Sponsors --> with data
-  const newThanksMd = thanksMd.replace(
-    "<!-- Sponsors -->",
-    data,
-  );
+  // const newThanksMd = thanksMd.replace(
+  //   "<!-- Sponsors -->",
+  //   data,
+  // );
+
+  // replace <!-- Sponsors --> with data
 
   // write
   // await fsPromises.writeFile("../../docs/thanks.md", newThanksMd);

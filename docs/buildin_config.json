@@ -162,6 +162,7 @@
   "generalRule": {
     "_comment": "",
     "normalizeBody": "",
+    "useIframePostMessage": true,
     "injectedCss": [],
     "isEbook": false,
     "isEbookBuilder": false,
@@ -179,6 +180,8 @@
     "isTransformPreTagNewLine": false,
     "urlChangeDelay": 20,
     "mutationChangeDelay": 10,
+    "mainFrameMinTextCount": 50,
+    "mainFrameMinWordCount": 5,
     "visibleDelay": 0,
     "additionalStayOriginalSelectors": [
       "span.katex",
@@ -491,6 +494,15 @@
         "MATH",
         "TTS-SENTENCE"
       ]
+    },
+    {
+      "matches": [
+        "arad.hange.jp",
+        "arad.nexon.co.jp",
+        "oapi.dingtalk.com",
+        "login.dingtalk.com"
+      ],
+      "useIframePostMessage": false
     },
     {
       "matches": [
@@ -2084,6 +2096,6 @@
       "minZIndex": -1
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-24T15:54:05.474Z",
+  "buildinConfigUpdatedAt": "2023-03-26T01:57:43.770Z",
   "latestVersion": "0.3.11"
 }

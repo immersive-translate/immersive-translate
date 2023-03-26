@@ -142,7 +142,7 @@ export function partitionTiers(sponsors: Sponsorship[], tiers: Tier[]) {
 
   sponsors
     .sort((a, b) => {
-      if (a.monthlyDollars === b.monthlyDollars) {
+      if (b.createdAt && a.createdAt!) {
         return Date.parse(b.createdAt!) - Date.parse(a.createdAt!);
       }
       return b.monthlyDollars - a.monthlyDollars;

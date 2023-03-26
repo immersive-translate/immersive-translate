@@ -138,6 +138,7 @@ async function fetchCustomSponsors(filepath: string) {
       let avatar = "";
       let expired = 0;
       let monthlyDollars = 0;
+      let startDate = 0;
       for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
         // trim
@@ -161,11 +162,16 @@ async function fetchCustomSponsors(filepath: string) {
               const date = new Date(dateStr);
               expired = date.getTime();
               break;
+            case 3:
+              startDate = expired -
+                1000 * 60 * 60 * 24 * 30 * parseInt(trimedPart);
           }
         }
       }
-      // start date
-      const startDate = expired - 1000 * 60 * 60 * 24 * 30;
+      if (!startDate) {
+        // start date
+        startDate = expired - 1000 * 60 * 60 * 24 * 30;
+      }
 
       const isExpired = expired && expired < Date.now();
 

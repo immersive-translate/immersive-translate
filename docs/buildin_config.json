@@ -228,7 +228,6 @@
       ".Article__content",
       ".titleLink",
       ".summary",
-      ".content",
       ".headline",
       ".page-content",
       "aside.note",
@@ -1504,7 +1503,14 @@
       "extraBlockSelectors": "div"
     },
     {
-      "matches": "telegra.ph",
+      "matches": "te.legra.ph",
+      "normalizeBody": "div.ql-editor[contenteditable='false']",
+      "urlChangeDelay": 500
+    },
+    {
+      "matches": [
+        "telegra.ph"
+      ],
       "normalizeBody": "div.ql-editor[contenteditable='false']"
     },
     {
@@ -2096,6 +2102,6 @@
       "minZIndex": -1
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-26T01:57:43.770Z",
+  "buildinConfigUpdatedAt": "2023-03-26T15:00:20.148Z",
   "latestVersion": "0.3.11"
 }

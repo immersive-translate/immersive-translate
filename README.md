@@ -133,11 +133,11 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，选择 `dist/firefox/manifest.json` 即可。
 - 更新方法：如果你使用 git 下载的安装包，那么使用 `git pull` 拉取最新文件，然后在扩展管理页面选择 `Reload` 即可。如果你在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载的安装包，那么还在这里下载最新的版本替换旧的即可。
 
-## 价格 / Pricing
+## 赞助
 
 **所有用户都可以完全免费地，不受任何限制地使用沉浸式翻译扩展！**
 
-**这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持，这个价格页面正是为了强调这一点。**
+**这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持。**
 
 我在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（金额随意）：
 

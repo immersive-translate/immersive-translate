@@ -253,7 +253,10 @@
       "#omni-extension",
       ".omni-item",
       "div[data-paste-markdown-skip]",
-      "table.highlight"
+      "table.highlight",
+      "div[class^=codeBlockContent]",
+      "div[class^=codeBlockLines]",
+      "div[class^=token-line]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -711,7 +714,8 @@
       "matches": "github.com",
       "observeUrlChange": true,
       "excludeMatches": [
-        "https://github.com/settings/profile"
+        "https://github.com/settings/profile",
+        "https://github.com/*/*/settings"
       ],
       "selectors": [
         ".markdown-title",
@@ -2100,8 +2104,14 @@
     {
       "matches": "www.gatesnotes.com",
       "minZIndex": -1
+    },
+    {
+      "matches": "page.kakao.com",
+      "shadowRootSelectors": [
+        "div[style^='visibility: visible'"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-26T15:00:20.148Z",
+  "buildinConfigUpdatedAt": "2023-03-26T20:27:23.241Z",
   "latestVersion": "0.3.11"
 }

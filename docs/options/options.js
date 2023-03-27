@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:33.152Z", VERSION: "0.3.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-27T16:06:04.614Z", VERSION: "0.3.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -23,6 +23,8 @@
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker-backgroundColor: #fbda41;
+  --immersive-translate-theme-marker-backgroundColor-rgb: 251, 218, 65;
   --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
@@ -196,12 +198,12 @@
   /* TODO: add more texture */
   background: linear-gradient(
     to right,
-    rgba(255, 225, 0, 0.1),
-    rgba(251, 218, 65, 0.9) 3%,
-    rgba(252, 210, 23, 0.9) 35%,
-    rgba(251, 218, 65, 0.9) 70%,
-    rgba(251, 218, 65, 0.8) 95%,
-    rgba(255, 225, 0, 0.3)
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.1),
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 3%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 35%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 70%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.8) 95%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.3)
   );
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -322,16 +324,6 @@
   .immersive-translate-loading {
     border: 2px rgba(255, 255, 255, 0.25) solid !important;
     border-top: 2px rgba(255, 255, 255, 1) solid !important;
-  }
-
-  .immersive-translate-target-translation-theme-marker-inner {
-    background: linear-gradient(
-      to right,
-      rgba(255, 225, 0, 0.1),
-      rgba(102, 99, 78, 0.9) 3%,
-      rgba(102, 99, 78, 0.8) 97%,
-      rgba(255, 225, 0, 0.3)
-    );
   }
 }
 
@@ -4324,7 +4316,7 @@ body {
     return typeof t5 == "function" ? t5(_4) : t5;
   }
 
-  // https://esm.sh/v112/@twind/core@1.0.1/deno/core.mjs
+  // https://esm.sh/v113/@twind/core@1.0.1/deno/core.mjs
   var F3;
   function lt(t5) {
     return [...t5.v, (t5.i ? "!" : "") + t5.n].join(":");
@@ -4877,7 +4869,7 @@ body {
     } };
   }
 
-  // https://esm.sh/v112/style-vendorizer@2.2.3/deno/style-vendorizer.mjs
+  // https://esm.sh/v113/style-vendorizer@2.2.3/deno/style-vendorizer.mjs
   var t2 = /* @__PURE__ */ new Map([["align-self", "-ms-grid-row-align"], ["color-adjust", "-webkit-print-color-adjust"], ["column-gap", "grid-column-gap"], ["forced-color-adjust", "-ms-high-contrast-adjust"], ["gap", "grid-gap"], ["grid-template-columns", "-ms-grid-columns"], ["grid-template-rows", "-ms-grid-rows"], ["justify-self", "-ms-grid-column-align"], ["margin-inline-end", "-webkit-margin-end"], ["margin-inline-start", "-webkit-margin-start"], ["mask-border", "-webkit-mask-box-image"], ["mask-border-outset", "-webkit-mask-box-image-outset"], ["mask-border-slice", "-webkit-mask-box-image-slice"], ["mask-border-source", "-webkit-mask-box-image-source"], ["mask-border-repeat", "-webkit-mask-box-image-repeat"], ["mask-border-width", "-webkit-mask-box-image-width"], ["overflow-wrap", "word-wrap"], ["padding-inline-end", "-webkit-padding-end"], ["padding-inline-start", "-webkit-padding-start"], ["print-color-adjust", "color-adjust"], ["row-gap", "grid-row-gap"], ["scroll-margin-bottom", "scroll-snap-margin-bottom"], ["scroll-margin-left", "scroll-snap-margin-left"], ["scroll-margin-right", "scroll-snap-margin-right"], ["scroll-margin-top", "scroll-snap-margin-top"], ["scroll-margin", "scroll-snap-margin"], ["text-combine-upright", "-ms-text-combine-horizontal"]]);
   function e(r) {
     return t2.get(r);
@@ -4891,7 +4883,7 @@ body {
     return a3 ? a3[1] ? /^sti/i.test(i2) ? 1 : 0 : a3[2] ? /^pat/i.test(i2) ? 1 : 0 : a3[3] ? /^image-/i.test(i2) ? 1 : 0 : a3[4] ? i2[3] === "-" ? 2 : 0 : /^(?:inline-)?grid$/i.test(i2) ? 4 : 0 : 0;
   }
 
-  // https://esm.sh/v112/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.mjs
+  // https://esm.sh/v113/@twind/preset-autoprefix@1.0.1/deno/preset-autoprefix.mjs
   var c = [["-webkit-", 1], ["-moz-", 2], ["-ms-", 4]];
   function y() {
     return ({ stringify: t5 }) => ({ stringify(r, s5, e3) {
@@ -4904,7 +4896,7 @@ body {
     } });
   }
 
-  // https://esm.sh/v112/@twind/core@1.1.3/deno/core.mjs
+  // https://esm.sh/v113/@twind/core@1.1.3/deno/core.mjs
   var B4;
   function ae2(e3) {
     return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -5293,7 +5285,7 @@ body {
     } };
   }
 
-  // https://esm.sh/v112/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.mjs
+  // https://esm.sh/v113/@twind/preset-tailwind@1.0.1/deno/preset-tailwind.mjs
   var L3 = "inherit", U3 = "currentColor", j3 = "transparent", V4 = "#000", B5 = "#fff", H4 = { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a" }, I3 = { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827" }, M3 = { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b" }, P4 = { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717" }, N4 = { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917" }, G4 = { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d" }, q3 = { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12" }, Y4 = { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f" }, X4 = { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12" }, J2 = { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314" }, K4 = { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d" }, Q4 = { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b" }, Z4 = { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a" }, ee4 = { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63" }, te2 = { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e" }, oe3 = { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a" }, re4 = { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }, ae3 = { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95" }, ie3 = { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87" }, ne4 = { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75" }, le2 = { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843" }, se2 = { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337" }, S4 = { __proto__: null, inherit: L3, current: U3, transparent: j3, black: V4, white: B5, slate: H4, gray: I3, zinc: M3, neutral: P4, stone: N4, red: G4, orange: q3, amber: Y4, yellow: X4, lime: J2, green: K4, emerald: Q4, teal: Z4, cyan: ee4, sky: te2, blue: oe3, indigo: re4, violet: ae3, purple: ie3, fuchsia: ne4, pink: le2, rose: se2 }, h = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, colors: S4, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...c2(4, "rem", 4, 0.5, 0.5), ...c2(12, "rem", 4, 5), 14: "3.5rem", ...c2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: n2("blur"), backdropBrightness: n2("brightness"), backdropContrast: n2("contrast"), backdropGrayscale: n2("grayscale"), backdropHueRotate: n2("hueRotate"), backdropInvert: n2("invert"), backdropOpacity: n2("opacity"), backdropSaturate: n2("saturate"), backdropSepia: n2("sepia"), backgroundColor: n2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: n2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...c2(200, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: n2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: n2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: n2("colors"), caretColor: n2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...c2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: n2("borderColor"), divideOpacity: n2("borderOpacity"), divideWidth: n2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: n2("colors"), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), ...x3(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: n2("spacing"), gradientColorStops: n2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...c2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: r }) => ({ ...r(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...c2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: n2("spacing"), placeholderColor: n2("colors"), placeholderOpacity: n2("opacity"), outlineColor: n2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: e3("colors.blue.500", "#3b82f6") }), ringOffsetColor: n2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: c2(200, "", 100, 0, 50), scale: { ...c2(150, "", 100, 0, 50), ...c2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: n2("spacing"), scrollPadding: n2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: n2("spacing"), stroke: n2("colors"), strokeWidth: c2(2), textColor: n2("colors"), textDecorationColor: n2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: n2("spacing"), textOpacity: n2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: n2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...x3(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...c2(50, "", 1, 0, 10), auto: "auto" } };
   function x3(e3, r) {
     let a3 = {};
@@ -5776,12 +5768,12 @@ body {
     throw new RetryError(error2, options.maxAttempts);
   }
 
-  // https://esm.sh/v112/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v113/memoize-one@6.0.0/deno/memoize-one.mjs
   var s2 = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v112/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v113/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P5 = Object.create, I4 = Object.defineProperty, D6 = Object.getOwnPropertyDescriptor, G5 = Object.getOwnPropertyNames, H5 = Object.getPrototypeOf, U4 = Object.prototype.hasOwnProperty, X5 = (e3, t5) => () => (t5 || e3((t5 = { exports: {} }).exports, t5), t5.exports), q4 = (e3, t5) => {
     for (var n3 in t5)
       I4(e3, n3, { get: t5[n3], enumerable: !0 });
@@ -5879,7 +5871,7 @@ body {
   s3(c3, L4(h2()));
   var { default: $3, ...le3 } = ce4, se3 = $3 !== void 0 ? $3 : le3;
 
-  // https://esm.sh/v112/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v113/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve2 = Object.defineProperty, Ae3 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je2 = Object.prototype.hasOwnProperty, Ne2 = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
     for (var l2 in i2)
       ve2(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -6196,11 +6188,11 @@ body {
   X6(B6, ke2(xe2()));
   var { default: Ce3, ..._e3 } = Fe, Ye2 = Ce3 !== void 0 ? Ce3 : _e3;
 
-  // https://esm.sh/v112/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v113/nanostores@0.7.4/deno/nanostores.mjs
   var S5 = Symbol("clean");
   var m2 = Symbol();
 
-  // https://esm.sh/v112/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v113/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g3(r, n3) {
     if (typeof r == "string")
       return n3(r);
@@ -6234,7 +6226,7 @@ body {
     return t5 in n3 || (t5 = "many"), g3(n3[t5], (o3) => o3.replace(/{count}/g, e3));
   });
 
-  // https://esm.sh/v112/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v113/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P6(e3, t5, i2, r) {
     e3.addEventListener ? e3.addEventListener(t5, i2, r) : e3.attachEvent && e3.attachEvent("on".concat(t5), function() {
@@ -6418,7 +6410,7 @@ body {
   }, window.hotkeys = v2);
   var B8;
 
-  // https://esm.sh/v112/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v113/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d4 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -7009,7 +7001,7 @@ body {
     "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
     "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
     "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0C\u9ED8\u8BA4\u8BBE\u7F6E\u4E3A OpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u76F4\u63A5\u6539\u4E3A1000\u4EE5\u4E0A",
-    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
     "description.maxTextLengthPerRequest": "\u9ED8\u8BA4\u4F1A\u5408\u5E76\u591A\u4E2A\u6BB5\u843D\uFF0C\u4EE5\u51CF\u5C11\u8BF7\u6C42\u6B21\u6570\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u603B\u957F\u5EA6\u8FC7\u957F\uFF0C\u4E5F\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
     enabledExtension: "\u542F\u7528\u6269\u5C55",
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
@@ -7027,8 +7019,8 @@ body {
     sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
     help: "\u8AAA\u660E",
     browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
-    browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
-    browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
+    browserShortcutsNoteForChrome: "Chromium \u6838\u5FC3\u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
+    browserShortcutsSucks: "\u8B8A\u66F4\u5FEB\u901F\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u70BA\uFF1A",
     enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
     "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
     "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
@@ -7047,7 +7039,7 @@ body {
     smartLineBreak: "\u667A\u6167\u63DB\u884C",
     alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
     isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
-    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u5BE6\u9A57\u6027\u529F\u80FD",
+    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u529F\u80FD",
     betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
     translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
     tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
@@ -7055,11 +7047,11 @@ body {
     xMinutes: "{count} \u5206\u9418",
     disabled: "\u505C\u7528",
     changelog: "\u66F4\u65B0\u8A18\u9304",
-    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
     toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-    addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+    addUrlDescription: "\u53EF\u4EE5\u70BA\u7DB2\u57DF\u540D\u7A31\uFF0C\u540C\u6642\u652F\u63F4\u842C\u7528\u5B57\u5143\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
     general: "\u57FA\u672C\u8A2D\u5B9A",
-    clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
+    clickToExpandConfig: "\u5C55\u958B\u76EE\u524D\u8A2D\u5B9A",
     import: "\u5F9E\u6A94\u6848\u532F\u5165",
     export: "\u532F\u51FA\u70BA\u6A94\u6848",
     toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
@@ -7074,7 +7066,7 @@ body {
     saved: "\u5132\u5B58\u6210\u529F",
     successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
     goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
-    goAdvancedInterfaceSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+    goAdvancedInterfaceSettings: "\u524D\u5F80\u81EA\u8A02\u8A2D\u5B9A\u9801\u9762",
     advanced: "\u9032\u968E\u8A2D\u5B9A",
     advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
     developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
@@ -7142,12 +7134,12 @@ body {
     "add url": "\u8F38\u5165 URL",
     edit: "\u7DE8\u8F2F",
     "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
-    "select translation service": "\u9078\u64C7\u4E00\u9805\u7FFB\u8B6F\u670D\u52D9",
+    "select translation service": "\u9078\u64C7\u4F60\u60F3\u7528\u7684\u7FFB\u8B6F\u670D\u52D9",
     language: "\u8A9E\u8A00",
     "show-original": "\u986F\u793A\u539F\u6587",
     translate: "\u7FFB\u8B6F",
     Translated: "\u5DF2\u7FFB\u8B6F",
-    Translating: "\u7FFB\u8B6F\u4E2D",
+    Translating: "\u6B63\u5728\u7FFB\u8B6F",
     Error: "\u932F\u8AA4",
     allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
     "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
@@ -7203,7 +7195,7 @@ body {
     "translationServices.you": "\u6709\u9053\u7FFB\u8B6F (Alpha)",
     "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
     "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
-    "translationServices.papago": "Papago\u7FFB\u8B6F",
+    "translationServices.papago": "Papago \u7FFB\u8B6F",
     "translationServices.d": "Deepl(Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
@@ -7212,7 +7204,7 @@ body {
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
     neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
     enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
-    enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+    enableUserscriptPagePopupDescription: "\u95DC\u9589\u61F8\u6D6E\u7403\u5F8C\uFF0C\u53EF\u4EE5\u7528\u5FEB\u901F\u9375/{touch}\u518D\u6B21\u986F\u793A\u3002\u70BA\u9632\u6B62\u4E0D\u614E\u95DC\u9589\u8A72\u9078\u9805\u5F8C\u627E\u4E0D\u5230\u61F8\u6D6E\u7403\uFF0C\u5EFA\u8B70\u5C07\u672C\u8A2D\u5B9A\u9801\u9762\u52A0\u5165\u81F3\u6211\u7684\u6700\u611B",
     "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
     "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
     "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -7279,8 +7271,9 @@ body {
     "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
     "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
     "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
+    "field.apiUrl": "\u81EA\u8A02 API \u4F4D\u5740",
     "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
-    "description.prompt": "\u4EE5\u4F7F\u7528\u8005\u8EAB\u4EFD\u50B3\u9001\u7D66 OpenAI \u7684\u5C0D\u8A71\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u5B57\u5167\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8A9E\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6A19\u8A9E\u8A00",
+    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
     "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
     enabledExtension: "\u555F\u7528\u5957\u4EF6",
     clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
@@ -7439,7 +7432,7 @@ body {
     "translationTheme.paper": "White paper shadow effect",
     "translationTheme.dividingLine": "Dividing line",
     "translationTheme.highlight": "Highlight",
-    "translationTheme.marker": "Maker",
+    "translationTheme.marker": "Marker",
     "translationTheme.marker2": "Maker2",
     "translationTheme.blockquote": "quote style",
     "translationTheme.weakening": "Weakening",
@@ -7550,8 +7543,9 @@ body {
     "field.translationEngine": "Translation engine",
     "field.limitPerMinute": "Max requests per minute",
     "field.maxTextLengthPerRequest": "Maximum text length per request",
+    "field.apiUrl": "Custom API interface address",
     "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
-    "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language",
+    "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language, you can omit {{text}}, if so, it'll be sent as a separated message",
     "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
     enabledExtension: "Enable extensions",
     clickToDisableExtension: "Click to disable extension",
@@ -7654,6 +7648,11 @@ body {
         type: "color"
       }
     ],
+    marker: [{
+      name: "backgroundColor",
+      required: !1,
+      type: "color"
+    }],
     dashed: [
       {
         name: "borderColor",
@@ -8692,7 +8691,7 @@ body {
         );
         existingStyleElement && existingStyleElement.remove(), styleElement.dataset.id = id;
       }
-      rootDocument.head.appendChild(styleElement).innerHTML = css;
+      styleElement.textContent = css, rootDocument.head.appendChild(styleElement);
     } else
       log_default.warn(
         "injectCSS failed, rootDocument does not have head node",
@@ -8720,6 +8719,10 @@ body {
         return !0;
     return !1;
   }
+  function hexToRgb(hexValue) {
+    let hex2 = hexValue.replace("#", ""), r = parseInt(hex2.substring(0, 2), 16), g6 = parseInt(hex2.substring(2, 4), 16), b5 = parseInt(hex2.substring(4, 6), 16);
+    return { r, g: g6, b: b5 };
+  }
 
   // dom/apply_user_config_css.ts
   function applyUserConfigCss(root2, translationTheme, translationThemePatternConfig, remove) {
@@ -8728,8 +8731,12 @@ body {
       let { name } = prop;
       if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
         let value = translationThemePatternConfig[name];
-        ["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+        if (["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+`, translationTheme === "marker" && name === "backgroundColor" && typeof value == "string") {
+          let { r, g: g6, b: b5 } = hexToRgb(value);
+          injectedCss += `--immersive-translate-theme-${theme}-${name}-rgb: ${r}, ${g6}, ${b5};
 `;
+        }
       }
     });
     let otherCss = "";
@@ -9115,18 +9122,18 @@ ${injectedCss}}
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 1e4,
         translationDebounce: 300,
-        maxTextGroupLengthPerRequest: 25,
-        prompt: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```",
+        maxTextGroupLengthPerRequest: 1,
+        prompt: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
         newlinePlaceholderDelimiters: [
           `
 
-###`,
-          `###
+-|`,
+          `|-
 
 `,
           `
 ?
-?###\\d+###
+?-\\|\\d+\\|-
 ?
 ?`
         ]
@@ -9200,11 +9207,13 @@ ${injectedCss}}
     generalRule: {
       _comment: "",
       normalizeBody: "",
+      useIframePostMessage: !0,
       injectedCss: [],
       isEbook: !1,
       isEbookBuilder: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
+      minZIndex: 0,
       initTranslationServiceAsSoonAsPossible: !0,
       targetWrapperTag: "font",
       additionalInjectedCss: [],
@@ -9216,6 +9225,8 @@ ${injectedCss}}
       isTransformPreTagNewLine: !1,
       urlChangeDelay: 20,
       mutationChangeDelay: 10,
+      mainFrameMinTextCount: 50,
+      mainFrameMinWordCount: 5,
       visibleDelay: 0,
       additionalStayOriginalSelectors: [
         "span.katex",
@@ -9259,7 +9270,6 @@ ${injectedCss}}
         ".Article__content",
         ".titleLink",
         ".summary",
-        ".content",
         ".headline",
         ".page-content",
         "aside.note",
@@ -9285,7 +9295,10 @@ ${injectedCss}}
         "#omni-extension",
         ".omni-item",
         "div[data-paste-markdown-skip]",
-        "table.highlight"
+        "table.highlight",
+        "div[class^=codeBlockContent]",
+        "div[class^=codeBlockLines]",
+        "div[class^=token-line]"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -9497,6 +9510,15 @@ ${injectedCss}}
         ]
       },
       {
+        matches: [
+          "arad.hange.jp",
+          "arad.nexon.co.jp",
+          "oapi.dingtalk.com",
+          "login.dingtalk.com"
+        ],
+        useIframePostMessage: !1
+      },
+      {
         matches: ["mail.jabber.org", "antirez.com"],
         excludeTags: [
           "TITLE",
@@ -9624,9 +9646,7 @@ ${injectedCss}}
           "https://www.reddit.com/new/",
           "https://www.reddit.com/top/"
         ],
-        excludeMatches: [
-          "https://www.reddit.com/r/*/wiki/*"
-        ],
+        excludeMatches: ["https://www.reddit.com/r/*/wiki/*"],
         selectors: [
           "h1",
           ".PostHeader__post-title-line",
@@ -9678,7 +9698,8 @@ ${injectedCss}}
         matches: "github.com",
         observeUrlChange: !0,
         excludeMatches: [
-          "https://github.com/settings/profile"
+          "https://github.com/settings/profile",
+          "https://github.com/*/*/settings"
         ],
         selectors: [
           ".markdown-title",
@@ -9906,9 +9927,7 @@ ${injectedCss}}
       {
         matches: "outlook.live.com",
         excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
-        selectors: [
-          "[role=region]"
-        ]
+        selectors: ["[role=region]"]
       },
       {
         matches: "www.producthunt.com",
@@ -10119,7 +10138,7 @@ ${injectedCss}}
       },
       {
         matches: "www.linkedin.com",
-        addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
+        additionalSelectors: ["span.break-words > span > span[dir=ltr]"]
       },
       {
         matches: "www.indiehackers.com",
@@ -10191,7 +10210,7 @@ ${injectedCss}}
       },
       {
         matches: "www.aljazeera.com",
-        addtionalSelectors: ["h1", ".article__subhead"]
+        additionalSelectors: ["h1", ".article__subhead"]
       },
       {
         matches: ["*.pornhub.com", "pornhub.com"],
@@ -10287,9 +10306,7 @@ ${injectedCss}}
           ".stats-and-offer",
           ".header-container"
         ],
-        atomicBlockSelectors: [
-          ".core-info-cell > div.name"
-        ],
+        atomicBlockSelectors: [".core-info-cell > div.name"],
         globalStyles: {
           ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
         }
@@ -10297,9 +10314,7 @@ ${injectedCss}}
       {
         matches: "www.bloomberg.com",
         urlChangeDelay: 2e3,
-        excludeSelectors: [
-          ".ticker-bar"
-        ]
+        excludeSelectors: [".ticker-bar"]
       },
       {
         matches: "xueshu.baidu.com",
@@ -10317,7 +10332,12 @@ ${injectedCss}}
         extraBlockSelectors: "div"
       },
       {
-        matches: "telegra.ph",
+        matches: "te.legra.ph",
+        normalizeBody: "div.ql-editor[contenteditable='false']",
+        urlChangeDelay: 500
+      },
+      {
+        matches: ["telegra.ph"],
         normalizeBody: "div.ql-editor[contenteditable='false']"
       },
       {
@@ -10679,12 +10699,8 @@ ${injectedCss}}
           ".game_area_sys_req_leftCol",
           ".game_area_sys_req_rightCol"
         ],
-        extraInlineSelectors: [
-          ".pulldown"
-        ],
-        additionalSelectors: [
-          ".game_page_autocollapse_ctn iframe"
-        ],
+        extraInlineSelectors: [".pulldown"],
+        additionalSelectors: [".game_page_autocollapse_ctn iframe"],
         globalStyles: {
           ".game_description_snippet": "max-height:unset; overflow: scroll;",
           ".game_purchase_area_friends_want": "height: auto; padding-bottom: 6px;",
@@ -10744,9 +10760,7 @@ ${injectedCss}}
       },
       {
         matches: "https://www.lookintobitcoin.com/charts/*",
-        excludeSelectors: [
-          "svg"
-        ]
+        excludeSelectors: ["svg"]
       },
       {
         matches: "https://platform.openai.com/account/api-keys*",
@@ -10773,9 +10787,7 @@ ${injectedCss}}
           "#side-bar",
           "h1#side-bar-title"
         ],
-        extraInlineSelectors: [
-          "span.dropcaps"
-        ],
+        extraInlineSelectors: ["span.dropcaps"],
         paragraphMinTextCount: 1,
         paragraphMinWordCount: 1,
         blockMinTextCount: 1,
@@ -10808,21 +10820,21 @@ ${injectedCss}}
         wrapperPrefix: "<br />"
       },
       {
-        matches: [
-          "https://www.explainpaper.com/reader*"
-        ],
+        matches: ["https://www.explainpaper.com/reader*"],
         isTranslateTitle: !1,
-        selectors: [
-          ".leading-relaxed",
-          ".chat-messages p",
-          ".text-sm"
-        ]
+        selectors: [".leading-relaxed", ".chat-messages p", ".text-sm"]
       },
       {
-        matches: [
-          "www.wsj.com"
-        ],
-        urlChangeDelay: 2e3
+        matches: "https://colab.research.google.com/*",
+        excludeSelectors: ["code", "view-line"]
+      },
+      {
+        matches: "www.gatesnotes.com",
+        minZIndex: -1
+      },
+      {
+        matches: "page.kakao.com",
+        shadowRootSelectors: ["div[style^='visibility: visible'"]
       }
     ]
   };
@@ -11084,7 +11096,13 @@ ${injectedCss}}
     return (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {};
   }
   var getBrowserIntefaceLanguage = async () => {
-    let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
+    let languages3 = ["zh-CN"];
+    try {
+      languages3 = await browserAPI.i18n.getAcceptLanguages();
+    } catch (e3) {
+      log_default.warn("get browser language error:", e3);
+    }
+    let defaultInterfaceLanguage = languages3.map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
     return defaultInterfaceLanguage || "en";
   }, getBuildInConfig = () => {
     let finalBuildInConfig = {
@@ -12188,9 +12206,13 @@ ${injectedCss}}
         ...newParagraph,
         state: "Original",
         observers: []
-      }), !isSameTargetLanguage(result, targetLanguage)) {
-        if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
+      }), isSameTargetLanguage(result, targetLanguage))
+        paragraphEntities.delete(newParagraph.id);
+      else {
+        if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language))) {
+          paragraphEntities.delete(newParagraph.id);
           return;
+        }
         filterdParagraphs.push(newParagraph);
       }
     }), filterdParagraphs;
@@ -12552,7 +12574,7 @@ ${injectedCss}}
                 let zIndexNumber = parseInt(zIndex);
                 isNaN(zIndexNumber) || (formatedZIndex = zIndexNumber);
               }
-              if ((clip === "rect(1px, 1px, 1px, 1px)" || formatedZIndex < 0) && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
+              if (clip === "rect(1px, 1px, 1px, 1px)" && (tempIsExcludeElement = !0), formatedZIndex < rule.minZIndex && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
                 let heightNumber = parseInt(height), widthNumber = parseInt(width);
                 !isNaN(heightNumber) && !isNaN(widthNumber) && (heightNumber > 0 && heightNumber < 8 || widthNumber > 0 && widthNumber <= 8) && (tempIsExcludeElement = !0);
               }
@@ -12667,10 +12689,14 @@ ${injectedCss}}
     let text = textNode.textContent || "";
     if (text.trim().length <= maxLength)
       return;
-    let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
+    let boundaryIndex = [". ", "? ", "! ", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
       let index = text.lastIndexOf(boundary, maxLength);
       return index > acc ? index : acc;
     }, -1);
+    if (boundaryIndex > 1) {
+      let prevChar = text[boundaryIndex - 1] || "", prevPrevChar = text[boundaryIndex - 2] || "", nextChar = text[boundaryIndex + 1] || "";
+      prevChar === "." || nextChar === "." || nextChar === ")" || prevPrevChar === "." && prevChar === "S" || prevPrevChar.toUpperCase() === "M" && (prevChar.toUpperCase() === "R" || prevChar.toUpperCase() === "S") ? boundaryIndex = -1 : isNaN(Number(prevChar)) || (boundaryIndex = -1);
+    }
     if (boundaryIndex === -1)
       text.length > maxLength + 20 && addLineBreakToText(textNode, maxLength + 20);
     else {
@@ -12707,6 +12733,284 @@ ${injectedCss}}
       realWidth < 600 && (realWidth = 600), targetContainers.push(rightContainer), rightContainer.style.left = maxRight + "px", rightContainer.style.width = maxRight + "px", rightContainer.classList.add(translationPdfTargetContainerClass), container.childNodes.length > 0 && container.insertBefore(rightContainer, container.childNodes[0]);
     }
     return { targetContainers };
+  }
+
+  // libs/protoframe/util.ts
+  function hasValue(value) {
+    return value != null;
+  }
+
+  // libs/protoframe/connector.ts
+  function mkPayloadType(protocol, action, type) {
+    return `${protocol.type}#${action}#${type}`;
+  }
+  function mkPayloadBody(protocol, action, type, id, body) {
+    return {
+      body,
+      id,
+      type: mkPayloadType(protocol, action, type)
+    };
+  }
+  function mkPayloadResponse(protocol, type, id, response) {
+    return {
+      id,
+      response,
+      type: mkPayloadType(protocol, "ask", type)
+    };
+  }
+  function isPayloadBodyOfType(protocol, action, type, payload) {
+    if (hasValue(payload)) {
+      let payloadType = payload.type;
+      if (hasValue(payloadType) && hasValue(payload.body)) {
+        let [p5, a3, t5] = payloadType.split("#");
+        return p5 === protocol.type && a3 === action && t5 === type;
+      } else
+        return !1;
+    } else
+      return !1;
+  }
+  function isPayloadResponseOfType(protocol, type, payload) {
+    if (hasValue(payload)) {
+      let payloadType = payload.type;
+      if (hasValue(payloadType) && hasValue(payload.response)) {
+        let [p5, a3, t5] = payloadType.split("#");
+        return p5 === protocol.type && a3 === "ask" && t5 === type;
+      } else
+        return !1;
+    } else
+      return !1;
+  }
+  function destroyAll(listeners3) {
+    listeners3.forEach(([w5, l2]) => w5.removeEventListener("message", l2)), listeners3.length = 0;
+  }
+  function awaitResponse(thisWindow, protocol, type, id) {
+    return new Promise((accept) => {
+      let handle = (ev) => {
+        let payload = ev.data;
+        isPayloadResponseOfType(protocol, type, payload) && payload.id === id && (thisWindow.removeEventListener("message", handle), accept(payload.response));
+      };
+      thisWindow.addEventListener("message", handle);
+    });
+  }
+  function handleTell0(thisWindow, protocol, type, handler) {
+    let listener = (ev) => {
+      let payload = ev.data;
+      isPayloadBodyOfType(protocol, "tell", type, payload) && handler(payload.body);
+    };
+    return thisWindow.addEventListener("message", listener), [thisWindow, listener];
+  }
+  function handleAsk0(thisWindow, targetWindow, protocol, type, targetOrigin, handler) {
+    let listener = async (ev) => {
+      let payload = ev.data;
+      if (isPayloadBodyOfType(protocol, "ask", type, payload)) {
+        let response = await handler(payload.body);
+        targetWindow = ev.source, targetWindow.postMessage(
+          mkPayloadResponse(protocol, type, payload.id, response),
+          ev.origin
+        );
+      }
+    };
+    return thisWindow.addEventListener("message", listener), [thisWindow, listener];
+  }
+  function tell0(targetWindow, protocol, type, body, targetOrigin) {
+    let id = Math.random().toString();
+    return targetWindow.postMessage(
+      mkPayloadBody(protocol, "tell", type, id, body),
+      targetOrigin
+    );
+  }
+  async function ask0(thisWindow, targetWindow, protocol, type, body, targetOrigin, timeout) {
+    let id = Math.random().toString(), run2 = new Promise(async (accept, reject) => {
+      let timeoutHandler = setTimeout(
+        () => reject(new Error(`Failed to get response within ${timeout}ms`)),
+        timeout
+      ), response = await awaitResponse(thisWindow, protocol, type, id);
+      clearTimeout(timeoutHandler), accept(response);
+    });
+    return targetWindow.postMessage(
+      mkPayloadBody(protocol, "ask", type, id, body),
+      targetOrigin
+    ), run2;
+  }
+  var ProtoframePubsub = class {
+    constructor(protocol, targetWindow, thisWindow = window, targetOrigin = "*") {
+      this.protocol = protocol;
+      this.targetWindow = targetWindow;
+      this.thisWindow = thisWindow;
+      this.targetOrigin = targetOrigin;
+      this.listeners = [];
+      handleAsk0(
+        thisWindow,
+        targetWindow,
+        this.getSystemProtocol("ping"),
+        "ping",
+        targetOrigin,
+        () => Promise.resolve({})
+      );
+    }
+    /**
+     * Connect to the target configured in the supplied pubsub connector by
+     * sending ping requests over and over until we get a response.
+     *
+     * @param pubsub The pubsub connector to wait until is "connected" to its
+     *  target
+     * @param retries How many times to retry and ping the target. By default,
+     *  this will retry 50 times (thus waiting 25 seconds total)
+     * @param timeout How long to wait for a response from the target before
+     *  retrying. By default the timeout is 500ms (thus waiting 25 seconds total)
+     */
+    static async connect(pubsub, retries = 10, timeout = 500) {
+      for (let i2 = 0; i2 <= retries; i2++)
+        try {
+          return await pubsub.ping({ timeout }), pubsub;
+        } catch {
+          continue;
+        }
+      throw new Error(
+        `Could not connect on protocol ${pubsub.protocol.type} after ${retries * timeout}ms`
+      );
+    }
+    /**
+     * We are a "parent" page that is embedding an iframe, and we wish to connect
+     * to that iframe for communication.
+     *
+     * @param protocol The protocol this connector will communicate with
+     * @param iframe The target iframe HTML element we are connecting to
+     * @param targetOrigin The target scheme and host we expect the receiver to be
+     * @param thisWindow The parent window (our window). This should normally be
+     *  the current `window`
+     */
+    static parent(protocol, iframe, targetOrigin = "*", thisWindow = window) {
+      let targetWindow = iframe.contentWindow;
+      if (hasValue(targetWindow))
+        return new ProtoframePubsub(
+          protocol,
+          targetWindow,
+          thisWindow,
+          targetOrigin
+        );
+      throw new Error("iframe.contentWindow was null");
+    }
+    /**
+     * We are an "iframe" page that will be embedded, and we wish to connect to a
+     * parent page for communication.
+     *
+     * @param protocol The protocol this connector will communicate with
+     * @param targetOrigin The target scheme and host we expect the receiver to be
+     * @param thisWindow The window of the current iframe. This should normally be
+     *  the current `window`
+     * @param targetWindow The window of the parent frame. This should normally be
+     *  the `window.parent`
+     */
+    static iframe(protocol, targetOrigin = "*", {
+      thisWindow = window,
+      targetWindow = window.parent
+    } = {}) {
+      return new ProtoframePubsub(
+        protocol,
+        targetWindow,
+        thisWindow,
+        targetOrigin
+      );
+    }
+    static rootIframe(protocol, targetOrigin = "*", {
+      thisWindow = window
+    } = {}) {
+      return new ProtoframePubsub(
+        protocol,
+        null,
+        thisWindow,
+        targetOrigin
+      );
+    }
+    getSystemProtocol(type) {
+      return {
+        type: `system|${type}`
+      };
+    }
+    /**
+     * Send a 'ping' request to check if there is a listener open at the target
+     * window. If this times out, then it means no listener was available *at the
+     * time the ping request was sent*. Since requests are not buffered, then this
+     * should be retried if we're waiting for some target iframe to start up and
+     * load its assets. See `ProtoframePubsub.connect` as an implementation of
+     * this functionality.
+     *
+     * @param timeout How long to wait for the reply before resulting in an error
+     */
+    async ping({ timeout = 1e4 }) {
+      await ask0(
+        this.thisWindow,
+        this.targetWindow,
+        this.getSystemProtocol("ping"),
+        "ping",
+        {
+          data: {},
+          payload: {}
+        },
+        this.targetOrigin,
+        timeout
+      );
+    }
+    handleTell(type, handler) {
+      this.listeners.push(
+        handleTell0(this.thisWindow, this.protocol, type, handler)
+      );
+    }
+    tell(type, body) {
+      tell0(this.targetWindow, this.protocol, type, body, this.targetOrigin);
+    }
+    handleAsk(type, handler) {
+      this.listeners.push(
+        handleAsk0(
+          this.thisWindow,
+          this.targetWindow,
+          this.protocol,
+          type,
+          this.targetOrigin,
+          handler
+        )
+      );
+    }
+    ask(type, body, timeout = 1e4) {
+      if (this.targetWindow)
+        return ask0(
+          this.thisWindow,
+          this.targetWindow,
+          this.protocol,
+          type,
+          body,
+          this.targetOrigin,
+          timeout
+        );
+      throw new Error("target window is requried");
+    }
+    destroy() {
+      destroyAll(this.listeners);
+    }
+  };
+
+  // child_iframe_channel.ts
+  var theChannel;
+  async function setupChildIframeChannel() {
+    if (getIsInIframe()) {
+      let topFrame = globalThis;
+      for (; topFrame.top != topFrame.self; )
+        topFrame = topFrame.top;
+      let topFrameInstance = ProtoframePubsub.iframe(
+        childFrameToRootFrameIdentifier,
+        "*",
+        {
+          targetWindow: topFrame
+        }
+      );
+      theChannel = topFrameInstance, await ProtoframePubsub.connect(topFrameInstance).catch((e3) => {
+        log_default.error("connect with parent frame error", e3);
+      });
+    }
+  }
+  function getIframeMessageChannel() {
+    return theChannel;
   }
 
   // utils/url_match.ts
@@ -13145,7 +13449,7 @@ ${injectedCss}}
       (selector) => selector !== ".btn"
     ));
     let translationServiceConfig = config.translationServices[ctx.translationService] || {};
-    translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
+    translationServiceConfig.immediateTranslationTextCount !== void 0 && isNumber(translationServiceConfig.immediateTranslationTextCount) && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
     let buildinImmediateTranslationTextCount = buildinConfig.immediateTranslationTextCount;
     config.immediateTranslationTextCount !== buildinImmediateTranslationTextCount && (ctx.state.immediateTranslationTextCount = config.immediateTranslationTextCount);
     let rules = config.rules, rule;
@@ -13169,9 +13473,12 @@ ${injectedCss}}
     let { excludeMatches, excludeSelectorMatches } = matchPattern;
     return !!(excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) || excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches));
   }
+  function isNumber(value) {
+    return typeof value == "number";
+  }
 
   // dom/translate_page.ts
-  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, throttleMap = {
+  var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, throttleMap = {
     300: se3(
       translateCurrentQueue,
       300
@@ -13400,7 +13707,11 @@ ${injectedCss}}
     if (pageStatus === "Translating")
       return;
     let isInIframe = getIsInIframe();
-    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), document.querySelectorAll("iframe").forEach((frame) => {
+    if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody)) {
+      let boydHtml = document.body.innerHTML;
+      document.body.innerHTML = "", document.body.innerHTML = boydHtml;
+    }
+    if (await setupOnceForInitPage(globalContext), document.querySelectorAll("iframe").forEach((frame) => {
       isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
     }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
@@ -13420,7 +13731,7 @@ ${injectedCss}}
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
     currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
       log_default.warn("init translation engine error", e3);
-    })), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
+    })), log_default.debug("ctx", ctx), addToUnmountQueue(() => {
       currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
         observer.disconnect();
       }), allResizebleObserver.forEach((observer) => {
@@ -13859,7 +14170,7 @@ ${injectedCss}}
     } else
       setCurrentPageLanguageByClient(lang);
     let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
+    if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${ctx.url} ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
       globalContext.state.isAutoTranslate = !0, await translatePage(globalContext);
     else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
       if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
@@ -13868,6 +14179,11 @@ ${injectedCss}}
         log_default.warn("init translation engine error", e3);
       })));
     }
+  }
+  async function setupOnceForInitPage(ctx) {
+    isSetupForOnce || (isSetupForOnce = !0, globalThis.top !== globalThis.self && ctx.rule.useIframePostMessage && await setupChildIframeChannel(), injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
+      isInlineIframe(frame) ? injectCssToFrame(frame.contentDocument, ctx) : ctx.rule.isEbook && injectCssToFrame(frame.contentDocument, ctx);
+    }));
   }
   function disableMutatinObserver(rootFrame) {
     if (mutationObserverMap.has(rootFrame)) {
@@ -14218,15 +14534,9 @@ ${injectedCss}}
     }
   };
 
-  // child_iframe_channel.ts
-  var theChannel;
-  function getIframeMessageChannel() {
-    return theChannel;
-  }
-
   // rate_limiter_bus.ts
   var defaultLimiter = new RateLimiter({ limit: 7, interval: 1250 }), limiterMap = {
-    tencent: new RateLimiter({ limit: 3, interval: 1050 }),
+    tencent: new RateLimiter({ limit: 3, interval: 1350 }),
     baidu: new RateLimiter({ limit: 1, interval: 1550 }),
     strict: new RateLimiter({ limit: 1, interval: 1050 }),
     d: new RateLimiter({ limit: 1, interval: 1050 }),
@@ -14336,7 +14646,8 @@ ${injectedCss}}
             sentenceCallback.sentence
           );
         }
-      };
+      }, defaultRateLimiter = { ...this.getDefaultRateLimit() }, serviceConfig = this.serviceConfig;
+      serviceConfig && serviceConfig.limit && (defaultRateLimiter.limit = Number(serviceConfig.limit)), serviceConfig.interval && (defaultRateLimiter.interval = Number(serviceConfig.interval));
       for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
         let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = async () => {
           let nextDelay = await getRateLimiterDelay(
@@ -14777,6 +15088,9 @@ ${injectedCss}}
       this.apiUrl = "https://translate.googleapis.com/translate_a/single";
       serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
     }
+    getDefaultRateLimit() {
+      return { limit: 10, interval: 1050 };
+    }
     async translate(payload) {
       let { text, from, to } = payload;
       if (!text)
@@ -14968,6 +15282,9 @@ ${injectedCss}}
       this.API_URL = API_URL;
       serviceConfig && serviceConfig.apiUrl && (this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl));
     }
+    getDefaultRateLimit() {
+      return { limit: 1, interval: 1050 };
+    }
     async translateList(payload) {
       let { text, to, from } = payload, result = await translate(
         this.API_URL,
@@ -15051,6 +15368,9 @@ ${injectedCss}}
         from: sourceLanguage || "auto",
         to
       };
+    }
+    getDefaultRateLimit() {
+      return { limit: 30, interval: 1050 };
     }
     async translateList(payload) {
       let { from, text, to } = payload;
@@ -15243,7 +15563,7 @@ ${injectedCss}}
     } finally {
       setTimeout(() => {
         throttleRequestMap.delete(key);
-      }, 1e4);
+      }, 3e4);
     }
   }
   async function throttleRequest(options) {
@@ -15339,7 +15659,7 @@ ${injectedCss}}
       }
     }
     getDefaultRateLimit() {
-      return this.authKey && this.authKey.endsWith(":fx") ? 4 : 10;
+      return { limit: 3, interval: 1050 };
     }
     async translateList(payload) {
       let { from, to, text } = payload, bodyParams = {
@@ -15611,6 +15931,9 @@ ${injectedCss}}
       this.maxTextGroupLength = 25;
       this.maxTextLength = 1200;
     }
+    getDefaultRateLimit() {
+      return { limit: 3, interval: 1050 };
+    }
     async translateList(payload) {
       let { text, from, to } = payload, langCode;
       if (text.length === 0)
@@ -15789,6 +16112,9 @@ ${injectedCss}}
         throw new Error("APIKEY are required");
       this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
     }
+    getDefaultRateLimit() {
+      return { limit: 10, interval: 65e3 };
+    }
     translate(payload) {
       return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
     }
@@ -15811,7 +16137,21 @@ ${injectedCss}}
       let remoteFrom = langMap12.get(from) || from, remoteTo = langMap12.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, langMap12.get(to) || to).replace(
         /{{text}}/g,
         text
-      ).replace(/{{from}}/g, langMap12.get(from) || from), options = {
+      ).replace(/{{from}}/g, langMap12.get(from) || from), messages = [
+        {
+          role: "system",
+          content: `You are a translation engine that translates ${remoteFrom} to ${remoteTo}, you can only translate text and cannot interpret it.`
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ];
+      this.prompt.indexOf("{{text}}") === -1 && messages.push({
+        role: "user",
+        content: text
+      });
+      let options = {
         url: this.apiUrl,
         method: "POST",
         headers: {
@@ -15822,16 +16162,7 @@ ${injectedCss}}
           model: this.model,
           temperature: 0,
           max_tokens: 2048,
-          messages: [
-            {
-              role: "system",
-              content: `You are a translation engine that translates ${remoteFrom} to ${remoteTo}, you can only translate text and cannot interpret it.`
-            },
-            {
-              role: "user",
-              content: prompt
-            }
-          ]
+          messages
         })
       }, response = await request2(options);
       if (response && response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
@@ -16713,6 +17044,9 @@ ${injectedCss}}
         throw new Error("appid and key are required");
       this.appid = serviceConfig.appid?.trim(), this.key = serviceConfig.key?.trim();
     }
+    getDefaultRateLimit() {
+      return { limit: 1, interval: 1550 };
+    }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
         from: langMap17.get(from) || "auto",
@@ -16801,6 +17135,9 @@ ${injectedCss}}
       super(serviceConfig, generalConfig, options);
       this.token = "ssdj273ksdiwi923bsd9";
     }
+    getDefaultRateLimit() {
+      return { limit: 5, interval: 1050 };
+    }
     async translateList(payload) {
       let { text, from, to } = payload;
       if (!langMap19.get(to))
@@ -16861,6 +17198,9 @@ ${injectedCss}}
       if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret)
         throw new Error("appId and appSecret are required");
       this.appId = serviceConfig.appId?.trim(), this.appSecret = serviceConfig.appSecret?.trim();
+    }
+    getDefaultRateLimit() {
+      return { limit: 5, interval: 1050 };
     }
     async translate(payload) {
       let { text, from, to } = payload, salt = makeid2(32), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
@@ -16926,6 +17266,9 @@ ${injectedCss}}
       this.appId = "";
       this.appSecret = "";
       this.maxTextLength = 800;
+    }
+    getDefaultRateLimit() {
+      return { limit: 5, interval: 1050 };
     }
     async translate(payload) {
       let { text, from, to } = payload, params = {
@@ -17033,7 +17376,7 @@ ${injectedCss}}
         translationService: defaultTranslationEngine
       }
     ), defaultRateLimit = translator.getDefaultRateLimit();
-    defaultRateLimit && serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
+    defaultRateLimit && (serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit.limit), serviceConfig && !serviceConfig.interval && (serviceConfig.interval = defaultRateLimit.interval)), await setRateLimiter(
       defaultTranslationEngine,
       serviceConfig
     ), await translator.init();
@@ -17139,7 +17482,7 @@ ${injectedCss}}
   function format(str, params) {
     let result = str;
     return params && Object.keys(params).forEach((key) => {
-      let rawValue = params[key], keyIsNumber = isNumber(key);
+      let rawValue = params[key], keyIsNumber = isNumber2(key);
       if (typeof rawValue == "object" || keyIsNumber) {
         let value = rawValue;
         keyIsNumber && typeof value == "string" && (value = {
@@ -17181,7 +17524,7 @@ ${injectedCss}}
     let value = getValue(data, lang, key);
     return value === key && lang !== fallbackLang && (value = getValue(data, fallbackLang, key)), format(value, params);
   }
-  function isNumber(value) {
+  function isNumber2(value) {
     if (typeof value == "number")
       return !0;
     if (value) {

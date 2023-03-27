@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.3.12
+
+- Feat: We can custom Marker translation theme background color now.
+- Fix: postMessage when init page broke somesites, now we will do this only when we really translate pages
+- Fix: ebook progress issue.
+- Fix: better for split long paragraph, 1.5 billion, 25.5%, Mr. will not be considered as a boundary
+
 ## 0.3.11
 
 - Fix: ebook reader dark mode text color

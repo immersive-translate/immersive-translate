@@ -62,22 +62,29 @@
 >
 > 感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，由于他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 和我保持联系。
 
-## 关于沉浸式扩展提供的 Deepl 翻译 Pro 服务
+## 赞助
 
-如果你对 DeepL 翻译服务有强需求，但是[官方 API](./services/deepL.md) 的字符数限制让你感到困扰，那么你可以考虑通过[赞助沉浸式翻译](https://immersive-translate.owenyoung.com/donate)以获得无字符数量限制的 Deepl Auth Key
+**所有用户都可以完全免费地，不受任何限制地使用沉浸式翻译扩展！**
 
-打开[Github Sponsor](https://github.com/sponsors/theowenyoung) 或 [爱发电（支持微信/支付宝）](https://afdian.net/a/translate)，选择 $10 每月或 69 RMB 每月的赞助方案，即可获得 Deepl Auth Key 以及其他相关的赞助者福利。
+**这完全得益于[这些赞助者](https://immersive-translate.owenyoung.com/thanks)的慷慨支持。**
 
-> 说明：
->
-> 1. 该 Auth Key 仅限沉浸式翻译扩展/油猴脚本中使用
-> 2. 翻译服务依然使用的是 DeepL 官方的翻译接口，数据不会经过沉浸式翻译的服务器
-> 3. Auth Key 可以在多台设备使用，但是同时只能在一台设备使用，所以请避免不要滥用资源
-> 4. 赞助后，你将会在邮件收到 DeepL Auth Key，在沉浸式翻译扩展的设置页面选择翻译服务【DeepL】，然后填入该 Auth Key 即可。
-> 5. 该 Auth Key 的有效性与赞助期限保持同步。
-> 6. 你的赞助将对我持续免费的维护这个扩展提供巨大的帮助，感谢你考虑赞助该方案。
+我在开发和维护这个扩展上花费了巨大的精力，所以如果有余力，请考虑成为一名赞助者（金额随意）：
 
-如有疑问可以通过[这些方式](https://www.owenyoung.com/contact/)联系我以了解更多。
+<div align="center"><img src="https://immersive-translate.owenyoung.com/assets/sponsor.png" width="400" alt="wechat and alipay"></div>
+
+你也可以通过我的 [Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)、[爱发电主页（微信/支付宝）](https://afdian.net/a/translate)、[Patreon 主页](https://www.patreon.com/theowenyoung)、[加密货币](https://www.owenyoung.com/contact/) 进行赞助。
+
+### 赞助方案
+
+免费工具作者似乎可以和赞助者之间建立一种双赢的关系！所以我想出了以下的赞助方案，这能让我为赞助者做点什么（Ps. 如果你对以下的方案不感兴趣，完全没关系，你还是可以按照你的意愿随意赞助）
+
+<br>
+
+| $5                                                                                                                                          | $10/月(限时)                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ 加入 Pro 群组<br>✅ 问题优先解决<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像 | ✅ 包含以上所有<br>✅ 每月 2000 万字符的 [DeepL](https://immersive-translate.owenyoung.com/services/deepL)翻译<br>✅ 在[首页](https://immersive-translate.owenyoung.com/#%E8%B5%9E%E5%8A%A9%E8%80%85%E4%BB%AC)展示头像和昵称 |
+
+**现在就 [进入我的 Github Sponsor 主页](https://github.com/sponsors/theowenyoung?frequency=recurring)或者[爱发电主页(支持微信/支付宝) ](https://afdian.net/a/translate) 成为赞助者 ！**
 
 ## 了解更多
 

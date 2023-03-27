@@ -6,6 +6,10 @@
 
 - [Youtube](https://youtu.be/0nIzWCseLVo)
 
+## 双语电子书制作
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V3Q9t9GCOm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## 普通文章，译文无样式：
 
 ![](./assets/microsoft.png)

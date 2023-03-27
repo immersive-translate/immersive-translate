@@ -194,13 +194,20 @@
     "secretKey": "xxx",
     "matches":["*.twitter.com"],
     "limit": 3,
-    "apiUrl":""
+    "apiUrl":"",
+    "maxTextGroupLengthPerRequest": 25,
+    "maxTextLengthPerRequest": 1800
   }
 }
 ```
 
 `matches` 字段, 为特定网站使用该翻译服务。
+
 `limit`字段，指定该翻译服务的每秒最多请求数（有些服务会限制每秒最大请求数）。
+
+`maxTextGroupLengthPerRequest` 字段，每次请求最大的段落数
+
+`maxTextLengthPerRequest` 字段，每次请求最大的字符数
 
 `apiUrl` 可以自定义翻译接口的地址。
 

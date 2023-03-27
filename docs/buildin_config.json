@@ -82,11 +82,11 @@
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
       "maxTextGroupLengthPerRequest": 25,
-      "prompt": "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```",
+      "prompt": "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
       "newlinePlaceholderDelimiters": [
-        "\n\n###",
-        "###\n\n",
-        "\n?\n?###\\d+###\n?\n?"
+        "\n\n-|",
+        "|-\n\n",
+        "\n?\n?-\\|\\d+\\|-\n?\n?"
       ]
     }
   },
@@ -2112,6 +2112,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-26T20:27:23.241Z",
+  "buildinConfigUpdatedAt": "2023-03-27T04:10:36.017Z",
   "latestVersion": "0.3.11"
 }

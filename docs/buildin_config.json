@@ -82,6 +82,7 @@
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
       "maxTextGroupLengthPerRequest": 1,
+      "limit": 1500,
       "prompt": "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
@@ -442,6 +443,7 @@
         "moz-extension://*/pdf/index.html*"
       ],
       "isPdf": true,
+      "isTranslateTitle": false,
       "wrapperPrefix": "",
       "wrapperSuffix": "",
       "urlChangeDelay": 0,
@@ -2110,8 +2112,14 @@
       "shadowRootSelectors": [
         "div[style^='visibility: visible'"
       ]
+    },
+    {
+      "matches": "coinmarketcap.com",
+      "extraBlockSelectors": [
+        "div[class='sc-3502f6cd-0 JxHqg']"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-27T12:02:52.878Z",
-  "latestVersion": "0.3.11"
+  "buildinConfigUpdatedAt": "2023-03-27T17:38:08.597Z",
+  "latestVersion": "0.3.12"
 }

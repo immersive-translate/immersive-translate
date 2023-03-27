@@ -36,10 +36,6 @@
 
 > 补充： 如果你直接扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助的话，可以在支付完成后填写一下这个[表单](https://tally.so/r/mYPplv)，这样可以让我联系到你。
 
-## 成为品牌赞助商
-
-沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
-
 ## 所有赞助者
 
 非常感谢以下用户的支持，由于他/她们的支持，更多的人才可以免费使用这个工具。
@@ -64,6 +60,10 @@ Ps. 我也完全理解暂时还没有余力的用户（因为我就是这样过�
 - 甚至，如果你有代码开发能力，你可以直接参与开发这个扩展，请加[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道了解。
 
 > Psssss. 我比预想中花了更巨大的时间和精力开发这个 [沉浸式翻译扩展](https://immersive-translate.owenyoung.com/)，你的支持对我真的非常重要，感谢你的支持！
+
+## 成为品牌赞助商
+
+沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
 
 ## Links
 

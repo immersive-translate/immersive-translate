@@ -4,15 +4,15 @@
 
 #### Edge 浏览器
 
-已上架 [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)，[点击这里](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg) 安装
+[点击进入 Edge 商店安装](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
 
 #### 类 Chrome 浏览器
 
-已上架 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [点击这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装
+[点击进入 Chrome 商店安装](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
 
 #### Firefox
 
-已上架 [Firefox Addon 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)，[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
+[点击进入 Firefox Addon 商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
 
 ### 油猴脚本地址
 
@@ -30,11 +30,11 @@
 
 ## 安卓端 (Android)
 
-#### 火狐浏览器
+#### 安卓火狐浏览器
 
 1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox Beta 浏览器中打开该链接即可看到安装页面）
+3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
 #### 其他浏览器

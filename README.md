@@ -80,17 +80,17 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 ## 安装
 
-### Edge 浏览器
+#### Edge 浏览器
 
-[点击这里](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg) 安装
+[点击进入 Edge 商店安装](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
 
-### 类 Chrome 浏览器
+#### 类 Chrome 浏览器
 
-[点击这里](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) 安装
+[点击进入 Chrome 商店安装](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
 
-### Firefox
+#### Firefox
 
-[点击这里](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 安装。
+[点击进入 Firefox Addon 商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
 
 ### 油猴脚本地址
 
@@ -123,15 +123,6 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 ## 油猴脚本 GreasyFork 地址
 
 你也可以通过 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 iOS 的 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)油猴扩展似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
-
-## 手动安装 (追踪最新开发特性)
-
-手动安装的优点在于无需等待商店审核，可以立即体验到最新开发版本的功能。
-
-- 下载安装包。使用 git clone 将仓库下载到本地：`git clone https://github.com/immersive-translate/next-immersive-translate.git`。（如果你不习惯命令行操作，你可以直接在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载压缩包。此外，你也可以通过下载 [GitHub 桌面客户端](https://docs.github.com/zh/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) 将该 [GitHub 仓库](https://github.com/immersive-translate/immersive-translate) 同步到本地。）
-- 类 Chrome 浏览器安装：(1) 在地址栏输入：`chrome://extensions`，打开扩展管理窗口；(2) 打开“开发人员模式”，选择“加载解压缩的扩展”，选择 `dist/chrome` 载入。
-- Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，选择 `dist/firefox/manifest.json` 即可。
-- 更新方法：如果你使用 git 下载的安装包，那么使用 `git pull` 拉取最新文件，然后在扩展管理页面选择 `Reload` 即可。如果你在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载的安装包，那么还在这里下载最新的版本替换旧的即可。
 
 ## 赞助
 

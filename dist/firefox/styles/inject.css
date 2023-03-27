@@ -15,6 +15,8 @@
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker-backgroundColor: #fbda41;
+  --immersive-translate-theme-marker-backgroundColor-rgb: 251, 218, 65;
   --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
@@ -188,12 +190,12 @@
   /* TODO: add more texture */
   background: linear-gradient(
     to right,
-    rgba(255, 225, 0, 0.1),
-    rgba(251, 218, 65, 0.9) 3%,
-    rgba(252, 210, 23, 0.9) 35%,
-    rgba(251, 218, 65, 0.9) 70%,
-    rgba(251, 218, 65, 0.8) 95%,
-    rgba(255, 225, 0, 0.3)
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.1),
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 3%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 35%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 70%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.8) 95%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.3)
   );
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -314,16 +316,6 @@
   .immersive-translate-loading {
     border: 2px rgba(255, 255, 255, 0.25) solid !important;
     border-top: 2px rgba(255, 255, 255, 1) solid !important;
-  }
-
-  .immersive-translate-target-translation-theme-marker-inner {
-    background: linear-gradient(
-      to right,
-      rgba(255, 225, 0, 0.1),
-      rgba(102, 99, 78, 0.9) 3%,
-      rgba(102, 99, 78, 0.8) 97%,
-      rgba(255, 225, 0, 0.3)
-    );
   }
 }
 

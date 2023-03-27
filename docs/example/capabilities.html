@@ -9,10 +9,13 @@
     <p>Capabilities Test Page</p>
     <script>
       window.GM = {
-        xmlHttpRequest: function () {},
+        xmlHttpRequest: function () {
+          return new XMLHttpRequest(...arguments);
+        },
         getValue: function () {
           return {};
         },
+        setValue: function () {},
       };
     </script>
     <script src="/immersive-translate.user.js"></script>

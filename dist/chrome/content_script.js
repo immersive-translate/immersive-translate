@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:22.786Z", VERSION: "0.3.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-27T18:55:04.122Z", VERSION: "0.3.12", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -22,6 +22,8 @@ var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:22.786Z", VERSI
   --immersive-translate-theme-wavy-borderColor: #72ece9;
   --immersive-translate-theme-dividingLine-borderColor: #94a3b8;
   --immersive-translate-theme-grey-textColor: #2f4f4f;
+  --immersive-translate-theme-marker-backgroundColor: #fbda41;
+  --immersive-translate-theme-marker-backgroundColor-rgb: 251, 218, 65;
   --immersive-translate-theme-marker2-backgroundColor: #ffff00;
 }
 
@@ -195,12 +197,12 @@ var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:22.786Z", VERSI
   /* TODO: add more texture */
   background: linear-gradient(
     to right,
-    rgba(255, 225, 0, 0.1),
-    rgba(251, 218, 65, 0.9) 3%,
-    rgba(252, 210, 23, 0.9) 35%,
-    rgba(251, 218, 65, 0.9) 70%,
-    rgba(251, 218, 65, 0.8) 95%,
-    rgba(255, 225, 0, 0.3)
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.1),
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 3%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 35%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 70%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.8) 95%,
+    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.3)
   );
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -321,16 +323,6 @@ var define_process_env_default = { BUILD_TIME: "2023-03-22T23:32:22.786Z", VERSI
   .immersive-translate-loading {
     border: 2px rgba(255, 255, 255, 0.25) solid !important;
     border-top: 2px rgba(255, 255, 255, 1) solid !important;
-  }
-
-  .immersive-translate-target-translation-theme-marker-inner {
-    background: linear-gradient(
-      to right,
-      rgba(255, 225, 0, 0.1),
-      rgba(102, 99, 78, 0.9) 3%,
-      rgba(102, 99, 78, 0.8) 97%,
-      rgba(255, 225, 0, 0.3)
-    );
   }
 }
 
@@ -3780,7 +3772,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-// https://esm.sh/v112/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+// https://esm.sh/v113/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
 var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 }, __export2 = (target, all) => {
@@ -3799,7 +3791,7 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
   isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
   mod
 )), require_browser_polyfill = __commonJS({
-  "esm-build-webextension-polyfill-0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
+  "esm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
     (function(global2, factory) {
       if (typeof define == "function" && define.amd)
         define("webextension-polyfill", ["module"], factory);
@@ -4691,16 +4683,16 @@ var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDe
         module22.exports = globalThis.browser;
     });
   }
-}), esm_build_webextension_polyfill_0_10_exports = {};
-__export2(esm_build_webextension_polyfill_0_10_exports, {
-  default: () => esm_build_webextension_polyfill_0_10_default
+}), webextension_polyfill_0_10_exports = {};
+__export2(webextension_polyfill_0_10_exports, {
+  default: () => webextension_polyfill_0_10_default
 });
 var __module = __toESM(require_browser_polyfill());
-__reExport(esm_build_webextension_polyfill_0_10_exports, __toESM(require_browser_polyfill()));
-var { default: __default, ...__rest } = __module, esm_build_webextension_polyfill_0_10_default = __default !== void 0 ? __default : __rest;
+__reExport(webextension_polyfill_0_10_exports, __toESM(require_browser_polyfill()));
+var { default: __default, ...__rest } = __module, webextension_polyfill_0_10_default = __default !== void 0 ? __default : __rest;
 
 // browser/import_browser_polyfill.ts
-globalThis.immersiveTranslateBrowserAPI = esm_build_webextension_polyfill_0_10_default;
+globalThis.immersiveTranslateBrowserAPI = webextension_polyfill_0_10_default;
 
 // locales/zh-CN.json
 var zh_CN_default = {
@@ -4726,6 +4718,7 @@ var zh_CN_default = {
   "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
   "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
   "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
+  "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
   confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
   translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
   smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -4932,9 +4925,9 @@ var zh_CN_default = {
   lastSyncedAt: "\u4E0A\u6B21\u68C0\u67E5\u4E8E {date}",
   downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
   clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
-  aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9",
-  "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9",
-  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002\u5982\u679C\u6709\u4F59\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u8D5E\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
+  aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9\u798F\u5229",
+  "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9\u798F\u5229",
+  aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002<br/><br/>\u514D\u8D39\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8D5E\u52A9\u8005\u4E4B\u95F4\u5EFA\u7ACB\u4E00\u79CD\u53CC\u8D62\u7684\u5173\u7CFB\uFF01\u6211\u4E3A\u8D5E\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u65F6\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8BD1\u670D\u52A1</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u4E86\u89E3\u8D5E\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
   projectHomepage: "\u9879\u76EE\u4E3B\u9875",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
   joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -4963,10 +4956,12 @@ var zh_CN_default = {
   "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
   "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
   "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
+  "field.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6BB5\u843D\u6570",
   "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
-  "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0C\u9ED8\u8BA4\u8BBE\u7F6E\u4E3A OpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u76F4\u63A5\u6539\u4E3A1000\u4EE5\u4E0A",
-  "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
-  "description.maxTextLengthPerRequest": "\u9ED8\u8BA4\u4F1A\u5408\u5E76\u591A\u4E2A\u6BB5\u843D\uFF0C\u4EE5\u51CF\u5C11\u8BF7\u6C42\u6B21\u6570\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u603B\u957F\u5EA6\u8FC7\u957F\uFF0C\u4E5F\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+  "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
+  "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
+  "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+  "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
   enabledExtension: "\u542F\u7528\u6269\u5C55",
   clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
   clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
@@ -4983,8 +4978,8 @@ var zh_TW_default = {
   sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
   help: "\u8AAA\u660E",
   browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
-  browserShortcutsNoteForChrome: "\u985E Chrome \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
-  browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u7232\uFF1A",
+  browserShortcutsNoteForChrome: "Chromium \u6838\u5FC3\u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
+  browserShortcutsSucks: "\u8B8A\u66F4\u5FEB\u901F\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u70BA\uFF1A",
   enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
   "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
   "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
@@ -4998,12 +4993,13 @@ var zh_TW_default = {
   "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
   "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
   "browser.translateLocalHtmlFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
+  "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
   confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
   translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
   smartLineBreak: "\u667A\u6167\u63DB\u884C",
   alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
   isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
-  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u5BE6\u9A57\u6027\u529F\u80FD",
+  toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u529F\u80FD",
   betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
   translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
   tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
@@ -5011,11 +5007,11 @@ var zh_TW_default = {
   xMinutes: "{count} \u5206\u9418",
   disabled: "\u505C\u7528",
   changelog: "\u66F4\u65B0\u8A18\u9304",
-  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u78B0\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+  toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
   toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-  addUrlDescription: "\u53EF\u4EE5\u70BA\u57DF\u540D\uFF0C\u540C\u6642\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+  addUrlDescription: "\u53EF\u4EE5\u70BA\u7DB2\u57DF\u540D\u7A31\uFF0C\u540C\u6642\u652F\u63F4\u842C\u7528\u5B57\u5143\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
   general: "\u57FA\u672C\u8A2D\u5B9A",
-  clickToExpandConfig: "\u5C55\u958B\u7576\u524D\u914D\u7F6E",
+  clickToExpandConfig: "\u5C55\u958B\u76EE\u524D\u8A2D\u5B9A",
   import: "\u5F9E\u6A94\u6848\u532F\u5165",
   export: "\u532F\u51FA\u70BA\u6A94\u6848",
   toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
@@ -5030,7 +5026,7 @@ var zh_TW_default = {
   saved: "\u5132\u5B58\u6210\u529F",
   successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
   goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
-  goAdvancedInterfaceSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+  goAdvancedInterfaceSettings: "\u524D\u5F80\u81EA\u8A02\u8A2D\u5B9A\u9801\u9762",
   advanced: "\u9032\u968E\u8A2D\u5B9A",
   advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
   developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
@@ -5098,12 +5094,12 @@ var zh_TW_default = {
   "add url": "\u8F38\u5165 URL",
   edit: "\u7DE8\u8F2F",
   "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
-  "select translation service": "\u9078\u64C7\u4E00\u9805\u7FFB\u8B6F\u670D\u52D9",
+  "select translation service": "\u9078\u64C7\u4F60\u60F3\u7528\u7684\u7FFB\u8B6F\u670D\u52D9",
   language: "\u8A9E\u8A00",
   "show-original": "\u986F\u793A\u539F\u6587",
   translate: "\u7FFB\u8B6F",
   Translated: "\u5DF2\u7FFB\u8B6F",
-  Translating: "\u7FFB\u8B6F\u4E2D",
+  Translating: "\u6B63\u5728\u7FFB\u8B6F",
   Error: "\u932F\u8AA4",
   allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
   "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
@@ -5159,7 +5155,7 @@ var zh_TW_default = {
   "translationServices.you": "\u6709\u9053\u7FFB\u8B6F (Alpha)",
   "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
   "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
-  "translationServices.papago": "Papago\u7FFB\u8B6F",
+  "translationServices.papago": "Papago \u7FFB\u8B6F",
   "translationServices.d": "Deepl(Alpha)",
   "translationServices.dpro": "D Pro (Canary)",
   "translationServices.openai": "OpenAI",
@@ -5168,7 +5164,7 @@ var zh_TW_default = {
   neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
   neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
   enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
-  enableUserscriptPagePopupDescription: "\u5173\u95ED\u6D6E\u7A97\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/\u4E09\u6307\u89E6\u5C4F\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u6D6E\u7A97\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+  enableUserscriptPagePopupDescription: "\u95DC\u9589\u61F8\u6D6E\u7403\u5F8C\uFF0C\u53EF\u4EE5\u7528\u5FEB\u901F\u9375/{touch}\u518D\u6B21\u986F\u793A\u3002\u70BA\u9632\u6B62\u4E0D\u614E\u95DC\u9589\u8A72\u9078\u9805\u5F8C\u627E\u4E0D\u5230\u61F8\u6D6E\u7403\uFF0C\u5EFA\u8B70\u5C07\u672C\u8A2D\u5B9A\u9801\u9762\u52A0\u5165\u81F3\u6211\u7684\u6700\u611B",
   "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
   "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
   "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
@@ -5206,7 +5202,7 @@ var zh_TW_default = {
   clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
   aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
   "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
-  aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002\u5982\u679C\u6709\u9918\u529B\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u9078\u9019\u88E1\u8D0A\u52A9</2>\u6211\u7684\u5DE5\u4F5C\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+  aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002<br/><br/>\u514D\u8CBB\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8B9A\u52A9\u8005\u4E4B\u9593\u5EFA\u7ACB\u4E00\u7A2E\u96D9\u8D0F\u7684\u95DC\u4FC2\uFF01\u6211\u70BA\u8D0A\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u6642\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8B6F\u670D\u52D9</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u4E86\u89E3\u8D0A\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
   projectHomepage: "\u5C08\u6848\u9996\u9801",
   joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
   joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
@@ -5235,8 +5231,9 @@ var zh_TW_default = {
   "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
   "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
   "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
+  "field.apiUrl": "\u81EA\u8A02 API \u4F4D\u5740",
   "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
-  "description.prompt": "\u4EE5\u4F7F\u7528\u8005\u8EAB\u4EFD\u50B3\u9001\u7D66 OpenAI \u7684\u5C0D\u8A71\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u5B57\u5167\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8A9E\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6A19\u8A9E\u8A00",
+  "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
   "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
   enabledExtension: "\u555F\u7528\u5957\u4EF6",
   clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
@@ -5269,6 +5266,7 @@ var en_default = {
   "browser.openEbookViewer": "Read local e-book",
   "browser.openEbookBuilder": "Make Dual Epub ebook",
   "browser.translateLocalHtmlFile": "Translate local HTML files",
+  "browser.donateContext": "Sponsor Benefits",
   confirmResetConfig: "Are you sure you want to reset the settings?",
   translationLineBreakSettingTitle: "Line break setting",
   smartLineBreak: "Smart Wrap",
@@ -5395,7 +5393,7 @@ var en_default = {
   "translationTheme.paper": "White paper shadow effect",
   "translationTheme.dividingLine": "Dividing line",
   "translationTheme.highlight": "Highlight",
-  "translationTheme.marker": "Maker",
+  "translationTheme.marker": "Marker",
   "translationTheme.marker2": "Maker2",
   "translationTheme.blockquote": "quote style",
   "translationTheme.weakening": "Weakening",
@@ -5506,8 +5504,9 @@ var en_default = {
   "field.translationEngine": "Translation engine",
   "field.limitPerMinute": "Max requests per minute",
   "field.maxTextLengthPerRequest": "Maximum text length per request",
+  "field.apiUrl": "Custom API interface address",
   "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
-  "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language",
+  "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language, you can omit {{text}}, if so, it'll be sent as a separated message",
   "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
   enabledExtension: "Enable extensions",
   clickToDisableExtension: "Click to disable extension",
@@ -5589,6 +5588,11 @@ var themeOptions = {
       type: "color"
     }
   ],
+  marker: [{
+    name: "backgroundColor",
+    required: !1,
+    type: "color"
+  }],
   dashed: [
     {
       name: "borderColor",
@@ -6001,7 +6005,7 @@ var openlProps = [
         labelKey: "field.limitPerMinute",
         descriptionKey: "description.limitPerMinute",
         type: "number",
-        default: 10
+        default: 1500
       },
       {
         name: "maxTextLengthPerRequest",
@@ -6010,6 +6014,14 @@ var openlProps = [
         descriptionKey: "description.maxTextLengthPerRequest",
         type: "number",
         default: 1200
+      },
+      {
+        name: "maxTextGroupLengthPerRequest",
+        required: !1,
+        labelKey: "field.maxTextGroupLengthPerRequest",
+        descriptionKey: "description.maxTextGroupLengthPerRequest",
+        type: "number",
+        default: 1
       },
       {
         name: "apiUrl",
@@ -6024,7 +6036,7 @@ var openlProps = [
         required: !1,
         descriptionKey: "description.prompt",
         type: "textarea",
-        default: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```"
+        default: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```"
       }
     ]
   },
@@ -6597,12 +6609,12 @@ async function retry(fn, opts) {
   throw new RetryError(error, options2.maxAttempts);
 }
 
-// https://esm.sh/v112/memoize-one@6.0.0/deno/memoize-one.mjs
+// https://esm.sh/v113/memoize-one@6.0.0/deno/memoize-one.mjs
 var s = Number.isNaN || function(r) {
   return typeof r == "number" && r !== r;
 };
 
-// https://esm.sh/v112/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+// https://esm.sh/v113/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
 var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
   for (var n2 in t3)
     I(e, n2, { get: t3[n2], enumerable: !0 });
@@ -6700,7 +6712,7 @@ var ce = L(h());
 s2(c, L(h()));
 var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-// https://esm.sh/v112/notie@4.3.1/deno/notie.mjs
+// https://esm.sh/v113/notie@4.3.1/deno/notie.mjs
 var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
   for (var l2 in i2)
     ve(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7017,11 +7029,11 @@ var Fe = ke(xe());
 X2(B, ke(xe()));
 var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-// https://esm.sh/v112/nanostores@0.7.4/deno/nanostores.mjs
+// https://esm.sh/v113/nanostores@0.7.4/deno/nanostores.mjs
 var S = Symbol("clean");
 var m = Symbol();
 
-// https://esm.sh/v112/@nanostores/i18n@0.7.1/deno/i18n.mjs
+// https://esm.sh/v113/@nanostores/i18n@0.7.1/deno/i18n.mjs
 function g(r, n2) {
   if (typeof r == "string")
     return n2(r);
@@ -7055,7 +7067,7 @@ var N = p((r, n2, e) => g(n2, (t3) => {
   return t3 in n2 || (t3 = "many"), g(n2[t3], (o2) => o2.replace(/{count}/g, e));
 });
 
-// https://esm.sh/v112/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+// https://esm.sh/v113/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
 var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
 function P2(e, t3, i2, r) {
   e.addEventListener ? e.addEventListener(t3, i2, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -7239,7 +7251,7 @@ typeof document < "u" && (B3 = window.hotkeys, v2.noConflict = function(e) {
 }, window.hotkeys = v2);
 var B3;
 
-// https://esm.sh/v112/immersive-translate@1.0.9/deno/immersive-translate.mjs
+// https://esm.sh/v113/immersive-translate@1.0.9/deno/immersive-translate.mjs
 var d2 = "Immersive Translate", v3 = class {
   #e = performance.now();
   reset() {
@@ -7965,7 +7977,7 @@ function injectCSS(rootDocument, css, id) {
       );
       existingStyleElement && existingStyleElement.remove(), styleElement.dataset.id = id;
     }
-    rootDocument.head.appendChild(styleElement).innerHTML = css;
+    styleElement.textContent = css, rootDocument.head.appendChild(styleElement);
   } else
     log_default.warn(
       "injectCSS failed, rootDocument does not have head node",
@@ -7992,6 +8004,10 @@ function isMatchTags(nodeName, tags) {
     if (nodeName === tag)
       return !0;
   return !1;
+}
+function hexToRgb(hexValue) {
+  let hex2 = hexValue.replace("#", ""), r = parseInt(hex2.substring(0, 2), 16), g5 = parseInt(hex2.substring(2, 4), 16), b4 = parseInt(hex2.substring(4, 6), 16);
+  return { r, g: g5, b: b4 };
 }
 
 // dom/mark_containers.ts
@@ -8363,18 +8379,18 @@ var buildin_config_default = {
       placeholderDelimiters: ["{{", "}}"],
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
-      maxTextGroupLengthPerRequest: 25,
-      prompt: "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```",
+      maxTextGroupLengthPerRequest: 1,
+      prompt: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
       newlinePlaceholderDelimiters: [
         `
 
-###`,
-        `###
+-|`,
+        `|-
 
 `,
         `
 ?
-?###\\d+###
+?-\\|\\d+\\|-
 ?
 ?`
       ]
@@ -8448,11 +8464,13 @@ var buildin_config_default = {
   generalRule: {
     _comment: "",
     normalizeBody: "",
+    useIframePostMessage: !0,
     injectedCss: [],
     isEbook: !1,
     isEbookBuilder: !1,
     waitForSelectors: [],
     waitForSelectorsTimeout: 3e3,
+    minZIndex: 0,
     initTranslationServiceAsSoonAsPossible: !0,
     targetWrapperTag: "font",
     additionalInjectedCss: [],
@@ -8464,6 +8482,8 @@ var buildin_config_default = {
     isTransformPreTagNewLine: !1,
     urlChangeDelay: 20,
     mutationChangeDelay: 10,
+    mainFrameMinTextCount: 50,
+    mainFrameMinWordCount: 5,
     visibleDelay: 0,
     additionalStayOriginalSelectors: [
       "span.katex",
@@ -8507,7 +8527,6 @@ var buildin_config_default = {
       ".Article__content",
       ".titleLink",
       ".summary",
-      ".content",
       ".headline",
       ".page-content",
       "aside.note",
@@ -8533,7 +8552,10 @@ var buildin_config_default = {
       "#omni-extension",
       ".omni-item",
       "div[data-paste-markdown-skip]",
-      "table.highlight"
+      "table.highlight",
+      "div[class^=codeBlockContent]",
+      "div[class^=codeBlockLines]",
+      "div[class^=token-line]"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -8698,6 +8720,7 @@ var buildin_config_default = {
     {
       matches: ["moz-extension://*/pdf/index.html*"],
       isPdf: !0,
+      isTranslateTitle: !1,
       wrapperPrefix: "",
       wrapperSuffix: "",
       urlChangeDelay: 0,
@@ -8743,6 +8766,15 @@ var buildin_config_default = {
         "MATH",
         "TTS-SENTENCE"
       ]
+    },
+    {
+      matches: [
+        "arad.hange.jp",
+        "arad.nexon.co.jp",
+        "oapi.dingtalk.com",
+        "login.dingtalk.com"
+      ],
+      useIframePostMessage: !1
     },
     {
       matches: ["mail.jabber.org", "antirez.com"],
@@ -8872,9 +8904,7 @@ var buildin_config_default = {
         "https://www.reddit.com/new/",
         "https://www.reddit.com/top/"
       ],
-      excludeMatches: [
-        "https://www.reddit.com/r/*/wiki/*"
-      ],
+      excludeMatches: ["https://www.reddit.com/r/*/wiki/*"],
       selectors: [
         "h1",
         ".PostHeader__post-title-line",
@@ -8926,7 +8956,8 @@ var buildin_config_default = {
       matches: "github.com",
       observeUrlChange: !0,
       excludeMatches: [
-        "https://github.com/settings/profile"
+        "https://github.com/settings/profile",
+        "https://github.com/*/*/settings"
       ],
       selectors: [
         ".markdown-title",
@@ -9154,9 +9185,7 @@ var buildin_config_default = {
     {
       matches: "outlook.live.com",
       excludeSelectors: [".jHAG3.XG5Jd", ".OZZZK", ".lDdSm"],
-      selectors: [
-        "[role=region]"
-      ]
+      selectors: ["[role=region]"]
     },
     {
       matches: "www.producthunt.com",
@@ -9367,7 +9396,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.linkedin.com",
-      addtionalSelectors: ["span.break-words > span > span[dir=ltr]"]
+      additionalSelectors: ["span.break-words > span > span[dir=ltr]"]
     },
     {
       matches: "www.indiehackers.com",
@@ -9439,7 +9468,7 @@ var buildin_config_default = {
     },
     {
       matches: "www.aljazeera.com",
-      addtionalSelectors: ["h1", ".article__subhead"]
+      additionalSelectors: ["h1", ".article__subhead"]
     },
     {
       matches: ["*.pornhub.com", "pornhub.com"],
@@ -9535,9 +9564,7 @@ var buildin_config_default = {
         ".stats-and-offer",
         ".header-container"
       ],
-      atomicBlockSelectors: [
-        ".core-info-cell > div.name"
-      ],
+      atomicBlockSelectors: [".core-info-cell > div.name"],
       globalStyles: {
         ".item-details-control-root.ux-item-shortdesc": "height: unset; overflow: visible; max-height:unset;"
       }
@@ -9545,9 +9572,7 @@ var buildin_config_default = {
     {
       matches: "www.bloomberg.com",
       urlChangeDelay: 2e3,
-      excludeSelectors: [
-        ".ticker-bar"
-      ]
+      excludeSelectors: [".ticker-bar"]
     },
     {
       matches: "xueshu.baidu.com",
@@ -9565,7 +9590,12 @@ var buildin_config_default = {
       extraBlockSelectors: "div"
     },
     {
-      matches: "telegra.ph",
+      matches: "te.legra.ph",
+      normalizeBody: "div.ql-editor[contenteditable='false']",
+      urlChangeDelay: 500
+    },
+    {
+      matches: ["telegra.ph"],
       normalizeBody: "div.ql-editor[contenteditable='false']"
     },
     {
@@ -9927,12 +9957,8 @@ var buildin_config_default = {
         ".game_area_sys_req_leftCol",
         ".game_area_sys_req_rightCol"
       ],
-      extraInlineSelectors: [
-        ".pulldown"
-      ],
-      additionalSelectors: [
-        ".game_page_autocollapse_ctn iframe"
-      ],
+      extraInlineSelectors: [".pulldown"],
+      additionalSelectors: [".game_page_autocollapse_ctn iframe"],
       globalStyles: {
         ".game_description_snippet": "max-height:unset; overflow: scroll;",
         ".game_purchase_area_friends_want": "height: auto; padding-bottom: 6px;",
@@ -9992,9 +10018,7 @@ var buildin_config_default = {
     },
     {
       matches: "https://www.lookintobitcoin.com/charts/*",
-      excludeSelectors: [
-        "svg"
-      ]
+      excludeSelectors: ["svg"]
     },
     {
       matches: "https://platform.openai.com/account/api-keys*",
@@ -10021,9 +10045,7 @@ var buildin_config_default = {
         "#side-bar",
         "h1#side-bar-title"
       ],
-      extraInlineSelectors: [
-        "span.dropcaps"
-      ],
+      extraInlineSelectors: ["span.dropcaps"],
       paragraphMinTextCount: 1,
       paragraphMinWordCount: 1,
       blockMinTextCount: 1,
@@ -10056,21 +10078,27 @@ var buildin_config_default = {
       wrapperPrefix: "<br />"
     },
     {
-      matches: [
-        "https://www.explainpaper.com/reader*"
-      ],
+      matches: ["https://www.explainpaper.com/reader*"],
       isTranslateTitle: !1,
-      selectors: [
-        ".leading-relaxed",
-        ".chat-messages p",
-        ".text-sm"
-      ]
+      selectors: [".leading-relaxed", ".chat-messages p", ".text-sm"]
     },
     {
-      matches: [
-        "www.wsj.com"
-      ],
-      urlChangeDelay: 2e3
+      matches: "https://colab.research.google.com/*",
+      excludeSelectors: ["code", "view-line"]
+    },
+    {
+      matches: "www.gatesnotes.com",
+      minZIndex: -1
+    },
+    {
+      matches: "page.kakao.com",
+      shadowRootSelectors: ["div[style^='visibility: visible'"]
+    },
+    {
+      matches: "coinmarketcap.com",
+      extraBlockSelectors: [
+        "div[class='sc-3502f6cd-0 JxHqg']"
+      ]
     }
   ]
 };
@@ -10329,7 +10357,13 @@ async function getUserConfig() {
   return (await browserAPI.storage.sync.get("userConfig") || {}).userConfig || {};
 }
 var getBrowserIntefaceLanguage = async () => {
-  let defaultInterfaceLanguage = (await browserAPI.i18n.getAcceptLanguages()).map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
+  let languages2 = ["zh-CN"];
+  try {
+    languages2 = await browserAPI.i18n.getAcceptLanguages();
+  } catch (e) {
+    log_default.warn("get browser language error:", e);
+  }
+  let defaultInterfaceLanguage = languages2.map((lang) => formatLanguage(lang)).find((lang) => translations[lang]);
   return defaultInterfaceLanguage || "en";
 }, getBuildInConfig = () => {
   let finalBuildInConfig = {
@@ -10957,8 +10991,12 @@ var asyncMessageHandler = async function(payload, _author) {
     return "pong";
   if (method === "getPageStatus")
     return getPageStatus();
-  if (method === "getCurrentPageLanguage")
-    return getCurrentPageLanguage();
+  if (method === "getCurrentPageLanguage") {
+    let language = getCurrentPageLanguage();
+    return detectCurrentPageLanguage().catch((e) => {
+      log_default.warn("detectCurrentPageLanguage failed", e);
+    }), language;
+  }
 }, connection, syncConnection;
 function setupMessageListeners() {
   let asyncConnection = getConnection();
@@ -11261,8 +11299,12 @@ function applyUserConfigCss(root2, translationTheme, translationThemePatternConf
     let { name } = prop;
     if (root2 && translationThemePatternConfig && translationThemePatternConfig[name]) {
       let value = translationThemePatternConfig[name];
-      ["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+      if (["borderRadius"].includes(name) && (value += "px"), injectedCss += `--immersive-translate-theme-${theme}-${name}: ${value};
+`, translationTheme === "marker" && name === "backgroundColor" && typeof value == "string") {
+        let { r, g: g5, b: b4 } = hexToRgb(value);
+        injectedCss += `--immersive-translate-theme-${theme}-${name}-rgb: ${r}, ${g5}, ${b4};
 `;
+      }
     }
   });
   let otherCss = "";
@@ -11622,9 +11664,13 @@ async function getParagraphs(rootFrame, containers, ctx) {
       ...newParagraph,
       state: "Original",
       observers: []
-    }), !isSameTargetLanguage(result, targetLanguage)) {
-      if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language)))
+    }), isSameTargetLanguage(result, targetLanguage))
+      paragraphEntities.delete(newParagraph.id);
+    else {
+      if (excludeLanguages.length > 0 && excludeLanguages.some((language) => isSameTargetLanguage(result, language))) {
+        paragraphEntities.delete(newParagraph.id);
         return;
+      }
       filterdParagraphs.push(newParagraph);
     }
   }), filterdParagraphs;
@@ -11986,7 +12032,7 @@ function wrapTextNode(depth, root2, rule, displayNoneElements = []) {
               let zIndexNumber = parseInt(zIndex);
               isNaN(zIndexNumber) || (formatedZIndex = zIndexNumber);
             }
-            if ((clip === "rect(1px, 1px, 1px, 1px)" || formatedZIndex < 0) && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
+            if (clip === "rect(1px, 1px, 1px, 1px)" && (tempIsExcludeElement = !0), formatedZIndex < rule.minZIndex && (tempIsExcludeElement = !0), !tempIsExcludeElement && node.nodeName !== "BR") {
               let heightNumber = parseInt(height), widthNumber = parseInt(width);
               !isNaN(heightNumber) && !isNaN(widthNumber) && (heightNumber > 0 && heightNumber < 8 || widthNumber > 0 && widthNumber <= 8) && (tempIsExcludeElement = !0);
             }
@@ -12101,10 +12147,14 @@ function addLineBreakToText(textNode, maxLength) {
   let text = textNode.textContent || "";
   if (text.trim().length <= maxLength)
     return;
-  let boundaryIndex = [".", "?", "!", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
+  let boundaryIndex = [". ", "? ", "! ", "\u3002", "\uFF1F", "\uFF01"].reduce((acc, boundary) => {
     let index = text.lastIndexOf(boundary, maxLength);
     return index > acc ? index : acc;
   }, -1);
+  if (boundaryIndex > 1) {
+    let prevChar = text[boundaryIndex - 1] || "", prevPrevChar = text[boundaryIndex - 2] || "", nextChar = text[boundaryIndex + 1] || "";
+    prevChar === "." || nextChar === "." || nextChar === ")" || prevPrevChar === "." && prevChar === "S" || prevPrevChar.toUpperCase() === "M" && (prevChar.toUpperCase() === "R" || prevChar.toUpperCase() === "S") ? boundaryIndex = -1 : isNaN(Number(prevChar)) || (boundaryIndex = -1);
+  }
   if (boundaryIndex === -1)
     text.length > maxLength + 20 && addLineBreakToText(textNode, maxLength + 20);
   else {
@@ -12142,29 +12192,6 @@ function normalizeContainer2(containers, _rule) {
   }
   return { targetContainers };
 }
-
-// utils/rate_limiter.ts
-var RateLimiter = class {
-  constructor(options2) {
-    this.strictTicks = [];
-    this.options = options2, this.setOptions(options2);
-  }
-  setOptions(options2) {
-    options2 && (options2.interval && (this.options.interval = Number(options2.interval)), options2.limit && (this.options.limit = Number(options2.limit)));
-  }
-  wait() {
-    return new Promise((resolve, _reject) => {
-      setTimeout(resolve, this.getDelay());
-    });
-  }
-  getDelay() {
-    let strictTicks = this.strictTicks, limit = this.options.limit, interval = this.options.interval, now = Date.now();
-    if (strictTicks.length < limit)
-      return strictTicks.push(now), 0;
-    let earliestTime = strictTicks.shift() + interval;
-    return now >= earliestTime ? (strictTicks.push(now), 0) : (strictTicks.push(earliestTime), earliestTime - now);
-  }
-};
 
 // libs/protoframe/util.ts
 function hasValue(value) {
@@ -12375,7 +12402,10 @@ var ProtoframePubsub = class {
       this.targetWindow,
       this.getSystemProtocol("ping"),
       "ping",
-      {},
+      {
+        data: {},
+        payload: {}
+      },
       this.targetOrigin,
       timeout
     );
@@ -12441,9 +12471,32 @@ function getIframeMessageChannel() {
   return theChannel;
 }
 
+// utils/rate_limiter.ts
+var RateLimiter = class {
+  constructor(options2) {
+    this.strictTicks = [];
+    this.options = options2, this.setOptions(options2);
+  }
+  setOptions(options2) {
+    options2 && (options2.interval && (this.options.interval = Number(options2.interval)), options2.limit && (this.options.limit = Number(options2.limit)));
+  }
+  wait() {
+    return new Promise((resolve, _reject) => {
+      setTimeout(resolve, this.getDelay());
+    });
+  }
+  getDelay() {
+    let strictTicks = this.strictTicks, limit = this.options.limit, interval = this.options.interval, now = Date.now();
+    if (strictTicks.length < limit)
+      return strictTicks.push(now), 0;
+    let earliestTime = strictTicks.shift() + interval;
+    return now >= earliestTime ? (strictTicks.push(now), 0) : (strictTicks.push(earliestTime), earliestTime - now);
+  }
+};
+
 // rate_limiter_bus.ts
 var defaultLimiter = new RateLimiter({ limit: 7, interval: 1250 }), limiterMap = {
-  tencent: new RateLimiter({ limit: 3, interval: 1050 }),
+  tencent: new RateLimiter({ limit: 3, interval: 1350 }),
   baidu: new RateLimiter({ limit: 1, interval: 1550 }),
   strict: new RateLimiter({ limit: 1, interval: 1050 }),
   d: new RateLimiter({ limit: 1, interval: 1050 }),
@@ -12557,7 +12610,8 @@ var Translation = class {
           sentenceCallback.sentence
         );
       }
-    };
+    }, defaultRateLimiter = { ...this.getDefaultRateLimit() }, serviceConfig = this.serviceConfig;
+    serviceConfig && serviceConfig.limit && (defaultRateLimiter.limit = Number(serviceConfig.limit)), serviceConfig.interval && (defaultRateLimiter.interval = Number(serviceConfig.interval));
     for (let i2 = 0; i2 < tempSentenceGroups.length; i2++) {
       let tempSentenceGroup = tempSentenceGroups[i2], url = tempSentenceGroup.url, throttled = async () => {
         let nextDelay = await getRateLimiterDelay(
@@ -13267,6 +13321,9 @@ var langMap4 = [
     this.apiUrl = "https://translate.googleapis.com/translate_a/single";
     serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
   }
+  getDefaultRateLimit() {
+    return { limit: 10, interval: 1050 };
+  }
   async translate(payload) {
     let { text, from, to } = payload;
     if (!text)
@@ -13458,6 +13515,9 @@ var langMap5 = [
     this.API_URL = API_URL;
     serviceConfig && serviceConfig.apiUrl && (this.API_URL = mergeUrl(API_URL, serviceConfig.apiUrl));
   }
+  getDefaultRateLimit() {
+    return { limit: 1, interval: 1050 };
+  }
   async translateList(payload) {
     let { text, to, from } = payload, result = await translate(
       this.API_URL,
@@ -13541,6 +13601,9 @@ var langMap6 = [
       from: sourceLanguage || "auto",
       to
     };
+  }
+  getDefaultRateLimit() {
+    return { limit: 30, interval: 1050 };
   }
   async translateList(payload) {
     let { from, text, to } = payload;
@@ -13733,7 +13796,7 @@ async function rawThrottleRequest(options2) {
   } finally {
     setTimeout(() => {
       throttleRequestMap.delete(key);
-    }, 1e4);
+    }, 3e4);
   }
 }
 async function onThrottleRequest(options2) {
@@ -13832,7 +13895,7 @@ var globalState = null, rawLangMap2 = [
     }
   }
   getDefaultRateLimit() {
-    return this.authKey && this.authKey.endsWith(":fx") ? 4 : 10;
+    return { limit: 3, interval: 1050 };
   }
   async translateList(payload) {
     let { from, to, text } = payload, bodyParams = {
@@ -14104,6 +14167,9 @@ var rawLangMap5 = [
     this.maxTextGroupLength = 25;
     this.maxTextLength = 1200;
   }
+  getDefaultRateLimit() {
+    return { limit: 3, interval: 1050 };
+  }
   async translateList(payload) {
     let { text, from, to } = payload, langCode;
     if (text.length === 0)
@@ -14282,6 +14348,9 @@ var rawLangMap6 = [
       throw new Error("APIKEY are required");
     this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
   }
+  getDefaultRateLimit() {
+    return { limit: 10, interval: 65e3 };
+  }
   translate(payload) {
     return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
   }
@@ -14304,7 +14373,21 @@ var rawLangMap6 = [
     let remoteFrom = langMap12.get(from) || from, remoteTo = langMap12.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, langMap12.get(to) || to).replace(
       /{{text}}/g,
       text
-    ).replace(/{{from}}/g, langMap12.get(from) || from), options2 = {
+    ).replace(/{{from}}/g, langMap12.get(from) || from), messages = [
+      {
+        role: "system",
+        content: `You are a translation engine that translates ${remoteFrom} to ${remoteTo}, you can only translate text and cannot interpret it.`
+      },
+      {
+        role: "user",
+        content: prompt
+      }
+    ];
+    this.prompt.indexOf("{{text}}") === -1 && messages.push({
+      role: "user",
+      content: text
+    });
+    let options2 = {
       url: this.apiUrl,
       method: "POST",
       headers: {
@@ -14315,16 +14398,7 @@ var rawLangMap6 = [
         model: this.model,
         temperature: 0,
         max_tokens: 2048,
-        messages: [
-          {
-            role: "system",
-            content: `You are a translation engine that translates ${remoteFrom} to ${remoteTo}, you can only translate text and cannot interpret it.`
-          },
-          {
-            role: "user",
-            content: prompt
-          }
-        ]
+        messages
       })
     }, response = await request2(options2);
     if (response && response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
@@ -15206,6 +15280,9 @@ var rawLangMap11 = [
       throw new Error("appid and key are required");
     this.appid = serviceConfig.appid?.trim(), this.key = serviceConfig.key?.trim();
   }
+  getDefaultRateLimit() {
+    return { limit: 1, interval: 1550 };
+  }
   async translate(payload) {
     let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
       from: langMap17.get(from) || "auto",
@@ -15294,6 +15371,9 @@ var rawLangMap13 = [
     super(serviceConfig, generalConfig, options2);
     this.token = "ssdj273ksdiwi923bsd9";
   }
+  getDefaultRateLimit() {
+    return { limit: 5, interval: 1050 };
+  }
   async translateList(payload) {
     let { text, from, to } = payload;
     if (!langMap19.get(to))
@@ -15354,6 +15434,9 @@ var Youdao = class extends Translation {
     if (!serviceConfig || !serviceConfig.appId || !serviceConfig.appSecret)
       throw new Error("appId and appSecret are required");
     this.appId = serviceConfig.appId?.trim(), this.appSecret = serviceConfig.appSecret?.trim();
+  }
+  getDefaultRateLimit() {
+    return { limit: 5, interval: 1050 };
   }
   async translate(payload) {
     let { text, from, to } = payload, salt = makeid2(32), curTime = Math.round((/* @__PURE__ */ new Date()).getTime() / 1e3), str1 = this.appId + truncate(text) + salt + curTime + this.appSecret, sign = await sha256(str1), params = {
@@ -15419,6 +15502,9 @@ var You = class extends Translation {
     this.appId = "";
     this.appSecret = "";
     this.maxTextLength = 800;
+  }
+  getDefaultRateLimit() {
+    return { limit: 5, interval: 1050 };
   }
   async translate(payload) {
     let { text, from, to } = payload, params = {
@@ -15504,7 +15590,7 @@ async function initTranslationEngine(ctx) {
       translationService: defaultTranslationEngine
     }
   ), defaultRateLimit = translator.getDefaultRateLimit();
-  defaultRateLimit && serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit), await setRateLimiter(
+  defaultRateLimit && (serviceConfig && !serviceConfig.limit && (serviceConfig.limit = defaultRateLimit.limit), serviceConfig && !serviceConfig.interval && (serviceConfig.interval = defaultRateLimit.interval)), await setRateLimiter(
     defaultTranslationEngine,
     serviceConfig
   ), await translator.init();
@@ -15770,7 +15856,7 @@ async function getContext(options2) {
     (selector) => selector !== ".btn"
   ));
   let translationServiceConfig = config.translationServices[ctx.translationService] || {};
-  translationServiceConfig.immediateTranslationTextCount !== void 0 && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
+  translationServiceConfig.immediateTranslationTextCount !== void 0 && isNumber(translationServiceConfig.immediateTranslationTextCount) && translationServiceConfig.immediateTranslationTextCount >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCount), ctx.translationService === "deepl" && translationServiceConfig && translationServiceConfig.authKey && translationServiceConfig.authKey.startsWith("immersive_") && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl !== void 0 && translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl >= 0 && (ctx.state.immediateTranslationTextCount = translationServiceConfig.immediateTranslationTextCountForImmersiveDeepl), translationServiceConfig && translationServiceConfig.translationDebounce && typeof translationServiceConfig.translationDebounce == "number" && (ctx.state.translationDebounce = translationServiceConfig.translationDebounce);
   let buildinImmediateTranslationTextCount = buildinConfig.immediateTranslationTextCount;
   config.immediateTranslationTextCount !== buildinImmediateTranslationTextCount && (ctx.state.immediateTranslationTextCount = config.immediateTranslationTextCount);
   let rules = config.rules, rule;
@@ -15794,9 +15880,12 @@ function isMatchedExclude(url, matchPattern) {
   let { excludeMatches, excludeSelectorMatches } = matchPattern;
   return !!(excludeMatches && excludeMatches.length > 0 && isMatchUrl(url, excludeMatches) || excludeSelectorMatches && excludeSelectorMatches.length > 0 && isMatchSelectors(excludeSelectorMatches));
 }
+function isNumber(value) {
+  return typeof value == "number";
+}
 
 // dom/translate_page.ts
-var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, throttleMap = {
+var pageStatus = "Original", currentParagraphIds = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), allNewDynamicElements = [], allIntersectionObserver = [], allResizebleObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, throttleMap = {
   300: se(
     translateCurrentQueue,
     300
@@ -16025,7 +16114,11 @@ async function translatePage(ctx) {
   if (pageStatus === "Translating")
     return;
   let isInIframe = getIsInIframe();
-  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), document.querySelectorAll("iframe").forEach((frame) => {
+  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody)) {
+    let boydHtml = document.body.innerHTML;
+    document.body.innerHTML = "", document.body.innerHTML = boydHtml;
+  }
+  if (await setupOnceForInitPage(globalContext), document.querySelectorAll("iframe").forEach((frame) => {
     isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
   }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
     let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
@@ -16045,7 +16138,7 @@ async function translatePage(ctx) {
   let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
   currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e) => {
     log_default.warn("init translation engine error", e);
-  })), log_default.debug("ctx", ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody) && (document.body = document.body.cloneNode(!0)), addToUnmountQueue(() => {
+  })), log_default.debug("ctx", ctx), addToUnmountQueue(() => {
     currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
       observer.disconnect();
     }), allResizebleObserver.forEach((observer) => {
@@ -16463,28 +16556,9 @@ async function initPage() {
     meta.name = key, meta.content = ctx.rule.globalMeta[key], document.head.appendChild(meta);
   });
   let lang = ctx.sourceLanguage;
-  if (lang === "auto") {
-    if (isMonkey()) {
-      let mainText = "";
-      ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
-        text: mainText
-      });
-    } else if (isInIframe)
-      lang = await detectLanguage({
-        text: getMainText(ctx.mainFrame).slice(0, 1e3)
-      });
-    else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
-      let mainText = "";
-      mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
-        text: mainText
-      });
-    } else
-      lang = await detectTabLanguage();
-    lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang);
-  } else
-    setCurrentPageLanguageByClient(lang);
+  lang === "auto" ? lang = await detectCurrentPageLanguage(ctx) : setCurrentPageLanguageByClient(lang);
   let isAutoTranslate = ctx.state.isAutoTranslate || ctx.isTranslateUrl || ctx.rule.isPdf;
-  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
+  if (!isAutoTranslate && !ctx.isTranslateExcludeUrl && (log_default.debug(`detect page language: ${ctx.url} ${lang}`), isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto" || isMatchLanguage(lang, ctx.config.translationLanguagePattern) && (isAutoTranslate = !0, log_default.debug(`match language pattern ${lang}, auto translate`))), ctx.rule.isEbookBuilder && (isAutoTranslate = !1), isAutoTranslate)
     globalContext.state.isAutoTranslate = !0, await translatePage(globalContext);
   else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
     if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
@@ -16493,6 +16567,11 @@ async function initPage() {
       log_default.warn("init translation engine error", e);
     })));
   }
+}
+async function setupOnceForInitPage(ctx) {
+  isSetupForOnce || (isSetupForOnce = !0, globalThis.top !== globalThis.self && ctx.rule.useIframePostMessage && await setupChildIframeChannel(), injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
+    isInlineIframe(frame) ? injectCssToFrame(frame.contentDocument, ctx) : ctx.rule.isEbook && injectCssToFrame(frame.contentDocument, ctx);
+  }));
 }
 function disableMutatinObserver(rootFrame) {
   if (mutationObserverMap.has(rootFrame)) {
@@ -16509,6 +16588,27 @@ function disableTitleMutationObserver() {
 function getPageStatus() {
   return pageStatus;
 }
+async function detectCurrentPageLanguage(ctx) {
+  ctx || (globalContext = await getGlobalContext(getRealUrl(), {}), ctx = globalContext);
+  let isInIframe = getIsInIframe(), lang = "auto";
+  if (isMonkey()) {
+    let mainText = "";
+    ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
+      text: mainText
+    });
+  } else if (isInIframe)
+    lang = await detectLanguage({
+      text: getMainText(ctx.mainFrame).slice(0, 1e3)
+    });
+  else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
+    let mainText = "";
+    mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
+      text: mainText
+    });
+  } else
+    lang = await detectTabLanguage();
+  return lang === "auto" && (lang = await detectPageLanguage()), setCurrentPageLanguage(lang), lang;
+}
 function waitForSelectors(selectors, timeout = 3e3) {
   return new Promise((resolve, _reject) => {
     let timer2 = timeout ? setTimeout(() => {
@@ -16517,212 +16617,6 @@ function waitForSelectors(selectors, timeout = 3e3) {
       selectors.every((selector) => document.querySelector(selector) !== null) && (clearInterval(interval), timer2 && clearTimeout(timer2), resolve(null));
     }, 50);
   });
-}
-
-// libs/preact-translation/utils.ts
-function getResourceUrl(root2, lang) {
-  return [root2, !root2 || root2.endsWith("/") ? "" : "/", lang, ".json"].join("");
-}
-function format(str, params) {
-  let result = str;
-  return params && Object.keys(params).forEach((key) => {
-    let rawValue = params[key], keyIsNumber = isNumber(key);
-    if (typeof rawValue == "object" || keyIsNumber) {
-      let value = rawValue;
-      keyIsNumber && typeof value == "string" && (value = {
-        tag: "a",
-        href: value
-      });
-      let tag = `<${key}>`, tagIndex = result.indexOf(tag);
-      if (tagIndex !== -1) {
-        let actualTag = value.tag || "a", endIndex = result.indexOf(`</${key}>`);
-        if (endIndex !== -1) {
-          let html = result.substring(tagIndex + tag.length, endIndex), attrs = Object.keys(value).filter((attr) => attr !== "tag").map((attr) => `${attr}="${value[attr]}"`).join(" ");
-          result = result.replace(
-            `${tag}${html}</${key}>`,
-            `<${actualTag} ${attrs}>${html}</${actualTag}>`
-          );
-        }
-      }
-    } else {
-      let template = new RegExp("{" + key + "}", "gm");
-      result = result.replace(template, rawValue.toString());
-    }
-  }), result;
-}
-function getValue(languageData, lang, key) {
-  let localeData = languageData[lang];
-  if (!localeData)
-    return key;
-  let keys = key.split("."), propKey = "";
-  do {
-    propKey += keys.shift();
-    let value = localeData[propKey];
-    value !== void 0 && (typeof value == "object" || !keys.length) ? (localeData = value, propKey = "") : keys.length ? propKey += "." : localeData = key;
-  } while (keys.length);
-  return localeData;
-}
-function t(data, key, lang, fallbackLang, params) {
-  if (!data.hasOwnProperty(lang))
-    return key;
-  let value = getValue(data, lang, key);
-  return value === key && lang !== fallbackLang && (value = getValue(data, fallbackLang, key)), format(value, params);
-}
-function isNumber(value) {
-  if (typeof value == "number")
-    return !0;
-  if (value) {
-    let num = parseInt(value);
-    return !isNaN(num);
-  } else
-    return !1;
-}
-
-// locales.ts
-var internalLocaleMap = {
-  "zh-CN": {
-    "languages.en": "\u82F1\u8BED",
-    "languages.ja": "\u65E5\u8BED",
-    "languages.ko": "\u97E9\u8BED",
-    "languages.es": "\u897F\u73ED\u7259\u8BED",
-    "languages.fr": "\u6CD5\u8BED",
-    "languages.de": "\u5FB7\u8BED",
-    "languages.it": "\u610F\u5927\u5229\u8BED",
-    "languages.pt": "\u8461\u8404\u7259\u8BED",
-    "languages.ru": "\u4FC4\u8BED",
-    "languages.wyw": "\u6587\u8A00\u6587",
-    "languages.<all>": "\u5168\u90E8"
-  },
-  "zh-TW": {
-    "languages.en": "\u82F1\u8A9E",
-    "languages.ja": "\u65E5\u8A9E",
-    "languages.ko": "\u97D3\u8A9E",
-    "languages.es": "\u897F\u73ED\u7259\u8A9E",
-    "languages.fr": "\u6CD5\u8A9E",
-    "languages.de": "\u5FB7\u8A9E",
-    "languages.it": "\u610F\u5927\u5229\u8A9E",
-    "languages.pt": "\u8461\u8404\u7259\u8A9E",
-    "languages.ru": "\u4FC4\u8A9E",
-    "languages.wyw": "\u6587\u8A00\u6587",
-    "languages.<all>": "\u5168\u90E8"
-  }
-}, finalTranslations = {
-  ...translations,
-  "zh-CN": {
-    ...internalLocaleMap["zh-CN"],
-    ...translations["zh-CN"]
-  },
-  "zh-TW": {
-    ...internalLocaleMap["zh-TW"],
-    ...translations["zh-TW"]
-  }
-}, locales_default = finalTranslations;
-function t2(key, interfaceLanguage, params) {
-  return t(
-    finalTranslations,
-    key,
-    interfaceLanguage,
-    fallbackLanguage,
-    params
-  );
-}
-var getLanguageName = (lang, interfaceLanguage, useOriginal) => {
-  let translation = t(
-    finalTranslations,
-    `languages.${lang}`,
-    interfaceLanguage,
-    "en"
-  );
-  return useOriginal ? langMap[lang] || lang : translation !== `languages.${lang}` ? translation : langMap[lang];
-};
-
-// userscript_message.ts
-function sendMessageToContent(request3) {
-  asyncMessageHandler(request3, {
-    // @ts-ignore: it's ok
-    tab: {
-      id: 1,
-      url: "https://www.fake.com",
-      active: !0
-    }
-  }).catch((e) => {
-    log_default.error("send content message request failed", request3, e);
-  }), document.querySelectorAll("iframe").forEach((iframe) => {
-    iframe.contentWindow && iframe.contentWindow.postMessage(
-      {
-        author: iframeMessageIdentifier,
-        payload: request3
-      },
-      "*"
-    );
-  });
-  let event = new CustomEvent(userscriptCommandEventName, {
-    detail: request3
-  });
-  globalThis.document.dispatchEvent(event);
-}
-
-// content_dom_listeners.ts
-var throttleToggleTranslatePage = se(() => {
-  toggleTranslatePage();
-  let event = new CustomEvent(userscriptCommandEventName, {
-    detail: {
-      method: "toggleTranslatePage"
-    }
-  });
-  globalThis.document.dispatchEvent(event);
-}, 200), throttleToggleTranslationMask = se(() => {
-  toggleTranslationMask();
-  let event = new CustomEvent(userscriptCommandEventName, {
-    detail: {
-      method: "toggleTranslationMask"
-    }
-  });
-  globalThis.document.dispatchEvent(event);
-}, 200);
-async function setupDomListeners(ctx) {
-  if (document.addEventListener("immersiveTranslateEbookLoaded", () => {
-    setTimeout(() => {
-      initPage();
-    }, 10);
-  }), document.addEventListener(
-    documentMessageTypeIdentifierForThirdPartyTell,
-    (e) => {
-      let event = e;
-      if (log_default.debug("receive third party message", event), event && event.detail)
-        try {
-          let detailObj = JSON.parse(event.detail);
-          detailObj && detailObj.type && detailObj.type === "retryFailedParagraphs" && sendMessageToContent({
-            method: "retryFailedParagraphs"
-          });
-        } catch (e2) {
-          log_default.warn("parse message error", e2);
-        }
-    }
-  ), document.addEventListener("click", (e) => {
-    let target = e.target;
-    if (!target || !target.getAttribute)
-      return;
-    let action = target.getAttribute("data-immersive-translate-action");
-    action && action === "retry" && (e.preventDefault(), typeof e.stopPropagation == "function" && e.stopPropagation(), retryFailedParagraphs());
-  }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e) => {
-    e.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
-  }), isMonkey() && globalThis.top != globalThis.self && globalThis.addEventListener("message", (event) => {
-    event && event.data && event.data.payload && event.data.author === iframeMessageIdentifier && asyncMessageHandler(event.data.payload, {
-      // @ts-ignore: it's ok
-      tab: {
-        id: 1,
-        url: "https://www.fake-iframe.com",
-        active: !0
-      }
-    });
-  }, !1), globalThis.top === globalThis.self) {
-    let channel = ProtoframePubsub.rootIframe(
-      childFrameToRootFrameIdentifier
-    );
-    channel.handleAsk("getRateLimitDelay", onRateLimiterDelayRequest), channel.handleAsk("throttleRequest", onThrottleRequest);
-  } else
-    await setupChildIframeChannel();
 }
 
 // utils/compare_version.ts
@@ -16777,151 +16671,6 @@ async function syncRules() {
     );
   } catch (e) {
     log_default.error("sync rules error: ", e);
-  }
-}
-
-// web-options/is_web_options_page.ts
-function isWebOptionsPage2() {
-  let optionsHostnames = ["localhost", hostname], optionsPaths = ["/dist/userscript/options/", "/options/", "/options"], url = getRealUrl(), urlObj = new URL(url), currentHostname = urlObj.hostname, currentPath = urlObj.pathname;
-  if ((optionsHostnames.includes(currentHostname) || currentHostname.startsWith("192.168")) && optionsPaths.includes(currentPath)) {
-    let optionsMetaElement = document.querySelector(
-      "meta[name=immersive-translate-options]"
-    );
-    if (optionsMetaElement && optionsMetaElement.getAttribute("content") === "true")
-      return !0;
-  }
-  return !1;
-}
-
-// web-options/setup_web_options_page.ts
-async function setupWebOptionsPage() {
-  if (!document.getElementById(
-    "immersive-translate-status"
-  )) {
-    log_default.error("Could not find status element");
-    return;
-  }
-  await initStorage("local"), await initStorage("sync"), initOther();
-  let pageReadyElement = document.getElementById(
-    "immersive-translate-page-ready"
-  );
-  pageReadyElement && setTimeout(() => {
-    pageReadyElement.value = "true", pageReadyElement.dispatchEvent(new Event("change"));
-  }, 100);
-}
-async function answerMessage(e, fn) {
-  let detail;
-  try {
-    detail = JSON.parse(e.detail);
-  } catch (e2) {
-    log_default.error("parse detail failed", e2);
-    return;
-  }
-  let id = detail.id || "default";
-  try {
-    let params = detail.data || {}, response = await fn(params), message = {
-      id,
-      ok: !0,
-      data: response
-    };
-    document.dispatchEvent(
-      new CustomEvent(documentMessageTypeIdentifierForHandler, {
-        detail: JSON.stringify({
-          ...message,
-          type: "answer"
-        })
-      })
-    );
-  } catch (e2) {
-    let message = {
-      ok: !1,
-      errorName: e2.name,
-      errorMessage: e2.message,
-      errorDetails: e2.details || e2.detail
-    };
-    document.dispatchEvent(
-      new CustomEvent(documentMessageTypeIdentifierForHandler, {
-        detail: JSON.stringify({
-          ...message,
-          id,
-          type: "answer"
-        })
-      })
-    );
-  }
-}
-function initOther() {
-  document.addEventListener(documentMessageTypeIdentifierForAsk, (e) => {
-    let event = e;
-    if (event && event.detail) {
-      let detail;
-      try {
-        detail = JSON.parse(event.detail);
-      } catch (e2) {
-        log_default.error("parse detail failed", e2);
-        return;
-      }
-      detail.type === "ask" && detail.method === "request" && answerMessage(event, request2);
-    }
-  });
-  let manifestElement = document.getElementById(
-    "immersive-translate-manifest"
-  );
-  if (!manifestElement) {
-    log_default.error("Could not find manifest element");
-    return;
-  }
-  manifestElement.value = JSON.stringify(browserAPI.runtime.getManifest()), manifestElement.dispatchEvent(new Event("change")), document.getElementById(
-    "immersive-translate-message"
-  ).addEventListener(
-    "change",
-    (event) => {
-      try {
-        let messageObj = JSON.parse(
-          event.target.value
-        );
-        messageObj && messageObj.method === "removeStorageKey" && messageObj.data && messageObj.data.area && messageObj.data.keys && browserAPI.storage[messageObj.data.area].remove(
-          messageObj.data.keys
-        );
-      } catch (e) {
-        log_default.error("parse message error", e);
-      }
-    }
-  );
-}
-async function initStorage(area) {
-  let statusElement = document.getElementById(
-    "immersive-translate-status"
-  ), storageInputElement = document.getElementById(
-    `immersive-translate-${area}-storage`
-  );
-  if (storageInputElement) {
-    log_default.debug("init storage");
-    let browserStorageObj = await browserAPI.storage[area].get(null);
-    storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
-      try {
-        let storageObj = JSON.parse(event.target.value);
-        browserAPI.storage[area].set(storageObj);
-      } catch (e) {
-        log_default.error("save to storage error", e);
-      }
-    });
-  } else {
-    log_default.error(`Could not find storage ${area} element`), statusElement.innerText = "Could not find storage local input element";
-    return;
-  }
-}
-
-// userscript_command_listeners.ts
-function setupCommandListeners(config) {
-  let shortcuts = config.shortcuts || {}, keyMap = Object.keys(shortcuts).reduce((acc, key) => (acc[shortcuts[key]] = key, acc), {}), shortcutsKeys = Object.keys(keyMap);
-  for (let key of shortcutsKeys) {
-    let realKey = key.replace(/MacCtrl/ig, "Ctrl");
-    realKey && v2(realKey, (e) => {
-      e.preventDefault(), sendMessageToContent({
-        method: keyMap[key]
-      });
-    });
   }
 }
 
@@ -17350,6 +17099,66 @@ function D6(_3, t3) {
   return typeof t3 == "function" ? t3(_3) : t3;
 }
 
+// libs/preact-translation/utils.ts
+function getResourceUrl(root2, lang) {
+  return [root2, !root2 || root2.endsWith("/") ? "" : "/", lang, ".json"].join("");
+}
+function format(str, params) {
+  let result = str;
+  return params && Object.keys(params).forEach((key) => {
+    let rawValue = params[key], keyIsNumber = isNumber2(key);
+    if (typeof rawValue == "object" || keyIsNumber) {
+      let value = rawValue;
+      keyIsNumber && typeof value == "string" && (value = {
+        tag: "a",
+        href: value,
+        target: "_blank"
+      });
+      let tag = `<${key}>`, tagIndex = result.indexOf(tag);
+      if (tagIndex !== -1) {
+        let actualTag = value.tag || "a", endIndex = result.indexOf(`</${key}>`);
+        if (endIndex !== -1) {
+          let html = result.substring(tagIndex + tag.length, endIndex), attrs = Object.keys(value).filter((attr) => attr !== "tag").map((attr) => `${attr}="${value[attr]}"`).join(" ");
+          result = result.replace(
+            `${tag}${html}</${key}>`,
+            `<${actualTag} ${attrs}>${html}</${actualTag}>`
+          );
+        }
+      }
+    } else {
+      let template = new RegExp("{" + key + "}", "gm");
+      result = result.replace(template, rawValue.toString());
+    }
+  }), result;
+}
+function getValue(languageData, lang, key) {
+  let localeData = languageData[lang];
+  if (!localeData)
+    return key;
+  let keys = key.split("."), propKey = "";
+  do {
+    propKey += keys.shift();
+    let value = localeData[propKey];
+    value !== void 0 && (typeof value == "object" || !keys.length) ? (localeData = value, propKey = "") : keys.length ? propKey += "." : localeData = key;
+  } while (keys.length);
+  return localeData;
+}
+function t(data, key, lang, fallbackLang, params) {
+  if (!data.hasOwnProperty(lang))
+    return key;
+  let value = getValue(data, lang, key);
+  return value === key && lang !== fallbackLang && (value = getValue(data, fallbackLang, key)), format(value, params);
+}
+function isNumber2(value) {
+  if (typeof value == "number")
+    return !0;
+  if (value) {
+    let num = parseInt(value);
+    return !isNaN(num);
+  } else
+    return !1;
+}
+
 // libs/preact-translation/useTranslate.tsx
 var cache = {}, defaultOptions = {
   root: "",
@@ -17591,6 +17400,64 @@ function PopupField(props) {
     )
   ] }) : null;
 }
+
+// locales.ts
+var internalLocaleMap = {
+  "zh-CN": {
+    "languages.en": "\u82F1\u8BED",
+    "languages.ja": "\u65E5\u8BED",
+    "languages.ko": "\u97E9\u8BED",
+    "languages.es": "\u897F\u73ED\u7259\u8BED",
+    "languages.fr": "\u6CD5\u8BED",
+    "languages.de": "\u5FB7\u8BED",
+    "languages.it": "\u610F\u5927\u5229\u8BED",
+    "languages.pt": "\u8461\u8404\u7259\u8BED",
+    "languages.ru": "\u4FC4\u8BED",
+    "languages.wyw": "\u6587\u8A00\u6587",
+    "languages.<all>": "\u5168\u90E8"
+  },
+  "zh-TW": {
+    "languages.en": "\u82F1\u8A9E",
+    "languages.ja": "\u65E5\u8A9E",
+    "languages.ko": "\u97D3\u8A9E",
+    "languages.es": "\u897F\u73ED\u7259\u8A9E",
+    "languages.fr": "\u6CD5\u8A9E",
+    "languages.de": "\u5FB7\u8A9E",
+    "languages.it": "\u610F\u5927\u5229\u8A9E",
+    "languages.pt": "\u8461\u8404\u7259\u8A9E",
+    "languages.ru": "\u4FC4\u8A9E",
+    "languages.wyw": "\u6587\u8A00\u6587",
+    "languages.<all>": "\u5168\u90E8"
+  }
+}, finalTranslations = {
+  ...translations,
+  "zh-CN": {
+    ...internalLocaleMap["zh-CN"],
+    ...translations["zh-CN"]
+  },
+  "zh-TW": {
+    ...internalLocaleMap["zh-TW"],
+    ...translations["zh-TW"]
+  }
+}, locales_default = finalTranslations;
+function t2(key, interfaceLanguage, params) {
+  return t(
+    finalTranslations,
+    key,
+    interfaceLanguage,
+    fallbackLanguage,
+    params
+  );
+}
+var getLanguageName = (lang, interfaceLanguage, useOriginal) => {
+  let translation = t(
+    finalTranslations,
+    `languages.${lang}`,
+    interfaceLanguage,
+    "en"
+  );
+  return useOriginal ? langMap[lang] || lang : translation !== `languages.${lang}` ? translation : langMap[lang];
+};
 
 // components/sync_latest.tsx
 var SyncSuccess = ({ date }) => {
@@ -18298,6 +18165,32 @@ function useUserConfig() {
   return [value, formatSetValue, isPersistent, error, setValue];
 }
 
+// userscript_message.ts
+function sendMessageToContent(request3) {
+  asyncMessageHandler(request3, {
+    // @ts-ignore: it's ok
+    tab: {
+      id: 1,
+      url: "https://www.fake.com",
+      active: !0
+    }
+  }).catch((e) => {
+    log_default.error("send content message request failed", request3, e);
+  }), document.querySelectorAll("iframe").forEach((iframe) => {
+    iframe.contentWindow && iframe.contentWindow.postMessage(
+      {
+        author: iframeMessageIdentifier,
+        payload: request3
+      },
+      "*"
+    );
+  });
+  let event = new CustomEvent(userscriptCommandEventName, {
+    detail: request3
+  });
+  globalThis.document.dispatchEvent(event);
+}
+
 // userscript/popup_app.tsx
 function PopupApp(props) {
   let { onClose } = props, [pageStatus2, setPageStatus] = P5("Original"), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [config, setConfig] = P5(null), [currentUrl, setCurrentUrl] = P5(
@@ -18424,7 +18317,7 @@ function PopupApp(props) {
 // userscript/popup_entry.tsx
 function addCSSLegacy(root2, csses) {
   for (let css of csses)
-    root2.appendChild(document.createElement("style")).innerHTML = css;
+    root2.appendChild(document.createElement("style")).textContent = css;
 }
 var currentPagePopupConfig = {
   position: "right",
@@ -18595,264 +18488,56 @@ function getValidStyleObj(positionConfig) {
 
 // page_popup.tsx
 var isInit = !1;
-async function main() {
-  let config = await getConfig2(), options2 = {
-    url: globalThis.location.href,
-    config
-  }, ctx = await getContext(options2);
-  config.debug && log_default.setLevel("debug"), globalThis.document.addEventListener(
-    userscriptCommandEventName,
-    // @ts-ignore: hard to type
-    (_e3) => {
-      isInit || (isInit = !0, initPopup().catch((e) => {
-        log_default.error("init popup error", e);
-      }));
-    }
-  ), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e) => {
+async function main(ctx) {
+  if (!ctx) {
+    let config = await getConfig2(), options2 = {
+      url: globalThis.location.href,
+      config
+    };
+    ctx = await getContext(options2);
+  }
+  ctx.config.debug && log_default.setLevel("debug"), ctx.isTranslateExcludeUrl ? log_default.debug("detect exclude url, do not inject anything.") : (isMobile().any || isMonkey()) && ctx.rule.isShowUserscriptPagePopup && (isInit || (isInit = !0, initPopup().catch((e) => {
     log_default.error("init popup error", e);
   })));
 }
-
-// manifest.json
-var manifest_default = {
-  manifest_version: 3,
-  name: "__MSG_brandName__",
-  description: "__MSG_brandDescription__",
-  version: "0.3.11",
-  default_locale: "en",
-  background: {
-    service_worker: "background.js"
-  },
-  web_accessible_resources: [
-    "styles/inject.css",
-    "pdf/index.html",
-    "ebook/index.html",
-    "ebook/index.html",
-    "ebook/make/index.html"
-  ],
-  content_scripts: [
-    {
-      matches: [
-        "<all_urls>",
-        "file:///*",
-        "*://*/*"
-      ],
-      js: [
-        "content_script.js"
-      ],
-      run_at: "document_end",
-      all_frames: !0
-    }
-  ],
-  commands: {
-    toggleTranslatePage: {
-      suggested_key: {
-        default: "Alt+A"
-      },
-      description: "__MSG_toggleTranslatePage__"
-    },
-    toggleTranslateTheWholePage: {
-      suggested_key: {
-        default: "Alt+W"
-      },
-      description: "__MSG_toggleTranslateTheWholePage__"
-    },
-    toggleTranslateToThePageEndImmediately: {
-      description: "__MSG_toggleTranslateToThePageEndImmediately__"
-    },
-    toggleTranslateTheMainPage: {
-      description: "__MSG_toggleTranslateTheMainPage__"
-    },
-    toggleTranslationMask: {
-      description: "__MSG_toggleTranslationMask__"
-    }
-  },
-  options_page: "options.html",
-  options_ui: {
-    page: "options.html",
-    open_in_tab: !0,
-    browser_style: !1
-  },
-  permissions: [
-    "storage",
-    "activeTab",
-    "contextMenus",
-    "webRequest",
-    "webRequestBlocking",
-    "declarativeNetRequestWithHostAccess",
-    "declarativeNetRequestFeedback",
-    "declarativeNetRequest"
-  ],
-  host_permissions: [
-    "<all_urls>"
-  ],
-  declarative_net_request: {
-    rule_resources: [{
-      id: "ruleset_1",
-      enabled: !0,
-      path: "rules/request_modifier_rule.json"
-    }]
-  },
-  action: {
-    default_popup: "popup.html",
-    default_icon: {
-      "32": "icons/32.png",
-      "48": "icons/48.png",
-      "64": "icons/64.png",
-      "128": "icons/128.png",
-      "256": "icons/256.png"
-    }
-  },
-  browser_action: {
-    default_icon: "icons/32.png",
-    default_popup: "popup.html",
-    theme_icons: [{
-      dark: "icons/32.png",
-      light: "icons/dark-32.png",
-      size: 32
-    }, {
-      dark: "icons/48.png",
-      light: "icons/dark-48.png",
-      size: 48
-    }, {
-      dark: "icons/64.png",
-      light: "icons/dark-64.png",
-      size: 64
-    }, {
-      dark: "icons/128.png",
-      light: "icons/dark-128.png",
-      size: 128
-    }, {
-      dark: "icons/256.png",
-      light: "icons/dark-256.png",
-      size: 256
-    }]
-  },
-  icons: {
-    "32": "icons/32.png",
-    "48": "icons/48.png",
-    "64": "icons/64.png",
-    "128": "icons/128.png",
-    "256": "icons/256.png"
-  },
-  browser_specific_settings: {
-    gecko: {
-      id: "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
-      strict_min_version: "63.0"
-    }
-  },
-  key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
-};
+async function ensurePopupInit() {
+  isInit || (isInit = !0, initPopup().catch((e) => {
+    log_default.error("init popup error", e);
+  }));
+}
 
 // dom/main.ts
 var hardCodeBlackDomains = ["oapi.dingtalk.com", "login.dingtalk.com"];
-async function main2() {
-  let config = await getConfig2(), ctx = await getContext({
-    config,
-    url: getRealUrl()
-  }), realUrlObj = new URL(ctx.url);
-  if (!hardCodeBlackDomains.includes(realUrlObj.hostname))
-    if (ctx.isTranslateExcludeUrl && isWebOptionsPage2())
-      log_default.debug("detect web options page"), setupWebOptionsPage();
-    else {
-      if (!ctx.config.enabled)
-        return;
-      if (await setupDomListeners(ctx), isMonkey() ? (setupCommandListeners(config), registerCommands(config)) : setupMessageListeners(), config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e) => {
-        log_default.error(`init popup page error: ${e}`);
-      }), !ctx.isTranslateExcludeUrl) {
-        if (ctx.rule.isPdf) {
-          let isFirstTextRendered = !1;
-          globalThis.PDFViewerApplication && globalThis.PDFViewerApplication.initializedPromise.then(() => {
-            let pdfViewer = globalThis.PDFViewerApplication;
-            pdfViewer.eventBus.on("pagesdestroy", () => {
-              restorePage();
-            }), pdfViewer.eventBus.on("textlayerrendered", async () => {
-              isFirstTextRendered || (isFirstTextRendered = !0, await initPage());
-            }), pdfViewer.eventBus.on("fileinputchange", () => {
-              isFirstTextRendered = !1;
-            });
-          });
-        } else
-          ctx.rule.isEbook || ctx.rule.isEbookBuilder || await initPage();
-        checkCronAndRunOnce();
-      }
-      injectCssToFrame(document, ctx), document.querySelectorAll("iframe").forEach((frame) => {
-        isInlineIframe(frame) ? injectCssToFrame(frame.contentDocument, ctx) : ctx.rule.isEbook && injectCssToFrame(frame.contentDocument, ctx);
-      });
-    }
-}
-var debounceOpenOptionsPage = se(async () => {
-  await openOptionsPage();
-}, 50), debounceOpenAboutPage = se(async () => {
-  await openAboutPage();
-}, 50), deboundOpenEbookBuilder = se(async () => {
-  await openEbookBuilderPage();
-}, 50), deboundOpenEbookViewer = se(async () => {
-  await openEbookViewerPage();
-}, 50), debounceToggleTranslatePage = se((id) => {
-  sendMessageToContent2({
-    method: id
-  });
-}, 50);
-function registerCommands(config) {
-  if (isMonkey() && typeof GM < "u" && GM && GM.registerMenuCommand) {
-    let commandsMap = manifest_default.commands, menus = [
-      ...Object.keys(commandsMap).filter((item) => item === "toggleTranslatePage").map((command) => {
-        let titlePlaceholder = commandsMap[command].description, title = titlePlaceholder;
-        return titlePlaceholder.startsWith("__MSG_") && titlePlaceholder.endsWith("__") && (title = t2(
-          `browser.${titlePlaceholder.slice(6, -2)}`,
-          config.interfaceLanguage
-        )), {
-          id: command,
-          title
-        };
-      }),
-      {
-        id: contextOpenLocalEbookViewer,
-        title: t2("browser.openEbookViewer", config.interfaceLanguage),
-        key: "e"
-      },
-      {
-        id: contextOpenLocalEbookBuilder,
-        title: t2("browser.openEbookBuilder", config.interfaceLanguage),
-        key: "m"
-      },
-      {
-        id: contextOpenOptionsMenuId,
-        title: t2("browser.openOptionsPage", config.interfaceLanguage),
-        key: "o"
-      },
-      {
-        id: contextOpenAboutMenuId,
-        title: t2("browser.openAboutPage", config.interfaceLanguage),
-        key: "a"
-      }
-    ];
-    for (let menu of menus)
-      GM.registerMenuCommand(
-        menu.title,
-        () => {
-          menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : menu.id === contextOpenAboutMenuId ? debounceOpenAboutPage() : menu.id === contextOpenLocalEbookBuilder ? deboundOpenEbookBuilder() : menu.id === contextOpenLocalEbookViewer ? deboundOpenEbookViewer() : debounceToggleTranslatePage(menu.id);
-        },
-        menu.key
-      );
+async function main2(ctx) {
+  if (!ctx) {
+    let config = await getConfig2();
+    ctx = await getContext({
+      config,
+      url: getRealUrl()
+    });
   }
-}
-function sendMessageToContent2(request3) {
-  asyncMessageHandler(request3, {
-    // @ts-ignore: it's ok
-    tab: {
-      id: 1,
-      url: "https://www.fake.com",
-      active: !0
-    }
-  }).catch((e) => {
-    log_default.error("send content message request failed", request3, e);
-  });
-  let event = new CustomEvent(userscriptCommandEventName, {
-    detail: request3
-  });
-  globalThis.document.dispatchEvent(event);
+  let realUrlObj = new URL(ctx.url);
+  if (hardCodeBlackDomains.includes(realUrlObj.hostname) || !ctx.config.enabled)
+    return;
+  if (ctx.config.debug ? log_default.setLevel("debug") : log_default.setLevel("info"), globalThis.top != globalThis.self || await main().catch((e) => {
+    log_default.error(`init popup page error: ${e}`);
+  }), !ctx.isTranslateExcludeUrl) {
+    if (ctx.rule.isPdf) {
+      let isFirstTextRendered = !1;
+      globalThis.PDFViewerApplication && globalThis.PDFViewerApplication.initializedPromise.then(() => {
+        let pdfViewer = globalThis.PDFViewerApplication;
+        pdfViewer.eventBus.on("pagesdestroy", () => {
+          restorePage();
+        }), pdfViewer.eventBus.on("textlayerrendered", async () => {
+          isFirstTextRendered || (isFirstTextRendered = !0, await initPage());
+        }), pdfViewer.eventBus.on("fileinputchange", () => {
+          isFirstTextRendered = !1;
+        });
+      });
+    } else
+      ctx.rule.isEbook || ctx.rule.isEbookBuilder || await initPage();
+    checkCronAndRunOnce();
+  }
 }
 
 // dom/ready_state.js
@@ -19044,23 +18729,449 @@ ${this._lastError.message}`;
 }, waitFor = (waitForFunction, options2) => new PollUntil(options2).execute(waitForFunction);
 
 // dom/wait_for_dom.ts
-async function waitForDomElementReady() {
+async function waitForDomElementReady(ctx) {
   try {
     return await waitFor(() => {
-      let mainText = getMainText(document.body);
-      if (mainText && mainText.length >= 10)
+      let mainText = ctx.mainFrame.innerText || "";
+      if (isValidTextByCount(
+        mainText,
+        ctx.rule.mainFrameMinTextCount,
+        ctx.rule.mainFrameMinWordCount
+      ))
         return !0;
       throw new Error("there is no main text");
-    }, { timeout: 1e4 }), !0;
+    }, { timeout: 5e3 }), !0;
   } catch (e) {
-    throw e;
+    if (getIsInIframe())
+      throw e;
+    return log_default.debug("check dom element ready failed:", e, ctx), !0;
+  }
+}
+
+// manifest.json
+var manifest_default = {
+  manifest_version: 3,
+  name: "__MSG_brandName__",
+  description: "__MSG_brandDescription__",
+  version: "0.3.12",
+  default_locale: "en",
+  background: {
+    service_worker: "background.js"
+  },
+  web_accessible_resources: [
+    "styles/inject.css",
+    "pdf/index.html",
+    "ebook/index.html",
+    "ebook/index.html",
+    "ebook/make/index.html"
+  ],
+  content_scripts: [
+    {
+      matches: [
+        "<all_urls>",
+        "file:///*",
+        "*://*/*"
+      ],
+      js: [
+        "content_script.js"
+      ],
+      run_at: "document_end",
+      all_frames: !0
+    }
+  ],
+  commands: {
+    toggleTranslatePage: {
+      suggested_key: {
+        default: "Alt+A"
+      },
+      description: "__MSG_toggleTranslatePage__"
+    },
+    toggleTranslateTheWholePage: {
+      suggested_key: {
+        default: "Alt+W"
+      },
+      description: "__MSG_toggleTranslateTheWholePage__"
+    },
+    toggleTranslateToThePageEndImmediately: {
+      description: "__MSG_toggleTranslateToThePageEndImmediately__"
+    },
+    toggleTranslateTheMainPage: {
+      description: "__MSG_toggleTranslateTheMainPage__"
+    },
+    toggleTranslationMask: {
+      description: "__MSG_toggleTranslationMask__"
+    }
+  },
+  options_page: "options.html",
+  options_ui: {
+    page: "options.html",
+    open_in_tab: !0,
+    browser_style: !1
+  },
+  permissions: [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequest"
+  ],
+  host_permissions: [
+    "<all_urls>"
+  ],
+  declarative_net_request: {
+    rule_resources: [{
+      id: "ruleset_1",
+      enabled: !0,
+      path: "rules/request_modifier_rule.json"
+    }]
+  },
+  action: {
+    default_popup: "popup.html",
+    default_icon: {
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png",
+      "256": "icons/256.png"
+    }
+  },
+  browser_action: {
+    default_icon: "icons/32.png",
+    default_popup: "popup.html",
+    theme_icons: [{
+      dark: "icons/32.png",
+      light: "icons/dark-32.png",
+      size: 32
+    }, {
+      dark: "icons/48.png",
+      light: "icons/dark-48.png",
+      size: 48
+    }, {
+      dark: "icons/64.png",
+      light: "icons/dark-64.png",
+      size: 64
+    }, {
+      dark: "icons/128.png",
+      light: "icons/dark-128.png",
+      size: 128
+    }, {
+      dark: "icons/256.png",
+      light: "icons/dark-256.png",
+      size: 256
+    }]
+  },
+  icons: {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png",
+    "256": "icons/256.png"
+  },
+  browser_specific_settings: {
+    gecko: {
+      id: "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
+      strict_min_version: "63.0"
+    }
+  },
+  key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
+};
+
+// userscript_command_listeners.ts
+function setupCommandListeners(config) {
+  let shortcuts = config.shortcuts || {}, keyMap = Object.keys(shortcuts).reduce((acc, key) => (acc[shortcuts[key]] = key, acc), {}), shortcutsKeys = Object.keys(keyMap);
+  for (let key of shortcutsKeys) {
+    let realKey = key.replace(/MacCtrl/ig, "Ctrl");
+    realKey && v2(realKey, (e) => {
+      e.preventDefault(), sendMessageToContent({
+        method: keyMap[key]
+      });
+    });
+  }
+}
+
+// content_dom_listeners.ts
+var debounceOpenOptionsPage = se(async () => {
+  await openOptionsPage();
+}, 50), debounceOpenAboutPage = se(async () => {
+  await openAboutPage();
+}, 50), deboundOpenEbookBuilder = se(async () => {
+  await openEbookBuilderPage();
+}, 50), deboundOpenEbookViewer = se(async () => {
+  await openEbookViewerPage();
+}, 50), debounceToggleTranslatePage = se((id) => {
+  sendMessageToContent({
+    method: id
+  });
+}, 50), throttleToggleTranslatePage = se(() => {
+  toggleTranslatePage();
+  let event = new CustomEvent(userscriptCommandEventName, {
+    detail: {
+      method: "toggleTranslatePage"
+    }
+  });
+  globalThis.document.dispatchEvent(event);
+}, 200), throttleToggleTranslationMask = se(() => {
+  toggleTranslationMask();
+  let event = new CustomEvent(userscriptCommandEventName, {
+    detail: {
+      method: "toggleTranslationMask"
+    }
+  });
+  globalThis.document.dispatchEvent(event);
+}, 200);
+function setupDomListenersForAll(ctx) {
+  if (isMonkey() || setupMessageListeners(), document.addEventListener("immersiveTranslateEbookLoaded", () => {
+    setTimeout(() => {
+      initPage();
+    }, 10);
+  }), document.addEventListener(
+    documentMessageTypeIdentifierForThirdPartyTell,
+    (e) => {
+      let event = e;
+      if (log_default.debug("receive third party message", event), event && event.detail)
+        try {
+          let detailObj = JSON.parse(event.detail);
+          detailObj && detailObj.type && detailObj.type === "retryFailedParagraphs" && sendMessageToContent2({
+            method: "retryFailedParagraphs"
+          });
+        } catch (e2) {
+          log_default.warn("parse message error", e2);
+        }
+    }
+  ), document.addEventListener("click", (e) => {
+    let target = e.target;
+    if (!target || !target.getAttribute)
+      return;
+    let action = target.getAttribute("data-immersive-translate-action");
+    action && action === "retry" && (e.preventDefault(), typeof e.stopPropagation == "function" && e.stopPropagation(), retryFailedParagraphs());
+  }), ctx.rule.fingerCountToToggleTranslagePageWhenTouching >= 2 && document.addEventListener("touchstart", (e) => {
+    e.touches.length == ctx.rule.fingerCountToToggleTranslagePageWhenTouching ? throttleToggleTranslatePage() : e.touches.length === ctx.rule.fingerCountToToggleTranslationMaskWhenTouching && throttleToggleTranslationMask();
+  }), isMonkey() && (globalThis.top != globalThis.self ? globalThis.addEventListener("message", (event) => {
+    event && event.data && event.data.payload && event.data.author === iframeMessageIdentifier && asyncMessageHandler(event.data.payload, {
+      // @ts-ignore: it's ok
+      tab: {
+        id: 1,
+        url: "https://www.fake-iframe.com",
+        active: !0
+      }
+    });
+  }, !1) : (setupCommandListeners(ctx.config), registerCommands(ctx.config), globalThis.document.addEventListener(
+    userscriptCommandEventName,
+    // @ts-ignore: hard to type
+    (_e3) => {
+      ensurePopupInit();
+    }
+  ))), globalThis.top === globalThis.self) {
+    let channel = ProtoframePubsub.rootIframe(
+      childFrameToRootFrameIdentifier
+    );
+    channel.handleAsk("getRateLimitDelay", onRateLimiterDelayRequest), channel.handleAsk("throttleRequest", onThrottleRequest);
+  }
+}
+function registerCommands(config) {
+  if (isMonkey() && typeof GM < "u" && GM && GM.registerMenuCommand) {
+    let commandsMap = manifest_default.commands, menus = [
+      ...Object.keys(commandsMap).filter((item) => item === "toggleTranslatePage").map((command) => {
+        let titlePlaceholder = commandsMap[command].description, title = titlePlaceholder;
+        return titlePlaceholder.startsWith("__MSG_") && titlePlaceholder.endsWith("__") && (title = t2(
+          `browser.${titlePlaceholder.slice(6, -2)}`,
+          config.interfaceLanguage
+        )), {
+          id: command,
+          title
+        };
+      }),
+      {
+        id: contextOpenLocalEbookViewer,
+        title: t2("browser.openEbookViewer", config.interfaceLanguage),
+        key: "e"
+      },
+      {
+        id: contextOpenLocalEbookBuilder,
+        title: t2("browser.openEbookBuilder", config.interfaceLanguage),
+        key: "m"
+      },
+      {
+        id: contextOpenOptionsMenuId,
+        title: t2("browser.openOptionsPage", config.interfaceLanguage),
+        key: "o"
+      },
+      {
+        id: contextOpenAboutMenuId,
+        title: t2("browser.openAboutPage", config.interfaceLanguage),
+        key: "a"
+      }
+    ];
+    for (let menu of menus)
+      GM.registerMenuCommand(
+        menu.title,
+        () => {
+          menu.id === contextOpenOptionsMenuId ? debounceOpenOptionsPage() : menu.id === contextOpenAboutMenuId ? debounceOpenAboutPage() : menu.id === contextOpenLocalEbookBuilder ? deboundOpenEbookBuilder() : menu.id === contextOpenLocalEbookViewer ? deboundOpenEbookViewer() : debounceToggleTranslatePage(menu.id);
+        },
+        menu.key
+      );
+  }
+}
+function sendMessageToContent2(request3) {
+  asyncMessageHandler(request3, {
+    // @ts-ignore: it's ok
+    tab: {
+      id: 1,
+      url: "https://www.fake.com",
+      active: !0
+    }
+  }).catch((e) => {
+    log_default.error("send content message request failed", request3, e);
+  });
+  let event = new CustomEvent(userscriptCommandEventName, {
+    detail: request3
+  });
+  globalThis.document.dispatchEvent(event);
+}
+
+// web-options/is_web_options_page.ts
+function isWebOptionsPage2() {
+  let optionsHostnames = ["localhost", hostname], optionsPaths = ["/dist/userscript/options/", "/options/", "/options"], url = getRealUrl(), urlObj = new URL(url), currentHostname = urlObj.hostname, currentPath = urlObj.pathname;
+  if ((optionsHostnames.includes(currentHostname) || currentHostname.startsWith("192.168")) && optionsPaths.includes(currentPath)) {
+    let optionsMetaElement = document.querySelector(
+      "meta[name=immersive-translate-options]"
+    );
+    if (optionsMetaElement && optionsMetaElement.getAttribute("content") === "true")
+      return !0;
+  }
+  return !1;
+}
+
+// web-options/setup_web_options_page.ts
+async function setupWebOptionsPage() {
+  if (!document.getElementById(
+    "immersive-translate-status"
+  )) {
+    log_default.error("Could not find status element");
+    return;
+  }
+  await initStorage("local"), await initStorage("sync"), initOther();
+  let pageReadyElement = document.getElementById(
+    "immersive-translate-page-ready"
+  );
+  pageReadyElement && setTimeout(() => {
+    pageReadyElement.value = "true", pageReadyElement.dispatchEvent(new Event("change"));
+  }, 100);
+}
+async function answerMessage(e, fn) {
+  let detail;
+  try {
+    detail = JSON.parse(e.detail);
+  } catch (e2) {
+    log_default.error("parse detail failed", e2);
+    return;
+  }
+  let id = detail.id || "default";
+  try {
+    let params = detail.data || {}, response = await fn(params), message = {
+      id,
+      ok: !0,
+      data: response
+    };
+    document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForHandler, {
+        detail: JSON.stringify({
+          ...message,
+          type: "answer"
+        })
+      })
+    );
+  } catch (e2) {
+    let message = {
+      ok: !1,
+      errorName: e2.name,
+      errorMessage: e2.message,
+      errorDetails: e2.details || e2.detail
+    };
+    document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForHandler, {
+        detail: JSON.stringify({
+          ...message,
+          id,
+          type: "answer"
+        })
+      })
+    );
+  }
+}
+function initOther() {
+  document.addEventListener(documentMessageTypeIdentifierForAsk, (e) => {
+    let event = e;
+    if (event && event.detail) {
+      let detail;
+      try {
+        detail = JSON.parse(event.detail);
+      } catch (e2) {
+        log_default.error("parse detail failed", e2);
+        return;
+      }
+      detail.type === "ask" && detail.method === "request" && answerMessage(event, request2);
+    }
+  });
+  let manifestElement = document.getElementById(
+    "immersive-translate-manifest"
+  );
+  if (!manifestElement) {
+    log_default.error("Could not find manifest element");
+    return;
+  }
+  manifestElement.value = JSON.stringify(browserAPI.runtime.getManifest()), manifestElement.dispatchEvent(new Event("change")), document.getElementById(
+    "immersive-translate-message"
+  ).addEventListener(
+    "change",
+    (event) => {
+      try {
+        let messageObj = JSON.parse(
+          event.target.value
+        );
+        messageObj && messageObj.method === "removeStorageKey" && messageObj.data && messageObj.data.area && messageObj.data.keys && browserAPI.storage[messageObj.data.area].remove(
+          messageObj.data.keys
+        );
+      } catch (e) {
+        log_default.error("parse message error", e);
+      }
+    }
+  );
+}
+async function initStorage(area) {
+  let statusElement = document.getElementById(
+    "immersive-translate-status"
+  ), storageInputElement = document.getElementById(
+    `immersive-translate-${area}-storage`
+  );
+  if (storageInputElement) {
+    log_default.debug("init storage");
+    let browserStorageObj = await browserAPI.storage[area].get(null);
+    storageInputElement.value = JSON.stringify(browserStorageObj), storageInputElement.dispatchEvent(new Event("change")), storageInputElement.addEventListener("change", (event) => {
+      try {
+        let storageObj = JSON.parse(event.target.value);
+        browserAPI.storage[area].set(storageObj);
+      } catch (e) {
+        log_default.error("save to storage error", e);
+      }
+    });
+  } else {
+    log_default.error(`Could not find storage ${area} element`), statusElement.innerText = "Could not find storage local input element";
+    return;
   }
 }
 
 // content_main.ts
-ready_state_default.domready.then(() => {
-  waitForDomElementReady().then(() => {
-    main2().catch((e) => {
+ready_state_default.domready.then(async () => {
+  let config = await getConfig(), realUrl = getRealUrl(), ctx = await getContext({
+    config,
+    url: realUrl
+  });
+  setupDomListenersForAll(ctx), ctx.isTranslateExcludeUrl && isWebOptionsPage2() ? (log_default.debug("detect web options page"), setupWebOptionsPage()) : waitForDomElementReady(ctx).then(() => {
+    main2(ctx).catch((e) => {
       e && log_default.error(
         "translate page error",
         e.name,

@@ -5,10 +5,10 @@
 
 ## Todo List
 
-- [ ] 优化强制换行小数点问题
+- [x] 优化强制换行小数点问题
 - [x] popup click 换成 油猴 api 打开
-- [ ] 当点击 popup 的时候，重新检测语言
-- [ ] 电子书的百分比还是有问题
+- [x] 当点击 popup 的时候，重新检测语言
+- [x] 电子书的百分比还是有问题
 - [x] openai prompt 优化,改为 3 个 prompt
 - [ ] 优化 addStyle，解决 mastondon 无法注入样式的问题.
 - [ ] 翻译电子书的目录

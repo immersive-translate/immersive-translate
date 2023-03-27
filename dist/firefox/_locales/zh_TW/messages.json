@@ -35,6 +35,9 @@
   "translateLocalHtmlFile": {
     "message": "翻譯本機 HTML 檔案"
   },
+  "donateContext": {
+    "message": "了解贊助福利"
+  },
   "openAboutPage": {
     "message": "關於/問題回報/贊助"
   }

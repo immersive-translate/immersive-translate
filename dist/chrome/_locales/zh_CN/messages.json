@@ -35,7 +35,10 @@
   "translateLocalHtmlFile": {
     "message": "翻译本地 HTML 文件"
   },
+  "donateContext": {
+    "message": "了解赞助福利"
+  },
   "openAboutPage": {
-    "message": "关于/反馈/赞助"
+    "message": "关于/反馈/赞助福利"
   }
 }

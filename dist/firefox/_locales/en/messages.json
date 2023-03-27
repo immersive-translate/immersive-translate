@@ -35,6 +35,9 @@
   "translateLocalHtmlFile": {
     "message": "Translate local HTML files"
   },
+  "donateContext": {
+    "message": "Sponsor Benefits"
+  },
   "openAboutPage": {
     "message": "About / Feedback/Sponsor"
   }

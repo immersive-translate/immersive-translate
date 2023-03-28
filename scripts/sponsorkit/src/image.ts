@@ -13,7 +13,10 @@ export async function resolveAvatars(
   return Promise.all(ships.map(async (ship) => {
     const avatarUrl = ship.sponsor.avatarUrl;
     let data;
-    if ((avatarUrl && avatarUrl.startsWith("http")) || !avatarUrl) {
+    if (
+      (avatarUrl && avatarUrl.startsWith && avatarUrl.startsWith("http")) ||
+      !avatarUrl || (!avatarUrl.startsWith)
+    ) {
       data = await $fetch(ship.sponsor.avatarUrl, {
         responseType: "arrayBuffer",
       })

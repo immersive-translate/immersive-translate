@@ -2123,8 +2123,18 @@
       "additionalStayOriginalSelectors": [
         "[translate=no]"
       ]
+    },
+    {
+      "matches": "wandb.ai",
+      "additionalSelectors": [
+        ".report-page-top"
+      ],
+      "additionalStayOriginalSelectors": [
+        "span[data-slate-inline=true]"
+      ],
+      "extraInlineSelectors": []
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-28T14:17:28.014Z",
+  "buildinConfigUpdatedAt": "2023-03-28T15:35:26.308Z",
   "latestVersion": "0.3.12"
 }

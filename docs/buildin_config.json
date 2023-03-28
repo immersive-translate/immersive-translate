@@ -2117,8 +2117,14 @@
       "extraBlockSelectors": [
         "div[class='sc-3502f6cd-0 JxHqg']"
       ]
+    },
+    {
+      "matches": "doc.qt.io",
+      "additionalStayOriginalSelectors": [
+        "[translate=no]"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-27T18:52:44.377Z",
+  "buildinConfigUpdatedAt": "2023-03-28T14:17:28.014Z",
   "latestVersion": "0.3.12"
 }

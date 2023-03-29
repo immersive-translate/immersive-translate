@@ -5,6 +5,10 @@
 
 ## Todo List
 
+- [x] chatgpt4 的 system Prompt
+- [ ] dark 主题导出的电子书
+- [x] 更新文档会导致不必要的 svg 生成
+- [x] globalMeta bug for 电子书
 - [x] 优化强制换行小数点问题
 - [x] popup click 换成 油猴 api 打开
 - [x] 当点击 popup 的时候，重新检测语言

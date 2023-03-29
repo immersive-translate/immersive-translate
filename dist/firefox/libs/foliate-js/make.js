@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-27T18:55:05.304Z", VERSION: "0.3.12", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-29T21:07:18.330Z", VERSION: "0.3.13", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -10869,6 +10869,7 @@ var zh_CN_default = {
   close: "\u5173\u95ED",
   homepage: "\u4E3B\u9875",
   more: "\u66F4\u591A",
+  moreOptions: "\u5C55\u5F00\u66F4\u591A\u81EA\u5B9A\u4E49\u9009\u9879",
   translateTheWholePage: "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u522B\u4E8E\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\uFF09",
   changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u6240\u6709\u533A\u57DF",
   changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
@@ -11059,6 +11060,8 @@ var zh_CN_default = {
   "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
   "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
   "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+  "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+  "description.model": "OpenAI \u7684\u6A21\u578B\uFF0C\u53EF\u4EE5\u4E3A gpt-3.5-turbo, gpt-4 \u7B49",
   "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
   enabledExtension: "\u542F\u7528\u6269\u5C55",
   clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
@@ -11417,6 +11420,7 @@ var en_default = {
   close: "Close",
   homepage: "Home Page",
   more: "More",
+  moreOptions: "Expand more custom settings",
   translateTheWholePage: "Translate the whole page area (different from only the main area)",
   changeToTranslateTheWholePage: "Translate the whole page",
   changeToTranslateTheMainPage: "Translate main only",
@@ -11728,6 +11732,7 @@ var openlProps = [
       {
         name: "model",
         labelKey: "field.model",
+        descriptionKey: "description.model",
         required: !1,
         type: "text",
         default: "gpt-3.5-turbo"
@@ -11746,7 +11751,8 @@ var openlProps = [
         labelKey: "field.maxTextLengthPerRequest",
         descriptionKey: "description.maxTextLengthPerRequest",
         type: "number",
-        default: 1200
+        default: 1200,
+        optional: !0
       },
       {
         name: "maxTextGroupLengthPerRequest",
@@ -11754,14 +11760,25 @@ var openlProps = [
         labelKey: "field.maxTextGroupLengthPerRequest",
         descriptionKey: "description.maxTextGroupLengthPerRequest",
         type: "number",
-        default: 1
+        default: 1,
+        optional: !0
       },
       {
         name: "apiUrl",
         labelKey: "field.apiUrl",
         required: !1,
         type: "text",
-        default: "https://api.openai.com/v1/chat/completions"
+        default: "https://api.openai.com/v1/chat/completions",
+        optional: !0
+      },
+      {
+        name: "systemPrompt",
+        label: "System Prompt",
+        required: !1,
+        descriptionKey: "description.systemPrompt",
+        type: "text",
+        optional: !0,
+        default: "You are a translation engine, you can only translate text and cannot interpret it, and do not explain."
       },
       {
         name: "prompt",
@@ -11769,14 +11786,15 @@ var openlProps = [
         required: !1,
         descriptionKey: "description.prompt",
         type: "textarea",
-        default: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```"
+        default: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+        optional: !0
       }
     ]
   },
   youdao: {
     name: "Youdao",
     homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    docUrl: "https://immersive-translate.owenyoung.com/services/youdao",
     allProps: [
       {
         name: "appId",
@@ -12109,7 +12127,7 @@ var Reader = class {
           if (detail)
             try {
               let detailObj = JSON.parse(detail);
-              if (detailObj && detailObj.type && detailObj.payload)
+              if (detailObj && detailObj.type && detailObj.payload) {
                 if (detailObj.type === "paragraphTranslated") {
                   let { ok } = detailObj.payload;
                   if (ok ? currentTranslatedParagraphsOkCount++ : currentTranslatedParagraphsErrorCount++, progressElement && totalParagraphsCount) {
@@ -12118,15 +12136,22 @@ var Reader = class {
                     );
                     if (successProgress > 100 && (successProgress = 100), totalProgress > 100 && (totalProgress = 100), progressElement.innerText = `${successProgress}%`, totalProgress === 100 && currentTranslatedParagraphsErrorCount > 0) {
                       let errorElement = document.querySelector("#error");
-                      errorElement.innerHTML = `${currentTranslatedParagraphsErrorCount} failed. <span class="link">Retry all</span>`;
+                      errorElement.innerHTML = `${currentTranslatedParagraphsErrorCount} failed(\u5931\u8D25). <span class="link">Retry all (\u70B9\u6B64\u91CD\u8BD5\u5168\u90E8\u9519\u8BEF\u6BB5\u843D)</span>`;
                     }
                     successProgress === 100 && (isCelebrate || (isCelebrate = !0, confetti({
                       particleCount: 100,
                       spread: 160
                     })));
                   }
-                } else
-                  detailObj.type === "totalParagraphsCount" && detailObj.payload.totalParagraphsCount && (totalParagraphsCount = detailObj.payload.totalParagraphsCount);
+                } else if (detailObj.type === "totalParagraphsCount")
+                  detailObj.payload.totalParagraphsCount && (totalParagraphsCount = detailObj.payload.totalParagraphsCount);
+                else if (detailObj.type === "translateStart")
+                  currentTranslatedParagraphsOkCount = 0, currentTranslatedParagraphsErrorCount = 0;
+                else if (detailObj.type === "restorePage") {
+                  let errorElement = document.querySelector("#error"), progressElement2 = document.querySelector("#progress-number");
+                  errorElement && (errorElement.innerHTML = ""), progressElement2 && (progressElement2.innerText = "");
+                }
+              }
             } catch (err) {
               console.log("parse detail failed", e, err);
             }
@@ -12150,7 +12175,13 @@ var Reader = class {
       }), $3("#open").addEventListener("click", () => {
         window.location.reload();
       }), $3("#export").addEventListener("click", async (e) => {
-        e.preventDefault(), globalLoader || alert("Load failed"), disableIframeContentediable();
+        e.preventDefault(), globalLoader || alert("Load failed");
+        let exportButton = document.querySelector("#export");
+        exportButton.classList.add("disabled");
+        let exportAction = document.querySelector("#exportAction");
+        exportAction && exportAction.classList.add("none");
+        let exportStatus = document.querySelector("#exportStatus");
+        exportStatus && (exportStatus.innerText = "Exporting..."), disableIframeContentediable();
         let entries = globalLoader.entries, zipFileWriter = new BlobWriter(), zipWriter = new ZipWriter(zipFileWriter), mimetypeReader = new TextReader("application/epub+zip");
         await zipWriter.add("mimetype", mimetypeReader, {
           level: 0,
@@ -12160,8 +12191,8 @@ var Reader = class {
           let entry = entries[i], entryFilename = entry.filename;
           if (entryFilename === "mimetype" || !entryFilename)
             continue;
-          let iframe = document.querySelector(
-            "iframe[id='" + entryFilename + "']"
+          let encodedEntryFileName = entryFilename.replace(/\'/g, "\\'"), iframe = document.querySelector(
+            "iframe[id='" + encodedEntryFileName + "']"
           );
           if (iframe) {
             let iframeDom = iframe.contentDocument.cloneNode(!0);
@@ -12222,7 +12253,7 @@ var Reader = class {
         let newName = file.name;
         file.name.endsWith(".epub.zip") && (newName = newName.replace(".epub.zip", ".epub"));
         let index = newName.lastIndexOf(".");
-        newName = newName.substring(0, index) + " (Translated)" + newName.substring(index), elm.setAttribute("download", newName), elm.click();
+        newName = newName.substring(0, index) + " (Translated)" + newName.substring(index), elm.setAttribute("download", newName), elm.click(), exportButton && exportButton.classList.remove("disabled"), exportAction && exportAction.classList.remove("none"), exportStatus && (exportStatus.textContent = "");
       }), $3("#edit").addEventListener("click", (e) => {
         e.preventDefault(), globalLoader || alert("Load failed"), toggleIframeContentediable();
       });
@@ -12230,16 +12261,6 @@ var Reader = class {
       console.log("metadata", metadata);
       let title = metadata.title || "Unknown", bootTitleElement = document.querySelector("#bookTitle");
       bootTitleElement.textContent = title;
-      let blockquote = document.createElement("blockquote");
-      blockquote.classList.add("notranslate");
-      let blockQuoteHtml = `<p class="notranslate">Click on the Immersive Translate extension popup translation button to start translating.<br>\u70B9\u51FB\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u6269\u5C55/\u811A\u672C\u6D6E\u7A97\u7684\u7FFB\u8BD1\u6309\u94AE\u5F00\u59CB\u7FFB\u8BD1\u3002<br><br>If the Epub contains images, it's fine for the edit box below not to show the images, the exported Epub will contain the images.<br>\u5982\u679C Epub \u91CC\u5305\u542B\u56FE\u7247\uFF0C\u4E0B\u9762\u7684\u7F16\u8F91\u6846\u4E0D\u663E\u793A\u56FE\u7247\u662F\u6B63\u5E38\u7684\uFF0C\u5BFC\u51FA\u540E\u7684 Epub \u91CC\u4F1A\u5305\u542B\u56FE\u7247\u3002<br><br>When the translation is finished, you can click the Edit button above to modify the translation.<br>\u7FFB\u8BD1\u5B8C\u6210\u540E\uFF0C\u4F60\u53EF\u4EE5\u70B9\u51FB\u4E0A\u65B9\u7684\u7F16\u8F91\u6309\u94AE\u6765\u4FEE\u6539\u8BD1\u6587\u3002</p>`, ebookTipsMeta = document.querySelector(
-        "meta[name='immersive-translate-ebook-tips']"
-      );
-      if (ebookTipsMeta) {
-        let content = ebookTipsMeta.getAttribute("content");
-        content && (blockQuoteHtml += content);
-      }
-      blockquote.innerHTML = blockQuoteHtml, document.querySelector("#tips").append(blockquote);
       let isAllLoaded = !1, loadedCount = 0;
       for (let i = 0; i < bookSections.length; i++) {
         let filePath = bookSections[i].id, text = await book.loadText(filePath), doc = new DOMParser().parseFromString(
@@ -12254,7 +12275,18 @@ var Reader = class {
         let iframe = document.createElement("iframe");
         iframe.setAttribute("id", filePath), iframe.setAttribute("width", "80%"), iframe.setAttribute("height", "400px"), iframe.srcdoc = doc.documentElement.outerHTML, chapters.append(iframe), iframe.onload = () => {
           if (loadedCount++, loadedCount === bookSections.length) {
-            isAllLoaded = !0, document.dispatchEvent(
+            isAllLoaded = !0, setTimeout(() => {
+              let blockquote = document.createElement("blockquote");
+              blockquote.classList.add("notranslate");
+              let blockQuoteHtml = `<p class="notranslate">1. Click on the Immersive Translate extension popup translation button to start translating.<br>\u9700\u8981\u624B\u52A8\u70B9\u51FB\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u6269\u5C55/\u811A\u672C\u6D6E\u7A97\u7684\u7FFB\u8BD1\u6309\u94AE\u5F00\u59CB\u7FFB\u8BD1\u3002<br><br>2. If the Epub contains images, it's fine for the edit box below not to show the images, the exported Epub will contain the images.<br>\u5982\u679C Epub \u91CC\u5305\u542B\u56FE\u7247\uFF0C\u4E0B\u9762\u7684\u7F16\u8F91\u6846\u4E0D\u663E\u793A\u56FE\u7247\u662F\u6B63\u5E38\u7684\uFF0C\u5BFC\u51FA\u540E\u7684 Epub \u91CC\u4F1A\u5305\u542B\u56FE\u7247\u3002<br><br>3. When the translation is finished, you can click the Edit button above to modify the translation.<br>\u7FFB\u8BD1\u5B8C\u6210\u540E\uFF0C\u4F60\u53EF\u4EE5\u70B9\u51FB\u4E0A\u65B9\u7684\u7F16\u8F91\u6309\u94AE\u6765\u4FEE\u6539\u8BD1\u6587\u3002<br><br>4. When there is a translation error, you can click Retry All above, or click Show Original and translate again. Or the whole page can be refreshed and started again, because the translated part is always cached and no further requests will be sent.<br>\u5F53\u51FA\u73B0\u7FFB\u8BD1\u9519\u8BEF\u65F6\uFF0C\u53EF\u4EE5\u70B9\u51FB\u4E0A\u65B9\u7684\u91CD\u8BD5\u5168\u90E8\uFF0C\u6216\u8005\u70B9\u51FB\u6D4F\u89C8\u5668\u6269\u5C55\u56FE\u6807\u5148\u663E\u793A\u539F\u6587\uFF0C\u518D\u7FFB\u8BD1\u3002\u6216\u8005\u6574\u4E2A\u5237\u65B0\u9875\u9762\u91CD\u65B0\u6765\u8FC7\u4E5F\u884C\uFF0C\u56E0\u4E3A\u5DF2\u7FFB\u8BD1\u7684\u90E8\u5206\u603B\u662F\u6709\u7F13\u5B58\u7684\uFF0C\u4E0D\u4F1A\u518D\u53D1\u51FA\u8BF7\u6C42\u3002</p>`, ebookTipsMeta = document.querySelector(
+                "meta[name='immersive-translate-ebook-tips']"
+              );
+              if (ebookTipsMeta) {
+                let content = ebookTipsMeta.getAttribute("content");
+                content && (blockQuoteHtml += content);
+              }
+              blockquote.innerHTML = blockQuoteHtml, document.querySelector("#tips").append(blockquote);
+            }, 1e3), document.dispatchEvent(
               new CustomEvent("immersiveTranslateEbookLoaded")
             );
             let allIframes = document.querySelectorAll("iframe"), totalTextCount = 0;

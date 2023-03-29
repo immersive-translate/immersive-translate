@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-27T18:55:05.304Z", VERSION: "0.3.12", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-29T21:07:18.330Z", VERSION: "0.3.13", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4771,6 +4771,7 @@ var zh_CN_default = {
   close: "\u5173\u95ED",
   homepage: "\u4E3B\u9875",
   more: "\u66F4\u591A",
+  moreOptions: "\u5C55\u5F00\u66F4\u591A\u81EA\u5B9A\u4E49\u9009\u9879",
   translateTheWholePage: "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u522B\u4E8E\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\uFF09",
   changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u6240\u6709\u533A\u57DF",
   changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
@@ -4961,6 +4962,8 @@ var zh_CN_default = {
   "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
   "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
   "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+  "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+  "description.model": "OpenAI \u7684\u6A21\u578B\uFF0C\u53EF\u4EE5\u4E3A gpt-3.5-turbo, gpt-4 \u7B49",
   "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
   enabledExtension: "\u542F\u7528\u6269\u5C55",
   clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
@@ -5319,6 +5322,7 @@ var en_default = {
   close: "Close",
   homepage: "Home Page",
   more: "More",
+  moreOptions: "Expand more custom settings",
   translateTheWholePage: "Translate the whole page area (different from only the main area)",
   changeToTranslateTheWholePage: "Translate the whole page",
   changeToTranslateTheMainPage: "Translate main only",
@@ -5995,6 +5999,7 @@ var openlProps = [
       {
         name: "model",
         labelKey: "field.model",
+        descriptionKey: "description.model",
         required: !1,
         type: "text",
         default: "gpt-3.5-turbo"
@@ -6013,7 +6018,8 @@ var openlProps = [
         labelKey: "field.maxTextLengthPerRequest",
         descriptionKey: "description.maxTextLengthPerRequest",
         type: "number",
-        default: 1200
+        default: 1200,
+        optional: !0
       },
       {
         name: "maxTextGroupLengthPerRequest",
@@ -6021,14 +6027,25 @@ var openlProps = [
         labelKey: "field.maxTextGroupLengthPerRequest",
         descriptionKey: "description.maxTextGroupLengthPerRequest",
         type: "number",
-        default: 1
+        default: 1,
+        optional: !0
       },
       {
         name: "apiUrl",
         labelKey: "field.apiUrl",
         required: !1,
         type: "text",
-        default: "https://api.openai.com/v1/chat/completions"
+        default: "https://api.openai.com/v1/chat/completions",
+        optional: !0
+      },
+      {
+        name: "systemPrompt",
+        label: "System Prompt",
+        required: !1,
+        descriptionKey: "description.systemPrompt",
+        type: "text",
+        optional: !0,
+        default: "You are a translation engine, you can only translate text and cannot interpret it, and do not explain."
       },
       {
         name: "prompt",
@@ -6036,14 +6053,15 @@ var openlProps = [
         required: !1,
         descriptionKey: "description.prompt",
         type: "textarea",
-        default: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```"
+        default: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+        optional: !0
       }
     ]
   },
   youdao: {
     name: "Youdao",
     homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-    docUrl: "https://hcfy.app/docs/services/youdao-api",
+    docUrl: "https://immersive-translate.owenyoung.com/services/youdao",
     allProps: [
       {
         name: "appId",
@@ -8380,7 +8398,7 @@ var buildin_config_default = {
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
       maxTextGroupLengthPerRequest: 1,
-      prompt: "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+      prompt: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
       newlinePlaceholderDelimiters: [
         `
 
@@ -10099,6 +10117,27 @@ var buildin_config_default = {
       extraBlockSelectors: [
         "div[class='sc-3502f6cd-0 JxHqg']"
       ]
+    },
+    {
+      matches: "doc.qt.io",
+      additionalStayOriginalSelectors: [
+        "[translate=no]"
+      ]
+    },
+    {
+      matches: "wandb.ai",
+      additionalSelectors: [".report-page-top"],
+      additionalStayOriginalSelectors: [
+        "span[data-slate-inline=true]"
+      ],
+      extraInlineSelectors: []
+    },
+    {
+      matches: "paulgraham.com",
+      additionalSelectors: [
+        "font[face=verdana]"
+      ],
+      extraBlockSelectors: "font[face=verdana]"
     }
   ]
 };
@@ -10441,7 +10480,16 @@ async function rawRequest(options2) {
     mode: "cors",
     ...fetchOptions
   };
-  let response = await (options2.fetchPolyfill || fetch)(url, fetchOptions);
+  let isNativeFetch = !0;
+  options2.fetchPolyfill && (isNativeFetch = !1);
+  let fetchFn = options2.fetchPolyfill || fetch, timeout = 6e4;
+  if (options2.timeout && (timeout = options2.timeout), isNativeFetch) {
+    let controller = new AbortController(), signal = controller.signal;
+    setTimeout(() => {
+      controller.abort();
+    }, timeout), fetchOptions.signal = signal;
+  }
+  let response = await fetchFn(url, fetchOptions);
   if (response.ok && response.status >= 200 && response.status < 400) {
     if (responseType === "json")
       return await response.json();
@@ -10670,7 +10718,7 @@ function mergeUrl(defaultUrl, customUrl) {
   return customUrlObj.pathname !== "/" ? customUrlObj.toString() : (defaultUrlObj.host = customUrlObj.host, customUrlObj.port && (defaultUrlObj.port = customUrlObj.port), customUrlObj.protocol && (defaultUrlObj.protocol = customUrlObj.protocol), customUrlObj.username && (defaultUrlObj.username = customUrlObj.username), customUrlObj.password && (defaultUrlObj.password = customUrlObj.password), defaultUrlObj.toString());
 }
 function formatTranslationService(key, ctx) {
-  let service = PureTranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.allProps || [];
+  let service = PureTranslationServices[key], translationConfig = ctx.config.translationServices[key] || {}, ok = !0, allProps = service.allProps || [], explicitProps = [], optionalProps = [];
   if (allProps.length > 0) {
     let requiredProps = allProps.filter((prop) => prop.required);
     if (requiredProps.length > 0) {
@@ -10680,6 +10728,9 @@ function formatTranslationService(key, ctx) {
           break;
         }
     }
+    allProps.forEach((prop) => {
+      prop.optional ? optionalProps.push(prop) : explicitProps.push(prop);
+    });
   }
   return {
     ...service,
@@ -10688,7 +10739,9 @@ function formatTranslationService(key, ctx) {
     ok,
     config: translationConfig,
     props: service.props || [],
-    allProps
+    allProps,
+    optionalProps,
+    explicitProps
   };
 }
 var getTranslationServices = (ctx) => {
@@ -14340,13 +14393,14 @@ var rawLangMap6 = [
     // api key list
     this.isSupportList = !1;
     this.maxTextLength = 1200;
-    this.maxTextGroupLength = 25;
-    this.prompt = "If the text contains ###, don't change it, do not explain. Translate the following text to {{to}}:\n\n```\n{{text}}\n```";
+    this.maxTextGroupLength = 1;
+    this.systemPrompt = "You are a translation engine, you can only translate text and cannot interpret it, and do not explain.";
+    this.prompt = "Translate the text below to {{to}}:\n\n```\n{{text}}\n```";
     this.model = "gpt-3.5-turbo";
     this.apiUrl = "https://api.openai.com/v1/chat/completions";
     if (!serviceConfig || !serviceConfig.APIKEY)
       throw new Error("APIKEY are required");
-    this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl));
+    this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim()), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl)), serviceConfig && serviceConfig.systemPrompt && (this.systemPrompt = serviceConfig.systemPrompt);
   }
   getDefaultRateLimit() {
     return { limit: 10, interval: 65e3 };
@@ -14370,20 +14424,24 @@ var rawLangMap6 = [
         to,
         text: ""
       };
-    let remoteFrom = langMap12.get(from) || from, remoteTo = langMap12.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, langMap12.get(to) || to).replace(
+    let remoteFrom = langMap12.get(from) || from, remoteTo = langMap12.get(to) || to, prompt = this.prompt.replace(/{{to}}/g, remoteTo).replace(
       /{{text}}/g,
       text
-    ).replace(/{{from}}/g, langMap12.get(from) || from), messages = [
-      {
+    ).replace(/{{from}}/g, remoteFrom), messages = [];
+    if (this.systemPrompt) {
+      let systemPrompt = this.systemPrompt.replace(/{{to}}/g, remoteTo).replace(
+        /{{text}}/g,
+        text
+      ).replace(/{{from}}/g, remoteFrom);
+      messages.push({
         role: "system",
-        content: `You are a translation engine that translates ${remoteFrom} to ${remoteTo}, you can only translate text and cannot interpret it.`
-      },
-      {
-        role: "user",
-        content: prompt
-      }
-    ];
-    this.prompt.indexOf("{{text}}") === -1 && messages.push({
+        content: systemPrompt
+      });
+    }
+    this.prompt && messages.push({
+      role: "user",
+      content: prompt
+    }), this.prompt.indexOf("{{text}}") === -1 && messages.push({
       role: "user",
       content: text
     });
@@ -15962,7 +16020,14 @@ async function toggleTranslationMask() {
   }
 }
 function restorePage() {
-  if (clean(), !globalContext || !globalContext.mainFrame)
+  if (document.dispatchEvent(
+    new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+      detail: JSON.stringify({
+        type: "restorePage",
+        payload: {}
+      })
+    })
+  ), clean(), !globalContext || !globalContext.mainFrame)
     return;
   let allFrames = [
     globalContext.mainFrame,
@@ -16114,7 +16179,14 @@ async function translatePage(ctx) {
   if (pageStatus === "Translating")
     return;
   let isInIframe = getIsInIframe();
-  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody)) {
+  if (setPageTranslatedStatus("Translating"), ctx || (ctx = await getGlobalContext(getRealUrl(), {})), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, document.dispatchEvent(
+    new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+      detail: JSON.stringify({
+        type: "translateStart",
+        payload: {}
+      })
+    })
+  ), ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody)) {
     let boydHtml = document.body.innerHTML;
     document.body.innerHTML = "", document.body.innerHTML = boydHtml;
   }
@@ -18753,7 +18825,7 @@ var manifest_default = {
   manifest_version: 3,
   name: "__MSG_brandName__",
   description: "__MSG_brandDescription__",
-  version: "0.3.12",
+  version: "0.3.13",
   default_locale: "en",
   background: {
     service_worker: "background.js"

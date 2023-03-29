@@ -22,6 +22,18 @@
         text-decoration: underline;
         cursor: pointer;
       }
+      a.disabled {
+        pointer-events: none;
+        cursor: default;
+        color: #ccc;
+      }
+      a.disabled:hover,
+      a.disabled:link,
+      a.disabled:visited,
+      a.disabled:active {
+        text-decoration: none;
+        color: #ccc;
+      }
 
       @supports (color-scheme: light dark) {
         @media (prefers-color-scheme: dark) {
@@ -468,7 +480,10 @@
           <div id="tool-inner">
             <a href="#" id="open" class="mr-3 mb-3">New (打开一本新书)</a>
             <a href="#" id="edit" class="mr-3 mb-3">Edit (编辑)</a>
-            <a href="#" id="export" class="mr-3 mb-3 bold">Export (导出)</a>
+            <a href="#" id="export" class="mr-3 mb-3 bold"
+              ><span id="exportAction">Export (导出) </span
+              ><span id="exportStatus"></span
+            ></a>
           </div>
         </div>
       </div>

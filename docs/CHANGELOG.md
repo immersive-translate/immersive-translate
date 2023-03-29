@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.3.13
+
+- Fix: ebook builder specific character issue, like some chapter path is `xxx' xxxx`
+- UI: fold openai custom options by default.
+- UI: Add exporting status for epub export.
+- Fix: Gpt4 default prompt
+
 ## 0.3.12
 
 - Feat: We can custom Marker translation theme background color now.

@@ -2133,8 +2133,15 @@
         "span[data-slate-inline=true]"
       ],
       "extraInlineSelectors": []
+    },
+    {
+      "matches": "paulgraham.com",
+      "additionalSelectors": [
+        "font[face=verdana]"
+      ],
+      "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-28T15:35:26.308Z",
+  "buildinConfigUpdatedAt": "2023-03-29T13:58:40.815Z",
   "latestVersion": "0.3.12"
 }

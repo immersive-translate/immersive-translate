@@ -81,8 +81,9 @@
       ],
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
+      "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+      "prompt": "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -2142,6 +2143,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-29T13:58:40.815Z",
-  "latestVersion": "0.3.12"
+  "buildinConfigUpdatedAt": "2023-03-30T13:42:41.765Z",
+  "latestVersion": "0.3.13"
 }

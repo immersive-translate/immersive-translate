@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-29T21:07:19.066Z", VERSION: "0.3.13", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:05.854Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8483,7 +8483,7 @@ body {
     return null;
   }
   function getWhitespace(nextNode, isPreWhitespace) {
-    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : nextNode && nextNode.nodeType === Node.ELEMENT_NODE ? " " : null;
   }
   function getElementsBySelectors(root2, selectors) {
     let elements = [];
@@ -9132,7 +9132,8 @@ ${injectedCss}}
         placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
       },
       deepl: {
-        immediateTranslationTextCountForImmersiveDeepl: 5e4
+        immediateTranslationTextCountForImmersiveDeepl: 5e4,
+        placeholderDelimiters: ["{", "}"]
       },
       bing: {
         maxTextLengthPerRequest: 800
@@ -9153,8 +9154,9 @@ ${injectedCss}}
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 1e4,
         translationDebounce: 300,
+        limit: 1500,
         maxTextGroupLengthPerRequest: 1,
-        prompt: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+        prompt: "Do not explain, translate the text below to {{to}}:",
         newlinePlaceholderDelimiters: [
           `
 
@@ -9263,7 +9265,8 @@ ${injectedCss}}
         "span.katex",
         ".notranslate",
         ".MathJax_Preview",
-        ".MathJax"
+        ".MathJax",
+        ".mwe-math-element"
       ],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
@@ -11406,7 +11409,7 @@ ${injectedCss}}
     };
     let isNativeFetch = !0;
     options.fetchPolyfill && (isNativeFetch = !1);
-    let fetchFn = options.fetchPolyfill || fetch, timeout = 6e4;
+    let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
     if (options.timeout && (timeout = options.timeout), isNativeFetch) {
       let controller = new AbortController(), signal = controller.signal;
       setTimeout(() => {

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-29T21:07:17.118Z", VERSION: "0.3.13", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:04.097Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7214,7 +7214,8 @@ var buildin_config_default = {
       placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
     },
     deepl: {
-      immediateTranslationTextCountForImmersiveDeepl: 5e4
+      immediateTranslationTextCountForImmersiveDeepl: 5e4,
+      placeholderDelimiters: ["{", "}"]
     },
     bing: {
       maxTextLengthPerRequest: 800
@@ -7235,8 +7236,9 @@ var buildin_config_default = {
       placeholderDelimiters: ["{{", "}}"],
       immediateTranslationTextCount: 1e4,
       translationDebounce: 300,
+      limit: 1500,
       maxTextGroupLengthPerRequest: 1,
-      prompt: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+      prompt: "Do not explain, translate the text below to {{to}}:",
       newlinePlaceholderDelimiters: [
         `
 
@@ -7345,7 +7347,8 @@ var buildin_config_default = {
       "span.katex",
       ".notranslate",
       ".MathJax_Preview",
-      ".MathJax"
+      ".MathJax",
+      ".mwe-math-element"
     ],
     translationBlockStyle: "",
     isShowUserscriptPagePopup: !0,
@@ -9372,7 +9375,7 @@ async function rawRequest(options) {
   };
   let isNativeFetch = !0;
   options.fetchPolyfill && (isNativeFetch = !1);
-  let fetchFn = options.fetchPolyfill || fetch, timeout = 6e4;
+  let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
   if (options.timeout && (timeout = options.timeout), isNativeFetch) {
     let controller = new AbortController(), signal = controller.signal;
     setTimeout(() => {

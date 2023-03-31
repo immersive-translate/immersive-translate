@@ -182,6 +182,19 @@ Edit `web/app.js`, add `return` to the validateFileURL, cause we don't need chec
   }
 ```
 
+add this:
+
+Edit `viewer.css`
+
+``css
+.textLayer > \*:not(.immersive-translate-pdf-target-container) {
+opacity: 0.25;
+}
+
+````
+
+Edit `gulpfile.js`, change `enableSourceMaps` to false
+
 Then, run `npm install` at the `pdf.js` project.
 
 ### chrome ban pdf.js
@@ -199,7 +212,7 @@ Then, back to translate project, run:
 
 ```bash
 make pdf
-```
+````
 
 This will build the pdf project, and copy the build files to the translate project
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.14
+
+- Dependence: Upgrade pdf.js to the latest version
+- Fix: pdf selection background color
+- Fix: whitespace detect
+
 ## 0.3.13
 
 - Fix: ebook builder specific character issue, like some chapter path is `xxx' xxxx`

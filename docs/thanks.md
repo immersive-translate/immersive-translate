@@ -9,7 +9,7 @@
 
 > 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，你的头像和个人主页将会在 10 分钟内出现在这里。
 >
-> 通过其他方式（比如扫微信/支付宝二维码/加密货币），我会手工录入信息，但是可能不那么及时，谢谢理解！同时你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加速我的进程！如果你的信息应该出现在这里（赞助 35 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
+> 通过其他方式（比如扫微信/支付宝二维码/加密货币），我会手工录入信息，但是可能不那么及时，谢谢理解！同时你也可以在赞助之后手动填写这个[表单](https://tally.so/r/3jZ569)，这样会大大加速我的进程！如果你的信息应该出现在这里（赞助 8.8 元及以上) 但是没有出现的话，也请填写一下这个[表单](https://tally.so/r/3jZ569)，多谢！
 >
 > 如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 

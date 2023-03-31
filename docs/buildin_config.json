@@ -54,7 +54,11 @@
       ]
     },
     "deepl": {
-      "immediateTranslationTextCountForImmersiveDeepl": 50000
+      "immediateTranslationTextCountForImmersiveDeepl": 50000,
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
     },
     "bing": {
       "maxTextLengthPerRequest": 800
@@ -81,8 +85,9 @@
       ],
       "immediateTranslationTextCount": 10000,
       "translationDebounce": 300,
+      "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Do not explain. Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+      "prompt": "Do not explain, translate the text below to {{to}}:",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -187,7 +192,8 @@
       "span.katex",
       ".notranslate",
       ".MathJax_Preview",
-      ".MathJax"
+      ".MathJax",
+      ".mwe-math-element"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -2142,6 +2148,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-29T13:58:40.815Z",
-  "latestVersion": "0.3.12"
+  "buildinConfigUpdatedAt": "2023-03-31T13:23:29.623Z",
+  "latestVersion": "0.3.13"
 }

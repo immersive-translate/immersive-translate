@@ -28,16 +28,13 @@
 .textLayer {
   position: absolute;
   text-align: initial;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   overflow: hidden;
   opacity: 0.25;
   line-height: 1;
   -webkit-text-size-adjust: none;
-     -moz-text-size-adjust: none;
-          text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
   forced-color-adjust: none;
   transform-origin: 0 0;
   z-index: 2;
@@ -89,11 +86,16 @@
 .textLayer ::-moz-selection {
   background: blue;
   background: AccentColor;
+  opacity: 0.25;
 }
 
 .textLayer ::selection {
   background: blue;
   background: AccentColor;
+  opacity: 0.25;
+}
+.textLayer > *:not(.immersive-translate-pdf-target-container) {
+  opacity: 0.25;
 }
 
 /* Avoids https://github.com/mozilla/pdf.js/issues/13840 in Chrome */
@@ -107,21 +109,17 @@
 .textLayer .endOfContent {
   display: block;
   position: absolute;
-  left: 0;
-  top: 100%;
-  right: 0;
-  bottom: 0;
+  inset: 100% 0 0;
   z-index: -1;
   cursor: default;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .textLayer .endOfContent.active {
   top: 0;
 }
-
 
 :root {
   --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
@@ -130,6 +128,7 @@
   --input-unfocused-border-color: transparent;
   --input-disabled-border-color: transparent;
   --input-hover-border-color: black;
+  --link-outline: none;
 }
 
 @media screen and (forced-colors: active) {
@@ -138,6 +137,7 @@
     --input-unfocused-border-color: ActiveText;
     --input-disabled-border-color: GrayText;
     --input-hover-border-color: Highlight;
+    --link-outline: 1.5px solid LinkText;
   }
   .annotationLayer .textWidgetAnnotation input:required,
   .annotationLayer .textWidgetAnnotation textarea:required,
@@ -145,6 +145,11 @@
   .annotationLayer .buttonWidgetAnnotation.checkBox input:required,
   .annotationLayer .buttonWidgetAnnotation.radioButton input:required {
     outline: 1.5px solid selectedItem;
+  }
+
+  .annotationLayer .linkAnnotation:hover {
+    -webkit-backdrop-filter: invert(100%);
+    backdrop-filter: invert(100%);
   }
 }
 
@@ -157,6 +162,22 @@
   z-index: 3;
 }
 
+.annotationLayer[data-main-rotation="90"] .norotate {
+  transform: rotate(270deg) translateX(-100%);
+}
+.annotationLayer[data-main-rotation="180"] .norotate {
+  transform: rotate(180deg) translate(-100%, -100%);
+}
+.annotationLayer[data-main-rotation="270"] .norotate {
+  transform: rotate(90deg) translateY(-100%);
+}
+
+.annotationLayer canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .annotationLayer section {
   position: absolute;
   text-align: initial;
@@ -165,17 +186,16 @@
   transform-origin: 0 0;
 }
 
+.annotationLayer .linkAnnotation {
+  outline: var(--link-outline);
+}
+
 .annotationLayer .linkAnnotation > a,
 .annotationLayer .buttonWidgetAnnotation.pushButton > a {
   position: absolute;
   font-size: 1em;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.annotationLayer .buttonWidgetAnnotation.pushButton > canvas {
   width: 100%;
   height: 100%;
 }
@@ -192,6 +212,8 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .annotationLayer .textWidgetAnnotation input,
@@ -330,13 +352,17 @@
 .annotationLayer .buttonWidgetAnnotation.checkBox input,
 .annotationLayer .buttonWidgetAnnotation.radioButton input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .annotationLayer .popupTriggerArea {
   height: 100%;
   width: 100%;
+}
+
+.annotationLayer .fileAttachmentAnnotation .popupTriggerArea {
+  position: absolute;
 }
 
 .annotationLayer .popupWrapper {
@@ -408,6 +434,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .annotationLayer .annotationTextContent {
@@ -417,8 +445,8 @@
   opacity: 0;
   color: transparent;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   pointer-events: none;
 }
 
@@ -426,7 +454,6 @@
   width: 100%;
   display: inline-block;
 }
-
 
 :root {
   --xfa-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
@@ -635,8 +662,6 @@
 }
 
 .xfaSelect {
-  padding-left: 2px;
-  padding-right: 2px;
   padding-inline: 2px;
 }
 
@@ -679,9 +704,9 @@
 
 .xfaImage {
   -o-object-position: left top;
-     object-position: left top;
+  object-position: left top;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -763,13 +788,12 @@
 
   .xfaSelect {
     -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     text-indent: 1px;
     text-overflow: "";
   }
 }
-
 
 :root {
   --focus-outline: solid 2px blue;
@@ -821,6 +845,10 @@
 
 .annotationEditorLayer.inkEditing {
   cursor: var(--editorInk-editing-cursor);
+}
+
+.annotationEditorLayer :is(.freeTextEditor, .inkEditor)[draggable="true"] {
+  cursor: move;
 }
 
 .annotationEditorLayer .selectedEditor {
@@ -982,20 +1010,10 @@
   border: none;
 }
 
-.pdfViewer.singlePageView {
-  display: inline-block;
-}
-
-.pdfViewer.singlePageView .page {
-  margin: 0;
-  border: none;
-}
-
 .pdfViewer.scrollHorizontal,
 .pdfViewer.scrollWrapped,
 .spread {
-  margin-left: 3.5px;
-  margin-right: 3.5px;
+  margin-inline: 3.5px;
   text-align: center;
 }
 
@@ -1007,8 +1025,7 @@
 .pdfViewer.removePageBorders,
 .pdfViewer.scrollHorizontal .spread,
 .pdfViewer.scrollWrapped .spread {
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline: 0;
 }
 
 .spread .page,
@@ -1024,20 +1041,22 @@
 .spread .page,
 .pdfViewer.scrollHorizontal .page,
 .pdfViewer.scrollWrapped .page {
-  margin-left: var(--spreadHorizontalWrapped-margin-LR);
-  margin-right: var(--spreadHorizontalWrapped-margin-LR);
+  margin-inline: var(--spreadHorizontalWrapped-margin-LR);
 }
 
 .pdfViewer.removePageBorders .spread .page,
 .pdfViewer.removePageBorders.scrollHorizontal .page,
 .pdfViewer.removePageBorders.scrollWrapped .page {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-inline: 5px;
 }
 
 .pdfViewer .page canvas {
   margin: 0;
   display: block;
+}
+
+.pdfViewer .page canvas .structTree {
+  contain: strict;
 }
 
 .pdfViewer .page canvas[hidden] {
@@ -1049,30 +1068,36 @@
   height: 100%;
 }
 
-.pdfViewer .page .loadingIcon {
+.pdfViewer .page.loadingIcon:after {
   position: absolute;
-  display: block;
-  left: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
   background: url("images/loading-icon.gif") center no-repeat;
-  visibility: visible;
+  display: none;
   /* Using a delay with background-image doesn't work,
-     consequently we use the visibility. */
-  transition-property: visibility;
+     consequently we use the display. */
+  transition-property: display;
   transition-delay: var(--loading-icon-delay);
   z-index: 5;
+  contain: strict;
 }
-.pdfViewer .page .loadingIcon.notVisible {
+
+.pdfViewer .page.loading:after {
+  display: block;
+}
+
+.pdfViewer .page:not(.loading):after {
   transition-property: none;
-  visibility: hidden;
+  display: none;
 }
 
 .pdfViewer.enablePermissions .textLayer span {
   -webkit-user-select: none !important;
-     -moz-user-select: none !important;
-          user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
   cursor: not-allowed;
 }
 
@@ -1091,10 +1116,12 @@
 
 :root {
   --dir-factor: 1;
+  --inline-start: left;
+  --inline-end: right;
+
   --sidebar-width: 200px;
   --sidebar-transition-duration: 200ms;
   --sidebar-transition-timing-function: ease;
-  --scale-select-width: 140px;
 
   --toolbar-icon-opacity: 0.7;
   --doorhanger-icon-opacity: 0.9;
@@ -1186,6 +1213,8 @@
 
 [dir="rtl"]:root {
   --dir-factor: -1;
+  --inline-start: right;
+  --inline-end: left;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1261,6 +1290,12 @@
   }
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  :root {
+    --sidebar-transition-duration: 0;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -1290,7 +1325,7 @@ body {
   overflow: hidden;
   cursor: none;
   -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 #viewerContainer.pdfPresentationMode:fullscreen {
@@ -1301,8 +1336,8 @@ body {
   overflow: hidden;
   cursor: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .pdfPresentationMode:-webkit-full-screen section:not([data-internal-link]) {
@@ -1332,34 +1367,9 @@ body {
   position: relative;
 }
 
-[dir="ltr"] #sidebarContainer {
-  left: calc(-1 * var(--sidebar-width));
-}
-
-[dir="rtl"] #sidebarContainer {
-  right: calc(-1 * var(--sidebar-width));
-}
-
-[dir="ltr"] #sidebarContainer {
-  border-right: var(--doorhanger-border-color-whcm);
-}
-
-[dir="rtl"] #sidebarContainer {
-  border-left: var(--doorhanger-border-color-whcm);
-}
-
-[dir="ltr"] #sidebarContainer {
-  transition-property: left;
-}
-
-[dir="rtl"] #sidebarContainer {
-  transition-property: right;
-}
-
 #sidebarContainer {
   position: absolute;
-  top: 32px;
-  bottom: 0;
+  inset-block: 32px 0;
   inset-inline-start: calc(-1 * var(--sidebar-width));
   width: var(--sidebar-width);
   visibility: hidden;
@@ -1367,7 +1377,7 @@ body {
   font: message-box;
   border-top: 1px solid rgba(51, 51, 51, 1);
   -webkit-border-end: var(--doorhanger-border-color-whcm);
-          border-inline-end: var(--doorhanger-border-color-whcm);
+  border-inline-end: var(--doorhanger-border-color-whcm);
   transition-property: inset-inline-start;
   transition-duration: var(--sidebar-transition-duration);
   transition-timing-function: var(--sidebar-transition-timing-function);
@@ -1377,36 +1387,18 @@ body {
 #outerContainer.sidebarOpen #sidebarContainer {
   visibility: visible;
 }
-[dir="ltr"] #outerContainer.sidebarOpen #sidebarContainer {
-  left: 0;
-}
-[dir="rtl"] #outerContainer.sidebarOpen #sidebarContainer {
-  right: 0;
-}
 #outerContainer.sidebarOpen #sidebarContainer {
   inset-inline-start: 0;
 }
 
 #mainContainer {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   min-width: 350px;
 }
 
-[dir="ltr"] #sidebarContent {
-  left: 0;
-}
-
-[dir="rtl"] #sidebarContent {
-  right: 0;
-}
-
 #sidebarContent {
-  top: 32px;
-  bottom: 0;
+  inset-block: 32px 0;
   inset-inline-start: 0;
   overflow: auto;
   position: absolute;
@@ -1417,31 +1409,12 @@ body {
 #viewerContainer {
   overflow: auto;
   position: absolute;
-  top: 32px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 32px 0 0;
   outline: none;
 }
 #viewerContainer:not(.pdfPresentationMode) {
   transition-duration: var(--sidebar-transition-duration);
   transition-timing-function: var(--sidebar-transition-timing-function);
-}
-
-[dir="ltr"] #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
-  left: var(--sidebar-width);
-}
-
-[dir="rtl"] #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
-  right: var(--sidebar-width);
-}
-
-[dir="ltr"] #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
-  transition-property: left;
-}
-
-[dir="rtl"] #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
-  transition-property: right;
 }
 
 #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
@@ -1451,8 +1424,7 @@ body {
 
 .toolbar {
   position: relative;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   z-index: 9999;
   cursor: default;
   font: message-box;
@@ -1490,18 +1462,9 @@ body {
   border-bottom: var(--toolbarSidebar-border-bottom);
 }
 
-[dir="ltr"] #sidebarResizer {
-  right: -6px;
-}
-
-[dir="rtl"] #sidebarResizer {
-  left: -6px;
-}
-
 #sidebarResizer {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  inset-block: 0;
   inset-inline-end: -6px;
   width: 6px;
   z-index: 200;
@@ -1523,24 +1486,6 @@ body {
   height: 32px;
 }
 
-[dir="ltr"] #loadingBar {
-  left: 0;
-  right: var(--progressBar-end-offset);
-}
-
-[dir="rtl"] #loadingBar {
-  right: 0;
-  left: var(--progressBar-end-offset);
-}
-
-[dir="ltr"] #loadingBar {
-  transition-property: left;
-}
-
-[dir="rtl"] #loadingBar {
-  transition-property: right;
-}
-
 #loadingBar {
   /* Define these variables here, and not in :root, to avoid reflowing the
      entire viewer when updating progress (see issue 15958). */
@@ -1555,14 +1500,6 @@ body {
   transition-property: inset-inline-start;
   transition-duration: var(--sidebar-transition-duration);
   transition-timing-function: var(--sidebar-transition-timing-function);
-}
-
-[dir="ltr"] #outerContainer.sidebarOpen #loadingBar {
-  left: var(--sidebar-width);
-}
-
-[dir="rtl"] #outerContainer.sidebarOpen #loadingBar {
-  right: var(--sidebar-width);
 }
 
 #outerContainer.sidebarOpen #loadingBar {
@@ -1638,14 +1575,6 @@ body {
   cursor: default;
 }
 
-[dir="ltr"] .findbar {
-  left: 64px;
-}
-
-[dir="rtl"] .findbar {
-  right: 64px;
-}
-
 .findbar {
   inset-inline-start: 64px;
   min-width: 300px;
@@ -1654,15 +1583,9 @@ body {
 .findbar > div {
   height: 32px;
 }
-[dir="ltr"] .findbar > div#findbarInputContainer {
-  margin-right: 4px;
-}
-[dir="rtl"] .findbar > div#findbarInputContainer {
-  margin-left: 4px;
-}
 .findbar > div#findbarInputContainer {
   -webkit-margin-end: 4px;
-          margin-inline-end: 4px;
+  margin-inline-end: 4px;
 }
 .findbar.wrapContainers > div,
 .findbar.wrapContainers > div#findbarMessageContainer > * {
@@ -1678,8 +1601,8 @@ body {
 
 .findbar label {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .findbar label:hover,
@@ -1711,16 +1634,6 @@ body {
   background-color: rgba(255, 102, 102, 1);
 }
 
-[dir="ltr"] .secondaryToolbar,[dir="ltr"] 
-.editorParamsToolbar {
-  right: 4px;
-}
-
-[dir="rtl"] .secondaryToolbar,[dir="rtl"] 
-.editorParamsToolbar {
-  left: 4px;
-}
-
 .secondaryToolbar,
 .editorParamsToolbar {
   padding: 6px 0 10px;
@@ -1739,22 +1652,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
   padding-inline: 10px;
-}
-
-[dir="ltr"] .editorParamsToolbarContainer .editorParamsLabel {
-  padding-right: 10px;
-}
-
-[dir="rtl"] .editorParamsToolbarContainer .editorParamsLabel {
-  padding-left: 10px;
 }
 
 .editorParamsToolbarContainer .editorParamsLabel {
   -webkit-padding-end: 10px;
-          padding-inline-end: 10px;
+  padding-inline-end: 10px;
   flex: none;
   color: var(--main-color);
 }
@@ -1775,7 +1678,8 @@ body {
   background-color: black;
 }
 
-.editorParamsToolbarContainer .editorParamsSlider::-webkit-slider-runnable-track,
+.editorParamsToolbarContainer
+  .editorParamsSlider::-webkit-slider-runnable-track,
 .editorParamsToolbarContainer .editorParamsSlider::-moz-range-track {
   background-color: black;
 }
@@ -1793,25 +1697,9 @@ body {
   margin-bottom: -4px;
 }
 
-[dir="ltr"] #editorInkParamsToolbar {
-  right: 40px;
-}
-
-[dir="rtl"] #editorInkParamsToolbar {
-  left: 40px;
-}
-
 #editorInkParamsToolbar {
   inset-inline-end: 40px;
   background-color: var(--toolbar-bg-color);
-}
-
-[dir="ltr"] #editorFreeTextParamsToolbar {
-  right: 68px;
-}
-
-[dir="rtl"] #editorFreeTextParamsToolbar {
-  left: 68px;
 }
 
 #editorFreeTextParamsToolbar {
@@ -1839,40 +1727,16 @@ body {
   pointer-events: none;
   opacity: var(--doorhanger-triangle-opacity-whcm);
 }
-[dir="ltr"] .doorHanger:after {
-  left: 10px;
-}
-[dir="rtl"] .doorHanger:after {
-  right: 10px;
-}
-[dir="ltr"] .doorHanger:after {
-  margin-left: -8px;
-}
-[dir="rtl"] .doorHanger:after {
-  margin-right: -8px;
-}
 .doorHanger:after {
   inset-inline-start: 10px;
   -webkit-margin-start: -8px;
-          margin-inline-start: -8px;
+  margin-inline-start: -8px;
   border-bottom-color: var(--toolbar-bg-color);
-}
-[dir="ltr"] .doorHangerRight:after {
-  right: 10px;
-}
-[dir="rtl"] .doorHangerRight:after {
-  left: 10px;
-}
-[dir="ltr"] .doorHangerRight:after {
-  margin-right: -8px;
-}
-[dir="rtl"] .doorHangerRight:after {
-  margin-left: -8px;
 }
 .doorHangerRight:after {
   inset-inline-end: 10px;
   -webkit-margin-end: -8px;
-          margin-inline-end: -8px;
+  margin-inline-end: -8px;
   border-bottom-color: var(--doorhanger-bg-color);
 }
 .doorHanger:before,
@@ -1880,39 +1744,15 @@ body {
   border-bottom-color: var(--doorhanger-border-color);
   border-width: 9px;
 }
-[dir="ltr"] .doorHanger:before {
-  left: 10px;
-}
-[dir="rtl"] .doorHanger:before {
-  right: 10px;
-}
-[dir="ltr"] .doorHanger:before {
-  margin-left: -9px;
-}
-[dir="rtl"] .doorHanger:before {
-  margin-right: -9px;
-}
 .doorHanger:before {
   inset-inline-start: 10px;
   -webkit-margin-start: -9px;
-          margin-inline-start: -9px;
-}
-[dir="ltr"] .doorHangerRight:before {
-  right: 10px;
-}
-[dir="rtl"] .doorHangerRight:before {
-  left: 10px;
-}
-[dir="ltr"] .doorHangerRight:before {
-  margin-right: -9px;
-}
-[dir="rtl"] .doorHangerRight:before {
-  margin-left: -9px;
+  margin-inline-start: -9px;
 }
 .doorHangerRight:before {
   inset-inline-end: 10px;
   -webkit-margin-end: -9px;
-          margin-inline-end: -9px;
+  margin-inline-end: -9px;
 }
 
 #findResultsCount {
@@ -1938,49 +1778,13 @@ body {
   transform: translateX(-50%);
 }
 
-[dir="ltr"] #toolbarViewerLeft,[dir="ltr"] 
-#toolbarSidebarLeft {
-  float: left;
-}
-
-[dir="rtl"] #toolbarViewerLeft,[dir="rtl"] 
-#toolbarSidebarLeft {
-  float: right;
-}
-
 #toolbarViewerLeft,
 #toolbarSidebarLeft {
-  float: inline-start;
-}
-[dir="ltr"] #toolbarViewerRight,[dir="ltr"] 
-#toolbarSidebarRight {
-  float: right;
-}
-[dir="rtl"] #toolbarViewerRight,[dir="rtl"] 
-#toolbarSidebarRight {
-  float: left;
+  float: var(--inline-start);
 }
 #toolbarViewerRight,
 #toolbarSidebarRight {
-  float: inline-end;
-}
-
-[dir="ltr"] #toolbarViewerLeft > *,[dir="ltr"] 
-#toolbarViewerMiddle > *,[dir="ltr"] 
-#toolbarViewerRight > *,[dir="ltr"] 
-#toolbarSidebarLeft *,[dir="ltr"] 
-#toolbarSidebarRight *,[dir="ltr"] 
-.findbar * {
-  float: left;
-}
-
-[dir="rtl"] #toolbarViewerLeft > *,[dir="rtl"] 
-#toolbarViewerMiddle > *,[dir="rtl"] 
-#toolbarViewerRight > *,[dir="rtl"] 
-#toolbarSidebarLeft *,[dir="rtl"] 
-#toolbarSidebarRight *,[dir="rtl"] 
-.findbar * {
-  float: right;
+  float: var(--inline-end);
 }
 
 #toolbarViewerLeft > *,
@@ -1990,54 +1794,28 @@ body {
 #toolbarSidebarRight *,
 .findbar * {
   position: relative;
-  float: inline-start;
-}
-
-[dir="ltr"] #toolbarViewerLeft {
-  padding-left: 1px;
-}
-
-[dir="rtl"] #toolbarViewerLeft {
-  padding-right: 1px;
+  float: var(--inline-start);
 }
 
 #toolbarViewerLeft {
   -webkit-padding-start: 1px;
-          padding-inline-start: 1px;
-}
-[dir="ltr"] #toolbarViewerRight {
-  padding-right: 1px;
-}
-[dir="rtl"] #toolbarViewerRight {
-  padding-left: 1px;
+  padding-inline-start: 1px;
 }
 #toolbarViewerRight {
   -webkit-padding-end: 1px;
-          padding-inline-end: 1px;
-}
-[dir="ltr"] #toolbarSidebarRight {
-  padding-right: 2px;
-}
-[dir="rtl"] #toolbarSidebarRight {
-  padding-left: 2px;
+  padding-inline-end: 1px;
 }
 #toolbarSidebarRight {
   -webkit-padding-end: 2px;
-          padding-inline-end: 2px;
+  padding-inline-end: 2px;
 }
 
 .splitToolbarButton {
   margin: 2px;
   display: inline-block;
 }
-[dir="ltr"] .splitToolbarButton > .toolbarButton {
-  float: left;
-}
-[dir="rtl"] .splitToolbarButton > .toolbarButton {
-  float: right;
-}
 .splitToolbarButton > .toolbarButton {
-  float: inline-start;
+  float: var(--inline-start);
 }
 
 .toolbarButton,
@@ -2082,27 +1860,13 @@ body {
   position: relative;
   margin: 0;
 }
-[dir="ltr"] #toolbarSidebar .splitToolbarButton > .toolbarButton {
-  margin-right: 2px;
-}
-[dir="rtl"] #toolbarSidebar .splitToolbarButton > .toolbarButton {
-  margin-left: 2px;
-}
 #toolbarSidebar .splitToolbarButton > .toolbarButton {
   -webkit-margin-end: 2px;
-          margin-inline-end: 2px;
-}
-
-[dir="ltr"] .splitToolbarButtonSeparator {
-  float: left;
-}
-
-[dir="rtl"] .splitToolbarButtonSeparator {
-  float: right;
+  margin-inline-end: 2px;
 }
 
 .splitToolbarButtonSeparator {
-  float: inline-start;
+  float: var(--inline-start);
   margin: 4px 0;
   width: 1px;
   height: 20px;
@@ -2122,8 +1886,8 @@ body {
   font-size: 12px;
   line-height: 14px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   cursor: default;
   box-sizing: border-box;
 }
@@ -2157,37 +1921,27 @@ body {
 }
 
 .dropdownToolbarButton {
+  /* Define this variable here, and not in :root, to avoid reflowing the
+     entire viewer when updating the width. */
+  --scale-select-width: 140px;
+
   width: var(--scale-select-width);
   padding: 0;
   background-color: var(--dropdown-btn-bg-color);
   border: var(--dropdown-btn-border);
-}
-[dir="ltr"] .dropdownToolbarButton::after {
-  right: 6px;
-}
-[dir="rtl"] .dropdownToolbarButton::after {
-  left: 6px;
 }
 .dropdownToolbarButton::after {
   top: 6px;
   inset-inline-end: 6px;
   pointer-events: none;
   -webkit-mask-image: var(--toolbarButton-menuArrow-icon);
-          mask-image: var(--toolbarButton-menuArrow-icon);
-}
-
-[dir="ltr"] .dropdownToolbarButton > select {
-  padding-left: 6px;
-}
-
-[dir="rtl"] .dropdownToolbarButton > select {
-  padding-right: 6px;
+  mask-image: var(--toolbarButton-menuArrow-icon);
 }
 
 .dropdownToolbarButton > select {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: inherit;
   height: 28px;
   font-size: 12px;
@@ -2195,7 +1949,7 @@ body {
   margin: 0;
   padding: 1px 0 2px;
   -webkit-padding-start: 6px;
-          padding-inline-start: 6px;
+  padding-inline-start: 6px;
   border: none;
   background-color: var(--dropdown-btn-bg-color);
 }
@@ -2229,7 +1983,7 @@ body {
   content: "";
   background-color: var(--toolbar-icon-bg-color);
   -webkit-mask-size: cover;
-          mask-size: cover;
+  mask-size: cover;
 }
 
 .dropdownToolbarButton:hover::after,
@@ -2251,14 +2005,6 @@ body {
   background-color: var(--toolbar-icon-hover-bg-color);
 }
 
-[dir="ltr"] .secondaryToolbarButton::before {
-  left: 12px;
-}
-
-[dir="rtl"] .secondaryToolbarButton::before {
-  right: 12px;
-}
-
 .secondaryToolbarButton::before {
   opacity: var(--doorhanger-icon-opacity);
   top: 5px;
@@ -2267,77 +2013,77 @@ body {
 
 #sidebarToggle::before {
   -webkit-mask-image: var(--toolbarButton-sidebarToggle-icon);
-          mask-image: var(--toolbarButton-sidebarToggle-icon);
+  mask-image: var(--toolbarButton-sidebarToggle-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #secondaryToolbarToggle::before {
   -webkit-mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
-          mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
+  mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #findPrevious::before {
   -webkit-mask-image: var(--findbarButton-previous-icon);
-          mask-image: var(--findbarButton-previous-icon);
+  mask-image: var(--findbarButton-previous-icon);
 }
 
 #findNext::before {
   -webkit-mask-image: var(--findbarButton-next-icon);
-          mask-image: var(--findbarButton-next-icon);
+  mask-image: var(--findbarButton-next-icon);
 }
 
 #previous::before {
   -webkit-mask-image: var(--toolbarButton-pageUp-icon);
-          mask-image: var(--toolbarButton-pageUp-icon);
+  mask-image: var(--toolbarButton-pageUp-icon);
 }
 
 #next::before {
   -webkit-mask-image: var(--toolbarButton-pageDown-icon);
-          mask-image: var(--toolbarButton-pageDown-icon);
+  mask-image: var(--toolbarButton-pageDown-icon);
 }
 
 #zoomOut::before {
   -webkit-mask-image: var(--toolbarButton-zoomOut-icon);
-          mask-image: var(--toolbarButton-zoomOut-icon);
+  mask-image: var(--toolbarButton-zoomOut-icon);
 }
 
 #zoomIn::before {
   -webkit-mask-image: var(--toolbarButton-zoomIn-icon);
-          mask-image: var(--toolbarButton-zoomIn-icon);
+  mask-image: var(--toolbarButton-zoomIn-icon);
 }
 
 #presentationMode::before {
   -webkit-mask-image: var(--toolbarButton-presentationMode-icon);
-          mask-image: var(--toolbarButton-presentationMode-icon);
+  mask-image: var(--toolbarButton-presentationMode-icon);
 }
 
 #editorFreeText::before {
   -webkit-mask-image: var(--toolbarButton-editorFreeText-icon);
-          mask-image: var(--toolbarButton-editorFreeText-icon);
+  mask-image: var(--toolbarButton-editorFreeText-icon);
 }
 
 #editorInk::before {
   -webkit-mask-image: var(--toolbarButton-editorInk-icon);
-          mask-image: var(--toolbarButton-editorInk-icon);
+  mask-image: var(--toolbarButton-editorInk-icon);
 }
 
 #print::before,
 #secondaryPrint::before {
   -webkit-mask-image: var(--toolbarButton-print-icon);
-          mask-image: var(--toolbarButton-print-icon);
+  mask-image: var(--toolbarButton-print-icon);
 }
 
 #openFile::before,
 #secondaryOpenFile::before {
   -webkit-mask-image: var(--toolbarButton-openFile-icon);
-          mask-image: var(--toolbarButton-openFile-icon);
+  mask-image: var(--toolbarButton-openFile-icon);
 }
 
 #download::before,
 #secondaryDownload::before {
   -webkit-mask-image: var(--toolbarButton-download-icon);
-          mask-image: var(--toolbarButton-download-icon);
+  mask-image: var(--toolbarButton-download-icon);
 }
 
 a.secondaryToolbarButton {
@@ -2352,47 +2098,39 @@ a.secondaryToolbarButton[href="#"] {
 
 #viewBookmark::before {
   -webkit-mask-image: var(--toolbarButton-bookmark-icon);
-          mask-image: var(--toolbarButton-bookmark-icon);
+  mask-image: var(--toolbarButton-bookmark-icon);
 }
 
 #viewThumbnail::before {
   -webkit-mask-image: var(--toolbarButton-viewThumbnail-icon);
-          mask-image: var(--toolbarButton-viewThumbnail-icon);
+  mask-image: var(--toolbarButton-viewThumbnail-icon);
 }
 
 #viewOutline::before {
   -webkit-mask-image: var(--toolbarButton-viewOutline-icon);
-          mask-image: var(--toolbarButton-viewOutline-icon);
+  mask-image: var(--toolbarButton-viewOutline-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #viewAttachments::before {
   -webkit-mask-image: var(--toolbarButton-viewAttachments-icon);
-          mask-image: var(--toolbarButton-viewAttachments-icon);
+  mask-image: var(--toolbarButton-viewAttachments-icon);
 }
 
 #viewLayers::before {
   -webkit-mask-image: var(--toolbarButton-viewLayers-icon);
-          mask-image: var(--toolbarButton-viewLayers-icon);
+  mask-image: var(--toolbarButton-viewLayers-icon);
 }
 
 #currentOutlineItem::before {
   -webkit-mask-image: var(--toolbarButton-currentOutlineItem-icon);
-          mask-image: var(--toolbarButton-currentOutlineItem-icon);
+  mask-image: var(--toolbarButton-currentOutlineItem-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #viewFind::before {
   -webkit-mask-image: var(--toolbarButton-search-icon);
-          mask-image: var(--toolbarButton-search-icon);
-}
-
-[dir="ltr"] .pdfSidebarNotification::after {
-  right: 2px;
-}
-
-[dir="rtl"] .pdfSidebarNotification::after {
-  left: 2px;
+  mask-image: var(--toolbarButton-search-icon);
 }
 
 .pdfSidebarNotification::after {
@@ -2408,28 +2146,12 @@ a.secondaryToolbarButton[href="#"] {
   border-radius: 50%;
 }
 
-[dir="ltr"] .secondaryToolbarButton {
-  padding-left: 36px;
-}
-
-[dir="rtl"] .secondaryToolbarButton {
-  padding-right: 36px;
-}
-
-[dir="ltr"] .secondaryToolbarButton {
-  text-align: left;
-}
-
-[dir="rtl"] .secondaryToolbarButton {
-  text-align: right;
-}
-
 .secondaryToolbarButton {
   position: relative;
   margin: 0;
   padding: 0 0 1px;
   -webkit-padding-start: 36px;
-          padding-inline-start: 36px;
+  padding-inline-start: 36px;
   height: auto;
   min-height: 26px;
   width: auto;
@@ -2440,85 +2162,79 @@ a.secondaryToolbarButton[href="#"] {
   box-sizing: border-box;
   display: inline-block;
 }
-[dir="ltr"] .secondaryToolbarButton > span {
-  padding-right: 4px;
-}
-[dir="rtl"] .secondaryToolbarButton > span {
-  padding-left: 4px;
-}
 .secondaryToolbarButton > span {
   -webkit-padding-end: 4px;
-          padding-inline-end: 4px;
+  padding-inline-end: 4px;
 }
 
 #firstPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-firstPage-icon);
-          mask-image: var(--secondaryToolbarButton-firstPage-icon);
+  mask-image: var(--secondaryToolbarButton-firstPage-icon);
 }
 
 #lastPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-lastPage-icon);
-          mask-image: var(--secondaryToolbarButton-lastPage-icon);
+  mask-image: var(--secondaryToolbarButton-lastPage-icon);
 }
 
 #pageRotateCcw::before {
   -webkit-mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
-          mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
+  mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
 }
 
 #pageRotateCw::before {
   -webkit-mask-image: var(--secondaryToolbarButton-rotateCw-icon);
-          mask-image: var(--secondaryToolbarButton-rotateCw-icon);
+  mask-image: var(--secondaryToolbarButton-rotateCw-icon);
 }
 
 #cursorSelectTool::before {
   -webkit-mask-image: var(--secondaryToolbarButton-selectTool-icon);
-          mask-image: var(--secondaryToolbarButton-selectTool-icon);
+  mask-image: var(--secondaryToolbarButton-selectTool-icon);
 }
 
 #cursorHandTool::before {
   -webkit-mask-image: var(--secondaryToolbarButton-handTool-icon);
-          mask-image: var(--secondaryToolbarButton-handTool-icon);
+  mask-image: var(--secondaryToolbarButton-handTool-icon);
 }
 
 #scrollPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollPage-icon);
-          mask-image: var(--secondaryToolbarButton-scrollPage-icon);
+  mask-image: var(--secondaryToolbarButton-scrollPage-icon);
 }
 
 #scrollVertical::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
-          mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
+  mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
 }
 
 #scrollHorizontal::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
-          mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
+  mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
 }
 
 #scrollWrapped::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
-          mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
+  mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
 }
 
 #spreadNone::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadNone-icon);
-          mask-image: var(--secondaryToolbarButton-spreadNone-icon);
+  mask-image: var(--secondaryToolbarButton-spreadNone-icon);
 }
 
 #spreadOdd::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
-          mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
+  mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
 }
 
 #spreadEven::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadEven-icon);
-          mask-image: var(--secondaryToolbarButton-spreadEven-icon);
+  mask-image: var(--secondaryToolbarButton-spreadEven-icon);
 }
 
 #documentProperties::before {
   -webkit-mask-image: var(--secondaryToolbarButton-documentProperties-icon);
-          mask-image: var(--secondaryToolbarButton-documentProperties-icon);
+  mask-image: var(--secondaryToolbarButton-documentProperties-icon);
 }
 
 .verticalToolbarSeparator {
@@ -2550,21 +2266,13 @@ a.secondaryToolbarButton[href="#"] {
   outline: none;
 }
 
-[dir="ltr"] .toolbarField[type="checkbox"] {
-  margin-left: 7px;
-}
-
-[dir="rtl"] .toolbarField[type="checkbox"] {
-  margin-right: 7px;
-}
-
 .toolbarField[type="checkbox"] {
   opacity: 0;
   position: absolute !important;
   left: 0;
   margin: 10px 0 3px;
   -webkit-margin-start: 7px;
-          margin-inline-start: 7px;
+  margin-inline-start: 7px;
 }
 
 #pageNumber {
@@ -2602,22 +2310,14 @@ a.secondaryToolbarButton[href="#"] {
   line-height: 14px;
   text-align: left;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   cursor: default;
-}
-
-[dir="ltr"] #numPages.toolbarLabel {
-  padding-left: 3px;
-}
-
-[dir="rtl"] #numPages.toolbarLabel {
-  padding-right: 3px;
 }
 
 #numPages.toolbarLabel {
   -webkit-padding-start: 3px;
-          padding-inline-start: 3px;
+  padding-inline-start: 3px;
 }
 
 #thumbnailView,
@@ -2626,13 +2326,12 @@ a.secondaryToolbarButton[href="#"] {
 #layersView {
   position: absolute;
   width: calc(100% - 8px);
-  top: 0;
-  bottom: 0;
+  inset-block: 0;
   padding: 4px 4px 0;
   overflow: auto;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 #thumbnailView {
   width: calc(100% - 60px);
@@ -2644,16 +2343,8 @@ a.secondaryToolbarButton[href="#"] {
   outline: 0;
 }
 
-[dir="ltr"] .thumbnail {
-  float: left;
-}
-
-[dir="rtl"] .thumbnail {
-  float: right;
-}
-
 .thumbnail {
-  float: inline-start;
+  float: var(--inline-start);
   margin: 0 10px 5px;
 }
 
@@ -2705,28 +2396,10 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   color: rgba(255, 255, 255, 1);
 }
 
-[dir="ltr"] .treeWithDeepNesting > .treeItem,[dir="ltr"] 
-.treeItem > .treeItems {
-  margin-left: 20px;
-}
-
-[dir="rtl"] .treeWithDeepNesting > .treeItem,[dir="rtl"] 
-.treeItem > .treeItems {
-  margin-right: 20px;
-}
-
 .treeWithDeepNesting > .treeItem,
 .treeItem > .treeItems {
   -webkit-margin-start: 20px;
-          margin-inline-start: 20px;
-}
-
-[dir="ltr"] .treeItem > a {
-  padding-left: 4px;
-}
-
-[dir="rtl"] .treeItem > a {
-  padding-right: 4px;
+  margin-inline-start: 20px;
 }
 
 .treeItem > a {
@@ -2738,14 +2411,14 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   margin-bottom: 1px;
   padding: 2px 0 5px;
   -webkit-padding-start: 4px;
-          padding-inline-start: 4px;
+  padding-inline-start: 4px;
   border-radius: 2px;
   color: var(--treeitem-color);
   font-size: 13px;
   line-height: 15px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   white-space: normal;
   cursor: pointer;
 }
@@ -2753,56 +2426,30 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
 #layersView .treeItem > a * {
   cursor: pointer;
 }
-[dir="ltr"] #layersView .treeItem > a > label {
-  padding-left: 4px;
-}
-[dir="rtl"] #layersView .treeItem > a > label {
-  padding-right: 4px;
-}
 #layersView .treeItem > a > label {
   -webkit-padding-start: 4px;
-          padding-inline-start: 4px;
-}
-[dir="ltr"] #layersView .treeItem > a > label > input {
-  float: left;
-}
-[dir="rtl"] #layersView .treeItem > a > label > input {
-  float: right;
+  padding-inline-start: 4px;
 }
 #layersView .treeItem > a > label > input {
-  float: inline-start;
+  float: var(--inline-start);
   margin-top: 1px;
-}
-
-[dir="ltr"] .treeItemToggler {
-  float: left;
-}
-
-[dir="rtl"] .treeItemToggler {
-  float: right;
 }
 
 .treeItemToggler {
   position: relative;
-  float: inline-start;
+  float: var(--inline-start);
   height: 0;
   width: 0;
   color: rgba(255, 255, 255, 0.5);
 }
-[dir="ltr"] .treeItemToggler::before {
-  right: 4px;
-}
-[dir="rtl"] .treeItemToggler::before {
-  left: 4px;
-}
 .treeItemToggler::before {
   inset-inline-end: 4px;
   -webkit-mask-image: var(--treeitem-expanded-icon);
-          mask-image: var(--treeitem-expanded-icon);
+  mask-image: var(--treeitem-expanded-icon);
 }
 .treeItemToggler.treeItemsHidden::before {
   -webkit-mask-image: var(--treeitem-collapsed-icon);
-          mask-image: var(--treeitem-collapsed-icon);
+  mask-image: var(--treeitem-collapsed-icon);
   transform: scaleX(var(--dir-factor));
 }
 .treeItemToggler.treeItemsHidden ~ .treeItems {
@@ -2892,12 +2539,6 @@ dialog :link {
 #documentPropertiesDialog {
   text-align: left;
 }
-[dir="ltr"] #documentPropertiesDialog .row > * {
-  text-align: left;
-}
-[dir="rtl"] #documentPropertiesDialog .row > * {
-  text-align: right;
-}
 #documentPropertiesDialog .row > * {
   min-width: 100px;
   text-align: start;
@@ -2927,10 +2568,7 @@ dialog :link {
   position: fixed;
   background: rgba(0, 0, 0, 0);
   display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   overflow: hidden;
   z-index: 50000; /* should be higher than anything else in PDF.js! */
 }
@@ -3013,12 +2651,6 @@ dialog :link {
   #sidebarContainer {
     background-color: var(--sidebar-narrow-bg-color);
   }
-  [dir="ltr"] #outerContainer.sidebarOpen #viewerContainer {
-    left: 0 !important;
-  }
-  [dir="rtl"] #outerContainer.sidebarOpen #viewerContainer {
-    right: 0 !important;
-  }
   #outerContainer.sidebarOpen #viewerContainer {
     inset-inline-start: 0 !important;
   }
@@ -3049,12 +2681,6 @@ dialog :link {
   }
   .toolbarButtonSpacer {
     width: 0;
-  }
-  [dir="ltr"] .findbar {
-    left: 34px;
-  }
-  [dir="rtl"] .findbar {
-    right: 34px;
   }
   .findbar {
     inset-inline-start: 34px;

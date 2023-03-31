@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.3.13
+// @version      0.3.14
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -73,7 +73,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-29T21:07:19.066Z", VERSION: "0.3.13", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:05.854Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7438,7 +7438,7 @@ body {
     return null;
   }
   function getWhitespace(nextNode, isPreWhitespace) {
-    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : nextNode && nextNode.nodeType === Node.ELEMENT_NODE ? " " : null;
   }
   function getElementsBySelectors(root2, selectors) {
     let elements = [];
@@ -8058,7 +8058,8 @@ body {
         placeholderDelimiters: ["\u{1F6A0}", "\u{1F6A0}"]
       },
       deepl: {
-        immediateTranslationTextCountForImmersiveDeepl: 5e4
+        immediateTranslationTextCountForImmersiveDeepl: 5e4,
+        placeholderDelimiters: ["{", "}"]
       },
       bing: {
         maxTextLengthPerRequest: 800
@@ -8079,8 +8080,9 @@ body {
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 1e4,
         translationDebounce: 300,
+        limit: 1500,
         maxTextGroupLengthPerRequest: 1,
-        prompt: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+        prompt: "Do not explain, translate the text below to {{to}}:",
         newlinePlaceholderDelimiters: [
           `
 
@@ -8189,7 +8191,8 @@ body {
         "span.katex",
         ".notranslate",
         ".MathJax_Preview",
-        ".MathJax"
+        ".MathJax",
+        ".mwe-math-element"
       ],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
@@ -10164,7 +10167,7 @@ body {
     };
     let isNativeFetch = !0;
     options2.fetchPolyfill && (isNativeFetch = !1);
-    let fetchFn = options2.fetchPolyfill || fetch, timeout = 6e4;
+    let fetchFn = options2.fetchPolyfill || fetch, timeout = 12e4;
     if (options2.timeout && (timeout = options2.timeout), isNativeFetch) {
       let controller = new AbortController(), signal = controller.signal;
       setTimeout(() => {
@@ -18488,7 +18491,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.3.13",
+    version: "0.3.14",
     default_locale: "en",
     background: {
       service_worker: "background.js"

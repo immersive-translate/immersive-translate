@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:05.376Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:32.525Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5452,11 +5452,11 @@ var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDe
               z3.classList.add(e.classes.button), z3.classList.add(e.classes.elementHalf), z3.classList.add(e.classes.backgroundSuccess), z3.innerHTML = H3, z3.onclick = function() {
                 O2(pe, n), j2(), f2 ? f2(c3) : o2 && o2(c3);
               };
-              var U4 = document.createElement("div");
-              U4.classList.add(e.classes.button), U4.classList.add(e.classes.elementHalf), U4.classList.add(e.classes.backgroundError), U4.innerHTML = h2, U4.onclick = function() {
+              var U5 = document.createElement("div");
+              U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h2, U5.onclick = function() {
                 O2(pe, n), j2(), d3 ? d3(c3) : s4 && s4(c3);
-              }, I3.appendChild(q3), I3.appendChild(G3), I3.appendChild(Q3), I3.appendChild(C2), I3.appendChild(y), I3.appendChild(a), I3.appendChild(ae), I3.appendChild(ie), I3.appendChild(ce2), fe.appendChild(I3), Y2.appendChild(fe), Y2.appendChild(z3), Y2.appendChild(U4), Y2.listener = function(L4) {
-                te(L4) ? z3.click() : ne(L4) && U4.click();
+              }, I3.appendChild(q3), I3.appendChild(G3), I3.appendChild(Q3), I3.appendChild(C2), I3.appendChild(y), I3.appendChild(a), I3.appendChild(ae), I3.appendChild(ie), I3.appendChild(ce2), fe.appendChild(I3), Y2.appendChild(fe), Y2.appendChild(z3), Y2.appendChild(U5), Y2.listener = function(L4) {
+                te(L4) ? z3.click() : ne(L4) && U5.click();
               }, Z(Y2, n), se2(Y2, n);
             };
             p2.default = { alert: Te, force: Me, confirm: He, input: ge, select: Se, date: we, setOptions: Ee, hideAlerts: F2 };
@@ -6015,6 +6015,7 @@ var zh_CN_default = {
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
+  resetToDefaultSettings: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u8BBE\u7F6E",
   isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
   isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
   verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
@@ -6582,7 +6583,8 @@ var en_default = {
   clickToDisableExtension: "Click to disable extension",
   clickToEnableExtension: "Click to enable the extension",
   hasBeenDisabled: "Disabled",
-  "show password": "Show password"
+  "show password": "Show password",
+  resetToDefaultSettings: "Reset to default settings"
 };
 
 // constant.ts
@@ -6813,7 +6815,7 @@ var openlProps = [
     allProps: [
       {
         name: "APIKEY",
-        required: !0,
+        required: !1,
         type: "password"
       },
       {
@@ -10676,3 +10678,13 @@ async function main() {
 }
 steupMessageListeners();
 main();
+/*! Bundled license information:
+
+bowser/src/bowser.js:
+  (*!
+   * Bowser - a browser detector
+   * https://github.com/lancedikson/bowser
+   * MIT License | (c) Dustin Diaz 2012-2015
+   * MIT License | (c) Denis Demchenko 2015-2019
+   *)
+*/

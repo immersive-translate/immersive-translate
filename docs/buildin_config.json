@@ -192,7 +192,8 @@
       "span.katex",
       ".notranslate",
       ".MathJax_Preview",
-      ".MathJax"
+      ".MathJax",
+      ".mwe-math-element"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -2147,6 +2148,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-31T12:53:53.941Z",
+  "buildinConfigUpdatedAt": "2023-03-31T13:23:29.623Z",
   "latestVersion": "0.3.13"
 }

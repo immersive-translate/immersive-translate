@@ -54,7 +54,11 @@
       ]
     },
     "deepl": {
-      "immediateTranslationTextCountForImmersiveDeepl": 50000
+      "immediateTranslationTextCountForImmersiveDeepl": 50000,
+      "placeholderDelimiters": [
+        "{",
+        "}"
+      ]
     },
     "bing": {
       "maxTextLengthPerRequest": 800
@@ -2143,6 +2147,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-30T20:45:02.374Z",
+  "buildinConfigUpdatedAt": "2023-03-31T12:53:53.941Z",
   "latestVersion": "0.3.13"
 }

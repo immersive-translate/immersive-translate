@@ -515,6 +515,15 @@
     },
     {
       "matches": [
+        "googleads.g.doubleclick.net",
+        "https://www.google.com/recaptcha/*",
+        "ad.doubanio.com"
+      ],
+      "useIframePostMessage": false,
+      "selectors": "#notexistforimmersivetranslate"
+    },
+    {
+      "matches": [
         "mail.jabber.org",
         "antirez.com"
       ],
@@ -2148,6 +2157,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-03-31T13:23:29.623Z",
-  "latestVersion": "0.3.13"
+  "buildinConfigUpdatedAt": "2023-04-01T05:43:00.990Z",
+  "latestVersion": "0.3.15"
 }

@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:05.376Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:32.525Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5477,6 +5477,7 @@ var zh_CN_default = {
   "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
   "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
   resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
+  resetToDefaultSettings: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u8BBE\u7F6E",
   isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
   isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
   verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
@@ -6044,7 +6045,8 @@ var en_default = {
   clickToDisableExtension: "Click to disable extension",
   clickToEnableExtension: "Click to enable the extension",
   hasBeenDisabled: "Disabled",
-  "show password": "Show password"
+  "show password": "Show password",
+  resetToDefaultSettings: "Reset to default settings"
 };
 
 // constant.ts
@@ -6408,7 +6410,7 @@ var openlProps = [
     allProps: [
       {
         name: "APIKEY",
-        required: !0,
+        required: !1,
         type: "password"
       },
       {
@@ -7405,11 +7407,11 @@ var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDe
               z4.classList.add(e.classes.button), z4.classList.add(e.classes.elementHalf), z4.classList.add(e.classes.backgroundSuccess), z4.innerHTML = H4, z4.onclick = function() {
                 O3(pe, n2), j4(), f3 ? f3(c3) : o2 && o2(c3);
               };
-              var U5 = document.createElement("div");
-              U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h2, U5.onclick = function() {
+              var U6 = document.createElement("div");
+              U6.classList.add(e.classes.button), U6.classList.add(e.classes.elementHalf), U6.classList.add(e.classes.backgroundError), U6.innerHTML = h2, U6.onclick = function() {
                 O3(pe, n2), j4(), d5 ? d5(c3) : s4 && s4(c3);
-              }, I4.appendChild(q5), I4.appendChild(G4), I4.appendChild(Q4), I4.appendChild(C4), I4.appendChild(y), I4.appendChild(a3), I4.appendChild(ae), I4.appendChild(ie), I4.appendChild(ce3), fe.appendChild(I4), Y3.appendChild(fe), Y3.appendChild(z4), Y3.appendChild(U5), Y3.listener = function(L6) {
-                te(L6) ? z4.click() : ne2(L6) && U5.click();
+              }, I4.appendChild(q5), I4.appendChild(G4), I4.appendChild(Q4), I4.appendChild(C4), I4.appendChild(y), I4.appendChild(a3), I4.appendChild(ae), I4.appendChild(ie), I4.appendChild(ce3), fe.appendChild(I4), Y3.appendChild(fe), Y3.appendChild(z4), Y3.appendChild(U6), Y3.listener = function(L6) {
+                te(L6) ? z4.click() : ne2(L6) && U6.click();
               }, Z2(Y3, n2), se2(Y3, n2);
             };
             p4.default = { alert: Te, force: Me, confirm: He, input: ge, select: Se, date: we, setOptions: Ee, hideAlerts: F4 };
@@ -11926,3 +11928,13 @@ mountPoint && (async () => {
     mountPoint
   );
 })();
+/*! Bundled license information:
+
+bowser/src/bowser.js:
+  (*!
+   * Bowser - a browser detector
+   * https://github.com/lancedikson/bowser
+   * MIT License | (c) Dustin Diaz 2012-2015
+   * MIT License | (c) Denis Demchenko 2015-2019
+   *)
+*/

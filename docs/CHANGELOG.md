@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.15
+
+- UI: allow no API key for openai
+- UI: allow Open AI reset to the default settings
+
 ## 0.3.14
 
 - Dependence: Upgrade pdf.js to the latest version

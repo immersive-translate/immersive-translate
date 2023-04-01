@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-31T15:19:05.854Z", VERSION: "0.3.14", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:33.204Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -11048,6 +11048,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
     "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
     resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
+    resetToDefaultSettings: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u8BBE\u7F6E",
     isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
     isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
     verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
@@ -11615,7 +11616,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     clickToDisableExtension: "Click to disable extension",
     clickToEnableExtension: "Click to enable the extension",
     hasBeenDisabled: "Disabled",
-    "show password": "Show password"
+    "show password": "Show password",
+    resetToDefaultSettings: "Reset to default settings"
   };
 
   // constant.ts
@@ -11727,7 +11729,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       allProps: [
         {
           name: "APIKEY",
-          required: !0,
+          required: !1,
           type: "password"
         },
         {

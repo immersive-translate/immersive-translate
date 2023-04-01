@@ -730,8 +730,8 @@
       "matches": "github.com",
       "observeUrlChange": true,
       "excludeMatches": [
-        "https://github.com/settings/profile",
-        "https://github.com/*/*/settings"
+        "https://github.com/*/*/settings",
+        "https://github.com/settings/*"
       ],
       "selectors": [
         ".markdown-title",
@@ -2157,6 +2157,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-01T05:43:00.990Z",
+  "buildinConfigUpdatedAt": "2023-04-01T14:16:44.861Z",
   "latestVersion": "0.3.15"
 }

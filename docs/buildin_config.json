@@ -262,7 +262,8 @@
       "table.highlight",
       "div[class^=codeBlockContent]",
       "div[class^=codeBlockLines]",
-      "div[class^=token-line]"
+      "div[class^=token-line]",
+      "#liuchan-window > .liuchan-container > *"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -2158,6 +2159,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-01T14:46:30.159Z",
+  "buildinConfigUpdatedAt": "2023-04-01T15:20:31.826Z",
   "latestVersion": "0.3.15"
 }

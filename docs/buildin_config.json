@@ -87,7 +87,7 @@
       "translationDebounce": 300,
       "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Do not explain, translate the text below to {{to}}:",
+      "prompt": "Do not explain, translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -2160,6 +2160,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-01T21:47:46.996Z",
+  "buildinConfigUpdatedAt": "2023-04-02T07:25:20.299Z",
   "latestVersion": "0.3.15"
 }

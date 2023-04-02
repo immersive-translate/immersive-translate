@@ -87,7 +87,7 @@
       "translationDebounce": 300,
       "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Do not explain, translate the text below to {{to}}:",
+      "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -1304,7 +1304,8 @@
       "additionalSelectors": [
         "h1",
         "[data-testid=SummaryItemHed]"
-      ]
+      ],
+      "urlChangeDelay": 2000
     },
     {
       "matches": "start.me",
@@ -2159,6 +2160,6 @@
       "extraBlockSelectors": "font[face=verdana]"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-01T15:20:31.826Z",
+  "buildinConfigUpdatedAt": "2023-04-02T07:29:36.539Z",
   "latestVersion": "0.3.15"
 }

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-03T05:37:11.134Z", VERSION: "0.3.16", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-03T17:47:29.412Z", VERSION: "0.3.17", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7354,7 +7354,7 @@ body {
     "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
     "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
     "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
-    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1\u672C\u5730 HTML \u6587\u4EF6",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1 HTML/txt \u6587\u4EF6",
     "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
@@ -7633,7 +7633,7 @@ body {
     "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
     "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
     "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
-    "browser.translateLocalHtmlFile": "\u7FFB\u8B6F\u672C\u6A5F HTML \u6A94\u6848",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8B6F HTML/txt \u6A94\u6848",
     "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
     confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
     translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
@@ -7906,7 +7906,7 @@ body {
     "browser.translateLocalPdfFile": "Translate local PDF files",
     "browser.openEbookViewer": "Read local e-book",
     "browser.openEbookBuilder": "Make Dual Epub ebook",
-    "browser.translateLocalHtmlFile": "Translate local HTML files",
+    "browser.translateLocalHtmlFile": "Translate HTML/txt files",
     "browser.donateContext": "Sponsor Benefits",
     confirmResetConfig: "Are you sure you want to reset the settings?",
     translationLineBreakSettingTitle: "Line break setting",
@@ -14263,7 +14263,7 @@ ${injectedCss}}
       translateNewDynamicNodes,
       3e3
     )
-  }, env3 = getEnv(), isProd2 = env3.PROD === "1", isInitTranslationService = !1, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+  }, env3 = getEnv(), isProd2 = env3.PROD === "1", translationServiceInitmap = {}, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     if (getPageStatus() === "Original") {
       let ctx = await getGlobalContext(getRealUrl(), {});
@@ -14506,7 +14506,7 @@ ${injectedCss}}
     }
     ctx.state.isAutoTranslate = !0;
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
+    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), translationServiceInitmap[ctx.translationService] || (translationServiceInitmap[ctx.translationService] = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
       log_default.warn("init translation engine error", e3);
     })), log_default.debug("ctx", ctx), addToUnmountQueue(() => {
       currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
@@ -14933,7 +14933,7 @@ ${injectedCss}}
     else if (log_default.debug("do not auto translate", ctx), ctx.rule.initTranslationServiceAsSoonAsPossible && ctx.translationService === "deepl") {
       if (isSameTargetLanguage(lang, ctx.targetLanguage) || lang === "auto")
         return;
-      ctx.config && ctx.config.translationServices && ctx.config.translationServices.deepl && ctx.config.translationServices.deepl.authKey && typeof ctx.config.translationServices.deepl.authKey == "string" && ctx.config.translationServices.deepl.authKey.startsWith("immersive_") && (isInitTranslationService || (isInitTranslationService = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
+      ctx.config && ctx.config.translationServices && ctx.config.translationServices.deepl && ctx.config.translationServices.deepl.authKey && typeof ctx.config.translationServices.deepl.authKey == "string" && ctx.config.translationServices.deepl.authKey.startsWith("immersive_") && (translationServiceInitmap[ctx.translationService] || (translationServiceInitmap[ctx.translationService] = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
         log_default.warn("init translation engine error", e3);
       })));
     }
@@ -16895,7 +16895,7 @@ ${injectedCss}}
       serviceConfig.APIKEY && (this.APIKEY = serviceConfig.APIKEY?.trim(), this.apiKeys = this.APIKEY.split(",").map((key) => key.trim())), serviceConfig.prompt && (this.prompt = serviceConfig.prompt), serviceConfig.model && (this.model = serviceConfig.model), serviceConfig && serviceConfig.apiUrl && (this.apiUrl = mergeUrl(this.apiUrl, serviceConfig.apiUrl)), serviceConfig && serviceConfig.systemPrompt && (this.systemPrompt = serviceConfig.systemPrompt);
     }
     getDefaultRateLimit() {
-      return { limit: 10, interval: 65e3 };
+      return { limit: 1500, interval: 65e3 };
     }
     translate(payload) {
       return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
@@ -19787,7 +19787,7 @@ ${injectedCss}}
     }
   ];
   async function createContextMenu(config) {
-    log_default.debug("createContextMenu", menus), await browserAPI.contextMenus.removeAll();
+    log_default.debug("createContextMenu", menus);
     for (let menu of menus) {
       let visible = !0;
       config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (visible = !1), browserAPI.contextMenus.create({

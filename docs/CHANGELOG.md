@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.17
+
+- Feat: Support translate local .txt file.
+- Fix: Context Menu may not avaliable sometimes. [#273](https://github.com/immersive-translate/immersive-translate/issues/273)
+
 ## 0.3.16
 
 - Fix: keep &nbsp; as whitespace.

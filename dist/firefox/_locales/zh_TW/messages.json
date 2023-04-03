@@ -33,7 +33,7 @@
     "message": "製作雙語 Epub 電子書"
   },
   "translateLocalHtmlFile": {
-    "message": "翻譯本機 HTML 檔案"
+    "message": "翻譯 HTML/txt 檔案"
   },
   "donateContext": {
     "message": "了解贊助福利"

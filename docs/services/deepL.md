@@ -3,6 +3,7 @@
 ## 1. 通过 DeepL 官方获取 DeepL API
 
 1. 官方介绍：[DeepL API ](https://www.deepl.com/zh/pro#developer)
+   - 注意： [DeepL API](https://www.deepl.com/zh/pro#developer) 和 [DeepL Pro](https://www.deepl.com/pro) 是两种不同的账户类型，在沉浸式翻译里使用的是 [DeepL API](https://www.deepl.com/zh/pro/select-country#developer) 账户。
 2. [为什么](https://www.deepl.com/zh/whydeepl)选择 DeepL?
 
    - 英语 ⇄ 中文 5 倍更准确

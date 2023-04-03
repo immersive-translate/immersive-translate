@@ -992,7 +992,10 @@
       "wrapperPrefix": "\n",
       "selectors": [
         "h3 a[data-clk]",
-        "div.gs_rs"
+        "div.gs_rs",
+        "td a.gsc_a_at",
+        "td div.gs_gray:last-of-type",
+        "div.gsc_oci_value"
       ],
       "atomicBlockSelectors": [
         ".gs_rs",
@@ -2158,8 +2161,14 @@
         "font[face=verdana]"
       ],
       "extraBlockSelectors": "font[face=verdana]"
+    },
+    {
+      "matches": "*.zendesk.com",
+      "additionalSelectors": [
+        "div.zd-comment"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-02T07:29:36.539Z",
+  "buildinConfigUpdatedAt": "2023-04-03T02:03:56.353Z",
   "latestVersion": "0.3.15"
 }

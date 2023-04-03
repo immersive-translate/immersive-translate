@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.3.15
+// @version      0.3.16
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -74,7 +74,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:33.204Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-03T05:37:11.134Z", VERSION: "0.3.16", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5815,7 +5815,8 @@ body {
     },
     papago: {
       name: "Papago",
-      homepage: "https://translate.google.com/"
+      homepage: "https://translate.google.com/",
+      canary: !0
     },
     baidu: {
       name: "Baidu",
@@ -8034,7 +8035,18 @@ body {
     return null;
   }
   function getWhitespace(nextNode, isPreWhitespace) {
-    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : nextNode && nextNode.nodeType === Node.ELEMENT_NODE ? " " : null;
+    return nextNode && nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent && nextNode.textContent?.length > 0 ? isPreWhitespace ? nextNode.textContent : " " : null;
+  }
+  function customTrim(str) {
+    if (!str)
+      return "";
+    let nbspChar = String.fromCharCode(160);
+    if (str.includes(nbspChar)) {
+      let trimedStr = str.trim(), leftPosition = str.indexOf(trimedStr), rightPosition = leftPosition + trimedStr.length, leftStr = str.substring(0, leftPosition), rightStr = str.substring(rightPosition), leftNbspCount = leftStr.split(nbspChar).length - 1, rightNbspCount = rightStr.split(nbspChar).length - 1, finalLeftStr = leftNbspCount > 0 ? " ".repeat(leftNbspCount) : "", finalRightStr = rightNbspCount > 0 ? " ".repeat(rightNbspCount) : "";
+      return finalLeftStr + trimedStr + finalRightStr;
+    } else
+      str = str.trim();
+    return str;
   }
   function getElementsBySelectors(root2, selectors) {
     let elements = [];
@@ -8678,7 +8690,9 @@ body {
         translationDebounce: 300,
         limit: 1500,
         maxTextGroupLengthPerRequest: 1,
-        prompt: "Do not explain, translate the text below to {{to}}:",
+        prompt: `Translate the text to {{to}}:
+
+{{text}}`,
         newlinePlaceholderDelimiters: [
           `
 
@@ -8854,7 +8868,8 @@ body {
         "table.highlight",
         "div[class^=codeBlockContent]",
         "div[class^=codeBlockLines]",
-        "div[class^=token-line]"
+        "div[class^=token-line]",
+        "#liuchan-window > .liuchan-container > *"
       ],
       translationClasses: [],
       atomicBlockSelectors: [],
@@ -9076,6 +9091,15 @@ body {
         useIframePostMessage: !1
       },
       {
+        matches: [
+          "googleads.g.doubleclick.net",
+          "https://www.google.com/recaptcha/*",
+          "ad.doubanio.com"
+        ],
+        useIframePostMessage: !1,
+        selectors: "#notexistforimmersivetranslate"
+      },
+      {
         matches: ["mail.jabber.org", "antirez.com"],
         excludeTags: [
           "TITLE",
@@ -9255,8 +9279,9 @@ body {
         matches: "github.com",
         observeUrlChange: !0,
         excludeMatches: [
-          "https://github.com/settings/profile",
-          "https://github.com/*/*/settings"
+          "https://github.com/*/*/settings",
+          "https://github.com/settings/*",
+          "https://github.com/sponsors/*"
         ],
         selectors: [
           ".markdown-title",
@@ -9469,7 +9494,7 @@ body {
         matches: ["scholar.google.com"],
         wrapperPrefix: `
 `,
-        selectors: ["h3 a[data-clk]", "div.gs_rs"],
+        selectors: ["h3 a[data-clk]", "div.gs_rs", "td a.gsc_a_at", "td div.gs_gray:last-of-type", "div.gsc_oci_value"],
         atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
       },
       {
@@ -9712,7 +9737,8 @@ body {
       },
       {
         matches: "www.newyorker.com",
-        additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
+        additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"],
+        urlChangeDelay: 2e3
       },
       {
         matches: "start.me",
@@ -10419,6 +10445,12 @@ body {
           "font[face=verdana]"
         ],
         extraBlockSelectors: "font[face=verdana]"
+      },
+      {
+        matches: "*.zendesk.com",
+        additionalSelectors: [
+          "div.zd-comment"
+        ]
       }
     ]
   };
@@ -11729,7 +11761,7 @@ ${injectedCss}}
       }
       if (!isExcludeElement(element, rule, !0)) {
         {
-          let finalText = isPreWhitespace ? rawText : rawText.trim().replace(/\n/g, " ");
+          let finalText = isPreWhitespace ? rawText : customTrim(rawText).replace(/\n/g, " ");
           if (isUrl(finalText) || isHashTag(finalText) || isAtTag(finalText) || isStockTag(finalText)) {
             let variable = {
               type: "element",
@@ -19149,7 +19181,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.3.15",
+    version: "0.3.16",
     default_locale: "en",
     background: {
       service_worker: "background.js"

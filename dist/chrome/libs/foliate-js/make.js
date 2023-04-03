@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:31.197Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-04-03T05:37:09.405Z", VERSION: "0.3.16", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -11847,7 +11847,8 @@ var openlProps = [
   },
   papago: {
     name: "Papago",
-    homepage: "https://translate.google.com/"
+    homepage: "https://translate.google.com/",
+    canary: !0
   },
   baidu: {
     name: "Baidu",

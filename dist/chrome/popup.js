@@ -5,7 +5,7 @@ var __export = (target, all) => {
 };
 
 // <define:process.env>
-var define_process_env_default = { BUILD_TIME: "2023-03-31T22:28:31.197Z", VERSION: "0.3.15", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+var define_process_env_default = { BUILD_TIME: "2023-04-03T05:37:09.405Z", VERSION: "0.3.16", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -6529,7 +6529,8 @@ var openlProps = [
   },
   papago: {
     name: "Papago",
-    homepage: "https://translate.google.com/"
+    homepage: "https://translate.google.com/",
+    canary: !0
   },
   baidu: {
     name: "Baidu",
@@ -8249,7 +8250,9 @@ var buildin_config_default = {
       translationDebounce: 300,
       limit: 1500,
       maxTextGroupLengthPerRequest: 1,
-      prompt: "Do not explain, translate the text below to {{to}}:",
+      prompt: `Translate the text to {{to}}:
+
+{{text}}`,
       newlinePlaceholderDelimiters: [
         `
 
@@ -8425,7 +8428,8 @@ var buildin_config_default = {
       "table.highlight",
       "div[class^=codeBlockContent]",
       "div[class^=codeBlockLines]",
-      "div[class^=token-line]"
+      "div[class^=token-line]",
+      "#liuchan-window > .liuchan-container > *"
     ],
     translationClasses: [],
     atomicBlockSelectors: [],
@@ -8647,6 +8651,15 @@ var buildin_config_default = {
       useIframePostMessage: !1
     },
     {
+      matches: [
+        "googleads.g.doubleclick.net",
+        "https://www.google.com/recaptcha/*",
+        "ad.doubanio.com"
+      ],
+      useIframePostMessage: !1,
+      selectors: "#notexistforimmersivetranslate"
+    },
+    {
       matches: ["mail.jabber.org", "antirez.com"],
       excludeTags: [
         "TITLE",
@@ -8826,8 +8839,9 @@ var buildin_config_default = {
       matches: "github.com",
       observeUrlChange: !0,
       excludeMatches: [
-        "https://github.com/settings/profile",
-        "https://github.com/*/*/settings"
+        "https://github.com/*/*/settings",
+        "https://github.com/settings/*",
+        "https://github.com/sponsors/*"
       ],
       selectors: [
         ".markdown-title",
@@ -9040,7 +9054,7 @@ var buildin_config_default = {
       matches: ["scholar.google.com"],
       wrapperPrefix: `
 `,
-      selectors: ["h3 a[data-clk]", "div.gs_rs"],
+      selectors: ["h3 a[data-clk]", "div.gs_rs", "td a.gsc_a_at", "td div.gs_gray:last-of-type", "div.gsc_oci_value"],
       atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
     },
     {
@@ -9283,7 +9297,8 @@ var buildin_config_default = {
     },
     {
       matches: "www.newyorker.com",
-      additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"]
+      additionalSelectors: ["h1", "[data-testid=SummaryItemHed]"],
+      urlChangeDelay: 2e3
     },
     {
       matches: "start.me",
@@ -9990,6 +10005,12 @@ var buildin_config_default = {
         "font[face=verdana]"
       ],
       extraBlockSelectors: "font[face=verdana]"
+    },
+    {
+      matches: "*.zendesk.com",
+      additionalSelectors: [
+        "div.zd-comment"
+      ]
     }
   ]
 };

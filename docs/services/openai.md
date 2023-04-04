@@ -6,8 +6,7 @@
   - 注意：openAI 目前不开放中国手机号码注册
 - 注册 OpenAI 账户后，打开[API Secret Key](https://platform.openai.com/account/api-keys)，创建 API Secret Key
 - 然后将 key 填写在沉浸式翻译扩展里的 OpenAI 的配置项里即可。
-- 如果没有绑定信用卡，每分钟请求数会有限制，测试下来发现每分钟最多 10 个请求，你可以在沉浸式翻译的 OpenAI 设置页面设置每分钟最大请求数
-
+- 如果没有绑定信用卡，每分钟请求数会有限制，测试下来发现每分钟最多 10 个请求，如果你是试用版的用户，请务必在沉浸式翻译的 OpenAI 设置页面设置每分钟最大请求数为10 ，避免超出限额，或者被风控.
 > 建议在严肃使用场景中开通 OpenAI 的付费服务以使用，我使用的是 [Depay](https://depay.depay.one/web-app/register-h5?invitCode=551729&lang=zh-cn)的虚拟信用卡服务，它需要用加密货币 USDT 充值。这是[我的邀请链接](https://depay.depay.one/web-app/register-h5?invitCode=551729&lang=zh-cn)
 
 ## 注意事项

@@ -174,27 +174,31 @@ async function fetchCustomSponsors(filepath: string) {
       }
 
       const isExpired = expired && expired < Date.now();
-
-      // add to sponsors
-      const sponsor: Sponsorship = {
-        sponsor: {
-          type: "User",
-          login: "",
-          name: name,
-          avatarUrl: "",
-          avatarUrlHighRes: "",
-          avatarUrlMediumRes: "",
-          avatarUrlLowRes: "",
-          websiteUrl: "",
-          linkUrl: "",
-        },
-        monthlyDollars: isExpired ? -1 : monthlyDollars,
-        privacyLevel: "PUBLIC",
-        createdAt: new Date(startDate).toISOString(),
-        isOneTime: true,
-        provider: "custom",
-      };
-      sponsors.push(sponsor);
+      try {
+        // add to sponsors
+        const sponsor: Sponsorship = {
+          sponsor: {
+            type: "User",
+            login: "",
+            name: name,
+            avatarUrl: "",
+            avatarUrlHighRes: "",
+            avatarUrlMediumRes: "",
+            avatarUrlLowRes: "",
+            websiteUrl: "",
+            linkUrl: "",
+          },
+          monthlyDollars: isExpired ? -1 : monthlyDollars,
+          privacyLevel: "PUBLIC",
+          createdAt: new Date(startDate).toISOString(),
+          isOneTime: true,
+          provider: "custom",
+        };
+        sponsors.push(sponsor);
+      } catch (e) {
+        console.error("startDate", filepath, startDate, name);
+        throw e;
+      }
     }
   }
 

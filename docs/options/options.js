@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-03T17:47:29.412Z", VERSION: "0.3.17", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-05T23:18:19.469Z", VERSION: "0.4.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3771,7 +3771,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", SUBTITLE_BUILDER_URL: "https://immersive-translate.owenyoung.com/subtitle/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // browser/web_polyfill.ts
   (function() {
@@ -7356,6 +7356,7 @@ body {
     "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
     "browser.translateLocalHtmlFile": "\u7FFB\u8BD1 HTML/txt \u6587\u4EF6",
     "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8BD1\u672C\u5730\u5B57\u5E55\u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -7634,6 +7635,7 @@ body {
     "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
     "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
     "browser.translateLocalHtmlFile": "\u7FFB\u8B6F HTML/txt \u6A94\u6848",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8B6F\u5B57\u5E55\u6A94\u6848",
     "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
     confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
     translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
@@ -7903,11 +7905,12 @@ body {
     "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
     "browser.openOptionsPage": "Open Settings Page",
     "browser.toggleTranslationMask": "Toggle translation mask style",
-    "browser.translateLocalPdfFile": "Translate local PDF files",
+    "browser.translateLocalPdfFile": "Translate local PDF File",
     "browser.openEbookViewer": "Read local e-book",
     "browser.openEbookBuilder": "Make Dual Epub ebook",
-    "browser.translateLocalHtmlFile": "Translate HTML/txt files",
+    "browser.translateLocalHtmlFile": "Translate HTML/txt File",
     "browser.donateContext": "Sponsor Benefits",
+    "browser.translateLocalSubtitleFile": "Translate Subtitle File",
     confirmResetConfig: "Are you sure you want to reset the settings?",
     translationLineBreakSettingTitle: "Line break setting",
     smartLineBreak: "Smart Wrap",
@@ -8177,7 +8180,8 @@ body {
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
   var brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
-  var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", contextDonateMenuId = "donateContext", contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
+  var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", contextDonateMenuId = "donateContext", contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder";
+  var pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`, sourceElementEffectAttributeNameForJs = "immersiveTranslateEffect", elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
   var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`, defaultPlaceholderDelimiters = ["@", "#"], titleDelimiters = " --- ", translationTextSeparator = `
 `, translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`, translationThemes = [
     "none",
@@ -9237,6 +9241,19 @@ body {
     }
     return text;
   }
+  function getPairsSourceText(root2, pairs) {
+    let keys = Object.keys(pairs), text = "";
+    for (let i2 = 0; i2 < keys.length; i2++) {
+      let sourceSelector = keys[i2], elements = root2.querySelectorAll(sourceSelector);
+      for (let j6 = 0; j6 < elements.length; j6++) {
+        let element = elements[j6];
+        if (text += (element.innerText || element.textContent || "") + `
+`, text.length > 2e3)
+          break;
+      }
+    }
+    return text;
+  }
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
@@ -9855,6 +9872,8 @@ ${injectedCss}}
       isEbookBuilder: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
+      pairs: {},
+      isSubtitleBuilder: !1,
       minZIndex: 0,
       initTranslationServiceAsSoonAsPossible: !0,
       targetWrapperTag: "font",
@@ -9875,7 +9894,8 @@ ${injectedCss}}
         ".notranslate",
         ".MathJax_Preview",
         ".MathJax",
-        ".mwe-math-element"
+        ".mwe-math-element",
+        "[translate=no]"
       ],
       translationBlockStyle: "",
       isShowUserscriptPagePopup: !0,
@@ -10564,10 +10584,16 @@ ${injectedCss}}
         ]
       },
       {
-        matches: ["scholar.google.com"],
+        matches: ["scholar.google.com", "scholar.google.com.hk"],
         wrapperPrefix: `
 `,
-        selectors: ["h3 a[data-clk]", "div.gs_rs", "td a.gsc_a_at", "td div.gs_gray:last-of-type", "div.gsc_oci_value"],
+        selectors: [
+          "h3 a[data-clk]",
+          "div.gs_rs",
+          "td a.gsc_a_at",
+          "td div.gs_gray:last-of-type",
+          "div.gsc_oci_value"
+        ],
         atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
       },
       {
@@ -11499,12 +11525,6 @@ ${injectedCss}}
         ]
       },
       {
-        matches: "doc.qt.io",
-        additionalStayOriginalSelectors: [
-          "[translate=no]"
-        ]
-      },
-      {
         matches: "wandb.ai",
         additionalSelectors: [".report-page-top"],
         additionalStayOriginalSelectors: [
@@ -11524,6 +11544,18 @@ ${injectedCss}}
         additionalSelectors: [
           "div.zd-comment"
         ]
+      },
+      {
+        isSubtitleBuilder: !0,
+        selectorMatches: [
+          "meta[name='immersive-translate-subtitle-builder'][content='true']"
+        ],
+        pairs: {
+          ".source-text": ".target-text"
+        },
+        isTranslateTitle: !1,
+        wrapperPrefix: "",
+        wrapperSuffix: ""
       }
     ]
   };
@@ -12485,6 +12517,7 @@ ${injectedCss}}
     let { rule, state: { translationArea } } = ctx, contentContainers = [];
     if (translationArea === "body")
       return [root2];
+    let pairsKeys = Object.keys(rule.pairs);
     if (rule && rule.selectors.length > 0) {
       let containers = rule.selectors.map((selector) => {
         let isMatch = root2.matches(selector), elements = [];
@@ -13032,8 +13065,42 @@ ${injectedCss}}
     };
   }
 
+  // dom/get_pairs_paragraphs.ts
+  function getParagraphs2(rootFrame, ctx) {
+    let pariKeys = Object.keys(ctx.rule.pairs), allParagraphs = [], id = 1, currentPageLanguageByClient2 = "auto", currentPageLanguage2 = getCurrentPageLanguage();
+    ctx.state.isDetectParagraphLanguage || (currentPageLanguageByClient2 = getCurrentPageLanguageByClient());
+    for (let pairKey of pariKeys) {
+      let targetPair = ctx.rule.pairs[pairKey], sourceElements = rootFrame.querySelectorAll(
+        pairKey
+      ), targetElements = rootFrame.querySelectorAll(
+        targetPair
+      );
+      for (let i2 = 0; i2 < sourceElements.length; i2++) {
+        let sourceElement = sourceElements[i2], targetElement = targetElements[i2];
+        if (sourceElement && targetElement) {
+          let paragraph = {
+            elements: [sourceElement],
+            isVertical: !1,
+            rootFrame,
+            text: sourceElement.textContent || "",
+            variables: [],
+            inline: !1,
+            preWhitespace: !0,
+            isPdf: !1,
+            targetContainer: targetElement,
+            id: id++,
+            languageByClient: currentPageLanguageByClient2,
+            languageByLocal: currentPageLanguage2
+          };
+          addToParagraphs(paragraph, allParagraphs);
+        }
+      }
+    }
+    return allParagraphs;
+  }
+
   // dom/get_pdf_paragraphs.ts
-  async function getParagraphs2(rootFrame, containers, ctx, targetContainers) {
+  async function getParagraphs3(rootFrame, containers, ctx, targetContainers) {
     let allParagraphs = [], { rule } = ctx;
     for (let i2 = 0; i2 < containers.length; i2++) {
       let container = containers[i2], targetContainer = targetContainers[i2];
@@ -14412,14 +14479,27 @@ ${injectedCss}}
   }
   function translationParagraph(visibleParagraph, ctx) {
     waitToTranslateParagraphIds.delete(visibleParagraph.id);
-    let paragraphWithState = getParagraph(visibleParagraph.id);
+    let pairKeys = Object.keys(ctx.rule.pairs), paragraphWithState = getParagraph(visibleParagraph.id);
     paragraphWithState && (paragraphWithState.observers && paragraphWithState.observers.length > 0 && paragraphWithState.observers.forEach((observer) => {
       observer.disconnect();
     }), paragraphWithState.observers = [], paragraphWithState.state = "Translating", setParagraph(visibleParagraph.id, paragraphWithState));
     let id = visibleParagraph.id;
     currentTranslatedTextLength += visibleParagraph.text.length;
     let realElements = getHTMLElements(visibleParagraph.elements);
-    if (visibleParagraph.isPdf) {
+    if (pairKeys.length > 0) {
+      let targetTranslationContainer = visibleParagraph.targetContainer, targetTranslationWrapper = document.createElement(
+        ctx.rule.targetWrapperTag
+      );
+      targetTranslationContainer.appendChild(targetTranslationWrapper), targetTranslationWrapper.classList.add(
+        "notranslate",
+        translationTargetElementWrapperClass
+      ), targetTranslationWrapper.id = `${translationTargetElementWrapperClass}-${id}`, targetTranslationWrapper.setAttribute("lang", ctx.targetLanguage);
+      let loadingHtml = getLoadingHTML(
+        ctx.config.loadingTheme,
+        ctx.rule
+      );
+      targetTranslationWrapper.innerHTML = loadingHtml;
+    } else if (visibleParagraph.isPdf) {
       let firstElement = getFirstHTMLElement(visibleParagraph.elements), elementStyle = globalThis.getComputedStyle(firstElement), top = elementStyle.top, fontSize = elementStyle.fontSize, fontSizeNumber = parseFloat(fontSize.slice(0, -2));
       isNaN(fontSizeNumber) || fontSizeNumber > 20 && (fontSize = "20px");
       let targetContainer = visibleParagraph.targetContainer, paragraphTarget = document.createElement(ctx.rule.targetWrapperTag);
@@ -14463,7 +14543,7 @@ ${injectedCss}}
     currentParagraphIds.push(id), throttleMap[ctx.state.translationDebounce](ctx);
   }
   function addParagraphToQueue(paragraph, ctx) {
-    ctx.state.translationStartMode === "dynamic" && !ctx.rule.isEbookBuilder && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
+    ctx.state.translationStartMode === "dynamic" && !ctx.rule.isEbookBuilder && !ctx.rule.isSubtitleBuilder && currentTranslatedTextLength > ctx.state.immediateTranslationTextCount ? onElementVisible(paragraph, (visibleParagraph) => {
       ctx.rule.visibleDelay > 0 ? setTimeout(() => {
         translationParagraph(visibleParagraph, ctx);
       }, ctx.rule.visibleDelay) : translationParagraph(visibleParagraph, ctx);
@@ -14482,6 +14562,15 @@ ${injectedCss}}
         detail: JSON.stringify({
           type: "translateStart",
           payload: {}
+        })
+      })
+    ), document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+        detail: JSON.stringify({
+          type: "targetLanguage",
+          payload: {
+            targetLanguage: ctx.targetLanguage
+          }
         })
       })
     ), ctx.rule.normalizeBody && document.querySelector(ctx.rule.normalizeBody)) {
@@ -14506,9 +14595,25 @@ ${injectedCss}}
     }
     ctx.state.isAutoTranslate = !0;
     let currentScrollOffset = globalThis.scrollY, currentWindowHeight = globalThis.innerHeight;
-    currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), translationServiceInitmap[ctx.translationService] || (translationServiceInitmap[ctx.translationService] = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
+    if (currentScrollOffset >= currentWindowHeight && (ctx.state.immediateTranslationTextCount = 0), translationServiceInitmap[ctx.translationService] || (translationServiceInitmap[ctx.translationService] = !0, isInIframe || initTranslationEngine(ctx).catch((e3) => {
       log_default.warn("init translation engine error", e3);
-    })), log_default.debug("ctx", ctx), addToUnmountQueue(() => {
+    })), log_default.debug("ctx", ctx), Object.keys(ctx.rule.pairs).length > 0) {
+      let paragraphs = getParagraphs2(ctx.mainFrame, ctx);
+      document.dispatchEvent(
+        new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+          detail: JSON.stringify({
+            type: "totalParagraphsCount",
+            payload: {
+              totalParagraphsCount: paragraphs.length
+            }
+          })
+        })
+      );
+      for (let paragraph of paragraphs)
+        addParagraphToQueue(paragraph, ctx);
+      return;
+    }
+    addToUnmountQueue(() => {
       currentTranslatedTextLength = 0, cleanParagraphs(), allIntersectionObserver.forEach((observer) => {
         observer.disconnect();
       }), allResizebleObserver.forEach((observer) => {
@@ -14666,7 +14771,7 @@ ${injectedCss}}
       setPageTranslatedStatus("Translating");
     }
     let paragraphs = [];
-    if (ctx.rule.isPdf ? paragraphs = await getParagraphs2(
+    if (ctx.rule.isPdf ? paragraphs = await getParagraphs3(
       rootFrame,
       containers,
       ctx,
@@ -14685,6 +14790,14 @@ ${injectedCss}}
     setPageTranslatedStatus("Translated");
   }
   async function retryFailedParagraphs() {
+    document.dispatchEvent(
+      new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
+        detail: JSON.stringify({
+          type: "retryFailedParagraphsStart",
+          payload: {}
+        })
+      })
+    );
     let allParagraphEntities = getParagraphEntities(), ids = [];
     for (let [id, paragraph] of allParagraphEntities)
       paragraph.state === "Error" && ids.push(id);
@@ -14960,10 +15073,10 @@ ${injectedCss}}
   }
   async function detectCurrentPageLanguage(ctx) {
     ctx || (globalContext = await getGlobalContext(getRealUrl(), {}), ctx = globalContext);
-    let isInIframe = getIsInIframe(), lang = "auto";
+    let isInIframe = getIsInIframe(), lang = "auto", pairKeys = Object.keys(ctx.rule.pairs);
     if (isMonkey()) {
       let mainText = "";
-      ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
+      ctx.rule.isEbook || ctx.rule.isEbookBuilder ? mainText = getAllIframeMainText(ctx.mainFrame) : pairKeys.length > 0 ? mainText = getPairsSourceText(ctx.mainFrame, ctx.rule.pairs) : mainText = getMainText(ctx.mainFrame).slice(0, 1e3), lang = await detectLanguage({
         text: mainText
       });
     } else if (isInIframe)
@@ -14973,6 +15086,11 @@ ${injectedCss}}
     else if (ctx.rule.isEbook || ctx.rule.isEbookBuilder) {
       let mainText = "";
       mainText = getAllIframeMainText(ctx.mainFrame), lang = await detectLanguage({
+        text: mainText
+      });
+    } else if (pairKeys.length > 0) {
+      let mainText = getPairsSourceText(ctx.mainFrame, ctx.rule.pairs);
+      lang = await detectLanguage({
         text: mainText
       });
     } else
@@ -16239,7 +16357,7 @@ ${injectedCss}}
     constructor() {
       super(...arguments);
       this.isSupportList = !0;
-      this.maxTextLength = 5e3;
+      this.maxTextLength = 1200;
     }
     async translate(payload) {
       let { text } = payload, startSpaceLength = text.match(/^\s*/)[0].length;

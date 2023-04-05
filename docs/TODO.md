@@ -5,6 +5,7 @@
 
 ## Todo List
 
+- [x] subtitle error retry
 - [x] openAI api key optional.
 - [ ] 调查 ios15 的优化。
 - [x] 重新录制 ios 插件安装教学视频

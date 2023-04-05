@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.4.0
+
+- Feat: Support Translate Local Subtitle File (.srt,.ass,etc.)
+
 ## 0.3.17
 
 - Feat: Support translate local .txt file.

@@ -5,9 +5,7 @@ const open = (file) => {
     // check is txt file
     // check file name is ended with .txt
 
-    if (file.name.endsWith(".txt") && file.type === "text/plain") {
-      console.log("yes ", file);
-
+    if (file.name.endsWith(".txt")) {
       const reader = new FileReader();
       reader.readAsText(file, "UTF-8");
       reader.onload = function (evt) {

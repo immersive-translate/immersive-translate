@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-03T17:47:29.412Z", VERSION: "0.3.17", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-05T23:18:19.469Z", VERSION: "0.4.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3771,7 +3771,7 @@ body {
   </button>
   <div class="immersive-translate-popup-mount" id="mount"></div>
 </div>
-`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
+`, OPTIONS_URL: "https://immersive-translate.owenyoung.com/options/", EBOOK_VIEWER_URL: "https://immersive-translate.owenyoung.com/ebook/", EBOOK_BUILDER_URL: "https://immersive-translate.owenyoung.com/ebook/make/", SUBTITLE_BUILDER_URL: "https://immersive-translate.owenyoung.com/subtitle/", HTML_VIEWER_URL: "https://immersive-translate.owenyoung.com/html/", MOCK: "0", DEBUG: "0", IMMERSIVE_TRANSLATE_USERSCRIPT: "1" };
 
   // libs/foliate-js/epubcfi.js
   var findIndices = (arr, f) => arr.map((x, i, a) => f(x, i, a) ? i : null).filter((x) => x != null), splitAt = (arr, is2) => [-1, ...is2, arr.length].reduce(({ xs: xs2, a }, b) => ({ xs: xs2?.concat([arr.slice(a + 1, b)]) ?? [], a: b }), {}).xs, concatArrays = (a, b) => a.slice(0, -1).concat([a[a.length - 1].concat(b[0])]).concat(b.slice(1)), isNumber = /\d/, isCFI = /^epubcfi\((.*)\)$/, escapeCFI = (str) => str.replace(/[\^[\](),;=]/g, "^$&"), wrap = (x) => isCFI.test(x) ? x : `epubcfi(${x})`, unwrap = (x) => x.match(isCFI)?.[1] ?? x, lift = (f) => (...xs2) => `epubcfi(${f(...xs2.map((x) => x.match(isCFI)?.[1] ?? x))})`, joinIndir = lift((...xs2) => xs2.join("!")), tokenizer = (str) => {
@@ -10818,6 +10818,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
     "browser.translateLocalHtmlFile": "\u7FFB\u8BD1 HTML/txt \u6587\u4EF6",
     "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8BD1\u672C\u5730\u5B57\u5E55\u6587\u4EF6",
     confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
     translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
     smartLineBreak: "\u667A\u80FD\u6362\u884C",
@@ -11096,6 +11097,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
     "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
     "browser.translateLocalHtmlFile": "\u7FFB\u8B6F HTML/txt \u6A94\u6848",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8B6F\u5B57\u5E55\u6A94\u6848",
     "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
     confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
     translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
@@ -11365,11 +11367,12 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
     "browser.openOptionsPage": "Open Settings Page",
     "browser.toggleTranslationMask": "Toggle translation mask style",
-    "browser.translateLocalPdfFile": "Translate local PDF files",
+    "browser.translateLocalPdfFile": "Translate local PDF File",
     "browser.openEbookViewer": "Read local e-book",
     "browser.openEbookBuilder": "Make Dual Epub ebook",
-    "browser.translateLocalHtmlFile": "Translate HTML/txt files",
+    "browser.translateLocalHtmlFile": "Translate HTML/txt File",
     "browser.donateContext": "Sponsor Benefits",
+    "browser.translateLocalSubtitleFile": "Translate Subtitle File",
     confirmResetConfig: "Are you sure you want to reset the settings?",
     translationLineBreakSettingTitle: "Line break setting",
     smartLineBreak: "Smart Wrap",

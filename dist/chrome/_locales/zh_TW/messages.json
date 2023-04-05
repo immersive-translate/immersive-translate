@@ -35,6 +35,9 @@
   "translateLocalHtmlFile": {
     "message": "翻譯 HTML/txt 檔案"
   },
+  "translateLocalSubtitleFile": {
+    "message": "翻譯字幕檔案"
+  },
   "donateContext": {
     "message": "了解贊助福利"
   },

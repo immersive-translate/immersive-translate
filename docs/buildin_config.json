@@ -173,6 +173,8 @@
     "isEbookBuilder": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
+    "pairs": {},
+    "isSubtitleBuilder": false,
     "minZIndex": 0,
     "initTranslationServiceAsSoonAsPossible": true,
     "targetWrapperTag": "font",
@@ -193,7 +195,8 @@
       ".notranslate",
       ".MathJax_Preview",
       ".MathJax",
-      ".mwe-math-element"
+      ".mwe-math-element",
+      "[translate=no]"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -993,8 +996,8 @@
       "wrapperPrefix": "\n",
       "selectors": [
         "h3 a[data-clk]",
-        "td a.gsc_a_at",
         "div.gs_rs",
+        "td a.gsc_a_at",
         "td div.gs_gray:last-of-type",
         "div.gsc_oci_value"
       ],
@@ -2141,12 +2144,6 @@
       ]
     },
     {
-      "matches": "doc.qt.io",
-      "additionalStayOriginalSelectors": [
-        "[translate=no]"
-      ]
-    },
-    {
       "matches": "wandb.ai",
       "additionalSelectors": [
         ".report-page-top"
@@ -2168,8 +2165,20 @@
       "additionalSelectors": [
         "div.zd-comment"
       ]
+    },
+    {
+      "isSubtitleBuilder": true,
+      "selectorMatches": [
+        "meta[name='immersive-translate-subtitle-builder'][content='true']"
+      ],
+      "pairs": {
+        ".source-text": ".target-text"
+      },
+      "isTranslateTitle": false,
+      "wrapperPrefix": "",
+      "wrapperSuffix": ""
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-05T02:23:17.805Z",
-  "latestVersion": "0.3.17"
+  "buildinConfigUpdatedAt": "2023-04-05T23:17:26.262Z",
+  "latestVersion": "0.4.0"
 }

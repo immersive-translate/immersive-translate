@@ -136,6 +136,7 @@ async function fetchCustomSponsors(filepath: string) {
       const parts = trimed.split(",");
       let name = "";
       let avatar = "";
+      let profile = "";
       let expired = 0;
       let monthlyDollars = 0;
       let startDate = 0;
@@ -165,6 +166,13 @@ async function fetchCustomSponsors(filepath: string) {
             case 3:
               startDate = expired -
                 1000 * 60 * 60 * 24 * 30 * parseInt(trimedPart);
+              break;
+            case 4:
+              avatar = trimedPart;
+              break;
+            case 5:
+              profile = trimedPart;
+              break;
           }
         }
       }
@@ -181,12 +189,12 @@ async function fetchCustomSponsors(filepath: string) {
             type: "User",
             login: "",
             name: name,
-            avatarUrl: "",
+            avatarUrl: avatar,
             avatarUrlHighRes: "",
             avatarUrlMediumRes: "",
             avatarUrlLowRes: "",
             websiteUrl: "",
-            linkUrl: "",
+            linkUrl: profile,
           },
           monthlyDollars: isExpired ? -1 : monthlyDollars,
           privacyLevel: "PUBLIC",

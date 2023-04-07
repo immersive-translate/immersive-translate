@@ -586,12 +586,14 @@
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
         "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
-        "[data-testid='UserDescription']"
+        "[data-testid='UserDescription']",
+        "[data-testid='HoverCard'] div[dir=auto]"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [
         "[data-testid=\"tweetText\"] div",
-        "[data-testid=\"UserDescription\"] div"
+        "[data-testid=\"UserDescription\"] div",
+        "[data-testid='HoverCard'] div[dir=auto] div"
       ]
     },
     {
@@ -2195,6 +2197,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-07T12:00:17.982Z",
+  "buildinConfigUpdatedAt": "2023-04-07T12:24:54.882Z",
   "latestVersion": "0.4.0"
 }

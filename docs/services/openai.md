@@ -6,7 +6,7 @@
   - 注意：目前 OpenAI 本身不开放中国手机号码注册。
 - 注册 OpenAI 账户后，打开[API Secret Key](https://platform.openai.com/account/api-keys)，创建 API Secret Key
 - 然后将 key 填写在沉浸式翻译扩展里的 OpenAI 的配置项里即可。
-  - 注意：如果没有绑定信用卡，则为试用版用户，每分钟请求数会有限制，测试下来发现每分钟最多 10 个请求，所以请务必在本扩展的 OpenAI 设置页面设置每分钟最大请求数为10 ，避免超出限额或被风控。
+  - 注意：如果没有绑定信用卡，则为试用版用户，每分钟请求数会有限制，测试下来发现每分钟最多 10 个请求，所以请务必在本扩展的 OpenAI 设置页面设置每分钟最大请求数为 10 ，避免超出限额或被风控。
 
 > 建议在严肃使用场景中开通 OpenAI 的付费服务以使用，我使用的是 [Depay](https://depay.depay.one/web-app/register-h5?invitCode=551729&lang=zh-cn) 的虚拟信用卡服务，它需要用加密货币 USDT 充值。这是[我的邀请链接](https://depay.depay.one/web-app/register-h5?invitCode=551729&lang=zh-cn)
 
@@ -14,6 +14,7 @@
 
 - OpenAI 的 API 和 ChatGPT 是两个不同的服务，沉浸式翻译扩展支持的是 OpenAI 的 API，而不是网页版的 ChatGPT，因此你需要开通 OpenAI 的 API 服务而非开通 ChatGPT plus，开通后在设置页面填写 API Key 即可。
 - OpenAI gpt-3.5-turbo 模型的价格为：$0.002 / 1K tokens，实测翻译 66 万英文字符花费大约 1 美元，翻译 17 万英文字符花费大约 0.25 美元。
+- 沉浸式翻译扩展支持多个 API Key 负载均衡, 请在填写的时候用英文逗号 `,` 分隔不同的 key
 
 <!--
 

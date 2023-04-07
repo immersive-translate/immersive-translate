@@ -2161,9 +2161,17 @@
       "extraBlockSelectors": "font[face=verdana]"
     },
     {
-      "matches": "*.zendesk.com",
-      "additionalSelectors": [
-        "div.zd-comment"
+      "matches": "https://*.zendesk.com/agent/*",
+      "selectors": [
+        "[data-test-id*=subject]",
+        ".zd-comment",
+        ".title"
+      ]
+    },
+    {
+      "matches": "webmail.migadu.com",
+      "selectors": [
+        ".bodyText"
       ]
     },
     {
@@ -2179,6 +2187,6 @@
       "wrapperSuffix": ""
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-05T23:17:26.262Z",
+  "buildinConfigUpdatedAt": "2023-04-07T06:11:21.448Z",
   "latestVersion": "0.4.0"
 }

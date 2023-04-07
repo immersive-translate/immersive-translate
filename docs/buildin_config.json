@@ -2187,8 +2187,14 @@
       "isTranslateTitle": false,
       "wrapperPrefix": "",
       "wrapperSuffix": ""
+    },
+    {
+      "matches": "cs.brown.edu",
+      "excludeSelectors": [
+        ".SCodeFlow"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-07T11:50:30.772Z",
+  "buildinConfigUpdatedAt": "2023-04-07T12:00:17.982Z",
   "latestVersion": "0.4.0"
 }

@@ -683,6 +683,7 @@
       "excludeMatches": [
         "https://www.reddit.com/r/*/wiki/*"
       ],
+      "observeUrlChange": true,
       "selectors": [
         "h1",
         ".PostHeader__post-title-line",
@@ -2197,6 +2198,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-07T12:24:54.882Z",
+  "buildinConfigUpdatedAt": "2023-04-07T16:06:49.891Z",
   "latestVersion": "0.4.0"
 }

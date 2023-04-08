@@ -33,10 +33,13 @@
     "message": "制作双语 Epub 电子书"
   },
   "translateLocalHtmlFile": {
-    "message": "翻译本地 HTML 文件"
+    "message": "翻译 HTML/txt 文件"
   },
   "donateContext": {
     "message": "了解赞助福利"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "翻译本地字幕文件"
   },
   "openAboutPage": {
     "message": "关于/反馈/赞助福利"

@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.4.0
+
+- Feat: Support Translate Local Subtitle File (.srt,.ass,etc.)
+
+## 0.3.17
+
+- Feat: Support translate local .txt file.
+- Fix: Context Menu may not avaliable sometimes. [#273](https://github.com/immersive-translate/immersive-translate/issues/273)
+
+## 0.3.16
+
+- Fix: keep &nbsp; as whitespace.
+- Remove: Take down Papago, as [the service is down](https://github.com/immersive-translate/immersive-translate/issues/310)
+
 ## 0.3.15
 
 - UI: allow no API key for openai

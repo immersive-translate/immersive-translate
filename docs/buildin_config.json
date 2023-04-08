@@ -87,7 +87,7 @@
       "translationDebounce": 300,
       "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Do not explain, translate the text below to {{to}}:",
+      "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -173,6 +173,8 @@
     "isEbookBuilder": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
+    "pairs": {},
+    "isSubtitleBuilder": false,
     "minZIndex": 0,
     "initTranslationServiceAsSoonAsPossible": true,
     "targetWrapperTag": "font",
@@ -193,7 +195,8 @@
       ".notranslate",
       ".MathJax_Preview",
       ".MathJax",
-      ".mwe-math-element"
+      ".mwe-math-element",
+      "[translate=no]"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -262,7 +265,8 @@
       "table.highlight",
       "div[class^=codeBlockContent]",
       "div[class^=codeBlockLines]",
-      "div[class^=token-line]"
+      "div[class^=token-line]",
+      "#liuchan-window > .liuchan-container > *"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -581,11 +585,15 @@
         "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
         "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
-        "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)"
+        "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
+        "[data-testid='UserDescription']",
+        "[data-testid='HoverCard'] div[dir=auto]"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [
-        "[data-testid=\"tweetText\"] div"
+        "[data-testid=\"tweetText\"] div",
+        "[data-testid=\"UserDescription\"] div",
+        "[data-testid='HoverCard'] div[dir=auto] div"
       ]
     },
     {
@@ -675,6 +683,7 @@
       "excludeMatches": [
         "https://www.reddit.com/r/*/wiki/*"
       ],
+      "observeUrlChange": true,
       "selectors": [
         "h1",
         ".PostHeader__post-title-line",
@@ -730,8 +739,9 @@
       "matches": "github.com",
       "observeUrlChange": true,
       "excludeMatches": [
-        "https://github.com/settings/profile",
-        "https://github.com/*/*/settings"
+        "https://github.com/*/*/settings",
+        "https://github.com/settings/*",
+        "https://github.com/sponsors/*"
       ],
       "selectors": [
         ".markdown-title",
@@ -985,12 +995,16 @@
     },
     {
       "matches": [
-        "scholar.google.com"
+        "scholar.google.com",
+        "scholar.google.com.hk"
       ],
       "wrapperPrefix": "\n",
       "selectors": [
         "h3 a[data-clk]",
-        "div.gs_rs"
+        "div.gs_rs",
+        "td a.gsc_a_at",
+        "td div.gs_gray:last-of-type",
+        "div.gsc_oci_value"
       ],
       "atomicBlockSelectors": [
         ".gs_rs",
@@ -1302,7 +1316,8 @@
       "additionalSelectors": [
         "h1",
         "[data-testid=SummaryItemHed]"
-      ]
+      ],
+      "urlChangeDelay": 2000
     },
     {
       "matches": "start.me",
@@ -2134,12 +2149,6 @@
       ]
     },
     {
-      "matches": "doc.qt.io",
-      "additionalStayOriginalSelectors": [
-        "[translate=no]"
-      ]
-    },
-    {
       "matches": "wandb.ai",
       "additionalSelectors": [
         ".report-page-top"
@@ -2155,8 +2164,40 @@
         "font[face=verdana]"
       ],
       "extraBlockSelectors": "font[face=verdana]"
+    },
+    {
+      "matches": "https://*.zendesk.com/agent/*",
+      "selectors": [
+        "[data-test-id*=subject]",
+        ".zd-comment",
+        ".title"
+      ]
+    },
+    {
+      "matches": "webmail.migadu.com",
+      "selectors": [
+        ".bodyText"
+      ]
+    },
+    {
+      "isSubtitleBuilder": true,
+      "selectorMatches": [
+        "meta[name='immersive-translate-subtitle-builder'][content='true']"
+      ],
+      "pairs": {
+        ".source-text": ".target-text"
+      },
+      "isTranslateTitle": false,
+      "wrapperPrefix": "",
+      "wrapperSuffix": ""
+    },
+    {
+      "matches": "cs.brown.edu",
+      "excludeSelectors": [
+        ".SCodeFlow"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-01T05:43:00.990Z",
-  "latestVersion": "0.3.15"
+  "buildinConfigUpdatedAt": "2023-04-07T16:06:49.891Z",
+  "latestVersion": "0.4.0"
 }

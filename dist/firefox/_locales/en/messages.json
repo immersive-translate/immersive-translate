@@ -24,7 +24,7 @@
     "message": "Toggle translation mask style"
   },
   "translateLocalPdfFile": {
-    "message": "Translate local PDF files"
+    "message": "Translate local PDF File"
   },
   "openEbookViewer": {
     "message": "Read local e-book"
@@ -33,10 +33,13 @@
     "message": "Make Dual Epub ebook"
   },
   "translateLocalHtmlFile": {
-    "message": "Translate local HTML files"
+    "message": "Translate HTML/txt File"
   },
   "donateContext": {
     "message": "Sponsor Benefits"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Translate Subtitle File"
   },
   "openAboutPage": {
     "message": "About / Feedback/Sponsor"

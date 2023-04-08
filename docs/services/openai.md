@@ -16,6 +16,18 @@
 - OpenAI gpt-3.5-turbo 模型的价格为：$0.002 / 1K tokens，实测翻译 66 万英文字符花费大约 1 美元，翻译 17 万英文字符花费大约 0.25 美元。
 - 沉浸式翻译扩展支持多个 API Key 负载均衡, 请在填写的时候用英文逗号 `,` 分隔不同的 key
 
+## 自定义OpenAI的API地址
+
+- 可以通过`更多设置`来进行配置，入口如下
+
+--- 
+
+<img width="951" alt="Snipaste_2023-04-08_19-29-18" src="https://user-images.githubusercontent.com/5794691/230718739-ff661ce3-04af-4391-8efc-9a5a1c8374b0.png">
+
+---
+
+
+
 <!--
 
 ## 自助开通 OpenAI 账户

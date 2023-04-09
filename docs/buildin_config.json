@@ -2196,8 +2196,14 @@
       "excludeSelectors": [
         ".SCodeFlow"
       ]
+    },
+    {
+      "matches": "tass.ru",
+      "globalStyles": {
+        "#__next": "font-size: 19px;line-height:28px;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-07T16:06:49.891Z",
+  "buildinConfigUpdatedAt": "2023-04-09T11:23:43.526Z",
   "latestVersion": "0.4.0"
 }

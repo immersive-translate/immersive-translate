@@ -848,7 +848,8 @@
         "span#video-title",
         "a#video-title",
         "yt-formatted-string.ytd-transcript-segment-renderer",
-        "#description-inline-expander > yt-attributed-string > span"
+        "#description-inline-expander > yt-attributed-string > span",
+        "ytd-notification-renderer .message"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -2204,6 +2205,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-09T11:23:43.526Z",
+  "buildinConfigUpdatedAt": "2023-04-09T11:35:17.266Z",
   "latestVersion": "0.4.0"
 }

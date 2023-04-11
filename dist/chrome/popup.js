@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-05T23:18:17.845Z", VERSION: "0.4.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:12.956Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3773,7 +3773,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v113/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v114/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -3792,7 +3792,7 @@ body {
     isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
     mod
   )), require_browser_polyfill = __commonJS({
-    "esm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
+    "../etc/esmd/npm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports2, module2) {
       (function(global2, factory) {
         if (typeof define == "function" && define.amd)
           define("webextension-polyfill", ["module"], factory);
@@ -5227,6 +5227,7 @@ body {
   var zh_CN_default = {
     lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
     "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+    "noSupportTranslate-pdf": "\u811A\u672C\u4E0D\u652F\u6301\u8BF7\u4F7F\u7528\u63D2\u4EF6",
     "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
     enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
     sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
@@ -6414,7 +6415,7 @@ body {
       allProps: [
         {
           name: "APIKEY",
-          required: !1,
+          required: !0,
           type: "password"
         },
         {
@@ -7011,12 +7012,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v113/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v114/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v113/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v114/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e, t2) => () => (t2 || e((t2 = { exports: {} }).exports, t2), t2.exports), q3 = (e, t2) => {
     for (var n2 in t2)
       I2(e, n2, { get: t2[n2], enumerable: !0 });
@@ -7114,7 +7115,7 @@ body {
   s2(c, L3(h()));
   var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
 
-  // https://esm.sh/v113/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v114/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
     for (var l2 in i2)
       ve(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7431,11 +7432,11 @@ body {
   X3(B3, ke(xe()));
   var { default: Ce, ..._e2 } = Fe, Ye = Ce !== void 0 ? Ce : _e2;
 
-  // https://esm.sh/v113/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v114/nanostores@0.7.4/deno/nanostores.mjs
   var S3 = Symbol("clean");
   var m2 = Symbol();
 
-  // https://esm.sh/v113/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v114/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g2(r, n2) {
     if (typeof r == "string")
       return n2(r);
@@ -7469,7 +7470,7 @@ body {
     return t2 in n2 || (t2 = "many"), g2(n2[t2], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v113/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v114/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M3 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P4(e, t2, i2, r) {
     e.addEventListener ? e.addEventListener(t2, i2, r) : e.attachEvent && e.attachEvent("on".concat(t2), function() {
@@ -7653,7 +7654,7 @@ body {
   }, window.hotkeys = v2);
   var B5;
 
-  // https://esm.sh/v113/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v114/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d4 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -8722,10 +8723,16 @@ body {
           "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
           "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
           "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
-          "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)"
+          "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
+          "[data-testid='UserDescription']",
+          "[data-testid='HoverCard'] div[dir=auto]"
         ],
         observeUrlChange: !1,
-        extraInlineSelectors: ['[data-testid="tweetText"] div']
+        extraInlineSelectors: [
+          '[data-testid="tweetText"] div',
+          '[data-testid="UserDescription"] div',
+          "[data-testid='HoverCard'] div[dir=auto] div"
+        ]
       },
       {
         matches: [
@@ -8795,6 +8802,7 @@ body {
           "https://www.reddit.com/top/"
         ],
         excludeMatches: ["https://www.reddit.com/r/*/wiki/*"],
+        observeUrlChange: !0,
         selectors: [
           "h1",
           ".PostHeader__post-title-line",
@@ -8931,7 +8939,8 @@ body {
           "span#video-title",
           "a#video-title",
           "yt-formatted-string.ytd-transcript-segment-renderer",
-          "#description-inline-expander > yt-attributed-string > span"
+          "#description-inline-expander > yt-attributed-string > span",
+          "ytd-notification-renderer .message"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -10014,10 +10023,12 @@ body {
         extraBlockSelectors: "font[face=verdana]"
       },
       {
-        matches: "*.zendesk.com",
-        additionalSelectors: [
-          "div.zd-comment"
-        ]
+        matches: "https://*.zendesk.com/agent/*",
+        selectors: ["[data-test-id*=subject]", ".zd-comment", ".title"]
+      },
+      {
+        matches: "webmail.migadu.com",
+        selectors: [".bodyText"]
       },
       {
         isSubtitleBuilder: !0,
@@ -10030,6 +10041,18 @@ body {
         isTranslateTitle: !1,
         wrapperPrefix: "",
         wrapperSuffix: ""
+      },
+      {
+        matches: "cs.brown.edu",
+        excludeSelectors: [
+          ".SCodeFlow"
+        ]
+      },
+      {
+        matches: "tass.ru",
+        globalStyles: {
+          "#__next": "font-size: 19px;line-height:28px;"
+        }
       }
     ]
   };
@@ -11308,7 +11331,7 @@ body {
         onTranslatePage(), onClose();
       }, 100);
     }, isPdfUrl = currentUrlObj?.pathname.toLowerCase().endsWith(".pdf"), buttonLabel = t2("translate");
-    pageStatus === "Translated" || pageStatus === "Error" ? buttonLabel = t2("show-original") : pageStatus === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t2("translate-firefox-local-pdf") : buttonLabel = t2("translate-pdf") : buttonLabel = t2("translate") : buttonLabel = t2(pageStatus);
+    pageStatus === "Translated" || pageStatus === "Error" ? buttonLabel = t2("show-original") : pageStatus === "Original" ? isPdfUrl ? isFirefox() && currentUrlObj.protocol === "file:" ? buttonLabel = t2("translate-firefox-local-pdf") : isMonkey() ? buttonLabel = t2("noSupportTranslate-pdf") : buttonLabel = t2("translate-pdf") : buttonLabel = t2("translate") : buttonLabel = t2(pageStatus);
     let translateToThePageEndImmediatelyLabel = t2(
       "translateToThePageEndImmediately"
     );

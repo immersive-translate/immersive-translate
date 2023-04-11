@@ -2181,6 +2181,12 @@
       ]
     },
     {
+      "matches": "thehackernews.com",
+      "excludeSelectors": [
+        "span#blog-pager-older-link"
+      ]
+    },
+    {
       "isSubtitleBuilder": true,
       "selectorMatches": [
         "meta[name='immersive-translate-subtitle-builder'][content='true']"
@@ -2205,6 +2211,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-09T11:35:17.266Z",
-  "latestVersion": "0.4.0"
+  "buildinConfigUpdatedAt": "2023-04-11T12:08:24.863Z",
+  "latestVersion": "0.4.2"
 }

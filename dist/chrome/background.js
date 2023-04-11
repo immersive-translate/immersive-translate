@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-05T23:18:17.845Z", VERSION: "0.4.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:12.956Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3773,7 +3773,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v113/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v114/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -3792,7 +3792,7 @@ body {
     isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
     mod
   )), require_browser_polyfill = __commonJS({
-    "esm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports, module) {
+    "../etc/esmd/npm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports, module) {
       (function(global, factory) {
         if (typeof define == "function" && define.amd)
           define("webextension-polyfill", ["module"], factory);
@@ -4695,1076 +4695,76 @@ body {
   // browser/import_browser_polyfill.ts
   globalThis.immersiveTranslateBrowserAPI = webextension_polyfill_0_10_default;
 
-  // https://deno.land/std@0.171.0/async/deferred.ts
-  function deferred() {
-    let methods, state = "pending", promise = new Promise((resolve, reject) => {
-      methods = {
-        async resolve(value) {
-          await value, state = "fulfilled", resolve(value);
+  // utils/platform.ts
+  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+  function isBrowser(toCheck) {
+    let currentBrowser = CHROME;
+    try {
+      let userAgent = navigator?.userAgent || "";
+      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
+    } catch {
+    }
+    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+  }
+  function isChrome() {
+    return isBrowser(CHROME);
+  }
+  function isDeno() {
+    return typeof Deno < "u";
+  }
+  function isFirefox() {
+    return isBrowser(FIREFOX);
+  }
+
+  // browser/mock_browser.ts
+  var listeners = {
+    addListener: () => {
+    },
+    removeListener: () => {
+    },
+    hasListener: () => {
+    }
+  }, mock_browser_default = {
+    permissions: {
+      contains: () => {
+      },
+      request: () => {
+      }
+    },
+    runtime: {
+      onMessage: listeners,
+      openOptionsPage: () => {
+      },
+      lastError: {
+        message: ""
+      }
+    },
+    storage: {
+      sync: {
+        get: () => {
         },
-        // deno-lint-ignore no-explicit-any
-        reject(reason) {
-          state = "rejected", reject(reason);
+        set: () => {
         }
-      };
-    });
-    return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
-  }
-
-  // https://deno.land/std@0.171.0/async/delay.ts
-  function delay(ms, options = {}) {
-    let { signal, persistent } = options;
-    return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
-      let abort = () => {
-        clearTimeout(i), reject(new DOMException("Delay was aborted.", "AbortError"));
-      }, i = setTimeout(() => {
-        signal?.removeEventListener("abort", abort), resolve();
-      }, ms);
-      if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
-        try {
-          Deno.unrefTimer(i);
-        } catch (error) {
-          if (!(error instanceof ReferenceError))
-            throw error;
-          console.error("`persistent` option is only available in Deno");
-        }
-    });
-  }
-
-  // https://deno.land/std@0.171.0/async/mux_async_iterator.ts
-  var MuxAsyncIterator = class {
-    #iteratorCount = 0;
-    #yields = [];
-    // deno-lint-ignore no-explicit-any
-    #throws = [];
-    #signal = deferred();
-    add(iterable) {
-      ++this.#iteratorCount, this.#callIteratorNext(iterable[Symbol.asyncIterator]());
-    }
-    async #callIteratorNext(iterator) {
-      try {
-        let { value, done } = await iterator.next();
-        done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
-      } catch (e) {
-        this.#throws.push(e);
       }
-      this.#signal.resolve();
-    }
-    async *iterate() {
-      for (; this.#iteratorCount > 0; ) {
-        await this.#signal;
-        for (let i = 0; i < this.#yields.length; i++) {
-          let { iterator, value } = this.#yields[i];
-          yield value, this.#callIteratorNext(iterator);
-        }
-        if (this.#throws.length) {
-          for (let e of this.#throws)
-            throw e;
-          this.#throws.length = 0;
-        }
-        this.#yields.length = 0, this.#signal = deferred();
+    },
+    tabs: {
+      onUpdated: listeners,
+      query: () => {
+      },
+      sendMessage: () => {
       }
-    }
-    [Symbol.asyncIterator]() {
-      return this.iterate();
     }
   };
 
-  // https://deno.land/std@0.167.0/fmt/colors.ts
-  var colors_exports = {};
-  __export(colors_exports, {
-    bgBlack: () => bgBlack,
-    bgBlue: () => bgBlue,
-    bgBrightBlack: () => bgBrightBlack,
-    bgBrightBlue: () => bgBrightBlue,
-    bgBrightCyan: () => bgBrightCyan,
-    bgBrightGreen: () => bgBrightGreen,
-    bgBrightMagenta: () => bgBrightMagenta,
-    bgBrightRed: () => bgBrightRed,
-    bgBrightWhite: () => bgBrightWhite,
-    bgBrightYellow: () => bgBrightYellow,
-    bgCyan: () => bgCyan,
-    bgGreen: () => bgGreen,
-    bgMagenta: () => bgMagenta,
-    bgRed: () => bgRed,
-    bgRgb24: () => bgRgb24,
-    bgRgb8: () => bgRgb8,
-    bgWhite: () => bgWhite,
-    bgYellow: () => bgYellow,
-    black: () => black,
-    blue: () => blue,
-    bold: () => bold,
-    brightBlack: () => brightBlack,
-    brightBlue: () => brightBlue,
-    brightCyan: () => brightCyan,
-    brightGreen: () => brightGreen,
-    brightMagenta: () => brightMagenta,
-    brightRed: () => brightRed,
-    brightWhite: () => brightWhite,
-    brightYellow: () => brightYellow,
-    cyan: () => cyan,
-    dim: () => dim,
-    getColorEnabled: () => getColorEnabled,
-    gray: () => gray,
-    green: () => green,
-    hidden: () => hidden,
-    inverse: () => inverse,
-    italic: () => italic,
-    magenta: () => magenta,
-    red: () => red,
-    reset: () => reset,
-    rgb24: () => rgb24,
-    rgb8: () => rgb8,
-    setColorEnabled: () => setColorEnabled,
-    strikethrough: () => strikethrough,
-    stripColor: () => stripColor,
-    underline: () => underline,
-    white: () => white,
-    yellow: () => yellow
-  });
-  var { Deno: Deno2 } = globalThis, noColor = typeof Deno2?.noColor == "boolean" ? Deno2.noColor : !0, enabled = !noColor;
-  function setColorEnabled(value) {
-    noColor || (enabled = value);
-  }
-  function getColorEnabled() {
-    return enabled;
-  }
-  function code(open, close) {
-    return {
-      open: `\x1B[${open.join(";")}m`,
-      close: `\x1B[${close}m`,
-      regexp: new RegExp(`\\x1b\\[${close}m`, "g")
-    };
-  }
-  function run(str, code2) {
-    return enabled ? `${code2.open}${str.replace(code2.regexp, code2.open)}${code2.close}` : str;
-  }
-  function reset(str) {
-    return run(str, code([0], 0));
-  }
-  function bold(str) {
-    return run(str, code([1], 22));
-  }
-  function dim(str) {
-    return run(str, code([2], 22));
-  }
-  function italic(str) {
-    return run(str, code([3], 23));
-  }
-  function underline(str) {
-    return run(str, code([4], 24));
-  }
-  function inverse(str) {
-    return run(str, code([7], 27));
-  }
-  function hidden(str) {
-    return run(str, code([8], 28));
-  }
-  function strikethrough(str) {
-    return run(str, code([9], 29));
-  }
-  function black(str) {
-    return run(str, code([30], 39));
-  }
-  function red(str) {
-    return run(str, code([31], 39));
-  }
-  function green(str) {
-    return run(str, code([32], 39));
-  }
-  function yellow(str) {
-    return run(str, code([33], 39));
-  }
-  function blue(str) {
-    return run(str, code([34], 39));
-  }
-  function magenta(str) {
-    return run(str, code([35], 39));
-  }
-  function cyan(str) {
-    return run(str, code([36], 39));
-  }
-  function white(str) {
-    return run(str, code([37], 39));
-  }
-  function gray(str) {
-    return brightBlack(str);
-  }
-  function brightBlack(str) {
-    return run(str, code([90], 39));
-  }
-  function brightRed(str) {
-    return run(str, code([91], 39));
-  }
-  function brightGreen(str) {
-    return run(str, code([92], 39));
-  }
-  function brightYellow(str) {
-    return run(str, code([93], 39));
-  }
-  function brightBlue(str) {
-    return run(str, code([94], 39));
-  }
-  function brightMagenta(str) {
-    return run(str, code([95], 39));
-  }
-  function brightCyan(str) {
-    return run(str, code([96], 39));
-  }
-  function brightWhite(str) {
-    return run(str, code([97], 39));
-  }
-  function bgBlack(str) {
-    return run(str, code([40], 49));
-  }
-  function bgRed(str) {
-    return run(str, code([41], 49));
-  }
-  function bgGreen(str) {
-    return run(str, code([42], 49));
-  }
-  function bgYellow(str) {
-    return run(str, code([43], 49));
-  }
-  function bgBlue(str) {
-    return run(str, code([44], 49));
-  }
-  function bgMagenta(str) {
-    return run(str, code([45], 49));
-  }
-  function bgCyan(str) {
-    return run(str, code([46], 49));
-  }
-  function bgWhite(str) {
-    return run(str, code([47], 49));
-  }
-  function bgBrightBlack(str) {
-    return run(str, code([100], 49));
-  }
-  function bgBrightRed(str) {
-    return run(str, code([101], 49));
-  }
-  function bgBrightGreen(str) {
-    return run(str, code([102], 49));
-  }
-  function bgBrightYellow(str) {
-    return run(str, code([103], 49));
-  }
-  function bgBrightBlue(str) {
-    return run(str, code([104], 49));
-  }
-  function bgBrightMagenta(str) {
-    return run(str, code([105], 49));
-  }
-  function bgBrightCyan(str) {
-    return run(str, code([106], 49));
-  }
-  function bgBrightWhite(str) {
-    return run(str, code([107], 49));
-  }
-  function clampAndTruncate(n, max = 255, min = 0) {
-    return Math.trunc(Math.max(Math.min(n, max), min));
-  }
-  function rgb8(str, color) {
-    return run(str, code([38, 5, clampAndTruncate(color)], 39));
-  }
-  function bgRgb8(str, color) {
-    return run(str, code([48, 5, clampAndTruncate(color)], 49));
-  }
-  function rgb24(str, color) {
-    return typeof color == "number" ? run(
-      str,
-      code(
-        [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-        39
-      )
-    ) : run(
-      str,
-      code(
-        [
-          38,
-          2,
-          clampAndTruncate(color.r),
-          clampAndTruncate(color.g),
-          clampAndTruncate(color.b)
-        ],
-        39
-      )
-    );
-  }
-  function bgRgb24(str, color) {
-    return typeof color == "number" ? run(
-      str,
-      code(
-        [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
-        49
-      )
-    ) : run(
-      str,
-      code(
-        [
-          48,
-          2,
-          clampAndTruncate(color.r),
-          clampAndTruncate(color.g),
-          clampAndTruncate(color.b)
-        ],
-        49
-      )
-    );
-  }
-  var ANSI_PATTERN = new RegExp(
-    [
-      "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
-      "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-nq-uy=><~]))"
-    ].join("|"),
-    "g"
-  );
-  function stripColor(string) {
-    return string.replace(ANSI_PATTERN, "");
-  }
-
-  // https://deno.land/std@0.170.0/async/retry.ts
-  var RetryError = class extends Error {
-    constructor(cause, count) {
-      super(`Exceeded max retry count (${count})`), this.name = "RetryError", this.cause = cause;
-    }
-  }, defaultRetryOptions = {
-    multiplier: 2,
-    maxTimeout: 6e4,
-    maxAttempts: 5,
-    minTimeout: 1e3
-  };
-  async function retry(fn, opts) {
-    let options = {
-      ...defaultRetryOptions,
-      ...opts
-    };
-    if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
-      throw new RangeError("minTimeout is greater than maxTimeout");
-    let timeout = options.minTimeout, error;
-    for (let i = 0; i < options.maxAttempts; i++)
-      try {
-        return await fn();
-      } catch (err) {
-        await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error = err;
-      }
-    throw new RetryError(error, options.maxAttempts);
-  }
-
-  // https://esm.sh/v113/memoize-one@6.0.0/deno/memoize-one.mjs
-  var s = Number.isNaN || function(r) {
-    return typeof r == "number" && r !== r;
-  };
-
-  // https://esm.sh/v113/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
-  var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
-    for (var n in t3)
-      I(e, n, { get: t3[n], enumerable: !0 });
-  }, v = (e, t3, n, f2) => {
-    if (t3 && typeof t3 == "object" || typeof t3 == "function")
-      for (let i of G(t3))
-        !U.call(e, i) && i !== n && I(e, i, { get: () => t3[i], enumerable: !(f2 = D(t3, i)) || f2.enumerable });
-    return e;
-  }, s2 = (e, t3, n) => (v(e, t3, "default"), n && v(n, t3, "default")), L = (e, t3, n) => (n = e != null ? P(H(e)) : {}, v(t3 || !e || !e.__esModule ? I(n, "default", { value: e, enumerable: !0 }) : n, e)), h = X((ge, N3) => {
-    var M2 = "Expected a function", W2 = NaN, z3 = "[object Symbol]", J2 = /^\s+|\s+$/g, K = /^[-+]0x[0-9a-f]+$/i, Q3 = /^0b[01]+$/i, V3 = /^0o[0-7]+$/i, Y2 = parseInt, Z = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w = typeof self == "object" && self && self.Object === Object && self, ee = Z || w || Function("return this")(), te = Object.prototype, ne = te.toString, re = Math.max, ie = Math.min, O2 = function() {
-      return ee.Date.now();
-    };
-    function fe(e, t3, n) {
-      var f2, i, b2, l, a, u2, d3 = 0, S3 = !1, g3 = !1, T2 = !0;
-      if (typeof e != "function")
-        throw new TypeError(M2);
-      t3 = C2(t3) || 0, p2(n) && (S3 = !!n.leading, g3 = "maxWait" in n, b2 = g3 ? re(C2(n.maxWait) || 0, t3) : b2, T2 = "trailing" in n ? !!n.trailing : T2);
-      function j2(r) {
-        var o2 = f2, m2 = i;
-        return f2 = i = void 0, d3 = r, l = e.apply(m2, o2), l;
-      }
-      function A2(r) {
-        return d3 = r, a = setTimeout(y, t3), S3 ? j2(r) : l;
-      }
-      function B4(r) {
-        var o2 = r - u2, m2 = r - d3, k2 = t3 - o2;
-        return g3 ? ie(k2, b2 - m2) : k2;
-      }
-      function E3(r) {
-        var o2 = r - u2, m2 = r - d3;
-        return u2 === void 0 || o2 >= t3 || o2 < 0 || g3 && m2 >= b2;
-      }
-      function y() {
-        var r = O2();
-        if (E3(r))
-          return _2(r);
-        a = setTimeout(y, B4(r));
-      }
-      function _2(r) {
-        return a = void 0, T2 && f2 ? j2(r) : (f2 = i = void 0, l);
-      }
-      function F2() {
-        a !== void 0 && clearTimeout(a), d3 = 0, f2 = u2 = i = a = void 0;
-      }
-      function R3() {
-        return a === void 0 ? l : _2(O2());
-      }
-      function x2() {
-        var r = O2(), o2 = E3(r);
-        if (f2 = arguments, i = this, u2 = r, o2) {
-          if (a === void 0)
-            return A2(u2);
-          if (g3)
-            return a = setTimeout(y, t3), j2(u2);
-        }
-        return a === void 0 && (a = setTimeout(y, t3)), l;
-      }
-      return x2.cancel = F2, x2.flush = R3, x2;
-    }
-    function ae(e, t3, n) {
-      var f2 = !0, i = !0;
-      if (typeof e != "function")
-        throw new TypeError(M2);
-      return p2(n) && (f2 = "leading" in n ? !!n.leading : f2, i = "trailing" in n ? !!n.trailing : i), fe(e, t3, { leading: f2, maxWait: t3, trailing: i });
-    }
-    function p2(e) {
-      var t3 = typeof e;
-      return !!e && (t3 == "object" || t3 == "function");
-    }
-    function oe(e) {
-      return !!e && typeof e == "object";
-    }
-    function ue(e) {
-      return typeof e == "symbol" || oe(e) && ne.call(e) == z3;
-    }
-    function C2(e) {
-      if (typeof e == "number")
-        return e;
-      if (ue(e))
-        return W2;
-      if (p2(e)) {
-        var t3 = typeof e.valueOf == "function" ? e.valueOf() : e;
-        e = p2(t3) ? t3 + "" : t3;
-      }
-      if (typeof e != "string")
-        return e === 0 ? e : +e;
-      e = e.replace(J2, "");
-      var n = Q3.test(e);
-      return n || V3.test(e) ? Y2(e.slice(2), n ? 2 : 8) : K.test(e) ? W2 : +e;
-    }
-    N3.exports = ae;
-  }), c = {};
-  q(c, { default: () => se });
-  var ce = L(h());
-  s2(c, L(h()));
-  var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
-
-  // https://esm.sh/v113/notie@4.3.1/deno/notie.mjs
-  var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
-    for (var l in i)
-      ve(v4, l, { get: i[l], enumerable: !0 });
-  }, me = (v4, i, l, x2) => {
-    if (i && typeof i == "object" || typeof i == "function")
-      for (let b2 of De(i))
-        !je.call(v4, b2) && b2 !== l && ve(v4, b2, { get: () => i[b2], enumerable: !(x2 = Ae(i, b2)) || x2.enumerable });
-    return v4;
-  }, X2 = (v4, i, l) => (me(v4, i, "default"), l && me(l, i, "default")), ke = (v4, i, l) => (l = v4 != null ? Oe(Ie(v4)) : {}, me(i || !v4 || !v4.__esModule ? ve(l, "default", { value: v4, enumerable: !0 }) : l, v4)), xe = Ne((oe, be) => {
-    (function(v4, i) {
-      typeof oe == "object" && typeof be == "object" ? be.exports = i() : typeof define == "function" && define.amd ? define([], i) : typeof oe == "object" ? oe.notie = i() : v4.notie = i();
-    })(oe, function() {
-      return function(v4) {
-        function i(x2) {
-          if (l[x2])
-            return l[x2].exports;
-          var b2 = l[x2] = { i: x2, l: !1, exports: {} };
-          return v4[x2].call(b2.exports, b2, b2.exports, i), b2.l = !0, b2.exports;
-        }
-        var l = {};
-        return i.m = v4, i.c = l, i.i = function(x2) {
-          return x2;
-        }, i.d = function(x2, b2, re) {
-          i.o(x2, b2) || Object.defineProperty(x2, b2, { configurable: !1, enumerable: !0, get: re });
-        }, i.n = function(x2) {
-          var b2 = x2 && x2.__esModule ? function() {
-            return x2.default;
-          } : function() {
-            return x2;
-          };
-          return i.d(b2, "a", b2), b2;
-        }, i.o = function(x2, b2) {
-          return Object.prototype.hasOwnProperty.call(x2, b2);
-        }, i.p = "", i(i.s = 1);
-      }([function(v4, i) {
-        v4.exports = function(l) {
-          return l.webpackPolyfill || (l.deprecate = function() {
-          }, l.paths = [], l.children || (l.children = []), Object.defineProperty(l, "loaded", { enumerable: !0, get: function() {
-            return l.l;
-          } }), Object.defineProperty(l, "id", { enumerable: !0, get: function() {
-            return l.i;
-          } }), l.webpackPolyfill = 1), l;
-        };
-      }, function(v4, i, l) {
-        "use strict";
-        (function(x2) {
-          var b2, re, de, $3 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A2) {
-            return typeof A2;
-          } : function(A2) {
-            return A2 && typeof Symbol == "function" && A2.constructor === Symbol && A2 !== Symbol.prototype ? "symbol" : typeof A2;
-          };
-          (function(A2, p2) {
-            $3(i) === "object" && $3(x2) === "object" ? x2.exports = p2() : (re = [], b2 = p2, de = typeof b2 == "function" ? b2.apply(i, re) : b2, de !== void 0 && (x2.exports = de));
-          })(void 0, function() {
-            return function(A2) {
-              function p2(g3) {
-                if (ee[g3])
-                  return ee[g3].exports;
-                var T2 = ee[g3] = { i: g3, l: !1, exports: {} };
-                return A2[g3].call(T2.exports, T2, T2.exports, p2), T2.l = !0, T2.exports;
-              }
-              var ee = {};
-              return p2.m = A2, p2.c = ee, p2.i = function(g3) {
-                return g3;
-              }, p2.d = function(g3, T2, J2) {
-                p2.o(g3, T2) || Object.defineProperty(g3, T2, { configurable: !1, enumerable: !0, get: J2 });
-              }, p2.n = function(g3) {
-                var T2 = g3 && g3.__esModule ? function() {
-                  return g3.default;
-                } : function() {
-                  return g3;
-                };
-                return p2.d(T2, "a", T2), T2;
-              }, p2.o = function(g3, T2) {
-                return Object.prototype.hasOwnProperty.call(g3, T2);
-              }, p2.p = "", p2(p2.s = 0);
-            }([function(A2, p2, ee) {
-              function g3(t3, o2) {
-                var s4 = {};
-                for (var u2 in t3)
-                  o2.indexOf(u2) >= 0 || Object.prototype.hasOwnProperty.call(t3, u2) && (s4[u2] = t3[u2]);
-                return s4;
-              }
-              Object.defineProperty(p2, "__esModule", { value: !0 });
-              var T2 = typeof Symbol == "function" && $3(Symbol.iterator) === "symbol" ? function(t3) {
-                return typeof t3 > "u" ? "undefined" : $3(t3);
-              } : function(t3) {
-                return t3 && typeof Symbol == "function" && t3.constructor === Symbol && t3 !== Symbol.prototype ? "symbol" : typeof t3 > "u" ? "undefined" : $3(t3);
-              }, J2 = Object.assign || function(t3) {
-                for (var o2 = 1; o2 < arguments.length; o2++) {
-                  var s4 = arguments[o2];
-                  for (var u2 in s4)
-                    Object.prototype.hasOwnProperty.call(s4, u2) && (t3[u2] = s4[u2]);
-                }
-                return t3;
-              }, R3 = { top: "top", bottom: "bottom" }, e = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R3.top, force: R3.top, confirm: R3.top, input: R3.top, select: R3.bottom, date: R3.top } }, Ee = p2.setOptions = function(t3) {
-                e = J2({}, e, t3, { classes: J2({}, e.classes, t3.classes), ids: J2({}, e.ids, t3.ids), positions: J2({}, e.positions, t3.positions) });
-              }, ye = function() {
-                return new Promise(function(t3) {
-                  return setTimeout(t3, 0);
-                });
-              }, le2 = function(t3) {
-                return new Promise(function(o2) {
-                  return setTimeout(o2, 1e3 * t3);
-                });
-              }, W2 = function() {
-                document.activeElement && document.activeElement.blur();
-              }, K = function() {
-                var t3 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(o2) {
-                  var s4 = 16 * Math.random() | 0, u2 = o2 === "x" ? s4 : 3 & s4 | 8;
-                  return u2.toString(16);
-                });
-                return "notie-" + t3;
-              }, ue = { 1: e.classes.backgroundSuccess, success: e.classes.backgroundSuccess, 2: e.classes.backgroundWarning, warning: e.classes.backgroundWarning, 3: e.classes.backgroundError, error: e.classes.backgroundError, 4: e.classes.backgroundInfo, info: e.classes.backgroundInfo, 5: e.classes.backgroundNeutral, neutral: e.classes.backgroundNeutral }, Le = function() {
-                return e.transitionSelector + " " + e.transitionDuration + "s " + e.transitionCurve;
-              }, te = function(t3) {
-                return t3.keyCode === 13;
-              }, ne = function(t3) {
-                return t3.keyCode === 27;
-              }, Z = function(t3, o2) {
-                t3.classList.add(e.classes.container), t3.style[o2] = "-10000px", document.body.appendChild(t3), t3.style[o2] = "-" + t3.offsetHeight + "px", t3.listener && window.addEventListener("keydown", t3.listener), ye().then(function() {
-                  t3.style.transition = Le(), t3.style[o2] = 0;
-                });
-              }, O2 = function(t3, o2) {
-                var s4 = document.getElementById(t3);
-                s4 && (s4.style[o2] = "-" + s4.offsetHeight + "px", s4.listener && window.removeEventListener("keydown", s4.listener), le2(e.transitionDuration).then(function() {
-                  s4.parentNode && s4.parentNode.removeChild(s4);
-                }));
-              }, se2 = function(t3, o2) {
-                var s4 = document.createElement("div");
-                s4.id = e.ids.overlay, s4.classList.add(e.classes.overlay), s4.classList.add(e.classes.backgroundOverlay), s4.style.opacity = 0, t3 && e.overlayClickDismiss && (s4.onclick = function() {
-                  O2(t3.id, o2), j2();
-                }), document.body.appendChild(s4), ye().then(function() {
-                  s4.style.transition = Le(), s4.style.opacity = e.overlayOpacity;
-                });
-              }, j2 = function() {
-                var t3 = document.getElementById(e.ids.overlay);
-                t3.style.opacity = 0, le2(e.transitionDuration).then(function() {
-                  t3.parentNode && t3.parentNode.removeChild(t3);
-                });
-              }, F2 = p2.hideAlerts = function(t3) {
-                var o2 = document.getElementsByClassName(e.classes.alert);
-                if (o2.length) {
-                  for (var s4 = 0; s4 < o2.length; s4++) {
-                    var u2 = o2[s4];
-                    O2(u2.id, u2.position);
-                  }
-                  t3 && le2(e.transitionDuration).then(function() {
-                    return t3();
-                  });
-                }
-              }, Te = p2.alert = function(t3) {
-                var o2 = t3.type, s4 = o2 === void 0 ? 4 : o2, u2 = t3.text, c3 = t3.time, k2 = c3 === void 0 ? e.alertTime : c3, H3 = t3.stay, S3 = H3 !== void 0 && H3, h2 = t3.position, f2 = h2 === void 0 ? e.positions.alert || f2.top : h2;
-                W2(), F2();
-                var d3 = document.createElement("div"), m2 = K();
-                d3.id = m2, d3.position = f2, d3.classList.add(e.classes.textbox), d3.classList.add(ue[s4]), d3.classList.add(e.classes.alert), d3.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>", d3.onclick = function() {
-                  return O2(m2, f2);
-                }, d3.listener = function(n) {
-                  (te(n) || ne(n)) && F2();
-                }, Z(d3, f2), k2 && k2 < 1 && (k2 = 1), !S3 && k2 && le2(k2).then(function() {
-                  return O2(m2, f2);
-                });
-              }, Me = p2.force = function(t3, o2) {
-                var s4 = t3.type, u2 = s4 === void 0 ? 5 : s4, c3 = t3.text, k2 = t3.buttonText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.callback, h2 = t3.position, f2 = h2 === void 0 ? e.positions.force || f2.top : h2;
-                W2(), F2();
-                var d3 = document.createElement("div"), m2 = K();
-                d3.id = m2;
-                var n = document.createElement("div");
-                n.classList.add(e.classes.textbox), n.classList.add(e.classes.backgroundInfo), n.innerHTML = '<div class="' + e.classes.textboxInner + '">' + c3 + "</div>";
-                var r = document.createElement("div");
-                r.classList.add(e.classes.button), r.classList.add(ue[u2]), r.innerHTML = H3, r.onclick = function() {
-                  O2(m2, f2), j2(), S3 ? S3() : o2 && o2();
-                }, d3.appendChild(n), d3.appendChild(r), d3.listener = function(C2) {
-                  te(C2) && r.click();
-                }, Z(d3, f2), se2();
-              }, He = p2.confirm = function(t3, o2, s4) {
-                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Yes" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.confirm || m2.top : d3;
-                W2(), F2();
-                var n = document.createElement("div"), r = K();
-                n.id = r;
-                var C2 = document.createElement("div");
-                C2.classList.add(e.classes.textbox), C2.classList.add(e.classes.backgroundInfo), C2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>";
-                var y = document.createElement("div");
-                y.classList.add(e.classes.button), y.classList.add(e.classes.elementHalf), y.classList.add(e.classes.backgroundSuccess), y.innerHTML = k2, y.onclick = function() {
-                  O2(r, m2), j2(), h2 ? h2() : o2 && o2();
-                };
-                var a = document.createElement("div");
-                a.classList.add(e.classes.button), a.classList.add(e.classes.elementHalf), a.classList.add(e.classes.backgroundError), a.innerHTML = S3, a.onclick = function() {
-                  O2(r, m2), j2(), f2 ? f2() : s4 && s4();
-                }, n.appendChild(C2), n.appendChild(y), n.appendChild(a), n.listener = function(E3) {
-                  te(E3) ? y.click() : ne(E3) && a.click();
-                }, Z(n, m2), se2(n, m2);
-              }, ge = function(t3, o2, s4) {
-                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Submit" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.input || m2.top : d3, n = g3(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
-                W2(), F2();
-                var r = document.createElement("div"), C2 = K();
-                r.id = C2;
-                var y = document.createElement("div");
-                y.classList.add(e.classes.textbox), y.classList.add(e.classes.backgroundInfo), y.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>";
-                var a = document.createElement("input");
-                a.classList.add(e.classes.inputField), a.setAttribute("autocapitalize", n.autocapitalize || "none"), a.setAttribute("autocomplete", n.autocomplete || "off"), a.setAttribute("autocorrect", n.autocorrect || "off"), a.setAttribute("autofocus", n.autofocus || "true"), a.setAttribute("inputmode", n.inputmode || "verbatim"), a.setAttribute("max", n.max || ""), a.setAttribute("maxlength", n.maxlength || ""), a.setAttribute("min", n.min || ""), a.setAttribute("minlength", n.minlength || ""), a.setAttribute("placeholder", n.placeholder || ""), a.setAttribute("spellcheck", n.spellcheck || "default"), a.setAttribute("step", n.step || "any"), a.setAttribute("type", n.type || "text"), a.value = n.value || "", n.allowed && (a.oninput = function() {
-                  var M2 = void 0;
-                  if (Array.isArray(n.allowed)) {
-                    for (var w = "", _2 = n.allowed, P3 = 0; P3 < _2.length; P3++)
-                      _2[P3] === "an" ? w += "0-9a-zA-Z" : _2[P3] === "a" ? w += "a-zA-Z" : _2[P3] === "n" && (w += "0-9"), _2[P3] === "s" && (w += " ");
-                    M2 = new RegExp("[^" + w + "]", "g");
-                  } else
-                    T2(n.allowed) === "object" && (M2 = n.allowed);
-                  a.value = a.value.replace(M2, "");
-                });
-                var E3 = document.createElement("div");
-                E3.classList.add(e.classes.button), E3.classList.add(e.classes.elementHalf), E3.classList.add(e.classes.backgroundSuccess), E3.innerHTML = k2, E3.onclick = function() {
-                  O2(C2, m2), j2(), h2 ? h2(a.value) : o2 && o2(a.value);
-                };
-                var D4 = document.createElement("div");
-                D4.classList.add(e.classes.button), D4.classList.add(e.classes.elementHalf), D4.classList.add(e.classes.backgroundError), D4.innerHTML = S3, D4.onclick = function() {
-                  O2(C2, m2), j2(), f2 ? f2(a.value) : s4 && s4(a.value);
-                }, r.appendChild(y), r.appendChild(a), r.appendChild(E3), r.appendChild(D4), r.listener = function(M2) {
-                  te(M2) ? E3.click() : ne(M2) && D4.click();
-                }, Z(r, m2), a.focus(), se2(r, m2);
-              };
-              p2.input = ge;
-              var Se = p2.select = function(t3, o2) {
-                var s4 = t3.text, u2 = t3.cancelText, c3 = u2 === void 0 ? "Cancel" : u2, k2 = t3.cancelCallback, H3 = t3.choices, S3 = t3.position, h2 = S3 === void 0 ? e.positions.select || h2.top : S3;
-                W2(), F2();
-                var f2 = document.createElement("div"), d3 = K();
-                f2.id = d3;
-                var m2 = document.createElement("div");
-                m2.classList.add(e.classes.textbox), m2.classList.add(e.classes.backgroundInfo), m2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + s4 + "</div>", f2.appendChild(m2), H3.forEach(function(r, C2) {
-                  var y = r.type, a = y === void 0 ? 1 : y, E3 = r.text, D4 = r.handler, M2 = document.createElement("div");
-                  M2.classList.add(ue[a]), M2.classList.add(e.classes.button), M2.classList.add(e.classes.selectChoice);
-                  var w = H3[C2 + 1];
-                  w && !w.type && (w.type = 1), w && w.type === a && M2.classList.add(e.classes.selectChoiceRepeated), M2.innerHTML = E3, M2.onclick = function() {
-                    O2(d3, h2), j2(), D4();
-                  }, f2.appendChild(M2);
-                });
-                var n = document.createElement("div");
-                n.classList.add(e.classes.backgroundNeutral), n.classList.add(e.classes.button), n.innerHTML = c3, n.onclick = function() {
-                  O2(d3, h2), j2(), k2 ? k2() : o2 && o2();
-                }, f2.appendChild(n), f2.listener = function(r) {
-                  ne(r) && n.click();
-                }, Z(f2, h2), se2(f2, h2);
-              }, we = p2.date = function(t3, o2, s4) {
-                var u2 = t3.value, c3 = u2 === void 0 ? /* @__PURE__ */ new Date() : u2, k2 = t3.submitText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.cancelText, h2 = S3 === void 0 ? "Cancel" : S3, f2 = t3.submitCallback, d3 = t3.cancelCallback, m2 = t3.position, n = m2 === void 0 ? e.positions.date || n.top : m2;
-                W2(), F2();
-                var r = "&#9662", C2 = document.createElement("div"), y = document.createElement("div"), a = document.createElement("div"), E3 = function(L4) {
-                  C2.innerHTML = e.dateMonths[L4.getMonth()], y.innerHTML = L4.getDate(), a.innerHTML = L4.getFullYear();
-                }, D4 = function(L4) {
-                  var N3 = new Date(c3.getFullYear(), c3.getMonth() + 1, 0).getDate(), V3 = L4.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
-                  Number(V3) > N3 && (V3 = N3.toString()), L4.target.textContent = V3, Number(V3) < 1 && (V3 = "1"), c3.setDate(Number(V3));
-                }, M2 = function(L4) {
-                  var N3 = L4.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
-                  L4.target.textContent = N3, c3.setFullYear(Number(N3));
-                }, w = function(L4) {
-                  E3(c3);
-                }, _2 = function(L4) {
-                  var N3 = new Date(c3.getFullYear(), c3.getMonth() + L4 + 1, 0).getDate();
-                  c3.getDate() > N3 && c3.setDate(N3), c3.setMonth(c3.getMonth() + L4), E3(c3);
-                }, P3 = function(L4) {
-                  c3.setDate(c3.getDate() + L4), E3(c3);
-                }, he = function(L4) {
-                  var N3 = c3.getFullYear() + L4;
-                  N3 < 0 ? c3.setFullYear(0) : c3.setFullYear(c3.getFullYear() + L4), E3(c3);
-                }, Y2 = document.createElement("div"), pe = K();
-                Y2.id = pe;
-                var fe = document.createElement("div");
-                fe.classList.add(e.classes.backgroundInfo);
-                var I3 = document.createElement("div");
-                I3.classList.add(e.classes.dateSelectorInner);
-                var q3 = document.createElement("div");
-                q3.classList.add(e.classes.button), q3.classList.add(e.classes.elementThird), q3.classList.add(e.classes.dateSelectorUp), q3.innerHTML = r;
-                var G3 = document.createElement("div");
-                G3.classList.add(e.classes.button), G3.classList.add(e.classes.elementThird), G3.classList.add(e.classes.dateSelectorUp), G3.innerHTML = r;
-                var Q3 = document.createElement("div");
-                Q3.classList.add(e.classes.button), Q3.classList.add(e.classes.elementThird), Q3.classList.add(e.classes.dateSelectorUp), Q3.innerHTML = r, C2.classList.add(e.classes.element), C2.classList.add(e.classes.elementThird), C2.innerHTML = e.dateMonths[c3.getMonth()], y.classList.add(e.classes.element), y.classList.add(e.classes.elementThird), y.setAttribute("contentEditable", !0), y.addEventListener("input", D4), y.addEventListener("blur", w), y.innerHTML = c3.getDate(), a.classList.add(e.classes.element), a.classList.add(e.classes.elementThird), a.setAttribute("contentEditable", !0), a.addEventListener("input", M2), a.addEventListener("blur", w), a.innerHTML = c3.getFullYear();
-                var ae = document.createElement("div");
-                ae.classList.add(e.classes.button), ae.classList.add(e.classes.elementThird), ae.innerHTML = r;
-                var ie = document.createElement("div");
-                ie.classList.add(e.classes.button), ie.classList.add(e.classes.elementThird), ie.innerHTML = r;
-                var ce2 = document.createElement("div");
-                ce2.classList.add(e.classes.button), ce2.classList.add(e.classes.elementThird), ce2.innerHTML = r, q3.onclick = function() {
-                  return _2(1);
-                }, G3.onclick = function() {
-                  return P3(1);
-                }, Q3.onclick = function() {
-                  return he(1);
-                }, ae.onclick = function() {
-                  return _2(-1);
-                }, ie.onclick = function() {
-                  return P3(-1);
-                }, ce2.onclick = function() {
-                  return he(-1);
-                };
-                var z3 = document.createElement("div");
-                z3.classList.add(e.classes.button), z3.classList.add(e.classes.elementHalf), z3.classList.add(e.classes.backgroundSuccess), z3.innerHTML = H3, z3.onclick = function() {
-                  O2(pe, n), j2(), f2 ? f2(c3) : o2 && o2(c3);
-                };
-                var U5 = document.createElement("div");
-                U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h2, U5.onclick = function() {
-                  O2(pe, n), j2(), d3 ? d3(c3) : s4 && s4(c3);
-                }, I3.appendChild(q3), I3.appendChild(G3), I3.appendChild(Q3), I3.appendChild(C2), I3.appendChild(y), I3.appendChild(a), I3.appendChild(ae), I3.appendChild(ie), I3.appendChild(ce2), fe.appendChild(I3), Y2.appendChild(fe), Y2.appendChild(z3), Y2.appendChild(U5), Y2.listener = function(L4) {
-                  te(L4) ? z3.click() : ne(L4) && U5.click();
-                }, Z(Y2, n), se2(Y2, n);
-              };
-              p2.default = { alert: Te, force: Me, confirm: He, input: ge, select: Se, date: we, setOptions: Ee, hideAlerts: F2 };
-            }]);
-          });
-        }).call(i, l(0)(v4));
-      }]);
-    });
-  }), B = {};
-  Pe(B, { default: () => Ye });
-  var Fe = ke(xe());
-  X2(B, ke(xe()));
-  var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
-
-  // https://esm.sh/v113/nanostores@0.7.4/deno/nanostores.mjs
-  var S = Symbol("clean");
-  var m = Symbol();
-
-  // https://esm.sh/v113/@nanostores/i18n@0.7.1/deno/i18n.mjs
-  function g(r, n) {
-    if (typeof r == "string")
-      return n(r);
-    {
-      let e = {};
-      for (let t3 in r)
-        e[t3] = g(r[t3], n);
-      return e;
-    }
-  }
-  function p(r) {
-    return (n) => {
-      if (n.transform) {
-        let e = n.transform;
-        return n = n.input, { input: n, transform(t3, o2, s4) {
-          let f2 = r(t3, o2, ...s4);
-          return (...l) => e(t3, f2, l);
-        } };
-      } else
-        return { input: n, transform(e, t3, o2) {
-          return r(e, t3, ...o2);
-        } };
-    };
-  }
-  var N = p((r, n, e) => g(n, (t3) => {
-    for (let o2 in e)
-      t3 = t3.replace(new RegExp(`{${o2}}`, "g"), e[o2]);
-    return t3;
-  })), R = p((r, n, e) => {
-    let t3 = new Intl.PluralRules(r).select(e);
-    return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
-  });
-
-  // https://esm.sh/v113/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
-  var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
-  function P2(e, t3, i, r) {
-    e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
-      i(window.event);
-    });
-  }
-  function T(e, t3) {
-    for (var i = t3.slice(0, t3.length - 1), r = 0; r < i.length; r++)
-      i[r] = e[i[r].toLowerCase()];
-    return i;
-  }
-  function U2(e) {
-    typeof e != "string" && (e = ""), e = e.replace(/\s/g, "");
-    for (var t3 = e.split(","), i = t3.lastIndexOf(""); i >= 0; )
-      t3[i - 1] += ",", t3.splice(i, 1), i = t3.lastIndexOf("");
-    return t3;
-  }
-  function G2(e, t3) {
-    for (var i = e.length >= t3.length ? e : t3, r = e.length >= t3.length ? t3 : e, n = !0, a = 0; a < i.length; a++)
-      r.indexOf(i[a]) === -1 && (n = !1);
-    return n;
-  }
-  var b = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M ? 173 : 189, "=": M ? 61 : 187, ";": M ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g2 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L2 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u = { 16: !1, 18: !1, 17: !1, 91: !1 }, s3 = {};
-  for (O = 1; O < 20; O++)
-    b["f".concat(O)] = 111 + O;
-  var O, f = [], A = !1, D2 = "all", H2 = [], C = function(t3) {
-    return b[t3.toLowerCase()] || g2[t3.toLowerCase()] || t3.toUpperCase().charCodeAt(0);
-  }, R2 = function(t3) {
-    return Object.keys(b).find(function(i) {
-      return b[i] === t3;
-    });
-  }, V = function(t3) {
-    return Object.keys(g2).find(function(i) {
-      return g2[i] === t3;
-    });
-  };
-  function F(e) {
-    D2 = e || "all";
-  }
-  function E() {
-    return D2 || "all";
-  }
-  function X3() {
-    return f.slice(0);
-  }
-  function $2() {
-    return f.map(function(e) {
-      return R2(e) || V(e) || String.fromCharCode(e);
-    });
-  }
-  function q2(e) {
-    var t3 = e.target || e.srcElement, i = t3.tagName, r = !0;
-    return (t3.isContentEditable || (i === "INPUT" || i === "TEXTAREA" || i === "SELECT") && !t3.readOnly) && (r = !1), r;
-  }
-  function z2(e) {
-    return typeof e == "string" && (e = C(e)), f.indexOf(e) !== -1;
-  }
-  function J(e, t3) {
-    var i, r;
-    e || (e = E());
-    for (var n in s3)
-      if (Object.prototype.hasOwnProperty.call(s3, n))
-        for (i = s3[n], r = 0; r < i.length; )
-          i[r].scope === e ? i.splice(r, 1) : r++;
-    E() === e && F(t3 || "all");
-  }
-  function N2(e) {
-    var t3 = e.keyCode || e.which || e.charCode, i = f.indexOf(t3);
-    if (i >= 0 && f.splice(i, 1), e.key && e.key.toLowerCase() === "meta" && f.splice(0, f.length), (t3 === 93 || t3 === 224) && (t3 = 91), t3 in u) {
-      u[t3] = !1;
-      for (var r in g2)
-        g2[r] === t3 && (v2[r] = !1);
-    }
-  }
-  function Q(e) {
-    if (typeof e > "u")
-      Object.keys(s3).forEach(function(o2) {
-        return delete s3[o2];
-      });
-    else if (Array.isArray(e))
-      e.forEach(function(o2) {
-        o2.key && S2(o2);
-      });
-    else if (typeof e == "object")
-      e.key && S2(e);
-    else if (typeof e == "string") {
-      for (var t3 = arguments.length, i = new Array(t3 > 1 ? t3 - 1 : 0), r = 1; r < t3; r++)
-        i[r - 1] = arguments[r];
-      var n = i[0], a = i[1];
-      typeof n == "function" && (a = n, n = ""), S2({ key: e, scope: n, method: a, splitKey: "+" });
-    }
-  }
-  var S2 = function(t3) {
-    var i = t3.key, r = t3.scope, n = t3.method, a = t3.splitKey, o2 = a === void 0 ? "+" : a, l = U2(i);
-    l.forEach(function(c3) {
-      var p2 = c3.split(o2), m2 = p2.length, y = p2[m2 - 1], d3 = y === "*" ? "*" : C(y);
-      if (s3[d3]) {
-        r || (r = E());
-        var K = m2 > 1 ? T(g2, p2) : [];
-        s3[d3] = s3[d3].filter(function(h2) {
-          var w = n ? h2.method === n : !0;
-          return !(w && h2.scope === r && G2(h2.mods, K));
-        });
-      }
-    });
-  };
-  function _(e, t3, i, r) {
-    if (t3.element === r) {
-      var n;
-      if (t3.scope === i || t3.scope === "all") {
-        n = t3.mods.length > 0;
-        for (var a in u)
-          Object.prototype.hasOwnProperty.call(u, a) && (!u[a] && t3.mods.indexOf(+a) > -1 || u[a] && t3.mods.indexOf(+a) === -1) && (n = !1);
-        (t3.mods.length === 0 && !u[16] && !u[18] && !u[17] && !u[91] || n || t3.shortcut === "*") && t3.method(e, t3) === !1 && (e.preventDefault ? e.preventDefault() : e.returnValue = !1, e.stopPropagation && e.stopPropagation(), e.cancelBubble && (e.cancelBubble = !0));
-      }
-    }
-  }
-  function k(e, t3) {
-    var i = s3["*"], r = e.keyCode || e.which || e.charCode;
-    if (v2.filter.call(this, e)) {
-      if ((r === 93 || r === 224) && (r = 91), f.indexOf(r) === -1 && r !== 229 && f.push(r), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(h2) {
-        var w = L2[h2];
-        e[h2] && f.indexOf(w) === -1 ? f.push(w) : !e[h2] && f.indexOf(w) > -1 ? f.splice(f.indexOf(w), 1) : h2 === "metaKey" && e[h2] && f.length === 3 && (e.ctrlKey || e.shiftKey || e.altKey || (f = f.slice(f.indexOf(w))));
-      }), r in u) {
-        u[r] = !0;
-        for (var n in g2)
-          g2[n] === r && (v2[n] = !0);
-        if (!i)
-          return;
-      }
-      for (var a in u)
-        Object.prototype.hasOwnProperty.call(u, a) && (u[a] = e[L2[a]]);
-      e.getModifierState && !(e.altKey && !e.ctrlKey) && e.getModifierState("AltGraph") && (f.indexOf(17) === -1 && f.push(17), f.indexOf(18) === -1 && f.push(18), u[17] = !0, u[18] = !0);
-      var o2 = E();
-      if (i)
-        for (var l = 0; l < i.length; l++)
-          i[l].scope === o2 && (e.type === "keydown" && i[l].keydown || e.type === "keyup" && i[l].keyup) && _(e, i[l], o2, t3);
-      if (r in s3) {
-        for (var c3 = 0; c3 < s3[r].length; c3++)
-          if ((e.type === "keydown" && s3[r][c3].keydown || e.type === "keyup" && s3[r][c3].keyup) && s3[r][c3].key) {
-            for (var p2 = s3[r][c3], m2 = p2.splitKey, y = p2.key.split(m2), d3 = [], K = 0; K < y.length; K++)
-              d3.push(C(y[K]));
-            d3.sort().join("") === f.sort().join("") && _(e, p2, o2, t3);
-          }
-      }
-    }
-  }
-  function W(e) {
-    return H2.indexOf(e) > -1;
-  }
-  function v2(e, t3, i) {
-    f = [];
-    var r = U2(e), n = [], a = "all", o2 = document, l = 0, c3 = !1, p2 = !0, m2 = "+", y = !1;
-    for (i === void 0 && typeof t3 == "function" && (i = t3), Object.prototype.toString.call(t3) === "[object Object]" && (t3.scope && (a = t3.scope), t3.element && (o2 = t3.element), t3.keyup && (c3 = t3.keyup), t3.keydown !== void 0 && (p2 = t3.keydown), t3.capture !== void 0 && (y = t3.capture), typeof t3.splitKey == "string" && (m2 = t3.splitKey)), typeof t3 == "string" && (a = t3); l < r.length; l++)
-      e = r[l].split(m2), n = [], e.length > 1 && (n = T(g2, e)), e = e[e.length - 1], e = e === "*" ? "*" : C(e), e in s3 || (s3[e] = []), s3[e].push({ keyup: c3, keydown: p2, scope: a, mods: n, shortcut: r[l], method: i, key: r[l], splitKey: m2, element: o2 });
-    typeof o2 < "u" && !W(o2) && window && (H2.push(o2), P2(o2, "keydown", function(d3) {
-      k(d3, o2);
-    }, y), A || (A = !0, P2(window, "focus", function() {
-      f = [];
-    }, y)), P2(o2, "keyup", function(d3) {
-      k(d3, o2), N2(d3);
-    }, y));
-  }
-  function Y(e) {
-    var t3 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "all";
-    Object.keys(s3).forEach(function(i) {
-      var r = s3[i].filter(function(n) {
-        return n.scope === t3 && n.shortcut === e;
-      });
-      r.forEach(function(n) {
-        n && n.method && n.method();
-      });
-    });
-  }
-  var j = { getPressedKeyString: $2, setScope: F, getScope: E, deleteScope: J, getPressedKeyCodes: X3, isPressed: z2, filter: q2, trigger: Y, unbind: Q, keyMap: b, modifier: g2, modifierMap: L2 };
-  for (x in j)
-    Object.prototype.hasOwnProperty.call(j, x) && (v2[x] = j[x]);
-  var x;
-  typeof document < "u" && (B3 = window.hotkeys, v2.noConflict = function(e) {
-    return e && window.hotkeys === v2 && (window.hotkeys = B3), v2;
-  }, window.hotkeys = v2);
-  var B3;
-
-  // https://esm.sh/v113/immersive-translate@1.0.9/deno/immersive-translate.mjs
-  var d2 = "Immersive Translate", v3 = class {
-    #e = performance.now();
-    reset() {
-      this.#e = performance.now();
-    }
-    stop(e) {
-      let t3 = performance.now(), n = Math.round(t3 - this.#e);
-      console.debug(d2 + " TIMING:", e, "in", n + "ms"), this.#e = t3;
-    }
-  }, D3 = class {
-    #e = 1;
-    get level() {
-      return this.#e;
-    }
-    setLevel(e) {
-      switch (e) {
-        case "debug":
-          this.#e = 0;
-          break;
-        case "info":
-          this.#e = 1;
-          break;
-        case "warn":
-          this.#e = 2;
-          break;
-        case "error":
-          this.#e = 3;
-          break;
-        case "fatal":
-          this.#e = 4;
-          break;
-      }
-    }
-    debug(...e) {
-      this.#e <= 0 && console.log(d2 + " DEBUG:", ...e);
-    }
-    v(...e) {
-      this.#e <= 0 && console.log(d2 + " VERBOSE:", ...e);
-    }
-    info(...e) {
-      this.#e <= 1 && console.log(d2 + " INFO:", ...e);
-    }
-    l(...e) {
-      this.#e <= 1 && console.log(d2 + " TEMP INFO:", ...e);
-    }
-    warn(...e) {
-      this.#e <= 2 && console.warn(d2 + " WARN:", ...e);
-    }
-    error(...e) {
-      this.#e <= 3 && console.error(d2 + " ERROR:", ...e);
-    }
-    fatal(...e) {
-      this.#e <= 4 && console.error(d2 + " FATAL:", ...e);
-    }
-    timing() {
-      return this.level === 0 ? new v3() : { reset: () => {
-      }, stop: () => {
-      } };
-    }
-  }, E2 = new D3(), L3 = "poegempjloogba", I2 = "ension://";
-  var U3 = "rome-ext";
-  var V2 = "ch" + U3 + I2 + "cofdb" + L3 + "gkncekinflcnj";
-
-  // deps.ts
-  var toast = Ye.alert;
+  // browser/browser.ts
+  var browserAPI;
+  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
 
   // locales/zh-CN.json
   var zh_CN_default = {
     lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
     "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+    "noSupportTranslate-pdf": "\u811A\u672C\u4E0D\u652F\u6301\u8BF7\u4F7F\u7528\u63D2\u4EF6",
     "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
     enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
     sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
@@ -6819,7 +5819,7 @@ body {
       allProps: [
         {
           name: "APIKEY",
-          required: !1,
+          required: !0,
           type: "password"
         },
         {
@@ -7070,6 +6070,1086 @@ body {
     }
   }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
+  // utils/get_pdf_viewer_url.ts
+  function formatToPdfViewerUrl(url) {
+    let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl), pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
+    return (url.startsWith("http") || !isFirefox()) && pdfViewUrlObj.searchParams.set(
+      "file",
+      url
+    ), pdfViewUrlObj.href;
+  }
+
+  // utils/is_pdf_url.ts
+  function isPdfUrl(url) {
+    return new URL(url)?.pathname.toLowerCase().endsWith(".pdf");
+  }
+
+  // https://deno.land/std@0.171.0/async/deferred.ts
+  function deferred() {
+    let methods, state = "pending", promise = new Promise((resolve, reject) => {
+      methods = {
+        async resolve(value) {
+          await value, state = "fulfilled", resolve(value);
+        },
+        // deno-lint-ignore no-explicit-any
+        reject(reason) {
+          state = "rejected", reject(reason);
+        }
+      };
+    });
+    return Object.defineProperty(promise, "state", { get: () => state }), Object.assign(promise, methods);
+  }
+
+  // https://deno.land/std@0.171.0/async/delay.ts
+  function delay(ms, options = {}) {
+    let { signal, persistent } = options;
+    return signal?.aborted ? Promise.reject(new DOMException("Delay was aborted.", "AbortError")) : new Promise((resolve, reject) => {
+      let abort = () => {
+        clearTimeout(i), reject(new DOMException("Delay was aborted.", "AbortError"));
+      }, i = setTimeout(() => {
+        signal?.removeEventListener("abort", abort), resolve();
+      }, ms);
+      if (signal?.addEventListener("abort", abort, { once: !0 }), persistent === !1)
+        try {
+          Deno.unrefTimer(i);
+        } catch (error) {
+          if (!(error instanceof ReferenceError))
+            throw error;
+          console.error("`persistent` option is only available in Deno");
+        }
+    });
+  }
+
+  // https://deno.land/std@0.171.0/async/mux_async_iterator.ts
+  var MuxAsyncIterator = class {
+    #iteratorCount = 0;
+    #yields = [];
+    // deno-lint-ignore no-explicit-any
+    #throws = [];
+    #signal = deferred();
+    add(iterable) {
+      ++this.#iteratorCount, this.#callIteratorNext(iterable[Symbol.asyncIterator]());
+    }
+    async #callIteratorNext(iterator) {
+      try {
+        let { value, done } = await iterator.next();
+        done ? --this.#iteratorCount : this.#yields.push({ iterator, value });
+      } catch (e) {
+        this.#throws.push(e);
+      }
+      this.#signal.resolve();
+    }
+    async *iterate() {
+      for (; this.#iteratorCount > 0; ) {
+        await this.#signal;
+        for (let i = 0; i < this.#yields.length; i++) {
+          let { iterator, value } = this.#yields[i];
+          yield value, this.#callIteratorNext(iterator);
+        }
+        if (this.#throws.length) {
+          for (let e of this.#throws)
+            throw e;
+          this.#throws.length = 0;
+        }
+        this.#yields.length = 0, this.#signal = deferred();
+      }
+    }
+    [Symbol.asyncIterator]() {
+      return this.iterate();
+    }
+  };
+
+  // https://deno.land/std@0.167.0/fmt/colors.ts
+  var colors_exports = {};
+  __export(colors_exports, {
+    bgBlack: () => bgBlack,
+    bgBlue: () => bgBlue,
+    bgBrightBlack: () => bgBrightBlack,
+    bgBrightBlue: () => bgBrightBlue,
+    bgBrightCyan: () => bgBrightCyan,
+    bgBrightGreen: () => bgBrightGreen,
+    bgBrightMagenta: () => bgBrightMagenta,
+    bgBrightRed: () => bgBrightRed,
+    bgBrightWhite: () => bgBrightWhite,
+    bgBrightYellow: () => bgBrightYellow,
+    bgCyan: () => bgCyan,
+    bgGreen: () => bgGreen,
+    bgMagenta: () => bgMagenta,
+    bgRed: () => bgRed,
+    bgRgb24: () => bgRgb24,
+    bgRgb8: () => bgRgb8,
+    bgWhite: () => bgWhite,
+    bgYellow: () => bgYellow,
+    black: () => black,
+    blue: () => blue,
+    bold: () => bold,
+    brightBlack: () => brightBlack,
+    brightBlue: () => brightBlue,
+    brightCyan: () => brightCyan,
+    brightGreen: () => brightGreen,
+    brightMagenta: () => brightMagenta,
+    brightRed: () => brightRed,
+    brightWhite: () => brightWhite,
+    brightYellow: () => brightYellow,
+    cyan: () => cyan,
+    dim: () => dim,
+    getColorEnabled: () => getColorEnabled,
+    gray: () => gray,
+    green: () => green,
+    hidden: () => hidden,
+    inverse: () => inverse,
+    italic: () => italic,
+    magenta: () => magenta,
+    red: () => red,
+    reset: () => reset,
+    rgb24: () => rgb24,
+    rgb8: () => rgb8,
+    setColorEnabled: () => setColorEnabled,
+    strikethrough: () => strikethrough,
+    stripColor: () => stripColor,
+    underline: () => underline,
+    white: () => white,
+    yellow: () => yellow
+  });
+  var { Deno: Deno2 } = globalThis, noColor = typeof Deno2?.noColor == "boolean" ? Deno2.noColor : !0, enabled = !noColor;
+  function setColorEnabled(value) {
+    noColor || (enabled = value);
+  }
+  function getColorEnabled() {
+    return enabled;
+  }
+  function code(open, close) {
+    return {
+      open: `\x1B[${open.join(";")}m`,
+      close: `\x1B[${close}m`,
+      regexp: new RegExp(`\\x1b\\[${close}m`, "g")
+    };
+  }
+  function run(str, code2) {
+    return enabled ? `${code2.open}${str.replace(code2.regexp, code2.open)}${code2.close}` : str;
+  }
+  function reset(str) {
+    return run(str, code([0], 0));
+  }
+  function bold(str) {
+    return run(str, code([1], 22));
+  }
+  function dim(str) {
+    return run(str, code([2], 22));
+  }
+  function italic(str) {
+    return run(str, code([3], 23));
+  }
+  function underline(str) {
+    return run(str, code([4], 24));
+  }
+  function inverse(str) {
+    return run(str, code([7], 27));
+  }
+  function hidden(str) {
+    return run(str, code([8], 28));
+  }
+  function strikethrough(str) {
+    return run(str, code([9], 29));
+  }
+  function black(str) {
+    return run(str, code([30], 39));
+  }
+  function red(str) {
+    return run(str, code([31], 39));
+  }
+  function green(str) {
+    return run(str, code([32], 39));
+  }
+  function yellow(str) {
+    return run(str, code([33], 39));
+  }
+  function blue(str) {
+    return run(str, code([34], 39));
+  }
+  function magenta(str) {
+    return run(str, code([35], 39));
+  }
+  function cyan(str) {
+    return run(str, code([36], 39));
+  }
+  function white(str) {
+    return run(str, code([37], 39));
+  }
+  function gray(str) {
+    return brightBlack(str);
+  }
+  function brightBlack(str) {
+    return run(str, code([90], 39));
+  }
+  function brightRed(str) {
+    return run(str, code([91], 39));
+  }
+  function brightGreen(str) {
+    return run(str, code([92], 39));
+  }
+  function brightYellow(str) {
+    return run(str, code([93], 39));
+  }
+  function brightBlue(str) {
+    return run(str, code([94], 39));
+  }
+  function brightMagenta(str) {
+    return run(str, code([95], 39));
+  }
+  function brightCyan(str) {
+    return run(str, code([96], 39));
+  }
+  function brightWhite(str) {
+    return run(str, code([97], 39));
+  }
+  function bgBlack(str) {
+    return run(str, code([40], 49));
+  }
+  function bgRed(str) {
+    return run(str, code([41], 49));
+  }
+  function bgGreen(str) {
+    return run(str, code([42], 49));
+  }
+  function bgYellow(str) {
+    return run(str, code([43], 49));
+  }
+  function bgBlue(str) {
+    return run(str, code([44], 49));
+  }
+  function bgMagenta(str) {
+    return run(str, code([45], 49));
+  }
+  function bgCyan(str) {
+    return run(str, code([46], 49));
+  }
+  function bgWhite(str) {
+    return run(str, code([47], 49));
+  }
+  function bgBrightBlack(str) {
+    return run(str, code([100], 49));
+  }
+  function bgBrightRed(str) {
+    return run(str, code([101], 49));
+  }
+  function bgBrightGreen(str) {
+    return run(str, code([102], 49));
+  }
+  function bgBrightYellow(str) {
+    return run(str, code([103], 49));
+  }
+  function bgBrightBlue(str) {
+    return run(str, code([104], 49));
+  }
+  function bgBrightMagenta(str) {
+    return run(str, code([105], 49));
+  }
+  function bgBrightCyan(str) {
+    return run(str, code([106], 49));
+  }
+  function bgBrightWhite(str) {
+    return run(str, code([107], 49));
+  }
+  function clampAndTruncate(n, max = 255, min = 0) {
+    return Math.trunc(Math.max(Math.min(n, max), min));
+  }
+  function rgb8(str, color) {
+    return run(str, code([38, 5, clampAndTruncate(color)], 39));
+  }
+  function bgRgb8(str, color) {
+    return run(str, code([48, 5, clampAndTruncate(color)], 49));
+  }
+  function rgb24(str, color) {
+    return typeof color == "number" ? run(
+      str,
+      code(
+        [38, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+        39
+      )
+    ) : run(
+      str,
+      code(
+        [
+          38,
+          2,
+          clampAndTruncate(color.r),
+          clampAndTruncate(color.g),
+          clampAndTruncate(color.b)
+        ],
+        39
+      )
+    );
+  }
+  function bgRgb24(str, color) {
+    return typeof color == "number" ? run(
+      str,
+      code(
+        [48, 2, color >> 16 & 255, color >> 8 & 255, color & 255],
+        49
+      )
+    ) : run(
+      str,
+      code(
+        [
+          48,
+          2,
+          clampAndTruncate(color.r),
+          clampAndTruncate(color.g),
+          clampAndTruncate(color.b)
+        ],
+        49
+      )
+    );
+  }
+  var ANSI_PATTERN = new RegExp(
+    [
+      "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
+      "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-nq-uy=><~]))"
+    ].join("|"),
+    "g"
+  );
+  function stripColor(string) {
+    return string.replace(ANSI_PATTERN, "");
+  }
+
+  // https://deno.land/std@0.170.0/async/retry.ts
+  var RetryError = class extends Error {
+    constructor(cause, count) {
+      super(`Exceeded max retry count (${count})`), this.name = "RetryError", this.cause = cause;
+    }
+  }, defaultRetryOptions = {
+    multiplier: 2,
+    maxTimeout: 6e4,
+    maxAttempts: 5,
+    minTimeout: 1e3
+  };
+  async function retry(fn, opts) {
+    let options = {
+      ...defaultRetryOptions,
+      ...opts
+    };
+    if (options.maxTimeout >= 0 && options.minTimeout > options.maxTimeout)
+      throw new RangeError("minTimeout is greater than maxTimeout");
+    let timeout = options.minTimeout, error;
+    for (let i = 0; i < options.maxAttempts; i++)
+      try {
+        return await fn();
+      } catch (err) {
+        await new Promise((r) => setTimeout(r, timeout)), timeout *= options.multiplier, timeout = Math.max(timeout, options.minTimeout), options.maxTimeout >= 0 && (timeout = Math.min(timeout, options.maxTimeout)), error = err;
+      }
+    throw new RetryError(error, options.maxAttempts);
+  }
+
+  // https://esm.sh/v114/memoize-one@6.0.0/deno/memoize-one.mjs
+  var s = Number.isNaN || function(r) {
+    return typeof r == "number" && r !== r;
+  };
+
+  // https://esm.sh/v114/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
+    for (var n in t3)
+      I(e, n, { get: t3[n], enumerable: !0 });
+  }, v = (e, t3, n, f2) => {
+    if (t3 && typeof t3 == "object" || typeof t3 == "function")
+      for (let i of G(t3))
+        !U.call(e, i) && i !== n && I(e, i, { get: () => t3[i], enumerable: !(f2 = D(t3, i)) || f2.enumerable });
+    return e;
+  }, s2 = (e, t3, n) => (v(e, t3, "default"), n && v(n, t3, "default")), L = (e, t3, n) => (n = e != null ? P(H(e)) : {}, v(t3 || !e || !e.__esModule ? I(n, "default", { value: e, enumerable: !0 }) : n, e)), h = X((ge, N3) => {
+    var M2 = "Expected a function", W2 = NaN, z3 = "[object Symbol]", J2 = /^\s+|\s+$/g, K = /^[-+]0x[0-9a-f]+$/i, Q3 = /^0b[01]+$/i, V3 = /^0o[0-7]+$/i, Y2 = parseInt, Z = typeof __global$ == "object" && __global$ && __global$.Object === Object && __global$, w = typeof self == "object" && self && self.Object === Object && self, ee = Z || w || Function("return this")(), te = Object.prototype, ne = te.toString, re = Math.max, ie = Math.min, O2 = function() {
+      return ee.Date.now();
+    };
+    function fe(e, t3, n) {
+      var f2, i, b2, l, a, u2, d3 = 0, S3 = !1, g3 = !1, T2 = !0;
+      if (typeof e != "function")
+        throw new TypeError(M2);
+      t3 = C2(t3) || 0, p2(n) && (S3 = !!n.leading, g3 = "maxWait" in n, b2 = g3 ? re(C2(n.maxWait) || 0, t3) : b2, T2 = "trailing" in n ? !!n.trailing : T2);
+      function j2(r) {
+        var o2 = f2, m2 = i;
+        return f2 = i = void 0, d3 = r, l = e.apply(m2, o2), l;
+      }
+      function A2(r) {
+        return d3 = r, a = setTimeout(y, t3), S3 ? j2(r) : l;
+      }
+      function B4(r) {
+        var o2 = r - u2, m2 = r - d3, k2 = t3 - o2;
+        return g3 ? ie(k2, b2 - m2) : k2;
+      }
+      function E3(r) {
+        var o2 = r - u2, m2 = r - d3;
+        return u2 === void 0 || o2 >= t3 || o2 < 0 || g3 && m2 >= b2;
+      }
+      function y() {
+        var r = O2();
+        if (E3(r))
+          return _2(r);
+        a = setTimeout(y, B4(r));
+      }
+      function _2(r) {
+        return a = void 0, T2 && f2 ? j2(r) : (f2 = i = void 0, l);
+      }
+      function F2() {
+        a !== void 0 && clearTimeout(a), d3 = 0, f2 = u2 = i = a = void 0;
+      }
+      function R3() {
+        return a === void 0 ? l : _2(O2());
+      }
+      function x2() {
+        var r = O2(), o2 = E3(r);
+        if (f2 = arguments, i = this, u2 = r, o2) {
+          if (a === void 0)
+            return A2(u2);
+          if (g3)
+            return a = setTimeout(y, t3), j2(u2);
+        }
+        return a === void 0 && (a = setTimeout(y, t3)), l;
+      }
+      return x2.cancel = F2, x2.flush = R3, x2;
+    }
+    function ae(e, t3, n) {
+      var f2 = !0, i = !0;
+      if (typeof e != "function")
+        throw new TypeError(M2);
+      return p2(n) && (f2 = "leading" in n ? !!n.leading : f2, i = "trailing" in n ? !!n.trailing : i), fe(e, t3, { leading: f2, maxWait: t3, trailing: i });
+    }
+    function p2(e) {
+      var t3 = typeof e;
+      return !!e && (t3 == "object" || t3 == "function");
+    }
+    function oe(e) {
+      return !!e && typeof e == "object";
+    }
+    function ue(e) {
+      return typeof e == "symbol" || oe(e) && ne.call(e) == z3;
+    }
+    function C2(e) {
+      if (typeof e == "number")
+        return e;
+      if (ue(e))
+        return W2;
+      if (p2(e)) {
+        var t3 = typeof e.valueOf == "function" ? e.valueOf() : e;
+        e = p2(t3) ? t3 + "" : t3;
+      }
+      if (typeof e != "string")
+        return e === 0 ? e : +e;
+      e = e.replace(J2, "");
+      var n = Q3.test(e);
+      return n || V3.test(e) ? Y2(e.slice(2), n ? 2 : 8) : K.test(e) ? W2 : +e;
+    }
+    N3.exports = ae;
+  }), c = {};
+  q(c, { default: () => se });
+  var ce = L(h());
+  s2(c, L(h()));
+  var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
+
+  // https://esm.sh/v114/notie@4.3.1/deno/notie.mjs
+  var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
+    for (var l in i)
+      ve(v4, l, { get: i[l], enumerable: !0 });
+  }, me = (v4, i, l, x2) => {
+    if (i && typeof i == "object" || typeof i == "function")
+      for (let b2 of De(i))
+        !je.call(v4, b2) && b2 !== l && ve(v4, b2, { get: () => i[b2], enumerable: !(x2 = Ae(i, b2)) || x2.enumerable });
+    return v4;
+  }, X2 = (v4, i, l) => (me(v4, i, "default"), l && me(l, i, "default")), ke = (v4, i, l) => (l = v4 != null ? Oe(Ie(v4)) : {}, me(i || !v4 || !v4.__esModule ? ve(l, "default", { value: v4, enumerable: !0 }) : l, v4)), xe = Ne((oe, be) => {
+    (function(v4, i) {
+      typeof oe == "object" && typeof be == "object" ? be.exports = i() : typeof define == "function" && define.amd ? define([], i) : typeof oe == "object" ? oe.notie = i() : v4.notie = i();
+    })(oe, function() {
+      return function(v4) {
+        function i(x2) {
+          if (l[x2])
+            return l[x2].exports;
+          var b2 = l[x2] = { i: x2, l: !1, exports: {} };
+          return v4[x2].call(b2.exports, b2, b2.exports, i), b2.l = !0, b2.exports;
+        }
+        var l = {};
+        return i.m = v4, i.c = l, i.i = function(x2) {
+          return x2;
+        }, i.d = function(x2, b2, re) {
+          i.o(x2, b2) || Object.defineProperty(x2, b2, { configurable: !1, enumerable: !0, get: re });
+        }, i.n = function(x2) {
+          var b2 = x2 && x2.__esModule ? function() {
+            return x2.default;
+          } : function() {
+            return x2;
+          };
+          return i.d(b2, "a", b2), b2;
+        }, i.o = function(x2, b2) {
+          return Object.prototype.hasOwnProperty.call(x2, b2);
+        }, i.p = "", i(i.s = 1);
+      }([function(v4, i) {
+        v4.exports = function(l) {
+          return l.webpackPolyfill || (l.deprecate = function() {
+          }, l.paths = [], l.children || (l.children = []), Object.defineProperty(l, "loaded", { enumerable: !0, get: function() {
+            return l.l;
+          } }), Object.defineProperty(l, "id", { enumerable: !0, get: function() {
+            return l.i;
+          } }), l.webpackPolyfill = 1), l;
+        };
+      }, function(v4, i, l) {
+        "use strict";
+        (function(x2) {
+          var b2, re, de, $3 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(A2) {
+            return typeof A2;
+          } : function(A2) {
+            return A2 && typeof Symbol == "function" && A2.constructor === Symbol && A2 !== Symbol.prototype ? "symbol" : typeof A2;
+          };
+          (function(A2, p2) {
+            $3(i) === "object" && $3(x2) === "object" ? x2.exports = p2() : (re = [], b2 = p2, de = typeof b2 == "function" ? b2.apply(i, re) : b2, de !== void 0 && (x2.exports = de));
+          })(void 0, function() {
+            return function(A2) {
+              function p2(g3) {
+                if (ee[g3])
+                  return ee[g3].exports;
+                var T2 = ee[g3] = { i: g3, l: !1, exports: {} };
+                return A2[g3].call(T2.exports, T2, T2.exports, p2), T2.l = !0, T2.exports;
+              }
+              var ee = {};
+              return p2.m = A2, p2.c = ee, p2.i = function(g3) {
+                return g3;
+              }, p2.d = function(g3, T2, J2) {
+                p2.o(g3, T2) || Object.defineProperty(g3, T2, { configurable: !1, enumerable: !0, get: J2 });
+              }, p2.n = function(g3) {
+                var T2 = g3 && g3.__esModule ? function() {
+                  return g3.default;
+                } : function() {
+                  return g3;
+                };
+                return p2.d(T2, "a", T2), T2;
+              }, p2.o = function(g3, T2) {
+                return Object.prototype.hasOwnProperty.call(g3, T2);
+              }, p2.p = "", p2(p2.s = 0);
+            }([function(A2, p2, ee) {
+              function g3(t3, o2) {
+                var s4 = {};
+                for (var u2 in t3)
+                  o2.indexOf(u2) >= 0 || Object.prototype.hasOwnProperty.call(t3, u2) && (s4[u2] = t3[u2]);
+                return s4;
+              }
+              Object.defineProperty(p2, "__esModule", { value: !0 });
+              var T2 = typeof Symbol == "function" && $3(Symbol.iterator) === "symbol" ? function(t3) {
+                return typeof t3 > "u" ? "undefined" : $3(t3);
+              } : function(t3) {
+                return t3 && typeof Symbol == "function" && t3.constructor === Symbol && t3 !== Symbol.prototype ? "symbol" : typeof t3 > "u" ? "undefined" : $3(t3);
+              }, J2 = Object.assign || function(t3) {
+                for (var o2 = 1; o2 < arguments.length; o2++) {
+                  var s4 = arguments[o2];
+                  for (var u2 in s4)
+                    Object.prototype.hasOwnProperty.call(s4, u2) && (t3[u2] = s4[u2]);
+                }
+                return t3;
+              }, R3 = { top: "top", bottom: "bottom" }, e = { alertTime: 3, dateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], overlayClickDismiss: !0, overlayOpacity: 0.75, transitionCurve: "ease", transitionDuration: 0.3, transitionSelector: "all", classes: { container: "notie-container", textbox: "notie-textbox", textboxInner: "notie-textbox-inner", button: "notie-button", element: "notie-element", elementHalf: "notie-element-half", elementThird: "notie-element-third", overlay: "notie-overlay", backgroundSuccess: "notie-background-success", backgroundWarning: "notie-background-warning", backgroundError: "notie-background-error", backgroundInfo: "notie-background-info", backgroundNeutral: "notie-background-neutral", backgroundOverlay: "notie-background-overlay", alert: "notie-alert", inputField: "notie-input-field", selectChoiceRepeated: "notie-select-choice-repeated", dateSelectorInner: "notie-date-selector-inner", dateSelectorUp: "notie-date-selector-up" }, ids: { overlay: "notie-overlay" }, positions: { alert: R3.top, force: R3.top, confirm: R3.top, input: R3.top, select: R3.bottom, date: R3.top } }, Ee = p2.setOptions = function(t3) {
+                e = J2({}, e, t3, { classes: J2({}, e.classes, t3.classes), ids: J2({}, e.ids, t3.ids), positions: J2({}, e.positions, t3.positions) });
+              }, ye = function() {
+                return new Promise(function(t3) {
+                  return setTimeout(t3, 0);
+                });
+              }, le2 = function(t3) {
+                return new Promise(function(o2) {
+                  return setTimeout(o2, 1e3 * t3);
+                });
+              }, W2 = function() {
+                document.activeElement && document.activeElement.blur();
+              }, K = function() {
+                var t3 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(o2) {
+                  var s4 = 16 * Math.random() | 0, u2 = o2 === "x" ? s4 : 3 & s4 | 8;
+                  return u2.toString(16);
+                });
+                return "notie-" + t3;
+              }, ue = { 1: e.classes.backgroundSuccess, success: e.classes.backgroundSuccess, 2: e.classes.backgroundWarning, warning: e.classes.backgroundWarning, 3: e.classes.backgroundError, error: e.classes.backgroundError, 4: e.classes.backgroundInfo, info: e.classes.backgroundInfo, 5: e.classes.backgroundNeutral, neutral: e.classes.backgroundNeutral }, Le = function() {
+                return e.transitionSelector + " " + e.transitionDuration + "s " + e.transitionCurve;
+              }, te = function(t3) {
+                return t3.keyCode === 13;
+              }, ne = function(t3) {
+                return t3.keyCode === 27;
+              }, Z = function(t3, o2) {
+                t3.classList.add(e.classes.container), t3.style[o2] = "-10000px", document.body.appendChild(t3), t3.style[o2] = "-" + t3.offsetHeight + "px", t3.listener && window.addEventListener("keydown", t3.listener), ye().then(function() {
+                  t3.style.transition = Le(), t3.style[o2] = 0;
+                });
+              }, O2 = function(t3, o2) {
+                var s4 = document.getElementById(t3);
+                s4 && (s4.style[o2] = "-" + s4.offsetHeight + "px", s4.listener && window.removeEventListener("keydown", s4.listener), le2(e.transitionDuration).then(function() {
+                  s4.parentNode && s4.parentNode.removeChild(s4);
+                }));
+              }, se2 = function(t3, o2) {
+                var s4 = document.createElement("div");
+                s4.id = e.ids.overlay, s4.classList.add(e.classes.overlay), s4.classList.add(e.classes.backgroundOverlay), s4.style.opacity = 0, t3 && e.overlayClickDismiss && (s4.onclick = function() {
+                  O2(t3.id, o2), j2();
+                }), document.body.appendChild(s4), ye().then(function() {
+                  s4.style.transition = Le(), s4.style.opacity = e.overlayOpacity;
+                });
+              }, j2 = function() {
+                var t3 = document.getElementById(e.ids.overlay);
+                t3.style.opacity = 0, le2(e.transitionDuration).then(function() {
+                  t3.parentNode && t3.parentNode.removeChild(t3);
+                });
+              }, F2 = p2.hideAlerts = function(t3) {
+                var o2 = document.getElementsByClassName(e.classes.alert);
+                if (o2.length) {
+                  for (var s4 = 0; s4 < o2.length; s4++) {
+                    var u2 = o2[s4];
+                    O2(u2.id, u2.position);
+                  }
+                  t3 && le2(e.transitionDuration).then(function() {
+                    return t3();
+                  });
+                }
+              }, Te = p2.alert = function(t3) {
+                var o2 = t3.type, s4 = o2 === void 0 ? 4 : o2, u2 = t3.text, c3 = t3.time, k2 = c3 === void 0 ? e.alertTime : c3, H3 = t3.stay, S3 = H3 !== void 0 && H3, h2 = t3.position, f2 = h2 === void 0 ? e.positions.alert || f2.top : h2;
+                W2(), F2();
+                var d3 = document.createElement("div"), m2 = K();
+                d3.id = m2, d3.position = f2, d3.classList.add(e.classes.textbox), d3.classList.add(ue[s4]), d3.classList.add(e.classes.alert), d3.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>", d3.onclick = function() {
+                  return O2(m2, f2);
+                }, d3.listener = function(n) {
+                  (te(n) || ne(n)) && F2();
+                }, Z(d3, f2), k2 && k2 < 1 && (k2 = 1), !S3 && k2 && le2(k2).then(function() {
+                  return O2(m2, f2);
+                });
+              }, Me = p2.force = function(t3, o2) {
+                var s4 = t3.type, u2 = s4 === void 0 ? 5 : s4, c3 = t3.text, k2 = t3.buttonText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.callback, h2 = t3.position, f2 = h2 === void 0 ? e.positions.force || f2.top : h2;
+                W2(), F2();
+                var d3 = document.createElement("div"), m2 = K();
+                d3.id = m2;
+                var n = document.createElement("div");
+                n.classList.add(e.classes.textbox), n.classList.add(e.classes.backgroundInfo), n.innerHTML = '<div class="' + e.classes.textboxInner + '">' + c3 + "</div>";
+                var r = document.createElement("div");
+                r.classList.add(e.classes.button), r.classList.add(ue[u2]), r.innerHTML = H3, r.onclick = function() {
+                  O2(m2, f2), j2(), S3 ? S3() : o2 && o2();
+                }, d3.appendChild(n), d3.appendChild(r), d3.listener = function(C2) {
+                  te(C2) && r.click();
+                }, Z(d3, f2), se2();
+              }, He = p2.confirm = function(t3, o2, s4) {
+                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Yes" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.confirm || m2.top : d3;
+                W2(), F2();
+                var n = document.createElement("div"), r = K();
+                n.id = r;
+                var C2 = document.createElement("div");
+                C2.classList.add(e.classes.textbox), C2.classList.add(e.classes.backgroundInfo), C2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>";
+                var y = document.createElement("div");
+                y.classList.add(e.classes.button), y.classList.add(e.classes.elementHalf), y.classList.add(e.classes.backgroundSuccess), y.innerHTML = k2, y.onclick = function() {
+                  O2(r, m2), j2(), h2 ? h2() : o2 && o2();
+                };
+                var a = document.createElement("div");
+                a.classList.add(e.classes.button), a.classList.add(e.classes.elementHalf), a.classList.add(e.classes.backgroundError), a.innerHTML = S3, a.onclick = function() {
+                  O2(r, m2), j2(), f2 ? f2() : s4 && s4();
+                }, n.appendChild(C2), n.appendChild(y), n.appendChild(a), n.listener = function(E3) {
+                  te(E3) ? y.click() : ne(E3) && a.click();
+                }, Z(n, m2), se2(n, m2);
+              }, ge = function(t3, o2, s4) {
+                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Submit" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.input || m2.top : d3, n = g3(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+                W2(), F2();
+                var r = document.createElement("div"), C2 = K();
+                r.id = C2;
+                var y = document.createElement("div");
+                y.classList.add(e.classes.textbox), y.classList.add(e.classes.backgroundInfo), y.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>";
+                var a = document.createElement("input");
+                a.classList.add(e.classes.inputField), a.setAttribute("autocapitalize", n.autocapitalize || "none"), a.setAttribute("autocomplete", n.autocomplete || "off"), a.setAttribute("autocorrect", n.autocorrect || "off"), a.setAttribute("autofocus", n.autofocus || "true"), a.setAttribute("inputmode", n.inputmode || "verbatim"), a.setAttribute("max", n.max || ""), a.setAttribute("maxlength", n.maxlength || ""), a.setAttribute("min", n.min || ""), a.setAttribute("minlength", n.minlength || ""), a.setAttribute("placeholder", n.placeholder || ""), a.setAttribute("spellcheck", n.spellcheck || "default"), a.setAttribute("step", n.step || "any"), a.setAttribute("type", n.type || "text"), a.value = n.value || "", n.allowed && (a.oninput = function() {
+                  var M2 = void 0;
+                  if (Array.isArray(n.allowed)) {
+                    for (var w = "", _2 = n.allowed, P3 = 0; P3 < _2.length; P3++)
+                      _2[P3] === "an" ? w += "0-9a-zA-Z" : _2[P3] === "a" ? w += "a-zA-Z" : _2[P3] === "n" && (w += "0-9"), _2[P3] === "s" && (w += " ");
+                    M2 = new RegExp("[^" + w + "]", "g");
+                  } else
+                    T2(n.allowed) === "object" && (M2 = n.allowed);
+                  a.value = a.value.replace(M2, "");
+                });
+                var E3 = document.createElement("div");
+                E3.classList.add(e.classes.button), E3.classList.add(e.classes.elementHalf), E3.classList.add(e.classes.backgroundSuccess), E3.innerHTML = k2, E3.onclick = function() {
+                  O2(C2, m2), j2(), h2 ? h2(a.value) : o2 && o2(a.value);
+                };
+                var D4 = document.createElement("div");
+                D4.classList.add(e.classes.button), D4.classList.add(e.classes.elementHalf), D4.classList.add(e.classes.backgroundError), D4.innerHTML = S3, D4.onclick = function() {
+                  O2(C2, m2), j2(), f2 ? f2(a.value) : s4 && s4(a.value);
+                }, r.appendChild(y), r.appendChild(a), r.appendChild(E3), r.appendChild(D4), r.listener = function(M2) {
+                  te(M2) ? E3.click() : ne(M2) && D4.click();
+                }, Z(r, m2), a.focus(), se2(r, m2);
+              };
+              p2.input = ge;
+              var Se = p2.select = function(t3, o2) {
+                var s4 = t3.text, u2 = t3.cancelText, c3 = u2 === void 0 ? "Cancel" : u2, k2 = t3.cancelCallback, H3 = t3.choices, S3 = t3.position, h2 = S3 === void 0 ? e.positions.select || h2.top : S3;
+                W2(), F2();
+                var f2 = document.createElement("div"), d3 = K();
+                f2.id = d3;
+                var m2 = document.createElement("div");
+                m2.classList.add(e.classes.textbox), m2.classList.add(e.classes.backgroundInfo), m2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + s4 + "</div>", f2.appendChild(m2), H3.forEach(function(r, C2) {
+                  var y = r.type, a = y === void 0 ? 1 : y, E3 = r.text, D4 = r.handler, M2 = document.createElement("div");
+                  M2.classList.add(ue[a]), M2.classList.add(e.classes.button), M2.classList.add(e.classes.selectChoice);
+                  var w = H3[C2 + 1];
+                  w && !w.type && (w.type = 1), w && w.type === a && M2.classList.add(e.classes.selectChoiceRepeated), M2.innerHTML = E3, M2.onclick = function() {
+                    O2(d3, h2), j2(), D4();
+                  }, f2.appendChild(M2);
+                });
+                var n = document.createElement("div");
+                n.classList.add(e.classes.backgroundNeutral), n.classList.add(e.classes.button), n.innerHTML = c3, n.onclick = function() {
+                  O2(d3, h2), j2(), k2 ? k2() : o2 && o2();
+                }, f2.appendChild(n), f2.listener = function(r) {
+                  ne(r) && n.click();
+                }, Z(f2, h2), se2(f2, h2);
+              }, we = p2.date = function(t3, o2, s4) {
+                var u2 = t3.value, c3 = u2 === void 0 ? /* @__PURE__ */ new Date() : u2, k2 = t3.submitText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.cancelText, h2 = S3 === void 0 ? "Cancel" : S3, f2 = t3.submitCallback, d3 = t3.cancelCallback, m2 = t3.position, n = m2 === void 0 ? e.positions.date || n.top : m2;
+                W2(), F2();
+                var r = "&#9662", C2 = document.createElement("div"), y = document.createElement("div"), a = document.createElement("div"), E3 = function(L4) {
+                  C2.innerHTML = e.dateMonths[L4.getMonth()], y.innerHTML = L4.getDate(), a.innerHTML = L4.getFullYear();
+                }, D4 = function(L4) {
+                  var N3 = new Date(c3.getFullYear(), c3.getMonth() + 1, 0).getDate(), V3 = L4.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 2);
+                  Number(V3) > N3 && (V3 = N3.toString()), L4.target.textContent = V3, Number(V3) < 1 && (V3 = "1"), c3.setDate(Number(V3));
+                }, M2 = function(L4) {
+                  var N3 = L4.target.textContent.replace(/^0+/, "").replace(/[^\d]/g, "").slice(0, 4);
+                  L4.target.textContent = N3, c3.setFullYear(Number(N3));
+                }, w = function(L4) {
+                  E3(c3);
+                }, _2 = function(L4) {
+                  var N3 = new Date(c3.getFullYear(), c3.getMonth() + L4 + 1, 0).getDate();
+                  c3.getDate() > N3 && c3.setDate(N3), c3.setMonth(c3.getMonth() + L4), E3(c3);
+                }, P3 = function(L4) {
+                  c3.setDate(c3.getDate() + L4), E3(c3);
+                }, he = function(L4) {
+                  var N3 = c3.getFullYear() + L4;
+                  N3 < 0 ? c3.setFullYear(0) : c3.setFullYear(c3.getFullYear() + L4), E3(c3);
+                }, Y2 = document.createElement("div"), pe = K();
+                Y2.id = pe;
+                var fe = document.createElement("div");
+                fe.classList.add(e.classes.backgroundInfo);
+                var I3 = document.createElement("div");
+                I3.classList.add(e.classes.dateSelectorInner);
+                var q3 = document.createElement("div");
+                q3.classList.add(e.classes.button), q3.classList.add(e.classes.elementThird), q3.classList.add(e.classes.dateSelectorUp), q3.innerHTML = r;
+                var G3 = document.createElement("div");
+                G3.classList.add(e.classes.button), G3.classList.add(e.classes.elementThird), G3.classList.add(e.classes.dateSelectorUp), G3.innerHTML = r;
+                var Q3 = document.createElement("div");
+                Q3.classList.add(e.classes.button), Q3.classList.add(e.classes.elementThird), Q3.classList.add(e.classes.dateSelectorUp), Q3.innerHTML = r, C2.classList.add(e.classes.element), C2.classList.add(e.classes.elementThird), C2.innerHTML = e.dateMonths[c3.getMonth()], y.classList.add(e.classes.element), y.classList.add(e.classes.elementThird), y.setAttribute("contentEditable", !0), y.addEventListener("input", D4), y.addEventListener("blur", w), y.innerHTML = c3.getDate(), a.classList.add(e.classes.element), a.classList.add(e.classes.elementThird), a.setAttribute("contentEditable", !0), a.addEventListener("input", M2), a.addEventListener("blur", w), a.innerHTML = c3.getFullYear();
+                var ae = document.createElement("div");
+                ae.classList.add(e.classes.button), ae.classList.add(e.classes.elementThird), ae.innerHTML = r;
+                var ie = document.createElement("div");
+                ie.classList.add(e.classes.button), ie.classList.add(e.classes.elementThird), ie.innerHTML = r;
+                var ce2 = document.createElement("div");
+                ce2.classList.add(e.classes.button), ce2.classList.add(e.classes.elementThird), ce2.innerHTML = r, q3.onclick = function() {
+                  return _2(1);
+                }, G3.onclick = function() {
+                  return P3(1);
+                }, Q3.onclick = function() {
+                  return he(1);
+                }, ae.onclick = function() {
+                  return _2(-1);
+                }, ie.onclick = function() {
+                  return P3(-1);
+                }, ce2.onclick = function() {
+                  return he(-1);
+                };
+                var z3 = document.createElement("div");
+                z3.classList.add(e.classes.button), z3.classList.add(e.classes.elementHalf), z3.classList.add(e.classes.backgroundSuccess), z3.innerHTML = H3, z3.onclick = function() {
+                  O2(pe, n), j2(), f2 ? f2(c3) : o2 && o2(c3);
+                };
+                var U5 = document.createElement("div");
+                U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h2, U5.onclick = function() {
+                  O2(pe, n), j2(), d3 ? d3(c3) : s4 && s4(c3);
+                }, I3.appendChild(q3), I3.appendChild(G3), I3.appendChild(Q3), I3.appendChild(C2), I3.appendChild(y), I3.appendChild(a), I3.appendChild(ae), I3.appendChild(ie), I3.appendChild(ce2), fe.appendChild(I3), Y2.appendChild(fe), Y2.appendChild(z3), Y2.appendChild(U5), Y2.listener = function(L4) {
+                  te(L4) ? z3.click() : ne(L4) && U5.click();
+                }, Z(Y2, n), se2(Y2, n);
+              };
+              p2.default = { alert: Te, force: Me, confirm: He, input: ge, select: Se, date: we, setOptions: Ee, hideAlerts: F2 };
+            }]);
+          });
+        }).call(i, l(0)(v4));
+      }]);
+    });
+  }), B = {};
+  Pe(B, { default: () => Ye });
+  var Fe = ke(xe());
+  X2(B, ke(xe()));
+  var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
+
+  // https://esm.sh/v114/nanostores@0.7.4/deno/nanostores.mjs
+  var S = Symbol("clean");
+  var m = Symbol();
+
+  // https://esm.sh/v114/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  function g(r, n) {
+    if (typeof r == "string")
+      return n(r);
+    {
+      let e = {};
+      for (let t3 in r)
+        e[t3] = g(r[t3], n);
+      return e;
+    }
+  }
+  function p(r) {
+    return (n) => {
+      if (n.transform) {
+        let e = n.transform;
+        return n = n.input, { input: n, transform(t3, o2, s4) {
+          let f2 = r(t3, o2, ...s4);
+          return (...l) => e(t3, f2, l);
+        } };
+      } else
+        return { input: n, transform(e, t3, o2) {
+          return r(e, t3, ...o2);
+        } };
+    };
+  }
+  var N = p((r, n, e) => g(n, (t3) => {
+    for (let o2 in e)
+      t3 = t3.replace(new RegExp(`{${o2}}`, "g"), e[o2]);
+    return t3;
+  })), R = p((r, n, e) => {
+    let t3 = new Intl.PluralRules(r).select(e);
+    return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
+  });
+
+  // https://esm.sh/v114/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
+  function P2(e, t3, i, r) {
+    e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
+      i(window.event);
+    });
+  }
+  function T(e, t3) {
+    for (var i = t3.slice(0, t3.length - 1), r = 0; r < i.length; r++)
+      i[r] = e[i[r].toLowerCase()];
+    return i;
+  }
+  function U2(e) {
+    typeof e != "string" && (e = ""), e = e.replace(/\s/g, "");
+    for (var t3 = e.split(","), i = t3.lastIndexOf(""); i >= 0; )
+      t3[i - 1] += ",", t3.splice(i, 1), i = t3.lastIndexOf("");
+    return t3;
+  }
+  function G2(e, t3) {
+    for (var i = e.length >= t3.length ? e : t3, r = e.length >= t3.length ? t3 : e, n = !0, a = 0; a < i.length; a++)
+      r.indexOf(i[a]) === -1 && (n = !1);
+    return n;
+  }
+  var b = { backspace: 8, "\u232B": 8, tab: 9, clear: 12, enter: 13, "\u21A9": 13, return: 13, esc: 27, escape: 27, space: 32, left: 37, up: 38, right: 39, down: 40, del: 46, delete: 46, ins: 45, insert: 45, home: 36, end: 35, pageup: 33, pagedown: 34, capslock: 20, num_0: 96, num_1: 97, num_2: 98, num_3: 99, num_4: 100, num_5: 101, num_6: 102, num_7: 103, num_8: 104, num_9: 105, num_multiply: 106, num_add: 107, num_enter: 108, num_subtract: 109, num_decimal: 110, num_divide: 111, "\u21EA": 20, ",": 188, ".": 190, "/": 191, "`": 192, "-": M ? 173 : 189, "=": M ? 61 : 187, ";": M ? 59 : 186, "'": 222, "[": 219, "]": 221, "\\": 220 }, g2 = { "\u21E7": 16, shift: 16, "\u2325": 18, alt: 18, option: 18, "\u2303": 17, ctrl: 17, control: 17, "\u2318": 91, cmd: 91, command: 91 }, L2 = { 16: "shiftKey", 18: "altKey", 17: "ctrlKey", 91: "metaKey", shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 91 }, u = { 16: !1, 18: !1, 17: !1, 91: !1 }, s3 = {};
+  for (O = 1; O < 20; O++)
+    b["f".concat(O)] = 111 + O;
+  var O, f = [], A = !1, D2 = "all", H2 = [], C = function(t3) {
+    return b[t3.toLowerCase()] || g2[t3.toLowerCase()] || t3.toUpperCase().charCodeAt(0);
+  }, R2 = function(t3) {
+    return Object.keys(b).find(function(i) {
+      return b[i] === t3;
+    });
+  }, V = function(t3) {
+    return Object.keys(g2).find(function(i) {
+      return g2[i] === t3;
+    });
+  };
+  function F(e) {
+    D2 = e || "all";
+  }
+  function E() {
+    return D2 || "all";
+  }
+  function X3() {
+    return f.slice(0);
+  }
+  function $2() {
+    return f.map(function(e) {
+      return R2(e) || V(e) || String.fromCharCode(e);
+    });
+  }
+  function q2(e) {
+    var t3 = e.target || e.srcElement, i = t3.tagName, r = !0;
+    return (t3.isContentEditable || (i === "INPUT" || i === "TEXTAREA" || i === "SELECT") && !t3.readOnly) && (r = !1), r;
+  }
+  function z2(e) {
+    return typeof e == "string" && (e = C(e)), f.indexOf(e) !== -1;
+  }
+  function J(e, t3) {
+    var i, r;
+    e || (e = E());
+    for (var n in s3)
+      if (Object.prototype.hasOwnProperty.call(s3, n))
+        for (i = s3[n], r = 0; r < i.length; )
+          i[r].scope === e ? i.splice(r, 1) : r++;
+    E() === e && F(t3 || "all");
+  }
+  function N2(e) {
+    var t3 = e.keyCode || e.which || e.charCode, i = f.indexOf(t3);
+    if (i >= 0 && f.splice(i, 1), e.key && e.key.toLowerCase() === "meta" && f.splice(0, f.length), (t3 === 93 || t3 === 224) && (t3 = 91), t3 in u) {
+      u[t3] = !1;
+      for (var r in g2)
+        g2[r] === t3 && (v2[r] = !1);
+    }
+  }
+  function Q(e) {
+    if (typeof e > "u")
+      Object.keys(s3).forEach(function(o2) {
+        return delete s3[o2];
+      });
+    else if (Array.isArray(e))
+      e.forEach(function(o2) {
+        o2.key && S2(o2);
+      });
+    else if (typeof e == "object")
+      e.key && S2(e);
+    else if (typeof e == "string") {
+      for (var t3 = arguments.length, i = new Array(t3 > 1 ? t3 - 1 : 0), r = 1; r < t3; r++)
+        i[r - 1] = arguments[r];
+      var n = i[0], a = i[1];
+      typeof n == "function" && (a = n, n = ""), S2({ key: e, scope: n, method: a, splitKey: "+" });
+    }
+  }
+  var S2 = function(t3) {
+    var i = t3.key, r = t3.scope, n = t3.method, a = t3.splitKey, o2 = a === void 0 ? "+" : a, l = U2(i);
+    l.forEach(function(c3) {
+      var p2 = c3.split(o2), m2 = p2.length, y = p2[m2 - 1], d3 = y === "*" ? "*" : C(y);
+      if (s3[d3]) {
+        r || (r = E());
+        var K = m2 > 1 ? T(g2, p2) : [];
+        s3[d3] = s3[d3].filter(function(h2) {
+          var w = n ? h2.method === n : !0;
+          return !(w && h2.scope === r && G2(h2.mods, K));
+        });
+      }
+    });
+  };
+  function _(e, t3, i, r) {
+    if (t3.element === r) {
+      var n;
+      if (t3.scope === i || t3.scope === "all") {
+        n = t3.mods.length > 0;
+        for (var a in u)
+          Object.prototype.hasOwnProperty.call(u, a) && (!u[a] && t3.mods.indexOf(+a) > -1 || u[a] && t3.mods.indexOf(+a) === -1) && (n = !1);
+        (t3.mods.length === 0 && !u[16] && !u[18] && !u[17] && !u[91] || n || t3.shortcut === "*") && t3.method(e, t3) === !1 && (e.preventDefault ? e.preventDefault() : e.returnValue = !1, e.stopPropagation && e.stopPropagation(), e.cancelBubble && (e.cancelBubble = !0));
+      }
+    }
+  }
+  function k(e, t3) {
+    var i = s3["*"], r = e.keyCode || e.which || e.charCode;
+    if (v2.filter.call(this, e)) {
+      if ((r === 93 || r === 224) && (r = 91), f.indexOf(r) === -1 && r !== 229 && f.push(r), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(h2) {
+        var w = L2[h2];
+        e[h2] && f.indexOf(w) === -1 ? f.push(w) : !e[h2] && f.indexOf(w) > -1 ? f.splice(f.indexOf(w), 1) : h2 === "metaKey" && e[h2] && f.length === 3 && (e.ctrlKey || e.shiftKey || e.altKey || (f = f.slice(f.indexOf(w))));
+      }), r in u) {
+        u[r] = !0;
+        for (var n in g2)
+          g2[n] === r && (v2[n] = !0);
+        if (!i)
+          return;
+      }
+      for (var a in u)
+        Object.prototype.hasOwnProperty.call(u, a) && (u[a] = e[L2[a]]);
+      e.getModifierState && !(e.altKey && !e.ctrlKey) && e.getModifierState("AltGraph") && (f.indexOf(17) === -1 && f.push(17), f.indexOf(18) === -1 && f.push(18), u[17] = !0, u[18] = !0);
+      var o2 = E();
+      if (i)
+        for (var l = 0; l < i.length; l++)
+          i[l].scope === o2 && (e.type === "keydown" && i[l].keydown || e.type === "keyup" && i[l].keyup) && _(e, i[l], o2, t3);
+      if (r in s3) {
+        for (var c3 = 0; c3 < s3[r].length; c3++)
+          if ((e.type === "keydown" && s3[r][c3].keydown || e.type === "keyup" && s3[r][c3].keyup) && s3[r][c3].key) {
+            for (var p2 = s3[r][c3], m2 = p2.splitKey, y = p2.key.split(m2), d3 = [], K = 0; K < y.length; K++)
+              d3.push(C(y[K]));
+            d3.sort().join("") === f.sort().join("") && _(e, p2, o2, t3);
+          }
+      }
+    }
+  }
+  function W(e) {
+    return H2.indexOf(e) > -1;
+  }
+  function v2(e, t3, i) {
+    f = [];
+    var r = U2(e), n = [], a = "all", o2 = document, l = 0, c3 = !1, p2 = !0, m2 = "+", y = !1;
+    for (i === void 0 && typeof t3 == "function" && (i = t3), Object.prototype.toString.call(t3) === "[object Object]" && (t3.scope && (a = t3.scope), t3.element && (o2 = t3.element), t3.keyup && (c3 = t3.keyup), t3.keydown !== void 0 && (p2 = t3.keydown), t3.capture !== void 0 && (y = t3.capture), typeof t3.splitKey == "string" && (m2 = t3.splitKey)), typeof t3 == "string" && (a = t3); l < r.length; l++)
+      e = r[l].split(m2), n = [], e.length > 1 && (n = T(g2, e)), e = e[e.length - 1], e = e === "*" ? "*" : C(e), e in s3 || (s3[e] = []), s3[e].push({ keyup: c3, keydown: p2, scope: a, mods: n, shortcut: r[l], method: i, key: r[l], splitKey: m2, element: o2 });
+    typeof o2 < "u" && !W(o2) && window && (H2.push(o2), P2(o2, "keydown", function(d3) {
+      k(d3, o2);
+    }, y), A || (A = !0, P2(window, "focus", function() {
+      f = [];
+    }, y)), P2(o2, "keyup", function(d3) {
+      k(d3, o2), N2(d3);
+    }, y));
+  }
+  function Y(e) {
+    var t3 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "all";
+    Object.keys(s3).forEach(function(i) {
+      var r = s3[i].filter(function(n) {
+        return n.scope === t3 && n.shortcut === e;
+      });
+      r.forEach(function(n) {
+        n && n.method && n.method();
+      });
+    });
+  }
+  var j = { getPressedKeyString: $2, setScope: F, getScope: E, deleteScope: J, getPressedKeyCodes: X3, isPressed: z2, filter: q2, trigger: Y, unbind: Q, keyMap: b, modifier: g2, modifierMap: L2 };
+  for (x in j)
+    Object.prototype.hasOwnProperty.call(j, x) && (v2[x] = j[x]);
+  var x;
+  typeof document < "u" && (B3 = window.hotkeys, v2.noConflict = function(e) {
+    return e && window.hotkeys === v2 && (window.hotkeys = B3), v2;
+  }, window.hotkeys = v2);
+  var B3;
+
+  // https://esm.sh/v114/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  var d2 = "Immersive Translate", v3 = class {
+    #e = performance.now();
+    reset() {
+      this.#e = performance.now();
+    }
+    stop(e) {
+      let t3 = performance.now(), n = Math.round(t3 - this.#e);
+      console.debug(d2 + " TIMING:", e, "in", n + "ms"), this.#e = t3;
+    }
+  }, D3 = class {
+    #e = 1;
+    get level() {
+      return this.#e;
+    }
+    setLevel(e) {
+      switch (e) {
+        case "debug":
+          this.#e = 0;
+          break;
+        case "info":
+          this.#e = 1;
+          break;
+        case "warn":
+          this.#e = 2;
+          break;
+        case "error":
+          this.#e = 3;
+          break;
+        case "fatal":
+          this.#e = 4;
+          break;
+      }
+    }
+    debug(...e) {
+      this.#e <= 0 && console.log(d2 + " DEBUG:", ...e);
+    }
+    v(...e) {
+      this.#e <= 0 && console.log(d2 + " VERBOSE:", ...e);
+    }
+    info(...e) {
+      this.#e <= 1 && console.log(d2 + " INFO:", ...e);
+    }
+    l(...e) {
+      this.#e <= 1 && console.log(d2 + " TEMP INFO:", ...e);
+    }
+    warn(...e) {
+      this.#e <= 2 && console.warn(d2 + " WARN:", ...e);
+    }
+    error(...e) {
+      this.#e <= 3 && console.error(d2 + " ERROR:", ...e);
+    }
+    fatal(...e) {
+      this.#e <= 4 && console.error(d2 + " FATAL:", ...e);
+    }
+    timing() {
+      return this.level === 0 ? new v3() : { reset: () => {
+      }, stop: () => {
+      } };
+    }
+  }, E2 = new D3(), L3 = "poegempjloogba", I2 = "ension://";
+  var U3 = "rome-ext";
+  var V2 = "ch" + U3 + I2 + "cofdb" + L3 + "gkncekinflcnj";
+
+  // deps.ts
+  var toast = Ye.alert;
+
   // log.ts
   var Timing = class {
     #t = performance.now();
@@ -7136,6 +7216,81 @@ body {
       } };
     }
   }, log_default = new Logger();
+
+  // errors.ts
+  var CommonError = class extends Error {
+    constructor(name, message, details) {
+      super(message);
+      this.name = name, details && (this.details = details);
+    }
+  };
+
+  // browser/request.ts
+  async function request(options) {
+    let response;
+    if (options && options.retry && options.retry > 0)
+      try {
+        response = await retry(rawRequest.bind(null, options), {
+          multiplier: 2,
+          maxAttempts: options.retry
+        });
+      } catch (e) {
+        throw e && e.name === "RetryError" && e.cause ? e.cause : e;
+      }
+    else
+      response = await rawRequest(options);
+    return response;
+  }
+  async function rawRequest(options) {
+    options.body;
+    let { url, responseType, ...fetchOptions } = options;
+    responseType || (responseType = "json"), fetchOptions = {
+      mode: "cors",
+      ...fetchOptions
+    };
+    let isNativeFetch = !0;
+    options.fetchPolyfill && (isNativeFetch = !1);
+    let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
+    if (options.timeout && (timeout = options.timeout), isNativeFetch) {
+      let controller = new AbortController(), signal = controller.signal;
+      setTimeout(() => {
+        controller.abort();
+      }, timeout), fetchOptions.signal = signal;
+    }
+    let response = await fetchFn(url, fetchOptions);
+    if (response.ok && response.status >= 200 && response.status < 400) {
+      if (responseType === "json")
+        return await response.json();
+      if (responseType === "text")
+        return await response.text();
+      if (responseType === "raw") {
+        let data = await response.text(), responseHeaders = Object.fromEntries([
+          ...response.headers.entries()
+        ]), finalUrl = response.url;
+        return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
+          body: data,
+          headers: responseHeaders,
+          status: response.status,
+          statusText: response.statusText,
+          url: finalUrl
+        };
+      }
+    } else {
+      let details;
+      try {
+        details = await response.text();
+      } catch (_e2) {
+        log_default.error("parse response failed", _e2);
+      }
+      details && log_default.error("fail response", details);
+      let shortDetail = "";
+      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
+        "fetchError",
+        response.status + ": " + (response.statusText || "") + shortDetail,
+        details
+      );
+    }
+  }
 
   // utils/format_language.ts
   function formatLanguage(rawLangCode) {
@@ -7713,10 +7868,16 @@ body {
           "[data-testid='card.layoutSmall.detail'] > div:nth-child(2)",
           "[data-testid='developerBuiltCardContainer'] > div:nth-child(2)",
           "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
-          "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)"
+          "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
+          "[data-testid='UserDescription']",
+          "[data-testid='HoverCard'] div[dir=auto]"
         ],
         observeUrlChange: !1,
-        extraInlineSelectors: ['[data-testid="tweetText"] div']
+        extraInlineSelectors: [
+          '[data-testid="tweetText"] div',
+          '[data-testid="UserDescription"] div',
+          "[data-testid='HoverCard'] div[dir=auto] div"
+        ]
       },
       {
         matches: [
@@ -7786,6 +7947,7 @@ body {
           "https://www.reddit.com/top/"
         ],
         excludeMatches: ["https://www.reddit.com/r/*/wiki/*"],
+        observeUrlChange: !0,
         selectors: [
           "h1",
           ".PostHeader__post-title-line",
@@ -7922,7 +8084,8 @@ body {
           "span#video-title",
           "a#video-title",
           "yt-formatted-string.ytd-transcript-segment-renderer",
-          "#description-inline-expander > yt-attributed-string > span"
+          "#description-inline-expander > yt-attributed-string > span",
+          "ytd-notification-renderer .message"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -9005,10 +9168,12 @@ body {
         extraBlockSelectors: "font[face=verdana]"
       },
       {
-        matches: "*.zendesk.com",
-        additionalSelectors: [
-          "div.zd-comment"
-        ]
+        matches: "https://*.zendesk.com/agent/*",
+        selectors: ["[data-test-id*=subject]", ".zd-comment", ".title"]
+      },
+      {
+        matches: "webmail.migadu.com",
+        selectors: [".bodyText"]
       },
       {
         isSubtitleBuilder: !0,
@@ -9021,74 +9186,21 @@ body {
         isTranslateTitle: !1,
         wrapperPrefix: "",
         wrapperSuffix: ""
+      },
+      {
+        matches: "cs.brown.edu",
+        excludeSelectors: [
+          ".SCodeFlow"
+        ]
+      },
+      {
+        matches: "tass.ru",
+        globalStyles: {
+          "#__next": "font-size: 19px;line-height:28px;"
+        }
       }
     ]
   };
-
-  // utils/platform.ts
-  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
-  function isBrowser(toCheck) {
-    let currentBrowser = CHROME;
-    try {
-      let userAgent = navigator?.userAgent || "";
-      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-    } catch {
-    }
-    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
-  }
-  function isChrome() {
-    return isBrowser(CHROME);
-  }
-  function isDeno() {
-    return typeof Deno < "u";
-  }
-  function isFirefox() {
-    return isBrowser(FIREFOX);
-  }
-
-  // browser/mock_browser.ts
-  var listeners = {
-    addListener: () => {
-    },
-    removeListener: () => {
-    },
-    hasListener: () => {
-    }
-  }, mock_browser_default = {
-    permissions: {
-      contains: () => {
-      },
-      request: () => {
-      }
-    },
-    runtime: {
-      onMessage: listeners,
-      openOptionsPage: () => {
-      },
-      lastError: {
-        message: ""
-      }
-    },
-    storage: {
-      sync: {
-        get: () => {
-        },
-        set: () => {
-        }
-      }
-    },
-    tabs: {
-      onUpdated: listeners,
-      query: () => {
-      },
-      sendMessage: () => {
-      }
-    }
-  };
-
-  // browser/browser.ts
-  var browserAPI;
-  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
 
   // utils/array.ts
   function arrayOrGenericToArray(arrayOrGeneric) {
@@ -9369,95 +9481,6 @@ body {
       rules: []
     };
   };
-
-  // utils/get_pdf_viewer_url.ts
-  function formatToPdfViewerUrl(url) {
-    let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl), pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
-    return (url.startsWith("http") || !isFirefox()) && pdfViewUrlObj.searchParams.set(
-      "file",
-      url
-    ), pdfViewUrlObj.href;
-  }
-
-  // utils/is_pdf_url.ts
-  function isPdfUrl(url) {
-    return new URL(url)?.pathname.toLowerCase().endsWith(".pdf");
-  }
-
-  // errors.ts
-  var CommonError = class extends Error {
-    constructor(name, message, details) {
-      super(message);
-      this.name = name, details && (this.details = details);
-    }
-  };
-
-  // browser/request.ts
-  async function request(options) {
-    let response;
-    if (options && options.retry && options.retry > 0)
-      try {
-        response = await retry(rawRequest.bind(null, options), {
-          multiplier: 2,
-          maxAttempts: options.retry
-        });
-      } catch (e) {
-        throw e && e.name === "RetryError" && e.cause ? e.cause : e;
-      }
-    else
-      response = await rawRequest(options);
-    return response;
-  }
-  async function rawRequest(options) {
-    options.body;
-    let { url, responseType, ...fetchOptions } = options;
-    responseType || (responseType = "json"), fetchOptions = {
-      mode: "cors",
-      ...fetchOptions
-    };
-    let isNativeFetch = !0;
-    options.fetchPolyfill && (isNativeFetch = !1);
-    let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
-    if (options.timeout && (timeout = options.timeout), isNativeFetch) {
-      let controller = new AbortController(), signal = controller.signal;
-      setTimeout(() => {
-        controller.abort();
-      }, timeout), fetchOptions.signal = signal;
-    }
-    let response = await fetchFn(url, fetchOptions);
-    if (response.ok && response.status >= 200 && response.status < 400) {
-      if (responseType === "json")
-        return await response.json();
-      if (responseType === "text")
-        return await response.text();
-      if (responseType === "raw") {
-        let data = await response.text(), responseHeaders = Object.fromEntries([
-          ...response.headers.entries()
-        ]), finalUrl = response.url;
-        return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
-          body: data,
-          headers: responseHeaders,
-          status: response.status,
-          statusText: response.statusText,
-          url: finalUrl
-        };
-      }
-    } else {
-      let details;
-      try {
-        details = await response.text();
-      } catch (_e2) {
-        log_default.error("parse response failed", _e2);
-      }
-      details && log_default.error("fail response", details);
-      let shortDetail = "";
-      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
-        "fetchError",
-        response.status + ": " + (response.statusText || "") + shortDetail,
-        details
-      );
-    }
-  }
 
   // utils/url_match.ts
   var matchAll = ["*://*/*", "*", "*://*"], placeholder = "immersive-translate-wildcard-placeholder.com";
@@ -10660,48 +10683,20 @@ body {
     log_default.debug("createContextMenu", menus);
     for (let menu of menus) {
       let visible = !0;
-      config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (visible = !1), browserAPI.contextMenus.create({
-        id: menu.id,
-        title: t2(`browser.${menu.id}`, config.interfaceLanguage),
-        contexts: menu.contexts,
-        visible
-      }, () => browserAPI.runtime.lastError);
-    }
-  }
-  async function tryUpdateContextMenus() {
-    let config = await getConfig();
-    log_default.debug("try update ContextMenu", config);
-    for (let menu of menus) {
-      let newTitle = t2(`browser.${menu.id}`, config.interfaceLanguage);
+      config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (visible = !1);
       try {
-        await browserAPI.contextMenus.update(
-          menu.id,
-          {
-            title: newTitle
-          }
-        );
+        browserAPI.contextMenus.create({
+          id: menu.id,
+          title: t2(`browser.${menu.id}`, config.interfaceLanguage),
+          contexts: menu.contexts,
+          visible
+        }, () => browserAPI.runtime.lastError);
       } catch (e) {
         log_default.debug(
-          "update context menu error, it's ok!!",
+          "create context menu error, it's ok!!",
           e,
           `menu id: ${menu.id}`
         );
-        let visible = !0;
-        config.isShowContextMenu === !1 && menu.id === "toggleTranslatePage" && (visible = !1);
-        try {
-          browserAPI.contextMenus.create({
-            id: menu.id,
-            title: t2(`browser.${menu.id}`, config.interfaceLanguage),
-            contexts: menu.contexts,
-            visible
-          }, () => browserAPI.runtime.lastError);
-        } catch (e2) {
-          log_default.warn(
-            "try to create context menu error",
-            e2,
-            `menu id: ${menu.id}`
-          );
-        }
       }
     }
   }
@@ -10733,6 +10728,9 @@ body {
 
   // browser_updated_listeners.ts
   function onUpdated() {
+    tryToCreateContextMenu();
+  }
+  function tryToCreateContextMenu() {
     getConfig().then((config) => {
       createContextMenu(config);
     }).catch((e) => {
@@ -10753,11 +10751,7 @@ body {
   setupContextMenuListeners();
   steupMessageListeners();
   async function mainAsync() {
-    (await getConfig()).debug && log_default.setLevel("debug"), setTimeout(() => {
-      tryUpdateContextMenus().catch((e) => {
-        log_default.error("tryUpdateContextMenus error", e);
-      });
-    }, 1e3);
+    tryToCreateContextMenu();
   }
   mainAsync().catch((e) => {
     console.error("init main erro", e);

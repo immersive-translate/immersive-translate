@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-05T23:18:17.845Z", VERSION: "0.4.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:12.956Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7000,7 +7000,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     terminateWorkers: () => Ss
   });
 
-  // https://esm.sh/v113/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
+  // https://esm.sh/v114/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
   function kt(t) {
     return vt(t.map(([n, e]) => new Array(n).fill(e, 0, n)));
   }
@@ -9060,7 +9060,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         if (ie(g, E) != 33639248)
           throw new Error(Vs);
         _a(b, g, E + 6);
-        let D = Boolean(b.bitFlag.languageEncodingFlag), C2 = E + 46, F2 = C2 + b.filenameLength, v = F2 + b.extraFieldLength, M = se(g, E + 4), U = (M & 0) == 0, Z = w.subarray(C2, F2), G = se(g, E + 32), ce = v + G, k = w.subarray(v, ce), ne = D, H = D, V2 = U && (ft(g, E + 38) & 16) == 16, Re = ie(g, E + 42) + c;
+        let D = !!b.bitFlag.languageEncodingFlag, C2 = E + 46, F2 = C2 + b.filenameLength, v = F2 + b.extraFieldLength, M = se(g, E + 4), U = (M & 0) == 0, Z = w.subarray(C2, F2), G = se(g, E + 32), ce = v + G, k = w.subarray(v, ce), ne = D, H = D, V2 = U && (ft(g, E + 38) & 16) == 16, Re = ie(g, E + 42) + c;
         Object.assign(b, { versionMadeBy: M, msDosCompatible: U, compressedSize: 0, uncompressedSize: 0, commentLength: G, directory: V2, offset: Re, diskNumberStart: se(g, E + 34), internalFileAttribute: se(g, E + 36), externalFileAttribute: ie(g, E + 38), rawFilename: Z, filenameUTF8: ne, commentUTF8: H, rawExtraField: w.subarray(F2, v) });
         let [ee, J2] = await Promise.all([_n(Z, ne ? sa : p2 || oa), _n(k, H ? sa : x || oa)]);
         Object.assign(b, { rawComment: k, filename: ee, comment: J2, directory: V2 || ee.endsWith(rt) }), _ = Math.max(Re, _), await fa(b, b, g, E + 6);
@@ -9365,7 +9365,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     }
   }
   async function Ro(t, n, { diskNumberStart: e, lock: i }, r, a, o) {
-    let { headerInfo: l, dataDescriptorInfo: s } = r, { localHeaderArray: d2, headerArray: u, lastModDate: h, rawLastModDate: R, encrypted: T2, compressed: y, version: f, compressionMethod: c, rawExtraFieldExtendedTimestamp: _, rawExtraFieldNTFS: E, rawExtraFieldAES: w } = l, { dataDescriptorArray: g } = s, { rawFilename: p2, lastAccessDate: x, creationDate: A, password: m, level: O, zip64: b, zip64UncompressedSize: D, zip64CompressedSize: C2, zip64Offset: F2, zip64DiskNumberStart: v, zipCrypto: M, dataDescriptor: U, directory: Z, versionMadeBy: G, rawComment: ce, rawExtraField: k, useWebWorkers: ne, onstart: H, onprogress: V2, onend: Re, signal: ee, encryptionStrength: J2, extendedTimestamp: me, msDosCompatible: Te, internalFileAttribute: De, externalFileAttribute: re, useCompressionStream: we } = o, de = { lock: i, versionMadeBy: G, zip64: b, directory: Boolean(Z), filenameUTF8: !0, rawFilename: p2, commentUTF8: !0, rawComment: ce, rawExtraFieldExtendedTimestamp: _, rawExtraFieldNTFS: E, rawExtraFieldAES: w, rawExtraField: k, extendedTimestamp: me, msDosCompatible: Te, internalFileAttribute: De, externalFileAttribute: re, diskNumberStart: e }, Se = 0, ye = 0, ae, { writable: le } = n;
+    let { headerInfo: l, dataDescriptorInfo: s } = r, { localHeaderArray: d2, headerArray: u, lastModDate: h, rawLastModDate: R, encrypted: T2, compressed: y, version: f, compressionMethod: c, rawExtraFieldExtendedTimestamp: _, rawExtraFieldNTFS: E, rawExtraFieldAES: w } = l, { dataDescriptorArray: g } = s, { rawFilename: p2, lastAccessDate: x, creationDate: A, password: m, level: O, zip64: b, zip64UncompressedSize: D, zip64CompressedSize: C2, zip64Offset: F2, zip64DiskNumberStart: v, zipCrypto: M, dataDescriptor: U, directory: Z, versionMadeBy: G, rawComment: ce, rawExtraField: k, useWebWorkers: ne, onstart: H, onprogress: V2, onend: Re, signal: ee, encryptionStrength: J2, extendedTimestamp: me, msDosCompatible: Te, internalFileAttribute: De, externalFileAttribute: re, useCompressionStream: we } = o, de = { lock: i, versionMadeBy: G, zip64: b, directory: !!Z, filenameUTF8: !0, rawFilename: p2, commentUTF8: !0, rawComment: ce, rawExtraFieldExtendedTimestamp: _, rawExtraFieldNTFS: E, rawExtraFieldAES: w, rawExtraField: k, extendedTimestamp: me, msDosCompatible: Te, internalFileAttribute: De, externalFileAttribute: re, diskNumberStart: e }, Se = 0, ye = 0, ae, { writable: le } = n;
     if (t) {
       t.chunkSize = Kt(a), await Ze(le, d2);
       let Ie = t.readable, Ft = Ie.size = t.size, pn2 = { options: { codecType: tn, level: O, password: m, encryptionStrength: J2, zipCrypto: T2 && M, passwordVerification: T2 && M && R >> 8 & 255, signed: !0, compressed: y, encrypted: T2, useWebWorkers: ne, useCompressionStream: we, transferStreams: !1 }, config: a, streamOptions: { signal: ee, size: Ft, onstart: H, onprogress: V2, onend: Re } }, ke = await rn({ readable: Ie, writable: le }, pn2);
@@ -9381,7 +9381,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     return t && Ao({ signature: ae, rawExtraFieldZip64: Qe, compressedSize: Se, uncompressedSize: ye, headerInfo: l, dataDescriptorInfo: s }, o), U && await Ze(le, g), Object.assign(de, { uncompressedSize: ye, compressedSize: Se, lastModDate: h, rawLastModDate: R, creationDate: A, lastAccessDate: x, encrypted: T2, length: j(d2, g) + Se, compressionMethod: c, version: f, headerArray: u, signature: ae, rawExtraFieldZip64: Qe, zip64UncompressedSize: D, zip64CompressedSize: C2, zip64Offset: F2, zip64DiskNumberStart: v }), de;
   }
   function wo(t) {
-    let { rawFilename: n, lastModDate: e, lastAccessDate: i, creationDate: r, password: a, level: o, zip64: l, zipCrypto: s, dataDescriptor: d2, directory: u, rawExtraField: h, encryptionStrength: R, extendedTimestamp: T2 } = t, y = o !== 0 && !u, f = Boolean(a && j(a)), c = t.version, _;
+    let { rawFilename: n, lastModDate: e, lastAccessDate: i, creationDate: r, password: a, level: o, zip64: l, zipCrypto: s, dataDescriptor: d2, directory: u, rawExtraField: h, encryptionStrength: R, extendedTimestamp: T2 } = t, y = o !== 0 && !u, f = !!(a && j(a)), c = t.version, _;
     if (f && !s) {
       _ = new Uint8Array(j(ha) + 2);
       let M = Ae(_);
@@ -9528,7 +9528,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   }
   or({ Deflate: Zi, Inflate: ar });
 
-  // https://esm.sh/v113/fflate@0.7.4/deno/fflate.mjs
+  // https://esm.sh/v114/fflate@0.7.4/deno/fflate.mjs
   var vn2 = {}, Jn2 = function(n, r, t, e, i) {
     var a = new Worker(vn2[r] || (vn2[r] = URL.createObjectURL(new Blob([n + ';addEventListener("error",function(e){e=e.error;postMessage({$e$:[e.message,e.code,e.stack]})})'], { type: "text/javascript" }))));
     return a.onmessage = function(o) {
@@ -10797,6 +10797,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   var zh_CN_default = {
     lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
     "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+    "noSupportTranslate-pdf": "\u811A\u672C\u4E0D\u652F\u6301\u8BF7\u4F7F\u7528\u63D2\u4EF6",
     "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
     enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
     sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
@@ -11732,7 +11733,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       allProps: [
         {
           name: "APIKEY",
-          required: !1,
+          required: !0,
           type: "password"
         },
         {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.
-// @version      0.4.1
+// @version      0.4.2
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -74,7 +74,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-11T07:55:22.158Z", VERSION: "0.4.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:15.560Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4369,7 +4369,7 @@ body {
           if (respHeaders.get("X-Request-URL"))
             return respHeaders.get("X-Request-URL");
         }
-        xhr_details.method = request3.method || "GET", xhr_details.timeout = 6e4, request3.timeout && (xhr_details.url = request3.url), xhr_details.synchronous = !1, xhr_details.onload = function(resp) {
+        xhr_details.method = request3.method || "GET", xhr_details.timeout = 6e4, request3.timeout && (xhr_details.timeout = request3.timeout), xhr_details.url = request3.url, xhr_details.synchronous = !1, xhr_details.onload = function(resp) {
           var status = resp.status;
           if (status < 100 || status > 599) {
             reject(new TypeError("Network request failed"));
@@ -19340,7 +19340,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.1",
+    version: "0.4.2",
     default_locale: "en",
     background: {
       service_worker: "background.js"

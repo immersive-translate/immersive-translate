@@ -5,6 +5,9 @@
 
 ## Todo List
 
+- [ ] 新增选项，是否要记住站内链接翻译的状态....
+- [ ] observe url change 对于动态网页，前一个网页没有监测的情况下，无法判断后一个网页。比如 reddit
+- [ ] reddit click 展开后，无法检测到新内容: https://www.reddit.com/r/tifu/comments/12dzq1j/tifu_by_peeing_on_my_doctors_face/ 需要关闭 nfsw 自动展开
 - [x] subtitle error retry
 - [x] openAI api key optional.
 - [ ] 调查 ios15 的优化。

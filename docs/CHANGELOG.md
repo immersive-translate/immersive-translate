@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.4.1
+
+- Fix: firefox context menu dispeared after restart.
+- Support Azure openai
+
 ## 0.4.0
 
 - Feat: Support Translate Local Subtitle File (.srt,.ass,etc.)

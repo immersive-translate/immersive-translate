@@ -81,10 +81,15 @@ git clone git@github.com:immersive-translate/next-translator.git
     make devuserscript
 
 First time, download [tampermonkey](https://www.tampermonkey.net/) extension,
+
+Then, you should Allow tampermonkey access to file URLs:
+
+open `chrome://extensions`, find tampermonkey, click `Details` , enable `Allow tampermonkey access to file URLs`
+
 open tampermonkey dashboard, to create a script:
 
 replace the whole code with `dist/userscript/dev-entry.js`
-UserScript header, like this:
+UserScript header, like this(do not use the following demon code, use `dist/userscript/dev-entry.js`):
 
 ```
 // ==UserScript==

@@ -45,5 +45,20 @@
     "createdAt": "2023-03-20",
     "expiresAt": "2023-04-20",
     "provider": "custom"
+  },
+  {
+    "sponsor": {
+      "type": "Organization",
+      "name": "匿名科技",
+      "login": "anonymoustechnology",
+      "description": "匿名科技，提供网站定制，网站开发，App开发，电报小飞机bot机器人定制，以及顶尖后台系统支持。",
+      "avatarUrl": "../../../docs/assets/niming.png",
+      "linkUrl": "https://t.me/+gL2yylZ1Q0A3ZGY1"
+    },
+    "monthlyDollars": 50,
+    "privacyLevel": "PUBLIC",
+    "createdAt": "2023-04-12",
+    "expiresAt": "2023-10-12",
+    "provider": "custom"
   }
 ]

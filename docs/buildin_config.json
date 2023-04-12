@@ -1306,8 +1306,7 @@
     },
     {
       "matches": [
-        "notion.site",
-        "www.notion.so"
+        "notion.site"
       ],
       "normalizeBody": "body",
       "selectors": [
@@ -2226,6 +2225,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-12T09:01:03.742Z",
+  "buildinConfigUpdatedAt": "2023-04-12T17:14:12.699Z",
   "latestVersion": "0.4.2"
 }

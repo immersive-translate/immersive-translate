@@ -1007,8 +1007,10 @@
         "td div.gs_gray:last-of-type",
         "div.gsc_oci_value"
       ],
+      "extraInlineSelectors": [
+        "br"
+      ],
       "atomicBlockSelectors": [
-        ".gs_rs",
         "h3 a[data-clk]"
       ]
     },
@@ -2183,7 +2185,11 @@
     {
       "matches": "thehackernews.com",
       "excludeSelectors": [
-        "span#blog-pager-older-link"
+        "span#blog-pager-older-link",
+        "span.h-datetime"
+      ],
+      "additionalSelectors": [
+        ".pop-title"
       ]
     },
     {
@@ -2209,8 +2215,17 @@
       "globalStyles": {
         "#__next": "font-size: 19px;line-height:28px;"
       }
+    },
+    {
+      "matches": "chat.google.com",
+      "selectors": [
+        "[data-is-initial-message-of-thread=true]"
+      ],
+      "additionalExcludeSelectors": [
+        "[data-absolute-timestamp]"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-11T12:08:24.863Z",
+  "buildinConfigUpdatedAt": "2023-04-12T09:01:03.742Z",
   "latestVersion": "0.4.2"
 }

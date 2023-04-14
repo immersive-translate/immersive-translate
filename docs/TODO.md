@@ -5,8 +5,11 @@
 
 ## Todo List
 
-已知BUG
+站点适配
 - [ ] https://www.lookintobitcoin.com/charts/bitcoin-investor-tool/ 切换翻译服务后，左侧有一些菜单不再翻译
+- [ ] reddit click 展开后，无法检测到新内容: https://www.reddit.com/r/tifu/comments/12dzq1j/tifu_by_peeing_on_my_doctors_face/ 需要关闭 nfsw 自动展开
+- [ ] fix alook
+- [ ] yandex 搜索页面适配
 
 性能优化
 - [ ] 调查 ios15 的优化。
@@ -20,19 +23,12 @@
 - [ ] 提供到网站的延时设置
 - [ ] 开头网络卡了，导致翻译不出结果，第一次看到这个界面，这让我想到可否在此基础上优化一下显示的图标，作为另外一种翻译模式呢？即在需要的翻译的段落旁点按钮，插入显示翻译结果。它有点类似模糊翻译，但可以带来两个好处：1.没有大量的模糊内容干扰阅读视线，2.不需要自动请求大量网络翻译，减少网络压力，节省 API 请求次数,还有第三个好处是在阅读中段时，启动插件，也不会有位移的问题了
 
-站点适配
-- [ ] yandex 搜索页面适配
-- [ ] fix alook
-- [ ] reddit click 展开后，无法检测到新内容: https://www.reddit.com/r/tifu/comments/12dzq1j/tifu_by_peeing_on_my_doctors_face/ 需要关闭 nfsw 自动展开
-
-
 用户设置
 - [ ] 点击展开更多设置，对于翻译引擎
 - [ ] 设置超过多少个单词才翻译，有些网站只只翻译较长段落就就行。??
 - [ ] “我理解如果从页面中间点翻译，它会从“中间往下”继续翻（不是从页面的头开始翻）。不过实际上它只翻译中间而不会继续往下翻“ 优化项，如果页面中间点翻译，则从中间开始翻译。
 
 译文
-- [ ] 还好，作者可不可以加一个译文可以编辑的功能呀，想要一个
 - [ ] 不翻译纯符号： https://github.com/m-bain/whisperX/issues/56
 - [ ] 新增选项，是否记住站内链接翻译的状态....
 - [ ] 全局模式下，翻译 input， type = submit 的 value 属性
@@ -85,6 +81,7 @@ PDF和阅读器
 功能请求
 - [ ] 加字数统计功能,年度报告
 - [ ] 划词翻译功能
+- [ ] 译文可以编辑
 - [ ] 支持自助选中一些网页的区域，支持指定的区域不翻译，或者要翻译。
 - [ ] 词典功能？（词典替换添加效果）
 - [ ] custom dictionary
@@ -99,7 +96,6 @@ PDF和阅读器
 - [ ] inject error tooltip ui
 - [ ] add toggle mask to clear shortcuts
 - [ ] all links move to buildin config
-
 
 ## Done
 

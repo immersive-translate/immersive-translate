@@ -8,27 +8,11 @@
 - [ ] 新增选项，是否要记住站内链接翻译的状态....
 - [ ] observe url change 对于动态网页，前一个网页没有监测的情况下，无法判断后一个网页。比如 reddit
 - [ ] reddit click 展开后，无法检测到新内容: https://www.reddit.com/r/tifu/comments/12dzq1j/tifu_by_peeing_on_my_doctors_face/ 需要关闭 nfsw 自动展开
-- [x] subtitle error retry
-- [x] openAI api key optional.
 - [ ] 调查 ios15 的优化。
-- [x] 重新录制 ios 插件安装教学视频
-- [x] chatgpt4 的 system Prompt
-- [x] dark 主题导出的电子书
-- [x] 更新文档会导致不必要的 svg 生成
-- [x] globalMeta bug for 电子书
-- [x] 优化强制换行小数点问题
-- [x] popup click 换成 油猴 api 打开
-- [x] 当点击 popup 的时候，重新检测语言
-- [x] 电子书的百分比还是有问题
-- [x] openai prompt 优化,改为 3 个 prompt
 - [ ] 优化 addStyle，解决 mastondon 无法注入样式的问题.
 - [ ] 翻译电子书的目录
 - [ ] 提供到网站的延时设置
-- [x] Click on the extension icon to start translating the book. (点击扩展/脚本图标开始翻译), remove it
-- [x] change the loading color
-- [x] epub reload
 - [ ] 点击展开更多设置，对于翻译引擎
-- [x] 打开本地 html
 - [ ] 支持 calibre
 - [ ] when change translate service, clean translate service cache
 - [ ] yandex 搜索页面适配
@@ -89,10 +73,27 @@
 - [ ] 开头网络卡了，导致翻译不出结果，第一次看到这个界面，这让我想到可否在此基础上优化一下显示的图标，作为另外一种翻译模式呢？即在需要的翻译的段落旁点按钮，插入显示翻译结果。它有点类似模糊翻译，但可以带来两个好处：1.没有大量的模糊内容干扰阅读视线，2.不需要自动请求大量网络翻译，减少网络压力，节省 API 请求次数,还有第三个好处是在阅读中段时，启动插件，也不会有位移的问题了
 - [ ] 关于 Firefox 版本，后续可以将按钮放在地址栏当中嘛，像 TWP 那样
 - [ ] 同步到，能不能加一个 onedrive 的选项。Google drive 也行但是不太方便。暴力猴都支持好几种，包括 webdev。以后能考虑下吗
-- [ ] discord 新消息蹦出来不会自动翻译
 
 ## Done
 
+<details><summary>View History</summary>
+
+- [x] subtitle error retry
+- [x] openAI api key optional.
+- [x] 重新录制 ios 插件安装教学视频
+- [x] chatgpt4 的 system Prompt
+- [x] dark 主题导出的电子书
+- [x] 更新文档会导致不必要的 svg 生成
+- [x] globalMeta bug for 电子书
+- [x] 优化强制换行小数点问题
+- [x] popup click 换成 油猴 api 打开
+- [x] 当点击 popup 的时候，重新检测语言
+- [x] 电子书的百分比还是有问题
+- [x] openai prompt 优化,改为 3 个 prompt
+- [x] Click on the extension icon to start translating the book. (点击扩展/脚本图标开始翻译), remove it
+- [x] change the loading color
+- [x] epub reload
+- [x] 打开本地 html
 - [x] 还有个建议，能否在填写密钥的地方增加个测试按钮，来确认 API 是否正常？
 - [x] fix deepl wikipedia 罗素 english
 - [x] 密码输入框添加一个眼睛的图标
@@ -155,4 +156,7 @@
 - [x] filter only self request. not third party.
 - [x] 多语言检测，好吧，我知道了. 上次变更了最小检测字数，比较少的文字，好像就不会被检测了和翻译了。本地识别的时候按照最小字符数识别。但是传给服务器的时候用 auto.
 - [x] discord 搜索页面适配
+- [x] discord 新消息蹦出来不会自动翻译
 - [x] 优化重试逻辑，自动重试 1 次
+
+</details>

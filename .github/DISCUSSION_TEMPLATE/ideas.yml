@@ -1,3 +1,4 @@
+labels: ["feature"]
 body:
   - type: textarea
     attributes:

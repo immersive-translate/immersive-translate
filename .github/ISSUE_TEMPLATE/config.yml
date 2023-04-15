@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/immersive-translate/immersive-translate/discussions/new?category=ideas
     about: Feature requests should be opened as discussions
   - name: 其它问题 | Ask a question
-    url: https://github.com/immersive-translate/immersive-translate/discussions
+    url: https://github.com/immersive-translate/immersive-translate/discussions/new?category=help
     about: Ask questions and discuss with other community members

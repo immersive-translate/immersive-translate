@@ -1,8 +1,7 @@
 name: 更新或改进 | Update or Improvement
 description: A request to update or improve Next.js documentation
 title: '[Update]: '
-labels:
-  - 'update'
+labels: ["update"]
 body:
   - type: textarea
     attributes:

@@ -23,6 +23,6 @@ body:
     attributes:
       label: 提议 | Proposal
       description: How should this feature be implemented? Are you interested in contributing?
-    validations:
       placeholder: 这个功能应该如何实现？你有兴趣做出贡献吗？
+    validations:
       required: false

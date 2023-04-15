@@ -1,0 +1,71 @@
+name: Bug报告 | Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: version
+    attributes:
+      label: 插件版本号 | Version
+      description: What version of our extension are you running?
+      placeholder: 0.4.2
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 平台 | Platform
+      description: What platform are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 浏览器 | Browsers
+      description: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Other
+  - type: dropdown
+    id: extension_type
+    attributes:
+      label: 插件类型 | Extension Type
+      description: What extension type are you seeing the problem on?
+      multiple: true
+      options:
+        - 浏览器插件 | Browser Extension
+        - 油猴 | Tampermonkey | Userscripts
+  - type: textarea
+    id: describe
+    attributes:
+      label: 请描述这个Bug | Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 重现步骤 | To Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: 1. Go to '...' 2. Click translate
+    validations:
+      required: false
+  - type: textarea
+    id: others
+    attributes:
+      label: 补充说明 | Additional context
+      description: Add any other context about the problem here.
+ 

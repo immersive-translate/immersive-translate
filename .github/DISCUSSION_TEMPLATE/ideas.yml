@@ -1,0 +1,28 @@
+body:
+  - type: textarea
+    attributes:
+      label: 新功能 | New Feature
+      description: Short list of what the feature request aims to address?
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 为什么您想要添加这些功能 | Why you want to add these features
+      description: Why do you think this feature is needed? Are there current alternatives?
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 提议 | Proposal
+      description: How should this feature be implemented? Are you interested in contributing?
+    validations:
+      placeholder: 这个功能应该如何实现？你有兴趣做出贡献吗？
+      required: false

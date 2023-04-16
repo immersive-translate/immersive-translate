@@ -587,8 +587,7 @@
         "[data-testid='card.layoutLarge.detail'] > div:nth-child(2)",
         "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
         "[data-testid='UserDescription']",
-        "[data-testid='HoverCard'] div[dir=auto]",
-        "[role='dialog']"
+        "[data-testid='HoverCard'] div[dir=auto]"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [

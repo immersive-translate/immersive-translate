@@ -588,6 +588,7 @@
         "[data-testid='cellInnerDiv'] div[data-testid='UserCell'] > div> div:nth-child(2)",
         "[data-testid='UserDescription']",
         "[data-testid='HoverCard'] div[dir=auto]"
+        "[role='dialog']"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [

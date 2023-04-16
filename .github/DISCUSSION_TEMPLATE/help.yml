@@ -1,0 +1,14 @@
+labels: ["question"]
+body:
+  - type: textarea
+    attributes:
+      label: 概述 | Summary
+      description: What do you need help with?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 补充信息 | Additional information
+      description: Any code snippets, error messages, or dependency details that may be related? 
+    validations:
+      required: false

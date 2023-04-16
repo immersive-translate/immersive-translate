@@ -20,4 +20,4 @@
 
 ## 谷歌翻译接口被墙问题
 
-请将`*.googleapis.com` 域名加入到代理规则中
+请将`*.googleapis.com`,`translate.googleapis.com` 域名加入到代理规则中

@@ -2218,13 +2218,17 @@
     {
       "matches": "chat.google.com",
       "selectors": [
-        "[data-is-initial-message-of-thread=true]"
-      ],
-      "additionalExcludeSelectors": [
-        "[data-absolute-timestamp]"
+        "[jsname=bgckF]",
+        "[dir=ltr]"
+      ]
+    },
+    {
+      "matches": "https://www.fiverr.com/inbox/*",
+      "selectors": [
+        ".message-body"
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-12T17:14:12.699Z",
+  "buildinConfigUpdatedAt": "2023-04-16T09:33:52.072Z",
   "latestVersion": "0.4.2"
 }

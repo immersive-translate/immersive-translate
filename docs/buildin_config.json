@@ -2227,8 +2227,45 @@
       "selectors": [
         ".message-body"
       ]
+    },
+    {
+      "matches": [
+        "jira.*.com/browse/*",
+        "jira.*.com/projects/*"
+      ],
+      "selectors": [
+        "[id=descriptionmodule]",
+        "[id=summary-val]",
+        "div.action-body",
+        "td.stsummary"
+      ]
+    },
+    {
+      "matches": [
+        "*.aha.io"
+      ],
+      "selectors": [
+        "[tabindex='0']",
+        "div.user-content",
+        "div.comments__body",
+        "span.name"
+      ]
+    },
+    {
+      "matches": "thehill.com",
+      "excludeSelectors": [
+        "div.featured-cards__byline",
+        "div.list-item__meta",
+        ".tags__item",
+        "div.extended-scroll__header",
+        ".submitted-by",
+        ".site-header--has-alert-banner",
+        ".homepage__container__opinion__item__byline",
+        ".homepage__container__header",
+        ".archive__item__meta"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-16T09:33:52.072Z",
+  "buildinConfigUpdatedAt": "2023-04-17T09:38:11.830Z",
   "latestVersion": "0.4.2"
 }

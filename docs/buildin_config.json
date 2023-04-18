@@ -694,7 +694,8 @@
         ".PostContent",
         ".post-content",
         ".Comment__body",
-        "faceplate-batch .md"
+        "faceplate-batch .md",
+        ".RichTextJSON-root"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -2253,6 +2254,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-18T07:26:21.027Z",
+  "buildinConfigUpdatedAt": "2023-04-18T11:59:07.245Z",
   "latestVersion": "0.4.2"
 }

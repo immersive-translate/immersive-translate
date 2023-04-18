@@ -644,7 +644,6 @@
       ],
       "additionalSelectors": [
         ".puppeteer_test_question_title",
-        ".puppeteer_test_answer_content",
         "p.q-text"
       ],
       "globalStyles": {
@@ -880,22 +879,10 @@
     },
     {
       "matches": "https://www.instagram.com/*",
-      "globalStyles": {
-        "._ab05": "min-height:150px"
-      },
       "wrapperPrefix": "",
       "wrapperSuffix": "",
       "selectors": [
-        "div._aa_c h1",
-        "div._a9zs h1",
-        "div._a9zr > div._a9zs > span",
-        "div._ab5z._ab5_",
-        "div._ac72 div[role=\"button\"] > div:last-child",
-        "li._acaz div[role=\"menuitem\"]"
-      ],
-      "atomicBlockSelectors": [
-        "div._aa_c h1",
-        "li._acaz div[role=\"menuitem\"]"
+        "h1"
       ]
     },
     {
@@ -2266,6 +2253,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-17T09:38:11.830Z",
+  "buildinConfigUpdatedAt": "2023-04-18T07:26:21.027Z",
   "latestVersion": "0.4.2"
 }

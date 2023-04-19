@@ -8,6 +8,7 @@
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
+  "telemetry": true,
   "loadingTheme": "spinner",
   "canary": false,
   "translationServices": {
@@ -2269,6 +2270,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-19T20:28:34.742Z",
+  "buildinConfigUpdatedAt": "2023-04-19T21:01:34.337Z",
   "latestVersion": "0.4.2"
 }

@@ -93,6 +93,21 @@
         "|-\n\n",
         "\n?\n?-\\|\\d+\\|-\n?\n?"
       ]
+    },
+    "chatgpt": {
+      "placeholderDelimiters": [
+        "{{",
+        "}}"
+      ],
+      "immediateTranslationTextCount": 2000,
+      "maxTextGroupLengthPerRequest": 1,
+      "maxTextLengthPerRequest": 2000,
+      "prompt": "Translate the text to {{to}}:\n\n{{text}}",
+      "newlinePlaceholderDelimiters": [
+        "\n\n-|",
+        "|-\n\n",
+        "\n?\n?-\\|\\d+\\|-\n?\n?"
+      ]
     }
   },
   "shortcuts": {
@@ -2254,6 +2269,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-18T11:59:07.245Z",
+  "buildinConfigUpdatedAt": "2023-04-19T20:28:34.742Z",
   "latestVersion": "0.4.2"
 }

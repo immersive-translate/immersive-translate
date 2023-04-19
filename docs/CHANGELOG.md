@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.4.3
+
+- Fix: sup, sub tag whitespace detection.
+- Feat: support ChatGPT Plus Website as Translation Service, This is a beta feature, so you can access it by enabling Beta Feature on developer settings. This is very slow, cause chatgpt can only send one request at once. Make sure you have ChatGPT Plus Account, cause there are more limit on Free Account, and I'm not sure if this bring risk for your account, be careful to use it.
+
 ## 0.4.1
 
 - Fix: firefox context menu dispeared after restart.

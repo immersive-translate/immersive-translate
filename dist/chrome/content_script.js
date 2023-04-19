@@ -4,9 +4,18 @@
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: !0 });
   };
+  var __accessCheck = (obj, member, msg) => {
+    if (!member.has(obj))
+      throw TypeError("Cannot " + msg);
+  };
+  var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj)), __privateAdd = (obj, member, value) => {
+    if (member.has(obj))
+      throw TypeError("Cannot add the same private member more than once");
+    member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+  }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:12.956Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-19T21:04:39.351Z", VERSION: "0.4.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -263,6 +272,34 @@
   .immersive-translate-target-inner:hover {
   filter: none !important;
 }
+/* opacity theme start */
+
+.immersive-translate-target-translation-theme-opacity-inner {
+  filter: opacity(10%) !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+[data-immersive-translate-root-translation-theme="none"]
+  .immersive-translate-target-translation-theme-opacity-inner {
+  filter: none !important;
+}
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner {
+  filter: opacity(10%)  !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-opacity-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner:hover {
+  filter: none !important;
+}
+/* opacity theme end */
 
 /* vertical css , please remain it in the last one. */
 .immersive-translate-target-translation-vertical-block-wrapper {
@@ -3773,7 +3810,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v114/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v116/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -4846,6 +4883,7 @@ body {
     "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
     "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
     "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
     "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
     "translationTheme.highlight": "\u9AD8\u4EAE",
@@ -4888,6 +4926,7 @@ body {
     "translationServices.d": "D (Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
     "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
@@ -5125,6 +5164,7 @@ body {
     "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
     "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
     "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
     "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
     "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
@@ -5167,6 +5207,7 @@ body {
     "translationServices.d": "Deepl(Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
     "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
@@ -5400,6 +5441,7 @@ body {
     "translationTheme.solidBorder": "Dashed Border",
     "translationTheme.underline": "Straight underline",
     "translationTheme.mask": "Blur effect",
+    "translationTheme.opacity": "Opacity effect",
     "translationTheme.paper": "White paper shadow effect",
     "translationTheme.dividingLine": "Dividing line",
     "translationTheme.highlight": "Highlight",
@@ -5442,6 +5484,7 @@ body {
     "translationServices.d": "DeeplX (Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "Translate page title",
     "always languages": "Always translate the following languages",
     neverTranslateLanguagesLabel: "Never Translated Languages",
@@ -5994,6 +6037,11 @@ body {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
     },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
+    },
     openai: {
       name: "Open AI",
       homepage: "https://openai.com/api/",
@@ -6061,7 +6109,9 @@ body {
           required: !1,
           descriptionKey: "description.prompt",
           type: "textarea",
-          default: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+          default: `Translate the text below to {{to}}:
+
+{{text}}`,
           optional: !0
         }
       ]
@@ -6636,12 +6686,12 @@ body {
     throw new RetryError(error, options2.maxAttempts);
   }
 
-  // https://esm.sh/v114/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v116/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v114/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v116/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
     for (var n2 in t3)
       I(e, n2, { get: t3[n2], enumerable: !0 });
@@ -6739,7 +6789,7 @@ body {
   s2(c, L(h()));
   var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v114/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v116/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v5, i2) => () => (i2 || v5((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v5, i2) => {
     for (var l3 in i2)
       ve(v5, l3, { get: i2[l3], enumerable: !0 });
@@ -7056,11 +7106,11 @@ body {
   X2(B, ke(xe()));
   var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v114/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v116/nanostores@0.7.4/deno/nanostores.mjs
   var S = Symbol("clean");
   var m = Symbol();
 
-  // https://esm.sh/v114/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v116/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g(r, n2) {
     if (typeof r == "string")
       return n2(r);
@@ -7094,7 +7144,7 @@ body {
     return t3 in n2 || (t3 = "many"), g(n2[t3], (o3) => o3.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v114/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v116/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P2(e, t3, i2, r) {
     e.addEventListener ? e.addEventListener(t3, i2, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -7278,7 +7328,7 @@ body {
   }, window.hotkeys = v2);
   var B3;
 
-  // https://esm.sh/v114/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v116/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d2 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -7603,7 +7653,7 @@ body {
     }
   };
 
-  // https://esm.sh/v114/bowser@2.11.0/deno/bowser.mjs
+  // https://esm.sh/v116/bowser@2.11.0/deno/bowser.mjs
   var S4 = { "Amazon Silk": "amazon_silk", "Android Browser": "android", Bada: "bada", BlackBerry: "blackberry", Chrome: "chrome", Chromium: "chromium", Electron: "electron", Epiphany: "epiphany", Firefox: "firefox", Focus: "focus", Generic: "generic", "Google Search": "google_search", Googlebot: "googlebot", "Internet Explorer": "ie", "K-Meleon": "k_meleon", Maxthon: "maxthon", "Microsoft Edge": "edge", "MZ Browser": "mz", "NAVER Whale Browser": "naver", Opera: "opera", "Opera Coast": "opera_coast", PhantomJS: "phantomjs", Puffin: "puffin", QupZilla: "qupzilla", QQ: "qq", QQLite: "qqlite", Safari: "safari", Sailfish: "sailfish", "Samsung Internet for Android": "samsung_internet", SeaMonkey: "seamonkey", Sleipnir: "sleipnir", Swing: "swing", Tizen: "tizen", "UC Browser": "uc", Vivaldi: "vivaldi", "WebOS Browser": "webos", WeChat: "wechat", "Yandex Browser": "yandex", Roku: "roku" }, p2 = { amazon_silk: "Amazon Silk", android: "Android Browser", bada: "Bada", blackberry: "BlackBerry", chrome: "Chrome", chromium: "Chromium", electron: "Electron", epiphany: "Epiphany", firefox: "Firefox", focus: "Focus", generic: "Generic", googlebot: "Googlebot", google_search: "Google Search", ie: "Internet Explorer", k_meleon: "K-Meleon", maxthon: "Maxthon", edge: "Microsoft Edge", mz: "MZ Browser", naver: "NAVER Whale Browser", opera: "Opera", opera_coast: "Opera Coast", phantomjs: "PhantomJS", puffin: "Puffin", qupzilla: "QupZilla", qq: "QQ Browser", qqlite: "QQ Browser Lite", safari: "Safari", sailfish: "Sailfish", samsung_internet: "Samsung Internet for Android", seamonkey: "SeaMonkey", sleipnir: "Sleipnir", swing: "Swing", tizen: "Tizen", uc: "UC Browser", vivaldi: "Vivaldi", webos: "WebOS Browser", wechat: "WeChat", yandex: "Yandex Browser" }, a = { tablet: "tablet", mobile: "mobile", desktop: "desktop", tv: "tv" }, l = { WindowsPhone: "Windows Phone", Windows: "Windows", MacOS: "macOS", iOS: "iOS", Android: "Android", WebOS: "WebOS", BlackBerry: "BlackBerry", Bada: "Bada", Tizen: "Tizen", Linux: "Linux", ChromeOS: "Chrome OS", PlayStation4: "PlayStation 4", Roku: "Roku" }, h2 = { EdgeHTML: "EdgeHTML", Blink: "Blink", Trident: "Trident", Presto: "Presto", Gecko: "Gecko", WebKit: "WebKit" }, s4 = class {
     static getFirstMatch(e, t3) {
       let i2 = t3.match(e);
@@ -8977,6 +9027,7 @@ body {
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
+    telemetry: !0,
     loadingTheme: "spinner",
     canary: !1,
     translationServices: {
@@ -9026,6 +9077,28 @@ body {
         translationDebounce: 300,
         limit: 1500,
         maxTextGroupLengthPerRequest: 1,
+        prompt: `Translate the text to {{to}}:
+
+{{text}}`,
+        newlinePlaceholderDelimiters: [
+          `
+
+-|`,
+          `|-
+
+`,
+          `
+?
+?-\\|\\d+\\|-
+?
+?`
+        ]
+      },
+      chatgpt: {
+        placeholderDelimiters: ["{{", "}}"],
+        immediateTranslationTextCount: 2e3,
+        maxTextGroupLengthPerRequest: 1,
+        maxTextLengthPerRequest: 2e3,
         prompt: `Translate the text to {{to}}:
 
 {{text}}`,
@@ -9542,7 +9615,6 @@ body {
         matches: ["*.quora.com", "quora.com"],
         additionalSelectors: [
           ".puppeteer_test_question_title",
-          ".puppeteer_test_answer_content",
           "p.q-text"
         ],
         globalStyles: {
@@ -9585,7 +9657,8 @@ body {
           ".PostContent",
           ".post-content",
           ".Comment__body",
-          "faceplate-batch .md"
+          "faceplate-batch .md",
+          ".RichTextJSON-root"
         ],
         detectParagraphLanguage: !0,
         globalStyles: {
@@ -9740,22 +9813,10 @@ body {
       },
       {
         matches: "https://www.instagram.com/*",
-        globalStyles: {
-          "._ab05": "min-height:150px"
-        },
         wrapperPrefix: "",
         wrapperSuffix: "",
         selectors: [
-          "div._aa_c h1",
-          "div._a9zs h1",
-          "div._a9zr > div._a9zs > span",
-          "div._ab5z._ab5_",
-          'div._ac72 div[role="button"] > div:last-child',
-          'li._acaz div[role="menuitem"]'
-        ],
-        atomicBlockSelectors: [
-          "div._aa_c h1",
-          'li._acaz div[role="menuitem"]'
+          "h1"
         ]
       },
       {
@@ -9848,7 +9909,8 @@ body {
           "td div.gs_gray:last-of-type",
           "div.gsc_oci_value"
         ],
-        atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
+        extraInlineSelectors: ["br"],
+        atomicBlockSelectors: ["h3 a[data-clk]"]
       },
       {
         matches: "mail.google.com",
@@ -10084,7 +10146,7 @@ body {
         selectors: ["h2.post_title", ".comment_body > .md"]
       },
       {
-        matches: ["notion.site", "www.notion.so"],
+        matches: ["notion.site"],
         normalizeBody: "body",
         selectors: ["div[data-block-id]"]
       },
@@ -10802,6 +10864,11 @@ body {
         selectors: [".bodyText"]
       },
       {
+        matches: "thehackernews.com",
+        excludeSelectors: ["span#blog-pager-older-link", "span.h-datetime"],
+        additionalSelectors: [".pop-title"]
+      },
+      {
         isSubtitleBuilder: !0,
         selectorMatches: [
           "meta[name='immersive-translate-subtitle-builder'][content='true']"
@@ -10824,6 +10891,49 @@ body {
         globalStyles: {
           "#__next": "font-size: 19px;line-height:28px;"
         }
+      },
+      {
+        matches: "chat.google.com",
+        selectors: ["[jsname=bgckF]", "[dir=ltr]"]
+      },
+      {
+        matches: "https://www.fiverr.com/inbox/*",
+        selectors: [".message-body"]
+      },
+      {
+        matches: [
+          "jira.*.com/browse/*",
+          "jira.*.com/projects/*"
+        ],
+        selectors: [
+          "[id=descriptionmodule]",
+          "[id=summary-val]",
+          "div.action-body",
+          "td.stsummary"
+        ]
+      },
+      {
+        matches: ["*.aha.io"],
+        selectors: [
+          "[tabindex='0']",
+          "div.user-content",
+          "div.comments__body",
+          "span.name"
+        ]
+      },
+      {
+        matches: "thehill.com",
+        excludeSelectors: [
+          "div.featured-cards__byline",
+          "div.list-item__meta",
+          ".tags__item",
+          "div.extended-scroll__header",
+          ".submitted-by",
+          ".site-header--has-alert-banner",
+          ".homepage__container__opinion__item__byline",
+          ".homepage__container__header",
+          ".archive__item__meta"
+        ]
       }
     ]
   };
@@ -11144,6 +11254,12 @@ body {
   };
 
   // browser/request.ts
+  var ports = /* @__PURE__ */ new Map();
+  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
+    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
+      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
+    });
+  });
   async function request(options2) {
     let response;
     if (options2 && options2.retry && options2.retry > 0)
@@ -11192,6 +11308,51 @@ body {
           statusText: response.statusText,
           url: finalUrl
         };
+      } else if (responseType === "stream") {
+        let buffer = "", answer;
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), eventData === "[DONE]")
+                break;
+              let data;
+              try {
+                data = JSON.parse(eventData ?? "");
+              } catch (error) {
+                log_default.debug("json error", error);
+                continue;
+              }
+              answer = data;
+            }
+          }
+        return answer;
+      } else if (responseType === "realStream") {
+        log_default.debug("sse get portName", options2.extra?.portName);
+        let port = ports.get(options2.extra?.portName), buffer = "";
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
+                return log_default.debug("sse get [DONE]"), response.status;
+            }
+          }
+        return response.status;
       }
     } else {
       let details;
@@ -11207,6 +11368,19 @@ body {
         response.status + ": " + (response.statusText || "") + shortDetail,
         details
       );
+    }
+  }
+  async function* streamAsyncIterable(stream) {
+    let reader = stream.getReader();
+    try {
+      for (; ; ) {
+        let { done, value } = await reader.read();
+        if (done)
+          return;
+        yield value;
+      }
+    } finally {
+      reader.releaseLock();
     }
   }
 
@@ -11441,9 +11615,17 @@ body {
       if (key === ctx.config.translationService)
         return !0;
       let isCanaryFeature = !!service.canary, isAlphaFeature = !!service.alpha, isBetaFeature = !!service.beta;
-      return isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) || key === ctx.translationService ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
+      return key === ctx.translationService || isCanaryFeature && canary || isAlphaFeature && (alpha || canary) || isBetaFeature && (beta || alpha || canary) ? !0 : !isAlphaFeature && !isBetaFeature && !isCanaryFeature;
     }).map((key) => formatTranslationService(key, ctx));
   };
+  function uuidv4() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(
+      /[018]/g,
+      (c3) => (c3 ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c3 / 4).toString(
+        16
+      )
+    );
+  }
 
   // services/cache.ts
   var dbNames = [];
@@ -12139,7 +12321,7 @@ ${injectedCss}}
           if (width > 36 || height > 36)
             continue;
         }
-        isStayOriginal && (isStartWithSpace = !0, isEndWithSpace = !0);
+        isStayOriginal && (isMatchTags(element.nodeName, ["SUP", "SUB"]) || (isStartWithSpace = !0, isEndWithSpace = !0));
         let variableElement = element;
         if (isStayOriginal && element.tagName === "IMG") {
           let clonedElement = element.cloneNode(!0), originalStyle = clonedElement.getAttribute("style") || "", rect = element.getBoundingClientRect();
@@ -13257,7 +13439,7 @@ ${injectedCss}}
       this.options = options2, this.setOptions(options2);
     }
     setOptions(options2) {
-      options2 && (options2.interval && (this.options.interval = Number(options2.interval)), options2.limit && (this.options.limit = Number(options2.limit)));
+      options2 && (options2.interval !== void 0 && (this.options.interval = Number(options2.interval)), options2.limit !== void 0 && (this.options.limit = Number(options2.limit)));
     }
     wait() {
       return new Promise((resolve, _reject) => {
@@ -13286,7 +13468,8 @@ ${injectedCss}}
     deepl: new RateLimiter({ limit: 10, interval: 1050 }),
     transmart: new RateLimiter({ limit: 30, interval: 1050 }),
     papago: new RateLimiter({ limit: 3, interval: 1150 }),
-    openai: new RateLimiter({ limit: 10, interval: 65e3 })
+    openai: new RateLimiter({ limit: 10, interval: 65e3 }),
+    chatgpt: new RateLimiter({ limit: 1, interval: 1350 })
   };
   function getLimiter(key) {
     return limiterMap[key] || defaultLimiter;
@@ -15230,6 +15413,343 @@ ${injectedCss}}
     }
   }, openai_default = OpenAI;
 
+  // cache.ts
+  var CACHE_KEY_PREFIX = brandIdForJs + "CacheKey_";
+  function getExpired(rawKey, defaultValue) {
+    let key = CACHE_KEY_PREFIX + rawKey;
+    return browserAPI.storage.local.get(key).then((result) => {
+      if (result[key] === void 0)
+        return defaultValue;
+      let { value, expired } = result[key];
+      return expired && expired < Date.now() ? defaultValue : value;
+    });
+  }
+  function setExpired(rawKey, value, expiredIn) {
+    let key = CACHE_KEY_PREFIX + rawKey, expired = Date.now() + expiredIn;
+    return browserAPI.storage.local.set({ [key]: { value, expired } });
+  }
+
+  // services/chatgpt.ts
+  var rawLangMap7 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh-Hans"],
+    ["zh-TW", "zh-Hant"],
+    ["en", "en"],
+    ["yue", "\u7CA4\u8BED"],
+    ["wyw", "\u53E4\u6587"],
+    ["en", "en"],
+    ["ja", "ja"],
+    ["ko", "ko"],
+    ["fr", "fr"],
+    ["de", "de"],
+    ["es", "es"],
+    ["it", "it"],
+    ["ru", "ru"],
+    ["pt", "pt"],
+    ["nl", "nl"],
+    ["pl", "pl"],
+    ["ar", "ar"],
+    ["af", "af"],
+    ["am", "am"],
+    ["az", "az"],
+    ["be", "be"],
+    ["bg", "bg"],
+    ["bn", "bn"],
+    ["bs", "bs"],
+    ["ca", "ca"],
+    ["ceb", "ceb"],
+    ["co", "co"],
+    ["cs", "cs"],
+    ["cy", "cy"],
+    ["da", "da"],
+    ["el", "el"],
+    ["eo", "eo"],
+    ["et", "et"],
+    ["eu", "eu"],
+    ["fa", "fa"],
+    ["fi", "fi"],
+    ["fj", "fj"],
+    ["fy", "fy"],
+    ["ga", "ga"],
+    ["gd", "gd"],
+    ["gl", "gl"],
+    ["gu", "gu"],
+    ["ha", "ha"],
+    ["haw", "haw"],
+    ["he", "he"],
+    ["hi", "hi"],
+    ["hmn", "hmn"],
+    ["hr", "hr"],
+    ["ht", "ht"],
+    ["hu", "hu"],
+    ["hy", "hy"],
+    ["id", "id"],
+    ["ig", "ig"],
+    ["is", "is"],
+    ["jw", "jw"],
+    ["ka", "ka"],
+    ["kk", "kk"],
+    ["km", "km"],
+    ["kn", "kn"],
+    ["ku", "ku"],
+    ["ky", "ky"],
+    ["la", "lo"],
+    ["lb", "lb"],
+    ["lo", "lo"],
+    ["lt", "lt"],
+    ["lv", "lv"],
+    ["mg", "mg"],
+    ["mi", "mi"],
+    ["mk", "mk"],
+    ["ml", "ml"],
+    ["mn", "mn"],
+    ["mr", "mr"],
+    ["ms", "ms"],
+    ["mt", "mt"],
+    ["my", "my"],
+    ["ne", "ne"],
+    ["no", "no"],
+    ["ny", "ny"],
+    ["pa", "pa"],
+    ["ps", "ps"],
+    ["ro", "ro"],
+    ["si", "si"],
+    ["sk", "sk"],
+    ["sl", "sl"],
+    ["sm", "sm"],
+    ["sn", "sn"],
+    ["so", "so"],
+    ["sq", "sq"],
+    ["sr", "sr"],
+    ["sr-Cyrl", "sr"],
+    ["sr-Latn", "sr"],
+    ["st", "st"],
+    ["su", "su"],
+    ["sv", "sv"],
+    ["sw", "sw"],
+    ["ta", "ta"],
+    ["te", "te"],
+    ["tg", "tg"],
+    ["th", "th"],
+    ["tr", "tr"],
+    ["ug", "ug"],
+    ["uk", "uk"],
+    ["ur", "ur"],
+    ["uz", "uz"],
+    ["vi", "vi"],
+    ["xh", "xh"],
+    ["yi", "yi"],
+    ["yo", "yo"],
+    ["zu", "zu"]
+  ], langMap13 = new Map(rawLangMap7), KEY_ACCESS_TOKEN = "accessToken";
+  async function getChatGptAccessToken() {
+    let cachedValue = await getExpired(KEY_ACCESS_TOKEN);
+    if (cachedValue)
+      return cachedValue;
+    let data = await request2({
+      url: "https://chat.openai.com/api/auth/session",
+      method: "get",
+      responseType: "json"
+    });
+    if (!data.accessToken)
+      throw new Error("UNAUTHORIZED");
+    return await setExpired(KEY_ACCESS_TOKEN, data.accessToken, 10 * 60 * 1e3), data.accessToken;
+  }
+  var _taskQueue, _TranslationManager = class {
+    constructor() {
+      __privateAdd(this, _taskQueue, Promise.resolve());
+      return _TranslationManager.instance || (_TranslationManager.instance = this), this;
+    }
+    enqueue(task) {
+      return __privateSet(this, _taskQueue, __privateGet(this, _taskQueue).then(() => task())), __privateGet(this, _taskQueue);
+    }
+  }, TranslationManager = _TranslationManager;
+  _taskQueue = new WeakMap();
+  var translationManager = new TranslationManager();
+  Object.freeze(translationManager);
+  var ChatGPT = class extends Translation {
+    // model = "gpt-3.5-turbo";
+    constructor(serviceConfig, generalConfig, options2) {
+      super(serviceConfig, generalConfig, options2);
+      this.accessToken = "";
+      this.customChatGptWebApiUrl = "https://chat.openai.com";
+      this.customChatGptWebApiPath = "/backend-api/conversation";
+      this.maxTextGroupLength = 1;
+      this.maxTextLength = 1200;
+      this.isStream = !1;
+      this.isSupportList = !1;
+      this.prompt = `You are a translation engine, you can only translate text and cannot interpret it, and do not explain.Translate the text below to {{to}}:
+
+{{text}}`;
+    }
+    // deno-lint-ignore ban-types
+    throttleDebounce(func, throttleDelay, debounceDelay) {
+      let lastCall = 0, debounceTimeout;
+      return (...args) => {
+        let now = Date.now(), context = this, executeFunc = () => {
+          lastCall = now, func.apply(context, args);
+        };
+        now - lastCall >= throttleDelay ? (clearTimeout(debounceTimeout), executeFunc()) : (clearTimeout(debounceTimeout), debounceTimeout = setTimeout(() => {
+          executeFunc();
+        }, debounceDelay));
+      };
+    }
+    async deleteConversation(conversationId) {
+      if (conversationId) {
+        let resp = await request2({
+          url: `${this.customChatGptWebApiUrl}${this.customChatGptWebApiPath}/${conversationId}`,
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: JSON.stringify({ is_visible: !1 })
+        });
+        return log_default.debug("delete conversation res:", resp), resp;
+      }
+    }
+    async translate(payload) {
+      return await translationManager.enqueue(async () => {
+        let { text, from, to } = payload;
+        if (text.length === 0)
+          return Promise.resolve({
+            from,
+            to,
+            text: ""
+          });
+        let remoteFrom = langMap13.get(from) || from, remoteTo = langMap13.get(to) || to;
+        if (this.accessToken = await getChatGptAccessToken(), !this.accessToken || this.accessToken === "")
+          throw new Error("token error");
+        let selectedModel = "text-davinci-002-render-sha";
+        if (!selectedModel)
+          throw new Error("No available model");
+        let prompt = this.prompt.replace(/{{to}}/g, remoteTo).replace(
+          /{{text}}/g,
+          text
+        ).replace(/{{from}}/g, remoteFrom), data = await request2({
+          url: `${this.customChatGptWebApiUrl}${this.customChatGptWebApiPath}`,
+          method: "POST",
+          responseType: "stream",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: JSON.stringify({
+            action: "next",
+            // conversation_id: session!.conversationId,
+            messages: [
+              {
+                id: uuidv4(),
+                role: "user",
+                content: {
+                  content_type: "text",
+                  parts: [prompt]
+                }
+              }
+            ],
+            model: selectedModel,
+            parent_message_id: uuidv4()
+          })
+        });
+        return log_default.debug("get chatgpt res:", data), await this.deleteConversation(data?.conversation_id), Promise.resolve({
+          from,
+          to,
+          text: data?.message?.content?.parts?.[0]
+        });
+      });
+    }
+    async translateStream(payload, callback) {
+      let { text, from, to } = payload;
+      if (text.length === 0) {
+        callback(null, {
+          from,
+          to,
+          text: ""
+        });
+        return;
+      }
+      let throttleDebounceCallback = this.throttleDebounce(
+        // deno-lint-ignore no-explicit-any
+        function(x4) {
+          let { from: from2, to: to2, text: text2 } = x4;
+          callback(null, {
+            from: from2,
+            to: to2,
+            text: text2
+          });
+        },
+        300,
+        // 节流延迟
+        200
+        // 防抖延迟
+      );
+      await translationManager.enqueue(async () => {
+        let portName = "chatgpt" + uuidv4(), port = browserAPI.runtime.connect({ name: portName }), conversionId, data;
+        port.onMessage.addListener((message) => {
+          if (!(!message || message === "")) {
+            if (message === "[DONE]") {
+              port.disconnect(), this.deleteConversation(conversionId);
+              return;
+            }
+            try {
+              data = JSON.parse(message);
+            } catch (error) {
+              log_default.debug("chatgpt json error", error, message);
+              return;
+            }
+            conversionId = data?.conversation_id, data?.message?.author?.role === "assistant" && throttleDebounceCallback({
+              from,
+              to,
+              text: data?.message?.content?.parts?.[0]
+            });
+          }
+        });
+        let remoteFrom = langMap13.get(from) || from, remoteTo = langMap13.get(to) || to;
+        if (this.accessToken = await getChatGptAccessToken(), !this.accessToken || this.accessToken === "")
+          throw new Error("token error");
+        let selectedModel = "text-davinci-002-render-sha";
+        if (!selectedModel)
+          throw new Error("No available model");
+        let prompt = this.prompt.replace(/{{to}}/g, remoteTo).replace(
+          /{{text}}/g,
+          text
+        ).replace(/{{from}}/g, remoteFrom);
+        request2({
+          url: `${this.customChatGptWebApiUrl}${this.customChatGptWebApiPath}`,
+          method: "POST",
+          responseType: "realStream",
+          extra: { portName },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.accessToken}`
+          },
+          body: JSON.stringify({
+            action: "next",
+            // conversation_id: session!.conversationId,
+            messages: [
+              {
+                id: uuidv4(),
+                role: "user",
+                content: {
+                  content_type: "text",
+                  parts: [prompt]
+                }
+              }
+            ],
+            model: selectedModel,
+            parent_message_id: uuidv4()
+          })
+        }).catch((e) => {
+          log_default.debug("chatgpt error", e), port.disconnect(), this.deleteConversation(conversionId), callback(e, {
+            from,
+            to,
+            text: ""
+          });
+        });
+      });
+    }
+  };
+
   // services/volc/sign.ts
   var unsignableHeaders = [
     "authorization",
@@ -15397,7 +15917,7 @@ ${injectedCss}}
   };
 
   // services/volc/mod.ts
-  var rawLangMap7 = [
+  var rawLangMap8 = [
     ["af", "af"],
     ["am", "am"],
     ["ar", "ar"],
@@ -15502,8 +16022,8 @@ ${injectedCss}}
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap13 = new Map(rawLangMap7), langMapReverse3 = new Map(
-    rawLangMap7.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap14 = new Map(rawLangMap8), langMapReverse3 = new Map(
+    rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Volc = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
       super(serviceConfig, generalConfig, options2);
@@ -15556,8 +16076,8 @@ ${injectedCss}}
         throw new Error("response: " + JSON.stringify(response));
     }
     async translateList(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap13.get(from), bodyParams = {
-        TargetLanguage: langMap13.get(to) || to,
+      let { text, from, to } = payload, remoteFrom = langMap14.get(from), bodyParams = {
+        TargetLanguage: langMap14.get(to) || to,
         TextList: text
       };
       remoteFrom ? bodyParams.SourceLanguage = remoteFrom : bodyParams.SourceLanguage = await this.remoteDetectLanguage(
@@ -15612,7 +16132,7 @@ ${injectedCss}}
   }, mod_default = Volc;
 
   // services/volc_alpha.ts
-  var rawLangMap8 = [
+  var rawLangMap9 = [
     ["auto", "detect"],
     ["af", "af"],
     ["am", "am"],
@@ -15718,8 +16238,8 @@ ${injectedCss}}
     ["zh-CN", "zh"],
     ["zh-TW", "zh-Hans"],
     ["zu", "zu"]
-  ], langMap14 = new Map(rawLangMap8), langMapReverse4 = new Map(
-    rawLangMap8.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap15 = new Map(rawLangMap9), langMapReverse4 = new Map(
+    rawLangMap9.map(([translatorLang, lang]) => [lang, translatorLang])
   ), VolcAlpha = class extends Translation {
     constructor() {
       super(...arguments);
@@ -15727,7 +16247,7 @@ ${injectedCss}}
       this.isSupportList = !1;
     }
     async translate(payload) {
-      let { text, from, to } = payload, remoteFrom = langMap14.get(from) || "detect", remoteTo = langMap14.get(to) || to, response = await request2(
+      let { text, from, to } = payload, remoteFrom = langMap15.get(from) || "detect", remoteTo = langMap15.get(to) || to, response = await request2(
         {
           url: "https://translate.volcengine.com/crx/translate/v1/",
           method: "POST",
@@ -15756,7 +16276,7 @@ ${injectedCss}}
   };
 
   // services/deeplx.ts
-  var rawLangMap9 = [
+  var rawLangMap10 = [
     ["auto", "auto"],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
@@ -15769,7 +16289,7 @@ ${injectedCss}}
     ["pt", "PT"],
     ["ru", "RU"],
     ["tr", "tr"]
-  ], langMap15 = new Map(rawLangMap9), Deeplx = class extends Translation {
+  ], langMap16 = new Map(rawLangMap10), Deeplx = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
       super(serviceConfig, generalConfig, options2);
       this.url = "";
@@ -15791,8 +16311,8 @@ ${injectedCss}}
           },
           method: "POST",
           body: JSON.stringify({
-            source_lang: langMap15.get(from) || from,
-            target_lang: langMap15.get(to) || to,
+            source_lang: langMap16.get(from) || from,
+            target_lang: langMap16.get(to) || to,
             text
           })
         }
@@ -15808,7 +16328,7 @@ ${injectedCss}}
   };
 
   // services/bing/api.js
-  var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap10 = [
+  var TRANSLATE_API_ROOT = "https://{s}bing.com", TRANSLATE_WEBSITE = TRANSLATE_API_ROOT + "/translator", TRANSLATE_API = TRANSLATE_API_ROOT + "/ttranslatev3", TRANSLATE_SPELL_CHECK_API = TRANSLATE_API_ROOT + "/tspellcheckv3", globalConfigStorageKey = "bingGlobalConfig", rawLangMap11 = [
     ["auto", "auto-detect"],
     ["ar", "ar"],
     ["ga", "ga"],
@@ -15884,8 +16404,8 @@ ${injectedCss}}
     ["vi", "vi"],
     ["ku", "ku"],
     ["km", "kmr"]
-  ], langMap16 = new Map(rawLangMap10), langMapReverse5 = new Map(
-    rawLangMap10.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap17 = new Map(rawLangMap11), langMapReverse5 = new Map(
+    rawLangMap11.map(([translatorLang, lang]) => [lang, translatorLang])
   ), MAX_TEXT_LEN = 1e3, globalConfig, globalConfigPromise;
   function replaceSubdomain(url, subdomain) {
     return url.replace("{s}", subdomain ? subdomain + "." : "");
@@ -15962,7 +16482,7 @@ ${injectedCss}}
       throw new Error(
         `The supported maximum length of text is ${MAX_TEXT_LEN}. Please shorten the text.`
       );
-    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap16.get(from) || from, to = langMap16.get(to) || to;
+    globalConfigPromise || (globalConfigPromise = fetchGlobalConfig()), await globalConfigPromise, await isTokenExpired() && (globalConfigPromise = fetchGlobalConfig(), await globalConfigPromise), from = from || "auto", to = to || "zh-CN", from = langMap17.get(from) || from, to = langMap17.get(to) || to;
     let requestURL = makeRequestURL(!1), requestBody = makeRequestBody(
       !1,
       text,
@@ -16018,7 +16538,7 @@ ${injectedCss}}
   };
 
   // services/baidu.ts
-  var rawLangMap11 = [
+  var rawLangMap12 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
@@ -16048,8 +16568,8 @@ ${injectedCss}}
     ["hu", "hu"],
     ["zh-TW", "cht"],
     ["vi", "vie"]
-  ], langMap17 = new Map(rawLangMap11), langMapReverse6 = new Map(
-    rawLangMap11.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap18 = new Map(rawLangMap12), langMapReverse6 = new Map(
+    rawLangMap12.map(([translatorLang, lang]) => [lang, translatorLang])
   ), Baidu = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
       super(serviceConfig, generalConfig, options2);
@@ -16067,8 +16587,8 @@ ${injectedCss}}
     }
     async translate(payload) {
       let salt = Date.now().toString(), { endpoint } = this, { appid, key } = this, { text, from, to } = payload, params = new URLSearchParams({
-        from: langMap17.get(from) || "auto",
-        to: langMap17.get(to) || to,
+        from: langMap18.get(from) || "auto",
+        to: langMap18.get(to) || to,
         q: text,
         salt,
         appid,
@@ -16101,60 +16621,18 @@ ${injectedCss}}
   }, baidu_default = Baidu;
 
   // services/caiyun.ts
-  var rawLangMap12 = [
+  var rawLangMap13 = [
     ["auto", "auto"],
     ["zh-CN", "zh"],
     ["en", "en"],
     ["ja", "ja"]
-  ], langMap18 = new Map(rawLangMap12), Caiyun = class extends Translation {
+  ], langMap19 = new Map(rawLangMap13), Caiyun = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
       super(serviceConfig, generalConfig, options2);
       this.token = "";
       if (!serviceConfig || !serviceConfig.token)
         throw new Error("token are required");
       this.token = serviceConfig.token?.trim();
-    }
-    async translateList(payload) {
-      let { text, from, to } = payload;
-      if (!langMap18.get(to))
-        throw new Error(`Unsupported language: ${to}`);
-      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
-      let source = text;
-      return {
-        text: (await request2(
-          {
-            retry: 2,
-            url: "https://api.interpreter.caiyunai.com/v1/translator",
-            headers: {
-              "content-type": "application/json",
-              "x-authorization": "token " + this.token
-            },
-            method: "POST",
-            body: JSON.stringify({
-              source,
-              trans_type: `${langMap18.get(from) || "auto"}2${langMap18.get(to)}`
-            })
-          }
-        )).target,
-        from,
-        to
-      };
-    }
-  }, caiyun_default = Caiyun;
-
-  // services/cai.ts
-  var rawLangMap13 = [
-    ["auto", "auto"],
-    ["zh-CN", "zh"],
-    ["en", "en"],
-    ["ja", "ja"]
-  ], langMap19 = new Map(rawLangMap13), Cai = class extends Translation {
-    constructor(serviceConfig, generalConfig, options2) {
-      super(serviceConfig, generalConfig, options2);
-      this.token = "ssdj273ksdiwi923bsd9";
-    }
-    getDefaultRateLimit() {
-      return { limit: 5, interval: 1050 };
     }
     async translateList(payload) {
       let { text, from, to } = payload;
@@ -16182,10 +16660,52 @@ ${injectedCss}}
         to
       };
     }
+  }, caiyun_default = Caiyun;
+
+  // services/cai.ts
+  var rawLangMap14 = [
+    ["auto", "auto"],
+    ["zh-CN", "zh"],
+    ["en", "en"],
+    ["ja", "ja"]
+  ], langMap20 = new Map(rawLangMap14), Cai = class extends Translation {
+    constructor(serviceConfig, generalConfig, options2) {
+      super(serviceConfig, generalConfig, options2);
+      this.token = "ssdj273ksdiwi923bsd9";
+    }
+    getDefaultRateLimit() {
+      return { limit: 5, interval: 1050 };
+    }
+    async translateList(payload) {
+      let { text, from, to } = payload;
+      if (!langMap20.get(to))
+        throw new Error(`Unsupported language: ${to}`);
+      from === "auto" && (from = await detectLanguage({ text: text.join(" "), minLength: 10 }));
+      let source = text;
+      return {
+        text: (await request2(
+          {
+            retry: 2,
+            url: "https://api.interpreter.caiyunai.com/v1/translator",
+            headers: {
+              "content-type": "application/json",
+              "x-authorization": "token " + this.token
+            },
+            method: "POST",
+            body: JSON.stringify({
+              source,
+              trans_type: `${langMap20.get(from) || "auto"}2${langMap20.get(to)}`
+            })
+          }
+        )).target,
+        from,
+        to
+      };
+    }
   }, cai_default = Cai;
 
   // services/youdao.ts
-  var rawLangMap14 = [
+  var rawLangMap15 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -16199,8 +16719,8 @@ ${injectedCss}}
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap20 = new Map(rawLangMap14), langMapReverse7 = new Map(
-    rawLangMap14.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap21 = new Map(rawLangMap15), langMapReverse7 = new Map(
+    rawLangMap15.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   function truncate(q6) {
     let len = q6.length;
@@ -16225,8 +16745,8 @@ ${injectedCss}}
         q: text,
         appKey: this.appId,
         salt: salt.toString(),
-        from: langMap20.get(from) || "auto",
-        to: langMap20.get(to) || to,
+        from: langMap21.get(from) || "auto",
+        to: langMap21.get(to) || to,
         sign,
         signType: "v3",
         curtime: curTime.toString()
@@ -16260,7 +16780,7 @@ ${injectedCss}}
   var youdao_default = Youdao;
 
   // services/you.ts
-  var rawLangMap15 = [
+  var rawLangMap16 = [
     ["auto", "auto"],
     ["en", "en"],
     ["ru", "ru"],
@@ -16274,8 +16794,8 @@ ${injectedCss}}
     ["id", "id"],
     ["vi", "vi"],
     ["it", "it"]
-  ], langMap21 = new Map(rawLangMap15), langMapReverse8 = new Map(
-    rawLangMap15.map(([translatorLang, lang]) => [lang, translatorLang])
+  ], langMap22 = new Map(rawLangMap16), langMapReverse8 = new Map(
+    rawLangMap16.map(([translatorLang, lang]) => [lang, translatorLang])
   );
   var You = class extends Translation {
     constructor(serviceConfig, generalConfig, options2) {
@@ -16291,8 +16811,8 @@ ${injectedCss}}
     async translate(payload) {
       let { text, from, to } = payload, params = {
         q: text,
-        from: langMap21.get(from) || "auto",
-        to: langMap21.get(to) || to
+        from: langMap22.get(from) || "auto",
+        to: langMap22.get(to) || to
       }, urlSearchParams = new URLSearchParams(params), res = await request2(
         {
           url: "https://aidemo.youdao.com/trans",
@@ -16339,6 +16859,7 @@ ${injectedCss}}
     niu: niu_default,
     azure: azure_default,
     openai: openai_default,
+    chatgpt: ChatGPT,
     papago: papago_default
   }, TranslationServices = {};
   Object.keys(PureTranslationServices).forEach((key) => {
@@ -16472,13 +16993,13 @@ ${injectedCss}}
   }
 
   // store.ts
-  var CACHE_KEY_PREFIX = brandIdForJs + "StoreKey_";
+  var CACHE_KEY_PREFIX2 = brandIdForJs + "StoreKey_";
   function get(rawKey, defaultValue) {
-    let key = CACHE_KEY_PREFIX + rawKey;
+    let key = CACHE_KEY_PREFIX2 + rawKey;
     return browserAPI.storage.local.get(key).then((result) => result[key] === void 0 ? defaultValue : result[key]);
   }
   function set(rawKey, value) {
-    let key = CACHE_KEY_PREFIX + rawKey;
+    let key = CACHE_KEY_PREFIX2 + rawKey;
     return browserAPI.storage.local.set({ [key]: value });
   }
 
@@ -16488,19 +17009,36 @@ ${injectedCss}}
   }
 
   // report.ts
+  var measurement_id = "G-MKMD9LWFTR";
   async function report(key, events, ctx) {
     try {
-      let env4 = getEnv(), isUserscript = isMonkey(), isProd3 = env4.PROD === "1", reportKey = `report_${key}`, lastReportTime = await get(reportKey, 0), now = Date.now();
-      if (now - lastReportTime < 24 * 60 * 60 * 1e3)
+      let env4 = getEnv(), isUserscript = isMonkey(), isProd3 = env4.PROD === "1", reportKey = `report_${key}`, isDaily = key.endsWith("_daily");
+      if (isDaily) {
+        let lastReportTime = await get(reportKey, 0), now = Date.now();
+        if (now - lastReportTime < 24 * 60 * 60 * 1e3)
+          return;
+        await set(reportKey, now);
+      } else if (!ctx.config.telemetry)
         return;
-      await set(reportKey, now);
-      let measurement_id = "G-MKMD9LWFTR", api_secret = "sitc4WmvShWYwfU0dANM3Q", userId = await get("fakeUserId", "");
+      let api_secret = "sitc4WmvShWYwfU0dANM3Q", userId = await get("fakeUserId", "");
       userId || (userId = makeid3(32), await set("fakeUserId", userId));
       let url = `https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`;
       isProd3 || (url = `https://www.google-analytics.com/debug/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`);
       let theBrowserInfo = U4.parse(window.navigator.userAgent), version = getVersion(), formatedEvents = events.map((event) => {
         let currentParam = event.params || {};
-        return theBrowserInfo.os && (currentParam.os_name = theBrowserInfo.os.name || "unknown", currentParam.os_version = theBrowserInfo.os.version || "unknown", currentParam.os_version_name = theBrowserInfo.os.versionName || "unknown"), theBrowserInfo.browser && (currentParam.browser_name = theBrowserInfo.browser.name || "unknown", currentParam.browser_version = theBrowserInfo.browser.version || "unknown"), theBrowserInfo.platform && (currentParam.platform_type = theBrowserInfo.platform.type || "unknown"), theBrowserInfo.engine && (currentParam.engine_name = theBrowserInfo.engine.name || "unknown", currentParam.engine_version = theBrowserInfo.engine.version || "unknown"), ctx.translationService && (currentParam.translation_service = ctx.translationService), ctx.targetLanguage && (currentParam.target_language = ctx.targetLanguage), ctx.config.interfaceLanguage && (currentParam.interface_language = ctx.config.interfaceLanguage), version && (currentParam.version = version), ctx.config.translationTheme && (currentParam.translation_theme = ctx.config.translationTheme), ctx.config.alpha && (currentParam.alpha = ctx.config.alpha.toString()), ctx.config.translationArea && (currentParam.translation_area = ctx.config.translationArea), currentParam.userscript = isUserscript.toString(), {
+        theBrowserInfo.os && (currentParam.os_name = theBrowserInfo.os.name || "unknown", currentParam.os_version = theBrowserInfo.os.version || "unknown", currentParam.os_version_name = theBrowserInfo.os.versionName || "unknown"), theBrowserInfo.browser && (currentParam.browser_name = theBrowserInfo.browser.name || "unknown", currentParam.browser_version = theBrowserInfo.browser.version || "unknown"), theBrowserInfo.platform && (currentParam.platform_type = theBrowserInfo.platform.type || "unknown"), theBrowserInfo.engine && (currentParam.engine_name = theBrowserInfo.engine.name || "unknown", currentParam.engine_version = theBrowserInfo.engine.version || "unknown"), ctx.translationService && (currentParam.translation_service = ctx.translationService), ctx.targetLanguage && (currentParam.target_language = ctx.targetLanguage), ctx.config.interfaceLanguage && (currentParam.interface_language = ctx.config.interfaceLanguage), version && (currentParam.version = version), ctx.config.translationTheme && (currentParam.translation_theme = ctx.config.translationTheme), ctx.config.alpha && (currentParam.alpha = ctx.config.alpha.toString()), ctx.config.translationArea && (currentParam.translation_area = ctx.config.translationArea), currentParam.userscript = isUserscript.toString();
+        let pageType = "html";
+        if (ctx.rule.isEbook ? pageType = "ebookReader" : ctx.rule.isPdf ? pageType = "pdfReader" : ctx.rule.isEbookBuilder ? pageType = "ebookBuilder" : ctx.rule.isSubtitleBuilder && (pageType = "subtitleBuilder"), currentParam.page_type = pageType, !isDaily) {
+          let siteUrl = ctx.url;
+          try {
+            let urlObj = new URL(siteUrl);
+            currentParam.site_host = urlObj.hostname;
+          } catch {
+            currentParam.site_host = "unknown";
+          }
+          ctx.sourceLanguage && (currentParam.source_language = ctx.sourceLanguage);
+        }
+        return console.log("currentParam", currentParam), {
           ...event,
           params: currentParam
         };
@@ -16976,7 +17514,14 @@ ${injectedCss}}
       {
         name: "translage_page_daily"
       }
-    ], ctx), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, document.dispatchEvent(
+    ], ctx), report("translate_page", [
+      {
+        name: "translate_page"
+      }
+    ], {
+      ...ctx,
+      sourceLanguage: getCurrentPageLanguage()
+    }), ctx.state.isNeedClean ? restorePage() : globalContext.state.isNeedClean = !0, document.dispatchEvent(
       new CustomEvent(documentMessageTypeIdentifierForTellThirdParty, {
         detail: JSON.stringify({
           type: "translateStart",
@@ -17283,7 +17828,7 @@ ${injectedCss}}
               translatedSentence,
               ctx
             );
-            wrapper.innerHTML = targetItem.html;
+            wrapper.innerHTML = "", wrapper.insertAdjacentHTML("afterbegin", targetItem.html);
           }
           paragraph.rootFrame.querySelectorAll(
             `[${sourceElementParagraphAttributeName}="${wrapperId}"]`
@@ -19669,7 +20214,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.2",
+    version: "0.4.3",
     default_locale: "en",
     background: {
       service_worker: "background.js"

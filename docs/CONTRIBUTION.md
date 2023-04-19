@@ -159,6 +159,23 @@ More and more unit tests
 
     make build:firefox
 
+## macOS safari extension
+
+[在没有证书的情况下启用扩展](https://developer.apple.com/documentation/safariservices/safari_web_extensions/running_your_safari_web_extension#3744467)
+
+To develop without a certificate, tell Safari to load unsigned extensions using the Develop menu. To enable the Develop menu in Safari:
+要在没有证书的情况下进行开发，请告诉 Safari 使用 "开发 "菜单加载未签署的扩展。要在 Safari 中启用 "开发 "菜单：
+
+    Choose Safari > Preferences. 选择Safari > 偏好。
+
+    Select the Advanced tab. 选择 "高级 "选项卡。
+
+    Check the “Show Develop menu in menu bar” option.
+    勾选 "在菜单栏中显示开发菜单 "选项。
+
+Then, choose Develop > Allow Unsigned Extensions. The Allow Unsigned Extensions setting is reset when you quit Safari; set it again the next time you launch Safari.
+然后，选择开发 > 允许未签署的扩展。当你退出 Safari 时，允许未签署的扩展程序的设置会被重置；在你下次启动 Safari 时再进行设置。
+
 ## Styles
 
 使用 [Pico](https://picocss.com/) 作为基础 style，所以大多数元素直接用语义化的 html 标签即可，不需要任何 class

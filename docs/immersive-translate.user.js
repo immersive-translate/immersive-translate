@@ -84,7 +84,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-19T21:04:44.159Z", VERSION: "0.4.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-19T21:16:50.443Z", VERSION: "0.4.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -4152,6 +4152,9 @@ body {
   var env = getEnv();
   function isMonkey() {
     return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isSafari() {
+    return env.IMMERSIVE_TRANSLATE_SAFARI === "1";
   }
   function isDeno() {
     return typeof Deno < "u";
@@ -20256,7 +20259,8 @@ ${this._lastError.message}`;
       log_default.error("Could not find manifest element");
       return;
     }
-    manifestElement.value = JSON.stringify(browserAPI.runtime.getManifest()), manifestElement.dispatchEvent(new Event("change")), document.getElementById(
+    let manifestJson = browserAPI.runtime.getManifest();
+    isSafari() && (manifestJson._isSafari = !0), manifestElement.value = JSON.stringify(manifestJson), manifestElement.dispatchEvent(new Event("change")), document.getElementById(
       "immersive-translate-message"
     ).addEventListener(
       "change",

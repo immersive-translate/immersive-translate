@@ -5,6 +5,8 @@
 
 ## Todo List
 
+- [ ] ios 安装后跳转到 ios 的安装教程页面
+
 站点/浏览器适配
 
 - [ ] fix alook

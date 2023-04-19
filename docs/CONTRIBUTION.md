@@ -21,7 +21,11 @@
 
 ### Windows
 
-安装包管理器，如 [Scoop](https://scoop.sh/) 或 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 这里介绍如何安装 Scoop。打开 PowerShell 输入以下命令
+安装包管理器，如 [Scoop](https://scoop.sh/) 或 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 这里介绍 if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+print("Safari extension version: \(version)")
+} else {
+print("Version number not found")
+}如何安装 Scoop。打开 PowerShell 输入以下命令
 
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -175,6 +179,25 @@ To develop without a certificate, tell Safari to load unsigned extensions using 
 
 Then, choose Develop > Allow Unsigned Extensions. The Allow Unsigned Extensions setting is reset when you quit Safari; set it again the next time you launch Safari.
 然后，选择开发 > 允许未签署的扩展。当你退出 Safari 时，允许未签署的扩展程序的设置会被重置；在你下次启动 Safari 时再进行设置。
+
+First,
+
+```bash
+cd scripts
+npm i
+```
+
+打包 safari 扩展：
+
+```bash
+make packsafari
+```
+
+发布到蒲公英
+
+```bash
+make archivesafari
+```
 
 ## Styles
 

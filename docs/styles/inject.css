@@ -255,6 +255,34 @@
   .immersive-translate-target-inner:hover {
   filter: none !important;
 }
+/* opacity theme start */
+
+.immersive-translate-target-translation-theme-opacity-inner {
+  filter: opacity(10%) !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+[data-immersive-translate-root-translation-theme="none"]
+  .immersive-translate-target-translation-theme-opacity-inner {
+  filter: none !important;
+}
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner {
+  filter: opacity(10%)  !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-opacity-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner:hover {
+  filter: none !important;
+}
+/* opacity theme end */
 
 /* vertical css , please remain it in the last one. */
 .immersive-translate-target-translation-vertical-block-wrapper {

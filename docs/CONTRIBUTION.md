@@ -21,7 +21,11 @@
 
 ### Windows
 
-安装包管理器，如 [Scoop](https://scoop.sh/) 或 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 这里介绍如何安装 Scoop。打开 PowerShell 输入以下命令
+安装包管理器，如 [Scoop](https://scoop.sh/) 或 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 这里介绍 if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+print("Safari extension version: \(version)")
+} else {
+print("Version number not found")
+}如何安装 Scoop。打开 PowerShell 输入以下命令
 
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -158,6 +162,42 @@ More and more unit tests
 ## Build for firefox
 
     make build:firefox
+
+## macOS safari extension
+
+[在没有证书的情况下启用扩展](https://developer.apple.com/documentation/safariservices/safari_web_extensions/running_your_safari_web_extension#3744467)
+
+To develop without a certificate, tell Safari to load unsigned extensions using the Develop menu. To enable the Develop menu in Safari:
+要在没有证书的情况下进行开发，请告诉 Safari 使用 "开发 "菜单加载未签署的扩展。要在 Safari 中启用 "开发 "菜单：
+
+    Choose Safari > Preferences. 选择Safari > 偏好。
+
+    Select the Advanced tab. 选择 "高级 "选项卡。
+
+    Check the “Show Develop menu in menu bar” option.
+    勾选 "在菜单栏中显示开发菜单 "选项。
+
+Then, choose Develop > Allow Unsigned Extensions. The Allow Unsigned Extensions setting is reset when you quit Safari; set it again the next time you launch Safari.
+然后，选择开发 > 允许未签署的扩展。当你退出 Safari 时，允许未签署的扩展程序的设置会被重置；在你下次启动 Safari 时再进行设置。
+
+First,
+
+```bash
+cd scripts
+npm i
+```
+
+打包 safari 扩展：
+
+```bash
+make packsafari
+```
+
+发布到蒲公英
+
+```bash
+make archivesafari
+```
 
 ## Styles
 

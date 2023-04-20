@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-11T09:53:15.053Z", VERSION: "0.4.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-20T04:09:46.011Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -263,6 +263,34 @@
   .immersive-translate-target-inner:hover {
   filter: none !important;
 }
+/* opacity theme start */
+
+.immersive-translate-target-translation-theme-opacity-inner {
+  filter: opacity(10%) !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+[data-immersive-translate-root-translation-theme="none"]
+  .immersive-translate-target-translation-theme-opacity-inner {
+  filter: none !important;
+}
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner {
+  filter: opacity(10%)  !important;
+  transition: filter 0.3s ease !important;
+  border-radius: 10px;
+}
+
+.immersive-translate-target-translation-theme-opacity-inner:hover {
+  filter: none !important;
+}
+
+[data-immersive-translate-root-translation-theme="opacity"]
+  .immersive-translate-target-inner:hover {
+  filter: none !important;
+}
+/* opacity theme end */
 
 /* vertical css , please remain it in the last one. */
 .immersive-translate-target-translation-vertical-block-wrapper {
@@ -3773,7 +3801,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v114/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v116/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -4911,6 +4939,7 @@ body {
     "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
     "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
     "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
     "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
     "translationTheme.highlight": "\u9AD8\u4EAE",
@@ -4953,6 +4982,7 @@ body {
     "translationServices.d": "D (Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
     "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
@@ -5190,6 +5220,7 @@ body {
     "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
     "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
     "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
     "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
     "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
     "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
@@ -5232,6 +5263,7 @@ body {
     "translationServices.d": "Deepl(Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
     "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
     neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
@@ -5465,6 +5497,7 @@ body {
     "translationTheme.solidBorder": "Dashed Border",
     "translationTheme.underline": "Straight underline",
     "translationTheme.mask": "Blur effect",
+    "translationTheme.opacity": "Opacity effect",
     "translationTheme.paper": "White paper shadow effect",
     "translationTheme.dividingLine": "Dividing line",
     "translationTheme.highlight": "Highlight",
@@ -5507,6 +5540,7 @@ body {
     "translationServices.d": "DeeplX (Alpha)",
     "translationServices.dpro": "D Pro (Canary)",
     "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
     "translate title": "Translate page title",
     "always languages": "Always translate the following languages",
     neverTranslateLanguagesLabel: "Never Translated Languages",
@@ -5812,6 +5846,11 @@ body {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
     },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
+    },
     openai: {
       name: "Open AI",
       homepage: "https://openai.com/api/",
@@ -5879,7 +5918,9 @@ body {
           required: !1,
           descriptionKey: "description.prompt",
           type: "textarea",
-          default: "Translate the text below to {{to}}:\n\n```\n{{text}}\n```",
+          default: `Translate the text below to {{to}}:
+
+{{text}}`,
           optional: !0
         }
       ]
@@ -6441,12 +6482,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v114/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v116/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v114/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v116/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
     for (var n in t3)
       I(e, n, { get: t3[n], enumerable: !0 });
@@ -6544,7 +6585,7 @@ body {
   s2(c, L(h()));
   var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v114/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v116/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
     for (var l in i)
       ve(v4, l, { get: i[l], enumerable: !0 });
@@ -6861,11 +6902,11 @@ body {
   X2(B, ke(xe()));
   var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v114/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v116/nanostores@0.7.4/deno/nanostores.mjs
   var S = Symbol("clean");
   var m = Symbol();
 
-  // https://esm.sh/v114/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v116/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g(r, n) {
     if (typeof r == "string")
       return n(r);
@@ -6899,7 +6940,7 @@ body {
     return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v114/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v116/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P2(e, t3, i, r) {
     e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -7083,7 +7124,7 @@ body {
   }, window.hotkeys = v2);
   var B3;
 
-  // https://esm.sh/v114/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v116/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d2 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -7225,7 +7266,37 @@ body {
     }
   };
 
+  // env.ts
+  function getEnv() {
+    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+  }
+  var env = getEnv();
+  function isMonkey() {
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isSafari() {
+    return env.IMMERSIVE_TRANSLATE_SAFARI === "1";
+  }
+  function isUserscriptRuntime() {
+    if (
+      // @ts-ignore: it's ok
+      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+    ) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && (manifest._isUserscript || manifest._isSafari));
+    } else
+      return !1;
+  }
+
   // browser/request.ts
+  var ports = /* @__PURE__ */ new Map();
+  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
+    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
+      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
+    });
+  });
   async function request(options) {
     let response;
     if (options && options.retry && options.retry > 0)
@@ -7274,6 +7345,51 @@ body {
           statusText: response.statusText,
           url: finalUrl
         };
+      } else if (responseType === "stream") {
+        let buffer = "", answer;
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), eventData === "[DONE]")
+                break;
+              let data;
+              try {
+                data = JSON.parse(eventData ?? "");
+              } catch (error) {
+                log_default.debug("json error", error);
+                continue;
+              }
+              answer = data;
+            }
+          }
+        return answer;
+      } else if (responseType === "realStream") {
+        log_default.debug("sse get portName", options.extra?.portName);
+        let port = ports.get(options.extra?.portName), buffer = "";
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
+                return log_default.debug("sse get [DONE]"), response.status;
+            }
+          }
+        return response.status;
       }
     } else {
       let details;
@@ -7289,6 +7405,19 @@ body {
         response.status + ": " + (response.statusText || "") + shortDetail,
         details
       );
+    }
+  }
+  async function* streamAsyncIterable(stream) {
+    let reader = stream.getReader();
+    try {
+      for (; ; ) {
+        let { done, value } = await reader.read();
+        if (done)
+          return;
+        yield value;
+      }
+    } finally {
+      reader.releaseLock();
     }
   }
 
@@ -7319,27 +7448,6 @@ body {
       return languages[indexOfLanguages];
   }
 
-  // env.ts
-  function getEnv() {
-    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
-  }
-  var env = getEnv();
-  function isMonkey() {
-    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
-  }
-  function isUserscriptRuntime() {
-    if (
-      // @ts-ignore: it's ok
-      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
-      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
-      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
-    ) {
-      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-      return !!(manifest && manifest._isUserscript);
-    } else
-      return !1;
-  }
-
   // buildin_config.json
   var buildin_config_default = {
     minVersion: "0.0.20",
@@ -7351,6 +7459,7 @@ body {
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
+    telemetry: !0,
     loadingTheme: "spinner",
     canary: !1,
     translationServices: {
@@ -7400,6 +7509,28 @@ body {
         translationDebounce: 300,
         limit: 1500,
         maxTextGroupLengthPerRequest: 1,
+        prompt: `Translate the text to {{to}}:
+
+{{text}}`,
+        newlinePlaceholderDelimiters: [
+          `
+
+-|`,
+          `|-
+
+`,
+          `
+?
+?-\\|\\d+\\|-
+?
+?`
+        ]
+      },
+      chatgpt: {
+        placeholderDelimiters: ["{{", "}}"],
+        immediateTranslationTextCount: 2e3,
+        maxTextGroupLengthPerRequest: 1,
+        maxTextLengthPerRequest: 2e3,
         prompt: `Translate the text to {{to}}:
 
 {{text}}`,
@@ -7916,7 +8047,6 @@ body {
         matches: ["*.quora.com", "quora.com"],
         additionalSelectors: [
           ".puppeteer_test_question_title",
-          ".puppeteer_test_answer_content",
           "p.q-text"
         ],
         globalStyles: {
@@ -7959,7 +8089,8 @@ body {
           ".PostContent",
           ".post-content",
           ".Comment__body",
-          "faceplate-batch .md"
+          "faceplate-batch .md",
+          ".RichTextJSON-root"
         ],
         detectParagraphLanguage: !0,
         globalStyles: {
@@ -8114,22 +8245,10 @@ body {
       },
       {
         matches: "https://www.instagram.com/*",
-        globalStyles: {
-          "._ab05": "min-height:150px"
-        },
         wrapperPrefix: "",
         wrapperSuffix: "",
         selectors: [
-          "div._aa_c h1",
-          "div._a9zs h1",
-          "div._a9zr > div._a9zs > span",
-          "div._ab5z._ab5_",
-          'div._ac72 div[role="button"] > div:last-child',
-          'li._acaz div[role="menuitem"]'
-        ],
-        atomicBlockSelectors: [
-          "div._aa_c h1",
-          'li._acaz div[role="menuitem"]'
+          "h1"
         ]
       },
       {
@@ -8222,7 +8341,8 @@ body {
           "td div.gs_gray:last-of-type",
           "div.gsc_oci_value"
         ],
-        atomicBlockSelectors: [".gs_rs", "h3 a[data-clk]"]
+        extraInlineSelectors: ["br"],
+        atomicBlockSelectors: ["h3 a[data-clk]"]
       },
       {
         matches: "mail.google.com",
@@ -8458,7 +8578,7 @@ body {
         selectors: ["h2.post_title", ".comment_body > .md"]
       },
       {
-        matches: ["notion.site", "www.notion.so"],
+        matches: ["notion.site"],
         normalizeBody: "body",
         selectors: ["div[data-block-id]"]
       },
@@ -9176,6 +9296,11 @@ body {
         selectors: [".bodyText"]
       },
       {
+        matches: "thehackernews.com",
+        excludeSelectors: ["span#blog-pager-older-link", "span.h-datetime"],
+        additionalSelectors: [".pop-title"]
+      },
+      {
         isSubtitleBuilder: !0,
         selectorMatches: [
           "meta[name='immersive-translate-subtitle-builder'][content='true']"
@@ -9198,6 +9323,49 @@ body {
         globalStyles: {
           "#__next": "font-size: 19px;line-height:28px;"
         }
+      },
+      {
+        matches: "chat.google.com",
+        selectors: ["[jsname=bgckF]", "[dir=ltr]"]
+      },
+      {
+        matches: "https://www.fiverr.com/inbox/*",
+        selectors: [".message-body"]
+      },
+      {
+        matches: [
+          "jira.*.com/browse/*",
+          "jira.*.com/projects/*"
+        ],
+        selectors: [
+          "[id=descriptionmodule]",
+          "[id=summary-val]",
+          "div.action-body",
+          "td.stsummary"
+        ]
+      },
+      {
+        matches: ["*.aha.io"],
+        selectors: [
+          "[tabindex='0']",
+          "div.user-content",
+          "div.comments__body",
+          "span.name"
+        ]
+      },
+      {
+        matches: "thehill.com",
+        excludeSelectors: [
+          "div.featured-cards__byline",
+          "div.list-item__meta",
+          ".tags__item",
+          "div.extended-scroll__header",
+          ".submitted-by",
+          ".site-header--has-alert-banner",
+          ".homepage__container__opinion__item__byline",
+          ".homepage__container__header",
+          ".archive__item__meta"
+        ]
       }
     ]
   };
@@ -9878,11 +10046,6 @@ body {
           header: "DNT",
           operation: "set",
           value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -9916,12 +10079,7 @@ body {
           operation: "set",
           value: "1"
         },
-        { header: "cookie", operation: "remove" },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
-        }
+        { header: "cookie", operation: "remove" }
       ]
     },
     condition: {
@@ -9953,11 +10111,6 @@ body {
           header: "DNT",
           operation: "set",
           value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -9985,11 +10138,6 @@ body {
           header: "origin",
           operation: "set",
           value: "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -10704,7 +10852,13 @@ body {
     browserAPI.contextMenus.onClicked.addListener(
       (info) => {
         if (info.menuItemId === contextOpenOptionsMenuId)
-          browserAPI.runtime.openOptionsPage();
+          if (isSafari()) {
+            let optionsUrl = getEnv().OPTIONS_URL;
+            browserAPI.tabs.create({
+              url: optionsUrl
+            });
+          } else
+            browserAPI.runtime.openOptionsPage();
         else if (info.menuItemId === contextTranslateLocalPdfFileMenuId) {
           let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl);
           browserAPI.tabs.create({
@@ -10748,10 +10902,10 @@ body {
   // background.ts
   setupOnInstalledListener();
   setupCommandListeners();
-  setupContextMenuListeners();
+  browserAPI.contextMenus && setupContextMenuListeners();
   steupMessageListeners();
   async function mainAsync() {
-    tryToCreateContextMenu();
+    browserAPI.contextMenus && tryToCreateContextMenu();
   }
   mainAsync().catch((e) => {
     console.error("init main erro", e);

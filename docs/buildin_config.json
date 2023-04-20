@@ -8,6 +8,7 @@
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
+  "telemetry": true,
   "loadingTheme": "spinner",
   "canary": false,
   "translationServices": {
@@ -87,6 +88,21 @@
       "translationDebounce": 300,
       "limit": 1500,
       "maxTextGroupLengthPerRequest": 1,
+      "prompt": "Translate the text to {{to}}:\n\n{{text}}",
+      "newlinePlaceholderDelimiters": [
+        "\n\n-|",
+        "|-\n\n",
+        "\n?\n?-\\|\\d+\\|-\n?\n?"
+      ]
+    },
+    "chatgpt": {
+      "placeholderDelimiters": [
+        "{{",
+        "}}"
+      ],
+      "immediateTranslationTextCount": 2000,
+      "maxTextGroupLengthPerRequest": 1,
+      "maxTextLengthPerRequest": 2000,
       "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
@@ -644,7 +660,6 @@
       ],
       "additionalSelectors": [
         ".puppeteer_test_question_title",
-        ".puppeteer_test_answer_content",
         "p.q-text"
       ],
       "globalStyles": {
@@ -695,7 +710,8 @@
         ".PostContent",
         ".post-content",
         ".Comment__body",
-        "faceplate-batch .md"
+        "faceplate-batch .md",
+        ".RichTextJSON-root"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -880,22 +896,10 @@
     },
     {
       "matches": "https://www.instagram.com/*",
-      "globalStyles": {
-        "._ab05": "min-height:150px"
-      },
       "wrapperPrefix": "",
       "wrapperSuffix": "",
       "selectors": [
-        "div._aa_c h1",
-        "div._a9zs h1",
-        "div._a9zr > div._a9zs > span",
-        "div._ab5z._ab5_",
-        "div._ac72 div[role=\"button\"] > div:last-child",
-        "li._acaz div[role=\"menuitem\"]"
-      ],
-      "atomicBlockSelectors": [
-        "div._aa_c h1",
-        "li._acaz div[role=\"menuitem\"]"
+        "h1"
       ]
     },
     {
@@ -2218,13 +2222,54 @@
     {
       "matches": "chat.google.com",
       "selectors": [
-        "[data-is-initial-message-of-thread=true]"
+        "[jsname=bgckF]",
+        "[dir=ltr]"
+      ]
+    },
+    {
+      "matches": "https://www.fiverr.com/inbox/*",
+      "selectors": [
+        ".message-body"
+      ]
+    },
+    {
+      "matches": [
+        "jira.*.com/browse/*",
+        "jira.*.com/projects/*"
       ],
-      "additionalExcludeSelectors": [
-        "[data-absolute-timestamp]"
+      "selectors": [
+        "[id=descriptionmodule]",
+        "[id=summary-val]",
+        "div.action-body",
+        "td.stsummary"
+      ]
+    },
+    {
+      "matches": [
+        "*.aha.io"
+      ],
+      "selectors": [
+        "[tabindex='0']",
+        "div.user-content",
+        "div.comments__body",
+        "span.name"
+      ]
+    },
+    {
+      "matches": "thehill.com",
+      "excludeSelectors": [
+        "div.featured-cards__byline",
+        "div.list-item__meta",
+        ".tags__item",
+        "div.extended-scroll__header",
+        ".submitted-by",
+        ".site-header--has-alert-banner",
+        ".homepage__container__opinion__item__byline",
+        ".homepage__container__header",
+        ".archive__item__meta"
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-12T17:14:12.699Z",
+  "buildinConfigUpdatedAt": "2023-04-19T21:01:34.337Z",
   "latestVersion": "0.4.2"
 }

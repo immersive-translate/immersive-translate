@@ -5,14 +5,18 @@
 
 ## Todo List
 
+- [ ] ios 安装后跳转到 ios 的安装教程页面
+
 站点/浏览器适配
+
 - [ ] fix alook
 - [ ] yandex 搜索页面适配
 - [ ] https://www.lookintobitcoin.com/charts/bitcoin-investor-tool/ 切换翻译服务后，左侧有一些菜单不再翻译
-- [ ] reddit：observe url change 对于动态网页，前一个网页没有监测的情况下，无法判断后一个网页。 
+- [ ] reddit：observe url change 对于动态网页，前一个网页没有监测的情况下，无法判断后一个网页。
 - [ ] reddit：click 展开后，无法检测到新内容: https://www.reddit.com/r/tifu/comments/12dzq1j/tifu_by_peeing_on_my_doctors_face/ 需要关闭 nfsw 自动展开
 
 性能优化
+
 - [ ] 调查 ios15 的优化。
 - [ ] 测试油猴本地文件，indexdb 缓存问题
 - [ ] 测试立即翻译到网页底部的并行请求问题
@@ -23,12 +27,14 @@
 - [ ] 拦截 100
 
 用户设置
-- [ ] 点击展开更多设置，对于翻译引擎
+
+- [x] 点击展开更多设置，对于翻译引擎
 - [ ] 设置超过多少个单词才翻译，有些网站只只翻译较长段落就就行。??
 - [ ] add toggle mask to clear shortcuts
-- [ ] 提供到网站的延时设置
+- [x] 提供到网站的延时设置
 
 popup
+
 - [ ] popup 图标设置颜色，透明度？
 - [ ] popup 添加报告不兼容的网页按钮。
 - [ ] popup userscript 页面支持检测最新版本
@@ -38,19 +44,21 @@ popup
 - [ ] 支持用户自定义 popup 页面的快捷操作，比如快速切换当前的翻译模式，全区域翻译，还是智能识别。 该功能入口可以添加在设置页面对应的设置项旁边。... more, 在 popup 页面显示该选项。
 
 翻译服务
+
 - [ ] 增加阿里云翻译。
-- [ ] 增加讯飞翻译引擎 https://fanyi.xfyun.cn/console/trans/text 
-- [ ] 添加小牛翻译引擎 https://niutrans.com/trans?type=text 
+- [ ] 增加讯飞翻译引擎 https://fanyi.xfyun.cn/console/trans/text
 - [ ] 增加 google api 翻译。
 - [ ] 如果能夠把 chatGPT 做成彩雲那種雙語對照效果的插件就太棒了。
 
 译文
+
 - [ ] 不翻译纯符号： https://github.com/m-bain/whisperX/issues/56
 - [ ] 新增选项，是否记住站内链接翻译的状态....
 - [ ] 全局模式下，翻译 input， type = submit 的 value 属性
 - [ ] 点击重试图标后，全部重试，而不是单个重试
 
 易用性
+
 - [ ] 添加 usecase
 - [ ] loading 页面
 - [ ] firefox 增加地址栏翻译图标
@@ -58,7 +66,8 @@ popup
 - [ ] 移动端支持模糊转换的快捷键，
 - [ ] 移动端/电脑端支持创建一个新的快捷图标。
 
-PDF和阅读器
+PDF 和阅读器
+
 - [ ] 优化 pdf 翻译
 - [ ] 支持 calibre
 - [ ] add epub viewer
@@ -67,18 +76,22 @@ PDF和阅读器
 - [ ] 保存后的本地网页，支持再次翻译为其他语言
 
 网络同步
+
 - [ ] 支持 onedrive，包括 webdev
 - [ ] stay 同步 google drive
 
 主题样式
+
 - [ ] 修复黑暗模式的 loading
 - [ ] 优化 addStyle，解决 mastondon 无法注入样式的问题.
 
 发布更新
+
 - [ ] 修改商店描述，更易读
 - [ ] 油猴提示有新的更新？
 
 功能请求
+
 - [ ] 加字数统计功能,年度报告
 - [ ] 划词翻译功能
 - [ ] 译文可以编辑
@@ -90,7 +103,12 @@ PDF和阅读器
 - [ ] “我理解如果从页面中间点翻译，它会从“中间往下”继续翻（不是从页面的头开始翻）。不过实际上它只翻译中间而不会继续往下翻“ 优化项，如果页面中间点翻译，则从中间开始翻译。
 - [ ] 开头网络卡了，导致翻译不出结果，第一次看到这个界面，这让我想到可否在此基础上优化一下显示的图标，作为另外一种翻译模式呢？即在需要的翻译的段落旁点按钮，插入显示翻译结果。它有点类似模糊翻译，但可以带来两个好处：1.没有大量的模糊内容干扰阅读视线，2.不需要自动请求大量网络翻译，减少网络压力，节省 API 请求次数,还有第三个好处是在阅读中段时，启动插件，也不会有位移的问题了
 
+国际化支持
+
+- [ ] 阿拉伯语，波斯语等 RTL 语言的支持[#371](https://github.com/immersive-translate/immersive-translate/discussions/371)
+
 未分类
+
 - [ ] translation service lang map should be from config?
 - [ ] valid config, is invalid, then use the default config.
 - [ ] add paragraph action icon, for show current paragraph from language, to langauge, and support to choose another language,or another translation engine to translate this paragraph.
@@ -182,6 +200,6 @@ PDF和阅读器
 - [x] discord 搜索页面适配
 - [x] discord 新消息蹦出来不会自动翻译
 - [x] 优化重试逻辑，自动重试 1 次
+- [x] 添加小牛翻译引擎 https://niutrans.com/trans?type=text
 
 </details>
-

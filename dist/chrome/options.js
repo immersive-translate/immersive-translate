@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-19T21:04:39.351Z", VERSION: "0.4.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-20T04:09:44.235Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9946,7 +9946,7 @@ body {
       globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
     ) {
       let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-      return !!(manifest && manifest._isUserscript);
+      return !!(manifest && (manifest._isUserscript || manifest._isSafari));
     } else
       return !1;
   }
@@ -14925,7 +14925,7 @@ ${injectedCss}}
           }
           ctx.sourceLanguage && (currentParam.source_language = ctx.sourceLanguage);
         }
-        return console.log("currentParam", currentParam), {
+        return {
           ...event,
           params: currentParam
         };

@@ -18,11 +18,6 @@
         "header": "DNT",
         "operation": "set",
         "value": "1"
-      },
-      {
-        "header": "sec-fetch-site",
-        "operation": "set",
-        "value": "same-site"
       }
     ]
   },
@@ -56,12 +51,7 @@
         "operation": "set",
         "value": "1"
       },
-      { "header": "cookie", "operation": "remove" },
-      {
-        "header": "sec-fetch-site",
-        "operation": "set",
-        "value": "same-site"
-      }
+      { "header": "cookie", "operation": "remove" }
     ]
   },
   "condition": {
@@ -93,11 +83,6 @@
         "header": "DNT",
         "operation": "set",
         "value": "1"
-      },
-      {
-        "header": "sec-fetch-site",
-        "operation": "set",
-        "value": "same-site"
       }
     ]
   },
@@ -125,11 +110,6 @@
         "header": "origin",
         "operation": "set",
         "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
-      },
-      {
-        "header": "sec-fetch-site",
-        "operation": "set",
-        "value": "same-site"
       }
     ]
   },

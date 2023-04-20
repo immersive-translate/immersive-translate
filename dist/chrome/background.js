@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-19T21:04:39.351Z", VERSION: "0.4.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-20T04:09:44.235Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7274,6 +7274,9 @@ body {
   function isMonkey() {
     return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
   }
+  function isSafari() {
+    return env.IMMERSIVE_TRANSLATE_SAFARI === "1";
+  }
   function isUserscriptRuntime() {
     if (
       // @ts-ignore: it's ok
@@ -7282,7 +7285,7 @@ body {
       globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
     ) {
       let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-      return !!(manifest && manifest._isUserscript);
+      return !!(manifest && (manifest._isUserscript || manifest._isSafari));
     } else
       return !1;
   }
@@ -10043,11 +10046,6 @@ body {
           header: "DNT",
           operation: "set",
           value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -10081,12 +10079,7 @@ body {
           operation: "set",
           value: "1"
         },
-        { header: "cookie", operation: "remove" },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
-        }
+        { header: "cookie", operation: "remove" }
       ]
     },
     condition: {
@@ -10118,11 +10111,6 @@ body {
           header: "DNT",
           operation: "set",
           value: "1"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -10150,11 +10138,6 @@ body {
           header: "origin",
           operation: "set",
           value: "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
-        },
-        {
-          header: "sec-fetch-site",
-          operation: "set",
-          value: "same-site"
         }
       ]
     },
@@ -10869,7 +10852,13 @@ body {
     browserAPI.contextMenus.onClicked.addListener(
       (info) => {
         if (info.menuItemId === contextOpenOptionsMenuId)
-          browserAPI.runtime.openOptionsPage();
+          if (isSafari()) {
+            let optionsUrl = getEnv().OPTIONS_URL;
+            browserAPI.tabs.create({
+              url: optionsUrl
+            });
+          } else
+            browserAPI.runtime.openOptionsPage();
         else if (info.menuItemId === contextTranslateLocalPdfFileMenuId) {
           let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl);
           browserAPI.tabs.create({
@@ -10913,10 +10902,10 @@ body {
   // background.ts
   setupOnInstalledListener();
   setupCommandListeners();
-  setupContextMenuListeners();
+  browserAPI.contextMenus && setupContextMenuListeners();
   steupMessageListeners();
   async function mainAsync() {
-    tryToCreateContextMenu();
+    browserAPI.contextMenus && tryToCreateContextMenu();
   }
   mainAsync().catch((e) => {
     console.error("init main erro", e);

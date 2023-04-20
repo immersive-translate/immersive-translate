@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.4.4
+
+- Chore: Remove console.log
+
 ## 0.4.3
 
 - Fix: sup, sub tag whitespace detection.

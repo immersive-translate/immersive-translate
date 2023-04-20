@@ -153,8 +153,8 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=8327959ae3e112b03234198cb76cf6f89b1685b1"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=8327959ae3e112b03234198cb76cf6f89b1685b1"></a></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=1f93954f36b30403abbe4094be3adfec30a2b015"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=1f93954f36b30403abbe4094be3adfec30a2b015"></a></object>
 </p>
 
 > 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，你的头像和个人主页将会在 10 分钟内出现在这里。
@@ -195,7 +195,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 非常感谢这些贡献者，没有他们就不会有这个扩展！
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=b3815db76291dde02b8cabc089c33f0172dc4f69"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=b3815db76291dde02b8cabc089c33f0172dc4f69"></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=b40d69387e54f691fac4d0d92919aea9621d8add"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=b40d69387e54f691fac4d0d92919aea9621d8add"></object>
 </p>
 
 ## Star History

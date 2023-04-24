@@ -1,6 +1,6 @@
 name: 更新或改进 | Update or Improvement
-description: A request to update or improve
-labels: ["update"]
+description: A request to update or improvement
+labels: ["enhancement"]
 body:
   - type: textarea
     attributes:

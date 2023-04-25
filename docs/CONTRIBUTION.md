@@ -165,7 +165,9 @@ More and more unit tests
 
 ## macOS safari extension
 
-[在没有证书的情况下启用扩展](https://developer.apple.com/documentation/safariservices/safari_web_extensions/running_your_safari_web_extension#3744467)
+macos safari 扩展开发需要导入开发者证书，参见 [这里的文档](./docs/safari.md)
+
+[在没有证书的情况下启用扩展](https://developer.apple.com/documentation/safariservices/safari_web_extensions/running_your_safari_web_extension#3744467),不推荐
 
 To develop without a certificate, tell Safari to load unsigned extensions using the Develop menu. To enable the Develop menu in Safari:
 要在没有证书的情况下进行开发，请告诉 Safari 使用 "开发 "菜单加载未签署的扩展。要在 Safari 中启用 "开发 "菜单：
@@ -179,25 +181,6 @@ To develop without a certificate, tell Safari to load unsigned extensions using 
 
 Then, choose Develop > Allow Unsigned Extensions. The Allow Unsigned Extensions setting is reset when you quit Safari; set it again the next time you launch Safari.
 然后，选择开发 > 允许未签署的扩展。当你退出 Safari 时，允许未签署的扩展程序的设置会被重置；在你下次启动 Safari 时再进行设置。
-
-First,
-
-```bash
-cd scripts
-npm i
-```
-
-打包 safari 扩展：
-
-```bash
-make packsafari
-```
-
-发布到蒲公英
-
-```bash
-make archivesafari
-```
 
 ## Styles
 

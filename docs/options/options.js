@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-23T13:33:32.642Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-25T04:32:41.093Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7691,8 +7691,10 @@ body {
     downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
     clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
     aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9\u798F\u5229",
-    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9\u798F\u5229",
+    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988",
+    aboutLabelWithoutSponsor: "\u5173\u4E8E - \u53CD\u9988",
     aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002<br/><br/>\u514D\u8D39\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8D5E\u52A9\u8005\u4E4B\u95F4\u5EFA\u7ACB\u4E00\u79CD\u53CC\u8D62\u7684\u5173\u7CFB\uFF01\u6211\u4E3A\u8D5E\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u65F6\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8BD1\u670D\u52A1</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u4E86\u89E3\u8D5E\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F ",
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
     joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -7972,8 +7974,10 @@ body {
     downloadFail: "\u4E0B\u8F09\u5931\u6557",
     clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
     aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
+    aboutLabelWithoutSponsor: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831",
     "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
     aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002<br/><br/>\u514D\u8CBB\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8B9A\u52A9\u8005\u4E4B\u9593\u5EFA\u7ACB\u4E00\u7A2E\u96D9\u8D0F\u7684\u95DC\u4FC2\uFF01\u6211\u70BA\u8D0A\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u6642\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8B6F\u670D\u52D9</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u4E86\u89E3\u8D0A\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F ",
     projectHomepage: "\u5C08\u6848\u9996\u9801",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
     joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
@@ -8249,8 +8253,10 @@ body {
     downloadFail: "Download failed",
     clickToDownload: "Click to download",
     aboutLabel: "About - Feedback - Sponsor",
-    "browser.openAboutPage": "About / Feedback/Sponsor",
+    aboutLabelWithoutSponsor: "About - Feedback",
+    "browser.openAboutPage": "About / Feedback",
     aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
+    aboutIntroWithoutSponsor: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. ",
     projectHomepage: "Project Homepage",
     joinTelegramGroup: "Join Telegram group for feature discussion",
     joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
@@ -9124,6 +9130,20 @@ body {
   var env = getEnv();
   function isMonkey() {
     return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isSafari() {
+    if (env.IMMERSIVE_TRANSLATE_SAFARI === "1")
+      return !0;
+    if (
+      // @ts-ignore: it's ok
+      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+    ) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && manifest._isSafari);
+    } else
+      return !1;
   }
   function isDeno() {
     return typeof Deno < "u";
@@ -10031,6 +10051,7 @@ ${injectedCss}}
       injectedCss: [],
       isEbook: !1,
       isEbookBuilder: !1,
+      showSponsorOnSafari: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
       pairs: {},
@@ -21889,7 +21910,9 @@ ${injectedCss}}
   function About() {
     let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_5, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
       !1
-    ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), handleSyncing = async () => {
+    ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), isShowPricing = !0;
+    isSafari() && config && (isShowPricing = config.generalRule.showSponsorOnSafari);
+    let handleSyncing = async () => {
       setSyncErrorMessage("");
       let finalRemoteConfig = remoteConfig;
       if (remoteConfig === null)
@@ -21957,8 +21980,8 @@ ${injectedCss}}
         ...state,
         enabled: checked
       }));
-    };
-    return config ? /* @__PURE__ */ p5("div", { class: "text-sm", children: [
+    }, aboutIntroKey = "aboutIntro";
+    return isShowPricing || (aboutIntroKey = "aboutIntroWithoutSponsor"), config ? /* @__PURE__ */ p5("div", { class: "text-sm", children: [
       /* @__PURE__ */ p5("div", { class: "nav", children: /* @__PURE__ */ p5(
         "strong",
         {
@@ -22035,7 +22058,7 @@ ${injectedCss}}
         {
           class: "text-sm",
           dangerouslySetInnerHTML: {
-            __html: t5("aboutIntro", {
+            __html: t5(aboutIntroKey, {
               1: "https://immersive-translate.owenyoung.com/thanks",
               2: "https://immersive-translate.owenyoung.com/donate",
               3: "https://twitter.com/OwenYoungZh",
@@ -22081,7 +22104,7 @@ ${injectedCss}}
             children: t5("Github")
           }
         ) }),
-        /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
+        isShowPricing && /* @__PURE__ */ p5("li", { children: /* @__PURE__ */ p5(
           "a",
           {
             class: "secondary",
@@ -22432,7 +22455,7 @@ ${injectedCss}}
             lang: config.interfaceLanguage,
             fallbackLang: "zh-CN",
             translations: locales_default,
-            children: /* @__PURE__ */ p5(App, { donateUrl: config.donateUrl })
+            children: /* @__PURE__ */ p5(App, { donateUrl: config.donateUrl, config })
           }
         ),
         mountPoint
@@ -22440,7 +22463,7 @@ ${injectedCss}}
     })();
   }
   function App(props) {
-    let route = useRoute(), { t: t5 } = useI18n(), version = getVersion(), navs = [
+    let route = useRoute(), { t: t5 } = useI18n(), version = getVersion(), { config } = props, navs = [
       {
         name: t5("general"),
         props: {
@@ -22477,9 +22500,11 @@ ${injectedCss}}
         }
       }
     ];
-    return navs.forEach((nav) => {
+    navs.forEach((nav) => {
       route === nav.props.href && (nav.props.className = "primary", nav.props["aria-current"] = "page");
-    }), /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
+    });
+    let isShowPricing = !0;
+    return isSafari() && (isShowPricing = config.generalRule.showSponsorOnSafari), /* @__PURE__ */ p5(L, { children: /* @__PURE__ */ p5("main", { class: "container-fluid", children: [
       /* @__PURE__ */ p5("aside", { children: /* @__PURE__ */ p5("nav", { class: "flex flex-col h-full justify-between", children: [
         /* @__PURE__ */ p5("div", { children: [
           /* @__PURE__ */ p5("hgroup", { class: "mb-2", children: [
@@ -22498,7 +22523,14 @@ ${injectedCss}}
           /* @__PURE__ */ p5("ul", { class: "flex flex-wrap  justify-between md:block text-sm md:text-base", children: navs.map((nav, index) => /* @__PURE__ */ p5("li", { class: "li", children: /* @__PURE__ */ p5("a", { ...nav.props, children: nav.name }) }, `nav-${index}`)) })
         ] }),
         /* @__PURE__ */ p5("div", { class: "m-0 p-0 flex flex-col", children: [
-          /* @__PURE__ */ p5("a", { class: "py-3 text-xs no-focus secondary", href: props.donateUrl, children: t5("donateCafe") }),
+          isShowPricing && /* @__PURE__ */ p5(
+            "a",
+            {
+              class: "py-3 text-xs no-focus secondary",
+              href: props.donateUrl,
+              children: t5("donateCafe")
+            }
+          ),
           /* @__PURE__ */ p5("a", { class: "py-3 text-xs no-focus secondary", href: "#about", children: t5("feedbackAndJoin") }),
           /* @__PURE__ */ p5(
             "a",

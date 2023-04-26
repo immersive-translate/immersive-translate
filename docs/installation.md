@@ -14,18 +14,15 @@
 
 ## Safari
 
-> 沉浸式翻译 Safari 扩展正在苹果 Safari 商店限时免费中，支持 iOS, iPadOS, macOS 的 Safari 浏览器，不要错过哦
+[点此进入 Apple Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425) , **限时免费中**，支持 iOS, iPad (最低版本 15.4)，macOS（最低版本 12.3）
 
-[点此进入 Apple Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425)
-
-> **首次安装后需要在 safari 浏览器开启沉浸式翻译扩展，并且授予其始终允许访问所有网站的权限**
-
-有疑问可以查看以下的视频教程：
+> 首次安装后需要在 safari 浏览器**启用沉浸式翻译扩展**，并且授予**始终允许访问所有网站**的权限，有疑问可以查看以下视频教程：
 
 <video
+controls
 muted
-width="435px"
-poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-installation.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+height="800px"
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
 </video>
 
 ## 安卓

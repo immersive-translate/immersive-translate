@@ -28,7 +28,7 @@ loop
 muted
 plays-inline
 width="435px"
-poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-intro.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-installation.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
 </video>
 
 ## 安卓

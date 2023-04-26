@@ -1,26 +1,59 @@
 # 安装
 
-## 桌面端
-
-#### Edge 浏览器
+## Edge 浏览器
 
 [点击进入 Edge 商店安装](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
 
-#### 类 Chrome 浏览器
+## Chrome 或其他 Chrome 套壳浏览器
 
 [点击进入 Chrome 商店安装](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
 
-#### Firefox
+## Firefox
 
 [点击进入 Firefox Addon 商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
 
-### 油猴脚本地址
+## Safari
 
-油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js> ， 在已安装油猴扩展的浏览器中打开该地址，即可安装。
+> 沉浸式翻译 Safari 扩展正在苹果 Safari 商店限时免费中，支持 iOS, iPadOS, macOS 的 Safari 浏览器，不要错过哦
 
-## 苹果 iOS/macOS 系统
+[点此进入 Apple Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425)
 
-使用 Safari 浏览器，桌面版和移动版都支持，需配合油猴插件安装，以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例:
+> **首次安装后需要在 safari 浏览器开启沉浸式翻译扩展，并且授予其始终允许访问所有网站的权限**
+
+有疑问可以查看以下的视频教程：
+
+<video
+autoPlay
+loop
+muted
+plays-inline
+width="435px"
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-intro.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+</video>
+
+## 安卓
+
+安卓系统使用沉浸式翻译有 2 种方式：
+
+1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[Kiwi 浏览器](https://kiwibrowser.com/)，或[狐猴浏览器](https://lemurbrowser.com/app/zh/)，安装后，直接在 chrome 商店搜索沉浸式翻译即可安装。
+2. 在支持油猴脚本的浏览器中安装沉浸式翻译的油猴脚本，见下面的介绍。
+
+## 通过油猴脚本安装
+
+如果你无法通过以上的方式安装沉浸式翻译的官方扩展，你也可以通过以下方式安装油猴脚本：
+
+油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js>
+
+在已安装油猴扩展的浏览器中打开[该地址](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，即可安装。以下介绍几个支持油猴脚本的浏览器：
+
+### 安卓火狐浏览器
+
+1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
+2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
+3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
+4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
+
+### 苹果 Safari 浏览器[Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)
 
 1. 安装 [Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)，并授予其 “始终允许访问任何网站” 的权限。
 2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)(在 Safari 浏览器中打开该链接即可看到安装页面)
@@ -29,19 +62,6 @@
 安装有困难，可以点击参考 [YouTube 视频教程](https://www.youtube.com/watch?v=IWOFFWDfZGY)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IWOFFWDfZGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## 安卓端 (Android)
-
-#### 安卓火狐浏览器
-
-1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
-2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
-4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
-
-#### 其他浏览器
-
-比如 Kiwi 浏览器，狐猴浏览器等，只要支持油猴脚本的浏览器，都可以通过油猴脚本安装本扩展。如果支持 Chrome 商店，也可以直接安装商店版本。
 
 ## 油猴脚本 GreasyFork 地址
 

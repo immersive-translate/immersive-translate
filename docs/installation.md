@@ -17,8 +17,7 @@
 controls
 muted
 height="800px"
-poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
-</video>
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4"></video>
 
 ## 安卓
 

@@ -80,49 +80,57 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 ## 安装
 
-#### Edge 浏览器
+### 桌面浏览器
 
-[点击进入 Edge 商店安装](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
+- 微软 Edge 浏览器： [Edge 商店沉浸式翻译](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
+- 谷歌 Chrome 浏览器：[Chrome 商店沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
+- Firefox 火狐浏览器：[Firefox Addon 商店沉浸式翻译](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
 
-#### 类 Chrome 浏览器
+### Safari
 
-[点击进入 Chrome 商店安装](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
+- [点此进入苹果 App Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425) **限时免费中!!!**
+- 支持 iPhone, iPad (最低版本 15.4)，macOS（最低版本 12.3）
 
-#### Firefox
+> 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看以下视频教程：
 
-[点击进入 Firefox Addon 商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
+<video
+controls
+muted
+height="800px"
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp"><source src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+</video>
 
-### 油猴脚本地址
+### 安卓
 
-油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js> ， 在已安装油猴扩展的浏览器中打开该地址，即可安装。
+安卓系统使用沉浸式翻译有 2 种方式：
 
-## 苹果 iOS/macOS 系统 Safari 浏览器
+1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[Kiwi 浏览器](https://kiwibrowser.com/)，或[狐猴浏览器](https://lemurbrowser.com/app/zh/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
+2. 在支持油猴脚本的安卓浏览器中安装[沉浸式翻译油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，见下面的介绍。
 
-使用 Safari 浏览器，桌面版和移动版都支持，需配合油猴插件安装，以 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887) 为例:
+### 通过油猴脚本安装
 
-1. 安装 [Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)，并授予其 “始终允许访问任何网站” 的权限。
-2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)(在 Safari 浏览器中打开该链接即可看到安装页面)
-3. 安装后，打开任意网页刷新一下，在网页右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，建议多刷新一下网页，或者强制重启一下 Safari，以使其生效)
+如果你无法通过以上的方式安装沉浸式翻译的官方扩展，你可以通过以下方式安装油猴脚本：
 
-如果安装有困难，可以点击参考 [YouTube 视频教程](https://youtu.be/vOaCFjYmQNM)，[抖音视频教程](https://v.douyin.com/B4aeGYt/) 。
+油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js>
 
-## 安卓端 (Android)
+在已安装油猴扩展的浏览器中打开[该地址](https://immersive-translate.owenyoung.com/immersive-translate.user.js) 即可安装。以下介绍几个支持油猴脚本的浏览器：
 
-### 火狐浏览器
+**安卓火狐浏览器**
 
 1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 在 Firefox 浏览器中打开[该链接](https://immersive-translate.owenyoung.com/immersive-translate.user.js)
-   即可看到安装页面。
+3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
-### 其他浏览器
+**苹果 Safari 浏览器[Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)**
 
-比如 Kiwi 浏览器，狐猴浏览器等，只要支持油猴脚本的浏览器，都可以通过油猴脚本安装本扩展。如果支持 Chrome 商店，也可以直接安装商店版本。
+1. 安装 [Userscripts safari 插件](https://itunes.apple.com/us/app/userscripts/id1463298887)，并授予其 “始终允许访问任何网站” 的权限。
+2. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)(在 Safari 浏览器中打开该链接,点击 Userscript 扩展图标即可看到安装页面)
+3. 安装后，打开任意网页刷新一下，在网页右侧会出现本扩展的浮动窗口。(如果遇到没有出现浮窗的问题，建议多刷新一下网页，或者强制重启一下 Safari，以使其生效)
 
-## 油猴脚本 GreasyFork 地址
+如果安装的时候遇到疑问，可以参考 [YouTube 视频教程](https://www.youtube.com/watch?v=IWOFFWDfZGY)
 
-你也可以通过 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 iOS 的 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)油猴扩展似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IWOFFWDfZGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 赞助
 

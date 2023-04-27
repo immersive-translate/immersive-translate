@@ -187,7 +187,7 @@
     "injectedCss": [],
     "isEbook": false,
     "isEbookBuilder": false,
-    "showSponsorOnSafari": false,
+    "showSponsorOnSafari": true,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "pairs": {},
@@ -2271,6 +2271,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-25T04:58:43.011Z",
+  "buildinConfigUpdatedAt": "2023-04-27T04:24:49.663Z",
   "latestVersion": "0.4.4"
 }

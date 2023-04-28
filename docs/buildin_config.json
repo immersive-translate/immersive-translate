@@ -125,12 +125,9 @@
       "*.twitter.com",
       "medium.com",
       "*.medium.com",
-      "github.com",
-      "gist.github.com",
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
-      "gitlab.com",
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
@@ -187,7 +184,7 @@
     "injectedCss": [],
     "isEbook": false,
     "isEbookBuilder": false,
-    "showSponsorOnSafari": true,
+    "showSponsorOnSafari": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "pairs": {},
@@ -2271,6 +2268,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-27T04:24:49.663Z",
-  "latestVersion": "0.4.4"
+  "buildinConfigUpdatedAt": "2023-04-28T16:24:08.155Z",
+  "latestVersion": "0.4.5"
 }

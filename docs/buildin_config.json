@@ -125,12 +125,9 @@
       "*.twitter.com",
       "medium.com",
       "*.medium.com",
-      "github.com",
-      "gist.github.com",
       "www.facebook.com",
       "www.youtube.com",
       "m.youtube.com",
-      "gitlab.com",
       "mail.google.com",
       "discord.com",
       "web.telegram.org",
@@ -187,7 +184,7 @@
     "injectedCss": [],
     "isEbook": false,
     "isEbookBuilder": false,
-    "showSponsorOnSafari": true,
+    "showSponsorOnSafari": false,
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "pairs": {},
@@ -1752,9 +1749,10 @@
     {
       "matches": "getpocket.com",
       "selectors": [
-        "h2.title",
+        "h2",
         "div.excerpt p",
-        "main > article"
+        "article",
+        "h1"
       ],
       "globalStyles": {
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
@@ -2271,6 +2269,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-27T04:24:49.663Z",
-  "latestVersion": "0.4.4"
+  "buildinConfigUpdatedAt": "2023-04-29T10:16:00.240Z",
+  "latestVersion": "0.4.5"
 }

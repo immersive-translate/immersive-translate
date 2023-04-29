@@ -2,7 +2,7 @@
   {
     "sponsor": {
       "type": "Organization",
-      "name": "ApiFox",
+      "name": "Apifox",
       "login": "apifox",
       "description": "API 设计、开发、测试一体化协作平台",
       "avatarUrl": "../../../docs/assets/apifox-logo-128.png",

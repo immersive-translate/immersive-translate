@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-20T04:09:46.011Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-29T17:31:52.369Z", VERSION: "0.4.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3739,44 +3739,45 @@ body {
 .w-auto {
   width: auto;
 }
-`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<style>
-  html {
-    font-size: 17px;
-  }
-  .immersive-translate-popup-container {
-    position: fixed;
-    padding: 0;
-    z-index: 999999;
-  }
-  .immersive-translate-popup-btn {
-    background-color: #ea4c89;
-    font-size: 18px;
-    opacity: 0.5;
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-transform ease-out 250ms;
-    transition: -webkit-transform ease-out 250ms;
-    transition: transform ease-out 250ms;
-    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
-  }
-  .immersive-translate-popup-btn > svg {
-  }
-  #mount#mount {
-    position: absolute;
-    display: none;
-    min-width: 250px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    --font-size: 17px;
-    font-size: 17px;
-  }
-</style>
-
-<div
+`, IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS: `html {
+  font-size: 17px;
+}
+.immersive-translate-popup-container {
+  position: fixed;
+  padding: 0;
+  z-index: 999999;
+  top: 335px;
+  right: 0;
+}
+.immersive-translate-popup-btn {
+  background-color: #ea4c89;
+  font-size: 18px;
+  opacity: 0.5;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 250ms;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
+  border: none;
+  padding: 0;
+}
+.immersive-translate-popup-btn > svg {
+}
+#mount#mount {
+  position: absolute;
+  display: none;
+  min-width: 250px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  --font-size: 17px;
+  font-size: 17px;
+}
+`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<div
   id="immersive-translate-popup-container"
   class="immersive-translate-popup-container"
 >
@@ -3801,7 +3802,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v116/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v117/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -5488,8 +5489,10 @@ body {
     downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
     clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
     aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9\u798F\u5229",
-    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9\u798F\u5229",
+    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988",
+    aboutLabelWithoutSponsor: "\u5173\u4E8E - \u53CD\u9988",
     aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002<br/><br/>\u514D\u8D39\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8D5E\u52A9\u8005\u4E4B\u95F4\u5EFA\u7ACB\u4E00\u79CD\u53CC\u8D62\u7684\u5173\u7CFB\uFF01\u6211\u4E3A\u8D5E\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u65F6\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8BD1\u670D\u52A1</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u4E86\u89E3\u8D5E\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F ",
     projectHomepage: "\u9879\u76EE\u4E3B\u9875",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
     joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
@@ -5531,7 +5534,8 @@ body {
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
     hasBeenDisabled: "\u5DF2\u7981\u7528",
-    "show password": "\u663E\u793A\u5BC6\u7801"
+    "show password": "\u663E\u793A\u5BC6\u7801",
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
   };
 
   // locales/zh-TW.json
@@ -5769,8 +5773,10 @@ body {
     downloadFail: "\u4E0B\u8F09\u5931\u6557",
     clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
     aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
+    aboutLabelWithoutSponsor: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831",
     "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
     aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002<br/><br/>\u514D\u8CBB\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8B9A\u52A9\u8005\u4E4B\u9593\u5EFA\u7ACB\u4E00\u7A2E\u96D9\u8D0F\u7684\u95DC\u4FC2\uFF01\u6211\u70BA\u8D0A\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u6642\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8B6F\u670D\u52D9</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u4E86\u89E3\u8D0A\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F ",
     projectHomepage: "\u5C08\u6848\u9996\u9801",
     joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
     joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
@@ -5807,7 +5813,8 @@ body {
     clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
     clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
     hasBeenDisabled: "\u5DF2\u505C\u7528",
-    "show password": "\u986F\u793A\u5BC6\u78BC"
+    "show password": "\u986F\u793A\u5BC6\u78BC",
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
   };
 
   // locales/en.json
@@ -5823,7 +5830,7 @@ body {
     browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
     enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
     "browser.brandName": "Immersive Translate",
-    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
+    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc.",
     "browser.toggleTranslatePage": "Toggle translate webpage ",
     "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
     "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
@@ -6046,8 +6053,10 @@ body {
     downloadFail: "Download failed",
     clickToDownload: "Click to download",
     aboutLabel: "About - Feedback - Sponsor",
-    "browser.openAboutPage": "About / Feedback/Sponsor",
+    aboutLabelWithoutSponsor: "About - Feedback",
+    "browser.openAboutPage": "About / Feedback",
     aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
+    aboutIntroWithoutSponsor: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. ",
     projectHomepage: "Project Homepage",
     joinTelegramGroup: "Join Telegram group for feature discussion",
     joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
@@ -6085,7 +6094,8 @@ body {
     clickToEnableExtension: "Click to enable the extension",
     hasBeenDisabled: "Disabled",
     "show password": "Show password",
-    resetToDefaultSettings: "Reset to default settings"
+    resetToDefaultSettings: "Reset to default settings",
+    customContent: "Enter customization content"
   };
 
   // constant.ts
@@ -6106,7 +6116,7 @@ body {
   var translations = {};
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
-  var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html", htmlViewerUrl = "html/index.html", subtitleBuilderUrl = "subtitle/index.html", epubViewerUrl = "ebook/index.html";
+  var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html", htmlViewerUrl = "html/index.html", subtitleBuilderUrl = "subtitle/index.html";
   var brandIdForJs = "immersiveTranslate";
   var GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow";
   var AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig";
@@ -6462,8 +6472,18 @@ body {
           labelKey: "field.model",
           descriptionKey: "description.model",
           required: !1,
-          type: "text",
-          default: "gpt-3.5-turbo"
+          type: "select",
+          default: "gpt-3.5-turbo",
+          options: [
+            {
+              label: "gpt-3.5-turbo",
+              value: "gpt-3.5-turbo"
+            },
+            {
+              label: "gpt-4",
+              value: "gpt-4"
+            }
+          ]
         },
         {
           name: "limit",
@@ -7053,12 +7073,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v116/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v117/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v116/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v117/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e, t2) => () => (t2 || e((t2 = { exports: {} }).exports, t2), t2.exports), q3 = (e, t2) => {
     for (var n2 in t2)
       I2(e, n2, { get: t2[n2], enumerable: !0 });
@@ -7156,7 +7176,7 @@ body {
   s2(c, L3(h()));
   var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
 
-  // https://esm.sh/v116/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v117/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
     for (var l2 in i2)
       ve(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7473,11 +7493,11 @@ body {
   X3(B3, ke(xe()));
   var { default: Ce, ..._e2 } = Fe, Ye = Ce !== void 0 ? Ce : _e2;
 
-  // https://esm.sh/v116/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v117/nanostores@0.7.4/deno/nanostores.mjs
   var S3 = Symbol("clean");
   var m2 = Symbol();
 
-  // https://esm.sh/v116/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v117/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g2(r, n2) {
     if (typeof r == "string")
       return n2(r);
@@ -7511,7 +7531,7 @@ body {
     return t2 in n2 || (t2 = "many"), g2(n2[t2], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v116/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v117/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M3 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P4(e, t2, i2, r) {
     e.addEventListener ? e.addEventListener(t2, i2, r) : e.attachEvent && e.attachEvent("on".concat(t2), function() {
@@ -7695,7 +7715,7 @@ body {
   }, window.hotkeys = v2);
   var B5;
 
-  // https://esm.sh/v116/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v117/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d4 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -8203,7 +8223,18 @@ body {
     return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
   }
   function isSafari() {
-    return env.IMMERSIVE_TRANSLATE_SAFARI === "1";
+    if (env.IMMERSIVE_TRANSLATE_SAFARI === "1")
+      return !0;
+    if (
+      // @ts-ignore: it's ok
+      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+    ) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && manifest._isSafari);
+    } else
+      return !1;
   }
 
   // dom/util.ts
@@ -8354,12 +8385,9 @@ body {
         "*.twitter.com",
         "medium.com",
         "*.medium.com",
-        "github.com",
-        "gist.github.com",
         "www.facebook.com",
         "www.youtube.com",
         "m.youtube.com",
-        "gitlab.com",
         "mail.google.com",
         "discord.com",
         "web.telegram.org",
@@ -8412,6 +8440,7 @@ body {
       injectedCss: [],
       isEbook: !1,
       isEbookBuilder: !1,
+      showSponsorOnSafari: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
       pairs: {},
@@ -9716,7 +9745,7 @@ body {
       },
       {
         matches: "getpocket.com",
-        selectors: ["h2.title", "div.excerpt p", "main > article"],
+        selectors: ["h2", "div.excerpt p", "article", "h1"],
         globalStyles: {
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -10350,7 +10379,7 @@ body {
           // @ts-ignore: ignore type error
           finalConfig[configKey],
           mergedUserConfig[configKey]
-        )), configKey === "shortcuts" && (isMonkey() ? finalConfig[configKey] = {
+        )), configKey === "shortcuts" && (isMonkey() || isSafari() ? finalConfig[configKey] = {
           ...finalConfig[configKey],
           ...shortcutsFromBrowser
         } : finalConfig[configKey] = {
@@ -10773,16 +10802,22 @@ body {
     }
   };
   function handleResponse(message, response, logger) {
-    if (response.ok)
-      return logger.debug(
-        `${message.from} received response from ${message.to}:`,
-        response.data ? response.data : " "
-      ), response.data;
-    throw new CommonError(
-      response.errorName || "UnknownError",
-      response.errorMessage || "Unknown error",
-      response.errorDetails
-    );
+    if (response) {
+      if (response.ok)
+        return logger.debug(
+          `${message.from} received response from ${message.to}:`,
+          response.data ? response.data : " "
+        ), response.data;
+      throw new CommonError(
+        response.errorName || "UnknownError",
+        response.errorMessage || "Unknown error",
+        response.errorDetails
+      );
+    } else
+      throw new CommonError(
+        "noResponse",
+        "Unknown error"
+      );
   }
   function parseType(str) {
     let parts = str.split(":");
@@ -11308,8 +11343,9 @@ body {
       onClose,
       onTranslatePage,
       onSetLocalConfig
-    } = props, setSettings = onUserConfigChange, [message, setMessage] = P2(""), [errorMessage, _setErrorMessage] = P2(""), { t: t2 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null;
+    } = props, setSettings = onUserConfigChange, [message, setMessage] = P2(""), [errorMessage, _setErrorMessage] = P2(""), { t: t2 } = useI18n(), isAlwaysTranslateDomain = null, isAlwaysTranslateWildDomain = null, isNeverTranslaateDomain = null, isNeverTranslateWildDomain = null, isAlwaysTranslateLang = null, isAlwaysTranslateUrl = null, isNeverTranslateUrl = null, curentTranslationServiceItem = null, currentUrlObj = null, currentWildHostname = null, currentUrlWithoutHash = null, currentTranslationServiceConfig = null, isShowPricing = !0;
     if (config) {
+      isSafari() && config && (isShowPricing = config.generalRule.showSponsorOnSafari);
       let { translationService, translationServices, translationUrlPattern } = config;
       if (PureTranslationServices[translationService] && (curentTranslationServiceItem = formatTranslationService(
         translationService,
@@ -11772,7 +11808,7 @@ body {
                 value: "toggleEnabled"
               },
               {
-                label: "\u2764\uFE0F " + t2("aboutLabel"),
+                label: "\u2764\uFE0F " + t2(isShowPricing ? "aboutLabel" : "aboutLabelWithoutSponsor"),
                 value: "about"
               }
             ].filter(Boolean)
@@ -12058,12 +12094,7 @@ body {
       }), globalThis.close();
     }, handleTranslateLocalSubtitleFile = () => {
       let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(subtitleBuilderUrl);
-      browserAPI.tabs.create({
-        url: pdfViewerRuntimeUrl
-      }), globalThis.close();
-    }, handleTranslateLocalEpubFile = () => {
-      let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(epubViewerUrl);
-      browserAPI.tabs.create({
+      isSafari() && (pdfViewerRuntimeUrl = getEnv().SUBTITLE_BUILDER_URL), browserAPI.tabs.create({
         url: pdfViewerRuntimeUrl
       }), globalThis.close();
     }, handleTranslatePdf = () => {
@@ -12093,21 +12124,31 @@ body {
     }, handleOpenOptionsPage = () => {
       if (isSafari()) {
         let optionsUrl = getEnv().OPTIONS_URL;
-        globalThis.open(optionsUrl, "_blank");
+        browserAPI.tabs.create({
+          url: optionsUrl
+        });
       } else
         browserAPI.runtime.openOptionsPage();
       setTimeout(() => {
         globalThis.close();
       }, 50);
     }, handleOpenAboutPage = () => {
-      browserAPI.tabs.create({
-        url: browserAPI.runtime.getURL("options.html#about")
-      }), setTimeout(() => {
+      if (isSafari()) {
+        let optionsUrl = getEnv().OPTIONS_URL;
+        browserAPI.tabs.create({
+          url: optionsUrl + "#about"
+        });
+      } else
+        browserAPI.tabs.create({
+          url: browserAPI.runtime.getURL("options.html#about")
+        });
+      setTimeout(() => {
         globalThis.close();
       }, 50);
     }, handleOpenEbookBuilderPage = () => {
-      browserAPI.tabs.create({
-        url: browserAPI.runtime.getURL("ebook/make/index.html")
+      let url = browserAPI.runtime.getURL("ebook/make/index.html");
+      isSafari() && (url = getEnv().EBOOK_BUILDER_URL), browserAPI.tabs.create({
+        url
       }), setTimeout(() => {
         globalThis.close();
       }, 50);

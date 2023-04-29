@@ -119,6 +119,9 @@ a.no-focus:focus,
 [role="link"]:focus {
   --background-color: transparent;
 }
+.immersive-translate-status {
+  font-size: 0.875rem;
+}
 
 hgroup.hgroup {
   display: flex;

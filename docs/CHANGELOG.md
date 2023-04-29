@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.6
+
+- Feat: Allow third party send document event to call `toggleTranslatePage`
+- Feat: iOS app add enable extension button and communities link
+- UI: OpenAI settings field model use select instead of text input box.
+
+## 0.4.5
+
+- Fix: iOS 15.0 safari extension issue.
+- Fix: macOS safari extension shortcuts
+- Fix: content security policy popup for extension, and partly for userscript.
+
 ## 0.4.4
 
 - Chore: Remove console.log

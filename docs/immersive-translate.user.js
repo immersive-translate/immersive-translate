@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc.
-// @version      0.4.4
+// @version      0.4.6
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -19,6 +19,8 @@
 // @grant       GM.registerMenuCommand
 // @grant       GM_getValue
 // @grant       GM_setValue
+// @grant       GM_addElement
+// @grant       GM.addElement
 // @grant       GM_listValues
 // @grant       GM_deleteValue
 // @grant       GM.listValues
@@ -60,10 +62,10 @@
 // @connect    aidemo.youdao.com
 // @connect    localhost
 // @run-at       document-end
-// @name:zh-TW     沉浸式翻譯
-// @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // @name:zh-CN     沉浸式翻译
 // @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
+// @name:zh-TW     沉浸式翻譯
+// @description:zh-TW     沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。
 // ==/UserScript==
 (() => {
   var __defProp = Object.defineProperty;
@@ -82,7 +84,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-25T04:32:41.093Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-29T17:31:53.460Z", VERSION: "0.4.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3815,44 +3817,45 @@ body {
 .w-auto {
   width: auto;
 }
-`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<style>
-  html {
-    font-size: 17px;
-  }
-  .immersive-translate-popup-container {
-    position: fixed;
-    padding: 0;
-    z-index: 999999;
-  }
-  .immersive-translate-popup-btn {
-    background-color: #ea4c89;
-    font-size: 18px;
-    opacity: 0.5;
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-transform ease-out 250ms;
-    transition: -webkit-transform ease-out 250ms;
-    transition: transform ease-out 250ms;
-    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
-  }
-  .immersive-translate-popup-btn > svg {
-  }
-  #mount#mount {
-    position: absolute;
-    display: none;
-    min-width: 250px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    --font-size: 17px;
-    font-size: 17px;
-  }
-</style>
-
-<div
+`, IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS: `html {
+  font-size: 17px;
+}
+.immersive-translate-popup-container {
+  position: fixed;
+  padding: 0;
+  z-index: 999999;
+  top: 335px;
+  right: 0;
+}
+.immersive-translate-popup-btn {
+  background-color: #ea4c89;
+  font-size: 18px;
+  opacity: 0.5;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 250ms;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
+  border: none;
+  padding: 0;
+}
+.immersive-translate-popup-btn > svg {
+}
+#mount#mount {
+  position: absolute;
+  display: none;
+  min-width: 250px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  --font-size: 17px;
+  font-size: 17px;
+}
+`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<div
   id="immersive-translate-popup-container"
   class="immersive-translate-popup-container"
 >
@@ -4151,6 +4154,9 @@ body {
   function isMonkey() {
     return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
   }
+  function isInCSP() {
+    return env.HAS_CSP_ERROR == "1";
+  }
   function isSafari() {
     if (env.IMMERSIVE_TRANSLATE_SAFARI === "1")
       return !0;
@@ -4202,7 +4208,9 @@ body {
       // @ts-ignore: it's ok
       addStyle: typeof GM_addStyle < "u" ? GM_addStyle : null,
       // @ts-ignore: it's ok
-      openInTab: typeof GM_openInTab < "u" ? GM_openInTab : null
+      openInTab: typeof GM_openInTab < "u" ? GM_openInTab : null,
+      // @ts-ignore: it's ok
+      addElement: typeof GM_addElement < "u" ? GM_addElement : null
     };
   }
   typeof GM < "u" && GM && GM.info === void 0 && // @ts-ignore: it's ok
@@ -4735,7 +4743,8 @@ body {
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
     hasBeenDisabled: "\u5DF2\u7981\u7528",
-    "show password": "\u663E\u793A\u5BC6\u7801"
+    "show password": "\u663E\u793A\u5BC6\u7801",
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
   };
 
   // locales/zh-TW.json
@@ -5013,7 +5022,8 @@ body {
     clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
     clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
     hasBeenDisabled: "\u5DF2\u505C\u7528",
-    "show password": "\u986F\u793A\u5BC6\u78BC"
+    "show password": "\u986F\u793A\u5BC6\u78BC",
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
   };
 
   // locales/en.json
@@ -5293,7 +5303,8 @@ body {
     clickToEnableExtension: "Click to enable the extension",
     hasBeenDisabled: "Disabled",
     "show password": "Show password",
-    resetToDefaultSettings: "Reset to default settings"
+    resetToDefaultSettings: "Reset to default settings",
+    customContent: "Enter customization content"
   };
 
   // constant.ts
@@ -5784,8 +5795,18 @@ body {
           labelKey: "field.model",
           descriptionKey: "description.model",
           required: !1,
-          type: "text",
-          default: "gpt-3.5-turbo"
+          type: "select",
+          default: "gpt-3.5-turbo",
+          options: [
+            {
+              label: "gpt-3.5-turbo",
+              value: "gpt-3.5-turbo"
+            },
+            {
+              label: "gpt-4",
+              value: "gpt-4"
+            }
+          ]
         },
         {
           name: "limit",
@@ -8840,12 +8861,9 @@ body {
         "*.twitter.com",
         "medium.com",
         "*.medium.com",
-        "github.com",
-        "gist.github.com",
         "www.facebook.com",
         "www.youtube.com",
         "m.youtube.com",
-        "gitlab.com",
         "mail.google.com",
         "discord.com",
         "web.telegram.org",
@@ -10203,7 +10221,7 @@ body {
       },
       {
         matches: "getpocket.com",
-        selectors: ["h2.title", "div.excerpt p", "main > article"],
+        selectors: ["h2", "div.excerpt p", "article", "h1"],
         globalStyles: {
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -10876,7 +10894,7 @@ body {
           // @ts-ignore: ignore type error
           finalConfig[configKey],
           mergedUserConfig[configKey]
-        )), configKey === "shortcuts" && (isMonkey() ? finalConfig[configKey] = {
+        )), configKey === "shortcuts" && (isMonkey() || isSafari() ? finalConfig[configKey] = {
           ...finalConfig[configKey],
           ...shortcutsFromBrowser
         } : finalConfig[configKey] = {
@@ -11561,16 +11579,22 @@ body {
     }
   };
   function handleResponse(message, response, logger) {
-    if (response.ok)
-      return logger.debug(
-        `${message.from} received response from ${message.to}:`,
-        response.data ? response.data : " "
-      ), response.data;
-    throw new CommonError(
-      response.errorName || "UnknownError",
-      response.errorMessage || "Unknown error",
-      response.errorDetails
-    );
+    if (response) {
+      if (response.ok)
+        return logger.debug(
+          `${message.from} received response from ${message.to}:`,
+          response.data ? response.data : " "
+        ), response.data;
+      throw new CommonError(
+        response.errorName || "UnknownError",
+        response.errorMessage || "Unknown error",
+        response.errorDetails
+      );
+    } else
+      throw new CommonError(
+        "noResponse",
+        "Unknown error"
+      );
   }
   function parseType(str) {
     let parts = str.split(":");
@@ -11701,8 +11725,8 @@ body {
       if (chineseLike !== "auto")
         return Promise.resolve(chineseLike);
     }
-    if (isMonkey()) {
-      let result = browserAPI.extra.detectLanguage(
+    if (isMonkey() || isSafari()) {
+      let result = languageDetect(
         options2.text,
         options2.minLength
       );
@@ -11782,6 +11806,9 @@ body {
     return isMonkey() ? (browserAPI.extra.openEbookBuilderPage(newTab), Promise.resolve()) : sendMessage({
       method: "openEbookBuilderPage"
     });
+  }
+  function updateCommands(details) {
+    isSafari();
   }
   function openPdfViewerPage(newTab = !1) {
     return isMonkey() ? (alert("it's not support in userscript"), Promise.resolve()) : sendMessage({
@@ -19476,13 +19503,22 @@ ${injectedCss}}
 
   // userscript/popup_entry.tsx
   function addCSSLegacy(root2, csses) {
-    for (let css of csses)
+    for (let css of csses) {
+      if (isMonkey() && typeof GM !== void 0 && GM.addElement) {
+        GM.addElement(root2, "style", {
+          textContent: css
+        });
+        continue;
+      }
       root2.appendChild(document.createElement("style")).textContent = css;
+    }
   }
-  var currentPagePopupConfig = {
+  var originalPagePopupConfig = {
     position: "right",
     right: 0,
     top: 335
+  }, currentPagePopupConfig = {
+    ...originalPagePopupConfig
   }, positionChanged = !1, rootRef = null, btnRef = null, mountPointRef = null, shadowRef = null, timer = null, localConfig = null, delta = 6, startX, startY, lastBtnStyle = null, lastRootStyle = null;
   async function initPopup() {
     let env4 = getEnv();
@@ -19491,12 +19527,14 @@ ${injectedCss}}
     popup.id = "immersive-translate-popup", popup.setAttribute("style", "all: initial"), document.documentElement.appendChild(popup);
     let shadow = popup.attachShadow({ mode: "open" });
     shadowRef = shadow;
-    let csses = [
+    let cssStr = [
       env4.IMMERSIVE_TRANSLATE_PICO_CSS,
       env4.IMMERSIVE_TRANSLATE_COMMON_CSS,
-      env4.IMMERSIVE_TRANSLATE_POPUP_CSS
-    ];
-    addCSSLegacy(shadow, csses);
+      env4.IMMERSIVE_TRANSLATE_POPUP_CSS,
+      env4.IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS
+    ].join(`
+`);
+    addCSSLegacy(shadow, [cssStr]);
     let mountRoot = document.createElement("div");
     mountRoot.innerHTML = env4.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
       "#immersive-translate-popup-container"
@@ -19562,7 +19600,7 @@ ${injectedCss}}
     let screenSize = getScreenSize(), windowHeight = screenSize.height, { position, top, left } = currentPagePopupConfig, style = {
       position: "fixed"
     }, popupHeight = 300, popupWidth = 300, offset = 100;
-    return position === "right" || position === "left" ? (style.top = top - offset, style.top + popupHeight >= windowHeight ? (style.bottom = 30, delete style.top) : style.top <= 10 && (style.top = 10), position === "right" ? style.right = 0 : position === "left" && (style.left = 0)) : (position === "top" || position === "bottom") && (style.left = left - offset, style.left + popupWidth >= screenSize.width ? (style.right = 0, delete style.left) : style.left <= 10 && (style.left = 0), position === "top" ? style.top = 0 : position === "bottom" && (style.bottom = 0)), style;
+    return isInCSP() && (position = originalPagePopupConfig.position, top = originalPagePopupConfig.top), position === "right" || position === "left" ? (style.top = top - offset, style.top + popupHeight >= windowHeight ? (style.bottom = 30, delete style.top) : style.top <= 10 && (style.top = 10), position === "right" ? style.right = 0 : position === "left" && (style.left = 0)) : (position === "top" || position === "bottom") && (style.left = left - offset, style.left + popupWidth >= screenSize.width ? (style.right = 0, delete style.left) : style.left <= 10 && (style.left = 0), position === "top" ? style.top = 0 : position === "bottom" && (style.bottom = 0)), style;
   }
   function getScreenSize() {
     return {
@@ -19917,7 +19955,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.4",
+    version: "0.4.6",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -20087,7 +20125,9 @@ ${this._lastError.message}`;
     globalThis.document.dispatchEvent(event);
   }, 200);
   function setupDomListenersForAll(ctx) {
-    if (isMonkey() || setupMessageListeners(), document.addEventListener("immersiveTranslateEbookLoaded", () => {
+    if (isMonkey() || setupMessageListeners(), document.addEventListener("securitypolicyviolation", (e) => {
+      env.HAS_CSP_ERROR = "1";
+    }), document.addEventListener("immersiveTranslateEbookLoaded", () => {
       setTimeout(() => {
         initPage();
       }, 10);
@@ -20098,9 +20138,9 @@ ${this._lastError.message}`;
         if (log_default.debug("receive third party message", event), event && event.detail)
           try {
             let detailObj = JSON.parse(event.detail);
-            detailObj && detailObj.type && detailObj.type === "retryFailedParagraphs" && sendMessageToContent2({
+            detailObj && detailObj.type && (detailObj.type === "retryFailedParagraphs" ? sendMessageToContent2({
               method: "retryFailedParagraphs"
-            });
+            }) : detailObj.type === "updateCommands" ? updateCommands(detailObj.data) : debounceToggleTranslatePage(detailObj.type));
           } catch (e2) {
             log_default.warn("parse message error", e2);
           }
@@ -20128,7 +20168,7 @@ ${this._lastError.message}`;
       (_e3) => {
         ensurePopupInit();
       }
-    ))), globalThis.top === globalThis.self) {
+    ))), isSafari() && setupCommandListeners(ctx.config), globalThis.top === globalThis.self) {
       let channel = ProtoframePubsub.rootIframe(
         childFrameToRootFrameIdentifier
       );
@@ -20269,7 +20309,7 @@ ${this._lastError.message}`;
   function initOther() {
     document.addEventListener(documentMessageTypeIdentifierForAsk, (e) => {
       let event = e;
-      if (event && event.detail) {
+      if (log_default.debug("document message", event), event && event.detail) {
         let detail;
         try {
           detail = JSON.parse(event.detail);
@@ -20277,7 +20317,7 @@ ${this._lastError.message}`;
           log_default.error("parse detail failed", e2);
           return;
         }
-        detail.type === "ask" && detail.method === "request" && answerMessage(event, request2);
+        detail.type === "ask" ? detail.method === "request" && answerMessage(event, request2) : detail.type === "tell" && detail.method === "updateCommands" && updateCommands(detail.data);
       }
     });
     let manifestElement = document.getElementById(

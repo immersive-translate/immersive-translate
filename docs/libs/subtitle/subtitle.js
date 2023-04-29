@@ -2256,7 +2256,8 @@
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
     hasBeenDisabled: "\u5DF2\u7981\u7528",
-    "show password": "\u663E\u793A\u5BC6\u7801"
+    "show password": "\u663E\u793A\u5BC6\u7801",
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
   };
 
   // locales/zh-TW.json
@@ -2534,7 +2535,8 @@
     clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
     clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
     hasBeenDisabled: "\u5DF2\u505C\u7528",
-    "show password": "\u986F\u793A\u5BC6\u78BC"
+    "show password": "\u986F\u793A\u5BC6\u78BC",
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
   };
 
   // locales/en.json
@@ -2814,7 +2816,8 @@
     clickToEnableExtension: "Click to enable the extension",
     hasBeenDisabled: "Disabled",
     "show password": "Show password",
-    resetToDefaultSettings: "Reset to default settings"
+    resetToDefaultSettings: "Reset to default settings",
+    customContent: "Enter customization content"
   };
 
   // constant.ts
@@ -2939,8 +2942,18 @@
           labelKey: "field.model",
           descriptionKey: "description.model",
           required: !1,
-          type: "text",
-          default: "gpt-3.5-turbo"
+          type: "select",
+          default: "gpt-3.5-turbo",
+          options: [
+            {
+              label: "gpt-3.5-turbo",
+              value: "gpt-3.5-turbo"
+            },
+            {
+              label: "gpt-4",
+              value: "gpt-4"
+            }
+          ]
         },
         {
           name: "limit",

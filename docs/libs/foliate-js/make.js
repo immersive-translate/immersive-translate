@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-25T04:32:41.093Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-29T17:31:53.460Z", VERSION: "0.4.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3739,44 +3739,45 @@ body {
 .w-auto {
   width: auto;
 }
-`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<style>
-  html {
-    font-size: 17px;
-  }
-  .immersive-translate-popup-container {
-    position: fixed;
-    padding: 0;
-    z-index: 999999;
-  }
-  .immersive-translate-popup-btn {
-    background-color: #ea4c89;
-    font-size: 18px;
-    opacity: 0.5;
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-transform ease-out 250ms;
-    transition: -webkit-transform ease-out 250ms;
-    transition: transform ease-out 250ms;
-    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
-  }
-  .immersive-translate-popup-btn > svg {
-  }
-  #mount#mount {
-    position: absolute;
-    display: none;
-    min-width: 250px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    --font-size: 17px;
-    font-size: 17px;
-  }
-</style>
-
-<div
+`, IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS: `html {
+  font-size: 17px;
+}
+.immersive-translate-popup-container {
+  position: fixed;
+  padding: 0;
+  z-index: 999999;
+  top: 335px;
+  right: 0;
+}
+.immersive-translate-popup-btn {
+  background-color: #ea4c89;
+  font-size: 18px;
+  opacity: 0.5;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 250ms;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
+  border: none;
+  padding: 0;
+}
+.immersive-translate-popup-btn > svg {
+}
+#mount#mount {
+  position: absolute;
+  display: none;
+  min-width: 250px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  --font-size: 17px;
+  font-size: 17px;
+}
+`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<div
   id="immersive-translate-popup-container"
   class="immersive-translate-popup-container"
 >
@@ -12306,7 +12307,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
     hasBeenDisabled: "\u5DF2\u7981\u7528",
-    "show password": "\u663E\u793A\u5BC6\u7801"
+    "show password": "\u663E\u793A\u5BC6\u7801",
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
   };
 
   // locales/zh-TW.json
@@ -12584,7 +12586,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
     clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
     hasBeenDisabled: "\u5DF2\u505C\u7528",
-    "show password": "\u986F\u793A\u5BC6\u78BC"
+    "show password": "\u986F\u793A\u5BC6\u78BC",
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
   };
 
   // locales/en.json
@@ -12864,7 +12867,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     clickToEnableExtension: "Click to enable the extension",
     hasBeenDisabled: "Disabled",
     "show password": "Show password",
-    resetToDefaultSettings: "Reset to default settings"
+    resetToDefaultSettings: "Reset to default settings",
+    customContent: "Enter customization content"
   };
 
   // constant.ts
@@ -12989,8 +12993,18 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           labelKey: "field.model",
           descriptionKey: "description.model",
           required: !1,
-          type: "text",
-          default: "gpt-3.5-turbo"
+          type: "select",
+          default: "gpt-3.5-turbo",
+          options: [
+            {
+              label: "gpt-3.5-turbo",
+              value: "gpt-3.5-turbo"
+            },
+            {
+              label: "gpt-4",
+              value: "gpt-4"
+            }
+          ]
         },
         {
           name: "limit",

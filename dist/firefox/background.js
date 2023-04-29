@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-20T04:09:46.011Z", VERSION: "0.4.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-29T17:31:52.369Z", VERSION: "0.4.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3739,44 +3739,45 @@ body {
 .w-auto {
   width: auto;
 }
-`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<style>
-  html {
-    font-size: 17px;
-  }
-  .immersive-translate-popup-container {
-    position: fixed;
-    padding: 0;
-    z-index: 999999;
-  }
-  .immersive-translate-popup-btn {
-    background-color: #ea4c89;
-    font-size: 18px;
-    opacity: 0.5;
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-transform ease-out 250ms;
-    transition: -webkit-transform ease-out 250ms;
-    transition: transform ease-out 250ms;
-    transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
-  }
-  .immersive-translate-popup-btn > svg {
-  }
-  #mount#mount {
-    position: absolute;
-    display: none;
-    min-width: 250px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    --font-size: 17px;
-    font-size: 17px;
-  }
-</style>
-
-<div
+`, IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS: `html {
+  font-size: 17px;
+}
+.immersive-translate-popup-container {
+  position: fixed;
+  padding: 0;
+  z-index: 999999;
+  top: 335px;
+  right: 0;
+}
+.immersive-translate-popup-btn {
+  background-color: #ea4c89;
+  font-size: 18px;
+  opacity: 0.5;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 250ms;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
+  border: none;
+  padding: 0;
+}
+.immersive-translate-popup-btn > svg {
+}
+#mount#mount {
+  position: absolute;
+  display: none;
+  min-width: 250px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  --font-size: 17px;
+  font-size: 17px;
+}
+`, IMMERSIVE_TRANSLATE_POPUP_HTML: `<div
   id="immersive-translate-popup-container"
   class="immersive-translate-popup-container"
 >
@@ -3801,7 +3802,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v116/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v117/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -4723,1408 +4724,6 @@ body {
   // browser/import_browser_polyfill.ts
   globalThis.immersiveTranslateBrowserAPI = webextension_polyfill_0_10_default;
 
-  // utils/platform.ts
-  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
-  function isBrowser(toCheck) {
-    let currentBrowser = CHROME;
-    try {
-      let userAgent = navigator?.userAgent || "";
-      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
-    } catch {
-    }
-    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
-  }
-  function isChrome() {
-    return isBrowser(CHROME);
-  }
-  function isDeno() {
-    return typeof Deno < "u";
-  }
-  function isFirefox() {
-    return isBrowser(FIREFOX);
-  }
-
-  // browser/mock_browser.ts
-  var listeners = {
-    addListener: () => {
-    },
-    removeListener: () => {
-    },
-    hasListener: () => {
-    }
-  }, mock_browser_default = {
-    permissions: {
-      contains: () => {
-      },
-      request: () => {
-      }
-    },
-    runtime: {
-      onMessage: listeners,
-      openOptionsPage: () => {
-      },
-      lastError: {
-        message: ""
-      }
-    },
-    storage: {
-      sync: {
-        get: () => {
-        },
-        set: () => {
-        }
-      }
-    },
-    tabs: {
-      onUpdated: listeners,
-      query: () => {
-      },
-      sendMessage: () => {
-      }
-    }
-  };
-
-  // browser/browser.ts
-  var browserAPI;
-  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
-
-  // locales/zh-CN.json
-  var zh_CN_default = {
-    lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
-    "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
-    "noSupportTranslate-pdf": "\u811A\u672C\u4E0D\u652F\u6301\u8BF7\u4F7F\u7528\u63D2\u4EF6",
-    "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
-    enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
-    sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
-    help: "\u5E2E\u52A9",
-    browserShortcutsNoteForFirefox: "Firefox \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762 `about:addons`\uFF0C\u7136\u540E\u70B9\u51FB\u300C\u8BBE\u7F6E\u300D\uFF0C\u518D\u70B9\u51FB\u300C\u7BA1\u7406\u5FEB\u6377\u952E\u300D\u5373\u53EF\u8BBE\u7F6E",
-    browserShortcutsNoteForChrome: "\u7C7BChrome \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762\uFF0C\u5728`\u7BA1\u7406\u5FEB\u6377\u952E`\u9762\u677F(`chrome://extensions/shortcuts`)\u8BBE\u7F6E\uFF0C\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE\u8DF3\u8F6C\u5230\u5FEB\u6377\u952E\u7BA1\u7406\u9875\u9762\u3002",
-    browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
-    enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
-    "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
-    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u6709\u9053/\u817E\u8BAF\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
-    "browser.toggleTranslatePage": "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-    "browser.toggleTranslateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF/\u663E\u793A\u539F\u6587",
-    "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
-    "browser.toggleTranslateTheMainPage": "\u7FFB\u8BD1\u9875\u9762\u4E3B\u8981\u533A\u57DF/\u663E\u793A\u539F\u6587",
-    "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
-    "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
-    "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
-    "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
-    "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
-    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1 HTML/txt \u6587\u4EF6",
-    "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
-    "browser.translateLocalSubtitleFile": "\u7FFB\u8BD1\u672C\u5730\u5B57\u5E55\u6587\u4EF6",
-    confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
-    translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
-    smartLineBreak: "\u667A\u80FD\u6362\u884C",
-    alwaysLineBreak: "\u603B\u662F\u6362\u884C",
-    isShowContextMenu: "\u5C06\u7FFB\u8BD1\u7F51\u9875\u52A0\u5165\u53F3\u952E\u83DC\u5355\u9879",
-    toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
-    betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
-    translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
-    tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
-    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1\uFF0C\u53EF\u8BBE\u7F6E\u4E34\u65F6\u65F6\u957F",
-    xMinutes: "{count} \u5206\u949F",
-    disabled: "\u7981\u7528",
-    changelog: "\u66F4\u65B0\u65E5\u5FD7",
-    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5219\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
-    addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
-    general: "\u57FA\u672C\u8BBE\u7F6E",
-    clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
-    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165",
-    export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
-    toggleDebug: "\u5728\u63A7\u5236\u53F0\u6253\u5370\u8C03\u8BD5\u65E5\u5FD7",
-    "fingers.0": "\u5173\u95ED",
-    "fingers.2": "\u53CC\u6307\u89E6\u6478",
-    "fingers.3": "\u4E09\u6307\u89E6\u6478",
-    "fingers.4": "\u56DB\u6307\u89E6\u6478",
-    "fingers.5": "\u4E94\u6307\u89E6\u6478",
-    document: "\u6587\u6863",
-    resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
-    resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
-    saved: "\u4FDD\u5B58\u6210\u529F",
-    successImportConfig: "\u6210\u529F\u5BFC\u5165\u914D\u7F6E",
-    goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
-    goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
-    advanced: "\u8FDB\u9636\u8BBE\u7F6E",
-    advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
-    developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
-    donateCafe: "\u4EF7\u683C",
-    "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
-    feedback: "\u95EE\u9898\u53CD\u9988",
-    toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
-    translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-    "translate all areas of the page": "\u662F\u5426\u7FFB\u8BD1\u7F51\u9875\u6240\u6709\u533A\u57DF",
-    translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
-    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
-    "interface language": "\u754C\u9762\u8BED\u8A00",
-    "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
-    "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
-    modify: "\u4FEE\u6539\u5FEB\u6377\u952E",
-    reset: "\u91CD\u7F6E",
-    close: "\u5173\u95ED",
-    homepage: "\u4E3B\u9875",
-    more: "\u66F4\u591A",
-    moreOptions: "\u5C55\u5F00\u66F4\u591A\u81EA\u5B9A\u4E49\u9009\u9879",
-    translateTheWholePage: "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u522B\u4E8E\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\uFF09",
-    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u6240\u6709\u533A\u57DF",
-    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
-    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8",
-    translateTheMainPage: "\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
-    "The local rules are up to date": "\u672C\u5730\u9002\u914D\u89C4\u5219\u5DF2\u662F\u6700\u65B0:",
-    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
-    "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
-    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
-    localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
-    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u6CA1\u6709\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF08\u6BD4\u5982\u83B7\u53D6\u6CB9\u7334\u811A\u672C\u81EA\u8EAB\u7684\u7248\u672C\u53F7\u4FE1\u606F\uFF09\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982 Firefox",
-    foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
-    theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
-    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
-    retry: "\u70B9\u6B64\u91CD\u8BD5",
-    failedReason: "\u5931\u8D25\u539F\u56E0",
-    currentRuleVersion: "\u5F53\u524D\u89C4\u5219\u7248\u672C",
-    calculating: "\u8BA1\u7B97\u4E2D",
-    unknownError: "\u672A\u77E5\u9519\u8BEF",
-    canNotFetchRemoteRule: "\u65E0\u6CD5\u83B7\u53D6\u8FDC\u7A0B\u89C4\u5219",
-    enableAlphaSuccess: "\u5DF2\u5F00\u542FAlpha\u529F\u80FD",
-    disableAlphaSuccess: "\u5DF2\u5173\u95EDAlpha\u529F\u80FD",
-    cacheSize: "\u7F13\u5B58\u5927\u5C0F\uFF1A",
-    cleaning: "\u6E05\u7406\u4E2D",
-    cleanCache: "\u6E05\u9664\u7F13\u5B58",
-    options: "\u8BBE\u7F6E",
-    about: "\u5173\u4E8E",
-    service: "\u7FFB\u8BD1\u670D\u52A1",
-    needAction: "(\u53BB\u8BBE\u7F6E)",
-    goSettings: "\u53BB\u8BBE\u7F6E",
-    needActionForOptions: "(\u9700\u8BBE\u7F6E)",
-    translationEngine: "\u5F15\u64CE\u9009\u9879",
-    sourceLanguage: "\u539F\u6587\u8BED\u8A00",
-    target: "\u76EE\u6807\u8BED\u8A00",
-    popupSourceLanguage: "\u539F\u6587\u8BED\u8A00",
-    popupTarget: "\u76EE\u6807\u8BED\u8A00",
-    popupService: "\u7FFB\u8BD1\u670D\u52A1",
-    forThisSite: "\u9488\u5BF9\u8BE5\u7F51\u7AD9\uFF1A",
-    alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
-    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
-    alwaysTranslateSomeSite: "\u603B\u662F\u7FFB\u8BD1 {hostname}",
-    neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
-    add: "\u6DFB\u52A0",
-    default: "\u9ED8\u8BA4",
-    forThisLanguage: "\u9488\u5BF9\u8BE5\u8BED\u8A00\uFF1A",
-    "add url": "\u8F93\u5165URL",
-    edit: "\u7F16\u8F91",
-    "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
-    "select translation service": "\u9009\u62E9\u4E00\u9879\u7FFB\u8BD1\u670D\u52A1",
-    language: "\u8BED\u8A00",
-    "show-original": "\u663E\u793A\u539F\u6587",
-    translate: "\u7FFB\u8BD1",
-    Translated: "\u5DF2\u7FFB\u8BD1",
-    Translating: "\u7FFB\u8BD1\u4E2D",
-    Error: "\u9519\u8BEF",
-    allowCacheTranslations: "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
-    "translation display": "\u8BD1\u6587\u663E\u793A\u6837\u5F0F",
-    "select diplay style": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
-    interface: "\u754C\u9762\u8BBE\u7F6E",
-    import_export: "\u5BFC\u5165/\u5BFC\u51FA",
-    import_export_title: "\u5BFC\u5165/\u5BFC\u51FA\u914D\u7F6E",
-    syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
-    previewAllThemes: "\u9884\u89C8\u5168\u90E8\u6837\u5F0F",
-    "translationTheme.none": "\u65E0",
-    "translationTheme.grey": "\u9ED1\u7070\u8272",
-    "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
-    "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
-    "translationTheme.dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
-    "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
-    "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
-    "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
-    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
-    "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
-    "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
-    "translationTheme.highlight": "\u9AD8\u4EAE",
-    "translationTheme.marker": "\u9A6C\u514B\u7B14",
-    "translationTheme.marker2": "\u9A6C\u514B\u7B142",
-    "translationTheme.blockquote": "\u5F15\u7528\u6837\u5F0F",
-    "translationTheme.weakening": "\u5F31\u5316",
-    "translationTheme.italic": "\u659C\u4F53",
-    "translationTheme.bold": "\u52A0\u7C97",
-    "translationTheme.thinDashed": "\u7EC6\u865A\u7EBF\u4E0B\u5212\u7EBF",
-    "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
-    "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
-    "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
-    "translationTheme.wavy": "\u6CE2\u6D6A\u7EBF",
-    "translationServices.tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
-    "translationServices.tenAlpha": "\u817E\u8BAF\u7FFB\u8BD1\u541B(Alpha)",
-    "translationServices.google": "\u8C37\u6B4C\u7FFB\u8BD1",
-    "translationServices.bai": "\u767E\u5EA6(Alpha)",
-    "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8BD1",
-    "translationServices.aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
-    "translationServices.volc": "\u706B\u5C71\u7FFB\u8BD1",
-    "translationServices.deeplx": "DeeplX(Beta)",
-    "translationServices.bing": "\u5FC5\u5E94\u7FFB\u8BD1",
-    "translationServices.deepl": "Deepl",
-    "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
-    "translationServices.azure": "\u5FAE\u8F6F\u7FFB\u8BD1",
-    "translationServices.ibm": "IBM Watson",
-    "translationServices.aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
-    "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
-    "translationServices.mock2": "\u6A21\u62DF\u7FFB\u8BD12",
-    "translationServices.caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
-    "translationServices.cai": "\u5F69\u4E91\u5C0F\u8BD1 (Alpha)",
-    "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
-    "translationServices.openl": "OpenL",
-    "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
-    "translationServices.you": "\u6709\u9053\u7FFB\u8BD1 (Alpha)",
-    "translationServices.transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
-    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8BD1",
-    "translationServices.papago": "Papago \u7FFB\u8BD1",
-    "translationServices.d": "D (Alpha)",
-    "translationServices.dpro": "D Pro (Canary)",
-    "translationServices.openai": "OpenAI",
-    "translationServices.chatgpt": "ChatGPT Plus",
-    "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
-    "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
-    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
-    neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
-    enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
-    enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
-    "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
-    "always sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
-    "always translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
-    "never sites": "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u7F51\u5740",
-    "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
-    "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
-    KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
-    useAboveStyleForTheseSites: "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u603B\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8BD1\u6587\u6837\u5F0F",
-    currentUrl: "\u5F53\u524D\u7F51\u5740",
-    confirm: "\u4FDD\u5B58",
-    cancel: "\u53D6\u6D88",
-    delete: "\u5220\u9664",
-    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
-    syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
-    syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
-    authFail: "\u6388\u6743\u5931\u8D25",
-    syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
-    import_hint: "\u5BFC\u5165",
-    upload: "\u4E0A\u4F20",
-    revokeAuth: "\u64A4\u9500\u6388\u6743",
-    uploadFail: "\u4E0A\u4F20\u5931\u8D25",
-    download: "\u4E0B\u8F7D",
-    importSuccess: "\u5BFC\u5165\u6210\u529F",
-    importFail: "\u5BFC\u5165\u5931\u8D25",
-    deleteFail: "\u5220\u9664\u5931\u8D25",
-    backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
-    create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
-    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
-    backupToCloudDescription: "\u624B\u52A8\u4E0A\u4F20\u6216\u6062\u590D\u5907\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8BB83\u4E2A\u4E0D\u540C\u7684\u5907\u4EFD",
-    successSyncConfig: "\u6210\u529F\u4E0E\u4E91\u7AEF\u4FDD\u6301\u540C\u6B65",
-    syncFail: "\u540C\u6B65\u5931\u8D25",
-    updatedAt: "\u66F4\u65B0\u4E8E {date}",
-    lastSyncedAt: "\u4E0A\u6B21\u68C0\u67E5\u4E8E {date}",
-    downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
-    clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
-    aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9\u798F\u5229",
-    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988/\u8D5E\u52A9\u798F\u5229",
-    aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002<br/><br/>\u514D\u8D39\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8D5E\u52A9\u8005\u4E4B\u95F4\u5EFA\u7ACB\u4E00\u79CD\u53CC\u8D62\u7684\u5173\u7CFB\uFF01\u6211\u4E3A\u8D5E\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u65F6\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8BD1\u670D\u52A1</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u4E86\u89E3\u8D5E\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
-    projectHomepage: "\u9879\u76EE\u4E3B\u9875",
-    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
-    joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
-    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
-    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
-    loadingThemeTitle: "Loading \u6837\u5F0F",
-    loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
-    "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
-    "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
-    "loadingTheme.none": "\u4E0D\u663E\u793A",
-    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
-    "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
-    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
-    customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
-    "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
-    "customThemeLabel.borderRadius": "\u8FB9\u6846\u5706\u89D2",
-    "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
-    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
-    "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
-    resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
-    resetToDefaultSettings: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u8BBE\u7F6E",
-    isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
-    isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
-    verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
-    verified: "\u9A8C\u8BC1\u6210\u529F",
-    "field.model": "\u6A21\u578B",
-    "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
-    "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
-    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
-    "field.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6BB5\u843D\u6570",
-    "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
-    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
-    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
-    "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
-    "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
-    "description.model": "OpenAI \u7684\u6A21\u578B\uFF0C\u53EF\u4EE5\u4E3A gpt-3.5-turbo, gpt-4 \u7B49",
-    "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
-    enabledExtension: "\u542F\u7528\u6269\u5C55",
-    clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
-    clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
-    hasBeenDisabled: "\u5DF2\u7981\u7528",
-    "show password": "\u663E\u793A\u5BC6\u7801"
-  };
-
-  // locales/zh-TW.json
-  var zh_TW_default = {
-    lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u5143\u6578\u91CF",
-    "translate-pdf": "\u9EDE\u9078\u7FFB\u8B6F PDF",
-    "translate-firefox-local-pdf": "\u9EDE\u9078\u4E0A\u50B3 PDF",
-    enableLineBreak: "\u958B\u555F\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
-    sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
-    help: "\u8AAA\u660E",
-    browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
-    browserShortcutsNoteForChrome: "Chromium \u6838\u5FC3\u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
-    browserShortcutsSucks: "\u8B8A\u66F4\u5FEB\u901F\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u70BA\uFF1A",
-    enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
-    "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
-    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
-    "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-    "browser.toggleTranslateTheWholePage": "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF/\u986F\u793A\u539F\u6587",
-    "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
-    "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
-    "browser.openOptionsPage": "\u958B\u555F\u8A2D\u5B9A\u9801\u9762",
-    "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-    "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
-    "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
-    "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
-    "browser.translateLocalHtmlFile": "\u7FFB\u8B6F HTML/txt \u6A94\u6848",
-    "browser.translateLocalSubtitleFile": "\u7FFB\u8B6F\u5B57\u5E55\u6A94\u6848",
-    "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
-    confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
-    translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
-    smartLineBreak: "\u667A\u6167\u63DB\u884C",
-    alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
-    isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
-    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u529F\u80FD",
-    betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
-    translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
-    tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
-    tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
-    xMinutes: "{count} \u5206\u9418",
-    disabled: "\u505C\u7528",
-    changelog: "\u66F4\u65B0\u8A18\u9304",
-    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
-    addUrlDescription: "\u53EF\u4EE5\u70BA\u7DB2\u57DF\u540D\u7A31\uFF0C\u540C\u6642\u652F\u63F4\u842C\u7528\u5B57\u5143\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
-    general: "\u57FA\u672C\u8A2D\u5B9A",
-    clickToExpandConfig: "\u5C55\u958B\u76EE\u524D\u8A2D\u5B9A",
-    import: "\u5F9E\u6A94\u6848\u532F\u5165",
-    export: "\u532F\u51FA\u70BA\u6A94\u6848",
-    toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
-    "fingers.0": "\u95DC\u9589",
-    "fingers.2": "\u96D9\u6307\u89F8\u6478",
-    "fingers.3": "\u4E09\u6307\u89F8\u6478",
-    "fingers.4": "\u56DB\u6307\u89F8\u6478",
-    "fingers.5": "\u4E94\u6307\u89F8\u6478",
-    document: "\u8AAA\u660E\u6587\u4EF6",
-    resetSuccess: "\u91CD\u8A2D\u6240\u6709\u8A2D\u5B9A\u6210\u529F",
-    resetThisSuccess: "\u91CD\u8A2D\u6210\u529F",
-    saved: "\u5132\u5B58\u6210\u529F",
-    successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
-    goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
-    goAdvancedInterfaceSettings: "\u524D\u5F80\u81EA\u8A02\u8A2D\u5B9A\u9801\u9762",
-    advanced: "\u9032\u968E\u8A2D\u5B9A",
-    advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
-    developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
-    donateCafe: "\u50F9\u683C",
-    "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
-    feedback: "\u554F\u984C\u56DE\u5831",
-    toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
-    translateToThePageEndImmediatelyDescription: "\u555F\u7528\u5F8C\uFF0C\u9032\u5165\u7DB2\u9801\u5C07\u7ACB\u5373\u7FFB\u8B6F\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\u3002\u95DC\u9589\u5247\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u555F\uFF09",
-    "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
-    translationAreaDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6240\u6709\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\u3002\u95DC\u9589\u5247\u4F7F\u7528\u9810\u8A2D\u7684\u667A\u6167\u8FA8\u8B58\uFF0C\u50C5\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\u3002(\u4E0D\u63A8\u85A6\u958B\u555F)",
-    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8B6F\u9801\u9762\u524D\u591A\u5C11\u500B\u5B57\u5143\uFF0C\u800C\u7121\u9700\u7B49\u5F85\u6372\u52D5\u81F3\u53EF\u898B\u5340\u57DF",
-    "interface language": "\u4ECB\u9762\u8A9E\u8A00",
-    "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
-    "keyboard shortcuts": "\u9375\u76E4\u5FEB\u901F\u9375",
-    modify: "\u8B8A\u66F4\u5FEB\u901F\u9375",
-    reset: "\u91CD\u8A2D",
-    close: "\u95DC\u9589",
-    homepage: "\u9996\u9801",
-    more: "\u66F4\u591A",
-    translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
-    changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
-    changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
-    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
-    translateTheMainPage: "\u667A\u6167\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
-    "The local rules are up to date": "\u672C\u6A5F\u898F\u5247\u5DF2\u70BA\u6700\u65B0\uFF1A",
-    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\uFF1A",
-    "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
-    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u5B98\u65B9\u898F\u5247",
-    localVersionIsTooOld: "\u672C\u6A5F\u5957\u4EF6\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u5957\u4EF6\u81F3 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5617\u8A66\u540C\u6B65",
-    badUserscriptBrowser: "\u76EE\u524D\u700F\u89BD\u5668\u7121\u6CD5\u6B63\u78BA\u5BE6\u73FE\u6CB9\u7334\u5957\u4EF6\u7684\u4ECB\u9762\uFF0C\u8ACB\u4F7F\u7528\u5176\u4ED6<1>\u652F\u63F4\u6CB9\u7334\u5957\u4EF6</1>\u7684\u700F\u89BD\u5668\u5982(Firefox Nightly \u7248\u672C)",
-    foundNewVersion: "\u6709\u65B0\u7248\u672C\u53EF\u7528",
-    theLocalExtensionIsUpToUpdate: "\u76EE\u524D\u5957\u4EF6\u5DF2\u662F\u6700\u65B0\u7248\u672C",
-    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\u5931\u6557",
-    retry: "\u9EDE\u6B64\u91CD\u8A66",
-    failedReason: "\u5931\u6557\u539F\u56E0",
-    currentRuleVersion: "\u76EE\u524D\u898F\u5247\u7248\u672C",
-    calculating: "\u6B63\u5728\u8A08\u7B97",
-    unknownError: "\u672A\u77E5\u7684\u932F\u8AA4",
-    canNotFetchRemoteRule: "\u7121\u6CD5\u53D6\u5F97\u9060\u7AEF\u898F\u5247",
-    enableAlphaSuccess: "\u5DF2\u555F\u7528 Alpha \u529F\u80FD",
-    disableAlphaSuccess: "\u5DF2\u505C\u7528 Alpha \u529F\u80FD",
-    cacheSize: "\u5FEB\u53D6\u5927\u5C0F\uFF1A",
-    cleaning: "\u6B63\u5728\u6E05\u7406",
-    cleanCache: "\u6E05\u9664\u5FEB\u53D6",
-    options: "\u9078\u9805",
-    about: "\u95DC\u65BC",
-    service: "\u7FFB\u8B6F\u670D\u52D9",
-    needAction: "(\u524D\u5F80\u8A2D\u5B9A)",
-    goSettings: "\u524D\u5F80\u8A2D\u5B9A",
-    needActionForOptions: "(\u9700\u8A2D\u5B9A)",
-    translationEngine: "\u5F15\u64CE\u9078\u9805",
-    sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
-    target: "\u76EE\u6A19\u8A9E\u8A00",
-    popupSourceLanguage: "\u539F\u6587\u8A9E\u8A00",
-    popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
-    popupService: "\u7FFB\u8B6F\u670D\u52D9",
-    forThisSite: "\u91DD\u5C0D\u8A72\u7DB2\u7AD9\uFF1A",
-    alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F {language}",
-    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F {language}",
-    alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
-    neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
-    add: "\u65B0\u589E",
-    default: "\u9810\u8A2D",
-    forThisLanguage: "\u91DD\u5C0D\u8A72\u8A9E\u8A00\uFF1A",
-    "add url": "\u8F38\u5165 URL",
-    edit: "\u7DE8\u8F2F",
-    "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
-    "select translation service": "\u9078\u64C7\u4F60\u60F3\u7528\u7684\u7FFB\u8B6F\u670D\u52D9",
-    language: "\u8A9E\u8A00",
-    "show-original": "\u986F\u793A\u539F\u6587",
-    translate: "\u7FFB\u8B6F",
-    Translated: "\u5DF2\u7FFB\u8B6F",
-    Translating: "\u6B63\u5728\u7FFB\u8B6F",
-    Error: "\u932F\u8AA4",
-    allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
-    "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
-    "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
-    interface: "\u4ECB\u9762\u8A2D\u5B9A",
-    import_export: "\u532F\u5165/\u532F\u51FA",
-    import_export_title: "\u532F\u5165/\u532F\u51FA\u8A2D\u5B9A",
-    syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
-    previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
-    "translationTheme.none": "\u7121",
-    "translationTheme.grey": "\u9ED1\u7070\u8272",
-    "translationTheme.dashed": "\u7834\u6298\u865F\u5E95\u7DDA",
-    "translationTheme.dotted": "\u9EDE\u72C0\u5E95\u7DDA",
-    "translationTheme.dashedBorder": "\u865B\u7DDA\u6846\u7DDA",
-    "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
-    "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
-    "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
-    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
-    "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
-    "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
-    "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
-    "translationTheme.marker": "\u99AC\u514B\u7B46",
-    "translationTheme.marker2": "\u99AC\u514B\u7B462",
-    "translationTheme.blockquote": "\u5F15\u7528\u6A23\u5F0F",
-    "translationTheme.weakening": "\u5F31\u5316",
-    "translationTheme.italic": "\u659C\u9AD4",
-    "translationTheme.bold": "\u7C97\u9AD4",
-    "translationTheme.thinDashed": "\u7D30\u7834\u6298\u865F\u5E95\u7DDA",
-    "translationTheme.nativeDashed": "\u7CFB\u7D71\u5167\u5EFA\u7834\u6298\u865F\u5E95\u7DDA",
-    "translationTheme.nativeDotted": "\u7CFB\u7D71\u5167\u5EFA\u9EDE\u72C0\u5E95\u7DDA",
-    "translationTheme.nativeUnderline": "\u7CFB\u7D71\u5167\u5EFA\u76F4\u7DDA\u5E95\u7DDA",
-    "translationTheme.wavy": "\u6CE2\u5F62\u66F2\u7DDA",
-    "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
-    "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
-    "translationServices.google": "Google \u7FFB\u8B6F",
-    "translationServices.bai": "\u767E\u5EA6(Alpha)",
-    "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
-    "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
-    "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
-    "translationServices.deeplx": "DeeplX(Beta)",
-    "translationServices.bing": "Bing \u7FFB\u8B6F",
-    "translationServices.deepl": "Deepl",
-    "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
-    "translationServices.azure": "\u5FAE\u8EDF\u7FFB\u8B6F",
-    "translationServices.ibm": "IBM Watson",
-    "translationServices.aws": "\u4E9E\u99AC\u905C\u7FFB\u8B6F",
-    "translationServices.mock": "\u6A21\u64EC\u7FFB\u8B6F",
-    "translationServices.mock2": "\u6A21\u64EC\u7FFB\u8B6F2",
-    "translationServices.caiyun": "\u5F69\u96F2\u5C0F\u8B6F",
-    "translationServices.cai": "\u5F69\u96F2\u5C0F\u8B6F (Alpha)",
-    "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8B6F(Alpha)",
-    "translationServices.openl": "OpenL",
-    "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
-    "translationServices.you": "\u6709\u9053\u7FFB\u8B6F (Alpha)",
-    "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
-    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
-    "translationServices.papago": "Papago \u7FFB\u8B6F",
-    "translationServices.d": "Deepl(Alpha)",
-    "translationServices.dpro": "D Pro (Canary)",
-    "translationServices.openai": "OpenAI",
-    "translationServices.chatgpt": "ChatGPT Plus",
-    "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
-    "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
-    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
-    neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
-    enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
-    enableUserscriptPagePopupDescription: "\u95DC\u9589\u61F8\u6D6E\u7403\u5F8C\uFF0C\u53EF\u4EE5\u7528\u5FEB\u901F\u9375/{touch}\u518D\u6B21\u986F\u793A\u3002\u70BA\u9632\u6B62\u4E0D\u614E\u95DC\u9589\u8A72\u9078\u9805\u5F8C\u627E\u4E0D\u5230\u61F8\u6D6E\u7403\uFF0C\u5EFA\u8B70\u5C07\u672C\u8A2D\u5B9A\u9801\u9762\u52A0\u5165\u81F3\u6211\u7684\u6700\u611B",
-    "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
-    "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
-    "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
-    "never sites": "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
-    "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
-    "please refer to": "\u9700\u8981\u586B\u5BEB\u91D1\u9470\u5F8C\u624D\u53EF\u4F7F\u7528\uFF0C\u8A73\u7D30\u8CC7\u8A0A\u8ACB\u53C3\u8003",
-    KeyAndConfigurationTutorial: "\u300A\u91D1\u9470\u7533\u8ACB\u548C\u8A2D\u5B9A\u6559\u5B78\u300B",
-    useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
-    currentUrl: "\u76EE\u524D\u7DB2\u5740",
-    confirm: "\u5132\u5B58",
-    cancel: "\u53D6\u6D88",
-    delete: "\u522A\u9664",
-    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
-    syncToCloud: "\u540C\u6B65\u81F3\u96F2\u7AEF",
-    syncToCloudDescription: "\u4E0A\u50B3\u81F3\u96F2\u7AEF\u5F8C\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u700F\u89BD\u5668/\u6CB9\u7334\u8173\u672C\u4E4B\u9593\u540C\u6B65\u8A2D\u5B9A\uFF0C\u4EE5\u6700\u5F8C\u8B8A\u66F4\u6642\u9593\u70BA\u6E96\u3002",
-    authFail: "\u6388\u6B0A\u5931\u6557",
-    syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
-    import_hint: "\u532F\u5165",
-    upload: "\u4E0A\u50B3",
-    revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
-    uploadFail: "\u4E0A\u50B3\u5931\u6557",
-    download: "\u4E0B\u8F09",
-    importSuccess: "\u532F\u5165\u6210\u529F",
-    importFail: "\u532F\u5165\u5931\u6557",
-    deleteFail: "\u522A\u9664\u5931\u6557",
-    backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6A94\u6848",
-    create_new_backup: "\u65B0\u589E\u5099\u4EFD\u7BC0\u9EDE",
-    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE\uFF0C\u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
-    backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u9084\u539F\u5099\u4EFD\u6A94\u6848\uFF0C\u6700\u591A\u5141\u8A31 3 \u500B\u4E0D\u540C\u7684\u5099\u4EFD",
-    successSyncConfig: "\u6210\u529F\u8207\u96F2\u7AEF\u4FDD\u6301\u540C\u6B65",
-    syncFail: "\u540C\u6B65\u5931\u6557",
-    updatedAt: "\u66F4\u65B0\u65BC {date}",
-    lastSyncedAt: "\u4E0A\u6B21\u6AA2\u67E5\u65BC {date}",
-    downloadFail: "\u4E0B\u8F09\u5931\u6557",
-    clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
-    aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
-    "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
-    aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002<br/><br/>\u514D\u8CBB\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8B9A\u52A9\u8005\u4E4B\u9593\u5EFA\u7ACB\u4E00\u7A2E\u96D9\u8D0F\u7684\u95DC\u4FC2\uFF01\u6211\u70BA\u8D0A\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u6642\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8B6F\u670D\u52D9</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u4E86\u89E3\u8D0A\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
-    projectHomepage: "\u5C08\u6848\u9996\u9801",
-    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
-    joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
-    feedbackAndJoin: "\u554F\u984C\u56DE\u5831/\u52A0\u5165\u7FA4\u7D44",
-    autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
-    loadingThemeTitle: "Loading \u6A23\u5F0F",
-    loadingThemeDescription: "\u8A2D\u5B9A\u7B49\u5F85\u8B6F\u6587\u8F09\u5165\u6642\u7684\u6A23\u5F0F",
-    "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B",
-    "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
-    "loadingTheme.none": "\u4E0D\u986F\u793A",
-    developerDescription: "\u53EF\u4EE5\u9EDE\u9078<1>\u6B64\u8655</1>\u6AA2\u8996\u9032\u968E\u81EA\u8A02\u529F\u80FD\u76F8\u95DC\u7684\u8AAA\u660E\u6587\u4EF6",
-    "edit border color": "\u8B8A\u66F4\u908A\u6846\u8272\u5F69",
-    successSyncButNoChange: "\u76EE\u524D\u8A2D\u5B9A\u8207\u96F2\u7AEF\u4E00\u81F4",
-    customTheme: "\u81EA\u8A02\u8272\u5F69\u548C\u5927\u5C0F",
-    "customThemeLabel.borderColor": "\u908A\u6846\u8272\u5F69",
-    "customThemeLabel.borderRadius": "\u908A\u6846\u5713\u89D2",
-    "customThemeLabel.textColor": "\u6587\u5B57\u8272\u5F69",
-    "customThemeLabel.backgroundColor": "\u80CC\u666F\u8272\u5F69",
-    "customThemeLabel.zoom": "\u5B57\u578B\u7E2E\u653E\u6BD4\u4F8B (%)",
-    resetToDefaultColor: "\u9084\u539F\u70BA\u9810\u8A2D\u8272\u5F69",
-    isTranslateTitle: "\u555F\u7528\u7DB2\u9801\u6A19\u984C\u7FFB\u8B6F",
-    isTranslateTitleDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6A19\u984C\u6703\u88AB\u7FFB\u8B6F",
-    verifyService: "\u9EDE\u6B64\u6E2C\u8A66\u670D\u52D9",
-    verified: "\u9A57\u8B49\u6210\u529F",
-    "field.model": "\u6A21\u578B",
-    "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
-    "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
-    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
-    "field.apiUrl": "\u81EA\u8A02 API \u4F4D\u5740",
-    "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
-    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
-    "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
-    enabledExtension: "\u555F\u7528\u5957\u4EF6",
-    clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
-    clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
-    hasBeenDisabled: "\u5DF2\u505C\u7528",
-    "show password": "\u986F\u793A\u5BC6\u78BC"
-  };
-
-  // locales/en.json
-  var en_default = {
-    lineBreakMaxTextCount: "Maximum number of characters allowed per sentence after line break",
-    "translate-pdf": "Click to translate PDF",
-    "translate-firefox-local-pdf": "Click to upload Pdf",
-    enableLineBreak: "Whether to turn on automatic line wrapping for long paragraphs",
-    sponsorLabel: "Sponsoring developers from $1 (monthly or one-time)",
-    help: "Help",
-    browserShortcutsNoteForFirefox: `To modify the shortcut key in Firefox browser, you need to open the extension management page 'about: addons', then click "Settings", and then click "Management shortcut key" to set it`,
-    browserShortcutsNoteForChrome: "To modify the shortcut key in Chrome browser, you need to open the extension management page` chrome://extensions/shortcuts `) Settings, click the button below to jump to the shortcut key management page.",
-    browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
-    enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
-    "browser.brandName": "Immersive Translate",
-    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc. it also works on iOS Safari.",
-    "browser.toggleTranslatePage": "Toggle translate webpage ",
-    "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
-    "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
-    "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
-    "browser.openOptionsPage": "Open Settings Page",
-    "browser.toggleTranslationMask": "Toggle translation mask style",
-    "browser.translateLocalPdfFile": "Translate local PDF File",
-    "browser.openEbookViewer": "Read local e-book",
-    "browser.openEbookBuilder": "Make Dual Epub ebook",
-    "browser.translateLocalHtmlFile": "Translate HTML/txt File",
-    "browser.donateContext": "Sponsor Benefits",
-    "browser.translateLocalSubtitleFile": "Translate Subtitle File",
-    confirmResetConfig: "Are you sure you want to reset the settings?",
-    translationLineBreakSettingTitle: "Line break setting",
-    smartLineBreak: "Smart Wrap",
-    alwaysLineBreak: "Always Wrap",
-    isShowContextMenu: "Create right button menu",
-    toggleBeta: "Enable Beta experimental features",
-    betaDescription: "Enable features that are still experimental, and translation services that are in testing. Join the <1>Telegram group</1> to learn more.",
-    translationLineBreakSettingDescription: "The always line break feature is suitable for layouts with less content, making the layout more neat and tidy. (Use smart line breaks for long paragraphs with more content (more than {count} characters) for saving space)",
-    tempTranslateDomainTitle: "Open the translation time temporarily",
-    tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
-    xMinutes: "{count} minutes",
-    disabled: "Disable",
-    changelog: "Change Log",
-    toggleTranslatePageWhenThreeFingersOnTheScreen: "Three-finger touch to show/hide translation display",
-    toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger touch to show/hide the blur effect of the translation",
-    addUrlDescription: "The domain name is available and wildcard is supported e.g.: *.google.com, google.com/mail/*, https://www.google.com/*",
-    general: "General",
-    clickToExpandConfig: "Expand current configuration",
-    import: "Import configuration from file",
-    export: "Export to file",
-    toggleDebug: "Print debug logs on the console",
-    "fingers.0": "Close",
-    "fingers.2": "Two-finger touch",
-    "fingers.3": "Three-finger touch",
-    "fingers.4": "Four-finger touch",
-    "fingers.5": "Five-finger touch",
-    document: "Document",
-    resetSuccess: "All settings reset successful",
-    resetThisSuccess: "Reset successful",
-    saved: "Saved successfully",
-    successImportConfig: "Configuration imported successfully",
-    goAdvancedSettings: "Go to Advanced Settings Page",
-    goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
-    advanced: "Advanced",
-    advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
-    developer: "Developer settings",
-    donateCafe: "Pricing",
-    "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
-    feedback: "Feedback",
-    toggleTranslatePage: "Toggle Translate",
-    translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
-    "translate all areas of the page": "Whether to translate all areas of the web page",
-    translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
-    "the number of characters to be translated first": "Directly translate the number of characters in front of the page without waiting to scroll to the visible area",
-    "interface language": "Interface language",
-    "display both the original text and the translation": "Display both the original text and the translation",
-    "keyboard shortcuts": "Keyboard shortcuts",
-    modify: "Edit",
-    reset: "Reset",
-    close: "Close",
-    homepage: "Home Page",
-    more: "More",
-    moreOptions: "Expand more custom settings",
-    translateTheWholePage: "Translate the whole page area (different from only the main area)",
-    changeToTranslateTheWholePage: "Translate the whole page",
-    changeToTranslateTheMainPage: "Translate main only",
-    translateToThePageEndImmediately: "Immediately translate to the bottom (different from translating the current visible area)",
-    translateTheMainPage: "Main areas of intelligent translation",
-    "The local rules are up to date": "Local  rules are up to date:",
-    "Successfully synchronized with the latest official rules:": "Successfully synced latest official rules:",
-    "Checking for updates": "Checking for update",
-    "Rules are being synchronized": "Syncing official rules",
-    localVersionIsTooOld: "The local extension version is too old, please upgrade the extension to {minVersion} or a newer version and try to sync again.",
-    badUserscriptBrowser: "The current browser does not correctly implement the interface of the Greasemonkey extension, please use another browser that <1>supports the Greasemonkey extension</1> such as (Firefox Nightly version)",
-    foundNewVersion: "New version available",
-    theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
-    failToSyncRules: "Failed to sync latest adaptive rules",
-    retry: "Retry",
-    failedReason: "Failure reason",
-    currentRuleVersion: "Current Rule Version",
-    calculating: "Calculating",
-    unknownError: "Unknown Error",
-    canNotFetchRemoteRule: "Unable to fetch remote rule",
-    enableAlphaSuccess: "Alpha enabled successfully",
-    disableAlphaSuccess: "Alpha has been disabled",
-    cacheSize: "Cache size:",
-    cleaning: "Cleaning",
-    cleanCache: "Clear cache",
-    options: "Options",
-    about: "About",
-    service: "Translation Service",
-    needAction: "(to set up)",
-    goSettings: "to set up",
-    needActionForOptions: "(need to set)",
-    translationEngine: "Engine Options",
-    sourceLanguage: "Original language",
-    target: "Target Language",
-    popupSourceLanguage: "Source",
-    popupTarget: "Target",
-    popupService: "Service",
-    forThisSite: "For This Site:",
-    alwaysTranslateSomeLanguage: "Always translate {language}",
-    neverTranslateSomeLanguage: "Never translate {language}",
-    alwaysTranslateSomeSite: "Always translate {hostname}",
-    neverTranslateSomeSite: "Never translate {hostname}",
-    add: "Add",
-    default: "Default",
-    forThisLanguage: "For This Language:",
-    "add url": "Add URL",
-    edit: "Edit",
-    "translate other languages into specific language": "Translate other languages into the language you set",
-    "select translation service": "Select a translation service",
-    language: "Language",
-    "show-original": "Show Original",
-    translate: "Translate",
-    Translated: "Translated",
-    Translating: "Translating",
-    Error: "Error",
-    allowCacheTranslations: "Enable local translation caching (reduce translation requests for duplicate paragraphs)",
-    "translation display": "Translation display style",
-    "select diplay style": "Please refer to the following examples",
-    interface: "Interface Settings",
-    import_export: "Import/Export",
-    import_export_title: "Import/Export Configuration",
-    syncToGoogleDrive: "Sync Now with Google Drive",
-    previewAllThemes: "Preview all themes",
-    "translationTheme.none": "None",
-    "translationTheme.grey": "Black Gray",
-    "translationTheme.dashed": "Dashed underline",
-    "translationTheme.dotted": "Dotted Underline",
-    "translationTheme.dashedBorder": "Dashed Border",
-    "translationTheme.solidBorder": "Dashed Border",
-    "translationTheme.underline": "Straight underline",
-    "translationTheme.mask": "Blur effect",
-    "translationTheme.opacity": "Opacity effect",
-    "translationTheme.paper": "White paper shadow effect",
-    "translationTheme.dividingLine": "Dividing line",
-    "translationTheme.highlight": "Highlight",
-    "translationTheme.marker": "Marker",
-    "translationTheme.marker2": "Maker2",
-    "translationTheme.blockquote": "quote style",
-    "translationTheme.weakening": "Weakening",
-    "translationTheme.italic": "Italic",
-    "translationTheme.bold": "Bold",
-    "translationTheme.thinDashed": "Thin dashed underline",
-    "translationTheme.nativeDashed": "System Dash Underline",
-    "translationTheme.nativeDotted": "System Dotted Underline",
-    "translationTheme.nativeUnderline": "System Straight Line Underline",
-    "translationTheme.wavy": "Squiggle",
-    "translationServices.tencent": "Tencent Translator",
-    "translationServices.tenAlpha": "Tencent Translator (Alpha)",
-    "translationServices.google": "Google Translate",
-    "translationServices.bai": "Baidu (Alpha)",
-    "translationServices.baidu": "Baidu translation",
-    "translationServices.aliyun": "Aliyun Translator",
-    "translationServices.volc": "Volcano Translation",
-    "translationServices.deeplx": "DeeplX (Alpha)",
-    "translationServices.bing": "Bing translate",
-    "translationServices.deepl": "DeepL",
-    "translationServices.wechat": "Wechat translation",
-    "translationServices.azure": "Microsoft Translator",
-    "translationServices.ibm": "IBM Watson",
-    "translationServices.aws": "Amazon Translate",
-    "translationServices.mock": "Mock translation",
-    "translationServices.mock2": "Mock Translation2",
-    "translationServices.caiyun": "Caiyun Translation",
-    "translationServices.cai": "Caiyun Translation (Alpha)",
-    "translationServices.volcAlpha": "Volcano Translation (Alpha)",
-    "translationServices.openl": "OpenL",
-    "translationServices.youdao": "Youdao Translation",
-    "translationServices.you": "Youdao Translation (Alpha)",
-    "translationServices.transmart": "Tencent Smart Translation",
-    "translationServices.niu": "Niu Translation",
-    "translationServices.papago": "Papago Translation",
-    "translationServices.d": "DeeplX (Alpha)",
-    "translationServices.dpro": "D Pro (Canary)",
-    "translationServices.openai": "OpenAI",
-    "translationServices.chatgpt": "ChatGPT Plus",
-    "translate title": "Translate page title",
-    "always languages": "Always translate the following languages",
-    neverTranslateLanguagesLabel: "Never Translated Languages",
-    neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
-    enableUserscriptPagePopup: "Always show Popup windows on the page",
-    enableUserscriptPagePopupDescription: "Three-finger touch to show the Popup.",
-    "always translate the following languages": "The following languages will always be translated",
-    "always sites": "Always translate the following sites",
-    "always translate the following sites": "The following sites will always be translated",
-    "never sites": "Never translate the following sites",
-    "never translate the following sites": "The following sites will never be translated",
-    "please refer to": "It can only be used after filling in the key. For details, please refer to",
-    KeyAndConfigurationTutorial: "Key Application and Configuration Tutorial",
-    useAboveStyleForTheseSites: "Sites that always use the {theme} translation style",
-    currentUrl: "Current URL",
-    confirm: "Save",
-    cancel: "Cancel",
-    delete: "Delete",
-    "languages.auto": "Detect Language",
-    syncToCloud: "Sync to cloud",
-    syncToCloudDescription: "Upload the configuration to the cloud server, and you can synchronize the configuration between different browsers or Tampermonkey scripts, based on the last modification time.",
-    authFail: "Authorization Failed",
-    syncTitle: "Please select a file operation",
-    import_hint: "Import",
-    upload: "Upload",
-    revokeAuth: "Revoke Authorization",
-    uploadFail: "Upload Failed",
-    download: "Download",
-    importSuccess: "Upload Success",
-    importFail: "Import Failed",
-    deleteFail: "Delete Failed",
-    backupToCloud: "Manage backup files manually",
-    create_new_backup: "Add backup node",
-    maxBackupFiles: "Up to{count}different nodes can be backed up. Please delete unneeded nodes",
-    backupToCloudDescription: "Upload or restore backup files manually, up to 3 different backups",
-    successSyncConfig: "Successfully synced with cloud",
-    syncFail: "Synchronization failed",
-    updatedAt: "Updated at {date}",
-    lastSyncedAt: "Last checked at {date}",
-    downloadFail: "Download failed",
-    clickToDownload: "Click to download",
-    aboutLabel: "About - Feedback - Sponsor",
-    "browser.openAboutPage": "About / Feedback/Sponsor",
-    aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
-    projectHomepage: "Project Homepage",
-    joinTelegramGroup: "Join Telegram group for feature discussion",
-    joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
-    feedbackAndJoin: "Issue feedback/group",
-    autoSync: "Auto-Time Sync",
-    loadingThemeTitle: "Loading Style",
-    loadingThemeDescription: "Set the style of waiting for the translation to load",
-    "loadingTheme.spinner": "Spinning icon",
-    "loadingTheme.text": "Static Text... ",
-    "loadingTheme.none": "Disabled",
-    developerDescription: "You can click <1>here</1> to see the documentation related to advanced customization",
-    "edit border color": "Edit border color",
-    successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
-    customTheme: "Customize colors and sizes",
-    "customThemeLabel.borderColor": "Border color",
-    "customThemeLabel.borderRadius": "Border Round Corner",
-    "customThemeLabel.textColor": "Text color",
-    "customThemeLabel.backgroundColor": "Background color",
-    "customThemeLabel.zoom": "Font scale (%)",
-    resetToDefaultColor: "Reset to default colors",
-    isTranslateTitle: "Enable translate page title",
-    isTranslateTitleDescription: "When enabled, the page title will be translated",
-    verifyService: "Click on this test service",
-    verified: "Successful",
-    "field.model": "Model",
-    "field.translationEngine": "Translation engine",
-    "field.limitPerMinute": "Max requests per minute",
-    "field.maxTextLengthPerRequest": "Maximum text length per request",
-    "field.apiUrl": "Custom API interface address",
-    "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
-    "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language, you can omit {{text}}, if so, it'll be sent as a separated message",
-    "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
-    enabledExtension: "Enable extensions",
-    clickToDisableExtension: "Click to disable extension",
-    clickToEnableExtension: "Click to enable the extension",
-    hasBeenDisabled: "Disabled",
-    "show password": "Show password",
-    resetToDefaultSettings: "Reset to default settings"
-  };
-
-  // constant.ts
-  var interfaceTranslations = [
-    {
-      code: "zh-CN",
-      messages: zh_CN_default
-    },
-    {
-      code: "zh-TW",
-      messages: zh_TW_default
-    },
-    {
-      code: "en",
-      messages: en_default
-    }
-  ];
-  var translations = {};
-  for (let translation of interfaceTranslations)
-    translations[translation.code] = translation.messages;
-  var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html";
-  var subtitleBuilderUrl = "subtitle/index.html", epubViewerUrl = "ebook/index.html", epubBuilderUrl = "ebook/make/index.html", brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
-  var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", contextDonateMenuId = "donateContext", contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder", contextOpenLocalSubtitleBuilder = "openSubtitleBuilder", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
-  var elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
-  var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
-  var translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
-  var languages = [
-    "auto",
-    "en",
-    "zh-CN",
-    "zh-TW",
-    "ja",
-    "ko",
-    "es",
-    "de",
-    "fr",
-    "pt",
-    "ru",
-    "ar",
-    "it",
-    "ms",
-    "id",
-    "vi",
-    "af",
-    "th",
-    "ur",
-    "am",
-    "az",
-    "be",
-    "bg",
-    "bn",
-    "bs",
-    "ca",
-    "ceb",
-    "co",
-    "cs",
-    "cy",
-    "da",
-    "el",
-    "eo",
-    "et",
-    "eu",
-    "fa",
-    "fi",
-    "fil",
-    "fj",
-    "fy",
-    "ga",
-    "gd",
-    "gl",
-    "gu",
-    "ha",
-    "haw",
-    "he",
-    "hi",
-    "hmn",
-    "hr",
-    "ht",
-    "hu",
-    "hy",
-    "ig",
-    "is",
-    "jw",
-    "ka",
-    "kk",
-    "km",
-    "kn",
-    "ku",
-    "ky",
-    "la",
-    "lb",
-    "lo",
-    "lt",
-    "lv",
-    "mg",
-    "mi",
-    "mk",
-    "ml",
-    "mn",
-    "mr",
-    "mt",
-    "mww",
-    "my",
-    "ne",
-    "nl",
-    "no",
-    "ny",
-    "otq",
-    "pa",
-    "pl",
-    "ps",
-    "ro",
-    "sd",
-    "si",
-    "sk",
-    "sl",
-    "sm",
-    "sn",
-    "so",
-    "sq",
-    "sr",
-    "sr-Cyrl",
-    "sr-Latn",
-    "st",
-    "su",
-    "sv",
-    "sw",
-    "ta",
-    "te",
-    "tg",
-    "tlh",
-    "tlh-Qaak",
-    "to",
-    "tr",
-    "ty",
-    "ug",
-    "uk",
-    "uz",
-    "wyw",
-    "xh",
-    "yi",
-    "yo",
-    "yua",
-    "yue",
-    "zu"
-  ];
-  var fallbackLanguage = "zh-CN";
-  var openlProps = [
-    {
-      type: "select",
-      name: "codename",
-      labelKey: "field.translationEngine",
-      default: "youdao",
-      required: !1,
-      options: [
-        {
-          label: "translationServices.google",
-          value: "google"
-        },
-        {
-          label: "translationServices.deepl",
-          value: "deepl"
-        },
-        {
-          label: "translationServices.youdao",
-          value: "youdao"
-        },
-        {
-          label: "translationServices.tencent",
-          value: "tencent"
-        },
-        {
-          label: "translationServices.aliyun",
-          value: "aliyun"
-        },
-        {
-          label: "translationServices.baidu",
-          value: "baidu"
-        },
-        {
-          label: "translationServices.caiyun",
-          value: "caiyun"
-        },
-        {
-          label: "translationServices.wechat",
-          value: "wechat"
-        },
-        {
-          label: "translationServices.ibm",
-          value: "ibm"
-        },
-        {
-          label: "translationServices.azure",
-          value: "azure"
-        },
-        {
-          label: "translationServices.aws",
-          value: "aws"
-        }
-      ]
-    }
-  ], PureTranslationServices = {
-    google: {
-      name: "Google",
-      homepage: "https://translate.google.com/"
-    },
-    deepl: {
-      name: "DeepL",
-      homepage: "https://www.deepl.com/translator",
-      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
-      allProps: [
-        {
-          name: "authKey",
-          label: "Auth Key",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    transmart: {
-      name: "Transmart",
-      homepage: "https://transmart.qq.com/"
-    },
-    chatgpt: {
-      name: "ChatGPT Plus",
-      homepage: "https://chat.openai.com",
-      beta: !0
-    },
-    openai: {
-      name: "Open AI",
-      homepage: "https://openai.com/api/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/openai",
-      allProps: [
-        {
-          name: "APIKEY",
-          required: !0,
-          type: "password"
-        },
-        {
-          name: "model",
-          labelKey: "field.model",
-          descriptionKey: "description.model",
-          required: !1,
-          type: "text",
-          default: "gpt-3.5-turbo"
-        },
-        {
-          name: "limit",
-          required: !1,
-          labelKey: "field.limitPerMinute",
-          descriptionKey: "description.limitPerMinute",
-          type: "number",
-          default: 1500
-        },
-        {
-          name: "maxTextLengthPerRequest",
-          required: !1,
-          labelKey: "field.maxTextLengthPerRequest",
-          descriptionKey: "description.maxTextLengthPerRequest",
-          type: "number",
-          default: 1200,
-          optional: !0
-        },
-        {
-          name: "maxTextGroupLengthPerRequest",
-          required: !1,
-          labelKey: "field.maxTextGroupLengthPerRequest",
-          descriptionKey: "description.maxTextGroupLengthPerRequest",
-          type: "number",
-          default: 1,
-          optional: !0
-        },
-        {
-          name: "apiUrl",
-          labelKey: "field.apiUrl",
-          required: !1,
-          type: "text",
-          default: "https://api.openai.com/v1/chat/completions",
-          optional: !0
-        },
-        {
-          name: "systemPrompt",
-          label: "System Prompt",
-          required: !1,
-          descriptionKey: "description.systemPrompt",
-          type: "text",
-          optional: !0,
-          default: "You are a translation engine, you can only translate text and cannot interpret it, and do not explain."
-        },
-        {
-          name: "prompt",
-          label: "Prompt",
-          required: !1,
-          descriptionKey: "description.prompt",
-          type: "textarea",
-          default: `Translate the text below to {{to}}:
-
-{{text}}`,
-          optional: !0
-        }
-      ]
-    },
-    youdao: {
-      name: "Youdao",
-      homepage: "https://immersive-translate.owenyoung.com/services/youdao",
-      docUrl: "https://immersive-translate.owenyoung.com/services/youdao",
-      allProps: [
-        {
-          name: "appId",
-          required: !0,
-          type: "text"
-        },
-        {
-          name: "appSecret",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    tencent: {
-      name: "Tencent",
-      homepage: "https://fanyi.qq.com/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
-      allProps: [
-        {
-          name: "secretId",
-          required: !0,
-          type: "text"
-        },
-        {
-          name: "secretKey",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    azure: {
-      name: "azure",
-      homepage: "https://learn.microsoft.com/en-us/azure/cognitive-services/translator/text-translation-overview",
-      docUrl: "https://immersive-translate.owenyoung.com/services/azure",
-      allProps: [
-        {
-          name: "region",
-          required: !0,
-          default: "eastasia",
-          type: "text"
-        },
-        {
-          name: "APIKEY",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    papago: {
-      name: "Papago",
-      homepage: "https://translate.google.com/",
-      canary: !0
-    },
-    baidu: {
-      name: "Baidu",
-      homepage: "https://fanyi.baidu.com/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
-      allProps: [
-        {
-          name: "appid",
-          required: !0,
-          type: "text"
-        },
-        {
-          name: "key",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    volc: {
-      name: "Volc",
-      homepage: "https://www.volcengine.com/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
-      allProps: [
-        {
-          name: "accessKeyId",
-          required: !0,
-          type: "text"
-        },
-        {
-          name: "secretAccessKey",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    caiyun: {
-      name: "Caiyun",
-      homepage: "https://fanyi.caiyunapp.com/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
-      allProps: [
-        {
-          name: "token",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    cai: {
-      name: "Cai",
-      homepage: "https://fanyi.caiyunapp.com/",
-      alpha: !0
-    },
-    mock: {
-      name: "Mock",
-      homepage: "https://www.google.com"
-    },
-    mock2: {
-      name: "Mock2",
-      homepage: "https://www.google.com"
-    },
-    tenAlpha: {
-      name: "TenAlpha",
-      homepage: "https://fanyi.qq.com/",
-      alpha: !0
-    },
-    you: {
-      name: "You",
-      alpha: !0,
-      homepage: "https://immersive-translate.owenyoung.com/services/youdao"
-    },
-    openl: {
-      name: "Openl",
-      homepage: "https://openl.club/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/openL",
-      allProps: [
-        ...openlProps,
-        {
-          type: "password",
-          name: "apikey",
-          required: !0
-        }
-      ],
-      props: openlProps
-    },
-    volcAlpha: {
-      name: "Volc Alpha",
-      alpha: !0,
-      homepage: "https://www.volcengine.com/"
-    },
-    d: {
-      name: "D () ",
-      alpha: !0,
-      homepage: "https://www.deepl.com/translator"
-    },
-    dpro: {
-      name: "DPro (Canary) ",
-      canary: !0,
-      homepage: "https://www.deepl.com/translator"
-    },
-    deeplx: {
-      name: "DeepLX (Beta)",
-      beta: !0,
-      homepage: "https://www.deepl.com/translator",
-      allProps: [
-        {
-          name: "url",
-          label: "API URL",
-          required: !0,
-          type: "text"
-        }
-      ]
-    },
-    niu: {
-      name: "niutrans",
-      homepage: "https://niutrans.com/",
-      docUrl: "https://immersive-translate.owenyoung.com/services/niu",
-      allProps: [
-        {
-          name: "APIKEY",
-          required: !0,
-          type: "password"
-        }
-      ]
-    },
-    bing: {
-      name: "Bing",
-      homepage: "https://www.bing.com/translator"
-    }
-  }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
-
-  // utils/get_pdf_viewer_url.ts
-  function formatToPdfViewerUrl(url) {
-    let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl), pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
-    return (url.startsWith("http") || !isFirefox()) && pdfViewUrlObj.searchParams.set(
-      "file",
-      url
-    ), pdfViewUrlObj.href;
-  }
-
-  // utils/is_pdf_url.ts
-  function isPdfUrl(url) {
-    return new URL(url)?.pathname.toLowerCase().endsWith(".pdf");
-  }
-
   // https://deno.land/std@0.171.0/async/deferred.ts
   function deferred() {
     let methods, state = "pending", promise = new Promise((resolve, reject) => {
@@ -6482,12 +5081,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v116/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v117/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v116/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v117/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
     for (var n in t3)
       I(e, n, { get: t3[n], enumerable: !0 });
@@ -6585,7 +5184,7 @@ body {
   s2(c, L(h()));
   var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v116/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v117/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
     for (var l in i)
       ve(v4, l, { get: i[l], enumerable: !0 });
@@ -6902,11 +5501,11 @@ body {
   X2(B, ke(xe()));
   var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v116/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v117/nanostores@0.7.4/deno/nanostores.mjs
   var S = Symbol("clean");
   var m = Symbol();
 
-  // https://esm.sh/v116/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v117/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g(r, n) {
     if (typeof r == "string")
       return n(r);
@@ -6940,7 +5539,7 @@ body {
     return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v116/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v117/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P2(e, t3, i, r) {
     e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -7124,7 +5723,7 @@ body {
   }, window.hotkeys = v2);
   var B3;
 
-  // https://esm.sh/v116/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v117/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d2 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {
@@ -7190,6 +5789,1348 @@ body {
 
   // deps.ts
   var toast = Ye.alert;
+
+  // locales/zh-CN.json
+  var zh_CN_default = {
+    lineBreakMaxTextCount: "\u6362\u884C\u540E\uFF0C\u6BCF\u53E5\u8BDD\u5141\u8BB8\u7684\u6700\u5927\u5B57\u7B26\u6570\u91CF",
+    "translate-pdf": "\u70B9\u51FB\u7FFB\u8BD1 PDF",
+    "noSupportTranslate-pdf": "\u811A\u672C\u4E0D\u652F\u6301\u8BF7\u4F7F\u7528\u63D2\u4EF6",
+    "translate-firefox-local-pdf": "\u70B9\u51FB\u53BB\u4E0A\u4F20PDF",
+    enableLineBreak: "\u5F00\u542F\u957F\u6BB5\u843D\u81EA\u52A8\u6362\u884C",
+    sponsorLabel: "$1 \u8D77\u8D5E\u52A9\u5F00\u53D1\u8005",
+    help: "\u5E2E\u52A9",
+    browserShortcutsNoteForFirefox: "Firefox \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762 `about:addons`\uFF0C\u7136\u540E\u70B9\u51FB\u300C\u8BBE\u7F6E\u300D\uFF0C\u518D\u70B9\u51FB\u300C\u7BA1\u7406\u5FEB\u6377\u952E\u300D\u5373\u53EF\u8BBE\u7F6E",
+    browserShortcutsNoteForChrome: "\u7C7BChrome \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762\uFF0C\u5728`\u7BA1\u7406\u5FEB\u6377\u952E`\u9762\u677F(`chrome://extensions/shortcuts`)\u8BBE\u7F6E\uFF0C\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE\u8DF3\u8F6C\u5230\u5FEB\u6377\u952E\u7BA1\u7406\u9875\u9762\u3002",
+    browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
+    enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
+    "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
+    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u6709\u9053/\u817E\u8BAF\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+    "browser.toggleTranslatePage": "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    "browser.toggleTranslateTheWholePage": "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF/\u663E\u793A\u539F\u6587",
+    "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8/\u663E\u793A\u539F\u6587",
+    "browser.toggleTranslateTheMainPage": "\u7FFB\u8BD1\u9875\u9762\u4E3B\u8981\u533A\u57DF/\u663E\u793A\u539F\u6587",
+    "browser.openOptionsPage": "\u6253\u5F00\u8BBE\u7F6E\u9875",
+    "browser.toggleTranslationMask": "\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
+    "browser.translateLocalPdfFile": "\u7FFB\u8BD1\u672C\u5730 PDF \u6587\u4EF6",
+    "browser.openEbookViewer": "\u9605\u8BFB\u672C\u5730\u7535\u5B50\u4E66",
+    "browser.openEbookBuilder": "\u5236\u4F5C\u53CC\u8BED Epub \u7535\u5B50\u4E66",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8BD1 HTML/txt \u6587\u4EF6",
+    "browser.donateContext": "\u4E86\u89E3\u8D5E\u52A9\u798F\u5229",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8BD1\u672C\u5730\u5B57\u5E55\u6587\u4EF6",
+    confirmResetConfig: "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u8BBE\u7F6E\u5417\uFF1F",
+    translationLineBreakSettingTitle: "\u8BD1\u6587\u6362\u884C\u8BBE\u7F6E",
+    smartLineBreak: "\u667A\u80FD\u6362\u884C",
+    alwaysLineBreak: "\u603B\u662F\u6362\u884C",
+    isShowContextMenu: "\u5C06\u7FFB\u8BD1\u7F51\u9875\u52A0\u5165\u53F3\u952E\u83DC\u5355\u9879",
+    toggleBeta: "\u5F00\u542F Beta \u6D4B\u8BD5\u7279\u6027",
+    betaDescription: "\u542F\u7528\u4ECD\u5728\u5B9E\u9A8C\u6027\u7684\u529F\u80FD\uFF0C\u4EE5\u53CA\u6D4B\u8BD5\u4E2D\u7684\u7FFB\u8BD1\u670D\u52A1\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7EC4</1>\u4E86\u89E3\u66F4\u591A\u3002",
+    translationLineBreakSettingDescription: "\u603B\u662F\u6362\u884C\u9002\u7528\u4E8E\u8F83\u5C11\u5185\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F50\u3002\uFF08\u5728\u5185\u5BB9\u8F83\u591A\u7684\u957F\u6BB5\u843D(\u8D85\u8FC7{count}\u4E2A\u5B57\u7B26) \u4F7F\u7528\u667A\u80FD\u6362\u884C\uFF0C\u66F4\u7701\u7A7A\u95F4\uFF09",
+    tempTranslateDomainTitle: "\u4E34\u65F6\u5F00\u542F\u7F51\u7AD9\u7FFB\u8BD1\u7684\u65F6\u957F",
+    tempTranslateDomainDescription: "\u5F53\u624B\u52A8\u7FFB\u8BD1\u67D0\u4E2A\u7F51\u9875\u7684\u65F6\u5019\uFF0C\u4E34\u65F6\u5F00\u542F\u8BE5\u7F51\u7AD9\u4E3A\u81EA\u52A8\u7FFB\u8BD1\uFF0C\u53EF\u8BBE\u7F6E\u4E34\u65F6\u65F6\u957F",
+    xMinutes: "{count} \u5206\u949F",
+    disabled: "\u7981\u7528",
+    changelog: "\u66F4\u65B0\u65E5\u5FD7",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5C4F\u5E55\u5219\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u65F6\u89E6\u6478\u5219\u663E\u793A/\u9690\u85CF\u8BD1\u6587\u6A21\u7CCA\u6548\u679C",
+    addUrlDescription: "\u53EF\u4EE5\u4E3A\u57DF\u540D\uFF0C\u540C\u65F6\u652F\u6301\u901A\u914D\u7B26\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+    general: "\u57FA\u672C\u8BBE\u7F6E",
+    clickToExpandConfig: "\u5C55\u5F00\u5F53\u524D\u914D\u7F6E",
+    import: "\u4ECE\u6587\u4EF6\u5BFC\u5165",
+    export: "\u5BFC\u51FA\u5230\u6587\u4EF6",
+    toggleDebug: "\u5728\u63A7\u5236\u53F0\u6253\u5370\u8C03\u8BD5\u65E5\u5FD7",
+    "fingers.0": "\u5173\u95ED",
+    "fingers.2": "\u53CC\u6307\u89E6\u6478",
+    "fingers.3": "\u4E09\u6307\u89E6\u6478",
+    "fingers.4": "\u56DB\u6307\u89E6\u6478",
+    "fingers.5": "\u4E94\u6307\u89E6\u6478",
+    document: "\u6587\u6863",
+    resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
+    resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
+    saved: "\u4FDD\u5B58\u6210\u529F",
+    successImportConfig: "\u6210\u529F\u5BFC\u5165\u914D\u7F6E",
+    goAdvancedSettings: "\u53BB\u8FDB\u9636\u8BBE\u7F6E\u9875",
+    goAdvancedInterfaceSettings: "\u53BB\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u8BBE\u7F6E\u9875\u9762",
+    advanced: "\u8FDB\u9636\u8BBE\u7F6E",
+    advancedDescription: "\u4E00\u822C\u65E0\u9700\u8BBE\u7F6E\uFF0C\u4FDD\u6301\u9ED8\u8BA4\u5373\u53EF\u3002\u4EC5\u5BF9\u4E8E\u66F4\u4E13\u4E1A\u7684\u7528\u6237\uFF0C\u63D0\u4F9B\u66F4\u4E2A\u6027\u5316\u7684\u8BBE\u7F6E\u9879\u3002",
+    developer: "\u5F00\u53D1\u8005\u8BBE\u7F6E",
+    donateCafe: "\u4EF7\u683C",
+    "translate to the bottom of the page": "\u8FDB\u5165\u7F51\u9875\u540E\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8\uFF1F",
+    feedback: "\u95EE\u9898\u53CD\u9988",
+    toggleTranslatePage: "\u7FFB\u8BD1\u7F51\u9875/\u663E\u793A\u539F\u6587",
+    translateToThePageEndImmediatelyDescription: "\u5F00\u542F\u540E\uFF0C\u8FDB\u5165\u7F51\u9875\u5C06\u7ACB\u5373\u7FFB\u8BD1\u4ECE\u9876\u90E8\u5230\u5E95\u90E8\u7684\u5185\u5BB9\u3002\u5173\u95ED\u5219\u8FB9\u770B\u8FB9\u8BD1\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+    "translate all areas of the page": "\u662F\u5426\u7FFB\u8BD1\u7F51\u9875\u6240\u6709\u533A\u57DF",
+    translationAreaDescription: "\u5F00\u542F\u540E\uFF0C\u6574\u4E2A\u7F51\u9875\u7684\u6240\u6709\u533A\u57DF\u90FD\u4F1A\u88AB\u7FFB\u8BD1\u3002\u5173\u95ED\u5219\u4F7F\u7528\u9ED8\u8BA4\u7684\u667A\u80FD\u8BC6\u522B\uFF0C\u4EC5\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF\u3002\uFF08\u4E0D\u63A8\u8350\u5F00\u542F\uFF09",
+    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8BD1\u9875\u9762\u524D\u591A\u5C11\u4E2A\u5B57\u7B26\uFF0C\u800C\u65E0\u9700\u7B49\u5F85\u6EDA\u52A8\u5230\u53EF\u89C6\u533A\u57DF",
+    "interface language": "\u754C\u9762\u8BED\u8A00",
+    "display both the original text and the translation": "\u540C\u65F6\u663E\u793A\u539F\u6587\u548C\u8BD1\u6587",
+    "keyboard shortcuts": "\u952E\u76D8\u5FEB\u6377\u952E",
+    modify: "\u4FEE\u6539\u5FEB\u6377\u952E",
+    reset: "\u91CD\u7F6E",
+    close: "\u5173\u95ED",
+    homepage: "\u4E3B\u9875",
+    more: "\u66F4\u591A",
+    moreOptions: "\u5C55\u5F00\u66F4\u591A\u81EA\u5B9A\u4E49\u9009\u9879",
+    translateTheWholePage: "\u7FFB\u8BD1\u9875\u9762\u5168\u90E8\u533A\u57DF\uFF08\u533A\u522B\u4E8E\u667A\u80FD\u8BC6\u522B\u4E3B\u8981\u533A\u57DF\uFF09",
+    changeToTranslateTheWholePage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u6240\u6709\u533A\u57DF",
+    changeToTranslateTheMainPage: "\u5207\u6362\u4E3A\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8BD1\u5230\u9875\u9762\u5E95\u90E8",
+    translateTheMainPage: "\u667A\u80FD\u7FFB\u8BD1\u4E3B\u8981\u533A\u57DF",
+    "The local rules are up to date": "\u672C\u5730\u9002\u914D\u89C4\u5219\u5DF2\u662F\u6700\u65B0:",
+    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u9002\u914D\u89C4\u5219:",
+    "Checking for updates": "\u6B63\u5728\u68C0\u67E5\u66F4\u65B0",
+    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u9002\u914D\u89C4\u5219",
+    localVersionIsTooOld: "\u672C\u5730\u6269\u5C55\u7248\u672C\u8FC7\u65E7\uFF0C\u8BF7\u5347\u7EA7\u6269\u5C55\u5230 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5C1D\u8BD5\u540C\u6B65",
+    badUserscriptBrowser: "\u5F53\u524D\u6D4F\u89C8\u5668\u6CA1\u6709\u6B63\u786E\u5B9E\u73B0\u6CB9\u7334\u6269\u5C55\u7684\u63A5\u53E3\uFF08\u6BD4\u5982\u83B7\u53D6\u6CB9\u7334\u811A\u672C\u81EA\u8EAB\u7684\u7248\u672C\u53F7\u4FE1\u606F\uFF09\uFF0C\u8BF7\u4F7F\u7528\u5176\u4ED6<1>\u652F\u6301\u6CB9\u7334\u6269\u5C55</1>\u7684\u6D4F\u89C8\u5668\u5982 Firefox",
+    foundNewVersion: "\u53D1\u73B0\u65B0\u7248\u672C",
+    theLocalExtensionIsUpToUpdate: "\u5F53\u524D\u6269\u5C55\u5DF2\u662F\u6700\u65B0\u7248\u672C\u3002",
+    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u9002\u914D\u89C4\u5219\u5931\u8D25",
+    retry: "\u70B9\u6B64\u91CD\u8BD5",
+    failedReason: "\u5931\u8D25\u539F\u56E0",
+    currentRuleVersion: "\u5F53\u524D\u89C4\u5219\u7248\u672C",
+    calculating: "\u8BA1\u7B97\u4E2D",
+    unknownError: "\u672A\u77E5\u9519\u8BEF",
+    canNotFetchRemoteRule: "\u65E0\u6CD5\u83B7\u53D6\u8FDC\u7A0B\u89C4\u5219",
+    enableAlphaSuccess: "\u5DF2\u5F00\u542FAlpha\u529F\u80FD",
+    disableAlphaSuccess: "\u5DF2\u5173\u95EDAlpha\u529F\u80FD",
+    cacheSize: "\u7F13\u5B58\u5927\u5C0F\uFF1A",
+    cleaning: "\u6E05\u7406\u4E2D",
+    cleanCache: "\u6E05\u9664\u7F13\u5B58",
+    options: "\u8BBE\u7F6E",
+    about: "\u5173\u4E8E",
+    service: "\u7FFB\u8BD1\u670D\u52A1",
+    needAction: "(\u53BB\u8BBE\u7F6E)",
+    goSettings: "\u53BB\u8BBE\u7F6E",
+    needActionForOptions: "(\u9700\u8BBE\u7F6E)",
+    translationEngine: "\u5F15\u64CE\u9009\u9879",
+    sourceLanguage: "\u539F\u6587\u8BED\u8A00",
+    target: "\u76EE\u6807\u8BED\u8A00",
+    popupSourceLanguage: "\u539F\u6587\u8BED\u8A00",
+    popupTarget: "\u76EE\u6807\u8BED\u8A00",
+    popupService: "\u7FFB\u8BD1\u670D\u52A1",
+    forThisSite: "\u9488\u5BF9\u8BE5\u7F51\u7AD9\uFF1A",
+    alwaysTranslateSomeLanguage: "\u603B\u662F\u7FFB\u8BD1 {language}",
+    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8BD1 {language}",
+    alwaysTranslateSomeSite: "\u603B\u662F\u7FFB\u8BD1 {hostname}",
+    neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8BD1 {hostname}",
+    add: "\u6DFB\u52A0",
+    default: "\u9ED8\u8BA4",
+    forThisLanguage: "\u9488\u5BF9\u8BE5\u8BED\u8A00\uFF1A",
+    "add url": "\u8F93\u5165URL",
+    edit: "\u7F16\u8F91",
+    "translate other languages into specific language": "\u5C06\u5176\u4ED6\u8BED\u8A00\u7FFB\u8BD1\u4E3A\u4F60\u8BBE\u7F6E\u7684\u8BED\u8A00",
+    "select translation service": "\u9009\u62E9\u4E00\u9879\u7FFB\u8BD1\u670D\u52A1",
+    language: "\u8BED\u8A00",
+    "show-original": "\u663E\u793A\u539F\u6587",
+    translate: "\u7FFB\u8BD1",
+    Translated: "\u5DF2\u7FFB\u8BD1",
+    Translating: "\u7FFB\u8BD1\u4E2D",
+    Error: "\u9519\u8BEF",
+    allowCacheTranslations: "\u5F00\u542F\u672C\u5730\u7FFB\u8BD1\u7F13\u5B58\uFF08\u51CF\u5C11\u91CD\u590D\u6BB5\u843D\u7684\u7FFB\u8BD1\u8BF7\u6C42\uFF09",
+    "translation display": "\u8BD1\u6587\u663E\u793A\u6837\u5F0F",
+    "select diplay style": "\u533A\u5206\u8BD1\u6587\u7684\u6837\u5F0F\uFF0C\u5177\u4F53\u53EF\u53C2\u8003\u4E0B\u5217\u793A\u4F8B",
+    interface: "\u754C\u9762\u8BBE\u7F6E",
+    import_export: "\u5BFC\u5165/\u5BFC\u51FA",
+    import_export_title: "\u5BFC\u5165/\u5BFC\u51FA\u914D\u7F6E",
+    syncToGoogleDrive: "\u7ACB\u5373\u4E0E Google Drive \u540C\u6B65",
+    previewAllThemes: "\u9884\u89C8\u5168\u90E8\u6837\u5F0F",
+    "translationTheme.none": "\u65E0",
+    "translationTheme.grey": "\u9ED1\u7070\u8272",
+    "translationTheme.dashed": "\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.dotted": "\u70B9\u72B6\u4E0B\u5212\u7EBF",
+    "translationTheme.dashedBorder": "\u865A\u7EBF\u8FB9\u6846",
+    "translationTheme.solidBorder": "\u5B9E\u7EBF\u8FB9\u6846",
+    "translationTheme.underline": "\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
+    "translationTheme.paper": "\u767D\u7EB8\u9634\u5F71\u6548\u679C",
+    "translationTheme.dividingLine": "\u5206\u5272\u7EBF",
+    "translationTheme.highlight": "\u9AD8\u4EAE",
+    "translationTheme.marker": "\u9A6C\u514B\u7B14",
+    "translationTheme.marker2": "\u9A6C\u514B\u7B142",
+    "translationTheme.blockquote": "\u5F15\u7528\u6837\u5F0F",
+    "translationTheme.weakening": "\u5F31\u5316",
+    "translationTheme.italic": "\u659C\u4F53",
+    "translationTheme.bold": "\u52A0\u7C97",
+    "translationTheme.thinDashed": "\u7EC6\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeDashed": "\u7CFB\u7EDF\u81EA\u5E26\u865A\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeDotted": "\u7CFB\u7EDF\u81EA\u5E26\u70B9\u72B6\u4E0B\u5212\u7EBF",
+    "translationTheme.nativeUnderline": "\u7CFB\u7EDF\u81EA\u5E26\u76F4\u7EBF\u4E0B\u5212\u7EBF",
+    "translationTheme.wavy": "\u6CE2\u6D6A\u7EBF",
+    "translationServices.tencent": "\u817E\u8BAF\u7FFB\u8BD1\u541B",
+    "translationServices.tenAlpha": "\u817E\u8BAF\u7FFB\u8BD1\u541B(Alpha)",
+    "translationServices.google": "\u8C37\u6B4C\u7FFB\u8BD1",
+    "translationServices.bai": "\u767E\u5EA6(Alpha)",
+    "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8BD1",
+    "translationServices.aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
+    "translationServices.volc": "\u706B\u5C71\u7FFB\u8BD1",
+    "translationServices.deeplx": "DeeplX(Beta)",
+    "translationServices.bing": "\u5FC5\u5E94\u7FFB\u8BD1",
+    "translationServices.deepl": "Deepl",
+    "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
+    "translationServices.azure": "\u5FAE\u8F6F\u7FFB\u8BD1",
+    "translationServices.ibm": "IBM Watson",
+    "translationServices.aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
+    "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
+    "translationServices.mock2": "\u6A21\u62DF\u7FFB\u8BD12",
+    "translationServices.caiyun": "\u5F69\u4E91\u5C0F\u8BD1",
+    "translationServices.cai": "\u5F69\u4E91\u5C0F\u8BD1 (Alpha)",
+    "translationServices.volcAlpha": "\u706B\u5C71 (Alpha)",
+    "translationServices.openl": "OpenL",
+    "translationServices.youdao": "\u6709\u9053\u7FFB\u8BD1",
+    "translationServices.you": "\u6709\u9053\u7FFB\u8BD1 (Alpha)",
+    "translationServices.transmart": "\u817E\u8BAF\u4EA4\u4E92\u7FFB\u8BD1",
+    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8BD1",
+    "translationServices.papago": "Papago \u7FFB\u8BD1",
+    "translationServices.d": "D (Alpha)",
+    "translationServices.dpro": "D Pro (Canary)",
+    "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
+    "translate title": "\u7FFB\u8BD1\u9875\u9762\u6807\u9898",
+    "always languages": "\u603B\u662F\u7FFB\u8BD1\u7684\u8BED\u8A00",
+    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u8BED\u8A00",
+    neverTranslateTheFollowingLanguagesDescription: "\u5F53\u9875\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u5C06\u8DF3\u8FC7\u7FFB\u8BD1",
+    enableUserscriptPagePopup: "\u5728\u9875\u9762\u4E0A\u663E\u793A\u60AC\u6D6E\u7403",
+    enableUserscriptPagePopupDescription: "\u5173\u95ED\u60AC\u6D6E\u7403\u540E\uFF0C\u53EF\u4EE5\u7528\u5FEB\u6377\u952E/{touch}\u5524\u8D77\u3002\u4E3A\u9632\u6B62\u4E0D\u614E\u5173\u95ED\u8BE5\u9009\u9879\u540E\u627E\u4E0D\u5230\u60AC\u6D6E\u7403\uFF0C\u5F3A\u70C8\u5EFA\u8BAE\u6536\u85CF\u672C\u8BBE\u7F6E\u9875",
+    "always translate the following languages": "\u5F53\u9875\u9762\u8BED\u8A00\u4E3A\u4E0B\u5217\u8BED\u8A00\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "always sites": "\u603B\u662F\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "always translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u4F1A\u81EA\u52A8\u7FFB\u8BD1\u4E3A\u76EE\u6807\u8BED\u8A00",
+    "never sites": "\u6C38\u4E0D\u7FFB\u8BD1\u7684\u7F51\u5740",
+    "never translate the following sites": "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u5C06\u4E0D\u4F1A\u8FDB\u884C\u7FFB\u8BD1",
+    "please refer to": "\u9700\u8981\u586B\u5199\u5BC6\u94A5\u540E\u624D\u53EF\u7528\uFF0C\u8BE6\u60C5\u53C2\u8003",
+    KeyAndConfigurationTutorial: "\u300A\u5BC6\u94A5\u7533\u8BF7\u548C\u914D\u7F6E\u6559\u7A0B\u300B",
+    useAboveStyleForTheseSites: "\u5F53\u7F51\u7AD9\u4E3A\u4E0B\u5217\u57DF\u540D\u65F6\uFF0C\u603B\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8BD1\u6587\u6837\u5F0F",
+    currentUrl: "\u5F53\u524D\u7F51\u5740",
+    confirm: "\u4FDD\u5B58",
+    cancel: "\u53D6\u6D88",
+    delete: "\u5220\u9664",
+    "languages.auto": "\u81EA\u52A8\u68C0\u6D4B\u8BED\u8A00",
+    syncToCloud: "\u540C\u6B65\u5230\u4E91\u7AEF",
+    syncToCloudDescription: "\u4E0A\u4F20\u5230\u4E91\u7AEF\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u6D4F\u89C8\u5668/\u6CB9\u7334\u811A\u672C\u4E4B\u95F4\u540C\u6B65\u914D\u7F6E\uFF0C\u4EE5\u6700\u540E\u4FEE\u6539\u65F6\u95F4\u4E3A\u51C6\u3002",
+    authFail: "\u6388\u6743\u5931\u8D25",
+    syncTitle: "\u624B\u52A8\u5907\u4EFD\u7BA1\u7406",
+    import_hint: "\u5BFC\u5165",
+    upload: "\u4E0A\u4F20",
+    revokeAuth: "\u64A4\u9500\u6388\u6743",
+    uploadFail: "\u4E0A\u4F20\u5931\u8D25",
+    download: "\u4E0B\u8F7D",
+    importSuccess: "\u5BFC\u5165\u6210\u529F",
+    importFail: "\u5BFC\u5165\u5931\u8D25",
+    deleteFail: "\u5220\u9664\u5931\u8D25",
+    backupToCloud: "\u624B\u52A8\u7BA1\u7406\u5907\u4EFD\u6587\u4EF6",
+    create_new_backup: "\u65B0\u589E\u5907\u4EFD\u8282\u70B9",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5907\u4EFD{count}\u4E2A\u4E0D\u540C\u7684\u8282\u70B9, \u8BF7\u5220\u9664\u4E0D\u9700\u8981\u7684\u8282\u70B9",
+    backupToCloudDescription: "\u624B\u52A8\u4E0A\u4F20\u6216\u6062\u590D\u5907\u4EFD\u6587\u4EF6\uFF0C\u6700\u591A\u5141\u8BB83\u4E2A\u4E0D\u540C\u7684\u5907\u4EFD",
+    successSyncConfig: "\u6210\u529F\u4E0E\u4E91\u7AEF\u4FDD\u6301\u540C\u6B65",
+    syncFail: "\u540C\u6B65\u5931\u8D25",
+    updatedAt: "\u66F4\u65B0\u4E8E {date}",
+    lastSyncedAt: "\u4E0A\u6B21\u68C0\u67E5\u4E8E {date}",
+    downloadFail: "\u4E0B\u8F7D\u5931\u8D25",
+    clickToDownload: "\u70B9\u51FB\u4E0B\u8F7D",
+    aboutLabel: "\u5173\u4E8E - \u53CD\u9988 - \u8D5E\u52A9\u798F\u5229",
+    "browser.openAboutPage": "\u5173\u4E8E/\u53CD\u9988",
+    aboutLabelWithoutSponsor: "\u5173\u4E8E - \u53CD\u9988",
+    aboutIntro: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F <br/><br/>\u611F\u8C22\u8FD9\u4E9B<1>\u8D5E\u52A9\u8005\u4EEC</1>, \u7531\u4E8E\u4ED6/\u5979\u4EEC\u7684\u652F\u6301\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8D39\u5730\u4F7F\u7528\u8FD9\u4E2A\u5DE5\u5177\u3002<br/><br/>\u514D\u8D39\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8D5E\u52A9\u8005\u4E4B\u95F4\u5EFA\u7ACB\u4E00\u79CD\u53CC\u8D62\u7684\u5173\u7CFB\uFF01\u6211\u4E3A\u8D5E\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u65F6\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8BD1\u670D\u52A1</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u70B9\u51FB\u8FD9\u91CC\u4E86\u89E3\u8D5E\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u8FD8\u53EF\u4EE5\u5173\u6CE8\u6211\u7684<3>\u63A8\u7279</3>\uFF0C<4>Telegram \u9891\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90AE\u4EF6\u8BA2\u9605</5>\u8FFD\u8E2A\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u8BE5\u6269\u5C55\u514D\u8D39\u4F7F\u7528\uFF0C\u5E0C\u671B\u6211\u4EEC\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u60A6\u5730\u83B7\u53D6\u4E92\u8054\u7F51\u4E0A\u5DE8\u5927\u7684\u5916\u8BED\u4FE1\u606F \u2764\uFE0F ",
+    projectHomepage: "\u9879\u76EE\u4E3B\u9875",
+    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u53C2\u4E0E\u529F\u80FD\u8BA8\u8BBA",
+    joinTelegramChannel: "\u5173\u6CE8 Telegram \u9891\u9053\u83B7\u53D6\u6700\u65B0\u66F4\u65B0",
+    feedbackAndJoin: "\u95EE\u9898\u53CD\u9988/\u52A0\u7FA4",
+    autoSync: "\u81EA\u52A8\u5B9A\u65F6\u540C\u6B65",
+    loadingThemeTitle: "Loading \u6837\u5F0F",
+    loadingThemeDescription: "\u8BBE\u7F6E\u7B49\u5F85\u8BD1\u6587\u52A0\u8F7D\u65F6\u7684\u6837\u5F0F",
+    "loadingTheme.spinner": "\u8F6C\u5708\u52A8\u753B",
+    "loadingTheme.text": "\u9759\u6001\u6587\u5B57 ... ",
+    "loadingTheme.none": "\u4E0D\u663E\u793A",
+    developerDescription: "\u53EF\u4EE5\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u9AD8\u7EA7\u81EA\u5B9A\u4E49\u76F8\u5173\u7684\u6587\u6863",
+    "edit border color": "\u4FEE\u6539\u8FB9\u6846\u989C\u8272",
+    successSyncButNoChange: "\u5F53\u524D\u914D\u7F6E\u4E0E\u4E91\u7AEF\u4E00\u81F4",
+    customTheme: "\u81EA\u5B9A\u4E49\u989C\u8272\u548C\u5927\u5C0F",
+    "customThemeLabel.borderColor": "\u8FB9\u6846\u989C\u8272",
+    "customThemeLabel.borderRadius": "\u8FB9\u6846\u5706\u89D2",
+    "customThemeLabel.textColor": "\u6587\u5B57\u989C\u8272",
+    "customThemeLabel.backgroundColor": "\u80CC\u666F\u989C\u8272",
+    "customThemeLabel.zoom": "\u5B57\u4F53\u7F29\u653E\u6BD4\u4F8B (%)",
+    resetToDefaultColor: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u989C\u8272",
+    resetToDefaultSettings: "\u6062\u590D\u4E3A\u9ED8\u8BA4\u8BBE\u7F6E",
+    isTranslateTitle: "\u5F00\u542F\u7FFB\u8BD1\u7F51\u9875\u6807\u9898",
+    isTranslateTitleDescription: "\u5F00\u542F\u540E\uFF0C\u7F51\u9875\u6807\u9898\u4F1A\u88AB\u7FFB\u8BD1",
+    verifyService: "\u70B9\u6B64\u6D4B\u8BD5\u670D\u52A1",
+    verified: "\u9A8C\u8BC1\u6210\u529F",
+    "field.model": "\u6A21\u578B",
+    "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
+    "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
+    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
+    "field.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6BB5\u843D\u6570",
+    "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
+    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
+    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
+    "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
+    "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
+    "description.model": "OpenAI \u7684\u6A21\u578B\uFF0C\u53EF\u4EE5\u4E3A gpt-3.5-turbo, gpt-4 \u7B49",
+    "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
+    enabledExtension: "\u542F\u7528\u6269\u5C55",
+    clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
+    clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
+    hasBeenDisabled: "\u5DF2\u7981\u7528",
+    "show password": "\u663E\u793A\u5BC6\u7801",
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
+  };
+
+  // locales/zh-TW.json
+  var zh_TW_default = {
+    lineBreakMaxTextCount: "\u63DB\u884C\u5F8C\uFF0C\u6BCF\u53E5\u8A71\u5141\u8A31\u7684\u6700\u5927\u5B57\u5143\u6578\u91CF",
+    "translate-pdf": "\u9EDE\u9078\u7FFB\u8B6F PDF",
+    "translate-firefox-local-pdf": "\u9EDE\u9078\u4E0A\u50B3 PDF",
+    enableLineBreak: "\u958B\u555F\u9577\u6BB5\u843D\u81EA\u52D5\u63DB\u884C",
+    sponsorLabel: "$1 \u8D77\u8D0A\u52A9\u958B\u767C\u8005 (\u6708\u4ED8\u6216\u50C5\u8D0A\u52A9\u4E00\u6B21\u5747\u53EF)",
+    help: "\u8AAA\u660E",
+    browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
+    browserShortcutsNoteForChrome: "Chromium \u6838\u5FC3\u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
+    browserShortcutsSucks: "\u8B8A\u66F4\u5FEB\u901F\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u70BA\uFF1A",
+    enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
+    "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
+    "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
+    "browser.toggleTranslatePage": "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+    "browser.toggleTranslateTheWholePage": "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF/\u986F\u793A\u539F\u6587",
+    "browser.toggleTranslateToThePageEndImmediately": "\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8/\u986F\u793A\u539F\u6587",
+    "browser.toggleTranslateTheMainPage": "\u7FFB\u8B6F\u9801\u9762\u4E3B\u8981\u5340\u57DF/\u986F\u793A\u539F\u6587",
+    "browser.openOptionsPage": "\u958B\u555F\u8A2D\u5B9A\u9801\u9762",
+    "browser.toggleTranslationMask": "\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
+    "browser.translateLocalPdfFile": "\u7FFB\u8B6F\u672C\u6A5F PDF \u6A94\u6848",
+    "browser.openEbookViewer": "\u95B1\u8B80\u672C\u6A5F\u96FB\u5B50\u66F8",
+    "browser.openEbookBuilder": "\u88FD\u4F5C\u96D9\u8A9E Epub \u96FB\u5B50\u66F8",
+    "browser.translateLocalHtmlFile": "\u7FFB\u8B6F HTML/txt \u6A94\u6848",
+    "browser.translateLocalSubtitleFile": "\u7FFB\u8B6F\u5B57\u5E55\u6A94\u6848",
+    "browser.donateContext": "\u4E86\u89E3\u8D0A\u52A9\u798F\u5229",
+    confirmResetConfig: "\u4F60\u78BA\u5B9A\u8981\u91CD\u8A2D\u8A2D\u5B9A\u55CE\uFF1F",
+    translationLineBreakSettingTitle: "\u8B6F\u6587\u63DB\u884C\u8A2D\u5B9A",
+    smartLineBreak: "\u667A\u6167\u63DB\u884C",
+    alwaysLineBreak: "\u7E3D\u662F\u63DB\u884C",
+    isShowContextMenu: "\u5C07\u7DB2\u9801\u7FFB\u8B6F\u529F\u80FD\u52A0\u5165\u53F3\u9375\u9078\u55AE",
+    toggleBeta: "\u958B\u555F Beta \u6E2C\u8A66\u529F\u80FD",
+    betaDescription: "\u555F\u7528\u4ECD\u5728\u5BE6\u9A57\u7684\u529F\u80FD\u4EE5\u53CA\u6E2C\u8A66\u4E2D\u7684\u7FFB\u8B6F\u670D\u52D9\u3002\u52A0\u5165 <1>Telegram \u7FA4\u7D44</1>\u4E86\u89E3\u66F4\u591A\u3002",
+    translationLineBreakSettingDescription: "\u7E3D\u662F\u63DB\u884C\u9069\u7528\u65BC\u8F03\u5C11\u5167\u5BB9\u7684\u7248\u9762\uFF0C\u66F4\u6574\u9F4A\u3002(\u5728\u5167\u5BB9\u8F03\u591A\u7684\u9577\u6BB5\u843D(\u8D85\u904E {count} \u500B\u5B57\u5143) \u4F7F\u7528\u667A\u6167\u63DB\u884C\u6703\u66F4\u7701\u7A7A\u9593)",
+    tempTranslateDomainTitle: "\u81E8\u6642\u958B\u555F\u7DB2\u7AD9\u7FFB\u8B6F\u7684\u6642\u9577",
+    tempTranslateDomainDescription: "\u7576\u624B\u52D5\u7FFB\u8B6F\u67D0\u500B\u7DB2\u9801\u7684\u6642\u5019\uFF0C\u81E8\u6642\u958B\u555F\u8A72\u7DB2\u7AD9\u70BA\u81EA\u52D5\u7FFB\u8B6F",
+    xMinutes: "{count} \u5206\u9418",
+    disabled: "\u505C\u7528",
+    changelog: "\u66F4\u65B0\u8A18\u9304",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u87A2\u5E55\u5247\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "\u591A\u6307\u540C\u6642\u89F8\u6478\u5247\u986F\u793A/\u96B1\u85CF\u8B6F\u6587\u6A21\u7CCA\u6548\u679C",
+    addUrlDescription: "\u53EF\u4EE5\u70BA\u7DB2\u57DF\u540D\u7A31\uFF0C\u540C\u6642\u652F\u63F4\u842C\u7528\u5B57\u5143\uFF0C\u5982\uFF1A*.google.com, google.com/mail/*, https://www.google.com/*",
+    general: "\u57FA\u672C\u8A2D\u5B9A",
+    clickToExpandConfig: "\u5C55\u958B\u76EE\u524D\u8A2D\u5B9A",
+    import: "\u5F9E\u6A94\u6848\u532F\u5165",
+    export: "\u532F\u51FA\u70BA\u6A94\u6848",
+    toggleDebug: "\u5728\u4E3B\u63A7\u53F0\u986F\u793A\u5075\u932F\u8A18\u9304",
+    "fingers.0": "\u95DC\u9589",
+    "fingers.2": "\u96D9\u6307\u89F8\u6478",
+    "fingers.3": "\u4E09\u6307\u89F8\u6478",
+    "fingers.4": "\u56DB\u6307\u89F8\u6478",
+    "fingers.5": "\u4E94\u6307\u89F8\u6478",
+    document: "\u8AAA\u660E\u6587\u4EF6",
+    resetSuccess: "\u91CD\u8A2D\u6240\u6709\u8A2D\u5B9A\u6210\u529F",
+    resetThisSuccess: "\u91CD\u8A2D\u6210\u529F",
+    saved: "\u5132\u5B58\u6210\u529F",
+    successImportConfig: "\u6210\u529F\u532F\u5165\u8A2D\u5B9A",
+    goAdvancedSettings: "\u524D\u5F80\u9032\u968E\u8A2D\u5B9A\u9801\u9762",
+    goAdvancedInterfaceSettings: "\u524D\u5F80\u81EA\u8A02\u8A2D\u5B9A\u9801\u9762",
+    advanced: "\u9032\u968E\u8A2D\u5B9A",
+    advancedDescription: "\u6B63\u5E38\u60C5\u6CC1\u7121\u9700\u8A2D\u5B9A\uFF0C\u4FDD\u6301\u9810\u8A2D\u5373\u53EF\u3002\u50C5\u91DD\u5C0D\u66F4\u5C08\u696D\u7684\u4F7F\u7528\u8005\uFF0C\u63D0\u4F9B\u66F4\u500B\u4EBA\u5316\u7684\u8A2D\u5B9A\u9805\u76EE\u3002",
+    developer: "\u958B\u767C\u8005\u8A2D\u5B9A",
+    donateCafe: "\u50F9\u683C",
+    "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
+    feedback: "\u554F\u984C\u56DE\u5831",
+    toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+    translateToThePageEndImmediatelyDescription: "\u555F\u7528\u5F8C\uFF0C\u9032\u5165\u7DB2\u9801\u5C07\u7ACB\u5373\u7FFB\u8B6F\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\u3002\u95DC\u9589\u5247\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u555F\uFF09",
+    "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
+    translationAreaDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6240\u6709\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\u3002\u95DC\u9589\u5247\u4F7F\u7528\u9810\u8A2D\u7684\u667A\u6167\u8FA8\u8B58\uFF0C\u50C5\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\u3002(\u4E0D\u63A8\u85A6\u958B\u555F)",
+    "the number of characters to be translated first": "\u76F4\u63A5\u7FFB\u8B6F\u9801\u9762\u524D\u591A\u5C11\u500B\u5B57\u5143\uFF0C\u800C\u7121\u9700\u7B49\u5F85\u6372\u52D5\u81F3\u53EF\u898B\u5340\u57DF",
+    "interface language": "\u4ECB\u9762\u8A9E\u8A00",
+    "display both the original text and the translation": "\u540C\u6642\u986F\u793A\u539F\u6587\u548C\u8B6F\u6587",
+    "keyboard shortcuts": "\u9375\u76E4\u5FEB\u901F\u9375",
+    modify: "\u8B8A\u66F4\u5FEB\u901F\u9375",
+    reset: "\u91CD\u8A2D",
+    close: "\u95DC\u9589",
+    homepage: "\u9996\u9801",
+    more: "\u66F4\u591A",
+    translateTheWholePage: "\u7FFB\u8B6F\u9801\u9762\u5168\u90E8\u5340\u57DF\uFF08\u5340\u5206\u65BC\u53EA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\uFF09",
+    changeToTranslateTheWholePage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u6240\u6709\u5340\u57DF",
+    changeToTranslateTheMainPage: "\u5207\u63DB\u70BA\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
+    translateToThePageEndImmediately: "\u7ACB\u5373\u7FFB\u8B6F\u5230\u5E95\u90E8\uFF08\u5340\u5206\u65BC\u770B\u54EA\u8B6F\u54EA\uFF09",
+    translateTheMainPage: "\u667A\u6167\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF",
+    "The local rules are up to date": "\u672C\u6A5F\u898F\u5247\u5DF2\u70BA\u6700\u65B0\uFF1A",
+    "Successfully synchronized with the latest official rules:": "\u6210\u529F\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\uFF1A",
+    "Checking for updates": "\u6B63\u5728\u6AA2\u67E5\u66F4\u65B0",
+    "Rules are being synchronized": "\u6B63\u5728\u540C\u6B65\u5B98\u65B9\u898F\u5247",
+    localVersionIsTooOld: "\u672C\u6A5F\u5957\u4EF6\u7248\u672C\u904E\u820A\uFF0C\u8ACB\u5347\u7D1A\u5957\u4EF6\u81F3 {minVersion} \u6216\u66F4\u65B0\u7684\u7248\u672C\u518D\u5617\u8A66\u540C\u6B65",
+    badUserscriptBrowser: "\u76EE\u524D\u700F\u89BD\u5668\u7121\u6CD5\u6B63\u78BA\u5BE6\u73FE\u6CB9\u7334\u5957\u4EF6\u7684\u4ECB\u9762\uFF0C\u8ACB\u4F7F\u7528\u5176\u4ED6<1>\u652F\u63F4\u6CB9\u7334\u5957\u4EF6</1>\u7684\u700F\u89BD\u5668\u5982(Firefox Nightly \u7248\u672C)",
+    foundNewVersion: "\u6709\u65B0\u7248\u672C\u53EF\u7528",
+    theLocalExtensionIsUpToUpdate: "\u76EE\u524D\u5957\u4EF6\u5DF2\u662F\u6700\u65B0\u7248\u672C",
+    failToSyncRules: "\u540C\u6B65\u6700\u65B0\u5B98\u65B9\u898F\u5247\u5931\u6557",
+    retry: "\u9EDE\u6B64\u91CD\u8A66",
+    failedReason: "\u5931\u6557\u539F\u56E0",
+    currentRuleVersion: "\u76EE\u524D\u898F\u5247\u7248\u672C",
+    calculating: "\u6B63\u5728\u8A08\u7B97",
+    unknownError: "\u672A\u77E5\u7684\u932F\u8AA4",
+    canNotFetchRemoteRule: "\u7121\u6CD5\u53D6\u5F97\u9060\u7AEF\u898F\u5247",
+    enableAlphaSuccess: "\u5DF2\u555F\u7528 Alpha \u529F\u80FD",
+    disableAlphaSuccess: "\u5DF2\u505C\u7528 Alpha \u529F\u80FD",
+    cacheSize: "\u5FEB\u53D6\u5927\u5C0F\uFF1A",
+    cleaning: "\u6B63\u5728\u6E05\u7406",
+    cleanCache: "\u6E05\u9664\u5FEB\u53D6",
+    options: "\u9078\u9805",
+    about: "\u95DC\u65BC",
+    service: "\u7FFB\u8B6F\u670D\u52D9",
+    needAction: "(\u524D\u5F80\u8A2D\u5B9A)",
+    goSettings: "\u524D\u5F80\u8A2D\u5B9A",
+    needActionForOptions: "(\u9700\u8A2D\u5B9A)",
+    translationEngine: "\u5F15\u64CE\u9078\u9805",
+    sourceLanguage: "\u539F\u6587\u8A9E\u8A00",
+    target: "\u76EE\u6A19\u8A9E\u8A00",
+    popupSourceLanguage: "\u539F\u6587\u8A9E\u8A00",
+    popupTarget: "\u76EE\u6A19\u8A9E\u8A00",
+    popupService: "\u7FFB\u8B6F\u670D\u52D9",
+    forThisSite: "\u91DD\u5C0D\u8A72\u7DB2\u7AD9\uFF1A",
+    alwaysTranslateSomeLanguage: "\u7E3D\u662F\u7FFB\u8B6F {language}",
+    neverTranslateSomeLanguage: "\u6C38\u4E0D\u7FFB\u8B6F {language}",
+    alwaysTranslateSomeSite: "\u7E3D\u662F\u7FFB\u8B6F {hostname}",
+    neverTranslateSomeSite: "\u6C38\u4E0D\u7FFB\u8B6F {hostname}",
+    add: "\u65B0\u589E",
+    default: "\u9810\u8A2D",
+    forThisLanguage: "\u91DD\u5C0D\u8A72\u8A9E\u8A00\uFF1A",
+    "add url": "\u8F38\u5165 URL",
+    edit: "\u7DE8\u8F2F",
+    "translate other languages into specific language": "\u5C07\u5176\u5B83\u8A9E\u8A00\u7FFB\u8B6F\u70BA\u4F60\u8A2D\u5B9A\u7684\u8A9E\u8A00",
+    "select translation service": "\u9078\u64C7\u4F60\u60F3\u7528\u7684\u7FFB\u8B6F\u670D\u52D9",
+    language: "\u8A9E\u8A00",
+    "show-original": "\u986F\u793A\u539F\u6587",
+    translate: "\u7FFB\u8B6F",
+    Translated: "\u5DF2\u7FFB\u8B6F",
+    Translating: "\u6B63\u5728\u7FFB\u8B6F",
+    Error: "\u932F\u8AA4",
+    allowCacheTranslations: "\u555F\u7528\u672C\u6A5F\u7FFB\u8B6F\u5FEB\u53D6\uFF08\u6E1B\u5C11\u91CD\u8907\u6BB5\u843D\u7684\u7FFB\u8B6F\u8981\u6C42\uFF09",
+    "translation display": "\u8B6F\u6587\u986F\u793A\u6A23\u5F0F",
+    "select diplay style": "\u5340\u5206\u8B6F\u6587\u7684\u6A23\u5F0F\uFF0C\u5177\u9AD4\u53EF\u53C3\u8003\u4E0B\u5217\u7BC4\u4F8B",
+    interface: "\u4ECB\u9762\u8A2D\u5B9A",
+    import_export: "\u532F\u5165/\u532F\u51FA",
+    import_export_title: "\u532F\u5165/\u532F\u51FA\u8A2D\u5B9A",
+    syncToGoogleDrive: "\u7ACB\u5373\u8207 Google Drive \u540C\u6B65",
+    previewAllThemes: "\u9810\u89BD\u5168\u90E8\u6A23\u5F0F",
+    "translationTheme.none": "\u7121",
+    "translationTheme.grey": "\u9ED1\u7070\u8272",
+    "translationTheme.dashed": "\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.dotted": "\u9EDE\u72C0\u5E95\u7DDA",
+    "translationTheme.dashedBorder": "\u865B\u7DDA\u6846\u7DDA",
+    "translationTheme.solidBorder": "\u5BE6\u7DDA\u6846\u7DDA",
+    "translationTheme.underline": "\u76F4\u7DDA\u5E95\u7DDA",
+    "translationTheme.mask": "\u6A21\u7CCA\u6548\u679C",
+    "translationTheme.opacity": "\u900F\u660E\u6548\u679C",
+    "translationTheme.paper": "\u767D\u7D19\u9670\u5F71\u6548\u679C",
+    "translationTheme.dividingLine": "\u5206\u9694\u7DDA",
+    "translationTheme.highlight": "\u9192\u76EE\u63D0\u793A",
+    "translationTheme.marker": "\u99AC\u514B\u7B46",
+    "translationTheme.marker2": "\u99AC\u514B\u7B462",
+    "translationTheme.blockquote": "\u5F15\u7528\u6A23\u5F0F",
+    "translationTheme.weakening": "\u5F31\u5316",
+    "translationTheme.italic": "\u659C\u9AD4",
+    "translationTheme.bold": "\u7C97\u9AD4",
+    "translationTheme.thinDashed": "\u7D30\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.nativeDashed": "\u7CFB\u7D71\u5167\u5EFA\u7834\u6298\u865F\u5E95\u7DDA",
+    "translationTheme.nativeDotted": "\u7CFB\u7D71\u5167\u5EFA\u9EDE\u72C0\u5E95\u7DDA",
+    "translationTheme.nativeUnderline": "\u7CFB\u7D71\u5167\u5EFA\u76F4\u7DDA\u5E95\u7DDA",
+    "translationTheme.wavy": "\u6CE2\u5F62\u66F2\u7DDA",
+    "translationServices.tencent": "\u9A30\u8A0A\u7FFB\u8B6F\u541B",
+    "translationServices.tenAlpha": "\u9A30\u8A0A\u7FFB\u8B6F\u541B(Alpha)",
+    "translationServices.google": "Google \u7FFB\u8B6F",
+    "translationServices.bai": "\u767E\u5EA6(Alpha)",
+    "translationServices.baidu": "\u767E\u5EA6\u7FFB\u8B6F",
+    "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
+    "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
+    "translationServices.deeplx": "DeeplX(Beta)",
+    "translationServices.bing": "Bing \u7FFB\u8B6F",
+    "translationServices.deepl": "Deepl",
+    "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
+    "translationServices.azure": "\u5FAE\u8EDF\u7FFB\u8B6F",
+    "translationServices.ibm": "IBM Watson",
+    "translationServices.aws": "\u4E9E\u99AC\u905C\u7FFB\u8B6F",
+    "translationServices.mock": "\u6A21\u64EC\u7FFB\u8B6F",
+    "translationServices.mock2": "\u6A21\u64EC\u7FFB\u8B6F2",
+    "translationServices.caiyun": "\u5F69\u96F2\u5C0F\u8B6F",
+    "translationServices.cai": "\u5F69\u96F2\u5C0F\u8B6F (Alpha)",
+    "translationServices.volcAlpha": "\u706B\u5C71\u7FFB\u8B6F(Alpha)",
+    "translationServices.openl": "OpenL",
+    "translationServices.youdao": "\u6709\u9053\u7FFB\u8B6F",
+    "translationServices.you": "\u6709\u9053\u7FFB\u8B6F (Alpha)",
+    "translationServices.transmart": "\u9A30\u8A0A\u4EA4\u4E92\u7FFB\u8B6F",
+    "translationServices.niu": "\u5C0F\u725B\u7FFB\u8B6F",
+    "translationServices.papago": "Papago \u7FFB\u8B6F",
+    "translationServices.d": "Deepl(Alpha)",
+    "translationServices.dpro": "D Pro (Canary)",
+    "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
+    "translate title": "\u7FFB\u8B6F\u9801\u9762\u6A19\u984C",
+    "always languages": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u8A9E\u8A00",
+    neverTranslateLanguagesLabel: "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u8A9E\u8A00",
+    neverTranslateTheFollowingLanguagesDescription: "\u7576\u9801\u9762\u4E2D\u67D0\u4E00\u6BB5\u843D\u7684\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u5C07\u8DF3\u904E\u7FFB\u8B6F",
+    enableUserscriptPagePopup: "\u5728\u9801\u9762\u4E0A\u986F\u793A\u61F8\u6D6E\u7403",
+    enableUserscriptPagePopupDescription: "\u95DC\u9589\u61F8\u6D6E\u7403\u5F8C\uFF0C\u53EF\u4EE5\u7528\u5FEB\u901F\u9375/{touch}\u518D\u6B21\u986F\u793A\u3002\u70BA\u9632\u6B62\u4E0D\u614E\u95DC\u9589\u8A72\u9078\u9805\u5F8C\u627E\u4E0D\u5230\u61F8\u6D6E\u7403\uFF0C\u5EFA\u8B70\u5C07\u672C\u8A2D\u5B9A\u9801\u9762\u52A0\u5165\u81F3\u6211\u7684\u6700\u611B",
+    "always translate the following languages": "\u7576\u9801\u9762\u8A9E\u8A00\u70BA\u4E0B\u5217\u8A9E\u8A00\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
+    "always sites": "\u7E3D\u662F\u7FFB\u8B6F\u7684\u7DB2\u5740",
+    "always translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u6703\u81EA\u52D5\u7FFB\u8B6F\u70BA\u76EE\u6A19\u8A9E\u8A00",
+    "never sites": "\u6C38\u4E0D\u7FFB\u8B6F\u7684\u7DB2\u5740",
+    "never translate the following sites": "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u5C07\u4E0D\u6703\u9032\u884C\u7FFB\u8B6F",
+    "please refer to": "\u9700\u8981\u586B\u5BEB\u91D1\u9470\u5F8C\u624D\u53EF\u4F7F\u7528\uFF0C\u8A73\u7D30\u8CC7\u8A0A\u8ACB\u53C3\u8003",
+    KeyAndConfigurationTutorial: "\u300A\u91D1\u9470\u7533\u8ACB\u548C\u8A2D\u5B9A\u6559\u5B78\u300B",
+    useAboveStyleForTheseSites: "\u7576\u7DB2\u7AD9\u70BA\u4E0B\u5217\u7DB2\u57DF\u540D\u7A31\u6642\uFF0C\u7E3D\u662F\u4F7F\u7528 \u2308{theme}\u230B \u8B6F\u6587\u6A23\u5F0F",
+    currentUrl: "\u76EE\u524D\u7DB2\u5740",
+    confirm: "\u5132\u5B58",
+    cancel: "\u53D6\u6D88",
+    delete: "\u522A\u9664",
+    "languages.auto": "\u81EA\u52D5\u5075\u6E2C\u8A9E\u8A00",
+    syncToCloud: "\u540C\u6B65\u81F3\u96F2\u7AEF",
+    syncToCloudDescription: "\u4E0A\u50B3\u81F3\u96F2\u7AEF\u5F8C\uFF0C\u53EF\u4EE5\u5728\u4E0D\u540C\u7684\u700F\u89BD\u5668/\u6CB9\u7334\u8173\u672C\u4E4B\u9593\u540C\u6B65\u8A2D\u5B9A\uFF0C\u4EE5\u6700\u5F8C\u8B8A\u66F4\u6642\u9593\u70BA\u6E96\u3002",
+    authFail: "\u6388\u6B0A\u5931\u6557",
+    syncTitle: "\u624B\u52D5\u5099\u4EFD\u7BA1\u7406",
+    import_hint: "\u532F\u5165",
+    upload: "\u4E0A\u50B3",
+    revokeAuth: "\u64A4\u92B7\u6388\u6B0A",
+    uploadFail: "\u4E0A\u50B3\u5931\u6557",
+    download: "\u4E0B\u8F09",
+    importSuccess: "\u532F\u5165\u6210\u529F",
+    importFail: "\u532F\u5165\u5931\u6557",
+    deleteFail: "\u522A\u9664\u5931\u6557",
+    backupToCloud: "\u624B\u52D5\u7BA1\u7406\u5099\u4EFD\u6A94\u6848",
+    create_new_backup: "\u65B0\u589E\u5099\u4EFD\u7BC0\u9EDE",
+    maxBackupFiles: "\u6700\u591A\u53EF\u4EE5\u5099\u4EFD{count}\u500B\u4E0D\u540C\u7684\u7BC0\u9EDE\uFF0C\u8ACB\u522A\u9664\u4E0D\u9700\u8981\u7684\u7BC0\u9EDE",
+    backupToCloudDescription: "\u624B\u52D5\u4E0A\u50B3\u6216\u9084\u539F\u5099\u4EFD\u6A94\u6848\uFF0C\u6700\u591A\u5141\u8A31 3 \u500B\u4E0D\u540C\u7684\u5099\u4EFD",
+    successSyncConfig: "\u6210\u529F\u8207\u96F2\u7AEF\u4FDD\u6301\u540C\u6B65",
+    syncFail: "\u540C\u6B65\u5931\u6557",
+    updatedAt: "\u66F4\u65B0\u65BC {date}",
+    lastSyncedAt: "\u4E0A\u6B21\u6AA2\u67E5\u65BC {date}",
+    downloadFail: "\u4E0B\u8F09\u5931\u6557",
+    clickToDownload: "\u9EDE\u9078\u4E0B\u8F09",
+    aboutLabel: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831 - \u8D0A\u52A9",
+    aboutLabelWithoutSponsor: "\u95DC\u65BC - \u554F\u984C\u56DE\u5831",
+    "browser.openAboutPage": "\u95DC\u65BC/\u554F\u984C\u56DE\u5831/\u8D0A\u52A9",
+    aboutIntro: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F <br/><br/>\u611F\u8B1D\u9019\u4E9B<1>\u8D0A\u52A9\u8005\u5011</1>, \u7531\u65BC\u4ED6/\u5979\u5011\u7684\u652F\u63F4\uFF0C\u66F4\u591A\u7684\u4EBA\u53EF\u4EE5\u514D\u8CBB\u5730\u4F7F\u7528\u9019\u500B\u5DE5\u5177\u3002<br/><br/>\u514D\u8CBB\u5DE5\u5177\u4F5C\u8005\u4F3C\u4E4E\u53EF\u4EE5\u548C\u8B9A\u52A9\u8005\u4E4B\u9593\u5EFA\u7ACB\u4E00\u7A2E\u96D9\u8D0F\u7684\u95DC\u4FC2\uFF01\u6211\u70BA\u8D0A\u52A9\u8005\u63D0\u4F9B\u4E86\u4E00\u4E9B\u9650\u6642\u798F\u5229\uFF0C\u6BD4\u5982<6>DeepL\u7FFB\u8B6F\u670D\u52D9</6>\uFF0C\u4F60\u53EF\u4EE5<2>\u9EDE\u64CA\u9019\u88E1\u4E86\u89E3\u8D0A\u52A9\u65B9\u6848</2>\uFF0C\u4F60\u9084\u53EF\u4EE5\u95DC\u6CE8\u6211\u7684<3>Twitter</3>\uFF0C<4>Telegram \u983B\u9053</4>\u4EE5\u53CA\u4E0B\u65B9\u7684<5>\u90F5\u4EF6\u8A02\u95B1</5>\u8FFD\u8E64\u66F4\u65B0\u3002",
+    aboutIntroWithoutSponsor: "\u672C\u5957\u4EF6\u70BA\u514D\u8CBB\u5957\u4EF6\uFF0C\u5E0C\u671B\u6211\u5011\u90FD\u80FD\u66F4\u52A0\u5BB9\u6613\u4E14\u6109\u6085\u5730\u7372\u53D6\u7DB2\u969B\u7DB2\u8DEF\u4E0A\u66F4\u591A\u7684\u5916\u8A9E\u8CC7\u8A0A \u2764\uFE0F ",
+    projectHomepage: "\u5C08\u6848\u9996\u9801",
+    joinTelegramGroup: "\u52A0\u5165 Telegram \u7FA4\u7D44\u53C3\u8207\u529F\u80FD\u8A0E\u8AD6",
+    joinTelegramChannel: "\u95DC\u6CE8 Telegram \u983B\u9053\u77AD\u89E3\u66F4\u65B0\u8CC7\u8A0A",
+    feedbackAndJoin: "\u554F\u984C\u56DE\u5831/\u52A0\u5165\u7FA4\u7D44",
+    autoSync: "\u81EA\u52D5\u5B9A\u6642\u540C\u6B65",
+    loadingThemeTitle: "Loading \u6A23\u5F0F",
+    loadingThemeDescription: "\u8A2D\u5B9A\u7B49\u5F85\u8B6F\u6587\u8F09\u5165\u6642\u7684\u6A23\u5F0F",
+    "loadingTheme.spinner": "\u8F49\u5708\u52D5\u756B",
+    "loadingTheme.text": "\u975C\u614B\u6587\u5B57 ... ",
+    "loadingTheme.none": "\u4E0D\u986F\u793A",
+    developerDescription: "\u53EF\u4EE5\u9EDE\u9078<1>\u6B64\u8655</1>\u6AA2\u8996\u9032\u968E\u81EA\u8A02\u529F\u80FD\u76F8\u95DC\u7684\u8AAA\u660E\u6587\u4EF6",
+    "edit border color": "\u8B8A\u66F4\u908A\u6846\u8272\u5F69",
+    successSyncButNoChange: "\u76EE\u524D\u8A2D\u5B9A\u8207\u96F2\u7AEF\u4E00\u81F4",
+    customTheme: "\u81EA\u8A02\u8272\u5F69\u548C\u5927\u5C0F",
+    "customThemeLabel.borderColor": "\u908A\u6846\u8272\u5F69",
+    "customThemeLabel.borderRadius": "\u908A\u6846\u5713\u89D2",
+    "customThemeLabel.textColor": "\u6587\u5B57\u8272\u5F69",
+    "customThemeLabel.backgroundColor": "\u80CC\u666F\u8272\u5F69",
+    "customThemeLabel.zoom": "\u5B57\u578B\u7E2E\u653E\u6BD4\u4F8B (%)",
+    resetToDefaultColor: "\u9084\u539F\u70BA\u9810\u8A2D\u8272\u5F69",
+    isTranslateTitle: "\u555F\u7528\u7DB2\u9801\u6A19\u984C\u7FFB\u8B6F",
+    isTranslateTitleDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6A19\u984C\u6703\u88AB\u7FFB\u8B6F",
+    verifyService: "\u9EDE\u6B64\u6E2C\u8A66\u670D\u52D9",
+    verified: "\u9A57\u8B49\u6210\u529F",
+    "field.model": "\u6A21\u578B",
+    "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
+    "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
+    "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
+    "field.apiUrl": "\u81EA\u8A02 API \u4F4D\u5740",
+    "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
+    "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
+    "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
+    enabledExtension: "\u555F\u7528\u5957\u4EF6",
+    clickToDisableExtension: "\u9EDE\u9078\u505C\u7528\u5957\u4EF6",
+    clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
+    hasBeenDisabled: "\u5DF2\u505C\u7528",
+    "show password": "\u986F\u793A\u5BC6\u78BC",
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
+  };
+
+  // locales/en.json
+  var en_default = {
+    lineBreakMaxTextCount: "Maximum number of characters allowed per sentence after line break",
+    "translate-pdf": "Click to translate PDF",
+    "translate-firefox-local-pdf": "Click to upload Pdf",
+    enableLineBreak: "Whether to turn on automatic line wrapping for long paragraphs",
+    sponsorLabel: "Sponsoring developers from $1 (monthly or one-time)",
+    help: "Help",
+    browserShortcutsNoteForFirefox: `To modify the shortcut key in Firefox browser, you need to open the extension management page 'about: addons', then click "Settings", and then click "Management shortcut key" to set it`,
+    browserShortcutsNoteForChrome: "To modify the shortcut key in Chrome browser, you need to open the extension management page` chrome://extensions/shortcuts `) Settings, click the button below to jump to the shortcut key management page.",
+    browserShortcutsSucks: "Please enter the shortcut key manually in the format:",
+    enableLineBreakDescription: "After opening, a line break will be inserted at the end of each sentence in a long paragraph for easy reading",
+    "browser.brandName": "Immersive Translate",
+    "browser.brandDescription": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc.",
+    "browser.toggleTranslatePage": "Toggle translate webpage ",
+    "browser.toggleTranslateTheWholePage": "Toggle translate the whole page",
+    "browser.toggleTranslateToThePageEndImmediately": "Toggle translate to the bottom of the page immediately",
+    "browser.toggleTranslateTheMainPage": "Toggle translate the main page",
+    "browser.openOptionsPage": "Open Settings Page",
+    "browser.toggleTranslationMask": "Toggle translation mask style",
+    "browser.translateLocalPdfFile": "Translate local PDF File",
+    "browser.openEbookViewer": "Read local e-book",
+    "browser.openEbookBuilder": "Make Dual Epub ebook",
+    "browser.translateLocalHtmlFile": "Translate HTML/txt File",
+    "browser.donateContext": "Sponsor Benefits",
+    "browser.translateLocalSubtitleFile": "Translate Subtitle File",
+    confirmResetConfig: "Are you sure you want to reset the settings?",
+    translationLineBreakSettingTitle: "Line break setting",
+    smartLineBreak: "Smart Wrap",
+    alwaysLineBreak: "Always Wrap",
+    isShowContextMenu: "Create right button menu",
+    toggleBeta: "Enable Beta experimental features",
+    betaDescription: "Enable features that are still experimental, and translation services that are in testing. Join the <1>Telegram group</1> to learn more.",
+    translationLineBreakSettingDescription: "The always line break feature is suitable for layouts with less content, making the layout more neat and tidy. (Use smart line breaks for long paragraphs with more content (more than {count} characters) for saving space)",
+    tempTranslateDomainTitle: "Open the translation time temporarily",
+    tempTranslateDomainDescription: "When a page is translated manually, turn it temporarily on as automatic translation",
+    xMinutes: "{count} minutes",
+    disabled: "Disable",
+    changelog: "Change Log",
+    toggleTranslatePageWhenThreeFingersOnTheScreen: "Three-finger touch to show/hide translation display",
+    toggleTranslationMaskWhenThreeFingersOnTheScreen: "Multi-finger touch to show/hide the blur effect of the translation",
+    addUrlDescription: "The domain name is available and wildcard is supported e.g.: *.google.com, google.com/mail/*, https://www.google.com/*",
+    general: "General",
+    clickToExpandConfig: "Expand current configuration",
+    import: "Import configuration from file",
+    export: "Export to file",
+    toggleDebug: "Print debug logs on the console",
+    "fingers.0": "Close",
+    "fingers.2": "Two-finger touch",
+    "fingers.3": "Three-finger touch",
+    "fingers.4": "Four-finger touch",
+    "fingers.5": "Five-finger touch",
+    document: "Document",
+    resetSuccess: "All settings reset successful",
+    resetThisSuccess: "Reset successful",
+    saved: "Saved successfully",
+    successImportConfig: "Configuration imported successfully",
+    goAdvancedSettings: "Go to Advanced Settings Page",
+    goAdvancedInterfaceSettings: "Go to Advanced Custom Settings Page",
+    advanced: "Advanced",
+    advancedDescription: "Normally no settings are needed, keep the default. More personalized settings are provided for professional users only.",
+    developer: "Developer settings",
+    donateCafe: "Pricing",
+    "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
+    feedback: "Feedback",
+    toggleTranslatePage: "Toggle Translate",
+    translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
+    "translate all areas of the page": "Whether to translate all areas of the web page",
+    translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
+    "the number of characters to be translated first": "Directly translate the number of characters in front of the page without waiting to scroll to the visible area",
+    "interface language": "Interface language",
+    "display both the original text and the translation": "Display both the original text and the translation",
+    "keyboard shortcuts": "Keyboard shortcuts",
+    modify: "Edit",
+    reset: "Reset",
+    close: "Close",
+    homepage: "Home Page",
+    more: "More",
+    moreOptions: "Expand more custom settings",
+    translateTheWholePage: "Translate the whole page area (different from only the main area)",
+    changeToTranslateTheWholePage: "Translate the whole page",
+    changeToTranslateTheMainPage: "Translate main only",
+    translateToThePageEndImmediately: "Immediately translate to the bottom (different from translating the current visible area)",
+    translateTheMainPage: "Main areas of intelligent translation",
+    "The local rules are up to date": "Local  rules are up to date:",
+    "Successfully synchronized with the latest official rules:": "Successfully synced latest official rules:",
+    "Checking for updates": "Checking for update",
+    "Rules are being synchronized": "Syncing official rules",
+    localVersionIsTooOld: "The local extension version is too old, please upgrade the extension to {minVersion} or a newer version and try to sync again.",
+    badUserscriptBrowser: "The current browser does not correctly implement the interface of the Greasemonkey extension, please use another browser that <1>supports the Greasemonkey extension</1> such as (Firefox Nightly version)",
+    foundNewVersion: "New version available",
+    theLocalExtensionIsUpToUpdate: "The current extension version is up to date.",
+    failToSyncRules: "Failed to sync latest adaptive rules",
+    retry: "Retry",
+    failedReason: "Failure reason",
+    currentRuleVersion: "Current Rule Version",
+    calculating: "Calculating",
+    unknownError: "Unknown Error",
+    canNotFetchRemoteRule: "Unable to fetch remote rule",
+    enableAlphaSuccess: "Alpha enabled successfully",
+    disableAlphaSuccess: "Alpha has been disabled",
+    cacheSize: "Cache size:",
+    cleaning: "Cleaning",
+    cleanCache: "Clear cache",
+    options: "Options",
+    about: "About",
+    service: "Translation Service",
+    needAction: "(to set up)",
+    goSettings: "to set up",
+    needActionForOptions: "(need to set)",
+    translationEngine: "Engine Options",
+    sourceLanguage: "Original language",
+    target: "Target Language",
+    popupSourceLanguage: "Source",
+    popupTarget: "Target",
+    popupService: "Service",
+    forThisSite: "For This Site:",
+    alwaysTranslateSomeLanguage: "Always translate {language}",
+    neverTranslateSomeLanguage: "Never translate {language}",
+    alwaysTranslateSomeSite: "Always translate {hostname}",
+    neverTranslateSomeSite: "Never translate {hostname}",
+    add: "Add",
+    default: "Default",
+    forThisLanguage: "For This Language:",
+    "add url": "Add URL",
+    edit: "Edit",
+    "translate other languages into specific language": "Translate other languages into the language you set",
+    "select translation service": "Select a translation service",
+    language: "Language",
+    "show-original": "Show Original",
+    translate: "Translate",
+    Translated: "Translated",
+    Translating: "Translating",
+    Error: "Error",
+    allowCacheTranslations: "Enable local translation caching (reduce translation requests for duplicate paragraphs)",
+    "translation display": "Translation display style",
+    "select diplay style": "Please refer to the following examples",
+    interface: "Interface Settings",
+    import_export: "Import/Export",
+    import_export_title: "Import/Export Configuration",
+    syncToGoogleDrive: "Sync Now with Google Drive",
+    previewAllThemes: "Preview all themes",
+    "translationTheme.none": "None",
+    "translationTheme.grey": "Black Gray",
+    "translationTheme.dashed": "Dashed underline",
+    "translationTheme.dotted": "Dotted Underline",
+    "translationTheme.dashedBorder": "Dashed Border",
+    "translationTheme.solidBorder": "Dashed Border",
+    "translationTheme.underline": "Straight underline",
+    "translationTheme.mask": "Blur effect",
+    "translationTheme.opacity": "Opacity effect",
+    "translationTheme.paper": "White paper shadow effect",
+    "translationTheme.dividingLine": "Dividing line",
+    "translationTheme.highlight": "Highlight",
+    "translationTheme.marker": "Marker",
+    "translationTheme.marker2": "Maker2",
+    "translationTheme.blockquote": "quote style",
+    "translationTheme.weakening": "Weakening",
+    "translationTheme.italic": "Italic",
+    "translationTheme.bold": "Bold",
+    "translationTheme.thinDashed": "Thin dashed underline",
+    "translationTheme.nativeDashed": "System Dash Underline",
+    "translationTheme.nativeDotted": "System Dotted Underline",
+    "translationTheme.nativeUnderline": "System Straight Line Underline",
+    "translationTheme.wavy": "Squiggle",
+    "translationServices.tencent": "Tencent Translator",
+    "translationServices.tenAlpha": "Tencent Translator (Alpha)",
+    "translationServices.google": "Google Translate",
+    "translationServices.bai": "Baidu (Alpha)",
+    "translationServices.baidu": "Baidu translation",
+    "translationServices.aliyun": "Aliyun Translator",
+    "translationServices.volc": "Volcano Translation",
+    "translationServices.deeplx": "DeeplX (Alpha)",
+    "translationServices.bing": "Bing translate",
+    "translationServices.deepl": "DeepL",
+    "translationServices.wechat": "Wechat translation",
+    "translationServices.azure": "Microsoft Translator",
+    "translationServices.ibm": "IBM Watson",
+    "translationServices.aws": "Amazon Translate",
+    "translationServices.mock": "Mock translation",
+    "translationServices.mock2": "Mock Translation2",
+    "translationServices.caiyun": "Caiyun Translation",
+    "translationServices.cai": "Caiyun Translation (Alpha)",
+    "translationServices.volcAlpha": "Volcano Translation (Alpha)",
+    "translationServices.openl": "OpenL",
+    "translationServices.youdao": "Youdao Translation",
+    "translationServices.you": "Youdao Translation (Alpha)",
+    "translationServices.transmart": "Tencent Smart Translation",
+    "translationServices.niu": "Niu Translation",
+    "translationServices.papago": "Papago Translation",
+    "translationServices.d": "DeeplX (Alpha)",
+    "translationServices.dpro": "D Pro (Canary)",
+    "translationServices.openai": "OpenAI",
+    "translationServices.chatgpt": "ChatGPT Plus",
+    "translate title": "Translate page title",
+    "always languages": "Always translate the following languages",
+    neverTranslateLanguagesLabel: "Never Translated Languages",
+    neverTranslateTheFollowingLanguagesDescription: "When a paragraph on a page is in one of the following languages, the translation will be skipped",
+    enableUserscriptPagePopup: "Always show Popup windows on the page",
+    enableUserscriptPagePopupDescription: "Three-finger touch to show the Popup.",
+    "always translate the following languages": "The following languages will always be translated",
+    "always sites": "Always translate the following sites",
+    "always translate the following sites": "The following sites will always be translated",
+    "never sites": "Never translate the following sites",
+    "never translate the following sites": "The following sites will never be translated",
+    "please refer to": "It can only be used after filling in the key. For details, please refer to",
+    KeyAndConfigurationTutorial: "Key Application and Configuration Tutorial",
+    useAboveStyleForTheseSites: "Sites that always use the {theme} translation style",
+    currentUrl: "Current URL",
+    confirm: "Save",
+    cancel: "Cancel",
+    delete: "Delete",
+    "languages.auto": "Detect Language",
+    syncToCloud: "Sync to cloud",
+    syncToCloudDescription: "Upload the configuration to the cloud server, and you can synchronize the configuration between different browsers or Tampermonkey scripts, based on the last modification time.",
+    authFail: "Authorization Failed",
+    syncTitle: "Please select a file operation",
+    import_hint: "Import",
+    upload: "Upload",
+    revokeAuth: "Revoke Authorization",
+    uploadFail: "Upload Failed",
+    download: "Download",
+    importSuccess: "Upload Success",
+    importFail: "Import Failed",
+    deleteFail: "Delete Failed",
+    backupToCloud: "Manage backup files manually",
+    create_new_backup: "Add backup node",
+    maxBackupFiles: "Up to{count}different nodes can be backed up. Please delete unneeded nodes",
+    backupToCloudDescription: "Upload or restore backup files manually, up to 3 different backups",
+    successSyncConfig: "Successfully synced with cloud",
+    syncFail: "Synchronization failed",
+    updatedAt: "Updated at {date}",
+    lastSyncedAt: "Last checked at {date}",
+    downloadFail: "Download failed",
+    clickToDownload: "Click to download",
+    aboutLabel: "About - Feedback - Sponsor",
+    aboutLabelWithoutSponsor: "About - Feedback",
+    "browser.openAboutPage": "About / Feedback",
+    aboutIntro: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. <br/><br/>Thanks to these <1>sponsors</1>, thanks to his/her support, more people can use this tool for free. You can <2>sponsor</2> my work by clicking here, and you can also follow my <3>Twitter</3>, <4>Telegram Channel</4>, and <5>Email Subscription</5> below to track updates.",
+    aboutIntroWithoutSponsor: "The extension is completely free and we hope that users will all have more accessible and more enjoyable access to the enormous amount of foreign language information available on the Internet \u2764\uFE0F. ",
+    projectHomepage: "Project Homepage",
+    joinTelegramGroup: "Join Telegram group for feature discussion",
+    joinTelegramChannel: "Subscribe to our Telegram channel to get the latest updates",
+    feedbackAndJoin: "Issue feedback/group",
+    autoSync: "Auto-Time Sync",
+    loadingThemeTitle: "Loading Style",
+    loadingThemeDescription: "Set the style of waiting for the translation to load",
+    "loadingTheme.spinner": "Spinning icon",
+    "loadingTheme.text": "Static Text... ",
+    "loadingTheme.none": "Disabled",
+    developerDescription: "You can click <1>here</1> to see the documentation related to advanced customization",
+    "edit border color": "Edit border color",
+    successSyncButNoChange: "The current configuration is consistent with that in the cloud server",
+    customTheme: "Customize colors and sizes",
+    "customThemeLabel.borderColor": "Border color",
+    "customThemeLabel.borderRadius": "Border Round Corner",
+    "customThemeLabel.textColor": "Text color",
+    "customThemeLabel.backgroundColor": "Background color",
+    "customThemeLabel.zoom": "Font scale (%)",
+    resetToDefaultColor: "Reset to default colors",
+    isTranslateTitle: "Enable translate page title",
+    isTranslateTitleDescription: "When enabled, the page title will be translated",
+    verifyService: "Click on this test service",
+    verified: "Successful",
+    "field.model": "Model",
+    "field.translationEngine": "Translation engine",
+    "field.limitPerMinute": "Max requests per minute",
+    "field.maxTextLengthPerRequest": "Maximum text length per request",
+    "field.apiUrl": "Custom API interface address",
+    "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
+    "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language, you can omit {{text}}, if so, it'll be sent as a separated message",
+    "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
+    enabledExtension: "Enable extensions",
+    clickToDisableExtension: "Click to disable extension",
+    clickToEnableExtension: "Click to enable the extension",
+    hasBeenDisabled: "Disabled",
+    "show password": "Show password",
+    resetToDefaultSettings: "Reset to default settings",
+    customContent: "Enter customization content"
+  };
+
+  // constant.ts
+  var interfaceTranslations = [
+    {
+      code: "zh-CN",
+      messages: zh_CN_default
+    },
+    {
+      code: "zh-TW",
+      messages: zh_TW_default
+    },
+    {
+      code: "en",
+      messages: en_default
+    }
+  ];
+  var translations = {};
+  for (let translation of interfaceTranslations)
+    translations[translation.code] = translation.messages;
+  var brandName = "Immersive Translate", brandId = "immersive-translate", pdfViewerUrl = "pdf/index.html";
+  var subtitleBuilderUrl = "subtitle/index.html", epubViewerUrl = "ebook/index.html", epubBuilderUrl = "ebook/make/index.html", brandIdForJs = "immersiveTranslate", GOOGLE_CLIENT_ID = "759003177173-mfm15s5nd77vfmo6e7lanof1emnanf0e.apps.googleusercontent.com", GOOGLE_ACCESS_TOKEN_KEY = brandIdForJs + "GoogleAccessToken", AUTH_FLOW_FLAG = brandIdForJs + "AuthFlow", LATEST_FILE_NAME = "immersive-translate-config-latest.json", AUTH_STATE_FLAG = brandIdForJs + "AuthState", iframeMessageIdentifier = brandIdForJs + "IframeMessage", iframeMessageRateIdentifier = brandIdForJs + "WaitForRateLimit", documentMessageTypeIdentifierForAsk = brandIdForJs + "DocumentMessageAsk", documentMessageTypeIdentifierForTellThirdParty = brandIdForJs + "DocumentMessageTellThirdParty", documentMessageTypeIdentifierForThirdPartyTell = brandIdForJs + "DocumentMessageThirdPartyTell", documentMessageTypeIdentifierForHandler = brandIdForJs + "DocumentMessageHandler", targetContainerElementAttributeName = `${brandIdForJs}Container`, specifiedTargetContainerElementAttributeName = `${brandIdForJs}SpecifiedContainer`, buildinConfigStorageKey = "buildinConfig", localConfigStorageKey = "localConfig", contextOpenOptionsMenuId = "openOptionsPage";
+  var contextTranslateLocalPdfFileMenuId = "translateLocalPdfFile", contextDonateMenuId = "donateContext", contextOpenLocalEbookViewer = "openEbookViewer", contextOpenLocalEbookBuilder = "openEbookBuilder", contextOpenLocalSubtitleBuilder = "openSubtitleBuilder", pageTranslatedStatusEventName = `${brandIdForJs}PageTranslatedStatus`, pageUrlChangedEventName = `${brandIdForJs}PageUrlChanged`, userscriptCommandEventName = `${brandIdForJs}ReceiveCommand`, popupReceiveMessageEventName = `${brandIdForJs}PopupReceiveMessage`, hostname = "immersive-translate.owenyoung.com", homepage = `https://${hostname}/`, buildinConfigSyncUrl = `https://${hostname}/buildin_config.json`, sourceElementMarkAttributeName = `${brandIdForJs}Mark`;
+  var elementMarkRootKey = `${brandIdForJs}Root`, sourceElementEffectAttributeName = `data-${brandId}-effect`, sourceElementTranslatedMarkAttributeName = `${brandIdForJs}TranslatedMark`, sourceElementParagraphAttributeName = `${brandIdForJs}ParagraphId`, sourceAtomicBlockElementMarkAttributeName = `${brandIdForJs}AtomicBlockMark`, sourceElementExcludeAttributeName = `${brandIdForJs}ExcludeMark`, sourceElementExcludeAttributeNameForSelector = `data-${brandId}-exclude-mark`, sourceElementStayOriginalAttributeName = `${brandIdForJs}StayOriginalMark`, sourcePreWhitespaceMarkAttributeName = `${brandIdForJs}PreWhitespaceMark`, sourceInlineElementMarkAttributeName = `${brandIdForJs}InlineMark`, sourceBlockElementMarkAttributeName = `${brandIdForJs}BlockMark`, sourceElementLeft = `${brandIdForJs}Left`, sourceElementRight = `${brandIdForJs}Right`, sourceElementWidth = `${brandIdForJs}Width`, sourceElementHeight = `${brandIdForJs}Height`, sourceElementTop = `${brandIdForJs}Top`, sourceElementFontSize = `${brandIdForJs}FontSize`;
+  var sourceElementWithGlobalStyleMarkAttributeName = `${brandIdForJs}GlobalStyleMark`;
+  var translationTargetElementWrapperClass = `${brandId}-target-wrapper`, translationPdfTargetContainerClass = `${brandId}-pdf-target-container`, translationTargetInnerElementWrapperClass = `${brandId}-target-inner`, translationSourceElementsWrapperClass = `${brandId}-source-wrapper`, translationTargetTranslationElementBlockWrapperClass = `${brandId}-target-translation-block-wrapper`, translationFrameRootThemeAttributeName = `${brandId}-root-translation-theme`, translationFrameRootThemeAttributeNameForJs = `${brandIdForJs}RootTranslationTheme`, translationTargetTranslationElementVerticalBlockClass = `${brandId}-target-translation-vertical-block-wrapper`, translationTargetTranslationPdfElementBlockWrapperClass = `${brandId}-target-translation-pdf-block-wrapper`, translationTargetTranslationElementPreWhitespaceWrapperClass = `${brandId}-target-translation-pre-whitespace`, translationTargetTranslationElementInlineWrapperClass = `${brandId}-target-translation-inline-wrapper`;
+  var languages = [
+    "auto",
+    "en",
+    "zh-CN",
+    "zh-TW",
+    "ja",
+    "ko",
+    "es",
+    "de",
+    "fr",
+    "pt",
+    "ru",
+    "ar",
+    "it",
+    "ms",
+    "id",
+    "vi",
+    "af",
+    "th",
+    "ur",
+    "am",
+    "az",
+    "be",
+    "bg",
+    "bn",
+    "bs",
+    "ca",
+    "ceb",
+    "co",
+    "cs",
+    "cy",
+    "da",
+    "el",
+    "eo",
+    "et",
+    "eu",
+    "fa",
+    "fi",
+    "fil",
+    "fj",
+    "fy",
+    "ga",
+    "gd",
+    "gl",
+    "gu",
+    "ha",
+    "haw",
+    "he",
+    "hi",
+    "hmn",
+    "hr",
+    "ht",
+    "hu",
+    "hy",
+    "ig",
+    "is",
+    "jw",
+    "ka",
+    "kk",
+    "km",
+    "kn",
+    "ku",
+    "ky",
+    "la",
+    "lb",
+    "lo",
+    "lt",
+    "lv",
+    "mg",
+    "mi",
+    "mk",
+    "ml",
+    "mn",
+    "mr",
+    "mt",
+    "mww",
+    "my",
+    "ne",
+    "nl",
+    "no",
+    "ny",
+    "otq",
+    "pa",
+    "pl",
+    "ps",
+    "ro",
+    "sd",
+    "si",
+    "sk",
+    "sl",
+    "sm",
+    "sn",
+    "so",
+    "sq",
+    "sr",
+    "sr-Cyrl",
+    "sr-Latn",
+    "st",
+    "su",
+    "sv",
+    "sw",
+    "ta",
+    "te",
+    "tg",
+    "tlh",
+    "tlh-Qaak",
+    "to",
+    "tr",
+    "ty",
+    "ug",
+    "uk",
+    "uz",
+    "wyw",
+    "xh",
+    "yi",
+    "yo",
+    "yua",
+    "yue",
+    "zu"
+  ];
+  var fallbackLanguage = "zh-CN";
+  var openlProps = [
+    {
+      type: "select",
+      name: "codename",
+      labelKey: "field.translationEngine",
+      default: "youdao",
+      required: !1,
+      options: [
+        {
+          label: "translationServices.google",
+          value: "google"
+        },
+        {
+          label: "translationServices.deepl",
+          value: "deepl"
+        },
+        {
+          label: "translationServices.youdao",
+          value: "youdao"
+        },
+        {
+          label: "translationServices.tencent",
+          value: "tencent"
+        },
+        {
+          label: "translationServices.aliyun",
+          value: "aliyun"
+        },
+        {
+          label: "translationServices.baidu",
+          value: "baidu"
+        },
+        {
+          label: "translationServices.caiyun",
+          value: "caiyun"
+        },
+        {
+          label: "translationServices.wechat",
+          value: "wechat"
+        },
+        {
+          label: "translationServices.ibm",
+          value: "ibm"
+        },
+        {
+          label: "translationServices.azure",
+          value: "azure"
+        },
+        {
+          label: "translationServices.aws",
+          value: "aws"
+        }
+      ]
+    }
+  ], PureTranslationServices = {
+    google: {
+      name: "Google",
+      homepage: "https://translate.google.com/"
+    },
+    deepl: {
+      name: "DeepL",
+      homepage: "https://www.deepl.com/translator",
+      docUrl: "https://immersive-translate.owenyoung.com/services/deepL",
+      allProps: [
+        {
+          name: "authKey",
+          label: "Auth Key",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    transmart: {
+      name: "Transmart",
+      homepage: "https://transmart.qq.com/"
+    },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
+    },
+    openai: {
+      name: "Open AI",
+      homepage: "https://openai.com/api/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/openai",
+      allProps: [
+        {
+          name: "APIKEY",
+          required: !0,
+          type: "password"
+        },
+        {
+          name: "model",
+          labelKey: "field.model",
+          descriptionKey: "description.model",
+          required: !1,
+          type: "select",
+          default: "gpt-3.5-turbo",
+          options: [
+            {
+              label: "gpt-3.5-turbo",
+              value: "gpt-3.5-turbo"
+            },
+            {
+              label: "gpt-4",
+              value: "gpt-4"
+            }
+          ]
+        },
+        {
+          name: "limit",
+          required: !1,
+          labelKey: "field.limitPerMinute",
+          descriptionKey: "description.limitPerMinute",
+          type: "number",
+          default: 1500
+        },
+        {
+          name: "maxTextLengthPerRequest",
+          required: !1,
+          labelKey: "field.maxTextLengthPerRequest",
+          descriptionKey: "description.maxTextLengthPerRequest",
+          type: "number",
+          default: 1200,
+          optional: !0
+        },
+        {
+          name: "maxTextGroupLengthPerRequest",
+          required: !1,
+          labelKey: "field.maxTextGroupLengthPerRequest",
+          descriptionKey: "description.maxTextGroupLengthPerRequest",
+          type: "number",
+          default: 1,
+          optional: !0
+        },
+        {
+          name: "apiUrl",
+          labelKey: "field.apiUrl",
+          required: !1,
+          type: "text",
+          default: "https://api.openai.com/v1/chat/completions",
+          optional: !0
+        },
+        {
+          name: "systemPrompt",
+          label: "System Prompt",
+          required: !1,
+          descriptionKey: "description.systemPrompt",
+          type: "text",
+          optional: !0,
+          default: "You are a translation engine, you can only translate text and cannot interpret it, and do not explain."
+        },
+        {
+          name: "prompt",
+          label: "Prompt",
+          required: !1,
+          descriptionKey: "description.prompt",
+          type: "textarea",
+          default: `Translate the text below to {{to}}:
+
+{{text}}`,
+          optional: !0
+        }
+      ]
+    },
+    youdao: {
+      name: "Youdao",
+      homepage: "https://immersive-translate.owenyoung.com/services/youdao",
+      docUrl: "https://immersive-translate.owenyoung.com/services/youdao",
+      allProps: [
+        {
+          name: "appId",
+          required: !0,
+          type: "text"
+        },
+        {
+          name: "appSecret",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    tencent: {
+      name: "Tencent",
+      homepage: "https://fanyi.qq.com/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/tencent",
+      allProps: [
+        {
+          name: "secretId",
+          required: !0,
+          type: "text"
+        },
+        {
+          name: "secretKey",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    azure: {
+      name: "azure",
+      homepage: "https://learn.microsoft.com/en-us/azure/cognitive-services/translator/text-translation-overview",
+      docUrl: "https://immersive-translate.owenyoung.com/services/azure",
+      allProps: [
+        {
+          name: "region",
+          required: !0,
+          default: "eastasia",
+          type: "text"
+        },
+        {
+          name: "APIKEY",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    papago: {
+      name: "Papago",
+      homepage: "https://translate.google.com/",
+      canary: !0
+    },
+    baidu: {
+      name: "Baidu",
+      homepage: "https://fanyi.baidu.com/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/baidu",
+      allProps: [
+        {
+          name: "appid",
+          required: !0,
+          type: "text"
+        },
+        {
+          name: "key",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    volc: {
+      name: "Volc",
+      homepage: "https://www.volcengine.com/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/volcano",
+      allProps: [
+        {
+          name: "accessKeyId",
+          required: !0,
+          type: "text"
+        },
+        {
+          name: "secretAccessKey",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    caiyun: {
+      name: "Caiyun",
+      homepage: "https://fanyi.caiyunapp.com/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/caiyun",
+      allProps: [
+        {
+          name: "token",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    cai: {
+      name: "Cai",
+      homepage: "https://fanyi.caiyunapp.com/",
+      alpha: !0
+    },
+    mock: {
+      name: "Mock",
+      homepage: "https://www.google.com"
+    },
+    mock2: {
+      name: "Mock2",
+      homepage: "https://www.google.com"
+    },
+    tenAlpha: {
+      name: "TenAlpha",
+      homepage: "https://fanyi.qq.com/",
+      alpha: !0
+    },
+    you: {
+      name: "You",
+      alpha: !0,
+      homepage: "https://immersive-translate.owenyoung.com/services/youdao"
+    },
+    openl: {
+      name: "Openl",
+      homepage: "https://openl.club/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/openL",
+      allProps: [
+        ...openlProps,
+        {
+          type: "password",
+          name: "apikey",
+          required: !0
+        }
+      ],
+      props: openlProps
+    },
+    volcAlpha: {
+      name: "Volc Alpha",
+      alpha: !0,
+      homepage: "https://www.volcengine.com/"
+    },
+    d: {
+      name: "D () ",
+      alpha: !0,
+      homepage: "https://www.deepl.com/translator"
+    },
+    dpro: {
+      name: "DPro (Canary) ",
+      canary: !0,
+      homepage: "https://www.deepl.com/translator"
+    },
+    deeplx: {
+      name: "DeepLX (Beta)",
+      beta: !0,
+      homepage: "https://www.deepl.com/translator",
+      allProps: [
+        {
+          name: "url",
+          label: "API URL",
+          required: !0,
+          type: "text"
+        }
+      ]
+    },
+    niu: {
+      name: "niutrans",
+      homepage: "https://niutrans.com/",
+      docUrl: "https://immersive-translate.owenyoung.com/services/niu",
+      allProps: [
+        {
+          name: "APIKEY",
+          required: !0,
+          type: "password"
+        }
+      ]
+    },
+    bing: {
+      name: "Bing",
+      homepage: "https://www.bing.com/translator"
+    }
+  }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
   // log.ts
   var Timing = class {
@@ -7258,169 +7199,6 @@ body {
     }
   }, log_default = new Logger();
 
-  // errors.ts
-  var CommonError = class extends Error {
-    constructor(name, message, details) {
-      super(message);
-      this.name = name, details && (this.details = details);
-    }
-  };
-
-  // env.ts
-  function getEnv() {
-    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
-  }
-  var env = getEnv();
-  function isMonkey() {
-    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
-  }
-  function isSafari() {
-    return env.IMMERSIVE_TRANSLATE_SAFARI === "1";
-  }
-  function isUserscriptRuntime() {
-    if (
-      // @ts-ignore: it's ok
-      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
-      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
-      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
-    ) {
-      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
-      return !!(manifest && (manifest._isUserscript || manifest._isSafari));
-    } else
-      return !1;
-  }
-
-  // browser/request.ts
-  var ports = /* @__PURE__ */ new Map();
-  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
-    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
-      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
-    });
-  });
-  async function request(options) {
-    let response;
-    if (options && options.retry && options.retry > 0)
-      try {
-        response = await retry(rawRequest.bind(null, options), {
-          multiplier: 2,
-          maxAttempts: options.retry
-        });
-      } catch (e) {
-        throw e && e.name === "RetryError" && e.cause ? e.cause : e;
-      }
-    else
-      response = await rawRequest(options);
-    return response;
-  }
-  async function rawRequest(options) {
-    options.body;
-    let { url, responseType, ...fetchOptions } = options;
-    responseType || (responseType = "json"), fetchOptions = {
-      mode: "cors",
-      ...fetchOptions
-    };
-    let isNativeFetch = !0;
-    options.fetchPolyfill && (isNativeFetch = !1);
-    let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
-    if (options.timeout && (timeout = options.timeout), isNativeFetch) {
-      let controller = new AbortController(), signal = controller.signal;
-      setTimeout(() => {
-        controller.abort();
-      }, timeout), fetchOptions.signal = signal;
-    }
-    let response = await fetchFn(url, fetchOptions);
-    if (response.ok && response.status >= 200 && response.status < 400) {
-      if (responseType === "json")
-        return await response.json();
-      if (responseType === "text")
-        return await response.text();
-      if (responseType === "raw") {
-        let data = await response.text(), responseHeaders = Object.fromEntries([
-          ...response.headers.entries()
-        ]), finalUrl = response.url;
-        return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
-          body: data,
-          headers: responseHeaders,
-          status: response.status,
-          statusText: response.statusText,
-          url: finalUrl
-        };
-      } else if (responseType === "stream") {
-        let buffer = "", answer;
-        if (response.body && response.body instanceof ReadableStream)
-          for await (let chunk of streamAsyncIterable(response.body)) {
-            let str = new TextDecoder().decode(chunk);
-            buffer += str;
-            let lineEndIndex;
-            for (; (lineEndIndex = buffer.indexOf(`
-`)) >= 0; ) {
-              let line = buffer.slice(0, lineEndIndex).trim();
-              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
-                continue;
-              let eventData = "";
-              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), eventData === "[DONE]")
-                break;
-              let data;
-              try {
-                data = JSON.parse(eventData ?? "");
-              } catch (error) {
-                log_default.debug("json error", error);
-                continue;
-              }
-              answer = data;
-            }
-          }
-        return answer;
-      } else if (responseType === "realStream") {
-        log_default.debug("sse get portName", options.extra?.portName);
-        let port = ports.get(options.extra?.portName), buffer = "";
-        if (response.body && response.body instanceof ReadableStream)
-          for await (let chunk of streamAsyncIterable(response.body)) {
-            let str = new TextDecoder().decode(chunk);
-            buffer += str;
-            let lineEndIndex;
-            for (; (lineEndIndex = buffer.indexOf(`
-`)) >= 0; ) {
-              let line = buffer.slice(0, lineEndIndex).trim();
-              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
-                continue;
-              let eventData = "";
-              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
-                return log_default.debug("sse get [DONE]"), response.status;
-            }
-          }
-        return response.status;
-      }
-    } else {
-      let details;
-      try {
-        details = await response.text();
-      } catch (_e2) {
-        log_default.error("parse response failed", _e2);
-      }
-      details && log_default.error("fail response", details);
-      let shortDetail = "";
-      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
-        "fetchError",
-        response.status + ": " + (response.statusText || "") + shortDetail,
-        details
-      );
-    }
-  }
-  async function* streamAsyncIterable(stream) {
-    let reader = stream.getReader();
-    try {
-      for (; ; ) {
-        let { done, value } = await reader.read();
-        if (done)
-          return;
-        yield value;
-      }
-    } finally {
-      reader.releaseLock();
-    }
-  }
-
   // utils/format_language.ts
   function formatLanguage(rawLangCode) {
     if (typeof rawLangCode != "string")
@@ -7446,6 +7224,41 @@ body {
         return "auto";
     else
       return languages[indexOfLanguages];
+  }
+
+  // env.ts
+  function getEnv() {
+    return typeof process > "u" && typeof Deno < "u" ? Deno.env.toObject() : define_process_env_default;
+  }
+  var env = getEnv();
+  function isMonkey() {
+    return env.IMMERSIVE_TRANSLATE_USERSCRIPT === "1";
+  }
+  function isSafari() {
+    if (env.IMMERSIVE_TRANSLATE_SAFARI === "1")
+      return !0;
+    if (
+      // @ts-ignore: it's ok
+      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+    ) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && manifest._isSafari);
+    } else
+      return !1;
+  }
+  function isUserscriptRuntime() {
+    if (
+      // @ts-ignore: it's ok
+      typeof globalThis.immersiveTranslateBrowserAPI < "u" && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime && // @ts-ignore: it's ok
+      globalThis.immersiveTranslateBrowserAPI.runtime.getManifest
+    ) {
+      let manifest = globalThis.immersiveTranslateBrowserAPI.runtime.getManifest();
+      return !!(manifest && (manifest._isUserscript || manifest._isSafari));
+    } else
+      return !1;
   }
 
   // buildin_config.json
@@ -7563,12 +7376,9 @@ body {
         "*.twitter.com",
         "medium.com",
         "*.medium.com",
-        "github.com",
-        "gist.github.com",
         "www.facebook.com",
         "www.youtube.com",
         "m.youtube.com",
-        "gitlab.com",
         "mail.google.com",
         "discord.com",
         "web.telegram.org",
@@ -7621,6 +7431,7 @@ body {
       injectedCss: [],
       isEbook: !1,
       isEbookBuilder: !1,
+      showSponsorOnSafari: !1,
       waitForSelectors: [],
       waitForSelectorsTimeout: 3e3,
       pairs: {},
@@ -8925,7 +8736,7 @@ body {
       },
       {
         matches: "getpocket.com",
-        selectors: ["h2.title", "div.excerpt p", "main > article"],
+        selectors: ["h2", "div.excerpt p", "article", "h1"],
         globalStyles: {
           "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
           "div.excerpt p": "max-height:unset;-webkit-line-clamp:unset;"
@@ -9370,6 +9181,71 @@ body {
     ]
   };
 
+  // utils/platform.ts
+  var DENO = "DENO", CHROME = "CHROME", FIREFOX = "FIREFOX";
+  function isBrowser(toCheck) {
+    let currentBrowser = CHROME;
+    try {
+      let userAgent = navigator?.userAgent || "";
+      /firefox/i.test(userAgent) ? currentBrowser = FIREFOX : /deno/i.test(userAgent) && (currentBrowser = DENO);
+    } catch {
+    }
+    return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
+  }
+  function isChrome() {
+    return isBrowser(CHROME);
+  }
+  function isDeno() {
+    return typeof Deno < "u";
+  }
+  function isFirefox() {
+    return isBrowser(FIREFOX);
+  }
+
+  // browser/mock_browser.ts
+  var listeners = {
+    addListener: () => {
+    },
+    removeListener: () => {
+    },
+    hasListener: () => {
+    }
+  }, mock_browser_default = {
+    permissions: {
+      contains: () => {
+      },
+      request: () => {
+      }
+    },
+    runtime: {
+      onMessage: listeners,
+      openOptionsPage: () => {
+      },
+      lastError: {
+        message: ""
+      }
+    },
+    storage: {
+      sync: {
+        get: () => {
+        },
+        set: () => {
+        }
+      }
+    },
+    tabs: {
+      onUpdated: listeners,
+      query: () => {
+      },
+      sendMessage: () => {
+      }
+    }
+  };
+
+  // browser/browser.ts
+  var browserAPI;
+  isDeno() ? browserAPI = mock_browser_default : browserAPI = globalThis.immersiveTranslateBrowserAPI;
+
   // utils/array.ts
   function arrayOrGenericToArray(arrayOrGeneric) {
     return Array.isArray(arrayOrGeneric) ? arrayOrGeneric : arrayOrGeneric ? [arrayOrGeneric] : [];
@@ -9568,7 +9444,7 @@ body {
           // @ts-ignore: ignore type error
           finalConfig[configKey],
           mergedUserConfig[configKey]
-        )), configKey === "shortcuts" && (isMonkey() ? finalConfig[configKey] = {
+        )), configKey === "shortcuts" && (isMonkey() || isSafari() ? finalConfig[configKey] = {
           ...finalConfig[configKey],
           ...shortcutsFromBrowser
         } : finalConfig[configKey] = {
@@ -9649,6 +9525,159 @@ body {
       rules: []
     };
   };
+
+  // utils/get_pdf_viewer_url.ts
+  function formatToPdfViewerUrl(url) {
+    let pdfViewerRuntimeUrl = browserAPI.runtime.getURL(pdfViewerUrl), pdfViewUrlObj = new URL(pdfViewerRuntimeUrl);
+    return (url.startsWith("http") || !isFirefox()) && pdfViewUrlObj.searchParams.set(
+      "file",
+      url
+    ), pdfViewUrlObj.href;
+  }
+
+  // utils/is_pdf_url.ts
+  function isPdfUrl(url) {
+    return new URL(url)?.pathname.toLowerCase().endsWith(".pdf");
+  }
+
+  // errors.ts
+  var CommonError = class extends Error {
+    constructor(name, message, details) {
+      super(message);
+      this.name = name, details && (this.details = details);
+    }
+  };
+
+  // browser/request.ts
+  var ports = /* @__PURE__ */ new Map();
+  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
+    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
+      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
+    });
+  });
+  async function request(options) {
+    let response;
+    if (options && options.retry && options.retry > 0)
+      try {
+        response = await retry(rawRequest.bind(null, options), {
+          multiplier: 2,
+          maxAttempts: options.retry
+        });
+      } catch (e) {
+        throw e && e.name === "RetryError" && e.cause ? e.cause : e;
+      }
+    else
+      response = await rawRequest(options);
+    return response;
+  }
+  async function rawRequest(options) {
+    options.body;
+    let { url, responseType, ...fetchOptions } = options;
+    responseType || (responseType = "json"), fetchOptions = {
+      mode: "cors",
+      ...fetchOptions
+    };
+    let isNativeFetch = !0;
+    options.fetchPolyfill && (isNativeFetch = !1);
+    let fetchFn = options.fetchPolyfill || fetch, timeout = 12e4;
+    if (options.timeout && (timeout = options.timeout), isNativeFetch) {
+      let controller = new AbortController(), signal = controller.signal;
+      setTimeout(() => {
+        controller.abort();
+      }, timeout), fetchOptions.signal = signal;
+    }
+    let response = await fetchFn(url, fetchOptions);
+    if (response.ok && response.status >= 200 && response.status < 400) {
+      if (responseType === "json")
+        return await response.json();
+      if (responseType === "text")
+        return await response.text();
+      if (responseType === "raw") {
+        let data = await response.text(), responseHeaders = Object.fromEntries([
+          ...response.headers.entries()
+        ]), finalUrl = response.url;
+        return finalUrl || (response.headers.get("X-Final-URL") ? finalUrl = response.headers.get("X-Final-URL") : finalUrl = url), {
+          body: data,
+          headers: responseHeaders,
+          status: response.status,
+          statusText: response.statusText,
+          url: finalUrl
+        };
+      } else if (responseType === "stream") {
+        let buffer = "", answer;
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), eventData === "[DONE]")
+                break;
+              let data;
+              try {
+                data = JSON.parse(eventData ?? "");
+              } catch (error) {
+                log_default.debug("json error", error);
+                continue;
+              }
+              answer = data;
+            }
+          }
+        return answer;
+      } else if (responseType === "realStream") {
+        log_default.debug("sse get portName", options.extra?.portName);
+        let port = ports.get(options.extra?.portName), buffer = "";
+        if (response.body && response.body instanceof ReadableStream)
+          for await (let chunk of streamAsyncIterable(response.body)) {
+            let str = new TextDecoder().decode(chunk);
+            buffer += str;
+            let lineEndIndex;
+            for (; (lineEndIndex = buffer.indexOf(`
+`)) >= 0; ) {
+              let line = buffer.slice(0, lineEndIndex).trim();
+              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
+                continue;
+              let eventData = "";
+              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
+                return log_default.debug("sse get [DONE]"), response.status;
+            }
+          }
+        return response.status;
+      }
+    } else {
+      let details;
+      try {
+        details = await response.text();
+      } catch (_e2) {
+        log_default.error("parse response failed", _e2);
+      }
+      details && log_default.error("fail response", details);
+      let shortDetail = "";
+      throw details && (shortDetail = details.slice(0, 150)), new CommonError(
+        "fetchError",
+        response.status + ": " + (response.statusText || "") + shortDetail,
+        details
+      );
+    }
+  }
+  async function* streamAsyncIterable(stream) {
+    let reader = stream.getReader();
+    try {
+      for (; ; ) {
+        let { done, value } = await reader.read();
+        if (done)
+          return;
+        yield value;
+      }
+    } finally {
+      reader.releaseLock();
+    }
+  }
 
   // utils/url_match.ts
   var matchAll = ["*://*/*", "*", "*://*"], placeholder = "immersive-translate-wildcard-placeholder.com";
@@ -10327,16 +10356,22 @@ body {
     }
   };
   function handleResponse(message, response, logger) {
-    if (response.ok)
-      return logger.debug(
-        `${message.from} received response from ${message.to}:`,
-        response.data ? response.data : " "
-      ), response.data;
-    throw new CommonError(
-      response.errorName || "UnknownError",
-      response.errorMessage || "Unknown error",
-      response.errorDetails
-    );
+    if (response) {
+      if (response.ok)
+        return logger.debug(
+          `${message.from} received response from ${message.to}:`,
+          response.data ? response.data : " "
+        ), response.data;
+      throw new CommonError(
+        response.errorName || "UnknownError",
+        response.errorMessage || "Unknown error",
+        response.errorDetails
+      );
+    } else
+      throw new CommonError(
+        "noResponse",
+        "Unknown error"
+      );
   }
   function parseType(str) {
     let parts = str.split(":");
@@ -10582,34 +10617,60 @@ body {
       if (method === "getLocalConfig")
         return getLocalConfig();
       if (method === "openOptionsPage")
-        browserAPI.runtime.openOptionsPage();
+        if (isSafari()) {
+          let optionsUrl = getEnv().OPTIONS_URL;
+          browserAPI.tabs.create({
+            url: optionsUrl
+          });
+        } else
+          browserAPI.runtime.openOptionsPage();
       else if (method === "openAboutPage")
-        browserAPI.tabs.create({
-          url: browserAPI.runtime.getURL("options.html#about")
-        });
+        if (isSafari()) {
+          let optionsUrl = getEnv().OPTIONS_URL;
+          browserAPI.tabs.create({
+            url: optionsUrl + "#about"
+          });
+        } else
+          browserAPI.tabs.create({
+            url: browserAPI.runtime.getURL("options.html#about")
+          });
       else if (method === "openEbookViewerPage")
         browserAPI.tabs.create({
           url: browserAPI.runtime.getURL("ebook/index.html")
         });
-      else if (method === "openEbookBuilderPage")
-        browserAPI.tabs.create({
-          url: browserAPI.runtime.getURL("ebook/make/index.html")
+      else if (method === "openSubtitleBuilderPage") {
+        let url = browserAPI.runtime.getURL("ebook/subtitle/index.html");
+        isSafari() && (url = getEnv().SUBTITLE_BUILDER_URL), browserAPI.tabs.create({
+          url
         });
-      else {
+      } else if (method === "openEbookBuilderPage") {
+        let url = browserAPI.runtime.getURL("ebook/make/index.html");
+        isSafari() && (url = getEnv().EBOOK_BUILDER_URL), browserAPI.tabs.create({
+          url
+        });
+      } else if (method === "openPdfViewerPage") {
+        let url = browserAPI.runtime.getURL("pdf/index.html");
+        browserAPI.tabs.create({
+          url
+        });
+      } else {
         if (method === "setLocalConfig")
           return setLocalConfig(data);
         if (method === "detectLanguage") {
           let { text, minLength } = data;
           if (!minLength && minLength !== 0 && (minLength = 50), text.length <= minLength)
             return "auto";
-          try {
-            let result = await browserAPI.i18n.detectLanguage(
-              text
-            );
-            return result.languages.length > 0 ? formatLanguage(result.languages[0].language) : "auto";
-          } catch (e) {
-            return log_default.debug("detect language error", e), "auto";
-          }
+          if (browserAPI.i18n && browserAPI.i18n.detectLanguage)
+            try {
+              let result = await browserAPI.i18n.detectLanguage(
+                text
+              );
+              return result.languages.length > 0 ? formatLanguage(result.languages[0].language) : "auto";
+            } catch (e) {
+              return log_default.debug("detect language error", e), "auto";
+            }
+          else
+            return "auto";
         } else if (method === "detectTabLanguage")
           try {
             let lang = await browserAPI.tabs.detectLanguage(
@@ -10633,7 +10694,7 @@ body {
   function steupMessageListeners() {
     getConnection();
     let manifest = browserAPI.runtime.getManifest();
-    if (manifest.manifest_version > 2, manifest.manifest_version === 2) {
+    if (manifest.manifest_version > 2, manifest.manifest_version === 2 && browserAPI.webRequest && browserAPI.webRequest.onBeforeSendHeaders) {
       let urlsFilter = request_modifier_rule_default.map(
         (item) => item.condition.urlFilter
       ), types = request_modifier_rule_default.reduce((acc, item) => (item.condition.resourceTypes.forEach((type) => {
@@ -10864,20 +10925,39 @@ body {
           browserAPI.tabs.create({
             url: pdfViewerRuntimeUrl
           });
-        } else
-          info.menuItemId === contextOpenLocalEbookBuilder ? browserAPI.tabs.create({
-            url: browserAPI.runtime.getURL(epubBuilderUrl)
-          }) : info.menuItemId === contextOpenLocalEbookViewer ? browserAPI.tabs.create({
+        } else if (info.menuItemId === contextOpenLocalEbookBuilder) {
+          let url = browserAPI.runtime.getURL(epubBuilderUrl);
+          isSafari() && (url = getEnv().EBOOK_BUILDER_URL), browserAPI.tabs.create({
+            url
+          });
+        } else if (info.menuItemId === contextOpenLocalEbookViewer)
+          browserAPI.tabs.create({
             url: browserAPI.runtime.getURL(epubViewerUrl)
-          }) : info.menuItemId === contextOpenLocalSubtitleBuilder ? browserAPI.tabs.create({
-            url: browserAPI.runtime.getURL(subtitleBuilderUrl)
-          }) : info.menuItemId === contextDonateMenuId ? browserAPI.tabs.create({
+          });
+        else if (info.menuItemId === contextOpenLocalSubtitleBuilder) {
+          let url = browserAPI.runtime.getURL(subtitleBuilderUrl);
+          isSafari() && (url = getEnv().SUBTITLE_BUILDER_URL), browserAPI.tabs.create({
+            url
+          });
+        } else
+          info.menuItemId === contextDonateMenuId ? browserAPI.tabs.create({
             url: "https://immersive-translate.owenyoung.com/donate"
           }) : sendMessageToContent({
             method: info.menuItemId
           });
       }
     );
+  }
+
+  // store.ts
+  var CACHE_KEY_PREFIX = brandIdForJs + "StoreKey_";
+  function get(rawKey, defaultValue) {
+    let key = CACHE_KEY_PREFIX + rawKey;
+    return browserAPI.storage.local.get(key).then((result) => result[key] === void 0 ? defaultValue : result[key]);
+  }
+  function set(rawKey, value) {
+    let key = CACHE_KEY_PREFIX + rawKey;
+    return browserAPI.storage.local.set({ [key]: value });
   }
 
   // browser_updated_listeners.ts
@@ -10893,19 +10973,25 @@ body {
   }
   function setupOnInstalledListener() {
     browserAPI.runtime.onInstalled.addListener((details) => {
-      log_default.debug(`onInstalled reason: ${details.reason}`), details.reason == "install" ? (browserAPI.tabs.create({
-        url: "https://immersive-translate.owenyoung.com/usage"
-      }), onUpdated()) : (details.reason == "update" && browserAPI.runtime.getManifest().version != details.previousVersion, onUpdated());
+      log_default.debug(`onInstalled reason: ${details.reason}`), log_default.debug(details), details.reason == "install" ? (get("hasRun", !1).then(
+        (hasRun) => {
+          hasRun || (browserAPI.tabs.create({
+            url: "https://immersive-translate.owenyoung.com/usage"
+          }), set("hasRun", !0).catch((e) => {
+            log_default.error("set hasRun error", e);
+          }));
+        }
+      ), onUpdated()) : (details.reason == "update" && browserAPI.runtime.getManifest().version != details.previousVersion, onUpdated());
     });
   }
 
   // background.ts
+  steupMessageListeners();
   setupOnInstalledListener();
   setupCommandListeners();
   browserAPI.contextMenus && setupContextMenuListeners();
-  steupMessageListeners();
   async function mainAsync() {
-    browserAPI.contextMenus && tryToCreateContextMenu();
+    browserAPI.contextMenus && tryToCreateContextMenu(), (await getConfig()).debug && log_default.setLevel("debug");
   }
   mainAsync().catch((e) => {
     console.error("init main erro", e);

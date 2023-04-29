@@ -1749,9 +1749,10 @@
     {
       "matches": "getpocket.com",
       "selectors": [
-        "h2.title",
+        "h2",
         "div.excerpt p",
-        "main > article"
+        "article",
+        "h1"
       ],
       "globalStyles": {
         "h2.title": "max-height:unset;-webkit-line-clamp:unset;",
@@ -2268,6 +2269,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-28T16:24:08.155Z",
+  "buildinConfigUpdatedAt": "2023-04-29T10:16:00.240Z",
   "latestVersion": "0.4.5"
 }

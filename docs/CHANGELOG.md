@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.4.7
+
+- Fix: Firefox Userscript popup missing.
+
 ## 0.4.6
 
 - Feat: Allow third party send document event to call `toggleTranslatePage`

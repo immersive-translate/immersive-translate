@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-29T17:31:50.688Z", VERSION: "0.4.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-04-30T17:38:47.957Z", VERSION: "0.4.7", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3802,7 +3802,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v117/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v118/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -3821,7 +3821,7 @@ body {
     isNodeMode || !mod || !mod.__esModule ? __defProp2(target, "default", { value: mod, enumerable: !0 }) : target,
     mod
   )), require_browser_polyfill = __commonJS({
-    "../etc/esmd/npm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports, module) {
+    "../esmd/npm/webextension-polyfill@0.10.0/node_modules/webextension-polyfill/dist/browser-polyfill.js"(exports, module) {
       (function(global, factory) {
         if (typeof define == "function" && define.amd)
           define("webextension-polyfill", ["module"], factory);
@@ -5081,12 +5081,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v117/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v118/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v117/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v118/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
     for (var n in t3)
       I(e, n, { get: t3[n], enumerable: !0 });
@@ -5184,7 +5184,7 @@ body {
   s2(c, L(h()));
   var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v117/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v118/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
     for (var l in i)
       ve(v4, l, { get: i[l], enumerable: !0 });
@@ -5501,11 +5501,11 @@ body {
   X2(B, ke(xe()));
   var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v117/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v118/nanostores@0.7.4/deno/nanostores.mjs
   var S = Symbol("clean");
   var m = Symbol();
 
-  // https://esm.sh/v117/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v118/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g(r, n) {
     if (typeof r == "string")
       return n(r);
@@ -5539,7 +5539,7 @@ body {
     return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v117/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v118/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P2(e, t3, i, r) {
     e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -5723,7 +5723,7 @@ body {
   }, window.hotkeys = v2);
   var B3;
 
-  // https://esm.sh/v117/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v118/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var d2 = "Immersive Translate", v3 = class {
     #e = performance.now();
     reset() {

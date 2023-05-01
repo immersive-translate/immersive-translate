@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-01T15:01:54.357Z", VERSION: "0.4.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-01T16:37:13.664Z", VERSION: "0.4.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -23138,11 +23138,11 @@ ${injectedCss}}
       value === "true" ? (isReady = !0, statusElement.innerText = "", pageReadyInputElement.removeEventListener("change", onPageReadyChange), main()) : statusElement.innerText = "Page Status: " + value;
     }
     pageReadyInputElement.addEventListener("change", onPageReadyChange), setTimeout(() => {
-      isReady || (statusElement.innerHTML = `\u65E0\u6CD5\u68C0\u6D4B\u5230 <a href="https://immersive-translate.owenyoung.com/">\u6C89\u6D78\u5F0F\u7FFB\u8BD1</a> \u6269\u5C55. \u8BF7\u786E\u8BA4\u5DF2\u5B89\u88C5\u5E76\u542F\u7528\u6C89\u6D78\u5F0F\u6269\u5C55\uFF0C\u540C\u65F6\u5DF2\u6388\u6743\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u8BBF\u95EE\u6240\u6709\u7F51\u7AD9\u3002<br><br> \u5982\u679C\u4F60\u4F7F\u7528\u7684\u662FiOS Safari \u6D4F\u89C8\u5668\u6269\u5C55\uFF0C\u53EF\u4EE5\u53C2\u8003\u4EE5\u4E0B\u89C6\u9891\u542F\u7528\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u6269\u5C55\uFF1A<div style="display:flex;justify-content:center;padding: 16px"><video
+      isReady || (statusElement.innerHTML = `\u65E0\u6CD5\u68C0\u6D4B\u5230 <a href="https://immersive-translate.owenyoung.com/">\u6C89\u6D78\u5F0F\u7FFB\u8BD1</a> \u6269\u5C55. \u8BF7\u786E\u8BA4\u5DF2\u5B89\u88C5\u5E76\u542F\u7528\u6C89\u6D78\u5F0F\u6269\u5C55\uFF0C\u5E76\u6388\u6743\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u8BBF\u95EE\u6240\u6709\u7F51\u7AD9\u7684\u6743\u9650\u3002<br><br> \u5982\u679C\u4F60\u4F7F\u7528\u7684\u662FiOS Safari \u6D4F\u89C8\u5668\u6269\u5C55\uFF0C\u53EF\u4EE5\u53C2\u8003\u4EE5\u4E0B\u89C6\u9891\u542F\u7528\u6C89\u6D78\u5F0F\u7FFB\u8BD1\u6269\u5C55\uFF1A<div style="display:flex;justify-content:center;padding: 16px"><video
 controls
 muted
 height="800px"
-poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4"></video></div>`);
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/ios-safari-enable.mp4"></video></div>`);
     }, 5e3);
   }
   initPage2();

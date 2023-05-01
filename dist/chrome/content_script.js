@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-01T14:58:32.450Z", VERSION: "0.4.7", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-01T15:01:51.804Z", VERSION: "0.4.8", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -20785,7 +20785,7 @@ ${this._lastError.message}`;
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.7",
+    version: "0.4.8",
     default_locale: "en",
     background: {
       service_worker: "background.js"

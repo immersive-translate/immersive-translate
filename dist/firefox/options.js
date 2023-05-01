@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-04-30T17:38:52.101Z", VERSION: "0.4.7", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-01T14:58:34.125Z", VERSION: "0.4.7", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8433,10 +8433,10 @@ body {
     "translationServices.aliyun": "\u963F\u91CC\u4E91\u7FFB\u8BD1",
     "translationServices.volc": "\u706B\u5C71\u7FFB\u8BD1",
     "translationServices.deeplx": "DeeplX(Beta)",
-    "translationServices.bing": "\u5FC5\u5E94\u7FFB\u8BD1",
+    "translationServices.bing": "\u5FAE\u8F6F\u7FFB\u8BD1",
     "translationServices.deepl": "Deepl",
     "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8BD1",
-    "translationServices.azure": "\u5FAE\u8F6F\u7FFB\u8BD1",
+    "translationServices.azure": "Azure \u7FFB\u8BD1",
     "translationServices.ibm": "IBM Watson",
     "translationServices.aws": "\u4E9A\u9A6C\u900A\u7FFB\u8BD1",
     "translationServices.mock": "\u6A21\u62DF\u7FFB\u8BD1",
@@ -8531,18 +8531,19 @@ body {
     "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
     "field.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6BB5\u843D\u6570",
     "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
-    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 10 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A1500\u4EE5\u4E0A",
+    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 3 \u4E2A\u8BF7\u6C42 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A 500 \u4EE5\u4E0A",
     "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
     "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
     "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
     "description.model": "OpenAI \u7684\u6A21\u578B\uFF0C\u53EF\u4EE5\u4E3A gpt-3.5-turbo, gpt-4 \u7B49",
     "description.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u53D1\u9001\u7ED9 OpenAI \u7684\u6BB5\u843D\u6570\u91CF\uFF0C\u5982\u679C\u6BB5\u843D\u6570\u91CF\u8FC7\u591A\uFF0C\u53EF\u80FD\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u8BBE\u7F6E\u4E3A 1 \u4E2A\u6BB5\u843D\u65F6\uFF0C\u4F53\u9A8C\u6700\u597D",
+    "description.apiUrl": "\u8BF7\u6DFB\u52A0\u5177\u4F53\u5E26\u6709\u8DEF\u5F84\u7684\u7F51\u5740",
     enabledExtension: "\u542F\u7528\u6269\u5C55",
     clickToDisableExtension: "\u70B9\u51FB\u7981\u7528\u6269\u5C55",
     clickToEnableExtension: "\u70B9\u51FB\u542F\u7528\u6269\u5C55",
     hasBeenDisabled: "\u5DF2\u7981\u7528",
     "show password": "\u663E\u793A\u5BC6\u7801",
-    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u5185\u5BB9"
+    customContent: "\u8F93\u5165\u81EA\u5B9A\u4E49\u6A21\u578B\u540D\u79F0"
   };
 
   // locales/zh-TW.json
@@ -8717,10 +8718,10 @@ body {
     "translationServices.aliyun": "\u963F\u91CC\u96F2\u7FFB\u8B6F",
     "translationServices.volc": "\u706B\u5C71\u7FFB\u8B6F",
     "translationServices.deeplx": "DeeplX(Beta)",
-    "translationServices.bing": "Bing \u7FFB\u8B6F",
+    "translationServices.bing": "\u5FAE\u8F6F\u7FFB\u8B6F",
     "translationServices.deepl": "Deepl",
     "translationServices.wechat": "\u5FAE\u4FE1\u7FFB\u8B6F",
-    "translationServices.azure": "\u5FAE\u8EDF\u7FFB\u8B6F",
+    "translationServices.azure": "Azure \u7FFB\u8B6F",
     "translationServices.ibm": "IBM Watson",
     "translationServices.aws": "\u4E9E\u99AC\u905C\u7FFB\u8B6F",
     "translationServices.mock": "\u6A21\u64EC\u7FFB\u8B6F",
@@ -8821,7 +8822,7 @@ body {
     clickToEnableExtension: "\u9EDE\u9078\u555F\u7528\u5957\u4EF6",
     hasBeenDisabled: "\u5DF2\u505C\u7528",
     "show password": "\u986F\u793A\u5BC6\u78BC",
-    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u5167\u5BB9"
+    customContent: "\u8F38\u5165\u81EA\u5B9A\u7FA9\u6A21\u578B"
   };
 
   // locales/en.json
@@ -8997,10 +8998,10 @@ body {
     "translationServices.aliyun": "Aliyun Translator",
     "translationServices.volc": "Volcano Translation",
     "translationServices.deeplx": "DeeplX (Alpha)",
-    "translationServices.bing": "Bing translate",
+    "translationServices.bing": "\u5FAE\u8F6F\u7FFB\u8BD1",
     "translationServices.deepl": "DeepL",
     "translationServices.wechat": "Wechat translation",
-    "translationServices.azure": "Microsoft Translator",
+    "translationServices.azure": "Azure Translator",
     "translationServices.ibm": "IBM Watson",
     "translationServices.aws": "Amazon Translate",
     "translationServices.mock": "Mock translation",
@@ -9119,7 +9120,7 @@ body {
       code: "en",
       messages: en_default
     }
-  ], immersiveTranslateGlobalConfigStorageKey = "immersiveTranslateDeeplGlobalState", translations = {};
+  ], immersiveTranslateGlobalConfigStorageKey = "immersiveTranslateDeeplGlobalState", immersiveTranslateBingGlobalConfigStorageKey = "immersiveTranslateBingGlobalState", translations = {};
   for (let translation of interfaceTranslations)
     translations[translation.code] = translation.messages;
   var brandName = "Immersive Translate", brandId = "immersive-translate";
@@ -9582,6 +9583,10 @@ body {
       name: "Google",
       homepage: "https://translate.google.com/"
     },
+    bing: {
+      name: "\u5FAE\u8F6F\u7FFB\u8BD1",
+      homepage: "https://www.bing.com/translator"
+    },
     deepl: {
       name: "DeepL",
       homepage: "https://www.deepl.com/translator",
@@ -9664,6 +9669,7 @@ body {
           required: !1,
           type: "text",
           default: "https://api.openai.com/v1/chat/completions",
+          descriptionKey: "description.apiUrl",
           optional: !0
         },
         {
@@ -9867,10 +9873,6 @@ body {
           type: "password"
         }
       ]
-    },
-    bing: {
-      name: "Bing",
-      homepage: "https://www.bing.com/translator"
     }
   }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
@@ -10707,6 +10709,42 @@ ${injectedCss}}
     donateUrl: "https://immersive-translate.owenyoung.com/donate.html",
     feedbackUrl: "https://github.com/immersive-translate/immersive-translate/issues",
     isShowContextMenu: !0,
+    blockUrls: [
+      "googleads.g.doubleclick.net",
+      "s1.hdslb.com",
+      "oapi.dingtalk.com",
+      "login.dingtalk.com",
+      "imasdk.googleapis.com",
+      "acdn.adnxs.com",
+      "pos.baidu.com",
+      "js-sec.indexww.com",
+      "g.alicdn.com",
+      "ads.pubmatic.com",
+      "challenges.cloudflare.com",
+      "accounts.google.com",
+      "images-na.ssl-images-amazon.com",
+      "tpc.googlesyndication.com",
+      "js.stripe.com",
+      "acdn.adnxs-simple.com",
+      "s.union.360.cn",
+      "s.amazon-adsystem.com",
+      "www.recaptcha.net",
+      "s7.addthis.com",
+      "z.moatads.com",
+      "https://www.marketwatch.com/static_html/daa-min.html",
+      "tr.snapchat.com",
+      "ct.pinterest.com",
+      "*.moatads.com",
+      "secure-us.imrworldwide.com",
+      "static.noeyeon.click",
+      "widgets.outbrain.com",
+      "www.dianomi.com/smartads.epl",
+      "secure-assets.rubiconproject.com",
+      "eus.rubiconproject.com",
+      "eus.rubiconproject.com",
+      "i.liadm.com",
+      "eb2.3lift.com"
+    ],
     telemetry: !0,
     loadingTheme: "spinner",
     canary: !1,
@@ -10993,7 +11031,8 @@ ${injectedCss}}
         "ASIDE",
         "FOOTER",
         "MATH",
-        "TTS-SENTENCE"
+        "TTS-SENTENCE",
+        "AIO-CODE"
       ],
       bodyTranslateTags: ["FOOTER", "ASIDE", "BUTTON", "NAV"],
       forceTranslateTags: [],
@@ -11137,6 +11176,7 @@ ${injectedCss}}
       },
       {
         matches: ["*://*/*.txt", "file://*/*.txt"],
+        selectorMatches: ["body > pre"],
         selectors: ["body"],
         isTransformPreTagNewLine: !0,
         excludeTags: [
@@ -12001,7 +12041,8 @@ ${injectedCss}}
       {
         matches: "www.sciencedirect.com",
         urlChangeDelay: 2e3,
-        stayOriginalSelectors: ["span.display"]
+        stayOriginalSelectors: ["span.display"],
+        extraBlockSelectors: ["span.captions", "span[id^=cap]"]
       },
       {
         matches: "www.thehighestofthemountains.com",
@@ -12611,6 +12652,41 @@ ${injectedCss}}
           ".homepage__container__opinion__item__byline",
           ".homepage__container__header",
           ".archive__item__meta"
+        ]
+      },
+      {
+        matches: "www.spiedigitallibrary.org",
+        excludeTags: [
+          "TITLE",
+          "SCRIPT",
+          "STYLE",
+          "TEXTAREA",
+          "SVG",
+          "svg",
+          "G",
+          "NOSCRIPT",
+          "INPUT",
+          "BUTTON",
+          "BASE",
+          "SELECT",
+          "OPTION",
+          "IMG",
+          "SUB",
+          "SUP",
+          "HR",
+          "PRE",
+          "CODE",
+          "KBD",
+          "WBR",
+          "TT",
+          "RT",
+          "RP",
+          "META",
+          "ASIDE",
+          "FOOTER",
+          "MATH",
+          "TTS-SENTENCE",
+          "AIO-CODE"
         ]
       }
     ]
@@ -19623,8 +19699,27 @@ ${injectedCss}}
     };
   }
 
+  // utils/parse_jwt.ts
+  function parseJWT(token) {
+    let parts = token.split(".");
+    if (parts.length <= 1)
+      throw new Error("invlaid token");
+    let base64Url = parts[1];
+    if (!base64Url)
+      throw new Error("invalid base64 url token");
+    let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/"), jsonPayload = decodeURIComponent(
+      globalThis.atob(base64).split("").map(function(c7) {
+        return "%" + ("00" + c7.charCodeAt(0).toString(16)).slice(-2);
+      }).join("")
+    ), parsed = JSON.parse(jsonPayload), expiredDate = new Date(parsed.exp * 1e3);
+    return {
+      accessToken: token,
+      accessTokenExpiresAt: expiredDate.toISOString()
+    };
+  }
+
   // services/bing/mod.ts
-  var rawLangMap12 = [
+  var globalState2 = null, rawLangMap12 = [
     ["auto", ""],
     ["ar", "ar"],
     ["ga", "ga"],
@@ -19699,14 +19794,108 @@ ${injectedCss}}
   ], langMap19 = new Map(rawLangMap12), Bing = class extends Translation {
     constructor() {
       super(...arguments);
-      this.isSupportList = !1;
-      this.maxTextLength = 800;
+      this.isSupportList = !0;
+      this.maxTextLength = 1800;
     }
     async translate(payload) {
       let { text, from, to } = payload;
       return text ? await translate2(text, from, to) : { ...payload };
     }
+    async init() {
+      if (!globalState2) {
+        globalState2 = {};
+        let globalStateValue = await getExpired(
+          immersiveTranslateBingGlobalConfigStorageKey
+        );
+        globalStateValue && (globalState2 = globalStateValue);
+      }
+      await tryUpdateAccessToken(globalState2);
+    }
+    async translateList(payload) {
+      let { from, to, text } = payload, remoteFrom = langMap19.get(from) || from, remoteTo = langMap19.get(to) || to;
+      remoteFrom === "auto" && (remoteFrom = "");
+      let auth = await tryUpdateAccessToken(globalState2), body = [];
+      for (let item of text)
+        body.push({ Text: item });
+      let bodyString = JSON.stringify(body), url = `https://api-edge.cognitive.microsofttranslator.com/translate?from=${remoteFrom}&to=${remoteTo}&api-version=3.0&includeSentenceLength=true`, result = await request2(
+        {
+          url,
+          headers: {
+            accept: "*/*",
+            "accept-language": "zh-TW,zh;q=0.9,ja;q=0.8,zh-CN;q=0.7,en-US;q=0.6,en;q=0.5",
+            authorization: "Bearer " + auth.accessToken,
+            "cache-control": "no-cache",
+            "content-type": "application/json",
+            pragma: "no-cache",
+            "sec-ch-ua": '"Microsoft Edge";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Windows"',
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "Referrer-Policy": "strict-origin-when-cross-origin"
+          },
+          body: bodyString,
+          method: "POST"
+        }
+      );
+      if (result && result.length > 0 && result[0].translations && result[0].translations.length > 0)
+        return {
+          text: result.map((item) => item.translations[0]?.text || ""),
+          from,
+          to
+        };
+      throw new Error("Microsoft translate error " + JSON.stringify(result));
+    }
   };
+  async function tryUpdateAccessToken(state) {
+    if (state && state.accessToken && state.accessTokenExpiresAt) {
+      let now = Date.now(), expiresAt = new Date(state.accessTokenExpiresAt).getTime();
+      if (expiresAt - now > 30 * 1e3)
+        return state;
+      if (expiresAt - now > 3e3)
+        return forceUpdateAccessToken().catch((e3) => {
+          log_default.error(e3);
+        }), state;
+    }
+    return forceUpdateAccessToken();
+  }
+  async function forceUpdateAccessToken() {
+    let result = await throttleRequest({
+      responseType: "text",
+      url: "https://edge.microsoft.com/translate/auth",
+      headers: {
+        accept: "*/*",
+        "accept-language": "zh-TW,zh;q=0.9,ja;q=0.8,zh-CN;q=0.7,en-US;q=0.6,en;q=0.5",
+        "cache-control": "no-cache",
+        pragma: "no-cache",
+        "sec-ch-ua": '"Microsoft Edge";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "sec-mesh-client-arch": "x86_64",
+        "sec-mesh-client-edge-channel": "beta",
+        "sec-mesh-client-edge-version": "113.0.1774.23",
+        "sec-mesh-client-os": "Windows",
+        "sec-mesh-client-os-version": "10.0.19044",
+        "sec-mesh-client-webview": "0",
+        Referer: "https://appsumo.com/",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      },
+      body: null,
+      method: "GET"
+    }), parsedAceeessToken = parseJWT(result), expiresAt = parsedAceeessToken.accessTokenExpiresAt, expiresIn = new Date(expiresAt).getTime() - Date.now();
+    return globalState2 = parsedAceeessToken, await setExpired(
+      immersiveTranslateBingGlobalConfigStorageKey,
+      parsedAceeessToken,
+      expiresIn - 1e3
+    ), {
+      accessToken: result,
+      accessTokenExpiresAt: parsedAceeessToken.accessTokenExpiresAt
+    };
+  }
 
   // services/baidu.ts
   var rawLangMap13 = [
@@ -20410,7 +20599,7 @@ ${injectedCss}}
     }, []);
     let finalLabel = field.name;
     if (field.label && (finalLabel = field.label), field.labelKey && (finalLabel = t6(field.labelKey)), field.type === "select")
-      return /* @__PURE__ */ p5("div", { class: "flex flex-col mt-5 mb-2", children: [
+      return /* @__PURE__ */ p5("div", { class: "flex flex-col mt-5 mb-6", children: [
         /* @__PURE__ */ p5("label", { class: "text-16 mb-2", children: [
           finalLabel,
           "\uFF1A"
@@ -20436,11 +20625,20 @@ ${injectedCss}}
           "label",
           {
             for: "customContent",
+            class: "text-sm",
             onClick: () => {
               setIsInput(!isInput);
             },
             children: [
-              /* @__PURE__ */ p5("input", { type: "checkbox", id: "customContent", name: "customContent", checked: isInput }),
+              /* @__PURE__ */ p5(
+                "input",
+                {
+                  type: "checkbox",
+                  id: "customContent",
+                  name: "customContent",
+                  checked: isInput
+                }
+              ),
               t6("customContent")
             ]
           }

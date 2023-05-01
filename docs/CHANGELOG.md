@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.8
+
+- Feat: Bing Translate to Microsoft Translate for more stable quality.
+- Fix: Pure TXT web page like [this](https://edoras.sdsu.edu/~vinge/misc/singularity.html)
+- Performance: Exclude some child advertising pages in the website, and the performance has improved a little
+
 ## 0.4.7
 
 - Fix: Firefox Userscript popup missing.

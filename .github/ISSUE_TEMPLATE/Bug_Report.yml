@@ -58,7 +58,7 @@ body:
     id: reproduce
     attributes:
       label: 重现步骤 | To Reproduce
-      description: Steps to reproduce the behavior
+      description: Steps to reproduce the behavior，请附上示例网址
       placeholder: 1. Go to '...' 2. Click translate
     validations:
       required: false

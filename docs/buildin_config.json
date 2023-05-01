@@ -8,6 +8,42 @@
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
   "isShowContextMenu": true,
+  "blockUrls": [
+    "googleads.g.doubleclick.net",
+    "s1.hdslb.com",
+    "oapi.dingtalk.com",
+    "login.dingtalk.com",
+    "imasdk.googleapis.com",
+    "acdn.adnxs.com",
+    "pos.baidu.com",
+    "js-sec.indexww.com",
+    "g.alicdn.com",
+    "ads.pubmatic.com",
+    "challenges.cloudflare.com",
+    "accounts.google.com",
+    "images-na.ssl-images-amazon.com",
+    "tpc.googlesyndication.com",
+    "js.stripe.com",
+    "acdn.adnxs-simple.com",
+    "s.union.360.cn",
+    "s.amazon-adsystem.com",
+    "www.recaptcha.net",
+    "s7.addthis.com",
+    "z.moatads.com",
+    "https://www.marketwatch.com/static_html/daa-min.html",
+    "tr.snapchat.com",
+    "ct.pinterest.com",
+    "*.moatads.com",
+    "secure-us.imrworldwide.com",
+    "static.noeyeon.click",
+    "widgets.outbrain.com",
+    "www.dianomi.com/smartads.epl",
+    "secure-assets.rubiconproject.com",
+    "eus.rubiconproject.com",
+    "eus.rubiconproject.com",
+    "i.liadm.com",
+    "eb2.3lift.com"
+  ],
   "telemetry": true,
   "loadingTheme": "spinner",
   "canary": false,
@@ -314,7 +350,8 @@
       "ASIDE",
       "FOOTER",
       "MATH",
-      "TTS-SENTENCE"
+      "TTS-SENTENCE",
+      "AIO-CODE"
     ],
     "bodyTranslateTags": [
       "FOOTER",
@@ -485,6 +522,9 @@
       "matches": [
         "*://*/*.txt",
         "file://*/*.txt"
+      ],
+      "selectorMatches": [
+        "body > pre"
       ],
       "selectors": [
         "body"
@@ -1535,6 +1575,10 @@
       "urlChangeDelay": 2000,
       "stayOriginalSelectors": [
         "span.display"
+      ],
+      "extraBlockSelectors": [
+        "span.captions",
+        "span[id^=cap]"
       ]
     },
     {
@@ -2267,8 +2311,43 @@
         ".homepage__container__header",
         ".archive__item__meta"
       ]
+    },
+    {
+      "matches": "www.spiedigitallibrary.org",
+      "excludeTags": [
+        "TITLE",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "G",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "PRE",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "FOOTER",
+        "MATH",
+        "TTS-SENTENCE",
+        "AIO-CODE"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-04-29T16:26:40.654Z",
-  "latestVersion": "0.4.5"
+  "buildinConfigUpdatedAt": "2023-05-01T17:50:16.034Z",
+  "latestVersion": "0.4.8"
 }

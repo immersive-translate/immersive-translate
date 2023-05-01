@@ -17,7 +17,7 @@
 controls
 muted
 height="800px"
-poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4"></video>
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/ios-safari-enable.mp4"></video>
 
 ## 安卓
 

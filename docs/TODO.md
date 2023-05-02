@@ -50,6 +50,7 @@ popup
 - [ ] 增加讯飞翻译引擎 https://fanyi.xfyun.cn/console/trans/text
 - [ ] 增加 google api 翻译。
 - [ ] 如果能夠把 chatGPT 做成彩雲那種雙語對照效果的插件就太棒了。
+- [ ] openai 关闭网页后依然请求问题
 
 译文
 

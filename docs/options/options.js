@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-01T22:16:04.947Z", VERSION: "0.4.9", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-02T18:39:11.352Z", VERSION: "0.4.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3781,8 +3781,6 @@ body {
   display: none;
   min-width: 250px;
   height: auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   --font-size: 17px;
   font-size: 17px;
 }
@@ -14441,9 +14439,140 @@ ${injectedCss}}
     return browserAPI.storage.local.set({ [key]: value });
   }
 
+  // manifest.json
+  var manifest_default = {
+    manifest_version: 3,
+    name: "__MSG_brandName__",
+    description: "__MSG_brandDescription__",
+    version: "0.4.10",
+    default_locale: "en",
+    background: {
+      service_worker: "background.js"
+    },
+    web_accessible_resources: [
+      "styles/inject.css",
+      "pdf/index.html",
+      "ebook/index.html",
+      "ebook/index.html",
+      "ebook/make/index.html"
+    ],
+    content_scripts: [
+      {
+        matches: [
+          "<all_urls>",
+          "file:///*",
+          "*://*/*"
+        ],
+        js: [
+          "content_script.js"
+        ],
+        run_at: "document_end",
+        all_frames: !0
+      }
+    ],
+    commands: {
+      toggleTranslatePage: {
+        suggested_key: {
+          default: "Alt+A"
+        },
+        description: "__MSG_toggleTranslatePage__"
+      },
+      toggleTranslateTheWholePage: {
+        suggested_key: {
+          default: "Alt+W"
+        },
+        description: "__MSG_toggleTranslateTheWholePage__"
+      },
+      toggleTranslateToThePageEndImmediately: {
+        description: "__MSG_toggleTranslateToThePageEndImmediately__"
+      },
+      toggleTranslateTheMainPage: {
+        description: "__MSG_toggleTranslateTheMainPage__"
+      },
+      toggleTranslationMask: {
+        description: "__MSG_toggleTranslationMask__"
+      }
+    },
+    options_page: "options.html",
+    options_ui: {
+      page: "options.html",
+      open_in_tab: !0,
+      browser_style: !1
+    },
+    permissions: [
+      "storage",
+      "activeTab",
+      "contextMenus",
+      "webRequest",
+      "webRequestBlocking",
+      "declarativeNetRequestWithHostAccess",
+      "declarativeNetRequestFeedback",
+      "declarativeNetRequest"
+    ],
+    host_permissions: [
+      "<all_urls>"
+    ],
+    declarative_net_request: {
+      rule_resources: [{
+        id: "ruleset_1",
+        enabled: !0,
+        path: "rules/request_modifier_rule.json"
+      }]
+    },
+    action: {
+      default_popup: "popup.html",
+      default_icon: {
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png",
+        "128": "icons/128.png",
+        "256": "icons/256.png"
+      }
+    },
+    browser_action: {
+      default_icon: "icons/32.png",
+      default_popup: "popup.html",
+      theme_icons: [{
+        dark: "icons/32.png",
+        light: "icons/dark-32.png",
+        size: 32
+      }, {
+        dark: "icons/48.png",
+        light: "icons/dark-48.png",
+        size: 48
+      }, {
+        dark: "icons/64.png",
+        light: "icons/dark-64.png",
+        size: 64
+      }, {
+        dark: "icons/128.png",
+        light: "icons/dark-128.png",
+        size: 128
+      }, {
+        dark: "icons/256.png",
+        light: "icons/dark-256.png",
+        size: 256
+      }]
+    },
+    icons: {
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png",
+      "256": "icons/256.png"
+    },
+    browser_specific_settings: {
+      gecko: {
+        id: "{5efceaa7-f3a2-4e59-a54b-85319448e305}",
+        strict_min_version: "63.0"
+      }
+    },
+    key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
+  };
+
   // browser/version.ts
   function getVersion() {
-    return browserAPI.runtime.getManifest().version;
+    return manifest_default.version;
   }
 
   // report.ts
@@ -14454,19 +14583,22 @@ ${injectedCss}}
       if (isDaily) {
         if (isInIframe)
           return;
-        let lastReportTime = await get(reportKey, 0), now = Date.now();
-        if (now - lastReportTime < 24 * 60 * 60 * 1e3)
+        let lastReportTime = await get(reportKey, 0), lastReportDay = getBeijingDay(new Date(lastReportTime)), now = Date.now(), nowDay2 = getBeijingDay(new Date(now));
+        if (lastReportDay === nowDay2)
           return;
         await set(reportKey, now);
       } else if (!ctx.config.telemetry)
         return;
-      let api_secret = "sitc4WmvShWYwfU0dANM3Q", userId = await get("fakeUserId", "");
-      userId || (userId = makeid(32), await set("fakeUserId", userId));
-      let url = `https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`;
+      let api_secret = "sitc4WmvShWYwfU0dANM3Q", userId = await get("fakeUserId", ""), version = getVersion(), nowDate = /* @__PURE__ */ new Date(), installedAt = await get(
+        "installedAt",
+        ""
+      );
+      userId ? installedAt || (installedAt = (/* @__PURE__ */ new Date(0)).toISOString(), await set("installedAt", installedAt)) : (userId = makeid(32), await set("fakeUserId", userId)), installedAt || (installedAt = nowDate.toISOString(), await set("installedAt", installedAt));
+      let installAtDate = new Date(installedAt), installDay = getBeijingDay(installAtDate), nowDay = getBeijingDay(nowDate), isNewUser = installDay === nowDay, isNewUserThisWeek = nowDate.getTime() - installAtDate.getTime() < 7 * 24 * 60 * 60 * 1e3, url = `https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`;
       isProd3 || (url = `https://www.google-analytics.com/debug/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`);
-      let theBrowserInfo = U8.parse(window.navigator.userAgent), version = getVersion(), formatedEvents = events.map((event) => {
+      let theBrowserInfo = U8.parse(window.navigator.userAgent), formatedEvents = events.map((event) => {
         let currentParam = event.params || {};
-        theBrowserInfo.os && (currentParam.os_name = theBrowserInfo.os.name || "unknown", currentParam.os_version = theBrowserInfo.os.version || "unknown", currentParam.os_version_name = theBrowserInfo.os.versionName || "unknown"), theBrowserInfo.browser && (currentParam.browser_name = theBrowserInfo.browser.name || "unknown", currentParam.browser_version = theBrowserInfo.browser.version || "unknown"), theBrowserInfo.platform && (currentParam.platform_type = theBrowserInfo.platform.type || "unknown"), theBrowserInfo.engine && (currentParam.engine_name = theBrowserInfo.engine.name || "unknown", currentParam.engine_version = theBrowserInfo.engine.version || "unknown"), ctx.translationService && (currentParam.translation_service = ctx.translationService), ctx.targetLanguage && (currentParam.target_language = ctx.targetLanguage), ctx.config.interfaceLanguage && (currentParam.interface_language = ctx.config.interfaceLanguage), version && (currentParam.version = version), ctx.config.translationTheme && (currentParam.translation_theme = ctx.config.translationTheme), ctx.config.alpha && (currentParam.alpha = ctx.config.alpha.toString()), ctx.config.translationArea && (currentParam.translation_area = ctx.config.translationArea), currentParam.userscript = isUserscript.toString();
+        theBrowserInfo.os && (currentParam.os_name = theBrowserInfo.os.name || "unknown", currentParam.os_version = theBrowserInfo.os.version || "unknown", currentParam.os_version_name = theBrowserInfo.os.versionName || "unknown"), theBrowserInfo.browser && (currentParam.browser_name = theBrowserInfo.browser.name || "unknown", currentParam.browser_version = theBrowserInfo.browser.version || "unknown"), theBrowserInfo.platform && (currentParam.platform_type = theBrowserInfo.platform.type || "unknown"), theBrowserInfo.engine && (currentParam.engine_name = theBrowserInfo.engine.name || "unknown", currentParam.engine_version = theBrowserInfo.engine.version || "unknown"), ctx.translationService && (currentParam.translation_service = ctx.translationService), ctx.targetLanguage && (currentParam.target_language = ctx.targetLanguage), ctx.config.interfaceLanguage && (currentParam.interface_language = ctx.config.interfaceLanguage), version && (currentParam.version = version), ctx.config.translationTheme && (currentParam.translation_theme = ctx.config.translationTheme), ctx.config.alpha && (currentParam.alpha = ctx.config.alpha.toString()), ctx.config.translationArea && (currentParam.translation_area = ctx.config.translationArea), currentParam.userscript = isUserscript.toString(), isNewUser ? currentParam.is_new_user_today = "1" : currentParam.is_new_user_today = "0", isNewUserThisWeek ? currentParam.is_new_user_this_week = "1" : currentParam.is_new_user_this_week = "0";
         let pageType = "html";
         if (ctx.rule.isEbook ? pageType = "ebookReader" : ctx.rule.isPdf ? pageType = "pdfReader" : ctx.rule.isEbookBuilder ? pageType = "ebookBuilder" : ctx.rule.isSubtitleBuilder && (pageType = "subtitleBuilder"), currentParam.page_type = pageType, isInIframe ? currentParam.main_frame = 0 : currentParam.main_frame = 1, !isDaily) {
           let siteUrl = ctx.url;
@@ -14494,8 +14626,7 @@ ${injectedCss}}
           })
         }
       );
-    } catch (e3) {
-      log_default.debug("report error", e3);
+    } catch {
     }
   }
   function makeid(length) {
@@ -14503,6 +14634,12 @@ ${injectedCss}}
     for (; counter < length; )
       result += characters.charAt(Math.floor(Math.random() * charactersLength)), counter += 1;
     return result;
+  }
+  function getBeijingDay(date) {
+    let beijingDay = date.toLocaleString("en-US", {
+      timeZone: "Asia/Shanghai"
+    }).split(" ")[0];
+    return beijingDay.endsWith(",") && (beijingDay = beijingDay.slice(0, -1)), beijingDay;
   }
 
   // utils/url_match.ts

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.4.11
+
+- Fix: userscript permission (only for userscript).
+
 ## 0.4.8
 
 - Feat: Bing Translate to Microsoft Translate for more stable quality.

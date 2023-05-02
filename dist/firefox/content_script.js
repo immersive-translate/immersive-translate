@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-02T18:39:09.699Z", VERSION: "0.4.10", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-02T19:38:40.063Z", VERSION: "0.4.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5967,7 +5967,9 @@ body {
     "http://localhost:8000/auth-done/",
     "http://192.168.50.9:8000/dist/userscript/options/",
     "https://www.deepl.com/translator",
-    "translate.google.com"
+    "translate.google.com",
+    "http://localhost:8000/options/",
+    "http://192.168.50.9:8000/options/"
   ];
   var fallbackLanguage = "zh-CN";
   var openlProps = [
@@ -17563,7 +17565,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.10",
+    version: "0.4.11",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -21211,19 +21213,25 @@ ${this._lastError.message}`;
       config,
       url: realUrl
     });
-    !ctx.config.enabled || isMatchUrl(ctx.url, ctx.config.blockUrls) || (setupDomListenersForAll(ctx), ctx.isTranslateExcludeUrl && isWebOptionsPage2() ? (log_default.debug("detect web options page"), setupWebOptionsPage()) : waitForDomElementReady(ctx).then(() => {
-      main2(ctx).catch((e) => {
-        e && log_default.error(
-          "translate page error",
-          e.name,
-          e.message,
-          e.details || "",
-          e
-        );
+    if (ctx.isTranslateExcludeUrl && isWebOptionsPage2())
+      log_default.debug("detect web options page"), setupDomListenersForAll(ctx), setupWebOptionsPage();
+    else {
+      if (!ctx.config.enabled || isMatchUrl(ctx.url, ctx.config.blockUrls))
+        return;
+      setupDomListenersForAll(ctx), waitForDomElementReady(ctx).then(() => {
+        main2(ctx).catch((e) => {
+          e && log_default.error(
+            "translate page error",
+            e.name,
+            e.message,
+            e.details || "",
+            e
+          );
+        });
+      }).catch((e) => {
+        log_default.debug("can not detect a valid body: ", e);
       });
-    }).catch((e) => {
-      log_default.debug("can not detect a valid body: ", e);
-    }));
+    }
   }).catch((e) => {
     e && log_default.error(
       "translate dom ready detect error",

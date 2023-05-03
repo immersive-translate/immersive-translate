@@ -2,6 +2,21 @@
   {
     "sponsor": {
       "type": "Organization",
+      "name": "Lang Genius",
+      "login": "fmz.com",
+      "description": "可视化创造和持续运营你的原生 AI 应用",
+      "avatarUrl": "../../../docs/assets/langgenius-logo-large.png",
+      "linkUrl": "https://langgenius.ai/?utm_source=pay&utm_medium=immersive-translate"
+    },
+    "monthlyDollars": 50,
+    "privacyLevel": "PUBLIC",
+    "createdAt": "2023-05-04",
+    "expiresAt": "2024-06-04",
+    "provider": "custom"
+  },
+  {
+    "sponsor": {
+      "type": "Organization",
       "name": "Apifox",
       "login": "apifox",
       "description": "API 设计、开发、测试一体化协作平台",

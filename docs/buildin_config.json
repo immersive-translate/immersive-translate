@@ -875,7 +875,8 @@
       "selectors": [
         ".comment-text",
         ".media-item-headline",
-        ".slim-video-information-title"
+        ".slim-video-information-title",
+        ".caption-window"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -903,7 +904,8 @@
         "a#video-title",
         "yt-formatted-string.ytd-transcript-segment-renderer",
         "#description-inline-expander > yt-attributed-string > span",
-        "ytd-notification-renderer .message"
+        "ytd-notification-renderer .message",
+        ".caption-window"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -2348,6 +2350,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-01T17:50:16.034Z",
-  "latestVersion": "0.4.8"
+  "buildinConfigUpdatedAt": "2023-05-03T16:18:12.215Z",
+  "latestVersion": "0.4.12"
 }

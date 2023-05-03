@@ -749,7 +749,9 @@
         ".post-content",
         ".Comment__body",
         "faceplate-batch .md",
-        ".RichTextJSON-root"
+        ".RichTextJSON-root",
+        "div[slot=title]",
+        "div[slot=text-body]"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -772,7 +774,9 @@
         ".PostContent",
         ".post-content",
         ".Comment__body",
-        "faceplate-batch .md"
+        "faceplate-batch .md",
+        "div[slot=title]",
+        "div[slot=text-body]"
       ],
       "excludeMatches": [
         "https://www.reddit.com/r/*/wiki/*",
@@ -2350,6 +2354,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-03T16:18:12.215Z",
+  "buildinConfigUpdatedAt": "2023-05-03T19:42:42.644Z",
   "latestVersion": "0.4.12"
 }

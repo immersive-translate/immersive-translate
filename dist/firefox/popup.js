@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-02T19:38:40.063Z", VERSION: "0.4.11", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-03T09:47:49.638Z", VERSION: "0.4.12", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3746,10 +3746,9 @@ body {
   position: fixed;
   padding: 0;
   z-index: 999999;
-  top: 335px;
-  right: 0;
 }
 .immersive-translate-popup-btn {
+  display: inline-block;
   background-color: #ea4c89;
   font-size: 18px;
   opacity: 0.5;
@@ -10965,7 +10964,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.4.11",
+    version: "0.4.12",
     default_locale: "en",
     background: {
       service_worker: "background.js"

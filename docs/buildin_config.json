@@ -120,9 +120,10 @@
         "{{",
         "}}"
       ],
-      "immediateTranslationTextCount": 10000,
+      "immediateTranslationTextCount": 3000,
       "translationDebounce": 300,
-      "limit": 1500,
+      "limit": 5,
+      "interval": 1350,
       "maxTextGroupLengthPerRequest": 1,
       "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
@@ -491,7 +492,8 @@
     "pdfNewParagraphIndent": 1.2,
     "pdfNewParagraphIndentRightIndentPx": 130,
     "fingerCountToToggleTranslagePageWhenTouching": 4,
-    "fingerCountToToggleTranslationMaskWhenTouching": 0
+    "fingerCountToToggleTranslationMaskWhenTouching": 0,
+    "mouseHoverHoldKey": "Alt"
   },
   "rules": [
     {
@@ -880,7 +882,8 @@
         ".comment-text",
         ".media-item-headline",
         ".slim-video-information-title",
-        ".caption-window"
+        ".caption-window",
+        ".caption-visual-line"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -894,6 +897,9 @@
       },
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+      ],
+      "extraBlockSelectors": [
+        ".caption-visual-line"
       ]
     },
     {
@@ -909,7 +915,8 @@
         "yt-formatted-string.ytd-transcript-segment-renderer",
         "#description-inline-expander > yt-attributed-string > span",
         "ytd-notification-renderer .message",
-        ".caption-window"
+        ".caption-window",
+        ".caption-visual-line"
       ],
       "wrapperPrefix": "",
       "wrapperSuffix": "",
@@ -931,7 +938,8 @@
         "[class^='lln-']"
       ],
       "extraBlockSelectors": [
-        "yt-formatted-string.ytd-transcript-segment-renderer"
+        "yt-formatted-string.ytd-transcript-segment-renderer",
+        ".caption-visual-line"
       ],
       "detectParagraphLanguage": true,
       "injectedCss": [
@@ -2367,6 +2375,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-05T12:47:22.780Z",
-  "latestVersion": "0.4.12"
+  "buildinConfigUpdatedAt": "2023-05-05T15:22:31.919Z",
+  "latestVersion": "0.5.1"
 }

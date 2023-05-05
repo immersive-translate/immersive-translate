@@ -70,7 +70,7 @@ li[role="list"].no-arrow > a:visited {
 
 select.min-select {
   --form-element-spacing-horizontal: 0;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   max-width: 128px;
   color: var(--primary);
   font-size: 14px;

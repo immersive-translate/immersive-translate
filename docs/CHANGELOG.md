@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.0
+
+- Feat: Translate the current paragraph when mouse hover.
+- Feat: Refactor PDF translation, now you can translate most PDFs with Immersive Translation
+- Fix: Disable Context Menu not working [#428](https://github.com/immersive-translate/immersive-translate/issues/428)
+- Fix: Avoid Content Security Policy for [Mastondon](https://mastodon.social/)
+
 ## 0.4.11
 
 - Fix: userscript permission (only for userscript).

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <article>
+      <p>This is a paragraph of main frame.</p>
+      <div id="shadow-host"></div>
+    </article>
+
+    <script>
+      const shadowRootHost = document.querySelector("#shadow-host");
+      const shadowRoot = shadowRootHost.attachShadow({ mode: "open" });
+      shadowRoot.innerHTML = `<p>This a paragraph from shadow root.</p>`;
+
+      setTimeout(() => {
+        const position = document.caretPositionFromPoint(60, 60);
+        const theNode = position.offsetNode;
+        console.log("the Node", theNode);
+      }, 500);
+    </script>
+  </body>
+</html>

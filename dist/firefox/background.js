@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-03T09:47:49.638Z", VERSION: "0.4.12", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-05T12:49:56.377Z", VERSION: "0.5.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3438,7 +3438,7 @@ li[role="list"].no-arrow > a:visited {
 
 select.min-select {
   --form-element-spacing-horizontal: 0;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   max-width: 128px;
   color: var(--primary);
   font-size: 14px;
@@ -3746,6 +3746,9 @@ body {
   position: fixed;
   padding: 0;
   z-index: 999999;
+  right: 0;
+  top: 335px;
+  width: 36px;
 }
 .immersive-translate-popup-btn {
   display: inline-block;
@@ -3799,7 +3802,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v118/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v119/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -4532,8 +4535,8 @@ body {
                       resolve,
                       reject
                     }, metadata));
-                  } catch (cbError) {
-                    console.warn(`${name} API method doesn't seem to support the callback parameter, falling back to call it without a callback: `, cbError), target[name](...args), metadata.fallbackToNoCallback = !1, metadata.noCallback = !0, resolve();
+                  } catch {
+                    target[name](...args), metadata.fallbackToNoCallback = !1, metadata.noCallback = !0, resolve();
                   }
                 else
                   metadata.noCallback ? (target[name](...args), resolve()) : target[name](...args, makeCallback({
@@ -4638,7 +4641,6 @@ body {
                     message: message2
                   });
                 }).catch((err) => {
-                  console.error("Failed to send onMessage rejected reply", err);
                 });
               };
               return sendPromisedResult(isResultThenable ? result : sendResponsePromise), !0;
@@ -4752,7 +4754,6 @@ body {
         } catch (error) {
           if (!(error instanceof ReferenceError))
             throw error;
-          console.error("`persistent` option is only available in Deno");
         }
     });
   }
@@ -5078,12 +5079,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v118/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v119/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v118/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v119/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P = Object.create, I = Object.defineProperty, D = Object.getOwnPropertyDescriptor, G = Object.getOwnPropertyNames, H = Object.getPrototypeOf, U = Object.prototype.hasOwnProperty, X = (e, t3) => () => (t3 || e((t3 = { exports: {} }).exports, t3), t3.exports), q = (e, t3) => {
     for (var n in t3)
       I(e, n, { get: t3[n], enumerable: !0 });
@@ -5097,23 +5098,23 @@ body {
       return ee.Date.now();
     };
     function fe(e, t3, n) {
-      var f2, i, b2, l, a, u2, d3 = 0, S3 = !1, g3 = !1, T2 = !0;
+      var f2, i, b2, l, a, u2, d2 = 0, S3 = !1, g3 = !1, T2 = !0;
       if (typeof e != "function")
         throw new TypeError(M2);
       t3 = C2(t3) || 0, p2(n) && (S3 = !!n.leading, g3 = "maxWait" in n, b2 = g3 ? re(C2(n.maxWait) || 0, t3) : b2, T2 = "trailing" in n ? !!n.trailing : T2);
       function j2(r) {
         var o2 = f2, m2 = i;
-        return f2 = i = void 0, d3 = r, l = e.apply(m2, o2), l;
+        return f2 = i = void 0, d2 = r, l = e.apply(m2, o2), l;
       }
       function A2(r) {
-        return d3 = r, a = setTimeout(y, t3), S3 ? j2(r) : l;
+        return d2 = r, a = setTimeout(y, t3), S3 ? j2(r) : l;
       }
       function B4(r) {
-        var o2 = r - u2, m2 = r - d3, k2 = t3 - o2;
+        var o2 = r - u2, m2 = r - d2, k2 = t3 - o2;
         return g3 ? ie(k2, b2 - m2) : k2;
       }
       function E3(r) {
-        var o2 = r - u2, m2 = r - d3;
+        var o2 = r - u2, m2 = r - d2;
         return u2 === void 0 || o2 >= t3 || o2 < 0 || g3 && m2 >= b2;
       }
       function y() {
@@ -5126,7 +5127,7 @@ body {
         return a = void 0, T2 && f2 ? j2(r) : (f2 = i = void 0, l);
       }
       function F2() {
-        a !== void 0 && clearTimeout(a), d3 = 0, f2 = u2 = i = a = void 0;
+        a !== void 0 && clearTimeout(a), d2 = 0, f2 = u2 = i = a = void 0;
       }
       function R3() {
         return a === void 0 ? l : _2(O2());
@@ -5181,7 +5182,7 @@ body {
   s2(c, L(h()));
   var { default: $, ...le } = ce, se = $ !== void 0 ? $ : le;
 
-  // https://esm.sh/v118/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v119/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i) => () => (i || v4((i = { exports: {} }).exports, i), i.exports), Pe = (v4, i) => {
     for (var l in i)
       ve(v4, l, { get: i[l], enumerable: !0 });
@@ -5336,29 +5337,29 @@ body {
               }, Te = p2.alert = function(t3) {
                 var o2 = t3.type, s4 = o2 === void 0 ? 4 : o2, u2 = t3.text, c3 = t3.time, k2 = c3 === void 0 ? e.alertTime : c3, H3 = t3.stay, S3 = H3 !== void 0 && H3, h2 = t3.position, f2 = h2 === void 0 ? e.positions.alert || f2.top : h2;
                 W2(), F2();
-                var d3 = document.createElement("div"), m2 = K();
-                d3.id = m2, d3.position = f2, d3.classList.add(e.classes.textbox), d3.classList.add(ue[s4]), d3.classList.add(e.classes.alert), d3.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>", d3.onclick = function() {
+                var d2 = document.createElement("div"), m2 = K();
+                d2.id = m2, d2.position = f2, d2.classList.add(e.classes.textbox), d2.classList.add(ue[s4]), d2.classList.add(e.classes.alert), d2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + u2 + "</div>", d2.onclick = function() {
                   return O2(m2, f2);
-                }, d3.listener = function(n) {
+                }, d2.listener = function(n) {
                   (te(n) || ne(n)) && F2();
-                }, Z(d3, f2), k2 && k2 < 1 && (k2 = 1), !S3 && k2 && le2(k2).then(function() {
+                }, Z(d2, f2), k2 && k2 < 1 && (k2 = 1), !S3 && k2 && le2(k2).then(function() {
                   return O2(m2, f2);
                 });
               }, Me = p2.force = function(t3, o2) {
                 var s4 = t3.type, u2 = s4 === void 0 ? 5 : s4, c3 = t3.text, k2 = t3.buttonText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.callback, h2 = t3.position, f2 = h2 === void 0 ? e.positions.force || f2.top : h2;
                 W2(), F2();
-                var d3 = document.createElement("div"), m2 = K();
-                d3.id = m2;
+                var d2 = document.createElement("div"), m2 = K();
+                d2.id = m2;
                 var n = document.createElement("div");
                 n.classList.add(e.classes.textbox), n.classList.add(e.classes.backgroundInfo), n.innerHTML = '<div class="' + e.classes.textboxInner + '">' + c3 + "</div>";
                 var r = document.createElement("div");
                 r.classList.add(e.classes.button), r.classList.add(ue[u2]), r.innerHTML = H3, r.onclick = function() {
                   O2(m2, f2), j2(), S3 ? S3() : o2 && o2();
-                }, d3.appendChild(n), d3.appendChild(r), d3.listener = function(C2) {
+                }, d2.appendChild(n), d2.appendChild(r), d2.listener = function(C2) {
                   te(C2) && r.click();
-                }, Z(d3, f2), se2();
+                }, Z(d2, f2), se2();
               }, He = p2.confirm = function(t3, o2, s4) {
-                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Yes" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.confirm || m2.top : d3;
+                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Yes" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d2 = t3.position, m2 = d2 === void 0 ? e.positions.confirm || m2.top : d2;
                 W2(), F2();
                 var n = document.createElement("div"), r = K();
                 n.id = r;
@@ -5375,7 +5376,7 @@ body {
                   te(E3) ? y.click() : ne(E3) && a.click();
                 }, Z(n, m2), se2(n, m2);
               }, ge = function(t3, o2, s4) {
-                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Submit" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d3 = t3.position, m2 = d3 === void 0 ? e.positions.input || m2.top : d3, n = g3(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
+                var u2 = t3.text, c3 = t3.submitText, k2 = c3 === void 0 ? "Submit" : c3, H3 = t3.cancelText, S3 = H3 === void 0 ? "Cancel" : H3, h2 = t3.submitCallback, f2 = t3.cancelCallback, d2 = t3.position, m2 = d2 === void 0 ? e.positions.input || m2.top : d2, n = g3(t3, ["text", "submitText", "cancelText", "submitCallback", "cancelCallback", "position"]);
                 W2(), F2();
                 var r = document.createElement("div"), C2 = K();
                 r.id = C2;
@@ -5407,25 +5408,25 @@ body {
               var Se = p2.select = function(t3, o2) {
                 var s4 = t3.text, u2 = t3.cancelText, c3 = u2 === void 0 ? "Cancel" : u2, k2 = t3.cancelCallback, H3 = t3.choices, S3 = t3.position, h2 = S3 === void 0 ? e.positions.select || h2.top : S3;
                 W2(), F2();
-                var f2 = document.createElement("div"), d3 = K();
-                f2.id = d3;
+                var f2 = document.createElement("div"), d2 = K();
+                f2.id = d2;
                 var m2 = document.createElement("div");
                 m2.classList.add(e.classes.textbox), m2.classList.add(e.classes.backgroundInfo), m2.innerHTML = '<div class="' + e.classes.textboxInner + '">' + s4 + "</div>", f2.appendChild(m2), H3.forEach(function(r, C2) {
                   var y = r.type, a = y === void 0 ? 1 : y, E3 = r.text, D4 = r.handler, M2 = document.createElement("div");
                   M2.classList.add(ue[a]), M2.classList.add(e.classes.button), M2.classList.add(e.classes.selectChoice);
                   var w = H3[C2 + 1];
                   w && !w.type && (w.type = 1), w && w.type === a && M2.classList.add(e.classes.selectChoiceRepeated), M2.innerHTML = E3, M2.onclick = function() {
-                    O2(d3, h2), j2(), D4();
+                    O2(d2, h2), j2(), D4();
                   }, f2.appendChild(M2);
                 });
                 var n = document.createElement("div");
                 n.classList.add(e.classes.backgroundNeutral), n.classList.add(e.classes.button), n.innerHTML = c3, n.onclick = function() {
-                  O2(d3, h2), j2(), k2 ? k2() : o2 && o2();
+                  O2(d2, h2), j2(), k2 ? k2() : o2 && o2();
                 }, f2.appendChild(n), f2.listener = function(r) {
                   ne(r) && n.click();
                 }, Z(f2, h2), se2(f2, h2);
               }, we = p2.date = function(t3, o2, s4) {
-                var u2 = t3.value, c3 = u2 === void 0 ? /* @__PURE__ */ new Date() : u2, k2 = t3.submitText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.cancelText, h2 = S3 === void 0 ? "Cancel" : S3, f2 = t3.submitCallback, d3 = t3.cancelCallback, m2 = t3.position, n = m2 === void 0 ? e.positions.date || n.top : m2;
+                var u2 = t3.value, c3 = u2 === void 0 ? /* @__PURE__ */ new Date() : u2, k2 = t3.submitText, H3 = k2 === void 0 ? "OK" : k2, S3 = t3.cancelText, h2 = S3 === void 0 ? "Cancel" : S3, f2 = t3.submitCallback, d2 = t3.cancelCallback, m2 = t3.position, n = m2 === void 0 ? e.positions.date || n.top : m2;
                 W2(), F2();
                 var r = "&#9662", C2 = document.createElement("div"), y = document.createElement("div"), a = document.createElement("div"), E3 = function(L4) {
                   C2.innerHTML = e.dateMonths[L4.getMonth()], y.innerHTML = L4.getDate(), a.innerHTML = L4.getFullYear();
@@ -5481,7 +5482,7 @@ body {
                 };
                 var U5 = document.createElement("div");
                 U5.classList.add(e.classes.button), U5.classList.add(e.classes.elementHalf), U5.classList.add(e.classes.backgroundError), U5.innerHTML = h2, U5.onclick = function() {
-                  O2(pe, n), j2(), d3 ? d3(c3) : s4 && s4(c3);
+                  O2(pe, n), j2(), d2 ? d2(c3) : s4 && s4(c3);
                 }, I3.appendChild(q3), I3.appendChild(G3), I3.appendChild(Q3), I3.appendChild(C2), I3.appendChild(y), I3.appendChild(a), I3.appendChild(ae), I3.appendChild(ie), I3.appendChild(ce2), fe.appendChild(I3), Y2.appendChild(fe), Y2.appendChild(z3), Y2.appendChild(U5), Y2.listener = function(L4) {
                   te(L4) ? z3.click() : ne(L4) && U5.click();
                 }, Z(Y2, n), se2(Y2, n);
@@ -5498,11 +5499,11 @@ body {
   X2(B, ke(xe()));
   var { default: Ce, ..._e } = Fe, Ye = Ce !== void 0 ? Ce : _e;
 
-  // https://esm.sh/v118/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v119/nanostores@0.7.4/deno/nanostores.mjs
   var S = Symbol("clean");
   var m = Symbol();
 
-  // https://esm.sh/v118/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v119/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g(r, n) {
     if (typeof r == "string")
       return n(r);
@@ -5536,7 +5537,7 @@ body {
     return t3 in n || (t3 = "many"), g(n[t3], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v118/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v119/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P2(e, t3, i, r) {
     e.addEventListener ? e.addEventListener(t3, i, r) : e.attachEvent && e.attachEvent("on".concat(t3), function() {
@@ -5632,11 +5633,11 @@ body {
   var S2 = function(t3) {
     var i = t3.key, r = t3.scope, n = t3.method, a = t3.splitKey, o2 = a === void 0 ? "+" : a, l = U2(i);
     l.forEach(function(c3) {
-      var p2 = c3.split(o2), m2 = p2.length, y = p2[m2 - 1], d3 = y === "*" ? "*" : C(y);
-      if (s3[d3]) {
+      var p2 = c3.split(o2), m2 = p2.length, y = p2[m2 - 1], d2 = y === "*" ? "*" : C(y);
+      if (s3[d2]) {
         r || (r = E());
         var K = m2 > 1 ? T(g2, p2) : [];
-        s3[d3] = s3[d3].filter(function(h2) {
+        s3[d2] = s3[d2].filter(function(h2) {
           var w = n ? h2.method === n : !0;
           return !(w && h2.scope === r && G2(h2.mods, K));
         });
@@ -5677,9 +5678,9 @@ body {
       if (r in s3) {
         for (var c3 = 0; c3 < s3[r].length; c3++)
           if ((e.type === "keydown" && s3[r][c3].keydown || e.type === "keyup" && s3[r][c3].keyup) && s3[r][c3].key) {
-            for (var p2 = s3[r][c3], m2 = p2.splitKey, y = p2.key.split(m2), d3 = [], K = 0; K < y.length; K++)
-              d3.push(C(y[K]));
-            d3.sort().join("") === f.sort().join("") && _(e, p2, o2, t3);
+            for (var p2 = s3[r][c3], m2 = p2.splitKey, y = p2.key.split(m2), d2 = [], K = 0; K < y.length; K++)
+              d2.push(C(y[K]));
+            d2.sort().join("") === f.sort().join("") && _(e, p2, o2, t3);
           }
       }
     }
@@ -5692,12 +5693,12 @@ body {
     var r = U2(e), n = [], a = "all", o2 = document, l = 0, c3 = !1, p2 = !0, m2 = "+", y = !1;
     for (i === void 0 && typeof t3 == "function" && (i = t3), Object.prototype.toString.call(t3) === "[object Object]" && (t3.scope && (a = t3.scope), t3.element && (o2 = t3.element), t3.keyup && (c3 = t3.keyup), t3.keydown !== void 0 && (p2 = t3.keydown), t3.capture !== void 0 && (y = t3.capture), typeof t3.splitKey == "string" && (m2 = t3.splitKey)), typeof t3 == "string" && (a = t3); l < r.length; l++)
       e = r[l].split(m2), n = [], e.length > 1 && (n = T(g2, e)), e = e[e.length - 1], e = e === "*" ? "*" : C(e), e in s3 || (s3[e] = []), s3[e].push({ keyup: c3, keydown: p2, scope: a, mods: n, shortcut: r[l], method: i, key: r[l], splitKey: m2, element: o2 });
-    typeof o2 < "u" && !W(o2) && window && (H2.push(o2), P2(o2, "keydown", function(d3) {
-      k(d3, o2);
+    typeof o2 < "u" && !W(o2) && window && (H2.push(o2), P2(o2, "keydown", function(d2) {
+      k(d2, o2);
     }, y), A || (A = !0, P2(window, "focus", function() {
       f = [];
-    }, y)), P2(o2, "keyup", function(d3) {
-      k(d3, o2), N2(d3);
+    }, y)), P2(o2, "keyup", function(d2) {
+      k(d2, o2), N2(d2);
     }, y));
   }
   function Y(e) {
@@ -5720,15 +5721,15 @@ body {
   }, window.hotkeys = v2);
   var B3;
 
-  // https://esm.sh/v118/immersive-translate@1.0.9/deno/immersive-translate.mjs
-  var d2 = "Immersive Translate", v3 = class {
+  // https://esm.sh/v119/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  var v3 = class {
     #e = performance.now();
     reset() {
       this.#e = performance.now();
     }
     stop(e) {
       let t3 = performance.now(), n = Math.round(t3 - this.#e);
-      console.debug(d2 + " TIMING:", e, "in", n + "ms"), this.#e = t3;
+      this.#e = t3;
     }
   }, D3 = class {
     #e = 1;
@@ -5755,25 +5756,25 @@ body {
       }
     }
     debug(...e) {
-      this.#e <= 0 && console.log(d2 + " DEBUG:", ...e);
+      this.#e <= 0;
     }
     v(...e) {
-      this.#e <= 0 && console.log(d2 + " VERBOSE:", ...e);
+      this.#e <= 0;
     }
     info(...e) {
-      this.#e <= 1 && console.log(d2 + " INFO:", ...e);
+      this.#e <= 1;
     }
     l(...e) {
-      this.#e <= 1 && console.log(d2 + " TEMP INFO:", ...e);
+      this.#e <= 1;
     }
     warn(...e) {
-      this.#e <= 2 && console.warn(d2 + " WARN:", ...e);
+      this.#e <= 2;
     }
     error(...e) {
-      this.#e <= 3 && console.error(d2 + " ERROR:", ...e);
+      this.#e <= 3;
     }
     fatal(...e) {
-      this.#e <= 4 && console.error(d2 + " FATAL:", ...e);
+      this.#e <= 4;
     }
     timing() {
       return this.level === 0 ? new v3() : { reset: () => {
@@ -5798,7 +5799,7 @@ body {
     help: "\u5E2E\u52A9",
     browserShortcutsNoteForFirefox: "Firefox \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762 `about:addons`\uFF0C\u7136\u540E\u70B9\u51FB\u300C\u8BBE\u7F6E\u300D\uFF0C\u518D\u70B9\u51FB\u300C\u7BA1\u7406\u5FEB\u6377\u952E\u300D\u5373\u53EF\u8BBE\u7F6E",
     browserShortcutsNoteForChrome: "\u7C7BChrome \u6D4F\u89C8\u5668\u4FEE\u6539\u5FEB\u6377\u952E\u9700\u8981\u6253\u5F00\u6269\u5C55\u7BA1\u7406\u9875\u9762\uFF0C\u5728`\u7BA1\u7406\u5FEB\u6377\u952E`\u9762\u677F(`chrome://extensions/shortcuts`)\u8BBE\u7F6E\uFF0C\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE\u8DF3\u8F6C\u5230\u5FEB\u6377\u952E\u7BA1\u7406\u9875\u9762\u3002",
-    browserShortcutsSucks: "\u4FEE\u6539\u5FEB\u6377\u952E\u8BF7\u624B\u52A8\u8F93\u5165\uFF0C\u683C\u5F0F\u4E3A\uFF1A",
+    browserShortcutsSucks: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u952E\u683C\u5F0F\u4E3A\uFF1A",
     enableLineBreakDescription: "\u5F00\u542F\u540E\uFF0C\u5C06\u4F1A\u5728\u957F\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8BDD\u7ED3\u675F\u63D2\u5165\u6362\u884C\u7B26\uFF0C\u4EE5\u4FBF\u4E8E\u9605\u8BFB",
     "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8BD1",
     "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7F51\u9875\u53CC\u8BED\u7FFB\u8BD1\u6269\u5C55\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u652F\u6301 Deepl/Google/\u6709\u9053/\u817E\u8BAF\u7FFB\u8BD1\u7B49\u591A\u4E2A\u7FFB\u8BD1\u670D\u52A1\uFF0C\u652F\u6301 Firefox/Chrome/\u6CB9\u7334\u811A\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
@@ -5840,6 +5841,13 @@ body {
     "fingers.3": "\u4E09\u6307\u89E6\u6478",
     "fingers.4": "\u56DB\u6307\u89E6\u6478",
     "fingers.5": "\u4E94\u6307\u89E6\u6478",
+    mouseHoldKey: "+ {key} \u7FFB\u8BD1\u8BE5\u6BB5",
+    mouseHoldKeyAuto: "\u76F4\u63A5\u7FFB\u8BD1\u8BE5\u6BB5",
+    mouseHoldKeyOff: "\u4E0D\u505A\u4EFB\u4F55\u4E8B\u60C5",
+    mouseHoldKeyOther: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u952E(\u6253\u5F00\u8BBE\u7F6E)",
+    mouseHoldKeyCustomKey: "{key} \u7FFB\u8BD1\u8BE5\u6BB5",
+    mouseHoverHoldKey: "\u9F20\u6807\u6ED1\u8FC7\u540C\u65F6\u6309\u4E0B X \u952E\u7FFB\u8BD1\u6BB5\u843D",
+    "mouse-translate": "\u5F53\u9F20\u6807\u6ED1\u8FC7",
     document: "\u6587\u6863",
     resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
     resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
@@ -6056,10 +6064,12 @@ body {
     "field.model": "\u6A21\u578B",
     "field.translationEngine": "\u7FFB\u8BD1\u5F15\u64CE",
     "field.limitPerMinute": "\u6BCF\u5206\u949F\u6700\u5927\u8BF7\u6C42\u6570",
+    "field.limitPerSecond": "\u6BCF\u79D2\u6700\u5927\u8BF7\u6C42\u6570",
     "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6587\u672C\u957F\u5EA6",
     "field.maxTextGroupLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u6BB5\u843D\u6570",
     "field.apiUrl": "\u81EA\u5B9A\u4E49 API \u63A5\u53E3\u5730\u5740",
-    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\uFF0COpenAI \u8BD5\u7528\u7248\u7684\u8BF7\u6C42\u9650\u5236\u4E3A\u6BCF\u5206\u949F 3 \u4E2A\u8BF7\u6C42 \uFF0C\u4ED8\u8D39\u7248\u53EF\u4EE5\u5EFA\u8BAE\u6539\u4E3A 500 \u4EE5\u4E0A",
+    "description.limitPerMinute": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u5206\u949F\u5F00\u59CB\u3002\u7531\u4E8EOpenAI\u76EE\u524D\u670D\u52A1\u7684\u5404\u79CD\u9650\u5236\uFF0C\u8BF7\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u6700\u65B0\u5EFA\u8BAE\u7684\u6570\u503C",
+    "description.limitPerSecond": "\u8BF7\u6C42\u6570\u8D85\u8FC7\u8BE5\u9650\u5236\u65F6\u4F1A\u8FDB\u5165\u6392\u961F\u72B6\u6001\uFF0C\u76F4\u5230\u4E0B\u4E00\u79D2\u949F\u5F00\u59CB\u3002\u7531\u4E8EOpenAI\u76EE\u524D\u670D\u52A1\u7684\u5404\u79CD\u9650\u5236\uFF0C\u8BF7\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u6700\u65B0\u5EFA\u8BAE\u7684\u6570\u503C",
     "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
     "description.maxTextLengthPerRequest": "\u6BCF\u6B21\u8BF7\u6C42\u6700\u5927\u5B57\u7B26\u6570\uFF0C\u592A\u5927\u4F1A\u5BFC\u81F4\u63A5\u53E3\u7684\u54CD\u5E94\u53D8\u6162\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5C1D\u8BD5\u8C03\u6574\u8BE5\u9009\u9879\u6765\u4F18\u5316\u901F\u5EA6",
     "description.systemPrompt": "\u4EE5\u7CFB\u7EDF\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00",
@@ -6084,7 +6094,7 @@ body {
     help: "\u8AAA\u660E",
     browserShortcutsNoteForFirefox: "Firefox \u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u9644\u52A0\u5143\u4EF6\u7BA1\u7406\u9801\u9762 \u300Cabout:addons\u300D\uFF0C\u7136\u5F8C\u9EDE\u9078\u300C\u8A2D\u5B9A\u5716\u793A\u300D\uFF0C\u518D\u9EDE\u9078\u300C\u7BA1\u7406\u64F4\u5145\u5957\u4EF6\u5FEB\u901F\u9375\u300D\u5373\u53EF\u8A2D\u5B9A",
     browserShortcutsNoteForChrome: "Chromium \u6838\u5FC3\u700F\u89BD\u5668\u8B8A\u66F4\u5FEB\u901F\u9375\u9700\u8981\u958B\u555F\u64F4\u5145\u529F\u80FD\u7BA1\u7406\u9801\u9762\uFF0C\u5728\u300C\u9375\u76E4\u5FEB\u901F\u9375\u300D\u9801\u9762(chrome://extensions/shortcuts)\u8A2D\u5B9A\uFF0C\u9EDE\u9078\u4E0B\u65B9\u6309\u9215\u524D\u5F80\u5FEB\u901F\u9375\u7BA1\u7406\u9801\u9762\u3002",
-    browserShortcutsSucks: "\u8B8A\u66F4\u5FEB\u901F\u9375\u8ACB\u624B\u52D5\u8F38\u5165\uFF0C\u683C\u5F0F\u70BA\uFF1A",
+    browserShortcutsSucks: "\u81EA\u5B9A\u4E49\u5FEB\u901F\u9375\u683C\u5F0F\u70BA\uFF1A",
     enableLineBreakDescription: "\u555F\u7528\u5F8C\uFF0C\u5C07\u6703\u5728\u9577\u6BB5\u843D\u4E2D\u6BCF\u53E5\u8A71\u7D50\u675F\u63D2\u5165\u63DB\u884C\u5B57\u5143\uFF0C\u4EE5\u4FBF\u65BC\u95B1\u8B80",
     "browser.brandName": "\u6C89\u6D78\u5F0F\u7FFB\u8B6F",
     "browser.brandDescription": "\u6C89\u6D78\u5F0F\u7DB2\u9801\u96D9\u8A9E\u7FFB\u8B6F\u5957\u4EF6\uFF0C\u5B8C\u5168\u514D\u8CBB\u4F7F\u7528\uFF0C\u652F\u63F4 Deepl/Google/\u9A30\u8A0A/\u706B\u5C71\u7FFB\u8B6F\u7B49\u591A\u500B\u7FFB\u8B6F\u670D\u52D9\uFF0C\u652F\u63F4 Firefox/Chrome/\u6CB9\u7334\u8173\u672C\uFF0C\u4EA6\u53EF\u5728 iOS Safari \u4E0A\u4F7F\u7528\u3002",
@@ -6140,6 +6150,13 @@ body {
     "translate to the bottom of the page": "\u9032\u5165\u7DB2\u9801\u5F8C\uFF0C\u662F\u5426\u7ACB\u5373\u7FFB\u8B6F\u5230\u9801\u9762\u5E95\u90E8\uFF1F",
     feedback: "\u554F\u984C\u56DE\u5831",
     toggleTranslatePage: "\u7FFB\u8B6F\u7DB2\u9801/\u986F\u793A\u539F\u6587",
+    "mouse-translate": "\u7576\u9F20\u6A19\u6ED1\u904E",
+    mouseHoldKey: "+ {key} \u7FFB\u8B6F\u8A72\u6BB5",
+    mouseHoldKeyAuto: "\u76F4\u63A5\u7FFB\u8B6F\u8A72\u6BB5",
+    mouseHoldKeyOff: "\u4E0D\u505A\u4EFB\u4F55\u4E8B\u60C5",
+    mouseHoldKeyOther: "\u81EA\u5B9A\u7FA9\u5FEB\u6377\u9375(\u6253\u958B\u8A2D\u7F6E)",
+    mouseHoldKeyCustomKey: "{key} \u7FFB\u8B6F\u8A72\u6BB5",
+    mouseHoverHoldKey: "\u9F20\u6A19\u6ED1\u904E\u540C\u6642\u6309\u4E0B X \u9375\u7FFB\u8B6F\u6BB5\u843D",
     translateToThePageEndImmediatelyDescription: "\u555F\u7528\u5F8C\uFF0C\u9032\u5165\u7DB2\u9801\u5C07\u7ACB\u5373\u7FFB\u8B6F\u5F9E\u9802\u90E8\u5230\u5E95\u90E8\u7684\u5167\u5BB9\u3002\u95DC\u9589\u5247\u908A\u770B\u908A\u8B6F\u3002\uFF08\u4E0D\u63A8\u85A6\u958B\u555F\uFF09",
     "translate all areas of the page": "\u662F\u5426\u7FFB\u8B6F\u7DB2\u9801\u6240\u6709\u5340\u57DF",
     translationAreaDescription: "\u555F\u7528\u5F8C\uFF0C\u7DB2\u9801\u7684\u6240\u6709\u5340\u57DF\u90FD\u6703\u88AB\u7FFB\u8B6F\u3002\u95DC\u9589\u5247\u4F7F\u7528\u9810\u8A2D\u7684\u667A\u6167\u8FA8\u8B58\uFF0C\u50C5\u7FFB\u8B6F\u4E3B\u8981\u5340\u57DF\u3002(\u4E0D\u63A8\u85A6\u958B\u555F)",
@@ -6340,9 +6357,11 @@ body {
     "field.model": "\u6A21\u578B",
     "field.translationEngine": "\u7FFB\u8B6F\u5F15\u64CE",
     "field.limitPerMinute": "\u6BCF\u5206\u9418\u6700\u5927\u8981\u6C42\u6578",
+    "field.limitPerSecond": "\u6BCF\u79D2\u6700\u5927\u8981\u6C42\u6578",
     "field.maxTextLengthPerRequest": "\u6BCF\u6B21\u8981\u6C42\u7684\u6700\u5927\u6587\u5B57\u9577\u5EA6",
     "field.apiUrl": "\u81EA\u8A02 API \u4F4D\u5740",
-    "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\uFF0C\u9810\u8A2D\u8A2D\u5B9A\u70BA OpenAI \u8A66\u7528\u7248\u7684\u8981\u6C42\u9650\u5236",
+    "description.limitPerMinute": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u5206\u9418\u958B\u59CB\u3002\u7531\u4E8EOpenAI\u76EE\u524D\u670D\u52A1\u7684\u5404\u79CD\u9650\u5236\uFF0C\u8BF7\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u6700\u65B0\u5EFA\u8BAE\u7684\u6570\u503C",
+    "description.limitPerSecond": "\u8981\u6C42\u6578\u8D85\u904E\u8A72\u9650\u5236\u6642\u6703\u88AB\u66AB\u6642\u505C\u7528\uFF0C\u76F4\u81F3\u4E0B\u4E00\u79D2\u9418\u958B\u59CB\u3002\u7531\u4E8EOpenAI\u76EE\u524D\u670D\u52A1\u7684\u5404\u79CD\u9650\u5236\uFF0C\u8BF7\u70B9\u51FB<1>\u8FD9\u91CC</1>\u67E5\u770B\u6700\u65B0\u5EFA\u8BAE\u7684\u6570\u503C",
     "description.prompt": "\u4EE5\u7528\u6237\u8EAB\u4EFD\u53D1\u9001\u7ED9 OpenAI \u7684\u5BF9\u8BDD\uFF0C\u5176\u4E2D {{text}} \u8868\u793A\u6BB5\u843D\u7684\u6587\u672C\u5185\u5BB9\uFF0C{{from}} \u8868\u793A\u6BB5\u843D\u7684\u8BED\u8A00\uFF0C{{to}} \u8868\u793A\u76EE\u6807\u8BED\u8A00,\u53EF\u4EE5\u7701\u7565 {{text}} \uFF08\u63A8\u8350\uFF09, \u5C06\u4F1A\u5728\u5355\u72EC\u4F5C\u4E3A\u4E00\u6BB5\u53D1\u9001\u7ED9 OpenAI",
     "description.maxTextLengthPerRequest": "\u9810\u8A2D\u6703\u5408\u4F75\u591A\u500B\u6BB5\u843D\uFF0C\u4EE5\u6E1B\u5C11\u8ACB\u8981\u6C42\u6578\uFF0C\u4F46\u662F\u5982\u679C\u6BB5\u843D\u7E3D\u9577\u5EA6\u904E\u9577\uFF0C\u4E5F\u53EF\u80FD\u6703\u5C0E\u81F4 API \u7684\u56DE\u61C9\u6642\u9593\u589E\u52A0\uFF0C\u56E0\u6B64\u53EF\u4EE5\u5617\u8A66\u8ABF\u6574\u8A72\u9078\u9805\u4F86\u63D0\u5347\u901F\u5EA6",
     enabledExtension: "\u555F\u7528\u5957\u4EF6",
@@ -6419,6 +6438,13 @@ body {
     "translate to the bottom of the page": "Translate to the bottom of the page immediately after opening the page?",
     feedback: "Feedback",
     toggleTranslatePage: "Toggle Translate",
+    "mouse-translate": "Mouse Hover",
+    mouseHoldKey: "+ {key} translate this paragraph",
+    mouseHoldKeyAuto: "Translate the paragraph directly",
+    mouseHoldKeyOff: "Do nothing",
+    mouseHoldKeyOther: "Custom shortcut key (open settings)",
+    mouseHoldKeyCustomKey: "{key} translate this paragraph",
+    mouseHoverHoldKey: "Mouse over and press X key to translate paragraph",
     translateToThePageEndImmediatelyDescription: "Enabled will translate from the top to the bottom of the page immediately after opening. Disable will translate while reading. (Not recommended to enable)",
     "translate all areas of the page": "Whether to translate all areas of the web page",
     translationAreaDescription: "When enabled, all areas of the entire web page will be translated. Disabled will use the default smart recognition and translate only the main areas. (Not recommended to enable)",
@@ -6526,7 +6552,7 @@ body {
     "translationServices.aliyun": "Aliyun Translator",
     "translationServices.volc": "Volcano Translation",
     "translationServices.deeplx": "DeeplX (Alpha)",
-    "translationServices.bing": "\u5FAE\u8F6F\u7FFB\u8BD1",
+    "translationServices.bing": "Microsoft Translator",
     "translationServices.deepl": "DeepL",
     "translationServices.wechat": "Wechat translation",
     "translationServices.azure": "Azure Translator",
@@ -6620,9 +6646,11 @@ body {
     "field.model": "Model",
     "field.translationEngine": "Translation engine",
     "field.limitPerMinute": "Max requests per minute",
+    "field.limitPerSecond": "Max requests per second",
     "field.maxTextLengthPerRequest": "Maximum text length per request",
     "field.apiUrl": "Custom API interface address",
-    "description.limitPerMinute": "The number of requests exceeding this limit will be temporarily disabled until the next minute, set as the request limit for the OpenAI trial version by default",
+    "description.limitPerMinute": "When the number of requests exceeds this limit, it will be temporarily suspended until the beginning of the next minute. Due to various limitations of OpenAI's current services, please click <1>here</1> to view the latest suggested values",
+    "description.limitPerSecond": "When the number of requests exceeds this limit, it will be temporarily suspended until the beginning of the next second. Due to various limitations of OpenAI's current services, please click <1>here</1> to view the latest suggested values",
     "description.prompt": "Send as a user to OpenAI conversation, where {{text}} indicates the text of the paragraph,{{from}} indicates the language of the paragraph,{{to}} indicates the target language, you can omit {{text}}, if so, it'll be sent as a separated message",
     "description.maxTextLengthPerRequest": "By default multiple paragraphs will be merged to reduce the number of requests, but if the total length of the paragraphs is too long, it may also cause the interface to respond slowly, so you can try to adjust this option to optimize speed",
     enabledExtension: "Enable extensions",
@@ -6895,10 +6923,11 @@ body {
         {
           name: "limit",
           required: !1,
-          labelKey: "field.limitPerMinute",
-          descriptionKey: "description.limitPerMinute",
+          labelKey: "field.limitPerSecond",
+          descriptionKey: "description.limitPerSecond",
+          descriptionLink1: "https://immersive-translate.owenyoung.com/services/openai",
           type: "number",
-          default: 1500
+          default: 3
         },
         {
           name: "maxTextLengthPerRequest",
@@ -7132,18 +7161,18 @@ body {
   }, childFrameToRootFrameIdentifier = { type: brandIdForJs + "ChildFrameToRootFrameIdentifier" };
 
   // log.ts
-  var Timing = class {
+  var theConsole = console, Timing = class {
     #t = performance.now();
     reset() {
       this.#t = performance.now();
     }
     stop(message) {
-      let now = performance.now(), d3 = Math.round(now - this.#t), cf = colors_exports.green;
-      d3 > 1e4 ? cf = colors_exports.red : d3 > 1e3 && (cf = colors_exports.yellow), console.debug(
+      let now = performance.now(), d2 = Math.round(now - this.#t), cf = colors_exports.green;
+      d2 > 1e4 ? cf = colors_exports.red : d2 > 1e3 && (cf = colors_exports.yellow), theConsole.debug(
         colors_exports.dim(brandName + " TIMING:"),
         message,
         "in",
-        cf(d3 + "ms")
+        cf(d2 + "ms")
       ), this.#t = now;
     }
   }, Logger = class {
@@ -7171,25 +7200,25 @@ body {
       }
     }
     debug(...args) {
-      this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
+      this.#level <= 0 /* Debug */ && theConsole.log(colors_exports.dim(brandName + " DEBUG:"), ...args);
     }
     v(...args) {
-      this.#level <= 0 /* Debug */ && console.log(colors_exports.dim(brandName + " VERBOSE:"), ...args);
+      this.#level <= 0 /* Debug */;
     }
     info(...args) {
-      this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " INFO:"), ...args);
+      this.#level <= 1 /* Info */ && theConsole.log(colors_exports.green(brandName + " INFO:"), ...args);
     }
     l(...args) {
-      this.#level <= 1 /* Info */ && console.log(colors_exports.green(brandName + " TEMP INFO:"), ...args);
+      this.#level <= 1 /* Info */;
     }
     warn(...args) {
-      this.#level <= 2 /* Warn */ && console.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
+      this.#level <= 2 /* Warn */ && theConsole.warn(colors_exports.yellow(brandName + " WARN:"), ...args);
     }
     error(...args) {
-      this.#level <= 3 /* Error */ && console.error(colors_exports.red(brandName + " ERROR:"), ...args);
+      this.#level <= 3 /* Error */ && theConsole.error(colors_exports.red(brandName + " ERROR:"), ...args);
     }
     fatal(...args) {
-      this.#level <= 4 /* Fatal */ && console.error(colors_exports.red(brandName + " FATAL:"), ...args);
+      this.#level <= 4 /* Fatal */ && theConsole.error(colors_exports.red(brandName + " FATAL:"), ...args);
     }
     timing() {
       return this.level === 0 /* Debug */ ? new Timing() : { reset: () => {
@@ -7353,9 +7382,10 @@ body {
       },
       openai: {
         placeholderDelimiters: ["{{", "}}"],
-        immediateTranslationTextCount: 1e4,
+        immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
-        limit: 1500,
+        limit: 3,
+        interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
 
@@ -7715,7 +7745,8 @@ body {
       pdfNewParagraphIndent: 1.2,
       pdfNewParagraphIndentRightIndentPx: 130,
       fingerCountToToggleTranslagePageWhenTouching: 4,
-      fingerCountToToggleTranslationMaskWhenTouching: 0
+      fingerCountToToggleTranslationMaskWhenTouching: 0,
+      mouseHoverHoldKey: "Alt"
     },
     rules: [
       {
@@ -7938,7 +7969,9 @@ body {
           ".post-content",
           ".Comment__body",
           "faceplate-batch .md",
-          ".RichTextJSON-root"
+          ".RichTextJSON-root",
+          "div[slot=title]",
+          "div[slot=text-body]"
         ],
         detectParagraphLanguage: !0,
         globalStyles: {
@@ -7959,7 +7992,9 @@ body {
           ".PostContent",
           ".post-content",
           ".Comment__body",
-          "faceplate-batch .md"
+          "faceplate-batch .md",
+          "div[slot=title]",
+          "div[slot=text-body]"
         ],
         excludeMatches: [
           "https://www.reddit.com/r/*/wiki/*",
@@ -8038,7 +8073,9 @@ body {
         selectors: [
           ".comment-text",
           ".media-item-headline",
-          ".slim-video-information-title"
+          ".slim-video-information-title",
+          ".caption-window",
+          ".caption-visual-line"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -8050,6 +8087,9 @@ body {
         },
         injectedCss: [
           ".immersive-translate-target-wrapper img { width: 16px; height: 16px }"
+        ],
+        extraBlockSelectors: [
+          ".caption-visual-line"
         ]
       },
       {
@@ -8064,7 +8104,9 @@ body {
           "a#video-title",
           "yt-formatted-string.ytd-transcript-segment-renderer",
           "#description-inline-expander > yt-attributed-string > span",
-          "ytd-notification-renderer .message"
+          "ytd-notification-renderer .message",
+          ".caption-window",
+          ".caption-visual-line"
         ],
         wrapperPrefix: "",
         wrapperSuffix: "",
@@ -8084,7 +8126,8 @@ body {
         ],
         excludeSelectors: ["[class^='lln-']"],
         extraBlockSelectors: [
-          "yt-formatted-string.ytd-transcript-segment-renderer"
+          "yt-formatted-string.ytd-transcript-segment-renderer",
+          ".caption-visual-line"
         ],
         detectParagraphLanguage: !0,
         injectedCss: [
@@ -9204,6 +9247,10 @@ body {
       },
       {
         matches: "thehill.com",
+        injectedCss: [
+          ".most-popular-item { max-height: unset !important; }",
+          ".most-popular-item__link { -webkit-line-clamp: unset !important; }"
+        ],
         excludeSelectors: [
           "div.featured-cards__byline",
           "div.list-item__meta",
@@ -9214,6 +9261,15 @@ body {
           ".homepage__container__opinion__item__byline",
           ".homepage__container__header",
           ".archive__item__meta"
+        ]
+      },
+      {
+        matches: "manpages.ubuntu.com",
+        selectors: [
+          "pre"
+        ],
+        atomicBlockTags: [
+          "pre"
         ]
       },
       {
@@ -9587,14 +9643,14 @@ body {
         excludeSelectorMatches: []
       },
       translationTheme: "none",
-      translationService: "google",
+      translationService: "bing",
       translationArea: "main",
       translationStartMode: "dynamic",
       translationServices: {},
       generalRule: {
         ...finalBuildInConfig.generalRule
       },
-      translationGeneralConfig: { engine: "google" },
+      translationGeneralConfig: { engine: "bing" },
       rules: []
     };
   };
@@ -10475,24 +10531,24 @@ body {
   function md5cmn(q3, a, b2, x2, s4, t3) {
     return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q3), safeAdd(x2, t3)), s4), b2);
   }
-  function md5ff(a, b2, c3, d3, x2, s4, t3) {
-    return md5cmn(b2 & c3 | ~b2 & d3, a, b2, x2, s4, t3);
+  function md5ff(a, b2, c3, d2, x2, s4, t3) {
+    return md5cmn(b2 & c3 | ~b2 & d2, a, b2, x2, s4, t3);
   }
-  function md5gg(a, b2, c3, d3, x2, s4, t3) {
-    return md5cmn(b2 & d3 | c3 & ~d3, a, b2, x2, s4, t3);
+  function md5gg(a, b2, c3, d2, x2, s4, t3) {
+    return md5cmn(b2 & d2 | c3 & ~d2, a, b2, x2, s4, t3);
   }
-  function md5hh(a, b2, c3, d3, x2, s4, t3) {
-    return md5cmn(b2 ^ c3 ^ d3, a, b2, x2, s4, t3);
+  function md5hh(a, b2, c3, d2, x2, s4, t3) {
+    return md5cmn(b2 ^ c3 ^ d2, a, b2, x2, s4, t3);
   }
-  function md5ii(a, b2, c3, d3, x2, s4, t3) {
-    return md5cmn(c3 ^ (b2 | ~d3), a, b2, x2, s4, t3);
+  function md5ii(a, b2, c3, d2, x2, s4, t3) {
+    return md5cmn(c3 ^ (b2 | ~d2), a, b2, x2, s4, t3);
   }
   function binlMD5(x2, len) {
     x2[len >> 5] |= 128 << len % 32, x2[(len + 64 >>> 9 << 4) + 14] = len;
-    var i, olda, oldb, oldc, oldd, a = 1732584193, b2 = -271733879, c3 = -1732584194, d3 = 271733878;
+    var i, olda, oldb, oldc, oldd, a = 1732584193, b2 = -271733879, c3 = -1732584194, d2 = 271733878;
     for (i = 0; i < x2.length; i += 16)
-      olda = a, oldb = b2, oldc = c3, oldd = d3, a = md5ff(a, b2, c3, d3, x2[i], 7, -680876936), d3 = md5ff(d3, a, b2, c3, x2[i + 1], 12, -389564586), c3 = md5ff(c3, d3, a, b2, x2[i + 2], 17, 606105819), b2 = md5ff(b2, c3, d3, a, x2[i + 3], 22, -1044525330), a = md5ff(a, b2, c3, d3, x2[i + 4], 7, -176418897), d3 = md5ff(d3, a, b2, c3, x2[i + 5], 12, 1200080426), c3 = md5ff(c3, d3, a, b2, x2[i + 6], 17, -1473231341), b2 = md5ff(b2, c3, d3, a, x2[i + 7], 22, -45705983), a = md5ff(a, b2, c3, d3, x2[i + 8], 7, 1770035416), d3 = md5ff(d3, a, b2, c3, x2[i + 9], 12, -1958414417), c3 = md5ff(c3, d3, a, b2, x2[i + 10], 17, -42063), b2 = md5ff(b2, c3, d3, a, x2[i + 11], 22, -1990404162), a = md5ff(a, b2, c3, d3, x2[i + 12], 7, 1804603682), d3 = md5ff(d3, a, b2, c3, x2[i + 13], 12, -40341101), c3 = md5ff(c3, d3, a, b2, x2[i + 14], 17, -1502002290), b2 = md5ff(b2, c3, d3, a, x2[i + 15], 22, 1236535329), a = md5gg(a, b2, c3, d3, x2[i + 1], 5, -165796510), d3 = md5gg(d3, a, b2, c3, x2[i + 6], 9, -1069501632), c3 = md5gg(c3, d3, a, b2, x2[i + 11], 14, 643717713), b2 = md5gg(b2, c3, d3, a, x2[i], 20, -373897302), a = md5gg(a, b2, c3, d3, x2[i + 5], 5, -701558691), d3 = md5gg(d3, a, b2, c3, x2[i + 10], 9, 38016083), c3 = md5gg(c3, d3, a, b2, x2[i + 15], 14, -660478335), b2 = md5gg(b2, c3, d3, a, x2[i + 4], 20, -405537848), a = md5gg(a, b2, c3, d3, x2[i + 9], 5, 568446438), d3 = md5gg(d3, a, b2, c3, x2[i + 14], 9, -1019803690), c3 = md5gg(c3, d3, a, b2, x2[i + 3], 14, -187363961), b2 = md5gg(b2, c3, d3, a, x2[i + 8], 20, 1163531501), a = md5gg(a, b2, c3, d3, x2[i + 13], 5, -1444681467), d3 = md5gg(d3, a, b2, c3, x2[i + 2], 9, -51403784), c3 = md5gg(c3, d3, a, b2, x2[i + 7], 14, 1735328473), b2 = md5gg(b2, c3, d3, a, x2[i + 12], 20, -1926607734), a = md5hh(a, b2, c3, d3, x2[i + 5], 4, -378558), d3 = md5hh(d3, a, b2, c3, x2[i + 8], 11, -2022574463), c3 = md5hh(c3, d3, a, b2, x2[i + 11], 16, 1839030562), b2 = md5hh(b2, c3, d3, a, x2[i + 14], 23, -35309556), a = md5hh(a, b2, c3, d3, x2[i + 1], 4, -1530992060), d3 = md5hh(d3, a, b2, c3, x2[i + 4], 11, 1272893353), c3 = md5hh(c3, d3, a, b2, x2[i + 7], 16, -155497632), b2 = md5hh(b2, c3, d3, a, x2[i + 10], 23, -1094730640), a = md5hh(a, b2, c3, d3, x2[i + 13], 4, 681279174), d3 = md5hh(d3, a, b2, c3, x2[i], 11, -358537222), c3 = md5hh(c3, d3, a, b2, x2[i + 3], 16, -722521979), b2 = md5hh(b2, c3, d3, a, x2[i + 6], 23, 76029189), a = md5hh(a, b2, c3, d3, x2[i + 9], 4, -640364487), d3 = md5hh(d3, a, b2, c3, x2[i + 12], 11, -421815835), c3 = md5hh(c3, d3, a, b2, x2[i + 15], 16, 530742520), b2 = md5hh(b2, c3, d3, a, x2[i + 2], 23, -995338651), a = md5ii(a, b2, c3, d3, x2[i], 6, -198630844), d3 = md5ii(d3, a, b2, c3, x2[i + 7], 10, 1126891415), c3 = md5ii(c3, d3, a, b2, x2[i + 14], 15, -1416354905), b2 = md5ii(b2, c3, d3, a, x2[i + 5], 21, -57434055), a = md5ii(a, b2, c3, d3, x2[i + 12], 6, 1700485571), d3 = md5ii(d3, a, b2, c3, x2[i + 3], 10, -1894986606), c3 = md5ii(c3, d3, a, b2, x2[i + 10], 15, -1051523), b2 = md5ii(b2, c3, d3, a, x2[i + 1], 21, -2054922799), a = md5ii(a, b2, c3, d3, x2[i + 8], 6, 1873313359), d3 = md5ii(d3, a, b2, c3, x2[i + 15], 10, -30611744), c3 = md5ii(c3, d3, a, b2, x2[i + 6], 15, -1560198380), b2 = md5ii(b2, c3, d3, a, x2[i + 13], 21, 1309151649), a = md5ii(a, b2, c3, d3, x2[i + 4], 6, -145523070), d3 = md5ii(d3, a, b2, c3, x2[i + 11], 10, -1120210379), c3 = md5ii(c3, d3, a, b2, x2[i + 2], 15, 718787259), b2 = md5ii(b2, c3, d3, a, x2[i + 9], 21, -343485551), a = safeAdd(a, olda), b2 = safeAdd(b2, oldb), c3 = safeAdd(c3, oldc), d3 = safeAdd(d3, oldd);
-    return [a, b2, c3, d3];
+      olda = a, oldb = b2, oldc = c3, oldd = d2, a = md5ff(a, b2, c3, d2, x2[i], 7, -680876936), d2 = md5ff(d2, a, b2, c3, x2[i + 1], 12, -389564586), c3 = md5ff(c3, d2, a, b2, x2[i + 2], 17, 606105819), b2 = md5ff(b2, c3, d2, a, x2[i + 3], 22, -1044525330), a = md5ff(a, b2, c3, d2, x2[i + 4], 7, -176418897), d2 = md5ff(d2, a, b2, c3, x2[i + 5], 12, 1200080426), c3 = md5ff(c3, d2, a, b2, x2[i + 6], 17, -1473231341), b2 = md5ff(b2, c3, d2, a, x2[i + 7], 22, -45705983), a = md5ff(a, b2, c3, d2, x2[i + 8], 7, 1770035416), d2 = md5ff(d2, a, b2, c3, x2[i + 9], 12, -1958414417), c3 = md5ff(c3, d2, a, b2, x2[i + 10], 17, -42063), b2 = md5ff(b2, c3, d2, a, x2[i + 11], 22, -1990404162), a = md5ff(a, b2, c3, d2, x2[i + 12], 7, 1804603682), d2 = md5ff(d2, a, b2, c3, x2[i + 13], 12, -40341101), c3 = md5ff(c3, d2, a, b2, x2[i + 14], 17, -1502002290), b2 = md5ff(b2, c3, d2, a, x2[i + 15], 22, 1236535329), a = md5gg(a, b2, c3, d2, x2[i + 1], 5, -165796510), d2 = md5gg(d2, a, b2, c3, x2[i + 6], 9, -1069501632), c3 = md5gg(c3, d2, a, b2, x2[i + 11], 14, 643717713), b2 = md5gg(b2, c3, d2, a, x2[i], 20, -373897302), a = md5gg(a, b2, c3, d2, x2[i + 5], 5, -701558691), d2 = md5gg(d2, a, b2, c3, x2[i + 10], 9, 38016083), c3 = md5gg(c3, d2, a, b2, x2[i + 15], 14, -660478335), b2 = md5gg(b2, c3, d2, a, x2[i + 4], 20, -405537848), a = md5gg(a, b2, c3, d2, x2[i + 9], 5, 568446438), d2 = md5gg(d2, a, b2, c3, x2[i + 14], 9, -1019803690), c3 = md5gg(c3, d2, a, b2, x2[i + 3], 14, -187363961), b2 = md5gg(b2, c3, d2, a, x2[i + 8], 20, 1163531501), a = md5gg(a, b2, c3, d2, x2[i + 13], 5, -1444681467), d2 = md5gg(d2, a, b2, c3, x2[i + 2], 9, -51403784), c3 = md5gg(c3, d2, a, b2, x2[i + 7], 14, 1735328473), b2 = md5gg(b2, c3, d2, a, x2[i + 12], 20, -1926607734), a = md5hh(a, b2, c3, d2, x2[i + 5], 4, -378558), d2 = md5hh(d2, a, b2, c3, x2[i + 8], 11, -2022574463), c3 = md5hh(c3, d2, a, b2, x2[i + 11], 16, 1839030562), b2 = md5hh(b2, c3, d2, a, x2[i + 14], 23, -35309556), a = md5hh(a, b2, c3, d2, x2[i + 1], 4, -1530992060), d2 = md5hh(d2, a, b2, c3, x2[i + 4], 11, 1272893353), c3 = md5hh(c3, d2, a, b2, x2[i + 7], 16, -155497632), b2 = md5hh(b2, c3, d2, a, x2[i + 10], 23, -1094730640), a = md5hh(a, b2, c3, d2, x2[i + 13], 4, 681279174), d2 = md5hh(d2, a, b2, c3, x2[i], 11, -358537222), c3 = md5hh(c3, d2, a, b2, x2[i + 3], 16, -722521979), b2 = md5hh(b2, c3, d2, a, x2[i + 6], 23, 76029189), a = md5hh(a, b2, c3, d2, x2[i + 9], 4, -640364487), d2 = md5hh(d2, a, b2, c3, x2[i + 12], 11, -421815835), c3 = md5hh(c3, d2, a, b2, x2[i + 15], 16, 530742520), b2 = md5hh(b2, c3, d2, a, x2[i + 2], 23, -995338651), a = md5ii(a, b2, c3, d2, x2[i], 6, -198630844), d2 = md5ii(d2, a, b2, c3, x2[i + 7], 10, 1126891415), c3 = md5ii(c3, d2, a, b2, x2[i + 14], 15, -1416354905), b2 = md5ii(b2, c3, d2, a, x2[i + 5], 21, -57434055), a = md5ii(a, b2, c3, d2, x2[i + 12], 6, 1700485571), d2 = md5ii(d2, a, b2, c3, x2[i + 3], 10, -1894986606), c3 = md5ii(c3, d2, a, b2, x2[i + 10], 15, -1051523), b2 = md5ii(b2, c3, d2, a, x2[i + 1], 21, -2054922799), a = md5ii(a, b2, c3, d2, x2[i + 8], 6, 1873313359), d2 = md5ii(d2, a, b2, c3, x2[i + 15], 10, -30611744), c3 = md5ii(c3, d2, a, b2, x2[i + 6], 15, -1560198380), b2 = md5ii(b2, c3, d2, a, x2[i + 13], 21, 1309151649), a = md5ii(a, b2, c3, d2, x2[i + 4], 6, -145523070), d2 = md5ii(d2, a, b2, c3, x2[i + 11], 10, -1120210379), c3 = md5ii(c3, d2, a, b2, x2[i + 2], 15, 718787259), b2 = md5ii(b2, c3, d2, a, x2[i + 9], 21, -343485551), a = safeAdd(a, olda), b2 = safeAdd(b2, oldb), c3 = safeAdd(c3, oldc), d2 = safeAdd(d2, oldd);
+    return [a, b2, c3, d2];
   }
   function binl2rstr(input) {
     var i, output = "", length32 = input.length * 32;
@@ -10533,11 +10589,11 @@ body {
   function hexMD5(s4) {
     return rstr2hex(rawMD5(s4));
   }
-  function rawHMACMD5(k2, d3) {
-    return rstrHMACMD5(str2rstrUTF8(k2), str2rstrUTF8(d3));
+  function rawHMACMD5(k2, d2) {
+    return rstrHMACMD5(str2rstrUTF8(k2), str2rstrUTF8(d2));
   }
-  function hexHMACMD5(k2, d3) {
-    return rstr2hex(rawHMACMD5(k2, d3));
+  function hexHMACMD5(k2, d2) {
+    return rstr2hex(rawHMACMD5(k2, d2));
   }
   function md5(string, key, raw) {
     return key ? raw ? rawHMACMD5(key, string) : hexHMACMD5(key, string) : raw ? rawMD5(string) : hexMD5(string);
@@ -10562,10 +10618,7 @@ body {
       request2.onsuccess = (_event) => {
         resolve(request2.result);
       }, request2.onerror = (event) => {
-        console.error(
-          "onerror: Error opening the database, switching to non-database mode",
-          event
-        ), reject();
+        reject();
       }, request2.onupgradeneeded = (_event) => {
         let db = request2.result, storageName = _storageName || "cache";
         db.createObjectStore(storageName, {
@@ -10593,7 +10646,7 @@ body {
         let result = request2.result;
         resolve(result);
       }, request2.onerror = (event) => {
-        db.close(), console.error("queryInDB->onerror:", event), reject();
+        db.close(), reject();
       };
     });
   }
@@ -10606,7 +10659,7 @@ body {
       request2.onsuccess = (_event) => {
         db.close(), resolve(!0);
       }, request2.onerror = (event) => {
-        console.error("addInDB->onerror:", event), db.close(), resolve(!1);
+        db.close(), resolve(!1);
       };
     });
   }
@@ -10615,7 +10668,7 @@ body {
     request2.onsuccess = (_event) => {
       db.close(), dbNames.push(dbName);
     }, request2.onerror = (event) => {
-      db.close(), console.error(event);
+      db.close();
     };
   }
   async function getAllDBNames() {
@@ -10627,7 +10680,7 @@ body {
       request2.onsuccess = (_event) => {
         db.close(), resolve(request2.result);
       }, request2.onerror = (event) => {
-        db.close(), console.error(event), resolve([]);
+        db.close(), resolve([]);
       };
     }), dbNames;
   }
@@ -10641,8 +10694,8 @@ body {
       return humanReadableSize(
         results.reduce((total, size) => total + size, 0)
       );
-    } catch (e) {
-      return console.error(e), humanReadableSize(0);
+    } catch {
+      return humanReadableSize(0);
     }
   }
   async function getDatabaseSize(dbName) {
@@ -10695,8 +10748,12 @@ body {
           browserAPI.tabs.create({
             url: optionsUrl
           });
-        } else
-          browserAPI.runtime.openOptionsPage();
+        } else {
+          let optionsUrl = browserAPI.runtime.getURL("options.html"), pageRoute = data && data.pageRoute ? data.pageRoute : "";
+          pageRoute = pageRoute || "", browserAPI.tabs.create({
+            url: optionsUrl + pageRoute
+          });
+        }
       else if (method === "openAboutPage")
         if (isSafari()) {
           let optionsUrl = getEnv().OPTIONS_URL;
@@ -10798,7 +10855,7 @@ body {
   // background_command_listeners.ts
   function setupCommandListeners() {
     typeof browserAPI.commands < "u" && browserAPI.commands.onCommand.addListener(async (command) => {
-      if (log_default.debug(`received command: ${command}`), command === "toggleTranslatePage") {
+      if (log_default.debug(`received command: ${command}`), ["toggleTranslatePage"].includes(command)) {
         let tab = await browserAPI.tabs.query({
           active: !0,
           currentWindow: !0
@@ -10938,7 +10995,7 @@ body {
   var actions = isChrome() ? ["action"] : ["browser_action", "page_action"], menus = [
     {
       id: "toggleTranslatePage",
-      contexts: ["page", "selection", "frame", ...actions]
+      contexts: ["page", "frame", "selection", ...actions]
     },
     {
       id: contextOpenOptionsMenuId,
@@ -11067,7 +11124,6 @@ body {
     browserAPI.contextMenus && tryToCreateContextMenu(), (await getConfig()).debug && log_default.setLevel("debug");
   }
   mainAsync().catch((e) => {
-    console.error("init main erro", e);
   });
 })();
 /*! Bundled license information:

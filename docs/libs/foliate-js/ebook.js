@@ -801,7 +801,7 @@
             this.sections[oldIndex]?.unload?.(), this.onLoad?.(...args);
           };
           await this.#display(
-            Promise.resolve(this.sections[index].load()).then((src) => ({ index, src, anchor, onLoad, select })).catch((e) => (console.warn(e), console.warn(new Error(`Failed to load section ${index}`)), {}))
+            Promise.resolve(this.sections[index].load()).then((src) => ({ index, src, anchor, onLoad, select })).catch((e) => ({}))
           );
         }
       }
@@ -874,7 +874,7 @@
     if (viewport)
       return viewport;
     let img = doc.querySelector("img");
-    return img ? { width: img.naturalWidth, height: img.naturalHeight } : (console.warn(new Error("Missing viewport properties")), { width: 1e3, height: 2e3 });
+    return img ? { width: img.naturalWidth, height: img.naturalHeight } : { width: 1e3, height: 2e3 };
   }, Container = class {
     #element = document.createElement("div");
     defaultViewport;
@@ -1068,8 +1068,8 @@
     let { locales: locales2 = "en", granularity = "word", sensitivity = "base" } = options, segmenter, collator;
     try {
       segmenter = new Intl.Segmenter(locales2, { usage: "search", granularity }), collator = new Intl.Collator(locales2, { sensitivity });
-    } catch (e) {
-      console.warn(e), segmenter = new Intl.Segmenter("en", { usage: "search", granularity }), collator = new Intl.Collator("en", { sensitivity });
+    } catch {
+      segmenter = new Intl.Segmenter("en", { usage: "search", granularity }), collator = new Intl.Collator("en", { sensitivity });
     }
     let queryLength = Array.from(segmenter.segment(query)).length, substrArr = [], strIndex = 0, segments = segmenter.segment(strs[strIndex])[Symbol.iterator]();
     main:
@@ -1193,8 +1193,7 @@
           book.metadata.language = Intl.getCanonicalLocales(language)[0];
           let tag = typeof language == "string" ? language : language[0], locale = new Intl.Locale(tag);
           this.isCJK = ["zh", "ja", "kr"].includes(locale.language), locale.textInfo && locale.textInfo.direction && (this.textDirection = locale.textInfo.direction);
-        } catch (e) {
-          console.warn(e);
+        } catch {
         }
       if (book.splitTOCHref && book.getTOCFragment) {
         let ids = book.sections.map((s) => s.id);
@@ -1260,7 +1259,8 @@
                 contentType,
                 element: a
               }) : null
-            ).catch((e2) => console.error(e2));
+            ).catch((e2) => {
+            });
             return;
           } else
             this.goTo(uri);
@@ -1310,16 +1310,14 @@
     resolveNavigation(target) {
       try {
         return typeof target == "number" ? { index: target } : isCFI.test(target) ? this.resolveCFI(target) : this.book.resolveHref(target);
-      } catch (e) {
-        console.error(e), console.error(`Could not resolve target ${target}`);
+      } catch {
       }
     }
     async goTo(target) {
       let resolved = this.resolveNavigation(target);
       try {
         return await this.renderer.goTo(resolved), resolved;
-      } catch (e) {
-        console.error(e), console.error(`Could not go to ${target}`);
+      } catch {
       }
     }
     async goToFraction(frac) {
@@ -1330,8 +1328,7 @@
       try {
         let obj = await this.resolveNavigation(target);
         await this.renderer.goTo({ ...obj, select: !0 });
-      } catch (e) {
-        console.error(e), console.error(`Could not go to ${target}`);
+      } catch {
       }
     }
     goLeft() {
@@ -2239,8 +2236,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     if (flags & 1)
       try {
         return await unzlib(array);
-      } catch (e) {
-        console.warn(e), console.warn("Failed to decompress font");
+      } catch {
       }
     return array;
   }, isMOBI = async (file) => getString(await file.slice(60, 68).arrayBuffer()) === "BOOKMOBI", PDB = class {
@@ -2285,8 +2281,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         if (boundary < 4294967295)
           try {
             this.headers = this.#getHeaders(await super.loadRecord(boundary)), this.#start = boundary, isKF8 = !0;
-          } catch (e) {
-            console.warn(e), console.warn("Failed to open KF8; falling back to MOBI");
+          } catch {
           }
       }
       return await this.#setup(), isKF8 ? new KF8(this).init() : new MOBI6(this).init();
@@ -2414,8 +2409,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
             );
           }
         }
-      } catch (e) {
-        console.warn(e);
+      } catch {
       }
       return this.#fileposList = [...new Set(fileposInNCX.concat(Array.from(str.matchAll(fileposRegex), (m) => m[1])))].map((filepos) => ({ filepos, number: Number(filepos) })).sort((a, b) => a.number - b.number), this.metadata = this.mobi.getMetadata(), this.getCover = this.mobi.getCover.bind(this.mobi), this;
     }
@@ -2442,7 +2436,6 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         try {
           img.src = await this.loadRecindex(recindex);
         } catch {
-          console.warn(`Failed to load image ${recindex}`);
         }
       }
       for (let media of doc.querySelectorAll("[mediarecindex]")) {
@@ -2450,7 +2443,6 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         try {
           media.src = await this.loadRecindex(mediarecindex), recindex && (media.poster = await this.loadRecindex(recindex));
         } catch {
-          console.warn(`Failed to load media ${mediarecindex}`);
         }
       }
       for (let a of doc.querySelectorAll("[filepos]")) {
@@ -2580,8 +2572,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           return arr ? arr.push(off) : this.#fragmentOffsets.set(fid, [off]), { label: unescapeHTML(label), href, subitems: children?.map(map) };
         };
         this.toc = ncx?.map(map), this.landmarks = await this.getGuide();
-      } catch (e) {
-        console.warn(e);
+      } catch {
       }
       let { exth } = this.mobi.headers;
       return this.dir = exth.pageProgressionDirection, this.rendition = {
@@ -2746,8 +2737,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         return new URL(url, relativeTo);
       let root = "file:///";
       return decodeURI(new URL(url, root + relativeTo).href.replace(root, ""));
-    } catch (e) {
-      return console.warn(e), url;
+    } catch {
+      return url;
     }
   }, isExternal = (uri) => /^(?!blob)\w+:/i.test(uri), pathRelative = (from, to2) => {
     if (!from)
@@ -2957,10 +2948,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       for (let { algorithm, uri } of data) {
         if (!this.#decoders.has(algorithm)) {
           let algo = this.#algorithms[algorithm];
-          if (!algo) {
-            console.warn("Unknown encryption algorithm");
+          if (!algo)
             continue;
-          }
           let key = await algo.key(opf);
           this.#decoders.set(algorithm, (blob) => algo.decode(key, blob));
         }
@@ -3065,7 +3054,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
         return null;
       if ([MIME3.XHTML, MIME3.HTML, MIME3.SVG].includes(mediaType)) {
         let doc = new DOMParser().parseFromString(str, mediaType);
-        if (mediaType === MIME3.XHTML && doc.querySelector("parsererror") && (console.warn(doc.querySelector("parsererror").innerText), item.mediaType = MIME3.HTML, doc = new DOMParser().parseFromString(str, item.mediaType)), [MIME3.XHTML, MIME3.SVG].includes(item.mediaType)) {
+        if (mediaType === MIME3.XHTML && doc.querySelector("parsererror") && (item.mediaType = MIME3.HTML, doc = new DOMParser().parseFromString(str, item.mediaType)), [MIME3.XHTML, MIME3.SVG].includes(item.mediaType)) {
           let child = doc.firstChild;
           for (; child instanceof ProcessingInstruction; ) {
             if (child.data) {
@@ -3223,22 +3212,20 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           pageSpread: getPageSpread(properties),
           resolveHref: (href) => resolveURL(href, item.href),
           loadMediaOverlay: () => this.loadMediaOverlay(item)
-        } : (console.warn(`Could not find item with ID "${idref}" in manifest`), null);
+        } : null;
       }).filter((s) => s);
       let { navPath, ncxPath } = this.resources;
       if (navPath)
         try {
           let resolve = (url) => resolveURL(url, navPath), nav = parseNav(await this.#loadXML(navPath), resolve);
           this.toc = nav.toc, this.pageList = nav.pageList, this.landmarks = nav.landmarks;
-        } catch (e) {
-          console.warn(e);
+        } catch {
         }
       if (!this.toc && ncxPath)
         try {
           let resolve = (url) => resolveURL(url, ncxPath), ncx = parseNCX(await this.#loadXML(ncxPath), resolve);
           this.toc = ncx.toc, this.pageList = ncx.pageList;
-        } catch (e) {
-          console.warn(e);
+        } catch {
         }
       this.landmarks ??= this.resources.guide;
       let { metadata, rendition, media } = getMetadata(opf);
@@ -7028,7 +7015,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       );
       let toc = book.toc;
       toc && (this.#tocView = createTOCView(toc, (href) => {
-        this.view.goTo(href).catch((e) => console.error(e)), this.closeSideBar();
+        this.view.goTo(href).catch((e) => {
+        }), this.closeSideBar();
       }), $$$("#toc-view").append(this.#tocView.element));
     }
     setAppearance = () => {
@@ -7088,7 +7076,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     if (item) {
       let entry = item.webkitGetAsEntry();
       open(entry.isFile ? item.getAsFile() : entry).catch(
-        (e2) => console.error(e2)
+        (e2) => {
+        }
       );
     }
   }, dropTarget = $$$("#drop-target");
@@ -7096,7 +7085,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   dropTarget.addEventListener("dragover", dragOverHandler);
   $$$("#file-input").addEventListener(
     "change",
-    (e) => open(e.target.files[0]).catch((e2) => console.error(e2))
+    (e) => open(e.target.files[0]).catch((e2) => {
+    })
   );
   $$$("#file-button").addEventListener("click", () => {
     document.querySelector("#file-input").click();

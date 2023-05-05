@@ -899,6 +899,10 @@ const PDFViewerApplication = {
         let sidebarView = _app_options.AppOptions.get("sidebarViewOnLoad");
         let scrollMode = _app_options.AppOptions.get("scrollModeOnLoad");
         let spreadMode = _app_options.AppOptions.get("spreadModeOnLoad");
+        //新增 默认为双排
+        if(spreadMode == _ui_utils.SpreadMode.UNKNOWN){
+          spreadMode = _ui_utils.SpreadMode.ODD;
+        }
         if (stored.page && viewOnLoad !== ViewOnLoad.INITIAL) {
           hash = `page=${stored.page}&zoom=${zoom || stored.zoom},` + `${stored.scrollLeft},${stored.scrollTop}`;
           rotation = parseInt(stored.rotation, 10);
@@ -2441,7 +2445,8 @@ exports.removeNullCharacters = removeNullCharacters;
 exports.roundToDivide = roundToDivide;
 exports.scrollIntoView = scrollIntoView;
 exports.watchScroll = watchScroll;
-const DEFAULT_SCALE_VALUE = "auto";
+//新增 默认修改为根据页宽来
+const DEFAULT_SCALE_VALUE = "page-width";
 exports.DEFAULT_SCALE_VALUE = DEFAULT_SCALE_VALUE;
 const DEFAULT_SCALE = 1.0;
 exports.DEFAULT_SCALE = DEFAULT_SCALE;

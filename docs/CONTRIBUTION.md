@@ -221,6 +221,13 @@ opacity: 0.25;
 
 ````
 
+
+Edit `viewer.js`
+
+```
+search 新增
+```
+
 Edit `gulpfile.js`, change `enableSourceMaps` to false
 
 Then, run `npm install` at the `pdf.js` project.

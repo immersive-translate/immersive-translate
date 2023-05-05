@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Immersive Translate
 // @description  Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc.
-// @version      0.5.0
+// @version      0.5.1
 // @namespace    https://immersive-translate.owenyoung.com/
 // @author       Owen Young
 // @homepageURL    https://immersive-translate.owenyoung.com/
@@ -86,7 +86,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T12:49:57.419Z", VERSION: "0.5.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-05T15:23:15.557Z", VERSION: "0.5.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -5782,13 +5782,13 @@ body {
       ]
     }
   ], PureTranslationServices = {
-    google: {
-      name: "Google",
-      homepage: "https://translate.google.com/"
-    },
     bing: {
       name: "\u5FAE\u8F6F\u7FFB\u8BD1",
       homepage: "https://www.bing.com/translator"
+    },
+    google: {
+      name: "Google",
+      homepage: "https://translate.google.com/"
     },
     deepl: {
       name: "DeepL",
@@ -5806,11 +5806,6 @@ body {
     transmart: {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
-    },
-    chatgpt: {
-      name: "ChatGPT Plus",
-      homepage: "https://chat.openai.com",
-      beta: !0
     },
     openai: {
       name: "Open AI",
@@ -5847,7 +5842,7 @@ body {
           descriptionKey: "description.limitPerSecond",
           descriptionLink1: "https://immersive-translate.owenyoung.com/services/openai",
           type: "number",
-          default: 3
+          default: 5
         },
         {
           name: "maxTextLengthPerRequest",
@@ -5897,6 +5892,11 @@ body {
           optional: !0
         }
       ]
+    },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
     },
     youdao: {
       name: "Youdao",
@@ -8910,7 +8910,7 @@ body {
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
-        limit: 3,
+        limit: 5,
         interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
@@ -13376,7 +13376,7 @@ ${injectedCss}}
     deepl: new RateLimiter({ limit: 10, interval: 1050 }),
     transmart: new RateLimiter({ limit: 30, interval: 1050 }),
     papago: new RateLimiter({ limit: 3, interval: 1150 }),
-    openai: new RateLimiter({ limit: 10, interval: 65e3 }),
+    openai: new RateLimiter({ limit: 5, interval: 1300 }),
     chatgpt: new RateLimiter({ limit: 1, interval: 1350 })
   };
   function getLimiter(key) {
@@ -15221,7 +15221,7 @@ ${injectedCss}}
       )), serviceConfig && serviceConfig.systemPrompt && (this.systemPrompt = serviceConfig.systemPrompt);
     }
     getDefaultRateLimit() {
-      return { limit: 3, interval: 1300 };
+      return { limit: 5, interval: 1300 };
     }
     translate(payload) {
       return this.model.includes("003") ? (this.maxTextGroupLength = 1, this.translate3(payload)) : this.translate3_5(payload);
@@ -15276,7 +15276,7 @@ ${injectedCss}}
           messages
         })
       }, randomKey = this.getRandomKey();
-      randomKey && (options2.headers.Authorization = "Bearer " + randomKey, options2.headers["api-key"] = randomKey, randomKey.startsWith("immersiveopenai_"), options2.url = this.immersiveApiUrl);
+      randomKey && (options2.headers.Authorization = "Bearer " + randomKey, options2.headers["api-key"] = randomKey, randomKey.startsWith("immersiveopenai_") && (options2.url = this.immersiveApiUrl));
       let response = await request2(options2);
       if (response && response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
         let text2 = response.choices[0].message.content.trim();
@@ -17110,7 +17110,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.0",
+    version: "0.5.1",
     default_locale: "en",
     background: {
       service_worker: "background.js"

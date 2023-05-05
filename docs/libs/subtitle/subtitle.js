@@ -2622,13 +2622,13 @@
       ]
     }
   ], PureTranslationServices = {
-    google: {
-      name: "Google",
-      homepage: "https://translate.google.com/"
-    },
     bing: {
       name: "\u5FAE\u8F6F\u7FFB\u8BD1",
       homepage: "https://www.bing.com/translator"
+    },
+    google: {
+      name: "Google",
+      homepage: "https://translate.google.com/"
     },
     deepl: {
       name: "DeepL",
@@ -2646,11 +2646,6 @@
     transmart: {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
-    },
-    chatgpt: {
-      name: "ChatGPT Plus",
-      homepage: "https://chat.openai.com",
-      beta: !0
     },
     openai: {
       name: "Open AI",
@@ -2687,7 +2682,7 @@
           descriptionKey: "description.limitPerSecond",
           descriptionLink1: "https://immersive-translate.owenyoung.com/services/openai",
           type: "number",
-          default: 3
+          default: 5
         },
         {
           name: "maxTextLengthPerRequest",
@@ -2737,6 +2732,11 @@
           optional: !0
         }
       ]
+    },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
     },
     youdao: {
       name: "Youdao",

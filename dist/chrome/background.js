@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T12:49:54.681Z", VERSION: "0.5.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-05T15:23:12.392Z", VERSION: "0.5.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -6862,13 +6862,13 @@ body {
       ]
     }
   ], PureTranslationServices = {
-    google: {
-      name: "Google",
-      homepage: "https://translate.google.com/"
-    },
     bing: {
       name: "\u5FAE\u8F6F\u7FFB\u8BD1",
       homepage: "https://www.bing.com/translator"
+    },
+    google: {
+      name: "Google",
+      homepage: "https://translate.google.com/"
     },
     deepl: {
       name: "DeepL",
@@ -6886,11 +6886,6 @@ body {
     transmart: {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
-    },
-    chatgpt: {
-      name: "ChatGPT Plus",
-      homepage: "https://chat.openai.com",
-      beta: !0
     },
     openai: {
       name: "Open AI",
@@ -6927,7 +6922,7 @@ body {
           descriptionKey: "description.limitPerSecond",
           descriptionLink1: "https://immersive-translate.owenyoung.com/services/openai",
           type: "number",
-          default: 3
+          default: 5
         },
         {
           name: "maxTextLengthPerRequest",
@@ -6977,6 +6972,11 @@ body {
           optional: !0
         }
       ]
+    },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
     },
     youdao: {
       name: "Youdao",
@@ -7384,7 +7384,7 @@ body {
         placeholderDelimiters: ["{{", "}}"],
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
-        limit: 3,
+        limit: 5,
         interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:

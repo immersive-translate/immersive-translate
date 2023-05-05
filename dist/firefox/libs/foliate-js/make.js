@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T12:49:56.377Z", VERSION: "0.5.0", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-05T15:23:14.198Z", VERSION: "0.5.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7016,7 +7016,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     terminateWorkers: () => Ss
   });
 
-  // https://esm.sh/v118/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
+  // https://esm.sh/v119/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
   function kt(t) {
     return vt(t.map(([n2, e3]) => new Array(n2).fill(e3, 0, n2)));
   }
@@ -9544,7 +9544,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   }
   or({ Deflate: Zi, Inflate: ar });
 
-  // https://esm.sh/v118/fflate@0.7.4/deno/fflate.mjs
+  // https://esm.sh/v119/fflate@0.7.4/deno/fflate.mjs
   var vn2 = {}, Jn2 = function(n2, r, t, e3, i3) {
     var a = new Worker(vn2[r] || (vn2[r] = URL.createObjectURL(new Blob([n2 + ';addEventListener("error",function(e){e=e.error;postMessage({$e$:[e.message,e.code,e.stack]})})'], { type: "text/javascript" }))));
     return a.onmessage = function(o2) {
@@ -12660,13 +12660,13 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
       ]
     }
   ], PureTranslationServices = {
-    google: {
-      name: "Google",
-      homepage: "https://translate.google.com/"
-    },
     bing: {
       name: "\u5FAE\u8F6F\u7FFB\u8BD1",
       homepage: "https://www.bing.com/translator"
+    },
+    google: {
+      name: "Google",
+      homepage: "https://translate.google.com/"
     },
     deepl: {
       name: "DeepL",
@@ -12684,11 +12684,6 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     transmart: {
       name: "Transmart",
       homepage: "https://transmart.qq.com/"
-    },
-    chatgpt: {
-      name: "ChatGPT Plus",
-      homepage: "https://chat.openai.com",
-      beta: !0
     },
     openai: {
       name: "Open AI",
@@ -12725,7 +12720,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           descriptionKey: "description.limitPerSecond",
           descriptionLink1: "https://immersive-translate.owenyoung.com/services/openai",
           type: "number",
-          default: 3
+          default: 5
         },
         {
           name: "maxTextLengthPerRequest",
@@ -12775,6 +12770,11 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
           optional: !0
         }
       ]
+    },
+    chatgpt: {
+      name: "ChatGPT Plus",
+      homepage: "https://chat.openai.com",
+      beta: !0
     },
     youdao: {
       name: "Youdao",

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.1
+
+- Fix: OpenAI API not works.
+
 ## 0.5.0
 
 - Feat: Translate the current paragraph when mouse hover.

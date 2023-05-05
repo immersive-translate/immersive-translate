@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T15:23:14.198Z", VERSION: "0.5.1", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-05T17:21:19.204Z", VERSION: "0.5.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9066,6 +9066,9 @@ body {
     }
     return toCheck === CHROME && currentBrowser === CHROME || toCheck === FIREFOX && currentBrowser === FIREFOX || toCheck === DENO && currentBrowser === DENO;
   }
+  function isChrome() {
+    return isBrowser(CHROME);
+  }
   function isDeno2() {
     return typeof Deno < "u";
   }
@@ -17684,7 +17687,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.1",
+    version: "0.5.2",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -20708,7 +20711,10 @@ ${injectedCss}}
     }, handleMouseTranslateTriggerConfig = (trigger) => {
       setSettings((state) => ({
         ...state,
-        mouseTranslateTrigger: trigger
+        generalRule: {
+          ...state.generalRule,
+          mouseHoverHoldKey: trigger
+        }
       }));
     };
     return !config || !ctx ? null : /* @__PURE__ */ p5(
@@ -20981,7 +20987,7 @@ ${injectedCss}}
     return !!(!str || /^[\d\.:%\(\),%\s\-]+$/.test(str) || str.length < 5);
   }
   function isDivide(str) {
-    return str ? (str == str[0].repeat(str.length), str == str[0].repeat(str.length)) : !0;
+    return str ? str == str[0].repeat(str.length) : !0;
   }
   function equal(left, right, cap = 5) {
     return Math.abs(left - right) <= cap;
@@ -21028,8 +21034,8 @@ ${injectedCss}}
   function isSameLine({ prevLineP }, { bottom }) {
     return equal(prevLineP.bottom, bottom, 1);
   }
-  function isSubSymbol({ scale, prevLineP }, { fontSize, top, str }) {
-    return fontSize < prevLineP.fontSize && equal(top, prevLineP.top, prevLineP.fontSize * scale * 0.1) && str.length <= 2;
+  function isSubSymbol({ scale, prevLineP }, { fontSize, top, left }) {
+    return fontSize <= prevLineP.fontSize * 0.8 && equal(top, prevLineP.top, 2) && equal(prevLineP.nextLeft, left, prevLineP.fontSize * scale);
   }
   function equalFont(prevP, { fontSize, fontName }, checkFont = !1) {
     return checkFont ? equal(prevP.fontSize, fontSize, 1) && prevP.fontName == fontName : equal(prevP.fontSize, fontSize, 1);
@@ -21103,11 +21109,11 @@ ${injectedCss}}
     ps.forEach((p6) => {
       if (!p6.str)
         return;
-      let width = p6.mergedTimes > 0 ? `${(p6.width * 100 / (pageWidth * scale) + 1).toFixed(2)}%` : "auto", left = `${(p6.left * 100 / (pageWidth * scale)).toFixed(2)}%`, top = `${(p6.top * 100 / (pageHeight * scale)).toFixed(2)}%`, fontSize = `calc(var(--scale-factor)*${Math.min(p6.fontSize - 1, 24).toFixed(0)}px)`, fontFamily = `${p6.fontName},serif`;
+      let width = p6.mergedTimes > 0 ? `${(p6.width * 100 / (pageWidth * scale) + 1).toFixed(2)}%` : "auto", left = `${(p6.left * 100 / (pageWidth * scale)).toFixed(2)}%`, top = `${(p6.top * 100 / (pageHeight * scale)).toFixed(2)}%`, f_scale = isChrome() && p6.fontSize < 7 ? `transform: scale(${p6.fontSize / 10});` : "", fontSize = `calc(var(--scale-factor)*${Math.min(p6.fontSize - 1, 24)}px)`, fontFamily = `${p6.fontName},serif`;
       hasAbsolute && (positionStyle = `position: absolute; left: ${left}; top: ${top};width: ${width};max-width:${maxWidth};`);
       let className = isTranslateSkip(p6.str) ? "" : "translate-pending", text = p6.str;
       p6.translateStatus == "success" && (text = p6.translatedStr, className = ""), html.push(
-        `<p id='${p6.id}' class='${className}' style="${positionStyle} font-size: ${fontSize}; font-family: ${fontFamily};white-space: pre-line;">${text}</p>`
+        `<p id='${p6.id}' class='${className}' style="${positionStyle} ${f_scale} font-size: ${fontSize}; font-family: ${fontFamily};white-space: pre-line;">${text}</p>`
       );
     });
   }

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.2
+
+- Fix: userscript mouse hover shortcuts settings
+
 ## 0.5.1
 
 - Fix: OpenAI API not works.

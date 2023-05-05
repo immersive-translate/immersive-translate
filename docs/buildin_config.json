@@ -2306,6 +2306,10 @@
     },
     {
       "matches": "thehill.com",
+      "injectedCss": [
+        ".most-popular-item { max-height: unset !important; }",
+        ".most-popular-item__link { -webkit-line-clamp: unset !important; }"
+      ],
       "excludeSelectors": [
         "div.featured-cards__byline",
         "div.list-item__meta",
@@ -2316,6 +2320,15 @@
         ".homepage__container__opinion__item__byline",
         ".homepage__container__header",
         ".archive__item__meta"
+      ]
+    },
+    {
+      "matches": "manpages.ubuntu.com",
+      "selectors": [
+        "pre"
+      ],
+      "atomicBlockTags": [
+        "pre"
       ]
     },
     {
@@ -2354,6 +2367,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-03T19:42:42.644Z",
+  "buildinConfigUpdatedAt": "2023-05-05T12:47:22.780Z",
   "latestVersion": "0.4.12"
 }

@@ -16,6 +16,15 @@
 
 你可以在[Buzzing](https://www.buzzing.cc/)里随便点击一篇英文报道试试效果～
 
+<video
+autoPlay
+loop
+muted
+plays-inline
+width="1200px"
+poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png"><source src="https://immersive-translate.owenyoung.com/assets/immersive-translate-intro-demo.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+</video>
+
 ## 设置页面
 
 点击浏览器右上角的扩展图标，点击【设置】，即可进入扩展的设置页面。

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T17:33:42.466Z", VERSION: "0.5.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:42.846Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7385,7 +7385,6 @@ body {
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
         limit: 5,
-        interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
 
@@ -11106,7 +11105,7 @@ body {
       log_default.debug(`onInstalled reason: ${details.reason}`), log_default.debug(details), details.reason == "install" ? (get("hasRun", !1).then(
         (hasRun) => {
           hasRun || (browserAPI.tabs.create({
-            url: "https://immersive-translate.owenyoung.com/usage"
+            url: "https://immersive-translate.owenyoung.com/start/"
           }), set("hasRun", !0).catch((e) => {
             log_default.error("set hasRun error", e);
           }));

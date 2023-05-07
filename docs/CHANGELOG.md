@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.3
+
+- Fix: Mouse hover hotkey listener.
+- Fix: PDF document translate
+- Feat: Add new client guide page
+
 ## 0.5.2
 
 - Fix: userscript mouse hover shortcuts settings

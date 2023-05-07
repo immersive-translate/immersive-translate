@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T17:33:42.466Z", VERSION: "0.5.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:42.846Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -10577,7 +10577,6 @@ ${injectedCss}}
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
         limit: 5,
-        interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
 
@@ -15075,7 +15074,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.2",
+    version: "0.5.3",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -15738,7 +15737,7 @@ ${injectedCss}}
   }
 
   // dom/translate_page.ts
-  var allResizebleObserver = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), controller = new AbortController(), { signal } = controller, pageStatus = "Original", currentParagraphIds = [], allNewDynamicElements = [], allIntersectionObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, clientX = 0, clientY = 0, mouseMoved = !1, mouseMovedCount = 0, isHoldMouseHoverKey = !1, stopChangePageStatus = !1, lastTimeOfModifierKeyAndNormalKeyPress = 0, throttleMap = {
+  var allResizebleObserver = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), controller = new AbortController(), { signal } = controller, pageStatus = "Original", currentParagraphIds = [], allNewDynamicElements = [], allIntersectionObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, clientX = 0, clientY = 0, mouseMoved = !1, mouseMovedCount = 0, isHoldMouseHoverKey = !1, delayChecker, stopChangePageStatus = !1, lastTimeOfModifierKeyAndNormalKeyPress = 0, throttleMap = {
     300: se3(
       translateCurrentQueue,
       300
@@ -16626,7 +16625,7 @@ ${injectedCss}}
   }
   function loadEventListener(ctx) {
     let config = ctx.config, closeMouseTranslate = config.generalRule.mouseHoverHoldKey === "Off", isTranslateDirectlyOnHover = config.generalRule.mouseHoverHoldKey === "Auto", mousemoveThrottleHandle = se3((e3) => {
-      if (mouseMoved == !1 && Math.abs(e3.clientX - clientX) + Math.abs(e3.clientY - clientY) > 3 && (mouseMovedCount < 2 ? mouseMovedCount += 1 : mouseMoved = !0), clientX = e3.clientX, clientY = e3.clientY, isTranslateDirectlyOnHover || isHoldMouseHoverKey) {
+      if (mouseMoved == !1 && Math.abs(e3.clientX - clientX) + Math.abs(e3.clientY - clientY) > 3 && (mouseMovedCount < 2 ? mouseMovedCount += 1 : mouseMoved = !0), clientX = e3.clientX, clientY = e3.clientY, isTranslateDirectlyOnHover || isHoldMouseHoverKey && !delayChecker) {
         let selectioPparagraph = getSelectionText(ctx.rule);
         selectioPparagraph && translateHoverPartial(ctx, selectioPparagraph);
       }
@@ -16637,9 +16636,9 @@ ${injectedCss}}
       let configKey = config?.generalRule?.mouseHoverHoldKey?.toLowerCase() || "alt", codes = v3.getPressedKeyCodes();
       if (codes.length > 1 && v3[configKey] && (lastTimeOfModifierKeyAndNormalKeyPress = Date.now()), codes.length === 1 && v3[configKey]) {
         let modifierPressTime = Date.now();
-        setTimeout(() => {
+        isHoldMouseHoverKey = !0, delayChecker && clearTimeout(delayChecker), delayChecker = setTimeout(() => {
           let diff = lastTimeOfModifierKeyAndNormalKeyPress - modifierPressTime;
-          diff > 0 && diff <= 150 || (isHoldMouseHoverKey = !0, mouseTriggerTranslateHandle(event));
+          diff > 0 && diff <= 150 ? isHoldMouseHoverKey = !1 : mouseTriggerTranslateHandle(event), delayChecker = void 0;
         }, 150);
       }
     };

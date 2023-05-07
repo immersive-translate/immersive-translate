@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-05T17:33:40.798Z", VERSION: "0.5.2", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:41.340Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -9488,7 +9488,6 @@ body {
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
         limit: 5,
-        interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
 
@@ -17687,7 +17686,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.2",
+    version: "0.5.3",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -18081,7 +18080,7 @@ ${injectedCss}}
   }
 
   // dom/translate_page.ts
-  var allResizebleObserver = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), controller = new AbortController(), { signal } = controller, pageStatus = "Original", currentParagraphIds = [], allNewDynamicElements = [], allIntersectionObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, clientX = 0, clientY = 0, mouseMoved = !1, mouseMovedCount = 0, isHoldMouseHoverKey = !1, stopChangePageStatus = !1, lastTimeOfModifierKeyAndNormalKeyPress = 0, throttleMap = {
+  var allResizebleObserver = [], waitToTranslateParagraphIds = /* @__PURE__ */ new Set(), controller = new AbortController(), { signal } = controller, pageStatus = "Original", currentParagraphIds = [], allNewDynamicElements = [], allIntersectionObserver = [], currentNewDynamicElements = [], oldUrl = getRealUrl().split("#")[0], currentTranslatedTextLength = 0, globalContext, initialTranslationTheme, isSetupForOnce = !1, clientX = 0, clientY = 0, mouseMoved = !1, mouseMovedCount = 0, isHoldMouseHoverKey = !1, delayChecker, stopChangePageStatus = !1, lastTimeOfModifierKeyAndNormalKeyPress = 0, throttleMap = {
     300: se(
       translateCurrentQueue,
       300
@@ -18969,7 +18968,7 @@ ${injectedCss}}
   }
   function loadEventListener(ctx) {
     let config = ctx.config, closeMouseTranslate = config.generalRule.mouseHoverHoldKey === "Off", isTranslateDirectlyOnHover = config.generalRule.mouseHoverHoldKey === "Auto", mousemoveThrottleHandle = se((e) => {
-      if (mouseMoved == !1 && Math.abs(e.clientX - clientX) + Math.abs(e.clientY - clientY) > 3 && (mouseMovedCount < 2 ? mouseMovedCount += 1 : mouseMoved = !0), clientX = e.clientX, clientY = e.clientY, isTranslateDirectlyOnHover || isHoldMouseHoverKey) {
+      if (mouseMoved == !1 && Math.abs(e.clientX - clientX) + Math.abs(e.clientY - clientY) > 3 && (mouseMovedCount < 2 ? mouseMovedCount += 1 : mouseMoved = !0), clientX = e.clientX, clientY = e.clientY, isTranslateDirectlyOnHover || isHoldMouseHoverKey && !delayChecker) {
         let selectioPparagraph = getSelectionText(ctx.rule);
         selectioPparagraph && translateHoverPartial(ctx, selectioPparagraph);
       }
@@ -18980,9 +18979,9 @@ ${injectedCss}}
       let configKey = config?.generalRule?.mouseHoverHoldKey?.toLowerCase() || "alt", codes = v2.getPressedKeyCodes();
       if (codes.length > 1 && v2[configKey] && (lastTimeOfModifierKeyAndNormalKeyPress = Date.now()), codes.length === 1 && v2[configKey]) {
         let modifierPressTime = Date.now();
-        setTimeout(() => {
+        isHoldMouseHoverKey = !0, delayChecker && clearTimeout(delayChecker), delayChecker = setTimeout(() => {
           let diff = lastTimeOfModifierKeyAndNormalKeyPress - modifierPressTime;
-          diff > 0 && diff <= 150 || (isHoldMouseHoverKey = !0, mouseTriggerTranslateHandle(event));
+          diff > 0 && diff <= 150 ? isHoldMouseHoverKey = !1 : mouseTriggerTranslateHandle(event), delayChecker = void 0;
         }, 150);
       }
     };
@@ -20984,7 +20983,7 @@ ${injectedCss}}
     };
   }
   function isTranslateSkip(str) {
-    return !!(!str || /^[\d\.:%\(\),%\s\-]+$/.test(str) || str.length < 5);
+    return !!(!str || /^[\d\.:%\(\),%\s\-]+$/.test(str));
   }
   function isDivide(str) {
     return str ? str == str[0].repeat(str.length) : !0;
@@ -21006,8 +21005,8 @@ ${injectedCss}}
   function isSameLineBreakText({ prevLineP }, { left }) {
     return equal(prevLineP.right, left, 1);
   }
-  function isWrapLineText({ prevLineP }, curP) {
-    return equalFont(prevLineP, curP, prevLineP.str.length < 30) && equal(prevLineP.nextTop, curP.top);
+  function isWrapLineText({ prevLineP, scale }, curP) {
+    return equalFont(prevLineP, curP, prevLineP.str.length < 30) && equal(prevLineP.nextTop, curP.top, prevLineP.fontSize * scale * 0.35);
   }
   function isWrapLineCenterText({ prevLineP }, curP) {
     return prevLineP.fontName == curP.fontName && prevLineP.left < curP.left && prevLineP.right > curP.right;
@@ -21018,6 +21017,10 @@ ${injectedCss}}
   }
   function isJustifyAlignText({ prevLineP, prevP }, curP) {
     return equal(prevLineP.left, curP.left, 1) && equal(prevLineP.right, prevP.right, 1) && prevP.mergedTimes >= 1;
+  }
+  function isInJustifyCapBigText(context, curP) {
+    let { prevLineP } = context;
+    return isInJustify(context, curP) && (equal(prevLineP.bottom, curP.bottom) || equal(prevLineP.nextTop, curP.top) && equal(prevLineP.left, curP.left));
   }
   function isAlignLeftText(context, curP) {
     let { prevLineP, prevP, scale } = context;
@@ -21032,7 +21035,7 @@ ${injectedCss}}
     return isSameLine(context, curP) && equal(prevLineP.nextLeft, left, fontSize) && equal(prevLineP.fontSize, fontSize);
   }
   function isSameLine({ prevLineP }, { bottom }) {
-    return equal(prevLineP.bottom, bottom, 1);
+    return equal(prevLineP.bottom, bottom, 3);
   }
   function isSubSymbol({ scale, prevLineP }, { fontSize, top, left }) {
     return fontSize <= prevLineP.fontSize * 0.8 && equal(top, prevLineP.top, 2) && equal(prevLineP.nextLeft, left, prevLineP.fontSize * scale);
@@ -21261,10 +21264,14 @@ ${injectedCss}}
             top: prevLineP.top,
             str: prevLineP.str,
             fontSize: prevLineP.fontSize
-          }, prevLineP.str.endsWith("-") ? (prevP.str = prevP.str.slice(0, prevP.str.length - 1), mergeParagraph(prevP, curP, "")) : mergeParagraph(prevP, curP);
+          }, mergeParagraph(prevP, curP);
           return;
         }
         if (isAlignLeftText(context, curP)) {
+          mergeParagraph(prevP, curP);
+          return;
+        }
+        if (isInJustifyCapBigText(context, curP)) {
           mergeParagraph(prevP, curP);
           return;
         }
@@ -21272,6 +21279,9 @@ ${injectedCss}}
           mergeParagraph(prevP, curP), curP.left < prevP.left && (prevP.left = curP.left);
           return;
         }
+      } else if (isInJustifyCapBigText(context, curP)) {
+        mergeParagraph(prevP, curP);
+        return;
       }
       maybeMultiColumn(context, curP) && contactSplitParagraph(prevP, context.prevLineP, curP), pushMergedParagraphs(curP);
     }), mergedParagraphs;
@@ -21279,15 +21289,14 @@ ${injectedCss}}
       skipStr(curP.str) || mergedParagraphs.push(curP);
     }
     function skipStr(str) {
-      return !!(!str || /^_{6,}$/.test(str) || //____分割线也干掉
-      /^\d{1,2}$/.test(str) || /ps:\/\/\S+$/.test(str));
+      return !!(!str || /^_{6,}$/.test(str) || /ps:\/\/\S+$/.test(str));
     }
     function mergeParagraph(prevP, curP, prefixChar = " ", checkDivide = !0) {
       if (checkDivide && curP.str && isDivide(curP.str)) {
         pushMergedParagraphs(curP);
         return;
       }
-      skipStr(curP.str) || (prevP.mergedTimes++, prevP.str += prefixChar + curP.str, prevP.bottom = curP.bottom, prevP.nextTop = curP.nextTop);
+      skipStr(curP.str) || (equal(prevP.nextTop, curP.top) && prevP.str.endsWith("-") && (prevP.str = prevP.str.slice(0, prevP.str.length - 1), prefixChar = ""), prevP.mergedTimes++, prevP.str += prefixChar + curP.str, prevP.bottom = curP.bottom, prevP.nextTop = curP.nextTop);
     }
   }
   function getOrigLineParagraphs(context, data) {
@@ -21296,18 +21305,18 @@ ${injectedCss}}
       let str = item.str;
       if (!str.trim())
         return;
-      let baseX = item.transform[4], baseY = item.transform[5], width = item.width * scale, fontName = item.fontName, fontSize = item.transform[3], descent = data.styles[fontName].descent, fontHeight = (1 + (1 - data.styles[fontName].ascent) + descent) * fontSize, left = baseX * scale, right = left + width, top = (pageHeight - baseY - fontHeight) * scale, bottom = top + fontHeight - fontSize * descent * scale, nextTop = bottom + fontSize * scale * 0.2, nextLeft = right + fontSize * scale * 0.3, curLineP = {
-        id: `pageNum-${uuidv4()}`,
+      let baseX = item.transform[4], baseY = item.transform[5], width = item.width * scale, fontName = data.styles[item.fontName].fontFamily, fontSize = item.transform[3], descent = data.styles[item.fontName].descent, fontHeight = (1 + (1 - data.styles[item.fontName].ascent) + descent) * fontSize, left = baseX * scale, right = left + width, top = (pageHeight - baseY - fontHeight) * scale, bottom = top + fontSize * scale, nextTop = bottom + fontSize * scale * 0.2, nextLeft = right + fontSize * scale * 0.3, curLineP = {
         str,
+        left,
+        nextLeft,
+        top,
+        nextTop,
+        id: `pageNum-${uuidv4()}`,
         width,
         fontName,
         fontSize,
-        left,
-        top,
         right,
         bottom,
-        nextTop,
-        nextLeft,
         attachList: [],
         mergedTimes: 0,
         translatedStr: ""
@@ -21316,11 +21325,7 @@ ${injectedCss}}
         origLineParagraphs.push(curLineP);
       else {
         let prevLineP = origLineParagraphs[origLineParagraphs.length - 1];
-        if (context.prevLineP = prevLineP, /^\d[\.:]$/.test(prevLineP.str)) {
-          origLineParagraphs.push(curLineP);
-          return;
-        }
-        if (isSameLineText(context, curLineP)) {
+        if (context.prevLineP = prevLineP, isSameLineText(context, curLineP)) {
           isSameLineBreakText(context, curLineP) ? prevLineP.str += str : prevLineP.str += " " + str, prevLineP.right = right, prevLineP.fontName = fontName, prevLineP.width = Math.max(
             prevLineP.width + width,
             right - prevLineP.left

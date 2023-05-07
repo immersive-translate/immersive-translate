@@ -11,6 +11,7 @@ html {
 }
 a {
   text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
 }
 a:visited {
   color: inherit;
@@ -101,6 +102,11 @@ img {
   font-family: PingFang SC;
   text-align: center;
   cursor: pointer;
+}
+
+.view-item .normal-link {
+  text-decoration: underline;
+  margin-bottom: 16px;
 }
 .view-item .link {
   font-size: 0.8rem;

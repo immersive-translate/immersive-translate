@@ -86,7 +86,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:43.972Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-07T17:12:24.726Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -17799,9 +17799,7 @@ ${injectedCss}}
       let boydHtml = document.body.innerHTML;
       document.body.innerHTML = "", document.body.innerHTML = boydHtml;
     }
-    if (await setupOnceForInitPage(globalContext), document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
-    }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (await setupOnceForInitPage(globalContext), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;

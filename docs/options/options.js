@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:43.972Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-07T17:12:24.726Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -14401,6 +14401,9 @@ ${injectedCss}}
   function getVersion() {
     return manifest_default.version;
   }
+  function getRuntimeVersion() {
+    return browserAPI.runtime.getManifest().version;
+  }
 
   // report.ts
   var measurement_id = "G-MKMD9LWFTR";
@@ -15227,9 +15230,7 @@ ${injectedCss}}
       let boydHtml = document.body.innerHTML;
       document.body.innerHTML = "", document.body.innerHTML = boydHtml;
     }
-    if (await setupOnceForInitPage(globalContext), document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
-    }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (await setupOnceForInitPage(globalContext), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;
@@ -22626,7 +22627,7 @@ ${injectedCss}}
   function About() {
     let [localBuildinConfigUpdatedAt, setLocalBuildinConfigUpdatedAt] = P2(null), { t: t5 } = useI18n(), [cacheSize, setCacheSize] = P2(t5("calculating") + "..."), [remoteConfig, setRemoteConfig] = P2(null), [_5, setStorageBuildinConfig] = useBuildinConfig(), [isNeedUpdate, setIsNeedUpdate] = P2(null), [syncErrorMessage, setSyncErrorMessage] = P2(""), [isSyncSuccess, setIsSyncSuccess] = P2(!1), [isInvalidLocalVersion, setIsInvalidLocalVersion] = P2(
       !1
-    ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getVersion(), isShowPricing = !0;
+    ), [config, setConfig] = P2(null), [isLatestVersion, setIsLatestVersion] = P2(null), [settings, setSettings, _isPersistent, _error] = useUserConfig(), [isCleaning, setIsCleaning] = P2(!1), version = getRuntimeVersion(), isShowPricing = !0;
     isSafari() && config && (isShowPricing = config.generalRule.showSponsorOnSafari);
     let handleSyncing = async () => {
       setSyncErrorMessage("");
@@ -23179,7 +23180,7 @@ ${injectedCss}}
     })();
   }
   function App(props) {
-    let route = useRoute(), { t: t5 } = useI18n(), version = getVersion(), { config } = props, navs = [
+    let route = useRoute(), { t: t5 } = useI18n(), version = getRuntimeVersion(), { config } = props, navs = [
       {
         name: t5("general"),
         props: {

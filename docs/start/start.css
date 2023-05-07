@@ -1,8 +1,29 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  --swiper-content-width: 960px;
+  --swiper-content-height: 100%;
+  --swiper-slider-with: 80px;
+  --logo-top: 60px;
+  --swiper-top: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    sans-serif;
 }
-
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+@media all and (max-width: 960px) {
+  html {
+    --swiper-content-width: 100%;
+    --swiper-content-height: 380px;
+    --swiper-slider-with: 0;
+    --logo-top: 20px;
+    --swiper-top: 40px;
+  }
+}
 *,
 *:before,
 *:after {
@@ -34,6 +55,104 @@ img {
   height: auto;
 }
 .swiper {
-  width: 600px;
-  height: 300px;
+  width: calc(var(--swiper-content-width) + 2 * var(--swiper-slider-with));
+  height: var(--swiper-content-height);
+  margin-top: var(--swiper-top);
+  --swiper-theme-color: #ea4c89;
+}
+.view-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+}
+.view-item h1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.view-item h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+.view-item p {
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+.view-item img {
+  width: var(--swiper-content-width);
+}
+.view-item .button {
+  padding: 0 64px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  background: var(--swiper-theme-color);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: PingFang SC;
+  text-align: center;
+  cursor: pointer;
+}
+.view-item .link {
+  font-size: 0.8rem;
+  text-decoration: underline;
+  color: #666;
+  margin-bottom: 16px;
+}
+.logo {
+  margin-left: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: var(--logo-top);
+  font-size: 1.2rem;
+}
+.logo > img {
+  width: 36px;
+  height: 36px;
+  margin-right: 0.5rem;
+}
+.pin-extension {
+  position: absolute;
+  right: 80px;
+  top: 0;
+  width: 250px;
+  padding-top: 64px;
+  background-image: url(./pin-extension.svg);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+@media all and (max-width: 768px) {
+  .view-item h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .view-item h2 {
+    font-size: 1rem;
+    padding: 0 16px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .view-item p {
+    margin-bottom: 16px;
+    padding: 0 16px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .view-item .button {
+    margin-top: 0;
+    padding: 0 32px;
+  }
+  .logo {
+    margin-left: 5%;
+  }
 }

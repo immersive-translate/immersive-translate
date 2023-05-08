@@ -23,7 +23,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 安卓系统使用沉浸式翻译有 2 种方式：
 
-1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[Kiwi 浏览器](https://kiwibrowser.com/)，或[狐猴浏览器](https://lemurbrowser.com/app/zh/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
+1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[狐猴浏览器](https://lemurbrowser.com/app/zh/)或[Kiwi 浏览器](https://kiwibrowser.com/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
 2. 在支持油猴脚本的安卓浏览器中安装[沉浸式翻译油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，见下面的介绍。
 
 ## 通过油猴脚本安装
@@ -36,7 +36,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 **安卓火狐浏览器**
 
-1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
+1. 下载 [Firefox 最新版本](https://www.firefox.com.cn/download/#product-android-release) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
 3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。

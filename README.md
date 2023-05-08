@@ -23,7 +23,13 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 
-感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，因为有了他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过 [推特](https://twitter.com/OwenYoungZh)， [Telegram 频道](https://t.me/owenyoungzh) 或 [其他方式](https://www.owenyoung.com/contact/) 与我保持联系。
+感谢这些 [赞助者](https://immersive-translate.owenyoung.com/thanks)，因为有了他/她们的支持，更多的人可以免费地使用这个工具。如果有余力，请 [点击这里](https://immersive-translate.owenyoung.com/donate) 赞助我的工作。你可以通过以下方式和我们保持联系：
+
+- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
+- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
+- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
+- [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
 
 (此位置正等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助将为这个扩展的持续维护提供极大的帮助，非常感谢你的支持！)
 
@@ -77,13 +83,6 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 - [价格 / Pricing](https://immersive-translate.owenyoung.com/donate)
 
-## 保持联系
-
-- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
-- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
-- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
-- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
 
 ## 使用案例
 

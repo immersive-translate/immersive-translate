@@ -29,7 +29,6 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)
 
 (此位置正等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助将为这个扩展的持续维护提供极大的帮助，非常感谢你的支持！)
 

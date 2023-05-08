@@ -19,7 +19,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 全平台浏览器支持，包括桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等。
 - 提供多种译文样式选择，如弱化、模糊、下划线、分隔线等样式，个性化定制翻译体验。
 
-[**立即安装**](https://immersive-translate.owenyoung.com/installation.html)
+[**点击立即安装**](https://immersive-translate.owenyoung.com/installation.html)
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 

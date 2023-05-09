@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:42.846Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-09T17:13:33.900Z", VERSION: "0.5.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8280,7 +8280,7 @@ body {
   }
 
   // dom/util.ts
-  var env2 = getEnv(), isProd = env2.PROD === "1", isInUserscript = isMonkey();
+  var isInUserscript = isMonkey();
   function isMatchSelectors(selectors) {
     return selectors ? typeof selectors == "string" ? document.querySelector(selectors) !== null : selectors.some((selector) => document.querySelector(selector)) : !1;
   }
@@ -9196,7 +9196,10 @@ body {
       },
       {
         matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
-        selectors: ["[data-test-id=card-container]"],
+        selectors: [
+          "[data-test-id=card-container]",
+          "[data-test-id=comments-section]"
+        ],
         excludeSelectors: [
           "[data-test-id=post-page-meta]",
           "header > div:first-child"
@@ -10328,6 +10331,26 @@ body {
           "TTS-SENTENCE",
           "AIO-CODE"
         ]
+      },
+      {
+        matches: "ground.news",
+        globalStyles: {
+          ".line-clamp-3": "-webkit-line-clamp: unset !important;"
+        }
+      },
+      {
+        matches: "*.ietf.org/doc/html/*",
+        additionalSelectors: [
+          "pre"
+        ],
+        isTransformPreTagNewLine: !0,
+        preWhitespaceDetectedTags: ["DIV", "SPAN", "PRE"]
+      },
+      {
+        matches: "https://www.newsminimalist.com/",
+        extraBlockSelectors: [
+          ".inline-flex"
+        ]
       }
     ]
   };
@@ -11031,7 +11054,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.3",
+    version: "0.5.4",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -12164,12 +12187,6 @@ body {
   }
 
   // browser/request.ts
-  var ports = /* @__PURE__ */ new Map();
-  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
-    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
-      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
-    });
-  });
   async function request(options) {
     let response;
     if (options && options.retry && options.retry > 0)
@@ -12244,25 +12261,6 @@ body {
             }
           }
         return answer;
-      } else if (responseType === "realStream") {
-        log_default.debug("sse get portName", options.extra?.portName);
-        let port = ports.get(options.extra?.portName), buffer = "";
-        if (response.body && response.body instanceof ReadableStream)
-          for await (let chunk of streamAsyncIterable(response.body)) {
-            let str = new TextDecoder().decode(chunk);
-            buffer += str;
-            let lineEndIndex;
-            for (; (lineEndIndex = buffer.indexOf(`
-`)) >= 0; ) {
-              let line = buffer.slice(0, lineEndIndex).trim();
-              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
-                continue;
-              let eventData = "";
-              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
-                return log_default.debug("sse get [DONE]"), response.status;
-            }
-          }
-        return response.status;
       }
     } else {
       let details;

@@ -19,7 +19,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 全平台浏览器支持，包括桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等。
 - 提供多种译文样式选择，如弱化、模糊、下划线、分隔线等样式，个性化定制翻译体验。
 
-[点击查看使用案例/截图](https://immersive-translate.owenyoung.com/usecase)
+[**点击立即安装**](https://immersive-translate.owenyoung.com/installation.html)
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 
@@ -82,7 +82,6 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 - [价格 / Pricing](https://immersive-translate.owenyoung.com/donate)
 
-
 ## 使用案例
 
 - [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
@@ -110,11 +109,11 @@ muted
 height="800px"
 poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4"></video>
 
-### 安卓
+### 安卓/Android
 
 安卓系统使用沉浸式翻译有 2 种方式：
 
-1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[Kiwi 浏览器](https://kiwibrowser.com/)，或[狐猴浏览器](https://lemurbrowser.com/app/zh/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
+1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[狐猴浏览器](https://lemurbrowser.com/app/zh/)或[Kiwi 浏览器](https://kiwibrowser.com/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
 2. 在支持油猴脚本的安卓浏览器中安装[沉浸式翻译油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，见下面的介绍。
 
 ### 通过油猴脚本安装
@@ -127,7 +126,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 **安卓火狐浏览器**
 
-1. 下载 [Firefox 最新版本](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US&gl=US) 版本
+1. 下载 [Firefox 最新版本](https://www.firefox.com.cn/download/#product-android-release) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
 3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
@@ -171,8 +170,8 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=f1145807696198fa272d3fef22127152d2e1c73c"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=f1145807696198fa272d3fef22127152d2e1c73c"></a></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=f375f05e8d52d4274bcfbcf0dfc2e3c567e0794c"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=f375f05e8d52d4274bcfbcf0dfc2e3c567e0794c"></a></object>
 </p>
 
 > 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，你的头像和个人主页将会在 10 分钟内出现在这里。

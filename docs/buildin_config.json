@@ -995,7 +995,8 @@
         "seekingalpha.com/news/*"
       ],
       "selectors": [
-        "[data-test-id=card-container]"
+        "[data-test-id=card-container]",
+        "[data-test-id=comments-section]"
       ],
       "excludeSelectors": [
         "[data-test-id=post-page-meta]",
@@ -2372,8 +2373,32 @@
         "TTS-SENTENCE",
         "AIO-CODE"
       ]
+    },
+    {
+      "matches": "ground.news",
+      "globalStyles": {
+        ".line-clamp-3": "-webkit-line-clamp: unset !important;"
+      }
+    },
+    {
+      "matches": "*.ietf.org/doc/html/*",
+      "additionalSelectors": [
+        "pre"
+      ],
+      "isTransformPreTagNewLine": true,
+      "preWhitespaceDetectedTags": [
+        "DIV",
+        "SPAN",
+        "PRE"
+      ]
+    },
+    {
+      "matches": "https://www.newsminimalist.com/",
+      "extraBlockSelectors": [
+        ".inline-flex"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-06T07:51:31.894Z",
-  "latestVersion": "0.5.2"
+  "buildinConfigUpdatedAt": "2023-05-09T08:17:57.329Z",
+  "latestVersion": "0.5.3"
 }

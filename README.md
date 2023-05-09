@@ -59,7 +59,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 <br>
 <br>
 <div>
-<a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate"><img src="https://immersive-translate.owenyoung.com/assets/langgenius-logo-full.png?v=2" height="67" alt="Lang Genius"></a>
+<a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate"><img src="https://immersive-translate.owenyoung.com/assets/langgenius-logo-full.jpg?v=3" height="67" alt="Lang Genius"></a>
 </div>
 <a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate">
 <b>可视化创造和持续运营你的原生 AI 应用</b>

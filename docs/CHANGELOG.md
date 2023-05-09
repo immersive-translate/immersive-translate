@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.4
+
+- Fix: Spa Page duplicate
+
 ## 0.5.3
 
 - Fix: Mouse hover hotkey listener.

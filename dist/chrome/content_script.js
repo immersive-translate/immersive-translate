@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-07T10:58:41.340Z", VERSION: "0.5.3", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-09T17:13:31.927Z", VERSION: "0.5.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8418,7 +8418,7 @@ body {
   }
 
   // dom/util.ts
-  var env2 = getEnv(), isProd = env2.PROD === "1", isInUserscript = isMonkey();
+  var isProd = !1, isInUserscript = isMonkey();
   function duplicatedElements(root2, array, rule) {
     let allHeaders = root2.querySelectorAll("header"), main3 = root2.querySelectorAll("main"), headers3 = [];
     for (let header of allHeaders)
@@ -10276,7 +10276,10 @@ body {
       },
       {
         matches: ["seekingalpha.com/article/*", "seekingalpha.com/news/*"],
-        selectors: ["[data-test-id=card-container]"],
+        selectors: [
+          "[data-test-id=card-container]",
+          "[data-test-id=comments-section]"
+        ],
         excludeSelectors: [
           "[data-test-id=post-page-meta]",
           "header > div:first-child"
@@ -11408,6 +11411,26 @@ body {
           "TTS-SENTENCE",
           "AIO-CODE"
         ]
+      },
+      {
+        matches: "ground.news",
+        globalStyles: {
+          ".line-clamp-3": "-webkit-line-clamp: unset !important;"
+        }
+      },
+      {
+        matches: "*.ietf.org/doc/html/*",
+        additionalSelectors: [
+          "pre"
+        ],
+        isTransformPreTagNewLine: !0,
+        preWhitespaceDetectedTags: ["DIV", "SPAN", "PRE"]
+      },
+      {
+        matches: "https://www.newsminimalist.com/",
+        extraBlockSelectors: [
+          ".inline-flex"
+        ]
       }
     ]
   };
@@ -11728,12 +11751,6 @@ body {
   };
 
   // browser/request.ts
-  var ports = /* @__PURE__ */ new Map();
-  isMonkey() || browserAPI.runtime.onConnect.addListener((port) => {
-    log_default.debug(port.name), ports.set(port.name, port), port.onDisconnect.addListener((port2) => {
-      log_default.debug("chatgpt port disconnected"), ports.delete(port2.name);
-    });
-  });
   async function request(options2) {
     let response;
     if (options2 && options2.retry && options2.retry > 0)
@@ -11808,25 +11825,6 @@ body {
             }
           }
         return answer;
-      } else if (responseType === "realStream") {
-        log_default.debug("sse get portName", options2.extra?.portName);
-        let port = ports.get(options2.extra?.portName), buffer = "";
-        if (response.body && response.body instanceof ReadableStream)
-          for await (let chunk of streamAsyncIterable(response.body)) {
-            let str = new TextDecoder().decode(chunk);
-            buffer += str;
-            let lineEndIndex;
-            for (; (lineEndIndex = buffer.indexOf(`
-`)) >= 0; ) {
-              let line = buffer.slice(0, lineEndIndex).trim();
-              if (buffer = buffer.slice(lineEndIndex + 1), line.startsWith("event:") || line === "")
-                continue;
-              let eventData = "";
-              if (line.startsWith("data:") && (eventData = line.slice(5).trim()), port.postMessage(eventData), eventData === "[DONE]")
-                return log_default.debug("sse get [DONE]"), response.status;
-            }
-          }
-        return response.status;
       }
     } else {
       let details;
@@ -12938,7 +12936,7 @@ ${injectedCss}}
       observers: []
     });
   }
-  async function getParagraphs(rootFrame, containers, ctx) {
+  async function getParagraphs(rootFrame, containers, ctx, forceTranslate) {
     let allParagraphs = [], { targetLanguage, rule } = ctx;
     for (let container of containers) {
       if (isExcludeElement(container, rule, !1))
@@ -12946,10 +12944,15 @@ ${injectedCss}}
       let isPreWhitespaceContainer = isMarked(
         container,
         sourcePreWhitespaceMarkAttributeName
-      ), inlineElementGroups = [];
+      ), inlineElementGroups = [], elementsToParagraphIfForce = (elements, isPreWhitespace, rootFrame2, ctx2) => (forceTranslate && (elements = elements.map(
+        (element) => element.element ? (element.forceTranslate = !0, element) : {
+          element,
+          forceTranslate: !0
+        }
+      )), elementsToParagraph(elements, isPreWhitespace, rootFrame2, ctx2));
       if (isMarked(container, sourceAtomicBlockElementMarkAttributeName)) {
         if (!isMarkedByParagraph(container)) {
-          let paragraph = elementsToParagraph(
+          let paragraph = elementsToParagraphIfForce(
             [container],
             !0,
             rootFrame,
@@ -12970,7 +12973,7 @@ ${injectedCss}}
             return NodeFilter.FILTER_REJECT;
           if (setAttribute(element, sourceElementMarkAttributeName, "1"), isMarked(element, sourceAtomicBlockElementMarkAttributeName)) {
             if (inlineElementGroups.length > 0) {
-              let paragraph2 = elementsToParagraph(
+              let paragraph2 = elementsToParagraphIfForce(
                 [...inlineElementGroups],
                 isPreWhitespaceContainer,
                 rootFrame,
@@ -12979,7 +12982,7 @@ ${injectedCss}}
               currentVariableIndex = 0, paragraph2 && addToParagraphs(paragraph2, allParagraphs), inlineElementGroups.length = 0;
             }
             inlineElementGroups.push(element);
-            let paragraph = elementsToParagraph(
+            let paragraph = elementsToParagraphIfForce(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
               rootFrame,
@@ -13005,7 +13008,7 @@ ${injectedCss}}
               currentVariableIndex
             ).currentVariableIndex, NodeFilter.FILTER_REJECT;
           if (inlineElementGroups.length > 0) {
-            let paragraph = elementsToParagraph(
+            let paragraph = elementsToParagraphIfForce(
               [...inlineElementGroups],
               isPreWhitespaceContainer,
               rootFrame,
@@ -13034,7 +13037,7 @@ ${injectedCss}}
       ), node = elementIter.nextNode();
       for (node || container === rootFrame && (node = container); node; ) {
         if (inlineElementGroups.length > 0) {
-          let paragraph = elementsToParagraph(
+          let paragraph = elementsToParagraphIfForce(
             [...inlineElementGroups],
             isPreWhitespaceContainer,
             rootFrame,
@@ -13045,7 +13048,7 @@ ${injectedCss}}
         node = elementIter.nextNode();
       }
       if (inlineElementGroups.length > 0) {
-        let paragraph = elementsToParagraph(
+        let paragraph = elementsToParagraphIfForce(
           [...inlineElementGroups],
           isPreWhitespaceContainer,
           rootFrame,
@@ -14784,6 +14787,38 @@ ${injectedCss}}
         from: _Google.langMapReverse.get(result.data[2]) || "auto",
         to
       };
+    }
+    async translateXml(payload) {
+      let { text, from, to } = payload;
+      if (!text)
+        return { ...payload };
+      let adaptedFrom = _Google.langMap.get(from) || "auto", adaptedTo = _Google.langMap.get(to) || to, result = await this.fetchXmlWithoutToken(
+        text,
+        adaptedFrom,
+        adaptedTo
+      );
+      if (!result)
+        throw new Error("google translate NETWORK_ERROR");
+      if (!result.data[0] || result.data[0].length <= 0)
+        throw new Error("google translate API_SERVER_ERROR");
+      return {
+        text: result.data[0].map((item) => item[0]).filter(Boolean).join(""),
+        from: _Google.langMapReverse.get(result.data[2]) || "auto",
+        to
+      };
+    }
+    async fetchXmlWithoutToken(text, from, to) {
+      let url = "https://translate.googleapis.com/translate_a/t?" + new URLSearchParams({
+        client: "gtx",
+        dt: "t",
+        sl: from,
+        tl: to,
+        q: text
+      }).toString();
+      return { data: await request2({
+        retry: 2,
+        url
+      }) };
     }
     async fetchWithoutToken(text, from, to) {
       let params = new URLSearchParams({
@@ -17686,7 +17721,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.3",
+    version: "0.5.4",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -17821,7 +17856,7 @@ ${injectedCss}}
   var measurement_id = "G-MKMD9LWFTR";
   async function report(key, events, ctx) {
     try {
-      let env4 = getEnv(), isUserscript = isMonkey(), isInIframe = getIsInIframe(), isProd3 = env4.PROD === "1", reportKey = `report_${key}`, isDaily = key.endsWith("_daily");
+      let env3 = getEnv(), isUserscript = isMonkey(), isInIframe = getIsInIframe(), isProd3 = env3.PROD === "1", reportKey = `report_${key}`, isDaily = key.endsWith("_daily");
       if (isDaily) {
         if (isInIframe)
           return;
@@ -18106,7 +18141,7 @@ ${injectedCss}}
       translateNewDynamicNodes,
       3e3
     )
-  }, env3 = getEnv(), isProd2 = env3.PROD === "1", translationServiceInitmap = {}, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
+  }, env2 = getEnv(), isProd2 = env2.PROD === "1", translationServiceInitmap = {}, titleMutationObserver, mutationObserverMap = /* @__PURE__ */ new Map(), mainMutaionObserver, originalPageTitle = "";
   async function toggleTranslatePage() {
     if (getPageStatus() === "Original") {
       let ctx = await getGlobalContext(getRealUrl(), {
@@ -18373,9 +18408,7 @@ ${injectedCss}}
       let boydHtml = document.body.innerHTML;
       document.body.innerHTML = "", document.body.innerHTML = boydHtml;
     }
-    if (await setupOnceForInitPage(globalContext), document.querySelectorAll("iframe").forEach((frame) => {
-      isInlineIframe(frame) && injectCssToFrame(frame.contentDocument, ctx);
-    }), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
+    if (await setupOnceForInitPage(globalContext), !ctx.state.isAutoTranslate && ctx.config.tempTranslateDomainMinutes > 0) {
       let now = Date.now(), currentDomain = new URL(ctx.url).hostname, currentTempTranslationDomains = ctx.localConfig.tempTranslationUrlMatches || [], index = currentTempTranslationDomains.findIndex(
         (item) => item.match === currentDomain && item.expiredAt > now
       ), isChanged = !1;
@@ -18577,7 +18610,8 @@ ${injectedCss}}
     ) : (containers = containers.filter((container) => !isExcludeElement(container, rule, !1)), paragraphs = await getParagraphs(
       rootFrame,
       containers,
-      ctx
+      ctx,
+      !1
     )), setPageTranslatedStatus("Translating"), paragraphs.length === 0) {
       setPageTranslatedStatus("Translated");
       return;
@@ -18908,7 +18942,7 @@ ${injectedCss}}
     let range = getRangeFromPoint(clientX2, clientY2, rule);
     if (range == null)
       return;
-    let checkTheShadowElement = () => {
+    let checkTheUnTextElement = () => {
       let pointElement = document.elementFromPoint(
         clientX2,
         clientY2
@@ -18920,8 +18954,7 @@ ${injectedCss}}
         clientX2,
         clientY2
       );
-      if (realInnerElement !== pointElement)
-        return getBlockParentNode(realInnerElement, rule);
+      return realInnerElement === pointElement ? pointElement.nodeName === "IFRAME" || isShadowElement(pointElement) ? void 0 : getBlockParentNode(pointElement, rule) : getBlockParentNode(realInnerElement, rule);
     }, checkTheTextNode = () => {
       try {
         range.setStartBefore(range.startContainer), range.setEndAfter(range.startContainer);
@@ -18932,7 +18965,7 @@ ${injectedCss}}
       if (!(rect.left > clientX2 || rect.right < clientX2 || rect.top > clientY2 || rect.bottom < clientY2))
         return getBlockParentNode(range.startContainer, rule);
     }, findedElement;
-    return range.startContainer.nodeType !== Node.TEXT_NODE ? findedElement = checkTheShadowElement() : findedElement = checkTheTextNode(), findedElement;
+    return range.startContainer.nodeType !== Node.TEXT_NODE ? findedElement = checkTheUnTextElement() : findedElement = checkTheTextNode(), findedElement;
   }
   function getSelectionText(rule) {
     return getMouseOverParagraph(clientX, clientY, rule);
@@ -18952,7 +18985,8 @@ ${injectedCss}}
         let paragraphs = await getParagraphs(
           selectionDom.getRootNode(),
           [selectionDom],
-          ctx
+          ctx,
+          !0
         );
         if (paragraphs.length > 0)
           for (let paragraph of paragraphs)
@@ -18966,8 +19000,15 @@ ${injectedCss}}
   function addEventHandler(eventName, callbackFunc) {
     return addEventListener(eventName, callbackFunc, { signal });
   }
-  function loadEventListener(ctx) {
-    let config = ctx.config, closeMouseTranslate = config.generalRule.mouseHoverHoldKey === "Off", isTranslateDirectlyOnHover = config.generalRule.mouseHoverHoldKey === "Auto", mousemoveThrottleHandle = se((e) => {
+  async function loadEventListener(originalCtx) {
+    let ctxOptions = {
+      url: originalCtx.url,
+      config: originalCtx.config,
+      state: {
+        ...originalCtx.state,
+        translationArea: "body"
+      }
+    }, ctx = await getContext(ctxOptions), config = ctx.config, closeMouseTranslate = config.generalRule.mouseHoverHoldKey === "Off", isTranslateDirectlyOnHover = config.generalRule.mouseHoverHoldKey === "Auto", mousemoveThrottleHandle = se((e) => {
       if (mouseMoved == !1 && Math.abs(e.clientX - clientX) + Math.abs(e.clientY - clientY) > 3 && (mouseMovedCount < 2 ? mouseMovedCount += 1 : mouseMoved = !0), clientX = e.clientX, clientY = e.clientY, isTranslateDirectlyOnHover || isHoldMouseHoverKey && !delayChecker) {
         let selectioPparagraph = getSelectionText(ctx.rule);
         selectioPparagraph && translateHoverPartial(ctx, selectioPparagraph);
@@ -20783,22 +20824,22 @@ ${injectedCss}}
     ...originalPagePopupConfig
   }, positionChanged = !1, rootRef = null, btnRef = null, mountPointRef = null, shadowRef = null, timer = null, localConfig = null, delta = 6, startX, startY, lastBtnStyle = null, lastRootStyle = null;
   async function initPopup() {
-    let env4 = getEnv();
+    let env3 = getEnv();
     localConfig = await getLocalConfig2(), currentPagePopupConfig = localConfig.pagePopupConfig || currentPagePopupConfig;
     let popup = document.createElement("div");
     popup.id = "immersive-translate-popup", popup.setAttribute("style", "all: initial"), document.documentElement.appendChild(popup);
     let shadow = popup.attachShadow({ mode: "open" });
     shadowRef = shadow;
     let cssStr = [
-      env4.IMMERSIVE_TRANSLATE_PICO_CSS,
-      env4.IMMERSIVE_TRANSLATE_COMMON_CSS,
-      env4.IMMERSIVE_TRANSLATE_POPUP_CSS,
-      env4.IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS
+      env3.IMMERSIVE_TRANSLATE_PICO_CSS,
+      env3.IMMERSIVE_TRANSLATE_COMMON_CSS,
+      env3.IMMERSIVE_TRANSLATE_POPUP_CSS,
+      env3.IMMERSIVE_TRANSLATE_PAGE_POPUP_CSS
     ].join(`
 `);
     addCSSLegacy(shadow, [cssStr]);
     let mountRoot = document.createElement("div");
-    mountRoot.innerHTML = env4.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
+    mountRoot.innerHTML = env3.IMMERSIVE_TRANSLATE_POPUP_HTML, shadow.appendChild(mountRoot), rootRef = shadow.querySelector(
       "#immersive-translate-popup-container"
     );
     let btn = shadow.querySelector(

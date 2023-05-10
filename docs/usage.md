@@ -6,9 +6,11 @@
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- 扫描下面二维码，加入官方微信交流群（添加好友后，自动回复群链接）
+- 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）
 
-![Wechat](https://immersive-translate.owenyoung.com/assets/wechat-contact.png)
+<div align="center">
+<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="300" alt="wechat">
+</div>
 
 ## 使用说明
 

@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-09T17:13:33.900Z", VERSION: "0.5.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-10T06:28:13.891Z", VERSION: "0.5.5", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -7881,6 +7881,7 @@ body {
           "[data-testid='UserDescription']",
           "[data-testid='HoverCard'] div[dir=auto]"
         ],
+        excludeSelectors: ["header"],
         observeUrlChange: !1,
         extraInlineSelectors: [
           '[data-testid="tweetText"] div',
@@ -8298,6 +8299,26 @@ body {
         additionalSelectors: ["h1", "blockquote.abstract"]
       },
       {
+        matches: "*.labs.arxiv.org/*",
+        stayOriginalTags: [
+          "math",
+          "semantics",
+          "mrow",
+          "mo",
+          "mfrac",
+          "msup",
+          "mi",
+          "mn",
+          "msqrt"
+        ],
+        atomicBlockSelectors: [
+          ".ltx_abstract",
+          ".ltx_note_content",
+          ".ltx_p",
+          ".ltx_title"
+        ]
+      },
+      {
         matches: "https://discord.com/channels/*",
         isTranslateTitle: !1,
         selectors: [
@@ -8442,11 +8463,21 @@ body {
       {
         matches: "www.google.*/search*",
         detectParagraphLanguage: !0,
-        excludeSelectors: ["a h3 + div", "div#sfooter"],
+        excludeSelectors: [
+          "a h3 + div",
+          "div#sfooter",
+          "a[role=presentation] > div > div:first-child",
+          ".b5ZQcf",
+          ".CEMjEf"
+        ],
         wrapperSuffix: "",
         globalStyles: {
           "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
-          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
+          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;",
+          "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;",
+          "div[style='-webkit-line-clamp:4']": "-webkit-line-clamp: unset;max-height: unset;",
+          ".V82bz": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px",
+          ".uAKcGb": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px"
         },
         extraBlockSelectors: [".MUFPAc"]
       },
@@ -8537,6 +8568,7 @@ body {
       },
       {
         matches: ["*.pornhub.com", "pornhub.com"],
+        excludeMatches: ["*.pornhub.com/insights/*", "pornhub.com/insights/*"],
         selectors: [
           ".title >a",
           ".title > span",
@@ -9307,6 +9339,13 @@ body {
           "MATH",
           "TTS-SENTENCE",
           "AIO-CODE"
+        ]
+      },
+      {
+        matches: "www.promptingguide.ai",
+        selectors: [
+          "article",
+          "li"
         ]
       },
       {

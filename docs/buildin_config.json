@@ -1335,13 +1335,18 @@
       "excludeSelectors": [
         "a h3 + div",
         "div#sfooter",
-        "a[role=presentation] > div > div:first-child"
+        "a[role=presentation] > div > div:first-child",
+        ".b5ZQcf",
+        ".CEMjEf"
       ],
       "wrapperSuffix": "",
       "globalStyles": {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
         "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;",
-        "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;"
+        "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;",
+        "div[style='-webkit-line-clamp:4']": "-webkit-line-clamp: unset;max-height: unset;",
+        ".V82bz": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px",
+        ".uAKcGb": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px"
       },
       "extraBlockSelectors": [
         ".MUFPAc"
@@ -2432,6 +2437,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-10T04:03:36.468Z",
+  "buildinConfigUpdatedAt": "2023-05-10T04:21:55.734Z",
   "latestVersion": "0.5.4"
 }

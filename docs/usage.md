@@ -9,7 +9,7 @@
 - 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）
 
 <div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="300" alt="wechat">
+<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="200" alt="wechat">
 </div>
 
 ## 使用说明

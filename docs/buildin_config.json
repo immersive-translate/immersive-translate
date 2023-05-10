@@ -1144,6 +1144,26 @@
       ]
     },
     {
+      "matches": "*.labs.arxiv.org/*",
+      "stayOriginalTags": [
+        "math",
+        "semantics",
+        "mrow",
+        "mo",
+        "mfrac",
+        "msup",
+        "mi",
+        "mn",
+        "msqrt"
+      ],
+      "atomicBlockSelectors": [
+        ".ltx_abstract",
+        ".ltx_note_content",
+        ".ltx_p",
+        ".ltx_title"
+      ]
+    },
+    {
       "matches": "https://discord.com/channels/*",
       "isTranslateTitle": false,
       "selectors": [
@@ -1314,12 +1334,14 @@
       "detectParagraphLanguage": true,
       "excludeSelectors": [
         "a h3 + div",
-        "div#sfooter"
+        "div#sfooter",
+        "a[role=presentation] > div > div:first-child"
       ],
       "wrapperSuffix": "",
       "globalStyles": {
         "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
-        "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
+        "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;",
+        "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;"
       },
       "extraBlockSelectors": [
         ".MUFPAc"
@@ -2379,6 +2401,13 @@
       ]
     },
     {
+      "matches": "www.promptingguide.ai",
+      "selectors": [
+        "article",
+        "li"
+      ]
+    },
+    {
       "matches": "ground.news",
       "globalStyles": {
         ".line-clamp-3": "-webkit-line-clamp: unset !important;"
@@ -2403,6 +2432,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-09T18:15:44.557Z",
+  "buildinConfigUpdatedAt": "2023-05-10T04:03:36.468Z",
   "latestVersion": "0.5.4"
 }

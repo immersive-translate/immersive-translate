@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.5
+
+- Fix: Mouse over area issue.
+
 ## 0.5.4
 
 - Fix: Spa Page duplicate

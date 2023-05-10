@@ -15,7 +15,7 @@
   }, __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-09T17:13:31.927Z", VERSION: "0.5.4", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-10T06:28:12.245Z", VERSION: "0.5.5", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -8782,7 +8782,7 @@ body {
       let position = document.caretPositionFromPoint(x4, y4);
       if (position) {
         let range = document.createRange(), offsetNode = position.offsetNode;
-        if (isExcludeElement(offsetNode, rule, !0))
+        if (!offsetNode || offsetNode.nodeType !== Node.TEXT_NODE || isExcludeElement(offsetNode, rule, !0))
           return null;
         try {
           range.setStart(offsetNode, position.offset), range.setEnd(offsetNode, position.offset);
@@ -9984,6 +9984,7 @@ body {
           "[data-testid='UserDescription']",
           "[data-testid='HoverCard'] div[dir=auto]"
         ],
+        excludeSelectors: ["header"],
         observeUrlChange: !1,
         extraInlineSelectors: [
           '[data-testid="tweetText"] div',
@@ -10401,6 +10402,26 @@ body {
         additionalSelectors: ["h1", "blockquote.abstract"]
       },
       {
+        matches: "*.labs.arxiv.org/*",
+        stayOriginalTags: [
+          "math",
+          "semantics",
+          "mrow",
+          "mo",
+          "mfrac",
+          "msup",
+          "mi",
+          "mn",
+          "msqrt"
+        ],
+        atomicBlockSelectors: [
+          ".ltx_abstract",
+          ".ltx_note_content",
+          ".ltx_p",
+          ".ltx_title"
+        ]
+      },
+      {
         matches: "https://discord.com/channels/*",
         isTranslateTitle: !1,
         selectors: [
@@ -10545,11 +10566,21 @@ body {
       {
         matches: "www.google.*/search*",
         detectParagraphLanguage: !0,
-        excludeSelectors: ["a h3 + div", "div#sfooter"],
+        excludeSelectors: [
+          "a h3 + div",
+          "div#sfooter",
+          "a[role=presentation] > div > div:first-child",
+          ".b5ZQcf",
+          ".CEMjEf"
+        ],
         wrapperSuffix: "",
         globalStyles: {
           "div[data-content-feature='1'] > div": "-webkit-line-clamp: unset;max-height: unset;",
-          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;"
+          "div[style='-webkit-line-clamp:2']": "-webkit-line-clamp: unset;max-height: unset;",
+          "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;",
+          "div[style='-webkit-line-clamp:4']": "-webkit-line-clamp: unset;max-height: unset;",
+          ".V82bz": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px",
+          ".uAKcGb": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px"
         },
         extraBlockSelectors: [".MUFPAc"]
       },
@@ -10640,6 +10671,7 @@ body {
       },
       {
         matches: ["*.pornhub.com", "pornhub.com"],
+        excludeMatches: ["*.pornhub.com/insights/*", "pornhub.com/insights/*"],
         selectors: [
           ".title >a",
           ".title > span",
@@ -11410,6 +11442,13 @@ body {
           "MATH",
           "TTS-SENTENCE",
           "AIO-CODE"
+        ]
+      },
+      {
+        matches: "www.promptingguide.ai",
+        selectors: [
+          "article",
+          "li"
         ]
       },
       {
@@ -17721,7 +17760,7 @@ ${injectedCss}}
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.4",
+    version: "0.5.5",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -18954,7 +18993,7 @@ ${injectedCss}}
         clientX2,
         clientY2
       );
-      return realInnerElement === pointElement ? pointElement.nodeName === "IFRAME" || isShadowElement(pointElement) ? void 0 : getBlockParentNode(pointElement, rule) : getBlockParentNode(realInnerElement, rule);
+      return realInnerElement === pointElement ? pointElement.nodeName === "BUTTON" ? pointElement : void 0 : getBlockParentNode(realInnerElement, rule);
     }, checkTheTextNode = () => {
       try {
         range.setStartBefore(range.startContainer), range.setEndAfter(range.startContainer);

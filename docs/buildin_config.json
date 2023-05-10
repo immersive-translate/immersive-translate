@@ -644,6 +644,9 @@
         "[data-testid='UserDescription']",
         "[data-testid='HoverCard'] div[dir=auto]"
       ],
+      "excludeSelectors": [
+        "header"
+      ],
       "observeUrlChange": false,
       "extraInlineSelectors": [
         "[data-testid=\"tweetText\"] div",
@@ -2437,6 +2440,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-10T04:21:55.734Z",
+  "buildinConfigUpdatedAt": "2023-05-10T06:27:21.653Z",
   "latestVersion": "0.5.4"
 }

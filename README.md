@@ -144,7 +144,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 如果安装的时候遇到疑问，可以参考 [YouTube 视频教程](https://www.youtube.com/watch?v=IWOFFWDfZGY)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IWOFFWDfZGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=IWOFFWDfZGY" target="_blank"><img width="560" height="315" src="https://github.com/immersive-translate/immersive-translate/assets/36911513/69d58bbe-2a3f-46c4-acb1-70ab2da905f9" title="YouTube video player"></img></a>
 
 ## 赞助
 

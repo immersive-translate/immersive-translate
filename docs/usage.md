@@ -1,5 +1,17 @@
 # 如何使用？
 
+欢迎使用沉浸式翻译，如有疑问，你可以通过以下方式和开发团队取得联系：
+
+- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
+- [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
+- [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
+- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
+- 扫描下面二维码，加入官方微信交流群（添加好友后，自动回复群链接）
+
+![Wechat](https://immersive-translate.owenyoung.com/assets/wechat-contact.png)
+
+## 使用说明
+
 安装插件后，右上角点击【沉浸式翻译扩展图标】，点击翻译即可进行翻译：
 
 <img src="./assets/browser-action.png" alt="browser action" width="250" />
@@ -108,11 +120,3 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [常见问题](https://immersive-translate.owenyoung.com/faq.html)
 - [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
 - [Github](https://github.com/immersive-translate/immersive-translate/)
-
-## 与沉浸式翻译扩展保持联系
-
-- [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新。
-- [加入沉浸式扩展 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能讨论。
-- [加入沉浸式扩展 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息。
-- [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- [请开发者喝杯咖啡 ☕️](https://immersive-translate.owenyoung.com/donate.html)

@@ -29,8 +29,9 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [加入 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
+- 扫描下面二维码，加入官方微信交流群（添加好友后，自动回复群链接）
 
-(此位置正等待 [品牌赞助](https://immersive-translate.owenyoung.com/#%E6%88%90%E4%B8%BA%E5%93%81%E7%89%8C%E8%B5%9E%E5%8A%A9%E5%95%86)，你的赞助将为这个扩展的持续维护提供极大的帮助，非常感谢你的支持！)
+![Wechat](https://immersive-translate.owenyoung.com/assets/wechat-contact.png)
 
 <div align="center">
 <p>
@@ -59,7 +60,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 <br>
 <br>
 <div>
-<a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate"><img src="https://immersive-translate.owenyoung.com/assets/langgenius-logo-full.jpg?v=3" height="67" alt="Lang Genius"></a>
+<a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate"><img src="https://immersive-translate.owenyoung.com/assets/langgenius-logo-full.png?v=2" height="67" alt="Lang Genius"></a>
 </div>
 <a target="_blank" href="https://dify.ai/?utm_source=pay&utm_medium=immersive-translate">
 <b>可视化创造和持续运营你的原生 AI 应用</b>
@@ -170,8 +171,8 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=a90609c9a74e9bf85a945e8d4fb44c2f7614d397"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=a90609c9a74e9bf85a945e8d4fb44c2f7614d397"></a></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=53d8c74a379492b6c599b9eedd0dcad44f1a2b8b"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=53d8c74a379492b6c599b9eedd0dcad44f1a2b8b"></a></object>
 </p>
 
 > 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，你的头像和个人主页将会在 10 分钟内出现在这里。
@@ -192,10 +193,6 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 > 补充： 如果你直接扫上面的微信/支付宝二维码或 [加密货币](https://www.owenyoung.com/contact/) 进行赞助的话，可以在支付完成后填写一下这个[表单](https://tally.so/r/mYPplv)，这样我就可以联系到你。
 
-## 成为品牌赞助商
-
-沉浸式翻译正处于快速发展阶段，每天有数万用户访问该扩展的主页。如果您有需要宣传或推广的产品，可 [点击这里](https://www.owenyoung.com/contact/) 获取我的联系方式。在主页显眼位置放置您的产品，您的品牌赞助将为此扩展的持续维护提供巨大帮助。非常感谢您的支持！（目前每月 [$50](https://github.com/sponsors/theowenyoung/sponsorships?sponsor=theowenyoung&tier_id=263955) 即可成为品牌赞助商）
-
 附言：我完全理解那些暂时没有余力的用户（因为我也是这样走过来的！），不过您也可以帮助我完成一些力所能及的任务：
 
 - 在 [Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)、[Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN)、[Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/) 和 [GreasyFork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 里为该扩展评价。
@@ -212,7 +209,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 非常感谢这些贡献者，没有他们就不会有这个扩展！
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=ff097dc7ae6bbbba2d88f13c9dc82ef21d7228ba"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=ff097dc7ae6bbbba2d88f13c9dc82ef21d7228ba"></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=bbdf94ad1cdd4818f04865d81fc9234baa8ca15e"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/contributors/contributors.svg?v=bbdf94ad1cdd4818f04865d81fc9234baa8ca15e"></object>
 </p>
 
 ## Star History

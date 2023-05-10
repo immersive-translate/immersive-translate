@@ -493,7 +493,7 @@
     "pdfNewParagraphIndentRightIndentPx": 130,
     "fingerCountToToggleTranslagePageWhenTouching": 4,
     "fingerCountToToggleTranslationMaskWhenTouching": 0,
-    "mouseHoverHoldKey": "Alt"
+    "mouseHoverHoldKey": "Off"
   },
   "rules": [
     {
@@ -2441,6 +2441,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-10T08:04:56.692Z",
+  "buildinConfigUpdatedAt": "2023-05-10T08:44:56.271Z",
   "latestVersion": "0.5.5"
 }

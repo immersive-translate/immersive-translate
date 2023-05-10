@@ -2,7 +2,7 @@
   {
     "sponsor": {
       "type": "Organization",
-      "name": "Lang Genius",
+      "name": "Dify.ai",
       "login": "dify.ai",
       "description": "可视化创造和持续运营你的原生 AI 应用",
       "avatarUrl": "../../../docs/assets/langgenius-logo.jpg?v=3",

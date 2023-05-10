@@ -123,6 +123,7 @@
       "immediateTranslationTextCount": 3000,
       "translationDebounce": 300,
       "limit": 5,
+      "interval": 1350,
       "maxTextGroupLengthPerRequest": 1,
       "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
@@ -2440,6 +2441,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-10T06:27:21.653Z",
-  "latestVersion": "0.5.4"
+  "buildinConfigUpdatedAt": "2023-05-10T08:04:56.692Z",
+  "latestVersion": "0.5.5"
 }

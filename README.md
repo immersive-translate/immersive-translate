@@ -31,7 +31,9 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
 - 扫描下面二维码，加入官方微信交流群（添加好友后，自动回复群链接）
 
-![Wechat](https://immersive-translate.owenyoung.com/assets/wechat-contact.png)
+<div align="center">
+<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="300" alt="wechat">
+</div>
 
 <div align="center">
 <p>

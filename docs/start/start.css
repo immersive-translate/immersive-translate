@@ -16,6 +16,19 @@ a {
 a:visited {
   color: inherit;
 }
+.wechat {
+  position: absolute;
+  right: 80px;
+  top: 130px;
+}
+.text-sm {
+  font-size: 0.8rem;
+}
+
+.footer {
+  position: relative;
+}
+
 @media all and (max-width: 960px) {
   html {
     --swiper-content-width: 100%;
@@ -138,6 +151,13 @@ img {
   background-repeat: no-repeat;
 }
 @media all and (max-width: 768px) {
+  .wechat {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: center;
+    margin-top: 100px;
+  }
   .view-item h1 {
     font-size: 20px;
     margin-bottom: 6px;

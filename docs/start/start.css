@@ -25,6 +25,9 @@ a:visited {
   font-size: 0.8rem;
 }
 
+.text-xs {
+  font-size: 0.675rem;
+}
 .footer {
   position: relative;
 }

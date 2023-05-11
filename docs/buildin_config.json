@@ -1977,8 +1977,13 @@
     {
       "matches": "https://www.tiktok.com/*/video/*",
       "selectors": [
+        "span.tiktok-1oy3lhe-SpanNormalText",
         "[data-e2e^=comment-level]",
         "[data-e2e=browse-video-desc] > span"
+      ],
+      "injectedCss": [
+        ".tiktok-iwx5lu-ArticleLimitLine { --line-height: unset !important; }",
+        ".tiktok-ml44fi-DivText {max-height:unset !important; }"
       ]
     },
     {
@@ -2439,8 +2444,17 @@
       "extraBlockSelectors": [
         ".inline-flex"
       ]
+    },
+    {
+      "matches": "*.fanbox.cc/posts/*",
+      "selectors": [
+        ".public-DraftStyleDefault-ltr"
+      ],
+      "atomicBlockSelectors": [
+        ".public-DraftStyleDefault-ltr"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-10T08:44:56.271Z",
+  "buildinConfigUpdatedAt": "2023-05-11T04:29:14.968Z",
   "latestVersion": "0.5.5"
 }

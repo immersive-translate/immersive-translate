@@ -98,7 +98,11 @@
       ]
     },
     "bing": {
-      "maxTextLengthPerRequest": 800
+      "maxTextLengthPerRequest": 1800,
+      "placeholderDelimiters": [
+        "{{",
+        "}}"
+      ]
     },
     "deeplx": {
       "limit": 3
@@ -2442,6 +2446,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-11T04:53:07.024Z",
+  "buildinConfigUpdatedAt": "2023-05-12T17:57:59.334Z",
   "latestVersion": "0.5.5"
 }

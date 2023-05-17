@@ -2444,8 +2444,14 @@
       "extraBlockSelectors": [
         ".inline-flex"
       ]
+    },
+    {
+      "matches": "https://player.vimeo.com/video/*",
+      "extraBlockSelectors": [
+        "span.vp-captions-line"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-12T17:57:59.334Z",
+  "buildinConfigUpdatedAt": "2023-05-17T12:19:51.773Z",
   "latestVersion": "0.5.5"
 }

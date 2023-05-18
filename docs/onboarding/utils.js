@@ -11,8 +11,27 @@ function isSafari() {
   if ((chromeAgent) && (safariAgent)) safariAgent = false;
   return safariAgent;
 }
+function isEdge() {
+  return navigator.userAgent.indexOf("Edg") !== -1;
+}
 function isFirefox() {
   var userAgentString = navigator.userAgent;
   let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
   return firefoxAgent;
 }
+function getBrowserLang() {
+  let browserLang = navigator.language
+    ? navigator.language
+    : navigator.browserLanguage;
+  let defaultBrowserLang = "";
+  if (
+    browserLang.toLowerCase() === "us" ||
+    browserLang.toLowerCase() === "en" ||
+    browserLang.toLowerCase() === "en_us"
+  ) {
+    defaultBrowserLang = "en";
+  } else {
+    defaultBrowserLang = "zh";
+  }
+  return defaultBrowserLang;
+};

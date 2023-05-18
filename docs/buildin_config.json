@@ -2450,8 +2450,47 @@
       "extraBlockSelectors": [
         "span.vp-captions-line"
       ]
+    },
+    {
+      "matches": "https://yandex.com/",
+      "selectors": [
+        ".tabs__item-text"
+      ]
+    },
+    {
+      "matches": "https://yandex.com/search/*",
+      "excludeSelectors": [
+        ".KeyValue-Row",
+        ".EntityFeedbackFooter",
+        ".Organic-Subtitle",
+        ".SerpFooter-Content",
+        ".serp-user",
+        ".Pager"
+      ],
+      "globalStyles": {
+        ".ExtendedText-Toggle": "white-space:normal;"
+      }
+    },
+    {
+      "matches": "https://yandex.com/video/*",
+      "selectors": [
+        ".serp-item__title",
+        ".serp-item__text",
+        ".Keypoints-ItemTitle",
+        ".bes-epmjnzm-idtktyj",
+        ".OrganicTitle-LinkText",
+        "h1.VideoTitle"
+      ],
+      "globalStyles": {
+        ".serp-item__title": "-webkit-line-clamp: unset;max-height:unset;",
+        ".serp-item__text": "-webkit-line-clamp: unset;max-height:unset;",
+        ".OrganicTitle-LinkText": "-webkit-line-clamp: unset;max-height:unset;",
+        "h1.VideoTitle": "-webkit-line-clamp: unset;max-height:unset;",
+        ".link .serp-item__keypoints": "bottom:2px;",
+        ".OrganicTitle": "max-height:unset;"
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-17T12:19:51.773Z",
+  "buildinConfigUpdatedAt": "2023-05-18T04:12:07.430Z",
   "latestVersion": "0.5.5"
 }

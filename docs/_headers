@@ -6,5 +6,5 @@
   Cache-Control: no-cache
 
 /onboarding/*
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=300
 

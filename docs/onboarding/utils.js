@@ -23,14 +23,8 @@ function getBrowserLang() {
   let browserLang = navigator.language
     ? navigator.language
     : navigator.browserLanguage;
-  let defaultBrowserLang = "";
-  if (
-    browserLang.toLowerCase() === "us" ||
-    browserLang.toLowerCase() === "en" ||
-    browserLang.toLowerCase() === "en_us"
-  ) {
-    defaultBrowserLang = "en";
-  } else {
+  let defaultBrowserLang = "en";
+  if (browserLang.toLowerCase().indexOf("zh") >= 0) {
     defaultBrowserLang = "zh";
   }
   return defaultBrowserLang;

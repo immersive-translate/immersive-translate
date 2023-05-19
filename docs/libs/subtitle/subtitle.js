@@ -1098,7 +1098,7 @@
     );
   };
 
-  // https://esm.sh/v119/@twind/core@1.1.3/deno/core.mjs
+  // https://esm.sh/v122/@twind/core@1.1.3/deno/core.mjs
   var B3;
   function ae(e3) {
     return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -1487,7 +1487,7 @@
     } };
   }
 
-  // https://esm.sh/v119/@twind/preset-tailwind@1.1.4/deno/preset-tailwind.mjs
+  // https://esm.sh/v122/@twind/preset-tailwind@1.1.4/deno/preset-tailwind.mjs
   var w3 = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...d3(4, "rem", 4, 0.5, 0.5), ...d3(12, "rem", 4, 5), 14: "3.5rem", ...d3(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: i2("blur"), backdropBrightness: i2("brightness"), backdropContrast: i2("contrast"), backdropGrayscale: i2("grayscale"), backdropHueRotate: i2("hueRotate"), backdropInvert: i2("invert"), backdropOpacity: i2("opacity"), backdropSaturate: i2("saturate"), backdropSepia: i2("sepia"), backgroundColor: i2("colors"), backgroundImage: { none: "none" }, backgroundOpacity: i2("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...d3(200, "", 100, 0, 50), ...d3(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: i2("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: i2("spacing"), borderWidth: { DEFAULT: "1px", ...f2(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: i2("colors"), caretColor: i2("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...d3(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: i2("borderColor"), divideOpacity: i2("borderOpacity"), divideWidth: i2("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: ({ theme: e3 }) => ({ ...e3("colors"), none: "none" }), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 6), ...y(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: i2("spacing"), gradientColorStops: i2("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...d3(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: t2 }) => ({ ...t2(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...d3(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: i2("spacing"), placeholderColor: i2("colors"), placeholderOpacity: i2("opacity"), outlineColor: i2("colors"), outlineOffset: f2(8, "px"), outlineWidth: f2(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: "#3b82f6" }), ringOffsetColor: i2("colors"), ringOffsetWidth: f2(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f2(8, "px") }, rotate: { ...f2(2, "deg"), ...f2(12, "deg", 3), ...f2(180, "deg", 45) }, saturate: d3(200, "", 100, 0, 50), scale: { ...d3(150, "", 100, 0, 50), ...d3(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: i2("spacing"), scrollPadding: i2("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f2(2, "deg"), ...f2(12, "deg", 3) }, space: i2("spacing"), stroke: ({ theme: e3 }) => ({ ...e3("colors"), none: "none" }), strokeWidth: d3(2), textColor: i2("colors"), textDecorationColor: i2("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f2(8, "px") }, textUnderlineOffset: { auto: "auto", ...f2(8, "px") }, textIndent: i2("spacing"), textOpacity: i2("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: i2("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...d3(50, "", 1, 0, 10), auto: "auto" } };
   function y(e3, t2) {
     let a3 = {};
@@ -1582,7 +1582,7 @@
     return { "@layer defaults": { "*,::before,::after": e3, "::backdrop": e3 } };
   }
 
-  // https://esm.sh/v119/file-saver@2.0.5/deno/file-saver.mjs
+  // https://esm.sh/v122/file-saver@2.0.5/deno/file-saver.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), O3 = Object.create, y2 = Object.defineProperty, T4 = Object.getOwnPropertyDescriptor, U3 = Object.getOwnPropertyNames, _ = Object.getPrototypeOf, M3 = Object.prototype.hasOwnProperty, S4 = (a3, n2) => () => (n2 || a3((n2 = { exports: {} }).exports, n2), n2.exports), k2 = (a3, n2) => {
     for (var r in n2)
       y2(a3, r, { get: n2[r], enumerable: !0 });
@@ -1725,8 +1725,8 @@
     mouseHoldKeyOff: "\u4E0D\u505A\u4EFB\u4F55\u4E8B\u60C5",
     mouseHoldKeyOther: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u952E(\u6253\u5F00\u8BBE\u7F6E)",
     mouseHoldKeyCustomKey: "{key} \u7FFB\u8BD1\u8BE5\u6BB5",
-    mouseHoverHoldKey: "\u9F20\u6807\u6ED1\u8FC7\u540C\u65F6\u6309\u4E0B X \u952E\u7FFB\u8BD1\u6BB5\u843D",
-    "mouse-translate": "\u5F53\u9F20\u6807\u6ED1\u8FC7",
+    mouseHoverHoldKey: "\u9F20\u6807\u60AC\u505C\u540C\u65F6\u6309\u4E0B\u5FEB\u6377\u952E\u7FFB\u8BD1\u6BB5\u843D",
+    "mouse-translate": "\u5F53\u9F20\u6807\u60AC\u505C",
     document: "\u6587\u6863",
     resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
     resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
@@ -3443,12 +3443,12 @@
     return string.replace(ANSI_PATTERN, "");
   }
 
-  // https://esm.sh/v119/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v122/memoize-one@6.0.0/deno/memoize-one.mjs
   var s2 = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v119/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v122/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$2 = globalThis || (typeof window < "u" ? window : self), P4 = Object.create, I3 = Object.defineProperty, D4 = Object.getOwnPropertyDescriptor, G3 = Object.getOwnPropertyNames, H4 = Object.getPrototypeOf, U4 = Object.prototype.hasOwnProperty, X3 = (e3, t2) => () => (t2 || e3((t2 = { exports: {} }).exports, t2), t2.exports), q3 = (e3, t2) => {
     for (var n2 in t2)
       I3(e3, n2, { get: t2[n2], enumerable: !0 });
@@ -3546,7 +3546,7 @@
   s3(c, L3(h2()));
   var { default: $3, ...le2 } = ce3, se2 = $3 !== void 0 ? $3 : le2;
 
-  // https://esm.sh/v119/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v122/notie@4.3.1/deno/notie.mjs
   var Oe2 = Object.create, ve2 = Object.defineProperty, Ae2 = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je2 = Object.prototype.hasOwnProperty, Ne2 = (v5, i3) => () => (i3 || v5((i3 = { exports: {} }).exports, i3), i3.exports), Pe = (v5, i3) => {
     for (var l2 in i3)
       ve2(v5, l2, { get: i3[l2], enumerable: !0 });
@@ -3863,11 +3863,11 @@
   X4(B5, ke2(xe()));
   var { default: Ce2, ..._e3 } = Fe, Ye2 = Ce2 !== void 0 ? Ce2 : _e3;
 
-  // https://esm.sh/v119/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v122/nanostores@0.7.4/deno/nanostores.mjs
   var S5 = Symbol("clean");
   var m4 = Symbol();
 
-  // https://esm.sh/v119/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v122/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g3(r, n2) {
     if (typeof r == "string")
       return n2(r);
@@ -3901,7 +3901,7 @@
     return t2 in n2 || (t2 = "many"), g3(n2[t2], (o3) => o3.replace(/{count}/g, e3));
   });
 
-  // https://esm.sh/v119/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v122/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M4 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P5(e3, t2, i3, r) {
     e3.addEventListener ? e3.addEventListener(t2, i3, r) : e3.attachEvent && e3.attachEvent("on".concat(t2), function() {
@@ -4085,7 +4085,7 @@
   }, window.hotkeys = v3);
   var B7;
 
-  // https://esm.sh/v119/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v122/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var v4 = class {
     #e = performance.now();
     reset() {

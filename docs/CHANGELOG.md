@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.5.6
+
+- Fix: macOS new tab popup issue.
+- Feat: New guide page for new user.
+
 ## 0.5.5
 
 - Fix: Mouse over area issue.

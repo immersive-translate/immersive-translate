@@ -3364,7 +3364,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     terminateWorkers: () => Ss
   });
 
-  // https://esm.sh/v119/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
+  // https://esm.sh/v122/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
   function kt(t) {
     return vt(t.map(([n, e]) => new Array(n).fill(e, 0, n)));
   }
@@ -5892,7 +5892,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   }
   or({ Deflate: Zi, Inflate: ar });
 
-  // https://esm.sh/v119/fflate@0.7.4/deno/fflate.mjs
+  // https://esm.sh/v122/fflate@0.7.4/deno/fflate.mjs
   var vn2 = {}, Jn2 = function(n, r, t, e, i) {
     var a = new Worker(vn2[r] || (vn2[r] = URL.createObjectURL(new Blob([n + ';addEventListener("error",function(e){e=e.error;postMessage({$e$:[e.message,e.code,e.stack]})})'], { type: "text/javascript" }))));
     return a.onmessage = function(o) {

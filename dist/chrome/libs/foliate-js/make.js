@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-10T06:28:12.245Z", VERSION: "0.5.5", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-19T04:58:26.336Z", VERSION: "0.5.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3745,7 +3745,7 @@ body {
 .immersive-translate-popup-container {
   position: fixed;
   padding: 0;
-  z-index: 999999;
+  z-index: 2147483647;
   right: 0;
   top: 335px;
   width: 36px;
@@ -7016,7 +7016,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     terminateWorkers: () => Ss
   });
 
-  // https://esm.sh/v119/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
+  // https://esm.sh/v122/@zip.js/zip.js@2.6.75/deno/lib/zip-no-worker.js
   function kt(t) {
     return vt(t.map(([n2, e3]) => new Array(n2).fill(e3, 0, n2)));
   }
@@ -9544,7 +9544,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
   }
   or({ Deflate: Zi, Inflate: ar });
 
-  // https://esm.sh/v119/fflate@0.7.4/deno/fflate.mjs
+  // https://esm.sh/v122/fflate@0.7.4/deno/fflate.mjs
   var vn2 = {}, Jn2 = function(n2, r, t, e3, i3) {
     var a = new Worker(vn2[r] || (vn2[r] = URL.createObjectURL(new Blob([n2 + ';addEventListener("error",function(e){e=e.error;postMessage({$e$:[e.message,e.code,e.stack]})})'], { type: "text/javascript" }))));
     return a.onmessage = function(o2) {
@@ -10499,7 +10499,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     }, n2;
   }();
 
-  // https://esm.sh/v119/@twind/core@1.1.3/deno/core.mjs
+  // https://esm.sh/v122/@twind/core@1.1.3/deno/core.mjs
   var B;
   function ae(e3) {
     return [...e3.v, (e3.i ? "!" : "") + e3.n].join(":");
@@ -10888,7 +10888,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     } };
   }
 
-  // https://esm.sh/v119/@twind/preset-tailwind@1.1.4/deno/preset-tailwind.mjs
+  // https://esm.sh/v122/@twind/preset-tailwind@1.1.4/deno/preset-tailwind.mjs
   var w = { screens: { sm: "640px", md: "768px", lg: "1024px", xl: "1280px", "2xl": "1536px" }, columns: { auto: "auto", "3xs": "16rem", "2xs": "18rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, spacing: { px: "1px", 0: "0px", ...d2(4, "rem", 4, 0.5, 0.5), ...d2(12, "rem", 4, 5), 14: "3.5rem", ...d2(64, "rem", 4, 16, 4), 72: "18rem", 80: "20rem", 96: "24rem" }, durations: { 75: "75ms", 100: "100ms", 150: "150ms", 200: "200ms", 300: "300ms", 500: "500ms", 700: "700ms", 1e3: "1000ms" }, animation: { none: "none", spin: "spin 1s linear infinite", ping: "ping 1s cubic-bezier(0,0,0.2,1) infinite", pulse: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite", bounce: "bounce 1s infinite" }, aspectRatio: { auto: "auto", square: "1/1", video: "16/9" }, backdropBlur: i("blur"), backdropBrightness: i("brightness"), backdropContrast: i("contrast"), backdropGrayscale: i("grayscale"), backdropHueRotate: i("hueRotate"), backdropInvert: i("invert"), backdropOpacity: i("opacity"), backdropSaturate: i("saturate"), backdropSepia: i("sepia"), backgroundColor: i("colors"), backgroundImage: { none: "none" }, backgroundOpacity: i("opacity"), backgroundSize: { auto: "auto", cover: "cover", contain: "contain" }, blur: { none: "none", 0: "0", sm: "4px", DEFAULT: "8px", md: "12px", lg: "16px", xl: "24px", "2xl": "40px", "3xl": "64px" }, brightness: { ...d2(200, "", 100, 0, 50), ...d2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, borderColor: ({ theme: e3 }) => ({ DEFAULT: e3("colors.gray.200", "currentColor"), ...e3("colors") }), borderOpacity: i("opacity"), borderRadius: { none: "0px", sm: "0.125rem", DEFAULT: "0.25rem", md: "0.375rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "1/2": "50%", full: "9999px" }, borderSpacing: i("spacing"), borderWidth: { DEFAULT: "1px", ...f(8, "px") }, boxShadow: { sm: "0 1px 2px 0 rgba(0,0,0,0.05)", DEFAULT: "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)", md: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", lg: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", xl: "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "2xl": "0 25px 50px -12px rgba(0,0,0,0.25)", inner: "inset 0 2px 4px 0 rgba(0,0,0,0.05)", none: "0 0 #0000" }, boxShadowColor: i("colors"), caretColor: i("colors"), accentColor: ({ theme: e3 }) => ({ auto: "auto", ...e3("colors") }), contrast: { ...d2(200, "", 100, 0, 50), 75: "0.75", 125: "1.25" }, content: { none: "none" }, divideColor: i("borderColor"), divideOpacity: i("borderOpacity"), divideWidth: i("borderWidth"), dropShadow: { sm: "0 1px 1px rgba(0,0,0,0.05)", DEFAULT: ["0 1px 2px rgba(0,0,0,0.1)", "0 1px 1px rgba(0,0,0,0.06)"], md: ["0 4px 3px rgba(0,0,0,0.07)", "0 2px 2px rgba(0,0,0,0.06)"], lg: ["0 10px 8px rgba(0,0,0,0.04)", "0 4px 3px rgba(0,0,0,0.1)"], xl: ["0 20px 13px rgba(0,0,0,0.03)", "0 8px 5px rgba(0,0,0,0.08)"], "2xl": "0 25px 25px rgba(0,0,0,0.15)", none: "0 0 #0000" }, fill: ({ theme: e3 }) => ({ ...e3("colors"), none: "none" }), grayscale: { DEFAULT: "100%", 0: "0" }, hueRotate: { 0: "0deg", 15: "15deg", 30: "30deg", 60: "60deg", 90: "90deg", 180: "180deg" }, invert: { DEFAULT: "100%", 0: "0" }, flex: { 1: "1 1 0%", auto: "1 1 auto", initial: "0 1 auto", none: "none" }, flexBasis: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 6), ...y(12, 12), auto: "auto", full: "100%" }), flexGrow: { DEFAULT: 1, 0: 0 }, flexShrink: { DEFAULT: 1, 0: 0 }, fontFamily: { sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","), serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","), mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",") }, fontSize: { xs: ["0.75rem", "1rem"], sm: ["0.875rem", "1.25rem"], base: ["1rem", "1.5rem"], lg: ["1.125rem", "1.75rem"], xl: ["1.25rem", "1.75rem"], "2xl": ["1.5rem", "2rem"], "3xl": ["1.875rem", "2.25rem"], "4xl": ["2.25rem", "2.5rem"], "5xl": ["3rem", "1"], "6xl": ["3.75rem", "1"], "7xl": ["4.5rem", "1"], "8xl": ["6rem", "1"], "9xl": ["8rem", "1"] }, fontWeight: { thin: "100", extralight: "200", light: "300", normal: "400", medium: "500", semibold: "600", bold: "700", extrabold: "800", black: "900" }, gap: i("spacing"), gradientColorStops: i("colors"), gridAutoColumns: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridAutoRows: { auto: "auto", min: "min-content", max: "max-content", fr: "minmax(0,1fr)" }, gridColumn: { auto: "auto", "span-full": "1 / -1" }, gridRow: { auto: "auto", "span-full": "1 / -1" }, gridTemplateColumns: { none: "none" }, gridTemplateRows: { none: "none" }, height: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 6), min: "min-content", max: "max-content", fit: "fit-content", auto: "auto", full: "100%", screen: "100vh" }), inset: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 4), auto: "auto", full: "100%" }), keyframes: { spin: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } }, ping: { "0%": { transform: "scale(1)", opacity: "1" }, "75%,100%": { transform: "scale(2)", opacity: "0" } }, pulse: { "0%,100%": { opacity: "1" }, "50%": { opacity: ".5" } }, bounce: { "0%, 100%": { transform: "translateY(-25%)", animationTimingFunction: "cubic-bezier(0.8,0,1,1)" }, "50%": { transform: "none", animationTimingFunction: "cubic-bezier(0,0,0.2,1)" } } }, letterSpacing: { tighter: "-0.05em", tight: "-0.025em", normal: "0em", wide: "0.025em", wider: "0.05em", widest: "0.1em" }, lineHeight: { ...d2(10, "rem", 4, 3), none: "1", tight: "1.25", snug: "1.375", normal: "1.5", relaxed: "1.625", loose: "2" }, margin: ({ theme: e3 }) => ({ auto: "auto", ...e3("spacing") }), maxHeight: ({ theme: e3 }) => ({ full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh", ...e3("spacing") }), maxWidth: ({ theme: e3, breakpoints: t }) => ({ ...t(e3("screens")), none: "none", 0: "0rem", xs: "20rem", sm: "24rem", md: "28rem", lg: "32rem", xl: "36rem", "2xl": "42rem", "3xl": "48rem", "4xl": "56rem", "5xl": "64rem", "6xl": "72rem", "7xl": "80rem", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", prose: "65ch" }), minHeight: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content", screen: "100vh" }, minWidth: { 0: "0px", full: "100%", min: "min-content", max: "max-content", fit: "fit-content" }, opacity: { ...d2(100, "", 100, 0, 10), 5: "0.05", 25: "0.25", 75: "0.75", 95: "0.95" }, order: { first: "-9999", last: "9999", none: "0" }, padding: i("spacing"), placeholderColor: i("colors"), placeholderOpacity: i("opacity"), outlineColor: i("colors"), outlineOffset: f(8, "px"), outlineWidth: f(8, "px"), ringColor: ({ theme: e3 }) => ({ ...e3("colors"), DEFAULT: "#3b82f6" }), ringOffsetColor: i("colors"), ringOffsetWidth: f(8, "px"), ringOpacity: ({ theme: e3 }) => ({ ...e3("opacity"), DEFAULT: "0.5" }), ringWidth: { DEFAULT: "3px", ...f(8, "px") }, rotate: { ...f(2, "deg"), ...f(12, "deg", 3), ...f(180, "deg", 45) }, saturate: d2(200, "", 100, 0, 50), scale: { ...d2(150, "", 100, 0, 50), ...d2(110, "", 100, 90, 5), 75: "0.75", 125: "1.25" }, scrollMargin: i("spacing"), scrollPadding: i("spacing"), sepia: { 0: "0", DEFAULT: "100%" }, skew: { ...f(2, "deg"), ...f(12, "deg", 3) }, space: i("spacing"), stroke: ({ theme: e3 }) => ({ ...e3("colors"), none: "none" }), strokeWidth: d2(2), textColor: i("colors"), textDecorationColor: i("colors"), textDecorationThickness: { "from-font": "from-font", auto: "auto", ...f(8, "px") }, textUnderlineOffset: { auto: "auto", ...f(8, "px") }, textIndent: i("spacing"), textOpacity: i("opacity"), transitionDuration: ({ theme: e3 }) => ({ ...e3("durations"), DEFAULT: "150ms" }), transitionDelay: i("durations"), transitionProperty: { none: "none", all: "all", DEFAULT: "color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter", colors: "color,background-color,border-color,text-decoration-color,fill,stroke", opacity: "opacity", shadow: "box-shadow", transform: "transform" }, transitionTimingFunction: { DEFAULT: "cubic-bezier(0.4,0,0.2,1)", linear: "linear", in: "cubic-bezier(0.4,0,1,1)", out: "cubic-bezier(0,0,0.2,1)", "in-out": "cubic-bezier(0.4,0,0.2,1)" }, translate: ({ theme: e3 }) => ({ ...e3("spacing"), ...y(2, 4), full: "100%" }), width: ({ theme: e3 }) => ({ min: "min-content", max: "max-content", fit: "fit-content", screen: "100vw", ...e3("flexBasis") }), willChange: { scroll: "scroll-position" }, zIndex: { ...d2(50, "", 1, 0, 10), auto: "auto" } };
   function y(e3, t) {
     let a = {};
@@ -11310,7 +11310,7 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     _2.__c = _2.__(), n = t;
   }
 
-  // https://esm.sh/v119/file-saver@2.0.5/deno/file-saver.mjs
+  // https://esm.sh/v122/file-saver@2.0.5/deno/file-saver.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), O3 = Object.create, y2 = Object.defineProperty, T5 = Object.getOwnPropertyDescriptor, U3 = Object.getOwnPropertyNames, _ = Object.getPrototypeOf, M2 = Object.prototype.hasOwnProperty, S4 = (a, n2) => () => (n2 || a((n2 = { exports: {} }).exports, n2), n2.exports), k2 = (a, n2) => {
     for (var r in n2)
       y2(a, r, { get: n2[r], enumerable: !0 });
@@ -11763,8 +11763,8 @@ body:not(.notesBodyType) > .title, body:not(.notesBodyType) > .epigraph {
     mouseHoldKeyOff: "\u4E0D\u505A\u4EFB\u4F55\u4E8B\u60C5",
     mouseHoldKeyOther: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u952E(\u6253\u5F00\u8BBE\u7F6E)",
     mouseHoldKeyCustomKey: "{key} \u7FFB\u8BD1\u8BE5\u6BB5",
-    mouseHoverHoldKey: "\u9F20\u6807\u6ED1\u8FC7\u540C\u65F6\u6309\u4E0B X \u952E\u7FFB\u8BD1\u6BB5\u843D",
-    "mouse-translate": "\u5F53\u9F20\u6807\u6ED1\u8FC7",
+    mouseHoverHoldKey: "\u9F20\u6807\u60AC\u505C\u540C\u65F6\u6309\u4E0B\u5FEB\u6377\u952E\u7FFB\u8BD1\u6BB5\u843D",
+    "mouse-translate": "\u5F53\u9F20\u6807\u60AC\u505C",
     document: "\u6587\u6863",
     resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
     resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",

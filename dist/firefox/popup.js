@@ -6,7 +6,7 @@
   };
 
   // <define:process.env>
-  var define_process_env_default = { BUILD_TIME: "2023-05-10T06:28:13.891Z", VERSION: "0.5.5", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
+  var define_process_env_default = { BUILD_TIME: "2023-05-19T04:58:28.297Z", VERSION: "0.5.6", PROD: "1", REDIRECT_URL: "https://immersive-translate.owenyoung.com/auth-done/", IMMERSIVE_TRANSLATE_INJECTED_CSS: `:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3745,7 +3745,7 @@ body {
 .immersive-translate-popup-container {
   position: fixed;
   padding: 0;
-  z-index: 999999;
+  z-index: 2147483647;
   right: 0;
   top: 335px;
   width: 36px;
@@ -3802,7 +3802,7 @@ body {
 </div>
 `, MOCK: "0", DEBUG: "0" };
 
-  // https://esm.sh/v119/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
+  // https://esm.sh/v122/webextension-polyfill@0.10.0/deno/webextension-polyfill.development.mjs
   var __create = Object.create, __defProp2 = Object.defineProperty, __getOwnPropDesc = Object.getOwnPropertyDescriptor, __getOwnPropNames = Object.getOwnPropertyNames, __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty, __commonJS = (cb, mod) => function() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   }, __export2 = (target, all) => {
@@ -4712,16 +4712,16 @@ body {
           module22.exports = globalThis.browser;
       });
     }
-  }), webextension_polyfill_0_10_exports = {};
-  __export2(webextension_polyfill_0_10_exports, {
-    default: () => webextension_polyfill_0_10_default
+  }), entry_exports = {};
+  __export2(entry_exports, {
+    default: () => entry_default
   });
   var __module = __toESM(require_browser_polyfill());
-  __reExport(webextension_polyfill_0_10_exports, __toESM(require_browser_polyfill()));
-  var { default: __default, ...__rest } = __module, webextension_polyfill_0_10_default = __default !== void 0 ? __default : __rest;
+  __reExport(entry_exports, __toESM(require_browser_polyfill()));
+  var { default: __default, ...__rest } = __module, entry_default = __default !== void 0 ? __default : __rest;
 
   // browser/import_browser_polyfill.ts
-  globalThis.immersiveTranslateBrowserAPI = webextension_polyfill_0_10_default;
+  globalThis.immersiveTranslateBrowserAPI = entry_default;
 
   // https://esm.sh/stable/preact@10.11.0/deno/preact.mjs
   var P, d, $, Y, S, F, B, T = {}, V = [], Z = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
@@ -5312,8 +5312,8 @@ body {
     mouseHoldKeyOff: "\u4E0D\u505A\u4EFB\u4F55\u4E8B\u60C5",
     mouseHoldKeyOther: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u952E(\u6253\u5F00\u8BBE\u7F6E)",
     mouseHoldKeyCustomKey: "{key} \u7FFB\u8BD1\u8BE5\u6BB5",
-    mouseHoverHoldKey: "\u9F20\u6807\u6ED1\u8FC7\u540C\u65F6\u6309\u4E0B X \u952E\u7FFB\u8BD1\u6BB5\u843D",
-    "mouse-translate": "\u5F53\u9F20\u6807\u6ED1\u8FC7",
+    mouseHoverHoldKey: "\u9F20\u6807\u60AC\u505C\u540C\u65F6\u6309\u4E0B\u5FEB\u6377\u952E\u7FFB\u8BD1\u6BB5\u843D",
+    "mouse-translate": "\u5F53\u9F20\u6807\u60AC\u505C",
     document: "\u6587\u6863",
     resetSuccess: "\u91CD\u7F6E\u6240\u6709\u8BBE\u7F6E\u6210\u529F",
     resetThisSuccess: "\u91CD\u7F6E\u6210\u529F",
@@ -7115,12 +7115,12 @@ body {
     throw new RetryError(error, options.maxAttempts);
   }
 
-  // https://esm.sh/v119/memoize-one@6.0.0/deno/memoize-one.mjs
+  // https://esm.sh/v122/memoize-one@6.0.0/deno/memoize-one.mjs
   var s = Number.isNaN || function(r) {
     return typeof r == "number" && r !== r;
   };
 
-  // https://esm.sh/v119/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
+  // https://esm.sh/v122/lodash.throttle@4.1.1/deno/lodash.throttle.mjs
   var __global$ = globalThis || (typeof window < "u" ? window : self), P3 = Object.create, I2 = Object.defineProperty, D3 = Object.getOwnPropertyDescriptor, G2 = Object.getOwnPropertyNames, H2 = Object.getPrototypeOf, U2 = Object.prototype.hasOwnProperty, X2 = (e, t2) => () => (t2 || e((t2 = { exports: {} }).exports, t2), t2.exports), q3 = (e, t2) => {
     for (var n2 in t2)
       I2(e, n2, { get: t2[n2], enumerable: !0 });
@@ -7218,7 +7218,7 @@ body {
   s2(c, L3(h()));
   var { default: $2, ...le } = ce2, se = $2 !== void 0 ? $2 : le;
 
-  // https://esm.sh/v119/notie@4.3.1/deno/notie.mjs
+  // https://esm.sh/v122/notie@4.3.1/deno/notie.mjs
   var Oe = Object.create, ve = Object.defineProperty, Ae = Object.getOwnPropertyDescriptor, De = Object.getOwnPropertyNames, Ie = Object.getPrototypeOf, je = Object.prototype.hasOwnProperty, Ne = (v4, i2) => () => (i2 || v4((i2 = { exports: {} }).exports, i2), i2.exports), Pe = (v4, i2) => {
     for (var l2 in i2)
       ve(v4, l2, { get: i2[l2], enumerable: !0 });
@@ -7535,11 +7535,11 @@ body {
   X3(B3, ke(xe()));
   var { default: Ce, ..._e2 } = Fe, Ye = Ce !== void 0 ? Ce : _e2;
 
-  // https://esm.sh/v119/nanostores@0.7.4/deno/nanostores.mjs
+  // https://esm.sh/v122/nanostores@0.7.4/deno/nanostores.mjs
   var S3 = Symbol("clean");
   var m2 = Symbol();
 
-  // https://esm.sh/v119/@nanostores/i18n@0.7.1/deno/i18n.mjs
+  // https://esm.sh/v122/@nanostores/i18n@0.7.1/deno/i18n.mjs
   function g2(r, n2) {
     if (typeof r == "string")
       return n2(r);
@@ -7573,7 +7573,7 @@ body {
     return t2 in n2 || (t2 = "many"), g2(n2[t2], (o2) => o2.replace(/{count}/g, e));
   });
 
-  // https://esm.sh/v119/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
+  // https://esm.sh/v122/hotkeys-js@3.10.1/deno/hotkeys-js.mjs
   var M3 = typeof navigator < "u" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : !1;
   function P4(e, t2, i2, r) {
     e.addEventListener ? e.addEventListener(t2, i2, r) : e.attachEvent && e.attachEvent("on".concat(t2), function() {
@@ -7757,7 +7757,7 @@ body {
   }, window.hotkeys = v2);
   var B5;
 
-  // https://esm.sh/v119/immersive-translate@1.0.9/deno/immersive-translate.mjs
+  // https://esm.sh/v122/immersive-translate@1.0.9/deno/immersive-translate.mjs
   var v3 = class {
     #e = performance.now();
     reset() {
@@ -8389,7 +8389,8 @@ body {
         placeholderDelimiters: ["{", "}"]
       },
       bing: {
-        maxTextLengthPerRequest: 800
+        maxTextLengthPerRequest: 1800,
+        placeholderDelimiters: ["{{", "}}"]
       },
       deeplx: {
         limit: 3
@@ -8408,6 +8409,7 @@ body {
         immediateTranslationTextCount: 3e3,
         translationDebounce: 300,
         limit: 5,
+        interval: 1350,
         maxTextGroupLengthPerRequest: 1,
         prompt: `Translate the text to {{to}}:
 
@@ -8768,7 +8770,7 @@ body {
       pdfNewParagraphIndentRightIndentPx: 130,
       fingerCountToToggleTranslagePageWhenTouching: 4,
       fingerCountToToggleTranslationMaskWhenTouching: 0,
-      mouseHoverHoldKey: "Alt"
+      mouseHoverHoldKey: "Off"
     },
     rules: [
       {
@@ -9248,7 +9250,11 @@ body {
         ]
       },
       {
-        matches: ["scholar.google.com", "scholar.google.com.hk"],
+        matches: [
+          "scholar.google.*/*",
+          "scholar.google.com.*/*",
+          "scholar.google.co.*/*"
+        ],
         wrapperPrefix: `
 `,
         selectors: [
@@ -10390,6 +10396,49 @@ body {
         extraBlockSelectors: [
           ".inline-flex"
         ]
+      },
+      {
+        matches: "https://player.vimeo.com/video/*",
+        extraBlockSelectors: [
+          "span.vp-captions-line"
+        ]
+      },
+      {
+        matches: "https://yandex.com/",
+        selectors: [".tabs__item-text"]
+      },
+      {
+        matches: "https://yandex.com/search/*",
+        excludeSelectors: [
+          ".KeyValue-Row",
+          ".EntityFeedbackFooter",
+          ".Organic-Subtitle",
+          ".SerpFooter-Content",
+          ".serp-user",
+          ".Pager"
+        ],
+        globalStyles: {
+          ".ExtendedText-Toggle": "white-space:normal;"
+        }
+      },
+      {
+        matches: "https://yandex.com/video/*",
+        selectors: [
+          ".serp-item__title",
+          ".serp-item__text",
+          ".Keypoints-ItemTitle",
+          ".bes-epmjnzm-idtktyj",
+          ".OrganicTitle-LinkText",
+          "h1.VideoTitle"
+        ],
+        globalStyles: {
+          ".serp-item__title": "-webkit-line-clamp: unset;max-height:unset;",
+          ".serp-item__text": "-webkit-line-clamp: unset;max-height:unset;",
+          ".OrganicTitle-LinkText": "-webkit-line-clamp: unset;max-height:unset;",
+          "h1.VideoTitle": "-webkit-line-clamp: unset;max-height:unset;",
+          ".link .serp-item__keypoints": "bottom:2px;",
+          ".OrganicTitle": "max-height:unset;"
+        }
       }
     ]
   };
@@ -11093,7 +11142,7 @@ body {
     manifest_version: 3,
     name: "__MSG_brandName__",
     description: "__MSG_brandDescription__",
-    version: "0.5.5",
+    version: "0.5.6",
     default_locale: "en",
     background: {
       service_worker: "background.js"
@@ -12403,7 +12452,8 @@ body {
             }
           );
           setCurrentLang(lang);
-        }));
+        })), tabUrl === "" && setCurrentUrl("about:newtab");
+      }).catch((e) => {
       }), () => {
         globalThis.document.removeEventListener(
           popupReceiveMessageEventName,

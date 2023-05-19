@@ -13,11 +13,20 @@
 
 > 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看以下视频教程：
 
+### iOS Safari
+
 <video
 controls
 muted
 height="800px"
 poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/ios-safari-enable.mp4"></video>
+
+### macOS Safari
+
+<video
+controls
+muted
+poster="https://immersive-translate.owenyoung.com/assets/safari-mac-preview.png" src="https://immersive-translate.owenyoung.com/assets/safari_mac.mp4"></video>
 
 ## 安卓
 

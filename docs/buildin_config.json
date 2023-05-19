@@ -2501,6 +2501,17 @@
       "paragraphMinWordCount": 1
     },
     {
+      "matches": "https://www.kadaza.com/",
+      "selectors": [
+        ".header span.title",
+        ".custom-content-footer"
+      ],
+      "containerMinTextCount": 2,
+      "containerMinWordCount": 1,
+      "paragraphMinTextCount": 2,
+      "paragraphMinWordCount": 1
+    },
+    {
       "matches": "https://www.perplexity.ai/search/*",
       "atomicBlockSelectors": [
         ".prose > span"
@@ -2508,6 +2519,6 @@
       "insertPosition": "afterend"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-19T10:09:29.215Z",
+  "buildinConfigUpdatedAt": "2023-05-19T11:52:01.635Z",
   "latestVersion": "0.5.5"
 }

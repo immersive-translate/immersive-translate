@@ -2499,8 +2499,15 @@
       "containerMinWordCount": 1,
       "paragraphMinTextCount": 2,
       "paragraphMinWordCount": 1
+    },
+    {
+      "matches": "https://www.perplexity.ai/search/*",
+      "atomicBlockSelectors": [
+        ".prose > span"
+      ],
+      "insertPosition": "afterend"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-19T06:54:21.527Z",
+  "buildinConfigUpdatedAt": "2023-05-19T10:09:29.215Z",
   "latestVersion": "0.5.5"
 }

@@ -5,6 +5,6 @@
   Content-Type: text/javascript; charset=utf-8
   Cache-Control: no-cache
 
-/onboarding/*
+/start/*
   Cache-Control: public, max-age=300
 

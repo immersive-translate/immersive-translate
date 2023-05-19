@@ -2489,8 +2489,18 @@
         ".link .serp-item__keypoints": "bottom:2px;",
         ".OrganicTitle": "max-height:unset;"
       }
+    },
+    {
+      "matches": "https://allmyfaves.com/",
+      "selectors": [
+        "p"
+      ],
+      "containerMinTextCount": 2,
+      "containerMinWordCount": 1,
+      "paragraphMinTextCount": 2,
+      "paragraphMinWordCount": 1
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-18T04:12:07.430Z",
+  "buildinConfigUpdatedAt": "2023-05-19T06:54:21.527Z",
   "latestVersion": "0.5.5"
 }

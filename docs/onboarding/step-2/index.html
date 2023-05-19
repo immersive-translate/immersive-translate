@@ -5,57 +5,60 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="generator" content="Astro v2.4.5">
-    <title>immersive translate</title>
-  <link rel="stylesheet" href="/onboarding/_astro/index.c696a2ef.css" />
-<link rel="stylesheet" href="/onboarding/_astro/index.c57320d5.css" />
-<link rel="stylesheet" href="/onboarding/_astro/ios-safari.7381cb7c.css" /></head>
+    <title>沉浸式翻译</title>
+  <link rel="stylesheet" href="/start/_astro/index.0fd0c98d.css" />
+<link rel="stylesheet" href="/start/_astro/index.cd1dd81b.css" />
+<link rel="stylesheet" href="/start/_astro/ios-safari.7381cb7c.css" /></head>
   <body>
     
   <main>
     <div class="card">
       <h1 class="title notranslate">使用教程</h1>
       <div class="container notranslate astro-5VKJC2F4">
-  <div class="false astro-5VKJC2F4">
+  <a class="false step astro-5VKJC2F4" href="/start/">
           <div class="step-circle false astro-5VKJC2F4">
             1
           </div>
           <span class="label astro-5VKJC2F4">固定插件</span>
           <div class="line astro-5VKJC2F4"></div>
-        </div><div class="step-active astro-5VKJC2F4">
+        </a><a class="step-active step astro-5VKJC2F4" href="/start/step-2">
           <div class="step-circle step-circle-active astro-5VKJC2F4">
             2
           </div>
           <span class="label astro-5VKJC2F4">翻译网页</span>
           <div class="line astro-5VKJC2F4"></div>
-        </div><div class="false astro-5VKJC2F4">
+        </a><a class="false step astro-5VKJC2F4" href="/start/step-3">
           <div class="step-circle false astro-5VKJC2F4">
             3
           </div>
           <span class="label astro-5VKJC2F4">开始使用</span>
           
-        </div>
+        </a>
 </div>
-      <div class="container astro-U6OGLF7S" style="--loadingImg: url(/onboarding/assets/loading.svg);">
-  <div class="flex items-center title notranslate text-base astro-U6OGLF7S">
+      <div class="container astro-U6OGLF7S" style="--loadingImg: url(/start/assets/loading.svg);">
+  <div class="flex flex-col md:flex-row items-center title notranslate text-base astro-U6OGLF7S">
     <div class="w-84 astro-U6OGLF7S">
+      
+      
       <div class="title notranslate text-base astro-U6OGLF7S">
         <span class="astro-U6OGLF7S">
-          从 <strong class="astro-U6OGLF7S">工具栏</strong> 打开插件，点击<strong class="astro-U6OGLF7S">翻译</strong>
+          从浏览器 <strong class="astro-U6OGLF7S">工具栏</strong> 打开插件，点击 <strong class="astro-U6OGLF7S">翻译</strong>
         </span>
         <br class="astro-U6OGLF7S">
         <br class="astro-U6OGLF7S">
-        <div class="flex items-center astro-U6OGLF7S">
+        <div class="flex items-center text-sm text-slate-500 astro-U6OGLF7S">
           <span class="astro-U6OGLF7S">（或 <strong class="astro-U6OGLF7S">鼠标右键选择&nbsp;&nbsp;</strong></span>
-          <span class="extension text-sm astro-U6OGLF7S">
-            <img src="/onboarding/assets/logo.png" class="astro-U6OGLF7S">
+          <span class="extension text-slate-600 astro-U6OGLF7S">
+            <img src="/start/assets/logo.png" class="astro-U6OGLF7S">
             翻译网页/显示原文
           </span>
-          <span class="astro-U6OGLF7S">）</span>
+          <span class="astro-U6OGLF7S"> ）</span>
         </div>
         <br class="astro-U6OGLF7S">
         <br class="astro-U6OGLF7S">
         <span class="astro-U6OGLF7S">试试看下方的英文段落是否会被翻译？</span>
       </div>
+      
     </div>
     <div class="img-wapper loading astro-U6OGLF7S"><img style="display:none" class="astro-U6OGLF7S"></div>
   </div>
@@ -87,7 +90,7 @@
       </p>
       <p class="astro-U6OGLF7S">
         This is an extension that supports all platforms. In addition to using
-        it on desktop browsers, you can also use it on mobile ios and Android.
+        it on desktop browsers, you can also use it on <a href="https://apps.apple.com/app/immersive-translate/id6447957425" class="underline astro-U6OGLF7S" target="_blank">mobile ios</a> and <a href="https://immersive-translate.owenyoung.com/installation#%E5%AE%89%E5%8D%93" target="_blank" class="underline astro-U6OGLF7S">Android</a>.
       </p>
     </div>
   </div>
@@ -95,14 +98,22 @@
 
 
 
-<script>(function(){const assetsPasth = "/onboarding";
+<script>(function(){const assetsPasth = "/start";
 
   addEventListener("DOMContentLoaded", () => {
     const img = document.querySelector(".img-wapper img");
     if (!img) return;
     const lang = getBrowserLang();
 
-    const gif = `${assetsPasth}/assets/step2_${lang}.gif`;
+    const isIosSafari = isSafari() && isMobile();
+    const isMacSafari = isSafari() && !isMobile();
+
+    let gif = `${assetsPasth}/assets/step2_${lang}.gif`;
+    if(isIosSafari){
+      gif = `${assetsPasth}/assets/step2_safari_ios.gif`;
+    }else if(isMacSafari){
+      gif = `${assetsPasth}/assets/step2_safari_mac.gif`;
+    }
     img.setAttribute("src", gif);
     img.setAttribute("style", "display:block;");
     const contentEle = document.querySelector(".img-wapper");
@@ -110,10 +121,10 @@
   });
 })();</script>
       <footer class="notranslate">
-        <a class="ghost" href="/onboarding/"> 上一步</a>
-        <link rel="prefetch" href="/onboarding/">
-        <a class="ghost" href="/onboarding/step-3"> 我已完成，下一步</a>
-        <link rel="prefetch" href="/onboarding/step-3">
+        <a class="ghost" href="/start/"> 上一步</a>
+        <link rel="prefetch" href="/start/">
+        <a class="ghost" href="/start/step-3"> 我已完成，下一步</a>
+        <link rel="prefetch" href="/start/step-3">
       </footer>
     </div>
     <div class="wechat notranslate">
@@ -125,4 +136,4 @@
   </main>
 
   
-<script src="/onboarding/utils.js"></script></body></html>
+<script src="/start/utils.js"></script></body></html>

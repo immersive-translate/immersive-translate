@@ -5,36 +5,29 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="generator" content="Astro v2.4.5">
-    <title>immersive translate</title>
-  <link rel="stylesheet" href="/onboarding/_astro/index.c696a2ef.css" />
-<link rel="stylesheet" href="/onboarding/_astro/ios-safari.b64c2aab.css" />
-<link rel="stylesheet" href="/onboarding/_astro/ios-safari.7381cb7c.css" /></head>
+    <title>沉浸式翻译</title>
+  <link rel="stylesheet" href="/start/_astro/index.0fd0c98d.css" />
+<link rel="stylesheet" href="/start/_astro/ios-safari.81161223.css" />
+<link rel="stylesheet" href="/start/_astro/ios-safari.7381cb7c.css" /></head>
   <body>
     
   <main class="astro-HRS7BMGC">
-    <div class="card astro-HRS7BMGC">
+    <div class="card mt-6 astro-HRS7BMGC">
       <h1 class="title notranslate astro-HRS7BMGC">恭喜，安装成功！</h1>
-      <div class="container astro-U6OGLF7S" style="--loadingImg: url(/onboarding/assets/loading.svg);">
-  <div class="flex items-center title notranslate text-base astro-U6OGLF7S">
+      <div class="container astro-U6OGLF7S" style="--loadingImg: url(/start/assets/loading.svg);">
+  <div class="flex flex-col md:flex-row items-center title notranslate text-base astro-U6OGLF7S">
     <div class="w-84 astro-U6OGLF7S">
       <div class="title notranslate text-base astro-U6OGLF7S">
         <span class="astro-U6OGLF7S">
-          从 <strong class="astro-U6OGLF7S">工具栏</strong> 打开插件，点击<strong class="astro-U6OGLF7S">翻译</strong>
+          点击右侧的 <strong class="astro-U6OGLF7S">悬浮球</strong> 打开面板，选择 <strong class="astro-U6OGLF7S">翻译</strong>
         </span>
-        <br class="astro-U6OGLF7S">
-        <br class="astro-U6OGLF7S">
-        <div class="flex items-center astro-U6OGLF7S">
-          <span class="astro-U6OGLF7S">（或 <strong class="astro-U6OGLF7S">鼠标右键选择&nbsp;&nbsp;</strong></span>
-          <span class="extension text-sm astro-U6OGLF7S">
-            <img src="/onboarding/assets/logo.png" class="astro-U6OGLF7S">
-            翻译网页/显示原文
-          </span>
-          <span class="astro-U6OGLF7S">）</span>
-        </div>
         <br class="astro-U6OGLF7S">
         <br class="astro-U6OGLF7S">
         <span class="astro-U6OGLF7S">试试看下方的英文段落是否会被翻译？</span>
       </div>
+      
+      
+      
     </div>
     <div class="img-wapper loading astro-U6OGLF7S"><img style="display:none" class="astro-U6OGLF7S"></div>
   </div>
@@ -66,7 +59,7 @@
       </p>
       <p class="astro-U6OGLF7S">
         This is an extension that supports all platforms. In addition to using
-        it on desktop browsers, you can also use it on mobile ios and Android.
+        it on desktop browsers, you can also use it on <a href="https://apps.apple.com/app/immersive-translate/id6447957425" class="underline astro-U6OGLF7S" target="_blank">mobile ios</a> and <a href="https://immersive-translate.owenyoung.com/installation#%E5%AE%89%E5%8D%93" target="_blank" class="underline astro-U6OGLF7S">Android</a>.
       </p>
     </div>
   </div>
@@ -74,30 +67,34 @@
 
 
 
-<script>(function(){const assetsPasth = "/onboarding";
+<script>(function(){const assetsPasth = "/start";
 
   addEventListener("DOMContentLoaded", () => {
     const img = document.querySelector(".img-wapper img");
     if (!img) return;
     const lang = getBrowserLang();
 
-    const gif = `${assetsPasth}/assets/step2_${lang}.gif`;
+    const isIosSafari = isSafari() && isMobile();
+    const isMacSafari = isSafari() && !isMobile();
+
+    let gif = `${assetsPasth}/assets/step2_${lang}.gif`;
+    if(isIosSafari){
+      gif = `${assetsPasth}/assets/step2_safari_ios.gif`;
+    }else if(isMacSafari){
+      gif = `${assetsPasth}/assets/step2_safari_mac.gif`;
+    }
     img.setAttribute("src", gif);
     img.setAttribute("style", "display:block;");
     const contentEle = document.querySelector(".img-wapper");
     contentEle?.classList.remove("loading");
   });
 })();</script>
+
       <footer class="notranslate footer astro-HRS7BMGC">
-        <div class="astro-HRS7BMGC">
-          <div class="astro-HRS7BMGC">
-            <a class="ghost astro-HRS7BMGC" href="/onboarding/step-3">查看外文网站推荐</a>
-            <link rel="prefetch" href="/onboarding/step-3">
-          </div>
-          <div class="secondary astro-HRS7BMGC">
-            <a href="https://immersive-translate.owenyoung.com/usage" class="astro-HRS7BMGC">更多教程</a>
-          </div>
-        </div>
+          <a class="ghost astro-HRS7BMGC" target="_blank" href="https://allmyfaves.com/">查看外文网站推荐</a>
+          <link rel="prefetch" href="https://allmyfaves.com/">
+          <a class="secondary astro-HRS7BMGC" target="_blank" href="https://immersive-translate.owenyoung.com/usage">更多功能</a>
+          <link rel="prefetch" href="https://immersive-translate.owenyoung.com/usage">
       </footer>
     </div>
     <div class="wechat notranslate">
@@ -109,4 +106,4 @@
   </main>
 
   
-<script src="/onboarding/utils.js"></script></body></html>
+<script src="/start/utils.js"></script></body></html>

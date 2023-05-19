@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="generator" content="Astro v2.4.5">
     <title>pin extension</title>
-  <link rel="stylesheet" href="/onboarding/_astro/index.69fa8dea.css" />
-<link rel="stylesheet" href="/onboarding/_astro/index.09df15b8.css" />
+  <link rel="stylesheet" href="/onboarding/_astro/index.28b12342.css" />
+<link rel="stylesheet" href="/onboarding/_astro/index.7308ad00.css" />
 <link rel="stylesheet" href="/onboarding/_astro/index.94d33847.css" /></head>
   <body>
     
@@ -66,15 +66,15 @@
         <link rel="prefetch" href="/onboarding/step-2">
       </footer>
     </div>
-    <div class="pin-extension astro-J7PV25F6" style="display: none">
-      将”沉浸式翻译“扩展添加至工具栏
-    </div>
     <div class="wechat notranslate">
-  <img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="100" alt="wechat">
+  <img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" alt="wechat">
   <div class="wechat-subtitle">
     安装使用遇到问题？<br>最新双语信息交流？<br>欢迎加入微信群！
   </div>
 </div>
+    <div class="pin-extension astro-J7PV25F6" style="display: none">
+      将”沉浸式翻译“扩展添加至工具栏
+    </div>
   </main>
 
   
@@ -85,6 +85,7 @@
 <script>(function(){const assetsPasth = "/onboarding";
 
   addEventListener("DOMContentLoaded", function () {
+    if (isMobile()) return;
     var pin = document.querySelector(".pin-extension");
     let browser = "chrome";
     //safari 不显示 userAgent

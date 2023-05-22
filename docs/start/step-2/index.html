@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="/start/_astro/index.d6d5e877.css" />
 <link rel="stylesheet" href="/start/_astro/index.cd1dd81b.css" />
 <link rel="stylesheet" href="/start/_astro/step-2.0073d6ab.css" />
-<link rel="stylesheet" href="/start/_astro/ios-safari.7381cb7c.css" /><script type="module" src="/start/_astro/hoisted.092a37db.js"></script></head>
+<link rel="stylesheet" href="/start/_astro/ios-safari.7381cb7c.css" /><script type="module">(function(t,n,r,e,m){t[e]=t[e]||[],t[e].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var g=n.getElementsByTagName(r)[0],a=n.createElement(r),s=e!="dataLayer"?"&l="+e:"";a.async=!0,a.src="https://www.googletagmanager.com/gtm.js?id="+m+s,g.parentNode.insertBefore(a,g)})(window,document,"script","dataLayer","GTM-5RXJWW2");
+</script></head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RXJWW2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -149,3 +150,36 @@
   
 <script src="/start/utils.js?v=1"></script></body></html>
 
+
+
+<script>
+  document.addEventListener(
+    "immersiveTranslateDocumentMessageTellThirdParty",
+    (e) => {
+      const { detail } = e ;
+      if (detail) {
+        try {
+          const detailObj = JSON.parse(detail);
+          if (detailObj.type === "paragraphTranslated") {
+            const { ok } = detailObj.payload;
+            const nextEle  =
+              document.getElementById("next");
+            const url = nextEle?.getAttribute("data-href"); // 目标链接
+            if (ok && nextEle && url) {
+              nextEle.href = url;
+              nextEle.innerText = "🎉 翻译成功！点击开始使用";
+              nextEle.removeAttribute("disabled");
+              nextEle.classList.remove("disabled");
+              const skip = document.getElementById("skip");
+              // remove 
+              skip && skip.remove();
+            }
+          } else {
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+  );
+</script>

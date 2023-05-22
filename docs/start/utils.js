@@ -37,3 +37,16 @@ function getBrowserLang() {
   }
   return defaultBrowserLang;
 }
+
+function loadResource(url) {
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.href = url;
+    link.rel = "prefetch";
+    //预加载链接只会触发失败回调
+    link.onerror = () => {
+      reject(); // 资源加载失败
+    };
+    document.head.appendChild(link);
+  });
+}

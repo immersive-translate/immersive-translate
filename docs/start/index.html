@@ -9,7 +9,7 @@
     <!-- Google Tag Manager -->
     
     <!-- End Google Tag Manager -->
-  <link rel="stylesheet" href="/start/_astro/index.0fd0c98d.css" />
+  <link rel="stylesheet" href="/start/_astro/index.d6d5e877.css" />
 <link rel="stylesheet" href="/start/_astro/index.cd1dd81b.css" />
 <link rel="stylesheet" href="/start/_astro/index.6896fddb.css" /><script type="module">(function(t,n,r,e,m){t[e]=t[e]||[],t[e].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var g=n.getElementsByTagName(r)[0],a=n.createElement(r),s=e!="dataLayer"?"&l="+e:"";a.async=!0,a.src="https://www.googletagmanager.com/gtm.js?id="+m+s,g.parentNode.insertBefore(a,g)})(window,document,"script","dataLayer","GTM-5RXJWW2");
 </script></head>
@@ -20,7 +20,7 @@
     
   <main class="astro-J7PV25F6">
     <div class="card astro-J7PV25F6">
-      <h1 class="title notranslate astro-J7PV25F6">🎉 快速开始体验沉浸式翻译</h1>
+      <h1 class="title notranslate astro-J7PV25F6">✋ 快速开始体验沉浸式翻译</h1>
       <div class="container notranslate astro-5VKJC2F4">
   <a class="step-active step astro-5VKJC2F4" href="/start/">
           <div class="step-circle step-circle-active astro-5VKJC2F4">
@@ -67,8 +67,7 @@
     contentEle?.classList.remove("loading");
   });
 })();</script>
-      <footer class="notranslate astro-J7PV25F6">
-        <div class="astro-J7PV25F6"></div>
+      <footer class="notranslate flex justify-center astro-J7PV25F6">
         <a class="ghost astro-J7PV25F6" href="/start/step-2"> 我已完成，开始翻译</a>
         <link rel="prefetch" href="/start/step-2">
       </footer>
@@ -91,7 +90,13 @@
 
 <script>(function(){const assetsPasth = "/start";
 
+  const url = "https://www.kadaza.com/";
   addEventListener("DOMContentLoaded", function () {
+    loadResource(url).catch((e) => {
+      console.error(e);
+      window.dataLayer.push({ event: "ping_fail", moreSite: url });
+    });
+
     if (isMobile()) return;
     var pin = document.querySelector(".pin-extension");
     let browser = "chrome";

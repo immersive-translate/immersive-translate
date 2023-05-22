@@ -2517,8 +2517,14 @@
         ".prose > span"
       ],
       "insertPosition": "afterend"
+    },
+    {
+      "matches": "blog.genuine.com",
+      "excludeSelectors": [
+        "div.enlighter"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-19T11:52:01.635Z",
+  "buildinConfigUpdatedAt": "2023-05-22T03:34:28.757Z",
   "latestVersion": "0.5.5"
 }

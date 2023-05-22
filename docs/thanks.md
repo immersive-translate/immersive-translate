@@ -3,8 +3,8 @@
 非常感谢以下用户的支持，由于他/她们的支持，更多的人可以免费使用这个工具。如果有余力，请考虑成为 [赞助者](https://immersive-translate.owenyoung.com/donate)
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=5ce511b8bff1aaa8248a64bec709ea5215754e88"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=5ce511b8bff1aaa8248a64bec709ea5215754e88"></a></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=9d91bca3d45182cd3ed7f26606c632e7a9452058"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=9d91bca3d45182cd3ed7f26606c632e7a9452058"></a></object>
 </p>
 
 > 说明： 通过 [Github Sponsor](https://github.com/sponsors/theowenyoung?frequency=recurring), [Patreon ](https://www.patreon.com/theowenyoung)，或者 [爱发电主页](https://afdian.net/a/translate) 赞助的同学，你的头像和个人主页将会在 10 分钟内出现在这里。

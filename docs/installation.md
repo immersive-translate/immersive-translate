@@ -9,7 +9,18 @@
 ## Safari
 
 - [点此进入苹果 App Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425) **限时免费中!!!**
-- 支持 iPhone, iPad (最低版本 15.4)，macOS（最低版本 12.3）
+
+<div align="center">
+<img src="https://immersive-translate.owenyoung.com/assets/immersive-app-store.png" width="150" alt="app store qrcode">
+</div>
+
+> 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看以下视频教程：
+
+<video
+controls
+muted
+height="800px"
+poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src="https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4"></video>
 
 > 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看以下视频教程：
 
@@ -59,10 +70,6 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-mac-preview.png"
 如果安装的时候遇到疑问，可以参考 [YouTube 视频教程](https://www.youtube.com/watch?v=IWOFFWDfZGY)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IWOFFWDfZGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## 油猴脚本 GreasyFork 地址
-
-你也可以通过 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate) 商店安装油猴脚本，但是缺点是 iOS 的 [Userscripts](https://itunes.apple.com/us/app/userscripts/id1463298887)油猴扩展似乎不支持 Greasyfork 托管的脚本的自动更新，因为 GreasyFork 不允许填写 `updateURL` 属性。
 
 ## 手动安装 (追踪最新开发特性)
 

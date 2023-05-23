@@ -7,7 +7,7 @@
 - [Chrome 商店用户评价页面](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh) - 点击 Review ，选择全部语言
 - [Edge 商店用户评价页面](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg) - 向下滑动
 - [Firefox 商店用户评价页面](https://addons.mozilla.org/en-US/firefox/addon/immersive-translate/reviews/)
-- [油猴脚本用户评价页面](https://greasyfork.org/zh-CN/scripts/457196-immersive-translate/feedback)
+- [苹果 App Store 页面](https://apps.apple.com/cn/app/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/id6447957425)
 
 如果你也喜欢这个扩展，不妨去留个言告诉世界你也喜欢这个扩展？
 
@@ -18,11 +18,11 @@
 
 ## 用户留言
 
-> 太好使了！！！完美适配我这种刚好懂一点英语但还是更喜欢用中文快速看完的！有不清楚的地方直接可以看到原文，对照一下，但99%的地方已经够用了 另外，OPENAI的翻译速度还是太慢了，速度型选手更适合google翻译  - Chrome 浏览器用户
+> 太好使了！！！完美适配我这种刚好懂一点英语但还是更喜欢用中文快速看完的！有不清楚的地方直接可以看到原文，对照一下，但 99%的地方已经够用了 另外，OPENAI 的翻译速度还是太慢了，速度型选手更适合 google 翻译 - Chrome 浏览器用户
 
->真的非常好用，大多数网页格式都能兼容支持。显示双语，既能够看到英语原文，学习专业单词的表达方式，又能避免小翻译错误。这个插件对我的帮助很大，非常感谢！ - Chrome 浏览器用户
+> 真的非常好用，大多数网页格式都能兼容支持。显示双语，既能够看到英语原文，学习专业单词的表达方式，又能避免小翻译错误。这个插件对我的帮助很大，非常感谢！ - Chrome 浏览器用户
 
->很棒, 支持很多翻译服务, 实现也很优雅 谷歌翻译完全够用, 在哲学方面的书, 翻译水准完全比得上专业方向的研一, 尤其是中英双语对照的情况基本上不会有太大问题; 德中的话感觉DeepL更好些. - Chrome 浏览器用户
+> 很棒, 支持很多翻译服务, 实现也很优雅 谷歌翻译完全够用, 在哲学方面的书, 翻译水准完全比得上专业方向的研一, 尤其是中英双语对照的情况基本上不会有太大问题; 德中的话感觉 DeepL 更好些. - Chrome 浏览器用户
 
 > 推荐我用的英文翻译工具：沉浸式双语网页翻译扩展。以前我用 Chrome 自带的网页翻译功能，它有两个缺点：无法结合上下文，会翻错单词；翻译法律文本那种很长、很绕的从句，结果基本看不懂。现在我用中英对照来解决上面这俩问题。-[@倪爽](https://twitter.com/nishuang/status/1623576540389822465)
 

@@ -3,8 +3,8 @@
 非常感谢以下每一位赞助者的支持：
 
 <p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=385e9fc8b443751a3e19c65a6c84c915c648b428"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
-<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=385e9fc8b443751a3e19c65a6c84c915c648b428"></a></object>
+<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=c863abade62b2e79f5d5703535aeade9c682fa12"><a target="_blank" href="https://immersive-translate.owenyoung.com/donate">
+<img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/sponsorkit/sponsors.svg?v=c863abade62b2e79f5d5703535aeade9c682fa12"></a></object>
 </p>
 
 ## 贡献者们

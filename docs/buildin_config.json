@@ -2523,8 +2523,23 @@
       "excludeSelectors": [
         "div.enlighter"
       ]
+    },
+    {
+      "matches": "www.chinadaily.com.cn",
+      "injectedCss": [
+        "a { height: unset !important; }",
+        "li { height: unset !important; }",
+        "div { height: unset !important; }",
+        ".immersive-translate-target-inner {color:black;}"
+      ]
+    },
+    {
+      "matches": "www.braynzarsoft.net",
+      "selectors": [
+        "div#view-question-desc"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-22T03:34:28.757Z",
+  "buildinConfigUpdatedAt": "2023-05-23T08:23:07.703Z",
   "latestVersion": "0.5.5"
 }

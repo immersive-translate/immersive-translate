@@ -1,15 +1,15 @@
 name: Generate SVG
 on:
-  repository_dispatch:
-    types: [update_sponsor]
+  # repository_dispatch:
+  #   types: [update_sponsor]
   workflow_dispatch:
-  schedule:
-    - cron: '0 16 * * *'
-  push:
-    branches:
-      - main
-    paths:
-      - 'scripts/sponsorkit/**'
+  # schedule:
+  #   - cron: '0 16 * * *'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'scripts/sponsorkit/**'
 jobs:
   deploy:
     name: Deploy to GitHub Pages

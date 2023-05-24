@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -42,6 +42,9 @@
         "default": "Alt+W"
       },
       "description": "__MSG_toggleTranslateTheWholePage__"
+    },
+    "toggleOnlyTransation": {
+      "description": "__MSG_toggleOnlyTransation__"
     },
     "toggleTranslateToThePageEndImmediately": {
       "description": "__MSG_toggleTranslateToThePageEndImmediately__"

@@ -11,6 +11,9 @@
   "toggleTranslateTheWholePage": {
     "message": "翻译页面全部区域/显示原文"
   },
+  "toggleOnlyTransation": {
+    "message": "翻译并隐藏原文/显示原文"
+  },
   "toggleTranslateToThePageEndImmediately": {
     "message": "立即翻译到页面底部/显示原文"
   },

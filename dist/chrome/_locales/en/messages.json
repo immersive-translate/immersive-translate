@@ -6,16 +6,19 @@
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
   },
   "toggleTranslatePage": {
-    "message": "Toggle translate webpage "
+    "message": "Toggle Translate Page "
   },
   "toggleTranslateTheWholePage": {
-    "message": "Toggle translate the whole page"
+    "message": "Toggle Translate the Whole Page"
+  },
+  "toggleOnlyTransation": {
+    "message": "Toggle Translate and Hide Original Text"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "Toggle translate to the bottom of the page immediately"
+    "message": "Toggle Translate to the Bottom of the Page Immediately"
   },
   "toggleTranslateTheMainPage": {
-    "message": "Toggle translate the main page"
+    "message": "Toggle Translate the Main Page"
   },
   "openOptionsPage": {
     "message": "Open Settings Page"

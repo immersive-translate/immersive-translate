@@ -130,9 +130,8 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 
 
 
-<p align="center">
-<object style="max-width: 100%;" type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"></object>
-</p>
+
+<object type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"></object>
 
 ## 沉浸式翻译的故事
 

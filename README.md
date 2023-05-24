@@ -127,11 +127,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
-
-
-
-
-<object type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=e746a736c80bc7dda9662af0d917e5897559d6c9"></object>
+<object type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=2"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=2"></object>
 
 ## 沉浸式翻译的故事
 

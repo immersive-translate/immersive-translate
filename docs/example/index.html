@@ -5,71 +5,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      .source-element :not(.target) {
+      #article {
+      }
+      .main {
+      }
+      .hidden {
         display: none;
       }
     </style>
   </head>
-  <body>
+  <body class="">
     <article id="article">
-      <p id="test2">This a paragraph of main frame.</p>
-      <font id="test">test22</font>
-      <div class="flex justify-start w-full lg:justify-center">
-        <a
-          href="https://reactnative.dev/"
-          target="_blank"
-          rel="noopener"
-          class="focus:outline-none focus-visible:outline focus-visible:outline-link focus:outline-offset-2 focus-visible:dark:focus:outline-link-dark group cursor-pointer w-auto justify-center inline-flex font-bold items-center mt-10 outline-none hover:bg-gray-40/5 active:bg-gray-40/10 hover:dark:bg-gray-60/5 active:dark:bg-gray-60/10 leading-tight hover:bg-opacity-80 text-lg py-2.5 rounded-full px-4 sm:px-6 ease-in-out shadow-secondary-button-stroke dark:shadow-secondary-button-stroke-dark text-primary dark:text-primary-dark"
-          ><svg
-            class="mr-2.5 text-primary dark:text-primary-dark"
-            fill="none"
-            width="24"
-            height="24"
-            viewBox="0 0 72 72"
-            aria-hidden="true"
-          >
-            <g clip-path="url(#clip0_8_10998)">
-              <path
-                d="M54.0001 15H18.0001C16.3432 15 15.0001 16.3431 15.0001 18V42H33V48H12.9567L9.10021 57L24.0006 57C24.0006 55.3431 25.3437 54 27.0006 54H33V57.473C33 59.3786 33.3699 61.2582 34.0652 63H9.10021C4.79287 63 1.88869 58.596 3.5852 54.6368L9.0001 42V18C9.0001 13.0294 13.0295 9 18.0001 9H54.0001C58.9707 9 63.0001 13.0294 63.0001 18V25.4411C62.0602 25.0753 61.0589 24.8052 60.0021 24.6458C59.0567 24.5032 58.0429 24.3681 57.0001 24.2587V18C57.0001 16.3431 55.6569 15 54.0001 15Z"
-                fill="currentColor"
-              ></path>
-              <path
-                d="M48 42C48 40.3431 49.3431 39 51 39H54C55.6569 39 57 40.3431 57 42C57 43.6569 55.6569 45 54 45H51C49.3431 45 48 43.6569 48 42Z"
-                fill="currentColor"
-              ></path>
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M45.8929 30.5787C41.8093 31.1947 39 34.8257 39 38.9556V57.473C39 61.6028 41.8093 65.2339 45.8929 65.8499C48.0416 66.174 50.3981 66.4286 52.5 66.4286C54.6019 66.4286 56.9584 66.174 59.1071 65.8499C63.1907 65.2339 66 61.6028 66 57.473V38.9556C66 34.8258 63.1907 31.1947 59.1071 30.5787C56.9584 30.2545 54.6019 30 52.5 30C50.3981 30 48.0416 30.2545 45.8929 30.5787ZM60 57.473V38.9556C60 37.4615 59.0438 36.637 58.2121 36.5116C56.2014 36.2082 54.1763 36 52.5 36C50.8237 36 48.7986 36.2082 46.7879 36.5116C45.9562 36.637 45 37.4615 45 38.9556V57.473C45 58.9671 45.9562 59.7916 46.7879 59.917C48.7986 60.2203 50.8237 60.4286 52.5 60.4286C54.1763 60.4286 56.2014 60.2203 58.2121 59.917C59.0438 59.7916 60 58.9671 60 57.473Z"
-                fill="currentColor"
-              ></path>
-            </g>
-            <defs>
-              <clipPath id="clip0_8_10998">
-                <rect width="72" height="72" fill="white"></rect>
-              </clipPath>
-            </defs></svg
-          >Build for native platforms<svg
-            class="text-primary dark:text-primary-dark"
-            fill="none"
-            width="24"
-            height="24"
-            viewBox="0 0 72 72"
-            aria-hidden="true"
-          >
-            <path
-              class="transition-transform ease-in-out translate-x-[-8px] group-hover:translate-x-[8px]"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M40.0001 19.0245C41.0912 17.7776 42.9864 17.6513 44.2334 18.7423L58.9758 33.768C59.6268 34.3377 60.0002 35.1607 60.0002 36.0257C60.0002 36.8908 59.6268 37.7138 58.9758 38.2835L44.2335 53.3078C42.9865 54.3988 41.0913 54.2725 40.0002 53.0256C38.9092 51.7786 39.0355 49.8835 40.2824 48.7924L52.4445 36.0257L40.2823 23.2578C39.0354 22.1667 38.9091 20.2714 40.0001 19.0245Z"
-              fill="currentColor"
-            ></path>
-            <path
-              class="opacity-0 ease-in-out transition-opacity group-hover:opacity-100"
-              d="M60 36.0273C60 37.6842 58.6569 39.0273 57 39.0273H15C13.3431 39.0273 12 37.6842 12 36.0273C12 34.3704 13.3431 33.0273 15 33.0273H57C58.6569 33.0273 60 34.3704 60 36.0273Z"
-              fill="currentColor"
-            ></path></svg
-        ></a>
+      <div class="sc-eCjkpP hYRHaC">
+        <p>this page is not found</p>
+
+        <p>6 hours test ago</p>
+        <p>
+          fdasfasdfasffdsafasdfsdafsad;ljfldsajflsda;jfkjdaslfjasdlfjlsdajflsds!
+        </p>
+        <p></p>
       </div>
     </article>
   </body>

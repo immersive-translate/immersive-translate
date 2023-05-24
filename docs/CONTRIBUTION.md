@@ -3,17 +3,19 @@
 - 帮忙完善[使用文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言,注册后即可在线翻译。
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)和[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
+- 添加[你的建议](https://github.com/immersive-translate/immersive-translate/issues) 帮助我们改进功能。
 - 加入[Telegram 频道](https://t.me/immersivetranslate) 接收最新消息。
 - 关注[Github 项目](https://github.com/immersive-translate/immersive-translate), 点击 Watch 这样可以及时收到新的 Issue 请求。
-- 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）
+- [点击查看](https://github.com/orgs/immersive-translate/projects/1) 当前正在处理的需求。
+- [点击查看](https://immersive-translate.owenyoung.com/TODO.html) 尚未整理的待做功能项。
 
-<div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="200" alt="wechat">
-</div>
+## 加入开发
 
-## 加入开发？
+当前该项目处于闭源开发状态，你需要先申请加入我们的 Github 团队。项目采用 Typescript 开发，使用 Deno 编译。
 
-沉浸式翻译目前已由个人转为公司主体，过渡阶段暂时停止新的开发者申请，感谢理解！
+请有意贡献或者想调试的同学加入[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)的开发频道，然后私聊管理员申请加入 Github 团队。
+
+记得 Watch [Github 项目](https://github.com/immersive-translate/immersive-translate), 这样可以及时收到新的 Issue 请求。
 
 ## 搭建开发环境
 

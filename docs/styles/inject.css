@@ -49,6 +49,9 @@
   white-space: inherit;
   position: unset;
 }
+.immersive-translate-state-dual > br {
+  display: none;
+}
 
 .immersive-translate-target-translation-block-wrapper {
   margin: 8px 0 !important;
@@ -269,7 +272,7 @@
 }
 [data-immersive-translate-root-translation-theme="opacity"]
   .immersive-translate-target-inner {
-  filter: opacity(10%)  !important;
+  filter: opacity(10%) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }

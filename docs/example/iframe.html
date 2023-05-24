@@ -26,15 +26,14 @@
     <article>
       <p>This is a parent iframe</p>
     </article>
+    <iframe
+      id="testframe"
+      srcdoc='<!DOCTYPE html><html lang="en"> <head> <title>iframe</title> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> </head> <body> <article> <p>This is a inline iframe, please, translate me!</p> </article> <script></script> </body></html>'
+    ></iframe>
 
     <iframe src="frame.html"></iframe>
 
-    <iframe src="frame.html"></iframe>
-
-    <iframe src="frame.html"></iframe>
-
-    <iframe src="frame.html"></iframe>
-
-    <iframe src="frame.html"></iframe>
+    <div id="parent"></div>
+    <script src="iframe.js"></script>
   </body>
 </html>

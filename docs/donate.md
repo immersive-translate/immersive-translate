@@ -10,9 +10,9 @@
 - 在[Chrome 商店](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh), [Edge 商店](https://microsoftedge.microsoft.com/addons/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/amkbmndfnliijdhojkpoglbnaaahippg?form=MT001Y&hl=zh-CN&gl=CN)，[苹果 App Store](https://apps.apple.com/cn/app/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/id6447957425), [Firefox 商店](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)里评价该扩展。
 - 订阅[沉浸式翻译官方邮件](https://immersivetranslate.substack.com/)或[加入 Telegram 频道](https://t.me/immersivetranslate) , 关注[沉浸式翻译官方推特账号](https://twitter.com/immersivetran) 接收最新消息，[Star](https://github.com/immersive-translate/immersive-translate/)这个 Github 项目。
 
-## 沉浸式翻译的故事
+## 一个更长的说明
 
-我自己在过去得益于无数志愿者们开发的免费工具，从而收获了太多受益终生的知识，这使我更加坚信**平等**地获取信息是我们每个人最应拥有的权利。所以我创建了很多免费的双语工具来帮助人们更有效地获取（同时也期待我们有一天能脱离这些辅助工具）
+大家好，我是 Owen， 我自己在过去得益于无数志愿者们开发的免费工具，从而收获了太多受益终生的知识，这使我更加坚信**平等**地获取信息是我们每个人最应拥有的权利。所以我创建了很多免费的双语工具来帮助人们更有效地获取（同时也期待我们有一天能脱离这些辅助工具）
 
 截至目前，沉浸式翻译已经帮助超过 40 万人养成了阅读外语信息的习惯。
 

@@ -131,7 +131,7 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-intro.webp" src=
 <object type="image/svg+xml" data="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=2"><img alt="sponsors" src="https://immersive-translate.owenyoung.com/assets/silver-sponsor.svg?v=2"></object>
 </p>
 
-## 沉浸式翻译的故事
+## 一个更长的说明
 
 大家好，我是 Owen，我自己在过去得益于无数志愿者们开发的免费工具，从而收获了太多受益终生的知识，这使我更加坚信**平等**地获取信息是我们每个人最应拥有的权利。所以我创建了很多免费的双语工具来帮助人们更有效地获取（同时也期待我们有一天能脱离这些辅助工具）
 

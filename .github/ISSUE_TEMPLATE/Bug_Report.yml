@@ -1,17 +1,22 @@
 name: Bug报告 | Bug Report
 description: File a bug report
+title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        **感谢您的反馈！| Thanks for taking the time to fill out this bug report!**
+            有关功能建议，疑问或非bug类, 请查看[讨论区](https://github.com/immersive-translate/immersive-translate/discussions) 
+              For feature, questions, or other request, please consider using [Github Discussion](https://github.com/immersive-translate/immersive-translate/discussions) instead.
+            请先查找是否已有类似的 [问题](https://github.com/immersive-translate/immersive-translate/issues) 
+              Please search [issue](https://github.com/immersive-translate/immersive-translate/issues) before asking
   - type: input
     id: version
     attributes:
       label: 插件版本号 | Version
       description: What version of our extension are you running?
-      placeholder: 0.4.2
+      placeholder: 0.5.5
     validations:
       required: true
   - type: dropdown
@@ -58,7 +63,7 @@ body:
     id: reproduce
     attributes:
       label: 重现步骤 | To Reproduce
-      description: Steps to reproduce the behavior，请附上示例网址
+      description: Steps to reproduce the behavior
       placeholder: 1. Go to '...' 2. Click translate
     validations:
       required: false

@@ -1,9 +1,10 @@
 {
-  "minVersion": "0.0.20",
+  "minVersion": "0.5.7",
   "immediateTranslationTextCount": 5000,
   "interval": 3600000,
   "beta": false,
   "cache": true,
+  "translationMode": "dual",
   "enabled": true,
   "donateUrl": "https://immersive-translate.owenyoung.com/donate.html",
   "feedbackUrl": "https://github.com/immersive-translate/immersive-translate/issues",
@@ -47,6 +48,7 @@
   "telemetry": true,
   "loadingTheme": "spinner",
   "canary": false,
+  "translationThemePatterns": {},
   "translationServices": {
     "volcAlpha": {
       "placeholderDelimiters": [
@@ -93,15 +95,15 @@
     "deepl": {
       "immediateTranslationTextCountForImmersiveDeepl": 50000,
       "placeholderDelimiters": [
-        "{",
-        "}"
+        "<code>",
+        "</code>"
       ]
     },
     "bing": {
       "maxTextLengthPerRequest": 1800,
       "placeholderDelimiters": [
-        "{{",
-        "}}"
+        "<code>",
+        "</code>"
       ]
     },
     "deeplx": {
@@ -155,6 +157,7 @@
   "shortcuts": {
     "toggleTranslatePage": "Alt+A",
     "toggleTranslateTheWholePage": "Alt+W",
+    "toggleOnlyTransation": "",
     "toggleTranslateToThePageEndImmediately": "",
     "toggleTranslationMask": ""
   },
@@ -171,7 +174,11 @@
       "m.youtube.com",
       "mail.google.com",
       "discord.com",
+      "google.com",
+      "facebook.com",
+      "*.facebook.com",
       "web.telegram.org",
+      "github.com",
       "instagram.com",
       "*.slack.com",
       "https://old.reddit.com/",
@@ -226,6 +233,9 @@
     "isEbook": false,
     "isEbookBuilder": false,
     "showSponsorOnSafari": false,
+    "noTranslateRegexp": [
+      "^\\d+.+ago$"
+    ],
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
     "pairs": {},
@@ -321,34 +331,33 @@
       "div[class^=codeBlockContent]",
       "div[class^=codeBlockLines]",
       "div[class^=token-line]",
-      "#liuchan-window > .liuchan-container > *"
+      "#liuchan-window > .liuchan-container > *",
+      ".material-icons",
+      ".fa",
+      ".notranslate",
+      "[translate=no]"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
     "excludeTags": [
       "TITLE",
+      "LINK",
       "SCRIPT",
       "STYLE",
       "TEXTAREA",
       "SVG",
       "svg",
       "G",
-      "TEXT",
       "NOSCRIPT",
       "INPUT",
       "BUTTON",
       "BASE",
       "SELECT",
       "OPTION",
-      "IMG",
-      "SUB",
-      "SUP",
       "HR",
       "PRE",
-      "CODE",
       "KBD",
       "WBR",
-      "TT",
       "RT",
       "RP",
       "META",
@@ -440,6 +449,7 @@
       "#hs_cos_wrapper_post_body"
     ],
     "allBlockTags": [
+      "BODY",
       "HGROUP",
       "CONTENT",
       "ADDRESS",
@@ -532,12 +542,10 @@
       "selectorMatches": [
         "body > pre"
       ],
-      "selectors": [
-        "body"
-      ],
       "isTransformPreTagNewLine": true,
       "excludeTags": [
         "TITLE",
+        "LINK",
         "SCRIPT",
         "STYLE",
         "TEXTAREA",
@@ -649,12 +657,16 @@
         "[data-testid='UserDescription']",
         "[data-testid='HoverCard'] div[dir=auto]"
       ],
+      "additionalStayOriginalSelectors": [
+        "[data-testid=\"tweetText\"] a"
+      ],
       "excludeSelectors": [
         "header"
       ],
       "observeUrlChange": false,
       "extraInlineSelectors": [
         "[data-testid=\"tweetText\"] div",
+        "[data-testid=\"tweetText\"] span",
         "[data-testid=\"UserDescription\"] div",
         "[data-testid='HoverCard'] div[dir=auto] div"
       ]
@@ -752,7 +764,7 @@
         "[data-click-id=body] h3",
         "[data-click-id=background] h3",
         "[data-testid=comment]",
-        "[data-adclicklocation='title']",
+        "[data-adclicklocation='title'] h3",
         "[data-adclicklocation=media]",
         ".PostContent",
         ".post-content",
@@ -778,7 +790,7 @@
         "[data-click-id=body] h3",
         "[data-click-id=background] h3",
         "[data-testid=comment]",
-        "[data-adclicklocation='title']",
+        "[data-adclicklocation='title'] h3",
         "[data-adclicklocation=media]",
         ".PostContent",
         ".post-content",
@@ -828,12 +840,13 @@
         ".css-truncate",
         "[data-test-selector='commit-tease-commit-message']",
         "[data-test-selector='create-branch.developmentForm']",
-        "div.js-details-container.Details",
         "div.Box-header.position-relative",
         "div.blob-wrapper-embedded",
         "div.Box.Box--condensed.my-2",
         "div.jp-CodeCell",
-        "[aria-label=\"Account\"] .markdown-title"
+        "[aria-label=\"Account\"] .markdown-title",
+        ".js-repos-container .markdown-title",
+        "[data-view-component=true] .markdown-title"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
@@ -915,7 +928,7 @@
       "selectors": [
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "yt-formatted-string.ytd-video-renderer",
-        "h1 > yt-formatted-string.ytd-watch-metadata",
+        "h1",
         "yt-formatted-string#video-title",
         "span#video-title",
         "a#video-title",
@@ -1037,6 +1050,9 @@
         ".article_title_link",
         ".article_content",
         ".article_magazine_title_link"
+      ],
+      "excludeMatches": [
+        "https://www.inoreader.com/features/"
       ],
       "observeUrlChange": false,
       "globalStyles": {
@@ -1177,47 +1193,13 @@
       "isTranslateTitle": false,
       "selectors": [
         "li[id^=chat-messages] div[id^=message-content]",
-        "h3[data-text-variant='heading-lg/semibold']",
+        "div[class^=headerText]",
         "section[aria-label='Search Results'] div[id^=message-content]"
       ],
       "extraBlockSelectors": [
         "[class^='embedFieldValue']",
         "li[class^='card'] div[class^='message']",
         "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
-      ],
-      "atomicBlockSelectors": [
-        "[class^='embedFieldValue']",
-        "li[class^='card'] div[class^='message']",
-        "[data-list-item-id^='forum-channel-list'] div[class^='headerText']"
-      ],
-      "excludeSelectors": [
-        "#channels",
-        "div[class^='repliedTextContent']",
-        "div[class^='repliedTextPreview']",
-        "div[class^='messageAttachment']",
-        "div[class^='repliedMessage']",
-        "div[class^='reactionTooltip']",
-        "div[class*='isSystemMessage']",
-        "div[class^='avatarWrapper']",
-        "div[class^='container'] [class^='topLine']",
-        "div[class^='container'] [class^='bottomLine']",
-        "div[class^='container'] [class^='children'] button[class^='component']",
-        "div[class^='userPopoutOverlayBackground'] [class^='userTagNoNickname']",
-        "div[class^='userPopoutOverlayBackgound'] [class^='userTagNoNickname']",
-        "span[class^='botTag']",
-        "h3[class^='header']",
-        "h2[class^='forumPostTitle']",
-        "[class^='title'][aria-label='Channel header']",
-        "div[class^='unreadPill']",
-        "div[class^='sectionHeader']",
-        "article[class^=embedWrapper] [class^=anchor]",
-        "article[class^=embedWrapper] [class^=embedProvider]",
-        "article[class^=embedWrapper] [class^=embedFooter]",
-        "[data-list-item-id^='members'] [class^='username']",
-        "[data-list-item-id^='forum-channel-list'] div[class^='tagsContainer']",
-        "li[class^='containerDefault'] div[class^='channelInfo']",
-        "li[class^='card'] div[class^='tags']",
-        "li[class^='card'] div[class^='footer']"
       ],
       "globalStyles": {
         "div[class^=headerText]": "max-height: unset;",
@@ -1274,7 +1256,13 @@
     {
       "matches": "*.slack.com",
       "selectors": [
-        ".p-rich_text_block"
+        ".p-rich_text_block",
+        ".p-message_pane__foreword",
+        ".c-alert__message",
+        "[data-qa=message_attachment_text]"
+      ],
+      "additionalStayOriginalSelectors": [
+        "[data-qa=emoji]"
       ],
       "detectParagraphLanguage": true
     },
@@ -1346,7 +1334,10 @@
         "div#sfooter",
         "a[role=presentation] > div > div:first-child",
         ".b5ZQcf",
-        ".CEMjEf"
+        ".CEMjEf",
+        ".MgUUmf.NUnG9d",
+        "#result-stats",
+        "[role=navigation]"
       ],
       "wrapperSuffix": "",
       "globalStyles": {
@@ -1355,7 +1346,8 @@
         "div[style='-webkit-line-clamp:3']": "-webkit-line-clamp: unset;max-height: unset;",
         "div[style='-webkit-line-clamp:4']": "-webkit-line-clamp: unset;max-height: unset;",
         ".V82bz": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px",
-        ".uAKcGb": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px"
+        ".uAKcGb": "-webkit-line-clamp: unset;max-height: unset;margin-bottom:30px",
+        ".Pw4Ldf.RsCEN": "height:unset;"
       },
       "extraBlockSelectors": [
         ".MUFPAc"
@@ -1373,6 +1365,13 @@
       "matches": "www.linkedin.com/jobs/*",
       "selectors": [
         "#job-details > span"
+      ]
+    },
+    {
+      "matches": "https://linkedin.com/feed/*",
+      "selectors": [
+        "h1",
+        ".feed-shared-update-v2__description-wrapper"
       ]
     },
     {
@@ -1398,7 +1397,8 @@
     },
     {
       "matches": [
-        "notion.site"
+        "notion.site",
+        "*.notion.site"
       ],
       "normalizeBody": "body",
       "selectors": [
@@ -1648,7 +1648,8 @@
       "matches": [
         "telegra.ph"
       ],
-      "normalizeBody": "div.ql-editor[contenteditable='false']"
+      "normalizeBody": "div.ql-editor[contenteditable='false']",
+      "wrapperPrefix": "\n"
     },
     {
       "matches": [
@@ -1735,7 +1736,41 @@
       "shadowRootSelectors": [
         "[data-spot-im-module-default-area='conversation'] > div"
       ],
+      "excludeTags": [
+        "TITLE",
+        "LINK",
+        "SCRIPT",
+        "STYLE",
+        "TEXTAREA",
+        "SVG",
+        "svg",
+        "G",
+        "TEXT",
+        "NOSCRIPT",
+        "INPUT",
+        "BUTTON",
+        "BASE",
+        "SELECT",
+        "OPTION",
+        "IMG",
+        "SUB",
+        "SUP",
+        "HR",
+        "PRE",
+        "CODE",
+        "KBD",
+        "WBR",
+        "TT",
+        "RT",
+        "RP",
+        "META",
+        "ASIDE",
+        "MATH",
+        "TTS-SENTENCE",
+        "AIO-CODE"
+      ],
       "excludeSelectors": [
+        ".site-footer",
         ".components-MessageDetails-index__message-details-wrapper",
         "div[class^=SlideDown__container]",
         ".components-MessageActions-index__messageActionsWrapper",
@@ -2448,7 +2483,8 @@
     {
       "matches": "https://player.vimeo.com/video/*",
       "extraBlockSelectors": [
-        "span.vp-captions-line"
+        "span.vp-captions-line",
+        "span[class^=CaptionsRenderer_]"
       ]
     },
     {
@@ -2491,6 +2527,16 @@
       }
     },
     {
+      "matches": "https://www.perplexity.ai/search/*",
+      "extraBlockSelectors": [
+        ".prose > span"
+      ],
+      "additionalStayOriginalSelectors": [
+        "a.citation"
+      ],
+      "insertPosition": "afterend"
+    },
+    {
       "matches": "https://allmyfaves.com/",
       "selectors": [
         "p"
@@ -2499,6 +2545,13 @@
       "containerMinWordCount": 1,
       "paragraphMinTextCount": 2,
       "paragraphMinWordCount": 1
+    },
+    {
+      "matches": "man7.org",
+      "isTransformPreTagNewLine": true,
+      "globalStyles": {
+        "pre": "white-space: inherit;"
+      }
     },
     {
       "matches": "https://www.kadaza.com/",
@@ -2512,11 +2565,11 @@
       "paragraphMinWordCount": 1
     },
     {
-      "matches": "https://www.perplexity.ai/search/*",
-      "atomicBlockSelectors": [
-        ".prose > span"
+      "matches": [
+        "https://babelnovel.com/books/*",
+        "https://www.webnovel.com/book/*"
       ],
-      "insertPosition": "afterend"
+      "urlChangeDelay": 0
     },
     {
       "matches": "blog.genuine.com",
@@ -2540,6 +2593,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-23T08:23:07.703Z",
-  "latestVersion": "0.5.5"
+  "buildinConfigUpdatedAt": "2023-05-24T16:32:38.939Z",
+  "latestVersion": "0.5.7"
 }

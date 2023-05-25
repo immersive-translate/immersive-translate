@@ -6,13 +6,19 @@
   - 注意：目前 OpenAI 本身不开放中国手机号码注册。
 - 注册 OpenAI 账户后，打开[API Secret Key](https://platform.openai.com/account/api-keys)，创建 API Secret Key
 - 然后将 key 填写在沉浸式翻译扩展里的 OpenAI 的配置项里即可。
-  - 注意：如果没有绑定信用卡，则为试用版用户，每分钟请求数最多 3 个，基本无法使用。
-
-> 所以建议在严肃使用场景中开通 OpenAI 的付费服务以使用
+  - 注意：如果没有绑定信用卡，则为试用版用户，每分钟请求数最多 3 个，基本无法使用。所以建议在严肃使用场景中开通 OpenAI 的付费服务以使用
 
 ## 当前请求数推荐
 
-最近 OpenAI 对付费版用户限制也很大，从 0.5.0 版本起默认请求数单位改为秒，默认每秒最大请求数改为 5 个请求。 电子书翻译可能要设置的更小，比如每秒 1 个请求。
+最近 OpenAI 对付费版用户限制也很大，从 0.5.0 版本起默认请求数单位改为秒，默认每秒最大请求数改为 5 个请求。 电子书翻译可能要设置的更小，比如每秒 3 个请求。
+
+## Azure OpenAI
+
+OpenAI 翻译服务同时也兼容 Azure OpenAI 接口，Api Key 请填写 Azure 控制台提供的 Key，然后点击展开更多设置，设置自定义地址为：
+
+`https://xxxxx.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview`
+
+将 `xxxxx` 改为你自己的子域名即可。
 
 ## 注意事项
 

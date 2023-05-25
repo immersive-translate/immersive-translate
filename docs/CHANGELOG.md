@@ -1,5 +1,25 @@
 # Change Log
 
+## 0.5.7
+
+- 超多更新！
+- 仅显示译文功能来了！ 点击【更多】->【切换为仅显示译文】
+  - 支持自定义快捷键，在界面设置-> 快捷键设置中设置
+- 优化 OpenAI 请求频率限制问题
+- 网页核心解析重构，这意味着：
+  - 大型网页秒翻译
+    - 比如： <https://pve.proxmox.com/pve-docs/pve-admin-guide.html>, 之前需要 30 秒，现在秒翻
+  - 复杂网页占用内存超低
+    - 比如： <https://www.wsj.com/articles/global-stocks-markets-dow-news-05-05-2023-cb142c76?mod=hp_lead_pos1>
+  - 对更多网站的适配
+- 支持了所有 ShadowRoot 的网站翻译
+  - 比如： <https://bugs.chromium.org/p/chromium/issues/detail?id=418987>
+  - 比如： <https://news.yahoo.com/gma/virginia-mom-facing-charges-6-190600893.html> 的评论区
+- 修复之前 Next.js 等具有水合作用的网站翻译后白屏的问题
+  - 比如： <https://webpack.js.org/>
+- 修复了修改鼠标悬停的快捷键需要刷新页面才生效的问题
+- 修复了 TXT 文件 换行识别的问题。
+
 ## 0.5.6
 
 - Fix: macOS new tab popup issue.

@@ -846,11 +846,13 @@
         "div.jp-CodeCell",
         "[aria-label=\"Account\"] .markdown-title",
         ".js-repos-container .markdown-title",
-        "[data-view-component=true] .markdown-title"
+        "[data-view-component=true] .markdown-title",
+        "a.anchor"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
-        "g-emoji"
+        "g-emoji",
+        "a.anchor"
       ],
       "stayOriginalTags": [
         "CODE",
@@ -2590,6 +2592,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T05:56:15.144Z",
+  "buildinConfigUpdatedAt": "2023-05-26T06:52:27.724Z",
   "latestVersion": "0.5.8"
 }

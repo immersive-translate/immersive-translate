@@ -1492,20 +1492,16 @@
         "pornhub.com/insights/*"
       ],
       "selectors": [
-        ".title >a",
-        ".title > span",
-        ".thumbnailTitle",
+        ".title",
         ".commentMessage > span",
         "h1.floatLeft",
         ".commentText"
       ],
       "detectParagraphLanguage": true,
-      "wrapperPrefix": "\n\n",
+      "wrapperPrefix": "<br/>",
       "wrapperSuffix": "\n",
       "globalStyles": {
-        ".title": "height: unset; max-height: unset;",
-        ".title > a": "height: unset; max-height: unset;",
-        ".thumbnailTitle": "height: unset; max-height: unset;"
+        "span.title": "height: unset; max-height: unset;"
       }
     },
     {
@@ -2593,6 +2589,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-24T17:17:10.475Z",
-  "latestVersion": "0.5.7"
+  "buildinConfigUpdatedAt": "2023-05-26T04:43:06.388Z",
+  "latestVersion": "0.5.8"
 }

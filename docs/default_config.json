@@ -1571,22 +1571,18 @@
     },
     {
       "matches": "www.amazon.com",
-      "selectors": [
-        "h1",
-        "h2 > a > span",
-        "[data-a-expander-name='book_description_expander'] > div",
-        "[data-feature-name='editorialReviews']",
-        "[data-a-expander-name=\"review_text_read_more\"] > div > span",
-        "[data-feature-name=\"featurebullets\"]",
-        "[data-feature-name=\"aplus\""
-      ],
-      "excludeBlockSelectors": [
-        "div.reviewText > span"
-      ],
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1,
       "globalStyles": {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
+        ".s-line-clamp-4": "-webkit-line-clamp: unset;max-height: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
-      }
+      },
+      "excludeSelectors": [
+        "#navFooter",
+        "#navbar-main",
+        ".s-price-instructions-style"
+      ]
     },
     {
       "matches": "marketplace.visualstudio.com",
@@ -2592,6 +2588,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T06:52:27.724Z",
+  "buildinConfigUpdatedAt": "2023-05-26T07:13:05.021Z",
   "latestVersion": "0.5.8"
 }

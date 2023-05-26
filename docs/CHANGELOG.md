@@ -1,11 +1,16 @@
 # Change Log
 
+## 0.5.8
+
+- 修复： 临时设置网站翻译时长不生效问题。
+
 ## 0.5.7
 
 - 超多更新！
 - 仅显示译文功能来了！ 点击【更多】->【切换为仅显示译文】
   - 支持自定义快捷键，在界面设置-> 快捷键设置中设置
 - 优化 OpenAI 请求频率限制问题
+- ChatGPT 默认改为 mobile 模型，更快！
 - 网页核心解析重构，这意味着：
   - 大型网页秒翻译
     - 比如： <https://pve.proxmox.com/pve-docs/pve-admin-guide.html>, 之前需要 30 秒，现在秒翻
@@ -19,6 +24,19 @@
   - 比如： <https://webpack.js.org/>
 - 修复了修改鼠标悬停的快捷键需要刷新页面才生效的问题
 - 修复了 TXT 文件 换行识别的问题。
+
+- Lots of updates!
+- The 'Show Translation Only' feature has arrived! Click on 'More' -> 'Switch to Show Translations Only'.
+  - Supports custom shortcuts, which can be set in 'Interface Settings' -> 'Shortcut Settings'
+- Optimized for OpenAI request rate limit issue
+- Web core parsing has been rebuilt, which means:
+  - Instant translation for large websites
+  - Minimal memory usage for complex web pages
+  - Better compatibility with more websites
+- Now supports translations for all websites with ShadowRoot
+- Fixed the white screen issue after translating websites with hydration, such as Next.js
+- Fixed the issue where changing the mouse hover shortcut required a page refresh to take effect
+- Fixed the issue with recognizing line breaks in TXT files.
 
 ## 0.5.6
 

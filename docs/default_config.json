@@ -621,10 +621,14 @@
     },
     {
       "matches": "*.wikipedia.org",
+      "paragraphMinWordCount": 1,
+      "paragraphMinTextCount": 3,
       "excludeSelectors": [
         ".mw-editsection",
         ".mw-cite-backlink",
-        "#mw-panel-toc"
+        "#mw-panel-toc",
+        "nav",
+        "#p-lang-btn"
       ],
       "stayOriginalSelectors": [
         ".chemf",
@@ -2599,6 +2603,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T09:49:46.767Z",
+  "buildinConfigUpdatedAt": "2023-05-26T11:21:56.906Z",
   "latestVersion": "0.5.8"
 }

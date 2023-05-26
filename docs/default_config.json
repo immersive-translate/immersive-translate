@@ -1385,6 +1385,7 @@
       "selectors": [
         ".content",
         "h1",
+        "h3.story__title",
         ".feed-item__title-link"
       ]
     },
@@ -2589,6 +2590,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T04:43:06.388Z",
+  "buildinConfigUpdatedAt": "2023-05-26T05:56:15.144Z",
   "latestVersion": "0.5.8"
 }

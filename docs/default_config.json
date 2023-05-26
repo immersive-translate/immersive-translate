@@ -1533,6 +1533,7 @@
       ],
       "urlChangeDelay": 2000,
       "selectors": [
+        "h1",
         "article section",
         "h2",
         "[aria-hidden='false'] pre",
@@ -2606,6 +2607,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T11:49:35.574Z",
-  "latestVersion": "0.5.8"
+  "buildinConfigUpdatedAt": "2023-05-26T14:24:35.029Z",
+  "latestVersion": "0.5.9"
 }

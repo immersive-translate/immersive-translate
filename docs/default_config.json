@@ -828,6 +828,7 @@
         "https://github.com/sponsors/*"
       ],
       "selectors": [
+        "h1",
         ".markdown-title",
         ".markdown-body",
         ".Layout-sidebar p",
@@ -2607,6 +2608,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T14:24:35.029Z",
+  "buildinConfigUpdatedAt": "2023-05-26T15:41:23.326Z",
   "latestVersion": "0.5.9"
 }

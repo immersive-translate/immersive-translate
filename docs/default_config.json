@@ -279,6 +279,7 @@
     "globalStyles": {
       ".sr-only": "display:none"
     },
+    "initialGlobalAttributes": {},
     "selectors": [],
     "preWhitespaceDetectedTags": [
       "DIV",
@@ -2586,8 +2587,18 @@
       "selectors": [
         "div#view-question-desc"
       ]
+    },
+    {
+      "selectorMatches": [
+        "meta[name=immersiveTranslateIosOnBoarding]"
+      ],
+      "initialGlobalAttributes": {
+        "input#immersiveTranslateDetectedSlot": {
+          "value": "true"
+        }
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T07:13:05.021Z",
+  "buildinConfigUpdatedAt": "2023-05-26T09:49:46.767Z",
   "latestVersion": "0.5.8"
 }

@@ -662,6 +662,8 @@
         "[data-testid='UserDescription']",
         "[data-testid='HoverCard'] div[dir=auto]"
       ],
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1,
       "additionalStayOriginalSelectors": [
         "[data-testid=\"tweetText\"] a"
       ],
@@ -1532,11 +1534,37 @@
       "selectorMatches": [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
-      "urlChangeDelay": 2000,
+      "urlChangeDelay": 20,
+      "additionalExcludeSelectors": [
+        ".social-share",
+        ".breadcrumbs",
+        ".post__footer",
+        ".btn",
+        ".reference-citations",
+        ".share-nav",
+        ".o-share",
+        "[data-toolbar=share]",
+        "rp",
+        "rt",
+        "[spellcheck=false]",
+        ".prism-code",
+        "[role=code]",
+        "#omni-extension",
+        ".omni-item",
+        "div[data-paste-markdown-skip]",
+        "table.highlight",
+        "div[class^=codeBlockContent]",
+        "div[class^=codeBlockLines]",
+        "div[class^=token-line]",
+        "#liuchan-window > .liuchan-container > *",
+        ".material-icons",
+        ".notranslate",
+        "[translate=no]"
+      ],
       "selectors": [
         "h1",
-        "article section",
         "h2",
+        "article section",
         "[aria-hidden='false'] pre",
         "article p"
       ],
@@ -2608,6 +2636,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T15:41:23.326Z",
+  "buildinConfigUpdatedAt": "2023-05-26T17:56:28.947Z",
   "latestVersion": "0.5.9"
 }

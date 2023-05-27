@@ -161,11 +161,11 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 订阅[沉浸式翻译官方邮件](https://immersivetranslate.substack.com/)
 - [加入 Telegram 频道](https://t.me/immersivetranslate)
 - 关注[沉浸式翻译官方推特账号](https://twitter.com/immersivetran)
-- [Star](https://github.com/immersive-translate/immersive-translate/)这个 Github 项目。
+- [Star](https://github.com/immersive-translate/immersive-translate/)这个 GitHub 项目。
 - 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
-- 帮忙解答用户在[Github Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
+- 帮忙解答用户在[GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
 - 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）,帮忙解答用户的疑问：
 
 <div align="center">

@@ -102,6 +102,9 @@ main > aside nav {
   width: 100%;
   padding-bottom: var(--block-spacing-vertical);
 }
+textarea::placeholder {
+  opacity: 0.3;
+}
 
 @media (min-width: 992px) {
   main > aside nav {

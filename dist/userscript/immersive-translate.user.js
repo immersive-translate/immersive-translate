@@ -69,7 +69,7 @@
 // @name:zh-CN     沉浸式翻译
 // @description:zh-CN     沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。
 // ==/UserScript==
-(()=>{var km=Object.defineProperty;var Dm=(e,t)=>{for(var u in t)km(e,u,{get:t[u],enumerable:!0})};var Is=(e,t,u)=>{if(!t.has(e))throw TypeError("Cannot "+u)};var eo=(e,t,u)=>(Is(e,t,"read from private field"),u?u.call(e):t.get(e)),Ns=(e,t,u)=>{if(t.has(e))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(e):t.set(e,u)},js=(e,t,u,n)=>(Is(e,t,"write to private field"),n?n.call(e,u):t.set(e,u),u);var h={BUILD_TIME:"2023-05-27T08:50:06.499Z",VERSION:"0.5.10",PROD:"1",REDIRECT_URL:"https://immersive-translate.owenyoung.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var km=Object.defineProperty;var Dm=(e,t)=>{for(var u in t)km(e,u,{get:t[u],enumerable:!0})};var Is=(e,t,u)=>{if(!t.has(e))throw TypeError("Cannot "+u)};var eo=(e,t,u)=>(Is(e,t,"read from private field"),u?u.call(e):t.get(e)),Ns=(e,t,u)=>{if(t.has(e))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(e):t.set(e,u)},js=(e,t,u,n)=>(Is(e,t,"write to private field"),n?n.call(e,u):t.set(e,u),u);var h={BUILD_TIME:"2023-05-27T08:50:29.403Z",VERSION:"0.5.10",PROD:"1",REDIRECT_URL:"https://immersive-translate.owenyoung.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

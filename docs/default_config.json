@@ -250,7 +250,7 @@
     "wrapperSuffix": "smart",
     "isPdf": false,
     "isTransformPreTagNewLine": false,
-    "urlChangeDelay": 20,
+    "urlChangeDelay": 50,
     "mutationChangeDelay": 10,
     "mainFrameMinTextCount": 50,
     "mainFrameMinWordCount": 5,
@@ -696,7 +696,9 @@
         "div.s-prose.js-post-body + div",
         ".bottom-notice",
         "div[data-campaign-name=stk]"
-      ]
+      ],
+      "paragraphMinTextCount": 4,
+      "paragraphMinWordCount": 1
     },
     {
       "matches": "developer.apple.com/documentation/*",
@@ -807,6 +809,8 @@
         "div[slot=title]",
         "div[slot=text-body]"
       ],
+      "paragraphMinTextCount": 5,
+      "paragraphMinWordCount": 1,
       "excludeMatches": [
         "https://www.reddit.com/r/*/wiki/*",
         "https://www.reddit.com/settings/*"
@@ -2369,6 +2373,8 @@
       "pairs": {
         ".source-text": ".target-text"
       },
+      "paragraphMinTextCount": 2,
+      "paragraphMinWordCount": 1,
       "isTranslateTitle": false,
       "wrapperPrefix": "",
       "wrapperSuffix": ""
@@ -2637,6 +2643,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-27T05:28:04.192Z",
-  "latestVersion": "0.5.9"
+  "buildinConfigUpdatedAt": "2023-05-27T08:51:56.441Z",
+  "latestVersion": "0.5.10"
 }

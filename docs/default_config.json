@@ -261,7 +261,9 @@
       ".MathJax_Preview",
       ".MathJax",
       ".mwe-math-element",
-      "[translate=no]"
+      "[translate=no]",
+      "span.math.inline",
+      "span.math.display"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -2643,6 +2645,6 @@
       }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-27T08:51:56.441Z",
+  "buildinConfigUpdatedAt": "2023-05-28T02:26:07.924Z",
   "latestVersion": "0.5.10"
 }

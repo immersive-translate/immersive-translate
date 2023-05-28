@@ -2643,8 +2643,23 @@
           "value": "true"
         }
       }
-    }
+    },
+    [
+      {
+        "globalAttributes": {
+          "#stimulus": {
+            "translate": "off",
+            "class": "stimulus"
+          },
+          "#stem": {
+            "translate": "off",
+            "class": "stem"
+          }
+        },
+        "matches": "https://lawhub.lsac.org/question/*"
+      }
+    ]
   ],
-  "buildinConfigUpdatedAt": "2023-05-28T02:26:07.924Z",
+  "buildinConfigUpdatedAt": "2023-05-28T13:28:23.032Z",
   "latestVersion": "0.5.10"
 }

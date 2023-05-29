@@ -99,9 +99,6 @@
   "translationLanguagePattern": {
     "matches": ["en"]
   },
-  "detectParagraphLanguagePattern": {
-    "matches": ["twitter.com", "github.com"]
-  },
   "translationTheme": "none",
   "translationThemePatterns": {
     "underline": {
@@ -233,16 +230,6 @@ translationLanguagePattern, 配置总是翻译的语言，以及永不翻译的�
 
 - `matches` 配置总是翻译的语言，比如 `en`,
 - `excludeMatches` 配置永不翻译的语言。
-
-### 段落语言检测
-
-`detectParagraphLanguagePattern` 为不同网站配置，按照段落检测语言，这样可以避免某些本来就是目标语言的段落被翻译。
-
-```json
-"detectParagraphLanguagePattern": {
-  "matches": ["twitter.com", "github.com"]
-}
-```
 
 ### 译文显示格式
 

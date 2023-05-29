@@ -630,9 +630,10 @@
       "excludeSelectors": [
         ".mw-editsection",
         ".mw-cite-backlink",
-        "#mw-panel-toc",
-        "nav",
-        "#p-lang-btn"
+        "#p-lang-btn",
+        "#right-navigation",
+        "#p-associated-pages",
+        ".vector-header"
       ],
       "stayOriginalSelectors": [
         ".chemf",
@@ -2661,6 +2662,6 @@
       }
     ]
   ],
-  "buildinConfigUpdatedAt": "2023-05-29T05:31:45.378Z",
+  "buildinConfigUpdatedAt": "2023-05-29T07:18:15.867Z",
   "latestVersion": "0.5.11"
 }

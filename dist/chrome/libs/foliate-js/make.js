@@ -1,4 +1,4 @@
-(()=>{var Gu=Object.defineProperty;var Ku=(t,e)=>{for(var n in e)Gu(t,n,{get:e[n],enumerable:!0})};var J={BUILD_TIME:"2023-05-29T05:32:26.248Z",VERSION:"0.5.11",PROD:"1",REDIRECT_URL:"https://immersive-translate.owenyoung.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var Gu=Object.defineProperty;var Ku=(t,e)=>{for(var n in e)Gu(t,n,{get:e[n],enumerable:!0})};var J={BUILD_TIME:"2023-05-29T14:44:22.636Z",VERSION:"0.5.12",PROD:"1",REDIRECT_URL:"https://immersive-translate.owenyoung.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -169,6 +169,15 @@
   border-top: 1px dashed
     var(--immersive-translate-theme-dividingLine-borderColor);
   padding-top: 8px;
+}
+
+.immersive-translate-target-translation-inline-wrapper-theme-dividingLine::before {
+  content: "";
+  border-left: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  max-height: 16px;
+  height: 16px;
+  padding-left: 8px;
 }
 
 .immersive-translate-target-translation-theme-highlight-inner {

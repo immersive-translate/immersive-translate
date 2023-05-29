@@ -171,6 +171,15 @@
   padding-top: 8px;
 }
 
+.immersive-translate-target-translation-inline-wrapper-theme-dividingLine::before {
+  content: "";
+  border-left: 1px dashed
+    var(--immersive-translate-theme-dividingLine-borderColor);
+  max-height: 16px;
+  height: 16px;
+  padding-left: 8px;
+}
+
 .immersive-translate-target-translation-theme-highlight-inner {
   background: var(--immersive-translate-theme-highlight-backgroundColor);
   box-decoration-break: clone;

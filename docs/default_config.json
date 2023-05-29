@@ -250,7 +250,7 @@
     "wrapperSuffix": "smart",
     "isPdf": false,
     "isTransformPreTagNewLine": false,
-    "urlChangeDelay": 20,
+    "urlChangeDelay": 50,
     "mutationChangeDelay": 10,
     "mainFrameMinTextCount": 50,
     "mainFrameMinWordCount": 5,
@@ -261,7 +261,9 @@
       ".MathJax_Preview",
       ".MathJax",
       ".mwe-math-element",
-      "[translate=no]"
+      "[translate=no]",
+      "span.math.inline",
+      "span.math.display"
     ],
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
@@ -334,7 +336,8 @@
       "div[class^=token-line]",
       "#liuchan-window > .liuchan-container > *",
       ".material-icons",
-      ".fa",
+      "i.fa",
+      "i[class^=fa-]",
       ".notranslate",
       "[translate=no]"
     ],
@@ -508,6 +511,7 @@
     "pdfNewParagraphIndentRightIndentPx": 130,
     "fingerCountToToggleTranslagePageWhenTouching": 4,
     "fingerCountToToggleTranslationMaskWhenTouching": 0,
+    "fingerCountToToggleTranslagePageOnlyTranslationWhenTouching": 0,
     "mouseHoverHoldKey": "Off"
   },
   "rules": [
@@ -621,10 +625,15 @@
     },
     {
       "matches": "*.wikipedia.org",
+      "paragraphMinWordCount": 1,
+      "paragraphMinTextCount": 3,
       "excludeSelectors": [
         ".mw-editsection",
         ".mw-cite-backlink",
-        "#mw-panel-toc"
+        "#p-lang-btn",
+        "#right-navigation",
+        "#p-associated-pages",
+        ".vector-header"
       ],
       "stayOriginalSelectors": [
         ".chemf",
@@ -658,6 +667,8 @@
         "[data-testid='UserDescription']",
         "[data-testid='HoverCard'] div[dir=auto]"
       ],
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1,
       "additionalStayOriginalSelectors": [
         "[data-testid=\"tweetText\"] a"
       ],
@@ -689,7 +700,9 @@
         "div.s-prose.js-post-body + div",
         ".bottom-notice",
         "div[data-campaign-name=stk]"
-      ]
+      ],
+      "paragraphMinTextCount": 4,
+      "paragraphMinWordCount": 1
     },
     {
       "matches": "developer.apple.com/documentation/*",
@@ -800,6 +813,8 @@
         "div[slot=title]",
         "div[slot=text-body]"
       ],
+      "paragraphMinTextCount": 5,
+      "paragraphMinWordCount": 1,
       "excludeMatches": [
         "https://www.reddit.com/r/*/wiki/*",
         "https://www.reddit.com/settings/*"
@@ -824,6 +839,7 @@
         "https://github.com/sponsors/*"
       ],
       "selectors": [
+        "h1",
         ".markdown-title",
         ".markdown-body",
         ".Layout-sidebar p",
@@ -1215,7 +1231,10 @@
       "wrapperSuffix": ""
     },
     {
-      "matches": "web.telegram.org/z/*",
+      "matches": [
+        "web.telegram.org/z/*",
+        "web.telegram.org/a/*"
+      ],
       "isTranslateTitle": false,
       "selectors": [
         ".text-content",
@@ -1524,10 +1543,37 @@
       "selectorMatches": [
         "meta[property='al:ios:url'][content^='medium://']"
       ],
-      "urlChangeDelay": 2000,
+      "urlChangeDelay": 20,
+      "additionalExcludeSelectors": [
+        ".social-share",
+        ".breadcrumbs",
+        ".post__footer",
+        ".btn",
+        ".reference-citations",
+        ".share-nav",
+        ".o-share",
+        "[data-toolbar=share]",
+        "rp",
+        "rt",
+        "[spellcheck=false]",
+        ".prism-code",
+        "[role=code]",
+        "#omni-extension",
+        ".omni-item",
+        "div[data-paste-markdown-skip]",
+        "table.highlight",
+        "div[class^=codeBlockContent]",
+        "div[class^=codeBlockLines]",
+        "div[class^=token-line]",
+        "#liuchan-window > .liuchan-container > *",
+        ".material-icons",
+        ".notranslate",
+        "[translate=no]"
+      ],
       "selectors": [
-        "article section",
+        "h1",
         "h2",
+        "article section",
         "[aria-hidden='false'] pre",
         "article p"
       ],
@@ -2331,6 +2377,8 @@
       "pairs": {
         ".source-text": ".target-text"
       },
+      "paragraphMinTextCount": 2,
+      "paragraphMinWordCount": 1,
       "isTranslateTitle": false,
       "wrapperPrefix": "",
       "wrapperSuffix": ""
@@ -2597,8 +2645,23 @@
           "value": "true"
         }
       }
-    }
+    },
+    [
+      {
+        "globalAttributes": {
+          "#stimulus": {
+            "translate": "off",
+            "class": "stimulus"
+          },
+          "#stem": {
+            "translate": "off",
+            "class": "stem"
+          }
+        },
+        "matches": "https://lawhub.lsac.org/question/*"
+      }
+    ]
   ],
-  "buildinConfigUpdatedAt": "2023-05-26T09:49:46.767Z",
-  "latestVersion": "0.5.8"
+  "buildinConfigUpdatedAt": "2023-05-29T07:18:15.867Z",
+  "latestVersion": "0.5.11"
 }

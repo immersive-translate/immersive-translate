@@ -50,37 +50,45 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 ![](./assets/config.png)
 
-## 油猴脚本设置页面
+## 鼠标悬停翻译
 
-如果你使用的是油猴脚本，那么你需要进入 [在线网页版设置页面](https://immersive-translate.owenyoung.com/options/) 才能设置一些高级选项，点击浮窗里的【设置】链接进入该页面，或者直接 [点此](https://immersive-translate.owenyoung.com/options/) 进入。
+沉浸式支持鼠标悬停在某个段落自动翻译该段落，但是默认没有启用哦。你需要在面板里，启用一下：
 
-> Tips: 油猴脚本的浮窗可以任意拖动位置～
+![](./assets/enable-mouse-hover.jpg)
+
+启用后，你可以按下`Shift` 键的同时，将鼠标悬停在某个段落，即可看到双语的翻译结果：
+
+![mouse hover](./assets/mouse-hover.gif)
 
 ## Epub 电子书阅读和双语导出
 
-点击插件图标 ——> 更多，选择“阅读电子书”（支持 Epub，Mobi 等常见格式）或者“制作双语 Epub 电子书”。
+点击插件图标 —> 更多，选择“阅读电子书”（支持 Epub，Mobi 等常见格式）或者“制作双语 Epub 电子书”。
 
-> 目前使用体验上还在进一步完善中，如果“制作双语 Epub 电子书”有不到 100% 的情况，可以先导出，再重选原来的文件重新翻译，页面有缓存，所以不用担心额外消耗字符数。
+点击查看[视频教程](https://www.bilibili.com/video/BV1CM41137CJ/?spm_id_from=333.999.0.0)
 
 ![](assets/epub.png)
 
-[视频教程](https://www.youtube.com/watch?v=V3Q9t9GCOm4)：
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V3Q9t9GCOm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> 目前使用体验上还在进一步完善中，如果“制作双语 Epub 电子书”有不到 100% 的情况，可以先导出，再重选原来的文件重新翻译，页面有缓存，所以不用担心额外消耗字符数。
 
 ## PDF 文件翻译
-
-> 目前只支持简单的单列 PDF 翻译，复杂的 PDF 建议使用相关工具转为 HTML 后，再由插件翻译。
->
-> 推荐一个超级好用且免费的开源软件 [calibre](https://calibre-ebook.com/)，可以把 pdf 转为 epub 或 html，效果非常赞。
-
-> 目前油猴脚本不支持 PDF 文件翻译，请下载扩展使用～
 
 1. 如果是在线的 PDF 文件，在浏览器打开后，点击扩展的图标，然后点击翻译该文件即可，如下图所示。
 
 ![pdf icon](https://immersive-translate.owenyoung.com/assets/pdf-browser-action.png)
 
 2. 如果是本地的 PDF 文件，直接右键扩展的图标（或者左键点击扩展图标，然后点击「更多」，点击「翻译本地 PDF 文件」），进入页面后，点击页面右上角上传你的 PDF 文件即可。
+
+> 目前油猴脚本不支持 PDF 文件翻译，请下载扩展使用～
+
+## 字幕文件翻译
+
+沉浸式支持`.srt`, `.ass` 等格式的字幕文件翻译，点击沉浸式翻译扩展图标，点击【更多】，【字幕文件翻译】，即可进入，翻译后可以导出双语字幕。
+
+![subtitle](./assets/subtitle.jpg)
+
+## 仅显示译文
+
+沉浸式翻译默认是双语显示模式，这种模式适合在绝大多数情况下使用。但是我们也理解部分用户在某些场景下需要隐藏原文，这种情况下你可以点击沉浸式翻译图标，【更多】，选择【切换到仅译文模式】
 
 ## 配置同步功能
 
@@ -89,6 +97,12 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 ![](assets/sync.png)
 
 > 该扩展免费使用，希望大家都能轻松、愉悦、优雅地获取互联网上海量的外文信息，不要让语言成为障碍 ❤️
+
+## 油猴脚本设置页面
+
+如果你使用的是油猴脚本，那么你需要进入 [在线网页版设置页面](https://immersive-translate.owenyoung.com/options/) 才能设置一些高级选项，点击浮窗里的【设置】链接进入该页面，或者直接 [点此](https://immersive-translate.owenyoung.com/options/) 进入。
+
+> Tips: 油猴脚本的浮窗可以任意拖动位置～
 
 ## 了解更多
 

@@ -9,7 +9,7 @@
 
 - [ ] edge/chrome/userscript, 打标
 - [ ] 统计
-
+- [ ] zetero 软件整合
 - [ ] buildin 检测线上的版本，只有大于等于本地才更新。
 - [x] 使用教程的。换个框架。 react 文档。教程。我来搞。
 - [ ] youtube 视频 -> 官方

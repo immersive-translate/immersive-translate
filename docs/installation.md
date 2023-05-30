@@ -70,8 +70,8 @@ poster="https://immersive-translate.owenyoung.com/assets/safari-mac-preview.png"
 1. 在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载压缩包
 2. 安装
 
-- 类 Chrome 浏览器安装：(1) 在地址栏输入：`chrome://extensions`，打开扩展管理窗口；(2) 打开“开发人员模式”，选择“加载解压缩的扩展”，选择 `dist/chrome` 载入。
-- Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，选择 `dist/firefox/manifest.json` 即可。
+- 类 Chrome 浏览器安装：(1) 在地址栏输入：`chrome://extensions`，打开扩展管理窗口；(2) 打开“开发人员模式”，选择“加载解压缩的扩展”，选择解压缩后的文件夹载入。
+- Firefox 浏览器安装：(1) 在地址栏输入： `about:debugging#/runtime/this-firefox`，打开扩展管理窗口；(2) 临时载入附加组件，解压压缩包，选择 `firefox/manifest.json` 即可。
 
 3. 在 [发布页面](https://github.com/immersive-translate/immersive-translate/releases/) 下载最新的安装包，覆盖原来的文件夹，然后在扩展页面点击`重新载入`
 

@@ -179,6 +179,7 @@
       "*.facebook.com",
       "web.telegram.org",
       "github.com",
+      "*.instagram.com",
       "instagram.com",
       "*.slack.com",
       "https://old.reddit.com/",
@@ -214,6 +215,7 @@
       "mail.google.com",
       "google.com",
       "discord.com",
+      "*.instagram.com",
       "instagram.com",
       "web.telegram.org",
       "*.slack.com"
@@ -986,12 +988,24 @@
       ]
     },
     {
+      "matches": "https://www.instagram.com/p/*",
+      "selectors": [
+        "h1",
+        "h3 + div"
+      ],
+      "wrapperPrefix": "<br/>",
+      "paragraphMinTextCount": 2,
+      "blockMinTextCount": 2
+    },
+    {
       "matches": "https://www.instagram.com/*",
       "wrapperPrefix": "",
       "wrapperSuffix": "",
       "selectors": [
         "h1"
-      ]
+      ],
+      "paragraphMinTextCount": 2,
+      "blockMinTextCount": 2
     },
     {
       "matches": "1paragraph.app",
@@ -2670,6 +2684,6 @@
       }
     ]
   ],
-  "buildinConfigUpdatedAt": "2023-05-30T07:20:10.295Z",
+  "buildinConfigUpdatedAt": "2023-05-30T13:43:12.024Z",
   "latestVersion": "0.5.12"
 }

@@ -2660,30 +2660,32 @@
         }
       }
     },
-    [
-      {
-        "globalAttributes": {
-          "#stimulus": {
-            "translate": "off",
-            "class": "stimulus"
-          },
-          "#stem": {
-            "translate": "off",
-            "class": "stem"
-          }
+    {
+      "globalAttributes": {
+        "#stimulus": {
+          "translate": "off",
+          "class": "stimulus"
         },
-        "matches": "https://lawhub.lsac.org/question/*"
-      }
-    ],
-    [
-      {
-        "matches": "https://www.yuque.com/*",
-        "excludeSelectors": [
-          ".lark-virtual-tree"
-        ]
-      }
-    ]
+        "#stem": {
+          "translate": "off",
+          "class": "stem"
+        }
+      },
+      "matches": "https://lawhub.lsac.org/question/*"
+    },
+    {
+      "matches": "https://www.yuque.com/*",
+      "excludeSelectors": [
+        ".lark-virtual-tree"
+      ]
+    },
+    {
+      "matches": "https://pubs.acs.org/*",
+      "additionalStayOriginalSelectors": [
+        ".loa-info-orcid"
+      ]
+    }
   ],
-  "buildinConfigUpdatedAt": "2023-05-30T13:43:12.024Z",
+  "buildinConfigUpdatedAt": "2023-05-30T15:20:31.111Z",
   "latestVersion": "0.5.12"
 }

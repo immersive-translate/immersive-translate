@@ -2660,8 +2660,16 @@
         },
         "matches": "https://lawhub.lsac.org/question/*"
       }
+    ],
+    [
+      {
+        "matches": "https://www.yuque.com/*",
+        "excludeSelectors": [
+          ".lark-virtual-tree"
+        ]
+      }
     ]
   ],
-  "buildinConfigUpdatedAt": "2023-05-29T14:43:15.983Z",
-  "latestVersion": "0.5.11"
+  "buildinConfigUpdatedAt": "2023-05-30T07:20:10.295Z",
+  "latestVersion": "0.5.12"
 }

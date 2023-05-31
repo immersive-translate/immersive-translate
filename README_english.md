@@ -28,7 +28,7 @@ This extension is free to use. I hope everyone can easily, happily and gracefull
 ## Keep in touch
 
 - [Subscribe to Immersive translation via email](https://immersivetranslate.substack.com/) Get the latest updates and (benefits) in a timely manner.
-- [Follow our Twitter](twitter.com/immersivetran)
+- [Follow our Twitter](https://twitter.com/immersivetran)
 - [Join Telegram group](https://t.me/+rq848Z09nehlOTgx) Participate in the discussion of functions.
 - [Join Telegram channel](https://t.me/immersivetranslate) Receive the latest news
 - [Question feedback](https://github.com/immersive-translate/immersive-translate/issues/)

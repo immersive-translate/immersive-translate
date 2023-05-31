@@ -26,7 +26,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 你可以通过以下方式和我们保持联系：
 
 - [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
-- [关注沉浸式翻译的官方 Twitter](twitter.com/immersivetran)
+- [关注沉浸式翻译的官方 Twitter](https://twitter.com/immersivetran)
 - [关注 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)

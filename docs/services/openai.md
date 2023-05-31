@@ -18,7 +18,7 @@ OpenAI 翻译服务同时也兼容 Azure OpenAI 接口，Api Key 请填写 Azure
 
 `https://xxxxx.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview`
 
-将 `xxxxx` 改为你自己的子域名即可。
+将 `xxxxx` 改为你自己的子域名，同时模型名字选择自定义模型，改为： `gpt-35-turbo`
 
 ## 注意事项
 

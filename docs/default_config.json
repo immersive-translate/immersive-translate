@@ -2684,8 +2684,14 @@
       "additionalStayOriginalSelectors": [
         ".loa-info-orcid"
       ]
+    },
+    {
+      "globalStyles": {
+        ".hp_narrow h3 > img": "height: 16px;display: inline; width: auto;"
+      },
+      "matches": "https://www.wikihow.com/*"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-30T15:52:49.029Z",
+  "buildinConfigUpdatedAt": "2023-05-31T06:05:35.508Z",
   "latestVersion": "0.5.13"
 }

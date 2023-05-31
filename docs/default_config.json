@@ -2696,8 +2696,16 @@
       "excludeTags": [
         "small"
       ]
+    },
+    {
+      "matches": "www.researchgate.net",
+      "excludeSelectors": [
+        ".nova-legacy-v-publication-item__meta-data",
+        ".nova-legacy-v-publication-item__person-list",
+        ".js-authors-list"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-31T08:05:36.921Z",
+  "buildinConfigUpdatedAt": "2023-05-31T10:33:57.876Z",
   "latestVersion": "0.5.13"
 }

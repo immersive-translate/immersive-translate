@@ -2018,22 +2018,6 @@
       ]
     },
     {
-      "matches": "https://rarbg.to/*",
-      "wrapperPrefix": "",
-      "wrapperSuffix": "",
-      "globalStyles": {
-        ".lista2 h2": "line-height: 14px;"
-      },
-      "selectors": [
-        "#news_content",
-        "#top_news > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td > table > tbody > tr > td",
-        "#top_news > table > tbody > tr > td > table > tbody > tr > td > h2",
-        "body > table > tbody > tr > td > div > table > tbody > tr > td > b",
-        "#newsRight > table> tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td",
-        "#newsRight > table > tbody > tr > td:nth-child(2) > table > tbody > tr > td > span > b"
-      ]
-    },
-    {
       "matches": [
         "developer.android.google.cn",
         "developer.android.com"
@@ -2706,6 +2690,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-31T10:33:57.876Z",
+  "buildinConfigUpdatedAt": "2023-05-31T14:18:01.807Z",
   "latestVersion": "0.5.13"
 }

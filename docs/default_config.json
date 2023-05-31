@@ -2690,8 +2690,14 @@
         ".hp_narrow h3 > img": "height: 16px;display: inline; width: auto;"
       },
       "matches": "https://www.wikihow.com/*"
+    },
+    {
+      "matches": "https://bearblog.dev/discover/*",
+      "excludeTags": [
+        "small"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-31T06:05:35.508Z",
+  "buildinConfigUpdatedAt": "2023-05-31T08:05:36.921Z",
   "latestVersion": "0.5.13"
 }

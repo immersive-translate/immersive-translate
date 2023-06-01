@@ -326,7 +326,6 @@
       "[data-toolbar=share]",
       "rp",
       "rt",
-      "[spellcheck=false]",
       ".prism-code",
       "[role=code]",
       "#omni-extension",
@@ -1569,7 +1568,6 @@
         "[data-toolbar=share]",
         "rp",
         "rt",
-        "[spellcheck=false]",
         ".prism-code",
         "[role=code]",
         "#omni-extension",
@@ -2664,18 +2662,6 @@
       ]
     },
     {
-      "matches": "https://pubs.acs.org/*",
-      "additionalStayOriginalSelectors": [
-        ".loa-info-orcid"
-      ]
-    },
-    {
-      "globalStyles": {
-        ".hp_narrow h3 > img": "height: 16px;display: inline; width: auto;"
-      },
-      "matches": "https://www.wikihow.com/*"
-    },
-    {
       "matches": "https://bearblog.dev/discover/*",
       "excludeTags": [
         "small"
@@ -2688,8 +2674,18 @@
         ".nova-legacy-v-publication-item__person-list",
         ".js-authors-list"
       ]
+    },
+    {
+      "matches": "youtrack.jetbrains.com/articles/*",
+      "selectors": [
+        "[role=presentation]",
+        "[data-test=article-content]"
+      ],
+      "excludeSelectors": [
+        ".toolbar__ee8"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-05-31T14:18:01.807Z",
-  "latestVersion": "0.5.13"
+  "buildinConfigUpdatedAt": "2023-06-01T02:15:15.567Z",
+  "latestVersion": "0.5.14"
 }

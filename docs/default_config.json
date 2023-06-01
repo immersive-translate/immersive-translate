@@ -1629,12 +1629,40 @@
       "excludeSelectors": ".icon-hl-trusted-source-after"
     },
     {
+      "matches": "www.ebay.com",
+      "excludeSelectors": [
+        "headers",
+        "[itemprop=offers]",
+        ".dne-itemtile-original-price"
+      ],
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1,
+      "globalStyles": {
+        "[itemprop=name]": "-webkit-line-clamp: unset;max-height: unset;",
+        ".merch-item-title": "-webkit-line-clamp: unset;max-height: unset;"
+      }
+    },
+    {
+      "matches": "www.skinstore.com",
+      "excludeSelectors": [
+        ".responsiveFlyoutMenu_levelOneLink"
+      ],
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1
+    },
+    {
+      "matches": "www.tripadvisor.com",
+      "paragraphMinTextCount": 3,
+      "paragraphMinWordCount": 1
+    },
+    {
       "matches": "www.amazon.com",
       "paragraphMinTextCount": 3,
       "paragraphMinWordCount": 1,
       "globalStyles": {
         ".s-line-clamp-2": "-webkit-line-clamp: unset;max-height: unset;",
         ".s-line-clamp-4": "-webkit-line-clamp: unset;max-height: unset;",
+        "[data-rows]": "max-height: unset;-webkit-line-clamp: unset;",
         "[data-a-expander-name='review_text_read_more']": " max-height: unset;"
       },
       "excludeSelectors": [
@@ -2686,6 +2714,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-01T02:15:15.567Z",
+  "buildinConfigUpdatedAt": "2023-06-01T15:52:35.049Z",
   "latestVersion": "0.5.14"
 }

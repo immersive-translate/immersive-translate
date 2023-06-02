@@ -1156,7 +1156,8 @@
         "[class^='styles_tagline']",
         "a[href^='/discussions/'].fontWeight-600",
         "button[class^='styles_textButton'] > div > span",
-        "h5 + p"
+        "h5 + p",
+        "div[data-test=product-item-name] + div"
       ],
       "globalStyles": {
         "h5 + p": "height:unset;"
@@ -2714,6 +2715,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-01T15:52:35.049Z",
+  "buildinConfigUpdatedAt": "2023-06-02T04:00:31.543Z",
   "latestVersion": "0.5.14"
 }

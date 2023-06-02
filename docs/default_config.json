@@ -1019,6 +1019,24 @@
     },
     {
       "matches": [
+        "https://substack.com/inbox*",
+        "https://substack.com/account*",
+        "https://substack.com/browse*"
+      ],
+      "excludeSelectors": [
+        ".captioned-button-wrap",
+        ".subscription-widget-wrap",
+        ".tweet-header",
+        ".tweet-link-bottom",
+        ".expanded-link",
+        ".meta-subheader"
+      ],
+      "globalStyles": {
+        ".reader2-clamp-lines": "max-height: unset; -webkit-line-clamp: unset;"
+      }
+    },
+    {
+      "matches": [
         "*.substack.com",
         "newsletter.rootsofprogress.org"
       ],
@@ -2715,6 +2733,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-02T04:00:31.543Z",
+  "buildinConfigUpdatedAt": "2023-06-02T05:16:35.162Z",
   "latestVersion": "0.5.14"
 }

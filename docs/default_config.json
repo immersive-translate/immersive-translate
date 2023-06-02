@@ -1019,6 +1019,7 @@
     },
     {
       "matches": [
+        "https://substack.com/",
         "https://substack.com/inbox*",
         "https://substack.com/account*",
         "https://substack.com/browse*"
@@ -2733,6 +2734,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-02T05:16:35.162Z",
+  "buildinConfigUpdatedAt": "2023-06-02T05:17:20.441Z",
   "latestVersion": "0.5.14"
 }

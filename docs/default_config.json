@@ -1024,6 +1024,9 @@
         "https://substack.com/account*",
         "https://substack.com/browse*"
       ],
+      "extraBlockSelectors": [
+        ".reader2-post-title"
+      ],
       "excludeSelectors": [
         ".captioned-button-wrap",
         ".subscription-widget-wrap",
@@ -2734,6 +2737,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-02T05:17:20.441Z",
+  "buildinConfigUpdatedAt": "2023-06-02T05:20:14.011Z",
   "latestVersion": "0.5.14"
 }

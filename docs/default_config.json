@@ -259,11 +259,11 @@
     "visibleDelay": 0,
     "additionalStayOriginalSelectors": [
       "span.katex",
-      ".notranslate",
+      "span.notranslate",
       ".MathJax_Preview",
       ".MathJax",
       ".mwe-math-element",
-      "[translate=no]",
+      "span[translate=no]",
       "span.math.inline",
       "span.math.display"
     ],
@@ -2737,6 +2737,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-02T05:20:14.011Z",
+  "buildinConfigUpdatedAt": "2023-06-03T08:47:04.707Z",
   "latestVersion": "0.5.14"
 }

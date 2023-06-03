@@ -7,6 +7,7 @@
 
 ### 文档
 
+- [ ] 优化 openai prompt
 - [ ] edge/chrome/userscript, 打标
 - [ ] 统计
 - [ ] zetero 软件整合

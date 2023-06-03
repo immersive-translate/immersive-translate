@@ -11,8 +11,11 @@ const open = (file) => {
       reader.onload = function (evt) {
         document.open();
 
+        // escape html tag
+        const txtContent = escapeHTML(reader.result);
+
         let txtWithPTag = "<p>";
-        txtWithPTag += reader.result.replace(/\n/g, "</p><p>");
+        txtWithPTag += txtContent.replace(/\n\n/g, "</p><p>");
         txtWithPTag += "</p>";
 
         let html = `<!DOCTYPE html><html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title></title></head><body><article>${txtWithPTag}</article></body></html>`;
@@ -63,3 +66,12 @@ $$$("#file-button").addEventListener("click", () => {
   const inputElement = document.querySelector("#file-input");
   inputElement.click();
 });
+
+function escapeHTML(htmlStr) {
+  return htmlStr
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}

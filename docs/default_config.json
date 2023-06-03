@@ -1,5 +1,5 @@
 {
-  "minVersion": "0.5.7",
+  "minVersion": "0.5.15",
   "immediateTranslationTextCount": 5000,
   "interval": 3600000,
   "beta": false,
@@ -131,7 +131,6 @@
       "limit": 5,
       "interval": 1350,
       "maxTextGroupLengthPerRequest": 1,
-      "prompt": "Translate the text to {{to}}:\n\n{{text}}",
       "newlinePlaceholderDelimiters": [
         "\n\n-|",
         "|-\n\n",
@@ -236,7 +235,8 @@
     "isEbookBuilder": false,
     "showSponsorOnSafari": false,
     "noTranslateRegexp": [
-      "^\\d+.+ago$"
+      "^\\d+.+ago$",
+      "^\\d+\\s+MIN\\s+READ$"
     ],
     "waitForSelectors": [],
     "waitForSelectorsTimeout": 3000,
@@ -270,8 +270,8 @@
     "translationBlockStyle": "",
     "isShowUserscriptPagePopup": true,
     "observeUrlChange": false,
-    "paragraphMinTextCount": 18,
-    "paragraphMinWordCount": 3,
+    "paragraphMinTextCount": 4,
+    "paragraphMinWordCount": 2,
     "shadowRootSelectors": [],
     "blockMinTextCount": 32,
     "blockMinWordCount": 5,
@@ -284,6 +284,20 @@
       ".sr-only": "display:none"
     },
     "initialGlobalAttributes": {},
+    "initialSelectorGlobalAttributes": {
+      "header": {
+        "translate": "no"
+      },
+      "footer:last-of-type": {
+        "translate": "no"
+      },
+      "nav:last-of-type": {
+        "translate": "no"
+      },
+      "nav": {
+        "translate": "no"
+      }
+    },
     "selectors": [],
     "preWhitespaceDetectedTags": [
       "DIV",
@@ -340,7 +354,8 @@
       "i.fa",
       "i[class^=fa-]",
       ".notranslate",
-      "[translate=no]"
+      "[translate=no]",
+      ".navmenu-container"
     ],
     "translationClasses": [],
     "atomicBlockSelectors": [],
@@ -366,8 +381,6 @@
       "RT",
       "RP",
       "META",
-      "ASIDE",
-      "FOOTER",
       "MATH",
       "TTS-SENTENCE",
       "AIO-CODE"
@@ -476,7 +489,6 @@
       "MAIN",
       "SUMMARY",
       "NAV",
-      "OL",
       "NOSCRIPT",
       "PRE",
       "SECTION",
@@ -787,7 +799,9 @@
         "faceplate-batch .md",
         ".RichTextJSON-root",
         "div[slot=title]",
-        "div[slot=text-body]"
+        "div[slot=text-body]",
+        "p.title > a",
+        "[role=main] .md-container"
       ],
       "detectParagraphLanguage": true,
       "globalStyles": {
@@ -812,7 +826,9 @@
         ".Comment__body",
         "faceplate-batch .md",
         "div[slot=title]",
-        "div[slot=text-body]"
+        "div[slot=text-body]",
+        "p.title > a",
+        "[role=main] .md-container"
       ],
       "paragraphMinTextCount": 5,
       "paragraphMinWordCount": 1,
@@ -826,9 +842,10 @@
       }
     },
     {
-      "matches": "www.reuters.com/",
+      "matches": "www.reuters.com",
       "excludeSelectors": [
-        "header"
+        "[promotext]",
+        "[data-testid=Leaderboard]"
       ]
     },
     {
@@ -865,7 +882,8 @@
         "[aria-label=\"Account\"] .markdown-title",
         ".js-repos-container .markdown-title",
         "[data-view-component=true] .markdown-title",
-        "a.anchor"
+        "a.anchor",
+        "div.file-navigation + div.Box"
       ],
       "extraBlockSelectors": [],
       "extraInlineSelectors": [
@@ -2735,8 +2753,15 @@
       "excludeSelectors": [
         ".toolbar__ee8"
       ]
+    },
+    {
+      "matches": "www.bbc.com",
+      "excludeSelectors": [
+        "section.module--languages",
+        ".drop-capped"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-03T08:47:04.707Z",
-  "latestVersion": "0.5.14"
+  "buildinConfigUpdatedAt": "2023-06-03T16:59:45.145Z",
+  "latestVersion": "0.5.15"
 }

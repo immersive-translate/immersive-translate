@@ -2795,8 +2795,25 @@
         "section.module--languages",
         ".drop-capped"
       ]
+    },
+    {
+      "matches": "www.dw.com",
+      "initialSelectorGlobalAttributes": {
+        "footer:last-of-type": {
+          "translate": "no"
+        },
+        "nav:last-of-type": {
+          "translate": "no"
+        },
+        "nav": {
+          "translate": "no"
+        }
+      },
+      "excludeSelectors": [
+        ".focus-menu-shown"
+      ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T11:40:29.410Z",
+  "buildinConfigUpdatedAt": "2023-06-04T12:57:43.144Z",
   "latestVersion": "0.5.15"
 }

@@ -2106,6 +2106,14 @@
       ]
     },
     {
+      "matches": "www.ft.com",
+      "excludeSelectors": [
+        "headers",
+        "[aria-labelledby=cookie-banner-aria-label]",
+        "footer"
+      ]
+    },
+    {
       "matches": "https://apps.microsoft.com/store/detail/*",
       "additionalSelectors": [
         "pre"
@@ -2772,6 +2780,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T06:12:52.016Z",
+  "buildinConfigUpdatedAt": "2023-06-04T06:18:23.041Z",
   "latestVersion": "0.5.15"
 }

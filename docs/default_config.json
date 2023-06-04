@@ -858,7 +858,8 @@
       ],
       "selectors": [
         "h1",
-        ".markdown-title",
+        "[aria-label=Issues] .markdown-title",
+        "[aria-labelledby=discussions-list] .markdown-title",
         ".markdown-body",
         ".Layout-sidebar p",
         "div > span.search-match",
@@ -2762,6 +2763,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-03T16:59:45.145Z",
+  "buildinConfigUpdatedAt": "2023-06-04T03:21:51.845Z",
   "latestVersion": "0.5.15"
 }

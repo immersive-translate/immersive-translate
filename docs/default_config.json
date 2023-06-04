@@ -1745,7 +1745,10 @@
       "matches": "www.bloomberg.com",
       "urlChangeDelay": 2000,
       "excludeSelectors": [
-        ".ticker-bar"
+        ".ticker-bar",
+        "nav",
+        "[aria-label=Banner]",
+        "aside"
       ]
     },
     {
@@ -2769,6 +2772,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T05:05:53.338Z",
+  "buildinConfigUpdatedAt": "2023-06-04T06:12:52.016Z",
   "latestVersion": "0.5.15"
 }

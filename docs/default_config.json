@@ -2763,7 +2763,10 @@
       ]
     },
     {
-      "matches": "www.theatlantic.com",
+      "matches": [
+        "www.theatlantic.com",
+        "https://mashable.com/*"
+      ],
       "initialSelectorGlobalAttributes": {
         "footer:last-of-type": {
           "translate": "no"
@@ -2794,6 +2797,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T06:35:13.895Z",
+  "buildinConfigUpdatedAt": "2023-06-04T11:30:49.702Z",
   "latestVersion": "0.5.15"
 }

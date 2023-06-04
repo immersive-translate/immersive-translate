@@ -273,8 +273,8 @@
     "paragraphMinTextCount": 4,
     "paragraphMinWordCount": 2,
     "shadowRootSelectors": [],
-    "blockMinTextCount": 32,
-    "blockMinWordCount": 5,
+    "blockMinTextCount": 24,
+    "blockMinWordCount": 4,
     "containerMinTextCount": 18,
     "containerMinWordCount": 3,
     "lineBreakMaxTextCount": 0,
@@ -2797,6 +2797,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T11:30:49.702Z",
+  "buildinConfigUpdatedAt": "2023-06-04T11:40:29.410Z",
   "latestVersion": "0.5.15"
 }

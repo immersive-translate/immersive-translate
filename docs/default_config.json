@@ -2763,6 +2763,20 @@
       ]
     },
     {
+      "matches": "www.theatlantic.com",
+      "initialSelectorGlobalAttributes": {
+        "footer:last-of-type": {
+          "translate": "no"
+        },
+        "nav:last-of-type": {
+          "translate": "no"
+        },
+        "nav": {
+          "translate": "no"
+        }
+      }
+    },
+    {
       "matches": "youtrack.jetbrains.com/articles/*",
       "selectors": [
         "[role=presentation]",
@@ -2780,6 +2794,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T06:18:23.041Z",
+  "buildinConfigUpdatedAt": "2023-06-04T06:35:13.895Z",
   "latestVersion": "0.5.15"
 }

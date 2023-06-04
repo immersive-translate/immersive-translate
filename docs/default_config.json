@@ -849,6 +849,12 @@
       ]
     },
     {
+      "matches": "https://www.npmjs.com/package/*",
+      "selectors": [
+        "#tabpanel-readme > div:first-child"
+      ]
+    },
+    {
       "matches": "github.com",
       "observeUrlChange": true,
       "excludeMatches": [
@@ -2763,6 +2769,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T03:21:51.845Z",
+  "buildinConfigUpdatedAt": "2023-06-04T05:05:53.338Z",
   "latestVersion": "0.5.15"
 }

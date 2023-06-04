@@ -95,8 +95,8 @@
     "deepl": {
       "immediateTranslationTextCountForImmersiveDeepl": 50000,
       "placeholderDelimiters": [
-        "<code>",
-        "</code>"
+        "{{",
+        "}}"
       ]
     },
     "bing": {
@@ -2814,6 +2814,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T12:57:43.144Z",
+  "buildinConfigUpdatedAt": "2023-06-04T13:47:10.115Z",
   "latestVersion": "0.5.15"
 }

@@ -15,12 +15,14 @@ jobs:
           repository: immersive-translate/site
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
+      - run: pwd
+      - run: ls -l
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Build website
-        run: cd official && npm run build
+        run: cd official && npm i &&  npm run build
       - run: pwd && ls -l
       - run: ls ./official/build
       # - name: Publish to Cloudflare Pages

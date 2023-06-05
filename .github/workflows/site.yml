@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+          cache-dependency-path: ./official/package-lock.json
       - name: Build website
         run: cd official && npm i &&  npm run build
       - run: pwd && ls -l

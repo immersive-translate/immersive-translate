@@ -1,0 +1,34 @@
+name: Deploy Official Site to Cloudflare Pages
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - deply-official-site
+jobs:
+  deploy:
+    name: Deploy to Cloudfalre Pages
+    runs-on: ubuntu-latest
+    concurrency: build-offical-site
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: immersive-translate/site
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Build website
+        run: cd official && npm run build
+      - run: pwd && ls -l
+      - run: ls ./official/build
+      # - name: Publish to Cloudflare Pages
+      #   uses: cloudflare/pages-action@v1 
+      #   with:
+      #     apiToken: ${{ secrets.IMMERSIVE_CLOUDFLARE_API_TOKEN }}
+      #     accountId: ${{secrets.IMMERSIVE_CLOUDFLARE_ACCOUNT_ID}}
+      #     projectName: immersive-translate
+      #     directory: book
+      #     # Optional: Enable this if you want to have GitHub Deployments triggered
+      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}

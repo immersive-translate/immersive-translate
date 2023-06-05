@@ -973,6 +973,7 @@
       "selectors": [
         "yt-formatted-string[slot=content].ytd-comment-renderer",
         "yt-formatted-string.ytd-video-renderer",
+        "yt-formatted-string#content-text",
         "h1",
         "yt-formatted-string#video-title",
         "span#video-title",
@@ -2814,6 +2815,6 @@
       ]
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-04T13:47:10.115Z",
+  "buildinConfigUpdatedAt": "2023-06-05T04:09:46.925Z",
   "latestVersion": "0.5.15"
 }

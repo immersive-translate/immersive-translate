@@ -7,6 +7,7 @@
 
 ### 文档
 
+- [ ] 通过快捷键使用不同的翻译服务 <https://github.com/immersive-translate/immersive-translate/discussions/554#discussioncomment-6083130>
 - [ ] 优化 openai prompt
 - [ ] edge/chrome/userscript, 打标
 - [ ] 统计

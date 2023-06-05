@@ -15,9 +15,6 @@ jobs:
           repository: immersive-translate/site
           ref: official
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
-
-      - run: pwd
-      - run: ls -l
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
@@ -25,14 +22,12 @@ jobs:
           cache-dependency-path: ./official/package-lock.json
       - name: Build website
         run: cd official && npm i &&  npm run build
-      - run: pwd && ls -l
-      - run: ls ./official/build
-      # - name: Publish to Cloudflare Pages
-      #   uses: cloudflare/pages-action@v1 
-      #   with:
-      #     apiToken: ${{ secrets.IMMERSIVE_CLOUDFLARE_API_TOKEN }}
-      #     accountId: ${{secrets.IMMERSIVE_CLOUDFLARE_ACCOUNT_ID}}
-      #     projectName: immersive-translate
-      #     directory: book
-      #     # Optional: Enable this if you want to have GitHub Deployments triggered
-      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1 
+        with:
+          apiToken: ${{ secrets.IMMERSIVE_CLOUDFLARE_API_TOKEN }}
+          accountId: ${{secrets.IMMERSIVE_CLOUDFLARE_ACCOUNT_ID}}
+          projectName: immersivetranslate
+          directory: official/build
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}

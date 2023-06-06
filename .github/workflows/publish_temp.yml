@@ -1,0 +1,41 @@
+name: Deploy to  test Cloudflare Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - transfer-domain
+    paths:
+      - 'docs/**'
+      - 'README.md'
+      - 'book.toml'
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    concurrency: build-web
+    steps:
+      - uses: actions/checkout@v3
+      - run: git checkout -b main
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          # mdbook-version: '0.4.10'
+          mdbook-version: 'latest'
+      - name: Build website
+        run: make build
+      # - name: Publish pages
+      #   run: make publish
+      #   env:
+      #     CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+      #     CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1 
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+          # projectName: immersive-translate
+          projectName: immersive
+          directory: book
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

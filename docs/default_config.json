@@ -2824,8 +2824,19 @@
           "translate": "no"
         }
       }
+    },
+    {
+      "matches": "https://platform.openai.com/docs/*",
+      "urlChangeDelay": 0
+    },
+    {
+      "selectorMatches": [
+        "meta[name='generator'][content^='Discourse']"
+      ],
+      "urlChangeDelay": 0,
+      "_comment": "解决url变化但是页面不变的问题"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-06T03:30:59.120Z",
+  "buildinConfigUpdatedAt": "2023-06-06T04:53:00.163Z",
   "latestVersion": "0.5.16"
 }

@@ -2813,8 +2813,19 @@
       "excludeSelectors": [
         ".focus-menu-shown"
       ]
+    },
+    {
+      "matches": "docs.sentry.io",
+      "initialSelectorGlobalAttributes": {
+        "footer:last-of-type": {
+          "translate": "no"
+        },
+        ".navbar": {
+          "translate": "no"
+        }
+      }
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-05T15:41:20.913Z",
+  "buildinConfigUpdatedAt": "2023-06-06T03:30:59.120Z",
   "latestVersion": "0.5.16"
 }

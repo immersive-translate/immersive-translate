@@ -9,6 +9,7 @@ on:
       - 'docs/**'
       - 'README.md'
       - 'book.toml'
+      - ".github/workflows/**"
 jobs:
   deploy:
     name: Deploy to GitHub Pages

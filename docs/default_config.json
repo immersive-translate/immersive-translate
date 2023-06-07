@@ -915,6 +915,7 @@
     },
     {
       "matches": "www.facebook.com",
+      "excludeMatches": "https://www.facebook.com/business/*",
       "selectors": [
         "div[dir=auto][style]",
         "div[dir=auto][class]",
@@ -2837,6 +2838,6 @@
       "_comment": "解决url变化但是页面不变的问题"
     }
   ],
-  "buildinConfigUpdatedAt": "2023-06-06T04:53:00.163Z",
+  "buildinConfigUpdatedAt": "2023-06-07T02:38:10.417Z",
   "latestVersion": "0.5.16"
 }

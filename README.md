@@ -6,7 +6,7 @@ loop
 muted
 plays-inline
 width="1200px"
-poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png"><source src="https://immersive-translate.owenyoung.com/assets/immersive-translate-intro-demo.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
+poster="https://immersivetranslate.com/assets/twitterdeskmobile.png"><source src="https://immersivetranslate.com/assets/immersive-translate-intro-demo.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
 </video>
 
 ## 主要特性
@@ -19,7 +19,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 全平台浏览器支持，包括桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等。
 - 提供多种译文样式选择，如弱化、模糊、下划线、分隔线等样式，个性化定制翻译体验。
 
-[**点击立即安装**](https://immersive-translate.owenyoung.com/installation.html)
+[**点击立即安装**](https://immersivetranslate.com/docs/installation/)
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 
@@ -33,7 +33,7 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）
 
 <div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="200" alt="wechat">
+<img src="https://immersivetranslate.com/assets/wechat-contact.png" width="200" alt="wechat" />
 </div>
 
 <div align="center">
@@ -58,18 +58,19 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 
 ## 目录
 
-- [安装](https://immersive-translate.owenyoung.com/installation.html)
-- [如何使用](https://immersive-translate.owenyoung.com/usage.html)
-- [翻译服务申请](https://immersive-translate.owenyoung.com/services.html)
-- [高级自定义配置](https://immersive-translate.owenyoung.com/advanced.html)
-- [更新日志](https://immersive-translate.owenyoung.com/CHANGELOG.html)
-- [在线文档](https://immersive-translate.owenyoung.com/)
+- [官方网站](https://immersivetranslate.com/)
+- [安装](https://immersivetranslate.com/docs/installation/)
+- [如何使用](https://immersivetranslate.com/docs/usage/)
+- [翻译服务申请](https://immersivetranslate.com/docs/services/)
+- [高级自定义配置](https://immersivetranslate.com/docs/advanced/)
+- [更新日志](https://immersivetranslate.com/docs/CHANGELOG/)
+- [在线文档](https://immersivetranslate.com/docs/)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## 使用案例
 
-- [点这里](https://immersive-translate.owenyoung.com/usecase.html) 查看使用截图
-- [点此查看](https://immersive-translate.owenyoung.com/review) 用户的评价以及媒体报道
+- [点这里](https://immersivetranslate.com/docs/usecase/) 查看使用截图
+- [点此查看](https://immersivetranslate.com/docs/review/) 用户的评价以及媒体报道
 - [Youtube 视频介绍](https://www.youtube.com/watch?v=IZiwEtLGTk0)
 
 ## 安装
@@ -80,34 +81,36 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - 谷歌 Chrome 浏览器：[Chrome 商店沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
 - Firefox 火狐浏览器：[Firefox Addon 商店沉浸式翻译](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)
 
+> 如果你无法访问谷歌官方商店，可以直接下载[最新沉浸式翻译 Chrome 浏览器 zip 安装包](https://download.immersivetranslate.com/latest/chrome-immersive-translate.zip)， 下载后请先解压到一个常用的文件夹内，然后在地址栏输入：`chrome://extensions`，打开扩展管理窗口，然后启用“开发人员模式”，选择“加载解压缩的扩展”，选择刚刚解压后的文件夹载入即可安装成功。
+
 ### Safari
 
 - [点此进入苹果 App Store 商店安装](https://apps.apple.com/app/immersive-translate/id6447957425) **限时免费中!!!**
 
 <div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/immersive-app-store.png" width="150" alt="app store qrcode">
+<img src="https://immersivetranslate.com/assets/immersive-app-store.png" width="150" alt="app store qrcode" />
 </div>
 
-> 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看[视频教程](https://immersive-translate.owenyoung.com/assets/safari-installation-intro.mp4)：
+> 说明：首次安装后需要在 safari 浏览器-> 管理扩展->**启用沉浸式翻译扩展**，并且授予其**始终允许访问所有网站**的权限，有疑问可以查看[视频教程](https://immersivetranslate.com/assets/safari-installation-intro.mp4)：
 
 ### 安卓/Android
 
 安卓系统使用沉浸式翻译有 2 种方式：
 
 1. 直接安装支持 Chrome 扩展的安卓浏览器，比如[狐猴浏览器](https://lemurbrowser.com/app/zh/)或[Kiwi 浏览器](https://kiwibrowser.com/)，安装后，直接在 chrome 商店搜索[沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)即可安装。
-2. 在支持油猴脚本的安卓浏览器中安装[沉浸式翻译油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js)，见下面的介绍。
+2. 在支持油猴脚本的安卓浏览器中安装[沉浸式翻译油猴脚本](https://download.immersivetranslate.com/immersive-translate.user.js)，见下面的介绍。
 
 ### 通过油猴脚本安装
 
 如果你无法通过以上的方式安装沉浸式翻译的官方扩展(推荐使用官方扩展，性能更好，功能也更丰富)，你可以通过以下方式安装油猴脚本：
 
-油猴脚本地址： <https://immersive-translate.owenyoung.com/immersive-translate.user.js>
+油猴脚本地址： <https://download.immersivetranslate.com/immersive-translate.user.js>
 
-在已安装油猴扩展的浏览器中打开[该地址](https://immersive-translate.owenyoung.com/immersive-translate.user.js) 即可安装。以**安卓火狐浏览器**为例：
+在已安装油猴扩展的浏览器中打开[该地址](https://download.immersivetranslate.com/immersive-translate.user.js) 即可安装。以**安卓火狐浏览器**为例：
 
 1. 下载 [Firefox 最新版本](https://www.firefox.com.cn/download/#product-android-release) 版本
 2. 在 Firefox 的附加组件推荐里找到 [Tamper Monkey](https://www.tampermonkey.net/)，安装
-3. 安装本扩展的 [油猴脚本](https://immersive-translate.owenyoung.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
+3. 安装本扩展的 [油猴脚本](https://download.immersivetranslate.com/immersive-translate.user.js) (在 Firefox 浏览器中打开该链接即可看到安装页面）
 4. 安装后，打开任意网页，在右侧会出现沉浸式翻译扩展的浮窗图标。
 
 ## 一个更长的说明
@@ -151,20 +154,19 @@ poster="https://immersive-translate.owenyoung.com/assets/twitterdeskmobile.png">
 - [加入 Telegram 频道](https://t.me/immersivetranslate)
 - 关注[沉浸式翻译官方推特账号](https://twitter.com/immersivetran)
 - [Star](https://github.com/immersive-translate/immersive-translate/)这个 GitHub 项目。
-- 帮忙[贡献文档](https://immersive-translate.owenyoung.com/),点击右上角编辑按钮即可。
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
 - 帮忙解答用户在[GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
 - 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）,帮忙解答用户的疑问：
 
 <div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/wechat-contact.png" width="200" alt="wechat">
+<img src="https://immersivetranslate.com/assets/wechat-contact.png" width="200" alt="wechat" />
 </div>
 
 - 扫描下面二维码，关注官方微信公众号：
 
 <div align="center">
-<img src="https://immersive-translate.owenyoung.com/assets/wechat-qrcode.jpg" width="200" alt="wechat">
+<img src="https://immersivetranslate.com/assets/wechat-qrcode.jpg" width="200" alt="wechat" />
 </div>
 
 在过去短短的五个月里，沉浸式翻译已经帮助了 40 万用户养成了看外语信息的习惯，这充分证明了一个良好的工具对于打破信息壁垒所起到的关键作用。感谢每一位在过去帮助过沉浸式翻译的人，我们将会继续把沉浸式的翻译体验带给更多的人，让更多人能享受到技术带来的红利。

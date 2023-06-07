@@ -2,14 +2,14 @@ name: Deploy to  test Cloudflare Pages
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - transfer-domain
-    paths:
-      - 'docs/**'
-      - 'README.md'
-      - 'book.toml'
-      - ".github/workflows/**"
+  # push:
+  #   branches:
+  #     - transfer-domain
+  #   paths:
+  #     - 'docs/**'
+  #     - 'README.md'
+  #     - 'book.toml'
+  #     - ".github/workflows/**"
 jobs:
   deploy:
     name: Deploy to GitHub Pages

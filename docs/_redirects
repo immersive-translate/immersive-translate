@@ -1,0 +1,23 @@
+/immersive-translate.user.js https://download.immersivetranslate.com/immersive-translate.user.js 302
+/ https://immersivetranslate.com/ 302
+/donate.html https://immersivetranslate.com/docs/donate/ 302
+/donate https://immersivetranslate.com/docs/donate/ 302
+/auth-done/ https://dash.immersivetranslate.com/auth-done/ 302
+/options/ https://dash.immersivetranslate.com/ 302
+/ebook/ https://app.immersivetranslate.com/ebook/ 302
+/ebook/make/ https://app.immersivetranslate.com/ebook/make/ 302
+/subtitle/ https://app.immersivetranslate.com/subtitle/ 302
+/communities https://immersivetranslate.com/docs/communities/ 302
+/services/deepL.html https://immersivetranslate.com/docs/services/deepL/ 302
+/services/ https://immersivetranslate.com/docs/services/ 302
+/installation.html https://immersivetranslate.com/docs/installation/ 302
+/thanks https://immersivetranslate.com/docs/thanks/ 302
+/CHANGELOG.html https://immersivetranslate.com/docs/CHANGELOG/ 302
+/advanced https://immersivetranslate.com/docs/advanced/ 302
+/installation https://immersivetranslate.com/docs/installation/ 302
+/PRIVACY https://immersivetranslate.com/docs/PRIVACY/ 302
+/assets/ios-safari-enable.mp4 https://immersivetranslate.com/assets/ios-safari-enable.mp4 302
+
+/start/* https://onboarding.immersivetranslate.com/:splat 302
+/services/* https://immersivetranslate.com/docs/services/:splat 302
+

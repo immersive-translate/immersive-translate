@@ -10,19 +10,19 @@
 - Support all platform browsers, desktop, mobile, iOS, Chrome, Edge, Firefox, Safari, etc. Have good support.
 - Provide a variety of translation style options, including weakening, blurring, underlining, divider and other styles, to personalize your translation experience as you please.
 
-[Click here to view use cases/screenshots](https://immersive-translate.owenyoung.com/usecase)
+[Click here to view use cases/screenshots](https://immersivetranslate.com/docs/usecase/)
 
 This extension is free to use. I hope everyone can easily, happily and gracefully obtain a large amount of foreign language information on the Internet, and don't let language become an obstacle ❤️
 
 ## Table of Contents
 
-- [Installation](https://immersive-translate.owenyoung.com/installation.html)
-- [How to use](https://immersive-translate.owenyoung.com/usage.html)
-- [Application for Translation service](https://immersive-translate.owenyoung.com/services.html)
-- [Advanced custom configuration](https://immersive-translate.owenyoung.com/advanced.html)
-- [Changelog](https://immersive-translate.owenyoung.com/CHANGELOG.html)
+- [Installation](https://immersivetranslate.com/docs/installation/)
+- [How to use](https://immersivetranslate.com/docs/usage/)
+- [Application for Translation service](https://immersivetranslate.com/docsservices/)
+- [Advanced custom configuration](https://immersivetranslate.com/advanced/)
+- [Changelog](https://immersivetranslate.com/docs/CHANGELOG/)
 
-- [Online documentation](https://immersive-translate.owenyoung.com/)
+- [Online documentation](https://immersivetranslate.com/docs/)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## Keep in touch
@@ -35,8 +35,8 @@ This extension is free to use. I hope everyone can easily, happily and gracefull
 
 ## Use case
 
-- [Click here](https://immersive-translate.owenyoung.com/usecase.html) View usage screenshots
-- [Click here to view](https://immersive-translate.owenyoung.com/review) User reviews and media reports
+- [Click here](https://immersivetranslate.com/docs/usecase/) View usage screenshots
+- [Click here to view](https://immersivetranslate.com/docs/review/) User reviews and media reports
 - [Youtube video introduction](https://www.youtube.com/watch?v=IZiwEtLGTk0)
 
 ## Install
@@ -55,7 +55,7 @@ Already on the shelves [Firefox Addon Store](https://addons.mozilla.org/zh-CN/fi
 
 ### Grease Monkey script address
 
-Grease Monkey script address: <https://immersive-translate.owenyoung.com/immersive-translate.user.js >, open this address in the browser where the Oil Monkey extension is installed, and you can install it.
+Grease Monkey script address: <https://download.immersivetranslate.com/immersive-translate.user.js >, open this address in the browser where the Oil Monkey extension is installed, and you can install it.
 
 ## Apple iOS/macOS Safari
 

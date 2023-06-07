@@ -2,7 +2,6 @@
 /default_config.json https://config.immersivetranslate.com/default_config.json 302
 /donate.html https://immersivetranslate.com/docs/donate/ 302
 /donate https://immersivetranslate.com/docs/donate/ 302
-/auth-done/ https://dash.immersivetranslate.com/auth-done/ 302
 /options/ https://dash.immersivetranslate.com/ 302
 /ebook/ https://app.immersivetranslate.com/ebook/ 302
 /ebook/make/ https://app.immersivetranslate.com/ebook/make/ 302

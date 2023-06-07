@@ -5,6 +5,13 @@
 
 ## Todo List
 
+- [ ] 原生字幕支持(https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
+  - https://www.kodeco.com/37782226-flutter-hero-animations/lessons/1 模拟移动环境打开
+- [ ] 检测是否当前页面可以运行
+- [ ] contentscript , 定时任务只在 main frame 执行
+- [ ] ios 安装后跳转到 ios 的安装教程页面
+- [ ] epub 翻译多行 bug
+
 ### 文档
 
 - [ ] 通过快捷键使用不同的翻译服务 <https://github.com/immersive-translate/immersive-translate/discussions/554#discussioncomment-6083130>
@@ -54,6 +61,7 @@
 - [x] contentscript , 定时任务只在 main frame 执行
 - [x] ios 安装后跳转到 ios 的安装教程页面
 - [x] epub 翻译多行 bug
+  > > > > > > > 32ebd0cca9ea68f05bd86e67a83787d69c72f74c
 - [ ] 版本更新检测的逻辑，各商店按照各自的来检测，避免用户焦虑。
 - [ ] 在线版本检测应该依赖运行时，而不是打包时
 

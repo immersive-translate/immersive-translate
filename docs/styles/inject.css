@@ -36,20 +36,20 @@
   line-height: 1.3;
   font-size: 16px;
 }
+
 .immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);
   white-space: normal;
   position: absolute;
 }
 
-.immersive-translate-pdf-target-container
-  .immersive-translate-target-wrapper
-  font {
+.immersive-translate-pdf-target-container .immersive-translate-target-wrapper font {
   color: inherit;
   white-space: inherit;
   position: unset;
 }
-.immersive-translate-state-dual > br {
+
+.immersive-translate-state-dual>br {
   display: none;
 }
 
@@ -62,28 +62,24 @@
   margin: 0 !important;
   display: block;
 }
+
 .immersive-translate-target-translation-theme-grey-inner {
   color: var(--immersive-translate-theme-grey-textColor);
 }
 
-.immersive-translate-target-translation-inline-wrapper {
-}
+.immersive-translate-target-translation-inline-wrapper {}
 
 .immersive-translate-target-translation-theme-underline-inner {
-  border-bottom: 1px solid
-    var(--immersive-translate-theme-underline-borderColor) !important;
+  border-bottom: 1px solid var(--immersive-translate-theme-underline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline
-    var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
+  text-decoration: underline var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(
-    --immersive-translate-theme-dashedBorder-borderRadius
-  ) !important;
+  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -91,17 +87,13 @@
 
 .immersive-translate-target-translation-inline-wrapper-theme-dashedBorder {
   border: 1px dashed var(--immersive-translate-theme-dashedBorder-borderColor) !important;
-  border-radius: var(
-    --immersive-translate-theme-dashedBorder-borderRadius
-  ) !important;
+  border-radius: var(--immersive-translate-theme-dashedBorder-borderRadius) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(
-    --immersive-translate-theme-solidBorder-borderRadius
-  ) !important;
+  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
   padding: 6px;
   margin-top: 2px;
   display: block;
@@ -109,54 +101,44 @@
 
 .immersive-translate-target-translation-inline-wrapper-theme-solidBorder {
   border: 1px solid var(--immersive-translate-theme-solidBorder-borderColor) !important;
-  border-radius: var(
-    --immersive-translate-theme-solidBorder-borderRadius
-  ) !important;
+  border-radius: var(--immersive-translate-theme-solidBorder-borderRadius) !important;
   padding: 2px;
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline
-    var(--immersive-translate-theme-nativeDashed-borderColor) !important;
+  text-decoration: dashed underline var(--immersive-translate-theme-nativeDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
-  border-bottom: 1px dashed
-    var(--immersive-translate-theme-thinDashed-borderColor) !important;
+  border-bottom: 1px dashed var(--immersive-translate-theme-thinDashed-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
   background-repeat: repeat-x;
-  background-image: linear-gradient(
-    to right,
-    var(--immersive-translate-theme-dotted-borderColor) 30%,
-    rgba(255, 255, 255, 0) 0%
-  );
+  background-image: linear-gradient(to right,
+      var(--immersive-translate-theme-dotted-borderColor) 30%,
+      rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
   background-size: 5px 1px;
   background-repeat: repeat-x;
   padding-bottom: 3px;
 }
+
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline
-    var(--immersive-translate-theme-nativeDotted-borderColor) !important;
+  text-decoration: dotted underline var(--immersive-translate-theme-nativeDotted-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline
-    var(--immersive-translate-theme-wavy-borderColor) !important;
+  text-decoration: wavy underline var(--immersive-translate-theme-wavy-borderColor) !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
   background-repeat: repeat-x !important;
-  background: linear-gradient(
-      to right,
+  background: linear-gradient(to right,
       var(--immersive-translate-theme-dashed-borderColor) 0%,
       var(--immersive-translate-theme-dashed-borderColor) 50%,
       transparent 50%,
-      transparent 100%
-    )
-    repeat-x left bottom;
+      transparent 100%) repeat-x left bottom;
   background-size: 8px 2px;
   padding-bottom: 2px;
 }
@@ -166,15 +148,13 @@
   display: block;
   max-width: 80px;
   width: 10%;
-  border-top: 1px dashed
-    var(--immersive-translate-theme-dividingLine-borderColor);
+  border-top: 1px dashed var(--immersive-translate-theme-dividingLine-borderColor);
   padding-top: 8px;
 }
 
 .immersive-translate-target-translation-inline-wrapper-theme-dividingLine::before {
   content: "";
-  border-left: 1px dashed
-    var(--immersive-translate-theme-dividingLine-borderColor);
+  border-left: 1px dashed var(--immersive-translate-theme-dividingLine-borderColor);
   max-height: 16px;
   height: 16px;
   padding-left: 8px;
@@ -185,14 +165,14 @@
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
+
 .immersive-translate-target-translation-block-wrapper-theme-marker {
   line-height: 1.5em;
 }
 
 .immersive-translate-target-translation-theme-marker2-inner {
   font-weight: bold;
-  text-shadow: 10px 0px 3px
-      var(--immersive-translate-theme-marker2-backgroundColor),
+  text-shadow: 10px 0px 3px var(--immersive-translate-theme-marker2-backgroundColor),
     16px 3px 9px var(--immersive-translate-theme-marker2-backgroundColor),
     2px 0px 6px var(--immersive-translate-theme-marker2-backgroundColor),
     -12px 0px 12px var(--immersive-translate-theme-marker2-backgroundColor) !important;
@@ -200,15 +180,13 @@
 
 .immersive-translate-target-translation-theme-marker-inner {
   /* TODO: add more texture */
-  background: linear-gradient(
-    to right,
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.1),
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 3%,
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 35%,
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 70%,
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.8) 95%,
-    rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.3)
-  );
+  background: linear-gradient(to right,
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.1),
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 3%,
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 35%,
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.9) 70%,
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.8) 95%,
+      rgba(var(--immersive-translate-theme-marker-backgroundColor-rgb), 0.3));
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -248,12 +226,11 @@
   border-radius: 10px;
 }
 
-[data-immersive-translate-root-translation-theme="none"]
-  .immersive-translate-target-translation-theme-mask-inner {
+[data-immersive-translate-root-translation-theme="none"] .immersive-translate-target-translation-theme-mask-inner {
   filter: none !important;
 }
-[data-immersive-translate-root-translation-theme="mask"]
-  .immersive-translate-target-inner {
+
+[data-immersive-translate-root-translation-theme="mask"] .immersive-translate-target-inner {
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
@@ -263,10 +240,10 @@
   filter: none !important;
 }
 
-[data-immersive-translate-root-translation-theme="mask"]
-  .immersive-translate-target-inner:hover {
+[data-immersive-translate-root-translation-theme="mask"] .immersive-translate-target-inner:hover {
   filter: none !important;
 }
+
 /* opacity theme start */
 
 .immersive-translate-target-translation-theme-opacity-inner {
@@ -275,12 +252,11 @@
   border-radius: 10px;
 }
 
-[data-immersive-translate-root-translation-theme="none"]
-  .immersive-translate-target-translation-theme-opacity-inner {
+[data-immersive-translate-root-translation-theme="none"] .immersive-translate-target-translation-theme-opacity-inner {
   filter: none !important;
 }
-[data-immersive-translate-root-translation-theme="opacity"]
-  .immersive-translate-target-inner {
+
+[data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner {
   filter: opacity(10%) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
@@ -290,10 +266,10 @@
   filter: none !important;
 }
 
-[data-immersive-translate-root-translation-theme="opacity"]
-  .immersive-translate-target-inner:hover {
+[data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner:hover {
   filter: none !important;
 }
+
 /* opacity theme end */
 
 /* vertical css , please remain it in the last one. */
@@ -308,6 +284,7 @@
 .immersive-translate-error {
   color: red;
 }
+
 .immersive-translate-clickable-button {
   align-items: normal;
   background-color: rgba(0, 0, 0, 0);
@@ -326,8 +303,10 @@
   width: auto;
   -moz-appearance: none;
   appearance: none;
-  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
-  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
+  -webkit-logical-height: 1em;
+  /* Chrome ignores auto, so we have to use this hack to set the correct height  */
+  -webkit-logical-width: auto;
+  /* Chrome ignores auto, but here for completeness */
 }
 
 .immersive-translate-loading-spinner {
@@ -337,7 +316,8 @@
   display: inline-block !important;
   margin: 0 4px !important;
   border: 2px rgba(221, 244, 255, 0.6) solid !important;
-  border-top: 2px rgba(9, 105, 218, 0.5) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
   border-radius: 50% !important;
   padding: 0 !important;
   -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
@@ -348,8 +328,8 @@
   content: "...";
 }
 
-.immersive-translate-loading-none {
-}
+.immersive-translate-loading-none {}
+
 /* dark mode for loading */
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -362,10 +342,13 @@
 .immersive-translate-tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dashed #000; /* little indicater to indicate it's hoverable */
+  border-bottom: 1px dashed #000;
+  /* little indicater to indicate it's hoverable */
 }
+
 .immersive-translate-tooltip:before {
-  content: attr(data-immersive-translate-tooltip-text); /* here's the magic */
+  content: attr(data-immersive-translate-tooltip-text);
+  /* here's the magic */
   position: absolute;
   z-index: 100000000000;
 
@@ -375,7 +358,8 @@
 
   /* move to right */
   left: 100%;
-  margin-left: 15px; /* and add a small left margin */
+  margin-left: 15px;
+  /* and add a small left margin */
 
   /* basic styles */
   width: max-content;
@@ -388,8 +372,10 @@
   color: #fff;
   text-align: center;
 
-  display: none; /* hide by default */
+  display: none;
+  /* hide by default */
 }
+
 .immersive-translate-tooltip:hover:before {
   display: block;
 }
@@ -398,14 +384,17 @@
   from {
     -webkit-transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(359deg);
   }
 }
+
 @keyframes immersive-translate-loading-animation {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(359deg);
   }

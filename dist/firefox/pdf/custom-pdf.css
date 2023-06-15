@@ -1,0 +1,10 @@
+.immersize-translate-resizable::-webkit-scrollbar{
+  display:none;
+}
+.immersize-translate-resizable:focus::-webkit-scrollbar {
+  display: block;
+}
+.immersize-translate-resizable {
+    scrollbar-width: none; /* Firefox 64 */
+    -ms-overflow-style: none;
+}

@@ -59,6 +59,13 @@ body:
       description: A clear and concise description of what the bug is.
     validations:
       required: true
+  - type: input
+    id: url
+    attributes:
+      label: 出现问题的网址 | URL 
+      description: 哪一个网址上出现的问题？
+    validations:
+      required: false
   - type: textarea
     id: reproduce
     attributes:

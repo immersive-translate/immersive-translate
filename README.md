@@ -30,10 +30,10 @@ poster="https://immersivetranslate.com/assets/twitterdeskmobile.png"><source src
 - [关注 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）
+- 扫描下面二维码，加入[官方 QQ 交流频道](https://pd.qq.com/s/260rd4u6r)
 
 <div align="center">
-<img src="https://immersivetranslate.com/assets/wechat-contact.png" width="200" alt="wechat" />
+    <img src="https://immersivetranslate.com/assets/qq-channel.png" width="200" alt="qq" />
 </div>
 
 <div align="center">
@@ -157,10 +157,10 @@ poster="https://immersivetranslate.com/assets/twitterdeskmobile.png"><source src
 - 帮忙[翻译](https://crowdin.com/project/immersive-translate)该扩展的界面语言。
 - 帮忙解答用户在[Telegram 群组](https://t.me/+rq848Z09nehlOTgx)
 - 帮忙解答用户在[GitHub Issue](https://github.com/immersive-translate/immersive-translate/issues)里的提问。
-- 扫描下面二维码，加入官方微信交流群（添加好友后，会自动回复最新的群二维码）,帮忙解答用户的疑问：
+- 扫描下面二维码，加入[官方 QQ 交流频道](https://pd.qq.com/s/260rd4u6r)
 
 <div align="center">
-<img src="https://immersivetranslate.com/assets/wechat-contact.png" width="200" alt="wechat" />
+<img src="https://immersivetranslate.com/assets/qq-channel.png" width="200" alt="qq" />
 </div>
 
 - 扫描下面二维码，关注官方微信公众号：

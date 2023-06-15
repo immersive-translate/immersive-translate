@@ -59,7 +59,7 @@ body:
       description: A clear and concise description of what the bug is.
     validations:
       required: true
-   - type: input
+  - type: input
     id: url
     attributes:
       label: 出现问题的网址 | URL 

@@ -77,11 +77,13 @@ select.min-select {
   border: none;
   padding: 0;
   padding-right: 20px;
+  padding-left: 8px;
+
   background-position: center right 0;
   background-size: 16px auto;
   text-overflow: ellipsis;
-  text-align: right;
   color: var(--color);
+
 }
 select.min-select-secondary {
   color: var(--color);

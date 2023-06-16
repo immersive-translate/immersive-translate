@@ -1,4 +1,4 @@
-(()=>{var Vu=Object.defineProperty;var Ku=(t,e)=>{for(var n in e)Vu(t,n,{get:e[n],enumerable:!0})};var J={BUILD_TIME:"2023-06-15T12:59:20.025Z",VERSION:"0.6.13",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var Vu=Object.defineProperty;var Ku=(t,e)=>{for(var n in e)Vu(t,n,{get:e[n],enumerable:!0})};var J={BUILD_TIME:"2023-06-16T14:17:42.723Z",VERSION:"0.6.14",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;
@@ -3500,11 +3500,13 @@ select.min-select {
   border: none;
   padding: 0;
   padding-right: 20px;
+  padding-left: 8px;
+
   background-position: center right 0;
   background-size: 16px auto;
   text-overflow: ellipsis;
-  text-align: right;
   color: var(--color);
+
 }
 select.min-select-secondary {
   color: var(--color);
@@ -3568,7 +3570,7 @@ body {
   max-width: 100%;
   padding: 0;
   margin: 0;
-  min-width: 250px;
+  min-width: 255px;
   border-radius: 10px;
 }
 .immersive-translate-popup-overlay {
@@ -3651,9 +3653,21 @@ body {
 .text-sm {
   font-size: 14px;
 }
+.w-full {
+  width: 100%;
+}
 
 .flex {
   display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+.flex-grow {
+  flex-grow: 1;
 }
 .justify-between {
   justify-content: space-between;

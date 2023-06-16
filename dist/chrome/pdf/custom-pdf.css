@@ -1,10 +1,87 @@
-.immersize-translate-resizable::-webkit-scrollbar{
+div,p {
+  box-sizing: border-box;
+ }
+.immersive-translate-resizable::-webkit-scrollbar{
   display:none;
 }
-.immersize-translate-resizable:focus::-webkit-scrollbar {
+.immersive-translate-resizable:focus::-webkit-scrollbar,.immersive-translate-resizable:active::-webkit-scrollbar {
   display: block;
 }
-.immersize-translate-resizable {
+.immersive-translate-resizable {
     scrollbar-width: none; /* Firefox 64 */
     -ms-overflow-style: none;
+  box-sizing: border-box;
+  outline-width: thin;
+  resize: none;
 }
+.immersive-translate-resizable:focus {
+    resize: both;
+}
+/* hover effect: border  */
+/* .immersive-translate-resizable:hover { */
+  /* border: 1px solid blue; */
+    /* outline: thin dashed #0969da; */
+
+/* } */
+.immersive-translate-resizable:active,.immersive-translate-resizable:focus {
+  /* border: 1px solid blue; */
+    /* outline: thin solid red; */
+    scrollbar-width:thin ; /* Firefox 64 */
+    -ms-overflow-style: thin;
+
+
+}
+
+.immersive-translate-draggable-box {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  z-index: 1000000000;
+  /* background-color:blue; */
+}
+
+.immersive-translate-draggable-box:hover {
+  cursor: move;
+}
+
+.immersive-translate-close-box {
+  cursor: pointer;
+    z-index: 100000;
+
+  right: 1px;
+  top: 1px;
+  position: absolute;
+}
+
+.close-icon {
+  visibility: hidden;
+  position: relative;
+  width: 16px;
+  height: 16px;
+
+}
+.immersive-translate-close-box:hover .close-icon {
+  visibility: visible;
+}
+
+.close-icon::before,
+.close-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: rgb(225,81,65);
+}
+
+.close-icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+

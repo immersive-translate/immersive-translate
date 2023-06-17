@@ -2,7 +2,7 @@
 
 一款**免费的，好用的，没有废话的，革命性的，饱受赞誉的，AI 驱动的双语网页翻译扩展**，帮助你有效地打破信息差，在手机上也可以用！
 
-https://github.com/immersive-translate/immersive-translate/assets/62473795/fa3f0a83-190b-434f-943a-7f1bb0ad053b
+https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9af51-4a18-45ef-9fc4-0a1509d56ab0
 
 ## 主要特性
 

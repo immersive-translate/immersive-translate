@@ -1,16 +1,16 @@
 # 沉浸式双语网页翻译扩展
 
-https://github.com/immersive-translate/immersive-translate/assets/62473795/e918774c-b1c0-4349-a127-5c12d79dd2ae
+https://github.com/immersive-translate/immersive-translate/assets/62473795/899577f3-462b-4538-9736-eb43dc96a067
 
 ## 主要特性
 
-- 智能识别网页主内容区进行翻译，与同类插件翻译整个网页不同，降低对原网页的“侵入性”，提升阅读体验，因此得名“沉浸式翻译”。
-- 双语显示，中英文对照。
-- 针对常见主流网站进行定制优化，如 Twitter，Reddit，Discord, Gmail, Telegram, Youtube, Hacker News 等。
-- 支持 10 余种常用翻译服务，包括 Deepl，OpenAI(ChatGPT 3.5)，谷歌，彩云小译，腾讯翻译君，百度翻译，火山翻译等。
-- 支持 PDF 文件，EPUB 电子书双语翻译，制作与导出。
-- 全平台浏览器支持，包括桌面端、移动端，iOS 端，Chrome、Edge、Firefox，Safari 等。
-- 提供多种译文样式选择，如弱化、模糊、下划线、分隔线等样式，个性化定制翻译体验。
+- **沉浸式阅读外文网站** 通过智能识别网页主内容区域并进行双语对照翻译，沉浸式翻译提供了全新的外文阅读体验，因此得名“沉浸式翻译”。
+- **强大的输入框翻译**，将任何网页上的输入框化身为多语言翻译器，立刻解锁谷歌搜索，ChatGPT 等工具的双语实时对话体验。
+- **高效的文件翻译** 一键导出双语电子书，同时支持 PDF、字幕、TXT 等文件的实时双语翻译。
+- **深度定制优化主流网站** 针对 Google、Twitter、Reddit、YouTube、彭博社、华尔街日报等主流网站进行优化，无论是搜索、社交还是获取资讯，都更加流畅高效。
+- **全平台支持** 除了各大桌面端浏览器，移动设备也可享受同样的沉浸式翻译体验。在 iOS Safari、安卓 Kiwi 浏览器等移动端浏览器上轻松实现双语浏览 Twitter,Reddit
+  等社交媒体。
+- **支持 10+种翻译服务** 在沉浸式翻译中，你可以选择超过 10 种翻译服务，如 Deepl、OpenAI、微软翻译、谷歌翻译、腾讯翻译等等，这份名单还在不断增加中。
 
 [**点击立即安装**](https://immersivetranslate.com/docs/installation/)
 

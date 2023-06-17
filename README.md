@@ -1,13 +1,6 @@
 # 沉浸式双语网页翻译扩展
 
-<video
-autoPlay
-loop
-muted
-plays-inline
-width="1200px"
-poster="https://immersivetranslate.com/assets/twitterdeskmobile.png"><source src="https://immersivetranslate.com/assets/immersive-translate-intro-demo.mp4" type="video/mp4"/>You need a browser that supports HTML5 video to view this video.
-</video>
+https://github.com/immersive-translate/immersive-translate/assets/62473795/e918774c-b1c0-4349-a127-5c12d79dd2ae
 
 ## 主要特性
 

@@ -1,5 +1,7 @@
 # 沉浸式双语网页翻译扩展
 
+一款免费的，好用的，没有废话的，革命性的，饱受赞誉的，AI 驱动的双语网页翻译扩展，帮助你有效地打破信息差，手机上也可以用！
+
 https://github.com/immersive-translate/immersive-translate/assets/62473795/899577f3-462b-4538-9736-eb43dc96a067
 
 ## 主要特性
@@ -7,6 +9,7 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/89957
 - **沉浸式阅读外文网站** 通过智能识别网页主内容区域并进行双语对照翻译，沉浸式翻译提供了全新的外文阅读体验，因此得名“沉浸式翻译”。
 - **强大的输入框翻译**，将任何网页上的输入框化身为多语言翻译器，立刻解锁谷歌搜索，ChatGPT 等工具的双语实时对话体验。
 - **高效的文件翻译** 一键导出双语电子书，同时支持 PDF、字幕、TXT 等文件的实时双语翻译。
+- **创新的鼠标悬停翻译** 仅需将鼠标停留在任意网页的任意段落上，相应的译文就会立即出现在段落下方。段落在在沉浸式翻译的设计理念中被视为最小单位，保留其上下文，这样我们才能真正理解并学习外语。
 - **深度定制优化主流网站** 针对 Google、Twitter、Reddit、YouTube、彭博社、华尔街日报等主流网站进行优化，无论是搜索、社交还是获取资讯，都更加流畅高效。
 - **全平台支持** 除了各大桌面端浏览器，移动设备也可享受同样的沉浸式翻译体验。在 iOS Safari、安卓 Kiwi 浏览器等移动端浏览器上轻松实现双语浏览 Twitter,Reddit
   等社交媒体。
@@ -52,18 +55,17 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/89957
 ## 目录
 
 - [官方网站](https://immersivetranslate.com/)
-- [安装](https://immersivetranslate.com/docs/installation/)
-- [如何使用](https://immersivetranslate.com/docs/usage/)
+- [如何安装到各大浏览器？](https://immersivetranslate.com/docs/installation/)
+- [如何使用？](https://immersivetranslate.com/docs/usage/)
 - [翻译服务申请](https://immersivetranslate.com/docs/services/)
-- [高级自定义配置](https://immersivetranslate.com/docs/advanced/)
 - [更新日志](https://immersivetranslate.com/docs/CHANGELOG/)
 - [在线文档](https://immersivetranslate.com/docs/)
 - [GitHub](https://github.com/immersive-translate/immersive-translate/)
 
 ## 使用案例
 
-- [点这里](https://immersivetranslate.com/docs/usecase/) 查看使用截图
-- [点此查看](https://immersivetranslate.com/docs/review/) 用户的评价以及媒体报道
+- [使用沉浸式翻译一个月后发生的变化](#story)
+- [使用截图](https://immersivetranslate.com/docs/usecase/)
 - [Youtube 视频介绍](https://www.youtube.com/watch?v=IZiwEtLGTk0)
 
 ## 安装
@@ -135,7 +137,26 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/89957
 
 时代很艰难，我们知道不是每个人都有能力为越来越多的工具和内容付费，所以我们免费地提供这个工具给所有需要的人，我们坚信平等地获取信息是我们每个人最应拥有的权利。
 
-我们目前不再需要财务上的支持，但是你依然可以做以下这些事来帮助我们：
+## 用户小张的故事
+
+让我们一起来看（想象）一下，在使用沉浸式翻译一个月后，用户小张的在线生活所发生的巨大转变：
+
+1. 首先，他养成了从国际知名媒体获取第一手资讯的习惯，比如路透社，纽约时报，经济学人，大西洋周刊都是他经常访问的新闻网站。kadaza.com 和 buzzing.cc 是他最喜欢用的外文信息导航。沉浸式翻译的段落双语对照功能大大提升了他的阅读效率，当遇到译文质量不佳时，他可以直接参照原文理解信息。
+2. 沉浸式翻译的输入框翻译功能为小张带来了极大的便利，他只需要在谷歌搜索框内输入"//中文问题"，然后三连击空格，搜索框里的问题就会被立即翻译为英文，再配合搜索结果的双语翻译，小张搜索信息的效率提升到了前所未有的高度。
+3. AI 时代来了，小张每日都会在 ChatGPT, Bard, Discord, Telegram 等平台和机器或者真人对话，沉浸式翻译能将任何网页的输入框变成一个强大的多语言翻译器，因此小张的中文提问会被立即翻译为英文发送给 ChatGPT，而 ChatGPT 的回答也会被实时翻译成中文。
+4. 在工作中，小张更偏爱在桌面版的 Chrome 浏览器上获取全球最新的财经科技资讯。他密切关注彭博社，雅虎财经，华尔街日报，金融时报等财经类媒体的独家消息，他近期关注的英伟达和比特币表现都相当不错。借助沉浸式翻译，一键双语阅读各种财报、公告和研报，他总能比其他人更早一步获得重要的金融信息。
+5. 在休息时，小张会在移动设备（如 iOS 的 Safari 浏览器，安卓的 Firefox 浏览器）上使用沉浸式翻译，他在手机上浏览 Twitter, Reddit, YouTube 等国际主流社交媒体，与全球的思想领袖展开碰撞交流，精确捕捉每一条重要信息，让自己始终站在知识的前沿。
+6. 小张还发现，英文的维基百科质量比其他语言的高很多，所以小张现在经常有事没事在英文维基百科里用双语获取自己感兴趣的任何知识。
+7. 有的时候小张会在 arXiv 上阅读一些最新的 PDF 论文，有了沉浸式翻译独创的 PDF 文件实时翻译功能，小张立刻就能掌握最新的学术动态。
+8. 小张也热爱阅读，他经常在国外的 GoodReads 图书导航站挖掘最新图书、查看书评，然后苦等这些外语图书的中文版上架。但上个月开始，他已经直接从 googlebooks 上购买了《Chip War》外文版（中文名《芯片战争》），然后一键上传到沉浸式翻译，随后导出到他的 Kindle 上，开始了双语电子书的阅读。
+9. 有时候，小张也追美剧。以前他总是要耐心等待字幕组的翻译，然而现在他可以借助沉浸式翻译，一键生成任何字幕文件的双语字幕，和全球观众同步追剧。沉浸式翻译还贴心地支持了 YouTube 在线视频的字幕实时翻译，小张可以一边看 YouTube 上的 Ted 视频，一边在 YouTube 的评论区和其他观众互动。
+10. 每年的黑五购物节是小张最期待的全球海淘盛事。他会在 Amazon 和 Ebay 上详细研究每款产品的特性、价格以及真实用户的评价。沉浸式翻译让这一切变得轻松，帮助小张做出了最具性价比的购物决策。
+
+想像小张一样用一个月的时间极大地提高自己的信息获取效率吗？从今天开始，坚持使用沉浸式翻译，你一定会爱上外文的世界。
+
+## 赞助说明
+
+我们目前不再需要财务上的支持，非常感谢之前[每一位赞助](https://immersivetranslate.com/docs/thanks/)的用户，但是你依然可以做以下这些事来帮助我们：
 
 你现在依然可以做以下这些事来帮助我们：
 

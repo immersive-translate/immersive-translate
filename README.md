@@ -64,7 +64,7 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 
 ## 使用案例
 
-- [使用沉浸式翻译一个月后发生的变化](#story)
+- [了解用户小张在使用沉浸式翻译一个月后发生的变化](#%E7%94%A8%E6%88%B7%E5%B0%8F%E5%BC%A0%E7%9A%84%E6%95%85%E4%BA%8B)
 - [使用截图](https://immersivetranslate.com/docs/usecase/)
 - [Youtube 视频介绍](https://www.youtube.com/watch?v=IZiwEtLGTk0)
 

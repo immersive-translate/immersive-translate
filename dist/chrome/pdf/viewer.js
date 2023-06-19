@@ -821,7 +821,8 @@ const PDFViewerApplication = {
         }
       }
     }
-    console.error(`${message}\n\n${moreInfoText.join("\n")}`);
+    throw `${message}\n\n${moreInfoText.join("\n")}`
+    // console.error(`${message}\n\n${moreInfoText.join("\n")}`);
   },
   progress(level) {
     if (!this.loadingBar || this.downloadComplete) {

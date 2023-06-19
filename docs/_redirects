@@ -22,7 +22,7 @@
 /PRIVACY https://immersivetranslate.com/docs/PRIVACY/ 302
 /assets/ios-safari-enable.mp4 https://immersivetranslate.com/assets/ios-safari-enable.mp4 302
 /faq.html https://immersivetranslate.com/docs/faq/ 302
-
+/faq https://immersivetranslate.com/docs/faq/ 302
 /start/* https://onboarding.immersivetranslate.com/:splat 302
 /services/* https://immersivetranslate.com/docs/services/:splat 302
 

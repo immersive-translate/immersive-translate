@@ -4,9 +4,8 @@ html {
 }
 
 body {
-  max-width: 300px;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   min-width: 255px;
   border-radius: 10px;
 }

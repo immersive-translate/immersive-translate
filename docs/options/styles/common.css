@@ -72,6 +72,7 @@ select.min-select {
   --form-element-spacing-horizontal: 0;
   margin-bottom: 4px;
   max-width: 128px;
+  overflow: hidden;
   color: var(--primary);
   font-size: 14px;
   border: none;

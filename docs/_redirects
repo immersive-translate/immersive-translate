@@ -8,6 +8,7 @@
 /communities https://immersivetranslate.com/docs/communities/ 302
 /services/deepL.html https://immersivetranslate.com/docs/services/deepL/ 302
 /services/ https://immersivetranslate.com/docs/services/ 302
+/services https://immersivetranslate.com/docs/services/ 302
 /installation.html https://immersivetranslate.com/docs/installation/ 302
 /usage.html https://immersivetranslate.com/docs/usage/ 302
 /usage https://immersivetranslate.com/docs/usage/ 302
@@ -25,5 +26,4 @@
 /faq https://immersivetranslate.com/docs/faq/ 302
 /start/* https://onboarding.immersivetranslate.com/:splat 302
 /services/* https://immersivetranslate.com/docs/services/:splat 302
-
 / https://immersivetranslate.com/ 302

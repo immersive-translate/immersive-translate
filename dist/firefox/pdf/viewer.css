@@ -18,42 +18,11 @@
   --highlight-selected-bg-color: rgba(0, 100, 0, 1);
 }
 
-.translate-pending {
-  background-image: url(images/loading.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px 16px;
-  transition-property: background-size;
-  transition-delay: var(--loading-icon-delay);
-  opacity: 0.2;
-}
-
-.translate-retry {
-  cursor: pointer;
-}
-
-.translate-retry::after {
-  content: "🔄";
-  position: absolute;
-  top: 50%;
-  right: -14px;
-  display: block;
-  transform: translate(100%, -50%);
-}
-
 @media screen and (forced-colors: active) {
   :root {
     --highlight-bg-color: Highlight;
     --highlight-selected-bg-color: ButtonText;
   }
-}
-
-textarea {
-  border: none;
-}
-
-textarea:hover {
-  border-color: var(--highlight-bg-color);
 }
 
 .textLayer {
@@ -64,15 +33,14 @@ textarea:hover {
   opacity: 0.25;
   line-height: 1;
   -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
   forced-color-adjust: none;
   transform-origin: 0 0;
   z-index: 2;
 }
 
-.textLayer span,
-.textLayer br {
+.textLayer :is(span, br) {
   color: transparent;
   position: absolute;
   white-space: pre;
@@ -117,48 +85,17 @@ textarea:hover {
 .textLayer ::-moz-selection {
   background: blue;
   background: AccentColor;
-  opacity: 0.25;
 }
 
 .textLayer ::selection {
   background: blue;
   background: AccentColor;
-  opacity: 0.25;
 }
-
-.immersive-translate-text-layer p {
-  line-height: 1.3;
-  margin-bottom: 0.5rem;
-  transform-origin: left top;
-}
-
-@media all and (max-width: 560px) {
-  .immersive-translate-text-layer p {
-    margin-bottom: 0rem;
-  }
-}
-
-.immersive-translate-text-layer {
-  opacity: 1 !important;
-}
-
-.immersive-translate-text-layer ::-moz-selection {
-  background: #bfc5fc !important;
-}
-
-.immersive-translate-text-layer ::selection {
-  background: #bfc5fc !important;
-}
-
-/* .textLayer > *:not(.immersive-translate-pdf-target-container) {
-  opacity: 0.25;
-} */
 
 /* Avoids https://github.com/mozilla/pdf.js/issues/13840 in Chrome */
 .textLayer br::-moz-selection {
   background: transparent;
 }
-
 .textLayer br::selection {
   background: transparent;
 }
@@ -170,13 +107,14 @@ textarea:hover {
   z-index: -1;
   cursor: default;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .textLayer .endOfContent.active {
   top: 0;
 }
+
 
 :root {
   --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
@@ -196,18 +134,17 @@ textarea:hover {
     --input-hover-border-color: Highlight;
     --link-outline: 1.5px solid LinkText;
   }
-
-  .annotationLayer .textWidgetAnnotation input:required,
-  .annotationLayer .textWidgetAnnotation textarea:required,
+  .annotationLayer .textWidgetAnnotation :is(input, textarea):required,
   .annotationLayer .choiceWidgetAnnotation select:required,
-  .annotationLayer .buttonWidgetAnnotation.checkBox input:required,
-  .annotationLayer .buttonWidgetAnnotation.radioButton input:required {
+  .annotationLayer
+    .buttonWidgetAnnotation:is(.checkBox, .radioButton)
+    input:required {
     outline: 1.5px solid selectedItem;
   }
 
   .annotationLayer .linkAnnotation:hover {
     -webkit-backdrop-filter: invert(100%);
-    backdrop-filter: invert(100%);
+            backdrop-filter: invert(100%);
   }
 }
 
@@ -223,11 +160,9 @@ textarea:hover {
 .annotationLayer[data-main-rotation="90"] .norotate {
   transform: rotate(270deg) translateX(-100%);
 }
-
 .annotationLayer[data-main-rotation="180"] .norotate {
   transform: rotate(180deg) translate(-100%, -100%);
 }
-
 .annotationLayer[data-main-rotation="270"] .norotate {
   transform: rotate(90deg) translateY(-100%);
 }
@@ -250,8 +185,7 @@ textarea:hover {
   outline: var(--link-outline);
 }
 
-.annotationLayer .linkAnnotation>a,
-.annotationLayer .buttonWidgetAnnotation.pushButton>a {
+.annotationLayer :is(.linkAnnotation, .buttonWidgetAnnotation.pushButton) > a {
   position: absolute;
   font-size: 1em;
   top: 0;
@@ -260,8 +194,9 @@ textarea:hover {
   height: 100%;
 }
 
-.annotationLayer .linkAnnotation>a:hover,
-.annotationLayer .buttonWidgetAnnotation.pushButton>a:hover {
+.annotationLayer
+  :is(.linkAnnotation, .buttonWidgetAnnotation.pushButton)
+  > a:hover {
   opacity: 0.2;
   background: rgba(255, 255, 0, 1);
   box-shadow: 0 2px 10px rgba(255, 255, 0, 1);
@@ -276,11 +211,9 @@ textarea:hover {
   left: 0;
 }
 
-.annotationLayer .textWidgetAnnotation input,
-.annotationLayer .textWidgetAnnotation textarea,
+.annotationLayer .textWidgetAnnotation :is(input, textarea),
 .annotationLayer .choiceWidgetAnnotation select,
-.annotationLayer .buttonWidgetAnnotation.checkBox input,
-.annotationLayer .buttonWidgetAnnotation.radioButton input {
+.annotationLayer .buttonWidgetAnnotation:is(.checkBox, .radioButton) input {
   background-image: var(--annotation-unfocused-field-background);
   border: 2px solid var(--input-unfocused-border-color);
   box-sizing: border-box;
@@ -291,11 +224,11 @@ textarea:hover {
   width: 100%;
 }
 
-.annotationLayer .textWidgetAnnotation input:required,
-.annotationLayer .textWidgetAnnotation textarea:required,
+.annotationLayer .textWidgetAnnotation :is(input, textarea):required,
 .annotationLayer .choiceWidgetAnnotation select:required,
-.annotationLayer .buttonWidgetAnnotation.checkBox input:required,
-.annotationLayer .buttonWidgetAnnotation.radioButton input:required {
+.annotationLayer
+  .buttonWidgetAnnotation:is(.checkBox, .radioButton)
+  input:required {
   outline: 1.5px solid red;
 }
 
@@ -311,33 +244,30 @@ textarea:hover {
   resize: none;
 }
 
-.annotationLayer .textWidgetAnnotation input[disabled],
-.annotationLayer .textWidgetAnnotation textarea[disabled],
+.annotationLayer .textWidgetAnnotation :is(input, textarea)[disabled],
 .annotationLayer .choiceWidgetAnnotation select[disabled],
-.annotationLayer .buttonWidgetAnnotation.checkBox input[disabled],
-.annotationLayer .buttonWidgetAnnotation.radioButton input[disabled] {
+.annotationLayer
+  .buttonWidgetAnnotation:is(.checkBox, .radioButton)
+  input[disabled] {
   background: none;
   border: 2px solid var(--input-disabled-border-color);
   cursor: not-allowed;
 }
 
-.annotationLayer .textWidgetAnnotation input:hover,
-.annotationLayer .textWidgetAnnotation textarea:hover,
+.annotationLayer .textWidgetAnnotation :is(input, textarea):hover,
 .annotationLayer .choiceWidgetAnnotation select:hover,
-.annotationLayer .buttonWidgetAnnotation.checkBox input:hover,
-.annotationLayer .buttonWidgetAnnotation.radioButton input:hover {
+.annotationLayer
+  .buttonWidgetAnnotation:is(.checkBox, .radioButton)
+  input:hover {
   border: 2px solid var(--input-hover-border-color);
 }
-
-.annotationLayer .textWidgetAnnotation input:hover,
-.annotationLayer .textWidgetAnnotation textarea:hover,
+.annotationLayer .textWidgetAnnotation :is(input, textarea):hover,
 .annotationLayer .choiceWidgetAnnotation select:hover,
 .annotationLayer .buttonWidgetAnnotation.checkBox input:hover {
   border-radius: 2px;
 }
 
-.annotationLayer .textWidgetAnnotation input:focus,
-.annotationLayer .textWidgetAnnotation textarea:focus,
+.annotationLayer .textWidgetAnnotation :is(input, textarea):focus,
 .annotationLayer .choiceWidgetAnnotation select:focus {
   background: none;
   border: 2px solid var(--input-focus-border-color);
@@ -345,8 +275,7 @@ textarea:hover {
   outline: var(--input-focus-outline);
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox :focus,
-.annotationLayer .buttonWidgetAnnotation.radioButton :focus {
+.annotationLayer .buttonWidgetAnnotation:is(.checkBox, .radioButton) :focus {
   background-image: none;
   background-color: transparent;
 }
@@ -362,31 +291,31 @@ textarea:hover {
   outline: var(--input-focus-outline);
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after,
-.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before {
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before,
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after,
+.annotationLayer .buttonWidgetAnnotation.radioButton input:checked::before {
   background-color: CanvasText;
   content: "";
   display: block;
   position: absolute;
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after {
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before,
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after {
   height: 80%;
   left: 45%;
   width: 1px;
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before {
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before {
   transform: rotate(45deg);
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after {
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after {
   transform: rotate(-45deg);
 }
 
-.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before {
+.annotationLayer .buttonWidgetAnnotation.radioButton input:checked::before {
   border-radius: 50%;
   height: 50%;
   left: 30%;
@@ -410,11 +339,10 @@ textarea:hover {
   width: 103%;
 }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input,
-.annotationLayer .buttonWidgetAnnotation.radioButton input {
+.annotationLayer .buttonWidgetAnnotation:is(.checkBox, .radioButton) input {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .annotationLayer .popupTriggerArea {
@@ -438,7 +366,8 @@ textarea:hover {
   position: absolute;
   max-width: calc(180px * var(--scale-factor));
   background-color: rgba(255, 255, 153, 1);
-  box-shadow: 0 calc(2px * var(--scale-factor)) calc(5px * var(--scale-factor)) rgba(136, 136, 136, 1);
+  box-shadow: 0 calc(2px * var(--scale-factor)) calc(5px * var(--scale-factor))
+    rgba(136, 136, 136, 1);
   border-radius: calc(2px * var(--scale-factor));
   padding: calc(6px * var(--scale-factor));
   margin-left: calc(5px * var(--scale-factor));
@@ -449,7 +378,7 @@ textarea:hover {
   pointer-events: auto;
 }
 
-.annotationLayer .popup>* {
+.annotationLayer .popup > * {
   font-size: calc(9px * var(--scale-factor));
 }
 
@@ -468,7 +397,7 @@ textarea:hover {
   padding-top: calc(2px * var(--scale-factor));
 }
 
-.annotationLayer .richText>* {
+.annotationLayer .richText > * {
   white-space: pre-wrap;
   font-size: calc(9px * var(--scale-factor));
 }
@@ -505,8 +434,8 @@ textarea:hover {
   opacity: 0;
   color: transparent;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   pointer-events: none;
 }
 
@@ -514,6 +443,7 @@ textarea:hover {
   width: 100%;
   display: inline-block;
 }
+
 
 :root {
   --xfa-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
@@ -524,7 +454,6 @@ textarea:hover {
   :root {
     --xfa-focus-outline: 2px solid CanvasText;
   }
-
   .xfaLayer *:required {
     outline: 1.5px solid selectedItem;
   }
@@ -604,14 +533,8 @@ textarea:hover {
   outline: 1.5px solid red;
 }
 
-.xfaLayer div {
-  pointer-events: none;
-}
-
-.xfaLayer svg {
-  pointer-events: none;
-}
-
+.xfaLayer div,
+.xfaLayer svg,
 .xfaLayer svg * {
   pointer-events: none;
 }
@@ -662,10 +585,7 @@ textarea:hover {
   align-items: center;
 }
 
-.xfaLeft>.xfaCaption,
-.xfaLeft>.xfaCaptionForCheckButton,
-.xfaRight>.xfaCaption,
-.xfaRight>.xfaCaptionForCheckButton {
+:is(.xfaLeft, .xfaRight) > :is(.xfaCaption, .xfaCaptionForCheckButton) {
   max-height: 100%;
 }
 
@@ -681,10 +601,7 @@ textarea:hover {
   align-items: flex-start;
 }
 
-.xfaTop>.xfaCaption,
-.xfaTop>.xfaCaptionForCheckButton,
-.xfaBottom>.xfaCaption,
-.xfaBottom>.xfaCaptionForCheckButton {
+:is(.xfaTop, .xfaBottom) > :is(.xfaCaption, .xfaCaptionForCheckButton) {
   width: 100%;
 }
 
@@ -699,16 +616,14 @@ textarea:hover {
   height: 100%;
 }
 
-.xfaTextfield:focus,
-.xfaSelect:focus {
+:is(.xfaTextfield, .xfaSelect):focus {
   background-image: none;
   background-color: transparent;
   outline: var(--xfa-focus-outline);
   outline-offset: -1px;
 }
 
-.xfaCheckbox:focus,
-.xfaRadio:focus {
+:is(.xfaCheckbox, .xfaRadio):focus {
   outline: var(--xfa-focus-outline);
 }
 
@@ -726,10 +641,7 @@ textarea:hover {
   padding-inline: 2px;
 }
 
-.xfaTop>.xfaTextfield,
-.xfaTop>.xfaSelect,
-.xfaBottom>.xfaTextfield,
-.xfaBottom>.xfaSelect {
+:is(.xfaTop, .xfaBottom) > :is(.xfaTextfield, .xfaSelect) {
   flex: 0 1 auto;
 }
 
@@ -765,9 +677,9 @@ textarea:hover {
 
 .xfaImage {
   -o-object-position: left top;
-  object-position: left top;
+     object-position: left top;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -792,7 +704,7 @@ textarea:hover {
   align-items: stretch;
 }
 
-.xfaTb>div {
+.xfaTb > div {
   justify-content: left;
 }
 
@@ -828,21 +740,15 @@ textarea:hover {
   flex: 1;
 }
 
-.xfaTable .xfaRlRow>div {
+.xfaTable .xfaRlRow > div {
   flex: 1;
 }
 
-.xfaNonInteractive input,
-.xfaNonInteractive textarea,
-.xfaDisabled input,
-.xfaDisabled textarea,
-.xfaReadOnly input,
-.xfaReadOnly textarea {
+:is(.xfaNonInteractive, .xfaDisabled, .xfaReadOnly) :is(input, textarea) {
   background: initial;
 }
 
 @media print {
-
   .xfaTextfield,
   .xfaSelect {
     background: transparent;
@@ -850,12 +756,13 @@ textarea:hover {
 
   .xfaSelect {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     text-indent: 1px;
     text-overflow: "";
   }
 }
+
 
 :root {
   --focus-outline: solid 2px blue;
@@ -866,8 +773,7 @@ textarea:hover {
   --editorInk-editing-cursor: url(images/cursor-editorInk.svg) 0 16, pointer;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.1),
-(min-resolution: 1.1dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.1), (min-resolution: 1.1dppx) {
   :root {
     --editorFreeText-editing-cursor: url(images/cursor-editorFreeText.svg) 0 16,
       text;
@@ -884,11 +790,9 @@ textarea:hover {
 [data-editor-rotation="90"] {
   transform: rotate(90deg);
 }
-
 [data-editor-rotation="180"] {
   transform: rotate(180deg);
 }
-
 [data-editor-rotation="270"] {
   transform: rotate(270deg);
 }
@@ -978,8 +882,8 @@ textarea:hover {
   resize: horizontal;
 }
 
-.annotationEditorLayer .freeTextEditor:hover:not(.selectedEditor),
-.annotationEditorLayer .inkEditor:hover:not(.selectedEditor) {
+.annotationEditorLayer
+  :is(.freeTextEditor, .inkEditor):hover:not(.selectedEditor) {
   outline: var(--hover-outline);
 }
 
@@ -1030,13 +934,20 @@ textarea:hover {
 [data-main-rotation="90"] {
   transform: rotate(90deg) translateY(-100%);
 }
-
 [data-main-rotation="180"] {
   transform: rotate(180deg) translate(-100%, -100%);
 }
-
 [data-main-rotation="270"] {
   transform: rotate(270deg) translateX(-100%);
+}
+
+#hiddenCopyElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .pdfViewer {
@@ -1077,8 +988,7 @@ textarea:hover {
   border: none;
 }
 
-.pdfViewer.scrollHorizontal,
-.pdfViewer.scrollWrapped,
+.pdfViewer:is(.scrollHorizontal, .scrollWrapped),
 .spread {
   margin-inline: 3.5px;
   text-align: center;
@@ -1086,34 +996,27 @@ textarea:hover {
 
 .pdfViewer.scrollHorizontal,
 .spread {
-  /* white-space: nowrap; */
+  white-space: nowrap;
 }
 
 .pdfViewer.removePageBorders,
-.pdfViewer.scrollHorizontal .spread,
-.pdfViewer.scrollWrapped .spread {
+.pdfViewer:is(.scrollHorizontal, .scrollWrapped) .spread {
   margin-inline: 0;
 }
 
-.spread .page,
-.spread .dummyPage,
-.pdfViewer.scrollHorizontal .page,
-.pdfViewer.scrollWrapped .page,
-.pdfViewer.scrollHorizontal .spread,
-.pdfViewer.scrollWrapped .spread {
+.spread :is(.page, .dummyPage),
+.pdfViewer:is(.scrollHorizontal, .scrollWrapped) :is(.page, .spread) {
   display: inline-block;
   vertical-align: middle;
 }
 
 .spread .page,
-.pdfViewer.scrollHorizontal .page,
-.pdfViewer.scrollWrapped .page {
+.pdfViewer:is(.scrollHorizontal, .scrollWrapped) .page {
   margin-inline: var(--spreadHorizontalWrapped-margin-LR);
 }
 
 .pdfViewer.removePageBorders .spread .page,
-.pdfViewer.removePageBorders.scrollHorizontal .page,
-.pdfViewer.removePageBorders.scrollWrapped .page {
+.pdfViewer.removePageBorders:is(.scrollHorizontal, .scrollWrapped) .page {
   margin-inline: 5px;
 }
 
@@ -1135,7 +1038,7 @@ textarea:hover {
   height: 100%;
 }
 
-.pdfViewer .page.loadingIcon:after {
+.pdfViewer .page.loadingIcon::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -1152,20 +1055,13 @@ textarea:hover {
   contain: strict;
 }
 
-.pdfViewer .page.loading:after {
+.pdfViewer .page.loading::after {
   display: block;
 }
 
-.pdfViewer .page:not(.loading):after {
+.pdfViewer .page:not(.loading)::after {
   transition-property: none;
   display: none;
-}
-
-.pdfViewer.enablePermissions .textLayer span {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  user-select: none !important;
-  cursor: not-allowed;
 }
 
 .pdfPresentationMode .pdfViewer {
@@ -1209,7 +1105,8 @@ textarea:hover {
   --toolbar-border-color: rgba(184, 184, 184, 1);
   --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
   --toolbar-border-bottom: none;
-  --toolbarSidebar-box-shadow: inset calc(-1px * var(--dir-factor)) 0 0 rgba(0, 0, 0, 0.25),
+  --toolbarSidebar-box-shadow: inset calc(-1px * var(--dir-factor)) 0 0
+      rgba(0, 0, 0, 0.25),
     0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
   --toolbarSidebar-border-bottom: none;
   --button-hover-color: rgba(221, 222, 223, 1);
@@ -1223,10 +1120,12 @@ textarea:hover {
   --field-bg-color: rgba(255, 255, 255, 1);
   --field-border-color: rgba(187, 187, 188, 1);
   --treeitem-color: rgba(0, 0, 0, 0.8);
+  --treeitem-bg-color: rgba(0, 0, 0, 0.15);
   --treeitem-hover-color: rgba(0, 0, 0, 0.9);
   --treeitem-selected-color: rgba(0, 0, 0, 0.9);
   --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25);
-  --sidebaritem-bg-color: rgba(0, 0, 0, 0.15);
+  --thumbnail-hover-color: rgba(0, 0, 0, 0.1);
+  --thumbnail-selected-color: rgba(0, 0, 0, 0.2);
   --doorhanger-bg-color: rgba(255, 255, 255, 1);
   --doorhanger-border-color: rgba(12, 12, 13, 0.2);
   --doorhanger-hover-color: rgba(12, 12, 13, 1);
@@ -1309,10 +1208,12 @@ textarea:hover {
     --field-bg-color: rgba(64, 64, 68, 1);
     --field-border-color: rgba(115, 115, 115, 1);
     --treeitem-color: rgba(255, 255, 255, 0.8);
+    --treeitem-bg-color: rgba(255, 255, 255, 0.15);
     --treeitem-hover-color: rgba(255, 255, 255, 0.9);
     --treeitem-selected-color: rgba(255, 255, 255, 0.9);
     --treeitem-selected-bg-color: rgba(255, 255, 255, 0.25);
-    --sidebaritem-bg-color: rgba(255, 255, 255, 0.15);
+    --thumbnail-hover-color: rgba(255, 255, 255, 0.1);
+    --thumbnail-selected-color: rgba(255, 255, 255, 0.2);
     --doorhanger-bg-color: rgba(74, 74, 79, 1);
     --doorhanger-border-color: rgba(39, 39, 43, 1);
     --doorhanger-hover-color: rgba(249, 249, 250, 1);
@@ -1391,7 +1292,7 @@ body {
   overflow: hidden;
   cursor: none;
   -webkit-user-select: none;
-  user-select: none;
+          user-select: none;
 }
 
 #viewerContainer.pdfPresentationMode:fullscreen {
@@ -1402,8 +1303,8 @@ body {
   overflow: hidden;
   cursor: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .pdfPresentationMode:-webkit-full-screen section:not([data-internal-link]) {
@@ -1422,7 +1323,7 @@ body {
   cursor: none;
 }
 
-.pdfPresentationMode.pdfPresentationModeControls>*,
+.pdfPresentationMode.pdfPresentationModeControls > *,
 .pdfPresentationMode.pdfPresentationModeControls .textLayer span {
   cursor: default;
 }
@@ -1443,17 +1344,15 @@ body {
   font: message-box;
   border-top: 1px solid rgba(51, 51, 51, 1);
   -webkit-border-end: var(--doorhanger-border-color-whcm);
-  border-inline-end: var(--doorhanger-border-color-whcm);
+          border-inline-end: var(--doorhanger-border-color-whcm);
   transition-property: inset-inline-start;
   transition-duration: var(--sidebar-transition-duration);
   transition-timing-function: var(--sidebar-transition-timing-function);
 }
 
-#outerContainer.sidebarMoving #sidebarContainer,
-#outerContainer.sidebarOpen #sidebarContainer {
+#outerContainer:is(.sidebarMoving, .sidebarOpen) #sidebarContainer {
   visibility: visible;
 }
-
 #outerContainer.sidebarOpen #sidebarContainer {
   inset-inline-start: 0;
 }
@@ -1479,7 +1378,6 @@ body {
   inset: 32px 0 0;
   outline: none;
 }
-
 #viewerContainer:not(.pdfPresentationMode) {
   transition-duration: var(--sidebar-transition-duration);
   transition-timing-function: var(--sidebar-transition-timing-function);
@@ -1498,22 +1396,9 @@ body {
   font: message-box;
 }
 
-.toolbar input,
-.toolbar button,
-.toolbar select,
-.secondaryToolbar input,
-.secondaryToolbar button,
-.secondaryToolbar a,
-.secondaryToolbar select,
-.editorParamsToolbar input,
-.editorParamsToolbar button,
-.editorParamsToolbar select,
-.findbar input,
-.findbar button,
-.findbar select,
-#sidebarContainer input,
-#sidebarContainer button,
-#sidebarContainer select {
+:is(.toolbar, .editorParamsToolbar, .findbar, #sidebarContainer)
+  :is(input, button, select),
+.secondaryToolbar :is(input, button, a, select) {
   outline: none;
   font: message-box;
 }
@@ -1577,10 +1462,10 @@ body {
 #loadingBar .progress {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: 100%;
   transform: scaleX(var(--progressBar-percent));
-  transform-origin: 0 0;
+  transform-origin: calc(50% - 50% * var(--dir-factor)) 0;
   height: 100%;
   background-color: var(--progressBar-color);
   overflow: hidden;
@@ -1589,9 +1474,8 @@ body {
 
 @keyframes progressIndeterminate {
   0% {
-    transform: translateX(-142px);
+    transform: translateX(calc(-142px * var(--dir-factor)));
   }
-
   100% {
     transform: translateX(0);
   }
@@ -1606,22 +1490,23 @@ body {
 #loadingBar.indeterminate .progress .glimmer {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   height: 100%;
   width: calc(100% + 150px);
-  background: repeating-linear-gradient(135deg,
-      var(--progressBar-blend-color) 0,
-      var(--progressBar-bg-color) 5px,
-      var(--progressBar-bg-color) 45px,
-      var(--progressBar-color) 55px,
-      var(--progressBar-color) 95px,
-      var(--progressBar-blend-color) 100px);
+  background: repeating-linear-gradient(
+    135deg,
+    var(--progressBar-blend-color) 0,
+    var(--progressBar-bg-color) 5px,
+    var(--progressBar-bg-color) 45px,
+    var(--progressBar-color) 55px,
+    var(--progressBar-color) 95px,
+    var(--progressBar-blend-color) 100px
+  );
   animation: progressIndeterminate 1s linear infinite;
 }
 
-#outerContainer.sidebarResizing #sidebarContainer,
-#outerContainer.sidebarResizing #viewerContainer,
-#outerContainer.sidebarResizing #loadingBar {
+#outerContainer.sidebarResizing
+  :is(#sidebarContainer, #viewerContainer, #loadingBar) {
   /* Improve responsiveness and avoid visual glitches when the sidebar is resized. */
   transition-duration: 0s;
 }
@@ -1647,22 +1532,18 @@ body {
   min-width: 300px;
   background-color: var(--toolbar-bg-color);
 }
-
-.findbar>div {
+.findbar > div {
   height: 32px;
 }
-
-.findbar>div#findbarInputContainer {
+.findbar > div#findbarInputContainer {
   -webkit-margin-end: 4px;
-  margin-inline-end: 4px;
+          margin-inline-end: 4px;
 }
-
-.findbar.wrapContainers>div,
-.findbar.wrapContainers>div#findbarMessageContainer>* {
+.findbar.wrapContainers > div,
+.findbar.wrapContainers > div#findbarMessageContainer > * {
   clear: both;
 }
-
-.findbar.wrapContainers>div#findbarMessageContainer {
+.findbar.wrapContainers > div#findbarMessageContainer {
   height: auto;
 }
 
@@ -1672,17 +1553,17 @@ body {
 
 .findbar label {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .findbar label:hover,
-.findbar input:focus-visible+label {
+.findbar input:focus-visible + label {
   color: var(--toggled-btn-color);
   background-color: var(--button-hover-color);
 }
 
-.findbar .toolbarField[type="checkbox"]:checked+.toolbarLabel {
+.findbar .toolbarField[type="checkbox"]:checked + .toolbarLabel {
   background-color: var(--toggled-btn-bg-color) !important;
   color: var(--toggled-btn-color);
 }
@@ -1690,21 +1571,17 @@ body {
 #findInput {
   width: 200px;
 }
-
 #findInput::-moz-placeholder {
   font-style: normal;
 }
-
 #findInput::placeholder {
   font-style: normal;
 }
-
 #findInput[data-status="pending"] {
   background-image: var(--loading-icon);
   background-repeat: no-repeat;
   background-position: calc(50% + 48% * var(--dir-factor));
 }
-
 #findInput[data-status="notFound"] {
   background-color: rgba(255, 102, 102, 1);
 }
@@ -1722,7 +1599,7 @@ body {
   margin-bottom: -4px;
 }
 
-.editorParamsToolbarContainer>.editorParamsSetter {
+.editorParamsToolbarContainer > .editorParamsSetter {
   min-height: 26px;
   display: flex;
   align-items: center;
@@ -1732,7 +1609,7 @@ body {
 
 .editorParamsToolbarContainer .editorParamsLabel {
   -webkit-padding-end: 10px;
-  padding-inline-end: 10px;
+          padding-inline-end: 10px;
   flex: none;
   color: var(--main-color);
 }
@@ -1788,11 +1665,8 @@ body {
     0 0 0 1px var(--doorhanger-border-color);
   border: var(--doorhanger-border-color-whcm);
 }
-
-.doorHanger:after,
-.doorHanger:before,
-.doorHangerRight:after,
-.doorHangerRight:before {
+:is(.doorHanger, .doorHangerRight)::after,
+:is(.doorHanger, .doorHangerRight)::before {
   bottom: 100%;
   border: 8px solid rgba(0, 0, 0, 0);
   content: " ";
@@ -1802,37 +1676,31 @@ body {
   pointer-events: none;
   opacity: var(--doorhanger-triangle-opacity-whcm);
 }
-
-.doorHanger:after {
+.doorHanger::after {
   inset-inline-start: 10px;
   -webkit-margin-start: -8px;
-  margin-inline-start: -8px;
+          margin-inline-start: -8px;
   border-bottom-color: var(--toolbar-bg-color);
 }
-
-.doorHangerRight:after {
+.doorHangerRight::after {
   inset-inline-end: 10px;
   -webkit-margin-end: -8px;
-  margin-inline-end: -8px;
+          margin-inline-end: -8px;
   border-bottom-color: var(--doorhanger-bg-color);
 }
-
-.doorHanger:before,
-.doorHangerRight:before {
+:is(.doorHanger, .doorHangerRight)::before {
   border-bottom-color: var(--doorhanger-border-color);
   border-width: 9px;
 }
-
-.doorHanger:before {
+.doorHanger::before {
   inset-inline-start: 10px;
   -webkit-margin-start: -9px;
-  margin-inline-start: -9px;
+          margin-inline-start: -9px;
 }
-
-.doorHangerRight:before {
+.doorHangerRight::before {
   inset-inline-end: 10px;
   -webkit-margin-end: -9px;
-  margin-inline-end: -9px;
+          margin-inline-end: -9px;
 }
 
 #findResultsCount {
@@ -1843,12 +1711,11 @@ body {
   margin: 5px;
 }
 
-#findMsg {
-  color: rgba(251, 0, 0, 1);
+#findMsg[data-status="notFound"] {
+  font-weight: bold;
 }
 
-#findResultsCount:empty,
-#findMsg:empty {
+:is(#findResultsCount, #findMsg):empty {
   display: none;
 }
 
@@ -1862,15 +1729,14 @@ body {
 #toolbarSidebarLeft {
   float: var(--inline-start);
 }
-
 #toolbarViewerRight,
 #toolbarSidebarRight {
   float: var(--inline-end);
 }
 
-#toolbarViewerLeft>*,
-#toolbarViewerMiddle>*,
-#toolbarViewerRight>*,
+#toolbarViewerLeft > *,
+#toolbarViewerMiddle > *,
+#toolbarViewerRight > *,
 #toolbarSidebarLeft *,
 #toolbarSidebarRight *,
 .findbar * {
@@ -1880,25 +1746,22 @@ body {
 
 #toolbarViewerLeft {
   -webkit-padding-start: 1px;
-  padding-inline-start: 1px;
+          padding-inline-start: 1px;
 }
-
 #toolbarViewerRight {
   -webkit-padding-end: 1px;
-  padding-inline-end: 1px;
+          padding-inline-end: 1px;
 }
-
 #toolbarSidebarRight {
   -webkit-padding-end: 2px;
-  padding-inline-end: 2px;
+          padding-inline-end: 2px;
 }
 
 .splitToolbarButton {
   margin: 2px;
   display: inline-block;
 }
-
-.splitToolbarButton>.toolbarButton {
+.splitToolbarButton > .toolbarButton {
   float: var(--inline-start);
 }
 
@@ -1912,43 +1775,36 @@ body {
   outline: none;
 }
 
-.dialogButton:hover,
-.dialogButton:focus-visible {
+.dialogButton:is(:hover, :focus-visible) {
   background-color: var(--dialog-button-hover-bg-color);
 }
 
-.dialogButton:hover>span,
-.dialogButton:focus-visible>span {
+.dialogButton:is(:hover, :focus-visible) > span {
   color: var(--dialog-button-hover-color);
 }
 
-.toolbarButton>span {
+.toolbarButton > span {
   display: inline-block;
   width: 0;
   height: 0;
   overflow: hidden;
 }
 
-.toolbarButton[disabled],
-.secondaryToolbarButton[disabled],
-.dialogButton[disabled] {
+:is(.toolbarButton, .secondaryToolbarButton, .dialogButton)[disabled] {
   opacity: 0.5;
 }
 
-.splitToolbarButton>.toolbarButton:hover,
-.splitToolbarButton>.toolbarButton:focus-visible,
+.splitToolbarButton > .toolbarButton:is(:hover, :focus-visible),
 .dropdownToolbarButton:hover {
   background-color: var(--button-hover-color);
 }
-
-.splitToolbarButton>.toolbarButton {
+.splitToolbarButton > .toolbarButton {
   position: relative;
   margin: 0;
 }
-
-#toolbarSidebar .splitToolbarButton>.toolbarButton {
+#toolbarSidebar .splitToolbarButton > .toolbarButton {
   -webkit-margin-end: 2px;
-  margin-inline-end: 2px;
+          margin-inline-end: 2px;
 }
 
 .splitToolbarButtonSeparator {
@@ -1972,38 +1828,32 @@ body {
   font-size: 12px;
   line-height: 14px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: default;
   box-sizing: border-box;
 }
 
-.toolbarButton:hover,
-.toolbarButton:focus-visible {
+.toolbarButton:is(:hover, :focus-visible) {
   background-color: var(--button-hover-color);
 }
-
-.secondaryToolbarButton:hover,
-.secondaryToolbarButton:focus-visible {
+.secondaryToolbarButton:is(:hover, :focus-visible) {
   background-color: var(--doorhanger-hover-bg-color);
   color: var(--doorhanger-hover-color);
 }
 
-.toolbarButton.toggled,
-.splitToolbarButton.toggled>.toolbarButton.toggled,
-.secondaryToolbarButton.toggled {
+:is(.toolbarButton, .secondaryToolbarButton).toggled,
+.splitToolbarButton.toggled > .toolbarButton.toggled {
   background-color: var(--toggled-btn-bg-color);
   color: var(--toggled-btn-color);
 }
 
-.toolbarButton.toggled::before,
-.secondaryToolbarButton.toggled::before {
+:is(.toolbarButton, .secondaryToolbarButton).toggled::before {
   background-color: var(--toggled-btn-color);
 }
 
-.toolbarButton.toggled:hover:active,
-.splitToolbarButton.toggled>.toolbarButton.toggled:hover:active,
-.secondaryToolbarButton.toggled:hover:active {
+:is(.toolbarButton, .secondaryToolbarButton).toggled:hover:active,
+.splitToolbarButton.toggled > .toolbarButton.toggled:hover:active {
   background-color: var(--toggled-hover-active-btn-color);
 }
 
@@ -2017,19 +1867,18 @@ body {
   background-color: var(--dropdown-btn-bg-color);
   border: var(--dropdown-btn-border);
 }
-
 .dropdownToolbarButton::after {
   top: 6px;
   inset-inline-end: 6px;
   pointer-events: none;
   -webkit-mask-image: var(--toolbarButton-menuArrow-icon);
-  mask-image: var(--toolbarButton-menuArrow-icon);
+          mask-image: var(--toolbarButton-menuArrow-icon);
 }
 
-.dropdownToolbarButton>select {
+.dropdownToolbarButton > select {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: inherit;
   height: 28px;
   font-size: 12px;
@@ -2037,18 +1886,15 @@ body {
   margin: 0;
   padding: 1px 0 2px;
   -webkit-padding-start: 6px;
-  padding-inline-start: 6px;
+          padding-inline-start: 6px;
   border: none;
   background-color: var(--dropdown-btn-bg-color);
 }
-
-.dropdownToolbarButton>select:hover,
-.dropdownToolbarButton>select:focus-visible {
+.dropdownToolbarButton > select:is(:hover, :focus-visible) {
   background-color: var(--button-hover-color);
   color: var(--toggled-btn-color);
 }
-
-.dropdownToolbarButton>select>option {
+.dropdownToolbarButton > select > option {
   background: var(--doorhanger-bg-color);
   color: var(--main-color);
 }
@@ -2059,10 +1905,8 @@ body {
   height: 1px;
 }
 
-.toolbarButton::before,
-.secondaryToolbarButton::before,
-.dropdownToolbarButton::after,
-.treeItemToggler::before {
+:is(.toolbarButton, .secondaryToolbarButton, .treeItemToggler)::before,
+.dropdownToolbarButton::after {
   /* All matching images have a size of 16x16
    * All relevant containers have a size of 28x28 */
   position: absolute;
@@ -2073,12 +1917,10 @@ body {
   content: "";
   background-color: var(--toolbar-icon-bg-color);
   -webkit-mask-size: cover;
-  mask-size: cover;
+          mask-size: cover;
 }
 
-.dropdownToolbarButton:hover::after,
-.dropdownToolbarButton:focus-visible::after,
-.dropdownToolbarButton:active::after {
+.dropdownToolbarButton:is(:hover, :focus-visible, :active)::after {
   background-color: var(--toolbar-icon-hover-bg-color);
 }
 
@@ -2088,10 +1930,8 @@ body {
   left: 6px;
 }
 
-.toolbarButton:hover::before,
-.toolbarButton:focus-visible::before,
-.secondaryToolbarButton:hover::before,
-.secondaryToolbarButton:focus-visible::before {
+.toolbarButton:is(:hover, :focus-visible)::before,
+.secondaryToolbarButton:is(:hover, :focus-visible)::before {
   background-color: var(--toolbar-icon-hover-bg-color);
 }
 
@@ -2103,125 +1943,121 @@ body {
 
 #sidebarToggle::before {
   -webkit-mask-image: var(--toolbarButton-sidebarToggle-icon);
-  mask-image: var(--toolbarButton-sidebarToggle-icon);
+          mask-image: var(--toolbarButton-sidebarToggle-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #secondaryToolbarToggle::before {
   -webkit-mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
-  mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
+          mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #findPrevious::before {
   -webkit-mask-image: var(--findbarButton-previous-icon);
-  mask-image: var(--findbarButton-previous-icon);
+          mask-image: var(--findbarButton-previous-icon);
 }
 
 #findNext::before {
   -webkit-mask-image: var(--findbarButton-next-icon);
-  mask-image: var(--findbarButton-next-icon);
+          mask-image: var(--findbarButton-next-icon);
 }
 
 #previous::before {
   -webkit-mask-image: var(--toolbarButton-pageUp-icon);
-  mask-image: var(--toolbarButton-pageUp-icon);
+          mask-image: var(--toolbarButton-pageUp-icon);
 }
 
 #next::before {
   -webkit-mask-image: var(--toolbarButton-pageDown-icon);
-  mask-image: var(--toolbarButton-pageDown-icon);
+          mask-image: var(--toolbarButton-pageDown-icon);
 }
 
 #zoomOut::before {
   -webkit-mask-image: var(--toolbarButton-zoomOut-icon);
-  mask-image: var(--toolbarButton-zoomOut-icon);
+          mask-image: var(--toolbarButton-zoomOut-icon);
 }
 
 #zoomIn::before {
   -webkit-mask-image: var(--toolbarButton-zoomIn-icon);
-  mask-image: var(--toolbarButton-zoomIn-icon);
+          mask-image: var(--toolbarButton-zoomIn-icon);
 }
 
 #presentationMode::before {
   -webkit-mask-image: var(--toolbarButton-presentationMode-icon);
-  mask-image: var(--toolbarButton-presentationMode-icon);
+          mask-image: var(--toolbarButton-presentationMode-icon);
 }
 
 #editorFreeText::before {
   -webkit-mask-image: var(--toolbarButton-editorFreeText-icon);
-  mask-image: var(--toolbarButton-editorFreeText-icon);
+          mask-image: var(--toolbarButton-editorFreeText-icon);
 }
 
 #editorInk::before {
   -webkit-mask-image: var(--toolbarButton-editorInk-icon);
-  mask-image: var(--toolbarButton-editorInk-icon);
+          mask-image: var(--toolbarButton-editorInk-icon);
 }
 
 #print::before,
 #secondaryPrint::before {
   -webkit-mask-image: var(--toolbarButton-print-icon);
-  mask-image: var(--toolbarButton-print-icon);
+          mask-image: var(--toolbarButton-print-icon);
 }
 
-#openFile::before,
-#secondaryOpenFile::before {
+:is(#openFile, #secondaryOpenFile)::before {
   -webkit-mask-image: var(--toolbarButton-openFile-icon);
-  mask-image: var(--toolbarButton-openFile-icon);
+          mask-image: var(--toolbarButton-openFile-icon);
 }
 
-#download::before,
-#secondaryDownload::before {
+:is(#download, #secondaryDownload)::before {
   -webkit-mask-image: var(--toolbarButton-download-icon);
-  mask-image: var(--toolbarButton-download-icon);
+          mask-image: var(--toolbarButton-download-icon);
 }
 
 a.secondaryToolbarButton {
   padding-top: 5px;
   text-decoration: none;
 }
-
-a.toolbarButton[href="#"],
-a.secondaryToolbarButton[href="#"] {
+a:is(.toolbarButton, .secondaryToolbarButton)[href="#"] {
   opacity: 0.5;
   pointer-events: none;
 }
 
 #viewBookmark::before {
   -webkit-mask-image: var(--toolbarButton-bookmark-icon);
-  mask-image: var(--toolbarButton-bookmark-icon);
+          mask-image: var(--toolbarButton-bookmark-icon);
 }
 
 #viewThumbnail::before {
   -webkit-mask-image: var(--toolbarButton-viewThumbnail-icon);
-  mask-image: var(--toolbarButton-viewThumbnail-icon);
+          mask-image: var(--toolbarButton-viewThumbnail-icon);
 }
 
 #viewOutline::before {
   -webkit-mask-image: var(--toolbarButton-viewOutline-icon);
-  mask-image: var(--toolbarButton-viewOutline-icon);
+          mask-image: var(--toolbarButton-viewOutline-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #viewAttachments::before {
   -webkit-mask-image: var(--toolbarButton-viewAttachments-icon);
-  mask-image: var(--toolbarButton-viewAttachments-icon);
+          mask-image: var(--toolbarButton-viewAttachments-icon);
 }
 
 #viewLayers::before {
   -webkit-mask-image: var(--toolbarButton-viewLayers-icon);
-  mask-image: var(--toolbarButton-viewLayers-icon);
+          mask-image: var(--toolbarButton-viewLayers-icon);
 }
 
 #currentOutlineItem::before {
   -webkit-mask-image: var(--toolbarButton-currentOutlineItem-icon);
-  mask-image: var(--toolbarButton-currentOutlineItem-icon);
+          mask-image: var(--toolbarButton-currentOutlineItem-icon);
   transform: scaleX(var(--dir-factor));
 }
 
 #viewFind::before {
   -webkit-mask-image: var(--toolbarButton-search-icon);
-  mask-image: var(--toolbarButton-search-icon);
+          mask-image: var(--toolbarButton-search-icon);
 }
 
 .pdfSidebarNotification::after {
@@ -2242,7 +2078,7 @@ a.secondaryToolbarButton[href="#"] {
   margin: 0;
   padding: 0 0 1px;
   -webkit-padding-start: 36px;
-  padding-inline-start: 36px;
+          padding-inline-start: 36px;
   height: auto;
   min-height: 26px;
   width: auto;
@@ -2253,80 +2089,79 @@ a.secondaryToolbarButton[href="#"] {
   box-sizing: border-box;
   display: inline-block;
 }
-
-.secondaryToolbarButton>span {
+.secondaryToolbarButton > span {
   -webkit-padding-end: 4px;
-  padding-inline-end: 4px;
+          padding-inline-end: 4px;
 }
 
 #firstPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-firstPage-icon);
-  mask-image: var(--secondaryToolbarButton-firstPage-icon);
+          mask-image: var(--secondaryToolbarButton-firstPage-icon);
 }
 
 #lastPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-lastPage-icon);
-  mask-image: var(--secondaryToolbarButton-lastPage-icon);
+          mask-image: var(--secondaryToolbarButton-lastPage-icon);
 }
 
 #pageRotateCcw::before {
   -webkit-mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
-  mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
+          mask-image: var(--secondaryToolbarButton-rotateCcw-icon);
 }
 
 #pageRotateCw::before {
   -webkit-mask-image: var(--secondaryToolbarButton-rotateCw-icon);
-  mask-image: var(--secondaryToolbarButton-rotateCw-icon);
+          mask-image: var(--secondaryToolbarButton-rotateCw-icon);
 }
 
 #cursorSelectTool::before {
   -webkit-mask-image: var(--secondaryToolbarButton-selectTool-icon);
-  mask-image: var(--secondaryToolbarButton-selectTool-icon);
+          mask-image: var(--secondaryToolbarButton-selectTool-icon);
 }
 
 #cursorHandTool::before {
   -webkit-mask-image: var(--secondaryToolbarButton-handTool-icon);
-  mask-image: var(--secondaryToolbarButton-handTool-icon);
+          mask-image: var(--secondaryToolbarButton-handTool-icon);
 }
 
 #scrollPage::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollPage-icon);
-  mask-image: var(--secondaryToolbarButton-scrollPage-icon);
+          mask-image: var(--secondaryToolbarButton-scrollPage-icon);
 }
 
 #scrollVertical::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
-  mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
+          mask-image: var(--secondaryToolbarButton-scrollVertical-icon);
 }
 
 #scrollHorizontal::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
-  mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
+          mask-image: var(--secondaryToolbarButton-scrollHorizontal-icon);
 }
 
 #scrollWrapped::before {
   -webkit-mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
-  mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
+          mask-image: var(--secondaryToolbarButton-scrollWrapped-icon);
 }
 
 #spreadNone::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadNone-icon);
-  mask-image: var(--secondaryToolbarButton-spreadNone-icon);
+          mask-image: var(--secondaryToolbarButton-spreadNone-icon);
 }
 
 #spreadOdd::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
-  mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
+          mask-image: var(--secondaryToolbarButton-spreadOdd-icon);
 }
 
 #spreadEven::before {
   -webkit-mask-image: var(--secondaryToolbarButton-spreadEven-icon);
-  mask-image: var(--secondaryToolbarButton-spreadEven-icon);
+          mask-image: var(--secondaryToolbarButton-spreadEven-icon);
 }
 
 #documentProperties::before {
   -webkit-mask-image: var(--secondaryToolbarButton-documentProperties-icon);
-  mask-image: var(--secondaryToolbarButton-documentProperties-icon);
+          mask-image: var(--secondaryToolbarButton-documentProperties-icon);
 }
 
 .verticalToolbarSeparator {
@@ -2336,7 +2171,6 @@ a.secondaryToolbarButton[href="#"] {
   height: 22px;
   background-color: var(--separator-color);
 }
-
 .horizontalToolbarSeparator {
   display: block;
   margin: 6px 0;
@@ -2365,29 +2199,26 @@ a.secondaryToolbarButton[href="#"] {
   left: 0;
   margin: 10px 0 3px;
   -webkit-margin-start: 7px;
-  margin-inline-start: 7px;
+          margin-inline-start: 7px;
 }
 
 #pageNumber {
-  -moz-appearance: textfield;
-  /* hides the spinner in moz */
-  text-align: right;
+  -moz-appearance: textfield; /* hides the spinner in moz */
+  text-align: end;
   width: 40px;
   background-size: 0 0;
   transition-property: none;
 }
-
 #pageNumber.visiblePageIsLoading {
   background-image: var(--loading-icon);
   background-repeat: no-repeat;
-  background-position: 3px;
+  background-position: calc(50% - 42% * var(--dir-factor));
   background-size: 16px 16px;
   /* Using a delay with background-image doesn't work,
      consequently we use background-size. */
   transition-property: background-size;
   transition-delay: var(--loading-icon-delay);
 }
-
 #pageNumber::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
@@ -2406,14 +2237,14 @@ a.secondaryToolbarButton[href="#"] {
   line-height: 14px;
   text-align: left;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: default;
 }
 
 #numPages.toolbarLabel {
   -webkit-padding-start: 3px;
-  padding-inline-start: 3px;
+          padding-inline-start: 3px;
 }
 
 #thumbnailView,
@@ -2426,81 +2257,71 @@ a.secondaryToolbarButton[href="#"] {
   padding: 4px 4px 0;
   overflow: auto;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-
 #thumbnailView {
   width: calc(100% - 60px);
   padding: 10px 30px 0;
 }
 
-#thumbnailView>a:active,
-#thumbnailView>a:focus {
+#thumbnailView > a:is(:active, :focus) {
   outline: 0;
 }
 
 .thumbnail {
+  /* Define these variables here, and not in :root, since the individual
+     thumbnails may have different sizes. */
+  --thumbnail-width: 0;
+  --thumbnail-height: 0;
+
   float: var(--inline-start);
+  width: var(--thumbnail-width);
+  height: var(--thumbnail-height);
   margin: 0 10px 5px;
+  padding: 1px;
+  border: 7px solid transparent;
+  border-radius: 2px;
 }
 
-#thumbnailView>a:last-of-type>.thumbnail {
+#thumbnailView > a:last-of-type > .thumbnail {
   margin-bottom: 10px;
 }
 
-#thumbnailView>a:last-of-type>.thumbnail:not([data-loaded]) {
-  margin-bottom: 9px;
+a:focus > .thumbnail,
+.thumbnail:hover {
+  border-color: var(--thumbnail-hover-color);
 }
-
-.thumbnail:not([data-loaded]) {
-  border: 1px dashed rgba(132, 132, 132, 1);
-  margin: -1px 9px 4px;
+.thumbnail.selected {
+  border-color: var(--thumbnail-selected-color) !important;
 }
 
 .thumbnailImage {
-  border: 1px solid rgba(0, 0, 0, 0);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0.8;
-  z-index: 99;
-  background-color: rgba(255, 255, 255, 1);
-  background-clip: content-box;
-}
-
-.thumbnailSelectionRing {
-  border-radius: 2px;
-  padding: 7px;
-}
-
-a:focus>.thumbnail>.thumbnailSelectionRing>.thumbnailImage,
-.thumbnail:hover>.thumbnailSelectionRing>.thumbnailImage {
+  width: var(--thumbnail-width);
+  height: var(--thumbnail-height);
   opacity: 0.9;
 }
-
-a:focus>.thumbnail>.thumbnailSelectionRing,
-.thumbnail:hover>.thumbnailSelectionRing {
-  background-color: var(--sidebaritem-bg-color);
-  background-clip: padding-box;
-  color: rgba(255, 255, 255, 0.9);
+a:focus > .thumbnail > .thumbnailImage,
+.thumbnail:hover > .thumbnailImage {
+  opacity: 0.95;
+}
+.thumbnail.selected > .thumbnailImage {
+  opacity: 1 !important;
 }
 
-.thumbnail.selected>.thumbnailSelectionRing>.thumbnailImage {
-  opacity: 1;
+.thumbnail:not([data-loaded]) > .thumbnailImage {
+  width: calc(var(--thumbnail-width) - 2px);
+  height: calc(var(--thumbnail-height) - 2px);
+  border: 1px dashed rgba(132, 132, 132, 1);
 }
 
-.thumbnail.selected>.thumbnailSelectionRing {
-  background-color: var(--sidebaritem-bg-color);
-  background-clip: padding-box;
-  color: rgba(255, 255, 255, 1);
-}
-
-.treeWithDeepNesting>.treeItem,
-.treeItem>.treeItems {
+.treeWithDeepNesting > .treeItem,
+.treeItem > .treeItems {
   -webkit-margin-start: 20px;
-  margin-inline-start: 20px;
+          margin-inline-start: 20px;
 }
 
-.treeItem>a {
+.treeItem > a {
   text-decoration: none;
   display: inline-block;
   /* Subtract the right padding (left, in RTL mode) of the container: */
@@ -2509,28 +2330,26 @@ a:focus>.thumbnail>.thumbnailSelectionRing,
   margin-bottom: 1px;
   padding: 2px 0 5px;
   -webkit-padding-start: 4px;
-  padding-inline-start: 4px;
+          padding-inline-start: 4px;
   border-radius: 2px;
   color: var(--treeitem-color);
   font-size: 13px;
   line-height: 15px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   white-space: normal;
   cursor: pointer;
 }
 
-#layersView .treeItem>a * {
+#layersView .treeItem > a * {
   cursor: pointer;
 }
-
-#layersView .treeItem>a>label {
+#layersView .treeItem > a > label {
   -webkit-padding-start: 4px;
-  padding-inline-start: 4px;
+          padding-inline-start: 4px;
 }
-
-#layersView .treeItem>a>label>input {
+#layersView .treeItem > a > label > input {
   float: var(--inline-start);
   margin-top: 1px;
 }
@@ -2542,33 +2361,30 @@ a:focus>.thumbnail>.thumbnailSelectionRing,
   width: 0;
   color: rgba(255, 255, 255, 0.5);
 }
-
 .treeItemToggler::before {
   inset-inline-end: 4px;
   -webkit-mask-image: var(--treeitem-expanded-icon);
-  mask-image: var(--treeitem-expanded-icon);
+          mask-image: var(--treeitem-expanded-icon);
 }
-
 .treeItemToggler.treeItemsHidden::before {
   -webkit-mask-image: var(--treeitem-collapsed-icon);
-  mask-image: var(--treeitem-collapsed-icon);
+          mask-image: var(--treeitem-collapsed-icon);
   transform: scaleX(var(--dir-factor));
 }
-
-.treeItemToggler.treeItemsHidden~.treeItems {
+.treeItemToggler.treeItemsHidden ~ .treeItems {
   display: none;
 }
 
-.treeItem.selected>a {
+.treeItem.selected > a {
   background-color: var(--treeitem-selected-bg-color);
   color: var(--treeitem-selected-color);
 }
 
 .treeItemToggler:hover,
-.treeItemToggler:hover+a,
-.treeItemToggler:hover~.treeItems,
-.treeItem>a:hover {
-  background-color: var(--sidebaritem-bg-color);
+.treeItemToggler:hover + a,
+.treeItemToggler:hover ~ .treeItems,
+.treeItem > a:hover {
+  background-color: var(--treeitem-bg-color);
   background-clip: padding-box;
   border-radius: 2px;
   color: var(--treeitem-hover-color);
@@ -2596,20 +2412,15 @@ dialog {
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
-
-dialog::-webkit-backdrop {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-dialog>.row {
+dialog > .row {
   display: table-row;
 }
 
-dialog>.row>* {
+dialog > .row > * {
   display: table-cell;
 }
 
@@ -2637,7 +2448,6 @@ dialog :link {
 #passwordDialog {
   text-align: center;
 }
-
 #passwordDialog .toolbarField {
   width: 200px;
 }
@@ -2645,22 +2455,18 @@ dialog :link {
 #documentPropertiesDialog {
   text-align: left;
 }
-
-#documentPropertiesDialog .row>* {
+#documentPropertiesDialog .row > * {
   min-width: 100px;
   text-align: start;
 }
-
-#documentPropertiesDialog .row>span {
+#documentPropertiesDialog .row > span {
   width: 125px;
   word-wrap: break-word;
 }
-
-#documentPropertiesDialog .row>p {
+#documentPropertiesDialog .row > p {
   max-width: 225px;
   word-wrap: break-word;
 }
-
 #documentPropertiesDialog .buttonRow {
   margin-top: 10px;
 }
@@ -2668,11 +2474,10 @@ dialog :link {
 .grab-to-pan-grab {
   cursor: grab !important;
 }
-
-.grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {
+.grab-to-pan-grab
+  *:not(input):not(textarea):not(button):not(select):not(:link) {
   cursor: inherit !important;
 }
-
 .grab-to-pan-grab:active,
 .grab-to-pan-grabbing {
   cursor: grabbing !important;
@@ -2681,8 +2486,7 @@ dialog :link {
   display: block;
   inset: 0;
   overflow: hidden;
-  z-index: 50000;
-  /* should be higher than anything else in PDF.js! */
+  z-index: 50000; /* should be higher than anything else in PDF.js! */
 }
 
 @page {
@@ -2697,21 +2501,17 @@ dialog :link {
   body {
     background: rgba(0, 0, 0, 0) none;
   }
-
   body[data-pdfjsprinting] #outerContainer {
     display: none;
   }
-
   body[data-pdfjsprinting] #printContainer {
     display: block;
   }
-
   #printContainer {
     height: 100%;
   }
-
   /* wrapper around (scaled) print canvas elements */
-  #printContainer>.printedPage {
+  #printContainer > .printedPage {
     page-break-after: always;
     page-break-inside: avoid;
 
@@ -2725,11 +2525,11 @@ dialog :link {
     align-items: center;
   }
 
-  #printContainer>.xfaPrintedPage .xfaPage {
+  #printContainer > .xfaPrintedPage .xfaPage {
     position: absolute;
   }
 
-  #printContainer>.xfaPrintedPage {
+  #printContainer > .xfaPrintedPage {
     page-break-after: always;
     page-break-inside: avoid;
     width: 100%;
@@ -2737,8 +2537,7 @@ dialog :link {
     position: relative;
   }
 
-  #printContainer>.printedPage canvas,
-  #printContainer>.printedPage img {
+  #printContainer > .printedPage :is(canvas, img) {
     /* The intrinsic canvas / image size will make sure that we fit the page. */
     max-width: 100%;
     max-height: 100%;
@@ -2767,7 +2566,6 @@ dialog :link {
   #sidebarContainer {
     background-color: var(--sidebar-narrow-bg-color);
   }
-
   #outerContainer.sidebarOpen #viewerContainer {
     inset-inline-start: 0 !important;
   }
@@ -2777,7 +2575,6 @@ dialog :link {
   #outerContainer .hiddenLargeView {
     display: none;
   }
-
   #outerContainer .visibleLargeView {
     display: inherit;
   }
@@ -2787,23 +2584,19 @@ dialog :link {
   #outerContainer .hiddenMediumView {
     display: none;
   }
-
   #outerContainer .visibleMediumView {
     display: inherit;
   }
 }
 
 @media all and (max-width: 690px) {
-
   .hiddenSmallView,
   .hiddenSmallView * {
     display: none;
   }
-
   .toolbarButtonSpacer {
     width: 0;
   }
-
   .findbar {
     inset-inline-start: 34px;
   }

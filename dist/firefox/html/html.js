@@ -18,7 +18,8 @@ const open = (file) => {
         txtWithPTag += txtContent.replace(/\n\n/g, "</p><p>");
         txtWithPTag += "</p>";
 
-        let html = `<!DOCTYPE html><html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title></title></head><body><article>${txtWithPTag}</article></body></html>`;
+        let html =
+          `<!DOCTYPE html><html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title></title></head><body><article>${txtWithPTag}</article></body></html>`;
         document.write(html);
         document.close();
       };
@@ -48,7 +49,7 @@ const dragOverHandler = (e) => e.preventDefault();
 const dropHandler = (e) => {
   e.preventDefault();
   const item = Array.from(e.dataTransfer.items).find(
-    (item) => item.kind === "file"
+    (item) => item.kind === "file",
   );
   if (item) {
     const entry = item.webkitGetAsEntry();
@@ -73,5 +74,6 @@ function escapeHTML(htmlStr) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replace(/'/g, "&#39;")
+    .replace(/\//g, "&#x2F;");
 }

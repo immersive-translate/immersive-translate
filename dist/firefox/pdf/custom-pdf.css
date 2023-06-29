@@ -85,3 +85,52 @@ div,p {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+
+
+
+.translate-pending {
+  background-image: url(images/loading.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  transition-property: background-size;
+  transition-delay: var(--loading-icon-delay);
+  opacity: 0.2;
+}
+
+.translate-retry {
+  cursor: pointer;
+}
+
+.translate-retry::after {
+  content: "🔄";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  display: block;
+  transform: translate(100%, -50%);
+}
+.immersive-translate-text-layer p {
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  transform-origin: left top;
+}
+@media all and (max-width: 560px) {
+  .immersive-translate-text-layer p {
+    margin-bottom: 0rem;
+  }
+}
+.immersive-translate-text-layer {
+  opacity: 1 !important;
+}
+.immersive-translate-text-layer ::-moz-selection {
+  background: #bfc5fc !important;
+}
+.immersive-translate-text-layer ::selection {
+  background: #bfc5fc !important;
+}
+.pdfViewer.scrollHorizontal,
+.spread {
+  white-space: normal;
+  /* white-space: nowrap; */
+}

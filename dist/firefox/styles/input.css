@@ -71,6 +71,9 @@
   position: relative;
   font-size: 16px;
 }
+.immersive-translate-search-enhancement-en-title {
+  color: #4d5156;
+}
 /* dark */
 @media (prefers-color-scheme: dark) {
   .immersive-translate-search-recomend {
@@ -79,6 +82,10 @@
   .immersive-translate-close-action svg {
     fill: #bdc1c6;
   }
+
+.immersive-translate-search-enhancement-en-title {
+  color: #bdc1c6;
+}
 }
 
 
@@ -213,6 +220,7 @@
   user-select: none;
   -webkit-user-drag: none;
   text-decoration: none;
+  color: #007bff;
   -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
 }
 

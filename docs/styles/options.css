@@ -314,3 +314,17 @@ a.tiny-button {
   padding: 0.2rem 0.6rem;
   margin: 0.3rem 2rem;
 }
+
+.url-list-item {
+  background:#f3f6f8;
+  padding:12px 0;
+  border-radius:6px;
+}
+/* dark */
+
+@media (prefers-color-scheme: dark) {
+  .url-list-item {
+    background:rgba(0,0,0,0.1);
+  }
+}
+

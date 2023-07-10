@@ -74,7 +74,7 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 
 - 微软 Edge 浏览器： [Edge 商店沉浸式翻译](https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg)
 - 谷歌 Chrome 浏览器：[Chrome 商店沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
-- Firefox 火狐浏览器：[Firefox Addon 商店沉浸式翻译](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate-beta/)
+- Firefox 火狐浏览器：[Firefox Addon 商店沉浸式翻译](https://addons.mozilla.org/en-US/firefox/addon/immersive-translate/)
 
 > 如果你无法访问谷歌官方商店，可以直接下载[最新沉浸式翻译 Chrome 浏览器 zip 安装包](https://download.immersivetranslate.com/latest/chrome-immersive-translate.zip)， 下载后请先解压到一个常用的文件夹内，然后在地址栏输入：`chrome://extensions`，打开扩展管理窗口，然后启用“开发人员模式”，选择“加载解压缩的扩展”，选择刚刚解压后的文件夹载入即可安装成功。
 

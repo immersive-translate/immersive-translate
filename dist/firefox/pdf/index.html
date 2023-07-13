@@ -21,23 +21,24 @@ Adobe CMap resources are covered by their own copyright but the same license:
 See https://github.com/adobe-type-tools/cmap-resources
 -->
 <html dir="ltr" mozdisallowselectionprint>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="google" content="notranslate">
-    <title>PDF.js viewer</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google" content="notranslate">
+  <title>PDF.js viewer</title>
+  <!-- This snippet is used in production (included from viewer.html) -->
+  <link rel="resource" type="application/l10n" href="locale/locale.properties">
+  <script src="../build/pdf.js"></script>
 
-<!-- This snippet is used in production (included from viewer.html) -->
-<link rel="resource" type="application/l10n" href="locale/locale.properties">
-<script src="../build/pdf.js"></script>
-
-    <link rel="stylesheet" href="viewer.css">
-
+  <link rel="stylesheet" href="viewer.css">
+  <link rel="stylesheet" href="entry.css">
   <script src="viewer.js"></script>
-    <link rel="stylesheet" href="custom-pdf.css" />
-    <link rel="stylesheet" href="./jquery/jquery-ui-1.13.2.css" />
-    <script src="entry.js"></script>
-  <link rel="stylesheet" href="../styles/inject.css" /></head>
+  <link rel="stylesheet" href="custom-pdf.css" />
+  <link rel="stylesheet" href="./jquery/jquery-ui-1.13.2.css" />
+  <script src="./entry.js"></script>
+  <script src="./download/html2canvas.min.js"></script>
+  <script src="./download/pdf-lib-1.17.1.min.js"></script>
+<link rel="stylesheet" href="../styles/inject.css" /></head>
 
   <body tabindex="1">
     <div id="outerContainer">

@@ -6,7 +6,7 @@
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
   },
   "toggleTranslatePage": {
-    "message": "Toggle Translate Page "
+    "message": "Toggle Translate Page"
   },
   "toggleTranslateTheWholePage": {
     "message": "Toggle Translate the Whole Page"
@@ -33,7 +33,7 @@
     "message": "Read local e-book"
   },
   "openEbookBuilder": {
-    "message": "Make Dual Epub ebook"
+    "message": "Make Dual ePub ebook"
   },
   "translateLocalHtmlFile": {
     "message": "Translate HTML/txt File"
@@ -45,6 +45,6 @@
     "message": "Translate Subtitle File"
   },
   "openAboutPage": {
-    "message": "About / Feedback"
+    "message": "About / Feedback/Sponsor"
   }
 }

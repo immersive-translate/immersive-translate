@@ -123,8 +123,8 @@ body {
 }
 
 .py-2-5 {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .mt-2 {
   margin-top: 8px;
@@ -287,6 +287,14 @@ select.min-select {
   color: var(--color);
 
 }
+.text-overflow-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.max-w-20 {
+  max-width: 180px;
+  white-space: nowrap;
+}
 @media (prefers-color-scheme: dark) {
   select.min-select {
     background-color: #141e26;
@@ -372,13 +380,3 @@ select.text-label {
     color: #9ca3af;
 }
 }
-
-
-
-
-
-
-
-
-
-

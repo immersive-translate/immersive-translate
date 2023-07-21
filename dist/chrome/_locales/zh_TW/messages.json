@@ -33,16 +33,16 @@
     "message": "閱讀本機電子書"
   },
   "openEbookBuilder": {
-    "message": "製作雙語 Epub 電子書"
+    "message": "製作雙語 ePub 電子書"
   },
   "translateLocalHtmlFile": {
     "message": "翻譯 HTML/txt 檔案"
   },
-  "translateLocalSubtitleFile": {
-    "message": "翻譯字幕檔案"
-  },
   "donateContext": {
     "message": "了解贊助福利"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "翻譯字幕檔案"
   },
   "openAboutPage": {
     "message": "關於/問題回報/贊助"

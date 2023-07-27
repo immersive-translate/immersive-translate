@@ -2,7 +2,9 @@
 window.addEventListener("unhandledrejection", noHandleError);
 
 function noHandleError(event) {
-  const message = typeof event.reason == "object" ? event.reason.message : event.reason;
+  const message = typeof event.reason == "object"
+    ? event.reason.message
+    : event.reason;
   if (message.indexOf("Missing PDF") >= 0) {
     const ele = document.createElement("div");
     ele.innerHTML = `
@@ -19,8 +21,8 @@ function noHandleError(event) {
       </div>
       <div>或者拖拽文件到此窗口导入</div>
     </div>
-    `
-    const viewer = document.querySelector("#viewer")
+    `;
+    const viewer = document.querySelector("#viewer");
     if (!viewer) return;
     viewer.appendChild(ele);
   }
@@ -39,23 +41,28 @@ window.addEventListener("DOMContentLoaded", function () {
 
           const pdfBytes = await blob.arrayBuffer();
           const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes, {
-            updateMetadata: false
-          })
+            updateMetadata: false,
+          });
 
           await handlePdf(pdfDoc);
           if (cancelDialog) return;
-          const newPdfBytes = await pdfDoc.save()
-          oldDownload(new Blob([newPdfBytes], { type: "application/pdf" }), url, filename.replace(".pdf", "-tranlsated.pdf"), options);
-        }
+          const newPdfBytes = await pdfDoc.save();
+          oldDownload(
+            new Blob([newPdfBytes], { type: "application/pdf" }),
+            url,
+            filename.replace(".pdf", "-tranlsated.pdf"),
+            options,
+          );
+        };
         startDownload = startDownload.bind(downloadManager);
         showModal();
       } catch (error) {
         alert(error.message);
         console.error(error);
       }
-    }
+    };
   }, 1000);
-})
+});
 
 async function handlePdf(pdfDoc) {
   try {
@@ -76,7 +83,9 @@ async function handlePdf(pdfDoc) {
         sizeMap[`${width}-${height}`] = newPdfDoc.getPages().length - 1;
       }
 
-      const [newPage] = await pdfDoc.copyPages(newPdfDoc, [sizeMap[`${width}-${height}`]]);
+      const [newPage] = await pdfDoc.copyPages(newPdfDoc, [
+        sizeMap[`${width}-${height}`],
+      ]);
       await drawElemetnToPage(pdfDoc, element, newPage);
       pdfDoc.insertPage(pageNum * 2 + 1, newPage);
       updateProgress(i + 1);
@@ -95,6 +104,7 @@ function showModal() {
   const elements = document.querySelectorAll(".immersive-translate-page");
   cancelDialog = false;
   let dialog = document.getElementById("immersive-modal");
+  const disableDownload = isSafari();
   if (!dialog) {
     dialog = document.createElement("div");
     dialog.id = "immersive-modal";
@@ -111,23 +121,36 @@ function showModal() {
     <div class="immersive-translate-btn-warpper"><div class="immersive-translate-btn immersive-gary" data-action="close">取消</div><div class="immersive-translate-btn" id="immersive-download">确定下载</div></div>
   </div>
   `;
+    if (disableDownload) {
+      dialog.innerHTML = `
+  <div class="immersive-translate-modal-content">
+    <span data-action="close" class="immersive-translate-close">&times;</span>
+    <p>抱歉，Safari 对插件导出文件有限制，暂时无法导出，请使用其他浏览器替代。</p>
+    <div class="immersive-translate-btn-warpper"><div class="immersive-translate-btn immersive-gary" data-action="close">取消</div></div>
+  </div>
+      `;
+    }
     document.body.appendChild(dialog);
-    const elements = document.querySelectorAll("[data-action='close']")
+    const elements = document.querySelectorAll("[data-action='close']");
     const closeFun = () => {
       cancelDialog = true;
       closeModal();
     };
-    elements.forEach(item => item.onclick = closeFun);
-    const downloadBtn = document.getElementById("immersive-download");
-    downloadBtn.onclick = () => {
-      if (downloadBtn.classList.contains("immersive-disable")) return;
-      startDownload?.();
-      downloadBtn.classList.add("immersive-disable");
+    elements.forEach((item) => item.onclick = closeFun);
+    if (!disableDownload) {
+      const downloadBtn = document.getElementById("immersive-download");
+      downloadBtn.onclick = () => {
+        if (downloadBtn.classList.contains("immersive-disable")) return;
+        startDownload?.();
+        downloadBtn.classList.add("immersive-disable");
+      };
     }
   }
-  const currentStateDOM = document.getElementById("immersive-state");
-  currentStateDOM.innerHTML = `已翻译 <b>${elements.length}</b> 页 / 总共 ${pagesCount} 页`;
   dialog.style.display = "block";
+  if (disableDownload) return;
+  const currentStateDOM = document.getElementById("immersive-state");
+  currentStateDOM.innerHTML =
+    `已翻译 <b>${elements.length}</b> 页 / 总共 ${pagesCount} 页`;
   const downloadBtn = document.getElementById("immersive-download");
   downloadBtn.classList.remove("immersive-disable");
 }
@@ -140,7 +163,9 @@ function closeModal() {
 }
 
 function updateProgress(value) {
-  const container = document.querySelector(".immersive-translate-progress-container");
+  const container = document.querySelector(
+    ".immersive-translate-progress-container",
+  );
   if (!container) return;
   container.style.display = "block";
   const elements = document.querySelectorAll(".immersive-translate-page");
@@ -149,7 +174,9 @@ function updateProgress(value) {
 }
 
 function hiddenProgress() {
-  const container = document.querySelector(".immersive-translate-progress-container");
+  const container = document.querySelector(
+    ".immersive-translate-progress-container",
+  );
   if (!container) return;
   updateProgress(0);
   container.style.display = "none";
@@ -159,9 +186,7 @@ async function drawElemetnToPage(pdfDoc, element, page) {
   const canvas = await html2canvas(element);
   const imageData = canvas.toDataURL("image/png");
   const pngUrl = imageData.split(",")[1];
-  const pngImageBytes = Uint8Array.from(atob(pngUrl), (c) =>
-    c.charCodeAt(0)
-  );
+  const pngImageBytes = Uint8Array.from(atob(pngUrl), (c) => c.charCodeAt(0));
   const pngImage = await pdfDoc.embedPng(pngImageBytes);
   const { width, height } = page.getSize();
   page.drawImage(pngImage, {
@@ -170,4 +195,15 @@ async function drawElemetnToPage(pdfDoc, element, page) {
     width: width,
     height: height,
   });
+}
+
+function isSafari() {
+  const userAgentString = navigator.userAgent;
+  // Detect Chrome
+  const chromeAgent = userAgentString.indexOf("Chrome") > -1;
+  // Detect Safari
+  let safariAgent = userAgentString.indexOf("Safari") > -1;
+  // Discard Safari since it also matches Chrome
+  if (chromeAgent && safariAgent) safariAgent = false;
+  return safariAgent;
 }

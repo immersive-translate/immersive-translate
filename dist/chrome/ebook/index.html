@@ -32,6 +32,8 @@
         margin: 0;
         font: menu;
         font-family: system-ui, sans-serif;
+        background-color: gray;
+        overflow-x: hidden;
       }
       #drop-target {
         height: 100vh;
@@ -78,7 +80,7 @@
         border-radius: 6px;
         background: none;
         border: 0;
-        color: GrayText;
+        color: #fff;
       }
       .toolbar button:hover {
         background: rgba(0, 0, 0, 0.1);
@@ -327,6 +329,20 @@
     </div>
     <div id="dimming-overlay" aria-hidden="true"></div>
     <div id="side-bar">
+      <div id="text-find-replace">
+        <form>
+          <div>
+            <label for="find-text-input">Find Text</label>
+            <input id="find-text-input" type="text">
+          </div>
+          <div>
+            <label for="replace-text-input">Replace Text</label>
+            <input id="replace-text-input" type="text">
+          </div>
+          <button id="replace-button" type="submit">Replace</button>
+        </form>
+      </div>
+      
       <div id="side-bar-header">
         <img id="side-bar-cover" />
         <div>

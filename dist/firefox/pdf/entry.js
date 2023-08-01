@@ -30,6 +30,7 @@ function noHandleError(event) {
 
 let startDownload, cancelDialog;
 window.addEventListener("DOMContentLoaded", function () {
+  createToggleImageButton();
   setTimeout(() => {
     const downloadManager = globalThis.PDFViewerApplication.downloadManager;
     const oldDownload = downloadManager.download.bind(downloadManager);
@@ -197,6 +198,36 @@ async function drawElemetnToPage(pdfDoc, element, page) {
   });
 }
 
+function createToggleImageButton() {
+  const rightArea = document.querySelector("#toolbarViewerRight");
+  rightArea.style = "display: flex;flex-direction: row;align-items: center;";
+  if (!rightArea) return;
+  const wrapper = document.createElement("div");
+  wrapper.className = "switch-wrapper";
+  wrapper.innerHTML = `<label class="switch"><input id="switch-input" type="checkbox" checked=true><span class="slider round"></span></label><span class="switch-label">带图模式</span>`;
+  rightArea.insertBefore(wrapper, rightArea.firstChild);
+  const input = wrapper.querySelector("#switch-input");
+  input.onchange = toggleImageMode;
+}
+
+function toggleImageMode(e) {
+  const isVisible = e.target.checked;
+  const existingStyleTag = document.getElementById("dynamic-style");
+  if (existingStyleTag) {
+    existingStyleTag.remove();
+  }
+
+  // Create a new style tag
+  const styleSheet = document.createElement("style");
+  styleSheet.id = "dynamic-style";
+  styleSheet.innerText = `
+   .image-mode {
+     display: ${isVisible ? "block" : "none"};
+   }
+   `;
+  document.head.appendChild(styleSheet);
+}
+
 function isSafari() {
   const userAgentString = navigator.userAgent;
   // Detect Chrome
@@ -207,3 +238,4 @@ function isSafari() {
   if (chromeAgent && safariAgent) safariAgent = false;
   return safariAgent;
 }
+

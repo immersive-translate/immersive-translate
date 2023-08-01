@@ -134,3 +134,16 @@ div,p {
   white-space: normal;
   /* white-space: nowrap; */
 }
+
+.immersive-translate-text-layer :is(span, br) {
+  background-color: white;
+  padding: 2px 1px;
+}
+
+.immersive-translate-text-layer .markedContent {
+  position: unset !important;
+}
+
+.immersive-translate-annotation-layer .linkAnnotation {
+  border: unset !important;
+}

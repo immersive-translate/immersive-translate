@@ -19,6 +19,8 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 
+> 说明： 该 Repo 用于沉浸式翻译管理文档，[用户反馈](https://github.com/immersive-translate/immersive-translate/issues)，和 [发布版本](https://github.com/immersive-translate/immersive-translate/releases)，源代码目前是闭源的。
+
 你可以通过以下方式和我们保持联系：
 
 - [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。

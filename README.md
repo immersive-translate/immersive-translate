@@ -1,5 +1,7 @@
 # 沉浸式双语网页翻译扩展
 
+> 说明： 该 Repo 仅用于沉浸式翻译管理文档，[用户反馈](https://github.com/immersive-translate/immersive-translate/issues)，和 [发布版本](https://github.com/immersive-translate/immersive-translate/releases)，源代码目前是闭源的。
+
 一款**免费的，好用的，没有废话的，革命性的，饱受赞誉的，AI 驱动的双语网页翻译扩展**，帮助你有效地打破信息差，在手机上也可以用！
 
 https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9af51-4a18-45ef-9fc4-0a1509d56ab0
@@ -19,8 +21,6 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 
 本扩展免费使用，希望大家能轻松、愉悦、优雅地获取互联网上丰富的外文信息，不让语言成为障碍 ❤️
 
-> 说明： 该 Repo 用于沉浸式翻译管理文档，[用户反馈](https://github.com/immersive-translate/immersive-translate/issues)，和 [发布版本](https://github.com/immersive-translate/immersive-translate/releases)，源代码目前是闭源的。
-
 你可以通过以下方式和我们保持联系：
 
 - [通过邮件订阅沉浸式翻译](https://immersivetranslate.substack.com/) 及时获得最新更新和 (福利)。
@@ -28,10 +28,10 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 - [关注 Telegram 频道](https://t.me/immersivetranslate) 接收最新消息
 - [加入 Telegram 群组](https://t.me/+rq848Z09nehlOTgx) 参与功能的讨论。
 - [问题反馈](https://github.com/immersive-translate/immersive-translate/issues/)
-- 扫描下面二维码，加入[官方 QQ 交流频道](https://pd.qq.com/s/260rd4u6r)
+- 扫描下面二维码，加入官方微信交流群
 
 <div align="center">
-    <img src="https://immersivetranslate.com/assets/qq-channel.png" width="200" alt="qq" />
+    <img src="https://immersivetranslate.com/assets/wechat-contact.png" width="200" alt="qq" />
 </div>
 
 <div align="center">

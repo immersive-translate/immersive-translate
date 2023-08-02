@@ -1,5 +1,7 @@
 # Immersive Bilingual Web Translation Extension
 
+> Note: This Repo is only for immersive translate management documentation, [user feedback](https://github.com/immersive-translate/immersive-translate/issues), and [releases](https://github.com/ immersive-translate/immersive-translate/releases), and the source code is currently closed source.
+
 ## Main features
 
 - Intelligent identification of the main content area of the web page for translation, which is different from the behavior of similar plug-ins in translating all areas of the web page, reducing the “intrusiveness” of the original web page and enhancing the reading experience, so the extension is named “Immersive translation”.

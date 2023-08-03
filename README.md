@@ -186,3 +186,11 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 </div>
 
 在过去短短的五个月里，沉浸式翻译已经帮助了 40 万用户养成了看外语信息的习惯，这充分证明了一个良好的工具对于打破信息壁垒所起到的关键作用。感谢每一位在过去帮助过沉浸式翻译的人，我们将会继续把沉浸式的翻译体验带给更多的人，让更多人能享受到技术带来的红利。
+
+## 贡献者们
+
+🌸 感谢一起共建 immersive-translate 的[Contributors](https://github.com/wangrongding/dev-go/graphs/contributors) 们！
+
+<a href="https://github.com/immersive-translate/immersive-translate/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=immersive-translate/immersive-translate" />
+</a>

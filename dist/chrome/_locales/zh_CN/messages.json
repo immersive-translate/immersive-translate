@@ -33,7 +33,7 @@
     "message": "阅读本地电子书"
   },
   "openEbookBuilder": {
-    "message": "制作双语 ePub 电子书"
+    "message": "制作双语 EPUB 电子书"
   },
   "translateLocalHtmlFile": {
     "message": "翻译 HTML/txt 文件"

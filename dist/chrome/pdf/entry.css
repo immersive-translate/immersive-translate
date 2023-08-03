@@ -126,19 +126,35 @@
   color: white;
 }
 
-/* 图片模式 */
+.modal-subttile {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
 
-/* The switch - the box around the slider */
+/* 图片模式 */
+.control-button {
+  font-size: 12px;
+  padding: 5px 10px;
+  margin: 0 6px 0 0;
+}
+
+.switch-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .switch-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 3px 0;
 }
 
 .switch-label {
   margin-left: 4px;
   margin-right: 10px;
   font-size: 14px;
+  flex: 1;
 }
 
 .switch {

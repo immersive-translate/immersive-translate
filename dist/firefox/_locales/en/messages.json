@@ -33,7 +33,7 @@
     "message": "Read local e-book"
   },
   "openEbookBuilder": {
-    "message": "Make Dual ePub ebook"
+    "message": "Make Dual EPUB ebook"
   },
   "translateLocalHtmlFile": {
     "message": "Translate HTML/txt File"

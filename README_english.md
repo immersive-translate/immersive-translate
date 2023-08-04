@@ -82,3 +82,12 @@ The advantage of manual installation is that there is no need to wait for the st
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=immersive-translate/immersive-translate&type=Date)](https://star-history.com/#immersive-translate/immersive-translate&Date)
+
+## Contributors
+
+🌸 Thanks to the [Contributors](https://github.com/immersive-translate/immersive-translate/graphs/contributors) who worked together on the immersive-translate documentation.  
+We hope that more partners will join us and contribute to the documentation of immersive translation together.
+
+<a href="https://github.com/immersive-translate/immersive-translate/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=immersive-translate/immersive-translate" />
+</a>

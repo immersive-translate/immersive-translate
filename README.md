@@ -189,7 +189,8 @@ https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9a
 
 ## 贡献者们
 
-🌸 感谢一起共建 immersive-translate 的[Contributors](https://github.com/wangrongding/dev-go/graphs/contributors) 们！
+🌸 感谢一起共建 immersive-translate 文档的 [Contributors](https://github.com/immersive-translate/immersive-translate/graphs/contributors) ！  
+希望有更多的小伙伴加入进来，一起为沉浸式翻译的文档贡献自己的力量。
 
 <a href="https://github.com/immersive-translate/immersive-translate/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immersive-translate/immersive-translate" />

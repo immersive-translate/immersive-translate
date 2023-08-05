@@ -1,9 +1,0 @@
-{
-  "private": true,
-  "scripts": {
-    "build": "sponsorkit"
-  },
-  "devDependencies": {
-    "sponsorkit": "latest"
-  }
-}

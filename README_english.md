@@ -1,12 +1,12 @@
 # About this Repository
 
-This repository is used to release the [Immersive Translate](https://immersivetranslate.com/) [Release Versions](https://github.com/immersive-translate/immersive-translate/releases) and collect and track user feedback via [Github Issues](https://github.com/immersive-translate/immersive-translate/issues).
+This repository is used to release the Immersive Translate [Release Versions](https://github.com/immersive-translate/immersive-translate/releases) and collect and track user feedback via [Github Issues](https://github.com/immersive-translate/immersive-translate/issues).
 
 [Immersive Translate](https://immersivetranslate.com/) is not open source software, this repository **DOES NOT** contain the source code of Immersive Translate.
 
 > The old version of the [Immersive Translate Open Source Project](github.com/immersive-translate/old-immersive-translate) was archived on January 17, 2023.
 
-[**Click to Install Now**](https://immersivetranslate.com/docs/installation/)
+[**Click to Install Immersive Translate**](https://immersivetranslate.com/docs/installation/)
 
 Below is a video introduction:
 

@@ -6,7 +6,7 @@
 
 > 旧版的[沉浸式翻译开源项目](github.com/immersive-translate/old-immersive-translate)已在 2023 年 1 月 17 日被归档。
 
-[**点击安装沉浸式翻译**](https://immersivetranslate.com/docs/installation/)
+[**点击安装沉浸式翻译**](https://immersivetranslate.com/docs/installation/)或[查看文档](https://immersivetranslate.com/docs/)
 
 以下为视频介绍：
 

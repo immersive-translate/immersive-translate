@@ -18,6 +18,7 @@
   --immersive-translate-theme-marker-backgroundColor: #fbda41;
   --immersive-translate-theme-marker-backgroundColor-rgb: 251, 218, 65;
   --immersive-translate-theme-marker2-backgroundColor: #ffff00;
+  --immersive-translate-theme-opacity-opacity: 10;
 }
 
 .immersive-translate-target-translation-pre-whitespace {
@@ -247,7 +248,7 @@
 /* opacity theme start */
 
 .immersive-translate-target-translation-theme-opacity-inner {
-  filter: opacity(10%) !important;
+  filter: opacity(calc(var(--immersive-translate-theme-opacity-opacity) * 1%)) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }
@@ -257,7 +258,7 @@
 }
 
 [data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner {
-  filter: opacity(10%) !important;
+  filter: opacity(calc(var(--immersive-translate-theme-opacity-opacity) * 1%)) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
 }

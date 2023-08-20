@@ -479,4 +479,11 @@ article {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
-
+.option-input {
+  width: 180px;
+}
+@media (max-width: 576px) {
+  .option-input {
+    width: 160px;
+  }
+}

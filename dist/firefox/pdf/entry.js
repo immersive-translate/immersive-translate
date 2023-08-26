@@ -28,6 +28,11 @@ function noHandleError(event) {
   }
 }
 
+const DownloadTypeEnum = {
+  dual: "dual",
+  translated: "translated"
+}
+let downloadType = DownloadTypeEnum.dual;
 let startDownload, cancelDialog;
 window.addEventListener("DOMContentLoaded", function () {
   createControlButton();
@@ -45,13 +50,21 @@ window.addEventListener("DOMContentLoaded", function () {
             updateMetadata: false,
           });
 
-          await handlePdf(pdfDoc);
+          let newPdfDoc;
+          let title = "";
+          if (downloadType == DownloadTypeEnum.translated) {
+            newPdfDoc = await handleOnlyTranslatedPdf(pdfDoc);
+            title = filename.replace(".pdf", "-ony-tranlsated.pdf");
+          } else {
+            newPdfDoc = await handlePdf(pdfDoc);
+            title = filename.replace(".pdf", "-dual-tranlsated.pdf");
+          }
           if (cancelDialog) return;
-          const newPdfBytes = await pdfDoc.save();
+          const newPdfBytes = await newPdfDoc.save();
           oldDownload(
             new Blob([newPdfBytes], { type: "application/pdf" }),
             url,
-            filename.replace(".pdf", "-tranlsated.pdf"),
+            title,
             options,
           );
         };
@@ -94,6 +107,35 @@ async function handlePdf(pdfDoc) {
         closeModal();
       }
     }
+    return pdfDoc;
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
+}
+
+async function handleOnlyTranslatedPdf(pdfDoc) {
+  try {
+    const newPdfDoc = await PDFLib.PDFDocument.create();
+    const elements = document.querySelectorAll(".immersive-translate-page");
+    const pages = [...pdfDoc.getPages()];
+
+    for (let i = 0; i < elements.length; i++) {
+      if (cancelDialog) return;
+
+      const element = elements[i];
+      const pageNum = parseInt(element.getAttribute("data-page-number")) - 1;
+
+      const { width, height } = pages[pageNum].getSize();
+      newPdfDoc.addPage([width, height]);
+      const newPage = newPdfDoc.getPages()[i];
+      await drawElemetnToPage(newPdfDoc, element, newPage);
+      updateProgress(i + 1);
+      if (i == elements.length - 1) {
+        closeModal();
+      }
+    }
+    return newPdfDoc;
   } catch (error) {
     alert(error.message);
     console.error(error);
@@ -119,7 +161,11 @@ function showDownloadModal() {
     <div class="immersive-translate-progress-container">
       <div class="immersive-translate-progress-bar" id="immersive-progress"></div>
     </div>
-    <div class="immersive-translate-btn-warpper"><div class="immersive-translate-btn immersive-gary" data-action="close">取消</div><div class="immersive-translate-btn" id="immersive-download">确定下载</div></div>
+    <div class="immersive-translate-btn-warpper">
+    <div class="immersive-translate-btn immersive-gary" data-action="close">取消</div>
+    <div class="immersive-translate-btn" id="immersive-translated-download">译文下载</div>
+    <div class="immersive-translate-btn" id="immersive-dual-download">双语下载</div>
+    </div>
   </div>
   `;
     if (disableDownload) {
@@ -139,11 +185,19 @@ function showDownloadModal() {
     };
     elements.forEach((item) => item.onclick = closeFun);
     if (!disableDownload) {
-      const downloadBtn = document.getElementById("immersive-download");
-      downloadBtn.onclick = () => {
-        if (downloadBtn.classList.contains("immersive-disable")) return;
+      const dualDownloadBtn = document.getElementById("immersive-dual-download");
+      dualDownloadBtn.onclick = () => {
+        if (dualDownloadBtn.classList.contains("immersive-disable")) return;
+        downloadType = DownloadTypeEnum.dual;
         startDownload?.();
-        downloadBtn.classList.add("immersive-disable");
+        dualDownloadBtn.classList.add("immersive-disable");
+      };
+      const translateDownloadBtn = document.getElementById("immersive-translated-download");
+      translateDownloadBtn.onclick = () => {
+        if (translateDownloadBtn.classList.contains("immersive-disable")) return;
+        downloadType = DownloadTypeEnum.translated;
+        startDownload?.();
+        translateDownloadBtn.classList.add("immersive-disable");
       };
     }
   }
@@ -152,8 +206,8 @@ function showDownloadModal() {
   const currentStateDOM = document.getElementById("immersive-state");
   currentStateDOM.innerHTML =
     `已翻译 <b>${elements.length}</b> 页 / 总共 ${pagesCount} 页`;
-  const downloadBtn = document.getElementById("immersive-download");
-  downloadBtn.classList.remove("immersive-disable");
+  document.getElementById("immersive-dual-download")?.classList.remove("immersive-disable");
+  document.getElementById("immersive-translated-download")?.classList.remove("immersive-disable");
 }
 
 function closeModal() {

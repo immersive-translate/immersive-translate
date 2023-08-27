@@ -35,7 +35,6 @@ const DownloadTypeEnum = {
 let downloadType = DownloadTypeEnum.dual;
 let startDownload, cancelDialog;
 window.addEventListener("DOMContentLoaded", function () {
-  createControlButton();
   setTimeout(() => {
     const downloadManager = globalThis.PDFViewerApplication.downloadManager;
     const oldDownload = downloadManager.download.bind(downloadManager);
@@ -250,100 +249,6 @@ async function drawElemetnToPage(pdfDoc, element, page) {
     width: width,
     height: height,
   });
-}
-function createControlButton() {
-  const rightArea = document.querySelector("#toolbarViewerRight");
-  rightArea.style = "display: flex;flex-direction: row;align-items: center;";
-  if (!rightArea) return;
-  const wrapper = document.createElement("div");
-  wrapper.className = "immersive-translate-btn control-button";
-  wrapper.innerHTML = `快捷控制样式`;
-  rightArea.insertBefore(wrapper, rightArea.firstChild);
-  wrapper.onclick = showControlModal;
-}
-
-function showControlModal() {
-  let dialog = document.getElementById("immersive-control-modal");
-  if (!dialog) {
-    dialog = document.createElement("div");
-    dialog.id = "immersive-control-modal";
-    dialog.className = "immersive-translate-modal";
-    dialog.innerHTML = `
-  <div class="immersive-translate-modal-content">
-    <div data-action="close" class="immersive-translate-close">&times;</div>
-    <div class="modal-subttile">可通过以下配置快速调整译文效果</div>
-    <div class="switch-group">
-      <div class="switch-wrapper"><label class="switch"><input id="switch-image" type="checkbox" checked=true><span class="slider round"></span></label><span class="switch-label">带图模式: 将原文中的图还原到译文中</span></div>
-      <div class="switch-wrapper"><label class="switch"><input id="switch-overflow" type="checkbox" checked=true><span class="slider round"></span></label><span class="switch-label">重叠限制: 为了防止译文的段落之间相互重叠，限制了译文跟原文段落同等高度</span></div>
-      <div class="switch-wrapper"><label class="switch"><input id="switch-tiny" type="checkbox"><span class="slider round"></span></label><span class="switch-label">间距紧凑: 去掉默认间距，因为段落默认间距会导致在小屏中, 译文内容偏高被限高隐藏掉</span></div>
-    </div>
-    <div class="immersive-translate-btn-warpper"><div class="immersive-translate-btn immersive-gary" data-action="close">关闭</div></div>
-  </div>
-  `;
-    document.body.appendChild(dialog);
-    const elements = dialog.querySelectorAll("[data-action='close']");
-    const closeFun = () => {
-      dialog.style.display = "none";
-    };
-    elements.forEach((item) => item.onclick = closeFun);
-    document.getElementById("switch-image").onchange = toggleImageMode;
-    document.getElementById("switch-overflow").onchange = toggleOverflow;
-    document.getElementById("switch-tiny").onchange = toggleTiny;
-  }
-  dialog.style.display = "block";
-}
-
-function toggleImageMode(e) {
-  const isVisible = e.target.checked;
-  const existingStyleTag = document.getElementById("image-mode-style");
-  if (existingStyleTag) {
-    existingStyleTag.remove();
-  }
-
-  // Create a new style tag
-  const styleSheet = document.createElement("style");
-  styleSheet.id = "image-mode-style";
-  styleSheet.innerText = `
-   .image-mode {
-     display: ${isVisible ? "block" : "none"};
-   }
-   `;
-  document.head.appendChild(styleSheet);
-}
-
-function toggleOverflow(e) {
-  const isVisible = e.target.checked;
-  const existingStyleTag = document.getElementById("overflow-style");
-  if (existingStyleTag) {
-    existingStyleTag.remove();
-  }
-
-  // Create a new style tag
-  const styleSheet = document.createElement("style");
-  styleSheet.id = "overflow-style";
-  styleSheet.innerText = `
-  .immersive-translate-text-layer div,p {
-     height: fit-content${isVisible ? "" : "!important;"};
-   }
-   `;
-  document.head.appendChild(styleSheet);
-}
-
-function toggleTiny(e) {
-  const isVisible = e.target.checked;
-  const existingStyleTag = document.getElementById("tiny-style");
-  if (existingStyleTag) {
-    existingStyleTag.remove();
-  }
-  const styleSheet = document.createElement("style");
-  styleSheet.id = "tiny-style";
-  styleSheet.innerText = `
-   p {
-     margin-bottom: 0${isVisible ? "!important;" : ""};
-     line-height: 1.1${isVisible ? "!important;" : ""};
-   }
-   `;
-  document.head.appendChild(styleSheet);
 }
 
 function isSafari() {

@@ -128,7 +128,7 @@
 
 .modal-subttile {
   font-size: 16px;
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 
 /* 图片模式 */
@@ -138,7 +138,7 @@
   margin: 0 6px 0 0;
 }
 
-.switch-group {
+.modal-control-content {
   display: flex;
   flex-direction: column;
 }
@@ -217,4 +217,24 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.input-label {
+  font-size: 14px;
+  flex-shrink: 0;
+  min-width: 75px;
+  margin-right: 6px;
+}
+
+.input-wrapper input {
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
 }

@@ -135,12 +135,12 @@ div,p {
   /* white-space: nowrap; */
 }
 
-.immersive-translate-text-layer :is(span, br) {
+.immersive-translate-bg-text-layer :is(span, br) {
   background-color: white;
   padding: 2px 1px;
 }
 
-.immersive-translate-text-layer .markedContent {
+.immersive-translate-bg-text-layer .markedContent {
   position: unset !important;
 }
 

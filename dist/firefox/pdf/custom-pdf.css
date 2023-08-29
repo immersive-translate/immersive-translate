@@ -135,15 +135,15 @@ div,p {
   /* white-space: nowrap; */
 }
 
-.immersive-translate-bg-text-layer :is(span, br) {
+.immersive-translate-text-layer-image-mode {
+  opacity: 1 !important;
+}
+
+.immersive-translate-text-layer-image-mode :is(span, br) {
   background-color: white;
   padding: 2px 1px;
 }
 
-.immersive-translate-bg-text-layer .markedContent {
+.immersive-translate-text-layer-image-mode .markedContent {
   position: unset !important;
-}
-
-.immersive-translate-annotation-layer .linkAnnotation {
-  border: unset !important;
 }

@@ -449,6 +449,7 @@ a.tiny-button {
   font-size: 14px;
   color: #999;
   margin-right: 10px;
+  margin-bottom:10px;
 }
 
 .header a {
@@ -494,3 +495,4 @@ article {
 }
 
 }
+

@@ -164,6 +164,11 @@
   height: 26px;
 }
 
+.tiny-input {
+  width: 40px;
+  margin-right: 6px;
+}
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;

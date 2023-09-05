@@ -47,6 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
           const pdfBytes = await blob.arrayBuffer();
           const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes, {
             updateMetadata: false,
+            ignoreEncryption: true
           });
 
           let newPdfDoc;

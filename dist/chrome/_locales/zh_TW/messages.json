@@ -3,7 +3,7 @@
     "message": "沉浸式翻譯"
   },
   "brandDescription": {
-    "message": "沉浸式網頁雙語翻譯套件，完全免費使用，支援 Deepl/Google/騰訊/火山翻譯等多個翻譯服務，支援 Firefox/Chrome/油猴腳本，亦可在 iOS Safari 上使用。"
+    "message": "沉浸式網頁雙語翻譯擴展，同時支持 PDF 翻譯，雙語 Epub 電子書製作，支持 Deepl/Google/有道/騰訊翻譯等多個翻譯服務，免費使用。"
   },
   "toggleTranslatePage": {
     "message": "翻譯網頁/顯示原文"

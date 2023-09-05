@@ -3,7 +3,7 @@
     "message": "沉浸式翻译"
   },
   "brandDescription": {
-    "message": "沉浸式网页双语翻译扩展，免费使用，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，支持 Firefox/Chrome/油猴脚本，亦可在 iOS Safari 上使用。"
+    "message": "沉浸式网页双语翻译扩展，同时支持 PDF 翻译，双语 Epub 电子书制作，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，免费使用。"
   },
   "toggleTranslatePage": {
     "message": "翻译网页/显示原文"

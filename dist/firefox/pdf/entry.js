@@ -147,7 +147,7 @@ function showDownloadModal() {
   const elements = document.querySelectorAll(".immersive-translate-page");
   cancelDialog = false;
   let dialog = document.getElementById("immersive-modal");
-  const disableDownload = isSafari();
+  const disableDownload = false;
   if (!dialog) {
     dialog = document.createElement("div");
     dialog.id = "immersive-modal";

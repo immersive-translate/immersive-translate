@@ -147,3 +147,11 @@ div,p {
 .immersive-translate-text-layer-image-mode .markedContent {
   position: unset !important;
 }
+
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}

@@ -449,6 +449,7 @@ a.tiny-button {
   font-size: 14px;
   color: #999;
   margin-right: 10px;
+  margin-bottom:10px;
 }
 
 .header a {
@@ -487,4 +488,11 @@ article {
   .option-input {
     width: 160px;
   }
+  article {
+  padding: 20px var(--block-spacing-horizontal);
+  margin: 16px 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
+
+}
+

@@ -1,6 +1,6 @@
 html {
-  font-size: 17px;
-  --font-size: 17px;
+  font-size: 16px;
+  --font-size: 16px;
 }
 
 body {
@@ -8,6 +8,9 @@ body {
   margin: 0 auto;
   min-width: 268px;
   border-radius: 10px;
+}
+.popup-container {
+  color: #666
 }
 .immersive-translate-popup-overlay {
   position: fixed;
@@ -109,9 +112,14 @@ body {
 .justify-between {
   justify-content: space-between;
 }
-
 .mb-2 {
   margin-bottom: 8px;
+}
+.mb-4 {
+  margin-bottom: 16px;
+}
+.mb-3 {
+  margin-bottom: 12px;
 }
 .inline-block {
   display: inline-block;
@@ -170,6 +178,13 @@ body {
 .pt-3{
   padding-top: 12px;
 }
+.px-6{
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.pt-6{
+  padding-top: 20px;
+}
 .py-3 {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -216,6 +231,12 @@ body {
 }
 .items-center {
   align-items: center;
+}
+.max-content {
+  width: max-content;
+}
+.justify-center {
+  justify-content: center;
 }
 .items-end {
   align-items: flex-end;
@@ -351,14 +372,14 @@ select.min-select-left {
   color: #999;
 }
 .text-label {
-  color: #6b7280;
+  color: #666;
 }
 
 
 
 
 select.text-label {
-  color: #6b7280;
+  color: #666;
 }
 .display-none {
   display: none;

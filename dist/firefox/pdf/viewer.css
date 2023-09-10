@@ -2507,25 +2507,42 @@ dialog :link {
   body[data-pdfjsprinting] #printContainer {
     display: block;
   }
+  
+  .pdfViewer .page {
+    display: none;
+  }
+
+  .pdfViewer .immersive-translate-page {
+    display: block !important;
+    height: 100%;
+    width: 100%;
+    break-before: always;
+    page-break-before: always;
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
   #printContainer {
     height: 100%;
   }
-  /* wrapper around (scaled) print canvas elements */
+
   #printContainer > .printedPage {
+    display: none;
+  }
+  /* wrapper around (scaled) print canvas elements */
+  /* #printContainer > .printedPage {
     page-break-after: always;
     page-break-inside: avoid;
-
-    /* The wrapper always cover the whole page. */
     height: 100%;
     width: 100%;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
-  #printContainer > .xfaPrintedPage .xfaPage {
+  /* #printContainer > .xfaPrintedPage .xfaPage {
     position: absolute;
   }
 
@@ -2535,16 +2552,15 @@ dialog :link {
     width: 100%;
     height: 100%;
     position: relative;
-  }
+  } */
 
-  #printContainer > .printedPage :is(canvas, img) {
-    /* The intrinsic canvas / image size will make sure that we fit the page. */
+  /* #printContainer > .printedPage :is(canvas, img) {
     max-width: 100%;
     max-height: 100%;
 
     direction: ltr;
     display: block;
-  }
+  } */
 }
 
 .visibleLargeView,

@@ -147,7 +147,7 @@ function showDownloadModal() {
   const elements = document.querySelectorAll(".immersive-translate-page");
   cancelDialog = false;
   let dialog = document.getElementById("immersive-modal");
-  const disableDownload = false;
+  const isNewFeature = isChrome();
   if (!dialog) {
     dialog = document.createElement("div");
     dialog.id = "immersive-modal";
@@ -168,15 +168,6 @@ function showDownloadModal() {
     </div>
   </div>
   `;
-    if (disableDownload) {
-      dialog.innerHTML = `
-  <div class="immersive-translate-modal-content">
-    <span data-action="close" class="immersive-translate-close">&times;</span>
-    <p>抱歉，Safari 对插件导出文件有限制，暂时无法导出，请使用其他浏览器替代。</p>
-    <div class="immersive-translate-btn-warpper"><div class="immersive-translate-btn immersive-gary" data-action="close">取消</div></div>
-  </div>
-      `;
-    }
     document.body.appendChild(dialog);
     const elements = dialog.querySelectorAll("[data-action='close']");
     const closeFun = () => {
@@ -184,25 +175,28 @@ function showDownloadModal() {
       closeModal();
     };
     elements.forEach((item) => item.onclick = closeFun);
-    if (!disableDownload) {
-      const dualDownloadBtn = document.getElementById("immersive-dual-download");
-      dualDownloadBtn.onclick = () => {
-        if (dualDownloadBtn.classList.contains("immersive-disable")) return;
-        downloadType = DownloadTypeEnum.dual;
+    const dualDownloadBtn = document.getElementById("immersive-dual-download");
+    dualDownloadBtn.onclick = () => {
+      if (dualDownloadBtn.classList.contains("immersive-disable")) return;
+      downloadType = DownloadTypeEnum.dual;
+      startDownload?.();
+      dualDownloadBtn.classList.add("immersive-disable");
+    };
+    const translateDownloadBtn = document.getElementById("immersive-translated-download");
+    if(isNewFeature) translateDownloadBtn.innerText = "译文下载(打印)";
+    translateDownloadBtn.onclick = () => {
+      if (translateDownloadBtn.classList.contains("immersive-disable")) return;
+      downloadType = DownloadTypeEnum.translated;
+      translateDownloadBtn.classList.add("immersive-disable");
+      if(!isNewFeature) {
         startDownload?.();
-        dualDownloadBtn.classList.add("immersive-disable");
-      };
-      const translateDownloadBtn = document.getElementById("immersive-translated-download");
-      translateDownloadBtn.onclick = () => {
-        if (translateDownloadBtn.classList.contains("immersive-disable")) return;
-        downloadType = DownloadTypeEnum.translated;
-        startDownload?.();
-        translateDownloadBtn.classList.add("immersive-disable");
-      };
-    }
+      } else {
+        closeModal();
+        document.getElementById("print")?.click();
+      }
+    };
   }
   dialog.style.display = "block";
-  if (disableDownload) return;
   const currentStateDOM = document.getElementById("immersive-state");
   currentStateDOM.innerHTML =
     `已翻译 <b>${elements.length}</b> 页 / 总共 ${pagesCount} 页`;
@@ -263,3 +257,9 @@ function isSafari() {
   return safariAgent;
 }
 
+function isChrome() {
+  const userAgentString = navigator.userAgent;
+  // Detect Chrome
+  const chromeAgent = userAgentString.indexOf("Chrome") > -1;
+  return chromeAgent;
+}

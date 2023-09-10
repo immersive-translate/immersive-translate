@@ -1293,6 +1293,7 @@ const PDFViewerApplication = {
     }
   },
   afterPrint() {
+    globalThis.realAfterPrint();
     if (this._printAnnotationStoragePromise) {
       this._printAnnotationStoragePromise.then(() => {
         this.pdfScriptingManager.dispatchDidPrint();
@@ -13310,6 +13311,9 @@ var _print_utils = __webpack_require__(47);
 let activeService = null;
 let dialog = null;
 let overlayManager = null;
+
+globalThis.realRenderPages = function () {}
+globalThis.realAfterPrint = function() {}
 function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printResolution, optionalContentConfigPromise, printAnnotationStoragePromise) {
   const scratchCanvas = activeService.scratchCanvas;
   const PRINT_UNITS = printResolution / _pdfjsLib.PixelsPerInch.PDF;
@@ -13385,6 +13389,8 @@ class PDFPrintService {
     });
   }
   renderPages() {
+    window.realRenderPages();
+    return Promise.resolve();
     if (this.pdfDocument.isPureXfa) {
       (0, _print_utils.getXfaHtmlForPrinting)(this.printContainer, this.pdfDocument);
       return Promise.resolve();

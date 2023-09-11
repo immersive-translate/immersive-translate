@@ -147,7 +147,7 @@ function showDownloadModal() {
   const elements = document.querySelectorAll(".immersive-translate-page");
   cancelDialog = false;
   let dialog = document.getElementById("immersive-modal");
-  const isNewFeature = isChrome();
+  const isNewFeature = true;
   if (!dialog) {
     dialog = document.createElement("div");
     dialog.id = "immersive-modal";
@@ -155,7 +155,9 @@ function showDownloadModal() {
     dialog.innerHTML = `
   <div class="immersive-translate-modal-content">
     <span data-action="close" class="immersive-translate-close">&times;</span>
-    <p>请检查翻译效果，可参考示例 PDF 对译文段落大小和位置进行调整，译文内容将会保存成图片</p>
+    <p>请检查翻译效果，可参考示例 PDF 对译文段落大小和位置进行调整。</p>
+    <p>仅译文打印，注意存储为 PDF 文件</p>
+    <p>双语下载最佳50页以内，超过建议手动拆分</p>
     <p class="mobile-hint">建议 PC 端使用，可以调整翻译效果</p>
     <p id="immersive-state"></p>
     <div class="immersive-translate-progress-container">
@@ -169,29 +171,36 @@ function showDownloadModal() {
   </div>
   `;
     document.body.appendChild(dialog);
-    const elements = dialog.querySelectorAll("[data-action='close']");
+    const closeElements = dialog.querySelectorAll("[data-action='close']");
     const closeFun = () => {
       cancelDialog = true;
       closeModal();
     };
-    elements.forEach((item) => item.onclick = closeFun);
+    closeElements.forEach((item) => item.onclick = closeFun);
     const dualDownloadBtn = document.getElementById("immersive-dual-download");
+    // if(isNewFeature) dualDownloadBtn.innerText = "双语下载(打印)";
     dualDownloadBtn.onclick = () => {
       if (dualDownloadBtn.classList.contains("immersive-disable")) return;
       downloadType = DownloadTypeEnum.dual;
-      startDownload?.();
       dualDownloadBtn.classList.add("immersive-disable");
+      // if(!isNewFeature) {
+      startDownload?.();
+      // } else {
+      //   closeModal();
+      //   document.getElementById("print")?.click();
+      // }
     };
     const translateDownloadBtn = document.getElementById("immersive-translated-download");
-    if(isNewFeature) translateDownloadBtn.innerText = "译文下载(打印)";
+    if (isNewFeature) translateDownloadBtn.innerText = "译文下载(打印)";
     translateDownloadBtn.onclick = () => {
       if (translateDownloadBtn.classList.contains("immersive-disable")) return;
       downloadType = DownloadTypeEnum.translated;
       translateDownloadBtn.classList.add("immersive-disable");
-      if(!isNewFeature) {
+      if (!isNewFeature) {
         startDownload?.();
       } else {
         closeModal();
+        globalThis?.hiddenOriginalPdf();
         document.getElementById("print")?.click();
       }
     };

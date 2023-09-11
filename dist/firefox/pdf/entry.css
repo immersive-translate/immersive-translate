@@ -65,6 +65,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .immersive-translate-btn {

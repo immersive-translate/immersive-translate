@@ -13389,8 +13389,7 @@ class PDFPrintService {
     });
   }
   renderPages() {
-    window.realRenderPages();
-    return Promise.resolve();
+    return  window.realRenderPages();
     if (this.pdfDocument.isPureXfa) {
       (0, _print_utils.getXfaHtmlForPrinting)(this.printContainer, this.pdfDocument);
       return Promise.resolve();

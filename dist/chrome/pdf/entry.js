@@ -157,7 +157,6 @@ function showDownloadModal() {
     <span data-action="close" class="immersive-translate-close">&times;</span>
     <p>请检查翻译效果，可参考示例 PDF 对译文段落大小和位置进行调整。</p>
     <p>仅译文打印，注意存储为 PDF 文件</p>
-    <p>双语下载最佳50页以内，超过建议手动拆分</p>
     <p class="mobile-hint">建议 PC 端使用，可以调整翻译效果</p>
     <p id="immersive-state"></p>
     <div class="immersive-translate-progress-container">
@@ -184,7 +183,7 @@ function showDownloadModal() {
       downloadType = DownloadTypeEnum.dual;
       dualDownloadBtn.classList.add("immersive-disable");
       // if(!isNewFeature) {
-      startDownload?.();
+        startDownload?.();
       // } else {
       //   closeModal();
       //   document.getElementById("print")?.click();
@@ -241,7 +240,22 @@ function hiddenProgress() {
 }
 
 async function drawElemetnToPage(pdfDoc, element, page) {
-  const canvas = await html2canvas(element);
+  const canvas = await html2canvas(element, {
+    ignoreElements: (ele) => {
+      if (
+        [
+          "sidebarContainer",
+          "dialogContainer",
+          "printContainer",
+          "immersive-modal",
+        ].includes(ele.id)
+      )
+        return true;
+      if (ele.classList.contains("page") && element.id !== ele.id) {
+        return true;
+      }
+    },
+  });
   const imageData = canvas.toDataURL("image/png");
   const pngUrl = imageData.split(",")[1];
   const pngImageBytes = Uint8Array.from(atob(pngUrl), (c) => c.charCodeAt(0));

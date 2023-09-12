@@ -2515,12 +2515,20 @@ dialog :link {
 
   .page {
     display: block;
-    max-height: 100vh;
-    overflow: hidden;
     break-after: always;
     page-break-after: always;
     break-inside: avoid-page;
     page-break-inside: avoid-page;
+  }
+
+  .immersive-translate-page {
+    max-height: 100vh;
+  }
+
+  [class='page'] {
+    max-width: calc(210mm * 800 / 540);
+    max-height: calc(297mm * 800 / 540);
+    margin: auto;
   }
 
   #printContainer {
@@ -2529,6 +2537,14 @@ dialog :link {
 
   #printContainer > .printedPage {
     display: none;
+  }
+
+  #printContainer [class='page'] :is(canvas, img) {
+    max-width: 100%;
+    max-height: 100%;
+
+    direction: ltr;
+    display: block;
   }
 }
 

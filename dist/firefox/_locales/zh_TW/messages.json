@@ -1,6 +1,9 @@
 {
-  "brandName": {
+  "shortBrandName": {
     "message": "沉浸式翻譯"
+  },
+  "brandName": {
+    "message": "沉浸式翻譯: 雙語對照網頁翻譯 & PDF文檔翻譯"
   },
   "brandDescription": {
     "message": "沉浸式網頁雙語翻譯擴展，同時支持 PDF 翻譯，雙語 Epub 電子書製作，支持 Deepl/Google/有道/騰訊翻譯等多個翻譯服務，免費使用。"

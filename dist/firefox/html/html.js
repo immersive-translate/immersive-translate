@@ -1,4 +1,11 @@
 const $$$ = document.querySelector.bind(document);
+const name = "open_html_page";
+document.dispatchEvent(
+  new CustomEvent("immersiveTranslateDocumentMessageEventUpload", {
+    detail: { name },
+  }),
+);
+
 const open = (file) => {
   document.body.removeChild($$$("#drop-target"));
   if (file) {

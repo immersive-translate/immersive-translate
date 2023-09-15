@@ -135,6 +135,7 @@
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+  font-size:15px;
 }
 
 .immersive-translate-modal-content {
@@ -224,8 +225,17 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
 }
 
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
 .immersive-translate-modal input[type="radio"] {
-  margin: 0 6px 16px;
+  margin: 0 6px;
   cursor: pointer;
 }
 

@@ -1,1 +1,0 @@
-globalThis.immersiveTranslateEbookViewer = true;

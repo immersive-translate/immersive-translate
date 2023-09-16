@@ -244,3 +244,7 @@ input:checked+.slider:before {
   border: 1px solid #ccc;
   padding: 0 10px;
 }
+
+.input-wrapper input[type="range"] {
+  padding: 0px !important;
+}

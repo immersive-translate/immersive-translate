@@ -155,3 +155,7 @@ div,p {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
+body {
+  --font-scale: 1;
+}

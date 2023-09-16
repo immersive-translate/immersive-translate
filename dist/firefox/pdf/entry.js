@@ -101,7 +101,7 @@ async function handlePdf(pdfDoc) {
         sizeMap[`${width}-${height}`],
       ]);
       await drawElemetnToPage(pdfDoc, element, newPage);
-      pdfDoc.insertPage(pageNum * 2 + 1, newPage);
+      pdfDoc.insertPage(pageNum + i + 1, newPage);
       updateProgress(i + 1);
       if (i == elements.length - 1) {
         closeModal();
@@ -183,7 +183,7 @@ function showDownloadModal() {
       downloadType = DownloadTypeEnum.dual;
       dualDownloadBtn.classList.add("immersive-disable");
       // if(!isNewFeature) {
-        startDownload?.();
+      startDownload?.();
       // } else {
       //   closeModal();
       //   document.getElementById("print")?.click();

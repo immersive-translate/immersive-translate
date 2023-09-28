@@ -34,15 +34,16 @@ const DownloadTypeEnum = {
 }
 let downloadType = DownloadTypeEnum.dual;
 let startDownload, cancelDialog;
-globalThis.addEventListener("DOMContentLoaded", function () {
-  init();
-});
 init();
 let hasInited = false;
 function init() {
   setTimeout(() => {
     const downloadManager = globalThis?.PDFViewerApplication?.downloadManager;
-    if (!downloadManager || hasInited) return;
+    if (!downloadManager) {
+      init();
+      return;
+    }
+    if (hasInited) return;
     hasInited = true;
 
     const oldDownload = downloadManager.download.bind(downloadManager);

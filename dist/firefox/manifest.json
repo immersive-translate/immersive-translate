@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -11,7 +11,8 @@
   },
   "web_accessible_resources": [
     "styles/inject.css",
-    "pdf/index.html"
+    "pdf/index.html",
+    "subtitles-hook.js"
   ],
   "content_scripts": [
     {

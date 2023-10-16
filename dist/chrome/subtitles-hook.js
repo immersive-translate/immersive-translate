@@ -9,24 +9,24 @@
 
   const customSend = function () {
     if (this._url) {
-      getYTInitialPlayerResponse().then((ytInitialPlayerResponse) => {
-        globalThis.postMessage({
-          type: "youtube-subtitle-request",
-          text: this._url,
-          ytInitialPlayerResponse: ytInitialPlayerResponse,
-        });
+      const id = (new Date()).getTime();
+      globalThis.postMessage({
+        type: "youtube-subtitle-request",
+        text: this._url,
+        id,
       });
 
       const handleEvent = ({ data }) => {
-        if ("youtube-subtitle-response" !== data.type) return;
-        if (data.text) {
-          Object.defineProperty(this, "responseText", {
-            value: data.text,
-            writable: false,
-          });
+        if ("youtube-subtitle-response" === data.type && data.id === id) {
+          if (data.text) {
+            Object.defineProperty(this, "responseText", {
+              value: data.text,
+              writable: false,
+            });
+          }
+          xhrSend.apply(this, arguments);
+          globalThis.removeEventListener("message", handleEvent);
         }
-        xhrSend.apply(this, arguments);
-        globalThis.removeEventListener("message", handleEvent);
       };
       globalThis.addEventListener("message", handleEvent);
     } else {
@@ -59,7 +59,7 @@
           (t) => t.textContent.includes("ytInitialPlayerResponse"),
         );
         return new Function(
-          `${n.textContent}; return ytInitialPlayerResponse;`,
+          `const window = {}; ${n.textContent}; return ytInitialPlayerResponse;`,
         )();
       }).catch((e) => {
         return null;
@@ -82,6 +82,15 @@
   globalThis.addEventListener("message", ({ data }) => {
     if (data.type == "youtube-reload-subtitles") {
       reloadSubtitles(data);
+    }
+    if (data.type === "youtube-initial-player-request") {
+      getYTInitialPlayerResponse(data.text).then((res) => {
+        globalThis.postMessage({
+          type: "youtube-initial-player-response",
+          text: res,
+          id: data.id,
+        });
+      });
     }
   });
 })();

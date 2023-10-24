@@ -133,7 +133,7 @@ async function handlePdf(pdfDoc) {
     console.error(error);
   }
 }
-
+let pdfImageScale = 2;
 async function handleOnlyTranslatedPdf(pdfDoc) {
   try {
     const newPdfDoc = await PDFLib.PDFDocument.create();
@@ -177,6 +177,7 @@ function showDownloadModal() {
     <span data-action="close" class="immersive-translate-close">&times;</span>
     <p>请检查翻译效果，可参考示例 PDF 对译文段落大小和位置进行调整。</p>
     <p>仅译文打印，注意存储为 PDF 文件</p>
+    <div class="input-wrapper" style="">双语下载译文图片清晰度: <input id="image-radio" class='tiny-input' type="number" style="margin-left: 6px;" value="2"/>倍 <p style="font-size:12px;margin: 0 0 0 2px;">(越高越占内存/越慢)<p></div>
     <p class="mobile-hint">建议 PC 端使用，可以调整翻译效果</p>
     <p id="immersive-state"></p>
     <div class="immersive-translate-progress-container">
@@ -190,6 +191,12 @@ function showDownloadModal() {
   </div>
   `;
     document.body.appendChild(dialog);
+    setTimeout(() => {
+      document.getElementById("image-radio").addEventListener("change", (e) => {
+        pdfImageScale = Number(e.target.value);
+      })
+    }, 100);
+
     const closeElements = dialog.querySelectorAll("[data-action='close']");
     const closeFun = () => {
       cancelDialog = true;
@@ -261,7 +268,7 @@ function hiddenProgress() {
 
 async function drawElemetnToPage(pdfDoc, element, page) {
   const canvas = await html2canvas(element, {
-    scale: (window.devicePixelRatio || 1) * 2,
+    scale: (window.devicePixelRatio || 1) * pdfImageScale,
     ignoreElements: (ele) => {
       if (
         [

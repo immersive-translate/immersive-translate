@@ -136,6 +136,7 @@
   font-size: 12px;
   padding: 5px 10px;
   margin: 0 6px 0 0;
+  cursor: pointer;
 }
 
 .modal-control-content {

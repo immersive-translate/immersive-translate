@@ -184,7 +184,7 @@ hgroup.hgroup {
 
 .description {
   color: rgb(148 163 184);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .docUrl {
@@ -485,6 +485,11 @@ article {
   width: 180px;
 }
 @media (max-width: 576px) {
+  .description {
+  font-size: 14px;
+}
+
+
   .option-input {
     width: 160px;
   }

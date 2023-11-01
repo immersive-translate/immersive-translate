@@ -206,6 +206,7 @@ kbd {
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
   --background-color: #fff;
+  --background-light-green: #F5F7F9; 
   --color: hsl(205deg, 20%, 32%);
   --h1-color: hsl(205deg, 30%, 15%);
   --h2-color: #24333e;
@@ -311,6 +312,7 @@ kbd {
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --background-color: #11191f;
+    --background-light-green: #141e26; 
     --color: hsl(205deg, 16%, 77%);
     --h1-color: hsl(205deg, 20%, 94%);
     --h2-color: #e1e6eb;
@@ -417,6 +419,7 @@ kbd {
 }
 [data-theme="dark"] {
   --background-color: #11191f;
+  --background-light-green: #141e26; 
   --color: hsl(205deg, 16%, 77%);
   --h1-color: hsl(205deg, 20%, 94%);
   --h2-color: #e1e6eb;

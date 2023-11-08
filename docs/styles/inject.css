@@ -68,7 +68,6 @@
   color: var(--immersive-translate-theme-grey-textColor);
 }
 
-.immersive-translate-target-translation-inline-wrapper {}
 
 .immersive-translate-target-translation-theme-underline-inner {
   border-bottom: 1px solid var(--immersive-translate-theme-underline-borderColor) !important;
@@ -115,7 +114,6 @@
 }
 
 .immersive-translate-target-translation-theme-dotted-inner {
-  background-repeat: repeat-x;
   background-image: linear-gradient(to right,
       var(--immersive-translate-theme-dotted-borderColor) 30%,
       rgba(255, 255, 255, 0) 0%);
@@ -134,7 +132,6 @@
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {
-  background-repeat: repeat-x !important;
   background: linear-gradient(to right,
       var(--immersive-translate-theme-dashed-borderColor) 0%,
       var(--immersive-translate-theme-dashed-borderColor) 50%,
@@ -237,13 +234,6 @@
   border-radius: 10px;
 }
 
-.immersive-translate-target-translation-theme-mask-inner:hover {
-  filter: none !important;
-}
-
-[data-immersive-translate-root-translation-theme="mask"] .immersive-translate-target-inner:hover {
-  filter: none !important;
-}
 
 /* opacity theme start */
 
@@ -256,8 +246,7 @@
 [data-immersive-translate-root-translation-theme="none"] .immersive-translate-target-translation-theme-opacity-inner {
   filter: none !important;
 }
-
-[data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner {
+[data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner,.immersive-translate-target-translation-theme-opacity-inner:hover {
   filter: opacity(calc(var(--immersive-translate-theme-opacity-opacity) * 1%)) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
@@ -267,7 +256,16 @@
   filter: none !important;
 }
 
+
+.immersive-translate-target-translation-theme-mask-inner:hover {
+  filter: none !important;
+}
 [data-immersive-translate-root-translation-theme="opacity"] .immersive-translate-target-inner:hover {
+  filter: none !important;
+}
+
+
+[data-immersive-translate-root-translation-theme="mask"] .immersive-translate-target-inner:hover {
   filter: none !important;
 }
 
@@ -304,7 +302,6 @@
   }
 }
 
-.immersive-translate-error {}
 
 .immersive-translate-clickable-button {
   cursor: pointer;
@@ -333,7 +330,6 @@
   content: "...";
 }
 
-.immersive-translate-loading-none {}
 
 /* dark mode for loading */
 
@@ -355,20 +351,6 @@
   position: relative;
   display: inline-flex;
   /* little indicater to indicate it's hoverable */
-}
-
-.immersive-translate-tooltip:hover .immersive-translate-tooltip-content {
-  display: block;
-}
-
-.immersive-translate-tooltip:hover+.immersive-translate-tooltip-content {
-  display: block;
-}
-
-.immersive-translate-tooltip-content-table {
-  left: unset !important;
-  bottom: unset !important;
-  transform: translate(-10%, 50%) !important;
 }
 
 .immersive-translate-tooltip-content {
@@ -396,6 +378,21 @@
   display: none;
   /* hide by default */
 }
+
+.immersive-translate-tooltip:hover .immersive-translate-tooltip-content {
+  display: block;
+}
+
+.immersive-translate-tooltip:hover+.immersive-translate-tooltip-content {
+  display: block;
+}
+
+.immersive-translate-tooltip-content-table {
+  left: unset !important;
+  bottom: unset !important;
+  transform: translate(-10%, 50%) !important;
+}
+
 
 .immersive-translate-tooltip:hover:before {
   display: block;

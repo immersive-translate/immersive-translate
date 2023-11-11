@@ -39,8 +39,6 @@ let hasInited = false;
 function init() {
   setTimeout(() => {
     if (!document.getElementById("immersive-helper")) {
-      document.getElementById("editorFreeText").style.display = "none";
-      document.getElementById("editorInk").style.display = "none";
       const containers = document.getElementById("editorModeButtons");
       const helperBtn = document.createElement("a");
       helperBtn.className = "immersive-translate-btn control-button";

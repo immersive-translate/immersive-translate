@@ -23,6 +23,9 @@
   "toggleTranslateTheMainPage": {
     "message": "翻譯頁面主要區域/顯示原文"
   },
+  "shareToDraft": {
+    "message": "分享雙語頁面"
+  },
   "openOptionsPage": {
     "message": "開啟設定頁面"
   },

@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "ترجمة غامرة"
+  },
+  "brandName": {
+    "message": "ترجمة غامرة: ترجمة صفحات الويب ثنائية اللغة وترجمة مستندات PDF"
+  },
+  "brandDescription": {
+    "message": "امتداد شامل للترجمة ثنائية اللغة على الويب، يدعم ترجمة PDF، وإنتاج كتب إلكترونية ثنائية اللغة من نوع Epub، وخدمات ترجمة متعددة مثل Deepl/Google/Youdao/Tencent Translation، مجانًا للاستخدام."
+  },
+  "toggleTranslatePage": {
+    "message": "ترجمة صفحة الويب/إظهار النص الأصلي"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "ترجمة جميع مناطق الصفحة/عرض النص الأصلي"
+  },
+  "toggleOnlyTransation": {
+    "message": "ترجمة وإخفاء النص الأصلي/إظهار النص الأصلي"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "ترجمة فورية إلى أسفل الصفحة/إظهار النص الأصلي"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "ترجمة المنطقة الرئيسية للصفحة/عرض النص الأصلي"
+  },
+  "shareToDraft": {
+    "message": "مشاركة الصفحات ثنائية اللغة"
+  },
+  "openOptionsPage": {
+    "message": "افتح صفحة الإعدادات"
+  },
+  "toggleTranslationMask": {
+    "message": "إظهار/إخفاء تأثير طمس الترجمة"
+  },
+  "translateLocalPdfFile": {
+    "message": "ترجمة ملفات PDF المحلية"
+  },
+  "openEbookViewer": {
+    "message": "قراءة الكتب الإلكترونية المحلية"
+  },
+  "openEbookBuilder": {
+    "message": "إنشاء كتب إلكترونية EPUB ثنائية اللغة"
+  },
+  "translateLocalHtmlFile": {
+    "message": "ترجمة ملفات HTML/txt"
+  },
+  "donateContext": {
+    "message": "تعرف على فوائد الرعاية"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "ترجمة ملفات الترجمة المحلية"
+  },
+  "openAboutPage": {
+    "message": "حول/ردود الفعل"
+  }
+}

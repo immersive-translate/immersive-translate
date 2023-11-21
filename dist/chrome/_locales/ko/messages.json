@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "몰입 번역"
+  },
+  "brandName": {
+    "message": "몰입 번역: 이중 언어 웹 페이지 번역 및 PDF 문서 번역"
+  },
+  "brandDescription": {
+    "message": "몰입형 이중 언어 웹 페이지 번역 확장 프로그램은 PDF 번역, 이중 언어 Epub 전자책 생성도 지원하며, 무료로 사용할 수 있는 Deep/Google/YouDao/Tencent 번역과 같은 여러 번역 서비스를 지원합니다."
+  },
+  "toggleTranslatePage": {
+    "message": "페이지 번역/원문 표시"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "페이지의 모든 영역 번역/원문 텍스트 표시"
+  },
+  "toggleOnlyTransation": {
+    "message": "원본 텍스트 번역 및 숨기기/원본 텍스트 표시"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "페이지 하단으로 즉시 번역/원문 표시"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "페이지의 주요 영역 번역/원문 텍스트 표시"
+  },
+  "shareToDraft": {
+    "message": "이중 언어 페이지 공유"
+  },
+  "openOptionsPage": {
+    "message": "설정 페이지 열기"
+  },
+  "toggleTranslationMask": {
+    "message": "번역 흐림 효과 표시/숨기기"
+  },
+  "translateLocalPdfFile": {
+    "message": "로컬 PDF 파일 번역"
+  },
+  "openEbookViewer": {
+    "message": "현지 전자책 읽기"
+  },
+  "openEbookBuilder": {
+    "message": "이중 언어 EPUB 전자책 만들기"
+  },
+  "translateLocalHtmlFile": {
+    "message": "HTML/텍스트 파일 번역"
+  },
+  "donateContext": {
+    "message": "스폰서십 혜택에 대해 알아보기"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "로컬 자막 파일 번역"
+  },
+  "openAboutPage": {
+    "message": "정보/피드백"
+  }
+}

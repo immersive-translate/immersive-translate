@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "Погружной перевод"
+  },
+  "brandName": {
+    "message": "Иммерсионный перевод: двуязычный перевод веб-страниц и PDF-документов"
+  },
+  "brandDescription": {
+    "message": "Расширение для двуязычного перевода веб-страниц, также поддерживает перевод PDF, создание двуязычных электронных книг в формате Epub, поддерживает множество сервисов перевода, таких как Deepl/Google/YouDao/Tencent Translate, бесплатное в использовании."
+  },
+  "toggleTranslatePage": {
+    "message": "Перевести страницу/отобразить оригинальный текст"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Перевести все области страницы/отобразить оригинальный текст"
+  },
+  "toggleOnlyTransation": {
+    "message": "Перевод и скрытие оригинального текста/показ оригинального текста"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Немедленный перевод в нижнюю часть страницы/отображение оригинального текста"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Перевести основную область страницы/отобразить оригинальный текст"
+  },
+  "shareToDraft": {
+    "message": "Поделиться Двуязычные страницы"
+  },
+  "openOptionsPage": {
+    "message": "Откройте страницу настроек"
+  },
+  "toggleTranslationMask": {
+    "message": "Показать/скрыть эффект размытия при переводе"
+  },
+  "translateLocalPdfFile": {
+    "message": "Перевод локальных PDF-файлов"
+  },
+  "openEbookViewer": {
+    "message": "Читать местные электронные книги"
+  },
+  "openEbookBuilder": {
+    "message": "Создание двуязычных электронных книг EPUB"
+  },
+  "translateLocalHtmlFile": {
+    "message": "Перевод HTML/текстовых файлов"
+  },
+  "donateContext": {
+    "message": "Узнайте о преимуществах спонсорства"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Перевод файлов локальных субтитров"
+  },
+  "openAboutPage": {
+    "message": "Информация/Отзывы"
+  }
+}

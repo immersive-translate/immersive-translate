@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "Immersionsübersetzung"
+  },
+  "brandName": {
+    "message": "Immersion Translation: Zweisprachige Webseitenübersetzung und Übersetzung von PDF-Dokumenten"
+  },
+  "brandDescription": {
+    "message": "Immersive zweisprachige Webseiten-Übersetzungserweiterung, unterstützt auch PDF-Übersetzung, zweisprachige Epub eBook-Erstellung, unterstützt mehrere Übersetzungsdienste wie Deepl/Google/YouDao/Tencent Translate, kostenlos zu verwenden."
+  },
+  "toggleTranslatePage": {
+    "message": "Seite übersetzen/ Originaltext anzeigen"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Alle Bereiche der Seite übersetzen/den Originaltext anzeigen"
+  },
+  "toggleOnlyTransation": {
+    "message": "Übersetzen und Ausblenden des Originaltextes/Einblenden des Originaltextes"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Sofortige Übersetzung am Ende der Seite/Anzeige des Originaltextes"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Den Hauptbereich der Seite übersetzen/den Originaltext anzeigen"
+  },
+  "shareToDraft": {
+    "message": "Zweisprachige Seiten teilen"
+  },
+  "openOptionsPage": {
+    "message": "Öffnen Sie die Einstellungsseite"
+  },
+  "toggleTranslationMask": {
+    "message": "Translationsunschärfe-Effekt ein-/ausblenden"
+  },
+  "translateLocalPdfFile": {
+    "message": "Lokale PDF-Dateien übersetzen"
+  },
+  "openEbookViewer": {
+    "message": "Lokale eBooks lesen"
+  },
+  "openEbookBuilder": {
+    "message": "Zweisprachige EPUB eBooks erstellen"
+  },
+  "translateLocalHtmlFile": {
+    "message": "HTML/Txt-Dateien übersetzen"
+  },
+  "donateContext": {
+    "message": "Erfahren Sie mehr über die Vorteile eines Sponsors"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Lokale Untertiteldateien übersetzen"
+  },
+  "openAboutPage": {
+    "message": "Über/Feedback"
+  }
+}

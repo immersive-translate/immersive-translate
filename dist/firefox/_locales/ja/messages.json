@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "イマージョン翻訳"
+  },
+  "brandName": {
+    "message": "イマージョン翻訳: 二ヶ国語ウェブページ翻訳 & PDF文書翻訳"
+  },
+  "brandDescription": {
+    "message": "Deepl、Google、YouDao、Tencent Translateなど、複数の翻訳サービスをサポートしています。"
+  },
+  "toggleTranslatePage": {
+    "message": "ページを翻訳する／原文を表示する"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "ページの全領域を翻訳する／原文を表示する"
+  },
+  "toggleOnlyTransation": {
+    "message": "原文を翻訳して隠す／原文を表示する"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "ページ下部への即時翻訳／原文の表示"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "ページのメインエリアを翻訳する／原文を表示する"
+  },
+  "shareToDraft": {
+    "message": "バイリンガルページを共有する"
+  },
+  "openOptionsPage": {
+    "message": "設定ページを開く"
+  },
+  "toggleTranslationMask": {
+    "message": "並進ブラー効果の表示／非表示"
+  },
+  "translateLocalPdfFile": {
+    "message": "ローカルのPDFファイルを翻訳する"
+  },
+  "openEbookViewer": {
+    "message": "地元の電子書籍を読む"
+  },
+  "openEbookBuilder": {
+    "message": "バイリンガルEPUB電子書籍の制作"
+  },
+  "translateLocalHtmlFile": {
+    "message": "HTML/テキストファイルを翻訳する"
+  },
+  "donateContext": {
+    "message": "スポンサー特典について"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "ローカル字幕ファイルを翻訳する"
+  },
+  "openAboutPage": {
+    "message": "ご意見・ご感想"
+  }
+}

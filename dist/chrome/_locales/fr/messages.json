@@ -1,0 +1,56 @@
+{
+  "shortBrandName": {
+    "message": "Traduction en immersion"
+  },
+  "brandName": {
+    "message": "Traduction en immersion : traduction bilingue de pages Web et de documents PDF"
+  },
+  "brandDescription": {
+    "message": "Extension immersive de traduction bilingue de pages web, supporte également la traduction de PDF, la création de livres électroniques Epub bilingues, supporte de multiples services de traduction tels que Deepl/Google/YouDao/Tencent Translate, gratuit à utiliser."
+  },
+  "toggleTranslatePage": {
+    "message": "Traduire la page/afficher le texte original"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Traduire toutes les zones de la page/afficher le texte original"
+  },
+  "toggleOnlyTransation": {
+    "message": "Traduire et masquer le texte original/afficher le texte original"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Traduction immédiate en bas de page/affichage du texte original"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Traduire la zone principale de la page/afficher le texte original"
+  },
+  "shareToDraft": {
+    "message": "Partager les pages bilingues"
+  },
+  "openOptionsPage": {
+    "message": "Ouvrir la page des paramètres"
+  },
+  "toggleTranslationMask": {
+    "message": "Afficher/masquer l'effet de flou de translation"
+  },
+  "translateLocalPdfFile": {
+    "message": "Traduire des fichiers PDF locaux"
+  },
+  "openEbookViewer": {
+    "message": "Lire les livres électroniques locaux"
+  },
+  "openEbookBuilder": {
+    "message": "Créer des livres bilingues EPUB"
+  },
+  "translateLocalHtmlFile": {
+    "message": "Traduire des fichiers HTML/txt"
+  },
+  "donateContext": {
+    "message": "En savoir plus sur les avantages du parrainage"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Traduire les fichiers de sous-titres locaux"
+  },
+  "openAboutPage": {
+    "message": "À propos/commentaires"
+  }
+}

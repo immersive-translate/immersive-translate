@@ -38,8 +38,14 @@ init();
 let hasInited = false;
 function init() {
   setTimeout(() => {
+    const containers = document.getElementById("editorModeButtons");
+    const downloadManager = globalThis?.PDFViewerApplication?.downloadManager;
+    if (!downloadManager || !containers) {
+      init();
+      return;
+    }
+
     if (!document.getElementById("immersive-helper")) {
-      const containers = document.getElementById("editorModeButtons");
       const helperBtn = document.createElement("a");
       helperBtn.className = "immersive-translate-btn control-button";
       helperBtn.innerText = "帮助";
@@ -49,11 +55,6 @@ function init() {
       containers.appendChild(helperBtn);
     }
 
-    const downloadManager = globalThis?.PDFViewerApplication?.downloadManager;
-    if (!downloadManager) {
-      init();
-      return;
-    }
     if (hasInited) return;
     hasInited = true;
 

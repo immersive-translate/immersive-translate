@@ -6,7 +6,7 @@
     "message": "몰입 번역: 이중 언어 웹 페이지 번역 및 PDF 문서 번역"
   },
   "brandDescription": {
-    "message": "몰입형 이중 언어 웹 페이지 번역 확장 프로그램은 PDF 번역, 이중 언어 Epub 전자책 생성도 지원하며, 무료로 사용할 수 있는 Deep/Google/YouDao/Tencent 번역과 같은 여러 번역 서비스를 지원합니다."
+    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
     "message": "페이지 번역/원문 표시"

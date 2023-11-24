@@ -184,6 +184,8 @@ function showDownloadModal() {
     <div class="immersive-translate-progress-container">
       <div class="immersive-translate-progress-bar" id="immersive-progress"></div>
     </div>
+    <p>谨慎下载超过300页以上 PDF，容易内存溢出。</p>
+    <p>如遇问题查看<a class="immersive-translate-link" href="https://immersivetranslate.com/docs/pdf-helper/#%E4%B8%8B%E8%BD%BD%E6%89%93%E5%8D%B0" target="_blank">帮助</a></p>
     <div class="immersive-translate-btn-warpper">
     <div class="immersive-translate-btn immersive-gary" data-action="close">取消</div>
     <div class="immersive-translate-btn" id="immersive-translated-download">译文下载</div>

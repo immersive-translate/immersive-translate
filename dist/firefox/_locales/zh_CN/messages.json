@@ -6,7 +6,7 @@
     "message": "沉浸式翻译: 双语对照网页翻译 & PDF文档翻译"
   },
   "brandDescription": {
-    "message": "沉浸式网页双语翻译扩展，同时支持 PDF 翻译，双语 Epub 电子书制作，支持 Deepl/Google/有道/腾讯翻译等多个翻译服务，免费使用。"
+    "message": "沉浸式网页双语翻译扩展，支持PDF翻译，双语Epub电子书制作，Youtube/Netflix/Udemy 等平台双语字幕，支持Deepl/Google等多个翻译服务，免费使用。"
   },
   "toggleTranslatePage": {
     "message": "翻译网页/显示原文"

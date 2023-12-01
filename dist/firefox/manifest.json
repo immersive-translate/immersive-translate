@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.11.6",
+  "version": "0.12.1",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -12,7 +12,7 @@
   "web_accessible_resources": [
     "styles/inject.css",
     "pdf/index.html",
-    "subtitles-hook.js"
+    "video-subtitle/inject.js"
   ],
   "content_scripts": [
     {
@@ -25,6 +25,18 @@
         "content_script.js"
       ],
       "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "<all_urls>",
+        "file:///*",
+        "*://*/*"
+      ],
+      "js": [
+        "content_start.js"
+      ],
+      "run_at": "document_start",
       "all_frames": true
     }
   ],

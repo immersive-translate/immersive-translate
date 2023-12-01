@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "0.11.6",
+  "version": "0.12.1",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -12,7 +12,7 @@
       "resources": [
         "styles/inject.css",
         "pdf/index.html",
-        "subtitles-hook.js"
+        "video-subtitle/inject.js"
       ],
       "matches": [
         "<all_urls>",
@@ -32,6 +32,18 @@
         "content_script.js"
       ],
       "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "<all_urls>",
+        "file:///*",
+        "*://*/*"
+      ],
+      "js": [
+        "content_start.js"
+      ],
+      "run_at": "document_start",
       "all_frames": true
     }
   ],
@@ -102,5 +114,6 @@
     "64": "icons/64.png",
     "128": "icons/128.png",
     "256": "icons/256.png"
-  }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7JPn78UfqI3xIIOPPLPS74UTzLfJL1gQM8hlk/deKWvFP/WqUBnPJPdhQeF45sFpI1OjO70nFqdATT4/RwYAiZK7G/E6m27MDVnhHjszfzReOuoAEn9J3RnE2xEx5pFhRFcelhnwTTLrrn90aaPcaMtNsgXtZA1Ggz/SnX9I4ZygqpJYjx3Ql2t6SyNK222oRQiKMT93Rrjgyc8RFA7FKXsWglG0TvseRjbmG5Jk5gDx+2/YTcWGqCDotQnWnkPj/dBO23UAX7IpyJK3FGYdkvWFih6OVClHIIWY8mfCjjwSGbXNQNesaa9F2hrzBZ5MRTj4m7yj76mGxuPHPIE8mwIDAQAB"
 }

@@ -7,9 +7,7 @@ function main() {
   const urlObj = new URL(window.location.href);
   const file = urlObj.searchParams.get("file");
   if (!file) {
-    const iframeUrlObj = new URL(iframe.getAttribute("src"));
-    iframeUrlObj.search = "";
-    iframe.setAttribute("src", iframeUrlObj.toString());
+    restorePdf();
     hiddenLoading();
     return;
   }
@@ -23,7 +21,18 @@ function main() {
           blob: blob,
         }, "*");
       });
+    }).catch(function (err) {
+      console.error(err);
+      restorePdf(file);
+      hiddenLoading();
     });
+
+  function restorePdf(filepath) {
+    const iframeUrlObj = new URL(iframe.getAttribute("src"));
+    iframeUrlObj.search = "";
+    if (filepath) iframeUrlObj.searchParams.set("file", filepath);
+    iframe.setAttribute("src", iframeUrlObj.toString());
+  }
 }
 
 function waitIframeLoad() {

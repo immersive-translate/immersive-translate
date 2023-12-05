@@ -9,19 +9,19 @@
     "message": "Bilingual web page translation, also supports PDF, Epub eBook, Video subtitles translation, free to use."
   },
   "toggleTranslatePage": {
-    "message": "Toggle Translate Page"
+    "message": "Translate webpage/Display original text"
   },
   "toggleTranslateTheWholePage": {
-    "message": "Toggle Translate the Whole Page"
+    "message": "Translate entire page/Display original text"
   },
   "toggleOnlyTransation": {
-    "message": "Toggle Translate and Hide Original Text"
+    "message": "Translate and hide original text/Display original text"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "Toggle Translate to the Bottom of the Page Immediately"
+    "message": "Translate instantly to the bottom of the page/Display original text"
   },
   "toggleTranslateTheMainPage": {
-    "message": "Toggle Translate the Main Page"
+    "message": "Translate main page /Display original text"
   },
   "shareToDraft": {
     "message": "Share Bilingual Page"
@@ -30,25 +30,25 @@
     "message": "Open Settings Page"
   },
   "toggleTranslationMask": {
-    "message": "Toggle translation mask style"
+    "message": "Show/Hide Translation Blurring Effect"
   },
   "translateLocalPdfFile": {
     "message": "Translate local PDF File"
   },
   "openEbookViewer": {
-    "message": "Read local e-book"
+    "message": "Read local e-books"
   },
   "openEbookBuilder": {
-    "message": "Make Dual EPUB ebook"
+    "message": "Create Bilingual EPUB E-books"
   },
   "translateLocalHtmlFile": {
     "message": "Translate HTML/txt File"
   },
   "donateContext": {
-    "message": "Sponsor Benefits"
+    "message": "Explore Sponsorship Benefits"
   },
   "translateLocalSubtitleFile": {
-    "message": "Translate Subtitle File"
+    "message": "Translate Local Subtitle File"
   },
   "openAboutPage": {
     "message": "About / Feedback/Sponsor"

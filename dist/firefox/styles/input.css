@@ -199,14 +199,14 @@
   transition: background-color 0.3s ease;
 }
 
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
 .immersive-translate-cancel-btn {
   /* gray color */
   background-color: rgb(89, 107, 120);
 }
 
-.immersive-translate-btn:hover {
-  background-color: #f082ac;
-}
 
 .immersive-translate-cancel-btn:hover {
   background-color: hsl(205, 20%, 32%);

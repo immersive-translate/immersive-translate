@@ -222,6 +222,7 @@
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+  display: inline-block;
 }
 
 [data-immersive-translate-root-translation-theme="none"] .immersive-translate-target-translation-theme-mask-inner {
@@ -232,6 +233,7 @@
   filter: blur(5px) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+  display: inline-block;
 }
 
 
@@ -241,6 +243,7 @@
   filter: opacity(calc(var(--immersive-translate-theme-opacity-opacity) * 1%)) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+  display: inline-block;
 }
 
 [data-immersive-translate-root-translation-theme="none"] .immersive-translate-target-translation-theme-opacity-inner {
@@ -250,6 +253,7 @@
   filter: opacity(calc(var(--immersive-translate-theme-opacity-opacity) * 1%)) !important;
   transition: filter 0.3s ease !important;
   border-radius: 10px;
+  display: inline-block;
 }
 
 .immersive-translate-target-translation-theme-opacity-inner:hover {

@@ -67,6 +67,30 @@
     },
     "shareToDraft": {
       "description": "__MSG_shareToDraft__"
+    },
+    "toggleMouseHoverTranslateDirectly": {
+      "description": "__MSG_toggleMouseHoverTranslateDirectly__"
+    },
+    "translateWithOpenAI": {
+      "description": "__MSG_translateWithOpenAI__"
+    },
+    "translateWithDeepL": {
+      "description": "__MSG_translateWithDeepL__"
+    },
+    "translateWithGoogle": {
+      "description": "__MSG_translateWithGoogle__"
+    },
+    "translateWithTransmart": {
+      "description": "__MSG_translateWithTransmart__"
+    },
+    "translateWithGemini": {
+      "description": "__MSG_translateWithGemini__"
+    },
+    "translateWithBing": {
+      "description": "__MSG_translateWithBing__"
+    },
+    "translateInputBox": {
+      "description": "__MSG_translateInputBox__"
     }
   },
   "options_ui": {

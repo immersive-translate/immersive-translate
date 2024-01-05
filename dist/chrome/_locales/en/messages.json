@@ -14,9 +14,6 @@
   "toggleTranslateTheWholePage": {
     "message": "Translate entire page/Display original text"
   },
-  "toggleOnlyTransation": {
-    "message": "Translate and hide original text/Display original text"
-  },
   "toggleTranslateToThePageEndImmediately": {
     "message": "Translate instantly to the bottom of the page/Display original text"
   },
@@ -28,9 +25,6 @@
   },
   "openOptionsPage": {
     "message": "Open Settings Page"
-  },
-  "toggleTranslationMask": {
-    "message": "Show/Hide Translation Blurring Effect"
   },
   "translateLocalPdfFile": {
     "message": "Translate local PDF File"
@@ -52,5 +46,35 @@
   },
   "openAboutPage": {
     "message": "About / Feedback/Sponsor"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Temporarily enable or disable direct translation by mouse hover on the page"
+  },
+  "translateWithOpenAI": {
+    "message": "Temporarily translate the current page with OpenAI"
+  },
+  "translateWithDeepL": {
+    "message": "Temporarily translate the current page with DeepL"
+  },
+  "translateWithGoogle": {
+    "message": "Temporarily translate the current page with Google"
+  },
+  "translateWithBing": {
+    "message": "Temporarily translate the current page with Microsoft Translator"
+  },
+  "translateWithGemini": {
+    "message": "Temporarily translate the current page with Gemini"
+  },
+  "translateWithTransmart": {
+    "message": "Temporarily translate the current page with Tencent Translator"
+  },
+  "translateInputBox": {
+    "message": "Translate the content of the current input box"
+  },
+  "toggleOnlyTransation": {
+    "message": "Translate page/show original text (translation-only mode)"
+  },
+  "toggleTranslationMask": {
+    "message": "Toggle blur effect on translated text (learning mode) for the current page"
   }
 }

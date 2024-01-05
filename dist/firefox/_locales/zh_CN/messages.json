@@ -14,9 +14,6 @@
   "toggleTranslateTheWholePage": {
     "message": "翻译页面全部区域/显示原文"
   },
-  "toggleOnlyTransation": {
-    "message": "翻译并隐藏原文/显示原文"
-  },
   "toggleTranslateToThePageEndImmediately": {
     "message": "立即翻译到页面底部/显示原文"
   },
@@ -28,9 +25,6 @@
   },
   "openOptionsPage": {
     "message": "打开设置页"
-  },
-  "toggleTranslationMask": {
-    "message": "显示/隐藏译文模糊效果"
   },
   "translateLocalPdfFile": {
     "message": "翻译本地 PDF 文件"
@@ -52,5 +46,35 @@
   },
   "openAboutPage": {
     "message": "关于/反馈"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "在页面上临时启用或关闭鼠标悬停直接翻译"
+  },
+  "translateWithOpenAI": {
+    "message": "临时使用 OpenAI 翻译当前页面"
+  },
+  "translateWithDeepL": {
+    "message": "临时使用 DeepL 翻译当前页面"
+  },
+  "translateWithGoogle": {
+    "message": "临时使用 Google 翻译当前页面"
+  },
+  "translateWithBing": {
+    "message": "临时使用微软翻译当前页面"
+  },
+  "translateWithGemini": {
+    "message": "临时使用 Gemini 翻译当前页面"
+  },
+  "translateWithTransmart": {
+    "message": "临时使用腾讯翻译当前页面"
+  },
+  "translateInputBox": {
+    "message": "翻译当前输入框内容"
+  },
+  "toggleOnlyTransation": {
+    "message": "翻译页面/显示原文(仅译文模式)"
+  },
+  "toggleTranslationMask": {
+    "message": "切换当前页面译文为模糊效果（学习模式）"
   }
 }

@@ -312,7 +312,7 @@
 }
 
 .immersive-translate-help-button {
-  cursor: help;
+  cursor: pointer;
 }
 
 .immersive-translate-loading-text:before {

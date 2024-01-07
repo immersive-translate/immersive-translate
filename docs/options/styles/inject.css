@@ -334,7 +334,16 @@
   display: inline-flex;
   padding: 6px;
   margin: 0 12px;
+  white-space: nowrap;
+  font-size: 0.9em;
 }
+[lang="zh-CN"] .immersive-translate-error-wrapper {
+  font-size: 0.75em;
+}
+[lang="zh-TW"] .immersive-translate-error-wrapper {
+  font-size: 0.75em;
+}
+
 
 .immersive-translate-tooltip {
   position: relative;

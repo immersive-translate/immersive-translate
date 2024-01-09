@@ -2,6 +2,7 @@
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
+  --code-font-family:"Fira Code", "Consolas", "Monaco", "Courier New", monospace;
   --line-height: 1.5;
   --font-weight: 400;
   --border-radius: 0.25rem;
@@ -619,4 +620,7 @@ article {
   cursor: pointer;
   border: 1px dashed var(--form-element-border-color);
   text-align: center;
+}
+.code-editor {
+  font-family: var(--code-font-family);
 }

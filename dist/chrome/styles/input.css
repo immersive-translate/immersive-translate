@@ -163,7 +163,7 @@
 .immersive-translate-modal {
   display: none;
   position: fixed;
-  z-index: 1000000;
+  z-index: 2147483647;
   left: 0;
   top: 0;
   width: 100%;
@@ -286,3 +286,6 @@
   right: 0px;
   cursor: pointer;
 }
+
+
+

@@ -502,6 +502,15 @@ select.translate-service {
   color: var(--text-black-2);
 }
 
+/* dark use black, for windows */
+@media (prefers-color-scheme: dark) {
+  select.language-select *,
+  select.translate-service *,
+  select.min-select * {
+    color: #222;
+  }
+}
+
 .text-overflow-ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;

@@ -195,7 +195,8 @@
 }
 
 .immersive-translate-modal-body {
-  color: hsl(205, 20%, 32%)
+  color: hsl(205, 20%, 32%);
+  word-break: break-all;
 }
 
 .immersive-translate-close {

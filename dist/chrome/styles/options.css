@@ -636,3 +636,14 @@ article {
   margin: 12px;
   border-radius: 12px;
 }
+  .contact-embed {
+    margin-left:-1rem;
+  }
+
+
+@media screen and (min-width: 1200px) {
+  .contact-embed {
+    margin-left:-2rem;
+  }
+}
+

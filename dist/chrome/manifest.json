@@ -98,6 +98,9 @@
     },
     "translateInputBox": {
       "description": "__MSG_translateInputBox__"
+    },
+    "toggleVideoSubtitlePreTranslation": {
+      "description": "__MSG_toggleVideoSubtitlePreTranslation__"
     }
   },
   "options_page": "options.html",

@@ -76,5 +76,8 @@
   },
   "toggleTranslationMask": {
     "message": "切換當前頁面譯文為模糊效果（學習模式）"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "切換雙語字幕優先使用沉浸式翻譯設置"
   }
 }

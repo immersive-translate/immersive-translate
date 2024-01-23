@@ -166,4 +166,48 @@
       "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
     ]
   }
+}, {
+  "id": 5,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "User-Agent",
+        "operation": "set",
+        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://edge.microsoft.com/translate/auth",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 6,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "User-Agent",
+        "operation": "set",
+        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://api-edge.cognitive.microsofttranslator.com/translate",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
 }]

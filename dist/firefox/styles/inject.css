@@ -74,7 +74,8 @@
 }
 
 .immersive-translate-target-translation-theme-nativeUnderline-inner {
-  text-decoration: underline var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--immersive-translate-theme-nativeUnderline-borderColor) !important;
 }
 
 .immersive-translate-target-translation-block-wrapper-theme-dashedBorder {
@@ -106,7 +107,9 @@
 }
 
 .immersive-translate-target-translation-theme-nativeDashed-inner {
-  text-decoration: dashed underline var(--immersive-translate-theme-nativeDashed-borderColor) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--immersive-translate-theme-nativeDashed-borderColor) !important;
+  text-decoration-style: dashed !important;
 }
 
 .immersive-translate-target-translation-theme-thinDashed-inner {
@@ -124,11 +127,15 @@
 }
 
 .immersive-translate-target-translation-theme-nativeDotted-inner {
-  text-decoration: dotted underline var(--immersive-translate-theme-nativeDotted-borderColor) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--immersive-translate-theme-nativeDotted-borderColor) !important;
+  text-decoration-style: dotted !important;
 }
 
 .immersive-translate-target-translation-theme-wavy-inner {
-  text-decoration: wavy underline var(--immersive-translate-theme-wavy-borderColor) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--immersive-translate-theme-wavy-borderColor) !important;
+  text-decoration-style: wavy !important;
 }
 
 .immersive-translate-target-translation-theme-dashed-inner {

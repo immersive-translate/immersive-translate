@@ -511,6 +511,7 @@ select.translate-service {
 
 /* dark use black, for windows */
 @media (prefers-color-scheme: dark) {
+
   select.language-select option,
   select.translate-service option,
   select.min-select option {
@@ -678,7 +679,7 @@ select.text-gray-6 {
   justify-content: space-between;
 }
 
-.widgets-container > :not(:last-child) {
+.widgets-container> :not(:last-child) {
   margin-right: 8px;
 }
 
@@ -739,4 +740,5 @@ select.text-gray-6 {
   word-break: break-all;
   margin: 12px;
   border-radius: 12px;
+  flex-direction: column;
 }

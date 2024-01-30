@@ -41,12 +41,11 @@ function waitIframeLoad() {
 
     function listenMessage(event) {
       if (event.data && event.data.type == "pdf-ready") {
-        globalThis.removeEventListener("message", listenMessage);
         return resolve();
       }
     }
     globalThis.addEventListener("message", listenMessage);
-  })
+  });
 }
 
 function listenMessage(event) {
@@ -58,9 +57,12 @@ function listenMessage(event) {
   if (data.type == "pdf-loaded") {
     hiddenLoading();
   }
+  if (data.type == "update-title") {
+    document.title = data.title;
+  }
 }
 function hiddenLoading() {
-  const ele = document.getElementById("loading")
+  const ele = document.getElementById("loading");
   if (!ele) return;
   ele.style.display = "none";
 }

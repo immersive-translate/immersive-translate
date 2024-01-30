@@ -2,7 +2,7 @@
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --code-font-family:"Fira Code", "Consolas", "Monaco", "Courier New", monospace;
+  --code-font-family: "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
   --line-height: 1.5;
   --font-weight: 400;
   --border-radius: 0.25rem;
@@ -277,6 +277,7 @@ label {
 
 .url-name {
   font-weight: 500;
+  max-width: calc(100% - 100px);
 }
 
 .height-tight {
@@ -536,6 +537,7 @@ article {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .intro-right {
     margin-left: 0;
   }
@@ -621,6 +623,7 @@ article {
   border: 1px dashed var(--form-element-border-color);
   text-align: center;
 }
+
 .code-editor {
   font-family: var(--code-font-family);
 }
@@ -635,15 +638,16 @@ article {
   word-break: break-all;
   margin: 12px;
   border-radius: 12px;
+  flex-direction: column;
 }
-  .contact-embed {
-    margin-left:-1rem;
-  }
+
+.contact-embed {
+  margin-left: -1rem;
+}
 
 
 @media screen and (min-width: 1200px) {
   .contact-embed {
-    margin-left:-2rem;
+    margin-left: -2rem;
   }
 }
-

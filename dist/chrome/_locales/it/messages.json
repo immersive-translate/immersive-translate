@@ -15,7 +15,7 @@
     "message": "Tradurre tutte le aree della pagina/visualizzare il testo originale"
   },
   "toggleOnlyTransation": {
-    "message": "Tradurre e nascondere il testo originale/mostrare il testo originale"
+    "message": "Cambia modalità bilingue/solo traduzione"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "Traduzione immediata a fondo pagina/visualizzazione del testo originale"

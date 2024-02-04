@@ -72,7 +72,7 @@
     "message": "Translate the content of the current input box"
   },
   "toggleOnlyTransation": {
-    "message": "Translate page/show original text (translation-only mode)"
+    "message": "Switch to bilingual/translation-only mode"
   },
   "toggleTranslationMask": {
     "message": "Toggle blur effect on translated text (learning mode) for the current page"

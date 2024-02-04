@@ -72,7 +72,7 @@
     "message": "翻譯當前輸入框內容"
   },
   "toggleOnlyTransation": {
-    "message": "翻譯頁面/顯示原文(僅譯文模式)"
+    "message": "切換雙語/僅譯文模式"
   },
   "toggleTranslationMask": {
     "message": "切換當前頁面譯文為模糊效果（學習模式）"

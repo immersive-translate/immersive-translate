@@ -15,7 +15,7 @@
     "message": "Traduzir todas as áreas da página/apresentar o texto original"
   },
   "toggleOnlyTransation": {
-    "message": "Traduzir e ocultar o texto original/mostrar o texto original"
+    "message": "Alternar entre o modo bilíngue / apenas tradução"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "Tradução imediata para o fim da página/visualização do texto original"

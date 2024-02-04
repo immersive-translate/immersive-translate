@@ -15,7 +15,7 @@
     "message": "ترجمة جميع مناطق الصفحة/عرض النص الأصلي"
   },
   "toggleOnlyTransation": {
-    "message": "ترجمة وإخفاء النص الأصلي/إظهار النص الأصلي"
+    "message": "تبديل الوضع ثنائي اللغة / الترجمة فقط"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "ترجمة فورية إلى أسفل الصفحة/إظهار النص الأصلي"

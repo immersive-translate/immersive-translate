@@ -107,21 +107,24 @@
   position: relative;
   font-size: 16px;
 }
+
 .immersive-translate-search-enhancement-en-title {
   color: #4d5156;
 }
+
 /* dark */
 @media (prefers-color-scheme: dark) {
   .immersive-translate-search-recomend {
     border: 1px solid #3c4043;
   }
+
   .immersive-translate-close-action svg {
     fill: #bdc1c6;
   }
 
-.immersive-translate-search-enhancement-en-title {
-  color: #bdc1c6;
-}
+  .immersive-translate-search-enhancement-en-title {
+    color: #bdc1c6;
+  }
 }
 
 
@@ -171,38 +174,60 @@
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  font-size:15px;
+  font-size: 15px;
 }
 
 .immersive-translate-modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
   border: 1px solid #888;
   border-radius: 10px;
   width: 80%;
-  max-width: 500px;
+  max-width: 270px;
   font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
 }
 
 .immersive-translate-modal-title {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: hsl(205, 20%, 32%);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
 }
 
 .immersive-translate-modal-body {
-  color: hsl(205, 20%, 32%);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
   word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
 }
 
 .immersive-translate-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -215,9 +240,9 @@
 
 .immersive-translate-modal-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .immersive-translate-btn {
@@ -225,13 +250,13 @@
   color: #fff;
   background-color: #ea4c89;
   border: none;
-  font-size: 14px;
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
   border-radius: 5px;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -239,6 +264,7 @@
 .immersive-translate-btn:hover {
   background-color: #f082ac;
 }
+
 .immersive-translate-cancel-btn {
   /* gray color */
   background-color: rgb(89, 107, 120);
@@ -249,6 +275,11 @@
   background-color: hsl(205, 20%, 32%);
 }
 
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #EA4C89;
+  border: 1px solid #EA4C89
+}
 
 .immersive-translate-btn svg {
   margin-right: 5px;
@@ -287,6 +318,3 @@
   right: 0px;
   cursor: pointer;
 }
-
-
-

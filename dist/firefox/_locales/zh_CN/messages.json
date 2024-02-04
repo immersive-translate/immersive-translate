@@ -71,13 +71,13 @@
   "translateInputBox": {
     "message": "翻译当前输入框内容"
   },
-  "toggleOnlyTransation": {
-    "message": "翻译页面/显示原文(仅译文模式)"
-  },
   "toggleTranslationMask": {
     "message": "切换当前页面译文为模糊效果（学习模式）"
   },
   "toggleVideoSubtitlePreTranslation": {
     "message": "切换双语字幕优先使用沉浸式翻译设置"
+  },
+  "toggleOnlyTransation": {
+    "message": "切换双语/仅译文模式"
   }
 }

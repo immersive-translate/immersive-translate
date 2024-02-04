@@ -15,7 +15,7 @@
     "message": "ページの全領域を翻訳する／原文を表示する"
   },
   "toggleOnlyTransation": {
-    "message": "原文を翻訳して隠す／原文を表示する"
+    "message": "バイリンガル/翻訳テキストのみモードに切り替えてください"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "ページ下部への即時翻訳／原文の表示"

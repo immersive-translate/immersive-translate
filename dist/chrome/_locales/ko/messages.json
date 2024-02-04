@@ -15,7 +15,7 @@
     "message": "페이지의 모든 영역 번역/원문 텍스트 표시"
   },
   "toggleOnlyTransation": {
-    "message": "원본 텍스트 번역 및 숨기기/원본 텍스트 표시"
+    "message": "양언어/번역문만 모드로 전환"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "페이지 하단으로 즉시 번역/원문 표시"

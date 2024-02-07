@@ -19,6 +19,7 @@ function main() {
         iframe.contentWindow.postMessage({
           type: "pdf-local-file",
           blob: blob,
+          fileName: getDecodedFileName(file),
         }, "*");
       });
     }).catch(function (err) {
@@ -32,6 +33,12 @@ function main() {
     iframeUrlObj.search = "";
     if (filepath) iframeUrlObj.searchParams.set("file", filepath);
     iframe.setAttribute("src", iframeUrlObj.toString());
+  }
+
+  function getDecodedFileName(url) {
+    const encodedFileName = url.split('/').pop();
+    const decodedFileName = decodeURIComponent(encodedFileName);
+    return decodedFileName;
   }
 }
 

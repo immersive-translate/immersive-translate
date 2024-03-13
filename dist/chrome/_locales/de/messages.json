@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "Über/Feedback"
+  },
+  "translateInputBox": {
+    "message": "Übersetzen Sie den aktuellen Inhalt des Eingabefelds."
+  },
+  "translateWithDeepL": {
+    "message": "Vorübergehende Verwendung von DeepL zur Übersetzung der aktuellen Seite"
+  },
+  "translateWithTransmart": {
+    "message": "Verwenden Sie vorübergehend Tencent, um die aktuelle Seite zu übersetzen."
+  },
+  "translateWithOpenAI": {
+    "message": "Vorübergehende Verwendung von OpenAI zum Übersetzen der aktuellen Seite"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Auf der Seite das direkte Übersetzen durch Mouseover temporär aktivieren oder deaktivieren"
+  },
+  "translateWithBing": {
+    "message": "Verwenden Sie vorübergehend Microsoft Translate, um die aktuelle Seite zu übersetzen."
+  },
+  "translateWithGoogle": {
+    "message": "Vorübergehende Verwendung von Google Übersetzer für die aktuelle Seite"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Wechseln Sie zu zweisprachigen Untertiteln und verwenden Sie vorzugsweise immersive Übersetzungseinstellungen."
+  },
+  "translateWithGemini": {
+    "message": "Verwenden Sie vorübergehend Gemini, um die aktuelle Seite zu übersetzen."
   }
 }

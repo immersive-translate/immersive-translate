@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "Informazioni/Risposte"
+  },
+  "translateWithBing": {
+    "message": "Utilizzo temporaneo di Microsoft per tradurre la pagina corrente"
+  },
+  "translateWithOpenAI": {
+    "message": "Utilizzo temporaneo di OpenAI per tradurre la pagina corrente"
+  },
+  "translateWithDeepL": {
+    "message": "Utilizzo temporaneamente DeepL per tradurre la pagina corrente"
+  },
+  "translateWithTransmart": {
+    "message": "Utilizzo temporaneo di Tencent per tradurre la pagina corrente"
+  },
+  "translateWithGoogle": {
+    "message": "Utilizzo temporaneo di Google per tradurre la pagina corrente"
+  },
+  "translateWithGemini": {
+    "message": "Utilizza temporaneamente Gemini per tradurre la pagina corrente"
+  },
+  "translateInputBox": {
+    "message": "Traduci il contenuto attuale del campo di input."
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Passa ai sottotitoli bilingui utilizzando preferibilmente le impostazioni di traduzione immersive."
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Abilita o disabilita temporaneamente la traduzione diretta al passaggio del mouse sulla pagina"
   }
 }

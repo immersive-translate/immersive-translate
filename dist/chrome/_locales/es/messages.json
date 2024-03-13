@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "Acerca de/Feedback"
+  },
+  "translateWithDeepL": {
+    "message": "Uso temporal de DeepL para traducir la página actual"
+  },
+  "translateWithBing": {
+    "message": "Uso temporal de Microsoft para traducir la página actual"
+  },
+  "translateWithTransmart": {
+    "message": "Uso temporal de Tencent para traducir la página actual"
+  },
+  "translateInputBox": {
+    "message": "Traducir el contenido actual del cuadro de entrada."
+  },
+  "translateWithOpenAI": {
+    "message": "Uso temporal de OpenAI para traducir la página actual"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Habilitar o deshabilitar temporalmente la traducción directa al pasar el mouse en la página"
+  },
+  "translateWithGemini": {
+    "message": "Usa temporalmente Gemini para traducir la página actual"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Cambie a subtítulos bilingües y priorice la configuración de traducción inmersiva."
+  },
+  "translateWithGoogle": {
+    "message": "Uso temporal de Google Traductor para traducir la página actual"
   }
 }

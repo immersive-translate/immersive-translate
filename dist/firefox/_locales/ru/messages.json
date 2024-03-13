@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "Информация/Отзывы"
+  },
+  "translateWithDeepL": {
+    "message": "Временно используйте DeepL для перевода текущей страницы"
+  },
+  "translateWithGoogle": {
+    "message": "Временное использование Google Translate для текущей страницы"
+  },
+  "translateInputBox": {
+    "message": "Перевести текущее содержимое ввода"
+  },
+  "translateWithGemini": {
+    "message": "Временно используйте Gemini для перевода текущей страницы"
+  },
+  "translateWithBing": {
+    "message": "Временно используйте Microsoft для перевода текущей страницы"
+  },
+  "translateWithTransmart": {
+    "message": "Временно используйте Tencent для перевода текущей страницы"
+  },
+  "translateWithOpenAI": {
+    "message": "Временно используйте OpenAI для перевода текущей страницы"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Переключите двуязычные субтитры для использования настроек погружения в перевод."
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "На странице временно включите или отключите прямой перевод при наведении мыши"
   }
 }

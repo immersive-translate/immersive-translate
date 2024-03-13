@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "حول/ردود الفعل"
+  },
+  "translateInputBox": {
+    "message": "ترجم محتوى مربع الإدخال الحالي"
+  },
+  "translateWithDeepL": {
+    "message": "استخدم DeepL مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "translateWithGoogle": {
+    "message": "استخدم Google Translate مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "translateWithOpenAI": {
+    "message": "استخدم OpenAI مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "translateWithBing": {
+    "message": "استخدم ترجمة مايكروسوفت مؤقتًا للصفحة الحالية"
+  },
+  "translateWithGemini": {
+    "message": "استخدم Gemini مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "translateWithTransmart": {
+    "message": "استخدم ترجمة تينسنت مؤقتًا للصفحة الحالية"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "تمكين أو تعطيل الترجمة المباشرة عند تمرير الماوس مؤقتًا على الصفحة"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "تبديل إلى الترجمة الغامرة المفضلة للترجمات الثنائية اللغة"
   }
 }

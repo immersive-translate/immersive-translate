@@ -52,5 +52,32 @@
   },
   "openAboutPage": {
     "message": "के बारे में/प्रतिक्रिया"
+  },
+  "translateInputBox": {
+    "message": "वर्तमान इनपुट बॉक्स की सामग्री का अनुवाद करें"
+  },
+  "translateWithTransmart": {
+    "message": "अस्थायी रूप से टेंसेंट अनुवाद का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "translateWithOpenAI": {
+    "message": "अस्थायी रूप से OpenAI का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "पेज पर अस्थायी रूप से माउस होवर सीधे अनुवाद को सक्षम या बंद करें"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "द्विभाषीय सबटायटल स्विच करें, डुबकी अनुवाद सेटिंग्स का प्राथमिकता से उपयोग करें"
+  },
+  "translateWithGemini": {
+    "message": "अस्थायी रूप से Gemini का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "translateWithDeepL": {
+    "message": "अस्थायी रूप से DeepL का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "translateWithGoogle": {
+    "message": "अस्थायी रूप से Google अनुवाद का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "translateWithBing": {
+    "message": "माइक्रोसॉफ्ट अनुवाद का अस्थायी रूप से वर्तमान पृष्ठ का उपयोग करें"
   }
 }

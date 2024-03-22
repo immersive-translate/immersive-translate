@@ -25,6 +25,12 @@
   --modal-overlay-backdrop-filter: blur(0.25rem);
 }
 
+.header-right {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
 .pro-input-radio {
   flex: 0 1 24px;
 }
@@ -89,6 +95,10 @@ body {
   box-shadow: 0px 1px 0 var(--nav-border-color);
 }
 
+main>aside>nav ul {
+  margin: 0 !important;
+}
+
 @media (min-width: 992px) {
   #mount>nav ul:first-of-type li:nth-of-type(2) {
     display: inline;
@@ -115,7 +125,7 @@ body {
   min-width: 0;
 }
 
-main>aside nav {
+.menu-nav {
   width: 100%;
   padding-bottom: var(--block-spacing-vertical);
 }
@@ -125,7 +135,7 @@ textarea::placeholder {
 }
 
 @media (min-width: 992px) {
-  main>aside nav {
+  .menu-nav {
     position: fixed;
     width: 250px;
     max-height: calc(100vh - 5.5rem);
@@ -651,6 +661,111 @@ article {
     margin-left: -2rem;
   }
 }
+
 .display-none {
   display: none;
+}
+
+
+.header-navbar {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-shadow: 0px 2px 2px 0px #0000000F;
+  padding: 22px 64px !important;
+  position: fixed;
+  background-color: var(--background-color);
+  display: flex;
+  z-index: 2147483647;
+}
+
+.header-navbar a:hover,
+.header-navbar a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.header-navbar-height {
+  height: 80px;
+}
+
+.header-navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.header-navbar-brand h1 {
+  color: var(--h1-color);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 0 0 0 8px;
+}
+
+.header-navbar-item {
+  display: flex;
+  align-items: center;
+}
+
+.header-navbar-item span {
+  margin-left: 4px;
+  color: var(--h3-color);
+}
+
+.header-navbar-item svg {
+  fill: var(--h3-color);
+}
+
+.menu-nav {
+  height: calc(100vh - 180px);
+  border-right: 1px solid var(--muted-border-color);
+  padding-top: 10px;
+}
+
+.version {
+  color: #999;
+  font-size: 0.85rem;
+  align-self: center;
+  margin-left: 12px;
+}
+
+@media screen and (max-width: 992px) {
+  .menu-nav {
+    height: unset;
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .header-navbar {
+    padding: 12px 16px !important;
+  }
+
+  .header-navbar-height {
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    padding: 12px 0.5rem !important;
+    font-size: 14px;
+  }
+
+  .header-brand {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .header-item {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
 }

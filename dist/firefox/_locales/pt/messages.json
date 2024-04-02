@@ -79,5 +79,8 @@
   },
   "translateWithDeepL": {
     "message": "Use temporariamente o DeepL para traduzir a página atual"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【Tradução imersiva】Um plugin de tradução de páginas da web bilingue (original/tradução) gratuito, que suporta a tradução de PDF e EPUB e mantém a formatação original do documento, a tradução de legendas bilingues de vídeos online como Youtube/Netflix, e suporta serviços de tradução mainstream como Deepl/Google;"
   }
 }

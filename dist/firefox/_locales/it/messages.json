@@ -79,5 +79,8 @@
   },
   "toggleMouseHoverTranslateDirectly": {
     "message": "Abilita o disabilita temporaneamente la traduzione diretta al passaggio del mouse sulla pagina"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【Traduzione Immersiva】Un plugin gratuito per la traduzione di pagine web bilingue (originale/tradotto), che supporta anche la traduzione di PDF e libri elettronici EPUB mantenendo la formattazione originale del documento, la traduzione di sottotitoli bilingui per video online come Youtube/Netflix, e supporta servizi di traduzione mainstream come Deepl/Google;"
   }
 }

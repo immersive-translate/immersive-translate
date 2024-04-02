@@ -79,5 +79,8 @@
   },
   "toggleVideoSubtitlePreTranslation": {
     "message": "Switch Video Subtitles with Immersive Translation Feature"
+  },
+  "brandDescriptionForSafari": {
+    "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
   }
 }

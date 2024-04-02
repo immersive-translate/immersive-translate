@@ -79,5 +79,8 @@
   },
   "toggleVideoSubtitlePreTranslation": {
     "message": "バイリンガル字幕を切り替えて、没入型翻訳設定を優先的に使用してください。"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【没入型翻訳】無料の（原文/訳文）バイリンガル対照ウェブページ翻訳プラグインで、PDF翻訳とEPUB電子書籍翻訳を同時にサポートし、原文のレイアウトを保持します。Youtube/Netflixなどのオンラインビデオのバイリンガル字幕翻訳もサポートし、Deepl/Googleなどの主流翻訳サービスに対応しています。"
   }
 }

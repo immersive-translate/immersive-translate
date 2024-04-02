@@ -79,5 +79,8 @@
   },
   "translateWithGoogle": {
     "message": "Uso temporal de Google Traductor para traducir la página actual"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【Traducción inmersiva】Un complemento de traducción de páginas web bilingüe (original/traducción) gratuito que también soporta la traducción de PDF y libros electrónicos EPUB manteniendo el formato original del documento, la traducción de subtítulos bilingües de videos en línea como Youtube/Netflix, y soporta servicios de traducción principales como Deepl/Google;"
   }
 }

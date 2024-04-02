@@ -535,6 +535,10 @@ article {
   height: 200px;
 }
 
+.intro-footer {
+  display: none;
+}
+
 .intro-right {
   margin-left: 40px;
   display: flex;
@@ -556,6 +560,10 @@ article {
 @media screen and (max-width: 768px) {
   .intro-container {
     display: none;
+  }
+  .intro-footer {
+    display: block;
+    font-size: 12px;
   }
 }
 

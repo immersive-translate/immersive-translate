@@ -3,10 +3,10 @@
     "message": "沉浸式翻译"
   },
   "brandName": {
-    "message": "沉浸式翻译: 双语对照网页翻译 & PDF文档翻译"
+    "message": "沉浸式翻译 - 网页翻译插件 | PDF翻译 | 免费"
   },
   "brandDescription": {
-    "message": "沉浸式网页双语翻译扩展，支持PDF翻译，双语Epub电子书制作，Youtube/Netflix/Udemy 等平台双语字幕，支持Deepl/Google等多个翻译服务，免费使用。"
+    "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译（保留原文档排版），视频双语字幕翻译（Youtube, Netflix等），EPUB电子书翻译等；支持调用人工智能AI翻译大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等 ）对以上内容进行更准确的翻译；"
   },
   "toggleTranslatePage": {
     "message": "翻译网页/显示原文"

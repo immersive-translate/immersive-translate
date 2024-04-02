@@ -3,10 +3,10 @@
     "message": "沉浸式翻譯"
   },
   "brandName": {
-    "message": "沉浸式翻譯: 雙語對照網頁翻譯 & PDF文檔翻譯"
+    "message": "沈浸式翻譯 - 網頁翻譯擴充 | PDF翻譯 | 免費"
   },
   "brandDescription": {
-    "message": "沉浸式網頁雙語翻譯擴展，支持PDF翻譯，雙語Epub電子書製作，Youtube/Netflix/Udemy 等平台雙語字幕，支持Deepl/Google等多個翻譯服務，免費使用。"
+    "message": "【沈浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯擴充，同時支持PDF翻譯（保留原文檔排版），視頻雙語字幕翻譯（Youtube, Netflix等），EPUB電子書翻譯等；支持調用人工智能AI翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等 ）對以上內容進行更準確的翻譯；"
   },
   "toggleTranslatePage": {
     "message": "翻譯網頁/顯示原文"

@@ -1,0 +1,92 @@
+{
+  "shortBrandName": {
+    "message": "ترجمه همهجانبه"
+  },
+  "brandName": {
+    "message": "ترجمه همه‌جانبه"
+  },
+  "brandDescription": {
+    "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
+  },
+  "toggleTranslatePage": {
+    "message": "ترجمه تارنما/نمایش متن اصلی"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "ترجمه تمام برگه/نمایش متن اصلی"
+  },
+  "toggleOnlyTransation": {
+    "message": "تغییر به حالت دوزبانه / فقط متن ترجمه شده"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "از انتهای برگه ترجمه کنید/نمایش متن اصلی"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "ترجمه قسمت‌های اصلی برگه/نمایش متن اصلی"
+  },
+  "shareToDraft": {
+    "message": "اشتراک‌گذاری صفحه دوزبانه"
+  },
+  "openOptionsPage": {
+    "message": "برگه تنظیمات را باز کنید"
+  },
+  "toggleTranslationMask": {
+    "message": "نمایش/پنهان کردن جلوه تاری ترجمه"
+  },
+  "translateLocalPdfFile": {
+    "message": "ترجمه پرونده PDF محلی"
+  },
+  "openEbookViewer": {
+    "message": "کتاب های الکترونیکی محلی را بخوانید"
+  },
+  "openEbookBuilder": {
+    "message": "کتاب های الکترونیکی دو زبانه EPUB ایجاد کنید"
+  },
+  "translateLocalHtmlFile": {
+    "message": "翻译本地 HTML 文件"
+  },
+  "donateContext": {
+    "message": "با مزایای حمایت مالی آشنا شوید"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "فایل های زیرنویس محلی را ترجمه کنید"
+  },
+  "openAboutPage": {
+    "message": "关于/反馈/赞助"
+  },
+  "translateWithOpenAI": {
+    "message": "از OpenAI برای ترجمه موقتی صفحه فعلی استفاده کنید"
+  },
+  "translateInputBox": {
+    "message": "ترجمه محتوای جعبه ورودی فعلی"
+  },
+  "translateWithTransmart": {
+    "message": "از ترجمه موقتی تنسنت برای صفحه فعلی استفاده کنید"
+  },
+  "translateWithDeepL": {
+    "message": "استفاده موقت از DeepL برای ترجمه صفحه فعلی"
+  },
+  "translateWithBing": {
+    "message": "از ترجمه مایکروسافت برای ترجمه موقتی صفحه فعلی استفاده کنید"
+  },
+  "translateWithGemini": {
+    "message": "به طور موقت از Gemini برای ترجمه صفحه فعلی استفاده کنید"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "تغییر زیرنویس دوزبانه با استفاده از تنظیمات ترجمه فرو رفته اولویت دارد"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "در صفحه، به طور موقت فعال یا غیرفعال کردن ترجمه مستقیم موس هنگام اشاره"
+  },
+  "translateWithGoogle": {
+    "message": "از ترجمه گوگل برای صفحه فعلی به طور موقت استفاده کنید"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【ترجمه فرو رفته】 یک افزونه ترجمه صفحه وب دوزبانه رایگان (متن اصلی / ترجمه) ، در عین حال پشتیبانی از ترجمه PDF و ترجمه کتاب الکترونیکی EPUB با حفظ طرح بندی اصلی سند ، ترجمه زیرنویس دوزبانه ویدئوی آنلاین Youtube / Netflix ، پشتیبانی از خدمات ترجمه اصلی Deepl / Google؛"
+  },
+  "PdfProFile": {
+    "message": "ترجمه PDF Pro محرک هوش مصنوعی"
+  },
+  "textTranslate": {
+    "message": "ترجمه متن"
+  }
+}

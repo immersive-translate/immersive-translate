@@ -82,5 +82,11 @@
   },
   "toggleOnlyTransation": {
     "message": "切换双语/仅译文模式"
+  },
+  "PdfProFile": {
+    "message": "AI 驱动的 PDF Pro 翻译"
+  },
+  "textTranslate": {
+    "message": "文本翻译"
   }
 }

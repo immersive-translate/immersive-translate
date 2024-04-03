@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "【Traduction immersive】Un plugin de traduction de pages web bilingue gratuit (texte original / traduction), qui supporte également la traduction de PDF et de livres électroniques EPUB tout en conservant la mise en page originale, la traduction de sous-titres bilingues pour des vidéos en ligne comme Youtube/Netflix, et qui supporte les services de traduction principaux tels que Deepl/Google;"
+  },
+  "PdfProFile": {
+    "message": "AI piloté PDF Pro traduction"
+  },
+  "textTranslate": {
+    "message": "Traduction de texte"
   }
 }

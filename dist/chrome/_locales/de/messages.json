@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "【Immersive Übersetzung】Ein kostenloses zweisprachiges Webseiten-Übersetzungs-Plugin (Originaltext/Übersetzung), das gleichzeitig PDF-Übersetzung und EPUB-E-Book-Übersetzung unterstützt und das Originaldokumentenlayout beibehält, Youtube/Netflix und andere Online-Video-Zweisprachen-Untertitel-Übersetzung, Unterstützung für Deepl/Google und andere Mainstream-Übersetzungsdienste;"
+  },
+  "textTranslate": {
+    "message": "Textübersetzung"
+  },
+  "PdfProFile": {
+    "message": "Von KI angetriebene PDF Pro Übersetzung"
   }
 }

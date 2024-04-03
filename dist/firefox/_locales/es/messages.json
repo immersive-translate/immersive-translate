@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "【Traducción inmersiva】Un complemento de traducción de páginas web bilingüe (original/traducción) gratuito que también soporta la traducción de PDF y libros electrónicos EPUB manteniendo el formato original del documento, la traducción de subtítulos bilingües de videos en línea como Youtube/Netflix, y soporta servicios de traducción principales como Deepl/Google;"
+  },
+  "PdfProFile": {
+    "message": "AI impulsado por PDF Pro traducción"
+  },
+  "textTranslate": {
+    "message": "Traducción de texto"
   }
 }

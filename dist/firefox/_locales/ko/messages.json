@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. Youtube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
+  },
+  "PdfProFile": {
+    "message": "AI가 구동하는 PDF Pro 번역"
+  },
+  "textTranslate": {
+    "message": "문서 번역"
   }
 }

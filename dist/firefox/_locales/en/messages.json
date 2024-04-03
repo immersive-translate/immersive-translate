@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
+  },
+  "PdfProFile": {
+    "message": "AI-Driven PDF Pro Translation"
+  },
+  "textTranslate": {
+    "message": "Text Translation"
   }
 }

@@ -82,5 +82,11 @@
   },
   "brandDescriptionForSafari": {
     "message": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，Youtube/Netflix等在線視頻雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;"
+  },
+  "PdfProFile": {
+    "message": "AI 驅動的 PDF Pro 翻譯"
+  },
+  "textTranslate": {
+    "message": "文本翻譯（對比多個翻譯服務）"
   }
 }

@@ -37,6 +37,9 @@
   line-height: 1.3;
   font-size: 16px;
 }
+.immersive-translate-target-wrapper[dir='rtl'] {
+  text-align: right;
+}
 
 .immersive-translate-pdf-target-container .immersive-translate-target-wrapper {
   color: rgb(0, 0, 0);

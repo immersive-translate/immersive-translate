@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "ترجمه متن"
+  },
+  "translateWithClaude": {
+    "message": "به طور موقت از Claude برای ترجمه صفحه فعلی استفاده کنید"
   }
 }

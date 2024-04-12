@@ -71,6 +71,9 @@
   "translateWithTransmart": {
     "message": "临时使用腾讯翻译当前页面"
   },
+  "translateWithClaude": {
+    "message": "临时使用 Claude 翻译当前页面"
+  },
   "translateInputBox": {
     "message": "翻译当前输入框内容"
   },

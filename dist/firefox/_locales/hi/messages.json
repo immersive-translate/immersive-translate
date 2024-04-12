@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "लिखित अनुवाद"
+  },
+  "translateWithClaude": {
+    "message": "क्लॉड का उपयोग करके वर्तमान पृष्ठ का अस्थायी अनुवाद करें"
   }
 }

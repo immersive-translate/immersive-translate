@@ -777,3 +777,7 @@ article {
     display: none;
   }
 }
+.service-container .immersive-translate-link {
+  color: var(--h5-color) ;
+  text-decoration: underline ;
+}

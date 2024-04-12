@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "テキスト翻訳"
+  },
+  "translateWithClaude": {
+    "message": "現在のページの翻訳に一時的にClaudeを使用してください。"
   }
 }

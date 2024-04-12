@@ -1,0 +1,79 @@
+.service-container {
+    border: 1px solid var(--muted-border-color);
+    color: #3D4A56;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    padding: 20px;
+    position: relative;
+    flex-shrink: 0;
+    width: 47%;
+    padding-bottom: 28px;
+}
+
+.service-container h3 {
+    font-size: 18px;
+
+}
+
+.service-container .edit {
+    color: #6B7680;
+}
+
+.service-container a,
+.service-container p {
+    font-size: 0.875rem;
+}
+
+.service-container:nth-child(odd) {
+    margin-right: 24px;
+}
+
+.service-container input:not([type="submit"], [type="button"], [type="reset"])[disabled] {
+    background-color: var(--switch-background-color);
+    --border-color: var(--switch-background-color);
+}
+
+.store-return a {
+    height: 20px;
+    width: 24px;
+    content: "";
+    background-image: var(--icon-checkbox);
+    transform: rotate(90deg) scale(1.4);
+    background-image: var(--icon-chevron);
+    background-position: right center;
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.store-return {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+}
+
+@media screen and (max-width: 750px) {
+    .service-container {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .service-container {
+        width: 100%;
+        margin-right: 0px !important;
+        margin-bottom: 12px !important;
+        padding: 12px !important;
+    }
+
+    .service-container h3 {
+        font-size: 14px !important;
+    }
+
+    .service-container p {
+        font-size: 12px !important;
+    }
+
+}

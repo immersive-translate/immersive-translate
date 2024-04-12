@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "Traduction de texte"
+  },
+  "translateWithClaude": {
+    "message": "Utilisez temporairement Claude pour traduire la page actuelle."
   }
 }

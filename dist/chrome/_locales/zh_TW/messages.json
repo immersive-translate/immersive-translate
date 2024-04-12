@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "文本翻譯（對比多個翻譯服務）"
+  },
+  "translateWithClaude": {
+    "message": "臨時使用 Claude 翻譯當前頁面"
   }
 }

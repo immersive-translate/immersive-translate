@@ -88,5 +88,8 @@
   },
   "PdfProFile": {
     "message": "Von KI angetriebene PDF Pro Übersetzung"
+  },
+  "translateWithClaude": {
+    "message": "Verwenden Sie vorübergehend Claude, um die aktuelle Seite zu übersetzen."
   }
 }

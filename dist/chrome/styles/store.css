@@ -10,6 +10,23 @@
     padding-bottom: 28px;
 }
 
+.service-container[data-selected="true"] {
+    /* background: #EA4C890A; */
+    background-color: #ea4c8917;
+}
+
+.service-container[data-selected="false"][data-configed="true"]:hover {
+    background: var(--service-bg-hover);
+}
+
+.service-container[data-selected="false"][data-configed="true"]:hover .service-set-default {
+    opacity: 1 !important;
+}
+
+.service-container[data-selected="false"][data-configed="true"]:hover {
+    cursor: pointer !important;
+}
+
 .service-container h3 {
     font-size: 18px;
 
@@ -21,16 +38,28 @@
 
 .service-container a,
 .service-container p {
-    font-size: 0.875rem;
+    font-size: 0.825rem;
 }
 
 .service-container:nth-child(odd) {
     margin-right: 24px;
 }
 
+.service-container [type="checkbox"][role="switch"]:checked {
+    background-color: var(--switch-checked-background-color) !important;
+    border-color: var(--switch-checked-background-color) !important;
+}
+
 .service-container input:not([type="submit"], [type="button"], [type="reset"])[disabled] {
     background-color: var(--switch-background-color);
     --border-color: var(--switch-background-color);
+}
+
+.service-set-default,
+.service-current-default {
+    color: #999999;
+    font-size: 0.825rem;
+    font-weight: 400;
 }
 
 .store-return a {
@@ -56,13 +85,16 @@
 
 @media screen and (max-width: 750px) {
     .service-container {
-        width: 100% !important;
+        min-width: 90%;
+        max-width: 100%;
     }
 }
 
 @media screen and (max-width: 400px) {
     .service-container {
-        width: 100%;
+        flex-grow: 1;
+
+        min-width: 90%;
         margin-right: 0px !important;
         margin-bottom: 12px !important;
         padding: 12px !important;

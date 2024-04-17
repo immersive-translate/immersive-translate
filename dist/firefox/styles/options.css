@@ -76,8 +76,8 @@ body {
 
 #mount>main {
   /* padding-top: calc(var(--block-spacing-vertical) + 3.5rem); */
-  padding-left: var(--block-spacing-horizontal);
-  padding-right: var(--block-spacing-horizontal);
+  padding-left: var(--block-spacing-vertical);
+  padding-right: var(--block-spacing-vertical);
 }
 
 #mount>nav {

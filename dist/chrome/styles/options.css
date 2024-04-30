@@ -2,7 +2,8 @@
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --code-font-family: "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
+  --code-font-family: "Fira Code", "Consolas", "Monaco", "Courier New",
+    monospace;
   --line-height: 1.5;
   --font-weight: 400;
   --border-radius: 0.25rem;
@@ -74,13 +75,13 @@ body {
   overflow-x: hidden;
 }
 
-#mount>main {
+#mount > main {
   /* padding-top: calc(var(--block-spacing-vertical) + 3.5rem); */
   padding-left: var(--block-spacing-vertical);
   padding-right: var(--block-spacing-vertical);
 }
 
-#mount>nav {
+#mount > nav {
   --nav-link-spacing-vertical: 1rem;
   padding-left: var(--block-spacing-horizontal);
   padding-right: var(--block-spacing-horizontal);
@@ -95,18 +96,18 @@ body {
   box-shadow: 0px 1px 0 var(--nav-border-color);
 }
 
-main>aside>nav ul {
+main > aside > nav ul {
   margin: 0 !important;
 }
 
 @media (min-width: 992px) {
-  #mount>nav ul:first-of-type li:nth-of-type(2) {
+  #mount > nav ul:first-of-type li:nth-of-type(2) {
     display: inline;
   }
 }
 
 @media (min-width: 992px) {
-  #mount>main {
+  #mount > main {
     --block-spacing-horizontal: calc(var(--spacing) * 1.75);
     grid-column-gap: calc(var(--block-spacing-horizontal) * 3);
     display: grid;
@@ -115,13 +116,13 @@ main>aside>nav ul {
 }
 
 @media (min-width: 1200px) {
-  #mount>main {
+  #mount > main {
     --block-spacing-horizontal: calc(var(--spacing) * 2);
   }
 }
 
-#mount>main>aside,
-#mount>main div[role="main"] {
+#mount > main > aside,
+#mount > main div[role="main"] {
   min-width: 0;
 }
 
@@ -345,7 +346,7 @@ div.add-text {
   margin-right: 0.5rem;
 }
 
-nav details[role="list"] summary+ul li {
+nav details[role="list"] summary + ul li {
   width: 6rem;
   text-align: center;
 }
@@ -453,7 +454,7 @@ a.tiny-button {
 
 .end-time {
   font-size: 12px;
-  color: #C7C7C7;
+  color: #c7c7c7;
   white-space: nowrap;
 }
 
@@ -472,15 +473,15 @@ a.tiny-button {
   font-size: 14px;
 }
 
-.header>div:last-child {
+.header > div:last-child {
   margin-left: 24px;
 }
 
-.header>div.ops {
+.header > div.ops {
   margin-left: 0px;
 }
 
-.ops>div:last-child {
+.ops > div:last-child {
   margin-left: 24px;
 }
 
@@ -509,7 +510,6 @@ article {
     font-size: 14px;
   }
 
-
   .option-input {
     width: 160px;
   }
@@ -519,13 +519,16 @@ article {
     margin: 16px 0;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
-
 }
 
 .intro-container {
   display: flex;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 146, 188, 0.30) 0%, rgba(255, 255, 255, 0.00) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 146, 188, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
   padding: 24px 38px;
   margin-top: 16px;
@@ -603,7 +606,6 @@ article {
 }
 
 [data-theme="dark"] {
-
   .intro-light-img {
     display: none;
   }
@@ -612,7 +614,6 @@ article {
     display: block;
   }
 }
-
 
 .tags-input-container {
   display: flex;
@@ -631,7 +632,6 @@ article {
 .tags-input-container .input {
   min-width: 60px;
 }
-
 
 .tags-input-container .delete {
   cursor: pointer;
@@ -666,7 +666,6 @@ article {
   margin-left: -1rem;
 }
 
-
 @media screen and (min-width: 1200px) {
   .contact-embed {
     margin-left: -2rem;
@@ -677,11 +676,10 @@ article {
   display: none;
 }
 
-
 .header-navbar {
   width: 100% !important;
   max-width: 100% !important;
-  box-shadow: 0px 2px 2px 0px #0000000F;
+  box-shadow: 0px 2px 2px 0px #0000000f;
   padding: 22px 64px !important;
   position: fixed;
   background-color: var(--background-color);
@@ -756,12 +754,10 @@ article {
   }
 }
 
-
 .service-container .immersive-translate-link {
   color: var(--h5-color);
   text-decoration: underline;
 }
-
 
 .youtube-header {
   display: flex;
@@ -778,7 +774,6 @@ article {
 }
 
 @media screen and (max-width: 576px) {
-
   .header {
     padding: 12px 0.5rem !important;
     font-size: 14px;
@@ -809,4 +804,11 @@ article {
   .youtube-container {
     margin-bottom: 1rem;
   }
+}
+.details-note p {
+  font-size: 16px;
+}
+
+textarea[disabled] {
+  pointer-events: unset;
 }

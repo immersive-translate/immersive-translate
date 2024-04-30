@@ -1,0 +1,140 @@
+.assistant-container {
+    border: 1px solid var(--muted-border-color);
+    color: #3D4A56;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    padding: 15px;
+    position: relative;
+    flex-shrink: 0;
+    width: 47%;
+    padding-bottom: 28px;
+    cursor: pointer;
+}
+
+.assistant-container[data-selected="true"] {
+    background-color: #ea4c8917;
+}
+
+.assistant-container:hover {
+    background: var(--service-bg-hover);
+}
+
+.assistant-container h3 {
+    font-size: 18px;
+
+}
+
+.assistant-container .edit {
+    color: #6B7680;
+}
+
+.assistant-container a,
+.assistant-container p {
+    font-size: 0.825rem;
+}
+
+.assistant-container:nth-child(odd) {
+    margin-right: 24px;
+}
+
+.assistant-btn button {
+    color: var(--primary);
+    --border-color: var(--primary);
+    max-width: 140px;
+}
+
+.tipMsg {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.gray-button {
+    color: #999999;
+    border: 1px solid #999999;
+}
+
+.gray-button>span {
+    color: #999999;
+}
+
+.banner-container {
+    background-color: #F4F7F7;
+    color: var(--h3-color);
+}
+
+.errorTip {
+    width: 97%;
+    background-color: var(--primary);
+}
+
+.assistant-name {
+    white-space: nowrap;
+    max-width: 9vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    .banner-container {
+        background-color: #333;
+    }
+
+    .assistant-name {
+        color: rgb(213 220 225);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .assistant-content {
+        max-width: 150px;
+    }
+
+    .install-uninstall {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .assistant-name {
+        max-width: 15vw;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .assistant-container {
+        min-width: 90%;
+        max-width: 100%;
+    }
+    
+    .assistant-content {
+        max-width: none;
+    }
+    .assistant-name {
+        white-space: nowrap;
+        max-width: 35vw;
+    }
+
+    .errorTip {
+        width: 91%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .assistant-container {
+        flex-grow: 1;
+
+        min-width: 90%;
+        margin-right: 0px !important;
+        margin-bottom: 12px !important;
+        padding: 12px !important;
+    }
+
+    .assistant-container h3 {
+        font-size: 14px !important;
+    }
+
+    .assistant-container p {
+        font-size: 12px !important;
+    }
+}

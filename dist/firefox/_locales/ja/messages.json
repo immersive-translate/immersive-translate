@@ -1,12 +1,12 @@
 {
   "shortBrandName": {
-    "message": "イマージョン翻訳"
+    "message": "没入型翻訳"
   },
   "brandName": {
-    "message": "イマージョン翻訳: 二ヶ国語ウェブページ翻訳 & PDF文書翻訳"
+    "message": "没入型翻訳 - Webページ翻訳拡張機能 | PDF翻訳 | 無料"
   },
   "brandDescription": {
-    "message": "Deepl、Google、YouDao、Tencent Translateなど、複数の翻訳サービスをサポートしています。"
+    "message": "無料で使用できる（原文/翻訳）対訳Webページ翻訳拡張機能、PDF翻訳（元の文書のフォーマットを保持）、動画字幕翻訳（YouTube、Netflixなど）、EPUB電子書籍の翻訳。"
   },
   "toggleTranslatePage": {
     "message": "ページを翻訳する／原文を表示する"

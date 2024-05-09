@@ -6,7 +6,7 @@
     padding: 15px;
     position: relative;
     flex-shrink: 0;
-    width: 47%;
+    width: 48.3%;
     padding-bottom: 28px;
     cursor: pointer;
 }
@@ -40,7 +40,8 @@
 .assistant-btn button {
     color: var(--primary);
     --border-color: var(--primary);
-    max-width: 140px;
+    max-width: 130px;
+    overflow: hidden;
 }
 
 .tipMsg {
@@ -67,9 +68,13 @@
     background-color: var(--primary);
 }
 
-.assistant-name {
+.assistant-content {
+    max-width: 150px;
+}
+
+.assistant-text {
     white-space: nowrap;
-    max-width: 9vw;
+    max-width: 140px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -80,23 +85,32 @@
         background-color: #333;
     }
 
-    .assistant-name {
+    .assistant-text {
         color: rgb(213 220 225);
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 2000px) {
     .assistant-content {
-        max-width: 150px;
+        max-width: none;
     }
+}
 
+@media screen and (max-width: 1200px) {
+    .assistant-container {
+        width: 47.8%;
+    }
     .install-uninstall {
         display: none;
+    }
+    
+    .assistant-text {
+        max-width: 100px;
     }
 }
 
 @media screen and (max-width: 990px) {
-    .assistant-name {
+    .assistant-text {
         max-width: 15vw;
     }
 }
@@ -107,10 +121,7 @@
         max-width: 100%;
     }
     
-    .assistant-content {
-        max-width: none;
-    }
-    .assistant-name {
+    .assistant-text {
         white-space: nowrap;
         max-width: 35vw;
     }

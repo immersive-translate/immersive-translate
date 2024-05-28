@@ -55,6 +55,7 @@
     --border-color: var(--switch-background-color);
 }
 
+.add-custom-ai-service,
 .service-set-default,
 .service-current-default {
     color: #999999;

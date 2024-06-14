@@ -12,7 +12,8 @@
   "web_accessible_resources": [
     "styles/inject.css",
     "pdf/index.html",
-    "video-subtitle/inject.js"
+    "video-subtitle/inject.js",
+    "image/inject.js"
   ],
   "content_scripts": [
     {

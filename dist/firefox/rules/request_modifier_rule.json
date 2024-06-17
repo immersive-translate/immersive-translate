@@ -210,4 +210,70 @@
       "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
     ]
   }
+}, {
+  "id": 301,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://www.pixiv.net/"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://i.pximg.net/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 302,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://newtoki341.com/"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://img1.newtoki21*.org/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 303,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://newtoki341.com/"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://img1.newtoki21.org/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
 }]

@@ -647,6 +647,11 @@ select.text-gray-6 {
   margin: 0;
 }
 
+.translation-service-container {
+  background-color: var(--popup-item-background-color);
+  border-radius: 12px;
+}
+
 .min-select-container {
   display: flex;
   justify-content: space-between;
@@ -654,7 +659,20 @@ select.text-gray-6 {
   height: 44px;
   background-color: var(--popup-item-background-color);
   padding-left: 16px;
-  border-radius: 12px;
+}
+
+.min-select-container:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.min-select-container:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.min-select-container:only-child {
+  border-radius: 10px;
 }
 
 .translate-mode {

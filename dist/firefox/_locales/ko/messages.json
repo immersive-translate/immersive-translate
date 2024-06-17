@@ -3,10 +3,10 @@
     "message": "몰입 번역"
   },
   "brandName": {
-    "message": "몰입 번역: 이중 언어 웹 페이지 번역 및 PDF 문서 번역"
+    "message": "몰입형 번역 - 웹 사이트 번역 확장 프로그램 | PDF 번역 | 무료"
   },
   "brandDescription": {
-    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
+    "message": "[몰입형 번역] 무료 이중 언어 웹 사이트 번역 확장 프로그램으로 PDF 번역(원본 문서 조판 유지), 비디오 이중 언어 자막 번역(유튜브, 넷플릭스 등), EPUB 전자책 번역 등을 지원합니다. 또한 OpenAI(ChatGPT), DeepL, 바드 등의 인공지능(AI) 번역 모델을 호출하여 위의 내용을 보다 정확하게 번역할 수 있습니다."
   },
   "toggleTranslatePage": {
     "message": "페이지 번역/원문 표시"
@@ -81,12 +81,15 @@
     "message": "이중 언어 자막을 전환하고, 몰입형 번역 설정을 우선적으로 사용하십시오."
   },
   "brandDescriptionForSafari": {
-    "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. Youtube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
+    "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. YouTube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
   },
   "PdfProFile": {
     "message": "AI가 구동하는 PDF Pro 번역"
   },
   "textTranslate": {
     "message": "문서 번역"
+  },
+  "translateWithClaude": {
+    "message": "임시로 Claude를 사용하여 현재 페이지를 번역하십시오."
   }
 }

@@ -6,10 +6,10 @@
     "message": "沉浸式翻译 - 网页翻译插件 | PDF翻译 | 免费"
   },
   "brandDescription": {
-    "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译（保留原文档排版），视频双语字幕翻译（Youtube, Netflix等），EPUB电子书翻译等；支持调用人工智能AI翻译大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等 ）对以上内容进行更准确的翻译；"
+    "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译（保留原文档排版），视频双语字幕翻译（YouTube, Netflix等），EPUB电子书翻译等；支持调用人工智能AI翻译大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等 ）对以上内容进行更准确的翻译；"
   },
   "brandDescriptionForSafari": {
-    "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译和EPUB电子书翻译且保留原文档排版，Youtube/Netflix等在线视频双语字幕翻译，支持Deepl/Google等主流翻译服务;"
+    "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译和EPUB电子书翻译且保留原文档排版，YouTube/Netflix等在线视频双语字幕翻译，支持Deepl/Google等主流翻译服务;"
   },
   "toggleTranslatePage": {
     "message": "翻译网页/显示原文"
@@ -70,6 +70,9 @@
   },
   "translateWithTransmart": {
     "message": "临时使用腾讯翻译当前页面"
+  },
+  "translateWithClaude": {
+    "message": "临时使用 Claude 翻译当前页面"
   },
   "translateInputBox": {
     "message": "翻译当前输入框内容"

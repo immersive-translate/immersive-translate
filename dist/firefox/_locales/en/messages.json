@@ -3,7 +3,7 @@
     "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "Immersive Translate - Translate Website & PDF"
+    "message": "Immersive Translate - Translate Web & PDF"
   },
   "brandDescription": {
     "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
@@ -88,5 +88,8 @@
   },
   "textTranslate": {
     "message": "Text Translation"
+  },
+  "translateWithClaude": {
+    "message": "Temporarily use Claude to translate the current page."
   }
 }

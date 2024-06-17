@@ -81,12 +81,15 @@
     "message": "Verwenden Sie vorübergehend Gemini, um die aktuelle Seite zu übersetzen."
   },
   "brandDescriptionForSafari": {
-    "message": "【Immersive Übersetzung】Ein kostenloses zweisprachiges Webseiten-Übersetzungs-Plugin (Originaltext/Übersetzung), das gleichzeitig PDF-Übersetzung und EPUB-E-Book-Übersetzung unterstützt und das Originaldokumentenlayout beibehält, Youtube/Netflix und andere Online-Video-Zweisprachen-Untertitel-Übersetzung, Unterstützung für Deepl/Google und andere Mainstream-Übersetzungsdienste;"
+    "message": "【Immersive Übersetzung】Ein kostenloses zweisprachiges Webseiten-Übersetzungs-Plugin (Originaltext/Übersetzung), das gleichzeitig PDF-Übersetzung und EPUB-E-Book-Übersetzung unterstützt und das Originaldokumentenlayout beibehält, YouTube/Netflix und andere Online-Video-Zweisprachen-Untertitel-Übersetzung, Unterstützung für Deepl/Google und andere Mainstream-Übersetzungsdienste;"
   },
   "textTranslate": {
     "message": "Textübersetzung"
   },
   "PdfProFile": {
     "message": "Von KI angetriebene PDF Pro Übersetzung"
+  },
+  "translateWithClaude": {
+    "message": "Verwenden Sie vorübergehend Claude, um die aktuelle Seite zu übersetzen."
   }
 }

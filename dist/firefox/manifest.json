@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.4.6",
+  "version": "1.6.3",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -12,7 +12,8 @@
   "web_accessible_resources": [
     "styles/inject.css",
     "pdf/index.html",
-    "video-subtitle/inject.js"
+    "video-subtitle/inject.js",
+    "image/inject.js"
   ],
   "content_scripts": [
     {
@@ -88,6 +89,9 @@
     },
     "translateWithBing": {
       "description": "__MSG_translateWithBing__"
+    },
+    "translateWithClaude": {
+      "description": "__MSG_translateWithClaude__"
     },
     "translateInputBox": {
       "description": "__MSG_translateInputBox__"

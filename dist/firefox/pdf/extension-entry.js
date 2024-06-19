@@ -5,13 +5,22 @@ function main() {
   const iframe = document.querySelector("iframe");
   // read the file param
   const urlObj = new URL(window.location.href);
-  const file = urlObj.searchParams.get("file");
-  if (!file) {
+  let filePath = urlObj.searchParams.get("file");
+  if (!filePath) {
     restorePdf();
     hiddenLoading();
     return;
   }
-  fetch(file).then((response) => {
+
+  let fileIndex = filePath.indexOf("file:///");
+  if (fileIndex < 0) fileIndex = filePath.indexOf("http://");
+  if (fileIndex < 0) fileIndex = filePath.indexOf("https://");
+
+  if (fileIndex > 0) {
+    filePath = filePath.slice(fileIndex);
+  }
+
+  fetch(filePath).then((response) => {
     return response.blob();
   })
     .then((blob) => {
@@ -19,12 +28,12 @@ function main() {
         iframe.contentWindow.postMessage({
           type: "pdf-local-file",
           blob: blob,
-          fileName: getDecodedFileName(file),
+          fileName: getDecodedFileName(filePath),
         }, "*");
       });
     }).catch(function (err) {
       console.error(err);
-      restorePdf(file);
+      restorePdf(filePath);
       hiddenLoading();
     });
 
@@ -36,7 +45,7 @@ function main() {
   }
 
   function getDecodedFileName(url) {
-    const encodedFileName = url.split('/').pop();
+    const encodedFileName = url.split("/").pop();
     const decodedFileName = decodeURIComponent(encodedFileName);
     return decodedFileName;
   }

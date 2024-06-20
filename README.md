@@ -9,23 +9,3 @@
 以下为视频介绍：
 
 https://github.com/immersive-translate/immersive-translate/assets/62473795/a0e9af51-4a18-45ef-9fc4-0a1509d56ab0
-
-<div align="center">
-<br>
-<br>
-<p>
-<sup>特别鸣谢以下品牌的赞助:</sup>
-<br>
-<br>
-<div>
-<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung"><img src="https://immersive-translate.owenyoung.com/assets/apifox-logo.png" width="200" alt="apifox"></a>
-</div>
-<a target="_blank" href="https://www.apifox.cn/?utm_source=pay&utm_medium=owenyoung">
-<b>API 设计、开发、测试一体化协作平台</b>
-<div>
-<sup>Apifox = Postman + Swagger + Mock + JMeter ，免费使用。</sup>
-</div>
-</a>
-
-</p>
-</div>

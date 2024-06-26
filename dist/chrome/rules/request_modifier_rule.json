@@ -276,4 +276,92 @@
       "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
     ]
   }
+}, {
+  "id": 304,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://2.bp.blogspot.com"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://2.bp.blogspot.com/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 305,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://japanreader.com"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://japanreader.com/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 306,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://mangabuddy.com/"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://s*.mbbcdn.com/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
+}, {
+  "id": 307,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://sl.mangafuna.xyz/"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://sl.mangafuna.xyz/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh"
+    ]
+  }
 }]

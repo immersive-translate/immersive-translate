@@ -113,7 +113,7 @@
 // @name:pt     Tradução por imersão: Tradução bilingue de páginas Web e de documentos PDF
 // @description:pt     Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use.
 // ==/UserScript==
-(()=>{var wT=Object.defineProperty;var AT=(e,t)=>{for(var n in t)wT(e,n,{get:t[n],enumerable:!0})};var S={BUILD_TIME:"2024-07-05T13:46:34.000Z",VERSION:"1.7.5",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var wT=Object.defineProperty;var AT=(e,t)=>{for(var n in t)wT(e,n,{get:t[n],enumerable:!0})};var S={BUILD_TIME:"2024-07-05T13:51:25.000Z",VERSION:"1.7.5",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

@@ -68,16 +68,16 @@
     background-color: var(--primary);
 }
 
-.assistant-content {
-    max-width: 150px;
-}
-
 .assistant-text {
     white-space: nowrap;
     max-width: 140px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.custom-assistant-name {
+    max-width: 260px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,18 +100,27 @@
     .assistant-container {
         width: 47.8%;
     }
+
     .install-uninstall {
         display: none;
     }
-    
+
     .assistant-text {
         max-width: 100px;
+    }
+
+    .custom-assistant-name {
+        max-width: 160px;
     }
 }
 
 @media screen and (max-width: 990px) {
     .assistant-text {
         max-width: 15vw;
+    }
+
+    .custom-assistant-name {
+        max-width: 24vw;
     }
 }
 
@@ -120,10 +129,14 @@
         min-width: 90%;
         max-width: 100%;
     }
-    
+
     .assistant-text {
         white-space: nowrap;
         max-width: 35vw;
+    }
+
+    .custom-assistant-name {
+        max-width: 44vw;
     }
 
     .errorTip {
@@ -147,5 +160,9 @@
 
     .assistant-container p {
         font-size: 12px !important;
+    }
+
+    .custom-assistant-name {
+        max-width: calc(100vw - 150px);
     }
 }

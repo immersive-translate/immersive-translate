@@ -9,7 +9,7 @@
     "message": "Tradução gratuita de sites, PDF e e-books Epub, tradução de legendas de vídeo em modo bilíngue."
   },
   "toggleTranslatePage": {
-    "message": "Traduzir página/Exibir texto original"
+    "message": "Traduzir para {targetLanguage}({shortcutKey})"
   },
   "toggleTranslateTheWholePage": {
     "message": "Traduzir página inteira/Exibir texto original"

@@ -12,7 +12,7 @@
     "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译和EPUB电子书翻译且保留原文档排版，YouTube/Netflix等在线视频双语字幕翻译，支持Deepl/Google等主流翻译服务;"
   },
   "toggleTranslatePage": {
-    "message": "翻译网页/显示原文"
+    "message": "翻译为{targetLanguage}({shortcutKey})"
   },
   "toggleTranslateTheWholePage": {
     "message": "翻译页面全部区域/显示原文"

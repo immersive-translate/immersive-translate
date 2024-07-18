@@ -9,7 +9,7 @@
     "message": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯擴充，同時支持PDF翻譯（保留原文檔排版），影片雙語字幕翻譯（YouTube, Netflix等），EPUB電子書翻譯等；支持調用人工智能AI翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等 ）對以上內容進行更準確的翻譯；"
   },
   "toggleTranslatePage": {
-    "message": "翻譯網頁/顯示原文"
+    "message": "翻譯為{targetLanguage}({shortcutKey})"
   },
   "toggleTranslateTheWholePage": {
     "message": "翻譯頁面全部區域/顯示原文"

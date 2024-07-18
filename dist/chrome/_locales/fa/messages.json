@@ -9,7 +9,7 @@
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
   },
   "toggleTranslatePage": {
-    "message": "ترجمه تارنما/نمایش متن اصلی"
+    "message": "ترجمه به {targetLanguage}({shortcutKey})"
   },
   "toggleTranslateTheWholePage": {
     "message": "ترجمه تمام برگه/نمایش متن اصلی"

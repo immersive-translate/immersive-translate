@@ -9,7 +9,7 @@
     "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
-    "message": "Traducir página/visualizar texto original"
+    "message": "Traducir a {targetLanguage}({shortcutKey})"
   },
   "toggleTranslateTheWholePage": {
     "message": "Traducir todas las áreas de la página/visualizar el texto original"

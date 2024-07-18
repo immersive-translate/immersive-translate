@@ -9,7 +9,7 @@
     "message": "Web sayfalarını, PDF'leri ve e-kitapları çevir, video altyazılarını çevir, dil öğren"
   },
   "toggleTranslatePage": {
-    "message": "Web sayfasını çevir/Orijinal metni göster"
+    "message": "{targetLanguage}({shortcutKey}) olarak çevirin"
   },
   "toggleTranslateTheWholePage": {
     "message": "Tüm sayfayı çevir/Orijinal metni göster"

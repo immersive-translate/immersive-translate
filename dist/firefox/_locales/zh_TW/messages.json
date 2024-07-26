@@ -96,6 +96,6 @@
     "message": "翻譯網頁/顯示原文"
   },
   "translateText": {
-    "message": ""
+    "message": "翻譯文本：\"{text}\""
   }
 }

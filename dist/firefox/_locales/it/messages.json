@@ -9,7 +9,7 @@
     "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
-    "message": "Traduci in {targetLanguage}({shortcutKey})"
+    "message": "Traduci in {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
     "message": "Tradurre tutte le aree della pagina/visualizzare il testo originale"
@@ -91,5 +91,11 @@
   },
   "translateWithClaude": {
     "message": "Utilizza temporaneamente Claude per tradurre la pagina corrente"
+  },
+  "translateText": {
+    "message": "Translate \"{text}\""
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Traduci pagina web / Mostra testo originale"
   }
 }

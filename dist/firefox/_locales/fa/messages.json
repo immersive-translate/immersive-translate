@@ -9,7 +9,7 @@
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
   },
   "toggleTranslatePage": {
-    "message": "ترجمه به {targetLanguage}({shortcutKey})"
+    "message": "ترجمه به {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
     "message": "ترجمه تمام برگه/نمایش متن اصلی"
@@ -91,5 +91,11 @@
   },
   "translateWithClaude": {
     "message": "به طور موقت از Claude برای ترجمه صفحه فعلی استفاده کنید"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "ترجمه صفحه وب/نمایش متن اصلی"
+  },
+  "translateText": {
+    "message": "Translate \"{text}\""
   }
 }

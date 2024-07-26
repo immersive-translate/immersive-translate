@@ -53,7 +53,7 @@
       "suggested_key": {
         "default": "Alt+A"
       },
-      "description": "__MSG_toggleTranslatePage__"
+      "description": "__MSG_toggleTranslatePageOfficialPage__"
     },
     "toggleTranslateTheWholePage": {
       "suggested_key": {

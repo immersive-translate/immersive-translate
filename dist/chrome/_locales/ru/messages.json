@@ -9,7 +9,7 @@
     "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
-    "message": "Перевести на {targetLanguage}({shortcutKey})"
+    "message": "Перевести на {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
     "message": "Перевести все области страницы/отобразить оригинальный текст"
@@ -91,5 +91,11 @@
   },
   "translateWithClaude": {
     "message": "Временно используйте Claude для перевода текущей страницы"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Перевести веб-страницу / Показать оригинал"
+  },
+  "translateText": {
+    "message": "Translate \"{text}\""
   }
 }

@@ -212,6 +212,12 @@
   position: relative
 }
 
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 50% auto !important;
+  }
+}
+
 .immersive-translate-modal .immersive-translate-modal-content-in-input {
   max-width: 500px;
 }

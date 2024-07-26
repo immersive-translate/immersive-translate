@@ -9,7 +9,7 @@
     "message": "無料で使用できる（原文/翻訳）対訳Webページ翻訳拡張機能、PDF翻訳（元の文書のフォーマットを保持）、動画字幕翻訳（YouTube、Netflixなど）、EPUB電子書籍の翻訳。"
   },
   "toggleTranslatePage": {
-    "message": "{targetLanguage}({shortcutKey})に翻訳してください。"
+    "message": "{targetLanguage}に翻訳してください。"
   },
   "toggleTranslateTheWholePage": {
     "message": "ページの全領域を翻訳する／原文を表示する"
@@ -91,5 +91,11 @@
   },
   "translateWithClaude": {
     "message": "現在のページの翻訳に一時的にClaudeを使用してください。"
+  },
+  "translateText": {
+    "message": "Translate \"{text}\""
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "ウェブページを翻訳/原文を表示"
   }
 }

@@ -9,7 +9,7 @@
     "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
   },
   "toggleTranslatePage": {
-    "message": "Translate to {targetLanguage}({shortcutKey})"
+    "message": "Translate to {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
     "message": "Translate entire page/Display original text"
@@ -91,5 +91,11 @@
   },
   "translateWithClaude": {
     "message": "Temporarily use Claude to translate the current page."
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Translate Webpage/Show Original Text"
+  },
+  "translateText": {
+    "message": "Translate \"{text}\""
   }
 }

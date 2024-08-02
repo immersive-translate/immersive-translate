@@ -97,5 +97,14 @@
   },
   "translateText": {
     "message": "Translate \"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(1)"
+  },
+  "translateWithCustom3": {
+    "message": "Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(3)"
+  },
+  "translateWithCustom2": {
+    "message": "Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(2)"
   }
 }

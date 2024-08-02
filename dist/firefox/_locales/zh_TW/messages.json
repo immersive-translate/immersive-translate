@@ -97,5 +97,14 @@
   },
   "translateText": {
     "message": "翻譯文本：\"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面(1)"
+  },
+  "translateWithCustom2": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面(2)"
+  },
+  "translateWithCustom3": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面(3)"
   }
 }

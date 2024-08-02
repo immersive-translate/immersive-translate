@@ -97,5 +97,14 @@
   },
   "toggleTranslatePageOfficialPage": {
     "message": "웹 페이지 번역하기/원문 표시하기"
+  },
+  "translateWithCustom1": {
+    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(1)"
+  },
+  "translateWithCustom3": {
+    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(3)"
+  },
+  "translateWithCustom2": {
+    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(2)"
   }
 }

@@ -97,5 +97,14 @@
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Web sayfasını çevir/Gösterilen orijinal metin"
+  },
+  "translateWithCustom1": {
+    "message": "Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(1)"
+  },
+  "translateWithCustom3": {
+    "message": "Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(3)"
+  },
+  "translateWithCustom2": {
+    "message": "Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(2)"
   }
 }

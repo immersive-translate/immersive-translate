@@ -97,5 +97,14 @@
   },
   "toggleTranslatePageOfficialPage": {
     "message": "ウェブページを翻訳/原文を表示"
+  },
+  "translateWithCustom1": {
+    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(1)"
+  },
+  "translateWithCustom3": {
+    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(3)"
+  },
+  "translateWithCustom2": {
+    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(2)"
   }
 }

@@ -97,5 +97,14 @@
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Traduci pagina web / Mostra testo originale"
+  },
+  "translateWithCustom1": {
+    "message": "Uso temporaneo di servizi di traduzione personalizzati per tradurre la pagina corrente(1)"
+  },
+  "translateWithCustom2": {
+    "message": "Uso temporaneo di servizi di traduzione personalizzati per tradurre la pagina corrente(2)"
+  },
+  "translateWithCustom3": {
+    "message": "Uso temporaneo di servizi di traduzione personalizzati per tradurre la pagina corrente(3)"
   }
 }

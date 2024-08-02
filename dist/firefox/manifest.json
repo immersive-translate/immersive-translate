@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.7.9",
+  "version": "1.8.1",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -95,6 +95,15 @@
     },
     "translateInputBox": {
       "description": "__MSG_translateInputBox__"
+    },
+    "translateWithCustom1": {
+      "description": "__MSG_translateWithCustom1__"
+    },
+    "translateWithCustom2": {
+      "description": "__MSG_translateWithCustom2__"
+    },
+    "translateWithCustom3": {
+      "description": "__MSG_translateWithCustom3__"
     },
     "toggleVideoSubtitlePreTranslation": {
       "description": "__MSG_toggleVideoSubtitlePreTranslation__"

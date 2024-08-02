@@ -77,6 +77,15 @@
   "translateWithClaude": {
     "message": "临时使用 Claude 翻译当前页面"
   },
+  "translateWithCustom1": {
+    "message": "临时使用自定义翻译服务翻译当前页面(1)"
+  },
+  "translateWithCustom2": {
+    "message": "临时使用自定义翻译服务翻译当前页面(2)"
+  },
+  "translateWithCustom3": {
+    "message": "临时使用自定义翻译服务翻译当前页面(3)"
+  },
   "translateInputBox": {
     "message": "翻译当前输入框内容"
   },

@@ -97,5 +97,14 @@
   },
   "translateText": {
     "message": "Translate \"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "Utilização temporária de serviços de tradução personalizados para traduzir a página atual(1)"
+  },
+  "translateWithCustom3": {
+    "message": "Utilização temporária de serviços de tradução personalizados para traduzir a página atual(3)"
+  },
+  "translateWithCustom2": {
+    "message": "Utilização temporária de serviços de tradução personalizados para traduzir a página atual(2)"
   }
 }

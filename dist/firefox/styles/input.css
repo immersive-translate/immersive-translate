@@ -133,20 +133,6 @@
   color: #4d5156;
 }
 
-/* dark */
-@media (prefers-color-scheme: dark) {
-  .immersive-translate-search-recomend {
-    border: 1px solid #3c4043;
-  }
-
-  .immersive-translate-close-action svg {
-    fill: #bdc1c6;
-  }
-
-  .immersive-translate-search-enhancement-en-title {
-    color: #bdc1c6;
-  }
-}
 
 
 .immersive-translate-search-settings {

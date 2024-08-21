@@ -1,0 +1,47 @@
+{
+  "toggleTranslatePage": {
+    "message": "Biên dịch sang {targetLanguage}"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Biên dịch trang web/Hiển thị văn bản gốc"
+  },
+  "shareToDraft": {
+    "message": "Chia sẻ Trang Song ngữ"
+  },
+  "translateLocalPdfFile": {
+    "message": "Biên dịch cục bộ tệp PDF"
+  },
+  "openEbookViewer": {
+    "message": "Đọc sách điện tử cục bộ"
+  },
+  "translateLocalHtmlFile": {
+    "message": "Biên dịch tệp HTML/txt"
+  },
+  "donateContext": {
+    "message": "Khám phá các lợi ích khi tài trợ"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Biên dịch Cục bộ Tệp Phụ đề"
+  },
+  "brandDescription": {
+    "message": "Tự do dịch trang web, biên dịch PDF & Epub, biên dịch video phụ đề bằng song ngữ"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Biên dịch trang chính/Hiển thị văn bản gốc"
+  },
+  "openOptionsPage": {
+    "message": "Mở trang Cài đặt"
+  },
+  "brandDescriptionForSafari": {
+    "message": "Tự do dịch trang web, biên dịch PDF & Epub, biên dịch video phụ đề bằng song ngữ"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Biên dịch toàn bộ trang/Hiển thị văn bản gốc"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Dịch ngay đến cuối trang/Hiển thị văn bản gốc"
+  },
+  "openEbookBuilder": {
+    "message": "Tạo song ngữ sách điện tử EPUB"
+  }
+}

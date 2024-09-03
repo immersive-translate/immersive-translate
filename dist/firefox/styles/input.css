@@ -277,6 +277,13 @@
 .immersive-translate-btn:hover {
   background-color: #f082ac;
 }
+.immersive-translate-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover{
+  background-color: #ea4c89;
+}
 
 .immersive-translate-cancel-btn {
   /* gray color */

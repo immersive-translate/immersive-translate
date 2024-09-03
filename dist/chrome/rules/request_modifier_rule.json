@@ -402,4 +402,27 @@
       "amkbmndfnliijdhojkpoglbnaaahippg"
     ]
   }
+}, {
+  "id": 309,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://readcomiconline.li"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://*.whatsnew*.net/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+      "amkbmndfnliijdhojkpoglbnaaahippg"
+    ]
+  }
 }]

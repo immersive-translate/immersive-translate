@@ -425,4 +425,27 @@
       "amkbmndfnliijdhojkpoglbnaaahippg"
     ]
   }
+}, {
+  "id": 310,
+  "priority": 1,
+  "action": {
+    "type": "modifyHeaders",
+    "requestHeaders": [
+      {
+        "header": "referer",
+        "operation": "set",
+        "value": "https://yymanhua.com"
+      }
+    ]
+  },
+  "condition": {
+    "urlFilter": "https://image.yymanhua.com/*",
+    "resourceTypes": ["xmlhttprequest"],
+    "domainType": "thirdParty",
+    "initiatorDomains": [
+      "cfhamdkdjgoelclgllcoikbckcfpaklj",
+      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+      "amkbmndfnliijdhojkpoglbnaaahippg"
+    ]
+  }
 }]

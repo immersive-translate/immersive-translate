@@ -106,5 +106,8 @@
   },
   "translateWithCustom3": {
     "message": "Uso temporal de servicios de traducción personalizados para traducir la página actual(3)"
+  },
+  "translateMangaMenuId": {
+    "message": "Traducir imágenes/restaurar imágenes"
   }
 }

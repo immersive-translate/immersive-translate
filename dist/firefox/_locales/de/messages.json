@@ -106,5 +106,8 @@
   },
   "translateWithCustom2": {
     "message": "Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(2)"
+  },
+  "translateMangaMenuId": {
+    "message": "Bilder übersetzen/Bilder wiederherstellen"
   }
 }

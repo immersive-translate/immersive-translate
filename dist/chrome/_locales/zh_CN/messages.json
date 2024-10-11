@@ -50,6 +50,9 @@
   "translateLocalSubtitleFile": {
     "message": "翻译本地字幕文件"
   },
+  "translateMangaMenuId": {
+    "message": "翻译图片/还原图片"
+  },
   "openAboutPage": {
     "message": "关于/反馈"
   },

@@ -106,5 +106,8 @@
   },
   "translateWithCustom3": {
     "message": "暫時使用自訂翻譯服務翻譯目前頁面(3)"
+  },
+  "translateMangaMenuId": {
+    "message": "翻譯圖片/還原圖片"
   }
 }

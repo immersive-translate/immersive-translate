@@ -509,3 +509,14 @@
     transform: rotate(359deg);
   }
 }
+
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-2, #FFF);
+  font-size: 14px;
+}

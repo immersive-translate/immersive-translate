@@ -106,5 +106,8 @@
   },
   "translateWithCustom2": {
     "message": "Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(2)"
+  },
+  "translateMangaMenuId": {
+    "message": "Görüntüleri çevirme/görüntüleri geri yükleme"
   }
 }

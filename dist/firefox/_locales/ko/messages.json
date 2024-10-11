@@ -106,5 +106,8 @@
   },
   "translateWithCustom2": {
     "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(2)"
+  },
+  "translateMangaMenuId": {
+    "message": "이미지 번역/이미지 복원"
   }
 }

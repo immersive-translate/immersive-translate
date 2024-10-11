@@ -522,7 +522,6 @@ article {
 }
 
 .intro-container {
-  display: flex;
   border-radius: 24px;
   background: linear-gradient(
     180deg,
@@ -530,10 +529,21 @@ article {
     rgba(255, 255, 255, 0) 100%
   );
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
-  padding: 24px 38px;
+  
   margin-top: 16px;
   margin-bottom: 24px;
+}
+
+.intro-content {
+  display: flex;
   align-items: center;
+  padding: 24px 38px;
+}
+
+.intro-line {
+  background: #EBEBEB;
+  height: 1px;
+  width: 100%;
 }
 
 .intro-container img {
@@ -773,9 +783,13 @@ article {
   margin-bottom: 30px;
 }
 
+.manga-enable, .image-tools-enable {
+  display: none;
+}
+
 @media screen and (max-width: 576px) {
   .header {
-    padding: 12px 0.5rem !important;
+    padding: 12px 0.5reœm !important;
     font-size: 14px;
   }
 
@@ -795,6 +809,10 @@ article {
 
   .mobile-hidden {
     display: none;
+  }
+
+  .manga-enable, .image-tools-enable {
+    display: flex;
   }
 
   .youtube-header {

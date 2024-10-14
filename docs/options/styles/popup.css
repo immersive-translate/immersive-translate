@@ -71,6 +71,7 @@ body {
   --popup-content-background-color: #ffffff;
   --popup-item-background-color: #f3f5f6;
   --popup-item-hover-background-color: #eaeced;
+  --popup-trial-pro-background-color: #F9FBFC;
   --text-black-2: #222222;
   --text-gray-2: #222222;
   --text-gray-6: #666666;
@@ -84,6 +85,7 @@ body {
     --popup-content-background-color: #191919;
     --popup-item-background-color: #272727;
     --popup-item-hover-background-color: #333333;
+    --popup-trial-pro-background-color: #222222;
     --text-black-2: #ffffff;
     --text-gray-2: #dbdbdb;
     --text-gray-6: #b3b3b3;
@@ -97,6 +99,7 @@ body {
   --popup-content-background-color: #191919;
   --popup-item-background-color: #272727;
   --popup-item-hover-background-color: #333333;
+  --popup-trial-pro-background-color: #222222;
   --text-black-2: #ffffff;
   --text-gray-2: #dbdbdb;
   --text-gray-6: #b3b3b3;
@@ -759,4 +762,59 @@ select.text-gray-6 {
   margin: 12px;
   border-radius: 12px;
   flex-direction: column;
+}
+
+
+.upgrade-pro {
+  border-radius: 11px;
+  background: linear-gradient(57deg, #272727 19.8%, #696969 82.2%);
+  padding: 2px 8px;
+  transform: scale(0.85);
+}
+
+.upgrade-pro span {
+  background: linear-gradient(180deg, #FFEAB4 17.65%, #F8C235 85.29%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+
+.upgrade-pro svg {
+  margin-top: -2px;
+}
+
+.upgrade-pro:hover {
+  background: linear-gradient(57deg, #3D3D3D 19.8%, #949494 82.2%);
+}
+
+.border-bottom-radius-0 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.trial-pro-container {
+  border-radius: 0px 0px 12px 12px;
+  background: var(--popup-trial-pro-background-color);
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 12px;
+  font-size: 12px;
+}
+
+.trial-pro-container label {
+  line-height: 13px;
+  color: var(--text-black-2);
+}
+
+.trial-pro-container img {
+  margin-left: 5px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

@@ -14,9 +14,6 @@
   "toggleTranslatePage": {
     "message": "翻译为{targetLanguage}"
   },
-  "toggleTranslatePageOfficialPage": {
-    "message": "翻译网页/显示原文"
-  },
   "toggleTranslateTheWholePage": {
     "message": "翻译页面全部区域/显示原文"
   },
@@ -25,9 +22,6 @@
   },
   "toggleTranslateTheMainPage": {
     "message": "翻译页面主要区域/显示原文"
-  },
-  "shareToDraft": {
-    "message": "生成网页快照"
   },
   "openOptionsPage": {
     "message": "打开设置页"
@@ -43,9 +37,6 @@
   },
   "translateLocalHtmlFile": {
     "message": "翻译 HTML/txt 文件"
-  },
-  "donateContext": {
-    "message": "了解赞助福利"
   },
   "translateLocalSubtitleFile": {
     "message": "翻译本地字幕文件"
@@ -109,5 +100,11 @@
   },
   "translateText": {
     "message": "翻译文本：\"{text}\""
+  },
+  "shareToDraft": {
+    "message": "生成网页快照"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "翻译网页/显示原文"
   }
 }

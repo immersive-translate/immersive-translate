@@ -44,9 +44,6 @@
   "translateLocalHtmlFile": {
     "message": "HTML/テキストファイルを翻訳する"
   },
-  "donateContext": {
-    "message": "スポンサー特典について"
-  },
   "translateLocalSubtitleFile": {
     "message": "ローカル字幕ファイルを翻訳する"
   },

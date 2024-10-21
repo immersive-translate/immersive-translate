@@ -38,9 +38,6 @@
   "translateLocalHtmlFile": {
     "message": "Yerel HTML Dosyasını Çevir"
   },
-  "donateContext": {
-    "message": "Bağış Yap"
-  },
   "translateLocalSubtitleFile": {
     "message": "Yerel Altyazı Dosyasını Çevir"
   },
@@ -108,6 +105,6 @@
     "message": "Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(2)"
   },
   "translateMangaMenuId": {
-    "message": "Görüntüleri çevirme/görüntüleri geri yükleme"
+    "message": "Görüntüyü çevir/görüntüyü geri yükle"
   }
 }

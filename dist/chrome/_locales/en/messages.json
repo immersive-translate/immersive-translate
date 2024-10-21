@@ -38,9 +38,6 @@
   "translateLocalHtmlFile": {
     "message": "Translate HTML/txt File"
   },
-  "donateContext": {
-    "message": "Explore Sponsorship Benefits"
-  },
   "translateLocalSubtitleFile": {
     "message": "Translate Local Subtitle File"
   },
@@ -108,6 +105,6 @@
     "message": "Temporary use of custom translation services to translate the current page(3)"
   },
   "translateMangaMenuId": {
-    "message": "Translating images/restoring images"
+    "message": "Translate image/restore image"
   }
 }

@@ -44,9 +44,6 @@
   "translateLocalHtmlFile": {
     "message": "HTML/Txt-Dateien übersetzen"
   },
-  "donateContext": {
-    "message": "Erfahren Sie mehr über die Vorteile eines Sponsors"
-  },
   "translateLocalSubtitleFile": {
     "message": "Lokale Untertiteldateien übersetzen"
   },
@@ -108,6 +105,6 @@
     "message": "Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(2)"
   },
   "translateMangaMenuId": {
-    "message": "Bilder übersetzen/Bilder wiederherstellen"
+    "message": "Bild übersetzen/Bild wiederherstellen"
   }
 }

@@ -44,9 +44,6 @@
   "translateLocalHtmlFile": {
     "message": "ترجمة ملفات HTML/txt"
   },
-  "donateContext": {
-    "message": "تعرف على فوائد الرعاية"
-  },
   "translateLocalSubtitleFile": {
     "message": "ترجمة ملفات الترجمة المحلية"
   },
@@ -108,6 +105,6 @@
     "message": "استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(3)"
   },
   "translateMangaMenuId": {
-    "message": "ترجمة الصور / استعادة الصور"
+    "message": "ترجمة الصورة/استعادة الصورة"
   }
 }

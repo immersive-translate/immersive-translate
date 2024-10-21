@@ -6,7 +6,7 @@
     "message": "沉浸式翻譯 - 網頁翻譯擴充 | PDF翻譯 | 免費"
   },
   "brandDescription": {
-    "message": "【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯插件，支持PDF翻譯（保留排版），視頻雙語字幕翻譯（Youtube, Netflix），EPUB電子書翻譯；支持人工智能AI翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）"
+    "message": "【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯插件，支持PDF翻譯（保留排版），影片雙語字幕翻譯（Youtube, Netflix），EPUB電子書翻譯；支持人工智能AI翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）"
   },
   "toggleTranslatePage": {
     "message": "翻譯為{targetLanguage}"
@@ -37,9 +37,6 @@
   },
   "translateLocalHtmlFile": {
     "message": "翻譯 HTML/txt 檔案"
-  },
-  "donateContext": {
-    "message": "了解贊助福利"
   },
   "translateLocalSubtitleFile": {
     "message": "翻譯字幕檔案"

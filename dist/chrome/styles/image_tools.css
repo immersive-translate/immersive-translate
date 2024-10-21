@@ -24,11 +24,12 @@
 
 .close-button {
   position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
+  top: -18px;
+  right: -18px;
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  line-height: 0;
   display: none;
   cursor: pointer;
 }

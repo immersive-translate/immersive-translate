@@ -1,451 +1,535 @@
-[{
-  "id": 1,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "Referer",
-        "operation": "set",
-        "value": "https://httpstat.us/429"
-      },
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "https://httpstat.us/429"
-      },
-      {
-        "header": "DNT",
-        "operation": "set",
-        "value": "1"
-      }
-    ]
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://httpstat.us/429"
+        },
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "https://httpstat.us/429"
+        },
+        {
+          "header": "DNT",
+          "operation": "set",
+          "value": "1"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://httpstat.us/429",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://httpstat.us/429",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 2,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "Referer",
-        "operation": "set",
-        "value": "https://www.deepl.com/"
-      },
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "https://www.deepl.com"
-      },
-      {
-        "header": "DNT",
-        "operation": "set",
-        "value": "1"
-      },
-      { "header": "cookie", "operation": "remove" }
-    ]
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://www.deepl.com/"
+        },
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "https://www.deepl.com"
+        },
+        {
+          "header": "DNT",
+          "operation": "set",
+          "value": "1"
+        },
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://www2.deepl.com/jsonrpc*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://www2.deepl.com/jsonrpc*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 200,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "Referer",
-        "operation": "set",
-        "value": "https://www.deepl.com/"
-      },
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
-      },
-      {
-        "header": "DNT",
-        "operation": "set",
-        "value": "1"
-      }
-    ]
+  {
+    "id": 200,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://www.deepl.com/"
+        },
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
+        },
+        {
+          "header": "DNT",
+          "operation": "set",
+          "value": "1"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://api.deepl.com/jsonrpc*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://api.deepl.com/jsonrpc*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 201,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "Referer",
-        "operation": "set",
-        "value": "https://www.deepl.com/"
-      },
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
-      }
-    ]
+  {
+    "id": 201,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://www.deepl.com/"
+        },
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "chrome-extension://cofdbpoegempjloogbagkncekinflcnj"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://w.deepl.com/oidc/token",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://w.deepl.com/oidc/token",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 3,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
-      }
-    ]
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://transmart.qq.com/api/imt",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://transmart.qq.com/api/imt",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 4,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "origin",
-        "operation": "set",
-        "value": "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
-      }
-    ]
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "chrome-extension://lkjkfecdnfjopaeaibboihfkmhdjmanm"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://translate.volcengine.com/crx/translate/v1/",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://translate.volcengine.com/crx/translate/v1/",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 5,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "User-Agent",
-        "operation": "set",
-        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
-      }
-    ]
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "User-Agent",
+          "operation": "set",
+          "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://edge.microsoft.com/translate/auth",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://edge.microsoft.com/translate/auth",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 6,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "User-Agent",
-        "operation": "set",
-        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
-      }
-    ]
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "User-Agent",
+          "operation": "set",
+          "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://api-edge.cognitive.microsofttranslator.com/translate",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://api-edge.cognitive.microsofttranslator.com/translate",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 301,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://www.pixiv.net/"
-      }
-    ]
+  {
+    "id": 301,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://www.pixiv.net/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://i.pximg.net/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://i.pximg.net/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 302,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://newtoki341.com/"
-      }
-    ]
+  {
+    "id": 302,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://newtoki341.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://img1.newtoki21*.org/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://img1.newtoki21*.org/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 303,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://newtoki341.com/"
-      }
-    ]
+  {
+    "id": 303,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://newtoki341.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://img1.newtoki21.org/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://img1.newtoki21.org/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 304,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://2.bp.blogspot.com"
-      }
-    ]
+  {
+    "id": 304,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://2.bp.blogspot.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://2.bp.blogspot.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://2.bp.blogspot.com/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 305,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://japanreader.com"
-      }
-    ]
+  {
+    "id": 305,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://japanreader.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://japanreader.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://japanreader.com/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 306,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://mangabuddy.com/"
-      }
-    ]
+  {
+    "id": 306,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://mangabuddy.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://s*.mbbcdn.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://s*.mbbcdn.com/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 307,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://sl.mangafuna.xyz/"
-      }
-    ]
+  {
+    "id": 307,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://sl.mangafuna.xyz/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://sl.mangafuna.xyz/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://sl.mangafuna.xyz/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 308,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://toonily.me"
-      }
-    ]
+  {
+    "id": 308,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://toonily.me"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://s*.toonilycdnv2.xyz/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://s*.toonilycdnv2.xyz/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 309,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://readcomiconline.li"
-      }
-    ]
+  {
+    "id": 309,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://readcomiconline.li"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://*.whatsnew*.net/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://*.whatsnew*.net/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
-  }
-}, {
-  "id": 310,
-  "priority": 1,
-  "action": {
-    "type": "modifyHeaders",
-    "requestHeaders": [
-      {
-        "header": "referer",
-        "operation": "set",
-        "value": "https://yymanhua.com"
-      }
-    ]
+  {
+    "id": 310,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://yymanhua.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://image.yymanhua.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   },
-  "condition": {
-    "urlFilter": "https://image.yymanhua.com/*",
-    "resourceTypes": ["xmlhttprequest"],
-    "domainType": "thirdParty",
-    "initiatorDomains": [
-      "cfhamdkdjgoelclgllcoikbckcfpaklj",
-      "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
-      "amkbmndfnliijdhojkpoglbnaaahippg"
-    ]
+  {
+    "id": 311,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://klz9.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://h1.klimv1.xyz/images*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   }
-}]
+]

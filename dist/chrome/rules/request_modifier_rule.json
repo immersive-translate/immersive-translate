@@ -531,5 +531,31 @@
         "amkbmndfnliijdhojkpoglbnaaahippg"
       ]
     }
+  },
+  {
+    "id": 312,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://manhwato.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://stcdn.manhwato.com/images/manga/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   }
 ]

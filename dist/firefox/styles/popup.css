@@ -818,3 +818,27 @@ select.text-gray-6 {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.upgrade-pro-discount-act {
+  height: 25px;
+  display: flex;
+  padding: 0 4px;
+  align-items: center;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #CEFBFA 11.33%, #D7F56F 63.75%, #FCCD5E 100%);
+  transform: scale(0.9);
+  box-shadow: 0px 1.8px 3.6px 0px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+}
+
+.upgrade-pro-discount-act span {
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 4px;
+  color: #222222;
+}
+
+.upgrade-pro-discount-act:hover {
+  text-decoration: unset;
+  background: linear-gradient(90deg, #E2FFFE 11.33%, #E6FF91 63.75%, #FFDF93 100%);
+}

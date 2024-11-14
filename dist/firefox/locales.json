@@ -807,7 +807,8 @@
     "image.toolsDelayTime": "تأخير زر الترجمة السريعة (مللي ثانية)",
     "image.toolsDelayTimeDes": "قم بالتمرير لتأخير قبل إظهار زر الترجمة",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -1617,7 +1618,8 @@
     "image.toolsDelayTimeDes": "Atraso ao passar o rato antes de mostrar o botão de tradução",
     "image.toolsDelayTime": "Atraso do botão de tradução rápida (ms)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "es": {
     "nologin": "no conectado",
@@ -2427,7 +2429,8 @@
     "image.toolsDelayTimeDes": "Retraso al pasar el ratón por encima antes de mostrar el botón de traducción",
     "image.toolsDelayTime": "Retardo del botón de traducción rápida (ms)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -3237,7 +3240,8 @@
     "image.toolsDelayTimeDes": "번역 버튼 표시 전 호버링 지연",
     "image.toolsDelayTime": "빠른 번역 버튼 지연(ms)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -4047,7 +4051,8 @@
     "image.toolsDelayTimeDes": "Çeviri düğmesini göstermeden önce üzerine gelme gecikmesi",
     "image.toolsDelayTime": "Hızlı Çeviri Düğmesi Gecikmesi (ms)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "en": {
     "nologin": "Not logged in",
@@ -4858,7 +4863,8 @@
     "image.toolsDelayTime": "Quick Translation Button Delay (ms)",
     "image.toolsDelayTimeDes": "Hover delay before showing translation button",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -5668,7 +5674,8 @@
     "image.toolsDelayTime": "تاخیر دکمه ترجمه سریع (ms)",
     "image.toolsDelayTimeDes": "قبل از نمایش دکمه ترجمه، تأخیر ماوس را نگه دارید",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "zh-TW": {
     "nologin": "未登錄",
@@ -6509,7 +6516,8 @@
     "image.toolsDelayTimeDes": "滑鼠懸停多久後顯示圖片翻譯按鈕",
     "image.toolsDelayTime": "顯示圖片快速翻譯按鈕的延遲時間(毫秒)",
     "imageState.pending": "排隊中",
-    "imageState.gifNotSupported": "不支援 GIF"
+    "imageState.gifNotSupported": "不支援 GIF",
+    "orCustom": "或自訂義"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -7319,7 +7327,8 @@
     "image.toolsDelayTime": "Ritardo del pulsante di traduzione rapida (ms)",
     "image.toolsDelayTimeDes": "Ritardo del passaggio del mouse prima di mostrare il pulsante di traduzione",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -8160,7 +8169,8 @@
     "image.toolsDelayTime": "显示图片快捷翻译按钮的延迟时间(毫秒)",
     "image.toolsDelayTimeDes": "鼠标悬停多久后显示图片翻译按钮",
     "imageState.pending": "排队中",
-    "imageState.gifNotSupported": "不支持 GIF"
+    "imageState.gifNotSupported": "不支持 GIF",
+    "orCustom": "或自定义"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -8970,7 +8980,8 @@
     "image.toolsDelayTimeDes": "अनुवाद बटन दिखाने से पहले विलंब पर होवर करें",
     "image.toolsDelayTime": "त्वरित अनुवाद बटन विलंब (एमएस)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -9780,7 +9791,8 @@
     "image.toolsDelayTimeDes": "Задержка при наведении курсора перед показом кнопки перевода",
     "image.toolsDelayTime": "Задержка кнопки быстрого перевода (мс)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -10591,7 +10603,8 @@
     "image.toolsDelayTimeDes": "Atraso ao passar o mouse antes de mostrar o botão de tradução",
     "image.toolsDelayTime": "Atraso do botão de tradução rápida (ms)",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -11401,7 +11414,8 @@
     "image.toolsDelayTime": "Schnellübersetzung Taste Verzögerung (ms)",
     "image.toolsDelayTimeDes": "Verzögerung vor der Anzeige der Übersetzungsschaltfläche beim Verweilen",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -12211,7 +12225,8 @@
     "image.toolsDelayTime": "クイック翻訳ボタン遅延（ms）",
     "image.toolsDelayTimeDes": "翻訳ボタンを表示するまでのホバー遅延",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   },
   "fr": {
     "nologin": "non connecté",
@@ -13021,6 +13036,7 @@
     "image.toolsDelayTime": "Délai de la touche de traduction rapide (ms)",
     "image.toolsDelayTimeDes": "Délai d'affichage du bouton de traduction au passage du curseur",
     "imageState.pending": "Queueing...",
-    "imageState.gifNotSupported": "GIF not supported"
+    "imageState.gifNotSupported": "GIF not supported",
+    "orCustom": "or custom"
   }
 }

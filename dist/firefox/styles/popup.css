@@ -77,6 +77,9 @@ body {
   --text-gray-6: #666666;
   --text-gray-9: #999999;
   --text-gray-c2: #c2c2c2;
+  --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.20);
+  --service-select-border-color: #FAFAFA;
+  --service-select-selected-background-color: #F3F5F6;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -91,6 +94,9 @@ body {
     --text-gray-6: #b3b3b3;
     --text-gray-9: #777777;
     --text-gray-c2: #5b5b5b;
+    --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.90);
+    --service-select-border-color: #2C2C2C;
+    --service-select-selected-background-color: #333333;
   }
 }
 
@@ -105,6 +111,9 @@ body {
   --text-gray-6: #b3b3b3;
   --text-gray-9: #777777;
   --text-gray-c2: #5b5b5b;
+  --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.90);
+  --service-select-border-color: #2C2C2C;
+  --service-select-selected-background-color: #333333;
 }
 
 .text-balck {
@@ -506,6 +515,7 @@ select.more {
 select.transform-padding-left {
   padding-left: 12px;
   transform: translateX(-12px);
+  background-position: center right 0px;
 }
 
 select.translate-service {
@@ -842,3 +852,71 @@ select.text-gray-6 {
   text-decoration: unset;
   background: linear-gradient(90deg, #E2FFFE 11.33%, #E6FF91 63.75%, #FFDF93 100%);
 }
+
+
+.custom-select-container {
+  width: 200px;
+  position: relative;
+  flex: 1;
+}
+
+.custom-select-content {
+  border-radius: 12px;
+  background: var(--popup-content-background-color);
+  box-shadow: var(--service-select-content-shadow);
+  border: 1px solid var(--service-select-border-color);
+  padding: 4px 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.custom-select-item {
+  font-size: 13px;
+  padding: 5px 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--text-black-2);
+  width: 100%;
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+}
+
+.custom-select-item-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-select-item-img {
+    margin-right: 6px;
+  }
+}
+
+
+.custom-select-content .custom-select-item.selected, .custom-select-content .custom-select-item:hover {
+  background: var(--service-select-selected-background-color);
+}
+
+.custom-select-item > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-select-item-pro {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.custom-select-item-pro img {
+  margin:  0 3px;
+  width: 20px;
+}
+

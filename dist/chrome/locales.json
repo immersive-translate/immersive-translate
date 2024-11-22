@@ -739,7 +739,7 @@
     "description.siliconcloudCustomAPIKey": "اختياري، إذا لم يتم التعبئة، سيتم استخدام الترجمة الغامرة بشكل افتراضي والتعاون مع <1>SiliconCloud</1> لتوفير ترجمة نموذج كبير مجانية لك.",
     "translationServices.lingyiwanwu.introduction": "سلسلة Yi من نماذج اللغات الكبيرة التي أطلقتها<homepage> 01.AI</homepage> ,",
     "field.enableRichTranslate": "تفعيل الترجمة النصية الغنية",
-    "description.enableRichTranslate": "بعد تفعيل ترجمة النصوص الغنية، سيتم الحفاظ على الروابط الأصلية للنص وتأثيرات الأسلوب.",
+    "description.enableRichTranslate": "تمكين ترجمة النصوص الغنية للحفاظ على الروابط والأنماط الأصلية",
     "description.temperature": "تباين العينات، كلما قلت القيمة، أصبح المحتوى المولد أكثر ثباتًا. عندما تكون القيمة صفر، فإن النموذج عند التوليد سيختار تقريبًا دائمًا الرمز المميز (Token) ذو الاحتمالية الأعلى.",
     "reportInfo.ok": "تمام",
     "reportInfo.submit": "يُقدِّم",
@@ -808,7 +808,10 @@
     "image.toolsDelayTimeDes": "قم بالتمرير لتأخير قبل إظهار زر الترجمة",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "تمكين ترجمة النصوص الغنية للحفاظ على الروابط والأنماط الأصلية (ملاحظة: تمكين النص الغني في وضع ترجمة الذكاء الاصطناعي قد يؤثر على جودة الترجمة، لذلك يتم تعطيله بشكل افتراضي في وضع اللغة المزدوجة)",
+    "navHeadEnableTranslate": "تمكين ترجمة الشريط الجانبي وشريط التنقل",
+    "navHeadEnableTranslateDescription": "ترجم الشريط الجانبي وشريط التنقل للموقع تلقائيًا"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -1550,7 +1553,7 @@
     "description.siliconcloudCustomAPIKey": "Opcional, se não preenchido, será utilizado por padrão a tradução de modelo grande gratuita fornecida em colaboração com a SiliconCloud através de tradução imersiva.",
     "translationServices.lingyiwanwu.introduction": "A série Yi de grandes modelos linguísticos lançada pela <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Ativar tradução de texto rico",
-    "description.enableRichTranslate": "Após ativar a tradução de texto rico, a tradução manterá os links originais do texto e os efeitos de estilo.",
+    "description.enableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos.",
     "description.temperature": "Divergência de amostragem, quanto menor o valor, mais fixo será o conteúdo gerado. Quando definido como 0, o modelo quase sempre escolherá o Token com a maior probabilidade durante a geração.",
     "reportTip": "Feedback",
     "reportInfo.submit": "Enviar",
@@ -1619,7 +1622,10 @@
     "image.toolsDelayTime": "Atraso do botão de tradução rápida (ms)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos (Nota: Ativar texto rico no modo de tradução AI pode afetar a qualidade da tradução, por isso, está desativado por padrão no modo de duas línguas)",
+    "navHeadEnableTranslate": "Ativar Tradução da Barra Lateral & Navbar",
+    "navHeadEnableTranslateDescription": "Traduza automaticamente a barra lateral e a barra de navegação do site."
   },
   "es": {
     "nologin": "no conectado",
@@ -2361,7 +2367,7 @@
     "description.siliconcloudCustomAPIKey": "Opcional, si no se completa, se utilizará por defecto la traducción inmersiva y la colaboración con <1>SiliconCloud</1> para proporcionarle la traducción de modelos grandes gratuita.",
     "translationServices.lingyiwanwu.introduction": "La serie Yi de grandes modelos lingüísticos lanzada por <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Habilitar la traducción de texto enriquecido",
-    "description.enableRichTranslate": "Al activar la traducción de texto enriquecido, la traducción mantendrá los enlaces originales y los efectos de estilo del texto.",
+    "description.enableRichTranslate": "Habilita la traducción de texto enriquecido para preservar los enlaces y estilos originales.",
     "description.temperature": "La divergencia de muestreo, cuanto menor es el valor, más fijo es el contenido generado. Cuando se establece en 0, el modelo casi siempre seleccionará el Token con la mayor probabilidad durante la generación.",
     "reportInfo.submit": "Enviar",
     "reportInfo.title": "¿Ha tenido algún problema?",
@@ -2430,7 +2436,10 @@
     "image.toolsDelayTime": "Retardo del botón de traducción rápida (ms)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Habilita la traducción de texto enriquecido para preservar los enlaces originales y estilos (Nota: Habilitar texto enriquecido en modo de traducción AI puede afectar la calidad de la traducción, por lo tanto, está deshabilitado por defecto en modo bilingüe)",
+    "navHeadEnableTranslate": "Habilitar la traducción de la barra lateral y la barra de navegación",
+    "navHeadEnableTranslateDescription": "Traduce automáticamente la barra lateral y la barra de navegación del sitio web."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -3172,7 +3181,7 @@
     "description.siliconcloudCustomAPIKey": "선택 사항이며, 입력하지 않으면 기본적으로 몰입형 번역과 <1>SiliconCloud</1>와의 협력을 통해 제공되는 무료 대형 모델 번역을 사용합니다.",
     "translationServices.lingyiwanwu.introduction": "<홈페이지>01.AI</홈페이지>에서 출시한 대형 언어 모델인 Yi 시리즈입니다,",
     "field.enableRichTranslate": "리치 텍스트 번역 활성화",
-    "description.enableRichTranslate": "리치 텍스트 번역을 활성화한 후에는 번역문이 원본 텍스트의 링크와 스타일 효과를 유지합니다.",
+    "description.enableRichTranslate": "원본 링크와 스타일을 보존하기 위해 리치 텍스트 번역을 활성화하세요.",
     "description.temperature": "샘플링 다양성, 값이 작을수록 생성된 내용이 더 고정적입니다. 0을 선택하면 모델이 생성할 때 거의 항상 가장 높은 확률의 토큰을 선택합니다.",
     "reportInfo.reasonDesc": "발생한 문제를 설명해 주세요(필수).",
     "reportInfo.submitSuccess": "제출 성공, 피드백을 보내주셔서 감사합니다!",
@@ -3241,7 +3250,10 @@
     "image.toolsDelayTime": "빠른 번역 버튼 지연(ms)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "원본 링크와 스타일을 보존하기 위해 리치 텍스트 번역을 활성화하세요 (참고: AI 번역 모드에서 리치 텍스트를 활성화하면 번역 품질에 영향을 줄 수 있으므로, 이중 언어 모드에서는 기본적으로 비활성화되어 있습니다)",
+    "navHeadEnableTranslateDescription": "웹사이트의 사이드바와 네비게이션 바를 자동으로 번역하세요.",
+    "navHeadEnableTranslate": "사이드바 및 네비게이션 바 번역 활성화"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -3983,7 +3995,7 @@
     "description.siliconcloudCustomAPIKey": "Opsiyonel, doldurulmazsa varsayılan olarak sizi <1>SiliconCloud</1> ile işbirliği içinde sunulan ücretsiz büyük model çevirisiyle sağlayacak şekilde daldırma çevirisi kullanılır.",
     "translationServices.lingyiwanwu.introduction": "<homepage>01.AI</homepage> tarafından başlatılan Yi serisi büyük dil modelleri,",
     "field.enableRichTranslate": "Zengin metin çevirisini etkinleştirin",
-    "description.enableRichTranslate": "Zengin metin çevirisini etkinleştirdikten sonra, çeviri metnin orijinal bağlantılarını ve stil efektlerini koruyacaktır.",
+    "description.enableRichTranslate": "Zengin metin çevirisini etkinleştirerek orijinal bağlantıları ve stilleri koruyun",
     "description.temperature": "Örnekleme çeşitliliği, değer ne kadar düşük olursa, üretilen içerik o kadar sabit olur. Değer 0 olduğunda, model neredeyse her zaman olasılığı en yüksek olan Token'i seçer.",
     "reportInfo.submit": "Gönder",
     "reportTip": "Geri bildirim",
@@ -4052,7 +4064,10 @@
     "image.toolsDelayTime": "Hızlı Çeviri Düğmesi Gecikmesi (ms)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Zengin metin çevirisini etkinleştirin, orijinal bağlantıları ve stilleri koruyun (Not: Yapay zeka çeviri modunda zengin metni etkinleştirmek, çeviri kalitesini etkileyebilir, bu nedenle çift dil modunda varsayılan olarak devre dışı bırakılmıştır)",
+    "navHeadEnableTranslateDescription": "Web sitesinin kenar çubuğunu ve gezinme çubuğunu otomatik olarak çevir.",
+    "navHeadEnableTranslate": "Kenar Çubuğu ve Gezinti Çubuğu Çevirisini Etkinleştir"
   },
   "en": {
     "nologin": "Not logged in",
@@ -4345,7 +4360,7 @@
     "customContent": "Enter the name of the custom model",
     "inputOptions": "Enhanced input box",
     "mouseHoverOptions": "Mouse Hover",
-    "enableInputTranslation": "enhanced input box?",
+    "enableInputTranslation": "Enhanced input box?",
     "enableInputTranslationDescription": "When enabled, enter {startingKey}{startingKey} direct in the input box and hit{inputTrailingTriggerKeyRepeatTimes}times{trailingKey}, translated into {inputTargetLanguage}",
     "enableInputTranslationDescriptionForNoneKey": "When enabled, simply enter \"Hello World\" in the input box, then quickly press {inputTrailingTriggerKeyRepeatTimes} times on {trailingKey}, and it will be translated into the default target language.",
     "inputTargetLanguage": "Set the default target language for the input box",
@@ -4794,7 +4809,6 @@
     "translationServices.lingyiwanwu": "01.AI",
     "description.siliconcloudCustomAPIKey": "Optional, if not filled in, the default immersive translation and collaboration with <1>SiliconCloud</1> will be used to provide you with free large model translation.",
     "field.enableRichTranslate": "Enable rich text translation",
-    "description.enableRichTranslate": "After enabling rich text translation, the translation will retain the original text links and style effects.",
     "description.temperature": "Sampling divergence, the smaller the value, the more fixed the generated content. When set to 0, the model will almost always choose the token with the highest probability during generation.",
     "reportInfo.ok": "Okay",
     "reportTip": "Feedback",
@@ -4864,7 +4878,11 @@
     "image.toolsDelayTimeDes": "Hover delay before showing translation button",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "description.enableRichTranslate": "Enable rich text translation to preserve original links and styles",
+    "description.aiDualEnableRichTranslate": "Enable rich text translation to preserve original links and styles (Note: Enabling rich text in AI translation mode may affect translation quality, therefore it's disabled by default in dual-language mode)"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -5606,7 +5624,7 @@
     "description.siliconcloudCustomAPIKey": "اختیاری، در صورت عدم پر کردن، به طور پیش فرض از ترجمه غرقابی و همکاری با <1>SiliconCloud</1> برای ارائه ترجمه بزرگ مدل رایگان استفاده می‌شود.",
     "translationServices.lingyiwanwu.introduction": "سری Yi از مدل های زبان بزرگ راه اندازی شده توسط<homepage> 01.AI</homepage> ،",
     "field.enableRichTranslate": "فعال کردن ترجمه متن غنی",
-    "description.enableRichTranslate": "با فعال‌سازی ترجمه متن غنی، ترجمه شامل حفظ لینک‌ها و اثرات استایل اصلی متن خواهد بود.",
+    "description.enableRichTranslate": "فعال کردن ترجمه متن غنی برای حفظ لینک‌ها و سبک‌های اصلی",
     "description.temperature": "نمونه‌برداری انحراف، هرچه مقدار کمتر باشد، محتوای تولیدی ثابت‌تر است. هنگامی که به صفر می‌رسد، مدل تقریباً همیشه بیشترین احتمال Token (واژه) را انتخاب می‌کند.",
     "reportTip": "بازخورد",
     "reportInfo.reasonDesc": "لطفاً مشکلی را که با آن مواجه شدید (الزامی) شرح دهید.",
@@ -5675,7 +5693,10 @@
     "image.toolsDelayTimeDes": "قبل از نمایش دکمه ترجمه، تأخیر ماوس را نگه دارید",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "فعال کردن ترجمه متن غنی برای حفظ لینک‌ها و سبک‌های اصلی (توجه: فعال‌سازی متن غنی در حالت ترجمه هوش مصنوعی ممکن است بر کیفیت ترجمه تأثیر بگذارد، بنابراین به طور پیش‌فرض در حالت دوزبانه غیرفعال است)",
+    "navHeadEnableTranslate": "فعال کردن ترجمه نوار کناری و نوار ناوبری",
+    "navHeadEnableTranslateDescription": "وب‌سایت را به صورت خودکار ترجمه کنید شامل نوار کناری و نوار پیمایش"
   },
   "zh-TW": {
     "nologin": "未登錄",
@@ -6448,7 +6469,7 @@
     "description.siliconcloudCustomAPIKey": "可選，不填則默認使用沉浸式翻譯和SiliconCloud合作為您提供的免費大模型翻譯",
     "translationServices.lingyiwanwu.introduction": "由<homepage>零一萬物</homepage>推出的Yi 系列大語言模型",
     "field.enableRichTranslate": "啟用富文本翻譯",
-    "description.enableRichTranslate": "啟用富文本翻譯後，譯文將保留文本原鏈接和樣式效果。",
+    "description.enableRichTranslate": "啟用富文本翻譯可以保留原文的連結和樣式效果。",
     "description.temperature": "採樣發散度，值越小，生成的內容越固定。當取0時，模型生成時幾乎總是會選取概率最大的Token（詞元）。",
     "reportInfo.submit": "提交",
     "reportInfo.ok": "好的",
@@ -6517,7 +6538,10 @@
     "image.toolsDelayTime": "顯示圖片快速翻譯按鈕的延遲時間(毫秒)",
     "imageState.pending": "排隊中",
     "imageState.gifNotSupported": "不支援 GIF",
-    "orCustom": "或自訂義"
+    "orCustom": "或自訂義",
+    "description.aiDualEnableRichTranslate": "開啟富文本翻譯可保留原文的連結和樣式效果（注意：AI 翻譯模型下啟用富文本可能影響翻譯質量，因此雙語模式默認關閉此功能）",
+    "navHeadEnableTranslate": "啟用側邊欄和導航條翻譯",
+    "navHeadEnableTranslateDescription": "啟用後則會翻譯網頁的側邊欄與頂部導航菜單"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -7259,7 +7283,7 @@
     "description.siliconcloudCustomAPIKey": "Facoltativo, se non compilato verrà utilizzata la traduzione immersiva di default e la collaborazione con <1>SiliconCloud</1> per fornire la traduzione del grande modello gratuita.",
     "translationServices.lingyiwanwu.introduction": "La serie Yi di modelli linguistici di grandi dimensioni lanciata da <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Abilita la traduzione di testo formattato",
-    "description.enableRichTranslate": "Dopo aver attivato la traduzione in formato ricco, il testo tradotto conserverà i collegamenti originali e gli effetti di stile.",
+    "description.enableRichTranslate": "Abilita la traduzione di testo formattato per preservare i link originali e gli stili.",
     "description.temperature": "La divergenza del campionamento, più il valore è piccolo, più il contenuto generato è fisso. Quando è impostato a 0, il modello quasi sempre sceglie il Token con la probabilità più alta durante la generazione.",
     "reportInfo.ok": "Ok",
     "reportTip": "Feedback",
@@ -7328,7 +7352,10 @@
     "image.toolsDelayTimeDes": "Ritardo del passaggio del mouse prima di mostrare il pulsante di traduzione",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Abilita la traduzione di testo formattato per preservare i link originali e gli stili (Nota: Abilitare il testo formattato nella modalità di traduzione AI può influenzare la qualità della traduzione, quindi è disabilitato per impostazione predefinita nella modalità bilingue)",
+    "navHeadEnableTranslate": "Abilita la traduzione della barra laterale e della barra di navigazione",
+    "navHeadEnableTranslateDescription": "Traduci automaticamente la barra laterale e la barra di navigazione del sito web"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -8114,7 +8141,8 @@
     "subtitle.ytAIAsrProTooltip": "该功能仅 Pro 用户可用，<1>点此升级为会员</1>",
     "description.temperature": "采样发散度，值越小, 生成的内容越固定。当取0时，模型生成时几乎总是会选取概率最大的Token（词元）",
     "field.enableRichTranslate": "启用富文本翻译",
-    "description.enableRichTranslate": "启用富文本翻译后，译文将保留文本原链接和样式效果",
+    "description.enableRichTranslate": "开启富文本翻译可保留原文的链接和样式效果",
+    "description.aiDualEnableRichTranslate": "开启富文本翻译可保留原文的链接和样式效果（注意：AI 翻译模型下启用富文本可能影响翻译质量，因此双语模式默认关闭此功能）",
     "description.prompt": "以用户身份发送给 {service} 的对话，其中 {{text}} 表示段落的文本内容，{{from}} 表示段落的语言，{{to}} 表示目标语言，{{content_type}} 表示原文本的类型，可能的值是 `html` 或 `text`, {{html_only}} 是只有原文中包含 html 标签的时候才会有值。",
     "reportInfo.reasonDesc": "请描述您遇到的问题（必填）",
     "reportInfo.attachLog": "将当前错误日志反馈给沉浸式翻译",
@@ -8170,7 +8198,9 @@
     "image.toolsDelayTimeDes": "鼠标悬停多久后显示图片翻译按钮",
     "imageState.pending": "排队中",
     "imageState.gifNotSupported": "不支持 GIF",
-    "orCustom": "或自定义"
+    "orCustom": "或自定义",
+    "navHeadEnableTranslate": "启用侧边栏和导航条翻译",
+    "navHeadEnableTranslateDescription": "启用后则会翻译网页的侧边栏与顶部导航菜单"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -8912,7 +8942,7 @@
     "description.siliconcloudCustomAPIKey": "वैकल्पिक, यदि नहीं भरा गया तो डिफ़ॉल्ट रूप से इमर्सिव अनुवाद और <1>SiliconCloud</1> के सहयोग से आपको प्रदान किया गया मुफ्त बड़ा मॉडल अनुवाद का उपयोग किया जाएगा।",
     "translationServices.lingyiwanwu.introduction": "बड़े भाषा मॉडलों की यी श्रृंखला लॉन्च की गई<homepage> 01.एआई</homepage> ,",
     "field.enableRichTranslate": "समृद्ध पाठ अनुवाद सक्षम करें",
-    "description.enableRichTranslate": "रिच टेक्स्ट अनुवाद सक्षम करने के बाद, अनुवादित पाठ मूल लिंक और स्टाइल प्रभावों को बरकरार रखेगा।",
+    "description.enableRichTranslate": "मूल लिंक्स और शैलियों को बनाए रखने के लिए समृद्ध पाठ अनुवाद सक्षम करें।",
     "description.temperature": "नमूना विचलन, मान जितना कम होगा, उत्पन्न सामग्री उतनी ही निश्चित होगी। जब इसे 0 पर सेट किया जाता है, तो मॉडल उत्पन्न करते समय लगभग हमेशा सबसे अधिक संभावना वाले टोकन का चयन करेगा।",
     "reportTip": "प्रतिक्रिया",
     "reportInfo.ok": "ठीक है",
@@ -8981,7 +9011,10 @@
     "image.toolsDelayTime": "त्वरित अनुवाद बटन विलंब (एमएस)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "मूल लिंक और शैलियों को बनाए रखने के लिए समृद्ध पाठ अनुवाद सक्षम करें (नोट: AI अनुवाद मोड में समृद्ध पाठ को सक्षम करने से अनुवाद की गुणवत्ता पर प्रभाव पड़ सकता है, इसलिए यह द्विभाषी मोड में डिफ़ॉल्ट रूप से अक्षम है)",
+    "navHeadEnableTranslate": "साइडबार और नेवबार अनुवाद सक्षम करें",
+    "navHeadEnableTranslateDescription": "वेबसाइट के साइडबार और नेवबार को स्वचालित रूप से अनुवाद करें"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -9723,7 +9756,7 @@
     "description.siliconcloudCustomAPIKey": "Опционально, если не заполнено, то по умолчанию используется погруженный перевод и сотрудничество с <1>SiliconCloud</1> для предоставления вам бесплатного перевода большой модели.",
     "translationServices.lingyiwanwu.introduction": "Серия больших языковых моделей Yi, выпущенная компанией <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Включить перевод с форматированием текста",
-    "description.enableRichTranslate": "После включения перевода с форматированием, перевод будет сохранять оригинальные ссылки и стилевые эффекты текста.",
+    "description.enableRichTranslate": "Включите перевод с форматированием, чтобы сохранить оригинальные ссылки и стили.",
     "description.temperature": "Выборочное расхождение, чем меньше значение, тем более фиксированное содержание генерируется. Когда значение равно 0, модель при генерации почти всегда выбирает токен с наибольшей вероятностью.",
     "reportInfo.submitFail": "Передача не удалась...",
     "reportTip": "Обратная связь",
@@ -9792,7 +9825,10 @@
     "image.toolsDelayTime": "Задержка кнопки быстрого перевода (мс)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Включите перевод с форматированием, чтобы сохранить оригинальные ссылки и стили (Примечание: Включение форматированного текста в режиме перевода ИИ может повлиять на качество перевода, поэтому по умолчанию оно отключено в режиме двуязычного перевода)",
+    "navHeadEnableTranslateDescription": "Автоматически перевести боковую панель и панель навигации сайта",
+    "navHeadEnableTranslate": "Включить перевод боковой панели и панели навигации"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -10535,7 +10571,7 @@
     "description.siliconcloudCustomAPIKey": "Opcional, se não preenchido, será utilizado por padrão a tradução imersiva e o SiliconCloud em colaboração para fornecer a tradução de grandes modelos gratuitamente.",
     "translationServices.lingyiwanwu.introduction": "A série Yi de grandes modelos de idiomas lançada pela <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Ativar tradução de texto rico",
-    "description.enableRichTranslate": "Após habilitar a tradução de texto rico, a tradução manterá os links originais do texto e os efeitos de estilo.",
+    "description.enableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos.",
     "description.temperature": "Divergência de amostragem, quanto menor o valor, mais fixo será o conteúdo gerado. Quando é definido como 0, o modelo quase sempre escolherá o Token com maior probabilidade durante a geração.",
     "reportTip": "Feedback",
     "reportInfo.submitFail": "A submissão falhou...",
@@ -10604,7 +10640,10 @@
     "image.toolsDelayTime": "Atraso do botão de tradução rápida (ms)",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Ative a tradução de texto rico para preservar links e estilos originais (Nota: Ativar texto rico no modo de tradução por IA pode afetar a qualidade da tradução, por isso, está desativado por padrão no modo de dois idiomas)",
+    "navHeadEnableTranslate": "Ativar Tradução da Barra Lateral & Navbar",
+    "navHeadEnableTranslateDescription": "Traduza automaticamente a barra lateral e a barra de navegação do site."
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -11346,7 +11385,7 @@
     "description.siliconcloudCustomAPIKey": "Optional, wenn nicht ausgefüllt, wird standardmäßig die immersive Übersetzung verwendet und in Zusammenarbeit mit <1>SiliconCloud</1> wird Ihnen eine kostenlose Großmodellübersetzung zur Verfügung gestellt.",
     "translationServices.lingyiwanwu.introduction": "Die Yi-Reihe der großen Sprachmodelle, die von <homepage>01.AI</homepage> eingeführt wurde,",
     "field.enableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung.",
-    "description.enableRichTranslate": "Nach der Aktivierung der Rich-Text-Übersetzung wird die Übersetzung die ursprünglichen Links und Stileffekte des Textes beibehalten.",
+    "description.enableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung, um ursprüngliche Links und Stile zu bewahren.",
     "description.temperature": "Sampling-Divergenz, je kleiner der Wert, desto fester ist der generierte Inhalt. Wenn er 0 ist, wählt das Modell beim Generieren fast immer das Token mit der höchsten Wahrscheinlichkeit.",
     "reportTip": "Rückmeldung",
     "reportInfo.submit": "Einreichen",
@@ -11415,7 +11454,10 @@
     "image.toolsDelayTimeDes": "Verzögerung vor der Anzeige der Übersetzungsschaltfläche beim Verweilen",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung, um ursprüngliche Links und Stile zu bewahren (Hinweis: Die Aktivierung von Rich-Text im KI-Übersetzungsmodus kann die Übersetzungsqualität beeinträchtigen, daher ist sie im zweisprachigen Modus standardmäßig deaktiviert)",
+    "navHeadEnableTranslate": "Aktivieren Sie die Seitenleiste & Navigationsleistenübersetzung",
+    "navHeadEnableTranslateDescription": "Automatisch die Seitenleiste und die Navigationsleiste der Website übersetzen"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -12157,7 +12199,7 @@
     "description.siliconcloudCustomAPIKey": "オプション、未記入の場合はデフォルトで没入型翻訳と<1>SiliconCloud</1>との協力により提供される無料の大規模モデル翻訳を使用します。",
     "translationServices.lingyiwanwu.introduction": "<homepage>01.AI</homepage>が発表した大型言語モデルYiシリーズ、",
     "field.enableRichTranslate": "リッチテキスト翻訳を有効にする",
-    "description.enableRichTranslate": "リッチテキスト翻訳を有効にすると、翻訳文はテキストの元のリンクとスタイル効果を保持します。",
+    "description.enableRichTranslate": "リッチテキスト翻訳を有効にして、元のリンクとスタイルを保持します",
     "description.temperature": "サンプリングの発散度が小さいほど、生成される内容がより固定されます。0を取ると、モデルの生成時にはほぼ常に最も確率が高いトークンが選択されます。",
     "reportInfo.ok": "いいですよ",
     "reportInfo.title": "問題に遭遇しましたか？",
@@ -12226,7 +12268,10 @@
     "image.toolsDelayTimeDes": "翻訳ボタンを表示するまでのホバー遅延",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "リッチテキスト翻訳を有効にして、元のリンクとスタイルを保持してください（注：AI翻訳モードでリッチテキストを有効にすると、翻訳品質に影響を与える可能性があるため、デュアル言語モードではデフォルトで無効になっています）",
+    "navHeadEnableTranslateDescription": "ウェブサイトのサイドバーとナビバーを自動的に翻訳する",
+    "navHeadEnableTranslate": "サイドバーとナビバーの翻訳を有効にする"
   },
   "fr": {
     "nologin": "non connecté",
@@ -12968,7 +13013,7 @@
     "description.siliconcloudCustomAPIKey": "Facultatif, si non renseigné, l'utilisation par défaut de la traduction immersive et la collaboration avec <1>SiliconCloud</1> vous fournissent une traduction de grand modèle gratuite.",
     "translationServices.lingyiwanwu.introduction": "La série Yi de grands modèles linguistiques lancée par <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Activer la traduction de texte riche",
-    "description.enableRichTranslate": "Après avoir activé la traduction de texte riche, la traduction conservera les liens originaux du texte et les effets de style.",
+    "description.enableRichTranslate": "Activer la traduction de texte enrichi pour préserver les liens et styles originaux.",
     "description.temperature": "La divergence d'échantillonnage, plus la valeur est petite, plus le contenu généré est fixe. Lorsqu'elle est réglée sur 0, le modèle choisira presque toujours le jeton (token) avec la plus grande probabilité lors de la génération.",
     "reportInfo.submit": "Soumettre",
     "reportInfo.reasonDesc": "Veuillez décrire le problème que vous avez rencontré (obligatoire).",
@@ -13037,6 +13082,9 @@
     "image.toolsDelayTimeDes": "Délai d'affichage du bouton de traduction au passage du curseur",
     "imageState.pending": "Queueing...",
     "imageState.gifNotSupported": "GIF not supported",
-    "orCustom": "or custom"
+    "orCustom": "or custom",
+    "description.aiDualEnableRichTranslate": "Activez la traduction de texte enrichi pour préserver les liens et styles originaux (Note : L'activation du texte enrichi en mode de traduction IA peut affecter la qualité de la traduction, c'est pourquoi elle est désactivée par défaut en mode bilingue)",
+    "navHeadEnableTranslateDescription": "Traduire automatiquement la barre latérale et la barre de navigation du site web",
+    "navHeadEnableTranslate": "Activer la traduction de la barre latérale et de la barre de navigation"
   }
 }

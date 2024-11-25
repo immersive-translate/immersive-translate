@@ -810,8 +810,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "تمكين ترجمة النصوص الغنية للحفاظ على الروابط والأنماط الأصلية (ملاحظة: تمكين النص الغني في وضع ترجمة الذكاء الاصطناعي قد يؤثر على جودة الترجمة، لذلك يتم تعطيله بشكل افتراضي في وضع اللغة المزدوجة)",
-    "navHeadEnableTranslate": "تمكين ترجمة الشريط الجانبي وشريط التنقل",
-    "navHeadEnableTranslateDescription": "ترجم الشريط الجانبي وشريط التنقل للموقع تلقائيًا"
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "enableNavTranslate": "تمكين ترجمة الشريط الجانبي",
+    "disableNavTranslate": "إغلاق ترجمة الشريط الجانبي"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -1624,8 +1626,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos (Nota: Ativar texto rico no modo de tradução AI pode afetar a qualidade da tradução, por isso, está desativado por padrão no modo de duas línguas)",
-    "navHeadEnableTranslate": "Ativar Tradução da Barra Lateral & Navbar",
-    "navHeadEnableTranslateDescription": "Traduza automaticamente a barra lateral e a barra de navegação do site."
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "disableNavTranslate": "Fechar tradução da barra lateral",
+    "enableNavTranslate": "Ativar tradução na barra lateral"
   },
   "es": {
     "nologin": "no conectado",
@@ -2438,8 +2442,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Habilita la traducción de texto enriquecido para preservar los enlaces originales y estilos (Nota: Habilitar texto enriquecido en modo de traducción AI puede afectar la calidad de la traducción, por lo tanto, está deshabilitado por defecto en modo bilingüe)",
-    "navHeadEnableTranslate": "Habilitar la traducción de la barra lateral y la barra de navegación",
-    "navHeadEnableTranslateDescription": "Traduce automáticamente la barra lateral y la barra de navegación del sitio web."
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "enableNavTranslate": "Activar la traducción de la barra lateral",
+    "disableNavTranslate": "Cerrar la traducción de la barra lateral"
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -3252,8 +3258,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "원본 링크와 스타일을 보존하기 위해 리치 텍스트 번역을 활성화하세요 (참고: AI 번역 모드에서 리치 텍스트를 활성화하면 번역 품질에 영향을 줄 수 있으므로, 이중 언어 모드에서는 기본적으로 비활성화되어 있습니다)",
-    "navHeadEnableTranslateDescription": "웹사이트의 사이드바와 네비게이션 바를 자동으로 번역하세요.",
-    "navHeadEnableTranslate": "사이드바 및 네비게이션 바 번역 활성화"
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "enableNavTranslate": "사이드바 번역 활성화",
+    "disableNavTranslate": "사이드바 닫기 번역"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -4066,8 +4074,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Zengin metin çevirisini etkinleştirin, orijinal bağlantıları ve stilleri koruyun (Not: Yapay zeka çeviri modunda zengin metni etkinleştirmek, çeviri kalitesini etkileyebilir, bu nedenle çift dil modunda varsayılan olarak devre dışı bırakılmıştır)",
-    "navHeadEnableTranslateDescription": "Web sitesinin kenar çubuğunu ve gezinme çubuğunu otomatik olarak çevir.",
-    "navHeadEnableTranslate": "Kenar Çubuğu ve Gezinti Çubuğu Çevirisini Etkinleştir"
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "enableNavTranslate": "Kenar çubuğu çevirisini etkinleştir",
+    "disableNavTranslate": "Kenar çubuğunu kapat çevirisi"
   },
   "en": {
     "nologin": "Not logged in",
@@ -4882,7 +4892,9 @@
     "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
     "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
     "description.enableRichTranslate": "Enable rich text translation to preserve original links and styles",
-    "description.aiDualEnableRichTranslate": "Enable rich text translation to preserve original links and styles (Note: Enabling rich text in AI translation mode may affect translation quality, therefore it's disabled by default in dual-language mode)"
+    "description.aiDualEnableRichTranslate": "Enable rich text translation to preserve original links and styles (Note: Enabling rich text in AI translation mode may affect translation quality, therefore it's disabled by default in dual-language mode)",
+    "disableNavTranslate": "Close sidebar translation",
+    "enableNavTranslate": "Enable sidebar translation"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -5695,8 +5707,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "فعال کردن ترجمه متن غنی برای حفظ لینک‌ها و سبک‌های اصلی (توجه: فعال‌سازی متن غنی در حالت ترجمه هوش مصنوعی ممکن است بر کیفیت ترجمه تأثیر بگذارد، بنابراین به طور پیش‌فرض در حالت دوزبانه غیرفعال است)",
-    "navHeadEnableTranslate": "فعال کردن ترجمه نوار کناری و نوار ناوبری",
-    "navHeadEnableTranslateDescription": "وب‌سایت را به صورت خودکار ترجمه کنید شامل نوار کناری و نوار پیمایش"
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "enableNavTranslate": "فعال کردن ترجمه نوار کناری",
+    "disableNavTranslate": "بستن نوار کناری"
   },
   "zh-TW": {
     "nologin": "未登錄",
@@ -6540,8 +6554,10 @@
     "imageState.gifNotSupported": "不支援 GIF",
     "orCustom": "或自訂義",
     "description.aiDualEnableRichTranslate": "開啟富文本翻譯可保留原文的連結和樣式效果（注意：AI 翻譯模型下啟用富文本可能影響翻譯質量，因此雙語模式默認關閉此功能）",
-    "navHeadEnableTranslate": "啟用側邊欄和導航條翻譯",
-    "navHeadEnableTranslateDescription": "啟用後則會翻譯網頁的側邊欄與頂部導航菜單"
+    "navHeadEnableTranslate": "啟用側邊欄翻譯",
+    "navHeadEnableTranslateDescription": "啟用後則會翻譯網頁的側邊欄",
+    "disableNavTranslate": "關閉側邊欄翻譯",
+    "enableNavTranslate": "開啟側邊欄翻譯"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -7354,8 +7370,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Abilita la traduzione di testo formattato per preservare i link originali e gli stili (Nota: Abilitare il testo formattato nella modalità di traduzione AI può influenzare la qualità della traduzione, quindi è disabilitato per impostazione predefinita nella modalità bilingue)",
-    "navHeadEnableTranslate": "Abilita la traduzione della barra laterale e della barra di navigazione",
-    "navHeadEnableTranslateDescription": "Traduci automaticamente la barra laterale e la barra di navigazione del sito web"
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "enableNavTranslate": "Abilita la traduzione della barra laterale",
+    "disableNavTranslate": "Chiudi la barra laterale"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -7435,6 +7453,8 @@
     "translateTheWholePage": "翻译页面全部区域（区别于智能识别主要区域）",
     "changeToTranslateTheWholePage": "切换为翻译所有区域",
     "changeToTranslateTheMainPage": "切换为翻译主要区域",
+    "enableNavTranslate": "开启侧边栏翻译",
+    "disableNavTranslate": "关闭侧边栏翻译",
     "translateToThePageEndImmediately": "立即翻译到页面底部",
     "translateTheMainPage": "智能翻译主要区域",
     "The local rules are up to date": "本地适配规则已是最新:",
@@ -8199,8 +8219,8 @@
     "imageState.pending": "排队中",
     "imageState.gifNotSupported": "不支持 GIF",
     "orCustom": "或自定义",
-    "navHeadEnableTranslate": "启用侧边栏和导航条翻译",
-    "navHeadEnableTranslateDescription": "启用后则会翻译网页的侧边栏与顶部导航菜单"
+    "navHeadEnableTranslate": "启用侧边栏翻译",
+    "navHeadEnableTranslateDescription": "启用后则会翻译网页的侧边栏"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -9013,8 +9033,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "मूल लिंक और शैलियों को बनाए रखने के लिए समृद्ध पाठ अनुवाद सक्षम करें (नोट: AI अनुवाद मोड में समृद्ध पाठ को सक्षम करने से अनुवाद की गुणवत्ता पर प्रभाव पड़ सकता है, इसलिए यह द्विभाषी मोड में डिफ़ॉल्ट रूप से अक्षम है)",
-    "navHeadEnableTranslate": "साइडबार और नेवबार अनुवाद सक्षम करें",
-    "navHeadEnableTranslateDescription": "वेबसाइट के साइडबार और नेवबार को स्वचालित रूप से अनुवाद करें"
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "disableNavTranslate": "साइडबार बंद करें अनुवाद",
+    "enableNavTranslate": "साइडबार अनुवाद सक्षम करें"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -9827,8 +9849,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Включите перевод с форматированием, чтобы сохранить оригинальные ссылки и стили (Примечание: Включение форматированного текста в режиме перевода ИИ может повлиять на качество перевода, поэтому по умолчанию оно отключено в режиме двуязычного перевода)",
-    "navHeadEnableTranslateDescription": "Автоматически перевести боковую панель и панель навигации сайта",
-    "navHeadEnableTranslate": "Включить перевод боковой панели и панели навигации"
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "disableNavTranslate": "Закрыть боковую панель",
+    "enableNavTranslate": "Включить перевод боковой панели"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -10642,8 +10666,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Ative a tradução de texto rico para preservar links e estilos originais (Nota: Ativar texto rico no modo de tradução por IA pode afetar a qualidade da tradução, por isso, está desativado por padrão no modo de dois idiomas)",
-    "navHeadEnableTranslate": "Ativar Tradução da Barra Lateral & Navbar",
-    "navHeadEnableTranslateDescription": "Traduza automaticamente a barra lateral e a barra de navegação do site."
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "enableNavTranslate": "Ativar tradução na barra lateral",
+    "disableNavTranslate": "Fechar tradução da barra lateral"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -11456,8 +11482,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung, um ursprüngliche Links und Stile zu bewahren (Hinweis: Die Aktivierung von Rich-Text im KI-Übersetzungsmodus kann die Übersetzungsqualität beeinträchtigen, daher ist sie im zweisprachigen Modus standardmäßig deaktiviert)",
-    "navHeadEnableTranslate": "Aktivieren Sie die Seitenleiste & Navigationsleistenübersetzung",
-    "navHeadEnableTranslateDescription": "Automatisch die Seitenleiste und die Navigationsleiste der Website übersetzen"
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "disableNavTranslate": "Seitenleiste schließen",
+    "enableNavTranslate": "Aktivieren Sie die Seitenleistenübersetzung"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -12270,8 +12298,10 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "リッチテキスト翻訳を有効にして、元のリンクとスタイルを保持してください（注：AI翻訳モードでリッチテキストを有効にすると、翻訳品質に影響を与える可能性があるため、デュアル言語モードではデフォルトで無効になっています）",
-    "navHeadEnableTranslateDescription": "ウェブサイトのサイドバーとナビバーを自動的に翻訳する",
-    "navHeadEnableTranslate": "サイドバーとナビバーの翻訳を有効にする"
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "disableNavTranslate": "サイドバーを閉じる翻訳",
+    "enableNavTranslate": "サイドバーの翻訳を有効にする"
   },
   "fr": {
     "nologin": "non connecté",
@@ -13084,7 +13114,9 @@
     "imageState.gifNotSupported": "GIF not supported",
     "orCustom": "or custom",
     "description.aiDualEnableRichTranslate": "Activez la traduction de texte enrichi pour préserver les liens et styles originaux (Note : L'activation du texte enrichi en mode de traduction IA peut affecter la qualité de la traduction, c'est pourquoi elle est désactivée par défaut en mode bilingue)",
-    "navHeadEnableTranslateDescription": "Traduire automatiquement la barre latérale et la barre de navigation du site web",
-    "navHeadEnableTranslate": "Activer la traduction de la barre latérale et de la barre de navigation"
+    "navHeadEnableTranslateDescription": "Automatically translate the website's sidebar and navbar",
+    "navHeadEnableTranslate": "Enable Sidebar & Navbar Translation",
+    "disableNavTranslate": "Fermer la barre latérale de traduction",
+    "enableNavTranslate": "Activer la traduction latérale"
   }
 }

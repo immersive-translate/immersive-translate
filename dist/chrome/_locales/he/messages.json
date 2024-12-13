@@ -1,0 +1,110 @@
+{
+  "shortBrandName": {
+    "message": "תרגום סוחף"
+  },
+  "translateMangaMenuId": {
+    "message": "תרגום תמונה/שחזור תמונה"
+  },
+  "translateLocalHtmlFile": {
+    "message": "תרגום קובץ HTML/txt"
+  },
+  "brandName": {
+    "message": "Immersive Translate - תרגום אינטרנט &PDF"
+  },
+  "brandDescriptionForSafari": {
+    "message": "חינם לתרגם אתר, לתרגם PDF & epub ספר אלקטרוני, לתרגם כתוביות וידאו דו לשוני"
+  },
+  "openOptionsPage": {
+    "message": "פתח את דף ההגדרות"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "תרגם קובץ כתוביות מקומי"
+  },
+  "translateLocalPdfFile": {
+    "message": "תרגום קובץ PDF מקומי"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "תרגם באופן מיידי לתחתית הדף/הצג טקסט מקורי"
+  },
+  "brandDescription": {
+    "message": "חינם לתרגם אתר, לתרגם PDF & epub ספר אלקטרוני, לתרגם כתוביות וידאו דו לשוני"
+  },
+  "openEbookViewer": {
+    "message": "קרא ספרים אלקטרוניים מקומיים"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "תרגום עמוד ראשי /הצגת טקסט מקורי"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "תרגום עמוד שלם/הצגת טקסט מקורי"
+  },
+  "openEbookBuilder": {
+    "message": "יצירת ספרים אלקטרוניים דו-לשוניים של EPUB"
+  },
+  "toggleTranslatePage": {
+    "message": "תרגם אל {targetLanguage}"
+  },
+  "openAboutPage": {
+    "message": "אודות / משוב / נותן חסות"
+  },
+  "translateWithGoogle": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות Google"
+  },
+  "translateWithBing": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות Microsoft Translator"
+  },
+  "translateWithDeepL": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות DeepL"
+  },
+  "translateWithOpenAI": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות OpenAI"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "הפעלה או השבתה זמנית של תרגום ישיר באמצעות ריחוף העכבר בדף"
+  },
+  "translateWithClaude": {
+    "message": "השתמש באופן זמני ב- Claude כדי לתרגם את הדף הנוכחי."
+  },
+  "translateWithTransmart": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות Tencent Translator"
+  },
+  "translateWithCustom3": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(3)"
+  },
+  "translateWithCustom1": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
+  },
+  "translateWithCustom2": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(2)"
+  },
+  "translateWithGemini": {
+    "message": "תרגום זמני של הדף הנוכחי באמצעות מזל תאומים"
+  },
+  "translateInputBox": {
+    "message": "תרגום התוכן של תיבת הקלט הנוכחית"
+  },
+  "toggleTranslationMask": {
+    "message": "החלפת אפקט טשטוש בטקסט מתורגם (מצב למידה) בעמוד הנוכחי"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "החלף כתוביות וידאו עם תכונת תרגום סוחפת"
+  },
+  "toggleOnlyTransation": {
+    "message": "מעבר למצב /תרגום בלבד"
+  },
+  "textTranslate": {
+    "message": "תרגום טקסט"
+  },
+  "PdfProFile": {
+    "message": "תרגום PDF Pro מבוסס בינה מלאכותית"
+  },
+  "translateText": {
+    "message": "תרגם \"{text}\""
+  },
+  "shareToDraft": {
+    "message": "שתפו את Bilingual Page"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "תרגום דף אינטרנט/הצגת טקסט מקורי"
+  }
+}

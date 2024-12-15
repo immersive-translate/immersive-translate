@@ -1,110 +1,110 @@
 {
   "shortBrandName": {
-    "message": "תרגום סוחף"
-  },
-  "translateMangaMenuId": {
-    "message": "תרגום תמונה/שחזור תמונה"
-  },
-  "translateLocalHtmlFile": {
-    "message": "תרגום קובץ HTML/txt"
+    "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "Immersive Translate - תרגום אינטרנט &PDF"
-  },
-  "brandDescriptionForSafari": {
-    "message": "חינם לתרגם אתר, לתרגם PDF & epub ספר אלקטרוני, לתרגם כתוביות וידאו דו לשוני"
-  },
-  "openOptionsPage": {
-    "message": "פתח את דף ההגדרות"
-  },
-  "translateLocalSubtitleFile": {
-    "message": "תרגם קובץ כתוביות מקומי"
-  },
-  "translateLocalPdfFile": {
-    "message": "תרגום קובץ PDF מקומי"
-  },
-  "toggleTranslateToThePageEndImmediately": {
-    "message": "תרגם באופן מיידי לתחתית הדף/הצג טקסט מקורי"
+    "message": "Immersive Translate - תרגום אתרים ו-PDF"
   },
   "brandDescription": {
-    "message": "חינם לתרגם אתר, לתרגם PDF & epub ספר אלקטרוני, לתרגם כתוביות וידאו דו לשוני"
+    "message": "תרגום חינמי לאתרים, PDF, ספרי EPUB וכתוביות וידאו דו-לשוניות"
+  },
+  "toggleTranslatePage": {
+    "message": "תרגם לשפה {targetLanguage}"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "תרגם את העמוד כולו / הצג מקור"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "תרגם מיד את כל העמוד / הצג מקור"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "תרגם את התוכן העיקרי / הצג מקור"
+  },
+  "shareToDraft": {
+    "message": "שתף עמוד דו-לשוני"
+  },
+  "openOptionsPage": {
+    "message": "פתח עמוד הגדרות"
+  },
+  "translateLocalPdfFile": {
+    "message": "תרגם קובץ PDF מקומי"
   },
   "openEbookViewer": {
     "message": "קרא ספרים אלקטרוניים מקומיים"
   },
-  "toggleTranslateTheMainPage": {
-    "message": "תרגום עמוד ראשי /הצגת טקסט מקורי"
-  },
-  "toggleTranslateTheWholePage": {
-    "message": "תרגום עמוד שלם/הצגת טקסט מקורי"
-  },
   "openEbookBuilder": {
-    "message": "יצירת ספרים אלקטרוניים דו-לשוניים של EPUB"
+    "message": "צור ספרי EPUB דו-לשוניים"
   },
-  "toggleTranslatePage": {
-    "message": "תרגם אל {targetLanguage}"
+  "translateLocalHtmlFile": {
+    "message": "תרגם קובץ HTML/txt"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "תרגם קובץ כתוביות מקומי"
   },
   "openAboutPage": {
-    "message": "אודות / משוב / נותן חסות"
-  },
-  "translateWithGoogle": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות Google"
-  },
-  "translateWithBing": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות Microsoft Translator"
-  },
-  "translateWithDeepL": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות DeepL"
-  },
-  "translateWithOpenAI": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות OpenAI"
+    "message": "אודות / משוב / תמיכה"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "הפעלה או השבתה זמנית של תרגום ישיר באמצעות ריחוף העכבר בדף"
+    "message": "הפעל/השבת זמנית תרגום בהצבעת עכבר"
   },
-  "translateWithClaude": {
-    "message": "השתמש באופן זמני ב- Claude כדי לתרגם את הדף הנוכחי."
+  "translateWithOpenAI": {
+    "message": "תרגם כעת בעזרת OpenAI"
   },
-  "translateWithTransmart": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות Tencent Translator"
+  "translateWithDeepL": {
+    "message": "תרגם כעת בעזרת DeepL"
   },
-  "translateWithCustom3": {
-    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(3)"
+  "translateWithGoogle": {
+    "message": "תרגם כעת בעזרת Google"
   },
-  "translateWithCustom1": {
-    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
-  },
-  "translateWithCustom2": {
-    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(2)"
+  "translateWithBing": {
+    "message": "תרגם כעת בעזרת Microsoft Translator"
   },
   "translateWithGemini": {
-    "message": "תרגום זמני של הדף הנוכחי באמצעות מזל תאומים"
+    "message": "תרגם כעת בעזרת Gemini"
+  },
+  "translateWithTransmart": {
+    "message": "תרגם כעת בעזרת Tencent Translator"
   },
   "translateInputBox": {
-    "message": "תרגום התוכן של תיבת הקלט הנוכחית"
-  },
-  "toggleTranslationMask": {
-    "message": "החלפת אפקט טשטוש בטקסט מתורגם (מצב למידה) בעמוד הנוכחי"
-  },
-  "toggleVideoSubtitlePreTranslation": {
-    "message": "החלף כתוביות וידאו עם תכונת תרגום סוחפת"
+    "message": "תרגם את תוכן תיבת הקלט הנוכחית"
   },
   "toggleOnlyTransation": {
-    "message": "מעבר למצב /תרגום בלבד"
+    "message": "החלף למצב תרגום בלבד"
+  },
+  "toggleTranslationMask": {
+    "message": "הפעל/כבה אפקט טשטוש (מצב למידה) לטקסט המתורגם"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "החלף בין תרגום כתוביות וידאו באמצעות התוסף"
+  },
+  "brandDescriptionForSafari": {
+    "message": "תרגום אתרים, PDF, Epub, כתוביות וידאו דו-לשוניות"
+  },
+  "PdfProFile": {
+    "message": "תרגום PDF Pro באמצעות AI"
   },
   "textTranslate": {
     "message": "תרגום טקסט"
   },
-  "PdfProFile": {
-    "message": "תרגום PDF Pro מבוסס בינה מלאכותית"
+  "translateWithClaude": {
+    "message": "תרגם זמנית בעזרת Claude"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "תרגם עמוד/הצג מקור"
+  },
+  "translateMangaMenuId": {
+    "message": "תרגום תמונה/שחזור תמונה"
+  },
+  "translateWithCustom3": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(3)"
+  },
+  "translateWithCustom2": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(2)"
+  },
+  "translateWithCustom1": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
   },
   "translateText": {
     "message": "תרגם \"{text}\""
-  },
-  "shareToDraft": {
-    "message": "שתפו את Bilingual Page"
-  },
-  "toggleTranslatePageOfficialPage": {
-    "message": "תרגום דף אינטרנט/הצגת טקסט מקורי"
   }
 }

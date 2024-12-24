@@ -1,108 +1,108 @@
 {
   "shortBrandName": {
-    "message": "Immersive Translate"
+    "message": "‫⁦⁦Immersive Translate⁩⁩‬"
   },
   "brandName": {
-    "message": "Immersive Translate - תרגום אתרים ו-PDF"
+    "message": "‫⁦⁦Immersive Translate⁩ -⁩ תרגום אתרים ו⁦⁦PDF⁩-⁩‬"
   },
   "brandDescription": {
-    "message": "תרגום חינמי לאתרים, PDF, ספרי EPUB וכתוביות וידאו דו-לשוניות"
+    "message": "‫תרגום חינמי לאתרים, ⁦PDF⁩, ספרי ⁦EPUB⁩ וכתוביות וידאו דו⁦-⁩לשוניות‬"
   },
   "toggleTranslatePage": {
-    "message": "תרגם לשפה {targetLanguage}"
+    "message": "‫תרגם לשפה {targetLanguage}‬"
   },
   "toggleTranslateTheWholePage": {
-    "message": "תרגם את העמוד כולו / הצג מקור"
+    "message": "‫תרגם את העמוד כולו ⁦/⁩ הצג מקור‬"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "תרגם מיד את כל העמוד / הצג מקור"
+    "message": "‫תרגם מיד את כל העמוד ⁦/⁩ הצג מקור‬"
   },
   "toggleTranslateTheMainPage": {
-    "message": "תרגם את התוכן העיקרי / הצג מקור"
+    "message": "‫תרגם את התוכן העיקרי ⁦/⁩ הצג מקור‬"
   },
   "shareToDraft": {
-    "message": "שתף עמוד דו-לשוני"
+    "message": "‫שתף עמוד דו⁦-⁩לשוני‬"
   },
   "openOptionsPage": {
-    "message": "פתח עמוד הגדרות"
+    "message": "‫פתח עמוד הגדרות‬"
   },
   "translateLocalPdfFile": {
-    "message": "תרגם קובץ PDF מקומי"
+    "message": "‫תרגם קובץ ⁦PDF⁩ מקומי‬"
   },
   "openEbookViewer": {
-    "message": "קרא ספרים אלקטרוניים מקומיים"
+    "message": "‫קרא ספרים אלקטרוניים מקומיים‬"
   },
   "openEbookBuilder": {
-    "message": "צור ספרי EPUB דו-לשוניים"
+    "message": "‫צור ספרי ⁦EPUB⁩ דו⁦-⁩לשוניים‬"
   },
   "translateLocalHtmlFile": {
-    "message": "תרגם קובץ HTML/txt"
+    "message": "‫תרגם קובץ ⁦HTML/txt⁩‬"
   },
   "translateLocalSubtitleFile": {
-    "message": "תרגם קובץ כתוביות מקומי"
+    "message": "‫תרגם קובץ כתוביות מקומי‬"
   },
   "openAboutPage": {
-    "message": "אודות / משוב / תמיכה"
+    "message": "‫אודות ⁦/⁩ משוב ⁦/⁩ תמיכה‬"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "הפעל/השבת זמנית תרגום בהצבעת עכבר"
+    "message": "‫הפעל⁦/⁩השבת זמנית תרגום בהצבעת עכבר‬"
   },
   "translateWithOpenAI": {
-    "message": "תרגם כעת בעזרת OpenAI"
+    "message": "‫תרגם כעת בעזרת ⁦OpenAI⁩‬"
   },
   "translateWithDeepL": {
-    "message": "תרגם כעת בעזרת DeepL"
+    "message": "‫תרגם כעת בעזרת ⁦DeepL⁩‬"
   },
   "translateWithGoogle": {
-    "message": "תרגם כעת בעזרת Google"
+    "message": "‫תרגם כעת בעזרת ⁦Google⁩‬"
   },
   "translateWithBing": {
-    "message": "תרגם כעת בעזרת Microsoft Translator"
+    "message": "‫תרגם כעת בעזרת ⁦⁦Microsoft Translator⁩⁩‬"
   },
   "translateWithGemini": {
-    "message": "תרגם כעת בעזרת Gemini"
+    "message": "‫תרגם כעת בעזרת ⁦Gemini⁩‬"
   },
   "translateWithTransmart": {
-    "message": "תרגם כעת בעזרת Tencent Translator"
+    "message": "‫תרגם כעת בעזרת ⁦⁦Tencent Translator⁩⁩‬"
   },
   "translateInputBox": {
-    "message": "תרגם את תוכן תיבת הקלט הנוכחית"
+    "message": "‫תרגם את תוכן תיבת הקלט הנוכחית‬"
   },
   "toggleOnlyTransation": {
-    "message": "החלף למצב תרגום בלבד"
+    "message": "‫החלף למצב תרגום בלבד‬"
   },
   "toggleTranslationMask": {
-    "message": "הפעל/כבה אפקט טשטוש (מצב למידה) לטקסט המתורגם"
+    "message": "‫הפעל⁦/⁩כבה אפקט טשטוש (מצב למידה) לטקסט המתורגם‬"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "החלף בין תרגום כתוביות וידאו באמצעות התוסף"
+    "message": "‫החלף בין תרגום כתוביות וידאו באמצעות התוסף‬"
   },
   "brandDescriptionForSafari": {
-    "message": "תרגום אתרים, PDF, Epub, כתוביות וידאו דו-לשוניות"
+    "message": "‫תרגום אתרים, ⁦PDF⁩, ⁦Epub⁩, כתוביות וידאו דו⁦-⁩לשוניות‬"
   },
   "PdfProFile": {
-    "message": "תרגום PDF Pro באמצעות AI"
+    "message": "‫תרגום ⁦⁦PDF Pro⁩⁩ באמצעות ⁦AI⁩‬"
   },
   "textTranslate": {
-    "message": "תרגום טקסט"
+    "message": "‫תרגום טקסט‬"
   },
   "translateWithClaude": {
-    "message": "תרגם זמנית בעזרת Claude"
+    "message": "‫תרגם זמנית בעזרת ⁦Claude⁩‬"
   },
   "toggleTranslatePageOfficialPage": {
-    "message": "תרגם עמוד/הצג מקור"
+    "message": "‫תרגם עמוד⁦/⁩הצג מקור‬"
   },
   "translateMangaMenuId": {
     "message": "תרגום תמונה/שחזור תמונה"
+  },
+  "translateWithCustom1": {
+    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
   },
   "translateWithCustom3": {
     "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(3)"
   },
   "translateWithCustom2": {
     "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(2)"
-  },
-  "translateWithCustom1": {
-    "message": "שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
   },
   "translateText": {
     "message": "תרגם \"{text}\""

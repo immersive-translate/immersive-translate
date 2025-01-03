@@ -825,7 +825,8 @@
     "intro.mangaImageTitle": "ترجمة القصص المصورة/الصور الاحترافية (إصدار تجريبي)",
     "noPermissionForLocalFile": "⚠️ لا يوجد إذن لترجمة الملفات المحلية (تحقق مما إذا كان الوصول إلى الملفات المحلية مسموحًا به)",
     "enableAIContext.aiAssistantDisableTips": "لا يمكن تمكين هذه الوظيفة إلا بعد اختيار خبير الذكاء الاصطناعي \"العام\".",
-    "theLocalExtensionUpdatePreview": "الامتداد الحالي موجود في أحدث إصدار للمعاينة."
+    "theLocalExtensionUpdatePreview": "الامتداد الحالي موجود في أحدث إصدار للمعاينة.",
+    "modalInputTranslationSameDesc": "ملاحظة: النص المترجم في مربع الإدخال هو تمامًا نفس النص الأصلي الذي أدخلته (اللغة المستهدفة لمربع الإدخال الحالي: {target}، خدمة الترجمة الحالية: {service}). يرجى التحقق من إعداداتك أو تجربة خدمات الترجمة الأخرى <1>هنا</1> للمقارنة."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -1653,7 +1654,8 @@
     "intro.mangaImageTitle": "Tradução Pro Comics/Imagens (Beta)",
     "noPermissionForLocalFile": "⚠️ Não há permissão para traduzir ficheiros locais neste momento (verificar se o acesso aos ficheiros locais está autorizado)",
     "enableAIContext.aiAssistantDisableTips": "Essa função pode ser ativada somente após a seleção do especialista em IA \"Geral\".",
-    "theLocalExtensionUpdatePreview": "A extensão atual é a versão de visualização mais recente."
+    "theLocalExtensionUpdatePreview": "A extensão atual é a versão de visualização mais recente.",
+    "modalInputTranslationSameDesc": "Observe: O texto traduzido na caixa de entrada é exatamente o mesmo que o texto original inserido (idioma de destino da caixa de entrada atual: {target}, serviço de tradução atual: {service}). Verifique suas configurações ou experimente outros serviços de tradução <1>aqui</1> para comparação."
   },
   "es": {
     "nologin": "no conectado",
@@ -2481,7 +2483,8 @@
     "intro.mangaImageTitle": "Traducción Pro Comics/Imágenes (Beta)",
     "noPermissionForLocalFile": "⚠️ No hay permiso para traducir archivos locales en este momento (compruebe si el acceso a los archivos locales está autorizado)",
     "enableAIContext.aiAssistantDisableTips": "Esta función sólo puede activarse tras seleccionar el experto en IA \"General\".",
-    "theLocalExtensionUpdatePreview": "La extensión actual es la última versión preliminar."
+    "theLocalExtensionUpdatePreview": "La extensión actual es la última versión preliminar.",
+    "modalInputTranslationSameDesc": "Nota: El texto traducido en el cuadro de entrada es exactamente el mismo que el texto original que ha introducido (idioma de destino actual del cuadro de entrada: {target}, servicio de traducción actual: {service}). Por favor, compruebe su configuración o pruebe otros servicios de traducción <1>aquí</1> para comparar."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -3309,7 +3312,8 @@
     "intro.mangaImageTitle": "프로 만화/이미지 번역(베타)",
     "noPermissionForLocalFile": "⚠️ 현재 로컬 파일 번역 권한이 없습니다(로컬 파일에 대한 액세스 권한이 있는지 확인).",
     "enableAIContext.aiAssistantDisableTips": "이 기능은 '일반' AI 전문가를 선택한 후에만 활성화할 수 있습니다.",
-    "theLocalExtensionUpdatePreview": "현재 확장 프로그램은 최신 프리뷰 버전입니다."
+    "theLocalExtensionUpdatePreview": "현재 확장 프로그램은 최신 프리뷰 버전입니다.",
+    "modalInputTranslationSameDesc": "알림: 입력 상자의 번역된 텍스트는 입력한 원본 텍스트(현재 입력 상자 대상 언어)와 완전히 동일합니다: {target}, 현재 번역 서비스: {service}). 설정을 확인하거나 다른 번역 서비스 <1>여기</1>에서 비교해보세요."
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -4137,7 +4141,8 @@
     "intro.mangaImageTitle": "Pro Comics/Images Çevirisi (Beta)",
     "noPermissionForLocalFile": "⚠️ Şu anda yerel dosyaları çevirme izni yok (yerel dosyalara erişim yetkisi olup olmadığını kontrol edin)",
     "enableAIContext.aiAssistantDisableTips": "Bu fonksiyon sadece \"Genel\" AI uzmanı seçildikten sonra etkinleştirilebilir.",
-    "theLocalExtensionUpdatePreview": "Mevcut uzantı en son önizleme sürümüdür."
+    "theLocalExtensionUpdatePreview": "Mevcut uzantı en son önizleme sürümüdür.",
+    "modalInputTranslationSameDesc": "Uyarı: Giriş kutusundaki çevrilmiş metin, girdiğiniz orijinal metinle tamamen aynıdır (geçerli giriş kutusu hedef dili: {target}, geçerli çeviri hizmeti: {service}). Lütfen ayarlarınızı kontrol edin veya karşılaştırma için diğer çeviri hizmetlerini <1>burada</1> deneyin."
   },
   "en": {
     "nologin": "Not logged in",
@@ -4495,6 +4500,7 @@
     "enableAutoSyncUserSettings": "Enable auto-sync user settings",
     "modalEnableInputTranslationTitle": "Writing Settings",
     "modalEnableInputTranslationDesc": "You just triggered the translation of the immersive translate input box by quickly tapping the space bar 3 times. The content of the input box will be translated into the default target language. You can undo the translation with Ctrl+Z. <br /><br />If this was a mistake, don't worry, you can choose to disable it this time, or permanently disable input box translation.",
+    "modalInputTranslationSameDesc": "Notice: The translated text in the input box is exactly the same as the original text you entered (current input box target language: {target}, current translation service: {service}). Please check your settings or try other translation services <1>here</1> for comparison.",
     "saveAndNotShowAgain": "Save and don't show prompt again",
     "disableInputTranslationTips": "* You can also customize the triggered <b>shortcut keys</b> and the <b>interval time</b> between combos in {option}, {learnMore}.",
     "learnMore": "Click here to learn more",
@@ -5794,7 +5800,8 @@
     "intro.mangaImageTitle": "ترجمه Comics/Images Pro (بتا)",
     "noPermissionForLocalFile": "⚠️ بدون مجوز برای ترجمه فایل های محلی (بررسی کنید که آیا دسترسی به فایل های محلی مجاز است یا خیر)",
     "enableAIContext.aiAssistantDisableTips": "این عملکرد فقط پس از انتخاب متخصص هوش مصنوعی \"عمومی\" قابل فعال است.",
-    "theLocalExtensionUpdatePreview": "برنامه افزودنی فعلی در آخرین نسخه پیش نمایش است."
+    "theLocalExtensionUpdatePreview": "برنامه افزودنی فعلی در آخرین نسخه پیش نمایش است.",
+    "modalInputTranslationSameDesc": "توجه: متن ترجمه شده در کادر ورودی دقیقاً مشابه متن اصلی است که وارد کرده اید (زبان مقصد جعبه ورودی فعلی: {target}، سرویس ترجمه فعلی: {service}). لطفاً تنظیمات خود را بررسی کنید یا سایر خدمات ترجمه را <1>اینجا</1> برای مقایسه امتحان کنید."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -6154,6 +6161,7 @@
     "enableAutoSyncUserSettings": "啟用多裝置自動雲端同步",
     "modalEnableInputTranslationTitle": "沉浸式翻譯輸入框翻譯提示",
     "modalEnableInputTranslationDesc": "您剛剛透過快速連擊 3 次空白鍵觸發了沉浸式翻譯的輸入框翻譯，輸入框的內容將翻譯為預設的目標語言。透過 Ctrl+Z 可以撤銷翻譯。<br /><br />如果這是一個失誤，不用擔心，您可以選擇本次停用，或永久停用輸入框翻譯。",
+    "modalInputTranslationSameDesc": "注意：輸入框翻譯後的譯文和您輸入的原文完全相同（目前設定的輸入框目標語言：{target} ，目前的翻譯服務：{service} ），請檢查您的設定或在<1>這裡</1> 試用其他翻譯服務來比較效果。",
     "saveAndNotShowAgain": "儲存且不再提示",
     "disableInputTranslationTips": "* 你也可以在 {option} 中自訂觸發的<b>快捷鍵</b>和連擊的<b>間隔時間</b>，{learnMore}。",
     "learnMore": "點此了解更多",
@@ -6389,7 +6397,7 @@
     "subtitle.quickButton.backgroundOpacity": "背景不透明度",
     "attachSubtitleTranslating": "正在使用 {service} 翻譯中...",
     "error.claude.403": "暫無權限存取服務，可能與 Claude 的地區限制有關，您可以嘗試切換您的 IP 地址，或者使用其他翻譯服務。",
-    "browser.brandDescriptionForSafari": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯外掛，同時支援 PDF 翻譯和 EPUB 電子書翻譯且保留原文件排版，Youtube/Netflix 等線上影片雙語字幕翻譯，支援 Deepl/Google 等主流翻譯服務;",
+    "browser.brandDescriptionForSafari": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;",
     "browser.PdfProFile": "AI 驅動的 PDF Pro 翻譯",
     "browser.textTranslate": "文字翻譯（對比多個翻譯服務）",
     "touchShortcutsInputTranslate": "設定移動端輸入框增強手勢",
@@ -7485,7 +7493,8 @@
     "intro.mangaImageTitle": "Traduzione di fumetti/immagini Pro (Beta)",
     "noPermissionForLocalFile": "⚠️ In questo momento non si ha il permesso di tradurre i file locali (verificare se l'accesso ai file locali è autorizzato)",
     "enableAIContext.aiAssistantDisableTips": "Questa funzione può essere attivata solo dopo aver selezionato l'esperto AI \"Generale\".",
-    "theLocalExtensionUpdatePreview": "L'estensione attuale è l'ultima versione di anteprima."
+    "theLocalExtensionUpdatePreview": "L'estensione attuale è l'ultima versione di anteprima.",
+    "modalInputTranslationSameDesc": "Avviso: Il testo tradotto nella casella di input è esattamente uguale al testo originale inserito (lingua di destinazione della casella di input corrente: {target}, servizio di traduzione corrente: {service}). Controllare le impostazioni o provare altri servizi di traduzione <1>qui</1> per un confronto."
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -7855,6 +7864,7 @@
     "enableAutoSyncUserSettings": "启用多设备自动云同步",
     "modalEnableInputTranslationTitle": "沉浸式翻译输入框翻译提示",
     "modalEnableInputTranslationDesc": "您刚刚通过快速连击 3 次空格键触发了沉浸式翻译的输入框翻译，输入框的内容将被翻译为默认的目标语言。通过 Ctrl+Z 可以撤销翻译。<br /><br />如果这是一个失误，不用担心，您可以选择本次禁用，或者永久禁用输入框翻译。",
+    "modalInputTranslationSameDesc": "注意：输入框翻译后的译文和您输入的原文完全相同（当前设置的输入框目标语言：{target} ，当前的翻译服务：{service} ），请检查您的设置或在 <1>这里</1> 试用其他翻译服务来对比效果。",
     "saveAndNotShowAgain": "保存且不再提示",
     "disableInputTranslationTips": "* 你也可以在 {option} 中自定义触发的<b>快捷键</b>和连击的<b>间隔时间</b>，{learnMore}。",
     "learnMore": "点此了解更多",
@@ -9173,7 +9183,8 @@
     "description.enableAIContextTip": "הערה: הפעלת תרגום הקשר תשתמש פי 1-2 יותר אסימונים.",
     "intro.mangaImageTitle": "Pro Comics/תרגום תמונות (בטא)",
     "enableAIContext.aiAssistantDisableTips": "ניתן להפעיל פונקציה זו רק לאחר בחירת מומחה AI \"כללי\".",
-    "theLocalExtensionUpdatePreview": "ההרחבה הנוכחית היא התצוגה המקדימה העדכנית ביותר."
+    "theLocalExtensionUpdatePreview": "ההרחבה הנוכחית היא התצוגה המקדימה העדכנית ביותר.",
+    "modalInputTranslationSameDesc": "שים לב: הטקסט המתורגם בתיבת הקלט זהה לחלוטין לטקסט המקורי שהזנת (שפת היעד הנוכחית של תיבת הקלט: {target}, שירות התרגום הנוכחי: {service}). בדוק את ההגדרות שלך או נסה שירותי תרגום אחרים <1>כאן</1> להשוואה."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -10001,7 +10012,8 @@
     "intro.mangaImageTitle": "प्रो कॉमिक्स/छवियाँ अनुवाद (बीटा)",
     "noPermissionForLocalFile": "⚠️ स्थानीय फ़ाइलों का अनुवाद करने की अनुमति नहीं (जांचें कि स्थानीय फ़ाइलों तक पहुंच अधिकृत है या नहीं)",
     "enableAIContext.aiAssistantDisableTips": "इस फ़ंक्शन को \"सामान्य\" एआई विशेषज्ञ का चयन करने के बाद ही सक्षम किया जा सकता है।",
-    "theLocalExtensionUpdatePreview": "वर्तमान एक्सटेंशन नवीनतम पूर्वावलोकन संस्करण में है."
+    "theLocalExtensionUpdatePreview": "वर्तमान एक्सटेंशन नवीनतम पूर्वावलोकन संस्करण में है.",
+    "modalInputTranslationSameDesc": "सूचना: इनपुट बॉक्स में अनुवादित पाठ बिल्कुल आपके द्वारा दर्ज किए गए मूल पाठ के समान है (वर्तमान इनपुट बॉक्स लक्ष्य भाषा: {target}, वर्तमान अनुवाद सेवा: {service})। कृपया अपनी सेटिंग जांचें या तुलना के लिए अन्य अनुवाद सेवाएं <1>यहां</1> आज़माएं।"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -10829,7 +10841,8 @@
     "intro.mangaImageTitle": "Перевод комиксов/изображений (бета-версия)",
     "noPermissionForLocalFile": "⚠️ В данный момент нет разрешения на перевод локальных файлов (проверьте, разрешен ли доступ к локальным файлам).",
     "enableAIContext.aiAssistantDisableTips": "Эта функция может быть включена только после выбора эксперта AI \"General\".",
-    "theLocalExtensionUpdatePreview": "Текущее расширение - это последняя предварительная версия."
+    "theLocalExtensionUpdatePreview": "Текущее расширение - это последняя предварительная версия.",
+    "modalInputTranslationSameDesc": "Уведомление: Переведенный текст в поле ввода полностью совпадает с введенным вами оригинальным текстом (текущий целевой язык поля ввода: {target}, текущий сервис перевода: {service}). Пожалуйста, проверьте настройки или попробуйте другие сервисы перевода <1>здесь</1> для сравнения."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -11659,7 +11672,8 @@
     "intro.mangaImageTitle": "Tradução de Quadrinhos/Imagens Pro (Beta)",
     "noPermissionForLocalFile": "⚠️ Nenhuma permissão para traduzir arquivos locais no momento (verifique se o acesso aos arquivos locais está autorizado)",
     "enableAIContext.aiAssistantDisableTips": "Essa função pode ser ativada somente após a seleção do especialista em IA \"Geral\".",
-    "theLocalExtensionUpdatePreview": "A extensão atual é a versão de visualização mais recente."
+    "theLocalExtensionUpdatePreview": "A extensão atual é a versão de visualização mais recente.",
+    "modalInputTranslationSameDesc": "Observe: O texto traduzido na caixa de entrada é exatamente o mesmo que o texto original inserido (idioma de destino da caixa de entrada atual: {target}, serviço de tradução atual: {service}). Verifique suas configurações ou experimente outros serviços de tradução <1>aqui</1> para comparação."
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -12487,7 +12501,8 @@
     "intro.mangaImageTitle": "Pro Comics/Bilder Übersetzung (Beta)",
     "noPermissionForLocalFile": "⚠️ Keine Berechtigung zum Übersetzen lokaler Dateien zu diesem Zeitpunkt (prüfen Sie, ob der Zugriff auf lokale Dateien erlaubt ist)",
     "enableAIContext.aiAssistantDisableTips": "Diese Funktion kann nur nach Auswahl des KI-Experten \"Allgemein\" aktiviert werden.",
-    "theLocalExtensionUpdatePreview": "Bei der aktuellen Erweiterung handelt es sich um die neueste Vorschauversion."
+    "theLocalExtensionUpdatePreview": "Bei der aktuellen Erweiterung handelt es sich um die neueste Vorschauversion.",
+    "modalInputTranslationSameDesc": "Hinweis: Der übersetzte Text im Eingabefeld ist genau derselbe wie der von Ihnen eingegebene Originaltext (aktuelles Eingabefeld Zielsprache: {target}, aktueller Übersetzungsdienst: {service}). Bitte überprüfen Sie Ihre Einstellungen oder versuchen Sie andere Übersetzungsdienste <1>hier</1> zum Vergleich."
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -13315,7 +13330,8 @@
     "intro.mangaImageTitle": "プロコミック/画像翻訳（ベータ版）",
     "noPermissionForLocalFile": "⚠️ 現在、ローカルファイルを翻訳する権限がありません (ローカルファイルへのアクセスが許可されているかどうかを確認してください)",
     "enableAIContext.aiAssistantDisableTips": "この機能は、「一般」AIエキスパートを選択した後にのみ有効にすることができる。",
-    "theLocalExtensionUpdatePreview": "現在のエクステンションは最新のプレビュー版です。"
+    "theLocalExtensionUpdatePreview": "現在のエクステンションは最新のプレビュー版です。",
+    "modalInputTranslationSameDesc": "お知らせ入力ボックスの翻訳されたテキストは、入力した元のテキストとまったく同じです（現在の入力ボックスのターゲット言語：{target}、現在の翻訳サービス：{service}）。設定を確認するか、<1>こちら</1>で他の翻訳サービスを比較してみてください。"
   },
   "fr": {
     "nologin": "non connecté",
@@ -14143,6 +14159,7 @@
     "intro.mangaImageTitle": "Traduction Pro Comics/Images (Beta)",
     "noPermissionForLocalFile": "⚠️ Pas de permission pour traduire les fichiers locaux pour le moment (vérifier si l'accès aux fichiers locaux est autorisé)",
     "enableAIContext.aiAssistantDisableTips": "Cette fonction ne peut être activée qu'après avoir sélectionné l'expert AI \"Général\".",
-    "theLocalExtensionUpdatePreview": "L'extension actuelle est la dernière version de prévisualisation."
+    "theLocalExtensionUpdatePreview": "L'extension actuelle est la dernière version de prévisualisation.",
+    "modalInputTranslationSameDesc": "Remarque : Le texte traduit dans le champ de saisie est exactement le même que le texte original que vous avez saisi (langue cible du champ de saisie actuel : {target}, service de traduction actuel : {service}). Veuillez vérifier vos paramètres ou essayer d'autres services de traduction <1>ici</1> à des fins de comparaison."
   }
 }

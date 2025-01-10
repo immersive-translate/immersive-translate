@@ -520,7 +520,7 @@
       ]
     },
     "condition": {
-      "urlFilter": "https://h1.klimv1.xyz/images*",
+      "urlFilter": "https://*.klimv1.xyz/images*",
       "resourceTypes": [
         "xmlhttprequest"
       ],
@@ -547,6 +547,32 @@
     },
     "condition": {
       "urlFilter": "https://stcdn.manhwato.com/images/manga/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
+  },
+  {
+    "id": 313,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://www.comemh8.com"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://*.kingwar.cn/*",
       "resourceTypes": [
         "xmlhttprequest"
       ],

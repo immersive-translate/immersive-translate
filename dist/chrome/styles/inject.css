@@ -18,6 +18,9 @@
   --immersive-translate-theme-marker-backgroundColor: #fbda41;
   --immersive-translate-theme-marker-backgroundColor-rgb: 251, 218, 65;
   --immersive-translate-theme-marker2-backgroundColor: #ffff00;
+  --immersive-translate-theme-background-backgroundColor: #DBAFAF;
+  --immersive-translate-theme-background-backgroundColor-rgb: 219, 175, 175;
+  --immersive-translate-theme-background-backgroundOpacity: 12;
   --immersive-translate-theme-opacity-opacity: 10;
 }
 
@@ -357,6 +360,32 @@
 }
 
 /* opacity theme end */
+
+
+/* background theme start */
+[imt-state="dual"]
+.immersive-translate-target-translation-block-wrapper-theme-background {
+  margin: 8px 0;
+  background: rgba(var(--immersive-translate-theme-background-backgroundColor-rgb), calc(var(--immersive-translate-theme-background-backgroundOpacity) * 1%)); 
+  border-radius: 4px;
+  box-shadow: unset !important;
+  padding: 12px;
+  display: block;
+}
+[imt-state="dual"]
+.immersive-translate-target-translation-theme-background-inner {
+  background: rgba(var(--immersive-translate-theme-background-backgroundColor-rgb), calc(var(--immersive-translate-theme-background-backgroundOpacity) * 1%)); 
+  padding-left: 6px;
+  padding-right: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+[imt-state="dual"] .immersive-translate-target-translation-block-wrapper .immersive-translate-target-translation-theme-background-inner {
+  background: unset;
+  padding-left: unset;
+  padding-right: unset;
+}
+/* background theme end */
 
 /* vertical css , please remain it in the last one. */
 .immersive-translate-target-translation-vertical-block-wrapper {

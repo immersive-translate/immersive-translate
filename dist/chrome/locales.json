@@ -816,7 +816,7 @@
     "enableNavTranslate": "Ativar tradução na barra lateral",
     "subtitle.noSubtitle": "Este vídeo não tem legendas e não pode ser ativado com legendas bilingues",
     "applyUseContextTranslate": "Tradução de contexto aplicada",
-    "description.enableAIContext": "Tradução contextual baseada em IA para maior precisão. Funciona com artigos, e-books, PDFs e legendas. Apenas <1>membros profissionais</1> (OpenAI)",
+    "description.enableAIContext": "Tradução contextual com tecnologia de IA para maior precisão. Funciona com artigos, livros eletrônicos, PDFs e legendas. Somente para <1>membros profissionais</1>.",
     "contextDiffPreview": "<1>Comparação de traduções</1>",
     "field.enableAIContext": "Ativar a tradução sensível ao contexto da IA",
     "aiAssistant.context": "Contexto da IA",
@@ -830,7 +830,11 @@
     "translationTheme.background": "Histórico",
     "sameLangTranslationThemeTitle": "Adicionar cor de fundo às traduções entre idiomas semelhantes",
     "customThemeLabel.backgroundOpacity": "Opacidade da cor de fundo (%)",
-    "sameLangTranslationThemeDes": "Quando os idiomas de origem e de destino da página forem semelhantes (por exemplo, traduções entre chinês/japonês/coreano ou inglês/francês/alemão), adicione cor de fundo ao texto traduzido para melhor distinção."
+    "sameLangTranslationThemeDes": "Quando os idiomas de origem e de destino da página forem semelhantes (por exemplo, traduções entre chinês/japonês/coreano ou inglês/francês/alemão), adicione cor de fundo ao texto traduzido para melhor distinção.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Modelo de fundação autodesenvolvido de primeira linha, <2>membros de tradução imersivos</2> disponíveis diretamente."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -1650,7 +1654,7 @@
     "subtitle.noSubtitle": "이 동영상에는 자막이 없으며 이중 언어 자막을 켤 수 없습니다.",
     "field.enableAIContext": "AI 문맥 인식 번역 사용",
     "applyUseContextTranslate": "문맥 번역 적용",
-    "description.enableAIContext": "AI 기반 문맥 번역으로 정확도를 높입니다. 기사, 전자책, PDF 및 자막에서 작동합니다. <1>프로 회원</1> 전용(OpenAI)",
+    "description.enableAIContext": "AI 기반 문맥 번역으로 정확도를 높입니다. 기사, 전자책, PDF 및 자막에서 작동합니다. <1>프로 회원</1>만 이용 가능.",
     "contextDiffPreview": "<1>번역 비교</1>",
     "aiAssistant.commonContext": "일반(AI 컨텍스트)",
     "aiAssistant.context": "AI 컨텍스트",
@@ -1663,7 +1667,11 @@
     "translationTheme.background": "배경",
     "sameLangTranslationThemeTitle": "유사한 언어 간 번역에 배경색 추가",
     "customThemeLabel.backgroundOpacity": "배경색 불투명도(%)",
-    "sameLangTranslationThemeDes": "페이지 소스와 대상 언어가 유사한 경우(예: 중국어/일본어/한국어 또는 영어/프랑스어/독일어 간 번역) 번역된 텍스트에 배경색을 추가하여 더 쉽게 구분할 수 있습니다."
+    "sameLangTranslationThemeDes": "페이지 소스와 대상 언어가 유사한 경우(예: 중국어/일본어/한국어 또는 영어/프랑스어/독일어 간 번역) 번역된 텍스트에 배경색을 추가하여 더 쉽게 구분할 수 있습니다.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"지푸\"</homepage>자체 개발한 최고의 기초 모델, <2>몰입 번역 회원</2>이 직접 이용할 수 있습니다."
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -2483,7 +2491,7 @@
     "subtitle.noSubtitle": "Это видео не имеет субтитров и не может быть включено с двуязычными субтитрами",
     "applyUseContextTranslate": "Применен контекстный перевод",
     "contextDiffPreview": "<1> Сравнение переводов</1>",
-    "description.enableAIContext": "Контекстный перевод на основе искусственного интеллекта для повышения точности. Работает со статьями, электронными книгами, PDF-файлами и субтитрами. Только для членов <1>Pro</1> (OpenAI)",
+    "description.enableAIContext": "Контекстный перевод на основе искусственного интеллекта для повышения точности. Работает со статьями, электронными книгами, PDF-файлами и субтитрами. Только для членов <1>Pro</1>.",
     "field.enableAIContext": "Включите перевод с учетом контекста с помощью искусственного интеллекта",
     "aiAssistant.context": "Контекст ИИ",
     "aiAssistant.commonContext": "Общий (контекст ИИ)",
@@ -2496,7 +2504,11 @@
     "translationTheme.background": "Фон",
     "customThemeLabel.backgroundOpacity": "Непрозрачность фонового цвета (%)",
     "sameLangTranslationThemeTitle": "Добавьте цвет фона к переводам между похожими языками",
-    "sameLangTranslationThemeDes": "Если исходный и целевой языки страницы похожи (например, перевод между китайским/японским/корейским или английским/французским/немецким), добавьте цвет фона к переведенному тексту, чтобы он лучше различался."
+    "sameLangTranslationThemeDes": "Если исходный и целевой языки страницы похожи (например, перевод между китайским/японским/корейским или английским/французским/немецким), добавьте цвет фона к переведенному тексту, чтобы он лучше различался.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Топовая саморазвивающаяся модель фундамента, <2>погруженные члены перевода</2> доступны напрямую."
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -3317,7 +3329,7 @@
     "field.enableAIContext": "تمكين الترجمة المدركة للسياق باستخدام الذكاء الاصطناعي",
     "contextDiffPreview": "<1>مقارنة الترجمة</1>",
     "applyUseContextTranslate": "تم تطبيق ترجمة السياق",
-    "description.enableAIContext": "ترجمة سياقية مدعومة بالذكاء الاصطناعي للحصول على دقة أفضل. يعمل مع المقالات والكتب الإلكترونية وملفات PDF والترجمات. <1>الأعضاء المحترفون</1> فقط (OpenAI)",
+    "description.enableAIContext": "ترجمة سياقية مدعومة بالذكاء الاصطناعي للحصول على دقة أفضل. يعمل مع المقالات والكتب الإلكترونية وملفات PDF والترجمات. <1>الأعضاء المحترفون</1> فقط.",
     "aiAssistant.commonContext": "عالمي (سياق الذكاء الاصطناعي)",
     "aiAssistant.context": "سياق الذكاء الاصطناعي",
     "description.enableAIContextTip": "ملاحظة: سيؤدي تمكين ترجمة السياق إلى استخدام الرموز المميزة بمقدار 1-2 مرات.",
@@ -3329,7 +3341,11 @@
     "translationTheme.background": "خلفية",
     "sameLangTranslationThemeTitle": "أضف لون الخلفية للترجمات بين اللغات المتشابهة",
     "sameLangTranslationThemeDes": "عندما يكون مصدر الصفحة واللغات المستهدفة متشابهين (على سبيل المثال، الترجمات بين الصينية/اليابانية/الكورية أو الإنجليزية/الفرنسية/الألمانية)، أضف لون الخلفية إلى النص المترجم لتمييز أفضل.",
-    "customThemeLabel.backgroundOpacity": "عتامة لون الخلفية (%)"
+    "customThemeLabel.backgroundOpacity": "عتامة لون الخلفية (%)",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>أفضل نموذج أساسي تم تطويره ذاتيًا، <2>أعضاء ترجمة غامرة</2> متاحون مباشرة."
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -4150,7 +4166,7 @@
     "field.enableAIContext": "ترجمه AI Context-Aware را فعال کنید",
     "applyUseContextTranslate": "ترجمه متن اعمال شد",
     "contextDiffPreview": "<1>مقایسه ترجمه</1>",
-    "description.enableAIContext": "ترجمه متنی مبتنی بر هوش مصنوعی برای دقت بهتر. با مقالات، کتاب های الکترونیکی، فایل های PDF و زیرنویس ها کار می کند. فقط <1>اعضای حرفه ای</1> (OpenAI)",
+    "description.enableAIContext": "ترجمه متنی مبتنی بر هوش مصنوعی برای دقت بهتر. با مقالات، کتاب های الکترونیکی، فایل های PDF و زیرنویس ها کار می کند. فقط <1>اعضای حرفه ای</1>.",
     "aiAssistant.commonContext": "جهانی (زمینه هوش مصنوعی)",
     "aiAssistant.context": "زمینه هوش مصنوعی",
     "description.enableAIContextTip": "توجه: با فعال کردن ترجمه متنی، 1 تا 2 برابر بیشتر از نشانه‌ها استفاده می‌شود.",
@@ -4162,7 +4178,11 @@
     "translationTheme.background": "پس زمینه",
     "sameLangTranslationThemeTitle": "رنگ پس زمینه را به ترجمه بین زبان های مشابه اضافه کنید",
     "customThemeLabel.backgroundOpacity": "تیرگی رنگ پس زمینه (%)",
-    "sameLangTranslationThemeDes": "هنگامی که زبان مبدأ و مقصد صفحه مشابه هستند (به عنوان مثال، ترجمه بین چینی/ژاپنی/کره ای یا انگلیسی/فرانسوی/آلمانی)، برای تمایز بهتر، رنگ پس زمینه را به متن ترجمه شده اضافه کنید."
+    "sameLangTranslationThemeDes": "هنگامی که زبان مبدأ و مقصد صفحه مشابه هستند (به عنوان مثال، ترجمه بین چینی/ژاپنی/کره ای یا انگلیسی/فرانسوی/آلمانی)، برای تمایز بهتر، رنگ پس زمینه را به متن ترجمه شده اضافه کنید.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>مدل پایه خود توسعه یافته برتر، <2>اعضای ترجمه همهجانبه</2> مستقیماً در دسترس است."
   },
   "fr": {
     "nologin": "non connecté",
@@ -4982,7 +5002,7 @@
     "subtitle.noSubtitle": "Cette vidéo n'est pas sous-titrée et ne peut pas être activée avec des sous-titres bilingues.",
     "applyUseContextTranslate": "Application de la traduction contextuelle",
     "field.enableAIContext": "Permettre à l'IA de traduire en tenant compte du contexte",
-    "description.enableAIContext": "Traduction contextuelle alimentée par l'IA pour une meilleure précision. Fonctionne avec les articles, les livres électroniques, les PDF et les sous-titres. <Membres Pro</1> uniquement (OpenAI)",
+    "description.enableAIContext": "Traduction contextuelle alimentée par l'IA pour une meilleure précision. Fonctionne avec les articles, les livres électroniques, les PDF et les sous-titres. <Réservé aux membres Pro</1>.",
     "contextDiffPreview": "<1>Comparaison des traductions</1>",
     "aiAssistant.context": "Contexte de l'IA",
     "aiAssistant.commonContext": "Générique (contexte AI)",
@@ -4995,7 +5015,11 @@
     "translationTheme.background": "Contexte",
     "sameLangTranslationThemeTitle": "Ajouter une couleur d'arrière-plan aux traductions entre langues similaires",
     "customThemeLabel.backgroundOpacity": "Opacité de la couleur de fond (%)",
-    "sameLangTranslationThemeDes": "Lorsque la langue source et la langue cible de la page sont similaires (par exemple, traductions entre chinois/japonais/coréen ou anglais/français/allemand), ajoutez une couleur de fond au texte traduit pour mieux le distinguer."
+    "sameLangTranslationThemeDes": "Lorsque la langue source et la langue cible de la page sont similaires (par exemple, traductions entre chinois/japonais/coréen ou anglais/français/allemand), ajoutez une couleur de fond au texte traduit pour mieux le distinguer.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Modèle de fondation auto-développé, <2>membres de traduction immersifs</2> disponibles directement."
   },
   "es": {
     "nologin": "no conectado",
@@ -5815,7 +5839,7 @@
     "subtitle.noSubtitle": "Este vídeo no tiene subtítulos y no se puede activar con subtítulos bilingües",
     "contextDiffPreview": "<1>Comparación de traducciones</1>",
     "field.enableAIContext": "Habilitar la traducción AI consciente del contexto",
-    "description.enableAIContext": "Traducción contextual basada en IA para una mayor precisión. Funciona con artículos, libros electrónicos, PDF y subtítulos. Sólo para <1>miembros Pro</1> (OpenAI)",
+    "description.enableAIContext": "Traducción contextual basada en IA para una mayor precisión. Funciona con artículos, libros electrónicos, PDF y subtítulos. Solo para <1>miembros Pro</1>.",
     "applyUseContextTranslate": "Traducción contextual aplicada",
     "aiAssistant.context": "Contexto de la IA",
     "aiAssistant.commonContext": "Genérico (contexto AI)",
@@ -5828,7 +5852,11 @@
     "translationTheme.background": "Fondo",
     "customThemeLabel.backgroundOpacity": "Opacidad del color de fondo (%)",
     "sameLangTranslationThemeTitle": "Añadir color de fondo a las traducciones entre idiomas similares",
-    "sameLangTranslationThemeDes": "Cuando los idiomas de origen y destino de la página sean similares (por ejemplo, traducciones entre chino/japonés/coreano o inglés/francés/alemán), añada color de fondo al texto traducido para distinguirlo mejor."
+    "sameLangTranslationThemeDes": "Cuando los idiomas de origen y destino de la página sean similares (por ejemplo, traducciones entre chino/japonés/coreano o inglés/francés/alemán), añada color de fondo al texto traducido para distinguirlo mejor.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Modelo de fundación de desarrollo propio, <2>miembros de traducción inmersiva</2> disponibles directamente."
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -6573,7 +6601,7 @@
     "description.enableRichTranslate": "‫שומר על קישורים וסגנון בטקסט המתורגם‬",
     "description.aiDualEnableRichTranslate": "‫במצב דו⁦-⁩לשוני עם ⁦AI⁩, אפשר לשמור על סגנון, אך עלול להשפיע על האיכות⁦.⁩‬",
     "field.enableAIContext": "‫אפשר תרגום ⁦AI⁩ בהקשר רחב‬",
-    "description.enableAIContext": "‫תרגום מדויק יותר במאמרים⁦.⁩ זמין לפרו בלבד⁦.⁩‬",
+    "description.enableAIContext": "תרגום הקשרי מבוסס בינה מלאכותית לדיוק טוב יותר. עובד עם מאמרים, ספרים אלקטרוניים, קובצי PDF וכתוביות. <1>Pro חברים</1> בלבד.",
     "disableNavTranslate": "‫השבת תרגום תפריט צד‬",
     "enableNavTranslate": "‫הפעל תרגום תפריט צד‬",
     "subtitle.noSubtitle": "‫אין כתוביות לסרטון זה, לא ניתן להפעיל דו⁦-⁩לשוני⁦.⁩‬",
@@ -6662,7 +6690,11 @@
     "translationTheme.background": "רקע",
     "sameLangTranslationThemeTitle": "הוספת צבע רקע לתרגומים בין שפות דומות",
     "sameLangTranslationThemeDes": "כאשר מקור הדף ושפות היעד דומים (לדוגמה, תרגומים בין סינית/יפנית/קוריאנית או אנגלית/צרפתית/גרמנית), הוסף צבע רקע לטקסט המתורגם להבחנה טובה יותר.",
-    "customThemeLabel.backgroundOpacity": "אטימות צבע רקע (%)"
+    "customThemeLabel.backgroundOpacity": "אטימות צבע רקע (%)",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"ז'יפו\"</homepage>מודל הבסיס המוביל שפותח בעצמו, <2>חברי תרגום אימרסיבי</2> זמין ישירות."
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -7512,7 +7544,7 @@
     "imageState.gifNotSupported": "不支持 GIF",
     "orCustom": "或自定义",
     "field.enableAIContext": "启用 AI 智能上下文翻译",
-    "description.enableAIContext": "为了翻译得更准确，系统会先理解全文内容和专业术语，再开始翻译。支持文章类网页（如博客、新闻），电子书，PDF Pro，双语字幕。此为实验功能，仅<1>Pro 会员</1>可用（当前仅支持OpenAI）",
+    "description.enableAIContext": "为了翻译得更准确，系统会先理解全文内容和专业术语，再开始翻译。支持文章类网页（如博客、新闻），电子书，PDF Pro，双语字幕。此为实验功能，仅<1>Pro 会员</1>可用",
     "navHeadEnableTranslate": "启用侧边栏翻译",
     "navHeadEnableTranslateDescription": "启用后则会翻译网页的侧边栏",
     "subtitle.noSubtitle": "该视频没有字幕，无法开启双语字幕",
@@ -7526,7 +7558,11 @@
     "translationTheme.background": "背景色",
     "sameLangTranslationThemeTitle": "当页面语言和目标语言为相近语言时，为译文添加背景色",
     "sameLangTranslationThemeDes": "当页面语言和目标语言为相近语言（如中日韩互译、英法德互译），通过给译文添加背景色来区分原文，方便对照阅读。",
-    "customThemeLabel.backgroundOpacity": "背景颜色不透明度(%)"
+    "customThemeLabel.backgroundOpacity": "背景颜色不透明度(%)",
+    "translationServices.zhipu-pro": "智谱 4 Plus",
+    "translationServices.zhipu-pro.introduction": "<homepage>“智谱”</homepage>顶级自研基座模型，<2>沉浸式翻译会员</2>可直接使用。",
+    "translationServices.upgradePro": "(开通会员)",
+    "translationServices.proOnly": "当前翻译服务仅会员可用，<1>点此升级为会员</1>（如您需要使用智谱的其他模型或自定义 API Key，请在“智谱-GLM-翻译”服务中设置）"
   },
   "en": {
     "nologin": "Not logged in",
@@ -8341,7 +8377,7 @@
     "description.enableRichTranslate": "Enable rich text translation to preserve original links and styles",
     "description.aiDualEnableRichTranslate": "Enable rich text translation to preserve original links and styles (Note: Enabling rich text in AI translation mode may affect translation quality, therefore it's disabled by default in dual-language mode)",
     "field.enableAIContext": "Enable AI Context-Aware Translation",
-    "description.enableAIContext": "AI-powered contextual translation for better accuracy. Works with articles, e-books, PDFs, and subtitles. <1>Pro members</1> only (OpenAI)",
+    "description.enableAIContext": "AI-powered contextual translation for better accuracy. Works with articles, e-books, PDFs, and subtitles. <1>Pro members</1> only.",
     "disableNavTranslate": "Disable sidebar translation",
     "enableNavTranslate": "Enable sidebar translation",
     "subtitle.noSubtitle": "This video has no subtitles and cannot be turned on with bilingual subtitles",
@@ -8360,7 +8396,11 @@
     "translationTheme.background": "Background",
     "sameLangTranslationThemeTitle": "Add background color to translations between similar languages",
     "sameLangTranslationThemeDes": "When the page source and target languages are similar (e.g., translations between Chinese/Japanese/Korean or English/French/German), add background color to translated text for better distinction.",
-    "customThemeLabel.backgroundOpacity": "Background color opacity (%)"
+    "customThemeLabel.backgroundOpacity": "Background color opacity (%)",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Top self-developed foundation model, <2>immersive translation members</2> available directly."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -9180,7 +9220,7 @@
     "enableNavTranslate": "Ativar tradução da barra lateral",
     "disableNavTranslate": "Desativar tradução da barra lateral",
     "subtitle.noSubtitle": "Este vídeo não tem legendas e não pode ser ativado com legendas bilíngues",
-    "description.enableAIContext": "Tradução contextual com tecnologia de IA para maior precisão. Funciona com artigos, livros eletrônicos, PDFs e legendas. Somente para <1>membros profissionais</1> (OpenAI)",
+    "description.enableAIContext": "Tradução contextual com tecnologia de IA para maior precisão. Funciona com artigos, livros eletrônicos, PDFs e legendas. Somente para <1>membros profissionais</1>.",
     "applyUseContextTranslate": "Tradução de contexto aplicada",
     "contextDiffPreview": "<1>Comparação de traduções</1>",
     "field.enableAIContext": "Habilite a tradução com reconhecimento de contexto da IA",
@@ -9195,7 +9235,11 @@
     "translationTheme.background": "Histórico",
     "customThemeLabel.backgroundOpacity": "Opacidade da cor de fundo (%)",
     "sameLangTranslationThemeTitle": "Adicionar cor de fundo às traduções entre idiomas semelhantes",
-    "sameLangTranslationThemeDes": "Quando os idiomas de origem e de destino da página forem semelhantes (por exemplo, traduções entre chinês/japonês/coreano ou inglês/francês/alemão), adicione cor de fundo ao texto traduzido para melhor distinção."
+    "sameLangTranslationThemeDes": "Quando os idiomas de origem e de destino da página forem semelhantes (por exemplo, traduções entre chinês/japonês/coreano ou inglês/francês/alemão), adicione cor de fundo ao texto traduzido para melhor distinção.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Modelo de fundação autodesenvolvido de primeira linha, <2>membros de tradução imersivos</2> disponíveis diretamente."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -10013,7 +10057,7 @@
     "disableNavTranslate": "साइडबार अनुवाद को अक्षम करें",
     "enableNavTranslate": "साइडबार अनुवाद सक्षम करें",
     "subtitle.noSubtitle": "इस वीडियो में कोई उपशीर्षक नहीं है और इसे द्विभाषी उपशीर्षक के साथ चालू नहीं किया जा सकता",
-    "description.enableAIContext": "बेहतर सटीकता के लिए एआई-संचालित प्रासंगिक अनुवाद। लेख, ई-पुस्तकें, पीडीएफ़ और उपशीर्षक के साथ काम करता है। केवल <1>प्रो सदस्य</1> (ओपनएआई)",
+    "description.enableAIContext": "बेहतर सटीकता के लिए एआई-संचालित प्रासंगिक अनुवाद। लेख, ई-पुस्तकें, पीडीएफ़ और उपशीर्षक के साथ काम करता है। केवल <1>प्रो सदस्य</1>।",
     "applyUseContextTranslate": "प्रसंग अनुवाद लागू किया गया",
     "field.enableAIContext": "एआई संदर्भ-जागरूक अनुवाद सक्षम करें",
     "contextDiffPreview": "<1>अनुवाद तुलना</1>",
@@ -10028,7 +10072,11 @@
     "translationTheme.background": "पृष्ठभूमि",
     "sameLangTranslationThemeTitle": "समान भाषाओं के बीच अनुवाद में पृष्ठभूमि रंग जोड़ें",
     "customThemeLabel.backgroundOpacity": "पृष्ठभूमि रंग अस्पष्टता (%)",
-    "sameLangTranslationThemeDes": "जब पृष्ठ स्रोत और लक्ष्य भाषाएँ समान हों (उदाहरण के लिए, चीनी/जापानी/कोरियाई या अंग्रेजी/फ़्रेंच/जर्मन के बीच अनुवाद), तो बेहतर अंतर के लिए अनुवादित पाठ में पृष्ठभूमि रंग जोड़ें।"
+    "sameLangTranslationThemeDes": "जब पृष्ठ स्रोत और लक्ष्य भाषाएँ समान हों (उदाहरण के लिए, चीनी/जापानी/कोरियाई या अंग्रेजी/फ़्रेंच/जर्मन के बीच अनुवाद), तो बेहतर अंतर के लिए अनुवादित पाठ में पृष्ठभूमि रंग जोड़ें।",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"ज़िपु\"</homepage>शीर्ष स्व-विकसित फाउंडेशन मॉडल, <2>इमर्सिव अनुवाद सदस्य</2> सीधे उपलब्ध हैं।"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10846,7 +10894,7 @@
     "enableNavTranslate": "Abilita la traduzione della barra laterale",
     "disableNavTranslate": "Disabilita la traduzione della barra laterale",
     "subtitle.noSubtitle": "Questo video non ha sottotitoli e non può essere attivato con sottotitoli bilingue.",
-    "description.enableAIContext": "Traduzione contestuale potenziata dall'intelligenza artificiale per una maggiore precisione. Funziona con articoli, e-book, PDF e sottotitoli. Solo per i soci <1>Pro</1> (OpenAI)",
+    "description.enableAIContext": "Traduzione contestuale potenziata dall'intelligenza artificiale per una maggiore precisione. Funziona con articoli, e-book, PDF e sottotitoli. Solo per i membri <1>Pro</1>.",
     "field.enableAIContext": "Abilitare la traduzione AI consapevole del contesto",
     "contextDiffPreview": "<1>Confronto tra le traduzioni</1>",
     "applyUseContextTranslate": "Traduzione contestuale applicata",
@@ -10861,7 +10909,11 @@
     "translationTheme.background": "Sfondo",
     "sameLangTranslationThemeTitle": "Aggiungere un colore di sfondo alle traduzioni tra lingue simili",
     "customThemeLabel.backgroundOpacity": "Opacità del colore di sfondo (%)",
-    "sameLangTranslationThemeDes": "Quando le lingue di origine e di destinazione della pagina sono simili (ad esempio, traduzioni tra cinese/giapponese/coreano o inglese/francese/tedesco), aggiungere un colore di sfondo al testo tradotto per una migliore distinzione."
+    "sameLangTranslationThemeDes": "Quando le lingue di origine e di destinazione della pagina sono simili (ad esempio, traduzioni tra cinese/giapponese/coreano o inglese/francese/tedesco), aggiungere un colore di sfondo al testo tradotto per una migliore distinzione.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Modello di fondazione auto-sviluppato, <2>membri di traduzione immersivi</2> disponibili direttamente."
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -11682,7 +11734,7 @@
     "contextDiffPreview": "<1>Çeviri Karşılaştırması</1>",
     "field.enableAIContext": "Yapay Zeka Bağlam Farkında Çeviriyi Etkinleştirin",
     "applyUseContextTranslate": "Bağlam çevirisi uygulandı",
-    "description.enableAIContext": "Daha iyi doğruluk için yapay zeka destekli bağlamsal çeviri. Makaleler, e-kitaplar, PDF'ler ve altyazılarla çalışır. <1>Pro üyeler</1> sadece (OpenAI)",
+    "description.enableAIContext": "Daha iyi doğruluk için yapay zeka destekli bağlamsal çeviri. Makaleler, e-kitaplar, PDF'ler ve altyazılarla çalışır. <1>Pro üyeler</1> sadece.",
     "aiAssistant.context": "Yapay Zeka Bağlamı",
     "aiAssistant.commonContext": "Jenerik (AI bağlamı)",
     "description.enableAIContextTip": "Not: Bağlam çevirisini etkinleştirmek 1-2 kat daha fazla belirteç kullanacaktır.",
@@ -11694,7 +11746,11 @@
     "translationTheme.background": "Arka plan",
     "sameLangTranslationThemeTitle": "Benzer diller arasındaki çevirilere arka plan rengi ekleyin",
     "sameLangTranslationThemeDes": "Sayfa kaynağı ve hedef diller benzer olduğunda (örneğin, Çince/Japonca/Korece veya İngilizce/Fransızca/Almanca arasındaki çeviriler), daha iyi ayrım için çevrilen metne arka plan rengi ekleyin.",
-    "customThemeLabel.backgroundOpacity": "Arka plan rengi opaklığı (%)"
+    "customThemeLabel.backgroundOpacity": "Arka plan rengi opaklığı (%)",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>En iyi kendi geliştirdiği vakıf modeli, <2>çevrimiçi çeviri üyeleri</2> doğrudan kullanılabilir."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -12551,7 +12607,7 @@
     "applyUseContextTranslate": "目前頁面已套用上下文翻譯",
     "contextDiffPreview": "<1>看譯文比較</1>",
     "field.enableAIContext": "啟用 AI 智慧上下文翻譯",
-    "description.enableAIContext": "為了翻譯得更準確，系統會先理解全文內容和專業術語，然後再開始翻譯。支援文章類網頁（如部落格、新聞），電子書，PDF Pro，雙語字幕。此為實驗功能，僅<1>Pro 會員</1>可用（目前僅支援OpenAI）",
+    "description.enableAIContext": "為了翻譯得更準確，系統會先理解全文內容和專業術語，然後再開始翻譯。支援文章類網頁（如部落格、新聞），電子書，PDF Pro，雙語字幕。此為實驗功能，僅<1>Pro 會員</1>可用",
     "aiAssistant.commonContext": "通用 (AI上下文)",
     "aiAssistant.context": "AI情境",
     "description.enableAIContextTip": "溫馨提示：開啟上下文翻譯功能將增加 Token 使用量，大約會是普通用量的 1-2 倍",
@@ -12562,7 +12618,11 @@
     "translationTheme.background": "背景色",
     "sameLangTranslationThemeTitle": "當頁面語言和目標語言為相近語言時，為譯文加上背景色",
     "customThemeLabel.backgroundOpacity": "背景顏色不透明度(%)",
-    "sameLangTranslationThemeDes": "當頁面語言和目標語言為相近語言（如中日韓互譯、英法德互譯），透過為譯文添加背景色來區分原文，方便對照閱讀。"
+    "sameLangTranslationThemeDes": "當頁面語言和目標語言為相近語言（如中日韓互譯、英法德互譯），透過為譯文添加背景色來區分原文，方便對照閱讀。",
+    "translationServices.zhipu-pro": "智譜 4 Plus",
+    "translationServices.proOnly": "目前翻譯服務僅會員可用，<1>點此升級為會員</1>（如您需要使用智譜的其他模型或自訂 API Key，請在「智譜-GLM-翻譯」服務中設定）",
+    "translationServices.upgradePro": "(開通會員)",
+    "translationServices.zhipu-pro.introduction": "<homepage>「智譜」</homepage>頂級自研基座模型，<2>沉浸式翻譯會員</2>可直接使用。"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -13383,7 +13443,7 @@
     "contextDiffPreview": "<1>Übersetzungsvergleich</1>",
     "applyUseContextTranslate": "Angewandte Kontextübersetzung",
     "field.enableAIContext": "AI-kontextabhängige Übersetzung aktivieren",
-    "description.enableAIContext": "KI-unterstützte kontextbezogene Übersetzung für bessere Genauigkeit. Funktioniert mit Artikeln, E-Books, PDFs und Untertiteln. Nur für <1>Pro-Mitglieder</1> (OpenAI)",
+    "description.enableAIContext": "KI-unterstützte kontextbezogene Übersetzung für bessere Genauigkeit. Funktioniert mit Artikeln, E-Books, PDFs und Untertiteln. Nur für <1>Pro-Mitglieder</1>.",
     "aiAssistant.context": "AI-Kontext",
     "aiAssistant.commonContext": "Allgemein (AI-Kontext)",
     "description.enableAIContextTip": "Hinweis: Wenn Sie die Kontextübersetzung aktivieren, werden 1-2 Mal mehr Token verwendet.",
@@ -13395,7 +13455,11 @@
     "translationTheme.background": "Hintergrund",
     "sameLangTranslationThemeTitle": "Hinzufügen einer Hintergrundfarbe zu Übersetzungen zwischen ähnlichen Sprachen",
     "customThemeLabel.backgroundOpacity": "Deckkraft der Hintergrundfarbe (%)",
-    "sameLangTranslationThemeDes": "Wenn die Ausgangs- und Zielsprachen der Seite ähnlich sind (z. B. Übersetzungen zwischen Chinesisch/Japanisch/Koreanisch oder Englisch/Französisch/Deutsch), fügen Sie dem übersetzten Text zur besseren Unterscheidung eine Hintergrundfarbe hinzu."
+    "sameLangTranslationThemeDes": "Wenn die Ausgangs- und Zielsprachen der Seite ähnlich sind (z. B. Übersetzungen zwischen Chinesisch/Japanisch/Koreanisch oder Englisch/Französisch/Deutsch), fügen Sie dem übersetzten Text zur besseren Unterscheidung eine Hintergrundfarbe hinzu.",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>Top selbst entwickeltes Gründungsmodell, <2>immersive Übersetzungsmitglieder</2> direkt verfügbar."
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -14215,7 +14279,7 @@
     "subtitle.noSubtitle": "このビデオには字幕がなく、二カ国語字幕をつけることはできません。",
     "contextDiffPreview": "<1>翻訳比較</1>",
     "field.enableAIContext": "AIによる文脈を考慮した翻訳を可能にする",
-    "description.enableAIContext": "AIによる文脈翻訳で、より正確な翻訳を実現。記事、電子書籍、PDF、字幕に対応。<1>プロメンバー</1>のみ（OpenAI）",
+    "description.enableAIContext": "AIによる文脈翻訳で、より正確な翻訳を実現。記事、電子書籍、PDF、字幕に対応。<1>プロメンバー</1>のみ。",
     "applyUseContextTranslate": "文脈翻訳を適用",
     "aiAssistant.context": "AIコンテクスト",
     "aiAssistant.commonContext": "ジェネリック（AIコンテクスト）",
@@ -14228,6 +14292,10 @@
     "translationTheme.background": "背景",
     "sameLangTranslationThemeDes": "ページのソース言語とターゲット言語が類似している場合（例えば、中国語/日本語/韓国語、英語/フランス語/ドイツ語間の翻訳）、より良い区別のために翻訳テキストに背景色を追加します。",
     "customThemeLabel.backgroundOpacity": "背景色の不透明度 (%)",
-    "sameLangTranslationThemeTitle": "類似言語間の翻訳に背景色を追加"
+    "sameLangTranslationThemeTitle": "類似言語間の翻訳に背景色を追加",
+    "translationServices.zhipu-pro": "Zhipu 4 Plus",
+    "translationServices.upgradePro": "(Upgrade)",
+    "translationServices.proOnly": "Zhipu 4 Plus is currently available for pro only, <1>Upgrade to Pro</1> (If you need to use other Zhipu models or customize API Key, please configure in the \"Zhipu BigModel\" service)",
+    "translationServices.zhipu-pro.introduction": "<homepage>\"Zhipu\"</homepage>トップ自社開発基礎モデル、<2>没入型翻訳メンバー</2>直接利用可能。"
   }
 }

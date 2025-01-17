@@ -583,5 +583,31 @@
         "amkbmndfnliijdhojkpoglbnaaahippg"
       ]
     }
+  },
+  {
+    "id": 314,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://weibo.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://*.sinaimg.cn/",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   }
 ]

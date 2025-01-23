@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.13.6",
+  "version": "1.13.7",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -13,8 +13,13 @@
     "styles/inject.css",
     "pdf/index.html",
     "video-subtitle/inject.js",
-    "image/inject.js"
+    "image/inject.js",
+    "tesseract/worker.min.js",
+    "tesseract/tesseract-core-simd-lstm.wasm.js"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -120,7 +125,8 @@
     "activeTab",
     "contextMenus",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "offscreen"
   ],
   "browser_action": {
     "default_icon": "icons/32.png",

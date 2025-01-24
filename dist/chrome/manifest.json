@@ -129,10 +129,15 @@
     "webRequest",
     "declarativeNetRequestWithHostAccess",
     "declarativeNetRequestFeedback",
-    "declarativeNetRequest",
-    "offscreen"
+    "declarativeNetRequest"
   ],
   "host_permissions": [
+    "<all_urls>"
+  ],
+  "optional_permissions": [
+    "offscreen"
+  ],
+  "optional_host_permissions": [
     "<all_urls>"
   ],
   "declarative_net_request": {

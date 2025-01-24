@@ -124,12 +124,6 @@
     "webRequest",
     "webRequestBlocking"
   ],
-  "optional_permissions": [
-    "offscreen"
-  ],
-  "optional_host_permissions": [
-    "<all_urls>"
-  ],
   "browser_action": {
     "default_icon": "icons/32.png",
     "default_popup": "popup.html",

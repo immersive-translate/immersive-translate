@@ -849,11 +849,12 @@
     "chooseProvider.clientDescPro": "英語とその他のラテン語の認識のみをサポートし、認識できない場合は自動的にPro Image Translatorを使用します。",
     "freeImage.supportLangError": "この言語は無料版ではサポートされていません。",
     "chooseProvider.clientDesc": "<1>会員へのアップグレードはこちら</1>。",
-    "freeImage.notSupport": "無料の画像翻訳は、現在、en&lt;br/&gt;&lt;br/&gt;などの他のラテン言語でのみ利用可能ですより多くの言語をサポートするには、プロ画像翻訳の使用を検討してください。<1>Proメンバーシップを有効にするには、ここをクリックしてください</1>。",
+    "freeImage.notSupport": "無料画像翻訳は、現在、en&lt;br/&gt;&lt;br/&gt;などの他のラテン言語でのみ利用可能です。より多くの言語をサポートするには、プロ画像翻訳の使用を検討してください。<1>Proメンバーシップを有効にするにはここをクリック</1>.",
     "freeImage.close": "リマインダーはもういらない",
     "chooseProvider.clientPro": "優先無料",
     "imageState.free_translating": "無料翻訳中",
-    "image.enableMouseHover": "画像の上にカーソルを置くと、画像変換がトリガーされます。"
+    "image.enableMouseHover": "画像の上にカーソルを置くと、画像変換がトリガーされます。",
+    "toOldChrome": "Chromeのバージョンが低すぎます。この機能を使用するには、最新バージョンにアップグレードしてください。"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -1706,10 +1707,11 @@
     "chooseProvider.clientDescPro": "Поддерживает распознавание только английского и некоторых других латинских языков и автоматически использует Pro Image Translator, если не может их распознать.",
     "freeImage.supportLangError": "Этот язык не поддерживается в бесплатной версии",
     "chooseProvider.clientDesc": "Распознаются только английский и некоторые другие латинские языки, <1> Нажмите здесь, чтобы перейти в категорию пользователей</1>.",
-    "freeImage.notSupport": "В настоящее время бесплатный перевод изображений доступен только для других латинских языков, таких как en&lt;br/&gt;&lt;br/&gt;Для получения более широкой языковой поддержки воспользуйтесь Pro Image Translation. <1> Нажмите здесь, чтобы активировать свое членство в Pro</1>.",
+    "freeImage.notSupport": "В настоящее время бесплатный перевод изображений доступен только для других латинских языков, таких как en&lt;br/&gt;&lt;br/&gt;Для более широкой языковой поддержки воспользуйтесь Pro Image Translation. <1> Нажмите здесь, чтобы активировать свое членство в программе Pro</1>.",
     "chooseProvider.clientPro": "Приоритет бесплатно",
     "imageState.free_translating": "Свободный перевод в процессе выполнения",
-    "image.enableMouseHover": "Запускайте перевод изображения при наведении на него курсора"
+    "image.enableMouseHover": "Запускайте перевод изображения при наведении на него курсора",
+    "toOldChrome": "Версия Chrome слишком низкая, пожалуйста, обновите ее до последней версии, чтобы использовать эту функцию."
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -2590,11 +2592,12 @@
     "freeImage.title": "免费图片翻译 (Beta)",
     "freeImage.close": "不再提醒",
     "freeImage.supportLangError": "免费版不支持该语言",
-    "freeImage.notSupport": "免费图片翻译目前仅支持 en 等其他拉丁语系的语种<br/><br/>需要更多语种支持可以考虑使用 Pro 图片翻译。<1>点此开通 Pro 会员</1>",
+    "freeImage.notSupport": "免费图片翻译目前仅支持识别英文跟一些其他拉丁语系语种<br/><br/>需要更多语种支持可以考虑使用 Pro 图片翻译。<1>点此开通 Pro 会员</1>",
     "intro.mangaImageTitle": "图片翻译 (Beta)",
     "inputTranslationModeLabel": "保留原文",
     "inputTranslationModeDesc": "输入框中的内容将保留原文，以双语的方式显示",
-    "close": "关闭"
+    "close": "关闭",
+    "toOldChrome": "Chrome 版本太低，请升级到最新版再使用该功能"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -3445,12 +3448,13 @@
     "chooseProvider.client": "حر",
     "freeImage.title": "ترجمة الصور المجانية (تجريبية)",
     "chooseProvider.clientDescPro": "يدعم فقط التعرف على اللغة الإنجليزية وبعض اللغات اللاتينية الأخرى، ويتم استخدام ترجمة الصور الاحترافية تلقائيًا عندما لا يمكن التعرف عليها.",
-    "freeImage.notSupport": "تدعم ترجمة الصور المجانية حاليًا اللغة الإنجليزية واللغات اللاتينية الأخرى فقط &lt;br/&gt;&lt;br/&gt; إذا كنت بحاجة إلى المزيد من الدعم اللغوي، فيمكنك التفكير في استخدام Pro Image Translation. <1>انقر هنا لتنشيط عضوية Pro</1>",
+    "freeImage.notSupport": "ترجمة الصور المجانية متاحة حاليًا فقط للغات اللاتينية الأخرى مثل en<br/><br/>لمزيد من الدعم اللغوي، فكر في استخدام Pro Image Translation. <1>انقر هنا لتنشيط عضويتك الاحترافية</1>.",
     "chooseProvider.proDesc": "يدعم التعرف على معظم اللغات السائدة",
     "freeImage.supportLangError": "هذه اللغة غير مدعومة في النسخة المجانية",
     "chooseProvider.clientPro": "الأولوية مجانية",
     "imageState.free_translating": "ترجمة مجانية",
-    "image.enableMouseHover": "يؤدي تحريك الماوس فوق الصورة إلى تشغيل ترجمة الصورة"
+    "image.enableMouseHover": "يؤدي تحريك الماوس فوق الصورة إلى تشغيل ترجمة الصورة",
+    "toOldChrome": "إصدار Chrome منخفض جدًا، يرجى الترقية إلى الإصدار الأحدث قبل استخدام هذه الميزة."
   },
   "bo_CN": {},
   "pt-BR": {
@@ -4306,10 +4310,11 @@
     "chooseProvider.clientDesc": "Somente o inglês e alguns outros idiomas latinos são reconhecidos, <1>Clique aqui para fazer upgrade para um membro</1>.",
     "chooseProvider.clientDescPro": "Suporta apenas o reconhecimento do inglês e de alguns outros idiomas latinos e usa automaticamente o Pro Image Translator quando não consegue reconhecê-los.",
     "chooseProvider.proDesc": "Suporta o reconhecimento da maioria dos principais idiomas",
-    "freeImage.notSupport": "No momento, a tradução gratuita de imagens está disponível apenas para outros idiomas latinos, como o en&lt;br/&gt;&lt;br/&gt;Para obter suporte a mais idiomas, considere usar o Pro Image Translation. <1>Clique aqui para ativar sua assinatura Pro</1>.",
+    "freeImage.notSupport": "No momento, a tradução gratuita de imagens está disponível apenas para outros idiomas latinos, como en&lt;br/&gt;&lt;br/&gt;Para obter suporte a mais idiomas, considere usar o Pro Image Translation. <1>Clique aqui para ativar sua assinatura Pro</1>.",
     "chooseProvider.clientPro": "Prioridade livre",
     "imageState.free_translating": "Tradução livre em andamento",
-    "image.enableMouseHover": "Acione a conversão de imagens passando o mouse sobre a imagem"
+    "image.enableMouseHover": "Acione a conversão de imagens passando o mouse sobre a imagem",
+    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -5162,10 +5167,11 @@
     "freeImage.title": "무료 이미지 번역(베타)",
     "chooseProvider.clientDesc": "영어와 일부 라틴어만 인식되며, <1>회원으로 업그레이드하려면 여기를 클릭하세요</1>.",
     "freeImage.supportLangError": "무료 버전에서는 이 언어가 지원되지 않습니다.",
-    "freeImage.notSupport": "무료 이미지 번역은 현재 en&lt;br/&gt;&lt;br/&gt;과 같은 다른 라틴어에 대해서만 제공됩니다. 더 많은 언어를 지원하려면 프로 이미지 번역을 사용하세요. <1>프로 멤버십을 활성화하려면 여기를 클릭하세요</1>.",
+    "freeImage.notSupport": "무료 이미지 번역은 현재 en과 같은 다른 라틴어에 대해서만 제공됩니다. 더 많은 언어 지원을 원하시면 프로 이미지 번역을 사용하세요. <1>프로 멤버십을 활성화하려면 여기를 클릭하세요</1>.",
     "chooseProvider.clientPro": "우선순위 무료",
     "imageState.free_translating": "무료 번역 진행 중",
-    "image.enableMouseHover": "이미지 위로 마우스를 가져가서 이미지 번역 트리거하기"
+    "image.enableMouseHover": "이미지 위로 마우스를 가져가서 이미지 번역 트리거하기",
+    "toOldChrome": "Chrome 버전이 너무 낮습니다. 이 기능을 사용하려면 최신 버전으로 업그레이드하세요."
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -6018,10 +6024,11 @@
     "chooseProvider.clientDesc": "Nur Englisch und einige andere lateinische Sprachen werden erkannt, <1>Klicken Sie hier, um Mitglied zu werden</1>.",
     "chooseProvider.proDesc": "Unterstützt die Erkennung der meisten wichtigen Sprachen",
     "chooseProvider.clientDescPro": "Unterstützt nur die Erkennung von Englisch und einigen anderen lateinischen Sprachen und verwendet automatisch Pro Image Translator, wenn diese nicht erkannt werden.",
-    "freeImage.notSupport": "Die kostenlose Bildübersetzung ist derzeit nur für andere lateinische Sprachen wie en&lt;br/&gt;&lt;br/&gt;Wenn Sie mehr Sprachen unterstützen möchten, sollten Sie Pro Image Translation verwenden. <1>Klicken Sie hier, um Ihre Pro-Mitgliedschaft zu aktivieren</1>.",
+    "freeImage.notSupport": "Die kostenlose Bildübersetzung ist derzeit nur für andere lateinische Sprachen wie z.B. en verfügbar. Für mehr Sprachunterstützung sollten Sie Pro Image Translation verwenden. <1>Klicken Sie hier, um Ihre Pro-Mitgliedschaft zu aktivieren</1>.",
     "chooseProvider.clientPro": "Vorrangig Frei",
     "image.enableMouseHover": "Auslösen der Bildübersetzung durch Bewegen des Mauszeigers über das Bild",
-    "imageState.free_translating": "Freie Übersetzung in Arbeit"
+    "imageState.free_translating": "Freie Übersetzung in Arbeit",
+    "toOldChrome": "Die Chrome-Version ist zu niedrig, bitte aktualisieren Sie auf die neueste Version, um diese Funktion zu nutzen."
   },
   "en": {
     "nologin": "Not logged in",
@@ -6878,7 +6885,8 @@
     "chooseProvider.clientDescPro": "Only supports recognition of English and some other Latin languages, and automatically uses Pro Image Translator when it does not recognize them.",
     "chooseProvider.clientPro": "Priority Free",
     "imageState.free_translating": "Free translation in progress",
-    "image.enableMouseHover": "Trigger image translation by hovering over the image"
+    "image.enableMouseHover": "Trigger image translation by hovering over the image",
+    "toOldChrome": "Chrome version is too low, please upgrade to the latest version to use this feature."
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -7731,11 +7739,12 @@
     "chooseProvider.clientDescPro": "תומך רק בזיהוי אנגלית וכמה שפות לטיניות אחרות, ותרגום תמונות Pro משמש באופן אוטומטי כאשר לא ניתן לזהות אותו",
     "freeImage.close": "אין יותר תזכורות",
     "close": "תסגור",
-    "freeImage.notSupport": "תרגום תמונות בחינם תומך כרגע רק בשפות לטיניות<br/><br/> אחרות כגון EN, ואם אתה זקוק לתמיכה נוספת בשפות, תוכל לשקול להשתמש בתרגום תמונות Pro. <1> לחץ כאן להפעלת חברות Pro </1>",
+    "freeImage.notSupport": "תרגום תמונות בחינם זמין כרגע רק עבור שפות לטיניות אחרות, כגון en&lt;br/&gt;&lt;br/&gt;לקבלת תמיכה נוספת בשפות, שקול להשתמש בתרגום תמונות Pro. <1>לחץ כאן כדי להפעיל את החברות שלך ב-Pro</1>.",
     "chooseProvider.clientDesc": "ניתן לזהות רק אנגלית וכמה שפות לטיניות אחרות, < 1> לחץ כאן כדי לשדרג לחבר </1>",
     "chooseProvider.clientPro": "עדיפות חינם",
     "imageState.free_translating": "תרגום חופשי",
-    "image.enableMouseHover": "ריחוף מעל תמונה גורם לתרגום תמונה"
+    "image.enableMouseHover": "ריחוף מעל תמונה גורם לתרגום תמונה",
+    "toOldChrome": "גרסת Chrome נמוכה מדי, שדרג לגרסה העדכנית ביותר כדי להשתמש בתכונה"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -8588,10 +8597,11 @@
     "chooseProvider.clientDesc": "केवल अंग्रेजी और कुछ अन्य लैटिन भाषाओं की मान्यता का समर्थन करता है <1>सदस्य में अपग्रेड करने के लिए यहां क्लिक करें",
     "freeImage.title": "निःशुल्क छवि अनुवाद (बीटा)",
     "chooseProvider.clientDescPro": "केवल अंग्रेजी और कुछ अन्य लैटिन भाषाओं की पहचान का समर्थन करता है जब इसे पहचाना नहीं जा सकता तो प्रो छवि अनुवाद स्वचालित रूप से उपयोग किया जाता है।",
-    "freeImage.notSupport": "नि:शुल्क छवि अनुवाद वर्तमान में केवल एन और अन्य लैटिन भाषाओं का समर्थन करता है &lt;br/&gt;&lt;br/&gt; यदि आपको अधिक भाषा समर्थन की आवश्यकता है, तो आप प्रो इमेज ट्रांसलेशन का उपयोग करने पर विचार कर सकते हैं। <1>प्रो सदस्यता सक्रिय करने के लिए यहां क्लिक करें</1>",
+    "freeImage.notSupport": "नि:शुल्क छवि अनुवाद वर्तमान में केवल अन्य लैटिन भाषाओं जैसे एन के लिए उपलब्ध है<br/><br/>अधिक भाषा समर्थन के लिए प्रो इमेज ट्रांसलेशन का उपयोग करने पर विचार करें। <1>अपनी प्रो सदस्यता सक्रिय करने के लिए यहां क्लिक करें</1>।",
     "chooseProvider.clientPro": "प्राथमिकता मुक्त",
     "imageState.free_translating": "मुफ़्त अनुवाद",
-    "image.enableMouseHover": "छवि पर माउस घुमाने से छवि अनुवाद चालू हो जाता है"
+    "image.enableMouseHover": "छवि पर माउस घुमाने से छवि अनुवाद चालू हो जाता है",
+    "toOldChrome": "Chrome संस्करण बहुत धीमा है, कृपया इस सुविधा का उपयोग करने से पहले नवीनतम संस्करण में अपग्रेड करें।"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -9442,12 +9452,13 @@
     "chooseProvider.proDesc": "Başlıca dillerin çoğunun tanınmasını destekler",
     "chooseProvider.clientDesc": "Yalnızca İngilizce ve diğer bazı Latin dilleri tanınır, <1>Üye olmak için buraya tıklayın</1>.",
     "chooseProvider.clientDescPro": "Yalnızca İngilizce ve diğer bazı Latin dillerinin tanınmasını destekler ve bunları tanıyamadığında otomatik olarak Pro Image Translator'ı kullanır.",
-    "freeImage.notSupport": "Ücretsiz resim çevirisi şu anda yalnızca en gibi diğer Latin dilleri için mevcuttur&lt;br/&gt;&lt;br/&gt;Daha fazla dil desteği için Pro Image Translation kullanmayı düşünün. <1>Pro üyeliğinizi etkinleştirmek için buraya tıklayın</1>.",
+    "freeImage.notSupport": "Ücretsiz resim çevirisi şu anda yalnızca en&lt;br/&gt;&lt;br/&gt;gibi diğer Latin dilleri için mevcuttur; daha fazla dil desteği için Pro Image Translation'ı kullanmayı düşünün. <1>Pro üyeliğinizi etkinleştirmek için buraya tıklayın</1>.",
     "freeImage.supportLangError": "Bu dil ücretsiz sürümde desteklenmemektedir",
     "freeImage.close": "Artık hatırlatma yok",
     "chooseProvider.clientPro": "Öncelik Ücretsiz",
     "imageState.free_translating": "Serbest çeviri devam ediyor",
-    "image.enableMouseHover": "Görüntünün üzerine gelerek görüntü çevirisini tetikleyin"
+    "image.enableMouseHover": "Görüntünün üzerine gelerek görüntü çevirisini tetikleyin",
+    "toOldChrome": "Chrome sürümü çok düşük, bu özelliği kullanmak için lütfen en son sürüme yükseltin."
   },
   "fr": {
     "nologin": "non connecté",
@@ -10300,10 +10311,11 @@
     "freeImage.title": "Traduction gratuite d'images (Beta)",
     "chooseProvider.clientDesc": "Seules l'anglais et quelques autres langues latines sont reconnues, <1>Cliquez ici pour devenir membre</1>.",
     "chooseProvider.clientDescPro": "Ne prend en charge que la reconnaissance de l'anglais et de quelques autres langues latines, et utilise automatiquement Pro Image Translator s'il ne parvient pas à les reconnaître.",
-    "freeImage.notSupport": "La traduction gratuite d'images n'est actuellement disponible que pour d'autres langues latines telles que le fr&lt;br/&gt;&lt;br/&gt;Pour un plus grand nombre de langues, envisagez d'utiliser Pro Image Translation. <1>Cliquez ici pour activer votre adhésion Pro</1>.",
+    "freeImage.notSupport": "La traduction gratuite d'images n'est actuellement disponible que pour d'autres langues latines telles que en&lt;br/&gt;&lt;br/&gt;Pour un plus grand nombre de langues, envisagez d'utiliser Pro Image Translation. <Cliquez ici pour activer votre adhésion Pro</1>.",
     "chooseProvider.clientPro": "Priorité Libre",
     "imageState.free_translating": "Traduction libre en cours",
-    "image.enableMouseHover": "Déclencher une translation d'image en survolant l'image"
+    "image.enableMouseHover": "Déclencher une translation d'image en survolant l'image",
+    "toOldChrome": "La version de Chrome est trop basse, veuillez passer à la version la plus récente pour utiliser cette fonction."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -11156,10 +11168,11 @@
     "chooseProvider.proDesc": "Suporta o reconhecimento da maioria dos principais idiomas",
     "chooseProvider.clientDesc": "Somente o inglês e alguns outros idiomas latinos são reconhecidos, <1>Clique aqui para fazer upgrade para um membro</1>.",
     "chooseProvider.clientDescPro": "Suporta apenas o reconhecimento do inglês e de alguns outros idiomas latinos e usa automaticamente o Pro Image Translator quando não consegue reconhecê-los.",
-    "freeImage.notSupport": "No momento, a tradução gratuita de imagens está disponível apenas para outros idiomas latinos, como o en&lt;br/&gt;&lt;br/&gt;Para obter suporte a mais idiomas, considere usar o Pro Image Translation. <1>Clique aqui para ativar sua assinatura Pro</1>.",
+    "freeImage.notSupport": "No momento, a tradução gratuita de imagens está disponível apenas para outros idiomas latinos, como en&lt;br/&gt;&lt;br/&gt;Para obter suporte a mais idiomas, considere usar o Pro Image Translation. <1>Clique aqui para ativar sua assinatura Pro</1>.",
     "chooseProvider.clientPro": "Prioridade livre",
     "image.enableMouseHover": "Acione a conversão de imagens passando o mouse sobre a imagem",
-    "imageState.free_translating": "Tradução livre em andamento"
+    "imageState.free_translating": "Tradução livre em andamento",
+    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso."
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -12012,10 +12025,11 @@
     "chooseProvider.clientDesc": "فقط از تشخیص زبان انگلیسی و برخی دیگر از زبان های لاتین پشتیبانی می کند <1>برای ارتقاء به عضو اینجا را کلیک کنید</1>",
     "freeImage.title": "ترجمه رایگان تصویر (بتا)",
     "chooseProvider.proDesc": "پشتیبانی از تشخیص اکثر زبان های رایج",
-    "freeImage.notSupport": "ترجمه رایگان تصویر در حال حاضر فقط از en و سایر زبان‌های لاتین پشتیبانی می‌کند &lt;br/&gt;&lt;br/&gt; اگر به پشتیبانی زبان بیشتری نیاز دارید، می‌توانید از Pro Image Translation استفاده کنید. <1>برای فعال کردن عضویت Pro اینجا را کلیک کنید</1>",
+    "freeImage.notSupport": "ترجمه تصویر رایگان در حال حاضر فقط برای سایر زبانهای لاتین مانند EN <br/> <br/> برای پشتیبانی بیشتر زبان در دسترس است. <1> برای فعال کردن عضویت حرفه ای خود اینجا را کلیک کنید </1>.",
     "chooseProvider.clientPro": "بدون اولویت",
     "image.enableMouseHover": "قرار دادن ماوس روی تصویر باعث ترجمه تصویر می شود",
-    "imageState.free_translating": "ترجمه رایگان"
+    "imageState.free_translating": "ترجمه رایگان",
+    "toOldChrome": "نسخه Chrome بسیار کم است، لطفاً قبل از استفاده از این ویژگی، آن را به آخرین نسخه ارتقا دهید."
   },
   "es": {
     "nologin": "no conectado",
@@ -12867,11 +12881,12 @@
     "close": "coagulación",
     "freeImage.title": "Traducción gratuita de imágenes (Beta)",
     "chooseProvider.clientDesc": "Sólo se reconocen el inglés y algunas otras lenguas latinas, <1>Haga clic aquí para hacerse miembro</1>.",
-    "freeImage.notSupport": "Actualmente, la traducción gratuita de imágenes sólo está disponible para otros idiomas latinos como el es&lt;br/&gt;&lt;br/&gt;Para más idiomas, puedes utilizar la traducción de imágenes Pro. <1>Haga clic aquí para activar su suscripción Pro</1>.",
+    "freeImage.notSupport": "Actualmente, la traducción gratuita de imágenes sólo está disponible para otros idiomas latinos como el es&lt;br/&gt;&lt;br/&gt;Para obtener más compatibilidad de idiomas, considere la posibilidad de utilizar Pro Image Translation. <1>Haga clic aquí para activar su suscripción Pro</1>.",
     "freeImage.supportLangError": "Este idioma no es compatible con la versión gratuita",
     "chooseProvider.clientPro": "Prioridad Libre",
     "imageState.free_translating": "Traducción libre en curso",
-    "image.enableMouseHover": "Activar la traslación de imágenes al pasar el ratón por encima de la imagen"
+    "image.enableMouseHover": "Activar la traslación de imágenes al pasar el ratón por encima de la imagen",
+    "toOldChrome": "La versión de Chrome es demasiado baja, por favor actualiza a la última versión para utilizar esta función."
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -13721,13 +13736,14 @@
     "freeImage.title": "Traduzione gratuita di immagini (Beta)",
     "chooseProvider.proDesc": "Supporta il riconoscimento della maggior parte delle lingue principali",
     "freeImage.close": "Niente più promemoria",
-    "freeImage.notSupport": "La traduzione gratuita delle immagini è attualmente disponibile solo per altre lingue latine come en&lt;br/&gt;&lt;br/&gt;Per un maggiore supporto linguistico, si consiglia di utilizzare la traduzione di immagini Pro. <1>Clicca qui per attivare la tua iscrizione Pro</1>.",
+    "freeImage.notSupport": "La traduzione gratuita delle immagini è attualmente disponibile solo per altre lingue latine come en&lt;br/&gt;&lt;br/&gt;Per un maggiore supporto linguistico, considerate l'utilizzo di Pro Image Translation. <1>Clicca qui per attivare la tua iscrizione Pro</1>.",
     "freeImage.supportLangError": "Questa lingua non è supportata nella versione gratuita",
     "chooseProvider.clientDesc": "Solo l'inglese e alcune altre lingue latine sono riconosciute, <1>Clicca qui per diventare membro</1>.",
     "chooseProvider.clientDescPro": "Supporta solo il riconoscimento dell'inglese e di alcune lingue latine e utilizza automaticamente Pro Image Translator quando non riesce a riconoscerle.",
     "chooseProvider.clientPro": "Priorità Gratuita",
     "imageState.free_translating": "Traduzione libera in corso",
-    "image.enableMouseHover": "Attivare la traduzione dell'immagine passando il mouse sull'immagine stessa"
+    "image.enableMouseHover": "Attivare la traduzione dell'immagine passando il mouse sull'immagine stessa",
+    "toOldChrome": "La versione di Chrome è troppo bassa, si prega di aggiornare alla versione più recente per utilizzare questa funzione."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -14610,7 +14626,7 @@
     "close": "關閉",
     "chooseProvider.clientDescPro": "僅支援辨識英文跟一些其他拉丁文系語種， 無法辨識時自動使用 Pro 圖片翻譯",
     "freeImage.supportLangError": "免費版不支援該語言",
-    "freeImage.notSupport": "免費圖片翻譯目前僅支援 en 等其他拉丁語系的語種&lt;br/&gt;&lt;br/&gt;需要更多語種支援可以考慮使用 Pro 圖片翻譯。 <1>點此開通 Pro 會員</1>",
+    "freeImage.notSupport": "免費圖片翻譯目前僅支援辨識英文跟一些其他拉丁文系語種&lt;br/&gt;&lt;br/&gt;需要更多語種支援可以考慮使用 Pro 圖片翻譯。 <1>點此開通 Pro 會員</1>",
     "chooseProvider.client": "免費",
     "freeImage.close": "不再提醒",
     "chooseProvider.clientDesc": "僅支援辨識英文跟一些其他拉丁文系語種，<1>點此升級為會員</1>",
@@ -14618,6 +14634,7 @@
     "chooseProvider.proDesc": "支援識別大部分主流語種",
     "chooseProvider.clientPro": "優先免費",
     "image.enableMouseHover": "滑鼠懸停在圖片上觸發圖片翻譯",
-    "imageState.free_translating": "免費翻譯中"
+    "imageState.free_translating": "免費翻譯中",
+    "toOldChrome": "Chrome 版本太低，請升級到最新版再使用該功能"
   }
 }

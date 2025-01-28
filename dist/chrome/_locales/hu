@@ -1,0 +1,112 @@
+Íme a fordított szöveg magyarul:
+
+{
+  "shortBrandName": {
+    "message": "Immersive Fordítás"
+  },
+  "brandName": {
+    "message": "Immersive Fordítás - Web és PDF fordítás"
+  },
+  "brandDescription": {
+    "message": "Ingyenes weboldal fordítás, PDF és Epub e-könyv fordítás, videó feliratok fordítása két nyelven"
+  },
+  "toggleTranslatePage": {
+    "message": "Fordítsd a cél nyelvre ({targetLanguage})"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Fordítsd az egész oldalt/Mutassa az eredeti szöveget"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Azonnal fordítsd a lap aljáig/Mutassa az eredeti szöveget"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Fordítsd a főoldalt/Mutassa az eredeti szöveget"
+  },
+  "shareToDraft": {
+    "message": "Ossza meg a két nyelvű oldalt"
+  },
+  "openOptionsPage": {
+    "message": "Nyissa meg a Beállítások oldalt"
+  },
+  "translateLocalPdfFile": {
+    "message": "Fordítsd a helyi PDF fájlt"
+  },
+  "openEbookViewer": {
+    "message": "Olvasd a helyi e-könyveket"
+  },
+  "openEbookBuilder": {
+    "message": "Hozd létre a két nyelvű EPUB e-könyvet"
+  },
+  "translateLocalHtmlFile": {
+    "message": "Fordítsd az HTML/txt fájlt"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Fordítsd a helyi felirat fájlt"
+  },
+  "openAboutPage": {
+    "message": "Névjegy / Visszajelzés / Támogatás"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Ideiglenesen engedélyezze vagy tiltsa le a közvetlen fordítást az egér fölé helyezésével az oldalon"
+  },
+  "translateWithDeepAI": {
+    "message": "Ideiglenesen fordítsa le az oldalt DeepAI-val"
+  },
+  "translateWithDeepL": {
+    "message": "Ideiglenesen fordítsa le az oldalt DeepL-lel"
+  },
+  "translateWithGoogle": {
+    "message": "Ideiglenesen fordítsa le az oldalt Google-val"
+  },
+  "translateWithBing": {
+    "message": "Ideiglenesen fordítsa le az oldalt Microsoft Translatorral"
+  },
+  "translateWithGemini": {
+    "message": "Ideiglenesen fordítsa le az oldalt Gemini-val"
+  },
+  "translateWithTransmart": {
+    "message": "Ideiglenesen fordítsa le az oldalt Tencent Translatorral"
+  },
+  "translateInputBox": {
+    "message": "Fordítsd le a jelenlegi bemeneti mező tartalmát"
+  },
+  "toggleOnlyTransation": {
+    "message": "Váltson /fordítás-csak módra"
+  },
+  "toggleTranslationMask": {
+    "message": "Kapcsolja be vagy ki a homályos hatást a fordított szövegre (tanulási mód) az oldalon"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Váltson videó feliratokra az Immersive Fordítás szolgáltatással"
+  },
+  "brandDescriptionForSafari": {
+    "message": "Ingyenes weboldal fordítás, PDF és Epub e-könyv fordítás, videó feliratok fordítása két nyelven"
+  },
+  "PdfProFile": {
+    "message": "AI-vezérelt PDF Pro Fordítás"
+  },
+  "textTranslate": {
+    "message": "Szövegfordítás"
+  },
+  "translateWithClaude": {
+    "message": "Ideiglenesen használja Claude-t az oldal fordításához."
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Fordítsa le a weboldalt/Mutassa az eredeti szöveget"
+  },
+  "translateText": {
+    "message": "Fordítsa le a szöveget: \"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "Ideiglenes használata egyéni fordítási szolgáltatásnak az oldal fordításához(1)"
+  },
+  "translateWithCustom2": {
+    "message": "Ideiglenes használata egyéni fordítási szolgáltatásnak az oldal fordításához(2)"
+  },
+  "translateWithCustom3": {
+    "message": "Ideiglenes használata egyéni fordítási szolgáltatásnak az oldal fordításához(3)"
+  },
+  "translateMangaMenuId": {
+    "message": "Fordítsd le a képet/visszaállítja a képet"
+  }
+}

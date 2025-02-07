@@ -854,7 +854,9 @@
     "chooseProvider.clientPro": "優先無料",
     "imageState.free_translating": "無料翻訳中",
     "image.enableMouseHover": "画像の上にカーソルを置くと、画像変換がトリガーされます。",
-    "toOldChrome": "Chromeのバージョンが低すぎます。この機能を使用するには、最新バージョンにアップグレードしてください。"
+    "toOldChrome": "Chromeのバージョンが低すぎます。この機能を使用するには、最新バージョンにアップグレードしてください。",
+    "image.enableMangaFloatBall": "マンガ翻訳の浮き球を有効にする",
+    "image.enableMangaFloatBallDesc": "マンガ翻訳浮き球を有効にすると、対応マンガサイトの右側にクイックマンガ翻訳ボタンが表示され、クリックするとマンガが翻訳されます！"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -1711,7 +1713,9 @@
     "chooseProvider.clientPro": "Приоритет бесплатно",
     "imageState.free_translating": "Свободный перевод в процессе выполнения",
     "image.enableMouseHover": "Запускайте перевод изображения при наведении на него курсора",
-    "toOldChrome": "Версия Chrome слишком низкая, пожалуйста, обновите ее до последней версии, чтобы использовать эту функцию."
+    "toOldChrome": "Версия Chrome слишком низкая, пожалуйста, обновите ее до последней версии, чтобы использовать эту функцию.",
+    "image.enableMangaFloatBallDesc": "После включения плавающего шара перевода манги справа на поддерживаемых сайтах манги появится кнопка быстрого перевода манги, нажмите ее, чтобы перевести мангу!",
+    "image.enableMangaFloatBall": "Включить перевод манги Плавающий шар"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -2597,7 +2601,9 @@
     "inputTranslationModeLabel": "保留原文",
     "inputTranslationModeDesc": "输入框中的内容将保留原文，以双语的方式显示",
     "close": "关闭",
-    "toOldChrome": "Chrome 版本太低，请升级到最新版再使用该功能"
+    "toOldChrome": "Chrome 版本太低，请升级到最新版再使用该功能",
+    "image.enableMangaFloatBall": "启用漫画翻译悬浮球",
+    "image.enableMangaFloatBallDesc": "启用漫画翻译悬浮球后，会在支持的漫画站点右侧显示一个快捷漫画翻译按钮，点击即可翻译漫画"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -3454,7 +3460,9 @@
     "chooseProvider.clientPro": "الأولوية مجانية",
     "imageState.free_translating": "ترجمة مجانية",
     "image.enableMouseHover": "يؤدي تحريك الماوس فوق الصورة إلى تشغيل ترجمة الصورة",
-    "toOldChrome": "إصدار Chrome منخفض جدًا، يرجى الترقية إلى الإصدار الأحدث قبل استخدام هذه الميزة."
+    "toOldChrome": "إصدار Chrome منخفض جدًا، يرجى الترقية إلى الإصدار الأحدث قبل استخدام هذه الميزة.",
+    "image.enableMangaFloatBall": "تمكين ترجمة المانجا الكرة العائمة",
+    "image.enableMangaFloatBallDesc": "بعد تمكين ترجمة المانجا العائمة ، سيتم عرض زر ترجمة مانجا السريع على الجانب الأيمن من مواقع المانجا المدعومة ، انقر فوقها لترجمة المانجا!"
   },
   "bo_CN": {},
   "pt-BR": {
@@ -4314,7 +4322,9 @@
     "chooseProvider.clientPro": "Prioridade livre",
     "imageState.free_translating": "Tradução livre em andamento",
     "image.enableMouseHover": "Acione a conversão de imagens passando o mouse sobre a imagem",
-    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso."
+    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso.",
+    "image.enableMangaFloatBall": "Ativar a bola flutuante de tradução de mangá",
+    "image.enableMangaFloatBallDesc": "Depois de ativar a bola flutuante de tradução de mangá, um botão de tradução rápida de mangá será exibido no lado direito dos sites de mangá compatíveis."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -5171,7 +5181,9 @@
     "chooseProvider.clientPro": "우선순위 무료",
     "imageState.free_translating": "무료 번역 진행 중",
     "image.enableMouseHover": "이미지 위로 마우스를 가져가서 이미지 번역 트리거하기",
-    "toOldChrome": "Chrome 버전이 너무 낮습니다. 이 기능을 사용하려면 최신 버전으로 업그레이드하세요."
+    "toOldChrome": "Chrome 버전이 너무 낮습니다. 이 기능을 사용하려면 최신 버전으로 업그레이드하세요.",
+    "image.enableMangaFloatBall": "만화 번역 플로팅 볼 활성화",
+    "image.enableMangaFloatBallDesc": "만화 번역 플로팅 볼을 활성화하면 지원되는 만화 사이트의 오른쪽에 빠른 만화 번역 버튼이 표시되며, 이를 클릭하면 만화를 번역할 수 있습니다!"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -6028,7 +6040,9 @@
     "chooseProvider.clientPro": "Vorrangig Frei",
     "image.enableMouseHover": "Auslösen der Bildübersetzung durch Bewegen des Mauszeigers über das Bild",
     "imageState.free_translating": "Freie Übersetzung in Arbeit",
-    "toOldChrome": "Die Chrome-Version ist zu niedrig, bitte aktualisieren Sie auf die neueste Version, um diese Funktion zu nutzen."
+    "toOldChrome": "Die Chrome-Version ist zu niedrig, bitte aktualisieren Sie auf die neueste Version, um diese Funktion zu nutzen.",
+    "image.enableMangaFloatBall": "Manga-Übersetzung aktivieren Floating Ball",
+    "image.enableMangaFloatBallDesc": "Nach der Aktivierung der Manga-Übersetzung Floating Ball, eine schnelle Manga-Übersetzung Schaltfläche wird auf der rechten Seite der unterstützten Manga Seiten angezeigt werden, klicken Sie darauf, um den Manga zu übersetzen!"
   },
   "en": {
     "nologin": "Not logged in",
@@ -6886,7 +6900,9 @@
     "chooseProvider.clientPro": "Priority Free",
     "imageState.free_translating": "Free translation in progress",
     "image.enableMouseHover": "Trigger image translation by hovering over the image",
-    "toOldChrome": "Chrome version is too low, please upgrade to the latest version to use this feature."
+    "toOldChrome": "Chrome version is too low, please upgrade to the latest version to use this feature.",
+    "image.enableMangaFloatBall": "Enable Manga Translation Floating Ball",
+    "image.enableMangaFloatBallDesc": "After enabling the Manga Translation Floating Ball, a Quick Manga Translation button will be displayed on the right side of the supported manga sites, click it to translate the manga!"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -7744,7 +7760,9 @@
     "chooseProvider.clientPro": "עדיפות חינם",
     "imageState.free_translating": "תרגום חופשי",
     "image.enableMouseHover": "ריחוף מעל תמונה גורם לתרגום תמונה",
-    "toOldChrome": "גרסת Chrome נמוכה מדי, שדרג לגרסה העדכנית ביותר כדי להשתמש בתכונה"
+    "toOldChrome": "גרסת Chrome נמוכה מדי, שדרג לגרסה העדכנית ביותר כדי להשתמש בתכונה",
+    "image.enableMangaFloatBall": "אפשר תרגום מנגה כדור צף",
+    "image.enableMangaFloatBallDesc": "לאחר הפעלת הכדור הצף של תרגום מנגה, כפתור תרגום מנגה מהיר יוצג בצד ימין של אתרי המנגה הנתמכים, לחץ עליו כדי לתרגם את המנגה!"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -8601,7 +8619,9 @@
     "chooseProvider.clientPro": "प्राथमिकता मुक्त",
     "imageState.free_translating": "मुफ़्त अनुवाद",
     "image.enableMouseHover": "छवि पर माउस घुमाने से छवि अनुवाद चालू हो जाता है",
-    "toOldChrome": "Chrome संस्करण बहुत धीमा है, कृपया इस सुविधा का उपयोग करने से पहले नवीनतम संस्करण में अपग्रेड करें।"
+    "toOldChrome": "Chrome संस्करण बहुत धीमा है, कृपया इस सुविधा का उपयोग करने से पहले नवीनतम संस्करण में अपग्रेड करें।",
+    "image.enableMangaFloatBall": "मंगा अनुवाद फ्लोटिंग बॉल सक्षम करें",
+    "image.enableMangaFloatBallDesc": "मंगा अनुवाद फ्लोटिंग बॉल को सक्षम करने के बाद, समर्थित मंगा साइटों के दाईं ओर एक त्वरित मंगा अनुवाद बटन प्रदर्शित किया जाएगा, मंगा का अनुवाद करने के लिए इसे क्लिक करें!"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -9458,7 +9478,9 @@
     "chooseProvider.clientPro": "Öncelik Ücretsiz",
     "imageState.free_translating": "Serbest çeviri devam ediyor",
     "image.enableMouseHover": "Görüntünün üzerine gelerek görüntü çevirisini tetikleyin",
-    "toOldChrome": "Chrome sürümü çok düşük, bu özelliği kullanmak için lütfen en son sürüme yükseltin."
+    "toOldChrome": "Chrome sürümü çok düşük, bu özelliği kullanmak için lütfen en son sürüme yükseltin.",
+    "image.enableMangaFloatBall": "Manga Çevirisi Yüzen Topu Etkinleştir",
+    "image.enableMangaFloatBallDesc": "Manga Çevirisi Yüzen Topunu etkinleştirdikten sonra, desteklenen manga sitelerinin sağ tarafında bir Hızlı Manga Çevirisi düğmesi görüntülenecektir, mangayı çevirmek için tıklayın!"
   },
   "fr": {
     "nologin": "non connecté",
@@ -10315,7 +10337,9 @@
     "chooseProvider.clientPro": "Priorité Libre",
     "imageState.free_translating": "Traduction libre en cours",
     "image.enableMouseHover": "Déclencher une translation d'image en survolant l'image",
-    "toOldChrome": "La version de Chrome est trop basse, veuillez passer à la version la plus récente pour utiliser cette fonction."
+    "toOldChrome": "La version de Chrome est trop basse, veuillez passer à la version la plus récente pour utiliser cette fonction.",
+    "image.enableMangaFloatBall": "Activer la traduction des mangas Boule flottante",
+    "image.enableMangaFloatBallDesc": "Après avoir activé la boule flottante de traduction de manga, un bouton de traduction rapide de manga sera affiché sur le côté droit des sites de manga pris en charge, cliquez dessus pour traduire le manga !"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -11172,7 +11196,9 @@
     "chooseProvider.clientPro": "Prioridade livre",
     "image.enableMouseHover": "Acione a conversão de imagens passando o mouse sobre a imagem",
     "imageState.free_translating": "Tradução livre em andamento",
-    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso."
+    "toOldChrome": "A versão do Chrome é muito baixa, atualize para a versão mais recente para usar esse recurso.",
+    "image.enableMangaFloatBall": "Ativar a bola flutuante de tradução de mangá",
+    "image.enableMangaFloatBallDesc": "Depois de ativar a bola flutuante de tradução de mangá, um botão de tradução rápida de mangá será exibido no lado direito dos sites de mangá compatíveis."
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -12029,7 +12055,9 @@
     "chooseProvider.clientPro": "بدون اولویت",
     "image.enableMouseHover": "قرار دادن ماوس روی تصویر باعث ترجمه تصویر می شود",
     "imageState.free_translating": "ترجمه رایگان",
-    "toOldChrome": "نسخه Chrome بسیار کم است، لطفاً قبل از استفاده از این ویژگی، آن را به آخرین نسخه ارتقا دهید."
+    "toOldChrome": "نسخه Chrome بسیار کم است، لطفاً قبل از استفاده از این ویژگی، آن را به آخرین نسخه ارتقا دهید.",
+    "image.enableMangaFloatBall": "توپ شناور ترجمه مانگا را فعال کنید",
+    "image.enableMangaFloatBallDesc": "پس از فعال کردن توپ شناور ترجمه مانگا ، یک دکمه ترجمه سریع مانگا در سمت راست سایت های مانگا پشتیبانی شده نمایش داده می شود ، برای ترجمه مانگا روی آن کلیک کنید!"
   },
   "es": {
     "nologin": "no conectado",
@@ -12886,7 +12914,9 @@
     "chooseProvider.clientPro": "Prioridad Libre",
     "imageState.free_translating": "Traducción libre en curso",
     "image.enableMouseHover": "Activar la traslación de imágenes al pasar el ratón por encima de la imagen",
-    "toOldChrome": "La versión de Chrome es demasiado baja, por favor actualiza a la última versión para utilizar esta función."
+    "toOldChrome": "La versión de Chrome es demasiado baja, por favor actualiza a la última versión para utilizar esta función.",
+    "image.enableMangaFloatBall": "Activar la bola flotante de traducción de manga",
+    "image.enableMangaFloatBallDesc": "Después de activar la Bola Flotante de Traducción de Manga, aparecerá un botón de Traducción Rápida de Manga en la parte derecha de los sitios de manga compatibles, ¡haz clic en él para traducir el manga!"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -13743,7 +13773,9 @@
     "chooseProvider.clientPro": "Priorità Gratuita",
     "imageState.free_translating": "Traduzione libera in corso",
     "image.enableMouseHover": "Attivare la traduzione dell'immagine passando il mouse sull'immagine stessa",
-    "toOldChrome": "La versione di Chrome è troppo bassa, si prega di aggiornare alla versione più recente per utilizzare questa funzione."
+    "toOldChrome": "La versione di Chrome è troppo bassa, si prega di aggiornare alla versione più recente per utilizzare questa funzione.",
+    "image.enableMangaFloatBall": "Abilitazione della traduzione dei manga Palla fluttuante",
+    "image.enableMangaFloatBallDesc": "Dopo aver abilitato la Manga Translation Floating Ball, sul lato destro dei siti di manga supportati verrà visualizzato un pulsante di traduzione rapida dei manga, su cui fare clic per tradurre il manga!"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -14635,6 +14667,8 @@
     "chooseProvider.clientPro": "優先免費",
     "image.enableMouseHover": "滑鼠懸停在圖片上觸發圖片翻譯",
     "imageState.free_translating": "免費翻譯中",
-    "toOldChrome": "Chrome 版本太低，請升級到最新版再使用該功能"
+    "toOldChrome": "Chrome 版本太低，請升級到最新版再使用該功能",
+    "image.enableMangaFloatBall": "啟用漫畫翻譯懸浮球",
+    "image.enableMangaFloatBallDesc": "啟用漫畫翻譯懸浮球後，會在支持的漫畫站點右側顯示一個快捷漫畫翻譯按鈕，點擊即可翻譯漫畫"
   }
 }

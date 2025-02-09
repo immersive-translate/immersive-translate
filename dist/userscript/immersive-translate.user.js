@@ -123,7 +123,7 @@
 // @name:zh-TW     沉浸式翻譯 - 網頁翻譯及 PDF 翻譯
 // @description:zh-TW     【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯插件，支持PDF翻譯（保留排版），影片雙語字幕翻譯（Youtube, Netflix），EPUB電子書翻譯；支持人工智能AI翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）
 // ==/UserScript==
-(()=>{var O5=Object.defineProperty;var N5=(e,t)=>{for(var n in t)O5(e,n,{get:t[n],enumerable:!0})};var w={BUILD_TIME:"2025-02-09T04:19:01.176Z",VERSION:"1.14.6",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",IMMERSIVE_TRANSLATE_USERSCRIPT:"1",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var O5=Object.defineProperty;var N5=(e,t)=>{for(var n in t)O5(e,n,{get:t[n],enumerable:!0})};var w={BUILD_TIME:"2025-02-09T10:12:25.640Z",VERSION:"1.14.6",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",IMMERSIVE_TRANSLATE_USERSCRIPT:"1",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

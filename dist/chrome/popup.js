@@ -1,4 +1,4 @@
-(()=>{var Nw=Object.defineProperty;var jw=(e,t)=>{for(var n in t)Nw(e,n,{get:t[n],enumerable:!0})};var E={BUILD_TIME:"2025-02-09T04:17:24.052Z",VERSION:"1.14.6",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var Nw=Object.defineProperty;var jw=(e,t)=>{for(var n in t)Nw(e,n,{get:t[n],enumerable:!0})};var E={BUILD_TIME:"2025-02-09T04:18:56.308Z",VERSION:"1.14.6",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

@@ -645,12 +645,38 @@
         {
           "header": "origin",
           "operation": "set",
-          "value": "http://127.0.0.1:11434"
+          "value": "http://127.0.0.1:1234"
         }
       ]
     },
     "condition": {
-      "urlFilter": "http://127.0.0.1:11434",
+      "urlFilter": "http://*:1234",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
+  },
+  {
+    "id": 317,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://jestful.net"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://*.jfimv2.xyz/*",
       "resourceTypes": [
         "xmlhttprequest"
       ],

@@ -16,9 +16,17 @@ body:
     attributes:
       label: 插件版本号 | Version
       description: What version of our extension are you running?
-      placeholder: 0.5.5
+      placeholder: 1.14.8
     validations:
       required: true
+  - type: input
+    id: translation_engine  
+    attributes:
+      label: 翻译引擎 | Translation Engine
+      description: What translation engine are you using?
+      placeholder: bing
+    validations:
+      required: false
   - type: dropdown
     id: platform
     attributes:

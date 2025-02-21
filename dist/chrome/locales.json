@@ -862,7 +862,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Belirli görüntüleri ve paragrafları çevirmek için dokunmatik ekran hareketlerini ayarlama",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "İçinde bulunduğunuz görüntüyü ve paragrafı çevirmek için bir hareketi özelleştirin",
     "error.failToFetch": "Ağ bağlantısı arızası (sunucunun yanıt vermemesi, ağ kararsızlığı veya güvenlik politikası kısıtlamaları vb. nedenlerden kaynaklanabilir)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Immersive Translate Üyeliği</1> doğrudan kullanılabilir",
+    "error.serviceDiscontinuedMessage": "Kullanmakta olduğunuz [{translationService}] hizmeti durduruldu. Lütfen başka bir çeviri hizmetine geçin.",
+    "error.serviceDiscontinued": "Çeviri hizmeti durduruldu"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -1762,7 +1764,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "自定義一個手勢，即可翻譯您所在的圖片和段落",
     "touchShortcutsToggleTranslateTouchAndImgElement": "設置觸屏手勢翻譯指定圖片和段落",
     "error.failToFetch": "網絡連接失敗（可能由服務器無響應、網絡不穩定或安全策略限制等原因導致）",
-    "translationServices.proUserDirectUse": "，沉浸式翻譯<1>會員</1>可直接使用"
+    "translationServices.proUserDirectUse": "，<1>沉浸式翻譯會員</1>可直接使用",
+    "error.serviceDiscontinued": "翻譯服務已下線",
+    "error.serviceDiscontinuedMessage": "您使用的[{translationService}] 服務已下線，請切換至其他翻譯服務。"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -2656,7 +2660,9 @@
     "deepseekCustomDescription": "在 <1>DeepSeek</1> 官方开通，点击查看<2>文档</2>",
     "isShowContextMenu.description": "开启后，将在网页、图片、文本选中、输入框文本选中等场景中为右键添加菜单项",
     "error.failToFetch": "网络连接失败（可能由服务器无响应、网络不稳定或安全策略限制等原因导致）",
-    "translationServices.proUserDirectUse": "，沉浸式翻译<1>会员</1>可直接使用"
+    "translationServices.proUserDirectUse": "，<1>沉浸式翻译会员</1>可直接使用",
+    "error.serviceDiscontinued": "翻译服务已下线",
+    "error.serviceDiscontinuedMessage": "您使用的 [{translationService}] 服务已下线，请切换至其他翻译服务。"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -3521,7 +3527,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "یک ژست را برای ترجمه تصاویر و پاراگراف های خود سفارشی کنید",
     "touchShortcutsToggleTranslateTouchAndImgElement": "ترجمه ژست صفحه لمسی را برای مشخص کردن تصاویر و پاراگراف ها تنظیم کنید",
     "error.failToFetch": "خرابی اتصال شبکه (ممکن است ناشی از عدم پاسخگویی سرور ، بی ثباتی شبکه یا محدودیت های سیاست امنیتی باشد)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": "،<1>عضویت در Immersive Translate</1> به طور مستقیم قابل استفاده است",
+    "error.serviceDiscontinuedMessage": "سرویس [{translationService}] که از آن استفاده می کنید متوقف شده است. لطفاً به سرویس ترجمه دیگری بروید.",
+    "error.serviceDiscontinued": "خدمات ترجمه قطع شده است"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -4386,7 +4394,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "今いる画像と段落を翻訳するジェスチャーをカスタマイズする",
     "touchShortcutsToggleTranslateTouchAndImgElement": "タッチスクリーンのジェスチャーを設定して、特定の画像や段落を翻訳する",
     "error.failToFetch": "ネットワーク接続の障害（サーバーの応答不能、不安定なネットワーク、セキュリティポリシーの制限などが原因となる場合があります。）",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": "<1>没入型翻訳 メンバーシップ</1>は直接使用できます",
+    "error.serviceDiscontinued": "翻訳サービスは終了しました",
+    "error.serviceDiscontinuedMessage": "ご利用中の[{translationService}]サービスは終了しました。他の翻訳サービスに切り替えてください。"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -5251,7 +5261,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Personalize um gesto para traduzir a imagem e o parágrafo em que você está",
     "touchShortcutsToggleTranslateTouchAndImgElement": "Configuração de gestos na tela sensível ao toque para traduzir imagens e parágrafos específicos",
     "error.failToFetch": "Falha na conexão de rede (pode ser causada por falta de resposta do servidor, rede instável ou restrição de política de segurança, etc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Assinatura Immersive Translate</1> pode ser utilizada diretamente",
+    "error.serviceDiscontinued": "Serviço de tradução descontinuado",
+    "error.serviceDiscontinuedMessage": "O serviço de tradução [{translationService}] foi descontinuado, por favor, troque para outro serviço de tradução."
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -6116,7 +6128,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Impostazione dei gesti del touchscreen per tradurre immagini e paragrafi specifici",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Personalizzare un gesto per tradurre l'immagine e il paragrafo in cui ci si trova",
     "error.failToFetch": "Interruzione della connessione di rete (può essere causata dalla mancata risposta del server, dall'instabilità della rete o da restrizioni dei criteri di sicurezza, ecc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Abbonamento Immersive Translate</1> può essere utilizzato direttamente",
+    "error.serviceDiscontinued": "Il servizio di traduzione è stato interrotto",
+    "error.serviceDiscontinuedMessage": "Il servizio [{translationService}] che state utilizzando è stato interrotto. Si prega di passare a un altro servizio di traduzione."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -6981,7 +6995,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "특정 이미지 및 단락 번역을 위한 터치스크린 제스처 설정하기",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "현재 이미지와 단락을 번역하는 제스처를 사용자 지정하세요.",
     "error.failToFetch": "네트워크 연결 실패(서버가 응답하지 않거나 불안정한 네트워크 또는 보안 정책 제한 등으로 인해 발생할 수 있음)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": "<1>Immersive Translate 멤버십</1>은 직접 사용할 수 있습니다",
+    "error.serviceDiscontinuedMessage": "사용 중인 [{번역 서비스}] 서비스가 중단되었습니다. 다른 번역 서비스로 전환하세요.",
+    "error.serviceDiscontinued": "번역 서비스가 중단되었습니다."
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -7846,7 +7862,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Настройка жестов сенсорного экрана для перевода определенных изображений и абзацев",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Настройте жест для перевода изображения и абзаца, в котором вы находитесь",
     "error.failToFetch": "Сбой сетевого соединения (может быть вызван неответом сервера, нестабильностью сети или ограничением политики безопасности и т.д.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Подписка на Immersive Translate</1> может быть использована напрямую",
+    "error.serviceDiscontinuedMessage": "Используемый вами сервис [{переводчик}] был прекращен. Пожалуйста, перейдите на другую службу перевода.",
+    "error.serviceDiscontinued": "Услуга перевода была прекращена"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -8711,7 +8729,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "تعيين ترجمة لفتة الشاشة اللمس لتحديد الصور والفقرات",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "تخصيص لفتة لترجمة صورك وفقراتك",
     "error.failToFetch": "فشل اتصال الشبكة (قد يكون سبب عدم استجابة الخادم أو عدم استقرار الشبكة أو قيود سياسة الأمان)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": "،<1> Immersive Translate عضوية</1> يمكن استخدامها مباشرة",
+    "error.serviceDiscontinued": "تم إيقاف خدمة الترجمة",
+    "error.serviceDiscontinuedMessage": "لقد تم إيقاف خدمة [{translationService}] التي تستخدمها. يرجى التبديل إلى خدمة ترجمة أخرى."
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -9576,7 +9596,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Einrichten von Touchscreen-Gesten zur Übersetzung bestimmter Bilder und Absätze",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Anpassen einer Geste zur Übersetzung des Bildes und des Absatzes, in dem Sie sich befinden",
     "error.failToFetch": "Ausfall der Netzwerkverbindung (z. B. weil der Server nicht antwortet, das Netzwerk instabil ist oder die Sicherheitsrichtlinien eingeschränkt sind).",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Immersive Translate Mitgliedschaft</1> kann direkt verwendet werden",
+    "error.serviceDiscontinuedMessage": "Der von Ihnen verwendete [{translationService}]-Dienst wurde eingestellt. Bitte wechseln Sie zu einem anderen Übersetzungsdienst.",
+    "error.serviceDiscontinued": "Der Übersetzungsdienst ist eingestellt worden"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -10441,7 +10463,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "चित्रों और पैराग्राफ को निर्दिष्ट करने के लिए टच स्क्रीन जेस्चर अनुवाद सेट करें",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "अपने चित्रों और पैराग्राफ का अनुवाद करने के लिए एक इशारे को अनुकूलित करें",
     "error.failToFetch": "नेटवर्क कनेक्शन विफलता (सर्वर अनुत्तरदायी, नेटवर्क अस्थिरता, या सुरक्षा नीति प्रतिबंधों के कारण हो सकती है)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Immersive Translate सदस्यता</1> सीधे उपयोग किया जा सकता है",
+    "error.serviceDiscontinued": "अनुवाद सेवा बंद कर दी गई है",
+    "error.serviceDiscontinuedMessage": "आप जिस [{translationService}] सेवा का उपयोग कर रहे हैं, उसे बंद कर दिया गया है। कृपया किसी अन्य अनुवाद सेवा पर स्विच करें।"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -12149,7 +12173,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Configurer les gestes de l'écran tactile pour traduire des images et des paragraphes spécifiques",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Personnaliser un geste pour traduire l'image et le paragraphe dans lesquels vous vous trouvez",
     "error.failToFetch": "Échec de la connexion au réseau (peut être dû à l'absence de réponse du serveur, à l'instabilité du réseau ou à des restrictions de la politique de sécurité, etc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Abonnement Immersive Translate</1> peut être utilisé directement",
+    "error.serviceDiscontinuedMessage": "Le service [{translationService}] que vous utilisez a été supprimé. Veuillez passer à un autre service de traduction.",
+    "error.serviceDiscontinued": "Le service de traduction a été supprimé"
   },
   "bo_CN": {},
   "he": {
@@ -13016,7 +13042,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "התאמה אישית של מחווה כדי לתרגם את התמונות והפיסקאות שבהן אתה נמצא",
     "touchShortcutsToggleTranslateTouchAndImgElement": "הגדרת מחוות מגע לתרגום תמונות ופיסקאות ספציפיות",
     "error.failToFetch": "כשל בחיבור הרשת (שעלול להיגרם כתוצאה מחוסר תגובה של השרת, חוסר יציבות ברשת או הגבלות על מדיניות אבטחה)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>חבר Immersive Translate</1> ניתן לשימוש ישיר",
+    "error.serviceDiscontinued": "שירות התרגום הופסק",
+    "error.serviceDiscontinuedMessage": "השירות [{translationService}] שבו אתה משתמש הופסק. אנא עברו לשירות תרגום אחר."
   },
   "es": {
     "nologin": "no conectado",
@@ -13881,7 +13909,9 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Configuración de gestos táctiles para traducir imágenes y párrafos concretos",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Personaliza un gesto para traducir la imagen y el párrafo en el que te encuentras",
     "error.failToFetch": "Fallo de la conexión de red (puede deberse a que el servidor no responde, a que la red es inestable o a una restricción de la política de seguridad, etc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Miembro de Immersive Translate</1> puede utilizarse directamente",
+    "error.serviceDiscontinued": "Se ha interrumpido el servicio de traducción",
+    "error.serviceDiscontinuedMessage": "El servicio [{translationService}] que está utilizando ha dejado de funcionar. Por favor, cambie a otro servicio de traducción."
   },
   "en": {
     "nologin": "Not logged in",
@@ -14747,7 +14777,9 @@
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Customize a gesture to translate the image and paragraph you are in",
     "touchShortcutsToggleTranslateTouchAndImgElement": "Setting up touch screen gestures to translate specific images and paragraphs",
     "error.failToFetch": "Network connection failure (may be caused by server unresponsiveness, network instability or security policy restrictions, etc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Immersive Translation Pro members</1> can use it directly.",
+    "error.serviceDiscontinued": "The translation service has been discontinued",
+    "error.serviceDiscontinuedMessage": "The [{translationService}] service you are using has been discontinued. Please switch to another translation service."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -15614,6 +15646,8 @@
     "touchShortcutsToggleTranslateTouchAndImgElement": "Configuração de gestos na tela sensível ao toque para traduzir imagens e parágrafos específicos",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "Personalize um gesto para traduzir a imagem e o parágrafo em que você está",
     "error.failToFetch": "Falha na conexão de rede (pode ser causada por falta de resposta do servidor, rede instável ou restrição de política de segurança, etc.)",
-    "translationServices.proUserDirectUse": ", Immersive Translation <2>Pro members</2> can use it directly."
+    "translationServices.proUserDirectUse": ", <1>Assinatura Immersive Translate</1> pode ser usada diretamente",
+    "error.serviceDiscontinued": "Serviço de tradução descontinuado",
+    "error.serviceDiscontinuedMessage": "O serviço de tradução [{translationService}] foi descontinuado, por favor, troque para outro serviço de tradução."
   }
 }

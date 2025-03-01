@@ -1,4 +1,4 @@
-(()=>{var Bn=(e=>typeof require<"u"?require:typeof Proxy<"u"?new Proxy(e,{get:(t,r)=>(typeof require<"u"?require:t)[r]}):e)(function(e){if(typeof require<"u")return require.apply(this,arguments);throw Error('Dynamic require of "'+e+'" is not supported')});var B={BUILD_TIME:"2025-03-01T14:20:39.974Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var Bn=(e=>typeof require<"u"?require:typeof Proxy<"u"?new Proxy(e,{get:(t,r)=>(typeof require<"u"?require:t)[r]}):e)(function(e){if(typeof require<"u")return require.apply(this,arguments);throw Error('Dynamic require of "'+e+'" is not supported')});var B={BUILD_TIME:"2025-03-01T14:31:04.564Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

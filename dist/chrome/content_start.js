@@ -1,4 +1,4 @@
-(()=>{var x={BUILD_TIME:"2025-03-01T14:20:39.974Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var x={BUILD_TIME:"2025-03-01T14:31:04.564Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

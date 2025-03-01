@@ -123,7 +123,7 @@
 // @name:zh-CN     沉浸式翻译 - 网页翻译插件 | PDF翻译 | 免费
 // @description:zh-CN     【沉浸式翻译】免费的（原文/译文）双语对照网页翻译插件，支持PDF翻译（保留排版），视频双语字幕翻译（Youtube, Netflix），EPUB电子书翻译；支持人工智能AI翻译大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）
 // ==/UserScript==
-(()=>{var S={BUILD_TIME:"2025-03-01T14:20:44.815Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",IMMERSIVE_TRANSLATE_USERSCRIPT:"1",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
+(()=>{var S={BUILD_TIME:"2025-03-01T14:31:08.925Z",VERSION:"1.14.16",PROD:"1",REDIRECT_URL:"https://dash.immersivetranslate.com/auth-done/",PROD_API:"1",BETA:"0",MOCK:"0",DEBUG:"0",IMMERSIVE_TRANSLATE_USERSCRIPT:"1",INSTALL_FROM:"dev",IMMERSIVE_TRANSLATE_INJECTED_CSS:`:root {
   --immersive-translate-theme-underline-borderColor: #72ece9;
   --immersive-translate-theme-nativeUnderline-borderColor: #72ece9;
   --immersive-translate-theme-nativeDashed-borderColor: #72ece9;

@@ -769,6 +769,28 @@ article {
   text-decoration: underline;
 }
 
+.service-container .immersive-translate-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* CJK 使用边框样式 */
+[data-lang="zh-CN"] .service-container .immersive-translate-link,
+[data-lang="zh-TW"] .service-container .immersive-translate-link,
+[data-lang="ja"] .service-container .immersive-translate-link,
+[data-lang="ko"] .service-container .immersive-translate-link {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  margin: 0 1px;
+}
+
+[data-lang="zh-CN"] .service-container .immersive-translate-link:hover,
+[data-lang="zh-TW"] .service-container .immersive-translate-link:hover,
+[data-lang="ja"] .service-container .immersive-translate-link:hover,
+[data-lang="ko"] .service-container .immersive-translate-link:hover {
+  text-decoration: none;
+  border-bottom: 2px solid;
+}
+
 .youtube-header {
   display: flex;
   align-items: center;

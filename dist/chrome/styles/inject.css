@@ -208,7 +208,7 @@
 [imt-state="dual"]
   .immersive-translate-target-translation-block-wrapper-theme-dividingLine::before {
   content: "";
-  display: inline-block;
+  display: block;
   max-width: 80px;
   width: 10%;
   border-top: 1px dashed

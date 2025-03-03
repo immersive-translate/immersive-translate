@@ -687,5 +687,31 @@
         "amkbmndfnliijdhojkpoglbnaaahippg"
       ]
     }
+  },
+  {
+    "id": 318,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://viewer.championcross.jp"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://viewer.championcross.jp",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   }
 ]

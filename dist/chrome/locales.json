@@ -593,7 +593,7 @@
     "subtitle.quickButton.backgroundOpacity": "背景不透明度",
     "attachSubtitleTranslating": "正在使用 {service} 翻譯中...",
     "error.claude.403": "暫無權限存取服務，可能與 Claude 的地區限制有關，您可以嘗試切換您的 IP 地址，或者使用其他翻譯服務。",
-    "browser.brandDescriptionForSafari": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持 PDF 翻譯和 EPUB 電子書翻譯且保留原文檔排版，YouTube/Netflix 等在線影片雙語字幕翻譯，支持 Deepl/Google 等主流翻譯服務;",
+    "browser.brandDescriptionForSafari": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;",
     "browser.PdfProFile": "AI 驅動的 PDF Pro 翻譯",
     "browser.textTranslate": "文字翻譯（對比多個翻譯服務）",
     "touchShortcutsInputTranslate": "設定移動端輸入框增強手勢",
@@ -912,7 +912,8 @@
     "image.touchShortcuts": "啟用觸控螢幕手勢觸發圖片翻譯",
     "subtitle.quickButton.gray": "灰色",
     "description.systemPromptPlaceholder": "prompt 為空時，請求將忽略該參數",
-    "please run to": "需要運行後才可用，詳情參考"
+    "please run to": "需要運行後才可用，詳情參考",
+    "error.userscriptDomain": "網路請求失敗：請檢查油猴腳本的元資料塊中是否存在// @connect    {domain} 。開啟腳本編輯器，在// @connect google.com 上方新增此行，然後儲存並刷新原始頁面。如果已存在還無法解決此問題，建議嘗試更換油猴插件或瀏覽器"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -2635,7 +2636,8 @@
     "image.touchShortcuts": "터치스크린 제스처로 이미지 번역을 트리거하도록 설정하기",
     "subtitle.quickButton.gray": "회색",
     "description.systemPromptPlaceholder": "프롬프트가 비어 있으면 요청은 매개 변수를 무시합니다.",
-    "please run to": "사용하려면 먼저 실행해야 하며, 자세한 내용은 다음을 참조하세요."
+    "please run to": "사용하려면 먼저 실행해야 하며, 자세한 내용은 다음을 참조하세요.",
+    "error.userscriptDomain": "웹 요청 실패: 그리스몽키 스크립트의 메타데이터 블록에서 // @connect {도메인}을 확인하세요. 스크립트 에디터를 열고 // @connect google.com 위에 이 줄을 추가한 다음 원본 페이지를 저장하고 새로 고칩니다. 이렇게 해도 문제가 해결되지 않으면 다른 Grease Monkey 플러그인이나 브라우저를 사용해 보세요!"
   },
   "fr": {
     "nologin": "non connecté",
@@ -3515,7 +3517,8 @@
     "image.touchShortcuts": "Activer les gestes de l'écran tactile pour déclencher la traduction d'images",
     "subtitle.quickButton.gray": "gris",
     "description.systemPromptPlaceholder": "Si l'invite est vide, la demande ignore le paramètre",
-    "please run to": "Il doit être exécuté avant d'être disponible, pour plus de détails, voir"
+    "please run to": "Il doit être exécuté avant d'être disponible, pour plus de détails, voir",
+    "error.userscriptDomain": "Échec de la requête web : vérifiez la présence de // @connect {domaine} dans le bloc de métadonnées de votre script Grease Monkey. Ouvrez l'éditeur de script et ajoutez cette ligne au-dessus de // @connect google.com, puis enregistrez et actualisez la page d'origine. Si cela ne résout pas le problème, nous vous recommandons d'essayer un autre plugin Grease Monkey ou un autre navigateur !"
   },
   "es": {
     "nologin": "no conectado",
@@ -4395,7 +4398,8 @@
     "image.touchShortcuts": "Activar los gestos de la pantalla táctil para activar la traducción de imágenes",
     "subtitle.quickButton.gray": "gris",
     "description.systemPromptPlaceholder": "Si prompt está vacío, la petición ignora el parámetro",
-    "please run to": "Debe ejecutarse antes de que esté disponible, para más detalles consulte"
+    "please run to": "Debe ejecutarse antes de que esté disponible, para más detalles consulte",
+    "error.userscriptDomain": "Error en la solicitud web: busca // @connect {domain} en el bloque de metadatos de tu script Grease Monkey. Abre el editor de secuencias de comandos y añade esta línea encima de // @connect google.com; a continuación, guarda y actualiza la página original. Si esto no resuelve el problema, te recomendamos que pruebes con otro complemento de Grease Monkey o con otro navegador."
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -5275,7 +5279,8 @@
     "image.touchShortcuts": "タッチスクリーンのジェスチャーで画像変換をトリガーできるようにする",
     "subtitle.quickButton.gray": "灰色",
     "description.systemPromptPlaceholder": "prompt が空の場合、リクエストはパラメータ",
-    "please run to": "詳細は以下を参照のこと。"
+    "please run to": "詳細は以下を参照のこと。",
+    "error.userscriptDomain": "Web request failed: Grease Monkeyスクリプトのメタデータブロックに // @connect {domain} があるか確認してください。スクリプトエディタを開き、この行を // @connect google.com の上に追加し、保存して元のページを更新してください。それでも問題が解決しない場合は、他のグリースモンキープラグインやブラウザを試してみることをお勧めします！"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -6160,7 +6165,8 @@
     "image.touchShortcuts": "אפשר מחוות מסך מגע כדי להפעיל תרגום תמונות",
     "subtitle.quickButton.gray": "אָפוֹר",
     "description.systemPromptPlaceholder": "אם הבקשה ריקה, הבקשה מתעלמת מהפרמטר",
-    "please run to": "ניתן להשתמש בו רק לאחר הפעלתו, ראה עיין בפרטים"
+    "please run to": "ניתן להשתמש בו רק לאחר הפעלתו, ראה עיין בפרטים",
+    "error.userscriptDomain": "בקשת האינטרנט נכשלה: חפש // @connect {domain} בבלוק המטה-נתונים של סקריפט Grease Monkey. פתח את עורך הסקריפט והוסף שורה זו מעל // @connect google.com, ולאחר מכן שמור ורענן את הדף המקורי. אם פעולה זו אינה פותרת את הבעיה, אנו ממליצים לנסות תוסף או דפדפן אחר של Grease Monkey!"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -7040,7 +7046,8 @@
     "image.touchShortcuts": "Aktivieren von Touchscreen-Gesten zur Auslösung der Bildübersetzung",
     "subtitle.quickButton.gray": "grau",
     "description.systemPromptPlaceholder": "Wenn prompt leer ist, ignoriert die Anfrage den Parameter",
-    "please run to": "Muss ausgeführt werden, bevor es verfügbar ist; Einzelheiten finden Sie unter"
+    "please run to": "Muss ausgeführt werden, bevor es verfügbar ist; Einzelheiten finden Sie unter",
+    "error.userscriptDomain": "Webanforderung fehlgeschlagen: Suchen Sie nach // @connect {domain} im Metadatenblock Ihres Grease Monkey-Skripts. Öffnen Sie den Skript-Editor und fügen Sie diese Zeile über // @connect google.com ein, speichern Sie und aktualisieren Sie die Originalseite. Wenn dies das Problem nicht löst, empfehlen wir, ein anderes Grease Monkey-Plugin oder einen anderen Browser auszuprobieren!"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -7920,7 +7927,8 @@
     "image.touchShortcuts": "Включите жесты на сенсорном экране для запуска перевода изображений",
     "subtitle.quickButton.gray": "серый",
     "description.systemPromptPlaceholder": "Если prompt пуст, запрос игнорирует параметр",
-    "please run to": "Необходимо запустить его, прежде чем он станет доступен, подробности см."
+    "please run to": "Необходимо запустить его, прежде чем он станет доступен, подробности см.",
+    "error.userscriptDomain": "Веб-запрос не удался: проверьте наличие // @connect {domain} в блоке метаданных вашего скрипта Grease Monkey. Откройте редактор скриптов и добавьте эту строку над // @connect google.com, затем сохраните и обновите исходную страницу. Если это не решит проблему, мы рекомендуем попробовать другой плагин Grease Monkey или браузер!"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -8802,7 +8810,8 @@
     "translationServices.qianfan.introduction": "A Baidu lançou a <homepage>plataforma AI LLM</homepage>, apoiando Yiyan e outros modelos",
     "subtitle.quickButton.gray": "cinza",
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
-    "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte"
+    "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
+    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -9682,7 +9691,8 @@
     "image.touchShortcuts": "برای فعال کردن ترجمه تصویر، حرکات لمسی را فعال کنید",
     "subtitle.quickButton.gray": "خاکستری",
     "description.systemPromptPlaceholder": "اگر درخواست خالی باشد، درخواست پارامتر را نادیده می گیرد",
-    "please run to": "فقط پس از اجرا در دسترس است، برای جزئیات به آن مراجعه کنید"
+    "please run to": "فقط پس از اجرا در دسترس است، برای جزئیات به آن مراجعه کنید",
+    "error.userscriptDomain": "درخواست وب ناموفق بود: // @connect {domain} را در بلوک فراداده اسکریپت Grease Monkey خود بررسی کنید. ویرایشگر اسکریپت را باز کنید و این خط را در بالا // @connect google.com اضافه کنید، سپس صفحه اصلی را ذخیره و بازخوانی کنید. اگر با این کار مشکل حل نشد، توصیه می کنیم پلاگین یا مرورگر دیگری Grease Monkey را امتحان کنید!"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10562,7 +10572,8 @@
     "image.touchShortcuts": "Abilitare i gesti del touchscreen per attivare la traduzione delle immagini",
     "subtitle.quickButton.gray": "grigio",
     "description.systemPromptPlaceholder": "Se prompt è vuoto, la richiesta ignora il parametro",
-    "please run to": "Deve essere eseguito prima di essere disponibile, per i dettagli fare riferimento a"
+    "please run to": "Deve essere eseguito prima di essere disponibile, per i dettagli fare riferimento a",
+    "error.userscriptDomain": "Richiesta web fallita: verificare la presenza di // @connect {domain} nel blocco dei metadati dello script Grease Monkey. Aprite l'editor di script e aggiungete questa riga sopra // @connect google.com, quindi salvate e aggiornate la pagina originale. Se questo non risolve il problema, vi consigliamo di provare un altro plugin o browser di Grease Monkey!"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -11442,7 +11453,8 @@
     "image.touchShortcuts": "Görüntü çevirisini tetiklemek için dokunmatik ekran hareketlerini etkinleştirin",
     "subtitle.quickButton.gray": "gri",
     "description.systemPromptPlaceholder": "İstem boşsa, istek parametreyi yok sayar",
-    "please run to": "Kullanılabilir olmadan önce çalıştırılması gerekir, ayrıntılar için bkz."
+    "please run to": "Kullanılabilir olmadan önce çalıştırılması gerekir, ayrıntılar için bkz.",
+    "error.userscriptDomain": "Web isteği başarısız oldu: Grease Monkey betiğinizin meta veri bloğunda // @connect {domain} olup olmadığını kontrol edin. Komut dosyası düzenleyicisini açın ve bu satırı // @connect google.com'un üzerine ekleyin, ardından kaydedin ve orijinal sayfayı yenileyin. Bu sorunu çözmezse, farklı bir Grease Monkey eklentisi veya tarayıcı denemenizi öneririz!"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -12322,7 +12334,8 @@
     "subtitle.quickButton.gray": "cinza",
     "translationServices.qianfan.introduction": "A Baidu lançou a <homepage>plataforma AI LLM</homepage>, apoiando Yiyan e outros modelos",
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
-    "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte"
+    "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
+    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!"
   },
   "bo_CN": {},
   "hi": {
@@ -13203,7 +13216,8 @@
     "image.touchShortcuts": "छवि अनुवाद को सक्रिय करने के लिए स्पर्श संकेतों को सक्षम करें",
     "subtitle.quickButton.gray": "स्लेटी",
     "description.systemPromptPlaceholder": "यदि प्रॉम्प्ट रिक्त है, तो अनुरोध पैरामीटर को अनदेखा कर देता है",
-    "please run to": "यह चलाने के बाद ही उपलब्ध है, विवरण के लिए देखें"
+    "please run to": "यह चलाने के बाद ही उपलब्ध है, विवरण के लिए देखें",
+    "error.userscriptDomain": "वेब अनुरोध विफल: अपने ग्रीस मंकी स्क्रिप्ट के मेटाडेटा ब्लॉक में // @connect {डोमेन} की जाँच करें। स्क्रिप्ट संपादक खोलें और // @connect google.com के ऊपर यह पंक्ति जोड़ें, फिर मूल पृष्ठ को सहेजें और ताज़ा करें। यदि इससे समस्या हल नहीं होती है, तो हम एक अलग ग्रीस मंकी प्लगइन या ब्राउज़र आज़माने की सलाह देते हैं!"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -14083,7 +14097,8 @@
     "image.touchShortcuts": "تمكين إيماءات اللمس لتفعيل ترجمة الصور",
     "subtitle.quickButton.gray": "رمادي",
     "description.systemPromptPlaceholder": "إذا كان الموجه فارغًا، يتجاهل الطلب المعلمة",
-    "please run to": "إنه متاح فقط بعد التشغيل، للتفاصيل، راجع"
+    "please run to": "إنه متاح فقط بعد التشغيل، للتفاصيل، راجع",
+    "error.userscriptDomain": "فشل طلب الويب: تحقق من // @connect {domain} في كتلة البيانات الوصفية لنص Grease Monkey الخاص بك. افتح محرر النصوص وأضف هذا السطر أعلى // @connect google.com، ثم احفظ الصفحة الأصلية وقم بتحديثها. إذا لم يحل هذا المشكلة، فنوصيك بتجربة مكون إضافي أو متصفح Grease Monkey مختلف!"
   },
   "en": {
     "nologin": "Not logged in",
@@ -14964,7 +14979,8 @@
     "image.touchShortcuts": "Enable touch screen gestures to trigger image translation",
     "subtitle.quickButton.gray": "gray",
     "description.systemPromptPlaceholder": "If prompt is empty, the request ignores the parameter",
-    "please run to": "It needs to be run before it is available, for details refer to"
+    "please run to": "It needs to be run before it is available, for details refer to",
+    "error.userscriptDomain": "Web request failed: check for // @connect {domain} in the metadata block of your Grease Monkey script. Open the script editor and add this line above // @connect google.com, then save and refresh the original page. If this does not solve the problem, we recommend trying a different Grease Monkey plugin or browser!"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -15873,6 +15889,7 @@
     "subtitle.quickButton.gray": "灰色",
     "ollamaQA": "<br/>解决方案：<a href='https://immersivetranslate.com/docs/services/ollama/' target='_blank'>ollama 本地部署</a>",
     "image.touchShortcuts": "启用触屏手势触发图片翻译",
-    "description.systemPromptPlaceholder": "prompt 为空时，请求将忽略该参数"
+    "description.systemPromptPlaceholder": "prompt 为空时，请求将忽略该参数",
+    "error.userscriptDomain": "网络请求失败：请检查油猴脚本的元数据块中是否存在 // @connect    {domain} 。打开脚本编辑器，在 // @connect google.com 上方添加此行，然后保存并刷新原页面。如果已存在还无法解决此问题，建议尝试更换油猴插件或浏览器"
   }
 }

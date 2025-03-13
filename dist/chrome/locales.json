@@ -2616,7 +2616,7 @@
     "toOldChrome": "Chrome 버전이 너무 낮습니다. 이 기능을 사용하려면 최신 버전으로 업그레이드하세요.",
     "image.enableMangaFloatBall": "만화 번역 플로팅 볼 활성화",
     "image.enableMangaFloatBallDesc": "만화 번역 플로팅 볼을 활성화하면 지원되는 만화 사이트의 오른쪽에 빠른 만화 번역 버튼이 표시되며, 이를 클릭하면 만화를 번역할 수 있습니다!",
-    "deepseekCustomDescription": "<1>딥시크릿 공식 오픈에서 <2>설명서</2>를 클릭하세요.",
+    "deepseekCustomDescription": "<1>DeepSeek</1> 공식 사이트에서 <2>문서</2>를 클릭하세요.",
     "isShowContextMenu.description": "웹 페이지, 이미지, 텍스트 확인, 입력 상자 텍스트 확인 등 오른쪽 클릭 시 메뉴 항목이 추가됩니다(적용하려면 브라우저를 다시 시작해야 함).",
     "touchShortcutsToggleTranslateTouchAndImgElement": "특정 이미지 및 단락 번역을 위한 터치스크린 제스처 설정하기",
     "desc.touchShortcutsToggleTranslateTouchAndImgElement": "현재 이미지와 단락을 번역하는 제스처를 사용자 지정하세요.",

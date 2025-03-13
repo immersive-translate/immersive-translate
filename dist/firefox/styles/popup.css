@@ -919,4 +919,15 @@ select.text-gray-6 {
   margin:  0 3px;
   width: 20px;
 }
-
+.more-container {
+  position: relative;
+}
+.new-menu-indicator {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #EF3434;
+  border-radius: 50%;
+  right: 18px;
+  top: 4px;
+}

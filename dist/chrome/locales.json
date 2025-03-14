@@ -913,7 +913,8 @@
     "subtitle.quickButton.gray": "灰色",
     "description.systemPromptPlaceholder": "prompt 為空時，請求將忽略該參數",
     "please run to": "需要運行後才可用，詳情參考",
-    "error.userscriptDomain": "網路請求失敗：請檢查油猴腳本的元資料塊中是否存在// @connect    {domain} 。開啟腳本編輯器，在// @connect google.com 上方新增此行，然後儲存並刷新原始頁面。如果已存在還無法解決此問題，建議嘗試更換油猴插件或瀏覽器"
+    "error.userscriptDomain": "網路請求失敗：請檢查油猴腳本的元資料塊中是否存在// @connect    {domain} 。開啟腳本編輯器，在// @connect google.com 上方新增此行，然後儲存並刷新原始頁面。如果已存在還無法解決此問題，建議嘗試更換油猴插件或瀏覽器",
+    "error.imageTooLarge": "當前圖片過大，暫不支援翻譯"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -2637,7 +2638,8 @@
     "subtitle.quickButton.gray": "회색",
     "description.systemPromptPlaceholder": "프롬프트가 비어 있으면 요청은 매개 변수를 무시합니다.",
     "please run to": "사용하려면 먼저 실행해야 하며, 자세한 내용은 다음을 참조하세요.",
-    "error.userscriptDomain": "웹 요청 실패: 그리스몽키 스크립트의 메타데이터 블록에서 // @connect {도메인}을 확인하세요. 스크립트 에디터를 열고 // @connect google.com 위에 이 줄을 추가한 다음 원본 페이지를 저장하고 새로 고칩니다. 이렇게 해도 문제가 해결되지 않으면 다른 Grease Monkey 플러그인이나 브라우저를 사용해 보세요!"
+    "error.userscriptDomain": "웹 요청 실패: 그리스몽키 스크립트의 메타데이터 블록에서 // @connect {도메인}을 확인하세요. 스크립트 에디터를 열고 // @connect google.com 위에 이 줄을 추가한 다음 원본 페이지를 저장하고 새로 고칩니다. 이렇게 해도 문제가 해결되지 않으면 다른 Grease Monkey 플러그인이나 브라우저를 사용해 보세요!",
+    "error.imageTooLarge": "현재 이미지가 너무 커서 번역을 지원하지 않습니다."
   },
   "fr": {
     "nologin": "non connecté",
@@ -3518,7 +3520,8 @@
     "subtitle.quickButton.gray": "gris",
     "description.systemPromptPlaceholder": "Si l'invite est vide, la demande ignore le paramètre",
     "please run to": "Il doit être exécuté avant d'être disponible, pour plus de détails, voir",
-    "error.userscriptDomain": "Échec de la requête web : vérifiez la présence de // @connect {domaine} dans le bloc de métadonnées de votre script Grease Monkey. Ouvrez l'éditeur de script et ajoutez cette ligne au-dessus de // @connect google.com, puis enregistrez et actualisez la page d'origine. Si cela ne résout pas le problème, nous vous recommandons d'essayer un autre plugin Grease Monkey ou un autre navigateur !"
+    "error.userscriptDomain": "Échec de la requête web : vérifiez la présence de // @connect {domaine} dans le bloc de métadonnées de votre script Grease Monkey. Ouvrez l'éditeur de script et ajoutez cette ligne au-dessus de // @connect google.com, puis enregistrez et actualisez la page d'origine. Si cela ne résout pas le problème, nous vous recommandons d'essayer un autre plugin Grease Monkey ou un autre navigateur !",
+    "error.imageTooLarge": "L'image actuelle est trop grande pour être traduite"
   },
   "es": {
     "nologin": "no conectado",
@@ -4399,7 +4402,8 @@
     "subtitle.quickButton.gray": "gris",
     "description.systemPromptPlaceholder": "Si prompt está vacío, la petición ignora el parámetro",
     "please run to": "Debe ejecutarse antes de que esté disponible, para más detalles consulte",
-    "error.userscriptDomain": "Error en la solicitud web: busca // @connect {domain} en el bloque de metadatos de tu script Grease Monkey. Abre el editor de secuencias de comandos y añade esta línea encima de // @connect google.com; a continuación, guarda y actualiza la página original. Si esto no resuelve el problema, te recomendamos que pruebes con otro complemento de Grease Monkey o con otro navegador."
+    "error.userscriptDomain": "Error en la solicitud web: busca // @connect {domain} en el bloque de metadatos de tu script Grease Monkey. Abre el editor de secuencias de comandos y añade esta línea encima de // @connect google.com; a continuación, guarda y actualiza la página original. Si esto no resuelve el problema, te recomendamos que pruebes con otro complemento de Grease Monkey o con otro navegador.",
+    "error.imageTooLarge": "La imagen actual es demasiado grande para soportar la traducción"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -5280,7 +5284,8 @@
     "subtitle.quickButton.gray": "灰色",
     "description.systemPromptPlaceholder": "prompt が空の場合、リクエストはパラメータ",
     "please run to": "詳細は以下を参照のこと。",
-    "error.userscriptDomain": "Web request failed: Grease Monkeyスクリプトのメタデータブロックに // @connect {domain} があるか確認してください。スクリプトエディタを開き、この行を // @connect google.com の上に追加し、保存して元のページを更新してください。それでも問題が解決しない場合は、他のグリースモンキープラグインやブラウザを試してみることをお勧めします！"
+    "error.userscriptDomain": "Web request failed: Grease Monkeyスクリプトのメタデータブロックに // @connect {domain} があるか確認してください。スクリプトエディタを開き、この行を // @connect google.com の上に追加し、保存して元のページを更新してください。それでも問題が解決しない場合は、他のグリースモンキープラグインやブラウザを試してみることをお勧めします！",
+    "error.imageTooLarge": "現在の画像は大きすぎて、翻訳をサポートできません"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -6166,7 +6171,8 @@
     "subtitle.quickButton.gray": "אָפוֹר",
     "description.systemPromptPlaceholder": "אם הבקשה ריקה, הבקשה מתעלמת מהפרמטר",
     "please run to": "ניתן להשתמש בו רק לאחר הפעלתו, ראה עיין בפרטים",
-    "error.userscriptDomain": "בקשת האינטרנט נכשלה: חפש // @connect {domain} בבלוק המטה-נתונים של סקריפט Grease Monkey. פתח את עורך הסקריפט והוסף שורה זו מעל // @connect google.com, ולאחר מכן שמור ורענן את הדף המקורי. אם פעולה זו אינה פותרת את הבעיה, אנו ממליצים לנסות תוסף או דפדפן אחר של Grease Monkey!"
+    "error.userscriptDomain": "בקשת האינטרנט נכשלה: חפש // @connect {domain} בבלוק המטה-נתונים של סקריפט Grease Monkey. פתח את עורך הסקריפט והוסף שורה זו מעל // @connect google.com, ולאחר מכן שמור ורענן את הדף המקורי. אם פעולה זו אינה פותרת את הבעיה, אנו ממליצים לנסות תוסף או דפדפן אחר של Grease Monkey!",
+    "error.imageTooLarge": "התמונה הנוכחית גדולה מדי ולא ניתן לתרגם אותה"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -7047,7 +7053,8 @@
     "subtitle.quickButton.gray": "grau",
     "description.systemPromptPlaceholder": "Wenn prompt leer ist, ignoriert die Anfrage den Parameter",
     "please run to": "Muss ausgeführt werden, bevor es verfügbar ist; Einzelheiten finden Sie unter",
-    "error.userscriptDomain": "Webanforderung fehlgeschlagen: Suchen Sie nach // @connect {domain} im Metadatenblock Ihres Grease Monkey-Skripts. Öffnen Sie den Skript-Editor und fügen Sie diese Zeile über // @connect google.com ein, speichern Sie und aktualisieren Sie die Originalseite. Wenn dies das Problem nicht löst, empfehlen wir, ein anderes Grease Monkey-Plugin oder einen anderen Browser auszuprobieren!"
+    "error.userscriptDomain": "Webanforderung fehlgeschlagen: Suchen Sie nach // @connect {domain} im Metadatenblock Ihres Grease Monkey-Skripts. Öffnen Sie den Skript-Editor und fügen Sie diese Zeile über // @connect google.com ein, speichern Sie und aktualisieren Sie die Originalseite. Wenn dies das Problem nicht löst, empfehlen wir, ein anderes Grease Monkey-Plugin oder einen anderen Browser auszuprobieren!",
+    "error.imageTooLarge": "Das aktuelle Bild ist zu groß für die Übersetzung"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -7928,7 +7935,8 @@
     "subtitle.quickButton.gray": "серый",
     "description.systemPromptPlaceholder": "Если prompt пуст, запрос игнорирует параметр",
     "please run to": "Необходимо запустить его, прежде чем он станет доступен, подробности см.",
-    "error.userscriptDomain": "Веб-запрос не удался: проверьте наличие // @connect {domain} в блоке метаданных вашего скрипта Grease Monkey. Откройте редактор скриптов и добавьте эту строку над // @connect google.com, затем сохраните и обновите исходную страницу. Если это не решит проблему, мы рекомендуем попробовать другой плагин Grease Monkey или браузер!"
+    "error.userscriptDomain": "Веб-запрос не удался: проверьте наличие // @connect {domain} в блоке метаданных вашего скрипта Grease Monkey. Откройте редактор скриптов и добавьте эту строку над // @connect google.com, затем сохраните и обновите исходную страницу. Если это не решит проблему, мы рекомендуем попробовать другой плагин Grease Monkey или браузер!",
+    "error.imageTooLarge": "Текущее изображение слишком велико, чтобы поддерживать перевод"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -8811,7 +8819,8 @@
     "subtitle.quickButton.gray": "cinza",
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
     "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
-    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!"
+    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!",
+    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -9692,7 +9701,8 @@
     "subtitle.quickButton.gray": "خاکستری",
     "description.systemPromptPlaceholder": "اگر درخواست خالی باشد، درخواست پارامتر را نادیده می گیرد",
     "please run to": "فقط پس از اجرا در دسترس است، برای جزئیات به آن مراجعه کنید",
-    "error.userscriptDomain": "درخواست وب ناموفق بود: // @connect {domain} را در بلوک فراداده اسکریپت Grease Monkey خود بررسی کنید. ویرایشگر اسکریپت را باز کنید و این خط را در بالا // @connect google.com اضافه کنید، سپس صفحه اصلی را ذخیره و بازخوانی کنید. اگر با این کار مشکل حل نشد، توصیه می کنیم پلاگین یا مرورگر دیگری Grease Monkey را امتحان کنید!"
+    "error.userscriptDomain": "درخواست وب ناموفق بود: // @connect {domain} را در بلوک فراداده اسکریپت Grease Monkey خود بررسی کنید. ویرایشگر اسکریپت را باز کنید و این خط را در بالا // @connect google.com اضافه کنید، سپس صفحه اصلی را ذخیره و بازخوانی کنید. اگر با این کار مشکل حل نشد، توصیه می کنیم پلاگین یا مرورگر دیگری Grease Monkey را امتحان کنید!",
+    "error.imageTooLarge": "تصویر فعلی خیلی بزرگ است و هنوز از ترجمه پشتیبانی نمی کند."
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10573,7 +10583,8 @@
     "subtitle.quickButton.gray": "grigio",
     "description.systemPromptPlaceholder": "Se prompt è vuoto, la richiesta ignora il parametro",
     "please run to": "Deve essere eseguito prima di essere disponibile, per i dettagli fare riferimento a",
-    "error.userscriptDomain": "Richiesta web fallita: verificare la presenza di // @connect {domain} nel blocco dei metadati dello script Grease Monkey. Aprite l'editor di script e aggiungete questa riga sopra // @connect google.com, quindi salvate e aggiornate la pagina originale. Se questo non risolve il problema, vi consigliamo di provare un altro plugin o browser di Grease Monkey!"
+    "error.userscriptDomain": "Richiesta web fallita: verificare la presenza di // @connect {domain} nel blocco dei metadati dello script Grease Monkey. Aprite l'editor di script e aggiungete questa riga sopra // @connect google.com, quindi salvate e aggiornate la pagina originale. Se questo non risolve il problema, vi consigliamo di provare un altro plugin o browser di Grease Monkey!",
+    "error.imageTooLarge": "L'immagine corrente è troppo grande per supportare la traduzione"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -11454,7 +11465,8 @@
     "subtitle.quickButton.gray": "gri",
     "description.systemPromptPlaceholder": "İstem boşsa, istek parametreyi yok sayar",
     "please run to": "Kullanılabilir olmadan önce çalıştırılması gerekir, ayrıntılar için bkz.",
-    "error.userscriptDomain": "Web isteği başarısız oldu: Grease Monkey betiğinizin meta veri bloğunda // @connect {domain} olup olmadığını kontrol edin. Komut dosyası düzenleyicisini açın ve bu satırı // @connect google.com'un üzerine ekleyin, ardından kaydedin ve orijinal sayfayı yenileyin. Bu sorunu çözmezse, farklı bir Grease Monkey eklentisi veya tarayıcı denemenizi öneririz!"
+    "error.userscriptDomain": "Web isteği başarısız oldu: Grease Monkey betiğinizin meta veri bloğunda // @connect {domain} olup olmadığını kontrol edin. Komut dosyası düzenleyicisini açın ve bu satırı // @connect google.com'un üzerine ekleyin, ardından kaydedin ve orijinal sayfayı yenileyin. Bu sorunu çözmezse, farklı bir Grease Monkey eklentisi veya tarayıcı denemenizi öneririz!",
+    "error.imageTooLarge": "Mevcut görüntü çeviriyi desteklemek için çok büyük"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -12335,7 +12347,8 @@
     "translationServices.qianfan.introduction": "A Baidu lançou a <homepage>plataforma AI LLM</homepage>, apoiando Yiyan e outros modelos",
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
     "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
-    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!"
+    "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!",
+    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução"
   },
   "bo_CN": {},
   "hi": {
@@ -13217,7 +13230,8 @@
     "subtitle.quickButton.gray": "स्लेटी",
     "description.systemPromptPlaceholder": "यदि प्रॉम्प्ट रिक्त है, तो अनुरोध पैरामीटर को अनदेखा कर देता है",
     "please run to": "यह चलाने के बाद ही उपलब्ध है, विवरण के लिए देखें",
-    "error.userscriptDomain": "वेब अनुरोध विफल: अपने ग्रीस मंकी स्क्रिप्ट के मेटाडेटा ब्लॉक में // @connect {डोमेन} की जाँच करें। स्क्रिप्ट संपादक खोलें और // @connect google.com के ऊपर यह पंक्ति जोड़ें, फिर मूल पृष्ठ को सहेजें और ताज़ा करें। यदि इससे समस्या हल नहीं होती है, तो हम एक अलग ग्रीस मंकी प्लगइन या ब्राउज़र आज़माने की सलाह देते हैं!"
+    "error.userscriptDomain": "वेब अनुरोध विफल: अपने ग्रीस मंकी स्क्रिप्ट के मेटाडेटा ब्लॉक में // @connect {डोमेन} की जाँच करें। स्क्रिप्ट संपादक खोलें और // @connect google.com के ऊपर यह पंक्ति जोड़ें, फिर मूल पृष्ठ को सहेजें और ताज़ा करें। यदि इससे समस्या हल नहीं होती है, तो हम एक अलग ग्रीस मंकी प्लगइन या ब्राउज़र आज़माने की सलाह देते हैं!",
+    "error.imageTooLarge": "वर्तमान छवि बहुत बड़ी है और अभी अनुवाद का समर्थन नहीं करती है."
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -14098,7 +14112,8 @@
     "subtitle.quickButton.gray": "رمادي",
     "description.systemPromptPlaceholder": "إذا كان الموجه فارغًا، يتجاهل الطلب المعلمة",
     "please run to": "إنه متاح فقط بعد التشغيل، للتفاصيل، راجع",
-    "error.userscriptDomain": "فشل طلب الويب: تحقق من // @connect {domain} في كتلة البيانات الوصفية لنص Grease Monkey الخاص بك. افتح محرر النصوص وأضف هذا السطر أعلى // @connect google.com، ثم احفظ الصفحة الأصلية وقم بتحديثها. إذا لم يحل هذا المشكلة، فنوصيك بتجربة مكون إضافي أو متصفح Grease Monkey مختلف!"
+    "error.userscriptDomain": "فشل طلب الويب: تحقق من // @connect {domain} في كتلة البيانات الوصفية لنص Grease Monkey الخاص بك. افتح محرر النصوص وأضف هذا السطر أعلى // @connect google.com، ثم احفظ الصفحة الأصلية وقم بتحديثها. إذا لم يحل هذا المشكلة، فنوصيك بتجربة مكون إضافي أو متصفح Grease Monkey مختلف!",
+    "error.imageTooLarge": "الصورة الحالية كبيرة جدًا ولا تدعم الترجمة بعد."
   },
   "en": {
     "nologin": "Not logged in",
@@ -14980,7 +14995,8 @@
     "subtitle.quickButton.gray": "gray",
     "description.systemPromptPlaceholder": "If prompt is empty, the request ignores the parameter",
     "please run to": "It needs to be run before it is available, for details refer to",
-    "error.userscriptDomain": "Web request failed: check for // @connect {domain} in the metadata block of your Grease Monkey script. Open the script editor and add this line above // @connect google.com, then save and refresh the original page. If this does not solve the problem, we recommend trying a different Grease Monkey plugin or browser!"
+    "error.userscriptDomain": "Web request failed: check for // @connect {domain} in the metadata block of your Grease Monkey script. Open the script editor and add this line above // @connect google.com, then save and refresh the original page. If this does not solve the problem, we recommend trying a different Grease Monkey plugin or browser!",
+    "error.imageTooLarge": "The current image is too large to support translation for the time being"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -15757,6 +15773,7 @@
     "guide.mangaProTip": "您现在可以通过点击漫画悬浮球来翻译漫画。",
     "guide.mangaNoProTip": "Pro 会员现在可以翻译漫画了！",
     "error.siteDisableManga": "当前站点禁止插件访问图片，无法进行翻译",
+    "error.imageTooLarge": "当前图片过大，暂不支持翻译",
     "floatBallOptions.mangaEnableDescPc": "启用页面悬浮球后，会在支持的漫画站点右侧显示一个快捷漫画翻译按钮，点击即可翻译漫画",
     "error.azure.401": "Azure 服务返回错误，可能是由于 region (接受的值是：japaneast, global 等) 或 APIKEY 填写错误，请检查后重试。",
     "translationPosition": "译文在先，原文随后",

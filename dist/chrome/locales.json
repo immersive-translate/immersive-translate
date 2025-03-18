@@ -914,7 +914,10 @@
     "description.systemPromptPlaceholder": "prompt 為空時，請求將忽略該參數",
     "please run to": "需要運行後才可用，詳情參考",
     "error.userscriptDomain": "網路請求失敗：請檢查油猴腳本的元資料塊中是否存在// @connect    {domain} 。開啟腳本編輯器，在// @connect google.com 上方新增此行，然後儲存並刷新原始頁面。如果已存在還無法解決此問題，建議嘗試更換油猴插件或瀏覽器",
-    "error.imageTooLarge": "當前圖片過大，暫不支援翻譯"
+    "translationServices.youdao-ziyue.introduction": "網易有道推出的 AI 翻譯大模型",
+    "translationServices.youdao-ziyue": "有道子曰大模型翻譯",
+    "error.imageTooLarge": "當前圖片過大，暫不支援翻譯",
+    "description.ziyuePromptMaxLength": "提示詞最大長度 1200 字符"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -2639,7 +2642,10 @@
     "description.systemPromptPlaceholder": "프롬프트가 비어 있으면 요청은 매개 변수를 무시합니다.",
     "please run to": "사용하려면 먼저 실행해야 하며, 자세한 내용은 다음을 참조하세요.",
     "error.userscriptDomain": "웹 요청 실패: 그리스몽키 스크립트의 메타데이터 블록에서 // @connect {도메인}을 확인하세요. 스크립트 에디터를 열고 // @connect google.com 위에 이 줄을 추가한 다음 원본 페이지를 저장하고 새로 고칩니다. 이렇게 해도 문제가 해결되지 않으면 다른 Grease Monkey 플러그인이나 브라우저를 사용해 보세요!",
-    "error.imageTooLarge": "현재 이미지가 너무 커서 번역을 지원하지 않습니다."
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "넷이즈 유다오, AI 번역 모델 출시",
+    "error.imageTooLarge": "현재 이미지가 너무 커서 번역을 지원하지 않습니다.",
+    "description.ziyuePromptMaxLength": "프롬프트의 최대 길이는 1200자입니다."
   },
   "fr": {
     "nologin": "non connecté",
@@ -3521,7 +3527,10 @@
     "description.systemPromptPlaceholder": "Si l'invite est vide, la demande ignore le paramètre",
     "please run to": "Il doit être exécuté avant d'être disponible, pour plus de détails, voir",
     "error.userscriptDomain": "Échec de la requête web : vérifiez la présence de // @connect {domaine} dans le bloc de métadonnées de votre script Grease Monkey. Ouvrez l'éditeur de script et ajoutez cette ligne au-dessus de // @connect google.com, puis enregistrez et actualisez la page d'origine. Si cela ne résout pas le problème, nous vous recommandons d'essayer un autre plugin Grease Monkey ou un autre navigateur !",
-    "error.imageTooLarge": "L'image actuelle est trop grande pour être traduite"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao a lancé un modèle de traduction basé sur l'IA",
+    "error.imageTooLarge": "L'image actuelle est trop grande pour être traduite",
+    "description.ziyuePromptMaxLength": "La longueur maximale de l'invite est de 1200 caractères"
   },
   "es": {
     "nologin": "no conectado",
@@ -4403,7 +4412,10 @@
     "description.systemPromptPlaceholder": "Si prompt está vacío, la petición ignora el parámetro",
     "please run to": "Debe ejecutarse antes de que esté disponible, para más detalles consulte",
     "error.userscriptDomain": "Error en la solicitud web: busca // @connect {domain} en el bloque de metadatos de tu script Grease Monkey. Abre el editor de secuencias de comandos y añade esta línea encima de // @connect google.com; a continuación, guarda y actualiza la página original. Si esto no resuelve el problema, te recomendamos que pruebes con otro complemento de Grease Monkey o con otro navegador.",
-    "error.imageTooLarge": "La imagen actual es demasiado grande para soportar la traducción"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao ha lanzado un modelo de traducción con IA",
+    "error.imageTooLarge": "La imagen actual es demasiado grande para soportar la traducción",
+    "description.ziyuePromptMaxLength": "La longitud máxima de la pregunta es de 1200 caracteres"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -5285,7 +5297,10 @@
     "description.systemPromptPlaceholder": "prompt が空の場合、リクエストはパラメータ",
     "please run to": "詳細は以下を参照のこと。",
     "error.userscriptDomain": "Web request failed: Grease Monkeyスクリプトのメタデータブロックに // @connect {domain} があるか確認してください。スクリプトエディタを開き、この行を // @connect google.com の上に追加し、保存して元のページを更新してください。それでも問題が解決しない場合は、他のグリースモンキープラグインやブラウザを試してみることをお勧めします！",
-    "error.imageTooLarge": "現在の画像は大きすぎて、翻訳をサポートできません"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase YoudaoがAI 翻訳モデルを発表",
+    "error.imageTooLarge": "現在の画像は大きすぎて、翻訳をサポートできません",
+    "description.ziyuePromptMaxLength": "プロンプトの最大長は1200 文字です。"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -6172,7 +6187,10 @@
     "description.systemPromptPlaceholder": "אם הבקשה ריקה, הבקשה מתעלמת מהפרמטר",
     "please run to": "ניתן להשתמש בו רק לאחר הפעלתו, ראה עיין בפרטים",
     "error.userscriptDomain": "בקשת האינטרנט נכשלה: חפש // @connect {domain} בבלוק המטה-נתונים של סקריפט Grease Monkey. פתח את עורך הסקריפט והוסף שורה זו מעל // @connect google.com, ולאחר מכן שמור ורענן את הדף המקורי. אם פעולה זו אינה פותרת את הבעיה, אנו ממליצים לנסות תוסף או דפדפן אחר של Grease Monkey!",
-    "error.imageTooLarge": "התמונה הנוכחית גדולה מדי ולא ניתן לתרגם אותה"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao השיקה מודל תרגום AI",
+    "error.imageTooLarge": "התמונה הנוכחית גדולה מדי ולא ניתן לתרגם אותה",
+    "description.ziyuePromptMaxLength": "האורך המרבי של הבקשה הוא 1200 תווים"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -7054,7 +7072,10 @@
     "description.systemPromptPlaceholder": "Wenn prompt leer ist, ignoriert die Anfrage den Parameter",
     "please run to": "Muss ausgeführt werden, bevor es verfügbar ist; Einzelheiten finden Sie unter",
     "error.userscriptDomain": "Webanforderung fehlgeschlagen: Suchen Sie nach // @connect {domain} im Metadatenblock Ihres Grease Monkey-Skripts. Öffnen Sie den Skript-Editor und fügen Sie diese Zeile über // @connect google.com ein, speichern Sie und aktualisieren Sie die Originalseite. Wenn dies das Problem nicht löst, empfehlen wir, ein anderes Grease Monkey-Plugin oder einen anderen Browser auszuprobieren!",
-    "error.imageTooLarge": "Das aktuelle Bild ist zu groß für die Übersetzung"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao hat ein KI-Übersetzungsmodell eingeführt",
+    "error.imageTooLarge": "Das aktuelle Bild ist zu groß für die Übersetzung",
+    "description.ziyuePromptMaxLength": "Die maximale Länge der Eingabeaufforderung beträgt 1200 Zeichen."
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -7936,7 +7957,10 @@
     "description.systemPromptPlaceholder": "Если prompt пуст, запрос игнорирует параметр",
     "please run to": "Необходимо запустить его, прежде чем он станет доступен, подробности см.",
     "error.userscriptDomain": "Веб-запрос не удался: проверьте наличие // @connect {domain} в блоке метаданных вашего скрипта Grease Monkey. Откройте редактор скриптов и добавьте эту строку над // @connect google.com, затем сохраните и обновите исходную страницу. Если это не решит проблему, мы рекомендуем попробовать другой плагин Grease Monkey или браузер!",
-    "error.imageTooLarge": "Текущее изображение слишком велико, чтобы поддерживать перевод"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao запустила модель перевода с помощью искусственного интеллекта",
+    "error.imageTooLarge": "Текущее изображение слишком велико, чтобы поддерживать перевод",
+    "description.ziyuePromptMaxLength": "Максимальная длина подсказки - 1200 символов"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -8820,7 +8844,10 @@
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
     "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
     "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!",
-    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "A NetEase Youdao lançou um modelo de tradução com IA",
+    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução",
+    "description.ziyuePromptMaxLength": "O comprimento máximo do prompt é de 1.200 caracteres"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -9702,7 +9729,10 @@
     "description.systemPromptPlaceholder": "اگر درخواست خالی باشد، درخواست پارامتر را نادیده می گیرد",
     "please run to": "فقط پس از اجرا در دسترس است، برای جزئیات به آن مراجعه کنید",
     "error.userscriptDomain": "درخواست وب ناموفق بود: // @connect {domain} را در بلوک فراداده اسکریپت Grease Monkey خود بررسی کنید. ویرایشگر اسکریپت را باز کنید و این خط را در بالا // @connect google.com اضافه کنید، سپس صفحه اصلی را ذخیره و بازخوانی کنید. اگر با این کار مشکل حل نشد، توصیه می کنیم پلاگین یا مرورگر دیگری Grease Monkey را امتحان کنید!",
-    "error.imageTooLarge": "تصویر فعلی خیلی بزرگ است و هنوز از ترجمه پشتیبانی نمی کند."
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao یک مدل ترجمه هوش مصنوعی راه اندازی کرده است",
+    "error.imageTooLarge": "تصویر فعلی خیلی بزرگ است و هنوز از ترجمه پشتیبانی نمی کند.",
+    "description.ziyuePromptMaxLength": "حداکثر طول اعلان 1200 کاراکتر است"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10584,7 +10614,10 @@
     "description.systemPromptPlaceholder": "Se prompt è vuoto, la richiesta ignora il parametro",
     "please run to": "Deve essere eseguito prima di essere disponibile, per i dettagli fare riferimento a",
     "error.userscriptDomain": "Richiesta web fallita: verificare la presenza di // @connect {domain} nel blocco dei metadati dello script Grease Monkey. Aprite l'editor di script e aggiungete questa riga sopra // @connect google.com, quindi salvate e aggiornate la pagina originale. Se questo non risolve il problema, vi consigliamo di provare un altro plugin o browser di Grease Monkey!",
-    "error.imageTooLarge": "L'immagine corrente è troppo grande per supportare la traduzione"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao ha lanciato un modello di traduzione AI",
+    "error.imageTooLarge": "L'immagine corrente è troppo grande per supportare la traduzione",
+    "description.ziyuePromptMaxLength": "La lunghezza massima del prompt è di 1200 caratteri"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -11466,7 +11499,10 @@
     "description.systemPromptPlaceholder": "İstem boşsa, istek parametreyi yok sayar",
     "please run to": "Kullanılabilir olmadan önce çalıştırılması gerekir, ayrıntılar için bkz.",
     "error.userscriptDomain": "Web isteği başarısız oldu: Grease Monkey betiğinizin meta veri bloğunda // @connect {domain} olup olmadığını kontrol edin. Komut dosyası düzenleyicisini açın ve bu satırı // @connect google.com'un üzerine ekleyin, ardından kaydedin ve orijinal sayfayı yenileyin. Bu sorunu çözmezse, farklı bir Grease Monkey eklentisi veya tarayıcı denemenizi öneririz!",
-    "error.imageTooLarge": "Mevcut görüntü çeviriyi desteklemek için çok büyük"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao bir yapay zeka çeviri modeli başlattı",
+    "error.imageTooLarge": "Mevcut görüntü çeviriyi desteklemek için çok büyük",
+    "description.ziyuePromptMaxLength": "Bilgi isteminin maksimum uzunluğu 1200 karakterdir"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -12348,7 +12384,10 @@
     "description.systemPromptPlaceholder": "Se o prompt estiver vazio, a solicitação ignorará o parâmetro",
     "please run to": "Precisa ser executado antes de estar disponível; para obter detalhes, consulte",
     "error.userscriptDomain": "Falha na solicitação da Web: verifique // @connect {domain} no bloco de metadados do seu script Grease Monkey. Abra o editor de script e adicione esta linha acima de // @connect google.com, salve e atualize a página original. Se isso não resolver o problema, recomendamos tentar um plug-in ou navegador diferente do Grease Monkey!",
-    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução"
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "A NetEase Youdao lançou um modelo de tradução com IA",
+    "error.imageTooLarge": "A imagem atual é muito grande para suportar a tradução",
+    "description.ziyuePromptMaxLength": "O comprimento máximo do prompt é de 1.200 caracteres"
   },
   "bo_CN": {},
   "hi": {
@@ -13231,7 +13270,10 @@
     "description.systemPromptPlaceholder": "यदि प्रॉम्प्ट रिक्त है, तो अनुरोध पैरामीटर को अनदेखा कर देता है",
     "please run to": "यह चलाने के बाद ही उपलब्ध है, विवरण के लिए देखें",
     "error.userscriptDomain": "वेब अनुरोध विफल: अपने ग्रीस मंकी स्क्रिप्ट के मेटाडेटा ब्लॉक में // @connect {डोमेन} की जाँच करें। स्क्रिप्ट संपादक खोलें और // @connect google.com के ऊपर यह पंक्ति जोड़ें, फिर मूल पृष्ठ को सहेजें और ताज़ा करें। यदि इससे समस्या हल नहीं होती है, तो हम एक अलग ग्रीस मंकी प्लगइन या ब्राउज़र आज़माने की सलाह देते हैं!",
-    "error.imageTooLarge": "वर्तमान छवि बहुत बड़ी है और अभी अनुवाद का समर्थन नहीं करती है."
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "नेटईज़ यूडाओ ने एक एआई अनुवाद मॉडल लॉन्च किया है",
+    "error.imageTooLarge": "वर्तमान छवि बहुत बड़ी है और अभी अनुवाद का समर्थन नहीं करती है.",
+    "description.ziyuePromptMaxLength": "प्रॉम्प्ट की अधिकतम लंबाई 1200 अक्षर है"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -14113,7 +14155,10 @@
     "description.systemPromptPlaceholder": "إذا كان الموجه فارغًا، يتجاهل الطلب المعلمة",
     "please run to": "إنه متاح فقط بعد التشغيل، للتفاصيل، راجع",
     "error.userscriptDomain": "فشل طلب الويب: تحقق من // @connect {domain} في كتلة البيانات الوصفية لنص Grease Monkey الخاص بك. افتح محرر النصوص وأضف هذا السطر أعلى // @connect google.com، ثم احفظ الصفحة الأصلية وقم بتحديثها. إذا لم يحل هذا المشكلة، فنوصيك بتجربة مكون إضافي أو متصفح Grease Monkey مختلف!",
-    "error.imageTooLarge": "الصورة الحالية كبيرة جدًا ولا تدعم الترجمة بعد."
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
+    "translationServices.youdao-ziyue.introduction": "أطلقت شركة NetEase Youdao نموذج ترجمة الذكاء الاصطناعي",
+    "error.imageTooLarge": "الصورة الحالية كبيرة جدًا ولا تدعم الترجمة بعد.",
+    "description.ziyuePromptMaxLength": "الحد الأقصى لطول الرسالة هو 1200 حرف"
   },
   "en": {
     "nologin": "Not logged in",
@@ -14300,6 +14345,7 @@
     "translationServices.volcAlpha": "Volcano Translation (Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "Youdao Translation",
+    "translationServices.youdao-ziyue": "Youdao Ziyue LLM Translation",
     "translationServices.you": "Youdao Translation (Alpha)",
     "translationServices.transmart": "Tencent Smart Translation",
     "translationServices.niu": "Niu Translation",
@@ -14696,6 +14742,7 @@
     "translationServices.yandex.introduction": "The translation service launched by Yandex performs well in Russian translation.",
     "translationServices.volcAlpha.introduction": "Volcano Translation Alpha Version",
     "translationServices.youdao.introduction": "NetEase Youdao has launched a translation service that supports multiple languages.",
+    "translationServices.youdao-ziyue.introduction": "NetEase Youdao has launched an AI translation model",
     "translationServices.papago.introduction": "Experience the Papago translation service from NAVER, enjoy precise and humanized translation experience.",
     "translationServices.dpro.introduction": "Try the Canary version of D Pro, enjoy professional translation services and leading technical support.",
     "translationServices.aliyun.introduction": "<homepage>Alibaba Cloud</homepage> has launched a machine translation service that supports multiple languages.",
@@ -14867,6 +14914,7 @@
     "translationServices.lingyiwanwu.introduction": "The Yi series of LLM launched by <homepage>01.AI</homepage>,",
     "translationServices.hunyuan": "Tencent Hunyuan",
     "description.prompt": "Prompt sent as user to {service}, where {{text}} denotes the text content of the paragraph, {{from}} denotes the language of the paragraph, {{to}} denotes the target language, {{content_type}} denotes the type of the original text, with possible values of `html` or `text`, and {{html_only}} is a value that will only be present if the original contains the html tag. The value of {{html_only}} is only available if the original text contains html tags.",
+    "description.ziyuePromptMaxLength": "The maximum length of the prompt is 1200 characters",
     "browser.translateWithCustom1": "Temporary use of custom translation services to translate the current page(1)",
     "browser.translateWithCustom2": "Temporary use of custom translation services to translate the current page(2)",
     "browser.translateWithCustom3": "Temporary use of custom translation services to translate the current page(3)",
@@ -15184,6 +15232,7 @@
     "translationServices.volcAlpha": "火山 (Alpha)",
     "translationServices.openl": "OpenL",
     "translationServices.youdao": "有道翻译",
+    "translationServices.youdao-ziyue": "有道子曰大模型翻译",
     "translationServices.you": "有道翻译 (Alpha)",
     "translationServices.transmart": "腾讯交互翻译",
     "translationServices.niu": "小牛翻译",
@@ -15304,6 +15353,7 @@
     "description.model": "OpenAI 的模型，可以为 gpt-3.5-turbo, gpt-4 等",
     "description.maxTextGroupLengthPerRequest": "每次发送给翻译服务的段落数量，如果段落数量过多，可能会导致接口的响应变慢",
     "description.apiUrl": "请添加具体带有路径的网址，如：https://openrouter.ai/api/v1/chat/completions <1>更多说明</1>",
+    "description.ziyuePromptMaxLength": "提示词最大长度1200字符",
     "enabledExtension": "启用扩展",
     "hasBeenDisabled": "已禁用",
     "show password": "显示密码",
@@ -15646,6 +15696,7 @@
     "translationServices.volcAlpha.introduction": "火山翻译 Alpha 版本",
     "translationServices.openl.introduction": "OpenL 聚合了多个翻译引擎，但价格较贵。",
     "translationServices.youdao.introduction": "网易有道推出的翻译服务，支持多种语言。",
+    "translationServices.youdao-ziyue.introduction": "网易有道推出的 AI 翻译大模型",
     "translationServices.you.introduction": "有道翻译 Alpha 版本",
     "translationServices.transmart.introduction": "腾讯最新推出的<homepage>交互翻译</homepage>服务，支持多种语言。",
     "translationServices.niu.introduction": "小牛机器翻译，支持多种语言。",

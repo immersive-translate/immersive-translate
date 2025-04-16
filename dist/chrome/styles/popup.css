@@ -706,24 +706,62 @@ select.text-gray-6 {
 
 .widgets-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-}
-
-.widgets-container> :not(:last-child) {
-  margin-right: 8px;
+  width: 100%;
+  gap: 9px;
 }
 
 .widget-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--popup-item-background-color);
   font-size: 12px;
-  height: 44px;
+  min-height: 59px;
+  height: 100%;
   border-radius: 8px;
   cursor: pointer;
   flex: 1;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.widget-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.widget-title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 24px;
+  width: 100%;
+  padding-bottom: 4px;
+}
+
+.widget-icon {
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.widget-title {
+  color: var(--text-gray-6);
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 2px 2px;
 }
 
 .widget-item svg {

@@ -1,112 +1,112 @@
-.service-container {
-    border: 1px solid var(--muted-border-color);
-    color: #3D4A56;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    padding: 20px;
-    position: relative;
-    flex-shrink: 0;
-    width: 47%;
-    padding-bottom: 28px;
+.store-container {
+  border: 1px solid var(--muted-border-color);
+  color: #3d4a56;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  padding: 20px;
+  position: relative;
+  flex-shrink: 0;
+  width: 47%;
+  padding-bottom: 28px;
 }
 
-.service-container[data-selected="true"] {
-    /* background: #EA4C890A; */
-    background-color: #ea4c8917;
+.store-container[data-selected="true"] {
+  /* background: #EA4C890A; */
+  background-color: #ea4c8917;
 }
 
-.service-container[data-selected="false"][data-configed="true"]:hover {
-    background: var(--service-bg-hover);
+.store-container[data-selected="false"][data-configed="true"]:hover {
+  background: var(--service-bg-hover);
 }
 
-.service-container[data-selected="false"][data-configed="true"]:hover .service-set-default {
-    opacity: 1 !important;
+.store-container[data-selected="false"][data-configed="true"]:hover
+  .service-set-default {
+  opacity: 1 !important;
 }
 
-.service-container[data-selected="false"][data-configed="true"]:hover {
-    cursor: pointer !important;
+.store-container[data-selected="false"][data-configed="true"]:hover {
+  cursor: pointer !important;
 }
 
-.service-container h3 {
-    font-size: 18px;
-
+.store-container h3 {
+  font-size: 18px;
 }
 
-.service-container .edit {
-    color: #6B7680;
+.store-container .edit {
+  color: #6b7680;
 }
 
-.service-container a,
-.service-container p {
-    font-size: 0.825rem;
+.store-container a,
+.store-container p {
+  font-size: 0.825rem;
 }
 
-.service-container:nth-child(odd) {
-    margin-right: 24px;
+.store-container:nth-child(odd) {
+  margin-right: 24px;
 }
 
-.service-container [type="checkbox"][role="switch"]:checked {
-    background-color: var(--switch-checked-background-color) !important;
-    border-color: var(--switch-checked-background-color) !important;
+.store-container [type="checkbox"][role="switch"]:checked {
+  background-color: var(--switch-checked-background-color) !important;
+  border-color: var(--switch-checked-background-color) !important;
 }
 
-.service-container input:not([type="submit"], [type="button"], [type="reset"])[disabled] {
-    background-color: var(--switch-background-color);
-    --border-color: var(--switch-background-color);
+.store-container
+  input:not([type="submit"], [type="button"], [type="reset"])[disabled] {
+  background-color: var(--switch-background-color);
+  --border-color: var(--switch-background-color);
 }
 
 .add-custom-ai-service,
 .service-set-default,
 .service-current-default {
-    color: #999999;
-    font-size: 0.825rem;
-    font-weight: 400;
+  color: #999999;
+  font-size: 0.825rem;
+  font-weight: 400;
 }
 
 .store-return a {
-    height: 20px;
-    width: 24px;
-    content: "";
-    background-image: var(--icon-checkbox);
-    transform: rotate(90deg) scale(1.4);
-    background-image: var(--icon-chevron);
-    background-position: right center;
-    background-size: 1rem auto;
-    background-repeat: no-repeat;
-    display: inline-block;
-    margin-right: 20px;
+  height: 20px;
+  width: 24px;
+  content: "";
+  background-image: var(--icon-checkbox);
+  transform: rotate(90deg) scale(1.4);
+  background-image: var(--icon-chevron);
+  background-position: right center;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .store-return {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 28px;
-    text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
 }
 
 @media screen and (max-width: 750px) {
-    .service-container {
-        min-width: 90%;
-        max-width: 100%;
-    }
+  .store-container {
+    min-width: 90%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .service-container {
-        flex-grow: 1;
+  .store-container {
+    flex-grow: 1;
 
-        min-width: 90%;
-        margin-right: 0px !important;
-        margin-bottom: 12px !important;
-        padding: 12px !important;
-    }
+    min-width: 90%;
+    margin-right: 0px !important;
+    margin-bottom: 12px !important;
+    padding: 12px !important;
+  }
 
-    .service-container h3 {
-        font-size: 14px !important;
-    }
+  .store-container h3 {
+    font-size: 14px !important;
+  }
 
-    .service-container p {
-        font-size: 12px !important;
-    }
-
+  .store-container p {
+    font-size: 12px !important;
+  }
 }

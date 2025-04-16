@@ -26,6 +26,9 @@
   "openOptionsPage": {
     "message": "開啟設定頁面"
   },
+  "babelDOC": {
+    "message": "BabelDOC 保留排版 PDF 翻譯"
+  },
   "translateLocalPdfFile": {
     "message": "翻譯本機 PDF 檔案"
   },

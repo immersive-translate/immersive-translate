@@ -35,6 +35,9 @@
   "translateLocalPdfFile": {
     "message": "Lokale PDF-Dateien übersetzen"
   },
+  "babelDOC": {
+    "message": "BabelDOC Layout-erhaltende PDF-Übersetzung"
+  },
   "openEbookViewer": {
     "message": "Lokale eBooks lesen"
   },

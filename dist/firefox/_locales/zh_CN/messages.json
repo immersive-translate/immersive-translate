@@ -26,6 +26,9 @@
   "openOptionsPage": {
     "message": "打开设置页"
   },
+  "babelDOC": {
+    "message": "BabelDOC 保留排版 PDF 翻译"
+  },
   "translateLocalPdfFile": {
     "message": "翻译本地 PDF 文件"
   },

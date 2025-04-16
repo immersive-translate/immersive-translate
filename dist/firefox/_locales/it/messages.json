@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "Mostra/nascondi l'effetto di sfocatura della traslazione"
   },
+  "babelDOC": {
+    "message": "BabelDOC Traduzione PDF con conservazione del layout"
+  },
   "translateLocalPdfFile": {
     "message": "Tradurre i file PDF locali"
   },

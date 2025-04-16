@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "Показать/скрыть эффект размытия при переводе"
   },
+  "babelDOC": {
+    "message": "BabelDOC сохранение макета PDF при переводе"
+  },
   "translateLocalPdfFile": {
     "message": "Перевод PDF-файлов"
   },

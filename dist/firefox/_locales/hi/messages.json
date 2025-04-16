@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "अनुवाद धुंधला प्रभाव दिखाएँ/छिपाएँ"
   },
+  "babelDOC": {
+    "message": "BabelDOC लेआउट संरक्षित पीडीएफ अनुवाद"
+  },
   "translateLocalPdfFile": {
     "message": "स्थानीय पीडीएफ फाइलों का अनुवाद करें"
   },

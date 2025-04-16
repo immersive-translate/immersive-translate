@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "Afficher/masquer l'effet de flou de translation"
   },
+  "babelDOC": {
+    "message": "BabelDOC Traduction de PDF préservant la mise en page"
+  },
   "translateLocalPdfFile": {
     "message": "Traduire des fichiers PDF locaux"
   },

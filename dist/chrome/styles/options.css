@@ -529,7 +529,7 @@ article {
     rgba(255, 255, 255, 0) 100%
   );
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
-  
+
   margin-top: 16px;
   margin-bottom: 24px;
 }
@@ -541,7 +541,7 @@ article {
 }
 
 .intro-line {
-  background: #EBEBEB;
+  background: #ebebeb;
   height: 1px;
   width: 100%;
 }
@@ -764,29 +764,29 @@ article {
   }
 }
 
-.service-container .immersive-translate-link {
+.store-container .immersive-translate-link {
   color: var(--h5-color);
   text-decoration: underline;
 }
 
-.service-container .immersive-translate-link:hover {
+.store-container .immersive-translate-link:hover {
   text-decoration-thickness: 2px;
 }
 
 /* CJK 使用边框样式 */
-[data-lang="zh-CN"] .service-container .immersive-translate-link,
-[data-lang="zh-TW"] .service-container .immersive-translate-link,
-[data-lang="ja"] .service-container .immersive-translate-link,
-[data-lang="ko"] .service-container .immersive-translate-link {
+[data-lang="zh-CN"] .store-container .immersive-translate-link,
+[data-lang="zh-TW"] .store-container .immersive-translate-link,
+[data-lang="ja"] .store-container .immersive-translate-link,
+[data-lang="ko"] .store-container .immersive-translate-link {
   text-decoration: none;
   border-bottom: 1px solid;
   margin: 0 1px;
 }
 
-[data-lang="zh-CN"] .service-container .immersive-translate-link:hover,
-[data-lang="zh-TW"] .service-container .immersive-translate-link:hover,
-[data-lang="ja"] .service-container .immersive-translate-link:hover,
-[data-lang="ko"] .service-container .immersive-translate-link:hover {
+[data-lang="zh-CN"] .store-container .immersive-translate-link:hover,
+[data-lang="zh-TW"] .store-container .immersive-translate-link:hover,
+[data-lang="ja"] .store-container .immersive-translate-link:hover,
+[data-lang="ko"] .store-container .immersive-translate-link:hover {
   text-decoration: none;
   border-bottom: 2px solid;
 }
@@ -805,11 +805,19 @@ article {
   margin-bottom: 30px;
 }
 
-.manga-enable, .image-tools-enable {
+.manga-enable,
+.image-tools-enable {
   display: none;
 }
 
+.input-select {
+  max-width: 180px;
+}
+
 @media screen and (max-width: 576px) {
+  .input-select {
+    max-width: 160px;
+  }
   .header {
     padding: 12px 0.5reœm !important;
     font-size: 14px;
@@ -833,7 +841,8 @@ article {
     display: none;
   }
 
-  .manga-enable, .image-tools-enable {
+  .manga-enable,
+  .image-tools-enable {
     display: flex;
   }
 
@@ -851,4 +860,8 @@ article {
 
 textarea[disabled] {
   pointer-events: unset;
+}
+
+textarea.input {
+  resize: none;
 }

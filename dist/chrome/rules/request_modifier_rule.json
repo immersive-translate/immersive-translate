@@ -520,7 +520,7 @@
       ]
     },
     "condition": {
-      "urlFilter": "https://*.klimv1.xyz/images*",
+      "urlFilter": "https://*.(klimv1|jfimv2).xyz/images*",
       "resourceTypes": [
         "xmlhttprequest"
       ],

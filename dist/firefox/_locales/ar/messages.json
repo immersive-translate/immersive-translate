@@ -35,6 +35,9 @@
   "translateLocalPdfFile": {
     "message": "ترجمة ملفات PDF المحلية"
   },
+  "babelDOC": {
+    "message": "BabelDOC ترجمة PDF بالحفاظ على التنسيق"
+  },
   "openEbookViewer": {
     "message": "قراءة الكتب الإلكترونية المحلية"
   },

@@ -26,6 +26,9 @@
   "openOptionsPage": {
     "message": "‫פתח עמוד הגדרות‬"
   },
+  "babelDOC": {
+    "message": "‫BabelDOC תרגום PDF עם שמירת העיצוב‬"
+  },
   "translateLocalPdfFile": {
     "message": "‫תרגם קובץ ⁦PDF⁩ מקומי‬"
   },

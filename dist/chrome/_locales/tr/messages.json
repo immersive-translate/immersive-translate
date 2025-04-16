@@ -26,6 +26,9 @@
   "openOptionsPage": {
     "message": "Ayarlar Sayfasını Aç"
   },
+  "babelDOC": {
+    "message": "BabelDOC PDF düzenini koru"
+  },
   "translateLocalPdfFile": {
     "message": "Yerel PDF Dosyasını Çevir"
   },

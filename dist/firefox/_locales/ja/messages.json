@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "並進ブラー効果の表示／非表示"
   },
+  "babelDOC": {
+    "message": "BabelDOC レイアウトを保持するPDF翻訳"
+  },
   "translateLocalPdfFile": {
     "message": "ローカルのPDFファイルを翻訳する"
   },

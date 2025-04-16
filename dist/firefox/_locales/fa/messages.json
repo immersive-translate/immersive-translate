@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "نمایش/پنهان کردن جلوه تاری ترجمه"
   },
+  "babelDOC": {
+    "message": "بابل‌داک ترجمه PDF با حفظ طرح‌بندی"
+  },
   "translateLocalPdfFile": {
     "message": "ترجمه پرونده PDF محلی"
   },

@@ -26,6 +26,9 @@
   "openOptionsPage": {
     "message": "Abrir Configurações"
   },
+  "babelDOC": {
+    "message": "BabelDOC Preservar layout do PDF"
+  },
   "translateLocalPdfFile": {
     "message": "Traduzir arquivo PDF local"
   },

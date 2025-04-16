@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "번역 흐림 효과 표시/숨기기"
   },
+  "babelDOC": {
+    "message": "BabelDOC 레이아웃 보존 PDF 번역"
+  },
   "translateLocalPdfFile": {
     "message": "로컬 PDF 파일 번역"
   },

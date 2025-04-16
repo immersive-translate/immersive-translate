@@ -32,6 +32,9 @@
   "toggleTranslationMask": {
     "message": "Mostrar/ocultar el efecto de desenfoque de traslación"
   },
+  "babelDOC": {
+    "message": "BabelDOC Traducción de PDF conservando el diseño"
+  },
   "translateLocalPdfFile": {
     "message": "Traducir archivos PDF locales"
   },

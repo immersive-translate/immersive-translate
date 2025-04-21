@@ -390,7 +390,7 @@
       ]
     },
     "condition": {
-      "urlFilter": "https://s*.mbbcdn.com/*",
+      "urlFilter": "https://s*.(mbbcdn.com|mbcdn*.org)/*",
       "resourceTypes": [
         "xmlhttprequest"
       ],

@@ -1,8 +1,3 @@
-html {
-  font-size: 16px;
-  --font-size: 16px;
-}
-
 body {
   padding: 0;
   margin: 0 auto;
@@ -11,6 +6,8 @@ body {
 }
 
 .popup-container {
+  font-size: 16px;
+  --font-size: 16px;
   color: #666;
   background-color: var(--popup-footer-background-color);
   width: 316px;
@@ -71,15 +68,15 @@ body {
   --popup-content-background-color: #ffffff;
   --popup-item-background-color: #f3f5f6;
   --popup-item-hover-background-color: #eaeced;
-  --popup-trial-pro-background-color: #F9FBFC;
+  --popup-trial-pro-background-color: #f9fbfc;
   --text-black-2: #222222;
   --text-gray-2: #222222;
   --text-gray-6: #666666;
   --text-gray-9: #999999;
   --text-gray-c2: #c2c2c2;
-  --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.20);
-  --service-select-border-color: #FAFAFA;
-  --service-select-selected-background-color: #F3F5F6;
+  --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.2);
+  --service-select-border-color: #fafafa;
+  --service-select-selected-background-color: #f3f5f6;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -94,8 +91,8 @@ body {
     --text-gray-6: #b3b3b3;
     --text-gray-9: #777777;
     --text-gray-c2: #5b5b5b;
-    --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.90);
-    --service-select-border-color: #2C2C2C;
+    --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
+    --service-select-border-color: #2c2c2c;
     --service-select-selected-background-color: #333333;
   }
 }
@@ -111,8 +108,8 @@ body {
   --text-gray-6: #b3b3b3;
   --text-gray-9: #777777;
   --text-gray-c2: #5b5b5b;
-  --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.90);
-  --service-select-border-color: #2C2C2C;
+  --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
+  --service-select-border-color: #2c2c2c;
   --service-select-selected-background-color: #333333;
 }
 
@@ -524,7 +521,6 @@ select.translate-service {
 
 /* dark use black, for windows */
 @media (prefers-color-scheme: dark) {
-
   select.language-select option,
   select.translate-service option,
   select.min-select option {
@@ -812,7 +808,6 @@ select.text-gray-6 {
   flex-direction: column;
 }
 
-
 .upgrade-pro {
   border-radius: 11px;
   background: linear-gradient(57deg, #272727 19.8%, #696969 82.2%);
@@ -821,7 +816,7 @@ select.text-gray-6 {
 }
 
 .upgrade-pro span {
-  background: linear-gradient(180deg, #FFEAB4 17.65%, #F8C235 85.29%);
+  background: linear-gradient(180deg, #ffeab4 17.65%, #f8c235 85.29%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -829,13 +824,12 @@ select.text-gray-6 {
   margin-left: 4px;
 }
 
-
 .upgrade-pro svg {
   margin-top: -2px;
 }
 
 .upgrade-pro:hover {
-  background: linear-gradient(57deg, #3D3D3D 19.8%, #949494 82.2%);
+  background: linear-gradient(57deg, #3d3d3d 19.8%, #949494 82.2%);
 }
 
 .border-bottom-radius-0 {
@@ -873,9 +867,14 @@ select.text-gray-6 {
   padding: 0 4px;
   align-items: center;
   border-radius: 15px;
-  background: linear-gradient(90deg, #CEFBFA 11.33%, #D7F56F 63.75%, #FCCD5E 100%);
+  background: linear-gradient(
+    90deg,
+    #cefbfa 11.33%,
+    #d7f56f 63.75%,
+    #fccd5e 100%
+  );
   transform: scale(0.9);
-  box-shadow: 0px 1.8px 3.6px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 1.8px 3.6px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -888,9 +887,13 @@ select.text-gray-6 {
 
 .upgrade-pro-discount-act:hover {
   text-decoration: unset;
-  background: linear-gradient(90deg, #E2FFFE 11.33%, #E6FF91 63.75%, #FFDF93 100%);
+  background: linear-gradient(
+    90deg,
+    #e2fffe 11.33%,
+    #e6ff91 63.75%,
+    #ffdf93 100%
+  );
 }
-
 
 .custom-select-container {
   width: 200px;
@@ -937,8 +940,8 @@ select.text-gray-6 {
   }
 }
 
-
-.custom-select-content .custom-select-item.selected, .custom-select-content .custom-select-item:hover {
+.custom-select-content .custom-select-item.selected,
+.custom-select-content .custom-select-item:hover {
   background: var(--service-select-selected-background-color);
 }
 
@@ -954,7 +957,7 @@ select.text-gray-6 {
 }
 
 .custom-select-item-pro img {
-  margin:  0 3px;
+  margin: 0 3px;
   width: 20px;
 }
 .more-container {
@@ -964,7 +967,7 @@ select.text-gray-6 {
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: #EF3434;
+  background-color: #ef3434;
   border-radius: 50%;
   right: 18px;
   top: 4px;

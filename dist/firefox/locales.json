@@ -738,7 +738,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "Web sayfasını çevir/Gösterilen orijinal metin",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Opsiyonel, doldurulmazsa varsayılan olarak sizi <1>SiliconFlow</1> ile işbirliği içinde sunulan ücretsiz büyük model çevirisiyle sağlayacak şekilde daldırma çevirisi kullanılır.",
+    "description.siliconcloudCustomAPIKey": "Ücretsiz olmayan modellerin kullanılabilmesi için <1>SiliconFlow</1>'dan alınan API anahtarının girilmesi gerekir.",
     "translationServices.lingyiwanwu.introduction": "<homepage>01.AI</homepage> tarafından başlatılan Yi serisi büyük dil modelleri,",
     "field.enableRichTranslate": "Zengin metin çevirisini etkinleştirin",
     "description.enableRichTranslate": "Zengin metin çevirisini etkinleştirerek orijinal bağlantıları ve stilleri koruyun",
@@ -781,7 +781,6 @@
     "description.zhipuCustomAPIKey": "Ücretsiz olmayan modellerin kullanılabilir olması için <1>Wisdom Spectrum platformu </1>uygulanan anahtarını doldurması gerekir, ayrıntılar için lütfen <2>eğitim</2> bölümüne bakın.",
     "description.zhipuFreeAPIKey": "İsteğe bağlı, boşluğu doldurmazsanız, varsayılan olarak <1>BigModel</1> tarafından ücretsiz olarak sağlanan Immersive Translate ve glm-4-flash kullanılır, kendi API Anahtarınızı kullanmak istiyorsanız, lütfen <2>bu belgeye</2> bakın.",
     "translationServices.zhipu.introduction": "Immersive Translate resmi ortağı <homepage>\"Zhipu\"</homepage> GLM büyük modelini piyasaya sürdü ve tüm kullanıcılar GLM-4-Flash modelini doğrudan ücretsiz olarak kullanabilir.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Görüntüyü çevir/görüntüyü geri yükle",
     "translateFail": "Failed",
@@ -966,7 +965,9 @@
     "pagination.next": "Sonraki",
     "noData": "Tarih yok",
     "terms.notFound": "Terim bulunamadı",
-    "compareWithTextTranslate": "Çeviri hizmetlerini karşılaştırın"
+    "compareWithTextTranslate": "Çeviri hizmetlerini karşılaştırın",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube altyazı isteklerini mevcut cihazlarla sınırlıyor",
+    "youTubeSubtitleRequestLimitErrorDescription": "Lütfen YouTube sayfası önbelleğini temizleyin veya proxy düğümünü değiştirin ve tekrar deneyin."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -1707,7 +1708,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "웹 페이지 번역하기/원문 표시하기",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "선택 사항이며, 입력하지 않으면 기본적으로 몰입형 번역과 <1>SiliconFlow</1>와의 협력을 통해 제공되는 무료 대형 모델 번역을 사용합니다.",
+    "description.siliconcloudCustomAPIKey": "무료가 아닌 모델은 사용 전에 <1>SiliconFlow</1>에서 발급받은 API 키를 입력해야 합니다。",
     "translationServices.lingyiwanwu.introduction": "<홈페이지>01.AI</홈페이지>에서 출시한 대형 언어 모델인 Yi 시리즈입니다,",
     "field.enableRichTranslate": "리치 텍스트 번역 활성화",
     "description.enableRichTranslate": "원본 링크와 스타일을 보존하기 위해 리치 텍스트 번역을 활성화하세요.",
@@ -1750,7 +1751,6 @@
     "description.zhipuFreeAPIKey": "선택 사항으로 빈칸을 채우지 않으면 기본값은 <1>BigModel</1>에서 무료로 제공하는 몰입형 번역과 glm-4-flash를 사용하며, 자체 API 키를 사용하려면 <2>이 문서</2>를 참조하세요.",
     "description.zhipuCustomAPIKey": "무료 모델이 아닌 경우 <1>Wisdom Spectrum 플랫폼 </1> 적용 키를 입력해야 사용할 수 있으며, 자세한 내용은 <2>자습서</2>를 참조하세요.",
     "translationServices.zhipu.introduction": "몰입형 번역 공식 파트너인 <홈페이지>\"지푸\"</홈페이지>가 GLM 대형 모델을 출시했으며, 모든 사용자는 GLM-4-Flash 모델을 바로 무료로 사용할 수 있습니다.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "이미지 번역/이미지 복원",
     "translateFail": "Failed",
@@ -1935,7 +1935,9 @@
     "pagination.prev": "이전 게시물",
     "noData": "날짜 없음",
     "terms.notFound": "용어를 찾을 수 없습니다.",
-    "compareWithTextTranslate": "번역 서비스 비교"
+    "compareWithTextTranslate": "번역 서비스 비교",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube는 자막 요청을 현재 기기로 제한합니다.",
+    "youTubeSubtitleRequestLimitErrorDescription": "YouTube 페이지 캐시를 지우거나 프록시 노드를 변경한 후 다시 시도하세요."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -2714,7 +2716,7 @@
     "browser.toggleTranslatePageOfficialPage": "翻譯網頁/顯示原文",
     "browser.translateText": "翻譯文本：\"{text}\"",
     "translationServices.lingyiwanwu": "零一萬物",
-    "description.siliconcloudCustomAPIKey": "可選，不填則默認使用沉浸式翻譯和 SiliconFlow 合作為您提供的免費大模型翻譯",
+    "description.siliconcloudCustomAPIKey": "非免費模型需要填寫從<1>SiliconFlow</1>申請的密鑰後才能使用。",
     "translationServices.lingyiwanwu.introduction": "由<homepage>零一萬物</homepage>推出的 Yi 系列大語言模型",
     "field.enableRichTranslate": "啟用富文本翻譯",
     "description.enableRichTranslate": "啟用富文本翻譯可以保留原文的連結和樣式效果。",
@@ -2757,7 +2759,6 @@
     "description.zhipuCustomAPIKey": "非免費模型需要填寫<1>智譜平台</1>申請的密鑰後才可用，詳情參考<2>教程</2>",
     "description.zhipuFreeAPIKey": "可選，不填則預設使用沉浸式翻譯和<1>智譜</1> 合作為您免費提供的 glm-4-flash, 如需使用自己的 API Key，請參考<2>此文件</2>",
     "translationServices.zhipu.introduction": "沉浸式翻譯官方合作夥伴<homepage>「智譜」</homepage>推出的 GLM 大模型，所有使用者可直接免費使用其 GLM-4-Flash 模型。",
-    "glm-4-flash (free)": "glm-4-flash (免費)",
     "mouseHoldKeyPressHold": "+ 長按滑鼠左鍵",
     "browser.translateMangaMenuId": "翻譯圖片/還原圖片",
     "translateFail": "翻譯失敗",
@@ -2940,7 +2941,9 @@
     "pagination.next": "下一頁",
     "noData": "暫無數據",
     "terms.notFound": "術語庫不存在",
-    "compareWithTextTranslate": "對比不同翻譯服務"
+    "compareWithTextTranslate": "對比不同翻譯服務",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了目前裝置的字幕請求",
+    "youTubeSubtitleRequestLimitErrorDescription": "請清除 YouTube 頁面快取或更換代理節點後再重試"
   },
   "en": {
     "nologin": "Not logged in",
@@ -3687,7 +3690,7 @@
     "translationServices.ollama": "Ollama",
     "translationServices.groq": "Groq",
     "translationServices.azure-openai": "Azure OpenAI",
-    "description.siliconcloudCustomAPIKey": "Optional, if not filled in, the default immersive translation and collaboration with <1>SiliconFlow</1> will be used to provide you with free LLM translation.",
+    "description.siliconcloudCustomAPIKey": "Non-free models require the API key obtained from <1>SiliconFlow</1> to be entered before use.",
     "field.enableRichTranslate": "Enable rich text translation",
     "description.temperature": "Sampling divergence, the smaller the value, the more fixed the generated content. When set to 0, the model will almost always choose the token with the highest probability during generation.",
     "reportInfo.ok": "Okay",
@@ -3728,7 +3731,6 @@
     "ctxInvalidatedError": "Plugin context is not working please refresh the page and try again!",
     "reportInfo.emailError": "Incorrect mailbox format",
     "subtitle.quickButton.orange": "Orange",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "description.zhipuCustomAPIKey": "Non-free models need to fill in the <1>Wisdom Spectrum platform </1>application of the key to be available, for details, refer to the <2>tutorial </2>.",
     "description.zhipuFreeAPIKey": "Optional, if you don't fill in the blank, the default is to use Immersive Translate and glm-4-flash which is provided free of charge by <1>BigModel</1>, if you want to use your own API Key, please refer to <2>this document</2>.",
     "mouseHoldKeyPressHold": "+ Hold left click",
@@ -3910,7 +3912,9 @@
     "pagination.next": "Next",
     "noData": "No data",
     "terms.notFound": "No terms found",
-    "compareWithTextTranslate": "Compare translation services"
+    "compareWithTextTranslate": "Compare translation services",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limits subtitle requests to current devices",
+    "youTubeSubtitleRequestLimitErrorDescription": "Please clear the YouTube page cache or change the proxy node and try again."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -4651,7 +4655,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "वेब पेज अनुवाद करें/मूल पाठ दिखाएं",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "वैकल्पिक, यदि नहीं भरा गया तो डिफ़ॉल्ट रूप से इमर्सिव अनुवाद और <1>SiliconFlow</1> के सहयोग से आपको प्रदान किया गया मुफ्त बड़ा मॉडल अनुवाद का उपयोग किया जाएगा।",
+    "description.siliconcloudCustomAPIKey": "गैर-नि:शुल्क मॉडल का उपयोग करने से पहले <1>SiliconFlow</1> से प्राप्त API कुंजी दर्ज करना आवश्यक है।",
     "translationServices.lingyiwanwu.introduction": "बड़े भाषा मॉडलों की यी श्रृंखला लॉन्च की गई<homepage> 01.एआई</homepage> ,",
     "field.enableRichTranslate": "समृद्ध पाठ अनुवाद सक्षम करें",
     "description.enableRichTranslate": "मूल लिंक्स और शैलियों को बनाए रखने के लिए समृद्ध पाठ अनुवाद सक्षम करें।",
@@ -4694,7 +4698,6 @@
     "description.zhipuCustomAPIKey": "गैर-मुक्त मॉडलों को उपयोग करने से पहले <1>ज़िपु प्लेटफ़ॉर्म</1> द्वारा लागू की गई कुंजी को भरना होगा। विवरण के लिए, कृपया <2>ट्यूटोरियल</2> देखें",
     "description.zhipuFreeAPIKey": "वैकल्पिक, यदि आप रिक्त स्थान नहीं भरते हैं, तो डिफ़ॉल्ट इमर्सिव ट्रांसलेट और glm-4-फ़्लैश का उपयोग करना है जो <1>बिगमॉडल</1> द्वारा निःशुल्क प्रदान किया जाता है, यदि आप अपनी स्वयं की एपीआई कुंजी का उपयोग करना चाहते हैं , कृपया <2>यह दस्तावेज़</2> देखें।",
     "translationServices.zhipu.introduction": "इमर्सिव ट्रांसलेशन के आधिकारिक भागीदार <होमपेज>\"ज़िपु\"</होमपेज> ने जीएलएम बड़ा मॉडल लॉन्च किया है, और सभी उपयोगकर्ता इसके जीएलएम-4-फ्लैश मॉडल का सीधे मुफ्त में उपयोग कर सकते हैं।",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "छवि का अनुवाद करें/छवि पुनर्स्थापित करें",
     "mangaAndImage": "कॉमिक्स/चित्र",
@@ -4879,7 +4882,9 @@
     "pagination.prev": "पहले का",
     "noData": "कोई डेटा नहीं",
     "terms.notFound": "कोई शब्द नहीं मिला",
-    "compareWithTextTranslate": "अनुवाद सेवाओं की तुलना करें"
+    "compareWithTextTranslate": "अनुवाद सेवाओं की तुलना करें",
+    "youTubeSubtitleRequestLimitErrorDescription": "कृपया YouTube पेज कैश साफ़ करें या प्रॉक्सी नोड बदलें और पुनः प्रयास करें",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ने वर्तमान डिवाइस के लिए उपशीर्षक अनुरोध सीमित कर दिए हैं"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -5620,7 +5625,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "Traduci pagina web / Mostra testo originale",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Facoltativo, se non compilato verrà utilizzata la traduzione immersiva di default e la collaborazione con <1>SiliconFlow</1> per fornire la traduzione del grande modello gratuita.",
+    "description.siliconcloudCustomAPIKey": "I modelli non gratuiti richiedono l'inserimento della chiave API ottenuta da <1>SiliconFlow</1> prima dell'uso.",
     "translationServices.lingyiwanwu.introduction": "La serie Yi di modelli linguistici di grandi dimensioni lanciata da <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Abilita la traduzione di testo formattato",
     "description.enableRichTranslate": "Abilita la traduzione di testo formattato per preservare i link originali e gli stili.",
@@ -5663,7 +5668,6 @@
     "description.zhipuCustomAPIKey": "I modelli non liberi devono compilare la chiave <1>applicata alla piattaforma Wisdom Spectrum </1>per essere disponibili; per i dettagli, consultare il <2>tutorial</2>.",
     "description.zhipuFreeAPIKey": "Opzionale, se non si compila il campo, l'impostazione predefinita prevede l'uso di Immersive Translate e glm-4-flash, forniti gratuitamente da <1>BigModel</1>; se si desidera utilizzare la propria chiave API, fare riferimento a <2>questo documento</2>.",
     "translationServices.zhipu.introduction": "Il partner ufficiale di Immersive Translate <homepage>\"Zhipu\"</homepage> ha lanciato il modello GLM di grandi dimensioni e tutti gli utenti possono utilizzare direttamente e gratuitamente il modello GLM-4-Flash.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Tradurre l'immagine/ripristinare l'immagine",
     "mangaAndImage": "Fumetti/Immagini",
@@ -5848,7 +5852,9 @@
     "pagination.prev": "Precedente",
     "noData": "Nessuna data",
     "terms.notFound": "Nessun termine trovato",
-    "compareWithTextTranslate": "Confronta i servizi di traduzione"
+    "compareWithTextTranslate": "Confronta i servizi di traduzione",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita le richieste di sottotitoli ai dispositivi attuali",
+    "youTubeSubtitleRequestLimitErrorDescription": "Cancellare la cache della pagina YouTube o cambiare il nodo proxy e riprovare."
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -6586,7 +6592,7 @@
     "subtitle.ytAsr": "Alapmondat-optimalizálás a kétnyelvű feliratok immersív fordításához",
     "browser.toggleTranslatePageOfficialPage": "Weboldal lefordítása/eredeti szöveg megjelenítése",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Választható, ha nem töltötted ki, az alapértelmezett immersive fordítás és együttműködés a <1>SiliconFlow</1>-val ingyenes LLM fordítást biztosít.",
+    "description.siliconcloudCustomAPIKey": "A nem ingyenes modellek használatához meg kell adni a <1>SiliconFlow</1>-tól kapott API-kulcsot.",
     "description.temperature": "Mintavételi divergencia, minél kisebb az érték, annál fixebb a generált tartalom. Ha 0-ra van állítva, a modell szinte mindig a legnagyobb valószínűségű tokent választja a generálás során.",
     "reportInfo.ok": "Oké",
     "reportTip": "Visszajelzés",
@@ -6620,7 +6626,6 @@
     "refreshPage": "oldal frissítése",
     "ctxInvalidatedError": "A plugin kontextusa nem működik, kérjük, frissítse az oldalt, és próbálja újra!",
     "reportInfo.emailError": "Helytelen postafiók formátum",
-    "glm-4-flash (free)": "glm-4-flash (Ingyenes)",
     "description.zhipuCustomAPIKey": "A nem ingyenes modelleknek ki kell tölteniük a <1>Wisdom Spectrum platform </1>alkalmazását, hogy a kulcs elérhető legyen, a részletekért lásd a <2>tutorial </2>.",
     "description.zhipuFreeAPIKey": "Opcionális, ha nem tölti ki az üres részt, az alapértelmezett az Immersive Translate és a glm-4-flash használata, amelyet a <1>BigModel</1> ingyenesen biztosít, ha saját API-kulcsot szeretne használni, kérjük, olvassa el <2>ezt a dokumentumot</2>.",
     "mouseHoldKeyPressHold": "+ Tartsa lenyomva a bal klikket",
@@ -7453,7 +7458,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "ترجمة صفحة الويب / عرض النص الأصلي",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "اختياري، إذا لم يتم التعبئة، سيتم استخدام الترجمة الغامرة بشكل افتراضي والتعاون مع <1>SiliconFlow</1> لتوفير ترجمة نموذج كبير مجانية لك.",
+    "description.siliconcloudCustomAPIKey": "تتطلب النماذج غير المجانية إدخال مفتاح API الذي تم الحصول عليه من <1>SiliconFlow</1> قبل الاستخدام.",
     "translationServices.lingyiwanwu.introduction": "سلسلة Yi من نماذج اللغات الكبيرة التي أطلقتها<homepage> 01.AI</homepage> ,",
     "field.enableRichTranslate": "تفعيل الترجمة النصية الغنية",
     "description.enableRichTranslate": "تمكين ترجمة النصوص الغنية للحفاظ على الروابط والأنماط الأصلية",
@@ -7496,7 +7501,6 @@
     "description.zhipuCustomAPIKey": "تحتاج النماذج غير الحرة إلى ملء المفتاح الذي تم طلبه بواسطة <1>Zhipu Platform</1> قبل أن يتم استخدامها للحصول على التفاصيل، يرجى الرجوع إلى <2>البرنامج التعليمي</2>",
     "description.zhipuFreeAPIKey": "اختياري، إذا لم تملأ الفراغ، فإن الخيار الافتراضي هو استخدام الترجمة الشاملة وglm-4-flash الذي يتم توفيره مجانًا بواسطة <1>BigModel</1>، إذا كنت تريد استخدام مفتاح API الخاص بك ، يرجى الرجوع إلى <2>هذه الوثيقة</2>.",
     "translationServices.zhipu.introduction": "أطلق الشريك الرسمي للترجمة الشاملة <homepage>\"Zhipu\"</homepage> نموذج GLM الكبير، ويمكن لجميع المستخدمين استخدام نموذج GLM-4-Flash مجانًا مباشرةً.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ الضغط لفترة طويلة على زر الفأرة الأيسر",
     "browser.translateMangaMenuId": "ترجمة الصورة/استعادة الصورة",
     "image.blockToolsUrls": "مواقع الويب التي تعطل أزرار ترجمة الصور",
@@ -7682,7 +7686,9 @@
     "pagination.prev": "سابق",
     "noData": "لا توجد بيانات",
     "terms.notFound": "لم يتم العثور على أي مصطلحات",
-    "compareWithTextTranslate": "مقارنة خدمات الترجمة"
+    "compareWithTextTranslate": "مقارنة خدمات الترجمة",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 لقد حدد موقع YouTube طلبات الترجمة للجهاز الحالي",
+    "youTubeSubtitleRequestLimitErrorDescription": "يرجى مسح ذاكرة التخزين المؤقت لصفحة YouTube أو تغيير عقدة الوكيل ثم المحاولة مرة أخرى"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -8419,7 +8425,7 @@
     "browser.toggleTranslatePageOfficialPage": "Traduzir página / Mostrar texto original",
     "browser.translateText": "Translate \"{text}\"",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Opcional, se não preenchido, a tradução imersiva padrão e a colaboração com <1>SiliconFlow</1> serão usadas para fornecer a você tradução LLM gratuita.",
+    "description.siliconcloudCustomAPIKey": "Modelos não gratuitos requerem a introdução da chave API obtida em <1>SiliconFlow</1> antes da utilização.",
     "translationServices.lingyiwanwu.introduction": "A série Yi de grandes modelos linguísticos lançada pela <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Ativar tradução de texto rico",
     "description.enableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos.",
@@ -8462,7 +8468,6 @@
     "description.zhipuCustomAPIKey": "Os modelos não gratuitos precisam de preencher a chave <1>plataforma Wisdom Spectrum </1>aplicada para estarem disponíveis, consulte o <2>tutorial</2> para obter mais informações.",
     "description.zhipuFreeAPIKey": "Opcional, se não preencher o espaço em branco, a predefinição é utilizar o Immersive Translate e o glm-4-flash, que é fornecido gratuitamente pela <1>BigModel</1>; se pretender utilizar a sua própria chave de API, consulte <2>este documento</2>.",
     "translationServices.zhipu.introduction": "O parceiro oficial da Immersive Translate <homepage>\"Zhipu\"</homepage> lançou o modelo grande GLM, e todos os utilizadores podem utilizar o seu modelo GLM-4-Flash diretamente e de forma gratuita.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Traduzir imagem/restaurar imagem",
     "imageTools.resetImage": "Show Original",
@@ -8651,7 +8656,9 @@
     "pagination.next": "Próximo",
     "noData": "No data",
     "terms.notFound": "Nenhum termo encontrado",
-    "compareWithTextTranslate": "Comparar serviços de tradução"
+    "compareWithTextTranslate": "Comparar serviços de tradução",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita os pedidos de legendas aos dispositivos actuais",
+    "youTubeSubtitleRequestLimitErrorDescription": "Limpe a cache da página do YouTube ou altere o nó de proxy e tente novamente."
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -9392,7 +9399,7 @@
     "browser.toggleTranslatePageOfficialPage": "ترجمه صفحه وب/نمایش متن اصلی",
     "browser.translateText": "Translate \"{text}\"",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "اختیاری، در صورت عدم پر کردن، به طور پیش فرض از ترجمه غرقابی و همکاری با <1>SiliconFlow</1> برای ارائه ترجمه بزرگ مدل رایگان استفاده می‌شود.",
+    "description.siliconcloudCustomAPIKey": "مدل‌های غیر رایگان قبل از استفاده نیاز به وارد کردن کلید API دریافت شده از <1>SiliconFlow</1> دارند.",
     "translationServices.lingyiwanwu.introduction": "سری Yi از مدل های زبان بزرگ راه اندازی شده توسط<homepage> 01.AI</homepage> ،",
     "field.enableRichTranslate": "فعال کردن ترجمه متن غنی",
     "description.enableRichTranslate": "فعال کردن ترجمه متن غنی برای حفظ لینک‌ها و سبک‌های اصلی",
@@ -9435,7 +9442,6 @@
     "description.zhipuCustomAPIKey": "مدل‌های غیررایگان باید کلید درخواستی را در پلتفرم <1>طیف حکمت</1> پر کنند تا در دسترس باشد، برای جزئیات به <2>آموزش</2> مراجعه کنید.",
     "description.zhipuFreeAPIKey": "اختیاری است، اگر جای خالی را پر نکنید، اگر می‌خواهید از کلید API خودتان استفاده کنید، پیش‌فرض استفاده از Immersive Translate و glm-4-flash است که به‌طور رایگان توسط <1>BigModel</1> ارائه می‌شود. لطفاً به <2>این سند</2> مراجعه کنید.",
     "translationServices.zhipu.introduction": "شریک رسمی Immersive Translate <homepage>\"Zhipu\"</homepage> مدل بزرگ GLM را راه اندازی کرده است و همه کاربران می توانند مستقیماً از مدل GLM-4-Flash آن به صورت رایگان استفاده کنند.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ دکمه سمت چپ ماوس را طولانی فشار دهید",
     "browser.translateMangaMenuId": "ترجمه تصویر/بازیابی تصویر",
     "imageTools.resetImage": "Show Original",
@@ -9621,7 +9627,9 @@
     "pagination.next": "بعدی",
     "noData": "داده ای وجود ندارد",
     "terms.notFound": "هیچ عبارتی یافت نشد",
-    "compareWithTextTranslate": "مقایسه خدمات ترجمه"
+    "compareWithTextTranslate": "مقایسه خدمات ترجمه",
+    "youTubeSubtitleRequestLimitErrorDescription": "لطفاً حافظه پنهان صفحه YouTube را پاک کنید یا گره پروکسی را تغییر دهید و دوباره امتحان کنید",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube درخواست‌های زیرنویس محدودی برای دستگاه فعلی دارد"
   },
   "zh-CN": {
     "nologin": "未登录",
@@ -10465,7 +10473,6 @@
     "ctxInvalidatedError": "插件上下文失效请刷新页面重试",
     "reportInfo.email": "邮箱",
     "reportInfo.emailError": "邮箱格式不正确",
-    "glm-4-flash (free)": "glm-4-flash (免费)",
     "translateSuccess": "翻译成功",
     "translateFail": "翻译失败",
     "closeImageTools.title": "关闭图片翻译",
@@ -10619,7 +10626,9 @@
     "pagination.prev": "上一页",
     "pagination.next": "下一页",
     "noData": "暂无数据",
-    "compareWithTextTranslate": "对比不同翻译服务"
+    "compareWithTextTranslate": "对比不同翻译服务",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了当前设备的字幕请求",
+    "youTubeSubtitleRequestLimitErrorDescription": "请清除 YouTube 页面缓存或更换代理节点后再重试"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -11360,7 +11369,7 @@
     "browser.toggleTranslatePageOfficialPage": "Перевести веб-страницу / Показать оригинал",
     "browser.translateText": "Translate \"{text}\"",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Опционально, если не заполнено, то по умолчанию используется погруженный перевод и сотрудничество с <1>SiliconFlow</1> для предоставления вам бесплатного перевода большой модели.",
+    "description.siliconcloudCustomAPIKey": "Для использования платных моделей необходимо ввести API-ключ, полученный от <1>SiliconFlow</1>.",
     "translationServices.lingyiwanwu.introduction": "Серия больших языковых моделей Yi, выпущенная компанией <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Включить перевод с форматированием текста",
     "description.enableRichTranslate": "Включите перевод с форматированием, чтобы сохранить оригинальные ссылки и стили.",
@@ -11403,7 +11412,6 @@
     "description.zhipuCustomAPIKey": "Для получения доступа к несвободным моделям необходимо заполнить ключ <1>Wisdom Spectrum platform </1>applied, подробности см. в <2>tutorial</2>.",
     "description.zhipuFreeAPIKey": "Необязательно, если вы не заполняете это поле, по умолчанию используется Immersive Translate и glm-4-flash, которые бесплатно предоставляются <1>BigModel</1>, если вы хотите использовать собственный ключ API, обратитесь к <2>этому документу</2>.",
     "translationServices.zhipu.introduction": "Официальный партнер Immersive Translate <homepage>\"Zhipu\"<//homepage> запустил большую модель GLM, и все пользователи могут бесплатно использовать ее модель GLM-4-Flash.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Перевести изображение/восстановить изображение",
     "translateSuccess": "Success",
@@ -11588,7 +11596,9 @@
     "pagination.next": "Следующий",
     "noData": "Нет даты",
     "terms.notFound": "Термины не найдены",
-    "compareWithTextTranslate": "Сравните услуги перевода"
+    "compareWithTextTranslate": "Сравните услуги перевода",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ограничивает запросы субтитров текущими устройствами",
+    "youTubeSubtitleRequestLimitErrorDescription": "Пожалуйста, очистите кэш страницы YouTube или измените узел прокси и попробуйте снова."
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -12329,7 +12339,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "ウェブページを翻訳/原文を表示",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "オプション、未記入の場合はデフォルトで没入型翻訳と<1>SiliconFlow</1>との協力により提供される無料の大規模モデル翻訳を使用します。",
+    "description.siliconcloudCustomAPIKey": "非無料モデルは<1>SiliconFlow</1>で申請したキーを入力しないと利用できません。",
     "translationServices.lingyiwanwu.introduction": "<homepage>01.AI</homepage>が発表した大型言語モデルYiシリーズ、",
     "field.enableRichTranslate": "リッチテキスト翻訳を有効にする",
     "description.enableRichTranslate": "リッチテキスト翻訳を有効にして、元のリンクとスタイルを保持します",
@@ -12372,7 +12382,6 @@
     "description.zhipuFreeAPIKey": "オプション、空欄の場合、デフォルトでは<1>BigModel</1>が無償で提供するImmersive Translateとglm-4-flashが使用されます、独自のAPI Keyを使用したい場合は<2>このドキュメント</2>を参照してください。",
     "description.zhipuCustomAPIKey": "非フリーモデルは、<1>ウィズダムスペクトラムプラットフォーム</1>適用キーを記入する必要があります。詳細は<2>チュートリアル</2>を参照してください。",
     "translationServices.zhipu.introduction": "Immersive Translateの公式パートナー<homepage>\"Zhipu\"</homepage>はGLMの大型モデルを発表し、すべてのユーザーはGLM-4-Flashモデルを直接無料で使用することができます。",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ 左クリック長押し",
     "browser.translateMangaMenuId": "画像の翻訳/画像の復元",
     "imageTools.translateImage": "Translate Image",
@@ -12558,7 +12567,9 @@
     "pagination.prev": "前へ",
     "noData": "日付なし",
     "terms.notFound": "条件が見つかりません",
-    "compareWithTextTranslate": "翻訳サービスの比較"
+    "compareWithTextTranslate": "翻訳サービスの比較",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTubeが字幕要求を現在のデバイスに制限",
+    "youTubeSubtitleRequestLimitErrorDescription": "YouTubeページのキャッシュをクリアするか、プロキシノードを変更して再度お試しください。"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -13300,7 +13311,7 @@
     "onlyProUseProTooltip": "‫זמין רק לפרו, <1>שדרג כעת</1>‬",
     "browser.toggleTranslatePageOfficialPage": "‫תרגם עמוד⁦/⁩הצג מקור‬",
     "translationServices.lingyiwanwu": "‫⁦01.AI⁩‬",
-    "description.siliconcloudCustomAPIKey": "אופציונלי, אם לא ימולא, התרגום הטבול והשיתוף פעולה עם <1>SiliconFlow</1> ישמשו כברירת מחדל לספק לך תרגום LLM חינם.",
+    "description.siliconcloudCustomAPIKey": "מודלים שאינם בחינם דורשים הזנת מפתח ה-API שהתקבל מ-<1>SiliconFlow</1> לפני השימוש.",
     "field.enableRichTranslate": "‫אפשר תרגום עשיר (קישורים וסגנון)‬",
     "description.enableRichTranslate": "‫שומר על קישורים וסגנון בטקסט המתורגם‬",
     "description.aiDualEnableRichTranslate": "‫במצב דו⁦-⁩לשוני עם ⁦AI⁩, אפשר לשמור על סגנון, אך עלול להשפיע על האיכות⁦.⁩‬",
@@ -13382,7 +13393,6 @@
     "reportInfo.emailError": "תבנית תיבת דואר שגויה",
     "ctxInvalidatedError": "הקשר התוסף לא עובד אנא רענן את הדף ונסה שוב!",
     "reportInfo.email": "דואר אלקטרוני",
-    "glm-4-flash (free)": "GLM-4-פלאש (חינם)",
     "applyUseContextTranslate": "תרגום הקשר מוחל",
     "contextDiffPreview": "<1>השוואת תרגום</1>",
     "description.enableAIContextTip": "הערה: הפעלת תרגום הקשר תשתמש פי 1-2 יותר אסימונים.",
@@ -13533,7 +13543,9 @@
     "pagination.next": "הבא",
     "noData": "אין נתונים",
     "terms.notFound": "לא נמצאו מונחים",
-    "compareWithTextTranslate": "השווה בין שירותי תרגום"
+    "compareWithTextTranslate": "השווה בין שירותי תרגום",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube חונק בקשות כתוביות למכשיר הנוכחי",
+    "youTubeSubtitleRequestLimitErrorDescription": "אנא נקה את מטמון דף YouTube או החלף את צומת ה-proxy לפני שתנסה שוב"
   },
   "es": {
     "nologin": "no conectado",
@@ -14274,7 +14286,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "Traducir página web/Mostrar texto original",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Opcional, si no se completa, se utilizará por defecto la traducción inmersiva y la colaboración con <1>SiliconFlow</1> para proporcionarle la traducción de modelos grandes gratuita.",
+    "description.siliconcloudCustomAPIKey": "Los modelos no gratuitos requieren ingresar la clave API obtenida de <1>SiliconFlow</1> antes de su uso.",
     "translationServices.lingyiwanwu.introduction": "La serie Yi de grandes modelos lingüísticos lanzada por <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Habilitar la traducción de texto enriquecido",
     "description.enableRichTranslate": "Habilita la traducción de texto enriquecido para preservar los enlaces y estilos originales.",
@@ -14317,7 +14329,6 @@
     "description.zhipuCustomAPIKey": "Los modelos no libres necesitan rellenar la <1>plataforma Wisdom Spectrum </1>clave aplicada para estar disponibles, por favor consulte el <2>tutorial</2> para más detalles.",
     "description.zhipuFreeAPIKey": "Opcional, si no rellena el espacio en blanco, por defecto se utiliza Immersive Translate y glm-4-flash que es proporcionado gratuitamente por <1>BigModel</1>, si desea utilizar su propia API Key, por favor consulte <2>este documento</2>.",
     "translationServices.zhipu.introduction": "El socio oficial de Immersive Translate <homepage>\"Zhipu\"</homepage> ha lanzado el modelo de gran tamaño GLM, y todos los usuarios pueden utilizar su modelo GLM-4-Flash de forma gratuita directamente.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Pulsación larga del botón izquierdo del ratón",
     "browser.translateMangaMenuId": "Traducir imagen/restaurar imagen",
     "imageTools.resetImage": "Show Original",
@@ -14503,7 +14514,9 @@
     "pagination.next": "Siguiente",
     "noData": "Sin fecha",
     "terms.notFound": "No se han encontrado términos",
-    "compareWithTextTranslate": "Comparar servicios de traducción"
+    "compareWithTextTranslate": "Comparar servicios de traducción",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita las solicitudes de subtítulos a los dispositivos actuales",
+    "youTubeSubtitleRequestLimitErrorDescription": "Por favor, borra la caché de la página de YouTube o cambia el nodo proxy e inténtalo de nuevo."
   },
   "fr": {
     "nologin": "non connecté",
@@ -15244,7 +15257,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "Traduire la page web / Afficher le texte original",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Facultatif, si non renseigné, l'utilisation par défaut de la traduction immersive et la collaboration avec <1>SiliconFlow</1> vous fournissent une traduction de grand modèle gratuite.",
+    "description.siliconcloudCustomAPIKey": "Les modèles non gratuits nécessitent de saisir la clé API obtenue auprès de <1>SiliconFlow</1> avant utilisation.",
     "translationServices.lingyiwanwu.introduction": "La série Yi de grands modèles linguistiques lancée par <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Activer la traduction de texte riche",
     "description.enableRichTranslate": "Activer la traduction de texte enrichi pour préserver les liens et styles originaux.",
@@ -15287,7 +15300,6 @@
     "description.zhipuCustomAPIKey": "Les modèles non libres doivent remplir la clé <1>Plateforme Spectre de Sagesse </1>appliquée pour être disponibles, veuillez vous référer au <2>tutorial</2> pour plus de détails.",
     "description.zhipuFreeAPIKey": "Facultatif, si vous ne remplissez pas le champ, le défaut est d'utiliser Immersive Translate et glm-4-flash qui est fourni gratuitement par <1>BigModel</1>, si vous voulez utiliser votre propre clé API, veuillez vous référer à <2>ce document</2>.",
     "translationServices.zhipu.introduction": "Le partenaire officiel d'Immersive Translate, <homepage>\"Zhipu\"</homepage>, a lancé le grand modèle GLM, et tous les utilisateurs peuvent utiliser directement et gratuitement son modèle GLM-4-Flash.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Traduire l'image/restaurer l'image",
     "translateSuccess": "Success",
@@ -15473,7 +15485,9 @@
     "pagination.prev": "Précédent",
     "noData": "Pas de date",
     "terms.notFound": "Aucun terme trouvé",
-    "compareWithTextTranslate": "Comparer les services de traduction"
+    "compareWithTextTranslate": "Comparer les services de traduction",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limite les demandes de sous-titres aux appareils actuels",
+    "youTubeSubtitleRequestLimitErrorDescription": "Veuillez vider le cache de la page YouTube ou changer le nœud du proxy et réessayer."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -16212,7 +16226,7 @@
     "browser.translateText": "Translate \"{text}\"",
     "browser.toggleTranslatePageOfficialPage": "Traduzir página / Mostrar texto original",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Opcional, se não preenchido, a tradução imersiva padrão e a colaboração com <1>SiliconFlow</1> serão usadas para fornecer a você tradução LLM gratuita.",
+    "description.siliconcloudCustomAPIKey": "Modelos não gratuitos requerem a inserção da chave de API obtida do <1>SiliconFlow</1> antes do uso.",
     "translationServices.lingyiwanwu.introduction": "A série Yi de grandes modelos de idiomas lançada pela <homepage>01.AI</homepage>,",
     "field.enableRichTranslate": "Ativar tradução de texto rico",
     "description.enableRichTranslate": "Ative a tradução de texto rico para preservar os links originais e estilos.",
@@ -16255,7 +16269,6 @@
     "description.zhipuCustomAPIKey": "Os modelos não gratuitos precisam preencher a chave <1>plataforma Wisdom Spectrum </1>aplicada para estarem disponíveis; consulte o <2>tutorial</2> para obter detalhes.",
     "description.zhipuFreeAPIKey": "Opcional, se você não preencher o espaço em branco, o padrão é usar o Immersive Translate e o glm-4-flash, que é fornecido gratuitamente pela <1>BigModel</1>; se você quiser usar sua própria chave de API, consulte <2>este documento</2>.",
     "translationServices.zhipu.introduction": "O parceiro oficial do Immersive Translate <homepage>\"Zhipu\"</homepage> lançou o modelo grande GLM, e todos os usuários podem usar seu modelo GLM-4-Flash diretamente e de graça.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Hold left click",
     "browser.translateMangaMenuId": "Traduzir imagem/restaurar imagem",
     "imageTools.translateImage": "Translate Image",
@@ -16444,7 +16457,9 @@
     "noData": "No data",
     "terms.notFound": "Nenhum termo encontrado",
     "compareWithTextTranslate": "Comparar serviços de tradução",
-    "terms.addCustomTooltip": "Os Termos de IA suportam apenas serviços de tradução de IA,\nPara mais detalhes, consulte <a target='_blank' href='https://immersivetranslate.com/en/docs/faq/#4-is-there-a-glossary--special-translation-or-non-translation-for-certain-terms'>aqui</a>"
+    "terms.addCustomTooltip": "Os Termos de IA suportam apenas serviços de tradução de IA,\nPara mais detalhes, consulte <a target='_blank' href='https://immersivetranslate.com/en/docs/faq/#4-is-there-a-glossary--special-translation-or-non-translation-for-certain-terms'>aqui</a>",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita as solicitações de legendas aos dispositivos atuais",
+    "youTubeSubtitleRequestLimitErrorDescription": "Limpe o cache da página do YouTube ou altere o nó do proxy e tente novamente."
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -17184,7 +17199,7 @@
     "browser.toggleTranslatePageOfficialPage": "Webseite übersetzen/Originaltext anzeigen",
     "browser.translateText": "Translate \"{text}\"",
     "translationServices.lingyiwanwu": "01.AI",
-    "description.siliconcloudCustomAPIKey": "Optional, wenn nicht ausgefüllt, wird standardmäßig die immersive Übersetzung verwendet und in Zusammenarbeit mit <1>SiliconFlow</1> wird Ihnen eine kostenlose Großmodellübersetzung zur Verfügung gestellt.",
+    "description.siliconcloudCustomAPIKey": "Nicht kostenlose Modelle erfordern die Eingabe des von <1>SiliconFlow</1> erhaltenen API-Schlüssels vor der Nutzung.",
     "translationServices.lingyiwanwu.introduction": "Die Yi-Reihe der großen Sprachmodelle, die von <homepage>01.AI</homepage> eingeführt wurde,",
     "field.enableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung.",
     "description.enableRichTranslate": "Aktivieren Sie die Rich-Text-Übersetzung, um ursprüngliche Links und Stile zu bewahren.",
@@ -17227,7 +17242,6 @@
     "description.zhipuCustomAPIKey": "Nicht-freie Modelle müssen den <1>Wisdom Spectrum Plattform </1>angewandten Schlüssel ausfüllen, um verfügbar zu sein, bitte lesen Sie das <2>Tutorial</2> für Details.",
     "description.zhipuFreeAPIKey": "Optional, wenn Sie das Feld nicht ausfüllen, wird standardmäßig Immersive Translate und glm-4-flash verwendet, das von <1>BigModel</1> kostenlos zur Verfügung gestellt wird. Wenn Sie Ihren eigenen API-Schlüssel verwenden möchten, lesen Sie bitte <2>dieses Dokument</2>.",
     "translationServices.zhipu.introduction": "Der offizielle Partner von Immersive Translate <homepage>\"Zhipu\"</homepage> hat das große GLM-Modell auf den Markt gebracht, und alle Nutzer können sein GLM-4-Flash-Modell direkt und kostenlos nutzen.",
-    "glm-4-flash (free)": "glm-4-flash (Free)",
     "mouseHoldKeyPressHold": "+ Langes Drücken der linken Maustaste",
     "browser.translateMangaMenuId": "Bild übersetzen/Bild wiederherstellen",
     "image.imageTranslate": "Pro Image Translation (Beta)",
@@ -17413,6 +17427,8 @@
     "pagination.next": "Weiter",
     "noData": "Kein Datum",
     "terms.notFound": "Keine Begriffe gefunden",
-    "compareWithTextTranslate": "Übersetzungsdienste vergleichen"
+    "compareWithTextTranslate": "Übersetzungsdienste vergleichen",
+    "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube begrenzt Untertitelanfragen auf aktuelle Geräte",
+    "youTubeSubtitleRequestLimitErrorDescription": "Bitte löschen Sie den Cache der YouTube-Seite oder ändern Sie den Proxy-Knoten und versuchen Sie es erneut."
   }
 }

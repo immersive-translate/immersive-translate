@@ -83,6 +83,7 @@
   font-weight: 600;
   line-height: 28px;
   text-align: left;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 750px) {

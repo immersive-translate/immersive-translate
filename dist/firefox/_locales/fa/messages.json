@@ -1,9 +1,9 @@
 {
   "shortBrandName": {
-    "message": "Immersive Translate"
+    "message": "ترجمه همه جانبه"
   },
   "brandName": {
-    "message": "ترجمه همه‌جانبه"
+    "message": "ترجمه همه‌جانبه - ترجمه وب و پی‌دی‌اف"
   },
   "brandDescription": {
     "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
@@ -15,7 +15,7 @@
     "message": "ترجمه تمام برگه/نمایش متن اصلی"
   },
   "toggleOnlyTransation": {
-    "message": "تغییر به حالت دوزبانه / فقط متن ترجمه شده"
+    "message": "به /حالت فقط ترجمه بروید"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "از انتهای برگه ترجمه کنید/نمایش متن اصلی"
@@ -48,7 +48,7 @@
     "message": "翻译本地 HTML 文件"
   },
   "translateLocalSubtitleFile": {
-    "message": "فایل های زیرنویس محلی را ترجمه کنید"
+    "message": "ترجمه فایل های زیرنویس محلی"
   },
   "openAboutPage": {
     "message": "关于/反馈/赞助"
@@ -90,7 +90,7 @@
     "message": "ترجمه متن"
   },
   "translateWithClaude": {
-    "message": "به طور موقت از Claude برای ترجمه صفحه فعلی استفاده کنید"
+    "message": "به طور موقت از Claude برای ترجمه صفحه فعلی استفاده کنید."
   },
   "toggleTranslatePageOfficialPage": {
     "message": "ترجمه صفحه وب/نمایش متن اصلی"

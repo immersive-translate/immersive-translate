@@ -3,13 +3,13 @@
     "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "ترجمة غامرة: ترجمة صفحات الويب ثنائية اللغة وترجمة مستندات PDF"
+    "message": "Immersive Translate - Translate Web & PDF"
   },
   "brandDescription": {
     "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
-    "message": "ترجم إلى {targetLanguage}"
+    "message": "ترجم إلى {العربية}"
   },
   "toggleTranslateTheWholePage": {
     "message": "ترجمة جميع مناطق الصفحة/عرض النص الأصلي"

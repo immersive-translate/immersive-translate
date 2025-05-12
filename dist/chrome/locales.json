@@ -557,7 +557,7 @@
     "subtitle.quickButton.black": "черный",
     "subtitle.quickButton.sourceTextColor": "Исходный цвет шрифта",
     "subtitle.quickButton.backgroundOpacity": "Фоновая непрозрачность",
-    "attachSubtitleTranslating": "Используя {service} для перевода...",
+    "attachSubtitleTranslating": "Перевод с использованием {service}... (Immersive Translate)",
     "error.claude.403": "Временно нет доступа к сервису, возможно, это связано с региональными ограничениями Клода. Вы можете попробовать изменить свой IP-адрес или использовать другие переводческие услуги.",
     "browser.brandDescriptionForSafari": "Бесплатный плагин для двуязычного перевода веб-страниц (оригинал/перевод), поддерживающий перевод PDF и перевод электронных книг EPUB с сохранением оригинального форматирования документа, перевод двуязычных субтитров для онлайн-видео на YouTube/Netflix, поддерживающий основные сервисы перевода, такие как Deepl/Google и так далее",
     "browser.PdfProFile": "Перевод PDF Pro, управляемый AI",
@@ -758,7 +758,6 @@
     "aiAssistant.promptDetails": "Предложение",
     "aiAssistant.autoEnableAssistant": "Автоматическое привлечение экспертов по искусственному интеллекту",
     "tempChangeTransToService": "Перевод текущей страницы с помощью {service}",
-    "trustTypeError": "Этот сайт не позволяет пользовательскому скрипту предоставлять двуязычные субтитры. Рекомендуется использовать расширение.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Обновить",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -968,7 +967,8 @@
     "compareWithTextTranslate": "Сравните услуги перевода",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ограничивает запросы субтитров текущими устройствами",
     "youTubeSubtitleRequestLimitErrorDescription": "Пожалуйста, очистите кэш страницы YouTube или измените узел прокси и попробуйте снова.",
-    "subtitle.requestAiSubtitle429Tip": "Месячная квота на субтитры AI(Beta) исчерпана"
+    "subtitle.requestAiSubtitle429Tip": "Месячная квота на субтитры AI(Beta) исчерпана",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Двуязычные субтитры с поддержкой Immersive Translate ]."
   },
   "en": {
     "nologin": "Not logged in",
@@ -1527,7 +1527,6 @@
     "subtitle.quickButton.translationPositionTop": "Above the original text",
     "subtitle.quickButton.translationTextColor": "Translation font color",
     "subtitle.quickButton.magenta": "Magenta",
-    "attachSubtitleTranslating": "Translating using {service}...",
     "error.claude.403": "Access to the service is temporarily unavailable, possibly due to regional restrictions related to Claude. You can try changing your IP address, or use other translation services.",
     "browser.brandDescriptionForSafari": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual",
     "browser.PdfProFile": "AI-Driven PDF Pro Translation",
@@ -1738,7 +1737,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Automatically enable AI experts",
     "tempChangeTransToService": "Translating the current page using {service}",
-    "trustTypeError": "This site does not allow user script to provide bilingual subtitles. It is recommended to use the extension.",
     "floatBallOptions.disable": "Disable floating ball",
     "popup.upgrade": "Upgrade",
     "widget.webReport": "Feedback on current page translations",
@@ -1940,7 +1938,9 @@
     "terms.notFound": "No terms found",
     "compareWithTextTranslate": "Compare translation services",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limits subtitle requests to current devices",
-    "youTubeSubtitleRequestLimitErrorDescription": "Please clear the YouTube page cache or change the proxy node and try again."
+    "youTubeSubtitleRequestLimitErrorDescription": "Please clear the YouTube page cache or change the proxy node and try again.",
+    "attachSubtitleTranslating": "Translating using {service}... (Immersive Translate)",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Bilingual subtitles supported by Immersive Translate ]"
   },
   "arz": {},
   "hi": {
@@ -2501,7 +2501,7 @@
     "subtitle.quickButton.backgroundOpacity": "पृष्ठभूमि अपारदर्शिता",
     "subtitle.quickButton.translationFontSize": "अनुवाद फ़ॉन्ट का आकार",
     "subtitle.quickButton.translationTextColor": "अनुवाद फ़ॉन्ट का रंग",
-    "attachSubtitleTranslating": "{service} का उपयोग करके अनुवाद कर रहा है...",
+    "attachSubtitleTranslating": "{service} का उपयोग करके अनुवाद किया जा रहा है... (इमर्सिव अनुवाद)",
     "error.claude.403": "सेवा तक पहुंच का कोई अधिकार नहीं है, यह Claude की क्षेत्रीय सीमाओं से संबंधित हो सकता है, आप अपना IP पता बदलने का प्रयास कर सकते हैं, या अन्य अनुवाद सेवाओं का उपयोग कर सकते हैं।",
     "browser.brandDescriptionForSafari": "【इमर्सिव अनुवाद】 एक मुफ्त (मूल / अनुवाद) द्विभाषी वेबपेज अनुवाद प्लगइन, जो समय-समय पर PDF अनुवाद और EPUB ई-बुक अनुवाद का समर्थन करता है और मूल दस्तावेज़ की विन्यास को बनाए रखता है, YouTube/Netflix आदि ऑनलाइन वीडियो द्विभाषी उपशीर्षक अनुवाद, Deepl/Google आदि प्रमुख अनुवाद सेवाओं का समर्थन करता है;",
     "browser.PdfProFile": "AI संचालित PDF Pro अनुवाद",
@@ -2702,7 +2702,6 @@
     "aiAssistant.promptDetails": "शीघ्र शब्द",
     "aiAssistant.autoEnableAssistant": "AI विशेषज्ञों को स्वचालित रूप से सक्षम करें",
     "tempChangeTransToService": "{service} का उपयोग करके वर्तमान पृष्ठ का अनुवाद करना",
-    "trustTypeError": "यह साइट उपयोगकर्ता स्क्रिप्ट को द्विभाषी उपशीर्षक प्रदान करने की अनुमति नहीं देती है। एक्सटेंशन का उपयोग करने की अनुशंसा की जाती है.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -2912,7 +2911,8 @@
     "compareWithTextTranslate": "अनुवाद सेवाओं की तुलना करें",
     "youTubeSubtitleRequestLimitErrorDescription": "कृपया YouTube पेज कैश साफ़ करें या प्रॉक्सी नोड बदलें और पुनः प्रयास करें",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ने वर्तमान डिवाइस के लिए उपशीर्षक अनुरोध सीमित कर दिए हैं",
-    "subtitle.requestAiSubtitle429Tip": "AI उपशीर्षक (बीटा) का मासिक कोटा समाप्त हो गया है"
+    "subtitle.requestAiSubtitle429Tip": "AI उपशीर्षक (बीटा) का मासिक कोटा समाप्त हो गया है",
+    "attachSubtitle.supportByImmersiveTranslate": "[ इमर्सिव ट्रांसलेट द्वारा समर्थित द्विभाषी उपशीर्षक ]"
   },
   "uk": {},
   "fr": {
@@ -3473,7 +3473,7 @@
     "subtitle.quickButton.cyan": "Bleu",
     "subtitle.quickButton.backgroundOpacity": "Opacité de l'arrière-plan",
     "subtitle.quickButton.translationPositionBottom": "在原文下方",
-    "attachSubtitleTranslating": "Utilisation de {service} pour la traduction en cours...",
+    "attachSubtitleTranslating": "Traduire en utilisant {service}... (Immersive Translate)",
     "error.claude.403": "Accès temporairement interdit au service, cela peut être lié aux restrictions régionales de Claude. Vous pouvez essayer de changer votre adresse IP ou utiliser un autre service de traduction.",
     "browser.brandDescriptionForSafari": "【Traduction immersive】Un plugin de traduction de pages web bilingue gratuit (texte original / traduction), qui supporte également la traduction de PDF et de livres électroniques EPUB tout en conservant la mise en page originale, la traduction de sous-titres bilingues pour des vidéos en ligne comme YouTube/Netflix, et qui supporte les services de traduction principaux tels que Deepl/Google;",
     "browser.PdfProFile": "AI piloté PDF Pro traduction",
@@ -3674,7 +3674,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Activer automatiquement les experts en IA",
     "tempChangeTransToService": "Traduire la page actuelle en utilisant {service}",
-    "trustTypeError": "Ce site ne permet pas de script utilisateur pour fournir des sous-titres bilingues. Il est recommandé d'utiliser l'extension.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -3885,7 +3884,8 @@
     "compareWithTextTranslate": "Comparer les services de traduction",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limite les demandes de sous-titres aux appareils actuels",
     "youTubeSubtitleRequestLimitErrorDescription": "Veuillez vider le cache de la page YouTube ou changer le nœud du proxy et réessayer.",
-    "subtitle.requestAiSubtitle429Tip": "Le quota mensuel de sous-titres AI (Beta) est épuisé"
+    "subtitle.requestAiSubtitle429Tip": "Le quota mensuel de sous-titres AI (Beta) est épuisé",
+    "attachSubtitle.supportByImmersiveTranslate": "[Sous-titres bilingues pris en charge par Immersive Translate ]"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -4450,7 +4450,7 @@
     "subtitle.quickButton.translationPositionTop": "Acima do texto original",
     "subtitle.quickButton.translationTextColor": "Cor da fonte da tradução",
     "subtitle.quickButton.magenta": "Magenta",
-    "attachSubtitleTranslating": "Traduzindo usando {service}...",
+    "attachSubtitleTranslating": "Traduzindo usando {service}... (Immersive Translate)",
     "error.claude.403": "O acesso ao serviço está temporariamente indisponível, possivelmente devido a restrições regionais relacionadas ao Claude. Você pode tentar alterar seu endereço IP ou usar outros serviços de tradução.",
     "browser.brandDescriptionForSafari": "Tradução gratuita de sites, PDF e e-books Epub, tradução de legendas de vídeo em modo bilíngue.",
     "browser.PdfProFile": "Tradução Pro de PDF com IA",
@@ -4653,7 +4653,6 @@
     "aiAssistant.promptDetails": "pista",
     "aiAssistant.autoEnableAssistant": "Ativar automaticamente os especialistas em IA",
     "tempChangeTransToService": "Traduzir a página atual usando {service}",
-    "trustTypeError": "Este site não permite que o script do usuário forneça legendas bilíngues. Recomenda-se usar a extensão.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -4867,7 +4866,8 @@
     "terms.addCustomTooltip": "Os Termos de IA suportam apenas serviços de tradução de IA,\nPara mais detalhes, consulte <a target='_blank' href='https://immersivetranslate.com/en/docs/faq/#4-is-there-a-glossary--special-translation-or-non-translation-for-certain-terms'>aqui</a>",
     "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita as solicitações de legendas aos dispositivos atuais",
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe o cache da página do YouTube ou altere o nó do proxy e tente novamente.",
-    "subtitle.requestAiSubtitle429Tip": "A cota mensal de legendas AI (Beta) foi esgotada"
+    "subtitle.requestAiSubtitle429Tip": "A cota mensal de legendas AI (Beta) foi esgotada",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilíngues suportadas pelo Immersive Translate ]."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -5427,7 +5427,7 @@
     "subtitle.quickButton.translationFontSize": "번역 글자 크기",
     "subtitle.quickButton.sourceFontSize": "원래 글꼴 크기",
     "subtitle.quickButton.blue": "파란색",
-    "attachSubtitleTranslating": "{service}를 사용하여 번역 중...",
+    "attachSubtitleTranslating": "{service}를 사용하여 번역 중... (Immersive Translate)",
     "error.claude.403": "서비스에 액세스 할 권한이 없습니다. 이는 Claude의 지역 제한과 관련이 있을 수 있습니다. IP 주소를 변경하거나 다른 번역 서비스를 사용해 보십시오.",
     "browser.brandDescriptionForSafari": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. YouTube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다.",
     "browser.PdfProFile": "AI가 구동하는 PDF Pro 번역",
@@ -5628,7 +5628,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "AI 전문가 자동 지원",
     "tempChangeTransToService": "현재 페이지를 {service}를 사용하여 번역 중입니다",
-    "trustTypeError": "이 사이트에서는 사용자 스크립트가 이중 언어 자막을 제공하는 것을 허용하지 않습니다. 확장 프로그램을 사용하는 것이 좋습니다.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -5838,7 +5837,8 @@
     "compareWithTextTranslate": "번역 서비스 비교",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube는 자막 요청을 현재 기기로 제한합니다.",
     "youTubeSubtitleRequestLimitErrorDescription": "YouTube 페이지 캐시를 지우거나 프록시 노드를 변경한 후 다시 시도하세요.",
-    "subtitle.requestAiSubtitle429Tip": "AI 자막(베타) 월별 할당량이 모두 사용되었습니다."
+    "subtitle.requestAiSubtitle429Tip": "AI 자막(베타) 월별 할당량이 모두 사용되었습니다.",
+    "attachSubtitle.supportByImmersiveTranslate": "[몰입형 번역에서 지원하는 이중 언어 자막 ]"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -5860,7 +5860,7 @@
     "browser.shortBrandName": "Immersive Translate",
     "browser.brandName": "Immersive Translate - Translate Web & PDF",
     "browser.brandDescription": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use.",
-    "browser.toggleTranslatePage": "ترجم إلى {العربية}",
+    "browser.toggleTranslatePage": "ترجم إلى {targetLanguage}",
     "browser.toggleTranslateTheWholePage": "ترجمة جميع مناطق الصفحة/عرض النص الأصلي",
     "browser.toggleOnlyTransation": "تبديل الوضع ثنائي اللغة / الترجمة فقط",
     "browser.toggleTranslateToThePageEndImmediately": "ترجمة فورية إلى أسفل الصفحة/إظهار النص الأصلي",
@@ -6398,7 +6398,7 @@
     "subtitle.quickButton.sourceFontSize": "حجم الخط الأصلي",
     "subtitle.quickButton.blue": "اللون الأزرق",
     "subtitle.quickButton.translationFontSize": "حجم خط النص المترجم",
-    "attachSubtitleTranslating": "استخدم {service} للترجمة...",
+    "attachSubtitleTranslating": "الترجمة باستخدام {service}... (ترجمة غامرة)",
     "error.claude.403": "لا توجد صلاحية مؤقتة للوصول إلى الخدمة، قد يكون ذلك مرتبطًا بالقيود الجغرافية لـ Claude ، يمكنك محاولة تغيير عنوان IP الخاص بك ، أو استخدام خدمات الترجمة الأخرى.",
     "browser.brandDescriptionForSafari": "【الترجمة الغامرة】 إضافة مجانية لترجمة الصفحات الثنائية اللغة (النص الأصلي / الترجمة)، تدعم في الوقت نفسه ترجمة PDF وترجمة الكتب الإلكترونية EPUB مع الحفاظ على تنسيق الوثيقة الأصلية، ترجمة الترجمات الثنائية اللغة للفيديوهات على الإنترنت مثل YouTube/Netflix، تدعم خدمات الترجمة الرئيسية مثل Deepl/Google؛",
     "browser.PdfProFile": "ترجمة PDF Pro بدعم من الذكاء الاصطناعي",
@@ -6599,7 +6599,6 @@
     "aiAssistant.promptDetails": "كلمة سريعة",
     "aiAssistant.autoEnableAssistant": "تمكين خبراء الذكاء الاصطناعي تلقائيًا",
     "tempChangeTransToService": "استخدام {service} لترجمة الصفحة الحالية",
-    "trustTypeError": "لا يسمح هذا الموقع للبرنامج النصي للمستخدم بتوفير ترجمات ثنائية اللغة. يوصى باستخدام الامتداد.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -6810,7 +6809,8 @@
     "compareWithTextTranslate": "مقارنة خدمات الترجمة",
     "youTubeSubtitleRequestLimitErrorTitle": "429 لقد حدد موقع YouTube طلبات الترجمة للجهاز الحالي",
     "youTubeSubtitleRequestLimitErrorDescription": "يرجى مسح ذاكرة التخزين المؤقت لصفحة YouTube أو تغيير عقدة الوكيل ثم المحاولة مرة أخرى",
-    "subtitle.requestAiSubtitle429Tip": "تم استنفاد الحصة الشهرية لترجمات الذكاء الاصطناعي (النسخة التجريبية)"
+    "subtitle.requestAiSubtitle429Tip": "تم استنفاد الحصة الشهرية لترجمات الذكاء الاصطناعي (النسخة التجريبية)",
+    "attachSubtitle.supportByImmersiveTranslate": "[ الترجمة ثنائية اللغة مدعومة بواسطة Immersive Translate ]"
   },
   "es": {
     "nologin": "no conectado",
@@ -7370,7 +7370,7 @@
     "subtitle.quickButton.black": "negro",
     "subtitle.quickButton.sourceTextColor": "Color original de la fuente",
     "subtitle.quickButton.translationPositionTop": "En la parte superior del texto original",
-    "attachSubtitleTranslating": "Usando {service} para traducir...",
+    "attachSubtitleTranslating": "Traducir con {service}... (Immersive Translate)",
     "error.claude.403": "No tiene permiso para acceder al servicio, puede estar relacionado con las restricciones de área de Claude, puede intentar cambiar su dirección IP o usar otros servicios de traducción.",
     "browser.brandDescriptionForSafari": "【Traducción inmersiva】Un complemento de traducción de páginas web bilingüe (original/traducción) gratuito que también soporta la traducción de PDF y libros electrónicos EPUB manteniendo el formato original del documento, la traducción de subtítulos bilingües de videos en línea como YouTube/Netflix, y soporta servicios de traducción principales como Deepl/Google;",
     "browser.PdfProFile": "AI impulsado por PDF Pro traducción",
@@ -7571,7 +7571,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Habilitar automáticamente a los expertos en IA",
     "tempChangeTransToService": "Traducir la página actual utilizando {service}",
-    "trustTypeError": "Este sitio no permite script de usuario para proporcionar subtítulos bilingües. Se recomienda utilizar la extensión",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -7782,7 +7781,8 @@
     "compareWithTextTranslate": "Comparar servicios de traducción",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita las solicitudes de subtítulos a los dispositivos actuales",
     "youTubeSubtitleRequestLimitErrorDescription": "Por favor, borra la caché de la página de YouTube o cambia el nodo proxy e inténtalo de nuevo.",
-    "subtitle.requestAiSubtitle429Tip": "Se ha agotado la cuota mensual de subtítulos AI(Beta)"
+    "subtitle.requestAiSubtitle429Tip": "Se ha agotado la cuota mensual de subtítulos AI(Beta)",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Subtítulos bilingües compatibles con Immersive Translate ]"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -8380,7 +8380,7 @@
     "subtitle.quickButton.magenta": "洋紅色",
     "subtitle.quickButton.green": "綠色",
     "subtitle.quickButton.backgroundOpacity": "背景不透明度",
-    "attachSubtitleTranslating": "正在使用 {service} 翻譯中...",
+    "attachSubtitleTranslating": "使用{service} 翻譯中...（沉浸式翻譯）",
     "error.claude.403": "暫無權限存取服務，可能與 Claude 的地區限制有關，您可以嘗試切換您的 IP 地址，或者使用其他翻譯服務。",
     "browser.brandDescriptionForSafari": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;",
     "browser.PdfProFile": "AI 驅動的 PDF Pro 翻譯",
@@ -8581,7 +8581,6 @@
     "aiAssistant.promptDetails": "提示詞",
     "aiAssistant.autoEnableAssistant": "自動啟用 AI 專家",
     "tempChangeTransToService": "正在使用{service} 翻譯目前頁面",
-    "trustTypeError": "網站限製油猴腳本提供雙語字幕，建議使用外掛程式版本",
     "translationServices.siliconcloud": "SiliconFlow 翻譯",
     "popup.upgrade": "升級",
     "widget.webReport": "回饋當前頁面翻譯問題",
@@ -8789,7 +8788,8 @@
     "compareWithTextTranslate": "對比不同翻譯服務",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了目前裝置的字幕請求",
     "youTubeSubtitleRequestLimitErrorDescription": "請清除 YouTube 頁面快取或更換代理節點後再重試",
-    "subtitle.requestAiSubtitle429Tip": "AI 字幕(Beta) 當月體驗額度已用完"
+    "subtitle.requestAiSubtitle429Tip": "AI 字幕(Beta) 當月體驗額度已用完",
+    "attachSubtitle.supportByImmersiveTranslate": "[ 雙語字幕由沉浸式翻譯支援 ]"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -9342,7 +9342,7 @@
     "subtitle.quickButton.translationPositionTop": "‫מעל למקור‬",
     "subtitle.quickButton.translationTextColor": "‫צבע טקסט התרגום‬",
     "subtitle.quickButton.magenta": "‫מג'נטה‬",
-    "attachSubtitleTranslating": "‫מתרגם עם {service}⁦...⁩‬",
+    "attachSubtitleTranslating": "תרגום באמצעות {service}... (תרגום סוחף)",
     "error.claude.403": "‫גישה ל⁦⁦Claude⁩-⁩ מוגבלת⁦.⁩ נסה ⁦IP⁩ אחר או שירות אחר⁦.⁩‬",
     "browser.brandDescriptionForSafari": "‫תרגום אתרים, ⁦PDF⁩, ⁦Epub⁩, כתוביות וידאו דו⁦-⁩לשוניות‬",
     "browser.PdfProFile": "‫תרגום ⁦⁦PDF Pro⁩⁩ באמצעות ⁦AI⁩‬",
@@ -9593,7 +9593,6 @@
     "reportInfo.submitFail": "ההגשה נכשלה...",
     "reportInfo.tip": "מלא את התיאור לפני השליחה.",
     "widget.webReport": "משוב על תרגומי הדף הנוכחי",
-    "trustTypeError": "אתר זה אינו מאפשר לסקריפט המשתמש לספק כתוביות דו-לשוניות. מומלץ להשתמש בהרחבה.",
     "reportInfo.submitFailDes": "נתקלת בכמה בעיות, באפשרותך לנסות לספק משוב שוב, או לנסות שוב במועד אחר.",
     "translationServices.lingyiwanwu.introduction": "סדרת Yi של מודלי שפה גדולים שהושקה על ידי <homepage>01.AI</homepage>,",
     "popup.upgrade": "שדרג",
@@ -9766,7 +9765,8 @@
     "compareWithTextTranslate": "השווה בין שירותי תרגום",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube חונק בקשות כתוביות למכשיר הנוכחי",
     "youTubeSubtitleRequestLimitErrorDescription": "אנא נקה את מטמון דף YouTube או החלף את צומת ה-proxy לפני שתנסה שוב",
-    "subtitle.requestAiSubtitle429Tip": "המכסה החודשית של כתוביות AI (בטא) נוצלה"
+    "subtitle.requestAiSubtitle429Tip": "המכסה החודשית של כתוביות AI (בטא) נוצלה",
+    "attachSubtitle.supportByImmersiveTranslate": "[ כתוביות דו-לשוניות נתמכות על ידי Immersive Translate ]"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -10326,7 +10326,7 @@
     "subtitle.quickButton.cyan": "Azul",
     "subtitle.quickButton.black": "preto",
     "subtitle.quickButton.translationFontSize": "Tamanho da fonte do texto traduzido",
-    "attachSubtitleTranslating": "Usando {service} para traduzir...",
+    "attachSubtitleTranslating": "Traduzir utilizando {service}... (Immersive Translate)",
     "error.claude.403": "Sem permissão para acessar o serviço, pode estar relacionado com as restrições de área de Claude, você pode tentar alterar o seu endereço IP, ou usar outros serviços de tradução.",
     "browser.brandDescriptionForSafari": "【Tradução imersiva】Um plugin de tradução de páginas da web bilingue (original/tradução) gratuito, que suporta a tradução de PDF e EPUB e mantém a formatação original do documento, a tradução de legendas bilingues de vídeos online como YouTube/Netflix, e suporta serviços de tradução mainstream como Deepl/Google;",
     "browser.PdfProFile": "AI impulsionado pela tradução do PDF Pro",
@@ -10523,7 +10523,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Ativar automaticamente os especialistas em IA",
     "tempChangeTransToService": "Traduzir a página atual utilizando {service}",
-    "trustTypeError": "Este sítio não permite que o script do utilizador forneça legendas bilingues. Recomenda-se a utilização da extensão.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -10737,7 +10736,8 @@
     "compareWithTextTranslate": "Comparar serviços de tradução",
     "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita os pedidos de legendas aos dispositivos actuais",
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe a cache da página do YouTube ou altere o nó de proxy e tente novamente.",
-    "subtitle.requestAiSubtitle429Tip": "A quota mensal de legendas AI (Beta) foi esgotada"
+    "subtitle.requestAiSubtitle429Tip": "A quota mensal de legendas AI (Beta) foi esgotada",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilingues suportadas pelo Immersive Translate ]"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -11297,7 +11297,7 @@
     "subtitle.quickButton.setting": "Impostazione",
     "subtitle.quickButton.translationTextColor": "Colore del carattere del testo",
     "subtitle.quickButton.translationFontSize": "Dimensione del carattere del testo tradotto",
-    "attachSubtitleTranslating": "Utilizzando {service} per la traduzione...",
+    "attachSubtitleTranslating": "Traducendo con {service}... (Immersive Translate)",
     "error.claude.403": "Non hai l'autorizzazione per accedere al servizio, potrebbe essere correlato alle restrizioni regionali di Claude, puoi provare a cambiare il tuo indirizzo IP o utilizzare altri servizi di traduzione.",
     "browser.brandDescriptionForSafari": "【Traduzione Immersiva】Un plugin gratuito per la traduzione di pagine web bilingue (originale/tradotto), che supporta anche la traduzione di PDF e libri elettronici EPUB mantenendo la formattazione originale del documento, la traduzione di sottotitoli bilingui per video online come YouTube/Netflix, e supporta servizi di traduzione mainstream come Deepl/Google;",
     "browser.PdfProFile": "Traduzione Pro di PDF guidata da AI",
@@ -11498,7 +11498,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Abilitare automaticamente gli esperti di IA",
     "tempChangeTransToService": "Tradurre la pagina corrente usando {service}",
-    "trustTypeError": "Questo sito non consente agli script utente di fornire sottotitoli bilingue. Si raccomanda di utilizzare l'estensione.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -11708,7 +11707,8 @@
     "compareWithTextTranslate": "Confronta i servizi di traduzione",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita le richieste di sottotitoli ai dispositivi attuali",
     "youTubeSubtitleRequestLimitErrorDescription": "Cancellare la cache della pagina YouTube o cambiare il nodo proxy e riprovare.",
-    "subtitle.requestAiSubtitle429Tip": "La quota mensile di sottotitoli AI(Beta) è stata esaurita"
+    "subtitle.requestAiSubtitle429Tip": "La quota mensile di sottotitoli AI(Beta) è stata esaurita",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Sottotitoli bilingue supportati da Immersive Translate ]"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -12253,7 +12253,7 @@
     "subtitle.quickButton.translationPositionBottom": "Orijinal metnin altında",
     "subtitle.quickButton.translationFontSize": "Çeviri yazı tipi boyutu",
     "subtitle.quickButton.blue": "Mavi",
-    "attachSubtitleTranslating": "{service} kullanarak çeviriyor...",
+    "attachSubtitleTranslating": "{service} kullanarak çeviriliyor... (Immersive Translate)",
     "subtitle.quickButton.sourceFontSize": "Orijinal yazı tipi boyutu",
     "subtitle.quickButton.sourceTextColor": "Orijinal yazı rengi",
     "subtitle.quickButton.magenta": "Eflatun",
@@ -12469,7 +12469,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "Yapay zeka uzmanlarını otomatik olarak etkinleştirin",
     "tempChangeTransToService": "Geçerli sayfayı {service} kullanarak çevirme",
-    "trustTypeError": "Bu site, kullanıcı betiğinin iki dilli altyazı sağlamasına izin vermez. Uzantının kullanılması tavsiye edilir.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -12679,7 +12678,8 @@
     "compareWithTextTranslate": "Çeviri hizmetlerini karşılaştırın",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube altyazı isteklerini mevcut cihazlarla sınırlıyor",
     "youTubeSubtitleRequestLimitErrorDescription": "Lütfen YouTube sayfası önbelleğini temizleyin veya proxy düğümünü değiştirin ve tekrar deneyin.",
-    "subtitle.requestAiSubtitle429Tip": "AI altyazıları (Beta) aylık kotası doldu"
+    "subtitle.requestAiSubtitle429Tip": "AI altyazıları (Beta) aylık kotası doldu",
+    "attachSubtitle.supportByImmersiveTranslate": "[ Immersive Translate tarafından desteklenen iki dilli altyazılar ]"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -13238,7 +13238,7 @@
     "subtitle.quickButton.backgroundColor": "Hintergrundfarbe",
     "subtitle.quickButton.setting": "Einstellung",
     "subtitle.quickButton.translationPositionTop": "Oben im Originaltext",
-    "attachSubtitleTranslating": "Verwenden Sie {service} zur Übersetzung...",
+    "attachSubtitleTranslating": "Übersetzen mit {service}... (Immersive Translate)",
     "error.claude.403": "Keine Berechtigung zum Zugriff auf den Dienst, möglicherweise im Zusammenhang mit den regionalen Einschränkungen von Claude. Sie können versuchen, Ihre IP-Adresse zu wechseln, oder andere Übersetzungsdienste nutzen.",
     "browser.brandDescriptionForSafari": "【Immersive Übersetzung】Ein kostenloses zweisprachiges Webseiten-Übersetzungs-Plugin (Originaltext/Übersetzung), das gleichzeitig PDF-Übersetzung und EPUB-E-Book-Übersetzung unterstützt und das Originaldokumentenlayout beibehält, YouTube/Netflix und andere Online-Video-Zweisprachen-Untertitel-Übersetzung, Unterstützung für Deepl/Google und andere Mainstream-Übersetzungsdienste;",
     "browser.textTranslate": "Textübersetzung",
@@ -13439,7 +13439,6 @@
     "aiAssistant.autoEnableAssistant": "Automatisch AI-Experten aktivieren",
     "aiAssistant.promptDetails": "提示词",
     "tempChangeTransToService": "Übersetzen der aktuellen Seite mit {service}",
-    "trustTypeError": "Diese Website erlaubt kein Benutzerskript zur Bereitstellung zweisprachiger Untertitel. Es wird empfohlen, die Erweiterung zu verwenden.",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -13650,7 +13649,8 @@
     "compareWithTextTranslate": "Übersetzungsdienste vergleichen",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube begrenzt Untertitelanfragen auf aktuelle Geräte",
     "youTubeSubtitleRequestLimitErrorDescription": "Bitte löschen Sie den Cache der YouTube-Seite oder ändern Sie den Proxy-Knoten und versuchen Sie es erneut.",
-    "subtitle.requestAiSubtitle429Tip": "Das monatliche Kontingent für AI-Untertitel (Beta) ist ausgeschöpft"
+    "subtitle.requestAiSubtitle429Tip": "Das monatliche Kontingent für AI-Untertitel (Beta) ist ausgeschöpft",
+    "attachSubtitle.supportByImmersiveTranslate": "[Zweisprachige Untertitel, unterstützt von Immersive Translate]."
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -14409,7 +14409,6 @@
     "aiAssistant.autoEnableAssistant": "Automatikusan engedélyezze az AI szakértőket",
     "tempChangeTransToService": "Az aktuális oldal fordítása a {service} használatával",
     "subtitle.quickButton.orange": "Narancs",
-    "trustTypeError": "Ez az oldal nem teszi lehetővé a felhasználói szkriptek kétnyelvű feliratozását. Javasoljuk a kiterjesztés használatát.",
     "floatBallOptions.disable": "Lebegő golyó kikapcsolása",
     "reportInfo.tip": "Töltse ki a leírást a beküldés előtt.",
     "translationModeLang.translation.dual.description": "A kétnyelvű üzemmód automatikusan használatba kerül, ha az oldal nyelve a következő nyelvek egyike",
@@ -15129,7 +15128,6 @@
     "subtitle.quickButton.black": "黑色",
     "subtitle.quickButton.orange": "橙色",
     "geminiWarning": "注意：谷歌提供的 Gemini 的免费服务限制严格，可能会被谷歌判定为用户在使用多个 Key 来规避他们的免费配额限制，不建议使用，建议等待谷歌未来开放 Gemini 付费接口后再使用。",
-    "attachSubtitleTranslating": "使用 {service} 翻译中...",
     "error.claude.403": "暂无权限访问服务，可能与 Claude 的地区限制有关，您可以尝试切换您的 IP 地址，或者使用其他翻译服务。",
     "description.multiplePrompt": "当段落数大于 1 时，以用户身份发送给 {service} 的对话，其中 {{from}} 表示段落的语言，{{to}} 表示目标语言,  {{yaml}} 是我们用 yaml 格式包装的段落内容，如果你有自定义 Prompt 的需求，需要保证 AI 响应的 YAML 结果里的每一项都要包含 {env.imt_trans_field} 字段，{{imt_trans_field}} 是我们希望 AI 响应的译文字段名，默认是 {env.imt_trans_field}, {{imt_source_field}} 是我们传递给 AI 的原文字段名，默认是 {env.imt_source_field} ，示例结果：<br><br>- id: 1\n  {env.imt_trans_field}: 译文\n- id: 2\n  {env.imt_trans_field}: 译文",
     "description.multipleSystemPrompt": "当段落数大于 1 时，以系统身份发送给AI的翻译请求，其中{{text}}表示需要翻译的段落内容，{{from}}表示源语言，{{to}}表示目标语言。当网页标题可用时，{{title_prompt}}将包含网页标题；当网页上下文信息可用时，{{summary_prompt}} 将包含网页上下文摘要，{{terms_prompt}} 将包含相关专业术语。",
@@ -15345,7 +15343,6 @@
     "reportInfo.title": "翻译遇到了问题？",
     "browser.translateText": "翻译文本：\"{text}\"",
     "tempChangeTransToService": "正在使用 {service} 翻译当前页面",
-    "trustTypeError": "该网站限制油猴脚本提供双语字幕，建议使用插件版本",
     "floatBallOptions.disable": "禁用悬浮球",
     "popup.upgrade": "升级",
     "widget.webReport": "反馈当前页面翻译问题",
@@ -15514,7 +15511,9 @@
     "noData": "暂无数据",
     "compareWithTextTranslate": "对比不同翻译服务",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了当前设备的字幕请求",
-    "youTubeSubtitleRequestLimitErrorDescription": "请清除 YouTube 页面缓存或更换代理节点后再重试"
+    "youTubeSubtitleRequestLimitErrorDescription": "请清除 YouTube 页面缓存或更换代理节点后再重试",
+    "attachSubtitleTranslating": "使用 {service} 翻译中...（沉浸式翻译）",
+    "attachSubtitle.supportByImmersiveTranslate": "[ 双语字幕由沉浸式翻译支持 ]"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -16073,7 +16072,7 @@
     "subtitle.quickButton.sourceFontSize": "اندازه فونت متن اصلی",
     "subtitle.quickButton.translationPositionBottom": "متن اصلی در زیر است",
     "subtitle.quickButton.translationPosition": "مکان ترجمه",
-    "attachSubtitleTranslating": "در حال استفاده از {service} برای ترجمه...",
+    "attachSubtitleTranslating": "ترجمه با استفاده از {service}... (ترجمه فراگیر)",
     "error.claude.403": "دسترسی موقتا به سرویس ممکن است محدود شده باشد، این ممکن است به محدودیت منطقه ای Claude مرتبط باشد، شما می توانید سعی کنید آدرس IP خود را تغییر دهید، یا از سرویس های ترجمه دیگر استفاده کنید.",
     "browser.brandDescriptionForSafari": "【ترجمه فرو رفته】 یک افزونه ترجمه صفحه وب دوزبانه رایگان (متن اصلی / ترجمه) ، در عین حال پشتیبانی از ترجمه PDF و ترجمه کتاب الکترونیکی EPUB با حفظ طرح بندی اصلی سند ، ترجمه زیرنویس دوزبانه ویدئوی آنلاین YouTube / Netflix ، پشتیبانی از خدمات ترجمه اصلی Deepl / Google؛",
     "browser.PdfProFile": "ترجمه PDF Pro محرک هوش مصنوعی",
@@ -16274,7 +16273,6 @@
     "aiAssistant.autoEnableAssistant": "به طور خودکار کارشناسان هوش مصنوعی را فعال کنید",
     "aiAssistant.promptDetails": "کلمه سریع",
     "tempChangeTransToService": "استفاده از {service} برای ترجمه صفحه فعلی",
-    "trustTypeError": "این سایت به اسکریپت کاربر اجازه ارائه زیرنویس دو زبانه را نمی دهد. توصیه می شود از پسوند استفاده کنید.",
     "translationServices.siliconcloud": "سیلیکون فلو",
     "popup.upgrade": "ارتقاء",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -16486,7 +16484,8 @@
     "compareWithTextTranslate": "مقایسه خدمات ترجمه",
     "youTubeSubtitleRequestLimitErrorDescription": "لطفاً حافظه پنهان صفحه YouTube را پاک کنید یا گره پروکسی را تغییر دهید و دوباره امتحان کنید",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube درخواست‌های زیرنویس محدودی برای دستگاه فعلی دارد",
-    "subtitle.requestAiSubtitle429Tip": "سهمیه ماهانه زیرنویس‌های هوش مصنوعی (بتا) تمام شده است"
+    "subtitle.requestAiSubtitle429Tip": "سهمیه ماهانه زیرنویس‌های هوش مصنوعی (بتا) تمام شده است",
+    "attachSubtitle.supportByImmersiveTranslate": "[زیرنویس‌های دوزبانه پشتیبانی‌شده توسط Immersive Translate]"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -17046,7 +17045,7 @@
     "subtitle.quickButton.translationFontSize": "翻訳文字のフォントサイズ",
     "subtitle.quickButton.translationTextColor": "翻訳文字の色",
     "subtitle.quickButton.translationPosition": "翻訳位置",
-    "attachSubtitleTranslating": "{service} を使用して翻訳中...",
+    "attachSubtitleTranslating": "{service}を使用して翻訳中...（Immersive Translate）",
     "error.claude.403": "一時的にサービスへのアクセス権限がありません。これはClaudeの地域制限に関連している可能性があります。IPアドレスを切り替えるか、他の翻訳サービスを使用してみてください。",
     "browser.brandDescriptionForSafari": "無料翻訳ウェブサイト、PDFとEPUB電子書籍の翻訳、バイリンガルでのビデオ字幕の翻訳",
     "browser.PdfProFile": "AI 駆動の PDF Pro 翻訳",
@@ -17247,7 +17246,6 @@
     "aiAssistant.promptDetails": "提示词",
     "aiAssistant.autoEnableAssistant": "AIエキスパートを自動的に有効にする",
     "tempChangeTransToService": "現在のページを{service}を使用して翻訳しています",
-    "trustTypeError": "このサイトでは、ユーザースクリプトによる対訳字幕の表示はできません。拡張機能を使用することをお勧めします。",
     "translationServices.siliconcloud": "SiliconFlow",
     "popup.upgrade": "Upgrade",
     "floatBall.upgrade": "Try Pro (Experience OpenAI, DeepL, PDF Pro, Comic Translation...)",
@@ -17458,7 +17456,8 @@
     "compareWithTextTranslate": "翻訳サービスの比較",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTubeが字幕要求を現在のデバイスに制限",
     "youTubeSubtitleRequestLimitErrorDescription": "YouTubeページのキャッシュをクリアするか、プロキシノードを変更して再度お試しください。",
-    "subtitle.requestAiSubtitle429Tip": "AI 字幕(ベータ版)月間枠を使い切りました"
+    "subtitle.requestAiSubtitle429Tip": "AI 字幕(ベータ版)月間枠を使い切りました",
+    "attachSubtitle.supportByImmersiveTranslate": "[Immersive Translateがサポートする二カ国語字幕 ]。"
   },
   "ars": {}
 }

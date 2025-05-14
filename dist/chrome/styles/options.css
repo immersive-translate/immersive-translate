@@ -861,7 +861,3 @@ article {
 textarea[disabled] {
   pointer-events: unset;
 }
-
-textarea.input {
-  resize: none;
-}

@@ -954,7 +954,7 @@
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "현재 동영상에 자막이 없습니다. AI 자막을 요청해 보세요.",
     "subtitle.aiSubtitle": "AI 자막",
     "subtitle.quickButton.aiSubtitleUsed": "사용 중인 AI 자막",
-    "subtitle.requestAiSubtitleTip": "AI 자막이 진행 중입니다. 예상 소요 시간 {minutes} 분입니다.",
+    "subtitle.requestAiSubtitleTip": "AI 자막 생성 중입니다. 예상 완료 시간 {estimatedTime}.",
     "subtitle.applyAiSubtitleTip": "AI 자막이 전환되었습니다.",
     "subtitle.requestAiSubtitleSuccessTip": "AI 자막이 다음과 같이 전환되었습니다.",
     "description.multipleSystemPrompt": "단락 수가 1보다 크면 번역 요청이 시스템 ID로 AI에 전송되며, 여기서 {{text}}는 번역할 단락의 내용을 나타내고, {{from}}은 소스 언어를, {{to}}는 대상 언어를 나타냅니다. 페이지 제목을 사용할 수 있는 경우 {{title_prompt}}에는 페이지 제목이 포함되고, 페이지 컨텍스트 정보를 사용할 수 있는 경우 {{summary_prompt}}에는 페이지 컨텍스트 요약이 포함되며, {{terms_prompt}}에는 관련 용어가 포함됩니다.",
@@ -968,7 +968,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube는 자막 요청을 현재 기기로 제한합니다.",
     "youTubeSubtitleRequestLimitErrorDescription": "YouTube 페이지 캐시를 지우거나 프록시 노드를 변경한 후 다시 시도하세요.",
     "subtitle.requestAiSubtitle429Tip": "AI 자막(베타) 월별 할당량이 모두 사용되었습니다.",
-    "attachSubtitle.supportByImmersiveTranslate": "[몰입형 번역에서 지원하는 이중 언어 자막 ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[몰입형 번역에서 지원하는 이중 언어 자막 ]",
+    "xSeconds": "{seconds}초"
   },
   "arz": {},
   "ars": {},
@@ -1925,7 +1926,7 @@
     "terms.importCsvButton": "importación csv",
     "subtitle.requestAiSubtitleSuccessTip": "Los subtítulos AI se han cambiado a",
     "subtitle.quickButton.requestAiSubtitle": "Solicitar subtítulos AI(Beta)",
-    "subtitle.requestAiSubtitleTip": "Subtítulos AI en progreso. ETA {minutes} minutos.",
+    "subtitle.requestAiSubtitleTip": "Generación de subtítulos por IA en progreso. ETA {estimatedTime}.",
     "subtitle.applyAiSubtitleTip": "Se han cambiado los subtítulos AI",
     "subtitle.requestAiSubtitleFailTip": "Error en la generación de subtítulos AI, por favor inténtelo de nuevo",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "El vídeo actual no está subtitulado, intente solicitar subtítulos AI.",
@@ -1942,7 +1943,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita las solicitudes de subtítulos a los dispositivos actuales",
     "youTubeSubtitleRequestLimitErrorDescription": "Por favor, borra la caché de la página de YouTube o cambia el nodo proxy e inténtalo de nuevo.",
     "subtitle.requestAiSubtitle429Tip": "Se ha agotado la cuota mensual de subtítulos AI(Beta)",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Subtítulos bilingües compatibles con Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ Subtítulos bilingües compatibles con Immersive Translate ]",
+    "xSeconds": "{seconds} segundos"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -2899,7 +2901,7 @@
     "subtitle.quickButton.requestAiSubtitle": "Yapay zeka altyazıları iste(Beta)",
     "subtitle.requestAiSubtitleFailTip": "AI altyazı oluşturma başarısız oldu, lütfen tekrar deneyin",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "Mevcut video altyazılı değil, AI altyazıları talep etmeyi deneyin.",
-    "subtitle.requestAiSubtitleTip": "AI altyazısı devam ediyor. Tahmini varış süresi {minutes} dakika.",
+    "subtitle.requestAiSubtitleTip": "AI altyazı oluşturma işlemi devam ediyor. Tahmini süre {estimatedTime}.",
     "terms.importCsvDescription": "Şartlarınızı bir CSV dosyasından içe aktarın. Lütfen dosya formatının aşağıdaki gibi olduğundan emin olun:",
     "subtitle.applyAiSubtitleTip": "Yapay zeka altyazıları değiştirildi",
     "description.multipleSystemPrompt": "Paragraf sayısı 1'den fazla olduğunda, çeviri isteği YZ'ye bir sistem kimliği olarak gönderilir; burada {{text}} çevrilecek paragrafın içeriğini, {{from}} kaynak dili ve {{to}} hedef dili belirtir. Sayfa başlığı mevcut olduğunda, {{title_prompt}} sayfa başlığını; sayfa bağlam bilgisi mevcut olduğunda, {{summary_prompt}} sayfa bağlamının bir özetini ve {{terms_prompt}} ilgili terminolojiyi içerecektir.",
@@ -2913,7 +2915,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube altyazı isteklerini mevcut cihazlarla sınırlıyor",
     "youTubeSubtitleRequestLimitErrorDescription": "Lütfen YouTube sayfası önbelleğini temizleyin veya proxy düğümünü değiştirin ve tekrar deneyin.",
     "subtitle.requestAiSubtitle429Tip": "AI altyazıları (Beta) aylık kotası doldu",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Immersive Translate tarafından desteklenen iki dilli altyazılar ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ Immersive Translate tarafından desteklenen iki dilli altyazılar ]",
+    "xSeconds": "{seconds} saniye"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -3907,7 +3910,7 @@
     "subtitle.quickButton.requestAiSubtitle": "請求 AI 字幕(Beta)",
     "subtitle.quickButton.aiSubtitleUsed": "正在使用 AI 字幕",
     "terms.unname": "未命名術語庫",
-    "subtitle.requestAiSubtitleTip": "正在產生 AI 字幕，預計 {minutes} 分鐘",
+    "subtitle.requestAiSubtitleTip": "正在產生 AI 字幕，預計 {estimatedTime}",
     "subtitle.quickButton.aiSubtitleLoading": "正在請求 AI 字幕",
     "description.multipleSystemPrompt": "當段落數大於 1 時，以系統身分傳送給 AI 的翻譯請求，其中{{text}}表示需要翻譯的段落內容，{{from}}表示來源語言，{{to}}表示目標語言。當網頁標題可用時，{{title_prompt}}將包含網頁標題；當網頁上下文資訊可用時，{{summary_prompt}} 將包含網頁上下文摘要，{{terms_prompt}} 將包含相關專業術語。",
     "terms.confirmDelete": "確定要刪除術語庫\"{name}\" 嗎？",
@@ -3920,7 +3923,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了目前裝置的字幕請求",
     "youTubeSubtitleRequestLimitErrorDescription": "請清除 YouTube 頁面快取或更換代理節點後再重試",
     "subtitle.requestAiSubtitle429Tip": "AI 字幕(Beta) 當月體驗額度已用完",
-    "attachSubtitle.supportByImmersiveTranslate": "[ 雙語字幕由沉浸式翻譯支援 ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ 雙語字幕由沉浸式翻譯支援 ]",
+    "xSeconds": "{seconds} 秒"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -4876,7 +4880,7 @@
     "terms.importCsvButton": "importação de csv",
     "subtitle.requestAiSubtitleFailTip": "A geração de legendas de IA falhou, tente novamente",
     "terms.importCsvDescription": "Importe seus termos de um arquivo CSV. Certifique-se de que o formato do arquivo seja o seguinte:",
-    "subtitle.requestAiSubtitleTip": "Legendagem de IA em andamento. ETA {minutes} minutos.",
+    "subtitle.requestAiSubtitleTip": "Geração de legendas AI em curso. ETA {estimatedTime}.",
     "subtitle.quickButton.requestAiSubtitle": "Pedir legendas AI (Beta)",
     "terms.unname": "Termos sem nome",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "O vídeo atual não está legendado, tente solicitar legendas de IA.",
@@ -4891,7 +4895,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita os pedidos de legendas aos dispositivos actuais",
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe a cache da página do YouTube ou altere o nó de proxy e tente novamente.",
     "subtitle.requestAiSubtitle429Tip": "A quota mensal de legendas AI (Beta) foi esgotada",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilingues suportadas pelo Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilingues suportadas pelo Immersive Translate ]",
+    "xSeconds": "{seconds} segundos"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -5516,8 +5521,8 @@
     "subtitle.quickButton.orange": "橙色",
     "geminiWarning": "注意：谷歌提供的 Gemini 的免费服务限制严格，可能会被谷歌判定为用户在使用多个 Key 来规避他们的免费配额限制，不建议使用，建议等待谷歌未来开放 Gemini 付费接口后再使用。",
     "error.claude.403": "暂无权限访问服务，可能与 Claude 的地区限制有关，您可以尝试切换您的 IP 地址，或者使用其他翻译服务。",
-    "description.multiplePrompt": "多段落翻译说明：\n\n当您需要翻译多个段落时，系统会以用户身份发送请求给{service}。请求中：\n- {{from}} 表示原文语言\n- {{to}} 表示目标语言  \n- {{text}} 表示需要翻译的文本内容\n\n高级自定义：如需更精确控制，可使用{{yaml}}格式。此时AI将返回YAML格式结果，每项必须包含{env.imt_trans_field}字段（译文字段名）。系统发送给AI的原文字段名为{env.imt_source_field}。\n\n示例输出：\n```\n- id: 1\n  {env.imt_trans_field}: 第一段译文\n- id: 2\n  {env.imt_trans_field}: 第二段译文\n```",
-    "description.subtitlePrompt": "字幕翻译说明：\n\n系统会以用户身份发送请求给{service}。请求中：\n- {{from}} 表示原文语言\n- {{to}} 表示目标语言  \n- {{text}} 表示需要翻译的文本内容\n\n高级自定义：如需更精确控制，可使用{{yaml}}格式。此时AI将返回YAML格式结果，每项必须包含{env.imt_sub_trans_field}字段（译文字段名，默认为{env.imt_sub_trans_field}）。系统传递给AI的原文字段名为{env.imt_sub_source_field}。\n\n示例输出：\n```\n- id: 1\n  {env.imt_sub_source_field}: Source\n  {env.imt_sub_trans_field}: 译文\n- id: 2\n  {env.imt_sub_source_field}: Source\n  {env.imt_sub_trans_field}: 译文\n```",
+    "description.multiplePrompt": "多段落翻译说明：\n\n当您需要翻译多个段落时，系统会以用户身份发送请求给{service}。请求中：\n- {{from}} 表示原文语言\n- {{to}} 表示目标语言  \n- {{text}} 表示需要翻译的文本内容，多段之间用 {serviceConfig.translationTextSeparator} 分割\n\n高级自定义：如需更精确控制，可使用{{yaml}}格式。此时AI将返回YAML格式结果，每项必须包含{env.imt_trans_field}字段（译文字段名）。系统发送给AI的原文字段名为{env.imt_source_field}。\n\n示例输出：\n```\n- id: 1\n  {env.imt_trans_field}: 第一段译文\n- id: 2\n  {env.imt_trans_field}: 第二段译文\n```",
+    "description.subtitlePrompt": "字幕翻译说明：\n\n系统会以用户身份发送请求给{service}。请求中：\n- {{from}} 表示原文语言\n- {{to}} 表示目标语言  \n- {{text}} 表示需要翻译的文本内容，多段之间用 {serviceConfig.translationTextSeparator} 分割\n\n高级自定义：如需更精确控制，可使用{{yaml}}格式。此时AI将返回YAML格式结果，每项必须包含{env.imt_sub_trans_field}字段（译文字段名，默认为{env.imt_sub_trans_field}）。系统传递给AI的原文字段名为{env.imt_sub_source_field}。\n\n示例输出：\n```\n- id: 1\n  {env.imt_sub_source_field}: Source\n  {env.imt_sub_trans_field}: 译文\n- id: 2\n  {env.imt_sub_source_field}: Source\n  {env.imt_sub_trans_field}: 译文\n```",
     "description.multipleSystemPrompt": "当段落数大于 1 时，以系统身份发送给AI的翻译请求，其中{{text}}表示需要翻译的段落内容，{{from}}表示源语言，{{to}}表示目标语言。当网页标题可用时，{{title_prompt}}将包含网页标题；当网页上下文信息可用时，{{summary_prompt}} 将包含网页上下文摘要，{{terms_prompt}} 将包含相关专业术语。",
     "translationServices.ai": "AI",
     "browser.PdfProFile": "AI 驱动的 PDF Pro 翻译",
@@ -5864,7 +5869,6 @@
     "subtitle.quickButton.aiSubtitleLoading": "正在请求 AI 字幕",
     "subtitle.quickButton.aiSubtitleUsed": "正在使用 AI 字幕",
     "subtitle.applyAiSubtitleTip": "已切换为 AI 字幕",
-    "subtitle.requestAiSubtitleTip": "正在生成 AI 字幕，预计 {minutes} 分钟",
     "subtitle.requestAiSubtitleSuccessTip": "已切换到 AI 字幕",
     "subtitle.requestAiSubtitleFailTip": "AI 字幕生成失败，请重试",
     "subtitle.requestAiSubtitle429Tip": "AI 字幕(Beta) 当月体验额度已用完",
@@ -5900,7 +5904,9 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube 限制了当前设备的字幕请求",
     "youTubeSubtitleRequestLimitErrorDescription": "请清除 YouTube 页面缓存或更换代理节点后再重试",
     "attachSubtitleTranslating": "使用 {service} 翻译中...（沉浸式翻译）",
-    "attachSubtitle.supportByImmersiveTranslate": "[ 双语字幕由沉浸式翻译支持 ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ 双语字幕由沉浸式翻译支持 ]",
+    "subtitle.requestAiSubtitleTip": "正在生成 AI 字幕，预计 {estimatedTime}",
+    "xSeconds": "{seconds} 秒"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -6859,7 +6865,7 @@
     "subtitle.aiSubtitle": "ترجمات الذكاء الاصطناعي",
     "terms.createNewDescription": "قم بإنشاء مصطلحات فارغة جديدة، ثم يمكنك إضافة المصطلحات يدويًا.",
     "terms.importCsvDescription": "استورد مصطلحاتك من ملف CSV. يُرجى التأكد من أن تنسيق الملف كما يلي:",
-    "subtitle.requestAiSubtitleTip": "إنشاء ترجمات الذكاء الاصطناعي، الوقت المقدر: {minutes}",
+    "subtitle.requestAiSubtitleTip": "جاري إنشاء الترجمة باستخدام الذكاء الاصطناعي. الوقت المتوقع للوصول هو {estimatedTime}.",
     "subtitle.quickButton.aiSubtitleUsed": "استخدام ترجمات الذكاء الاصطناعي",
     "description.multipleSystemPrompt": "عندما يكون عدد الفقرات أكبر من 1، يتم إرسال طلب ترجمة إلى الذكاء الاصطناعي كنظام، حيث يمثل {{text}} محتوى الفقرة المراد ترجمتها، ويمثل {{from}} اللغة المصدر، ويمثل {{to}} اللغة المستهدفة. سيحتوي {{title_prompt}} على عنوان الصفحة عند توفره، وسيحتوي {{summary_prompt}} على ملخص لسياق الصفحة عند توفره، وسيحتوي {{terms_prompt}} على المصطلحات ذات الصلة.",
     "terms.confirmDelete": "هل أنت متأكد أنك تريد حذف المصطلحات \"{name}\"؟",
@@ -6872,7 +6878,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 لقد حدد موقع YouTube طلبات الترجمة للجهاز الحالي",
     "youTubeSubtitleRequestLimitErrorDescription": "يرجى مسح ذاكرة التخزين المؤقت لصفحة YouTube أو تغيير عقدة الوكيل ثم المحاولة مرة أخرى",
     "subtitle.requestAiSubtitle429Tip": "تم استنفاد الحصة الشهرية لترجمات الذكاء الاصطناعي (النسخة التجريبية)",
-    "attachSubtitle.supportByImmersiveTranslate": "[ الترجمة ثنائية اللغة مدعومة بواسطة Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ الترجمة ثنائية اللغة مدعومة بواسطة Immersive Translate ]",
+    "xSeconds": "{seconds} ثواني"
   },
   "en": {
     "nologin": "Not logged in",
@@ -7829,7 +7836,6 @@
     "subtitle.quickButton.aiSubtitleUsed": "AI subtitles in use",
     "subtitle.requestAiSubtitleSuccessTip": "AI subtitles have been switched to",
     "subtitle.quickButton.requestAiSubtitle": "Request AI subtitles(Beta)",
-    "subtitle.requestAiSubtitleTip": "AI subtitle generation in progress. ETA {minutes} minutes.",
     "subtitle.requestAiSubtitle429Tip": "AI subtitles(Beta) monthly quota has been used up",
     "subtitle.applyAiSubtitleTip": "AI subtitles have been switched to",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "The current video is not subtitled, try requesting AI subtitles.",
@@ -7844,7 +7850,9 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limits subtitle requests to current devices",
     "youTubeSubtitleRequestLimitErrorDescription": "Please clear the YouTube page cache or change the proxy node and try again.",
     "attachSubtitleTranslating": "Translating using {service}... (Immersive Translate)",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Bilingual subtitles supported by Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ Bilingual subtitles supported by Immersive Translate ]",
+    "subtitle.requestAiSubtitleTip": "AI subtitle generation in progress. ETA {estimatedTime}.",
+    "xSeconds": "{seconds} seconds"
   },
   "fr": {
     "nologin": "non connecté",
@@ -8796,7 +8804,7 @@
     "terms.unname": "Termes sans nom",
     "subtitle.quickButton.aiSubtitleLoading": "Demande de sous-titres AI.",
     "subtitle.quickButton.requestAiSubtitle": "Demande de sous-titres AI (Beta)",
-    "subtitle.requestAiSubtitleTip": "Sous-titrage AI en cours, ETA {minutes} minutes.",
+    "subtitle.requestAiSubtitleTip": "Génération de sous-titres AI en cours. ETA {estimatedTime}.",
     "subtitle.requestAiSubtitleFailTip": "La génération de sous-titres AI a échoué, veuillez réessayer",
     "subtitle.requestAiSubtitleSuccessTip": "Les sous-titres AI ont été changés en",
     "subtitle.quickButton.aiSubtitleUsed": "Sous-titres AI utilisés",
@@ -8816,7 +8824,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limite les demandes de sous-titres aux appareils actuels",
     "youTubeSubtitleRequestLimitErrorDescription": "Veuillez vider le cache de la page YouTube ou changer le nœud du proxy et réessayer.",
     "subtitle.requestAiSubtitle429Tip": "Le quota mensuel de sous-titres AI (Beta) est épuisé",
-    "attachSubtitle.supportByImmersiveTranslate": "[Sous-titres bilingues pris en charge par Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[Sous-titres bilingues pris en charge par Immersive Translate ]",
+    "xSeconds": "{seconds} secondes"
   },
   "uk": {},
   "de": {
@@ -9772,7 +9781,7 @@
     "terms.importCsvButton": "csv-Import",
     "subtitle.quickButton.aiSubtitleLoading": "Beantragung von AI-Untertiteln.",
     "subtitle.requestAiSubtitleSuccessTip": "Die AI-Untertitel wurden umgestellt auf",
-    "subtitle.requestAiSubtitleTip": "AI-Untertitelung in Arbeit. ETA {minutes} Minuten.",
+    "subtitle.requestAiSubtitleTip": "KI-Untertitelgenerierung läuft. Voraussichtliche Fertigstellung {estimatedTime}.",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "Das aktuelle Video ist nicht untertitelt, versuchen Sie, AI-Untertitel anzufordern.",
     "subtitle.requestAiSubtitleFailTip": "Generierung von AI-Untertiteln fehlgeschlagen, bitte versuchen Sie es erneut",
     "terms.unname": "Unbenannte Begriffe",
@@ -9788,7 +9797,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube begrenzt Untertitelanfragen auf aktuelle Geräte",
     "youTubeSubtitleRequestLimitErrorDescription": "Bitte löschen Sie den Cache der YouTube-Seite oder ändern Sie den Proxy-Knoten und versuchen Sie es erneut.",
     "subtitle.requestAiSubtitle429Tip": "Das monatliche Kontingent für AI-Untertitel (Beta) ist ausgeschöpft",
-    "attachSubtitle.supportByImmersiveTranslate": "[Zweisprachige Untertitel, unterstützt von Immersive Translate]."
+    "attachSubtitle.supportByImmersiveTranslate": "[Zweisprachige Untertitel, unterstützt von Immersive Translate].",
+    "xSeconds": "{seconds} Sekunden"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10741,7 +10751,7 @@
     "subtitle.applyAiSubtitleTip": "I sottotitoli AI sono stati cambiati",
     "terms.importCsvButton": "Importazione csv",
     "terms.createNewDescription": "Creare un nuovo termine vuoto, quindi aggiungere manualmente i termini.",
-    "subtitle.requestAiSubtitleTip": "Sottotitoli AI in corso. ETA {minutes} minuti.",
+    "subtitle.requestAiSubtitleTip": "Generazione sottotitoli AI in corso. ETA {estimatedTime}.",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "Il video attuale non è sottotitolato, provare a richiedere i sottotitoli AI.",
     "subtitle.requestAiSubtitleSuccessTip": "I sottotitoli AI sono passati a",
     "subtitle.quickButton.requestAiSubtitle": "Richiesta sottotitoli AI(Beta)",
@@ -10759,7 +10769,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube limita le richieste di sottotitoli ai dispositivi attuali",
     "youTubeSubtitleRequestLimitErrorDescription": "Cancellare la cache della pagina YouTube o cambiare il nodo proxy e riprovare.",
     "subtitle.requestAiSubtitle429Tip": "La quota mensile di sottotitoli AI(Beta) è stata esaurita",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Sottotitoli bilingue supportati da Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ Sottotitoli bilingue supportati da Immersive Translate ]",
+    "xSeconds": "{seconds} secondi"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -11713,7 +11724,7 @@
     "subtitle.quickButton.aiSubtitleUsed": "Используемые субтитры AI",
     "terms.importCsvButton": "импорт csv",
     "subtitle.aiSubtitle": "Субтитры AI",
-    "subtitle.requestAiSubtitleTip": "Идет работа над субтитрами AI. Расчетное время прибытия {minutes} минут.",
+    "subtitle.requestAiSubtitleTip": "Генерация субтитров ИИ в процессе. Ожидаемое время завершения {estimatedTime}.",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "Текущее видео не снабжено субтитрами, попробуйте запросить субтитры AI.",
     "subtitle.requestAiSubtitleFailTip": "Не удалось создать субтитры AI, попробуйте еще раз",
     "subtitle.requestAiSubtitleSuccessTip": "Субтитры AI были переключены на",
@@ -11730,7 +11741,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ограничивает запросы субтитров текущими устройствами",
     "youTubeSubtitleRequestLimitErrorDescription": "Пожалуйста, очистите кэш страницы YouTube или измените узел прокси и попробуйте снова.",
     "subtitle.requestAiSubtitle429Tip": "Месячная квота на субтитры AI(Beta) исчерпана",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Двуязычные субтитры с поддержкой Immersive Translate ]."
+    "attachSubtitle.supportByImmersiveTranslate": "[ Двуязычные субтитры с поддержкой Immersive Translate ].",
+    "xSeconds": "{seconds} секунд"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -12687,7 +12699,7 @@
     "subtitle.requestAiSubtitleFailTip": "A geração de legendas de IA falhou, tente novamente",
     "terms.createNewTitle": "Criar termos vazios",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "O vídeo atual não está legendado, tente solicitar legendas de IA.",
-    "subtitle.requestAiSubtitleTip": "Legendagem de IA em andamento. ETA {minutes} minutos.",
+    "subtitle.requestAiSubtitleTip": "Geração de legendas AI em andamento. ETA {estimatedTime}.",
     "subtitle.quickButton.requestAiSubtitle": "Solicitar legendas AI (Beta)",
     "terms.unname": "Termos sem nome",
     "subtitle.aiSubtitle": "Legendas AI",
@@ -12703,7 +12715,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 O YouTube limita as solicitações de legendas aos dispositivos atuais",
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe o cache da página do YouTube ou altere o nó do proxy e tente novamente.",
     "subtitle.requestAiSubtitle429Tip": "A cota mensal de legendas AI (Beta) foi esgotada",
-    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilíngues suportadas pelo Immersive Translate ]."
+    "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilíngues suportadas pelo Immersive Translate ].",
+    "xSeconds": "{seconds} segundos"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -13650,7 +13663,7 @@
     "terms.createNewTitle": "खाली शर्तें बनाएँ",
     "subtitle.requestAiSubtitleFailTip": "AI उपशीर्षक निर्माण विफल, कृपया पुनः प्रयास करें",
     "subtitle.quickButton.aiSubtitleUsed": "AI उपशीर्षकों का उपयोग करना",
-    "subtitle.requestAiSubtitleTip": "AI उपशीर्षक तैयार करना, अनुमानित समय: {minutes}",
+    "subtitle.requestAiSubtitleTip": "AI उपशीर्षक निर्माण प्रगति पर है। ETA {estimatedTime}।",
     "terms.unname": "अनाम शर्तें",
     "terms.addCustomTitle": "कस्टम शर्तें जोड़ें",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "वर्तमान वीडियो में कोई उपशीर्षक नहीं है। आप AI उपशीर्षक का अनुरोध करने का प्रयास कर सकते हैं।",
@@ -13674,7 +13687,8 @@
     "youTubeSubtitleRequestLimitErrorDescription": "कृपया YouTube पेज कैश साफ़ करें या प्रॉक्सी नोड बदलें और पुनः प्रयास करें",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ने वर्तमान डिवाइस के लिए उपशीर्षक अनुरोध सीमित कर दिए हैं",
     "subtitle.requestAiSubtitle429Tip": "AI उपशीर्षक (बीटा) का मासिक कोटा समाप्त हो गया है",
-    "attachSubtitle.supportByImmersiveTranslate": "[ इमर्सिव ट्रांसलेट द्वारा समर्थित द्विभाषी उपशीर्षक ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ इमर्सिव ट्रांसलेट द्वारा समर्थित द्विभाषी उपशीर्षक ]",
+    "xSeconds": "{seconds} सेकंड"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -14627,7 +14641,7 @@
     "terms.importExistingTitle": "وارد کردن شرایط موجود",
     "terms.createNewTitle": "ایجاد شرایط خالی",
     "terms.createNewDescription": "یک عبارت خالی جدید ایجاد کنید، سپس می توانید به صورت دستی عبارت اضافه کنید.",
-    "subtitle.requestAiSubtitleTip": "تولید زیرنویس توسط هوش مصنوعی در حال انجام است. زمان تقریبی اتمام {minutes} دقیقه.",
+    "subtitle.requestAiSubtitleTip": "تولید زیرنویس توسط هوش مصنوعی در حال انجام است. زمان تخمینی {estimatedTime}.",
     "terms.importCsvButton": "واردات csv",
     "terms.unname": "شرایط بی نام",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "ویدیوی فعلی زیرنویس ندارد. می توانید سعی کنید زیرنویس های هوش مصنوعی را درخواست کنید.",
@@ -14646,7 +14660,8 @@
     "youTubeSubtitleRequestLimitErrorDescription": "لطفاً حافظه پنهان صفحه YouTube را پاک کنید یا گره پروکسی را تغییر دهید و دوباره امتحان کنید",
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube درخواست‌های زیرنویس محدودی برای دستگاه فعلی دارد",
     "subtitle.requestAiSubtitle429Tip": "سهمیه ماهانه زیرنویس‌های هوش مصنوعی (بتا) تمام شده است",
-    "attachSubtitle.supportByImmersiveTranslate": "[زیرنویس‌های دوزبانه پشتیبانی‌شده توسط Immersive Translate]"
+    "attachSubtitle.supportByImmersiveTranslate": "[زیرنویس‌های دوزبانه پشتیبانی‌شده توسط Immersive Translate]",
+    "xSeconds": "{seconds} ثانیه"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -15601,7 +15616,7 @@
     "subtitle.quickButton.requestAiSubtitle": "בקש כתוביות AI (בטא)",
     "terms.createNewDescription": "צור מונחים ריקים חדשים ולאחר מכן תוכל להוסיף מונחים באופן ידני.",
     "subtitle.aiSubtitle": "כתוביות בינה מלאכותית",
-    "subtitle.requestAiSubtitleTip": "נוצרות כתוביות בינה מלאכותית, צפויות {minutes} דקות",
+    "subtitle.requestAiSubtitleTip": "כותרות משנה מלאכותיות בתהליך. זמן הגעה משוער {estimatedTime}.",
     "subtitle.quickButton.aiSubtitleUsed": "נעשה שימוש בכתוביות בינה מלאכותית",
     "terms.importExistingTitle": "ייבוא מונחים קיימים",
     "terms.createNewTitle": "יצירת מונחים ריקים",
@@ -15623,7 +15638,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube חונק בקשות כתוביות למכשיר הנוכחי",
     "youTubeSubtitleRequestLimitErrorDescription": "אנא נקה את מטמון דף YouTube או החלף את צומת ה-proxy לפני שתנסה שוב",
     "subtitle.requestAiSubtitle429Tip": "המכסה החודשית של כתוביות AI (בטא) נוצלה",
-    "attachSubtitle.supportByImmersiveTranslate": "[ כתוביות דו-לשוניות נתמכות על ידי Immersive Translate ]"
+    "attachSubtitle.supportByImmersiveTranslate": "[ כתוביות דו-לשוניות נתמכות על ידי Immersive Translate ]",
+    "xSeconds": "{seconds} שניות"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -16575,7 +16591,7 @@
     "terms.createNewDescription": "新しい空の用語を作成し、手動で用語を追加します。",
     "subtitle.quickButton.requestAiSubtitle": "AI 字幕をリクエストする(ベータ版)",
     "subtitle.quickButton.noSubtitleAndRequestAiSubtitle": "現在のビデオには字幕がありません。AI 字幕をリクエストしてみてください。",
-    "subtitle.requestAiSubtitleTip": "AI 字幕制作中、ETA {minutes}分。",
+    "subtitle.requestAiSubtitleTip": "AI 字幕生成中。ETA {estimatedTime}。",
     "subtitle.quickButton.aiSubtitleLoading": "AI 字幕をリクエストする",
     "subtitle.requestAiSubtitleSuccessTip": "AI 字幕は次のように変更されました。",
     "subtitle.requestAiSubtitleFailTip": "AI 字幕の生成に失敗しました。",
@@ -16595,7 +16611,8 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTubeが字幕要求を現在のデバイスに制限",
     "youTubeSubtitleRequestLimitErrorDescription": "YouTubeページのキャッシュをクリアするか、プロキシノードを変更して再度お試しください。",
     "subtitle.requestAiSubtitle429Tip": "AI 字幕(ベータ版)月間枠を使い切りました",
-    "attachSubtitle.supportByImmersiveTranslate": "[Immersive Translateがサポートする二カ国語字幕 ]。"
+    "attachSubtitle.supportByImmersiveTranslate": "[Immersive Translateがサポートする二カ国語字幕 ]。",
+    "xSeconds": "{seconds} 秒"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",

@@ -935,7 +935,7 @@
     "selectionTranslationDirectModeDescription": "텍스트 선택 및 직접 트리거",
     "selectionTranslationShortcut": "{shortcut}를 눌러 다음을 트리거합니다.",
     "selectionTranslationShortcutDescription": "텍스트를 선택하고 {shortcut}를 눌러 다음을 트리거합니다.",
-    "selectionTranslationIconModeDescription": "텍스트 및 표시 아이콘을 선택하고 마우스를 가져가면 트리거됩니다.",
+    "selectionTranslationIconModeDescription": "텍스트 선택 및 표시 아이콘",
     "permissionTutorial": "권한 튜토리얼",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
     "widget.helpCenter": "도움말",
@@ -969,6 +969,9 @@
     "youTubeSubtitleRequestLimitErrorDescription": "YouTube 페이지 캐시를 지우거나 프록시 노드를 변경한 후 다시 시도하세요.",
     "subtitle.requestAiSubtitle429Tip": "AI 자막(베타) 월별 할당량이 모두 사용되었습니다.",
     "attachSubtitle.supportByImmersiveTranslate": "[몰입형 번역에서 지원하는 이중 언어 자막 ]",
+    "selectionTranslationTriggerModeDescriptionForHover": "마우스를 가져가면 트리거됩니다.",
+    "selectionTranslationTriggerModeDescriptionForClick": "클릭하여 트리거",
+    "selectionTranslationTriggerModeForIconTitle": "트리거 모드가 아이콘 또는 미니인 경우",
     "xSeconds": "{seconds}초"
   },
   "arz": {},
@@ -1907,7 +1910,7 @@
     "banSelectionTranslationForever": "Cerrar para siempre",
     "enableSelectionTranslationAutoReadTitle": "Activar la lectura automática de palabras",
     "selectionTranslationTriggerModeDescriptionForDirect": "Activación directa",
-    "selectionTranslationIconModeDescription": "Seleccionar texto y mostrar icono, pasar el ratón para activar",
+    "selectionTranslationIconModeDescription": "Seleccionar texto y mostrar icono",
     "selectionTranslationShortcut": "Pulsa {shortcut} para activar",
     "selectionTranslationShortcutDescription": "Seleccionar texto y pulsar {shortcut} para activar",
     "selectionTranslationDirectModeDescription": "Seleccionar texto y disparar directamente",
@@ -1944,7 +1947,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Por favor, borra la caché de la página de YouTube o cambia el nodo proxy e inténtalo de nuevo.",
     "subtitle.requestAiSubtitle429Tip": "Se ha agotado la cuota mensual de subtítulos AI(Beta)",
     "attachSubtitle.supportByImmersiveTranslate": "[ Subtítulos bilingües compatibles con Immersive Translate ]",
-    "xSeconds": "{seconds} segundos"
+    "xSeconds": "{seconds} segundos",
+    "selectionTranslationTriggerModeDescriptionForHover": "Pase el ratón para activar",
+    "selectionTranslationTriggerModeDescriptionForClick": "Haga clic para activar",
+    "selectionTranslationTriggerModeForIconTitle": "Cuando el modo de disparo es icono o mini"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -2878,7 +2884,7 @@
     "banSelectionTranslationForever": "Sonsuza kadar yakın",
     "reEnableSelectionTranslation": "Bunu {settings} içinde yeniden açabilirsiniz",
     "selectionTranslationCopySuccess": "Kopyalandı",
-    "selectionTranslationIconModeDescription": "Metni seçin ve simgeyi gösterin, tetiklemek için üzerine gelin",
+    "selectionTranslationIconModeDescription": "Metin seçin ve simgeyi gösterin",
     "selectionTranslationDirectModeDescription": "Metni seçin ve doğrudan tetikleyin",
     "selectionTranslationTriggerModeDescriptionForDirect": "Doğrudan tetikleyici",
     "selectionTranslationShortcutDescription": "Metni seçin ve tetiklemek için {shortcut} tuşuna basın",
@@ -2916,7 +2922,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Lütfen YouTube sayfası önbelleğini temizleyin veya proxy düğümünü değiştirin ve tekrar deneyin.",
     "subtitle.requestAiSubtitle429Tip": "AI altyazıları (Beta) aylık kotası doldu",
     "attachSubtitle.supportByImmersiveTranslate": "[ Immersive Translate tarafından desteklenen iki dilli altyazılar ]",
-    "xSeconds": "{seconds} saniye"
+    "xSeconds": "{seconds} saniye",
+    "selectionTranslationTriggerModeDescriptionForClick": "Tetiklemek için tıklayın",
+    "selectionTranslationTriggerModeDescriptionForHover": "Tetiklemek için üzerine gelin",
+    "selectionTranslationTriggerModeForIconTitle": "Tetikleme modu simge veya mini olduğunda"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -3890,7 +3899,7 @@
     "banSelectionTranslationForever": "永久關閉",
     "selectionTranslationTriggerModeDescriptionForDirect": "直接觸發",
     "selectionTranslationShortcut": "按 {shortcut} 觸發",
-    "selectionTranslationIconModeDescription": "選取文字後顯示圖標，懸浮觸發",
+    "selectionTranslationIconModeDescription": "選取文字後顯示圖標",
     "selectionTranslationDirectModeDescription": "選取文字後直接觸發",
     "selectionTranslationShortcutDescription": "選取文字後按 {shortcut} 觸發",
     "widget.helpCenter": "幫助中心",
@@ -3924,7 +3933,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "請清除 YouTube 頁面快取或更換代理節點後再重試",
     "subtitle.requestAiSubtitle429Tip": "AI 字幕(Beta) 當月體驗額度已用完",
     "attachSubtitle.supportByImmersiveTranslate": "[ 雙語字幕由沉浸式翻譯支援 ]",
-    "xSeconds": "{seconds} 秒"
+    "xSeconds": "{seconds} 秒",
+    "selectionTranslationTriggerModeDescriptionForHover": "懸浮觸發",
+    "selectionTranslationTriggerModeDescriptionForClick": "點擊觸發",
+    "selectionTranslationTriggerModeForIconTitle": "當觸發方式為圖示或小圓點時"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -4860,7 +4872,7 @@
     "reEnableSelectionTranslation": "Você pode reabri-lo em {settings}",
     "selectionTranslationDirectModeDescription": "Selecione o texto e acione diretamente",
     "selectionTranslationShortcut": "Pressione {shortcut} para acionar",
-    "selectionTranslationIconModeDescription": "Selecione o texto e mostre o ícone, passe o mouse para acionar",
+    "selectionTranslationIconModeDescription": "Selecionar texto e mostrar ícone",
     "selectionTranslationTriggerModeDescriptionForDirect": "Gatilho direto",
     "selectionTranslationShortcutDescription": "Selecione o texto e pressione {shortcut} para acionar",
     "permissionTutorial": "Tutorial de permissões",
@@ -4896,6 +4908,9 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe a cache da página do YouTube ou altere o nó de proxy e tente novamente.",
     "subtitle.requestAiSubtitle429Tip": "A quota mensal de legendas AI (Beta) foi esgotada",
     "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilingues suportadas pelo Immersive Translate ]",
+    "selectionTranslationTriggerModeDescriptionForClick": "Clique para acionar",
+    "selectionTranslationTriggerModeDescriptionForHover": "Passe o rato para ativar",
+    "selectionTranslationTriggerModeForIconTitle": "Quando o modo de disparo é ícone ou mini",
     "xSeconds": "{seconds} segundos"
   },
   "my": {
@@ -5894,8 +5909,11 @@
     "reEnableSelectionTranslation": "可在{settings}中重新开启",
     "selectionTranslationShortcut": "按 {shortcut} 触发",
     "selectionTranslationShortcutDescription": "选中文本后按 {shortcut} 触发",
-    "selectionTranslationIconModeDescription": "选中文本后显示图标，悬浮触发",
+    "selectionTranslationIconModeDescription": "选中文本后显示图标",
     "selectionTranslationDirectModeDescription": "选中文本后直接触发",
+    "selectionTranslationTriggerModeForIconTitle": "当触发方式为图标或小圆点时",
+    "selectionTranslationTriggerModeDescriptionForHover": "悬浮触发",
+    "selectionTranslationTriggerModeDescriptionForClick": "点击触发",
     "custom": "自定义",
     "pagination.prev": "上一页",
     "pagination.next": "下一页",
@@ -6843,7 +6861,7 @@
     "enableSelectionTranslationTitle": "تمكين ترجمة تحديد النص",
     "selectionTranslationShortcutDescription": "حدد النص واضغط على {shortcut} لتشغيله",
     "selectionTranslationTriggerModeDescriptionForDirect": "الزناد المباشر",
-    "selectionTranslationIconModeDescription": "حدد النص وأظهر الرمز، ثم مرر الماوس فوقه لتشغيله",
+    "selectionTranslationIconModeDescription": "حدد النص وأظهر الرمز",
     "selectionTranslationShortcut": "اضغط على {shortcut} للتفعيل",
     "selectionTranslationDirectModeDescription": "حدد النص وقم بتشغيله مباشرة",
     "permissionTutorial": "تعليمات الأذونات",
@@ -6879,6 +6897,9 @@
     "youTubeSubtitleRequestLimitErrorDescription": "يرجى مسح ذاكرة التخزين المؤقت لصفحة YouTube أو تغيير عقدة الوكيل ثم المحاولة مرة أخرى",
     "subtitle.requestAiSubtitle429Tip": "تم استنفاد الحصة الشهرية لترجمات الذكاء الاصطناعي (النسخة التجريبية)",
     "attachSubtitle.supportByImmersiveTranslate": "[ الترجمة ثنائية اللغة مدعومة بواسطة Immersive Translate ]",
+    "selectionTranslationTriggerModeDescriptionForHover": "مرر الماوس للتفعيل",
+    "selectionTranslationTriggerModeDescriptionForClick": "انقر للتفعيل",
+    "selectionTranslationTriggerModeForIconTitle": "عندما يكون وضع التشغيل عبارة عن أيقونة أو مصغرة",
     "xSeconds": "{seconds} ثواني"
   },
   "en": {
@@ -7827,8 +7848,11 @@
     "reEnableSelectionTranslation": "You can reopen it in {settings}",
     "selectionTranslationShortcut": "Press {shortcut} to trigger",
     "selectionTranslationShortcutDescription": "Select text and press {shortcut} to trigger",
-    "selectionTranslationIconModeDescription": "Select text and show icon, hover to trigger",
+    "selectionTranslationIconModeDescription": "Select text and show icon",
     "selectionTranslationDirectModeDescription": "Select text and trigger directly",
+    "selectionTranslationTriggerModeForIconTitle": "When the trigger mode is icon or mini",
+    "selectionTranslationTriggerModeDescriptionForHover": "Hover to trigger",
+    "selectionTranslationTriggerModeDescriptionForClick": "Click to trigger",
     "widget.helpCenter": "Help",
     "widget.helpCenterTooltip": "Discover more tips and how-to guides",
     "subtitle.requestAiSubtitleFailTip": "AI subtitle generation failed, please try again",
@@ -8791,7 +8815,7 @@
     "selectionTranslationDirectModeDescription": "Sélectionner un texte et le déclencher directement",
     "selectionTranslationShortcutDescription": "Sélectionnez le texte et appuyez sur {shortcut} pour le déclencher.",
     "selectionTranslationShortcut": "Appuyez sur {shortcut} pour déclencher",
-    "selectionTranslationIconModeDescription": "Sélectionner le texte et afficher l'icône, survoler pour déclencher",
+    "selectionTranslationIconModeDescription": "Sélectionner le texte et afficher l'icône",
     "permissionTutorial": "Guide des permissions",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
     "widget.helpCenter": "Aide",
@@ -8825,6 +8849,9 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Veuillez vider le cache de la page YouTube ou changer le nœud du proxy et réessayer.",
     "subtitle.requestAiSubtitle429Tip": "Le quota mensuel de sous-titres AI (Beta) est épuisé",
     "attachSubtitle.supportByImmersiveTranslate": "[Sous-titres bilingues pris en charge par Immersive Translate ]",
+    "selectionTranslationTriggerModeForIconTitle": "Lorsque le mode de déclenchement est icône ou mini",
+    "selectionTranslationTriggerModeDescriptionForHover": "Survoler pour déclencher",
+    "selectionTranslationTriggerModeDescriptionForClick": "Cliquer pour déclencher",
     "xSeconds": "{seconds} secondes"
   },
   "uk": {},
@@ -9761,7 +9788,7 @@
     "banSelectionTranslation": "Übersetzung der Textauswahl deaktivieren",
     "banSelectionTranslationInThisSite": "Deaktiviert auf der aktuellen Website",
     "selectionTranslationDirectModeDescription": "Text auswählen und direkt auslösen",
-    "selectionTranslationIconModeDescription": "Text markieren und Symbol anzeigen, zum Auslösen den Mauszeiger bewegen",
+    "selectionTranslationIconModeDescription": "Text auswählen und Symbol anzeigen",
     "selectionTranslationShortcut": "Drücken Sie {shortcut} zum Auslösen",
     "selectionTranslationTriggerModeDescriptionForDirect": "Direkter Auslöser",
     "selectionTranslationShortcutDescription": "Wählen Sie Text und drücken Sie {shortcut} zum Auslösen",
@@ -9798,7 +9825,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Bitte löschen Sie den Cache der YouTube-Seite oder ändern Sie den Proxy-Knoten und versuchen Sie es erneut.",
     "subtitle.requestAiSubtitle429Tip": "Das monatliche Kontingent für AI-Untertitel (Beta) ist ausgeschöpft",
     "attachSubtitle.supportByImmersiveTranslate": "[Zweisprachige Untertitel, unterstützt von Immersive Translate].",
-    "xSeconds": "{seconds} Sekunden"
+    "xSeconds": "{seconds} Sekunden",
+    "selectionTranslationTriggerModeDescriptionForClick": "Klicken Sie zum Auslösen",
+    "selectionTranslationTriggerModeForIconTitle": "Wenn der Auslösemodus Symbol oder Mini ist",
+    "selectionTranslationTriggerModeDescriptionForHover": "Bewegen Sie den Mauszeiger zum Auslösen"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -10733,7 +10763,7 @@
     "banSelectionTranslationOnce": "Questa volta non ci sarà più fino alla prossima visita",
     "reEnableSelectionTranslation": "È possibile riaprirlo in {settings}",
     "selectionTranslationTriggerModeDescriptionForDirect": "Innesco diretto",
-    "selectionTranslationIconModeDescription": "Selezionare il testo e mostrare l'icona, passare il mouse per attivarla",
+    "selectionTranslationIconModeDescription": "Selezionare il testo e mostrare l'icona",
     "selectionTranslationDirectModeDescription": "Selezionare il testo e attivarlo direttamente",
     "selectionTranslationShortcut": "Premere {shortcut} per attivare",
     "selectionTranslationShortcutDescription": "Selezionate il testo e premete {shortcut} per attivarlo.",
@@ -10770,7 +10800,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Cancellare la cache della pagina YouTube o cambiare il nodo proxy e riprovare.",
     "subtitle.requestAiSubtitle429Tip": "La quota mensile di sottotitoli AI(Beta) è stata esaurita",
     "attachSubtitle.supportByImmersiveTranslate": "[ Sottotitoli bilingue supportati da Immersive Translate ]",
-    "xSeconds": "{seconds} secondi"
+    "xSeconds": "{seconds} secondi",
+    "selectionTranslationTriggerModeDescriptionForHover": "Passare il mouse per attivare",
+    "selectionTranslationTriggerModeDescriptionForClick": "Fare clic per attivare",
+    "selectionTranslationTriggerModeForIconTitle": "Quando la modalità di attivazione è icona o mini"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -11707,7 +11740,7 @@
     "selectionTranslationTriggerModeDescriptionForDirect": "Прямой запуск",
     "selectionTranslationShortcut": "Нажмите {shortcut}, чтобы включить",
     "selectionTranslationShortcutDescription": "Выделите текст и нажмите {shortcut} для запуска",
-    "selectionTranslationIconModeDescription": "Выделите текст и покажите значок, наведите курсор, чтобы сработать",
+    "selectionTranslationIconModeDescription": "Выберите текст и покажите значок",
     "selectionTranslationDirectModeDescription": "Выделите текст и запустите прямой триггер",
     "permissionTutorial": "Руководство по разрешениям",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
@@ -11742,7 +11775,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Пожалуйста, очистите кэш страницы YouTube или измените узел прокси и попробуйте снова.",
     "subtitle.requestAiSubtitle429Tip": "Месячная квота на субтитры AI(Beta) исчерпана",
     "attachSubtitle.supportByImmersiveTranslate": "[ Двуязычные субтитры с поддержкой Immersive Translate ].",
-    "xSeconds": "{seconds} секунд"
+    "xSeconds": "{seconds} секунд",
+    "selectionTranslationTriggerModeDescriptionForClick": "Нажмите для запуска",
+    "selectionTranslationTriggerModeForIconTitle": "Когда режим срабатывания - значок или мини",
+    "selectionTranslationTriggerModeDescriptionForHover": "Наведите курсор, чтобы вызвать"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -12678,7 +12714,7 @@
     "enableAutoRead": "A leitura automática foi ativada",
     "disableAutoRead": "A leitura automática foi desativada",
     "selectionTranslationShortcut": "Pressione {shortcut} para acionar",
-    "selectionTranslationIconModeDescription": "Selecione o texto e mostre o ícone, passe o mouse para acionar",
+    "selectionTranslationIconModeDescription": "Selecione o texto e mostre o ícone",
     "selectionTranslationTriggerModeDescriptionForDirect": "Gatilho direto",
     "selectionTranslationShortcutDescription": "Selecione o texto e pressione {shortcut} para acionar",
     "selectionTranslationDirectModeDescription": "Selecione o texto e acione diretamente",
@@ -12716,7 +12752,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "Limpe o cache da página do YouTube ou altere o nó do proxy e tente novamente.",
     "subtitle.requestAiSubtitle429Tip": "A cota mensal de legendas AI (Beta) foi esgotada",
     "attachSubtitle.supportByImmersiveTranslate": "[ Legendas bilíngues suportadas pelo Immersive Translate ].",
-    "xSeconds": "{seconds} segundos"
+    "xSeconds": "{seconds} segundos",
+    "selectionTranslationTriggerModeDescriptionForHover": "Passe o mouse para acionar",
+    "selectionTranslationTriggerModeDescriptionForClick": "Clique para acionar",
+    "selectionTranslationTriggerModeForIconTitle": "Quando o modo de disparo é ícone ou mini"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -13652,7 +13691,7 @@
     "selectionTranslationBlockUrlsDescription": "निम्नलिखित वेबसाइट पर पाठ चयन अनुवाद अक्षम है",
     "selectionTranslationTriggerModeDescriptionForDirect": "प्रत्यक्ष ट्रिगर",
     "selectionTranslationDirectModeDescription": "टेक्स्ट का चयन करें और सीधे ट्रिगर करें",
-    "selectionTranslationIconModeDescription": "टेक्स्ट चुनें और आइकन दिखाएं, ट्रिगर करने के लिए होवर करें",
+    "selectionTranslationIconModeDescription": "टेक्स्ट चुनें और आइकन दिखाएं",
     "selectionTranslationShortcut": "ट्रिगर करने के लिए {shortcut} दबाएँ",
     "selectionTranslationShortcutDescription": "टेक्स्ट चुनें और ट्रिगर करने के लिए {shortcut} दबाएँ",
     "permissionTutorial": "अनुमति ट्यूटोरियल",
@@ -13688,7 +13727,10 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube ने वर्तमान डिवाइस के लिए उपशीर्षक अनुरोध सीमित कर दिए हैं",
     "subtitle.requestAiSubtitle429Tip": "AI उपशीर्षक (बीटा) का मासिक कोटा समाप्त हो गया है",
     "attachSubtitle.supportByImmersiveTranslate": "[ इमर्सिव ट्रांसलेट द्वारा समर्थित द्विभाषी उपशीर्षक ]",
-    "xSeconds": "{seconds} सेकंड"
+    "xSeconds": "{seconds} सेकंड",
+    "selectionTranslationTriggerModeDescriptionForClick": "ट्रिगर करने के लिए क्लिक करें",
+    "selectionTranslationTriggerModeDescriptionForHover": "ट्रिगर करने के लिए होवर करें",
+    "selectionTranslationTriggerModeForIconTitle": "जब ट्रिगर मोड आइकन या मिनी होता है"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -14626,7 +14668,7 @@
     "selectionTranslationShortcut": "برای فعال کردن، {shortcut} را فشار دهید",
     "selectionTranslationDirectModeDescription": "متن را انتخاب کنید و مستقیماً فعال کنید",
     "selectionTranslationShortcutDescription": "متن را انتخاب کنید و برای فعال کردن، {shortcut} را فشار دهید",
-    "selectionTranslationIconModeDescription": "متن را انتخاب کنید و نماد را نشان دهید، نشانگر را روی ماشه نگه دارید",
+    "selectionTranslationIconModeDescription": "انتخاب متن و نمایش آیکون",
     "selectionTranslationTriggerModeDescriptionForDirect": "ماشه مستقیم",
     "permissionTutorial": "تعلیمات سطح دسترسی",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
@@ -14661,7 +14703,10 @@
     "youTubeSubtitleRequestLimitErrorTitle": "429 YouTube درخواست‌های زیرنویس محدودی برای دستگاه فعلی دارد",
     "subtitle.requestAiSubtitle429Tip": "سهمیه ماهانه زیرنویس‌های هوش مصنوعی (بتا) تمام شده است",
     "attachSubtitle.supportByImmersiveTranslate": "[زیرنویس‌های دوزبانه پشتیبانی‌شده توسط Immersive Translate]",
-    "xSeconds": "{seconds} ثانیه"
+    "xSeconds": "{seconds} ثانیه",
+    "selectionTranslationTriggerModeForIconTitle": "وقتی حالت تریگر روی آیکون یا مینی باشد",
+    "selectionTranslationTriggerModeDescriptionForHover": "برای فعال شدن، موس را نگه دارید",
+    "selectionTranslationTriggerModeDescriptionForClick": "برای فعال کردن کلیک کنید"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -15605,7 +15650,7 @@
     "selectionTranslationShortcutDescription": "בחר טקסט ולחץ על {shortcut} כדי להפעיל",
     "selectionTranslationTriggerModeDescriptionForDirect": "טריגר ישיר",
     "selectionTranslationDirectModeDescription": "בחר טקסט והפעל ישירות",
-    "selectionTranslationIconModeDescription": "בחר טקסט והצג סמל, רחף כדי להפעיל",
+    "selectionTranslationIconModeDescription": "סמל בחירת טקסט והצגה",
     "permissionTutorial": "הדרך להגבלת הגישה למסך",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
     "widget.helpCenter": "עזרה",
@@ -15639,7 +15684,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "אנא נקה את מטמון דף YouTube או החלף את צומת ה-proxy לפני שתנסה שוב",
     "subtitle.requestAiSubtitle429Tip": "המכסה החודשית של כתוביות AI (בטא) נוצלה",
     "attachSubtitle.supportByImmersiveTranslate": "[ כתוביות דו-לשוניות נתמכות על ידי Immersive Translate ]",
-    "xSeconds": "{seconds} שניות"
+    "xSeconds": "{seconds} שניות",
+    "selectionTranslationTriggerModeForIconTitle": "כאשר מצב ההדק הוא סמל או מיני",
+    "selectionTranslationTriggerModeDescriptionForHover": "רחף כדי להפעיל",
+    "selectionTranslationTriggerModeDescriptionForClick": "לחץ להפעלה"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -16577,7 +16625,7 @@
     "selectionTranslationDirectModeDescription": "テキストを選択して直接トリガー",
     "selectionTranslationShortcut": "{shortcut}を押してトリガーする",
     "selectionTranslationShortcutDescription": "テキストを選択し、{shortcut}を押してトリガーする",
-    "selectionTranslationIconModeDescription": "テキストを選択してアイコンを表示、ホバーでトリガー",
+    "selectionTranslationIconModeDescription": "テキストを選択してアイコンを表示",
     "selectionTranslationTriggerModeDescriptionForDirect": "ダイレクト・トリガー",
     "permissionTutorial": "権限チュートリアル",
     "permissionTutorialLink": "https://immersivetranslate.com/en/docs/faq/#translation-of-local-documents",
@@ -16612,7 +16660,10 @@
     "youTubeSubtitleRequestLimitErrorDescription": "YouTubeページのキャッシュをクリアするか、プロキシノードを変更して再度お試しください。",
     "subtitle.requestAiSubtitle429Tip": "AI 字幕(ベータ版)月間枠を使い切りました",
     "attachSubtitle.supportByImmersiveTranslate": "[Immersive Translateがサポートする二カ国語字幕 ]。",
-    "xSeconds": "{seconds} 秒"
+    "xSeconds": "{seconds} 秒",
+    "selectionTranslationTriggerModeForIconTitle": "トリガーモードがアイコンまたはミニの場合",
+    "selectionTranslationTriggerModeDescriptionForClick": "クリックで発動",
+    "selectionTranslationTriggerModeDescriptionForHover": "ホバーでトリガー"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",

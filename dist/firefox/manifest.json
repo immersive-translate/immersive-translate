@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.17.5",
+  "version": "1.17.6",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -16,7 +16,8 @@
     "image/inject.js",
     "tesseract/worker.min.js",
     "tesseract/tesseract-core-simd-lstm.wasm.js",
-    "browser-bridge/inject.js"
+    "browser-bridge/inject.js",
+    "side-panel.html"
   ],
   "content_scripts": [
     {
@@ -98,6 +99,12 @@
     },
     "translateInputBox": {
       "description": "__MSG_translateInputBox__"
+    },
+    "toggleSidePanel": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "__MSG_toggleSidePanel__"
     },
     "translateWithCustom1": {
       "description": "__MSG_translateWithCustom1__"

@@ -109,5 +109,8 @@
   },
   "translateMangaMenuId": {
     "message": "ترجمه تصویر/بازیابی تصویر"
+  },
+  "toggleSidePanel": {
+    "message": "باز/بسته کردن پانل کناری"
   }
 }

@@ -109,5 +109,8 @@
   },
   "translateMangaMenuId": {
     "message": "Görüntüyü çevir/görüntüyü geri yükle"
+  },
+  "toggleSidePanel": {
+    "message": "Yan Paneli Aç/Kapat"
   }
 }

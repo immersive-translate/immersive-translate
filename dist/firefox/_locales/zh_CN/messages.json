@@ -86,6 +86,9 @@
   "translateInputBox": {
     "message": "翻译当前输入框内容"
   },
+  "toggleSidePanel": {
+    "message": "开启/关闭侧边栏"
+  },
   "toggleTranslationMask": {
     "message": "切换当前页面译文为模糊效果（学习模式）"
   },

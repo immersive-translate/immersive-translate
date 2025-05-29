@@ -109,5 +109,8 @@
   },
   "translateMangaMenuId": {
     "message": "이미지 번역/이미지 복원"
+  },
+  "toggleSidePanel": {
+    "message": "사이드 패널 열기/닫기"
   }
 }

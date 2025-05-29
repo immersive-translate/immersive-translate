@@ -109,5 +109,8 @@
   },
   "translateMangaMenuId": {
     "message": "छवि का अनुवाद करें/छवि पुनर्स्थापित करें"
+  },
+  "toggleSidePanel": {
+    "message": "साइड पैनल खोलें/बंद करें"
   }
 }

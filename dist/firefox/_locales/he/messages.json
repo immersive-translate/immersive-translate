@@ -109,5 +109,8 @@
   },
   "translateText": {
     "message": "תרגם \"{text}\""
+  },
+  "toggleSidePanel": {
+    "message": "פתח/סגור חלונית צדדית"
   }
 }

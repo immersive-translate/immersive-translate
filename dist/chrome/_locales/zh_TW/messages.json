@@ -71,6 +71,9 @@
   "translateInputBox": {
     "message": "翻譯目前輸入框內容"
   },
+  "toggleSidePanel": {
+    "message": "開啟/關閉側邊欄"
+  },
   "toggleOnlyTransation": {
     "message": "切換雙語/僅譯文模式"
   },
@@ -96,7 +99,7 @@
     "message": "翻譯網頁/顯示原文"
   },
   "translateText": {
-    "message": "翻譯文本：\"{text}\""
+    "message": "翻譯文字：\"{text}\""
   },
   "translateWithCustom1": {
     "message": "暫時使用自訂翻譯服務翻譯目前頁面 (1)"

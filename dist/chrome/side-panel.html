@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Side Panel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="immersive-translate-options" content="true" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/side-panel.css?v={date}" />
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mount"></div>
+    <div id="immersive-translate-status" style="display: none;">Loading...</div>
+    <div id="storage">
+        <input type="hidden" id="immersive-translate-page-ready" name="immersive-translate-page-ready" value="false" />
+        <input type="hidden" id="immersive-translate-local-storage" name="immersive-translate-local-storage" value="" />
+
+        <input type="hidden" id="immersive-translate-sync-storage" name="immersive-translate-sync-storage" value="" />
+
+        <input type="hidden" id="immersive-translate-message" name="immersive-translate-message" value="" />
+
+        <input type="hidden" id="immersive-translate-manifest" name="immersive-translate-manifest" value="" />
+    </div>
+    <script src="./side-panel.js?v={date}"></script>
+</body>
+
+</html>

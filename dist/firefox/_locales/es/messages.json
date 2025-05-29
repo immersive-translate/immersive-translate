@@ -109,5 +109,8 @@
   },
   "translateMangaMenuId": {
     "message": "Traducir imagen/restaurar imagen"
+  },
+  "toggleSidePanel": {
+    "message": "Abrir/Cerrar panel lateral"
   }
 }

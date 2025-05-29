@@ -71,6 +71,9 @@
   "translateInputBox": {
     "message": "Translate the content of the current input box"
   },
+  "toggleSidePanel": {
+    "message": "Open/Close Side Panel"
+  },
   "toggleOnlyTransation": {
     "message": "Switch to /translation-only mode"
   },

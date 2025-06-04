@@ -1,5 +1,9 @@
-body {
-  font-family: "Noto Sans SC";
+.imt-side-panel {
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  min-height: 95vh;
+  position: relative;
 }
 
 .panel-close-icon {
@@ -8,7 +12,7 @@ body {
   cursor: pointer;
   position: absolute;
   right: 20px;
-  top: 18px;
+  top: 0;
 }
 
 /* 翻译结果 */
@@ -549,12 +553,20 @@ body {
 }
 
 .imt-dropdown ul {
-  max-height: 450px;
-  overflow: auto;
+  max-height: 550px;
+  overflow-y: auto;
   text-align: left;
   padding: 0;
   margin: 0;
   width: 100%;
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
+}
+
+.imt-dropdown ul::-webkit-scrollbar {
+  display: none;
 }
 
 .imt-dropdown li {

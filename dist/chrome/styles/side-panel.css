@@ -1,7 +1,8 @@
 .imt-side-panel {
-  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--font-family);
   min-height: 95vh;
   position: relative;
 }
@@ -81,7 +82,7 @@
   margin: 0;
   padding: 0;
   white-space: pre-line;
-  font-family: "Noto Sans SC";
+  font-family: var(--font-family);
 }
 
 .icon {

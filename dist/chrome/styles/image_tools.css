@@ -1,6 +1,8 @@
 .imt-image-tools {
-  display: block;
+  display: flex;
   position: fixed;
+  flex-direction: row;
+  align-items: center;
   z-index: 2147483647;
 }
 

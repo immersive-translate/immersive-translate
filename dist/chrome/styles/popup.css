@@ -764,10 +764,6 @@ select.text-gray-6 {
   fill: var(--text-gray-2);
 }
 
-.setting svg {
-  fill: var(--text-gray-6);
-}
-
 .share-button-container {
   display: flex;
   align-items: center;
@@ -901,6 +897,11 @@ select.text-gray-6 {
   flex: 1;
 }
 
+#translation-service-select {
+  padding-right: 12px;
+  padding-left: 6px;
+}
+
 .custom-select-content {
   border-radius: 12px;
   background: var(--popup-content-background-color);
@@ -914,6 +915,11 @@ select.text-gray-6 {
   overflow-y: auto;
 }
 
+.custom-select-item.default {
+  width: 100%;
+  padding: 0;
+}
+
 .custom-select-item {
   font-size: 13px;
   padding: 5px 6px;
@@ -922,7 +928,7 @@ select.text-gray-6 {
   align-items: center;
   cursor: pointer;
   color: var(--text-black-2);
-  width: 100%;
+  width: auto;
   overflow: hidden;
   height: 30px;
   line-height: 30px;
@@ -960,9 +966,21 @@ select.text-gray-6 {
   margin: 0 3px;
   width: 20px;
 }
+
+.custom-select-group-header {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-gray-9);
+  padding: 6px 8px 4px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .more-container {
   position: relative;
 }
+
 .new-menu-indicator {
   position: absolute;
   width: 8px;

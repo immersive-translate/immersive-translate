@@ -57,8 +57,7 @@
 }
 
 .add-custom-ai-service,
-.service-set-default,
-.service-current-default {
+.service-set-default {
   color: #999999;
   font-size: 0.825rem;
   font-weight: 400;
@@ -79,7 +78,7 @@
 }
 
 .store-return {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 28px;
   text-align: left;

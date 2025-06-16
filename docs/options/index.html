@@ -1,57 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Options</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="immersive-translate-options" content="true" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/pico.css?v={date}" />
-    <link rel="stylesheet" href="styles/notie.css?v={date}" />
-    <link rel="stylesheet" href="styles/common.css?v={date}" />
-    <link rel="stylesheet" href="styles/options.css?v={date}" />
-    <link rel="stylesheet" href="styles/input.css?v={date}" />
-    <link rel="stylesheet" href="styles/store.css?v={date}" />
-    <link rel="stylesheet" href="styles/assistant.css?v={date}" />
-  </head>
-  <body>
-    <div id="immersive-translate-status">Loading...</div>
-    <div id="mount"></div>
-    <div id="storage">
-      <input
-        type="hidden"
-        id="immersive-translate-page-ready"
-        name="immersive-translate-page-ready"
-        value="false"
-      />
-      <input
-        type="hidden"
-        id="immersive-translate-local-storage"
-        name="immersive-translate-local-storage"
-        value=""
-      />
 
-      <input
-        type="hidden"
-        id="immersive-translate-sync-storage"
-        name="immersive-translate-sync-storage"
-        value=""
-      />
+<head>
+  <title>Options</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="immersive-translate-options" content="true" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/pico.css?v={date}" />
+  <link rel="stylesheet" href="styles/notie.css?v={date}" />
+  <link rel="stylesheet" href="styles/common.css?v={date}" />
+  <link rel="stylesheet" href="styles/options.css?v={date}" />
+  <link rel="stylesheet" href="styles/input.css?v={date}" />
+  <link rel="stylesheet" href="styles/store.css?v={date}" />
+  <link rel="stylesheet" href="styles/assistant.css?v={date}" />
+  <style>
+    #immersive-translate-status #loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
 
-      <input
-        type="hidden"
-        id="immersive-translate-message"
-        name="immersive-translate-message"
-        value=""
-      />
+    /* 旋转的Loading图标 */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #ea4c89;
+      border-radius: 50%;
+      animation: loading-spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
 
-      <input
-        type="hidden"
-        id="immersive-translate-manifest"
-        name="immersive-translate-manifest"
-        value=""
-      />
+    /* 旋转动画 */
+    @keyframes loading-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Loading文本样式 */
+    .loading-text {
+      color: #666;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+      animation: loading-pulse 1.5s ease-in-out infinite;
+    }
+
+    /* 文本脉搏动画 */
+    @keyframes loading-pulse {
+
+      0%,
+      100% {
+        opacity: 0.7;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* 深色模式适配 */
+    @media (prefers-color-scheme: dark) {
+      #immersive-translate-status #loading-container {
+        background: rgba(18, 18, 18, 0.95);
+      }
+
+      .loading-text {
+        color: #ccc;
+      }
+
+      .loading-spinner {
+        border-color: #333;
+        border-top-color: #ea4c89;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="immersive-translate-status">
+    <div id="loading-container">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">
+        Loading...
+        <span class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </p>
     </div>
-    <script src="./options.js?v={date}"></script>
-  </body>
+  </div>
+
+  <div id="mount"></div>
+  <div id="storage">
+    <input type="hidden" id="immersive-translate-page-ready" name="immersive-translate-page-ready" value="false" />
+    <input type="hidden" id="immersive-translate-local-storage" name="immersive-translate-local-storage" value="" />
+
+    <input type="hidden" id="immersive-translate-sync-storage" name="immersive-translate-sync-storage" value="" />
+
+    <input type="hidden" id="immersive-translate-message" name="immersive-translate-message" value="" />
+
+    <input type="hidden" id="immersive-translate-manifest" name="immersive-translate-manifest" value="" />
+  </div>
+  <script src="./options.js?v={date}"></script>
+</body>
+
 </html>

@@ -77,7 +77,7 @@
 
 [imt-trans-position="before"]
   .immersive-translate-target-translation-block-wrapper {
-  display: inline-block;
+  display: block;
 }
 
 [imt-trans-position="before"]

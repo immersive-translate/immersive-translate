@@ -197,10 +197,8 @@
   background-color: #fefefe;
   margin: 10% auto;
   padding: 40px 24px 24px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 270px;
+  border-radius: 12px;
+  width: 350px;
   font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -255,7 +253,6 @@
 
 .immersive-translate-close:hover,
 .immersive-translate-close:focus {
-  color: black;
   text-decoration: none;
   cursor: pointer;
 }

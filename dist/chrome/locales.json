@@ -767,7 +767,8 @@
     "translationModePreferDesc": "번역된 텍스트가 표시되는 방식을 이중 언어 또는 번역 전용 중에서 선택합니다.",
     "refreshPage": "페이지 새로 고침",
     "ctxInvalidatedError": "플러그인 컨텍스트가 작동하지 않습니다 페이지를 새로고침하고 다시 시도하세요!",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "문제:",
     "reportInfo.emailError": "잘못된 사서함 형식",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -970,6 +971,7 @@
     "alsoTranslate": "번역할 수도 있습니다.",
     "translateFile": "문서 번역",
     "translateImage": "번역된 이미지",
+    "translateText": "텍스트 번역",
     "browser.toggleSidePanel": "사이드 패널 열기/닫기",
     "family": "가족 플랜",
     "searchPlaceholder": "검색",
@@ -996,7 +998,8 @@
     "subscription.team": "팀 플랜",
     "subscription.trial": "평가판 플랜",
     "translationServices.upgradeMax": "Max로 업그레이드",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "현재 동영상이 {최대 지속 시간}보다 길면 AI 자막 생성이 지원되지 않습니다."
   },
   "fr": {
     "nologin": "non connecté",
@@ -1766,7 +1769,8 @@
     "translationModePreferDesc": "Choisissez le mode d'affichage du texte traduit : bilingue ou traduction uniquement.",
     "ctxInvalidatedError": "Le contexte du plugin ne fonctionne pas. Veuillez rafraîchir la page et réessayer !",
     "refreshPage": "rafraîchir la page",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problème:",
     "reportInfo.emailError": "Format de boîte aux lettres incorrect",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -1968,6 +1972,7 @@
     "selectionTranslationTriggerModeDescriptionForClick": "Cliquer pour déclencher",
     "xSeconds": "{seconds} secondes",
     "translateImage": "Images traduites",
+    "translateText": "Traduire le texte",
     "alsoTranslate": "Vous pouvez également traduire",
     "translateFile": "Traduction de documents",
     "browser.toggleSidePanel": "Ouvrir/Fermer le panneau latéral",
@@ -1996,7 +2001,8 @@
     "subscription.team": "Forfait Équipe",
     "subscription.trial": "Forfait d'essai",
     "translationServices.upgradeMax": "Passer à Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La génération de sous-titres AI n'est pas prise en charge si la durée de la vidéo en cours est supérieure à {maxDurationHours}."
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -2775,7 +2781,8 @@
     "translationModePreferDesc": "Elija cómo se muestra el texto traducido: bilingüe o sólo traducción.",
     "refreshPage": "actualizar página",
     "ctxInvalidatedError": "El contexto del plugin no funciona, por favor actualice la página e inténtelo de nuevo.",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problema:",
     "reportInfo.emailError": "Formato incorrecto del buzón",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -2979,6 +2986,7 @@
     "translateFile": "Traducción de documentos",
     "alsoTranslate": "También puede traducir",
     "translateImage": "Imágenes traducidas",
+    "translateText": "Traducción de texto",
     "browser.toggleSidePanel": "Abrir/Cerrar panel lateral",
     "family": "Plan Familiar",
     "searchPlaceholder": "Buscar",
@@ -3005,7 +3013,8 @@
     "subscription.team": "Plan de Equipo",
     "subscription.trial": "Plan de prueba",
     "translationServices.upgradeMax": "Actualizar a Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generación de subtítulos AI no es posible si el vídeo actual tiene una duración superior a {maxDurationHours}."
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -3774,7 +3783,8 @@
     "translationModePreferDesc": "نحوه نمایش متن ترجمه شده را انتخاب کنید: دو زبانه یا فقط ترجمه.",
     "ctxInvalidatedError": "به نظر می‌رسد که مشکل در عملکرد زمینه افزونه وجود دارد. لطفاً صفحه را تازه‌سازی و دوباره امتحان کنید!",
     "refreshPage": "رفرش صفحه",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "مشکل:",
     "reportInfo.emailError": "قالب ایمیل نادرست است",
     "subtitle.quickButton.orange": "نارنجی",
     "translationServices.zhipu": "مدل بزرگ زیپو",
@@ -3979,6 +3989,7 @@
     "translateFile": "ترجمه فایل‌ها",
     "alsoTranslate": "شما هم میتونید ترجمه کنید",
     "translateImage": "ترجمه تصاویر",
+    "translateText": "ترجمه متن",
     "browser.toggleSidePanel": "باز/بسته کردن پانل کناری",
     "family": "طرح خانواده",
     "searchPlaceholder": "جستجو",
@@ -4005,7 +4016,8 @@
     "subscription.team": "طرح تیمی",
     "subscription.trial": "طرح آزمایشی",
     "translationServices.upgradeMax": "ارتقا به Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "مدت زمان ویدیوی فعلی از {maxDurationHours} ساعت فراتر رفته است و تولید زیرنویس هوش مصنوعی هنوز پشتیبانی نمی‌شود."
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -4775,7 +4787,8 @@
     "translationModePreferDesc": "Çevrilen metnin nasıl görüntüleneceğini seçin: iki dilli veya yalnızca çeviri.",
     "refreshPage": "sayfayı yenile",
     "ctxInvalidatedError": "Eklenti bağlamı çalışmıyor lütfen sayfayı yenileyin ve tekrar deneyin!",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Sorun:",
     "reportInfo.emailError": "Yanlış posta kutusu biçimi",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -4977,6 +4990,7 @@
     "selectionTranslationTriggerModeForIconTitle": "Tetikleme modu simge veya mini olduğunda",
     "alsoTranslate": "Ayrıca çeviri de yapabilirsiniz",
     "translateImage": "Çevrilmiş resimler",
+    "translateText": "Metin çevirisi",
     "translateFile": "Belgelerin tercümesi",
     "browser.toggleSidePanel": "Yan Paneli Aç/Kapat",
     "family": "Aile Planı",
@@ -5004,7 +5018,8 @@
     "subscription.team": "Takım Planı",
     "subscription.trial": "Deneme Planı",
     "translationServices.upgradeMax": "Max'e Yükselt",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Geçerli video {maxDurationHours} değerinden daha uzunsa AI altyazı oluşturma desteklenmez."
   },
   "ars": {},
   "uk": {},
@@ -5774,7 +5789,8 @@
     "translationModePreferDesc": "Escolha como o texto traduzido será exibido: bilíngue ou somente tradução.",
     "refreshPage": "Atualizar página",
     "ctxInvalidatedError": "O contexto do plug-in não está funcionando. Atualize a página e tente novamente!",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problema:",
     "reportInfo.emailError": "Formato incorreto da caixa de correio",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -5980,6 +5996,7 @@
     "selectionTranslationTriggerModeForIconTitle": "Quando o modo de disparo é ícone ou mini",
     "translateFile": "Tradução de documentos",
     "translateImage": "Imagens traduzidas",
+    "translateText": "Tradução de texto",
     "alsoTranslate": "Você também pode traduzir",
     "browser.toggleSidePanel": "Abrir/Fechar painel lateral",
     "family": "Plano Familiar",
@@ -6007,7 +6024,8 @@
     "subscription.team": "Plano de Equipe",
     "subscription.trial": "Plano de Teste",
     "translationServices.upgradeMax": "Atualizar para Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Não há suporte para a geração de legendas com IA se o vídeo atual for mais longo do que {maxDurationHours}."
   },
   "arz": {},
   "zh-CN": {
@@ -6843,7 +6861,8 @@
     "translationModePreferDesc": "选择翻译后的显示方式：双语对照或仅显示译文",
     "refreshPage": "刷新页面",
     "ctxInvalidatedError": "插件上下文失效请刷新页面重试",
-    "reportInfo.email": "邮箱",
+    "reportInfo.email": "邮箱：",
+    "reportInfo.reasonLabel": "问题：",
     "reportInfo.emailError": "邮箱格式不正确",
     "translateSuccess": "翻译成功",
     "translateFail": "翻译失败",
@@ -7012,6 +7031,7 @@
     "alsoTranslate": "您还可以翻译",
     "translateFile": "翻译文件",
     "translateImage": "翻译图片",
+    "translateText": "翻译文本",
     "family": "家庭套餐",
     "translationServicesGroup.free": "普通模型",
     "translationServicesGroup.pro": "高级模型",
@@ -7036,7 +7056,8 @@
     "subscription.team": "团队版",
     "subscription.trial": "试用套餐",
     "translationServices.upgradeMax": "升级 Max",
-    "translationServices.upgradeMaxUser": "升级为<1> Max 会员</1>"
+    "translationServices.upgradeMaxUser": "升级为<1> Max 会员</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "当前视频时长超过 {maxDurationHours} 小时，暂不支持生成 AI 字幕"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -7806,7 +7827,8 @@
     "translationModePreferLabel": "Modalità di traduzione",
     "refreshPage": "aggiornare la pagina",
     "ctxInvalidatedError": "Il contesto del plugin non funziona, aggiornare la pagina e riprovare!",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problema:",
     "reportInfo.emailError": "Formato della cassetta postale non corretto",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -8008,6 +8030,7 @@
     "selectionTranslationTriggerModeForIconTitle": "Quando la modalità di attivazione è icona o mini",
     "alsoTranslate": "È inoltre possibile tradurre",
     "translateImage": "Immagini tradotte",
+    "translateText": "Traduzione di testo",
     "translateFile": "Traduzione di documenti",
     "browser.toggleSidePanel": "Apri/Chiudi pannello laterale",
     "family": "Piano Famiglia",
@@ -8035,7 +8058,8 @@
     "subscription.team": "Piano Team",
     "subscription.trial": "Piano di Prova",
     "translationServices.upgradeMax": "Aggiorna a Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generazione di sottotitoli AI non è supportata se il video corrente è più lungo di {maxDurationHours}."
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -8805,7 +8829,8 @@
     "translationModePreferDesc": "اختر كيفية عرض النص المترجم: ثنائي اللغة أو مترجم فقط.",
     "ctxInvalidatedError": "سياق المكون الإضافي غير صالح، يرجى تحديث الصفحة والمحاولة مرة أخرى.",
     "refreshPage": "تحديث الصفحة",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "المشكلة:",
     "reportInfo.emailError": "تنسيق البريد الإلكتروني غير صحيح",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -9007,6 +9032,7 @@
     "selectionTranslationTriggerModeForIconTitle": "عندما يكون وضع التشغيل عبارة عن أيقونة أو مصغرة",
     "xSeconds": "{seconds} ثواني",
     "translateImage": "ترجمة الصور",
+    "translateText": "ترجمة النص",
     "translateFile": "ترجمة الملفات",
     "alsoTranslate": "يمكنك أيضًا الترجمة",
     "browser.toggleSidePanel": "فتح/إغلاق اللوحة الجانبية",
@@ -9035,7 +9061,8 @@
     "subscription.team": "خطة الفريق",
     "subscription.trial": "خطة تجريبية",
     "translationServices.upgradeMax": "الترقية إلى Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "تتجاوز مدة الفيديو الحالية {maxDurationHours} ساعة، ولا يتم دعم إنشاء الترجمة بالذكاء الاصطناعي حتى الآن"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -9805,7 +9832,8 @@
     "translationModePreferLabel": "翻訳モード",
     "refreshPage": "リフレッシュページ",
     "ctxInvalidatedError": "プラグインコンテキストが機能していません。ページを更新して再度お試しください！",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "問題：",
     "reportInfo.emailError": "メールボックスの形式が正しくない",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -10008,6 +10036,7 @@
     "selectionTranslationTriggerModeDescriptionForHover": "ホバーでトリガー",
     "translateFile": "文書の翻訳",
     "translateImage": "翻訳画像",
+    "translateText": "テキスト翻訳",
     "alsoTranslate": "を翻訳することもできます。",
     "browser.toggleSidePanel": "サイドパネルを開く/閉じる",
     "family": "家族プラン",
@@ -10035,7 +10064,8 @@
     "subscription.team": "チームプラン",
     "subscription.trial": "トライアルプラン",
     "translationServices.upgradeMax": "Maxにアップグレード",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "現在のビデオが{maxDurationHours}より長い場合、AI 字幕生成はサポートされません。"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -10797,7 +10827,8 @@
     "translationModeLang.translation.dual.title": "Nyelvek kétnyelvű üzemmódban",
     "translationModePreferLabel": "Fordítási mód",
     "translationModePreferDesc": "Válassza ki, hogy a lefordított szöveg hogyan jelenjen meg: kétnyelvű vagy csak fordítás.",
-    "reportInfo.email": "E-mail",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Probléma:",
     "refreshPage": "oldal frissítése",
     "ctxInvalidatedError": "A plugin kontextusa nem működik, kérjük, frissítse az oldalt, és próbálja újra!",
     "reportInfo.emailError": "Helytelen postafiók formátum",
@@ -10921,7 +10952,8 @@
     "subscription.trial": "Próba Csomag",
     "translationServices.upgradeMax": "Frissítés Max-ra",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "freeImage.notSupport": "Az ingyenes képfeldolgozó fordítás jelenleg csak angol és néhány más latin nyelvet támogat.<br/><br/>További nyelvekhez használja a Pro képfeldolgozó fordítást. <1>Kattintson ide a frissítéshez</1>"
+    "freeImage.notSupport": "Az ingyenes képfeldolgozó fordítás jelenleg csak angol és néhány más latin nyelvet támogat.<br/><br/>További nyelvekhez használja a Pro képfeldolgozó fordítást. <1>Kattintson ide a frissítéshez</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A mesterséges intelligencia felirat generálása nem támogatott, ha az aktuális videó hosszabb, mint {maxDurationHours}."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -11687,7 +11719,8 @@
     "translationModePreferLabel": "Modo de tradução",
     "ctxInvalidatedError": "O contexto do plug-in não está a funcionar. Actualize a página e tente novamente!",
     "refreshPage": "atualizar a página",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problema:",
     "reportInfo.emailError": "Formato incorreto da caixa de correio",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -11892,6 +11925,7 @@
     "selectionTranslationTriggerModeForIconTitle": "Quando o modo de disparo é ícone ou mini",
     "xSeconds": "{seconds} segundos",
     "translateImage": "Imagens traduzidas",
+    "translateText": "Tradução de texto",
     "alsoTranslate": "Também é possível traduzir",
     "translateFile": "Tradução de documentos",
     "browser.toggleSidePanel": "Abrir/Fechar painel lateral",
@@ -11920,7 +11954,8 @@
     "subscription.team": "Plano de Equipa",
     "subscription.trial": "Plano de Teste",
     "translationServices.upgradeMax": "Atualizar para Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A geração de legendas AI não é suportada se o vídeo atual for mais longo do que {maxDurationHours}."
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -12736,7 +12771,8 @@
     "reportInfo.title": "נתקלתם בבעיה?",
     "reportInfo.emailError": "תבנית תיבת דואר שגויה",
     "ctxInvalidatedError": "הקשר התוסף לא עובד אנא רענן את הדף ונסה שוב!",
-    "reportInfo.email": "דואר אלקטרוני",
+    "reportInfo.email": "דואר אלקטרוני:",
+    "reportInfo.reasonLabel": "בעיה:",
     "applyUseContextTranslate": "תרגום הקשר מוחל",
     "contextDiffPreview": "<1>השוואת תרגום</1>",
     "description.enableAIContextTip": "הערה: הפעלת תרגום הקשר תשתמש פי 1-2 יותר אסימונים.",
@@ -12897,6 +12933,7 @@
     "selectionTranslationTriggerModeDescriptionForHover": "רחף כדי להפעיל",
     "selectionTranslationTriggerModeDescriptionForClick": "לחץ להפעלה",
     "translateImage": "תרגום תמונות",
+    "translateText": "תרגום טקסט",
     "alsoTranslate": "אתה יכול גם לתרגם",
     "translateFile": "תרגום מסמכים",
     "browser.toggleSidePanel": "פתח/סגור חלונית צדדית",
@@ -12925,7 +12962,8 @@
     "subscription.team": "תוכנית צוות",
     "subscription.trial": "תוכנית ניסיון",
     "translationServices.upgradeMax": "שדרג ל-Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "אם משך הסרטון הנוכחי חורג מ-{maxDurationHours} שעות, לא ניתן ליצור כתוביות AI"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -13695,7 +13733,8 @@
     "translationModePreferDesc": "चुनें कि अनुवादित पाठ कैसे प्रदर्शित किया जाए: द्विभाषी या केवल अनुवादित।",
     "ctxInvalidatedError": "प्लग-इन संदर्भ अमान्य है। कृपया पृष्ठ ताज़ा करें और पुनः प्रयास करें।",
     "refreshPage": "पृष्ठ ताज़ा करें",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "समस्या:",
     "reportInfo.emailError": "ईमेल प्रारूप ग़लत है",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -13897,6 +13936,7 @@
     "selectionTranslationTriggerModeForIconTitle": "जब ट्रिगर मोड आइकन या मिनी होता है",
     "translateFile": "फ़ाइलें अनुवाद करें",
     "translateImage": "चित्रों का अनुवाद करें",
+    "translateText": "टेक्स्ट अनुवाद करें",
     "alsoTranslate": "आप अनुवाद भी कर सकते हैं",
     "browser.toggleSidePanel": "साइड पैनल खोलें/बंद करें",
     "family": "परिवार योजना",
@@ -13924,7 +13964,8 @@
     "subscription.team": "टीम योजना",
     "subscription.trial": "परीक्षण योजना",
     "translationServices.upgradeMax": "मैक्स में अपग्रेड करें",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "वर्तमान वीडियो अवधि {maxDurationHours} घंटे से अधिक है, और AI उपशीर्षक निर्माण अभी तक समर्थित नहीं है"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -14694,7 +14735,8 @@
     "translationModePreferLabel": "Режим перевода",
     "ctxInvalidatedError": "Контекст плагина не работает, пожалуйста, обновите страницу и попробуйте снова!",
     "refreshPage": "обновить страницу",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Проблема:",
     "reportInfo.emailError": "Неправильный формат почтового ящика",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -14896,6 +14938,7 @@
     "selectionTranslationTriggerModeDescriptionForHover": "Наведите курсор, чтобы вызвать",
     "alsoTranslate": "Вы также можете перевести",
     "translateImage": "Переведенные изображения",
+    "translateText": "Перевод текста",
     "translateFile": "Перевод документов",
     "browser.toggleSidePanel": "Открыть/Закрыть боковую панель",
     "family": "Семейный план",
@@ -14923,7 +14966,8 @@
     "subscription.team": "Командный план",
     "subscription.trial": "Пробный план",
     "translationServices.upgradeMax": "Обновить до Max",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Создание субтитров AI не поддерживается, если текущее видео длиннее, чем {maxDurationHours}."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -15733,7 +15777,8 @@
     "refreshPage": "重新整理頁面",
     "ctxInvalidatedError": "外掛上下文失效請重新整理頁面重試",
     "reportInfo.emailError": "信箱格式不正確",
-    "reportInfo.email": "信箱",
+    "reportInfo.email": "信箱：",
+    "reportInfo.reasonLabel": "問題：",
     "subtitle.quickButton.orange": "橘色",
     "translationServices.zhipu": "智譜 GLM 翻譯",
     "description.zhipuCustomAPIKey": "非免費模型需要填寫<1>智譜平台</1>申請的金鑰後才可用，詳情參考<2>教學</2>",
@@ -15931,6 +15976,7 @@
     "selectionTranslationTriggerModeDescriptionForClick": "點擊觸發",
     "selectionTranslationTriggerModeForIconTitle": "當觸發方式為圖示或小圓點時",
     "translateImage": "翻譯圖片",
+    "translateText": "翻譯文字",
     "translateFile": "翻譯文件",
     "alsoTranslate": "您也可以翻譯",
     "family": "家庭套餐",
@@ -15958,7 +16004,8 @@
     "subscription.team": "團隊版",
     "subscription.trial": "試用套餐",
     "translationServices.upgradeMax": "升級 Max",
-    "translationServices.upgradeMaxUser": "升級為<1> Max 會員</1>"
+    "translationServices.upgradeMaxUser": "升級為<1> Max 會員</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "目前影片長度超過{maxDurationHours} 小時，暫不支援產生 AI 字幕"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -16727,7 +16774,8 @@
     "translationModePreferDesc": "Wählen Sie, wie der übersetzte Text angezeigt werden soll: zweisprachig oder nur Übersetzung.",
     "refreshPage": "Seite aktualisieren",
     "ctxInvalidatedError": "Der Plugin-Kontext funktioniert nicht. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut!",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problem:",
     "reportInfo.emailError": "Falsches Mailbox-Format",
     "subtitle.quickButton.orange": "Orange",
     "translationServices.zhipu": "Zhipu BigModel",
@@ -16930,6 +16978,7 @@
     "selectionTranslationTriggerModeDescriptionForHover": "Bewegen Sie den Mauszeiger zum Auslösen",
     "translateFile": "Übersetzung von Dokumenten",
     "translateImage": "Übersetzte Bilder",
+    "translateText": "Übersetze Text",
     "alsoTranslate": "Sie können auch übersetzen",
     "browser.toggleSidePanel": "Seitenpanel öffnen/schließen",
     "family": "Familienplan",
@@ -16957,7 +17006,8 @@
     "subscription.team": "Team-Plan",
     "subscription.trial": "Testplan",
     "translationServices.upgradeMax": "Auf Max upgraden",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Die Erzeugung von AI-Untertiteln wird nicht unterstützt, wenn das aktuelle Video länger als {maxDurationHours} ist."
   },
   "en": {
     "nologin": "Not logged in",
@@ -17733,7 +17783,8 @@
     "translationModeLang.translation.dual.title": "Languages in bilingual mode",
     "translationModePreferLabel": "Translation Mode",
     "translationModePreferDesc": "Choose how the translated text is displayed: bilingual or translation only.",
-    "reportInfo.email": "Email",
+    "reportInfo.email": "Email:",
+    "reportInfo.reasonLabel": "Problem:",
     "refreshPage": "refresh page",
     "ctxInvalidatedError": "Plugin context is not working please refresh the page and try again!",
     "reportInfo.emailError": "Incorrect mailbox format",
@@ -17930,6 +17981,7 @@
     "subtitle.requestAiSubtitleTip": "AI subtitle generation in progress. ETA {estimatedTime}.",
     "xSeconds": "{seconds} seconds",
     "translateImage": "Translated images",
+    "translateText": "Translate text",
     "alsoTranslate": "You can also translate",
     "translateFile": "Translation of documents",
     "family": "Family Plan",
@@ -17957,6 +18009,7 @@
     "subscription.family": "Family Plan",
     "subscription.team": "Team Plan",
     "subscription.trial": "Trial Plan",
-    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>"
+    "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "AI subtitle generation is not supported if the current video is longer than {maxDurationHours}."
   }
 }

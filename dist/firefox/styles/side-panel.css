@@ -207,6 +207,7 @@
 
 .arrow-down {
   margin-left: 4px;
+  flex-shrink: 0;
 }
 
 .select-languages-box {

@@ -978,7 +978,7 @@
     "pasteTextPlaceholder": "텍스트를 입력하거나 붙여넣으세요...",
     "floatBallOptions.enableSidePanel": "사이드 패널 플로팅 볼 활성화",
     "floatBallOptions.enableSidePanelDesc": "활성화되면 지원되는 웹사이트 오른쪽에 사이드 패널 버튼이 표시됩니다. 클릭하여 사이드 패널에서 텍스트 번역을 수행할 수 있습니다.",
-    "translationServicesGroup.free": "일반 모델",
+    "translationServicesGroup.free": "무료 모델",
     "translationServicesGroup.pro": "고급 모델",
     "translationServicesGroup.custom": "기타/사용자 지정",
     "services.addCustom": "사용자 지정 번역 서비스 추가",
@@ -999,7 +999,8 @@
     "subscription.trial": "평가판 플랜",
     "translationServices.upgradeMax": "Max로 업그레이드",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "현재 동영상이 {최대 지속 시간}보다 길면 AI 자막 생성이 지원되지 않습니다."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "현재 동영상이 {최대 지속 시간}보다 길면 AI 자막 생성이 지원되지 않습니다.",
+    "disableOpenUpgradePage": "주요 버전 업그레이드 알림 비활성화"
   },
   "fr": {
     "nologin": "non connecté",
@@ -1981,7 +1982,7 @@
     "pasteTextPlaceholder": "Veuillez taper ou coller le texte...",
     "floatBallOptions.enableSidePanel": "Activer la bulle flottante du panneau latéral",
     "floatBallOptions.enableSidePanelDesc": "Une fois activé, un bouton de panneau latéral s'affichera sur le côté droit des sites web pris en charge. Cliquez dessus pour effectuer une traduction de texte dans le panneau latéral.",
-    "translationServicesGroup.free": "Modèles Normaux",
+    "translationServicesGroup.free": "Modèles gratuits",
     "translationServicesGroup.pro": "Modèles Avancés",
     "translationServicesGroup.custom": "Autre/Personnalisé",
     "services.addCustom": "Ajouter un service de traduction personnalisé",
@@ -2002,7 +2003,8 @@
     "subscription.trial": "Forfait d'essai",
     "translationServices.upgradeMax": "Passer à Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La génération de sous-titres AI n'est pas prise en charge si la durée de la vidéo en cours est supérieure à {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La génération de sous-titres AI n'est pas prise en charge si la durée de la vidéo en cours est supérieure à {maxDurationHours}.",
+    "disableOpenUpgradePage": "Désactiver les notifications de mise à jour de version majeure"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -2993,7 +2995,7 @@
     "pasteTextPlaceholder": "Por favor, escriba o pegue el texto...",
     "floatBallOptions.enableSidePanel": "Habilitar bola flotante del panel lateral",
     "floatBallOptions.enableSidePanelDesc": "Cuando está habilitado, se mostrará un botón de panel lateral en el lado derecho de los sitios web compatibles. Haz clic para realizar la traducción de texto en el panel lateral.",
-    "translationServicesGroup.free": "Modelos Normales",
+    "translationServicesGroup.free": "Modelos gratuitos",
     "translationServicesGroup.pro": "Modelos Avanzados",
     "translationServicesGroup.custom": "Otro/Personalizado",
     "services.addCustom": "Agregar servicio de traducción personalizado",
@@ -3014,7 +3016,8 @@
     "subscription.trial": "Plan de prueba",
     "translationServices.upgradeMax": "Actualizar a Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generación de subtítulos AI no es posible si el vídeo actual tiene una duración superior a {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generación de subtítulos AI no es posible si el vídeo actual tiene una duración superior a {maxDurationHours}.",
+    "disableOpenUpgradePage": "Desactivar notificaciones de actualización de versión mayor"
   },
   "fa": {
     "nologin": "وارد نشده اید",
@@ -3996,7 +3999,7 @@
     "pasteTextPlaceholder": "لطفا متن را وارد یا جایگذاری کنید...",
     "floatBallOptions.enableSidePanelDesc": "هنگامی که فعال باشد، یک دکمه پنل کناری در سمت راست وب‌سایت‌های پشتیبانی شده نمایش داده می‌شود. برای انجام ترجمه متن در پنل کناری، روی آن کلیک کنید.",
     "floatBallOptions.enableSidePanel": "فعال کردن توپ شناور پنل کناری",
-    "translationServicesGroup.free": "مدل‌های عادی",
+    "translationServicesGroup.free": "مدل‌های رایگان",
     "translationServicesGroup.pro": "مدل‌های پیشرفته",
     "translationServicesGroup.custom": "دیگر/سفارشی",
     "services.addCustom": "افزودن سرویس ترجمه سفارشی",
@@ -4017,7 +4020,8 @@
     "subscription.trial": "طرح آزمایشی",
     "translationServices.upgradeMax": "ارتقا به Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "مدت زمان ویدیوی فعلی از {maxDurationHours} ساعت فراتر رفته است و تولید زیرنویس هوش مصنوعی هنوز پشتیبانی نمی‌شود."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "مدت زمان ویدیوی فعلی از {maxDurationHours} ساعت فراتر رفته است و تولید زیرنویس هوش مصنوعی هنوز پشتیبانی نمی‌شود.",
+    "disableOpenUpgradePage": "غیرفعال کردن اعلان‌های ارتقای نسخه اصلی"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -4998,7 +5002,7 @@
     "pasteTextPlaceholder": "Lütfen metni yazın veya yapıştırın...",
     "floatBallOptions.enableSidePanel": "Yan Panel Kayan Topu Etkinleştir",
     "floatBallOptions.enableSidePanelDesc": "Etkinleştirildiğinde, desteklenen web sitelerinin sağ tarafında bir yan panel düğmesi görüntülenecektir. Yan panelde metin çevirisi yapmak için tıklayın.",
-    "translationServicesGroup.free": "Normal Modeller",
+    "translationServicesGroup.free": "Ücretsiz modeller",
     "translationServicesGroup.pro": "Gelişmiş Modeller",
     "translationServicesGroup.custom": "Diğer/Özel",
     "services.addCustom": "Özel Çeviri Hizmeti Ekle",
@@ -5019,7 +5023,8 @@
     "subscription.trial": "Deneme Planı",
     "translationServices.upgradeMax": "Max'e Yükselt",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Geçerli video {maxDurationHours} değerinden daha uzunsa AI altyazı oluşturma desteklenmez."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Geçerli video {maxDurationHours} değerinden daha uzunsa AI altyazı oluşturma desteklenmez.",
+    "disableOpenUpgradePage": "Ana sürüm yükseltme bildirimlerini devre dışı bırak"
   },
   "ars": {},
   "uk": {},
@@ -6004,7 +6009,7 @@
     "pasteTextPlaceholder": "Digite ou cole o texto...",
     "floatBallOptions.enableSidePanel": "Ativar Bola Flutuante do Painel Lateral",
     "floatBallOptions.enableSidePanelDesc": "Quando ativado, um botão do painel lateral será exibido no lado direito dos sites suportados. Clique para realizar a tradução de texto no painel lateral.",
-    "translationServicesGroup.free": "Modelos Normais",
+    "translationServicesGroup.free": "Modelos gratuitos",
     "translationServicesGroup.pro": "Modelos Avançados",
     "translationServicesGroup.custom": "Outro/Personalizado",
     "services.addCustom": "Adicionar Serviço de Tradução Personalizado",
@@ -6025,7 +6030,8 @@
     "subscription.trial": "Plano de Teste",
     "translationServices.upgradeMax": "Atualizar para Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Não há suporte para a geração de legendas com IA se o vídeo atual for mais longo do que {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Não há suporte para a geração de legendas com IA se o vídeo atual for mais longo do que {maxDurationHours}.",
+    "disableOpenUpgradePage": "Desativar notificações de atualização de versão principal"
   },
   "arz": {},
   "zh-CN": {
@@ -7033,7 +7039,7 @@
     "translateImage": "翻译图片",
     "translateText": "翻译文本",
     "family": "家庭套餐",
-    "translationServicesGroup.free": "普通模型",
+    "translationServicesGroup.free": "免费模型",
     "translationServicesGroup.pro": "高级模型",
     "translationServicesGroup.custom": "其他/自定义",
     "searchPlaceholder": "搜索",
@@ -7057,7 +7063,8 @@
     "subscription.trial": "试用套餐",
     "translationServices.upgradeMax": "升级 Max",
     "translationServices.upgradeMaxUser": "升级为<1> Max 会员</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "当前视频时长超过 {maxDurationHours} 小时，暂不支持生成 AI 字幕"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "当前视频时长超过 {maxDurationHours} 小时，暂不支持生成 AI 字幕",
+    "disableOpenUpgradePage": "禁用重大版本升级提示"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -8038,7 +8045,7 @@
     "pasteTextPlaceholder": "Digitare o incollare il testo...",
     "floatBallOptions.enableSidePanel": "Abilita Sfera Fluttuante del Pannello Laterale",
     "floatBallOptions.enableSidePanelDesc": "Quando abilitato, un pulsante del pannello laterale verrà visualizzato sul lato destro dei siti web supportati. Cliccalo per eseguire la traduzione del testo nel pannello laterale.",
-    "translationServicesGroup.free": "Modelli Normali",
+    "translationServicesGroup.free": "Modelli gratuiti",
     "translationServicesGroup.pro": "Modelli Avanzati",
     "translationServicesGroup.custom": "Altro/Personalizzato",
     "services.addCustom": "Aggiungi Servizio di Traduzione Personalizzato",
@@ -8059,7 +8066,8 @@
     "subscription.trial": "Piano di Prova",
     "translationServices.upgradeMax": "Aggiorna a Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generazione di sottotitoli AI non è supportata se il video corrente è più lungo di {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "La generazione di sottotitoli AI non è supportata se il video corrente è più lungo di {maxDurationHours}.",
+    "disableOpenUpgradePage": "Disattiva notifiche di aggiornamento versione principale"
   },
   "ar": {
     "nologin": "لم تقم بتسجيل الدخول",
@@ -9041,7 +9049,7 @@
     "pasteTextPlaceholder": "الرجاء إدخال النص أو لصقه...",
     "floatBallOptions.enableSidePanel": "تمكين الكرة العائمة للوحة الجانبية",
     "floatBallOptions.enableSidePanelDesc": "عند التمكين، سيتم عرض زر لوحة جانبية على الجانب الأيمن من مواقع الويب المدعومة. انقر عليه لإجراء ترجمة نصية في اللوحة الجانبية.",
-    "translationServicesGroup.free": "نماذج عادية",
+    "translationServicesGroup.free": "النماذج المجانية",
     "translationServicesGroup.pro": "نماذج متقدمة",
     "translationServicesGroup.custom": "أخرى/مخصصة",
     "services.addCustom": "إضافة خدمة ترجمة مخصصة",
@@ -9062,7 +9070,8 @@
     "subscription.trial": "خطة تجريبية",
     "translationServices.upgradeMax": "الترقية إلى Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "تتجاوز مدة الفيديو الحالية {maxDurationHours} ساعة، ولا يتم دعم إنشاء الترجمة بالذكاء الاصطناعي حتى الآن"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "تتجاوز مدة الفيديو الحالية {maxDurationHours} ساعة، ولا يتم دعم إنشاء الترجمة بالذكاء الاصطناعي حتى الآن",
+    "disableOpenUpgradePage": "تعطيل إشعارات ترقية الإصدار الرئيسي"
   },
   "ja": {
     "nologin": "ログインしていない",
@@ -10044,7 +10053,7 @@
     "pasteTextPlaceholder": "テキストを入力または貼り付けてください...",
     "floatBallOptions.enableSidePanel": "サイドパネルのフローティングボールを有効にする",
     "floatBallOptions.enableSidePanelDesc": "有効にすると、対応しているウェブサイトの右側にサイドパネルボタンが表示され、クリックするとサイドパネルでテキスト翻訳ができます",
-    "translationServicesGroup.free": "通常モデル",
+    "translationServicesGroup.free": "無料モデル",
     "translationServicesGroup.pro": "高度なモデル",
     "translationServicesGroup.custom": "その他/カスタム",
     "services.addCustom": "カスタム翻訳サービスを追加",
@@ -10065,7 +10074,8 @@
     "subscription.trial": "トライアルプラン",
     "translationServices.upgradeMax": "Maxにアップグレード",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "現在のビデオが{maxDurationHours}より長い場合、AI 字幕生成はサポートされません。"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "現在のビデオが{maxDurationHours}より長い場合、AI 字幕生成はサポートされません。",
+    "disableOpenUpgradePage": "メジャーバージョンアップグレード通知を無効にする"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -10931,7 +10941,7 @@
     "floatBallOptions.enableSidePanel": "Oldalsó Panel Lebegő Gomb Engedélyezése",
     "floatBallOptions.enableSidePanelDesc": "Ha engedélyezve van, egy oldalsó panel gomb jelenik meg a támogatott webhelyek jobb oldalán. Kattintson rá a szövegfordításhoz az oldalsó panelen.",
     "translationServices.youdao-ziyue": "Youdao Ziyue",
-    "translationServicesGroup.free": "Normál Modellek",
+    "translationServicesGroup.free": "Ingyenes modellek",
     "translationServicesGroup.pro": "Haladó Modellek",
     "translationServicesGroup.custom": "Egyéb/Egyéni",
     "services.addCustom": "Egyéni Fordítási Szolgáltatás Hozzáadása",
@@ -10953,7 +10963,8 @@
     "translationServices.upgradeMax": "Frissítés Max-ra",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
     "freeImage.notSupport": "Az ingyenes képfeldolgozó fordítás jelenleg csak angol és néhány más latin nyelvet támogat.<br/><br/>További nyelvekhez használja a Pro képfeldolgozó fordítást. <1>Kattintson ide a frissítéshez</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A mesterséges intelligencia felirat generálása nem támogatott, ha az aktuális videó hosszabb, mint {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A mesterséges intelligencia felirat generálása nem támogatott, ha az aktuális videó hosszabb, mint {maxDurationHours}.",
+    "disableOpenUpgradePage": "Főverziós frissítési értesítések letiltása"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -11934,7 +11945,7 @@
     "pasteTextPlaceholder": "Por favor, escreva ou cole o texto...",
     "floatBallOptions.enableSidePanel": "Ativar Bola Flutuante do Painel Lateral",
     "floatBallOptions.enableSidePanelDesc": "Quando ativado, um botão do painel lateral será exibido no lado direito dos sites suportados. Clique para realizar a tradução de texto no painel lateral.",
-    "translationServicesGroup.free": "Modelos Normais",
+    "translationServicesGroup.free": "Modelos gratuitos",
     "translationServicesGroup.pro": "Modelos Avançados",
     "translationServicesGroup.custom": "Outro/Personalizado",
     "services.addCustom": "Adicionar Serviço de Tradução Personalizado",
@@ -11955,7 +11966,8 @@
     "subscription.trial": "Plano de Teste",
     "translationServices.upgradeMax": "Atualizar para Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A geração de legendas AI não é suportada se o vídeo atual for mais longo do que {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "A geração de legendas AI não é suportada se o vídeo atual for mais longo do que {maxDurationHours}.",
+    "disableOpenUpgradePage": "Desativar notificações de actualização de versão principal"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -12942,7 +12954,7 @@
     "pasteTextPlaceholder": "נא להקליד או להדביק טקסט...",
     "floatBallOptions.enableSidePanel": "הפעל כדור צף של חלונית צדדית",
     "floatBallOptions.enableSidePanelDesc": "כאשר מופעל, יוצג לחצן חלונית צדדית בצד ימין של אתרים נתמכים. לחץ עליו לביצוע תרגום טקסט בחלונית הצדדית.",
-    "translationServicesGroup.free": "מודלים רגילים",
+    "translationServicesGroup.free": "מודלים חינמיים",
     "translationServicesGroup.pro": "מודלים מתקדמים",
     "translationServicesGroup.custom": "אחר/מותאם אישית",
     "services.addCustom": "הוסף שירות תרגום מותאם אישית",
@@ -12963,7 +12975,8 @@
     "subscription.trial": "תוכנית ניסיון",
     "translationServices.upgradeMax": "שדרג ל-Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "אם משך הסרטון הנוכחי חורג מ-{maxDurationHours} שעות, לא ניתן ליצור כתוביות AI"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "אם משך הסרטון הנוכחי חורג מ-{maxDurationHours} שעות, לא ניתן ליצור כתוביות AI",
+    "disableOpenUpgradePage": "השבת הודעות שדרוג גרסה עיקרית"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -13944,7 +13957,7 @@
     "pasteTextPlaceholder": "कृपया पाठ दर्ज करें या चिपकाएँ...",
     "floatBallOptions.enableSidePanel": "साइड पैनल फ्लोट बॉल सक्षम करें",
     "floatBallOptions.enableSidePanelDesc": "सक्षम होने पर, समर्थित वेबसाइटों के दाईं ओर एक साइड पैनल बटन प्रदर्शित होगा। साइड पैनल में टेक्स्ट अनुवाद करने के लिए इसे क्लिक करें।",
-    "translationServicesGroup.free": "सामान्य मॉडल",
+    "translationServicesGroup.free": "निःशुल्क मॉडल",
     "translationServicesGroup.pro": "उन्नत मॉडल",
     "translationServicesGroup.custom": "अन्य/कस्टम",
     "services.addCustom": "कस्टम अनुवाद सेवा जोड़ें",
@@ -13965,7 +13978,8 @@
     "subscription.trial": "परीक्षण योजना",
     "translationServices.upgradeMax": "मैक्स में अपग्रेड करें",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "वर्तमान वीडियो अवधि {maxDurationHours} घंटे से अधिक है, और AI उपशीर्षक निर्माण अभी तक समर्थित नहीं है"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "वर्तमान वीडियो अवधि {maxDurationHours} घंटे से अधिक है, और AI उपशीर्षक निर्माण अभी तक समर्थित नहीं है",
+    "disableOpenUpgradePage": "मुख्य संस्करण अपग्रेड सूचनाएं अक्षम करें"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -14946,7 +14960,7 @@
     "pasteTextPlaceholder": "Пожалуйста, введите или вставьте текст...",
     "floatBallOptions.enableSidePanel": "Включить плавающую кнопку боковой панели",
     "floatBallOptions.enableSidePanelDesc": "Если включено, на правой стороне поддерживаемых веб-сайтов будет отображаться кнопка боковой панели. Нажмите ее, чтобы выполнить перевод текста в боковой панели.",
-    "translationServicesGroup.free": "Обычные модели",
+    "translationServicesGroup.free": "Бесплатные модели",
     "translationServicesGroup.pro": "Расширенные модели",
     "translationServicesGroup.custom": "Другое/Пользовательское",
     "services.addCustom": "Добавить пользовательский сервис перевода",
@@ -14967,7 +14981,8 @@
     "subscription.trial": "Пробный план",
     "translationServices.upgradeMax": "Обновить до Max",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Создание субтитров AI не поддерживается, если текущее видео длиннее, чем {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Создание субтитров AI не поддерживается, если текущее видео длиннее, чем {maxDurationHours}.",
+    "disableOpenUpgradePage": "Отключить уведомления о крупных обновлениях"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -15984,7 +15999,7 @@
     "pasteTextPlaceholder": "請輸入或貼上文字...",
     "floatBallOptions.enableSidePanelDesc": "啟用後，會在支援的網站在右側顯示一個側邊欄按鈕，點擊即可在側邊欄進行文字翻譯",
     "floatBallOptions.enableSidePanel": "啟用側邊欄懸浮球",
-    "translationServicesGroup.free": "普通模型",
+    "translationServicesGroup.free": "免費模型",
     "translationServicesGroup.pro": "進階模型",
     "translationServicesGroup.custom": "其他/自訂",
     "services.addCustom": "新增自訂翻譯服務",
@@ -16005,7 +16020,8 @@
     "subscription.trial": "試用套餐",
     "translationServices.upgradeMax": "升級 Max",
     "translationServices.upgradeMaxUser": "升級為<1> Max 會員</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "目前影片長度超過{maxDurationHours} 小時，暫不支援產生 AI 字幕"
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "目前影片長度超過{maxDurationHours} 小時，暫不支援產生 AI 字幕",
+    "disableOpenUpgradePage": "關閉重大版本升級提示"
   },
   "de": {
     "nologin": "nicht eingeloggt",
@@ -16986,7 +17002,7 @@
     "pasteTextPlaceholder": "Bitte Text eingeben oder einfügen...",
     "floatBallOptions.enableSidePanel": "Seitenleisten-Schwebeball aktivieren",
     "floatBallOptions.enableSidePanelDesc": "Wenn aktiviert, wird auf der rechten Seite von unterstützten Websites eine Seitenleisten-Schaltfläche angezeigt. Klicken Sie darauf, um Text in der Seitenleiste zu übersetzen.",
-    "translationServicesGroup.free": "Normale Modelle",
+    "translationServicesGroup.free": "Kostenlose Modelle",
     "translationServicesGroup.pro": "Fortgeschrittene Modelle",
     "translationServicesGroup.custom": "Andere/Benutzerdefiniert",
     "services.addCustom": "Benutzerdefinierten Übersetzungsdienst hinzufügen",
@@ -17007,7 +17023,8 @@
     "subscription.trial": "Testplan",
     "translationServices.upgradeMax": "Auf Max upgraden",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Die Erzeugung von AI-Untertiteln wird nicht unterstützt, wenn das aktuelle Video länger als {maxDurationHours} ist."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "Die Erzeugung von AI-Untertiteln wird nicht unterstützt, wenn das aktuelle Video länger als {maxDurationHours} ist.",
+    "disableOpenUpgradePage": "Hauptversions-Upgrade-Benachrichtigungen deaktivieren"
   },
   "en": {
     "nologin": "Not logged in",
@@ -17990,7 +18007,7 @@
     "floatBallOptions.enableSidePanel": "Enable Side Panel Float Ball",
     "floatBallOptions.enableSidePanelDesc": "When enabled, a side panel button will be displayed on the right side of supported websites. Click it to perform text translation in the side panel.",
     "translationServices.upgradeMax": "Upgrade to Max",
-    "translationServicesGroup.free": "Normal Models",
+    "translationServicesGroup.free": "Free Models",
     "translationServicesGroup.pro": "Advanced Models",
     "translationServicesGroup.custom": "Other/Custom",
     "services.addCustom": "Add Custom Translation Service",
@@ -18010,6 +18027,7 @@
     "subscription.team": "Team Plan",
     "subscription.trial": "Trial Plan",
     "translationServices.upgradeMaxUser": "Upgrade to <1>Max Member</1>",
-    "subtitle.requestAiSubtitleMaxDurationLimitTip": "AI subtitle generation is not supported if the current video is longer than {maxDurationHours}."
+    "subtitle.requestAiSubtitleMaxDurationLimitTip": "AI subtitle generation is not supported if the current video is longer than {maxDurationHours}.",
+    "disableOpenUpgradePage": "Disable major version upgrade notification"
   }
 }

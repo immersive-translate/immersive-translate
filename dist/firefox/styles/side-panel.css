@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.imt-side-panel textarea {
+  font-family: var(--font-family);
+}
+
 .panel-close-icon {
   width: 24px;
   height: 24px;
@@ -412,6 +416,30 @@
   color: #ea4c89;
 }
 
+/* 奖励中心弹跳动画 */
+@keyframes bounce-reward {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-8px);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.action-icon.bounce-animate {
+  animation: bounce-reward 1.2s ease-in-out;
+}
+
 .footer-expand {
   display: flex;
   width: 20px;
@@ -438,7 +466,7 @@
 .footer-area {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  margin: 0 16px;
 }
 
 .footer-area-buttons-wrapper {

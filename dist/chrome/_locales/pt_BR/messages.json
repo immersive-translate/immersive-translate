@@ -1,6 +1,6 @@
 {
   "shortBrandName": {
-    "message": "Immersive Translate"
+    "message": "Tradução Imersiva"
   },
   "brandName": {
     "message": "Immersive Translate - Tradutor Web & PDF"
@@ -81,7 +81,7 @@
     "message": "Alternar Legendas de Vídeo com o Recurso de Tradução Imersiva"
   },
   "brandDescriptionForSafari": {
-    "message": "Tradução gratuita de sites, PDF e e-books Epub, tradução de legendas de vídeo em modo bilíngue."
+    "message": "Tradução gratuita de sites, PDF e e-books Epub, Traduza legendas de vídeo no modo bilíngue."
   },
   "PdfProFile": {
     "message": "Tradução Pro de PDF com IA"

@@ -3,7 +3,7 @@
     "message": "没入型翻訳"
   },
   "brandName": {
-    "message": "没入型翻訳 - WebサイトとPDFを翻訳"
+    "message": "没入型翻訳 - ウェブページやPDFを翻訳"
   },
   "brandDescription": {
     "message": "無料で使用できる（原文/翻訳）対訳Webページ翻訳拡張機能、PDF翻訳（元の文書のフォーマットを保持）、動画字幕翻訳（YouTube、Netflixなど）、EPUB電子書籍の翻訳。"
@@ -12,46 +12,46 @@
     "message": "{targetLanguage}に翻訳"
   },
   "toggleTranslateTheWholePage": {
-    "message": "ページ全体を翻訳／原文を表示"
+    "message": "ページ全体を翻訳/原文を表示"
   },
   "toggleOnlyTransation": {
-    "message": "バイリンガル/翻訳テキストのみモードに切り替えてください"
+    "message": "「翻訳のみモード」に切り替える"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "ページの下部を即時翻訳／原文を表示"
+    "message": "ページの最下部まで即時翻訳/原文を表示"
   },
   "toggleTranslateTheMainPage": {
-    "message": "ページのメインエリアを翻訳する／原文を表示する"
+    "message": "ページのメインエリアを翻訳/原文を表示"
   },
   "shareToDraft": {
-    "message": "バイリンガルページを共有する"
+    "message": "二か国語ページを共有"
   },
   "openOptionsPage": {
     "message": "設定ページを開く"
   },
   "toggleTranslationMask": {
-    "message": "並進ブラー効果の表示／非表示"
+    "message": "翻訳テキストのぼかし効果（学習モード）を切り替える"
   },
   "babelDOC": {
-    "message": "BabelDOC レイアウトを保持するPDF翻訳"
+    "message": "BabelDOC PDFレイアウト保持翻訳"
   },
   "translateLocalPdfFile": {
-    "message": "ローカルのPDFファイルを翻訳する"
+    "message": "ローカルPDFファイルを翻訳"
   },
   "openEbookViewer": {
     "message": "ローカルの電子書籍を読む"
   },
   "openEbookBuilder": {
-    "message": "バイリンガルEPUB電子書籍の制作"
+    "message": "二か国語EPUB電子書籍を作成"
   },
   "translateLocalHtmlFile": {
-    "message": "HTML/テキストファイルを翻訳する"
+    "message": "HTML/txtファイルを翻訳"
   },
   "translateLocalSubtitleFile": {
-    "message": "ローカルの字幕ファイルを翻訳する"
+    "message": "ローカル字幕ファイルを翻訳"
   },
   "openAboutPage": {
-    "message": "ご意見・ご感想"
+    "message": "バージョン情報/フィードバック/スポンサー"
   },
   "translateWithGemini": {
     "message": "現在のページを一時的にGeminiで翻訳してください"
@@ -60,7 +60,7 @@
     "message": "一時的にOpenAIを使って現在のページを翻訳してください"
   },
   "translateInputBox": {
-    "message": "現在の入力ボックスの内容を翻訳してください。"
+    "message": "現在の入力ボックスの内容を翻訳する"
   },
   "translateWithDeepL": {
     "message": "現在のページを一時的にDeepLで翻訳してください。"
@@ -72,28 +72,28 @@
     "message": "一時的にテンセント翻訳で現在のページを翻訳してください"
   },
   "translateWithBing": {
-    "message": "一時的にマイクロソフト翻訳を使用して現在のページを翻訳してください。"
+    "message": "現在のページをMicrosoft Translatorで一時的に翻訳する"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "ページ上で一時的にマウスホバーによる直接翻訳を有効にするか無効にする"
+    "message": "ページ上のマウスホバーによる直接翻訳を一時的に有効/無効にする"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "バイリンガル字幕を切り替えて、没入型翻訳設定を優先的に使用してください。"
+    "message": "没入型翻訳の機能で動画字幕を切り替える"
   },
   "brandDescriptionForSafari": {
-    "message": "無料翻訳ウェブサイト、PDFとEPUB電子書籍の翻訳、バイリンガルでのビデオ字幕の翻訳"
+    "message": "ウェブページ、PDF、ePub電子書籍、動画字幕を無料で二か国語翻訳"
   },
   "PdfProFile": {
-    "message": "AI 駆動の PDF Pro 翻訳"
+    "message": "AI駆動のPDF Pro翻訳"
   },
   "textTranslate": {
     "message": "テキスト翻訳"
   },
   "translateWithClaude": {
-    "message": "現在のページの翻訳に一時的にClaudeを使用してください。"
+    "message": "現在のページをClaudeで一時的に翻訳する"
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "「{text}」を翻訳"
   },
   "toggleTranslatePageOfficialPage": {
     "message": "ウェブページを翻訳/原文を表示"
@@ -108,7 +108,7 @@
     "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(2)"
   },
   "translateMangaMenuId": {
-    "message": "画像の翻訳/画像の復元"
+    "message": "画像を翻訳/元に戻す"
   },
   "toggleSidePanel": {
     "message": "サイドパネルを開く/閉じる"

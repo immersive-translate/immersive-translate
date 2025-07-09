@@ -279,6 +279,14 @@
   transition: background-color 0.3s ease;
 }
 
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .immersive-translate-btn:hover {
   background-color: #f082ac;
 }
@@ -288,6 +296,15 @@
 }
 .immersive-translate-btn:disabled:hover {
   background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
 }
 
 .immersive-translate-cancel-btn {
@@ -314,7 +331,7 @@
   user-select: none;
   -webkit-user-drag: none;
   text-decoration: none;
-  color: #007bff;
+  color: #ea4c89;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 

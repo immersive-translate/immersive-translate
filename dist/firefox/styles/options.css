@@ -838,7 +838,7 @@ article {
 .youtube-header {
   display: flex;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 1rem;
 }
 
 .youtube-container {

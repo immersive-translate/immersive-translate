@@ -1074,7 +1074,13 @@
     "notShowAgain": "不再提醒",
     "iKnow": "我知道了",
     "disableRewardCenter": "不再显示奖励中心按钮",
-    "reportInfo.emailPlaceholder": "联系邮箱（必填）"
+    "reportInfo.emailPlaceholder": "联系邮箱（必填）",
+    "subtitle.quickButton.liveOnlyPro": "直播字幕翻译功能仅会员可用",
+    "subtitle.quickButton.upgradePro": "升级为会员",
+    "subtitle.liveFreeTrialTip": "翻译直播字幕是会员专属功能，您可免费体验 {free_trial_minutes} 分钟",
+    "subtitle.liveFreeTrialEndTip": "直播视频字幕翻译试用已结束，开通会员可继续使用",
+    "subtitle.meetingAutoEnableSubtitle": "会议平台自动开启双语字幕",
+    "subtitle.meetingAutoEnableSubtitleDescription": "开启后，Teams、Zoom、Google Meet 会议平台会自动开启双语字幕"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -1685,7 +1691,7 @@
     "translationServices.youdao.introduction": "NetEase Youdao ha lanzado un servicio de traducción que admite varios idiomas.",
     "translationServices.d.introduction": "Explora la versión Alpha del servicio de traducción D, experimenta la tecnología de traducción más avanzada e innovadora.",
     "translationServices.google.introduction": "El servicio de traducción predeterminado del navegador Chrome se desempeña bastante bien entre los servicios de traducción gratuitos.",
-    "translationServices.deepl.introduction": "Aclamada como la traducción automática más precisa del mundo, <1>más de tres veces más precisa</1> que sus competidores más cercanos.",
+    "translationServices.deepl.introduction": "Immersive Translate utiliza el modelo LLM de última generación de DeepL, <1>que ofrece una calidad de traducción entre 1,4 y 1,7 veces superior a la del modelo clásico</1>.",
     "translationServices.claude.introduction": "La empresa Anthropic ha lanzado la <homepage> IA LLM </homepage>",
     "translationServices.baidu.introduction": "<homepage>Baidu</homepage> ha lanzado un servicio de traducción automática que admite varios idiomas, pero la velocidad está estrictamente limitada y la experiencia de uso es promedio.",
     "translationServices.caiyun.introduction": "<homepage>ColorCloud Pequeño Traductor</homepage> ha lanzado un servicio de traducción que admite varios idiomas, incluidos chino, inglés, japonés, coreano, francés y alemán.",
@@ -2134,7 +2140,13 @@
     "subtitle.filterAmbientSounds": "Subtítulos con IA centrados en el contenido de la conversación.",
     "subtitle.filterAmbientSoundsDescription": "Al activar esta opción, los subtítulos mostrarán principalmente el contenido del habla del hablante. Se filtrarán en la medida de lo posible las anotaciones de sonidos ambientales que se incluyan en los resultados de reconocimiento, como: (ronquidos), (truenos).",
     "error.maxQuotaUsageTips": "Tu uso de <span style='color: #FF7D00;'>Top Model</span> (límite de tokens {maxAIQuota}) ha superado <span style='color: #FF7D00;'>{maxAIUsed}</span> este mes. <1>Ver uso</1>",
-    "reportInfo.emailPlaceholder": "Correo de contacto (obligatorio)"
+    "reportInfo.emailPlaceholder": "Correo de contacto (obligatorio)",
+    "subtitle.quickButton.upgradePro": "Actualizar a miembro",
+    "subtitle.quickButton.liveOnlyPro": "La función de traducción de subtítulos en directo solo está disponible para miembros.",
+    "subtitle.liveFreeTrialTip": "La traducción de subtítulos en directo es una función exclusiva para miembros. Puede probarla gratis durante {free_trial_minutes} minutos.",
+    "subtitle.liveFreeTrialEndTip": "La prueba gratuita de la traducción de subtítulos de vídeos en directo ha finalizado. Para seguir utilizándola, regístrese como miembro.",
+    "subtitle.meetingAutoEnableSubtitle": "La plataforma de la conferencia activa automáticamente los subtítulos en dos idiomas.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Una vez iniciadas, las plataformas de videoconferencia Teams, Zoom y Google Meet activarán automáticamente los subtítulos en dos idiomas."
   },
   "fr": {
     "nologin": "non connecté",
@@ -2734,7 +2746,7 @@
     "translationServices.d.introduction": "Explorez la version Alpha du service de traduction D, expérimentez la technologie de traduction la plus avancée et l'innovation.",
     "translationServices.mock.introduction": "Service de simulation de traduction, utilisé pour les tests et le développement, ne fournit pas de service de traduction réel.",
     "translationServices.papago.introduction": "Faites l'expérience du service de traduction Papago de NAVER, profitez d'une expérience de traduction précise et humanisée.",
-    "translationServices.deepl.introduction": "Reconnue comme la traduction automatique la plus précise au monde, <1>plus de trois fois plus précise</1> que ses concurrents les plus proches.",
+    "translationServices.deepl.introduction": "Immersive Translate utilise le modèle LLM nouvelle génération de DeepL, <1>offrant une qualité de traduction 1,4 à 1,7 fois supérieure à celle du modèle classique</1>.",
     "translationServices.baidu.introduction": "<homepage>Baidu</homepage> a lancé un service de traduction automatique, supporte plusieurs langues, mais la limitation de vitesse est assez stricte, l'expérience utilisateur est moyenne.",
     "translationServices.caiyun.introduction": "<homepage>Petit Traducteur de ColorCloud</homepage> propose un service de traduction qui prend en charge plusieurs langues, dont le chinois, l'anglais, le japonais, le coréen, le français et l'allemand.",
     "translationServices.aliyun.introduction": "<homepage>Alibaba Cloud</homepage> a lancé un service de traduction automatique, prenant en charge plusieurs langues.",
@@ -3185,7 +3197,13 @@
     "subtitle.filterAmbientSoundsDescription": "Après avoir activé cette option, les sous-titres afficheront principalement le contenu vocal du locuteur. Les annotations relatives aux sons ambiants identifiés dans les résultats de reconnaissance seront supprimées dans la mesure du possible, par exemple : (ronflement), (tonnerre).",
     "error.maxQuotaUsageTips": "Votre utilisation de <span style='color: #FF7D00;'>Top Model</span> (limite de {maxAIQuota} jetons) a dépassé <span style='color: #FF7D00;'>{maxAIUsed}</span> ce mois-ci. <1>Afficher l'utilisation</1>",
     "iKnow": "Je sais",
-    "reportInfo.emailPlaceholder": "E-mail de contact (obligatoire)"
+    "reportInfo.emailPlaceholder": "E-mail de contact (obligatoire)",
+    "subtitle.quickButton.upgradePro": "Passer à un abonnement",
+    "subtitle.quickButton.liveOnlyPro": "La fonctionnalité de traduction des sous-titres en direct est réservée aux membres.",
+    "subtitle.liveFreeTrialTip": "La traduction en direct des sous-titres est une fonctionnalité réservée aux membres. Vous pouvez l'essayer gratuitement pendant {free_trial_minutes} minutes.",
+    "subtitle.liveFreeTrialEndTip": "La période d'essai de la traduction des sous-titres des vidéos en direct est terminée. Les membres peuvent continuer à utiliser ce service.",
+    "subtitle.meetingAutoEnableSubtitle": "La plateforme de réunion active automatiquement les sous-titres bilingues.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Une fois activée, la fonctionnalité de sous-titres bilingues s'activera automatiquement sur les plateformes de réunion Teams, Zoom et Google Meet."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -3785,7 +3803,7 @@
     "translationServices.tencent.introduction": "A API de tradução <homepage> fornecida pela Tencent</homepage> é consistente com o serviço fornecido pelo Tencent Translation Jun.",
     "translationServices.volc.introduction": "ByteDance lançou o <homepage>motor de tradução Volcano</homepage>, que suporta vários idiomas.",
     "translationServices.papago.introduction": "Experimente o serviço de tradução Papago da NAVER, desfrute de uma experiência de tradução precisa e humanizada.",
-    "translationServices.deepl.introduction": "Aclamada como a tradução automática mais precisa do mundo, <1>mais de três vezes mais precisa</1> do que seus concorrentes mais próximos.",
+    "translationServices.deepl.introduction": "O Immersive Translate utiliza o modelo LLM de última geração da DeepL, <1>proporcionando uma qualidade de tradução 1,4 a 1,7 vezes superior à do modelo clássico</1>.",
     "translationServices.baidu.introduction": "<homepage>Baidu</homepage> lançou um serviço de tradução automática que suporta vários idiomas, mas a velocidade é bastante limitada, proporcionando uma experiência de uso média.",
     "translationServices.d.introduction": "Explore a versão Alpha do serviço de tradução D, experimente a tecnologia de tradução mais avançada e inovação.",
     "translationServices.custom.introduction": "Você pode escrever sua própria interface de API padrão compatível com tradução imersiva para integrar qualquer serviço de tradução ainda não suportado, consulte o <docUrl>documento de integração</docUrl> para detalhes.",
@@ -4235,7 +4253,13 @@
     "subtitle.filterAmbientSoundsDescription": "Ao ativar esta opção, as legendas exibirão principalmente o conteúdo da fala do locutor. Os ruídos ambientais identificados serão filtrados, na medida do possível, como por exemplo: (ronco), (trovão).",
     "error.maxQuotaUsageTips": "Seu uso do <span style='color: #FF7D00;'>Top Model</span> (limite de tokens {maxAIQuota}) excedeu <span style='color: #FF7D00;'>{maxAIUsed}</span> neste mês. <1>Ver uso</1>",
     "iKnow": "Eu sei",
-    "reportInfo.emailPlaceholder": "E-mail de contacto (obrigatório)"
+    "reportInfo.emailPlaceholder": "E-mail de contacto (obrigatório)",
+    "subtitle.quickButton.upgradePro": "Atualize para membro",
+    "subtitle.quickButton.liveOnlyPro": "A função de tradução de legendas ao vivo está disponível apenas para membros.",
+    "subtitle.liveFreeTrialTip": "A tradução de legendas ao vivo é um recurso exclusivo para membros. Você pode experimentar gratuitamente por {free_trial_minutes} minutos.",
+    "subtitle.liveFreeTrialEndTip": "O teste gratuito da tradução de legendas de vídeos ao vivo terminou. Para continuar usando, assine uma assinatura.",
+    "subtitle.meetingAutoEnableSubtitle": "A plataforma da conferência ativa automaticamente legendas em dois idiomas",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Após ativar, as plataformas de conferência Teams, Zoom e Google Meet ativarão automaticamente as legendas em dois idiomas."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -5321,7 +5345,13 @@
     "error.maxQuotaUsageTips": "本月您的<span style='color: #FF7D00;'>頂級模型</span>{maxAIQuota} Token 使用量已超過<span style='color: #FF7D00;'>{maxAIUsed}</span> , <1>查看本月用量</1>",
     "subtitle.filterAmbientSounds": "AI 字幕專注於對話內容",
     "error.usageTips": "沉浸式翻譯用量提示",
-    "reportInfo.emailPlaceholder": "聯絡信箱（必填）"
+    "reportInfo.emailPlaceholder": "聯絡信箱（必填）",
+    "subtitle.quickButton.upgradePro": "升級為會員",
+    "subtitle.quickButton.liveOnlyPro": "直播字幕翻譯功能僅會員可用",
+    "subtitle.liveFreeTrialTip": "翻譯直播字幕是會員專屬功能，您可免費體驗{free_trial_minutes} 分鐘",
+    "subtitle.liveFreeTrialEndTip": "直播視訊字幕翻譯試用已結束，開通會員可繼續使用",
+    "subtitle.meetingAutoEnableSubtitle": "會議平台自動開啟雙語字幕",
+    "subtitle.meetingAutoEnableSubtitleDescription": "開啟後，Teams、Zoom、Google Meet 會議平台會自動開啟雙語字幕"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -5923,7 +5953,7 @@
     "translationServices.caiyun.introduction": "<homepage>ColorCloud Piccola Traduzione</homepage> ha lanciato un servizio di traduzione che supporta più lingue, tra cui cinese, inglese, giapponese, coreano, francese e tedesco.",
     "translationServices.mock.introduction": "Servizio di traduzione simulato, utilizzato per test e sviluppo, non fornisce servizi di traduzione effettivi.",
     "translationServices.d.introduction": "Esplora la versione Alpha del servizio di traduzione D, sperimenta la tecnologia di traduzione più avanzata e l'innovazione.",
-    "translationServices.deepl.introduction": "Acclamata come la traduzione automatica più accurata al mondo, <1>oltre tre volte più accurata</1> rispetto ai suoi concorrenti più vicini.",
+    "translationServices.deepl.introduction": "Immersive Translate utilizza il modello LLM di nuova generazione di DeepL, <1>garantendo una qualità di traduzione migliorata di 1,4-1,7 volte rispetto al modello classico</1>.",
     "translationServices.baidu.introduction": "<homepage>Baidu</homepage> ha lanciato un servizio di traduzione automatica che supporta diverse lingue, ma la velocità è piuttosto limitata e l'esperienza utente è media.",
     "translationServices.openl.introduction": "OpenL ha aggregato diversi motori di traduzione, ma il prezzo è piuttosto alto.",
     "translationServices.claude.introduction": "La società Anthropic ha lanciato la <homepage> AI LLM </homepage>",
@@ -6370,7 +6400,13 @@
     "iKnow": "Lo so",
     "subtitle.filterAmbientSoundsDescription": "Dopo aver attivato questa opzione, i sottotitoli mostreranno principalmente il contenuto vocale di chi parla. Verranno filtrati il più possibile i suoni ambientali presenti nei risultati del riconoscimento, come ad esempio: (russare), (tuono).",
     "error.maxQuotaUsageTips": "Il tuo utilizzo di <span style='color: #FF7D00;'>Top Model</span> (limite di token {maxAIQuota}) ha superato <span style='color: #FF7D00;'>{maxAIUsed}</span> questo mese. <1>Visualizza utilizzo</1>",
-    "reportInfo.emailPlaceholder": "Email di contatto (obbligatorio)"
+    "reportInfo.emailPlaceholder": "Email di contatto (obbligatorio)",
+    "subtitle.quickButton.liveOnlyPro": "La funzione di traduzione dei sottotitoli in diretta è disponibile solo per gli abbonati.",
+    "subtitle.quickButton.upgradePro": "Passa a un abbonamento premium",
+    "subtitle.liveFreeTrialTip": "La traduzione dei sottotitoli in diretta è una funzione riservata ai membri. Puoi provarla gratuitamente per {free_trial_minutes} minuti.",
+    "subtitle.liveFreeTrialEndTip": "La versione di prova della traduzione dei sottotitoli dei video in diretta è terminata. Gli utenti registrati possono continuare a utilizzare il servizio.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Una volta avviate, le piattaforme di conferenza Teams, Zoom e Google Meet attiveranno automaticamente i sottotitoli in due lingue.",
+    "subtitle.meetingAutoEnableSubtitle": "La piattaforma della conferenza attiva automaticamente i sottotitoli in due lingue."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -6976,7 +7012,7 @@
     "translationServices.baidu.introduction": "<homepage>बैदु</homepage> द्वारा लॉन्च की गई मशीन अनुवाद सेवा, कई भाषाओं का समर्थन करती है, लेकिन स्पीड की सीमा काफी कठोर है, उपयोग का अनुभव सामान्य है।",
     "translationServices.claude.introduction": "एन्थ्रोपिक कंपनी ने <होमपेज> एआई LLM </होमपेज> लॉन्च किया है",
     "translationServices.custom.introduction": "आप खुद एक मानक API इंटरफ़ेस लिख सकते हैं जो इमर्सिव अनुवाद के साथ संगत हो, ताकि किसी भी अनसपोर्टेड अनुवाद सेवा को जोड़ सकें, विस्तार से देखने के लिए कृपया <docUrl>एक्सेस डॉक्यूमेंट</docUrl> का संदर्भ लें।",
-    "translationServices.deepl.introduction": "दुनिया के सबसे सटीक मशीनी अनुवाद के रूप में प्रशंसित, <1>तीन गुना से भी अधिक सटीक</1> अपने निकटतम प्रतिद्वंद्वियों की तुलना में",
+    "translationServices.deepl.introduction": "इमर्सिव ट्रांसलेट डीपएल के अगली पीढ़ी के एलएलएम मॉडल का उपयोग करता है, <1>जो क्लासिक मॉडल की तुलना में 1.4-1.7 गुना बेहतर अनुवाद गुणवत्ता प्रदान करता है</1>",
     "translationServices.openai.introduction": "GPT तकनीक मूल रूप से अनुवाद के लिए पैदा हुई थी, इसे संदर्भ को समझने की क्षमता से संपन्न किया गया था। OpenAI द्वारा संचालित GPT इतिहास का सबसे स्मार्ट LLM है",
     "translationServices.gemini.introduction": "Google ने <होमपेज> AI <B1001> </B1001> </होमपेज> लॉन्च किया है",
     "onlineTranslateCompare": "ऑनलाइन अनुवाद सेवाओं की तुलना",
@@ -7420,7 +7456,13 @@
     "notShowAgain": "मुझे फिर से याद मत दिलाना",
     "error.usageTips": "Immersive Translate उपयोग संकेत",
     "iKnow": "मुझे पता है",
-    "reportInfo.emailPlaceholder": "संपर्क ईमेल (आवश्यक)"
+    "reportInfo.emailPlaceholder": "संपर्क ईमेल (आवश्यक)",
+    "subtitle.quickButton.upgradePro": "सदस्य में अपग्रेड करें",
+    "subtitle.liveFreeTrialTip": "लाइव सबटाइटल्स का अनुवाद केवल सदस्यों के लिए उपलब्ध है। आप इसे {free_trial_minutes} मिनट के लिए मुफ़्त में आज़मा सकते हैं।",
+    "subtitle.quickButton.liveOnlyPro": "लाइव उपशीर्षक अनुवाद केवल सदस्यों के लिए उपलब्ध है",
+    "subtitle.liveFreeTrialEndTip": "लाइव वीडियो सबटाइटल अनुवाद का परीक्षण समाप्त हो गया है। आप सदस्य बनकर इसका उपयोग जारी रख सकते हैं",
+    "subtitle.meetingAutoEnableSubtitle": "कॉन्फ़्रेंस प्लेटफ़ॉर्म स्वचालित रूप से द्विभाषी उपशीर्षक खोलता है",
+    "subtitle.meetingAutoEnableSubtitleDescription": "एक बार सक्षम होने पर, टीम्स, ज़ूम और गूगल मीट कॉन्फ्रेंस प्लेटफ़ॉर्म स्वचालित रूप से द्विभाषी उपशीर्षक सक्षम कर देंगे"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -8004,7 +8046,7 @@
     "translationServices.caiyun.introduction": "<homepage>Colorful Clouds Translation</homepage> tarafından başlatılan çeviri hizmeti; Çince, İngilizce, Japonca, Korece, Fransızca, Almanca ve diğer birçok dili destekler.",
     "translationServices.bing.introduction": "Edge tarayıcısının varsayılan çeviri hizmeti, birden fazla dilde çeviri desteği sunar.",
     "translationServices.mock.introduction": "Test ve geliştirme için simüle edilmiş çeviri hizmeti, gerçek çeviri hizmetleri sağlamaz.",
-    "translationServices.deepl.introduction": "Dünyanın en doğru makine çevirisi olarak tanınan <1>en yakın rakiplerinden üç kat daha doğru</1>",
+    "translationServices.deepl.introduction": "Immersive Translate, DeepL'nin yeni nesil LLM modelini kullanır ve <1>klasik modele göre 1,4-1,7 kat daha yüksek çeviri kalitesi sunar</1>.",
     "subtitle.quickButton.downloadSubtitleNotFoundDes": "Lütfen mevcut videonun altyazıları olup olmadığını veya iki dilli altyazıların etkinleştirilip etkinleştirilmediğini kontrol edin.",
     "subtitle.downloadDisabledDes": "Lütfen önce iki dilli altyazıları etkinleştirin, ardından altyazıları tekrar indirmek için tıklayın.",
     "subtitle.upgradeProMessage": "[{featureName}] yalnızca Pro üyelerine özeldir. Lütfen giriş yapın veya ücretsiz denemeyi başlatın, ardından sayfayı yenileyip tekrar deneyin.",
@@ -8470,7 +8512,13 @@
     "subtitle.filterAmbientSoundsDescription": "Bu seçeneği etkinleştirdiğinizde, altyazılar öncelikle konuşmacının ses içeriğini gösterir. Tanıma sonuçlarında bulunan ortam sesleri (örneğin: (horlama sesi), (gök gürültüsü sesi)) mümkün olduğunca filtrelenir.",
     "error.usageTips": "Immersive Translate kullanım ipuçları",
     "subtitle.filterAmbientSounds": "AI altyazılar diyalog içeriğine odaklanır.",
-    "reportInfo.emailPlaceholder": "İletişim e-postası (zorunlu)"
+    "reportInfo.emailPlaceholder": "İletişim e-postası (zorunlu)",
+    "subtitle.quickButton.upgradePro": "Üyeliğe yükselt",
+    "subtitle.liveFreeTrialTip": "Canlı altyazı çevirisi, üyelere özel bir özelliktir. {free_trial_minutes} dakika boyunca ücretsiz olarak deneyebilirsiniz.",
+    "subtitle.quickButton.liveOnlyPro": "Canlı yayın altyazı çeviri özelliği sadece üyelere açıktır.",
+    "subtitle.liveFreeTrialEndTip": "Canlı video altyazı çevirisi deneme süresi sona ermiştir. Üyelik açarak kullanmaya devam edebilirsiniz.",
+    "subtitle.meetingAutoEnableSubtitle": "Toplantı platformu otomatik olarak iki dilde altyazı açar.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Açıldıktan sonra, Teams, Zoom ve Google Meet toplantı platformları otomatik olarak iki dilde altyazıyı açacaktır."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -9066,7 +9114,7 @@
     "translationServices.mock2.introduction": "Serviço de Tradução Simulada 2, para teste e desenvolvimento, não fornece serviços de tradução reais.",
     "translationServices.bing.introduction": "O serviço de tradução padrão do navegador Edge suporta tradução em vários idiomas.",
     "translationServices.tencent.introduction": "A <homepage>API de tradução</homepage> fornecida pela Tencent é consistente com os serviços fornecidos pelo Tencent Translator.",
-    "translationServices.deepl.introduction": "Aclamada como a tradução automática mais precisa do mundo, <1>mais de três vezes mais precisa</1> do que seus concorrentes mais próximos.",
+    "translationServices.deepl.introduction": "O Immersive Translate utiliza o modelo LLM de última geração da DeepL, <1>proporcionando uma qualidade de tradução 1,4 a 1,7 vezes superior à do modelo clássico</1>.",
     "translationServices.openl.introduction": "O OpenL agrega vários mecanismos de tradução, mas é bastante caro.",
     "translationServices.mock.introduction": "Serviço de tradução simulado para teste e desenvolvimento, não fornece serviços de tradução reais.",
     "translationServices.caiyun.introduction": "O serviço de tradução lançado pela <homepage>Colorful Clouds Translation</homepage> suporta vários idiomas, incluindo chinês, inglês, japonês, coreano, francês, alemão, entre outros.",
@@ -9522,7 +9570,13 @@
     "subtitle.filterAmbientSounds": "Legendas AI focadas no conteúdo da conversa",
     "subtitle.filterAmbientSoundsDescription": "Ao ativar esta opção, as legendas exibirão principalmente o conteúdo da fala do locutor. Os ruídos ambientais identificados serão filtrados, na medida do possível, como por exemplo: (ronco), (trovão).",
     "error.maxQuotaUsageTips": "Seu uso do <span style='color: #FF7D00;'>Top Model</span> (limite de tokens {maxAIQuota}) excedeu <span style='color: #FF7D00;'>{maxAIUsed}</span> neste mês. <1>Ver uso</1>",
-    "reportInfo.emailPlaceholder": "E-mail de contato (obrigatório)"
+    "reportInfo.emailPlaceholder": "E-mail de contato (obrigatório)",
+    "subtitle.quickButton.liveOnlyPro": "A função de tradução de legendas ao vivo está disponível apenas para membros.",
+    "subtitle.quickButton.upgradePro": "Atualize para membro",
+    "subtitle.liveFreeTrialTip": "A tradução de legendas ao vivo é um recurso exclusivo para membros. Você pode experimentar gratuitamente por {free_trial_minutes} minutos.",
+    "subtitle.liveFreeTrialEndTip": "O teste gratuito da tradução de legendas de vídeos ao vivo terminou. Para continuar usando, assine uma assinatura.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Após ativar, as plataformas de conferência Teams, Zoom e Google Meet ativarão automaticamente as legendas em dois idiomas.",
+    "subtitle.meetingAutoEnableSubtitle": "A plataforma da conferência ativa automaticamente legendas em dois idiomas"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -10115,7 +10169,7 @@
     "translationServices.mock2.introduction": "‫שירות דמה לבדיקה, ללא תרגום אמיתי‬",
     "translationServices.bing.introduction": "‫⁦⁦Microsoft Translator⁩⁩ (ברירת המחדל של ⁦Edge⁩)‬",
     "translationServices.tencent.introduction": "‫⁦⁦Tencent Translation⁩ API⁩‬",
-    "translationServices.deepl.introduction": "תרגום המכונה זכה לשבחים כתרגום המכונה המדויק ביותר בעולם, <1> יותר מדויק פי שלושה</1> מהמתחרים הקרובים ביותר שלהם",
+    "translationServices.deepl.introduction": "Immersive Translate משתמש במודל ה-LLM של הדור הבא של DeepL, <1>מספק איכות תרגום משופרת פי 1.4-1.7 לעומת המודל הקלאסי</1>",
     "translationServices.openl.introduction": "‫⁦OpenL⁩ מאגד מנועי תרגום, אך יקר⁦.⁩‬",
     "translationServices.mock.introduction": "‫שירות דמה לבדיקה‬",
     "translationServices.caiyun.introduction": "‫⁦Caiyun⁩ תומך רק בסינית, אנגלית ויפנית⁦.⁩‬",
@@ -10578,7 +10632,13 @@
     "subtitle.filterAmbientSounds": "כתוביות בינה מלאכותית מתמקדות בתוכן השיחה",
     "iKnow": "אני יודע",
     "subtitle.filterAmbientSoundsDescription": "הפעל אפשרות זו כדי שהכתוביות יתמקדו בדיבור של הדובר. הערות צליל הסביבה הכלולות בתוצאות הזיהוי יסוננו החוצה ככל האפשר, כגון: (גרגור), (רעם).",
-    "reportInfo.emailPlaceholder": "אימייל ליצירת קשר (חובה)"
+    "reportInfo.emailPlaceholder": "אימייל ליצירת קשר (חובה)",
+    "subtitle.quickButton.upgradePro": "שדרוג לחברות",
+    "subtitle.quickButton.liveOnlyPro": "תכונת תרגום הכתוביות בשידור חי זמינה רק לחברים",
+    "subtitle.liveFreeTrialTip": "תרגום כתוביות חיות הוא תכונה לחברים בלבד המאפשרת לכם לחוות {free_trial_minutes} דקות בחינם",
+    "subtitle.liveFreeTrialEndTip": "תקופת הניסיון של תרגום כתוביות וידאו בשידור חי הסתיימה, וחברים יכולים להמשיך להשתמש בו",
+    "subtitle.meetingAutoEnableSubtitleDescription": "כאשר היא מופעלת, כתוביות דו-לשוניות יופעלו באופן אוטומטי עבור פלטפורמות הפגישות של Teams, Zoom ו-Google Meet",
+    "subtitle.meetingAutoEnableSubtitle": "כתוביות דו-לשוניות מופעלות באופן אוטומטי בפלטפורמת הוועידה"
   },
   "ars": {},
   "de": {
@@ -11181,7 +11241,7 @@
     "translationServices.baidu.introduction": "<homepage>Baidu</homepage> hat einen maschinellen Übersetzungsdienst eingeführt, der mehrere Sprachen unterstützt, aber eine strenge Geschwindigkeitsbegrenzung hat und ein allgemeines Benutzererlebnis bietet.",
     "translationServices.claude.introduction": "Das Unternehmen Anthropic hat die <homepage> AI LLM </homepage> auf den Markt gebracht.",
     "translationServices.volc.introduction": "Die von ByteDance eingeführte <homepage>Vulkan-Übersetzungsmaschine</homepage> unterstützt mehrere Sprachen.",
-    "translationServices.deepl.introduction": "Als weltweit genaueste maschinelle Übersetzung anerkannt, ist sie <1>mehr als dreimal so genau</1> wie ihre nächsten Konkurrenten.",
+    "translationServices.deepl.introduction": "Immersive Translate nutzt das LLM-Modell der nächsten Generation von DeepL und bietet eine um 1,4- bis 1,7-mal verbesserte Übersetzungsqualität gegenüber dem klassischen Modell.",
     "translationServices.papago.introduction": "Erleben Sie den Übersetzungsdienst von NAVER's Papago und genießen Sie eine präzise, benutzerfreundliche Übersetzungserfahrung.",
     "translationServices.custom.introduction": "Sie können eine eigene Schnittstelle für eine standardisierte API schreiben, die mit immersiver Übersetzung kompatibel ist, um jeden noch nicht unterstützten Übersetzungsdienst zu integrieren. Bitte beziehen Sie sich auf das <docUrl>Integrationsdokument</docUrl> für weitere Details.",
     "translationServices.openai.introduction": "Die GPT-Technologie wurde ursprünglich für die Übersetzung entwickelt und ist mit der Fähigkeit ausgestattet, Kontext zu verstehen. Das von OpenAI betriebene GPT ist das intelligenteste LLM der Geschichte",
@@ -11630,7 +11690,13 @@
     "subtitle.filterAmbientSounds": "AI-Untertitel konzentrieren sich auf den Inhalt der Dialoge.",
     "subtitle.filterAmbientSoundsDescription": "Wenn diese Option aktiviert ist, werden in den Untertiteln hauptsächlich die Sprachinhalte der sprechenden Person angezeigt. Umgebungsgeräusche, die in den Erkennungsergebnissen enthalten sind, werden so weit wie möglich herausgefiltert, z. B.: (Schnarchen), (Donner).",
     "error.maxQuotaUsageTips": "Ihre Nutzung von <span style='color: #FF7D00;'>Top Model</span> ({maxAIQuota} Token-Limit) hat diesen Monat <span style='color: #FF7D00;'>{maxAIUsed}</span> überschritten. <1>Nutzung anzeigen</1>",
-    "reportInfo.emailPlaceholder": "Kontakt-E-Mail (erforderlich)"
+    "reportInfo.emailPlaceholder": "Kontakt-E-Mail (erforderlich)",
+    "subtitle.quickButton.upgradePro": "Upgrade to membership",
+    "subtitle.quickButton.liveOnlyPro": "Die Live-Untertitelübersetzungsfunktion ist nur für Mitglieder verfügbar.",
+    "subtitle.liveFreeTrialTip": "Die Übersetzung von Live-Untertiteln ist eine exklusive Funktion für Mitglieder. Sie können diese Funktion für {free_trial_minutes} Minuten kostenlos testen.",
+    "subtitle.liveFreeTrialEndTip": "Die Testphase für die Übersetzung von Live-Videos ist beendet. Mitglieder können den Dienst weiterhin nutzen.",
+    "subtitle.meetingAutoEnableSubtitle": "Die Konferenzplattform schaltet automatisch zweisprachige Untertitel ein.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Nach dem Start werden die Konferenzplattformen Teams, Zoom und Google Meet automatisch mit zweisprachigen Untertiteln gestartet."
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -12230,7 +12296,7 @@
     "translationServices.mock2.introduction": "A szimulált fordítási szolgáltatás 2, tesztelés és fejlesztés céljából, nem nyújt tényleges fordítási szolgáltatásokat.",
     "translationServices.bing.introduction": "Az Edge böngésző alapértelmezett fordítási szolgáltatása több nyelven is támogatja a fordítást.",
     "translationServices.tencent.introduction": "A Tencent által nyújtott szolgáltatások összhangban vannak a Tencent Translator által nyújtott szolgáltatásokkal.",
-    "translationServices.deepl.introduction": "A világ legpontosabb gépi fordításaként elismert, <1>több mint háromszor pontosabb</1> a legközelebbi versenytársainál.",
+    "translationServices.deepl.introduction": "Az Immersive Translate a DeepL legújabb generációs LLM modelljét használja, <1>amely a klasszikus modellhez képest 1,4–1,7-szeres fordítási minőségjavulást biztosít</1>.",
     "translationServices.openl.introduction": "Az OpenL több fordítómotor összevonásával dolgozik, de ez elég drága.",
     "translationServices.mock.introduction": "Szimulált fordítási szolgáltatás tesztelésre és fejlesztésre, nem nyújt tényleges fordítási szolgáltatásokat.",
     "translationServices.caiyun.introduction": "A fordítási szolgáltatás több nyelvet támogat, beleértve a kínai, angol, japán, koreai, francia, német és más nyelveket is.",
@@ -12565,7 +12631,13 @@
     "subtitle.filterAmbientSounds": "AI feliratok a párbeszédre összpontosítanak",
     "error.maxQuotaUsageTips": "A <span style='color: #FF7D00;'>Top Model</span> ({maxAIQuota} token limit) használata meghaladta a <span style='color: #FF7D00;'>{maxAIUsed}</span> havi limitet. <1>Használat megtekintése</1>",
     "subtitle.filterAmbientSoundsDescription": "A beállítás engedélyezése után a feliratok főként a beszélő szövegét jelenítik meg. A felismerési eredményekben szereplő környezeti hangjelöléseket (pl.: (horkolás), (mennydörgés)) a lehetőségek szerint kiszűrjük.",
-    "reportInfo.emailPlaceholder": "Kapcsolattartó e-mail (kötelező)"
+    "reportInfo.emailPlaceholder": "Kapcsolattartó e-mail (kötelező)",
+    "subtitle.quickButton.upgradePro": "Fejlesztett tagság",
+    "subtitle.liveFreeTrialTip": "A közvetítés feliratozásának fordítása tagok számára elérhető funkció, amelyet {free_trial_minutes} percig ingyenesen kipróbálhat.",
+    "subtitle.quickButton.liveOnlyPro": "A közvetítés feliratozásának fordítási funkciója csak tagok számára elérhető.",
+    "subtitle.liveFreeTrialEndTip": "A élő videó feliratozás próbaverziója lejárt. A szolgáltatás továbbra is elérhető a regisztrált felhasználók számára.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Beindítás után a Teams, Zoom és Google Meet konferencia platformok automatikusan elindítják a kétnyelvű feliratokat.",
+    "subtitle.meetingAutoEnableSubtitle": "A konferencia platform automatikusan elindítja a kétnyelvű feliratokat."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -13172,7 +13244,7 @@
     "translationServices.gemini.introduction": "구글은 <홈페이지>AI LLM</홈페이지>를 출시했습니다.",
     "translationServices.baidu.introduction": "<homepage>바이두</homepage>가 출시한 기계 번역 서비스는 다양한 언어를 지원하지만, 속도 제한이 엄격하고 사용 경험은 일반적입니다.",
     "translationServices.custom.introduction": "당신은 아직 지원되지 않는 번역 서비스에 접속하기 위해 표준 API 인터페이스를 작성하여 잠수식 번역과 호환할 수 있습니다. 자세한 내용은 <docUrl>접속 문서</docUrl>를 참조하십시오.",
-    "translationServices.deepl.introduction": "세계에서 가장 정확한 기계 번역으로 평가받은 <1>경쟁사보다 3배 이상 정확한</1>",
+    "translationServices.deepl.introduction": "Immersive Translate는 DeepL의 차세대 LLM 모델을 사용하며, <1>클래식 모델 대비 1.4~1.7배 향상된 번역 품질을 제공합니다</1>",
     "translationServices.openai.introduction": "GPT 기술은 원래 번역을 위해 탄생했으며, 문맥을 이해하는 능력을 부여받았습니다. OpenAI가 구동하는 GPT는 역사상 가장 스마트한 LLM입니다.",
     "onlineTranslateCompare": "온라인 비교 번역 서비스",
     "browser.translateWithClaude": "임시로 Claude를 사용하여 현재 페이지를 번역하십시오.",
@@ -13615,7 +13687,13 @@
     "error.usageTips": "Immersive Translate 사용 팁",
     "subtitle.filterAmbientSoundsDescription": "이 옵션을 활성화하면 자막은 주로 말하는 사람의 음성 내용을 표시합니다. 인식 결과에 포함된 환경 소리 표시(예: (코 고는 소리), (천둥 소리))를 최대한 필터링합니다.",
     "error.maxQuotaUsageTips": "<span style='color: #FF7D00;'>Top Model</span> ({maxAIQuota} 토큰 한도)의 사용량이 이번 달에 <span style='color: #FF7D00;'>{maxAIUsed}</span>를 초과했습니다. <1>사용량 확인</1>",
-    "reportInfo.emailPlaceholder": "연락처 이메일(필수)"
+    "reportInfo.emailPlaceholder": "연락처 이메일(필수)",
+    "subtitle.quickButton.upgradePro": "회원 등급을 업그레이드하세요",
+    "subtitle.liveFreeTrialTip": "번역 라이브 자막은 회원 전용 기능입니다. {free_trial_minutes} 분 동안 무료로 체험해 보실 수 있습니다.",
+    "subtitle.quickButton.liveOnlyPro": "라이브 스트리밍 자막 번역 기능은 회원 전용입니다.",
+    "subtitle.liveFreeTrialEndTip": "라이브 영상 자막 번역 체험 기간이 종료되었습니다. 회원 가입을 통해 계속 이용하실 수 있습니다.",
+    "subtitle.meetingAutoEnableSubtitle": "회의 플랫폼이 자동으로 양어 자막을 활성화합니다.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "시작 후, Teams, Zoom, Google Meet 회의 플랫폼은 자동으로 양방향 자막을 활성화합니다."
   },
   "uk": {},
   "ja": {
@@ -14223,7 +14301,7 @@
     "translationServices.custom.introduction": "あなたは自分で標準的なAPIインターフェースを書くことができ、まだサポートされていない翻訳サービスを統合するための没入型翻訳と互換性があります。詳細は<docUrl>統合ドキュメント</docUrl>を参照してください。",
     "translationServices.papago.introduction": "NAVERのPapago翻訳サービスを体験し、精確でユーザーフレンドリーな翻訳体験を楽しんでください。",
     "translationServices.gemini.introduction": "グーグルは<homepage>AI LLM</homepage> を立ち上げた。",
-    "translationServices.deepl.introduction": "世界一正確な機械翻訳として評価されており、<1>最接近する競合他社よりも3 倍以上正確</1>です。",
+    "translationServices.deepl.introduction": "Immersive TranslateはDeepLの次世代 LLMモデルを採用し、<1>従来のモデルと比較して1.4～1.7 倍の翻訳品質向上を実現しています</1>。",
     "translationServices.openai.introduction": "GPTはもともと翻訳のために生まれた技術で、文脈を理解する能力を備えている。OpenAIが推進するGPTは、史上最も賢いLLMだ",
     "onlineTranslateCompare": "オンライン翻訳サービスの比較",
     "browser.translateWithClaude": "現在のページをClaudeで一時的に翻訳する",
@@ -14666,7 +14744,13 @@
     "iKnow": "私は知っています",
     "subtitle.filterAmbientSoundsDescription": "このオプションを有効にすると、字幕は主に話者の音声内容を表示します。認識結果に含まれる環境音の注釈（例：(いびき)、(雷の音)）を可能な限り除去します。",
     "error.maxQuotaUsageTips": "<span style='color: #FF7D00;'>Top Model</span>（{maxAIQuota} トークン制限）の使用量が、今月<span style='color: #FF7D00;'>{maxAIUsed}</span>を超えました。<1>使用状況を確認する</1>",
-    "reportInfo.emailPlaceholder": "連絡用メールアドレス（必須）"
+    "reportInfo.emailPlaceholder": "連絡用メールアドレス（必須）",
+    "subtitle.quickButton.upgradePro": "会員へのアップグレード",
+    "subtitle.quickButton.liveOnlyPro": "ライブ配信の字幕翻訳機能は会員限定でご利用いただけます。",
+    "subtitle.liveFreeTrialTip": "翻訳ライブ字幕は会員限定機能です。{free_trial_minutes}分間無料で体験いただけます。",
+    "subtitle.liveFreeTrialEndTip": "ライブ動画の字幕翻訳のトライアル期間は終了しました。会員に登録すると、引き続きご利用いただけます。",
+    "subtitle.meetingAutoEnableSubtitle": "会議プラットフォームが自動的に二言語字幕を起動します。",
+    "subtitle.meetingAutoEnableSubtitleDescription": "起動後、Teams、Zoom、Google Meet の会議プラットフォームは自動的に二言語字幕を有効にします。"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -15269,7 +15353,7 @@
     "translationServices.yandex.introduction": "Yandex выпустил услугу перевода, которая хорошо справляется с переводом на русский язык.",
     "translationServices.d.introduction": "Исследуйте альфа-версию сервиса перевода D, испытайте самые передовые технологии перевода и инновации.",
     "translationServices.baidu.introduction": "<homepage>Байду</homepage> предлагает услуги машинного перевода, поддерживающие множество языков, но со строгими ограничениями на скорость, что делает пользовательский опыт обычным.",
-    "translationServices.deepl.introduction": "Признанный самым точным машиным переводом в мире, <1>более чем в три раза точнее</1> своих ближайших конкурентов.",
+    "translationServices.deepl.introduction": "Immersive Translate использует модель LLM нового поколения DeepL, <1>обеспечивающую качество перевода на 1,4–1,7 раза выше, чем у классической модели</1>.",
     "translationServices.claude.introduction": "Компания Anthropic запустила <homepage>Искусственный интеллект LLM </homepage>.",
     "translationServices.custom.introduction": "Вы можете самостоятельно написать интерфейс стандартного API, совместимого с погружающим переводом, для подключения любого еще не поддерживаемого сервиса перевода. Подробности смотрите в <docUrl>документации по подключению</docUrl>",
     "translationServices.openai.introduction": "Технология GPT изначально создавалась для перевода, она была наделена способностью понимать контекст. GPT, управляемый OpenAI, - самый умный LLM в истории",
@@ -15716,7 +15800,13 @@
     "error.usageTips": "Советы по использованию Immersive Translate",
     "subtitle.filterAmbientSoundsDescription": "После включения этого параметра субтитры будут отображать в основном речевой контент говорящего. По возможности будут отфильтрованы пометки об окружающих звуках, содержащиеся в результатах распознавания, например: (храп), (гром).",
     "error.maxQuotaUsageTips": "Ваше использование <span style='color: #FF7D00;'>Top Model</span> (ограничение на количество токенов {maxAIQuota}) превысило <span style='color: #FF7D00;'>{maxAIUsed}</span> в этом месяце. <1>Просмотреть использование</1>",
-    "reportInfo.emailPlaceholder": "Контактный email (обязательно)"
+    "reportInfo.emailPlaceholder": "Контактный email (обязательно)",
+    "subtitle.quickButton.liveOnlyPro": "Функция перевода субтитров в прямом эфире доступна только для членов клуба.",
+    "subtitle.liveFreeTrialTip": "Перевод субтитров в прямом эфире — это функция, доступная только для членов клуба. Вы можете попробовать ее бесплатно в течение {free_trial_minutes} минут.",
+    "subtitle.quickButton.upgradePro": "Повысить статус до членства",
+    "subtitle.liveFreeTrialEndTip": "Пробная версия перевода субтитров для прямых трансляций завершена. Чтобы продолжить пользоваться этой функцией, необходимо стать членом клуба.",
+    "subtitle.meetingAutoEnableSubtitle": "Конференц-платформа автоматически включает двуязычные субтитры",
+    "subtitle.meetingAutoEnableSubtitleDescription": "После включения платформы для конференций Teams, Zoom и Google Meet автоматически включают двуязычные субтитры."
   },
   "aeb": {},
   "fa": {
@@ -16322,7 +16412,7 @@
     "translationServices.caiyun.introduction": "<homepage>رنگین کمان کوچک ترجمه</homepage> خدمات ترجمه‌ای را راه‌اندازی کرده است که از زبان‌های مختلفی مانند چینی، انگلیسی، ژاپنی، کره‌ای، فرانسوی، آلمانی و غیره پشتیبانی می‌کند.",
     "translationServices.claude.introduction": "شرکت آنتروپیک <homepage> مدل زبانی هوش‌مصنوعی </homepage> را راه اندازی کرده",
     "translationServices.openai.introduction": "فناوری GPT در ابتدا برای ترجمه متولد شد و توانایی درک متن را داشت. GPT که توسط OpenAI هدایت می‌شود، هوشمندترین LLM در تاریخ است.",
-    "translationServices.deepl.introduction": "به عنوان دقیق‌ترین ترجمه ماشینی جهان، <1>بیش از سه برابر دقیق‌تر، تحسین شده است</1> از نزدیکترین رقبایشان",
+    "translationServices.deepl.introduction": "Immersive Translate از مدل LLM نسل بعدی DeepL استفاده می‌کند و <1>کیفیت ترجمه بهبود یافته‌ای بین ۱.۴ تا ۱.۷ برابر نسبت به مدل کلاسیک ارائه می‌دهد.</1>",
     "translationServices.custom.introduction": "شما می توانید خودتان یک رابط API استاندارد سازگار با ترجمه فرو رفته بنویسید تا به هر سرویس ترجمه ای که هنوز پشتیبانی نشده است، دسترسی پیدا کنید. لطفا برای جزئیات بیشتر به <docUrl>مستندات دسترسی</docUrl> مراجعه کنید.",
     "translationServices.gemini.introduction": "گوگل <homepage>مدل زبانی هوش مصنوعی</homepage> را راه اندازی کرده",
     "onlineTranslateCompare": "خدمات ترجمه مقایسه آنلاین",
@@ -16769,7 +16859,13 @@
     "error.maxQuotaUsageTips": "میزان استفاده شما از <span style='color: #FF7D00;'>مدل برتر</span> (محدودیت توکن {maxAIQuota}) در این ماه از <span style='color: #FF7D00;'>{maxAIUsed}</span> فراتر رفته است. <1>مشاهده میزان استفاده</1>",
     "error.usageTips": "هشدار مصرف Immersive Translate",
     "subtitle.filterAmbientSoundsDescription": "وقتی این گزینه روشن باشد، زیرنویس‌ها عمدتاً محتوای صدای گوینده را نمایش می‌دهند. حاشیه‌نویسی‌های صدای محیط که در نتایج تشخیص صدا وجود دارند، تا حد امکان فیلتر می‌شوند، مانند (خروپف) و (رعد و برق).",
-    "reportInfo.emailPlaceholder": "ایمیل تماس (الزامی)"
+    "reportInfo.emailPlaceholder": "ایمیل تماس (الزامی)",
+    "subtitle.quickButton.upgradePro": "ارتقا به عضویت",
+    "subtitle.quickButton.liveOnlyPro": "ترجمه زیرنویس زنده فقط برای اعضا در دسترس است",
+    "subtitle.liveFreeTrialTip": "ترجمه زیرنویس زنده یک ویژگی مخصوص اعضا است. می‌توانید آن را به مدت {free_trial_minutes} دقیقه به صورت رایگان امتحان کنید.",
+    "subtitle.liveFreeTrialEndTip": "دوره آزمایشی ترجمه زیرنویس ویدیو به صورت زنده به پایان رسیده است. می‌توانید با عضویت به استفاده از آن ادامه دهید.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "پس از فعال شدن، پلتفرم‌های کنفرانس Teams، Zoom و Google Meet به طور خودکار زیرنویس‌های دوزبانه را فعال می‌کنند.",
+    "subtitle.meetingAutoEnableSubtitle": "پلتفرم کنفرانس به طور خودکار زیرنویس‌های دوزبانه را باز می‌کند"
   },
   "en": {
     "nologin": "Not logged in",
@@ -17370,7 +17466,7 @@
     "translationServices.mock2.introduction": "Simulated Translation Service 2, for testing and development, does not provide actual translation services.",
     "translationServices.bing.introduction": "The default translation service of the Edge browser supports translation in multiple languages.",
     "translationServices.tencent.introduction": "The <homepage>translation API</homepage> provided by Tencent is consistent with the services provided by Tencent Translator.",
-    "translationServices.deepl.introduction": "Acclaimed as the world's most accurate machine translation, <1>more than three times more accurate</1> than their closest competitors",
+    "translationServices.deepl.introduction": "Immersive Translate uses DeepL's next-gen LLM model, <1>providing 1.4-1.7x improved translation quality over the classic model</1>",
     "translationServices.openl.introduction": "OpenL aggregates multiple translation engines, but it is quite expensive.",
     "translationServices.mock.introduction": "Simulated translation service for testing and development, does not provide actual translation services.",
     "translationServices.caiyun.introduction": "The translation service launched by <homepage>Colorful Clouds Translation</homepage> supports multiple languages including Chinese, English, Japanese, Korean, French, and German.",
@@ -17820,7 +17916,13 @@
     "subtitle.filterAmbientSounds": "AI subtitles focus on dialogue content",
     "error.maxQuotaUsageTips": "Your usage of the <span style='color: #FF7D00;'>Top Model</span> ({maxAIQuota} token limit) has exceeded <span style='color: #FF7D00;'>{maxAIUsed}</span> this month. <1>View usage</1>",
     "subtitle.filterAmbientSoundsDescription": "After enabling this option, the subtitles will primarily display the spoken content of the speaker. Environmental sound annotations in the recognition results will be filtered out as much as possible, such as: (snoring), (thunder).",
-    "reportInfo.emailPlaceholder": "Contact email (required)"
+    "reportInfo.emailPlaceholder": "Contact email (required)",
+    "subtitle.quickButton.upgradePro": "Upgrade to membership",
+    "subtitle.quickButton.liveOnlyPro": "Live subtitle translation feature is only available to members.",
+    "subtitle.liveFreeTrialTip": "Live subtitle translation is a member-only feature. You can try it for free for {free_trial_minutes} minutes.",
+    "subtitle.liveFreeTrialEndTip": "The trial period for live video subtitle translation has ended. Please subscribe to continue using this service.",
+    "subtitle.meetingAutoEnableSubtitleDescription": "Once enabled, Teams, Zoom, and Google Meet meeting platforms will automatically enable bilingual subtitles.",
+    "subtitle.meetingAutoEnableSubtitle": "The conference platform automatically activates bilingual subtitles."
   },
   "arz": {},
   "ar": {
@@ -18425,7 +18527,7 @@
     "translationServices.mock.introduction": "خدمة الترجمة المحاكية، تُستخدم للتجربة والتطوير، ولا تقدم خدمة الترجمة الفعلية.",
     "translationServices.caiyun.introduction": "<homepage>كاي يون شياو يي</homepage> تقدم خدمة الترجمة، وتدعم العديد من اللغات مثل الصينية، الإنجليزية، اليابانية، الكورية، الفرنسية، والألمانية وغيرها.",
     "translationServices.baidu.introduction": "<homepage>بايدو</homepage> أطلق خدمة الترجمة الآلية، تدعم العديد من اللغات، ولكن الحد الأقصى للسرعة صارم جدا، تجربة الاستخدام عادية.",
-    "translationServices.deepl.introduction": "تم الإشادة به باعتباره الترجمة الآلية الأكثر دقة في العالم، <1>أكثر دقة بثلاث مرات</1> من أقرب منافسيهم",
+    "translationServices.deepl.introduction": "يستخدم Immersive Translate نموذج LLM من الجيل التالي من DeepL، <1>مما يوفر جودة ترجمة محسنة بمقدار 1.4-1.7x مقارنة بالنموذج الكلاسيكي</1>",
     "translationServices.claude.introduction": "أطلقت شركة الأنثروبور <phoaced> ai LLM </homepage>",
     "translationServices.custom.introduction": "يمكنك كتابة واجهة API قياسية متوافقة مع الترجمة الغامرة بنفسك للوصول إلى أي خدمة ترجمة لم تحصل بعد على الدعم، يرجى الرجوع إلى <docUrl>وثائق الوصول</docUrl> للحصول على التفاصيل.",
     "translationServices.openai.introduction": "وُلدت تقنية GPT في الأصل للترجمة، وقد مُنحت القدرة على فهم السياق. تُعدّ تقنية GPT، المدعومة بـ OpenAI، أذكى برنامج ماجستير في القانون في التاريخ.",
@@ -18872,6 +18974,12 @@
     "subtitle.filterAmbientSounds": "تركز ترجمات الذكاء الاصطناعي على محتوى المحادثة",
     "subtitle.filterAmbientSoundsDescription": "عند تفعيل هذا الخيار، ستعرض الترجمة بشكل أساسي محتوى صوت المتحدث. سيتم استبعاد تعليقات الصوت المحيط الواردة في نتائج التعرّف قدر الإمكان، مثل (الشخير) و(الرعد).",
     "error.maxQuotaUsageTips": "لقد تجاوز استخدامك لـ <span style='color: #FF7D00;'>Top Model</span> (حد الرمز المميز {maxAIQuota}) <span style='color: #FF7D00;'>{maxAIUsed}</span> هذا الشهر. <1>عرض الاستخدام</1>",
-    "reportInfo.emailPlaceholder": "البريد الإلكتروني للتواصل (إلزامي)"
+    "reportInfo.emailPlaceholder": "البريد الإلكتروني للتواصل (إلزامي)",
+    "subtitle.quickButton.upgradePro": "الترقية إلى العضوية",
+    "subtitle.quickButton.liveOnlyPro": "الترجمة المباشرة متاحة فقط للأعضاء",
+    "subtitle.liveFreeTrialTip": "ترجمة الترجمات المباشرة ميزة حصرية للأعضاء. يمكنك تجربتها مجانًا لمدة {free_trial_minutes} دقيقة.",
+    "subtitle.liveFreeTrialEndTip": "انتهت تجربة ترجمة الفيديو المباشر. يمكنك الاستمرار في استخدامها بالانضمام إلى العضوية.",
+    "subtitle.meetingAutoEnableSubtitle": "تفتح منصة المؤتمر تلقائيًا ترجمات ثنائية اللغة",
+    "subtitle.meetingAutoEnableSubtitleDescription": "بمجرد التمكين، ستقوم منصات مؤتمرات Teams وZoom وGoogle Meet بتمكين الترجمة ثنائية اللغة تلقائيًا"
   }
 }

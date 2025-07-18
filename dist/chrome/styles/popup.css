@@ -710,6 +710,7 @@ select.text-gray-6 {
 
 .widget-item {
   display: flex;
+  max-width: 70px;
   flex-direction: column;
   align-items: center;
   justify-content: center;

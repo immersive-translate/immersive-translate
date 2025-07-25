@@ -1080,7 +1080,10 @@
     "subtitle.liveFreeTrialTip": "翻译直播字幕是会员专属功能，您可免费体验 {free_trial_minutes} 分钟",
     "subtitle.liveFreeTrialEndTip": "直播视频字幕翻译试用已结束，开通会员可继续使用",
     "subtitle.meetingAutoEnableSubtitle": "会议平台自动开启双语字幕",
-    "subtitle.meetingAutoEnableSubtitleDescription": "开启后，Teams、Zoom、Google Meet 会议平台会自动开启双语字幕"
+    "subtitle.meetingAutoEnableSubtitleDescription": "开启后，Teams、Zoom、Google Meet 会议平台会自动开启双语字幕",
+    "translationServices.qwen-mt": "Qwen-MT",
+    "labelKey.domains": "domains 领域提示",
+    "description.qwenMtDomains": "如果您希望翻译的风格更符合某个领域的特性，如法律、政务领域翻译用语应当严肃正式，社交领域用语应当口语化，可以用一段自然语言文本描述您的领域，将其提供给大模型作为提示。领域提示语句暂时只支持英文。"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -2146,7 +2149,10 @@
     "subtitle.liveFreeTrialTip": "La traducción de subtítulos en directo es una función exclusiva para miembros. Puede probarla gratis durante {free_trial_minutes} minutos.",
     "subtitle.liveFreeTrialEndTip": "La prueba gratuita de la traducción de subtítulos de vídeos en directo ha finalizado. Para seguir utilizándola, regístrese como miembro.",
     "subtitle.meetingAutoEnableSubtitle": "La plataforma de la conferencia activa automáticamente los subtítulos en dos idiomas.",
-    "subtitle.meetingAutoEnableSubtitleDescription": "Una vez iniciadas, las plataformas de videoconferencia Teams, Zoom y Google Meet activarán automáticamente los subtítulos en dos idiomas."
+    "subtitle.meetingAutoEnableSubtitleDescription": "Una vez iniciadas, las plataformas de videoconferencia Teams, Zoom y Google Meet activarán automáticamente los subtítulos en dos idiomas.",
+    "translationServices.qwen-mt": "Modelo Qwen-MT",
+    "labelKey.domains": "solicitud de dominio domains",
+    "description.qwenMtDomains": "Si desea que el estilo de traducción se ajuste mejor a las características de un campo específico, como las traducciones del ámbito legal y gubernamental que deben ser serias y formales, mientras que el lenguaje social debe ser coloquial, puede usar texto en lenguaje natural para describir su dominio y proporcionarlo al modelo grande como indicación. Las declaraciones de indicación de dominio actualmente solo admiten inglés."
   },
   "fr": {
     "nologin": "non connecté",
@@ -3203,7 +3209,10 @@
     "subtitle.liveFreeTrialTip": "La traduction en direct des sous-titres est une fonctionnalité réservée aux membres. Vous pouvez l'essayer gratuitement pendant {free_trial_minutes} minutes.",
     "subtitle.liveFreeTrialEndTip": "La période d'essai de la traduction des sous-titres des vidéos en direct est terminée. Les membres peuvent continuer à utiliser ce service.",
     "subtitle.meetingAutoEnableSubtitle": "La plateforme de réunion active automatiquement les sous-titres bilingues.",
-    "subtitle.meetingAutoEnableSubtitleDescription": "Une fois activée, la fonctionnalité de sous-titres bilingues s'activera automatiquement sur les plateformes de réunion Teams, Zoom et Google Meet."
+    "subtitle.meetingAutoEnableSubtitleDescription": "Une fois activée, la fonctionnalité de sous-titres bilingues s'activera automatiquement sur les plateformes de réunion Teams, Zoom et Google Meet.",
+    "translationServices.qwen-mt": "Modèle Qwen-MT",
+    "labelKey.domains": "invite de domaine domains",
+    "description.qwenMtDomains": "Si vous souhaitez que le style de traduction corresponde mieux aux caractéristiques d'un domaine spécifique, comme les traductions juridiques et gouvernementales qui doivent être sérieuses et formelles, tandis que le langage social doit être familier, vous pouvez utiliser un texte en langage naturel pour décrire votre domaine et le fournir au grand modèle comme invite. Les phrases d'invite de domaine ne prennent actuellement en charge que l'anglais."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -4259,7 +4268,10 @@
     "subtitle.liveFreeTrialTip": "A tradução de legendas ao vivo é um recurso exclusivo para membros. Você pode experimentar gratuitamente por {free_trial_minutes} minutos.",
     "subtitle.liveFreeTrialEndTip": "O teste gratuito da tradução de legendas de vídeos ao vivo terminou. Para continuar usando, assine uma assinatura.",
     "subtitle.meetingAutoEnableSubtitle": "A plataforma da conferência ativa automaticamente legendas em dois idiomas",
-    "subtitle.meetingAutoEnableSubtitleDescription": "Após ativar, as plataformas de conferência Teams, Zoom e Google Meet ativarão automaticamente as legendas em dois idiomas."
+    "subtitle.meetingAutoEnableSubtitleDescription": "Após ativar, as plataformas de conferência Teams, Zoom e Google Meet ativarão automaticamente as legendas em dois idiomas.",
+    "translationServices.qwen-mt": "Modelo Qwen-MT",
+    "labelKey.domains": "prompt de domínio domains",
+    "description.qwenMtDomains": "Se pretende que o estilo de tradução corresponda melhor às características de um campo específico, como as traduções do domínio jurídico e governamental devem ser sérias e formais, enquanto a linguagem social deve ser coloquial, pode usar texto em linguagem natural para descrever o seu domínio e fornecê-lo ao modelo grande como prompt. As declarações de prompt de domínio atualmente apenas suportam inglês."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -5351,7 +5363,10 @@
     "subtitle.liveFreeTrialTip": "翻譯直播字幕是會員專屬功能，您可免費體驗{free_trial_minutes} 分鐘",
     "subtitle.liveFreeTrialEndTip": "直播視訊字幕翻譯試用已結束，開通會員可繼續使用",
     "subtitle.meetingAutoEnableSubtitle": "會議平台自動開啟雙語字幕",
-    "subtitle.meetingAutoEnableSubtitleDescription": "開啟後，Teams、Zoom、Google Meet 會議平台會自動開啟雙語字幕"
+    "subtitle.meetingAutoEnableSubtitleDescription": "開啟後，Teams、Zoom、Google Meet 會議平台會自動開啟雙語字幕",
+    "translationServices.qwen-mt": "Qwen-MT",
+    "labelKey.domains": "domains 領域提示",
+    "description.qwenMtDomains": "如果您希望翻譯的風格更符合某個領域的特性，如法律、政務領域翻譯用語應當嚴肅正式，社交領域用語應當口語化，可以用一段自然語言文字描述您的領域，將其提供給大模型作為提示。領域提示語句暫時只支援英文。"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -6406,7 +6421,10 @@
     "subtitle.liveFreeTrialTip": "La traduzione dei sottotitoli in diretta è una funzione riservata ai membri. Puoi provarla gratuitamente per {free_trial_minutes} minuti.",
     "subtitle.liveFreeTrialEndTip": "La versione di prova della traduzione dei sottotitoli dei video in diretta è terminata. Gli utenti registrati possono continuare a utilizzare il servizio.",
     "subtitle.meetingAutoEnableSubtitleDescription": "Una volta avviate, le piattaforme di conferenza Teams, Zoom e Google Meet attiveranno automaticamente i sottotitoli in due lingue.",
-    "subtitle.meetingAutoEnableSubtitle": "La piattaforma della conferenza attiva automaticamente i sottotitoli in due lingue."
+    "subtitle.meetingAutoEnableSubtitle": "La piattaforma della conferenza attiva automaticamente i sottotitoli in due lingue.",
+    "translationServices.qwen-mt": "Modello Qwen-MT",
+    "labelKey.domains": "prompt del dominio domains",
+    "description.qwenMtDomains": "Se desiderate che lo stile di traduzione corrisponda meglio alle caratteristiche di un campo specifico, come le traduzioni del dominio legale e governativo dovrebbero essere serie e formali, mentre il linguaggio sociale dovrebbe essere colloquiale, potete usare testo in linguaggio naturale per descrivere il vostro dominio e fornirlo al modello grande come prompt. Le dichiarazioni di prompt del dominio attualmente supportano solo l'inglese."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -7462,7 +7480,10 @@
     "subtitle.quickButton.liveOnlyPro": "लाइव उपशीर्षक अनुवाद केवल सदस्यों के लिए उपलब्ध है",
     "subtitle.liveFreeTrialEndTip": "लाइव वीडियो सबटाइटल अनुवाद का परीक्षण समाप्त हो गया है। आप सदस्य बनकर इसका उपयोग जारी रख सकते हैं",
     "subtitle.meetingAutoEnableSubtitle": "कॉन्फ़्रेंस प्लेटफ़ॉर्म स्वचालित रूप से द्विभाषी उपशीर्षक खोलता है",
-    "subtitle.meetingAutoEnableSubtitleDescription": "एक बार सक्षम होने पर, टीम्स, ज़ूम और गूगल मीट कॉन्फ्रेंस प्लेटफ़ॉर्म स्वचालित रूप से द्विभाषी उपशीर्षक सक्षम कर देंगे"
+    "subtitle.meetingAutoEnableSubtitleDescription": "एक बार सक्षम होने पर, टीम्स, ज़ूम और गूगल मीट कॉन्फ्रेंस प्लेटफ़ॉर्म स्वचालित रूप से द्विभाषी उपशीर्षक सक्षम कर देंगे",
+    "translationServices.qwen-mt": "Qwen-MT मॉडल",
+    "labelKey.domains": "domains डोमेन प्रॉम्प्ट",
+    "description.qwenMtDomains": "यदि आप चाहते हैं कि अनुवाद शैली किसी विशिष्ट क्षेत्र की विशेषताओं से बेहतर मेल खाए, जैसे कानूनी, सरकारी क्षेत्र के अनुवाद शब्दावली गंभीर और औपचारिक होनी चाहिए, सामाजिक क्षेत्र की भाषा बोलचाल की होनी चाहिए, तो आप अपने क्षेत्र का वर्णन करने के लिए प्राकृतिक भाषा पाठ का उपयोग कर सकते हैं और इसे बड़े मॉडल को संकेत के रूप में प्रदान कर सकते हैं। डोमेन संकेत कथन वर्तमान में केवल अंग्रेजी का समर्थन करते हैं।"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -8518,7 +8539,10 @@
     "subtitle.quickButton.liveOnlyPro": "Canlı yayın altyazı çeviri özelliği sadece üyelere açıktır.",
     "subtitle.liveFreeTrialEndTip": "Canlı video altyazı çevirisi deneme süresi sona ermiştir. Üyelik açarak kullanmaya devam edebilirsiniz.",
     "subtitle.meetingAutoEnableSubtitle": "Toplantı platformu otomatik olarak iki dilde altyazı açar.",
-    "subtitle.meetingAutoEnableSubtitleDescription": "Açıldıktan sonra, Teams, Zoom ve Google Meet toplantı platformları otomatik olarak iki dilde altyazıyı açacaktır."
+    "subtitle.meetingAutoEnableSubtitleDescription": "Açıldıktan sonra, Teams, Zoom ve Google Meet toplantı platformları otomatik olarak iki dilde altyazıyı açacaktır.",
+    "translationServices.qwen-mt": "Qwen-MT Modeli",
+    "labelKey.domains": "domains alan istemi",
+    "description.qwenMtDomains": "Çeviri stilinin belirli bir alanın özelliklerine daha iyi uymasını istiyorsanız, örneğin hukuki, devlet alanı çeviri terimlerinin ciddi ve resmi olması gerekirken, sosyal alan dilinin günlük konuşma dili olması gerekiyorsa, alanınızı tanımlamak için doğal dil metni kullanabilir ve bunu büyük modele istem olarak sağlayabilirsiniz. Alan istem ifadeleri şu anda yalnızca İngilizceyi desteklemektedir."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -9576,7 +9600,10 @@
     "subtitle.liveFreeTrialTip": "A tradução de legendas ao vivo é um recurso exclusivo para membros. Você pode experimentar gratuitamente por {free_trial_minutes} minutos.",
     "subtitle.liveFreeTrialEndTip": "O teste gratuito da tradução de legendas de vídeos ao vivo terminou. Para continuar usando, assine uma assinatura.",
     "subtitle.meetingAutoEnableSubtitleDescription": "Após ativar, as plataformas de conferência Teams, Zoom e Google Meet ativarão automaticamente as legendas em dois idiomas.",
-    "subtitle.meetingAutoEnableSubtitle": "A plataforma da conferência ativa automaticamente legendas em dois idiomas"
+    "subtitle.meetingAutoEnableSubtitle": "A plataforma da conferência ativa automaticamente legendas em dois idiomas",
+    "translationServices.qwen-mt": "Modelo Qwen-MT",
+    "labelKey.domains": "prompt de domínio domains",
+    "description.qwenMtDomains": "Se você deseja que o estilo de tradução corresponda melhor às características de um campo específico, como traduções do domínio jurídico e governamental devem ser sérias e formais, enquanto a linguagem social deve ser coloquial, você pode usar texto em linguagem natural para descrever seu domínio e fornecê-lo ao modelo grande como prompt. As declarações de prompt de domínio atualmente suportam apenas inglês."
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -10638,7 +10665,10 @@
     "subtitle.liveFreeTrialTip": "תרגום כתוביות חיות הוא תכונה לחברים בלבד המאפשרת לכם לחוות {free_trial_minutes} דקות בחינם",
     "subtitle.liveFreeTrialEndTip": "תקופת הניסיון של תרגום כתוביות וידאו בשידור חי הסתיימה, וחברים יכולים להמשיך להשתמש בו",
     "subtitle.meetingAutoEnableSubtitleDescription": "כאשר היא מופעלת, כתוביות דו-לשוניות יופעלו באופן אוטומטי עבור פלטפורמות הפגישות של Teams, Zoom ו-Google Meet",
-    "subtitle.meetingAutoEnableSubtitle": "כתוביות דו-לשוניות מופעלות באופן אוטומטי בפלטפורמת הוועידה"
+    "subtitle.meetingAutoEnableSubtitle": "כתוביות דו-לשוניות מופעלות באופן אוטומטי בפלטפורמת הוועידה",
+    "translationServices.qwen-mt": "מודל Qwen-MT",
+    "labelKey.domains": "הנחיית תחום domains",
+    "description.qwenMtDomains": "אם אתם רוצים שסגנון התרגום יתאים יותר למאפיינים של תחום ספציפי, כמו תרגומי התחום המשפטי והממשלתי שצריכים להיות רציניים ופורמליים, בעוד שפת התחום החברתי צריכה להיות דיבורית, תוכלו להשתמש בטקסט בשפה טבעית כדי לתאר את התחום שלכם ולספק אותו למודל הגדול כהנחיה. הצהרות הנחיית תחום תומכות כרגע באנגלית בלבד."
   },
   "ars": {},
   "de": {
@@ -11696,7 +11726,10 @@
     "subtitle.liveFreeTrialTip": "Die Übersetzung von Live-Untertiteln ist eine exklusive Funktion für Mitglieder. Sie können diese Funktion für {free_trial_minutes} Minuten kostenlos testen.",
     "subtitle.liveFreeTrialEndTip": "Die Testphase für die Übersetzung von Live-Videos ist beendet. Mitglieder können den Dienst weiterhin nutzen.",
     "subtitle.meetingAutoEnableSubtitle": "Die Konferenzplattform schaltet automatisch zweisprachige Untertitel ein.",
-    "subtitle.meetingAutoEnableSubtitleDescription": "Nach dem Start werden die Konferenzplattformen Teams, Zoom und Google Meet automatisch mit zweisprachigen Untertiteln gestartet."
+    "subtitle.meetingAutoEnableSubtitleDescription": "Nach dem Start werden die Konferenzplattformen Teams, Zoom und Google Meet automatisch mit zweisprachigen Untertiteln gestartet.",
+    "translationServices.qwen-mt": "Qwen-MT-Modell",
+    "labelKey.domains": "domains Bereichsaufforderung",
+    "description.qwenMtDomains": "Wenn Sie möchten, dass der Übersetzungsstil besser zu den Eigenschaften eines bestimmten Bereichs passt, wie etwa Rechts- und Regierungsbereichsübersetzungen, die ernst und formal sein sollten, während soziale Bereichssprache umgangssprachlich sein sollte, können Sie natürlichen Sprachtext verwenden, um Ihren Bereich zu beschreiben und ihn dem großen Modell als Aufforderung zur Verfügung zu stellen. Bereichsaufforderungsaussagen unterstützen derzeit nur Englisch."
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -12637,7 +12670,10 @@
     "subtitle.quickButton.liveOnlyPro": "A közvetítés feliratozásának fordítási funkciója csak tagok számára elérhető.",
     "subtitle.liveFreeTrialEndTip": "A élő videó feliratozás próbaverziója lejárt. A szolgáltatás továbbra is elérhető a regisztrált felhasználók számára.",
     "subtitle.meetingAutoEnableSubtitleDescription": "Beindítás után a Teams, Zoom és Google Meet konferencia platformok automatikusan elindítják a kétnyelvű feliratokat.",
-    "subtitle.meetingAutoEnableSubtitle": "A konferencia platform automatikusan elindítja a kétnyelvű feliratokat."
+    "subtitle.meetingAutoEnableSubtitle": "A konferencia platform automatikusan elindítja a kétnyelvű feliratokat.",
+    "translationServices.qwen-mt": "Qwen-MT modell",
+    "labelKey.domains": "domains területi prompt",
+    "description.qwenMtDomains": "Ha azt szeretné, hogy a fordítási stílus jobban megfeleljen egy adott terület jellemzőinek, például a jogi, kormányzati terület fordítási szókincse komoly és formális legyen, míg a szociális terület nyelve köznyelvi, használhat természetes nyelvi szöveget a területe leírására, és ezt promptként biztosíthatja a nagy modell számára. A területi prompt állítások jelenleg csak az angol nyelvet támogatják."
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -13693,7 +13729,10 @@
     "subtitle.quickButton.liveOnlyPro": "라이브 스트리밍 자막 번역 기능은 회원 전용입니다.",
     "subtitle.liveFreeTrialEndTip": "라이브 영상 자막 번역 체험 기간이 종료되었습니다. 회원 가입을 통해 계속 이용하실 수 있습니다.",
     "subtitle.meetingAutoEnableSubtitle": "회의 플랫폼이 자동으로 양어 자막을 활성화합니다.",
-    "subtitle.meetingAutoEnableSubtitleDescription": "시작 후, Teams, Zoom, Google Meet 회의 플랫폼은 자동으로 양방향 자막을 활성화합니다."
+    "subtitle.meetingAutoEnableSubtitleDescription": "시작 후, Teams, Zoom, Google Meet 회의 플랫폼은 자동으로 양방향 자막을 활성화합니다.",
+    "translationServices.qwen-mt": "Qwen-MT 모델",
+    "labelKey.domains": "domains 도메인 프롬프트",
+    "description.qwenMtDomains": "번역 스타일이 특정 분야의 특성에 더 부합하기를 원한다면, 예를 들어 법률, 정부 분야 번역 용어는 진지하고 정식이어야 하고, 소셜 분야 용어는 구어체여야 한다면, 자연어 텍스트를 사용하여 귀하의 분야를 설명하고 이를 대형 모델에 프롬프트로 제공할 수 있습니다. 도메인 프롬프트 문장은 현재 영어만 지원합니다."
   },
   "uk": {},
   "ja": {
@@ -14750,7 +14789,10 @@
     "subtitle.liveFreeTrialTip": "翻訳ライブ字幕は会員限定機能です。{free_trial_minutes}分間無料で体験いただけます。",
     "subtitle.liveFreeTrialEndTip": "ライブ動画の字幕翻訳のトライアル期間は終了しました。会員に登録すると、引き続きご利用いただけます。",
     "subtitle.meetingAutoEnableSubtitle": "会議プラットフォームが自動的に二言語字幕を起動します。",
-    "subtitle.meetingAutoEnableSubtitleDescription": "起動後、Teams、Zoom、Google Meet の会議プラットフォームは自動的に二言語字幕を有効にします。"
+    "subtitle.meetingAutoEnableSubtitleDescription": "起動後、Teams、Zoom、Google Meet の会議プラットフォームは自動的に二言語字幕を有効にします。",
+    "translationServices.qwen-mt": "Qwen-MTモデル",
+    "labelKey.domains": "domains ドメインプロンプト",
+    "description.qwenMtDomains": "翻訳スタイルを特定の分野の特性により適合させたい場合、例えば法律・行政分野の翻訳用語は厳粛で正式であるべきで、ソーシャル分野の用語は口語的であるべきなど、自然言語テキストであなたの分野を記述し、それを大規模モデルにプロンプトとして提供することができます。ドメインプロンプト文は現在英語のみサポートしています。"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -15806,7 +15848,10 @@
     "subtitle.quickButton.upgradePro": "Повысить статус до членства",
     "subtitle.liveFreeTrialEndTip": "Пробная версия перевода субтитров для прямых трансляций завершена. Чтобы продолжить пользоваться этой функцией, необходимо стать членом клуба.",
     "subtitle.meetingAutoEnableSubtitle": "Конференц-платформа автоматически включает двуязычные субтитры",
-    "subtitle.meetingAutoEnableSubtitleDescription": "После включения платформы для конференций Teams, Zoom и Google Meet автоматически включают двуязычные субтитры."
+    "subtitle.meetingAutoEnableSubtitleDescription": "После включения платформы для конференций Teams, Zoom и Google Meet автоматически включают двуязычные субтитры.",
+    "translationServices.qwen-mt": "Модель Qwen-MT",
+    "labelKey.domains": "подсказка домена domains",
+    "description.qwenMtDomains": "Если вы хотите, чтобы стиль перевода лучше соответствовал характеристикам определенной области, например, переводы в правовой и государственной сфере должны быть серьезными и формальными, а язык социальной сферы должен быть разговорным, вы можете использовать текст на естественном языке для описания вашей области и предоставить его большой модели в качестве подсказки. Утверждения подсказок домена в настоящее время поддерживают только английский язык."
   },
   "aeb": {},
   "fa": {
@@ -16865,7 +16910,10 @@
     "subtitle.liveFreeTrialTip": "ترجمه زیرنویس زنده یک ویژگی مخصوص اعضا است. می‌توانید آن را به مدت {free_trial_minutes} دقیقه به صورت رایگان امتحان کنید.",
     "subtitle.liveFreeTrialEndTip": "دوره آزمایشی ترجمه زیرنویس ویدیو به صورت زنده به پایان رسیده است. می‌توانید با عضویت به استفاده از آن ادامه دهید.",
     "subtitle.meetingAutoEnableSubtitleDescription": "پس از فعال شدن، پلتفرم‌های کنفرانس Teams، Zoom و Google Meet به طور خودکار زیرنویس‌های دوزبانه را فعال می‌کنند.",
-    "subtitle.meetingAutoEnableSubtitle": "پلتفرم کنفرانس به طور خودکار زیرنویس‌های دوزبانه را باز می‌کند"
+    "subtitle.meetingAutoEnableSubtitle": "پلتفرم کنفرانس به طور خودکار زیرنویس‌های دوزبانه را باز می‌کند",
+    "translationServices.qwen-mt": "مدل Qwen-MT",
+    "labelKey.domains": "درخواست حوزه domains",
+    "description.qwenMtDomains": "اگر می‌خواهید سبک ترجمه با ویژگی‌های یک حوزه خاص بهتر مطابقت داشته باشد، مانند ترجمه‌های حوزه حقوقی و دولتی که باید جدی و رسمی باشند، در حالی که زبان حوزه اجتماعی باید محاوره‌ای باشد، می‌توانید از متن زبان طبیعی برای توصیف حوزه خود استفاده کنید و آن را به عنوان درخواست به مدل بزرگ ارائه دهید. جملات درخواست حوزه در حال حاضر فقط از انگلیسی پشتیبانی می‌کنند."
   },
   "en": {
     "nologin": "Not logged in",
@@ -17922,7 +17970,10 @@
     "subtitle.liveFreeTrialTip": "Live subtitle translation is a member-only feature. You can try it for free for {free_trial_minutes} minutes.",
     "subtitle.liveFreeTrialEndTip": "The trial period for live video subtitle translation has ended. Please subscribe to continue using this service.",
     "subtitle.meetingAutoEnableSubtitleDescription": "Once enabled, Teams, Zoom, and Google Meet meeting platforms will automatically enable bilingual subtitles.",
-    "subtitle.meetingAutoEnableSubtitle": "The conference platform automatically activates bilingual subtitles."
+    "subtitle.meetingAutoEnableSubtitle": "The conference platform automatically activates bilingual subtitles.",
+    "translationServices.qwen-mt": "Qwen-MT Model",
+    "labelKey.domains": "domains field prompt",
+    "description.qwenMtDomains": "If you want the translation style to better match the characteristics of a specific field, such as legal and government domain translations should be serious and formal, while social domain language should be colloquial, you can use natural language text to describe your domain and provide it to the large model as a prompt. Domain prompt statements currently only support English."
   },
   "arz": {},
   "ar": {
@@ -18980,6 +19031,9 @@
     "subtitle.liveFreeTrialTip": "ترجمة الترجمات المباشرة ميزة حصرية للأعضاء. يمكنك تجربتها مجانًا لمدة {free_trial_minutes} دقيقة.",
     "subtitle.liveFreeTrialEndTip": "انتهت تجربة ترجمة الفيديو المباشر. يمكنك الاستمرار في استخدامها بالانضمام إلى العضوية.",
     "subtitle.meetingAutoEnableSubtitle": "تفتح منصة المؤتمر تلقائيًا ترجمات ثنائية اللغة",
-    "subtitle.meetingAutoEnableSubtitleDescription": "بمجرد التمكين، ستقوم منصات مؤتمرات Teams وZoom وGoogle Meet بتمكين الترجمة ثنائية اللغة تلقائيًا"
+    "subtitle.meetingAutoEnableSubtitleDescription": "بمجرد التمكين، ستقوم منصات مؤتمرات Teams وZoom وGoogle Meet بتمكين الترجمة ثنائية اللغة تلقائيًا",
+    "translationServices.qwen-mt": "نموذج Qwen-MT",
+    "labelKey.domains": "مطالبة مجال domains",
+    "description.qwenMtDomains": "إذا كنت تريد أن يتوافق أسلوب الترجمة بشكل أفضل مع خصائص مجال معين، مثل ترجمات المجال القانوني والحكومي يجب أن تكون جدية ورسمية، بينما لغة المجال الاجتماعي يجب أن تكون عامية، يمكنك استخدام نص بلغة طبيعية لوصف مجالك وتقديمه للنموذج الكبير كمطالبة. بيانات مطالبة المجال تدعم حاليًا الإنجليزية فقط."
   }
 }

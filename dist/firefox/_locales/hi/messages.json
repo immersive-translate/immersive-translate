@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "साइड पैनल खोलें/बंद करें"
+  },
+  "openAiWritingModal": {
+    "message": "AI Write मॉडल खोलें"
   }
 }

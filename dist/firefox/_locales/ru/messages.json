@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "Открыть/Закрыть боковую панель"
+  },
+  "openAiWritingModal": {
+    "message": "Открыть модальное окно AI Write"
   }
 }

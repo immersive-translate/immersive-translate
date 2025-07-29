@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "Ouvrir/Fermer le panneau latéral"
+  },
+  "openAiWritingModal": {
+    "message": "Ouvrir la fenêtre modale AI Write"
   }
 }

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.19.6",
+  "version": "1.19.7",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -105,6 +105,12 @@
         "default": "Alt+S"
       },
       "description": "__MSG_toggleSidePanel__"
+    },
+    "openAiWritingModal": {
+      "suggested_key": {
+        "default": "Alt+I"
+      },
+      "description": "__MSG_openAiWritingModal__"
     },
     "translateWithCustom1": {
       "description": "__MSG_translateWithCustom1__"

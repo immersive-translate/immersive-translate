@@ -112,5 +112,8 @@
   },
   "translateMangaMenuId": {
     "message": "Translate image/restore image"
+  },
+  "openAiWritingModal": {
+    "message": "Open AI Write Modal"
   }
 }

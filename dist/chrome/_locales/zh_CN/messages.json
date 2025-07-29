@@ -89,6 +89,9 @@
   "toggleSidePanel": {
     "message": "开启/关闭侧边栏"
   },
+  "openAiWritingModal": {
+    "message": "打开 AI Write 弹窗"
+  },
   "toggleTranslationMask": {
     "message": "切换当前页面译文为模糊效果（学习模式）"
   },

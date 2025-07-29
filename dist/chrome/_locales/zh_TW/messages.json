@@ -112,5 +112,8 @@
   },
   "translateMangaMenuId": {
     "message": "翻譯圖片/還原圖片"
+  },
+  "openAiWritingModal": {
+    "message": "開啟 AI Write 視窗"
   }
 }

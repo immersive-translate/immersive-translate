@@ -357,6 +357,7 @@
 }
 
 .side-footer-preview {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -728,4 +729,44 @@
   display: flex;
   flex-direction: column;
   position: relative; /* 为了支持自定义拖拽手柄的绝对定位 */
+}
+
+.reward-center-popup {
+  position: absolute;
+  right: 4px;
+  bottom: 45px;
+  background-color: #333;
+  color: #fff;
+  font-family: "Noto Sans SC";
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 #fff;
+  font-size: 14px;
+}
+
+.reward-center-triangle {
+  position: absolute;
+  right: 45%;
+}
+
+.popup-content {
+  padding: 12px;
+  position: relative;
+  display: flex;
+}
+
+.popup-close-icon-wrapper {
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--Brand-Grays-Gray3, #e6e6e6);
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  padding: 3.646px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
 }

@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "Yan Paneli Aç/Kapat"
+  },
+  "openAiWritingModal": {
+    "message": "AI Write modalını aç"
   }
 }

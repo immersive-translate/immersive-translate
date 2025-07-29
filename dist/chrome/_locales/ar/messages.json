@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "فتح/إغلاق اللوحة الجانبية"
+  },
+  "openAiWritingModal": {
+    "message": "فتح نافذة AI Write المنبثقة"
   }
 }

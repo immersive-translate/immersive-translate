@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "사이드 패널 열기/닫기"
+  },
+  "openAiWritingModal": {
+    "message": "AI Write 모달 열기"
   }
 }

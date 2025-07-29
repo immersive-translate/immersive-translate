@@ -112,5 +112,8 @@
   },
   "toggleSidePanel": {
     "message": "サイドパネルを開く/閉じる"
+  },
+  "openAiWritingModal": {
+    "message": "AI Write モーダルを開く"
   }
 }

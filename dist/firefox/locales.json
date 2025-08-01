@@ -1143,7 +1143,11 @@
     "dialog.aiContextSubscribe": "订阅会员",
     "dialog.cancel": "暂时不需要",
     "labelKey.domains": "domains 领域提示",
-    "description.qwenMtDomains": "如果您希望翻译的风格更符合某个领域的特性，如法律、政务领域翻译用语应当严肃正式，社交领域用语应当口语化，可以用一段自然语言文本描述您的领域，将其提供给大模型作为提示。领域提示语句暂时只支持英文。"
+    "description.qwenMtDomains": "如果您希望翻译的风格更符合某个领域的特性，如法律、政务领域翻译用语应当严肃正式，社交领域用语应当口语化，可以用一段自然语言文本描述您的领域，将其提供给大模型作为提示。领域提示语句暂时只支持英文。",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>立即升级会员</1>可无限制观看所有已生成 AI字幕 的视频，每月还可翻译 1000 分钟新视频",
+    "subtitle.limitFree": "（限时免费）",
+    "subtitle.error.aiSubtitleLimitFree": "AI字幕 是会员专属功能，请登录后使用",
+    "subtitle.error.aiSubtitleProOnly": "当前视频暂无 AI字幕 缓存，请升级为会员后使用"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -2272,7 +2276,11 @@
     "dialog.cancel": "No es necesario por ahora",
     "labelKey.domains": "solicitud de dominio domains",
     "description.qwenMtDomains": "Si desea que el estilo de traducción se ajuste mejor a las características de un campo específico, como las traducciones del ámbito legal y gubernamental que deben ser serias y formales, mientras que el lenguaje social debe ser coloquial, puede usar texto en lenguaje natural para describir su dominio y proporcionarlo al modelo grande como indicación. Las declaraciones de indicación de dominio actualmente solo admiten inglés.",
-    "browser.openAiWritingModal": "Abrir ventana modal de AI Write"
+    "browser.openAiWritingModal": "Abrir ventana modal de AI Write",
+    "subtitle.limitFree": "(Gratis por tiempo limitado)",
+    "subtitle.error.aiSubtitleLimitFree": "Los subtítulos con IA son una función exclusiva para miembros. Inicia sesión para utilizarlos.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Actualiza ahora</1> para disfrutar de acceso ilimitado a todos los vídeos con subtítulos generados por IA, además de 1000 minutos de nuevas traducciones de vídeos al mes.",
+    "subtitle.error.aiSubtitleProOnly": "No hay subtítulos generados por IA almacenados en caché para este vídeo. Actualiza tu suscripción para poder utilizar esta función."
   },
   "fr": {
     "nologin": "non connecté",
@@ -3392,7 +3400,11 @@
     "dialog.cancel": "Pas nécessaire pour l'instant",
     "labelKey.domains": "invite de domaine domains",
     "description.qwenMtDomains": "Si vous souhaitez que le style de traduction corresponde mieux aux caractéristiques d'un domaine spécifique, comme les traductions juridiques et gouvernementales qui doivent être sérieuses et formelles, tandis que le langage social doit être familier, vous pouvez utiliser un texte en langage naturel pour décrire votre domaine et le fournir au grand modèle comme invite. Les phrases d'invite de domaine ne prennent actuellement en charge que l'anglais.",
-    "browser.openAiWritingModal": "Ouvrir la fenêtre modale AI Write"
+    "browser.openAiWritingModal": "Ouvrir la fenêtre modale AI Write",
+    "subtitle.limitFree": "(Gratuit pour une durée limitée)",
+    "subtitle.error.aiSubtitleProOnly": "Aucun sous-titre généré par IA n'est mis en cache pour cette vidéo. Veuillez passer à un abonnement pour utiliser cette fonctionnalité.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Passez dès maintenant à la version supérieure</1> pour profiter d'un accès illimité à toutes les vidéos avec sous-titres générés par IA, ainsi que 1 000 minutes de nouvelles traductions vidéo par mois.",
+    "subtitle.error.aiSubtitleLimitFree": "Les sous-titres générés par IA sont une fonctionnalité réservée aux membres. Veuillez vous connecter pour les utiliser."
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -4511,7 +4523,11 @@
     "dialog.cancel": "Não é necessário por agora",
     "labelKey.domains": "prompt de domínio domains",
     "description.qwenMtDomains": "Se pretende que o estilo de tradução corresponda melhor às características de um campo específico, como as traduções do domínio jurídico e governamental devem ser sérias e formais, enquanto a linguagem social deve ser coloquial, pode usar texto em linguagem natural para descrever o seu domínio e fornecê-lo ao modelo grande como prompt. As declarações de prompt de domínio atualmente apenas suportam inglês.",
-    "browser.openAiWritingModal": "Abrir janela modal de AI Write"
+    "browser.openAiWritingModal": "Abrir janela modal de AI Write",
+    "subtitle.limitFree": "(Gratuito por tempo limitado)",
+    "subtitle.error.aiSubtitleLimitFree": "As legendas com IA são um recurso exclusivo para membros. Faça login para utilizá-las.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Atualize sua assinatura agora</1> para assistir sem limites a todos os vídeos com legendas geradas por IA e traduzir 1000 minutos de novos vídeos por mês.",
+    "subtitle.error.aiSubtitleProOnly": "Não há legendas geradas por IA armazenadas para este vídeo. Atualize para uma assinatura para usar esse recurso."
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -5666,7 +5682,11 @@
     "dialog.cancel": "暫時不需要",
     "labelKey.domains": "domains 領域提示",
     "description.qwenMtDomains": "如果您希望翻譯的風格更符合某個領域的特性，如法律、政務領域翻譯用語應當嚴肅正式，社交領域用語應當口語化，可以用一段自然語言文字描述您的領域，將其提供給大模型作為提示。領域提示語句暫時只支援英文。",
-    "browser.openAiWritingModal": "開啟 AI Write 視窗"
+    "browser.openAiWritingModal": "開啟 AI Write 視窗",
+    "subtitle.error.aiSubtitleLimitFree": "AI 字幕是會員專屬功能，請登入後使用",
+    "subtitle.error.aiSubtitleProOnly": "目前影片暫無 AI 字幕緩存，請升級為會員後使用",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>立即升等會員</1>可無限制觀看所有已生成 AI 字幕的視頻，每月還可翻譯 1000 分鐘新視頻",
+    "subtitle.limitFree": "（限時免費）"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -6784,7 +6804,11 @@
     "dialog.cancel": "Non necessario per ora",
     "labelKey.domains": "prompt del dominio domains",
     "description.qwenMtDomains": "Se desiderate che lo stile di traduzione corrisponda meglio alle caratteristiche di un campo specifico, come le traduzioni del dominio legale e governativo dovrebbero essere serie e formali, mentre il linguaggio sociale dovrebbe essere colloquiale, potete usare testo in linguaggio naturale per descrivere il vostro dominio e fornirlo al modello grande come prompt. Le dichiarazioni di prompt del dominio attualmente supportano solo l'inglese.",
-    "browser.openAiWritingModal": "Apri finestra modale AI Write"
+    "browser.openAiWritingModal": "Apri finestra modale AI Write",
+    "subtitle.error.aiSubtitleLimitFree": "I sottotitoli AI sono una funzione riservata ai membri. Effettua il login per utilizzarli.",
+    "subtitle.limitFree": "(Gratuito per un periodo limitato)",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Passa subito alla versione superiore</1> per avere accesso illimitato a tutti i video con sottotitoli generati dall'intelligenza artificiale, oltre a 1.000 minuti di nuove traduzioni video al mese.",
+    "subtitle.error.aiSubtitleProOnly": "Per questo video non sono disponibili sottotitoli generati dall'intelligenza artificiale. Per utilizzare questa funzione, passa a un abbonamento."
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -7903,7 +7927,11 @@
     "dialog.cancel": "अभी आवश्यक नहीं",
     "labelKey.domains": "domains डोमेन प्रॉम्प्ट",
     "description.qwenMtDomains": "यदि आप चाहते हैं कि अनुवाद शैली किसी विशिष्ट क्षेत्र की विशेषताओं से बेहतर मेल खाए, जैसे कानूनी, सरकारी क्षेत्र के अनुवाद शब्दावली गंभीर और औपचारिक होनी चाहिए, सामाजिक क्षेत्र की भाषा बोलचाल की होनी चाहिए, तो आप अपने क्षेत्र का वर्णन करने के लिए प्राकृतिक भाषा पाठ का उपयोग कर सकते हैं और इसे बड़े मॉडल को संकेत के रूप में प्रदान कर सकते हैं। डोमेन संकेत कथन वर्तमान में केवल अंग्रेजी का समर्थन करते हैं।",
-    "browser.openAiWritingModal": "AI Write मॉडल खोलें"
+    "browser.openAiWritingModal": "AI Write मॉडल खोलें",
+    "subtitle.limitFree": "(सीमित व़क्त के लिए मुफ़्त)",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>अभी अपग्रेड करें</1> एआई-जनरेटेड उपशीर्षकों के साथ सभी वीडियो तक असीमित पहुंच का आनंद लेने के लिए, साथ ही प्रति माह 1,000 मिनट के नए वीडियो अनुवाद का आनंद लें।",
+    "subtitle.error.aiSubtitleLimitFree": "AI सबटाइटल्स केवल सदस्यों के लिए उपलब्ध हैं। इनका उपयोग करने के लिए कृपया लॉग इन करें।",
+    "subtitle.error.aiSubtitleProOnly": "इस वीडियो के लिए कोई AI उपशीर्षक कैश नहीं किया गया है। इस सुविधा का उपयोग करने के लिए कृपया सदस्यता में अपग्रेड करें।"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -9022,7 +9050,11 @@
     "dialog.cancel": "Şu an gerekli değil",
     "labelKey.domains": "domains alan istemi",
     "description.qwenMtDomains": "Çeviri stilinin belirli bir alanın özelliklerine daha iyi uymasını istiyorsanız, örneğin hukuki, devlet alanı çeviri terimlerinin ciddi ve resmi olması gerekirken, sosyal alan dilinin günlük konuşma dili olması gerekiyorsa, alanınızı tanımlamak için doğal dil metni kullanabilir ve bunu büyük modele istem olarak sağlayabilirsiniz. Alan istem ifadeleri şu anda yalnızca İngilizceyi desteklemektedir.",
-    "browser.openAiWritingModal": "AI Write modalını aç"
+    "browser.openAiWritingModal": "AI Write modalını aç",
+    "subtitle.limitFree": "(Sınırlı süreli ücretsiz)",
+    "subtitle.error.aiSubtitleLimitFree": "AI altyazılar sadece üyelere özel bir özelliktir. Kullanmak için lütfen giriş yapın.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Hemen üyeliğinizi yükseltin</1> Tüm AI altyazılı videoları sınırsız olarak izleyin ve her ay 1000 dakika yeni video çevirin.",
+    "subtitle.error.aiSubtitleProOnly": "Bu video için AI altyazı önbelleğe alınmamıştır. Bu özelliği kullanmak için üyeliğinizi yükseltin."
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -10143,7 +10175,11 @@
     "dialog.cancel": "Não é necessário por enquanto",
     "labelKey.domains": "prompt de domínio domains",
     "description.qwenMtDomains": "Se você deseja que o estilo de tradução corresponda melhor às características de um campo específico, como traduções do domínio jurídico e governamental devem ser sérias e formais, enquanto a linguagem social deve ser coloquial, você pode usar texto em linguagem natural para descrever seu domínio e fornecê-lo ao modelo grande como prompt. As declarações de prompt de domínio atualmente suportam apenas inglês.",
-    "browser.openAiWritingModal": "Abrir modal do AI Write"
+    "browser.openAiWritingModal": "Abrir modal do AI Write",
+    "subtitle.limitFree": "(Gratuito por tempo limitado)",
+    "subtitle.error.aiSubtitleLimitFree": "As legendas com IA são um recurso exclusivo para membros. Faça login para utilizá-las.",
+    "subtitle.error.aiSubtitleProOnly": "Não há legendas geradas por IA armazenadas para este vídeo. Atualize para uma assinatura para usar esse recurso.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Atualize sua assinatura agora</1> para assistir sem limites a todos os vídeos com legendas geradas por IA e traduzir 1000 minutos de novos vídeos por mês."
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -11268,7 +11304,11 @@
     "dialog.cancel": "לא נדרש כרגע",
     "labelKey.domains": "הנחיית תחום domains",
     "description.qwenMtDomains": "אם אתם רוצים שסגנון התרגום יתאים יותר למאפיינים של תחום ספציפי, כמו תרגומי התחום המשפטי והממשלתי שצריכים להיות רציניים ופורמליים, בעוד שפת התחום החברתי צריכה להיות דיבורית, תוכלו להשתמש בטקסט בשפה טבעית כדי לתאר את התחום שלכם ולספק אותו למודל הגדול כהנחיה. הצהרות הנחיית תחום תומכות כרגע באנגלית בלבד.",
-    "browser.openAiWritingModal": "פתח חלון AI Write"
+    "browser.openAiWritingModal": "פתח חלון AI Write",
+    "subtitle.error.aiSubtitleProOnly": "אין כתוביות בינה מלאכותית במטמון עבור הסרטון הזה. שדרג לחברות כדי להשתמש בתכונה זו.",
+    "subtitle.limitFree": "(חינם לזמן מוגבל)",
+    "subtitle.error.aiSubtitleLimitFree": "כתוביות בינה מלאכותית הן תכונה לחברים בלבד. אנא היכנס כדי להשתמש בהם.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>שדרג עכשיו</1> כדי ליהנות מגישה בלתי מוגבלת לכל הסרטונים עם כתוביות שנוצרו על ידי בינה מלאכותית, בתוספת 1,000 דקות של תרגום וידאו חדש בחודש."
   },
   "ars": {},
   "de": {
@@ -12389,7 +12429,11 @@
     "dialog.cancel": "Aktuell nicht benötigt",
     "labelKey.domains": "domains Bereichsaufforderung",
     "description.qwenMtDomains": "Wenn Sie möchten, dass der Übersetzungsstil besser zu den Eigenschaften eines bestimmten Bereichs passt, wie etwa Rechts- und Regierungsbereichsübersetzungen, die ernst und formal sein sollten, während soziale Bereichssprache umgangssprachlich sein sollte, können Sie natürlichen Sprachtext verwenden, um Ihren Bereich zu beschreiben und ihn dem großen Modell als Aufforderung zur Verfügung zu stellen. Bereichsaufforderungsaussagen unterstützen derzeit nur Englisch.",
-    "browser.openAiWritingModal": "AI Write Modal öffnen"
+    "browser.openAiWritingModal": "AI Write Modal öffnen",
+    "subtitle.limitFree": "(zeitlich begrenzt kostenlos)",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Jetzt upgraden</1>, um unbegrenzten Zugriff auf alle Videos mit KI-generierten Untertiteln sowie 1.000 Minuten neue Videoübersetzungen pro Monat zu erhalten.",
+    "subtitle.error.aiSubtitleProOnly": "Für dieses Video sind keine KI-Untertitel zwischengespeichert. Bitte aktualisieren Sie Ihre Mitgliedschaft, um diese Funktion nutzen zu können.",
+    "subtitle.error.aiSubtitleLimitFree": "AI-Untertitel sind eine Funktion, die nur Mitgliedern zur Verfügung steht. Bitte melden Sie sich an, um sie zu nutzen."
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -13393,7 +13437,11 @@
     "dialog.cancel": "Jelenleg nem szükséges",
     "labelKey.domains": "domains területi prompt",
     "description.qwenMtDomains": "Ha azt szeretné, hogy a fordítási stílus jobban megfeleljen egy adott terület jellemzőinek, például a jogi, kormányzati terület fordítási szókincse komoly és formális legyen, míg a szociális terület nyelve köznyelvi, használhat természetes nyelvi szöveget a területe leírására, és ezt promptként biztosíthatja a nagy modell számára. A területi prompt állítások jelenleg csak az angol nyelvet támogatják.",
-    "browser.openAiWritingModal": "AI Write modál megnyitása"
+    "browser.openAiWritingModal": "AI Write modál megnyitása",
+    "subtitle.error.aiSubtitleLimitFree": "Az AI feliratok csak tagoknak elérhető funkciók. Kérjük, jelentkezzen be, hogy használhassa őket.",
+    "subtitle.error.aiSubtitleProOnly": "Ehhez a videóhoz nincs AI felirat tárolva. Kérjük, frissítsd tagságodat, hogy használhassad ezt a funkciót.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Frissíts most</1>, és élvezd a korlátlan hozzáférést az AI által generált feliratokkal ellátott összes videóhoz, valamint havonta 1000 perc új videófordítást.",
+    "subtitle.limitFree": "(Időkorlátozott ingyenes)"
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -14512,7 +14560,11 @@
     "dialog.cancel": "지금은 필요하지 않음",
     "labelKey.domains": "domains 도메인 프롬프트",
     "description.qwenMtDomains": "번역 스타일이 특정 분야의 특성에 더 부합하기를 원한다면, 예를 들어 법률, 정부 분야 번역 용어는 진지하고 정식이어야 하고, 소셜 분야 용어는 구어체여야 한다면, 자연어 텍스트를 사용하여 귀하의 분야를 설명하고 이를 대형 모델에 프롬프트로 제공할 수 있습니다. 도메인 프롬프트 문장은 현재 영어만 지원합니다.",
-    "browser.openAiWritingModal": "AI Write 모달 열기"
+    "browser.openAiWritingModal": "AI Write 모달 열기",
+    "subtitle.limitFree": "(한정 기간 무료)",
+    "subtitle.error.aiSubtitleLimitFree": "AI 자막은 회원 전용 기능입니다. 사용하려면 로그인해 주세요.",
+    "subtitle.error.aiSubtitleProOnly": "이 동영상에는 AI 자막이 캐시되지 않았습니다. 이 기능을 사용하려면 멤버십으로 업그레이드해 주세요.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>지금 바로 업그레이드하세요</1> AI로 생성된 자막과 함께 모든 동영상에 무제한 액세스를 즐기시고, 매월 1,000분의 새로운 동영상 번역을 이용하세요."
   },
   "uk": {},
   "ja": {
@@ -15632,7 +15684,11 @@
     "dialog.cancel": "今は必要ありません",
     "labelKey.domains": "domains ドメインプロンプト",
     "description.qwenMtDomains": "翻訳スタイルを特定の分野の特性により適合させたい場合、例えば法律・行政分野の翻訳用語は厳粛で正式であるべきで、ソーシャル分野の用語は口語的であるべきなど、自然言語テキストであなたの分野を記述し、それを大規模モデルにプロンプトとして提供することができます。ドメインプロンプト文は現在英語のみサポートしています。",
-    "browser.openAiWritingModal": "AI Write モーダルを開く"
+    "browser.openAiWritingModal": "AI Write モーダルを開く",
+    "subtitle.limitFree": "（期間限定無料）",
+    "subtitle.error.aiSubtitleProOnly": "この動画にはAI 字幕のキャッシュが保存されていません。この機能をご利用いただくには、メンバーシップへのアップグレードが必要です。",
+    "subtitle.error.aiSubtitleLimitFree": "AI 字幕は会員限定機能です。ご利用にはログインが必要です。",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>今すぐアップグレード</1>して、AI 生成の字幕付きすべての動画に無制限アクセスをお楽しみください。さらに、毎月 1,000 分の新しい動画翻訳もご利用いただけます。"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -16751,7 +16807,11 @@
     "dialog.cancel": "Пока не нужно",
     "labelKey.domains": "подсказка домена domains",
     "description.qwenMtDomains": "Если вы хотите, чтобы стиль перевода лучше соответствовал характеристикам определенной области, например, переводы в правовой и государственной сфере должны быть серьезными и формальными, а язык социальной сферы должен быть разговорным, вы можете использовать текст на естественном языке для описания вашей области и предоставить его большой модели в качестве подсказки. Утверждения подсказок домена в настоящее время поддерживают только английский язык.",
-    "browser.openAiWritingModal": "Открыть модальное окно AI Write"
+    "browser.openAiWritingModal": "Открыть модальное окно AI Write",
+    "subtitle.error.aiSubtitleLimitFree": "Субтитры с искусственным интеллектом доступны только для зарегистрированных пользователей. Войдите в систему, чтобы воспользоваться этой функцией.",
+    "subtitle.error.aiSubtitleProOnly": "Для этого видео нет кэшированных субтитров, созданных с помощью искусственного интеллекта. Чтобы воспользоваться этой функцией, перейдите на платную подписку.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Обновитесь сейчас</1>, чтобы получить неограниченный доступ ко всем видео с субтитрами, созданными с помощью ИИ, а также 1000 минут новых переводов видео в месяц.",
+    "subtitle.limitFree": "(Ограниченное время бесплатно)"
   },
   "aeb": {},
   "fa": {
@@ -17873,7 +17933,11 @@
     "dialog.cancel": "فعلاً لازم نیست",
     "labelKey.domains": "درخواست حوزه domains",
     "description.qwenMtDomains": "اگر می‌خواهید سبک ترجمه با ویژگی‌های یک حوزه خاص بهتر مطابقت داشته باشد، مانند ترجمه‌های حوزه حقوقی و دولتی که باید جدی و رسمی باشند، در حالی که زبان حوزه اجتماعی باید محاوره‌ای باشد، می‌توانید از متن زبان طبیعی برای توصیف حوزه خود استفاده کنید و آن را به عنوان درخواست به مدل بزرگ ارائه دهید. جملات درخواست حوزه در حال حاضر فقط از انگلیسی پشتیبانی می‌کنند.",
-    "browser.openAiWritingModal": "باز کردن پنجره AI Write"
+    "browser.openAiWritingModal": "باز کردن پنجره AI Write",
+    "subtitle.error.aiSubtitleLimitFree": "زیرنویس‌های هوش مصنوعی فقط برای اعضا قابل استفاده هستند. لطفاً برای استفاده از آنها وارد شوید.",
+    "subtitle.limitFree": "(به مدت محدود رایگان)",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1> همین حالا ارتقا دهید</1> برای لذت بردن از دسترسی نامحدود به تمام ویدیوها با زیرنویس‌های تولید شده توسط هوش مصنوعی، به علاوه ۱۰۰۰ دقیقه ترجمه ویدیوی جدید در ماه.",
+    "subtitle.error.aiSubtitleProOnly": "هیچ زیرنویس هوش مصنوعی برای این ویدیو ذخیره نشده است. لطفاً برای استفاده از این ویژگی، عضویت خود را ارتقا دهید."
   },
   "en": {
     "nologin": "Not logged in",
@@ -18993,7 +19057,11 @@
     "dialog.cancel": "Not needed for now",
     "labelKey.domains": "domains field prompt",
     "description.qwenMtDomains": "If you want the translation style to better match the characteristics of a specific field, such as legal and government domain translations should be serious and formal, while social domain language should be colloquial, you can use natural language text to describe your domain and provide it to the large model as a prompt. Domain prompt statements currently only support English.",
-    "browser.openAiWritingModal": "Open AI Write Modal"
+    "browser.openAiWritingModal": "Open AI Write Modal",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Upgrade now</1> to enjoy unlimited access to all videos with AI-generated subtitles, plus 1,000 minutes of new video translations per month.",
+    "subtitle.limitFree": "(Limited-time free)",
+    "subtitle.error.aiSubtitleLimitFree": "AI subtitles are a members-only feature. Please log in to use them.",
+    "subtitle.error.aiSubtitleProOnly": "No AI subtitles are cached for this video. Please upgrade to a membership to use this feature."
   },
   "arz": {},
   "ar": {
@@ -20114,6 +20182,10 @@
     "dialog.cancel": "غير مطلوب الآن",
     "labelKey.domains": "مطالبة مجال domains",
     "description.qwenMtDomains": "إذا كنت تريد أن يتوافق أسلوب الترجمة بشكل أفضل مع خصائص مجال معين، مثل ترجمات المجال القانوني والحكومي يجب أن تكون جدية ورسمية، بينما لغة المجال الاجتماعي يجب أن تكون عامية، يمكنك استخدام نص بلغة طبيعية لوصف مجالك وتقديمه للنموذج الكبير كمطالبة. بيانات مطالبة المجال تدعم حاليًا الإنجليزية فقط.",
-    "browser.openAiWritingModal": "فتح نافذة AI Write المنبثقة"
+    "browser.openAiWritingModal": "فتح نافذة AI Write المنبثقة",
+    "subtitle.limitFree": "(مجانًا لفترة محدودة)",
+    "subtitle.error.aiSubtitleLimitFree": "ترجمة الذكاء الاصطناعي ميزة حصرية للأعضاء. يُرجى تسجيل الدخول لاستخدامها.",
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>ترقية الآن</1> للاستمتاع بإمكانية الوصول غير المحدود إلى جميع مقاطع الفيديو المجهزة بترجمات تم إنشاؤها بواسطة الذكاء الاصطناعي، بالإضافة إلى 1000 دقيقة من ترجمات الفيديو الجديدة شهريًا.",
+    "subtitle.error.aiSubtitleProOnly": "لا توجد ترجمة ذكاء اصطناعي مُخزّنة مؤقتًا لهذا الفيديو. يُرجى ترقية اشتراكك لاستخدام هذه الميزة."
   }
 }

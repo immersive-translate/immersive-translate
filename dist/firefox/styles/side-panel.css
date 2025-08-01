@@ -99,6 +99,7 @@
   width: 21px;
   height: 21px;
   margin-right: 8px;
+  color: #666;
 }
 
 /* 翻译输入 */
@@ -339,6 +340,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  color: #666;
 }
 
 /* 底部功能区 */
@@ -454,6 +456,7 @@
   height: 16px;
   margin-bottom: 4px;
   margin-top: 4px;
+  color: #999;
 }
 
 .footer-area-title {

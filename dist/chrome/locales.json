@@ -1147,7 +1147,12 @@
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>立即升级会员</1>可无限制观看所有已生成 AI字幕 的视频，每月还可翻译 1000 分钟新视频",
     "subtitle.limitFree": "（限时免费）",
     "subtitle.error.aiSubtitleLimitFree": "AI字幕 是会员专属功能，请登录后使用",
-    "subtitle.error.aiSubtitleProOnly": "当前视频暂无 AI字幕 缓存，请升级为会员后使用"
+    "subtitle.error.aiSubtitleProOnly": "当前视频暂无 AI字幕 缓存，请升级为会员后使用",
+    "buyAiSubtitleQuota": "购买 AI 字幕加量包",
+    "showUsageRecord": "查看用量记录",
+    "error.aiSubtitleQuotaExceeded": "当前周期内您的 AI 字幕 额度 已用完 <br/> 额度重置时间：{nextResetTime}",
+    "error.aiSubtitleTrialQuotaExceeded": "试用期 AI 字幕额度已用完",
+    "endTrialNow": "立刻升级为正式会员"
   },
   "my": {
     "loginForSafari": "လော့အင်ဝင်ပါ သို့ စာရင်းသွင်းပါ",
@@ -2280,7 +2285,12 @@
     "subtitle.limitFree": "(Gratis por tiempo limitado)",
     "subtitle.error.aiSubtitleLimitFree": "Los subtítulos con IA son una función exclusiva para miembros. Inicia sesión para utilizarlos.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Actualiza ahora</1> para disfrutar de acceso ilimitado a todos los vídeos con subtítulos generados por IA, además de 1000 minutos de nuevas traducciones de vídeos al mes.",
-    "subtitle.error.aiSubtitleProOnly": "No hay subtítulos generados por IA almacenados en caché para este vídeo. Actualiza tu suscripción para poder utilizar esta función."
+    "subtitle.error.aiSubtitleProOnly": "No hay subtítulos generados por IA almacenados en caché para este vídeo. Actualiza tu suscripción para poder utilizar esta función.",
+    "showUsageRecord": "Ver registros de uso",
+    "error.aiSubtitleTrialQuotaExceeded": "El periodo de prueba de la cuota de subtítulos con IA ha finalizado.",
+    "endTrialNow": "Actualiza ahora",
+    "buyAiSubtitleQuota": "Comprar cuota adicional",
+    "error.aiSubtitleQuotaExceeded": "Tu cuota de subtítulos generados por IA para este ciclo se ha agotado. <br/>Tiempo de restablecimiento de la cuota: {nextResetTime}"
   },
   "fr": {
     "nologin": "non connecté",
@@ -3404,7 +3414,12 @@
     "subtitle.limitFree": "(Gratuit pour une durée limitée)",
     "subtitle.error.aiSubtitleProOnly": "Aucun sous-titre généré par IA n'est mis en cache pour cette vidéo. Veuillez passer à un abonnement pour utiliser cette fonctionnalité.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Passez dès maintenant à la version supérieure</1> pour profiter d'un accès illimité à toutes les vidéos avec sous-titres générés par IA, ainsi que 1 000 minutes de nouvelles traductions vidéo par mois.",
-    "subtitle.error.aiSubtitleLimitFree": "Les sous-titres générés par IA sont une fonctionnalité réservée aux membres. Veuillez vous connecter pour les utiliser."
+    "subtitle.error.aiSubtitleLimitFree": "Les sous-titres générés par IA sont une fonctionnalité réservée aux membres. Veuillez vous connecter pour les utiliser.",
+    "error.aiSubtitleQuotaExceeded": "Votre quota de sous-titres IA pour ce cycle est épuisé. <br/>Heure de réinitialisation du quota : {nextResetTime}",
+    "error.aiSubtitleTrialQuotaExceeded": "La période d'essai du quota de sous-titres IA est terminée.",
+    "endTrialNow": "Mettez à niveau dès maintenant",
+    "buyAiSubtitleQuota": "Acheter un quota supplémentaire",
+    "showUsageRecord": "Consulter les historiques d'utilisation"
   },
   "pt-PT": {
     "nologin": "não conectado",
@@ -4527,7 +4542,12 @@
     "subtitle.limitFree": "(Gratuito por tempo limitado)",
     "subtitle.error.aiSubtitleLimitFree": "As legendas com IA são um recurso exclusivo para membros. Faça login para utilizá-las.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Atualize sua assinatura agora</1> para assistir sem limites a todos os vídeos com legendas geradas por IA e traduzir 1000 minutos de novos vídeos por mês.",
-    "subtitle.error.aiSubtitleProOnly": "Não há legendas geradas por IA armazenadas para este vídeo. Atualize para uma assinatura para usar esse recurso."
+    "subtitle.error.aiSubtitleProOnly": "Não há legendas geradas por IA armazenadas para este vídeo. Atualize para uma assinatura para usar esse recurso.",
+    "endTrialNow": "Atualize agora",
+    "error.aiSubtitleTrialQuotaExceeded": "O período de teste da cota de legendas em IA foi esgotado.",
+    "buyAiSubtitleQuota": "Comprar Quota Extra",
+    "error.aiSubtitleQuotaExceeded": "Sua cota de legendas com IA para este ciclo foi esgotada. <br/>Hora de reinicialização da cota: {nextResetTime}",
+    "showUsageRecord": "Ver registros de uso"
   },
   "zh-TW": {
     "nologin": "未登入",
@@ -5686,7 +5706,12 @@
     "subtitle.error.aiSubtitleLimitFree": "AI 字幕是會員專屬功能，請登入後使用",
     "subtitle.error.aiSubtitleProOnly": "目前影片暫無 AI 字幕緩存，請升級為會員後使用",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>立即升等會員</1>可無限制觀看所有已生成 AI 字幕的視頻，每月還可翻譯 1000 分鐘新視頻",
-    "subtitle.limitFree": "（限時免費）"
+    "subtitle.limitFree": "（限時免費）",
+    "showUsageRecord": "查看用量記錄",
+    "buyAiSubtitleQuota": "購買 AI 字幕加量包",
+    "endTrialNow": "立刻升級為正式會員",
+    "error.aiSubtitleTrialQuotaExceeded": "試用期 AI 字幕額度已用完",
+    "error.aiSubtitleQuotaExceeded": "當前週期內您的 AI 字幕額度已用完額度重設時間：{nextResetTime}"
   },
   "it": {
     "nologin": "non è stato effettuato l'accesso",
@@ -6808,7 +6833,12 @@
     "subtitle.error.aiSubtitleLimitFree": "I sottotitoli AI sono una funzione riservata ai membri. Effettua il login per utilizzarli.",
     "subtitle.limitFree": "(Gratuito per un periodo limitato)",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Passa subito alla versione superiore</1> per avere accesso illimitato a tutti i video con sottotitoli generati dall'intelligenza artificiale, oltre a 1.000 minuti di nuove traduzioni video al mese.",
-    "subtitle.error.aiSubtitleProOnly": "Per questo video non sono disponibili sottotitoli generati dall'intelligenza artificiale. Per utilizzare questa funzione, passa a un abbonamento."
+    "subtitle.error.aiSubtitleProOnly": "Per questo video non sono disponibili sottotitoli generati dall'intelligenza artificiale. Per utilizzare questa funzione, passa a un abbonamento.",
+    "error.aiSubtitleTrialQuotaExceeded": "Il periodo di prova per i sottotitoli AI è terminato.",
+    "buyAiSubtitleQuota": "Buy Extra Quota",
+    "showUsageRecord": "Visualizza i registri di utilizzo",
+    "endTrialNow": "Aggiorna ora",
+    "error.aiSubtitleQuotaExceeded": "La quota di sottotitoli AI per questo ciclo è esaurita. <br/>Ora di ripristino della quota: {nextResetTime}"
   },
   "hi": {
     "nologin": "अंदर प्रवेश की अनुमति नहीं है",
@@ -7931,7 +7961,12 @@
     "subtitle.limitFree": "(सीमित व़क्त के लिए मुफ़्त)",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>अभी अपग्रेड करें</1> एआई-जनरेटेड उपशीर्षकों के साथ सभी वीडियो तक असीमित पहुंच का आनंद लेने के लिए, साथ ही प्रति माह 1,000 मिनट के नए वीडियो अनुवाद का आनंद लें।",
     "subtitle.error.aiSubtitleLimitFree": "AI सबटाइटल्स केवल सदस्यों के लिए उपलब्ध हैं। इनका उपयोग करने के लिए कृपया लॉग इन करें।",
-    "subtitle.error.aiSubtitleProOnly": "इस वीडियो के लिए कोई AI उपशीर्षक कैश नहीं किया गया है। इस सुविधा का उपयोग करने के लिए कृपया सदस्यता में अपग्रेड करें।"
+    "subtitle.error.aiSubtitleProOnly": "इस वीडियो के लिए कोई AI उपशीर्षक कैश नहीं किया गया है। इस सुविधा का उपयोग करने के लिए कृपया सदस्यता में अपग्रेड करें।",
+    "buyAiSubtitleQuota": "अतिरिक्त कोटा खरीदें",
+    "endTrialNow": "अभी अपग्रेड करें",
+    "showUsageRecord": "उपयोग रिकॉर्ड देखें",
+    "error.aiSubtitleQuotaExceeded": "इस चक्र के लिए आपका AI उपशीर्षक कोटा समाप्त हो गया है।<br/> कोटा रीसेट समय: {nextResetTime}",
+    "error.aiSubtitleTrialQuotaExceeded": "परीक्षण अवधि का AI उपशीर्षक कोटा समाप्त हो गया है"
   },
   "tr": {
     "browser.shortBrandName": "Immersive Translate",
@@ -9054,7 +9089,12 @@
     "subtitle.limitFree": "(Sınırlı süreli ücretsiz)",
     "subtitle.error.aiSubtitleLimitFree": "AI altyazılar sadece üyelere özel bir özelliktir. Kullanmak için lütfen giriş yapın.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Hemen üyeliğinizi yükseltin</1> Tüm AI altyazılı videoları sınırsız olarak izleyin ve her ay 1000 dakika yeni video çevirin.",
-    "subtitle.error.aiSubtitleProOnly": "Bu video için AI altyazı önbelleğe alınmamıştır. Bu özelliği kullanmak için üyeliğinizi yükseltin."
+    "subtitle.error.aiSubtitleProOnly": "Bu video için AI altyazı önbelleğe alınmamıştır. Bu özelliği kullanmak için üyeliğinizi yükseltin.",
+    "buyAiSubtitleQuota": "Ekstra Kota Satın Al",
+    "showUsageRecord": "Kullanım Kayıtlarını Görüntüle",
+    "error.aiSubtitleTrialQuotaExceeded": "Deneme süresi AI altyazı kotası doldu",
+    "endTrialNow": "Şimdi yükselt",
+    "error.aiSubtitleQuotaExceeded": "Bu döngü için AI altyazı kotanız dolmuştur. <br/>Kota sıfırlama zamanı: {nextResetTime}"
   },
   "pt-BR": {
     "nologin": "Não conectado",
@@ -10179,7 +10219,12 @@
     "subtitle.limitFree": "(Gratuito por tempo limitado)",
     "subtitle.error.aiSubtitleLimitFree": "As legendas com IA são um recurso exclusivo para membros. Faça login para utilizá-las.",
     "subtitle.error.aiSubtitleProOnly": "Não há legendas geradas por IA armazenadas para este vídeo. Atualize para uma assinatura para usar esse recurso.",
-    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Atualize sua assinatura agora</1> para assistir sem limites a todos os vídeos com legendas geradas por IA e traduzir 1000 minutos de novos vídeos por mês."
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>Atualize sua assinatura agora</1> para assistir sem limites a todos os vídeos com legendas geradas por IA e traduzir 1000 minutos de novos vídeos por mês.",
+    "error.aiSubtitleTrialQuotaExceeded": "O período de teste da cota de legendas em IA foi esgotado.",
+    "error.aiSubtitleQuotaExceeded": "Sua cota de legendas com IA para este ciclo foi esgotada. <br/>Hora de reinicialização da cota: {nextResetTime}",
+    "buyAiSubtitleQuota": "Comprar Quota Extra",
+    "showUsageRecord": "Ver registros de uso",
+    "endTrialNow": "Atualize agora"
   },
   "he": {
     "nologin": "‫לא מחובר‬",
@@ -11308,7 +11353,12 @@
     "subtitle.error.aiSubtitleProOnly": "אין כתוביות בינה מלאכותית במטמון עבור הסרטון הזה. שדרג לחברות כדי להשתמש בתכונה זו.",
     "subtitle.limitFree": "(חינם לזמן מוגבל)",
     "subtitle.error.aiSubtitleLimitFree": "כתוביות בינה מלאכותית הן תכונה לחברים בלבד. אנא היכנס כדי להשתמש בהם.",
-    "subtitle.quickButton.freeUserAISubtitleTip": "<1>שדרג עכשיו</1> כדי ליהנות מגישה בלתי מוגבלת לכל הסרטונים עם כתוביות שנוצרו על ידי בינה מלאכותית, בתוספת 1,000 דקות של תרגום וידאו חדש בחודש."
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>שדרג עכשיו</1> כדי ליהנות מגישה בלתי מוגבלת לכל הסרטונים עם כתוביות שנוצרו על ידי בינה מלאכותית, בתוספת 1,000 דקות של תרגום וידאו חדש בחודש.",
+    "showUsageRecord": "הצגת רשומות שימוש",
+    "error.aiSubtitleTrialQuotaExceeded": "תקופת הניסיון מכסת כתוביות AI מוצתה",
+    "endTrialNow": "שדרג עכשיו",
+    "buyAiSubtitleQuota": "קנה מכסה נוספת",
+    "error.aiSubtitleQuotaExceeded": "מכסת כתוביות ה-AI שלך למחזור זה מנוצלת. <br/>זמן איפוס מיכסה: {nextResetTime}"
   },
   "ars": {},
   "de": {
@@ -12433,7 +12483,12 @@
     "subtitle.limitFree": "(zeitlich begrenzt kostenlos)",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Jetzt upgraden</1>, um unbegrenzten Zugriff auf alle Videos mit KI-generierten Untertiteln sowie 1.000 Minuten neue Videoübersetzungen pro Monat zu erhalten.",
     "subtitle.error.aiSubtitleProOnly": "Für dieses Video sind keine KI-Untertitel zwischengespeichert. Bitte aktualisieren Sie Ihre Mitgliedschaft, um diese Funktion nutzen zu können.",
-    "subtitle.error.aiSubtitleLimitFree": "AI-Untertitel sind eine Funktion, die nur Mitgliedern zur Verfügung steht. Bitte melden Sie sich an, um sie zu nutzen."
+    "subtitle.error.aiSubtitleLimitFree": "AI-Untertitel sind eine Funktion, die nur Mitgliedern zur Verfügung steht. Bitte melden Sie sich an, um sie zu nutzen.",
+    "endTrialNow": "Jetzt aktualisieren",
+    "showUsageRecord": "Verwendungsnachweise anzeigen",
+    "error.aiSubtitleTrialQuotaExceeded": "Die Kontingent für AI-Untertitel während der Testphase ist ausgeschöpft.",
+    "error.aiSubtitleQuotaExceeded": "Ihr Kontingent für KI-Untertitel für diesen Zyklus ist aufgebraucht. <br/>Zeitpunkt der Kontingentzurücksetzung: {nextResetTime}",
+    "buyAiSubtitleQuota": "Zusätzliche Quote kaufen"
   },
   "hu": {
     "loginForSafari": "Bejelentkezés vagy feliratkozás",
@@ -13441,7 +13496,12 @@
     "subtitle.error.aiSubtitleLimitFree": "Az AI feliratok csak tagoknak elérhető funkciók. Kérjük, jelentkezzen be, hogy használhassa őket.",
     "subtitle.error.aiSubtitleProOnly": "Ehhez a videóhoz nincs AI felirat tárolva. Kérjük, frissítsd tagságodat, hogy használhassad ezt a funkciót.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Frissíts most</1>, és élvezd a korlátlan hozzáférést az AI által generált feliratokkal ellátott összes videóhoz, valamint havonta 1000 perc új videófordítást.",
-    "subtitle.limitFree": "(Időkorlátozott ingyenes)"
+    "subtitle.limitFree": "(Időkorlátozott ingyenes)",
+    "error.aiSubtitleTrialQuotaExceeded": "A próbaidőszak AI felirat kvóta kimerült",
+    "error.aiSubtitleQuotaExceeded": "Az AI felirat-kvóta ebben a ciklusban elfogyott. <br/>A kvóta visszaállításának ideje: {nextResetTime}",
+    "buyAiSubtitleQuota": "Extra kvóta vásárlása",
+    "showUsageRecord": "Használati adatok megtekintése",
+    "endTrialNow": "Frissítsen most"
   },
   "ko": {
     "nologin": "로그인하지 않음",
@@ -14564,7 +14624,12 @@
     "subtitle.limitFree": "(한정 기간 무료)",
     "subtitle.error.aiSubtitleLimitFree": "AI 자막은 회원 전용 기능입니다. 사용하려면 로그인해 주세요.",
     "subtitle.error.aiSubtitleProOnly": "이 동영상에는 AI 자막이 캐시되지 않았습니다. 이 기능을 사용하려면 멤버십으로 업그레이드해 주세요.",
-    "subtitle.quickButton.freeUserAISubtitleTip": "<1>지금 바로 업그레이드하세요</1> AI로 생성된 자막과 함께 모든 동영상에 무제한 액세스를 즐기시고, 매월 1,000분의 새로운 동영상 번역을 이용하세요."
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>지금 바로 업그레이드하세요</1> AI로 생성된 자막과 함께 모든 동영상에 무제한 액세스를 즐기시고, 매월 1,000분의 새로운 동영상 번역을 이용하세요.",
+    "showUsageRecord": "사용 기록 보기",
+    "endTrialNow": "지금 업그레이드하세요",
+    "error.aiSubtitleQuotaExceeded": "이 사이클의 AI 자막 할당량이 소진되었습니다. <br/>할당량 재설정 시간: {nextResetTime}",
+    "buyAiSubtitleQuota": "추가 용량 구매",
+    "error.aiSubtitleTrialQuotaExceeded": "시험 기간 AI 자막 할당량이 소진되었습니다."
   },
   "uk": {},
   "ja": {
@@ -15688,7 +15753,12 @@
     "subtitle.limitFree": "（期間限定無料）",
     "subtitle.error.aiSubtitleProOnly": "この動画にはAI 字幕のキャッシュが保存されていません。この機能をご利用いただくには、メンバーシップへのアップグレードが必要です。",
     "subtitle.error.aiSubtitleLimitFree": "AI 字幕は会員限定機能です。ご利用にはログインが必要です。",
-    "subtitle.quickButton.freeUserAISubtitleTip": "<1>今すぐアップグレード</1>して、AI 生成の字幕付きすべての動画に無制限アクセスをお楽しみください。さらに、毎月 1,000 分の新しい動画翻訳もご利用いただけます。"
+    "subtitle.quickButton.freeUserAISubtitleTip": "<1>今すぐアップグレード</1>して、AI 生成の字幕付きすべての動画に無制限アクセスをお楽しみください。さらに、毎月 1,000 分の新しい動画翻訳もご利用いただけます。",
+    "endTrialNow": "今すぐアップグレード",
+    "showUsageRecord": "使用履歴を表示する",
+    "error.aiSubtitleTrialQuotaExceeded": "トライアル期間中のAI 字幕の割り当て枠が上限に達しました。",
+    "error.aiSubtitleQuotaExceeded": "このサイクルのAI 字幕の割り当て枠は使い切りました。<br/>割り当て枠のリセット時間: {nextResetTime}",
+    "buyAiSubtitleQuota": "追加分を購入する"
   },
   "ru": {
     "nologin": "Не авторизирован",
@@ -16811,7 +16881,12 @@
     "subtitle.error.aiSubtitleLimitFree": "Субтитры с искусственным интеллектом доступны только для зарегистрированных пользователей. Войдите в систему, чтобы воспользоваться этой функцией.",
     "subtitle.error.aiSubtitleProOnly": "Для этого видео нет кэшированных субтитров, созданных с помощью искусственного интеллекта. Чтобы воспользоваться этой функцией, перейдите на платную подписку.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Обновитесь сейчас</1>, чтобы получить неограниченный доступ ко всем видео с субтитрами, созданными с помощью ИИ, а также 1000 минут новых переводов видео в месяц.",
-    "subtitle.limitFree": "(Ограниченное время бесплатно)"
+    "subtitle.limitFree": "(Ограниченное время бесплатно)",
+    "buyAiSubtitleQuota": "Купить дополнительный трафик",
+    "showUsageRecord": "Просмотр записей об использовании",
+    "error.aiSubtitleQuotaExceeded": "Ваш лимит на использование искусственного интеллекта для создания субтитров в этом цикле исчерпан. <br/>Время сброса лимита: {nextResetTime}",
+    "endTrialNow": "Обновите сейчас",
+    "error.aiSubtitleTrialQuotaExceeded": "Пробный период квоты на субтитры с ИИ исчерпан"
   },
   "aeb": {},
   "fa": {
@@ -17937,7 +18012,12 @@
     "subtitle.error.aiSubtitleLimitFree": "زیرنویس‌های هوش مصنوعی فقط برای اعضا قابل استفاده هستند. لطفاً برای استفاده از آنها وارد شوید.",
     "subtitle.limitFree": "(به مدت محدود رایگان)",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1> همین حالا ارتقا دهید</1> برای لذت بردن از دسترسی نامحدود به تمام ویدیوها با زیرنویس‌های تولید شده توسط هوش مصنوعی، به علاوه ۱۰۰۰ دقیقه ترجمه ویدیوی جدید در ماه.",
-    "subtitle.error.aiSubtitleProOnly": "هیچ زیرنویس هوش مصنوعی برای این ویدیو ذخیره نشده است. لطفاً برای استفاده از این ویژگی، عضویت خود را ارتقا دهید."
+    "subtitle.error.aiSubtitleProOnly": "هیچ زیرنویس هوش مصنوعی برای این ویدیو ذخیره نشده است. لطفاً برای استفاده از این ویژگی، عضویت خود را ارتقا دهید.",
+    "endTrialNow": "همین حالا ارتقا دهید",
+    "showUsageRecord": "مشاهده سوابق استفاده",
+    "buyAiSubtitleQuota": "خرید سهمیه اضافی",
+    "error.aiSubtitleQuotaExceeded": "سهمیه زیرنویس هوش مصنوعی شما برای این دوره تمام شده است.<br/> زمان بازنشانی سهمیه: {nextResetTime}",
+    "error.aiSubtitleTrialQuotaExceeded": "سهمیه زیرنویس هوش مصنوعی دوره آزمایشی به پایان رسیده است"
   },
   "en": {
     "nologin": "Not logged in",
@@ -19061,7 +19141,12 @@
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>Upgrade now</1> to enjoy unlimited access to all videos with AI-generated subtitles, plus 1,000 minutes of new video translations per month.",
     "subtitle.limitFree": "(Limited-time free)",
     "subtitle.error.aiSubtitleLimitFree": "AI subtitles are a members-only feature. Please log in to use them.",
-    "subtitle.error.aiSubtitleProOnly": "No AI subtitles are cached for this video. Please upgrade to a membership to use this feature."
+    "subtitle.error.aiSubtitleProOnly": "No AI subtitles are cached for this video. Please upgrade to a membership to use this feature.",
+    "buyAiSubtitleQuota": "Buy Extra Quota",
+    "showUsageRecord": "View Usage Records",
+    "error.aiSubtitleQuotaExceeded": "Your AI subtitle quota for this cycle is used up. <br/>Quota reset time: {nextResetTime}",
+    "error.aiSubtitleTrialQuotaExceeded": "Trial period AI subtitle quota has been exhausted",
+    "endTrialNow": "Upgrade now"
   },
   "arz": {},
   "ar": {
@@ -20186,6 +20271,11 @@
     "subtitle.limitFree": "(مجانًا لفترة محدودة)",
     "subtitle.error.aiSubtitleLimitFree": "ترجمة الذكاء الاصطناعي ميزة حصرية للأعضاء. يُرجى تسجيل الدخول لاستخدامها.",
     "subtitle.quickButton.freeUserAISubtitleTip": "<1>ترقية الآن</1> للاستمتاع بإمكانية الوصول غير المحدود إلى جميع مقاطع الفيديو المجهزة بترجمات تم إنشاؤها بواسطة الذكاء الاصطناعي، بالإضافة إلى 1000 دقيقة من ترجمات الفيديو الجديدة شهريًا.",
-    "subtitle.error.aiSubtitleProOnly": "لا توجد ترجمة ذكاء اصطناعي مُخزّنة مؤقتًا لهذا الفيديو. يُرجى ترقية اشتراكك لاستخدام هذه الميزة."
+    "subtitle.error.aiSubtitleProOnly": "لا توجد ترجمة ذكاء اصطناعي مُخزّنة مؤقتًا لهذا الفيديو. يُرجى ترقية اشتراكك لاستخدام هذه الميزة.",
+    "buyAiSubtitleQuota": "شراء حصة إضافية",
+    "error.aiSubtitleTrialQuotaExceeded": "تم استنفاد حصة الترجمة التجريبية للذكاء الاصطناعي",
+    "error.aiSubtitleQuotaExceeded": "تم استخدام حصة الترجمة الخاصة بالذكاء الاصطناعي الخاصة بك لهذه الدورة.<br/> وقت إعادة تعيين الحصة: {nextResetTime}",
+    "showUsageRecord": "عرض سجلات الاستخدام",
+    "endTrialNow": "قم بالترقية الآن"
   }
 }

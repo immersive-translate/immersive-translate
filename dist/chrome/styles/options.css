@@ -25,6 +25,8 @@
   --transition: 0.2s ease-in-out;
   --modal-overlay-backdrop-filter: blur(0.25rem);
   --font-size: 16px;
+  --consent-modal-title-color: #333;
+  --consent-modal-strong-color: #000;
 }
 
 [data-theme="light"],
@@ -59,6 +61,8 @@
     --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
     --service-select-border-color: #2c2c2c;
     --service-select-selected-background-color: #333333;
+    --consent-modal-title-color: #fff;
+    --consent-modal-strong-color: #fff;
   }
 }
 
@@ -1217,4 +1221,63 @@ textarea[disabled] {
   margin-top: 2px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.consent-modal {
+  font-family: "Noto Sans SC";
+  font-size: 14px;
+  align-self: stretch;
+}
+
+.consent-modal h2 {
+  color: var(--consent-modal-title-color);
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px; 
+}
+
+.consent-modal strong {
+  color: var(--consent-modal-strong-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; 
+}
+
+.consent-modal .highlight-text {
+  color: #ea4c89;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; 
+}
+
+.consent-modal .button {
+  padding: 9px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px; 
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.consent-modal .confirm {
+  background-color: #ea4c89;
+  color: #fff;
+}
+
+.consent-modal .confirm[disabled="true"] {
+  background-color: #f4a5c4;
+  cursor: not-allowed;
+}
+
+.consent-modal .cancel {
+  color: #333;
+  background-color: #F3F5F6;
+}
+
+.consent-modal input {
+  margin: 24px 0;
 }

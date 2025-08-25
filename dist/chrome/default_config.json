@@ -1437,7 +1437,9 @@
             "reasoning_effort": "minimal",
             "temperature.remove": ""
           }
-        },
+        }
+      ],
+      "modelsOverrides.add_v.[1.20.9]": [
         {
           "models": ["gpt-5$", "gpt-5-mini", "gpt-5-nano"],
           "apiUrl": "/v1/responses",
@@ -2122,21 +2124,6 @@
       "proModel": "glm-4.5",
       "defaultVisible": true
     },
-    "qwen-mt-pro": {
-      "extends": "qwen-mt",
-      "name": "Qwen-MT Turbo",
-      "provider": "pro",
-      "group": "pro",
-      "type": "qwen-mt",
-      "visible": true,
-      "model": "qwen-mt-turbo",
-      "proModel": "qwen-mt-turbo",
-      "defaultVisible": true,
-      "disabledAt": "2025-07-11"
-    },
-    "qwen-mt-pro.add_v.[1.20.9]": {
-      "disabledAt": ""
-    },
     "zhipu-pro.add_v.[1.15.3]": {
       "defaultMaxTextGroupLengthPerRequest": 4,
       "maxTextGroupLengthPerRequest": 4
@@ -2232,7 +2219,8 @@
       "group": "pro",
       "extends": "deepl",
       "provider": "pro",
-      "visible": true
+      "visible": true,
+      "limit": 8
     },
     "openai-max": {
       "name": "GPT-5",
@@ -9726,7 +9714,8 @@
       "matches": "*.wiley.com",
       "excludeMatches": [
         "onlinelibrary.wiley.com/action/downloadSupplement*",
-        "onlinelibrary.wiley.com/doi/pdf/*"
+        "onlinelibrary.wiley.com/doi/pdf/*",
+        "onlinelibrary.wiley.com/doi/am-pdf/*"
       ],
       "excludeSelectors.add": [
         ".loa-authors",
@@ -12627,6 +12616,9 @@
       "matches": "www.barrons.com",
       "extraInlineSelectors.add": [
         "article p span"
+      ],
+      "injectedCss.add": [
+        "font.immersive-translate-target-wrapper > br {display:none;}"
       ]
     },
     {
@@ -17944,7 +17936,8 @@
       "id": "wistia-hook",
       "matches": [
         "agencysupremacy.io",
-        "dynamous.ai"
+        "dynamous.ai",
+        "dynamous.wistia.com"
       ],
       "excludeSelectors.add": [
         "div[data-handle='captions']"

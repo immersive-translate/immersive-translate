@@ -2213,6 +2213,22 @@
       "proModel": "gemini-2.5-flash",
       "visible": true
     },
+    "qwen-mt-pro": {
+      "extends": "qwen-mt",
+      "name": "Qwen-MT Turbo",
+      "provider": "pro",
+      "type": "custom-ai",
+      "visible": true,
+      "model": "qwen-mt-turbo",
+      "proModel": "qwen-mt-turbo",
+      "defaultVisible": true,
+      "group": "pro",
+      "disabledAt": "2025-01-01"
+    },
+    "qwen-mt-pro.add_v.[1.20.9]": {
+      "type": "qwen-mt",
+      "disabledAt": ""
+    },
     "deepl-pro": {
       "name": "DeepL Pro",
       "type": "deepl",
@@ -2432,6 +2448,7 @@
   ],
   "generalRule": {
     "_comment": "",
+    "domCheckTimeout": 200,
     "floatEffectParagraphNum": -1,
     "floatBlockEffectParagraphs": 4,
     "purifyRichHtml": true,
@@ -3264,6 +3281,7 @@
       "em[translate=no]",
       "code[translate=no]",
       "a[translate=no]",
+      "b[translate=no]",
       "span.math.inline",
       "span.math.display",
       ".ltx_Math",
@@ -5110,7 +5128,8 @@
         "[data-testid='docs-section']",
         "[data-testid='recommendations-section']",
         ".Layout-main react-partial pre",
-        ".feed-item-content section[data-view-component] [class='flex-1 d-flex flex-column'] div:nth-child(2)"
+        ".feed-item-content section[data-view-component] [class='flex-1 d-flex flex-column'] div:nth-child(2)",
+        "#org-new-form"
       ],
       "injectedCss.add": [
         ".bpDald,.discussion-title {-webkit-line-clamp:unset!important;}",
@@ -6010,7 +6029,8 @@
         "div.gsc_oci_value",
         "#gs_opinion",
         ".gs_rt",
-        ".gsh_csp"
+        ".gsh_csp",
+        ".gs_fma_wpr"
       ],
       "extraInlineSelectors": [
         "br"
@@ -6213,6 +6233,13 @@
         "tutorialsText": "输入中文后快速连击 3 次空格键翻译，与外国人轻松对话",
         "placeholderType": "dom",
         "enableMutationObserver": true
+      }
+    },
+    {
+      "id": "societyforpsychotherapy",
+      "matches": "societyforpsychotherapy.org",
+      "preTranslateLimiter.add": {
+        "header.enableTranslate": true
       }
     },
     {
@@ -7086,6 +7113,7 @@
     {
       "id": "bloomberg",
       "matches": "www.bloomberg.com",
+      "excludeMatches": ["https://www.bloomberg.com/live/*"],
       "urlChangeDelay": 2000,
       "excludeSelectors": [
         ".ticker-bar",
@@ -7101,13 +7129,19 @@
         "articleSelector": ".body-content"
       },
       "subtitleRule.add": {
-        "type": "webvtt",
-        "enableHookDownload": true,
-        "subtitleUrlRegExp": "webvtt$",
-        "loadingContainerSelector": ".vjs-text-track-display",
+        "type": "subsrt",
+        "videoSelector": ".vjs-tech",
+        "hookType": "fetch",
+        "subtitleUrlRegExp": "vtt$",
         "quickButtonRule": {
           "appendSelector": ".vjs-control-bar",
           "insertBeforeSelector": ".vjs-playback-rate"
+        },
+        "attachRule": {
+          "appendSelector": ".bvp-playlist-player__container",
+          "injectedGlobalCSS": [
+            ".vjs-text-track-display {display:none!important;}"
+          ]
         }
       }
     },
@@ -10127,7 +10161,8 @@
     {
       "id": "mangatoto",
       "matches": [
-        "mangatoto.com"
+        "mangatoto.com",
+        "batotoo.com"
       ],
       "imageRule.add": {
         "type": "manga",
@@ -12226,14 +12261,16 @@
       "id": "cmoa",
       "matches": [
         "www.cmoa.jp",
-        "booklive.jp"
+        "booklive.jp",
+        "yanmaga.jp"
       ],
       "imageRule.add": {
         "enable": true,
         "type": "manga",
         "imageSelectors": [
           ".pt-img img",
-          ".slick-slide img"
+          ".slick-slide img",
+          "img[id*='r-bannerImg-after_viewer']"
         ]
       },
       "platforms": [
@@ -12244,14 +12281,15 @@
       ]
     },
     {
-      "id": "tkr415.com",
+      "id": "tkr-manga",
       "matches": [
-        "tkr415.com"
+        "tkr*.com"
       ],
       "imageRule.add": {
         "enable": true,
         "type": "manga",
         "imageSelectors": [
+          "#tnimg img",
           "div#tnimg img.lazyload-img"
         ],
         "platforms": [
@@ -16444,26 +16482,6 @@
       }
     },
     {
-      "id": "tkr375",
-      "matches": [
-        "tkr375.com",
-        "tkr413.com"
-      ],
-      "imageRule.add": {
-        "enable": true,
-        "type": "manga",
-        "imageSelectors": [
-          "#tnimg img"
-        ],
-        "platforms": [
-          "chrome",
-          "firefox",
-          "imtIOSNew",
-          "safari"
-        ]
-      }
-    },
-    {
       "id": "dvamh-vzwp7",
       "matches": [
         "dvamh-vzwp7.top"
@@ -16826,6 +16844,7 @@
           ".scramble-page canvas",
           ".scramble-page img"
         ],
+        "inValidSrcRegex": ["blank.jpg"],
         "platforms": [
           "chrome",
           "firefox",

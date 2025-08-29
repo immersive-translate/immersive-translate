@@ -1224,7 +1224,6 @@ textarea[disabled] {
 }
 
 .consent-modal {
-  font-family: "Noto Sans SC";
   font-size: 14px;
   align-self: stretch;
 }

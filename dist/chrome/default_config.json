@@ -524,6 +524,8 @@
   "enableInputTranslation": true,
   "enableFloatShare": true,
   "isShowInputTranslationConsent": true,
+  "isEnableGuideTips": true,
+  "isEnableNotification": true,
   "enableShowFloatingBallGuide": true,
   "verifyRequestTimeout": 5000,
   "inactiveDays": 21,
@@ -2128,6 +2130,24 @@
       "defaultMaxTextGroupLengthPerRequest": 4,
       "maxTextGroupLengthPerRequest": 4
     },
+    "zhipu-air-pro": {
+      "extends": "zhipu-base",
+      "name": "GLM-4.5 Air",
+      "group": "pro",
+      "type": "zhipu-pro",
+      "provider": "pro",
+      "visible": true,
+      "model": "glm-4.5-air",
+      "proModel": "glm-4.5-air",
+      "immersiveProApiUrl": "https://api2.immersivetranslate.com/bigmodel-air/translate",
+      "defaultVisible": true,
+      "guestTrialLimit": 5,
+      "disabledAt": "2025-07-11",
+      "hiddenPro": true
+    },
+    "zhipu-air-pro.add_v.[1.20.12]": {
+      "disabledAt": ""
+    },
     "google-free": {
       "type": "google",
       "group": "free",
@@ -2153,6 +2173,7 @@
       "group": "free",
       "extends": "siliconcloud",
       "provider": "custom",
+      "model": "THUDM/glm-4-9b-chat",
       "models": "Qwen/Qwen2.5-7B-Instruct|THUDM/glm-4-9b-chat"
     },
     "transmart-free": {
@@ -2215,12 +2236,12 @@
     },
     "qwen-mt-pro": {
       "extends": "qwen-mt",
-      "name": "Qwen-MT Turbo",
+      "name": "Qwen-MT Plus",
       "provider": "pro",
       "type": "custom-ai",
       "visible": true,
-      "model": "qwen-mt-turbo",
-      "proModel": "qwen-mt-turbo",
+      "model": "qwen-mt-plus",
+      "proModel": "qwen-mt-plus",
       "defaultVisible": true,
       "group": "pro",
       "disabledAt": "2025-01-01"
@@ -2979,7 +3000,8 @@
       "enableIOSFullScreenTextTrack": true,
       "youtubeAutoEnableSubtitleAfterInstalledAt": "2024-04-25",
       "isEnableAiSubtitleTip": true,
-      "freeAiSubtitleCacheEndTime": "2025-09-01",
+      "freeAiSubtitleCacheEndTime": "2025-09-30",
+      "aiSubtitleMaxTextLength": 200,
       "velocityGroup": [
         1,
         3,
@@ -3696,6 +3718,8 @@
       ]
     }
   },
+  "downloadAppUrl": "https://app.adjust.com/1rs1pqs7?campaign=extention&redirect=https%3A%2F%2Fimmersivetranslate.com%2Fzh-Hans%2Fdownload%3Fcampain%3Dextention_app_download",
+  "downloadAppQrCode": "https://s.immersivetranslate.com/assets/r2-uploads/APPDownloadQRCode.svg",
   "rules": [
     {
       "id": "isSubtitleBuilder",
@@ -4107,6 +4131,7 @@
       "longBuildPageLength": 1000,
       "blockMinTextCount": 0,
       "blockMinWordCount": 0,
+      "enableSiteAutoTranslate": false,
       "advanceMergeConfig": [
         {
           "condition": "true",
@@ -4980,6 +5005,17 @@
         "a.inset-0": {
           "style": "inset: unset;"
         }
+      },
+      "subtitleRule.add": {
+        "type": "subsrt",
+        "subsrtFormat": "vtt",
+        "subtitleUrlRegExp": ".*\\.(vtt)",
+        "hookType": "fetch",
+        "quickButtonRule": {
+          "ccEnableSelector": "shreddit-player-2 -> shreddit-media-ui -> [aria-label='Toggle captions']",
+          "appendSelector": "shreddit-player-2 -> shreddit-media-ui -> .disappearing-controls",
+          "injectCSS": ".imt-quick-subtitle-pop-content {max-height: unset!important;width:fit-content;right:32px;}"
+        }
       }
     },
     {
@@ -5436,13 +5472,12 @@
       "atomicBlockSelectors": [
         ".comment-text"
       ],
-      "globalStyles": {
-        ".comment-text": "max-height:unset;",
-        ".media-item-headline": "max-height:unset;-webkit-line-clamp:unset;"
-      },
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }",
-        "h4.compact-media-item-headline {max-height:unset !important;line-clamp:unset !important;overflow:unset !important;-webkit-line-clamp:unset !important;}"
+        ".shortsLockupViewModelHostMetadataTitle,h4.compact-media-item-headline {max-height:unset !important;line-clamp:unset !important;overflow:unset !important;-webkit-line-clamp:unset !important;}",
+        ".comment-text {max-height:unset;}",
+        ".details,.subhead,.video-card-title,.media-item-headline {max-height:unset!important;-webkit-line-clamp:unset!important;}",
+        "truncated-text-content {max-height: unset !important;}"
       ],
       "extraBlockSelectors.add": [
         ".caption-visual-line"
@@ -5506,24 +5541,24 @@
         "yt-button-shape",
         "ytd-comments-header-renderer",
         "yt-content-metadata-view-model",
-        "yt-description-preview-view-model button"
+        "yt-description-preview-view-model button",
+        ".yt-page-header-view-model__page-header-title"
       ],
       "additionalExcludeSelectors.remove.[1.14.1]": [
         "ytd-live-chat-frame"
       ],
-      "globalStyles": {
-        "#video-title,h1.ytd-watch-metadata,.ytd-video-renderer,.yt-lockup-metadata-view-model-wiz__title": "-webkit-line-clamp: unset;max-height: unset;",
-        "yt-formatted-string#video-title,.ShortsLockupViewModelHostOutsideMetadataTitle": "-webkit-line-clamp: unset;max-height: unset;",
-        "ytd-expander.ytd-comment-renderer": "--ytd-expander-max-lines: 1000;",
-        ".page-header-view-model-wiz__page-header-title--page-header-title-large": "-webkit-line-clamp: unset !important;max-height: unset !important;"
-      },
       "injectedCss": [
         ".immersive-translate-target-wrapper img { width: 16px; height: 16px }",
         ".metadata-snippet-container {max-height: unset !important;}",
         ".immersive-translate-target-wrapper {text-align: left;}",
         ".immersive-translate-target-wrapper[dir=rtl] {text-align: right;}",
         "#commentCanvas .cmt {display:flex;flex-direction: column;}",
-        "#commentCanvas .cmt font br {display: none;}"
+        "#commentCanvas .cmt font br {display: none;}",
+        "#video-title,h1.ytd-watch-metadata,.ytd-video-renderer,.yt-lockup-metadata-view-model-wiz__title {-webkit-line-clamp: unset;max-height: unset;}",
+        "yt-formatted-string#video-title,.ShortsLockupViewModelHostOutsideMetadataTitle {-webkit-line-clamp: unset;max-height: unset;}",
+        "ytd-expander.ytd-comment-renderer {--ytd-expander-max-lines: 1000;}",
+        ".page-header-view-model-wiz__page-header-title--page-header-title-large {-webkit-line-clamp: unset !important;max-height: unset !important;}",
+        "#title,#video-title,.yt-lockup-metadata-view-model__title,.shortsLockupViewModelHostOutsideMetadataTitle,h1.ytd-watch-metadata,.ytwFeedAdMetadataViewModelHostTextsStyleStandardHeadline {-webkit-line-clamp: unset !important;max-height: unset !important;}"
       ],
       "isTranslateTitle": false,
       "observeUrlChange": true,
@@ -5539,6 +5574,7 @@
         "yt-formatted-string.ytd-transcript-segment-renderer",
         "#description-inline-expander > yt-attributed-string > span",
         "yt-attributed-string > span",
+        "yt-formatted-string > span",
         "ytd-notification-renderer .message",
         "#message",
         ".yt_to_text_transcript_text",
@@ -6520,7 +6556,8 @@
         "*.notion.site"
       ],
       "selectorMatches": [
-        ".notion-html body"
+        ".notion-html body",
+        ".notion-app"
       ],
       "normalizeBody": "body",
       "selectors": [
@@ -15792,7 +15829,8 @@
       "id": "docs.unity3d",
       "matches": "docs.unity3d.com",
       "stayOriginalSelectors": [
-        ".tooltip"
+        ".tooltip",
+        ".sidebar-menu"
       ],
       "mainFrameSelector": [
         ".tooltip > .tooltiptext",
@@ -18511,7 +18549,8 @@
         "achieve.macmillanlearning.com",
         "mail.shanghai.*",
         "help.autodesk.com",
-        "*.vitalsource.com"
+        "*.vitalsource.com",
+        "*.sumtotal.host"
       ],
       "enableDeepFrameTranslatePage": true
     },

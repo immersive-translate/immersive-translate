@@ -1092,7 +1092,10 @@
       "maxTextGroupLengthPerRequest": 5,
       "translationTextSeparator": "\n\n%%\n\n",
       "dualEnableRichTranslate": false,
-      "translationEnableRichTranslate": true
+      "translationEnableRichTranslate": true,
+      "ignoreResRegexs": [
+        "may contain inappropriate content"
+      ]
     },
     "aliyun": {
       "placeholderDelimiters": [
@@ -1444,7 +1447,7 @@
       "modelsOverrides.add_v.[1.20.9]": [
         {
           "models": ["gpt-5$", "gpt-5-mini", "gpt-5-nano"],
-          "apiUrl": "/v1/responses",
+          "apiUrl": "/responses",
           "bodyConfigs": {
             "temperature.remove": "",
             "reasoning": {
@@ -2651,6 +2654,7 @@
       }
     },
     "aiWriting": {
+      "disabledAt": "2025-09-01",
       "enable": false,
       "urlPattern": {
         "matches": [],
@@ -3458,7 +3462,8 @@
       ".sider-search-inner.gpt-light",
       ".fb-ads-block.ads-in-text",
       "#stageTime",
-      ".example-header"
+      ".example-header",
+      "times"
     ],
     "mouseHoverExcludeSelectors": [
       "rp",
@@ -4131,6 +4136,7 @@
       "longBuildPageLength": 1000,
       "blockMinTextCount": 0,
       "blockMinWordCount": 0,
+      "pageLangDetectWeight": { "html": 3 },
       "enableSiteAutoTranslate": false,
       "advanceMergeConfig": [
         {
@@ -4952,6 +4958,18 @@
       },
       "bodyRule.add": {
         "enable": false
+      },
+      "subtitleRule.add": {
+        "type": "subsrt",
+        "subsrtFormat": "vtt",
+        "subtitleUrlRegExp": ".*\\.(vtt)",
+        "hookType": "fetch",
+        "deduplicateSubtitles": true,
+        "quickButtonRule": {
+          "ccEnableSelector": "shreddit-player-2 -> shreddit-media-ui -> [aria-label='Toggle captions']",
+          "appendSelector": "shreddit-player-2 -> shreddit-media-ui -> .disappearing-controls",
+          "injectCSS": ".imt-quick-subtitle-pop-content {max-height: unset!important;width:fit-content;right:32px;}"
+        }
       }
     },
     {
@@ -5011,6 +5029,7 @@
         "subsrtFormat": "vtt",
         "subtitleUrlRegExp": ".*\\.(vtt)",
         "hookType": "fetch",
+        "deduplicateSubtitles": true,
         "quickButtonRule": {
           "ccEnableSelector": "shreddit-player-2 -> shreddit-media-ui -> [aria-label='Toggle captions']",
           "appendSelector": "shreddit-player-2 -> shreddit-media-ui -> .disappearing-controls",
@@ -8202,16 +8221,9 @@
     {
       "id": "ietf",
       "matches": "*.ietf.org/doc/html/*",
-      "additionalSelectors": [
-        "pre"
-      ],
       "isTransformPreTagNewLine": true,
       "extraBlockSelectors.add": ["[href^='#page']"],
-      "preWhitespaceDetectedTags": [
-        "DIV",
-        "SPAN",
-        "PRE"
-      ]
+      "excludeTags.remove": ["PRE"]
     },
     {
       "id": "newsminimalist",
@@ -12385,6 +12397,27 @@
         "imageSelectors": [
           "img.v-img"
         ],
+        "platforms": [
+          "chrome",
+          "firefox",
+          "imtIOSNew",
+          "safari",
+          "imtAndroid"
+        ]
+      }
+    },
+    {
+      "id": "play.comipo.app",
+      "matches": [
+        "play.comipo.app"
+      ],
+      "imageRule.add": {
+        "enable": true,
+        "type": "manga",
+        "imageSelectors": [
+          "div[data-testid*=\"placeholder\"] > img"
+        ],
+        "loadingStyle": "z-index: 9999;",
         "platforms": [
           "chrome",
           "firefox",
@@ -17044,7 +17077,8 @@
     {
       "id": "topreadmanga.com",
       "matches": [
-        "topreadmanga.com"
+        "topreadmanga.com",
+        "kissmanga.in"
       ],
       "imageRule.add": {
         "enable": true,

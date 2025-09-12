@@ -6,6 +6,12 @@
   --switch-checked-background-color: var(--primary);
 }
 
+[data-theme="light"],
+#mount:not([data-theme="dark"]) {
+  --primary: #e23c7c;
+  --primary-hover: #f082ac;
+}
+
 [data-theme="dark"] {
   --primary: #e23c7c;
   --primary-hover: #f082ac;

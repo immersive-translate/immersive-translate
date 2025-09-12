@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.20.13",
+  "version": "1.21.1",
   "default_locale": "en",
   "background": {
     "scripts": [
@@ -19,6 +19,7 @@
     "browser-bridge/inject.js",
     "side-panel.html",
     "default_config.json",
+    "default_config.content.json",
     "locales.json"
   ],
   "content_scripts": [

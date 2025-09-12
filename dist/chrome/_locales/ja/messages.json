@@ -54,22 +54,22 @@
     "message": "バージョン情報/フィードバック/スポンサー"
   },
   "translateWithGemini": {
-    "message": "現在のページを一時的にGeminiで翻訳してください"
+    "message": "現在のページをGeminiで一時的に翻訳する"
   },
   "translateWithOpenAI": {
-    "message": "一時的にOpenAIを使って現在のページを翻訳してください"
+    "message": "現在のページをOpenAIで一時的に翻訳する"
   },
   "translateInputBox": {
     "message": "現在の入力ボックスの内容を翻訳する"
   },
   "translateWithDeepL": {
-    "message": "現在のページを一時的にDeepLで翻訳してください。"
+    "message": "現在のページをDeepLで一時的に翻訳する"
   },
   "translateWithGoogle": {
-    "message": "一時的にGoogle翻訳で現在のページを翻訳してください。"
+    "message": "現在のページをGoogleで一時的に翻訳する"
   },
   "translateWithTransmart": {
-    "message": "一時的にテンセント翻訳で現在のページを翻訳してください"
+    "message": "現在のページをTencent Translatorで一時的に翻訳する"
   },
   "translateWithBing": {
     "message": "現在のページをMicrosoft Translatorで一時的に翻訳する"
@@ -99,13 +99,13 @@
     "message": "ウェブページを翻訳/原文を表示"
   },
   "translateWithCustom1": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(1)"
+    "message": "カスタム翻訳サービスで現在のページを一時的に翻訳する(1)"
   },
   "translateWithCustom3": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(3)"
+    "message": "カスタム翻訳サービスで現在のページを一時的に翻訳する(3)"
   },
   "translateWithCustom2": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(2)"
+    "message": "カスタム翻訳サービスで現在のページを一時的に翻訳する(2)"
   },
   "translateMangaMenuId": {
     "message": "画像を翻訳/元に戻す"

@@ -35,7 +35,7 @@ body {
   border: 1px solid var(--muted-border-color);
 }
 
-#mount#mount {
+#mount {
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -77,7 +77,7 @@ body {
   --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.2);
   --service-select-border-color: #fafafa;
   --service-select-selected-background-color: #f3f5f6;
-  --download-app-background: linear-gradient(83deg, #FACCDE -0.87%, #FCE7EF 43.13%, #FBD6E4 72.08%, #FFB3D1 96.34%);
+  --download-app-background: #f3f5f6;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -95,7 +95,7 @@ body {
     --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
     --service-select-border-color: #2c2c2c;
     --service-select-selected-background-color: #333333;
-    --download-app-background: linear-gradient(83deg, rgba(250, 204, 222, 0.90) -0.87%, rgba(252, 231, 239, 0.90) 43.13%, rgba(251, 214, 228, 0.90) 72.08%, rgba(255, 179, 209, 0.90) 96.34%);
+    --download-app-background: #333;
   }
 }
 
@@ -113,6 +113,7 @@ body {
   --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
   --service-select-border-color: #2c2c2c;
   --service-select-selected-background-color: #333333;
+  --download-app-background: #333;
 }
 
 .text-balck {
@@ -745,6 +746,11 @@ select.text-gray-6 {
   color: var(--text-gray-2);
 }
 
+.widgets-container svg {
+  fill: var(--text-gray-2);
+  color: var(--text-gray-2);
+}
+
 .share-button-container {
   display: flex;
   align-items: center;
@@ -979,7 +985,7 @@ select.text-gray-6 {
   border-radius: 8px;
   background: var(--download-app-background);
   padding: 4px 8px;
-  color: #ea4c89;
+  color: var(--text-gray-6);
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

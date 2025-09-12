@@ -1,9 +1,25 @@
-#mount#mount {
+#mount {
   /* --primary: rgb(227, 59, 126); */
   --primary: #ea4c89;
   --primary-hover: #f082ac;
   --icon-xia: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkZyYW1lIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTguMDAyOTEgOS42Nzk4M0wzLjgzMzM5IDUuNTEyMjFMMy4wMjUzOSA2LjMxOTgzTDguMDAzMjkgMTEuMjk1MUwxMi45NzYyIDYuMzE5ODNMMTIuMTY3OSA1LjUxMjIxTDguMDAyOTEgOS42Nzk4M1oiIGZpbGw9IiM4MzgzODMiLz4KPC9nPgo8L3N2Zz4K");
   --switch-checked-background-color: var(--primary);
+}
+
+[data-theme="light"],
+#mount:not([data-theme="dark"]) {
+  --primary: #e23c7c;
+  --primary-hover: #f082ac;
+}
+
+[data-theme="dark"] {
+  --primary: #e23c7c;
+  --primary-hover: #f082ac;
+}
+
+[data-theme="light"] {
+  --primary: #ea4c89;
+  --primary-hover: #f082ac;
 }
 
 li.select-link.select-link:hover > ul {
@@ -83,7 +99,6 @@ select.min-select {
   padding-left: 8px;
   text-overflow: ellipsis;
   color: var(--color);
-
 }
 select.min-select-secondary {
   color: var(--color);

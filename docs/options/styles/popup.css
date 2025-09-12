@@ -35,7 +35,7 @@ body {
   border: 1px solid var(--muted-border-color);
 }
 
-#mount#mount {
+#mount {
   --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
     "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -77,6 +77,7 @@ body {
   --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.2);
   --service-select-border-color: #fafafa;
   --service-select-selected-background-color: #f3f5f6;
+  --download-app-background: #f3f5f6;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -94,6 +95,7 @@ body {
     --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
     --service-select-border-color: #2c2c2c;
     --service-select-selected-background-color: #333333;
+    --download-app-background: #333;
   }
 }
 
@@ -111,6 +113,7 @@ body {
   --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
   --service-select-border-color: #2c2c2c;
   --service-select-selected-background-color: #333333;
+  --download-app-background: #333;
 }
 
 .text-balck {
@@ -708,14 +711,26 @@ select.text-gray-6 {
   gap: 9px;
 }
 
+/* 当只有两个小组件时的样式优化 */
+.widgets-container.widgets-two-items {
+  gap: 16px;
+}
+
+.widgets-container.widgets-two-items .widget-item {
+  flex: 0 1 auto;
+  min-width: 93px;
+  max-width: 120px;
+}
+
 .widget-item {
   display: flex;
-  flex-direction: column;
+  max-width: 93px;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: var(--popup-item-background-color);
   font-size: 12px;
-  min-height: 59px;
+  min-height: 44px;
   height: 100%;
   border-radius: 8px;
   cursor: pointer;
@@ -724,44 +739,16 @@ select.text-gray-6 {
   text-align: center;
 }
 
-.widget-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-.widget-title-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  height: 24px;
-  width: 100%;
-  padding-bottom: 4px;
-}
-
-.widget-icon {
-  margin-bottom: 4px;
-  display: flex;
-  justify-content: center;
-}
-
-.widget-title {
-  color: var(--text-gray-6);
-  font-size: 12px;
-  text-align: center;
-  width: 100%;
-  font-weight: 400;
+.widget-icon-text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0 2px 2px;
+  color: var(--text-gray-2);
 }
 
-.widget-item svg {
+.widgets-container svg {
   fill: var(--text-gray-2);
+  color: var(--text-gray-2);
 }
 
 .share-button-container {
@@ -989,4 +976,48 @@ select.text-gray-6 {
   border-radius: 50%;
   right: 18px;
   top: 4px;
+}
+
+.download-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: var(--download-app-background);
+  padding: 4px 8px;
+  color: var(--text-gray-6);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Popup 动画效果 */
+@keyframes popup-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popup-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+}
+
+.popup-generic-content {
+  animation: popup-fade-in 0.2s ease-out;
+}
+
+.popup-generic-content.hiding {
+  animation: popup-fade-out 0.15s ease-in;
 }

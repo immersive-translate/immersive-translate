@@ -179,6 +179,26 @@
   }
 }
 
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
 .immersive-translate-modal {
   display: none;
   position: fixed;
@@ -207,7 +227,35 @@
 
 @media screen and (max-width: 768px) {
   .immersive-translate-modal-content {
-    margin: 50% auto !important;
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
   }
 }
 
@@ -231,8 +279,8 @@
   font-size: 14px;
   font-weight: 400;
   color: #333333;
-  word-break: break-all;
   margin-top: 24px;
+  word-break: break-all;
 }
 
 @media screen and (max-width: 768px) {
@@ -280,6 +328,14 @@
   transition: background-color 0.3s ease;
 }
 
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .immersive-translate-btn:hover {
   background-color: #f082ac;
 }
@@ -289,6 +345,15 @@
 }
 .immersive-translate-btn:disabled:hover {
   background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
 }
 
 .immersive-translate-cancel-btn {
@@ -315,7 +380,7 @@
   user-select: none;
   -webkit-user-drag: none;
   text-decoration: none;
-  color: #007bff;
+  color: #ea4c89;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -376,6 +441,47 @@
   font-family: "PingFang SC", Arial, sans-serif !important;
 }
 
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
 @keyframes image-loading-rotate {
   from {
     transform: rotate(360deg);
@@ -383,4 +489,31 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
 }

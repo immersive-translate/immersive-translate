@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.imt-side-panel textarea {
+  font-family: var(--font-family);
+}
+
 .panel-close-icon {
   width: 24px;
   height: 24px;
@@ -95,6 +99,7 @@
   width: 21px;
   height: 21px;
   margin-right: 8px;
+  color: #666;
 }
 
 /* 翻译输入 */
@@ -207,6 +212,7 @@
 
 .arrow-down {
   margin-left: 4px;
+  flex-shrink: 0;
 }
 
 .select-languages-box {
@@ -334,6 +340,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  color: #666;
 }
 
 /* 底部功能区 */
@@ -352,9 +359,11 @@
 }
 
 .side-footer-preview {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin: 8px 20px;
 }
 
@@ -378,10 +387,21 @@
   align-items: center;
 }
 
+.empty-space {
+  flex: 1;
+}
+
 .side-footer-preview .action-buttons {
-  position: fixed;
   right: 20px;
   bottom: 8px;
+}
+
+.action-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
 }
 
 .action-icon {
@@ -392,6 +412,35 @@
   align-items: center;
   justify-content: center;
   margin-left: 8px;
+}
+
+.reward-center-text {
+  font-size: 12px;
+  color: #ea4c89;
+}
+
+/* 奖励中心弹跳动画 */
+@keyframes bounce-reward {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-8px);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.action-icon.bounce-animate {
+  animation: bounce-reward 1.2s ease-in-out;
 }
 
 .footer-expand {
@@ -407,6 +456,7 @@
   height: 16px;
   margin-bottom: 4px;
   margin-top: 4px;
+  color: #999;
 }
 
 .footer-area-title {
@@ -420,14 +470,15 @@
 .footer-area {
   display: flex;
   flex-direction: column;
-  margin: 0 20px 16px;
+  margin: 0 16px;
 }
 
 .footer-area-buttons-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .footer-area-button {
@@ -681,4 +732,44 @@
   display: flex;
   flex-direction: column;
   position: relative; /* 为了支持自定义拖拽手柄的绝对定位 */
+}
+
+.reward-center-popup {
+  position: absolute;
+  right: 4px;
+  bottom: 45px;
+  background-color: #333;
+  color: #fff;
+  font-family: "Noto Sans SC";
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 #fff;
+  font-size: 14px;
+}
+
+.reward-center-triangle {
+  position: absolute;
+  right: 45%;
+}
+
+.popup-content {
+  padding: 12px;
+  position: relative;
+  display: flex;
+}
+
+.popup-close-icon-wrapper {
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--Brand-Grays-Gray3, #e6e6e6);
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  padding: 3.646px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
 }

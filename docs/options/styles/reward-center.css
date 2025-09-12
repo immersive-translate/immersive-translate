@@ -1,0 +1,436 @@
+.reward-center-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.reward-center-overlay.visible {
+  opacity: 1;
+}
+
+.reward-center-drawer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  background-color: #F3F5F6;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  will-change: transform;
+}
+
+.reward-center-fixed-header {
+  flex-shrink: 0; /* 防止头部被压缩 */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: inherit; /* 继承背景色 */
+  padding: 16px 16px 0 16px;
+}
+
+.reward-center-scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  margin-right: 4px; /* 滚动条与右边界的距离 */
+}
+
+/* 美化滚动条 */
+.reward-center-scrollable-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reward-center-scrollable-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.reward-center-scrollable-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.reward-center-scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Firefox 滚动条样式 */
+.reward-center-scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+.reward-center-drawer.visible {
+  transform: translateY(0);
+}
+
+.reward-center-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.reward-center-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.reward-center-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  line-height: 1.5;
+  margin-left: 8px;
+}
+
+.reward-center-close-icon {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.reward-center-close-icon:hover {
+  background-color: #F6F8F9;
+}
+
+.reward-center-description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.reward-center-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #FFF;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.reward-center-card:last-child {
+  margin-bottom: 0;
+}
+
+.reward-card-title {
+  color: #333;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ECF0F7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reward-task-subtitle {
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.reward-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 获奖进度项样式 */
+.reward-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.reward-progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reward-progress-label {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.reward-progress-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reward-progress-value {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.reward-progress-bar {
+  width: 80px;
+  height: 6px;
+  border-radius: 4px;
+  background-color: #F3F5F6;
+  overflow: hidden;
+}
+
+.reward-progress-fill {
+  height: 100%;
+  background-color: #EA4C89;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* 任务项样式 */
+.reward-task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.reward-task-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reward-task-item.completed .reward-task-content {
+  opacity: 0.3;
+}
+
+.reward-task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+}
+
+.reward-task-title {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.reward-task-reward {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.reward-amount {
+  background: linear-gradient(90deg, #FF9500 0%, #FF4545 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  margin:0 4px;
+}
+
+.reward-amount-advanced {
+  background: linear-gradient(90deg, #00A6FF 0%, #C369FF 50%, #FF4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  margin:0 4px;
+}
+
+.reward-additional {
+  color: #666;
+}
+
+/* 任务按钮样式 */
+.reward-task-button {
+  background: #333;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 60px;
+  display: flex;
+  gap: 4px;
+}
+
+.reward-task-button:hover {
+  background: #555;
+}
+
+.reward-task-button.disabled {
+  background: #CCC;
+  cursor: not-allowed;
+}
+
+.reward-task-button.disabled:hover {
+  background: #CCC;
+}
+
+/* 领取按钮特殊样式 */
+.reward-task-item .reward-task-button.claim {
+  background: #EA4C89;
+}
+
+/* 已完成按钮样式 */
+.reward-task-item .reward-task-button.completed {
+  background: #E8E8E8;
+  color: #999;
+  cursor: default;
+}
+
+/* 已完成任务分隔符样式 */
+.completed-tasks-divider {
+  color: #ccc;
+  font-size: 12px;
+  padding: 8px 0;
+  border-top: 1px solid #ECF0F7;
+  position: relative;
+  gap: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.completed-tasks-divider.clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.completed-tasks-divider.clickable:hover {
+  color: #666;
+}
+
+.completed-tasks-text {
+  font-weight: 500;
+}
+
+.completed-tasks-arrow {
+  transition: transform 0.2s ease;
+}
+
+.completed-tasks-arrow.expanded {
+  transform: rotate(-180deg);
+}
+
+.reward-center-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: ShadowRolling 1.5s linear infinite;
+}
+
+@keyframes ShadowRolling {
+  0%, 100% {
+    box-shadow: 0 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 var(--loading-color);
+  }
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+  62% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+  75% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+  87% {
+    box-shadow: 130px 0 var(--loading-color);
+  }
+}
+
+.reward-center-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px;
+  word-break: break-all;
+  color: #EA4C89;
+}
+
+.reward-center-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reward-center-footer-text {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* 任务 Loading 转圈动画 */
+.reward-task-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reward-task-loading::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: reward-task-spin 1s linear infinite;
+}
+
+@keyframes reward-task-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

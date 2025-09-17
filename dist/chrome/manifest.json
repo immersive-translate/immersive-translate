@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.21.4",
+  "version": "1.21.5",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -41,18 +41,6 @@
       ],
       "js": [
         "content_script.js"
-      ],
-      "run_at": "document_start",
-      "all_frames": true
-    },
-    {
-      "matches": [
-        "<all_urls>",
-        "file:///*",
-        "*://*/*"
-      ],
-      "js": [
-        "content_start.js"
       ],
       "run_at": "document_start",
       "all_frames": true

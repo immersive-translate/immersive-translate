@@ -6,13 +6,13 @@
     "message": "Immersive Translate - Translate Web & PDF"
   },
   "brandDescription": {
-    "message": "Immersive Translation: A free (original/translated) bilingual web translation plugin that supports PDF translation (preserving layout), bilingual subtitle translation for videos (YouTube, Netflix), and EPUB e-book translation. It also supports large AI translation models (OpenAI (ChatGPT), DeepL, Gemini (Bard), etc.)"
+    "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
   },
   "toggleTranslatePage": {
     "message": "Translate to {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
-    "message": "Translate the entire page/Show original text"
+    "message": "Translate entire page/Display original text"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "Translate instantly to the bottom of the page/Display original text"
@@ -27,16 +27,16 @@
     "message": "Open Settings Page"
   },
   "babelDOC": {
-    "message": "BabelDOC Preserves Layout PDF Translation"
+    "message": "BabelDOC Preserve PDF Layout"
   },
   "translateLocalPdfFile": {
-    "message": "Translate local PDF files"
+    "message": "Translate local PDF File"
   },
   "openEbookViewer": {
     "message": "Read local e-books"
   },
   "openEbookBuilder": {
-    "message": "Create bilingual EPUB e-books"
+    "message": "Create Bilingual EPUB E-books"
   },
   "translateLocalHtmlFile": {
     "message": "Translate HTML/txt File"

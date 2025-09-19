@@ -6,16 +6,16 @@
     "message": "Иммерсионный перевод: двуязычный перевод веб-страниц и PDF-документов"
   },
   "brandDescription": {
-    "message": "Иммерсивный перевод: бесплатный двуязычный плагин для веб-перевода (оригинал/перевод), поддерживающий перевод PDF-файлов (с сохранением макета), двуязычный перевод субтитров для видео (YouTube, Netflix) и электронных книг в формате EPUB. Он также поддерживает крупные модели перевода с использованием искусственного интеллекта (OpenAI (ChatGPT), DeepL, Gemini (Bard) и т. д.)."
+    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
   },
   "toggleTranslatePage": {
     "message": "Перевести на {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
-    "message": "Перевести всю страницу/Показать исходный текст"
+    "message": "Перевести всю страницу/Показать оригинальный текст"
   },
   "toggleOnlyTransation": {
-    "message": "Переключиться в режим только для перевода"
+    "message": "Переключить на двуязычный / только перевод режим"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "Показать перевод внизу страницы/Показать оригинальный текст"
@@ -33,16 +33,16 @@
     "message": "Показать/скрыть эффект размытия при переводе"
   },
   "babelDOC": {
-    "message": "BabelDOC сохраняет макет PDF при переводе"
+    "message": "BabelDOC сохранение макета PDF при переводе"
   },
   "translateLocalPdfFile": {
-    "message": "Перевод локальных PDF-файлов"
+    "message": "Перевод PDF-файлов"
   },
   "openEbookViewer": {
     "message": "Читать электронные книги"
   },
   "openEbookBuilder": {
-    "message": "Создавайте двуязычные электронные книги в формате EPUB"
+    "message": "Создание двуязычных электронных книг EPUB"
   },
   "translateLocalHtmlFile": {
     "message": "Перевод HTML/Текстовых файлов"
@@ -84,19 +84,19 @@
     "message": "Бесплатный плагин для двуязычного перевода веб-страниц (оригинал/перевод), поддерживающий перевод PDF и перевод электронных книг EPUB с сохранением оригинального форматирования документа, перевод двуязычных субтитров для онлайн-видео на YouTube/Netflix, поддерживающий основные сервисы перевода, такие как Deepl/Google и так далее"
   },
   "PdfProFile": {
-    "message": "Перевод PDF Премиум, управляемый ИИ"
+    "message": "Перевод PDF Pro, управляемый AI"
   },
   "textTranslate": {
     "message": "Текстовый перевод"
   },
   "translateWithClaude": {
-    "message": "Временно используйте Claude для перевода текущей страницы."
+    "message": "Временно используйте Claude для перевода текущей страницы"
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Перевести веб-страницу / Показать оригинал"
   },
   "translateText": {
-    "message": "Перевести \"{text}\""
+    "message": "Translate \"{text}\""
   },
   "translateWithCustom1": {
     "message": "Временное использование услуг заказного перевода для перевода текущей страницы(1)"

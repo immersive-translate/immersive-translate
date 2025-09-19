@@ -3,7 +3,7 @@
     "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "الترجمة الغامرة - ترجمة الويب وملفات PDF"
+    "message": "Immersive Translate - Translate Web & PDF"
   },
   "brandDescription": {
     "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
@@ -12,34 +12,34 @@
     "message": "ترجم إلى {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
-    "message": "ترجمة الصفحة بالكامل / عرض النص الأصلي"
+    "message": "ترجمة جميع مناطق الصفحة/عرض النص الأصلي"
   },
   "toggleOnlyTransation": {
-    "message": "التحويل إلى وضع /الترجمة فقط"
+    "message": "تبديل الوضع ثنائي اللغة / الترجمة فقط"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "ترجمة فورية حتى نهاية الصفحة / عرض النص الأصلي"
+    "message": "ترجمة فورية إلى أسفل الصفحة/إظهار النص الأصلي"
   },
   "toggleTranslateTheMainPage": {
-    "message": "ترجمة الصفحة الرئيسية / عرض النص الأصلي"
+    "message": "ترجمة المنطقة الرئيسية للصفحة/عرض النص الأصلي"
   },
   "shareToDraft": {
-    "message": "مشاركة الصفحة الثنائية اللغة"
+    "message": "مشاركة الصفحات ثنائية اللغة"
   },
   "openOptionsPage": {
     "message": "افتح صفحة الإعدادات"
   },
   "toggleTranslationMask": {
-    "message": "تبديل تأثير التمويه على النص المُترجم (وضع التعلم) للصفحة الحالية"
+    "message": "إظهار/إخفاء تأثير طمس الترجمة"
   },
   "translateLocalPdfFile": {
-    "message": "ترجمة ملفات PDF من جهازك"
+    "message": "ترجمة ملفات PDF المحلية"
   },
   "babelDOC": {
     "message": "BabelDOC ترجمة PDF بالحفاظ على التنسيق"
   },
   "openEbookViewer": {
-    "message": "قراءة الكتب الإلكترونية من جهازك"
+    "message": "قراءة الكتب الإلكترونية المحلية"
   },
   "openEbookBuilder": {
     "message": "إنشاء كتب إلكترونية EPUB ثنائية اللغة"
@@ -48,72 +48,72 @@
     "message": "ترجمة ملفات HTML/txt"
   },
   "translateLocalSubtitleFile": {
-    "message": "ترجمة ملف الترجمات من جهازك"
+    "message": "ترجمة ملفات الترجمة المحلية"
   },
   "openAboutPage": {
-    "message": "حول/ملاحظات/الرعاة"
+    "message": "حول/ردود الفعل"
   },
   "translateInputBox": {
-    "message": "ترجمة محتوى مربع الإدخال الحالي"
+    "message": "ترجم محتوى مربع الإدخال الحالي"
   },
   "translateWithDeepL": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام DeepL"
+    "message": "استخدم DeepL مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateWithGoogle": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام Google"
+    "message": "استخدم Google Translate مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateWithOpenAI": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام OpenAI"
+    "message": "استخدم OpenAI مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateWithBing": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام Microsoft Translator"
+    "message": "استخدم ترجمة مايكروسوفت مؤقتًا للصفحة الحالية"
   },
   "translateWithGemini": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام Gemini"
+    "message": "استخدم Gemini مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateWithTransmart": {
-    "message": "ترجمة الصفحة الحالية مؤقتًا باستخدام Tencent Translator"
+    "message": "استخدم ترجمة تينسنت مؤقتًا للصفحة الحالية"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "تمكين أو تعطيل الترجمة المباشرة مؤقتًا عند تمرير الفأرة على الصفحة"
+    "message": "تمكين أو تعطيل الترجمة المباشرة عند تمرير الماوس مؤقتًا على الصفحة"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "تبديل ترجمات الفيديو باستخدام ميزة الترجمة الغامرة"
+    "message": "تبديل إلى الترجمة الغامرة المفضلة للترجمات الثنائية اللغة"
   },
   "brandDescriptionForSafari": {
-    "message": "【الترجمة الغامرة】ترجمة ملفات PDF وكتب Epub الإلكترونية، وترجمة ترجمات الفيديو بصيغة ثنائية اللغة"
+    "message": "【الترجمة الغامرة】 إضافة مجانية لترجمة الصفحات الثنائية اللغة (النص الأصلي / الترجمة)، تدعم في الوقت نفسه ترجمة PDF وترجمة الكتب الإلكترونية EPUB مع الحفاظ على تنسيق الوثيقة الأصلية، ترجمة الترجمات الثنائية اللغة للفيديوهات على الإنترنت مثل YouTube/Netflix، تدعم خدمات الترجمة الرئيسية مثل Deepl/Google؛"
   },
   "PdfProFile": {
-    "message": "ترجمة PDF احترافية مدعومة بالذكاء الاصطناعي"
+    "message": "ترجمة PDF Pro بدعم من الذكاء الاصطناعي"
   },
   "textTranslate": {
     "message": "ترجمة النص"
   },
   "translateWithClaude": {
-    "message": "استخدام Claude مؤقتًا لترجمة الصفحة الحالية."
+    "message": "استخدم Claude مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateText": {
-    "message": "ترجم \"{text}\""
+    "message": "Translate \"{text}\""
   },
   "toggleTranslatePageOfficialPage": {
     "message": "ترجمة صفحة الويب / عرض النص الأصلي"
   },
   "translateWithCustom1": {
-    "message": "الاستخدام المؤقت لخدمات الترجمة المخصصة لترجمة الصفحة الحالية(1)"
+    "message": "استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(1)"
   },
   "translateWithCustom2": {
-    "message": "الاستخدام المؤقت لخدمات الترجمة المخصصة لترجمة الصفحة الحالية(2)"
+    "message": "استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(2)"
   },
   "translateWithCustom3": {
-    "message": "الاستخدام المؤقت لخدمات الترجمة المخصصة لترجمة الصفحة الحالية(3)"
+    "message": "استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(3)"
   },
   "translateMangaMenuId": {
-    "message": "ترجمة صورة/استعادة صورة"
+    "message": "ترجمة الصورة/استعادة الصورة"
   },
   "toggleSidePanel": {
     "message": "فتح/إغلاق اللوحة الجانبية"
   },
   "openAiWritingModal": {
-    "message": "نموذج كتابة الذكاء الاصطناعي المفتوح"
+    "message": "فتح نافذة AI Write المنبثقة"
   }
 }

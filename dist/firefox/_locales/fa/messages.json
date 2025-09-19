@@ -6,13 +6,13 @@
     "message": "ترجمه همه‌جانبه - ترجمه وب و پی‌دی‌اف"
   },
   "brandDescription": {
-    "message": "ترجمه فراگیر: یک افزونه ترجمه وب دوزبانه رایگان (اصلی/ترجمه شده) که از ترجمه PDF (با حفظ طرح‌بندی)، ترجمه زیرنویس دوزبانه برای ویدیوها (یوتیوب، نتفلیکس) و ترجمه کتاب الکترونیکی EPUB پشتیبانی می‌کند. همچنین از مدل‌های ترجمه هوش مصنوعی بزرگ (اوپن‌ای‌آی (چت جی پی تی)، DeepL، جمینی (بارد) و غیره) پشتیبانی می‌کند"
+    "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
   },
   "toggleTranslatePage": {
     "message": "ترجمه به {targetLanguage}"
   },
   "toggleTranslateTheWholePage": {
-    "message": "ترجمه‌ی کل صفحه / نمایش متن اصلی"
+    "message": "ترجمه تمام برگه/نمایش متن اصلی"
   },
   "toggleOnlyTransation": {
     "message": "به /حالت فقط ترجمه بروید"
@@ -33,16 +33,16 @@
     "message": "نمایش/پنهان کردن جلوه تاری ترجمه"
   },
   "babelDOC": {
-    "message": "ترجمه PDF با حفظ قالب توسط BabelDOC"
+    "message": "بابل‌داک ترجمه PDF با حفظ طرح‌بندی"
   },
   "translateLocalPdfFile": {
-    "message": "ترجمه فایل‌های PDF محلی"
+    "message": "ترجمه پرونده PDF محلی"
   },
   "openEbookViewer": {
     "message": "کتاب های الکترونیکی محلی را بخوانید"
   },
   "openEbookBuilder": {
-    "message": "ایجاد کتاب‌های الکترونیکی EPUB دوزبانه"
+    "message": "کتاب های الکترونیکی دو زبانه EPUB ایجاد کنید"
   },
   "translateLocalHtmlFile": {
     "message": "翻译本地 HTML 文件"
@@ -114,6 +114,6 @@
     "message": "باز/بسته کردن پانل کناری"
   },
   "openAiWritingModal": {
-    "message": "باز کردن مدال نوشتن هوش مصنوعی"
+    "message": "باز کردن پنجره AI Write"
   }
 }

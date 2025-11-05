@@ -839,13 +839,13 @@ article {
   border-bottom: 2px solid;
 }
 
-.youtube-header {
+.card-header {
   display: flex;
   align-items: center;
   margin-top: 1rem;
 }
 
-.youtube-container {
+.card-container {
   border-radius: 8px;
   border: 1px solid var(--muted-border-color);
   padding: 0 24px;
@@ -894,11 +894,11 @@ article {
     display: flex;
   }
 
-  .youtube-header {
+  .card-header {
     margin-top: 1rem;
   }
 
-  .youtube-container {
+  .card-container {
     margin-bottom: 1rem;
   }
 }
@@ -1234,7 +1234,7 @@ textarea[disabled] {
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 27px; 
+  line-height: 27px;
 }
 
 .consent-modal strong {
@@ -1242,7 +1242,7 @@ textarea[disabled] {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
 .consent-modal .highlight-text {
@@ -1250,14 +1250,14 @@ textarea[disabled] {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
 .consent-modal .button {
   padding: 9px 32px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 24px; 
+  line-height: 24px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -1274,7 +1274,7 @@ textarea[disabled] {
 
 .consent-modal .cancel {
   color: #333;
-  background-color: #F3F5F6;
+  background-color: #f3f5f6;
 }
 
 .consent-modal input {

@@ -1,11 +1,12 @@
+import { g as getAugmentedNamespace, a as getDefaultExportFromCjs } from "./libaifw-Dv6TWIU-.js";
 function _mergeNamespaces(d, n) {
   for (var o = 0; o < n.length; o++) {
     const u = n[o];
     if (typeof u != "string" && !Array.isArray(u)) {
       for (const l in u)
         if (l !== "default" && !(l in d)) {
-          const f = Object.getOwnPropertyDescriptor(u, l);
-          f && Object.defineProperty(d, l, f.get ? f : {
+          const h = Object.getOwnPropertyDescriptor(u, l);
+          h && Object.defineProperty(d, l, h.get ? h : {
             enumerable: !0,
             get: () => u[l]
           });
@@ -63,33 +64,6 @@ const sharp = {}, ONNX_NODE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Obje
   __proto__: null,
   default: sharp
 }, Symbol.toStringTag, { value: "Module" }));
-function getDefaultExportFromCjs(d) {
-  return d && d.__esModule && Object.prototype.hasOwnProperty.call(d, "default") ? d.default : d;
-}
-function getAugmentedNamespace(d) {
-  if (Object.prototype.hasOwnProperty.call(d, "__esModule")) return d;
-  var n = d.default;
-  if (typeof n == "function") {
-    var o = function u() {
-      var l = !1;
-      try {
-        l = this instanceof u;
-      } catch {
-      }
-      return l ? Reflect.construct(n, arguments, this.constructor) : n.apply(this, arguments);
-    };
-    o.prototype = n.prototype;
-  } else o = {};
-  return Object.defineProperty(o, "__esModule", { value: !0 }), Object.keys(d).forEach(function(u) {
-    var l = Object.getOwnPropertyDescriptor(d, u);
-    Object.defineProperty(o, u, l.get ? l : {
-      enumerable: !0,
-      get: function() {
-        return d[u];
-      }
-    });
-  }), o;
-}
 var ortWeb_min$1 = { exports: {} };
 const backends = {}, backendsSortedByPriority = [], registerBackend = (d, n, o) => {
   if (n && typeof n.init == "function" && typeof n.createSessionHandler == "function") {
@@ -105,9 +79,9 @@ const backends = {}, backendsSortedByPriority = [], registerBackend = (d, n, o) 
     if (o >= 0) {
       const l = backendsSortedByPriority.indexOf(d);
       l !== -1 && backendsSortedByPriority.splice(l, 1);
-      for (let f = 0; f < backendsSortedByPriority.length; f++)
-        if (backends[backendsSortedByPriority[f]].priority <= o) {
-          backendsSortedByPriority.splice(f, 0, d);
+      for (let h = 0; h < backendsSortedByPriority.length; h++)
+        if (backends[backendsSortedByPriority[h]].priority <= o) {
+          backendsSortedByPriority.splice(h, 0, d);
           return;
         }
       backendsSortedByPriority.push(d);
@@ -124,11 +98,11 @@ const backends = {}, backendsSortedByPriority = [], registerBackend = (d, n, o) 
         return l.backend;
       if (l.aborted)
         continue;
-      const f = !!l.initPromise;
+      const h = !!l.initPromise;
       try {
-        return f || (l.initPromise = l.backend.init()), await l.initPromise, l.initialized = !0, l.backend;
+        return h || (l.initPromise = l.backend.init()), await l.initPromise, l.initialized = !0, l.backend;
       } catch (a) {
-        f || o.push({ name: u, err: a }), l.aborted = !0;
+        h || o.push({ name: u, err: a }), l.aborted = !0;
       } finally {
         delete l.initPromise;
       }
@@ -188,20 +162,20 @@ const calculateSize = (d) => {
 };
 let Tensor$2 = class st {
   constructor(n, o, u) {
-    let l, f, a;
+    let l, h, a;
     if (typeof n == "string")
       if (l = n, a = u, n === "string") {
         if (!Array.isArray(o))
           throw new TypeError("A string tensor's data must be a string array.");
-        f = o;
+        h = o;
       } else {
         const g = NUMERIC_TENSOR_TYPE_TO_TYPEDARRAY_MAP.get(n);
         if (g === void 0)
           throw new TypeError(`Unsupported tensor type: ${n}.`);
         if (Array.isArray(o))
-          f = g.from(o);
+          h = g.from(o);
         else if (o instanceof g)
-          f = o;
+          h = o;
         else
           throw new TypeError(`A ${l} tensor's data must be type of ${g}`);
       }
@@ -210,25 +184,25 @@ let Tensor$2 = class st {
         throw new TypeError("Tensor type cannot be inferred from an empty array.");
       const g = typeof n[0];
       if (g === "string")
-        l = "string", f = n;
+        l = "string", h = n;
       else if (g === "boolean")
-        l = "bool", f = Uint8Array.from(n);
+        l = "bool", h = Uint8Array.from(n);
       else
         throw new TypeError(`Invalid element type of data array: ${g}.`);
     } else {
       const g = NUMERIC_TENSOR_TYPEDARRAY_TO_TYPE_MAP.get(n.constructor);
       if (g === void 0)
         throw new TypeError(`Unsupported type for tensor data: ${n.constructor}.`);
-      l = g, f = n;
+      l = g, h = n;
     }
     if (a === void 0)
-      a = [f.length];
+      a = [h.length];
     else if (!Array.isArray(a))
       throw new TypeError("A tensor's dims must be a number array");
-    const h = calculateSize(a);
-    if (h !== f.length)
-      throw new Error(`Tensor's size(${h}) does not match data length(${f.length}).`);
-    this.dims = a, this.type = l, this.data = f, this.size = h;
+    const f = calculateSize(a);
+    if (f !== h.length)
+      throw new Error(`Tensor's size(${f}) does not match data length(${h.length}).`);
+    this.dims = a, this.type = l, this.data = h, this.size = f;
   }
   // #endregion
   /**
@@ -243,19 +217,19 @@ let Tensor$2 = class st {
       throw new Error("Image buffer must be defined");
     if (o.height === void 0 || o.width === void 0)
       throw new Error("Image height and width must be defined");
-    const { height: u, width: l } = o, f = o.norm;
-    let a, h;
-    f === void 0 || f.mean === void 0 ? a = 255 : a = f.mean, f === void 0 || f.bias === void 0 ? h = 0 : h = f.bias;
+    const { height: u, width: l } = o, h = o.norm;
+    let a, f;
+    h === void 0 || h.mean === void 0 ? a = 255 : a = h.mean, h === void 0 || h.bias === void 0 ? f = 0 : f = h.bias;
     const g = o.bitmapFormat !== void 0 ? o.bitmapFormat : "RGBA", c = o.tensorFormat !== void 0 && o.tensorFormat !== void 0 ? o.tensorFormat : "RGB", s = u * l, t = c === "RGBA" ? new Float32Array(s * 4) : new Float32Array(s * 3);
     let e = 4, r = 0, i = 1, p = 2, m = 3, _ = 0, b = s, y = s * 2, w = -1;
     g === "RGB" && (e = 3, r = 0, i = 1, p = 2, m = -1), c === "RGBA" ? w = s * 3 : c === "RBG" ? (_ = 0, y = s, b = s * 2) : c === "BGR" && (y = 0, b = s, _ = s * 2);
     for (let S = 0; S < s; S++, r += e, p += e, i += e, m += e)
-      t[_++] = (n[r] + h) / a, t[b++] = (n[i] + h) / a, t[y++] = (n[p] + h) / a, w !== -1 && m !== -1 && (t[w++] = (n[m] + h) / a);
+      t[_++] = (n[r] + f) / a, t[b++] = (n[i] + f) / a, t[y++] = (n[p] + f) / a, w !== -1 && m !== -1 && (t[w++] = (n[m] + f) / a);
     return c === "RGBA" ? new st("float32", t, [1, 4, u, l]) : new st("float32", t, [1, 3, u, l]);
   }
   static async fromImage(n, o) {
-    const u = typeof HTMLImageElement < "u" && n instanceof HTMLImageElement, l = typeof ImageData < "u" && n instanceof ImageData, f = typeof ImageBitmap < "u" && n instanceof ImageBitmap, a = typeof String < "u" && (n instanceof String || typeof n == "string");
-    let h, g = {};
+    const u = typeof HTMLImageElement < "u" && n instanceof HTMLImageElement, l = typeof ImageData < "u" && n instanceof ImageData, h = typeof ImageBitmap < "u" && n instanceof ImageBitmap, a = typeof String < "u" && (n instanceof String || typeof n == "string");
+    let f, g = {};
     if (u) {
       const c = document.createElement("canvas"), s = c.getContext("2d");
       if (s != null) {
@@ -270,7 +244,7 @@ let Tensor$2 = class st {
           g.width = e;
         } else
           g.tensorFormat = "RGBA", g.height = t, g.width = e;
-        c.width = e, c.height = t, s.drawImage(n, 0, 0, e, t), h = s.getImageData(0, 0, e, t).data;
+        c.width = e, c.height = t, s.drawImage(n, 0, 0, e, t), f = s.getImageData(0, 0, e, t).data;
       } else
         throw new Error("Can not access image data");
     } else if (l) {
@@ -287,12 +261,12 @@ let Tensor$2 = class st {
         e.width = t, e.height = s;
         const r = e.getContext("2d");
         if (r != null)
-          r.putImageData(n, 0, 0), h = r.getImageData(0, 0, t, s).data;
+          r.putImageData(n, 0, 0), f = r.getImageData(0, 0, t, s).data;
         else
           throw new Error("Can not access image data");
       } else
-        h = n.data;
-    } else if (f) {
+        f = n.data;
+    } else if (h) {
       if (o === void 0)
         throw new Error("Please provide image config with format for Imagebitmap");
       if (o.bitmapFormat !== void 0)
@@ -300,7 +274,7 @@ let Tensor$2 = class st {
       const c = document.createElement("canvas").getContext("2d");
       if (c != null) {
         const s = n.height, t = n.width;
-        if (c.drawImage(n, 0, 0, t, s), h = c.getImageData(0, 0, t, s).data, o !== void 0) {
+        if (c.drawImage(n, 0, 0, t, s), f = c.getImageData(0, 0, t, s).data, o !== void 0) {
           if (o.height !== void 0 && o.height !== s)
             throw new Error("Image input config height doesn't match ImageBitmap height");
           if (g.height = s, o.width !== void 0 && o.width !== t)
@@ -308,7 +282,7 @@ let Tensor$2 = class st {
           g.width = t;
         } else
           g.height = s, g.width = t;
-        return st.bufferToTensor(h, g);
+        return st.bufferToTensor(f, g);
       } else
         throw new Error("Can not access image data");
     } else {
@@ -334,18 +308,18 @@ let Tensor$2 = class st {
         });
       throw new Error("Input data provided is not supported - aborted tensor creation");
     }
-    if (h !== void 0)
-      return st.bufferToTensor(h, g);
+    if (f !== void 0)
+      return st.bufferToTensor(f, g);
     throw new Error("Input data provided is not supported - aborted tensor creation");
   }
   toImageData(n) {
     var o, u;
     const l = document.createElement("canvas").getContext("2d");
-    let f;
+    let h;
     if (l != null) {
-      const a = this.dims[3], h = this.dims[2], g = this.dims[1], c = n !== void 0 && n.format !== void 0 ? n.format : "RGB", s = n !== void 0 && ((o = n.norm) === null || o === void 0 ? void 0 : o.mean) !== void 0 ? n.norm.mean : 255, t = n !== void 0 && ((u = n.norm) === null || u === void 0 ? void 0 : u.bias) !== void 0 ? n.norm.bias : 0, e = h * a;
+      const a = this.dims[3], f = this.dims[2], g = this.dims[1], c = n !== void 0 && n.format !== void 0 ? n.format : "RGB", s = n !== void 0 && ((o = n.norm) === null || o === void 0 ? void 0 : o.mean) !== void 0 ? n.norm.mean : 255, t = n !== void 0 && ((u = n.norm) === null || u === void 0 ? void 0 : u.bias) !== void 0 ? n.norm.bias : 0, e = f * a;
       if (n !== void 0) {
-        if (n.height !== void 0 && n.height !== h)
+        if (n.height !== void 0 && n.height !== f)
           throw new Error("Image output config height doesn't match tensor height");
         if (n.width !== void 0 && n.width !== a)
           throw new Error("Image output config width doesn't match tensor width");
@@ -354,12 +328,12 @@ let Tensor$2 = class st {
       }
       const r = 4;
       let i = 0, p = 1, m = 2, _ = 3, b = 0, y = e, w = e * 2, T = -1;
-      c === "RGBA" ? (b = 0, y = e, w = e * 2, T = e * 3) : c === "RGB" ? (b = 0, y = e, w = e * 2) : c === "RBG" && (b = 0, w = e, y = e * 2), f = l.createImageData(a, h);
-      for (let S = 0; S < h * a; i += r, p += r, m += r, _ += r, S++)
-        f.data[i] = (this.data[b++] - t) * s, f.data[p] = (this.data[y++] - t) * s, f.data[m] = (this.data[w++] - t) * s, f.data[_] = T === -1 ? 255 : (this.data[T++] - t) * s;
+      c === "RGBA" ? (b = 0, y = e, w = e * 2, T = e * 3) : c === "RGB" ? (b = 0, y = e, w = e * 2) : c === "RBG" && (b = 0, w = e, y = e * 2), h = l.createImageData(a, f);
+      for (let S = 0; S < f * a; i += r, p += r, m += r, _ += r, S++)
+        h.data[i] = (this.data[b++] - t) * s, h.data[p] = (this.data[y++] - t) * s, h.data[m] = (this.data[w++] - t) * s, h.data[_] = T === -1 ? 255 : (this.data[T++] - t) * s;
     } else
       throw new Error("Can not access image data");
-    return f;
+    return h;
   }
   // #endregion
   // #region tensor utilities
@@ -374,7 +348,7 @@ let InferenceSession$2 = class ln {
   }
   async run(n, o, u) {
     const l = {};
-    let f = {};
+    let h = {};
     if (typeof n != "object" || n === null || n instanceof Tensor$1 || Array.isArray(n))
       throw new TypeError("'feeds' must be an object that use input names as keys and OnnxValue as corresponding values.");
     let a = !0;
@@ -395,7 +369,7 @@ let InferenceSession$2 = class ln {
           l[c] = null;
         }
         if (typeof u == "object" && u !== null)
-          f = u;
+          h = u;
         else if (typeof u < "u")
           throw new TypeError("'options' must be an object.");
       } else {
@@ -408,11 +382,11 @@ let InferenceSession$2 = class ln {
           }
         if (c) {
           if (typeof u == "object" && u !== null)
-            f = u;
+            h = u;
           else if (typeof u < "u")
             throw new TypeError("'options' must be an object.");
         } else
-          f = o;
+          h = o;
       }
     } else if (typeof o < "u")
       throw new TypeError("Unexpected argument[1]: must be 'fetches' or 'options'.");
@@ -422,20 +396,20 @@ let InferenceSession$2 = class ln {
     if (a)
       for (const c of this.outputNames)
         l[c] = null;
-    const h = await this.handler.run(n, l, f), g = {};
-    for (const c in h)
-      Object.hasOwnProperty.call(h, c) && (g[c] = new Tensor$1(h[c].type, h[c].data, h[c].dims));
+    const f = await this.handler.run(n, l, h), g = {};
+    for (const c in f)
+      Object.hasOwnProperty.call(f, c) && (g[c] = new Tensor$1(f[c].type, f[c].data, f[c].dims));
     return g;
   }
   static async create(n, o, u, l) {
-    let f, a = {};
+    let h, a = {};
     if (typeof n == "string") {
-      if (f = n, typeof o == "object" && o !== null)
+      if (h = n, typeof o == "object" && o !== null)
         a = o;
       else if (typeof o < "u")
         throw new TypeError("'options' must be an object.");
     } else if (n instanceof Uint8Array) {
-      if (f = n, typeof o == "object" && o !== null)
+      if (h = n, typeof o == "object" && o !== null)
         a = o;
       else if (typeof o < "u")
         throw new TypeError("'options' must be an object.");
@@ -462,10 +436,10 @@ let InferenceSession$2 = class ln {
           throw new TypeError("'byteLength' must be a number.");
       } else if (typeof o < "u")
         throw new TypeError("'options' must be an object.");
-      f = new Uint8Array(t, e, r);
+      h = new Uint8Array(t, e, r);
     } else
       throw new TypeError("Unexpected argument[0]: must be 'path' or 'buffer'.");
-    const g = (a.executionProviders || []).map((t) => typeof t == "string" ? t : t.name), s = await (await resolveBackend(g)).createSessionHandler(f, a);
+    const g = (a.executionProviders || []).map((t) => typeof t == "string" ? t : t.name), s = await (await resolveBackend(g)).createSessionHandler(h, a);
     return new ln(s);
   }
   startProfiling() {
@@ -490,17 +464,17 @@ const InferenceSession$1 = InferenceSession$2, lib = /* @__PURE__ */ Object.free
 }, Symbol.toStringTag, { value: "Module" })), require$$0 = /* @__PURE__ */ getAugmentedNamespace(lib);
 var hasRequiredOrtWeb_min;
 function requireOrtWeb_min() {
-  return hasRequiredOrtWeb_min || (hasRequiredOrtWeb_min = 1, (function(module, exports) {
+  return hasRequiredOrtWeb_min || (hasRequiredOrtWeb_min = 1, (function(module, exports$1) {
     (function(d, n) {
       module.exports = n(require$$0);
     })(self, ((__WEBPACK_EXTERNAL_MODULE__1670__) => (() => {
       var __webpack_modules__ = { 3474: (d, n, o) => {
-        var u, l = (u = (u = typeof document < "u" && document.currentScript ? document.currentScript.src : void 0) || "/index.js", function(f) {
+        var u, l = (u = (u = typeof document < "u" && document.currentScript ? document.currentScript.src : void 0) || "/index.js", function(h) {
           function a() {
             return Y.buffer != ne && Pe(Y.buffer), me;
           }
-          function h() {
-            return Y.buffer != ne && Pe(Y.buffer), Me;
+          function f() {
+            return Y.buffer != ne && Pe(Y.buffer), Ae;
           }
           function g() {
             return Y.buffer != ne && Pe(Y.buffer), Ee;
@@ -512,12 +486,12 @@ function requireOrtWeb_min() {
             return Y.buffer != ne && Pe(Y.buffer), ve;
           }
           var t, e, r;
-          f = f || {}, t || (t = f !== void 0 ? f : {}), t.ready = new Promise((function(x, P) {
+          h = h || {}, t || (t = h !== void 0 ? h : {}), t.ready = new Promise((function(x, P) {
             e = x, r = P;
           }));
           var i, p, m, _, b, y, w = Object.assign({}, t), T = "./this.program", S = (x, P) => {
             throw P;
-          }, E = typeof window == "object", O = typeof importScripts == "function", v = typeof process == "object" && typeof process.versions == "object" && typeof process.versions.node == "string", M = t.ENVIRONMENT_IS_PTHREAD || !1, L = "";
+          }, E = typeof window == "object", O = typeof importScripts == "function", v = typeof process == "object" && typeof process.versions == "object" && typeof process.versions.node == "string", A = t.ENVIRONMENT_IS_PTHREAD || !1, L = "";
           function j(x) {
             return t.locateFile ? t.locateFile(x, L) : L + x;
           }
@@ -568,7 +542,7 @@ function requireOrtWeb_min() {
           Object.assign(t, w), w = null, t.thisProgram && (T = t.thisProgram), t.quit && (S = t.quit), t.wasmBinary && (D = t.wasmBinary);
           var Q = t.noExitRuntime || !1;
           typeof WebAssembly != "object" && he("no native wasm support detected");
-          var Y, te, ne, me, Me, Ee, ce, ve, ye = !1, Le = typeof TextDecoder < "u" ? new TextDecoder("utf8") : void 0;
+          var Y, te, ne, me, Ae, Ee, ce, ve, ye = !1, Le = typeof TextDecoder < "u" ? new TextDecoder("utf8") : void 0;
           function We(x, P, k) {
             var N = (P >>>= 0) + k;
             for (k = P; x[k] && !(k >= N); ) ++k;
@@ -587,7 +561,7 @@ function requireOrtWeb_min() {
             return N;
           }
           function Oe(x, P) {
-            return (x >>>= 0) ? We(h(), x, P) : "";
+            return (x >>>= 0) ? We(f(), x, P) : "";
           }
           function Ne(x, P, k, N) {
             if (!(0 < N)) return 0;
@@ -625,11 +599,11 @@ function requireOrtWeb_min() {
             return P;
           }
           function Pe(x) {
-            ne = x, t.HEAP8 = me = new Int8Array(x), t.HEAP16 = new Int16Array(x), t.HEAP32 = Ee = new Int32Array(x), t.HEAPU8 = Me = new Uint8Array(x), t.HEAPU16 = new Uint16Array(x), t.HEAPU32 = ce = new Uint32Array(x), t.HEAPF32 = new Float32Array(x), t.HEAPF64 = ve = new Float64Array(x);
+            ne = x, t.HEAP8 = me = new Int8Array(x), t.HEAP16 = new Int16Array(x), t.HEAP32 = Ee = new Int32Array(x), t.HEAPU8 = Ae = new Uint8Array(x), t.HEAPU16 = new Uint16Array(x), t.HEAPU32 = ce = new Uint32Array(x), t.HEAPF32 = new Float32Array(x), t.HEAPF64 = ve = new Float64Array(x);
           }
-          M && (ne = t.buffer);
+          A && (ne = t.buffer);
           var Te = t.INITIAL_MEMORY || 16777216;
-          if (M) Y = t.wasmMemory, ne = t.buffer;
+          if (A) Y = t.wasmMemory, ne = t.buffer;
           else if (t.wasmMemory) Y = t.wasmMemory;
           else if (!((Y = new WebAssembly.Memory({ initial: Te / 65536, maximum: 65536, shared: !0 })).buffer instanceof SharedArrayBuffer)) throw $("requested a shared WebAssembly.Memory but the returned buffer is not a SharedArrayBuffer, indicating that while the browser has SharedArrayBuffer it does not have WebAssembly threads support - you may need to set a flag"), v && console.log("(on node you may need: --experimental-wasm-threads --experimental-wasm-bulk-memory and also use a recent version)"), Error("bad memory");
           Y && (ne = Y.buffer), Te = ne.byteLength, Pe(ne);
@@ -643,7 +617,7 @@ function requireOrtWeb_min() {
           }
           var Se, $e = 0, Ye = null;
           function he(x) {
-            throw M ? postMessage({ cmd: "onAbort", arg: x }) : t.onAbort && t.onAbort(x), $(x = "Aborted(" + x + ")"), ye = !0, x = new WebAssembly.RuntimeError(x + ". Build with -sASSERTIONS for more info."), r(x), x;
+            throw A ? postMessage({ cmd: "onAbort", arg: x }) : t.onAbort && t.onAbort(x), $(x = "Aborted(" + x + ")"), ye = !0, x = new WebAssembly.RuntimeError(x + ". Build with -sASSERTIONS for more info."), r(x), x;
           }
           function dt() {
             return Se.startsWith("data:application/octet-stream;base64,");
@@ -676,15 +650,15 @@ function requireOrtWeb_min() {
             }, P.loaded && (P.$b(), delete P.$b), 0;
           }
           function Fe(x) {
-            if (M) return J(1, 1, x);
+            if (A) return J(1, 1, x);
             Ue() || (re.oc(), t.onExit && t.onExit(x), ye = !0), S(x, new Qe(x));
           }
           function nt(x, P) {
-            if (!P && M) throw At(x), "unwind";
-            Ue() || M || (Gt(), tt(He), Ut(0), Dt[1].length && Nt(1, 10), Dt[2].length && Nt(2, 10), re.oc()), Fe(x);
+            if (!P && A) throw Mt(x), "unwind";
+            Ue() || A || (Gt(), tt(He), Ut(0), Dt[1].length && Nt(1, 10), Dt[2].length && Nt(2, 10), re.oc()), Fe(x);
           }
           var re = { Yb: [], ac: [], qc: [], Vb: {}, fc: function() {
-            M && re.Ec();
+            A && re.Ec();
           }, Pc: function() {
           }, Ec: function() {
             re.receiveObjectTransfer = re.Gc, re.threadInitTLS = re.pc, re.setExitStatus = re.nc, Q = !1;
@@ -728,8 +702,8 @@ function requireOrtWeb_min() {
             var P = le();
             return x = x(), ue(P), x;
           }
-          function At(x) {
-            if (M) return J(2, 0, x);
+          function Mt(x) {
+            if (A) return J(2, 0, x);
             try {
               nt(x);
             } catch (P) {
@@ -788,51 +762,51 @@ function requireOrtWeb_min() {
             return zt(new oe(x).Sb);
           }
           function ot(x, P, k, N) {
-            return M ? J(3, 1, x, P, k, N) : ft(x, P, k, N);
+            return A ? J(3, 1, x, P, k, N) : ft(x, P, k, N);
           }
           function ft(x, P, k, N) {
             if (typeof SharedArrayBuffer > "u") return $("Current environment does not support SharedArrayBuffer, pthreads are not available!"), 6;
             var z = [];
-            return M && z.length === 0 ? ot(x, P, k, N) : (x = { Ic: k, Ub: x, zc: N, Nc: z }, M ? (x.Oc = "spawnThread", postMessage(x, z), 0) : lt(x));
+            return A && z.length === 0 ? ot(x, P, k, N) : (x = { Ic: k, Ub: x, zc: N, Nc: z }, A ? (x.Oc = "spawnThread", postMessage(x, z), 0) : lt(x));
           }
           function gt(x, P, k) {
-            return M ? J(4, 1, x, P, k) : 0;
+            return A ? J(4, 1, x, P, k) : 0;
           }
           function mt(x, P) {
-            if (M) return J(5, 1, x, P);
+            if (A) return J(5, 1, x, P);
           }
           function _t(x, P) {
-            if (M) return J(6, 1, x, P);
+            if (A) return J(6, 1, x, P);
           }
           function bt(x, P, k) {
-            if (M) return J(7, 1, x, P, k);
+            if (A) return J(7, 1, x, P, k);
           }
           function yt(x, P, k) {
-            return M ? J(8, 1, x, P, k) : 0;
+            return A ? J(8, 1, x, P, k) : 0;
           }
           function wt(x, P) {
-            if (M) return J(9, 1, x, P);
+            if (A) return J(9, 1, x, P);
           }
           function Tt(x, P, k) {
-            if (M) return J(10, 1, x, P, k);
+            if (A) return J(10, 1, x, P, k);
           }
           function vt(x, P, k, N) {
-            if (M) return J(11, 1, x, P, k, N);
+            if (A) return J(11, 1, x, P, k, N);
           }
           function xt(x, P, k, N) {
-            if (M) return J(12, 1, x, P, k, N);
+            if (A) return J(12, 1, x, P, k, N);
           }
           function St(x, P, k, N) {
-            if (M) return J(13, 1, x, P, k, N);
+            if (A) return J(13, 1, x, P, k, N);
           }
           function Et(x) {
-            if (M) return J(14, 1, x);
+            if (A) return J(14, 1, x);
           }
-          function A(x, P) {
-            if (M) return J(15, 1, x, P);
+          function M(x, P) {
+            if (A) return J(15, 1, x, P);
           }
           function C(x, P, k) {
-            if (M) return J(16, 1, x, P, k);
+            if (A) return J(16, 1, x, P, k);
           }
           function R(x) {
             Atomics.store(g(), x >> 2, 1), kt() && Ht(x), Atomics.compareExchange(g(), x >> 2, 1, 0);
@@ -841,10 +815,10 @@ function requireOrtWeb_min() {
             return c()[x >>> 2] + 4294967296 * g()[x + 4 >>> 2];
           }
           function U(x, P, k, N, z, G) {
-            return M ? J(17, 1, x, P, k, N, z, G) : -52;
+            return A ? J(17, 1, x, P, k, N, z, G) : -52;
           }
           function H(x, P, k, N, z, G) {
-            if (M) return J(18, 1, x, P, k, N, z, G);
+            if (A) return J(18, 1, x, P, k, N, z, G);
           }
           function K(x) {
             var P = Ce(x) + 1, k = Ft(P);
@@ -854,7 +828,7 @@ function requireOrtWeb_min() {
             function N(fe) {
               return (fe = fe.toTimeString().match(/\(([A-Za-z ]+)\)$/)) ? fe[1] : "GMT";
             }
-            if (M) return J(19, 1, x, P, k);
+            if (A) return J(19, 1, x, P, k);
             var z = (/* @__PURE__ */ new Date()).getFullYear(), G = new Date(z, 0, 1), X = new Date(z, 6, 1);
             z = G.getTimezoneOffset();
             var ee = X.getTimezoneOffset(), pe = Math.max(z, ee);
@@ -873,7 +847,7 @@ function requireOrtWeb_min() {
           t.executeNotifiedProxyingQueue = R, pt = v ? () => {
             var x = process.hrtime();
             return 1e3 * x[0] + x[1] / 1e6;
-          } : M ? () => performance.now() - t.__performance_now_clock_drift : () => performance.now();
+          } : A ? () => performance.now() - t.__performance_now_clock_drift : () => performance.now();
           var ae, we = [], De = {};
           function Ie() {
             if (!ae) {
@@ -886,7 +860,7 @@ function requireOrtWeb_min() {
             return ae;
           }
           function q(x, P) {
-            if (M) return J(20, 1, x, P);
+            if (A) return J(20, 1, x, P);
             var k = 0;
             return Ie().forEach((function(N, z) {
               var G = P + k;
@@ -895,7 +869,7 @@ function requireOrtWeb_min() {
             })), 0;
           }
           function ge(x, P) {
-            if (M) return J(21, 1, x, P);
+            if (A) return J(21, 1, x, P);
             var k = Ie();
             c()[x >> 2 >>> 0] = k.length;
             var N = 0;
@@ -904,13 +878,13 @@ function requireOrtWeb_min() {
             })), c()[P >> 2 >>> 0] = N, 0;
           }
           function xe(x) {
-            return M ? J(22, 1, x) : 52;
+            return A ? J(22, 1, x) : 52;
           }
           function Ge(x, P, k, N) {
-            return M ? J(23, 1, x, P, k, N) : 52;
+            return A ? J(23, 1, x, P, k, N) : 52;
           }
           function Ze(x, P, k, N, z) {
-            return M ? J(24, 1, x, P, k, N, z) : 70;
+            return A ? J(24, 1, x, P, k, N, z) : 70;
           }
           var Dt = [null, [], []];
           function Nt(x, P) {
@@ -918,34 +892,34 @@ function requireOrtWeb_min() {
             P === 0 || P === 10 ? ((x === 1 ? I : $)(We(k, 0)), k.length = 0) : k.push(P);
           }
           function Rt(x, P, k, N) {
-            if (M) return J(25, 1, x, P, k, N);
+            if (A) return J(25, 1, x, P, k, N);
             for (var z = 0, G = 0; G < k; G++) {
               var X = c()[P >> 2 >>> 0], ee = c()[P + 4 >> 2 >>> 0];
               P += 8;
-              for (var pe = 0; pe < ee; pe++) Nt(x, h()[X + pe >>> 0]);
+              for (var pe = 0; pe < ee; pe++) Nt(x, f()[X + pe >>> 0]);
               z += ee;
             }
             return c()[N >> 2 >>> 0] = z, 0;
           }
           var Re = 0;
-          function Mt(x) {
+          function At(x) {
             return x % 4 == 0 && (x % 100 != 0 || x % 400 == 0);
           }
           var Bt = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], jt = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
           function Vt(x, P, k, N) {
-            function z(W, _e, Ae) {
-              for (W = typeof W == "number" ? W.toString() : W || ""; W.length < _e; ) W = Ae[0] + W;
+            function z(W, _e, Me) {
+              for (W = typeof W == "number" ? W.toString() : W || ""; W.length < _e; ) W = Me[0] + W;
               return W;
             }
             function G(W, _e) {
               return z(W, _e, "0");
             }
             function X(W, _e) {
-              function Ae(ct) {
+              function Me(ct) {
                 return 0 > ct ? -1 : 0 < ct ? 1 : 0;
               }
               var et;
-              return (et = Ae(W.getFullYear() - _e.getFullYear())) === 0 && (et = Ae(W.getMonth() - _e.getMonth())) === 0 && (et = Ae(W.getDate() - _e.getDate())), et;
+              return (et = Me(W.getFullYear() - _e.getFullYear())) === 0 && (et = Me(W.getMonth() - _e.getMonth())) === 0 && (et = Me(W.getDate() - _e.getDate())), et;
             }
             function ee(W) {
               switch (W.getDay()) {
@@ -968,14 +942,14 @@ function requireOrtWeb_min() {
             function pe(W) {
               var _e = W.Wb;
               for (W = new Date(new Date(W.Xb + 1900, 0, 1).getTime()); 0 < _e; ) {
-                var Ae = W.getMonth(), et = (Mt(W.getFullYear()) ? Bt : jt)[Ae];
+                var Me = W.getMonth(), et = (At(W.getFullYear()) ? Bt : jt)[Me];
                 if (!(_e > et - W.getDate())) {
                   W.setDate(W.getDate() + _e);
                   break;
                 }
-                _e -= et - W.getDate() + 1, W.setDate(1), 11 > Ae ? W.setMonth(Ae + 1) : (W.setMonth(0), W.setFullYear(W.getFullYear() + 1));
+                _e -= et - W.getDate() + 1, W.setDate(1), 11 > Me ? W.setMonth(Me + 1) : (W.setMonth(0), W.setFullYear(W.getFullYear() + 1));
               }
-              return Ae = new Date(W.getFullYear() + 1, 0, 4), _e = ee(new Date(W.getFullYear(), 0, 4)), Ae = ee(Ae), 0 >= X(_e, W) ? 0 >= X(Ae, W) ? W.getFullYear() + 1 : W.getFullYear() : W.getFullYear() - 1;
+              return Me = new Date(W.getFullYear() + 1, 0, 4), _e = ee(new Date(W.getFullYear(), 0, 4)), Me = ee(Me), 0 >= X(_e, W) ? 0 >= X(Me, W) ? W.getFullYear() + 1 : W.getFullYear() : W.getFullYear() - 1;
             }
             var fe = g()[N + 40 >> 2 >>> 0];
             for (var ke in N = { Lc: g()[N >> 2 >>> 0], Kc: g()[N + 4 >> 2 >>> 0], dc: g()[N + 8 >> 2 >>> 0], jc: g()[N + 12 >> 2 >>> 0], ec: g()[N + 16 >> 2 >>> 0], Xb: g()[N + 20 >> 2 >>> 0], Tb: g()[N + 24 >> 2 >>> 0], Wb: g()[N + 28 >> 2 >>> 0], Rc: g()[N + 32 >> 2 >>> 0], Jc: g()[N + 36 >> 2 >>> 0], Mc: fe ? Oe(fe) : "" }, k = Oe(k), fe = { "%c": "%a %b %d %H:%M:%S %Y", "%D": "%m/%d/%y", "%F": "%Y-%m-%d", "%h": "%b", "%r": "%I:%M:%S %p", "%R": "%H:%M", "%T": "%H:%M:%S", "%x": "%m/%d/%y", "%X": "%H:%M:%S", "%Ec": "%c", "%EC": "%C", "%Ex": "%m/%d/%y", "%EX": "%H:%M:%S", "%Ey": "%y", "%EY": "%Y", "%Od": "%d", "%Oe": "%e", "%OH": "%H", "%OI": "%I", "%Om": "%m", "%OM": "%M", "%OS": "%S", "%Ou": "%u", "%OU": "%U", "%OV": "%V", "%Ow": "%w", "%OW": "%W", "%Oy": "%y" }) k = k.replace(new RegExp(ke, "g"), fe[ke]);
@@ -1003,7 +977,7 @@ function requireOrtWeb_min() {
             }, "%I": function(W) {
               return (W = W.dc) == 0 ? W = 12 : 12 < W && (W -= 12), G(W, 2);
             }, "%j": function(W) {
-              for (var _e = 0, Ae = 0; Ae <= W.ec - 1; _e += (Mt(W.Xb + 1900) ? Bt : jt)[Ae++]) ;
+              for (var _e = 0, Me = 0; Me <= W.ec - 1; _e += (At(W.Xb + 1900) ? Bt : jt)[Me++]) ;
               return G(W.jc + _e, 3);
             }, "%m": function(W) {
               return G(W.ec + 1, 2);
@@ -1024,11 +998,11 @@ function requireOrtWeb_min() {
               return G(Math.floor((W.Wb + 7 - W.Tb) / 7), 2);
             }, "%V": function(W) {
               var _e = Math.floor((W.Wb + 7 - (W.Tb + 6) % 7) / 7);
-              if (2 >= (W.Tb + 371 - W.Wb - 2) % 7 && _e++, _e) _e == 53 && ((Ae = (W.Tb + 371 - W.Wb) % 7) == 4 || Ae == 3 && Mt(W.Xb) || (_e = 1));
+              if (2 >= (W.Tb + 371 - W.Wb - 2) % 7 && _e++, _e) _e == 53 && ((Me = (W.Tb + 371 - W.Wb) % 7) == 4 || Me == 3 && At(W.Xb) || (_e = 1));
               else {
                 _e = 52;
-                var Ae = (W.Tb + 7 - W.Wb - 1) % 7;
-                (Ae == 4 || Ae == 5 && Mt(W.Xb % 400 - 1)) && _e++;
+                var Me = (W.Tb + 7 - W.Wb - 1) % 7;
+                (Me == 4 || Me == 5 && At(W.Xb % 400 - 1)) && _e++;
               }
               return G(_e, 2);
             }, "%w": function(W) {
@@ -1055,7 +1029,7 @@ function requireOrtWeb_min() {
             })(ke, x), ke.length - 1);
           }
           re.fc();
-          var cn = [null, Fe, At, ot, gt, mt, _t, bt, yt, wt, Tt, vt, xt, St, Et, A, C, U, H, Z, q, ge, xe, Ge, Ze, Rt], dn = { b: function(x) {
+          var cn = [null, Fe, Mt, ot, gt, mt, _t, bt, yt, wt, Tt, vt, xt, St, Et, M, C, U, H, Z, q, ge, xe, Ge, Ze, Rt], dn = { b: function(x) {
             return Ft(x + 24) + 24;
           }, n: function(x) {
             return (x = new oe(x)).uc() || (x.hc(!0), se--), x.ic(!1), it.push(x), x.sc(), x.vc();
@@ -1120,10 +1094,10 @@ function requireOrtWeb_min() {
           }, Fa: function(x) {
             qt(x, !O, 1, !E), re.pc();
           }, T: function(x) {
-            M ? postMessage({ cmd: "cleanupThread", thread: x }) : ut(x);
+            A ? postMessage({ cmd: "cleanupThread", thread: x }) : ut(x);
           }, xa: ft, j: function(x) {
             throw ie || (ie = x), x;
-          }, H: gt, Ma: mt, ua: _t, wa: bt, oa: yt, Ka: wt, Ca: Tt, Ja: vt, V: xt, va: St, sa: Et, La: A, ta: C, Ta: function() {
+          }, H: gt, Ma: mt, ua: _t, wa: bt, oa: yt, Ka: wt, Ca: Tt, Ja: vt, V: xt, va: St, sa: Et, La: M, ta: C, Ta: function() {
           }, X: function() {
             he("To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking");
           }, Ua: function() {
@@ -1136,7 +1110,7 @@ function requireOrtWeb_min() {
             return !0;
           }, za: function(x, P, k, N) {
             if (x == P) setTimeout((() => R(N)));
-            else if (M) postMessage({ targetThread: x, cmd: "processProxyingQueue", queue: N });
+            else if (A) postMessage({ targetThread: x, cmd: "processProxyingQueue", queue: N });
             else {
               if (!(x = re.Vb[x])) return;
               x.postMessage({ cmd: "processProxyingQueue", queue: N });
@@ -1165,7 +1139,7 @@ function requireOrtWeb_min() {
           }, ra: function() {
             return 4294901760;
           }, B: pt, Ia: function(x, P, k) {
-            h().copyWithin(x >>> 0, P >>> 0, P + k >>> 0);
+            f().copyWithin(x >>> 0, P >>> 0, P + k >>> 0);
           }, F: function() {
             return v ? o(3993).cpus().length : navigator.hardwareConcurrency;
           }, Da: function(x, P, k) {
@@ -1173,7 +1147,7 @@ function requireOrtWeb_min() {
             for (var N = 0; N < P; N++) we[N] = s()[k + N >>> 0];
             return (0 > x ? Ot[-x - 1] : cn[x]).apply(null, we);
           }, qa: function(x) {
-            var P = h().length;
+            var P = f().length;
             if ((x >>>= 0) <= P || 4294901760 < x) return !1;
             for (var k = 1; 4 >= k; k *= 2) {
               var N = P * (1 + 0.2 / k);
@@ -1470,10 +1444,10 @@ function requireOrtWeb_min() {
               if (ue(Ke), qe !== qe + 0) throw qe;
               de(1, 0);
             }
-          }, D: function(x, P, k, N, z, G, X, ee, pe, fe, ke, Ke, qe, W, _e, Ae) {
+          }, D: function(x, P, k, N, z, G, X, ee, pe, fe, ke, Ke, qe, W, _e, Me) {
             var et = le();
             try {
-              be(x)(P, k, N, z, G, X, ee, pe, fe, ke, Ke, qe, W, _e, Ae);
+              be(x)(P, k, N, z, G, X, ee, pe, fe, ke, Ke, qe, W, _e, Me);
             } catch (ct) {
               if (ue(et), ct !== ct + 0) throw ct;
               de(1, 0);
@@ -1511,7 +1485,7 @@ function requireOrtWeb_min() {
           } };
           (function() {
             function x(z, G) {
-              t.asm = z.exports, re.qc.push(t.asm.sb), Be = t.asm.ub, ze.unshift(t.asm.Va), te = G, M || ($e--, t.monitorRunDependencies && t.monitorRunDependencies($e), $e == 0 && Ye && (z = Ye, Ye = null, z()));
+              t.asm = z.exports, re.qc.push(t.asm.sb), Be = t.asm.ub, ze.unshift(t.asm.Va), te = G, A || ($e--, t.monitorRunDependencies && t.monitorRunDependencies($e), $e == 0 && Ye && (z = Ye, Ye = null, z()));
             }
             function P(z) {
               x(z.instance, z.module);
@@ -1543,7 +1517,7 @@ function requireOrtWeb_min() {
               }));
             }
             var N = { a: dn };
-            if (M || ($e++, t.monitorRunDependencies && t.monitorRunDependencies($e)), t.instantiateWasm) try {
+            if (A || ($e++, t.monitorRunDependencies && t.monitorRunDependencies($e)), t.instantiateWasm) try {
               return t.instantiateWasm(N, x);
             } catch (z) {
               return $("Module.instantiateWasm callback failed with error: " + z), !1;
@@ -1661,7 +1635,7 @@ function requireOrtWeb_min() {
           };
           function un() {
             function x() {
-              if (!It && (It = !0, t.calledRun = !0, !ye) && (M || tt(ze), e(t), t.onRuntimeInitialized && t.onRuntimeInitialized(), !M)) {
+              if (!It && (It = !0, t.calledRun = !0, !ye) && (A || tt(ze), e(t), t.onRuntimeInitialized && t.onRuntimeInitialized(), !A)) {
                 if (t.postRun) for (typeof t.postRun == "function" && (t.postRun = [t.postRun]); t.postRun.length; ) {
                   var P = t.postRun.shift();
                   Xe.unshift(P);
@@ -1669,7 +1643,7 @@ function requireOrtWeb_min() {
                 tt(Xe);
               }
             }
-            if (!(0 < $e)) if (M) e(t), M || tt(ze), postMessage({ cmd: "loaded" });
+            if (!(0 < $e)) if (A) e(t), A || tt(ze), postMessage({ cmd: "loaded" });
             else {
               if (t.preRun) for (typeof t.preRun == "function" && (t.preRun = [t.preRun]); t.preRun.length; ) je();
               tt(Ve), 0 < $e || (t.setStatus ? (t.setStatus("Running..."), setTimeout((function() {
@@ -1680,48 +1654,48 @@ function requireOrtWeb_min() {
             }
           }
           if (t.UTF8ToString = Oe, t.stringToUTF8 = function(x, P, k) {
-            return Ne(x, h(), P, k);
+            return Ne(x, f(), P, k);
           }, t.lengthBytesUTF8 = Ce, t.keepRuntimeAlive = Ue, t.wasmMemory = Y, t.stackSave = le, t.stackRestore = ue, t.stackAlloc = $t, t.ExitStatus = Qe, t.PThread = re, Ye = function x() {
             It || un(), It || (Ye = x);
           }, t.preInit) for (typeof t.preInit == "function" && (t.preInit = [t.preInit]); 0 < t.preInit.length; ) t.preInit.pop()();
-          return un(), f.ready;
+          return un(), h.ready;
         });
         d.exports = l;
       }, 932: (d, n, o) => {
-        var u, l = (u = (u = typeof document < "u" && document.currentScript ? document.currentScript.src : void 0) || "/index.js", function(f) {
-          var a, h, g;
-          f = f || {}, a || (a = f !== void 0 ? f : {}), a.ready = new Promise((function(A, C) {
-            h = A, g = C;
+        var u, l = (u = (u = typeof document < "u" && document.currentScript ? document.currentScript.src : void 0) || "/index.js", function(h) {
+          var a, f, g;
+          h = h || {}, a || (a = h !== void 0 ? h : {}), a.ready = new Promise((function(M, C) {
+            f = M, g = C;
           }));
-          var c, s, t, e, r, i, p = Object.assign({}, a), m = "./this.program", _ = (A, C) => {
+          var c, s, t, e, r, i, p = Object.assign({}, a), m = "./this.program", _ = (M, C) => {
             throw C;
           }, b = typeof window == "object", y = typeof importScripts == "function", w = typeof process == "object" && typeof process.versions == "object" && typeof process.versions.node == "string", T = "";
           w ? (T = y ? o(908).dirname(T) + "/" : "//", i = () => {
             r || (e = o(1384), r = o(908));
-          }, c = function(A, C) {
-            return i(), A = r.normalize(A), e.readFileSync(A, C ? void 0 : "utf8");
-          }, t = (A) => ((A = c(A, !0)).buffer || (A = new Uint8Array(A)), A), s = (A, C, R) => {
-            i(), A = r.normalize(A), e.readFile(A, (function(V, U) {
+          }, c = function(M, C) {
+            return i(), M = r.normalize(M), e.readFileSync(M, C ? void 0 : "utf8");
+          }, t = (M) => ((M = c(M, !0)).buffer || (M = new Uint8Array(M)), M), s = (M, C, R) => {
+            i(), M = r.normalize(M), e.readFile(M, (function(V, U) {
               V ? R(V) : C(U.buffer);
             }));
-          }, 1 < process.argv.length && (m = process.argv[1].replace(/\\/g, "/")), process.argv.slice(2), process.on("uncaughtException", (function(A) {
-            if (!(A instanceof ze)) throw A;
-          })), process.on("unhandledRejection", (function(A) {
-            throw A;
-          })), _ = (A, C) => {
-            if (v || 0 < Le) throw process.exitCode = A, C;
-            C instanceof ze || O("exiting due to exception: " + C), process.exit(A);
+          }, 1 < process.argv.length && (m = process.argv[1].replace(/\\/g, "/")), process.argv.slice(2), process.on("uncaughtException", (function(M) {
+            if (!(M instanceof ze)) throw M;
+          })), process.on("unhandledRejection", (function(M) {
+            throw M;
+          })), _ = (M, C) => {
+            if (v || 0 < Le) throw process.exitCode = M, C;
+            C instanceof ze || O("exiting due to exception: " + C), process.exit(M);
           }, a.inspect = function() {
             return "[Emscripten Module object]";
-          }) : (b || y) && (y ? T = self.location.href : typeof document < "u" && document.currentScript && (T = document.currentScript.src), u && (T = u), T = T.indexOf("blob:") !== 0 ? T.substr(0, T.replace(/[?#].*/, "").lastIndexOf("/") + 1) : "", c = (A) => {
+          }) : (b || y) && (y ? T = self.location.href : typeof document < "u" && document.currentScript && (T = document.currentScript.src), u && (T = u), T = T.indexOf("blob:") !== 0 ? T.substr(0, T.replace(/[?#].*/, "").lastIndexOf("/") + 1) : "", c = (M) => {
             var C = new XMLHttpRequest();
-            return C.open("GET", A, !1), C.send(null), C.responseText;
-          }, y && (t = (A) => {
+            return C.open("GET", M, !1), C.send(null), C.responseText;
+          }, y && (t = (M) => {
             var C = new XMLHttpRequest();
-            return C.open("GET", A, !1), C.responseType = "arraybuffer", C.send(null), new Uint8Array(C.response);
-          }), s = (A, C, R) => {
+            return C.open("GET", M, !1), C.responseType = "arraybuffer", C.send(null), new Uint8Array(C.response);
+          }), s = (M, C, R) => {
             var V = new XMLHttpRequest();
-            V.open("GET", A, !0), V.responseType = "arraybuffer", V.onload = () => {
+            V.open("GET", M, !0), V.responseType = "arraybuffer", V.onload = () => {
               V.status == 200 || V.status == 0 && V.response ? C(V.response) : R();
             }, V.onerror = R, V.send(null);
           });
@@ -1729,34 +1703,34 @@ function requireOrtWeb_min() {
           Object.assign(a, p), p = null, a.thisProgram && (m = a.thisProgram), a.quit && (_ = a.quit), a.wasmBinary && (S = a.wasmBinary);
           var v = a.noExitRuntime || !1;
           typeof WebAssembly != "object" && Pe("no native wasm support detected");
-          var M, L, j, B, F, D, I = !1, $ = typeof TextDecoder < "u" ? new TextDecoder("utf8") : void 0;
-          function Q(A, C, R) {
+          var A, L, j, B, F, D, I = !1, $ = typeof TextDecoder < "u" ? new TextDecoder("utf8") : void 0;
+          function Q(M, C, R) {
             var V = (C >>>= 0) + R;
-            for (R = C; A[R] && !(R >= V); ) ++R;
-            if (16 < R - C && A.buffer && $) return $.decode(A.subarray(C, R));
+            for (R = C; M[R] && !(R >= V); ) ++R;
+            if (16 < R - C && M.buffer && $) return $.decode(M.subarray(C, R));
             for (V = ""; C < R; ) {
-              var U = A[C++];
+              var U = M[C++];
               if (128 & U) {
-                var H = 63 & A[C++];
+                var H = 63 & M[C++];
                 if ((224 & U) == 192) V += String.fromCharCode((31 & U) << 6 | H);
                 else {
-                  var K = 63 & A[C++];
-                  65536 > (U = (240 & U) == 224 ? (15 & U) << 12 | H << 6 | K : (7 & U) << 18 | H << 12 | K << 6 | 63 & A[C++]) ? V += String.fromCharCode(U) : (U -= 65536, V += String.fromCharCode(55296 | U >> 10, 56320 | 1023 & U));
+                  var K = 63 & M[C++];
+                  65536 > (U = (240 & U) == 224 ? (15 & U) << 12 | H << 6 | K : (7 & U) << 18 | H << 12 | K << 6 | 63 & M[C++]) ? V += String.fromCharCode(U) : (U -= 65536, V += String.fromCharCode(55296 | U >> 10, 56320 | 1023 & U));
                 }
               } else V += String.fromCharCode(U);
             }
             return V;
           }
-          function Y(A, C) {
-            return (A >>>= 0) ? Q(B, A, C) : "";
+          function Y(M, C) {
+            return (M >>>= 0) ? Q(B, M, C) : "";
           }
-          function te(A, C, R, V) {
+          function te(M, C, R, V) {
             if (!(0 < V)) return 0;
             var U = R >>>= 0;
             V = R + V - 1;
-            for (var H = 0; H < A.length; ++H) {
-              var K = A.charCodeAt(H);
-              if (55296 <= K && 57343 >= K && (K = 65536 + ((1023 & K) << 10) | 1023 & A.charCodeAt(++H)), 127 >= K) {
+            for (var H = 0; H < M.length; ++H) {
+              var K = M.charCodeAt(H);
+              if (55296 <= K && 57343 >= K && (K = 65536 + ((1023 & K) << 10) | 1023 & M.charCodeAt(++H)), 127 >= K) {
                 if (R >= V) break;
                 C[R++ >>> 0] = K;
               } else {
@@ -1778,25 +1752,25 @@ function requireOrtWeb_min() {
             }
             return C[R >>> 0] = 0, R - U;
           }
-          function ne(A) {
-            for (var C = 0, R = 0; R < A.length; ++R) {
-              var V = A.charCodeAt(R);
+          function ne(M) {
+            for (var C = 0, R = 0; R < M.length; ++R) {
+              var V = M.charCodeAt(R);
               127 >= V ? C++ : 2047 >= V ? C += 2 : 55296 <= V && 57343 >= V ? (C += 4, ++R) : C += 3;
             }
             return C;
           }
           function me() {
-            var A = M.buffer;
-            L = A, a.HEAP8 = j = new Int8Array(A), a.HEAP16 = new Int16Array(A), a.HEAP32 = F = new Int32Array(A), a.HEAPU8 = B = new Uint8Array(A), a.HEAPU16 = new Uint16Array(A), a.HEAPU32 = D = new Uint32Array(A), a.HEAPF32 = new Float32Array(A), a.HEAPF64 = new Float64Array(A);
+            var M = A.buffer;
+            L = M, a.HEAP8 = j = new Int8Array(M), a.HEAP16 = new Int16Array(M), a.HEAP32 = F = new Int32Array(M), a.HEAPU8 = B = new Uint8Array(M), a.HEAPU16 = new Uint16Array(M), a.HEAPU32 = D = new Uint32Array(M), a.HEAPF32 = new Float32Array(M), a.HEAPF64 = new Float64Array(M);
           }
-          var Me, Ee = [], ce = [], ve = [], ye = [], Le = 0;
+          var Ae, Ee = [], ce = [], ve = [], ye = [], Le = 0;
           function We() {
-            var A = a.preRun.shift();
-            Ee.unshift(A);
+            var M = a.preRun.shift();
+            Ee.unshift(M);
           }
           var Oe, Ne = 0, Ce = null;
-          function Pe(A) {
-            throw a.onAbort && a.onAbort(A), O(A = "Aborted(" + A + ")"), I = !0, A = new WebAssembly.RuntimeError(A + ". Build with -sASSERTIONS for more info."), g(A), A;
+          function Pe(M) {
+            throw a.onAbort && a.onAbort(M), O(M = "Aborted(" + M + ")"), I = !0, M = new WebAssembly.RuntimeError(M + ". Build with -sASSERTIONS for more info."), g(M), M;
           }
           function Te() {
             return Oe.startsWith("data:application/octet-stream;base64,");
@@ -1806,24 +1780,24 @@ function requireOrtWeb_min() {
             Oe = a.locateFile ? a.locateFile(Be, T) : T + Be;
           }
           function Ve() {
-            var A = Oe;
+            var M = Oe;
             try {
-              if (A == Oe && S) return new Uint8Array(S);
-              if (t) return t(A);
+              if (M == Oe && S) return new Uint8Array(S);
+              if (t) return t(M);
               throw "both async and sync fetching of the wasm failed";
             } catch (C) {
               Pe(C);
             }
           }
-          function ze(A) {
-            this.name = "ExitStatus", this.message = "Program terminated with exit(" + A + ")", this.status = A;
+          function ze(M) {
+            this.name = "ExitStatus", this.message = "Program terminated with exit(" + M + ")", this.status = M;
           }
-          function He(A) {
-            for (; 0 < A.length; ) A.shift()(a);
+          function He(M) {
+            for (; 0 < M.length; ) M.shift()(a);
           }
           var Xe = [], Ue = 0, je = 0;
-          function Se(A) {
-            this.Db = A, this.zb = A - 24, this.Ub = function(C) {
+          function Se(M) {
+            this.Db = M, this.zb = M - 24, this.Ub = function(C) {
               D[this.zb + 4 >> 2 >>> 0] = C;
             }, this.Eb = function() {
               return D[this.zb + 4 >> 2 >>> 0];
@@ -1858,40 +1832,40 @@ function requireOrtWeb_min() {
               return C !== 0 ? C : this.Db;
             };
           }
-          function $e(A) {
-            return rt(new Se(A).zb);
+          function $e(M) {
+            return rt(new Se(M).zb);
           }
           var Ye = [];
-          function he(A) {
-            var C = Ye[A];
-            return C || (A >= Ye.length && (Ye.length = A + 1), Ye[A] = C = Me.get(A)), C;
+          function he(M) {
+            var C = Ye[M];
+            return C || (M >= Ye.length && (Ye.length = M + 1), Ye[M] = C = Ae.get(M)), C;
           }
-          function dt(A) {
-            var C = ne(A) + 1, R = be(C);
-            return R && te(A, j, R, C), R;
+          function dt(M) {
+            var C = ne(M) + 1, R = be(C);
+            return R && te(M, j, R, C), R;
           }
           var at = {};
           function Ot() {
             if (!Qe) {
-              var A, C = { USER: "web_user", LOGNAME: "web_user", PATH: "/", PWD: "/", HOME: "/home/web_user", LANG: (typeof navigator == "object" && navigator.languages && navigator.languages[0] || "C").replace("-", "_") + ".UTF-8", _: m || "./this.program" };
-              for (A in at) at[A] === void 0 ? delete C[A] : C[A] = at[A];
+              var M, C = { USER: "web_user", LOGNAME: "web_user", PATH: "/", PWD: "/", HOME: "/home/web_user", LANG: (typeof navigator == "object" && navigator.languages && navigator.languages[0] || "C").replace("-", "_") + ".UTF-8", _: m || "./this.program" };
+              for (M in at) at[M] === void 0 ? delete C[M] : C[M] = at[M];
               var R = [];
-              for (A in C) R.push(A + "=" + C[A]);
+              for (M in C) R.push(M + "=" + C[M]);
               Qe = R;
             }
             return Qe;
           }
           var Qe, ut = [null, [], []];
-          function lt(A, C) {
-            var R = ut[A];
-            C === 0 || C === 10 ? ((A === 1 ? E : O)(Q(R, 0)), R.length = 0) : R.push(C);
+          function lt(M, C) {
+            var R = ut[M];
+            C === 0 || C === 10 ? ((M === 1 ? E : O)(Q(R, 0)), R.length = 0) : R.push(C);
           }
           var Fe = 0;
-          function nt(A) {
-            return A % 4 == 0 && (A % 100 != 0 || A % 400 == 0);
+          function nt(M) {
+            return M % 4 == 0 && (M % 100 != 0 || M % 400 == 0);
           }
           var re = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], tt = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-          function Pt(A, C, R, V) {
+          function Pt(M, C, R, V) {
             function U(q, ge, xe) {
               for (q = typeof q == "number" ? q.toString() : q || ""; q.length < ge; ) q = xe[0] + q;
               return q;
@@ -2009,72 +1983,72 @@ function requireOrtWeb_min() {
             return we = (function(q) {
               var ge = Array(ne(q) + 1);
               return te(q, ge, 0, ge.length), ge;
-            })(R = R.replace(/\0\0/g, "%")), we.length > C ? 0 : (j.set(we, A >>> 0), we.length - 1);
+            })(R = R.replace(/\0\0/g, "%")), we.length > C ? 0 : (j.set(we, M >>> 0), we.length - 1);
           }
-          var At = { a: function(A) {
-            return be(A + 24) + 24;
-          }, m: function(A) {
-            return (A = new Se(A)).Pb() || (A.Ib(!0), Ue--), A.Jb(!1), Xe.push(A), A.Nb(), A.Qb();
-          }, ia: function(A) {
-            throw O("Unexpected exception thrown, this is not properly supported - aborting"), I = !0, A;
+          var Mt = { a: function(M) {
+            return be(M + 24) + 24;
+          }, m: function(M) {
+            return (M = new Se(M)).Pb() || (M.Ib(!0), Ue--), M.Jb(!1), Xe.push(M), M.Nb(), M.Qb();
+          }, ia: function(M) {
+            throw O("Unexpected exception thrown, this is not properly supported - aborting"), I = !0, M;
           }, w: function() {
             se(0);
-            var A = Xe.pop();
-            if (A.Xb() && !A.Lb()) {
-              var C = A.Wb();
-              C && he(C)(A.Db), $e(A.Db);
+            var M = Xe.pop();
+            if (M.Xb() && !M.Lb()) {
+              var C = M.Wb();
+              C && he(C)(M.Db), $e(M.Db);
             }
             je = 0;
           }, d: function() {
-            var A = je;
-            if (!A) return Fe = 0;
-            var C = new Se(A);
-            C.Fb(A);
+            var M = je;
+            if (!M) return Fe = 0;
+            var C = new Se(M);
+            C.Fb(M);
             var R = C.Eb();
-            if (!R) return Fe = 0, A;
+            if (!R) return Fe = 0, M;
             for (var V = Array.prototype.slice.call(arguments), U = 0; U < V.length; U++) {
               var H = V[U];
               if (H === 0 || H === R) break;
-              if (ot(H, R, C.zb + 16)) return Fe = H, A;
+              if (ot(H, R, C.zb + 16)) return Fe = H, M;
             }
-            return Fe = R, A;
+            return Fe = R, M;
           }, k: function() {
-            var A = je;
-            if (!A) return Fe = 0;
-            var C = new Se(A);
-            C.Fb(A);
+            var M = je;
+            if (!M) return Fe = 0;
+            var C = new Se(M);
+            C.Fb(M);
             var R = C.Eb();
-            if (!R) return Fe = 0, A;
+            if (!R) return Fe = 0, M;
             for (var V = Array.prototype.slice.call(arguments), U = 0; U < V.length; U++) {
               var H = V[U];
               if (H === 0 || H === R) break;
-              if (ot(H, R, C.zb + 16)) return Fe = H, A;
+              if (ot(H, R, C.zb + 16)) return Fe = H, M;
             }
-            return Fe = R, A;
+            return Fe = R, M;
           }, g: function() {
-            var A = je;
-            if (!A) return Fe = 0;
-            var C = new Se(A);
-            C.Fb(A);
+            var M = je;
+            if (!M) return Fe = 0;
+            var C = new Se(M);
+            C.Fb(M);
             var R = C.Eb();
-            if (!R) return Fe = 0, A;
+            if (!R) return Fe = 0, M;
             for (var V = Array.prototype.slice.call(arguments), U = 0; U < V.length; U++) {
               var H = V[U];
               if (H === 0 || H === R) break;
-              if (ot(H, R, C.zb + 16)) return Fe = H, A;
+              if (ot(H, R, C.zb + 16)) return Fe = H, M;
             }
-            return Fe = R, A;
+            return Fe = R, M;
           }, s: $e, L: function() {
-            var A = Xe.pop();
-            A || Pe("no exception to throw");
-            var C = A.Db;
-            throw A.Lb() || (Xe.push(A), A.Jb(!0), A.Ib(!1), Ue++), je = C, C;
-          }, b: function(A, C, R) {
-            throw new Se(A).Rb(C, R), je = A, Ue++, A;
+            var M = Xe.pop();
+            M || Pe("no exception to throw");
+            var C = M.Db;
+            throw M.Lb() || (Xe.push(M), M.Jb(!0), M.Ib(!1), Ue++), je = C, C;
+          }, b: function(M, C, R) {
+            throw new Se(M).Rb(C, R), je = M, Ue++, M;
           }, la: function() {
             return Ue;
-          }, i: function(A) {
-            throw je || (je = A), A;
+          }, i: function(M) {
+            throw je || (je = M), M;
           }, H: function() {
             return 0;
           }, Ba: function() {
@@ -2099,22 +2073,22 @@ function requireOrtWeb_min() {
             return Date.now();
           }, Ca: function() {
             return !0;
-          }, Da: function(A, C) {
-            A = new Date(1e3 * (D[A >>> 2] + 4294967296 * F[A + 4 >>> 2])), F[C >> 2 >>> 0] = A.getUTCSeconds(), F[C + 4 >> 2 >>> 0] = A.getUTCMinutes(), F[C + 8 >> 2 >>> 0] = A.getUTCHours(), F[C + 12 >> 2 >>> 0] = A.getUTCDate(), F[C + 16 >> 2 >>> 0] = A.getUTCMonth(), F[C + 20 >> 2 >>> 0] = A.getUTCFullYear() - 1900, F[C + 24 >> 2 >>> 0] = A.getUTCDay(), F[C + 28 >> 2 >>> 0] = (A.getTime() - Date.UTC(A.getUTCFullYear(), 0, 1, 0, 0, 0, 0)) / 864e5 | 0;
-          }, Ea: function(A, C) {
-            A = new Date(1e3 * (D[A >>> 2] + 4294967296 * F[A + 4 >>> 2])), F[C >> 2 >>> 0] = A.getSeconds(), F[C + 4 >> 2 >>> 0] = A.getMinutes(), F[C + 8 >> 2 >>> 0] = A.getHours(), F[C + 12 >> 2 >>> 0] = A.getDate(), F[C + 16 >> 2 >>> 0] = A.getMonth(), F[C + 20 >> 2 >>> 0] = A.getFullYear() - 1900, F[C + 24 >> 2 >>> 0] = A.getDay();
-            var R = new Date(A.getFullYear(), 0, 1);
-            F[C + 28 >> 2 >>> 0] = (A.getTime() - R.getTime()) / 864e5 | 0, F[C + 36 >> 2 >>> 0] = -60 * A.getTimezoneOffset();
-            var V = new Date(A.getFullYear(), 6, 1).getTimezoneOffset();
-            R = R.getTimezoneOffset(), F[C + 32 >> 2 >>> 0] = 0 | (V != R && A.getTimezoneOffset() == Math.min(R, V));
-          }, Fa: function(A) {
-            var C = new Date(F[A + 20 >> 2 >>> 0] + 1900, F[A + 16 >> 2 >>> 0], F[A + 12 >> 2 >>> 0], F[A + 8 >> 2 >>> 0], F[A + 4 >> 2 >>> 0], F[A >> 2 >>> 0], 0), R = F[A + 32 >> 2 >>> 0], V = C.getTimezoneOffset(), U = new Date(C.getFullYear(), 0, 1), H = new Date(C.getFullYear(), 6, 1).getTimezoneOffset(), K = U.getTimezoneOffset(), Z = Math.min(K, H);
-            return 0 > R ? F[A + 32 >> 2 >>> 0] = +(H != K && Z == V) : 0 < R != (Z == V) && (H = Math.max(K, H), C.setTime(C.getTime() + 6e4 * ((0 < R ? Z : H) - V))), F[A + 24 >> 2 >>> 0] = C.getDay(), F[A + 28 >> 2 >>> 0] = (C.getTime() - U.getTime()) / 864e5 | 0, F[A >> 2 >>> 0] = C.getSeconds(), F[A + 4 >> 2 >>> 0] = C.getMinutes(), F[A + 8 >> 2 >>> 0] = C.getHours(), F[A + 12 >> 2 >>> 0] = C.getDate(), F[A + 16 >> 2 >>> 0] = C.getMonth(), C.getTime() / 1e3 | 0;
+          }, Da: function(M, C) {
+            M = new Date(1e3 * (D[M >>> 2] + 4294967296 * F[M + 4 >>> 2])), F[C >> 2 >>> 0] = M.getUTCSeconds(), F[C + 4 >> 2 >>> 0] = M.getUTCMinutes(), F[C + 8 >> 2 >>> 0] = M.getUTCHours(), F[C + 12 >> 2 >>> 0] = M.getUTCDate(), F[C + 16 >> 2 >>> 0] = M.getUTCMonth(), F[C + 20 >> 2 >>> 0] = M.getUTCFullYear() - 1900, F[C + 24 >> 2 >>> 0] = M.getUTCDay(), F[C + 28 >> 2 >>> 0] = (M.getTime() - Date.UTC(M.getUTCFullYear(), 0, 1, 0, 0, 0, 0)) / 864e5 | 0;
+          }, Ea: function(M, C) {
+            M = new Date(1e3 * (D[M >>> 2] + 4294967296 * F[M + 4 >>> 2])), F[C >> 2 >>> 0] = M.getSeconds(), F[C + 4 >> 2 >>> 0] = M.getMinutes(), F[C + 8 >> 2 >>> 0] = M.getHours(), F[C + 12 >> 2 >>> 0] = M.getDate(), F[C + 16 >> 2 >>> 0] = M.getMonth(), F[C + 20 >> 2 >>> 0] = M.getFullYear() - 1900, F[C + 24 >> 2 >>> 0] = M.getDay();
+            var R = new Date(M.getFullYear(), 0, 1);
+            F[C + 28 >> 2 >>> 0] = (M.getTime() - R.getTime()) / 864e5 | 0, F[C + 36 >> 2 >>> 0] = -60 * M.getTimezoneOffset();
+            var V = new Date(M.getFullYear(), 6, 1).getTimezoneOffset();
+            R = R.getTimezoneOffset(), F[C + 32 >> 2 >>> 0] = 0 | (V != R && M.getTimezoneOffset() == Math.min(R, V));
+          }, Fa: function(M) {
+            var C = new Date(F[M + 20 >> 2 >>> 0] + 1900, F[M + 16 >> 2 >>> 0], F[M + 12 >> 2 >>> 0], F[M + 8 >> 2 >>> 0], F[M + 4 >> 2 >>> 0], F[M >> 2 >>> 0], 0), R = F[M + 32 >> 2 >>> 0], V = C.getTimezoneOffset(), U = new Date(C.getFullYear(), 0, 1), H = new Date(C.getFullYear(), 6, 1).getTimezoneOffset(), K = U.getTimezoneOffset(), Z = Math.min(K, H);
+            return 0 > R ? F[M + 32 >> 2 >>> 0] = +(H != K && Z == V) : 0 < R != (Z == V) && (H = Math.max(K, H), C.setTime(C.getTime() + 6e4 * ((0 < R ? Z : H) - V))), F[M + 24 >> 2 >>> 0] = C.getDay(), F[M + 28 >> 2 >>> 0] = (C.getTime() - U.getTime()) / 864e5 | 0, F[M >> 2 >>> 0] = C.getSeconds(), F[M + 4 >> 2 >>> 0] = C.getMinutes(), F[M + 8 >> 2 >>> 0] = C.getHours(), F[M + 12 >> 2 >>> 0] = C.getDate(), F[M + 16 >> 2 >>> 0] = C.getMonth(), C.getTime() / 1e3 | 0;
           }, sa: function() {
             return -52;
           }, ta: function() {
-          }, Ga: function A(C, R, V) {
-            A.Vb || (A.Vb = !0, (function(U, H, K) {
+          }, Ga: function M(C, R, V) {
+            M.Vb || (M.Vb = !0, (function(U, H, K) {
               function Z(Ie) {
                 return (Ie = Ie.toTimeString().match(/\(([A-Za-z ]+)\)$/)) ? Ie[1] : "GMT";
               }
@@ -2128,21 +2102,21 @@ function requireOrtWeb_min() {
           }, ma: function() {
             return 4294901760;
           }, I: w ? () => {
-            var A = process.hrtime();
-            return 1e3 * A[0] + A[1] / 1e6;
-          } : () => performance.now(), xa: function(A, C, R) {
-            B.copyWithin(A >>> 0, C >>> 0, C + R >>> 0);
-          }, G: function(A) {
+            var M = process.hrtime();
+            return 1e3 * M[0] + M[1] / 1e6;
+          } : () => performance.now(), xa: function(M, C, R) {
+            B.copyWithin(M >>> 0, C >>> 0, C + R >>> 0);
+          }, G: function(M) {
             var C = B.length;
-            if (4294901760 < (A >>>= 0)) return !1;
+            if (4294901760 < (M >>>= 0)) return !1;
             for (var R = 1; 4 >= R; R *= 2) {
               var V = C * (1 + 0.2 / R);
-              V = Math.min(V, A + 100663296);
+              V = Math.min(V, M + 100663296);
               var U = Math;
-              V = Math.max(A, V), U = U.min.call(U, 4294901760, V + (65536 - V % 65536) % 65536);
+              V = Math.max(M, V), U = U.min.call(U, 4294901760, V + (65536 - V % 65536) % 65536);
               e: {
                 try {
-                  M.grow(U - L.byteLength + 65535 >>> 16), me();
+                  A.grow(U - L.byteLength + 65535 >>> 16), me();
                   var H = 1;
                   break e;
                 } catch {
@@ -2152,40 +2126,40 @@ function requireOrtWeb_min() {
               if (H) return !0;
             }
             return !1;
-          }, va: function(A, C) {
+          }, va: function(M, C) {
             var R = 0;
             return Ot().forEach((function(V, U) {
               var H = C + R;
-              for (U = D[A + 4 * U >> 2 >>> 0] = H, H = 0; H < V.length; ++H) j[U++ >> 0 >>> 0] = V.charCodeAt(H);
+              for (U = D[M + 4 * U >> 2 >>> 0] = H, H = 0; H < V.length; ++H) j[U++ >> 0 >>> 0] = V.charCodeAt(H);
               j[U >> 0 >>> 0] = 0, R += V.length + 1;
             })), 0;
-          }, wa: function(A, C) {
+          }, wa: function(M, C) {
             var R = Ot();
-            D[A >> 2 >>> 0] = R.length;
+            D[M >> 2 >>> 0] = R.length;
             var V = 0;
             return R.forEach((function(U) {
               V += U.length + 1;
             })), D[C >> 2 >>> 0] = V, 0;
-          }, ba: function(A) {
-            v || 0 < Le || (it(), He(ve), pt(0), ut[1].length && lt(1, 10), ut[2].length && lt(2, 10)), v || 0 < Le || (a.onExit && a.onExit(A), I = !0), _(A, new ze(A));
+          }, ba: function(M) {
+            v || 0 < Le || (it(), He(ve), pt(0), ut[1].length && lt(1, 10), ut[2].length && lt(2, 10)), v || 0 < Le || (a.onExit && a.onExit(M), I = !0), _(M, new ze(M));
           }, E: function() {
             return 52;
           }, Q: function() {
             return 52;
           }, ca: function() {
             return 70;
-          }, P: function(A, C, R, V) {
+          }, P: function(M, C, R, V) {
             for (var U = 0, H = 0; H < R; H++) {
               var K = D[C >> 2 >>> 0], Z = D[C + 4 >> 2 >>> 0];
               C += 8;
-              for (var J = 0; J < Z; J++) lt(A, B[K + J >>> 0]);
+              for (var J = 0; J < Z; J++) lt(M, B[K + J >>> 0]);
               U += Z;
             }
             return D[V >> 2 >>> 0] = U, 0;
           }, c: function() {
             return Fe;
-          }, ja: function A(C, R) {
-            A.Mb || (A.Mb = (function() {
+          }, ja: function M(C, R) {
+            M.Mb || (M.Mb = (function() {
               if (typeof crypto == "object" && typeof crypto.getRandomValues == "function") {
                 var U = new Uint8Array(1);
                 return () => (crypto.getRandomValues(U), U[0]);
@@ -2200,309 +2174,309 @@ function requireOrtWeb_min() {
               }
               return () => Pe("randomDevice");
             })());
-            for (var V = 0; V < R; V++) j[C + V >> 0 >>> 0] = A.Mb();
+            for (var V = 0; V < R; V++) j[C + V >> 0 >>> 0] = M.Mb();
             return 0;
-          }, ea: function(A, C, R) {
+          }, ea: function(M, C, R) {
             var V = ie();
             try {
-              return he(A)(C, R);
+              return he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, fa: function(A, C, R) {
+          }, fa: function(M, C, R) {
             var V = ie();
             try {
-              return he(A)(C, R);
+              return he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, J: function(A) {
+          }, J: function(M) {
             var C = ie();
             try {
-              return he(A)();
+              return he(M)();
             } catch (R) {
               if (oe(C), R !== R + 0) throw R;
               se(1, 0);
             }
-          }, e: function(A, C) {
+          }, e: function(M, C) {
             var R = ie();
             try {
-              return he(A)(C);
+              return he(M)(C);
             } catch (V) {
               if (oe(R), V !== V + 0) throw V;
               se(1, 0);
             }
-          }, N: function(A, C, R) {
+          }, N: function(M, C, R) {
             var V = ie();
             try {
-              return he(A)(C, R);
+              return he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, O: function(A, C, R) {
+          }, O: function(M, C, R) {
             var V = ie();
             try {
-              return he(A)(C, R);
+              return he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, j: function(A, C, R) {
+          }, j: function(M, C, R) {
             var V = ie();
             try {
-              return he(A)(C, R);
+              return he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, o: function(A, C, R, V) {
+          }, o: function(M, C, R, V) {
             var U = ie();
             try {
-              return he(A)(C, R, V);
+              return he(M)(C, R, V);
             } catch (H) {
               if (oe(U), H !== H + 0) throw H;
               se(1, 0);
             }
-          }, p: function(A, C, R, V, U) {
+          }, p: function(M, C, R, V, U) {
             var H = ie();
             try {
-              return he(A)(C, R, V, U);
+              return he(M)(C, R, V, U);
             } catch (K) {
               if (oe(H), K !== K + 0) throw K;
               se(1, 0);
             }
-          }, M: function(A, C, R, V, U, H) {
+          }, M: function(M, C, R, V, U, H) {
             var K = ie();
             try {
-              return he(A)(C, R, V, U, H);
+              return he(M)(C, R, V, U, H);
             } catch (Z) {
               if (oe(K), Z !== Z + 0) throw Z;
               se(1, 0);
             }
-          }, r: function(A, C, R, V, U, H) {
+          }, r: function(M, C, R, V, U, H) {
             var K = ie();
             try {
-              return he(A)(C, R, V, U, H);
+              return he(M)(C, R, V, U, H);
             } catch (Z) {
               if (oe(K), Z !== Z + 0) throw Z;
               se(1, 0);
             }
-          }, v: function(A, C, R, V, U, H, K) {
+          }, v: function(M, C, R, V, U, H, K) {
             var Z = ie();
             try {
-              return he(A)(C, R, V, U, H, K);
+              return he(M)(C, R, V, U, H, K);
             } catch (J) {
               if (oe(Z), J !== J + 0) throw J;
               se(1, 0);
             }
-          }, K: function(A, C, R, V, U, H, K, Z) {
+          }, K: function(M, C, R, V, U, H, K, Z) {
             var J = ie();
             try {
-              return he(A)(C, R, V, U, H, K, Z);
+              return he(M)(C, R, V, U, H, K, Z);
             } catch (ae) {
               if (oe(J), ae !== ae + 0) throw ae;
               se(1, 0);
             }
-          }, D: function(A, C, R, V, U, H, K, Z, J, ae, we, De) {
+          }, D: function(M, C, R, V, U, H, K, Z, J, ae, we, De) {
             var Ie = ie();
             try {
-              return he(A)(C, R, V, U, H, K, Z, J, ae, we, De);
+              return he(M)(C, R, V, U, H, K, Z, J, ae, we, De);
             } catch (q) {
               if (oe(Ie), q !== q + 0) throw q;
               se(1, 0);
             }
-          }, X: function(A, C, R, V, U, H, K, Z) {
+          }, X: function(M, C, R, V, U, H, K, Z) {
             var J = ie();
             try {
-              return xt(A, C, R, V, U, H, K, Z);
+              return xt(M, C, R, V, U, H, K, Z);
             } catch (ae) {
               if (oe(J), ae !== ae + 0) throw ae;
               se(1, 0);
             }
-          }, V: function(A, C, R, V, U, H, K) {
+          }, V: function(M, C, R, V, U, H, K) {
             var Z = ie();
             try {
-              return mt(A, C, R, V, U, H, K);
+              return mt(M, C, R, V, U, H, K);
             } catch (J) {
               if (oe(Z), J !== J + 0) throw J;
               se(1, 0);
             }
-          }, U: function(A, C, R, V, U) {
+          }, U: function(M, C, R, V, U) {
             var H = ie();
             try {
-              return St(A, C, R, V, U);
+              return St(M, C, R, V, U);
             } catch (K) {
               if (oe(H), K !== K + 0) throw K;
               se(1, 0);
             }
-          }, Z: function(A, C, R, V) {
+          }, Z: function(M, C, R, V) {
             var U = ie();
             try {
-              return Tt(A, C, R, V);
+              return Tt(M, C, R, V);
             } catch (H) {
               if (oe(U), H !== H + 0) throw H;
               se(1, 0);
             }
-          }, W: function(A) {
+          }, W: function(M) {
             var C = ie();
             try {
-              return gt(A);
+              return gt(M);
             } catch (R) {
               if (oe(C), R !== R + 0) throw R;
               se(1, 0);
             }
-          }, Y: function(A, C) {
+          }, Y: function(M, C) {
             var R = ie();
             try {
-              return vt(A, C);
+              return vt(M, C);
             } catch (V) {
               if (oe(R), V !== V + 0) throw V;
               se(1, 0);
             }
-          }, T: function(A, C, R) {
+          }, T: function(M, C, R) {
             var V = ie();
             try {
-              return _t(A, C, R);
+              return _t(M, C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, f: function(A) {
+          }, f: function(M) {
             var C = ie();
             try {
-              he(A)();
+              he(M)();
             } catch (R) {
               if (oe(C), R !== R + 0) throw R;
               se(1, 0);
             }
-          }, q: function(A, C) {
+          }, q: function(M, C) {
             var R = ie();
             try {
-              he(A)(C);
+              he(M)(C);
             } catch (V) {
               if (oe(R), V !== V + 0) throw V;
               se(1, 0);
             }
-          }, h: function(A, C, R) {
+          }, h: function(M, C, R) {
             var V = ie();
             try {
-              he(A)(C, R);
+              he(M)(C, R);
             } catch (U) {
               if (oe(V), U !== U + 0) throw U;
               se(1, 0);
             }
-          }, da: function(A, C, R, V) {
+          }, da: function(M, C, R, V) {
             var U = ie();
             try {
-              he(A)(C, R, V);
+              he(M)(C, R, V);
             } catch (H) {
               if (oe(U), H !== H + 0) throw H;
               se(1, 0);
             }
-          }, l: function(A, C, R, V) {
+          }, l: function(M, C, R, V) {
             var U = ie();
             try {
-              he(A)(C, R, V);
+              he(M)(C, R, V);
             } catch (H) {
               if (oe(U), H !== H + 0) throw H;
               se(1, 0);
             }
-          }, t: function(A, C, R, V, U) {
+          }, t: function(M, C, R, V, U) {
             var H = ie();
             try {
-              he(A)(C, R, V, U);
+              he(M)(C, R, V, U);
             } catch (K) {
               if (oe(H), K !== K + 0) throw K;
               se(1, 0);
             }
-          }, u: function(A, C, R, V, U, H) {
+          }, u: function(M, C, R, V, U, H) {
             var K = ie();
             try {
-              he(A)(C, R, V, U, H);
+              he(M)(C, R, V, U, H);
             } catch (Z) {
               if (oe(K), Z !== Z + 0) throw Z;
               se(1, 0);
             }
-          }, x: function(A, C, R, V, U, H, K) {
+          }, x: function(M, C, R, V, U, H, K) {
             var Z = ie();
             try {
-              he(A)(C, R, V, U, H, K);
+              he(M)(C, R, V, U, H, K);
             } catch (J) {
               if (oe(Z), J !== J + 0) throw J;
               se(1, 0);
             }
-          }, z: function(A, C, R, V, U, H, K, Z) {
+          }, z: function(M, C, R, V, U, H, K, Z) {
             var J = ie();
             try {
-              he(A)(C, R, V, U, H, K, Z);
+              he(M)(C, R, V, U, H, K, Z);
             } catch (ae) {
               if (oe(J), ae !== ae + 0) throw ae;
               se(1, 0);
             }
-          }, ga: function(A, C, R, V, U, H, K, Z, J) {
+          }, ga: function(M, C, R, V, U, H, K, Z, J) {
             var ae = ie();
             try {
-              he(A)(C, R, V, U, H, K, Z, J);
+              he(M)(C, R, V, U, H, K, Z, J);
             } catch (we) {
               if (oe(ae), we !== we + 0) throw we;
               se(1, 0);
             }
-          }, A: function(A, C, R, V, U, H, K, Z, J, ae, we) {
+          }, A: function(M, C, R, V, U, H, K, Z, J, ae, we) {
             var De = ie();
             try {
-              he(A)(C, R, V, U, H, K, Z, J, ae, we);
+              he(M)(C, R, V, U, H, K, Z, J, ae, we);
             } catch (Ie) {
               if (oe(De), Ie !== Ie + 0) throw Ie;
               se(1, 0);
             }
-          }, C: function(A, C, R, V, U, H, K, Z, J, ae, we, De, Ie, q, ge, xe) {
+          }, C: function(M, C, R, V, U, H, K, Z, J, ae, we, De, Ie, q, ge, xe) {
             var Ge = ie();
             try {
-              he(A)(C, R, V, U, H, K, Z, J, ae, we, De, Ie, q, ge, xe);
+              he(M)(C, R, V, U, H, K, Z, J, ae, we, De, Ie, q, ge, xe);
             } catch (Ze) {
               if (oe(Ge), Ze !== Ze + 0) throw Ze;
               se(1, 0);
             }
-          }, aa: function(A, C, R, V, U, H, K, Z) {
+          }, aa: function(M, C, R, V, U, H, K, Z) {
             var J = ie();
             try {
-              bt(A, C, R, V, U, H, K, Z);
+              bt(M, C, R, V, U, H, K, Z);
             } catch (ae) {
               if (oe(J), ae !== ae + 0) throw ae;
               se(1, 0);
             }
-          }, _: function(A, C, R, V, U, H, K, Z, J, ae, we, De) {
+          }, _: function(M, C, R, V, U, H, K, Z, J, ae, we, De) {
             var Ie = ie();
             try {
-              wt(A, C, R, V, U, H, K, Z, J, ae, we, De);
+              wt(M, C, R, V, U, H, K, Z, J, ae, we, De);
             } catch (q) {
               if (oe(Ie), q !== q + 0) throw q;
               se(1, 0);
             }
-          }, $: function(A, C, R, V, U, H) {
+          }, $: function(M, C, R, V, U, H) {
             var K = ie();
             try {
-              yt(A, C, R, V, U, H);
+              yt(M, C, R, V, U, H);
             } catch (Z) {
               if (oe(K), Z !== Z + 0) throw Z;
               se(1, 0);
             }
-          }, n: function(A) {
-            return A;
-          }, F: function(A) {
-            Fe = A;
-          }, ha: Pt, y: function(A, C, R, V) {
-            return Pt(A, C, R, V);
+          }, n: function(M) {
+            return M;
+          }, F: function(M) {
+            Fe = M;
+          }, ha: Pt, y: function(M, C, R, V) {
+            return Pt(M, C, R, V);
           } };
           (function() {
-            function A(U) {
-              a.asm = U.exports, M = a.asm.Ka, me(), Me = a.asm.ib, ce.unshift(a.asm.La), Ne--, a.monitorRunDependencies && a.monitorRunDependencies(Ne), Ne == 0 && Ce && (U = Ce, Ce = null, U());
+            function M(U) {
+              a.asm = U.exports, A = a.asm.Ka, me(), Ae = a.asm.ib, ce.unshift(a.asm.La), Ne--, a.monitorRunDependencies && a.monitorRunDependencies(Ne), Ne == 0 && Ce && (U = Ce, Ce = null, U());
             }
             function C(U) {
-              A(U.instance);
+              M(U.instance);
             }
             function R(U) {
               return (function() {
@@ -2530,9 +2504,9 @@ function requireOrtWeb_min() {
                 O("failed to asynchronously prepare wasm: " + H), Pe(H);
               }));
             }
-            var V = { a: At };
+            var V = { a: Mt };
             if (Ne++, a.monitorRunDependencies && a.monitorRunDependencies(Ne), a.instantiateWasm) try {
-              return a.instantiateWasm(V, A);
+              return a.instantiateWasm(V, M);
             } catch (U) {
               return O("Module.instantiateWasm callback failed with error: " + U), !1;
             }
@@ -2626,9 +2600,9 @@ function requireOrtWeb_min() {
             return (St = a.dynCall_iiij = a.asm.yb).apply(null, arguments);
           };
           function Et() {
-            function A() {
+            function M() {
               if (!Je && (Je = !0, a.calledRun = !0, !I)) {
-                if (He(ce), h(a), a.onRuntimeInitialized && a.onRuntimeInitialized(), a.postRun) for (typeof a.postRun == "function" && (a.postRun = [a.postRun]); a.postRun.length; ) {
+                if (He(ce), f(a), a.onRuntimeInitialized && a.onRuntimeInitialized(), a.postRun) for (typeof a.postRun == "function" && (a.postRun = [a.postRun]); a.postRun.length; ) {
                   var C = a.postRun.shift();
                   ye.unshift(C);
                 }
@@ -2640,27 +2614,27 @@ function requireOrtWeb_min() {
               He(Ee), 0 < Ne || (a.setStatus ? (a.setStatus("Running..."), setTimeout((function() {
                 setTimeout((function() {
                   a.setStatus("");
-                }), 1), A();
-              }), 1)) : A());
+                }), 1), M();
+              }), 1)) : M());
             }
           }
-          if (a.UTF8ToString = Y, a.stringToUTF8 = function(A, C, R) {
-            return te(A, B, C, R);
-          }, a.lengthBytesUTF8 = ne, a.stackSave = ie, a.stackRestore = oe, a.stackAlloc = ht, Ce = function A() {
-            Je || Et(), Je || (Ce = A);
+          if (a.UTF8ToString = Y, a.stringToUTF8 = function(M, C, R) {
+            return te(M, B, C, R);
+          }, a.lengthBytesUTF8 = ne, a.stackSave = ie, a.stackRestore = oe, a.stackAlloc = ht, Ce = function M() {
+            Je || Et(), Je || (Ce = M);
           }, a.preInit) for (typeof a.preInit == "function" && (a.preInit = [a.preInit]); 0 < a.preInit.length; ) a.preInit.pop()();
-          return Et(), f.ready;
+          return Et(), h.ready;
         });
         d.exports = l;
       }, 4537: (d) => {
         d.exports = function(n, o) {
-          for (var u = new Array(arguments.length - 1), l = 0, f = 2, a = !0; f < arguments.length; ) u[l++] = arguments[f++];
-          return new Promise((function(h, g) {
+          for (var u = new Array(arguments.length - 1), l = 0, h = 2, a = !0; h < arguments.length; ) u[l++] = arguments[h++];
+          return new Promise((function(f, g) {
             u[l] = function(c) {
               if (a) if (a = !1, c) g(c);
               else {
                 for (var s = new Array(arguments.length - 1), t = 0; t < s.length; ) s[t++] = arguments[t];
-                h.apply(null, s);
+                f.apply(null, s);
               }
             };
             try {
@@ -2672,16 +2646,16 @@ function requireOrtWeb_min() {
         };
       }, 7419: (d, n) => {
         var o = n;
-        o.length = function(h) {
-          var g = h.length;
+        o.length = function(f) {
+          var g = f.length;
           if (!g) return 0;
-          for (var c = 0; --g % 4 > 1 && h.charAt(g) === "="; ) ++c;
-          return Math.ceil(3 * h.length) / 4 - c;
+          for (var c = 0; --g % 4 > 1 && f.charAt(g) === "="; ) ++c;
+          return Math.ceil(3 * f.length) / 4 - c;
         };
-        for (var u = new Array(64), l = new Array(123), f = 0; f < 64; ) l[u[f] = f < 26 ? f + 65 : f < 52 ? f + 71 : f < 62 ? f - 4 : f - 59 | 43] = f++;
-        o.encode = function(h, g, c) {
+        for (var u = new Array(64), l = new Array(123), h = 0; h < 64; ) l[u[h] = h < 26 ? h + 65 : h < 52 ? h + 71 : h < 62 ? h - 4 : h - 59 | 43] = h++;
+        o.encode = function(f, g, c) {
           for (var s, t = null, e = [], r = 0, i = 0; g < c; ) {
-            var p = h[g++];
+            var p = f[g++];
             switch (i) {
               case 0:
                 e[r++] = u[p >> 2], s = (3 & p) << 4, i = 1;
@@ -2697,9 +2671,9 @@ function requireOrtWeb_min() {
           return i && (e[r++] = u[s], e[r++] = 61, i === 1 && (e[r++] = 61)), t ? (r && t.push(String.fromCharCode.apply(String, e.slice(0, r))), t.join("")) : String.fromCharCode.apply(String, e.slice(0, r));
         };
         var a = "invalid encoding";
-        o.decode = function(h, g, c) {
-          for (var s, t = c, e = 0, r = 0; r < h.length; ) {
-            var i = h.charCodeAt(r++);
+        o.decode = function(f, g, c) {
+          for (var s, t = c, e = 0, r = 0; r < f.length; ) {
+            var i = f.charCodeAt(r++);
             if (i === 61 && e > 1) break;
             if ((i = l[i]) === void 0) throw Error(a);
             switch (e) {
@@ -2718,8 +2692,8 @@ function requireOrtWeb_min() {
           }
           if (e === 1) throw Error(a);
           return c - t;
-        }, o.test = function(h) {
-          return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(h);
+        }, o.test = function(f) {
+          return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(f);
         };
       }, 9211: (d) => {
         function n() {
@@ -2730,35 +2704,35 @@ function requireOrtWeb_min() {
         }, n.prototype.off = function(o, u) {
           if (o === void 0) this._listeners = {};
           else if (u === void 0) this._listeners[o] = [];
-          else for (var l = this._listeners[o], f = 0; f < l.length; ) l[f].fn === u ? l.splice(f, 1) : ++f;
+          else for (var l = this._listeners[o], h = 0; h < l.length; ) l[h].fn === u ? l.splice(h, 1) : ++h;
           return this;
         }, n.prototype.emit = function(o) {
           var u = this._listeners[o];
           if (u) {
-            for (var l = [], f = 1; f < arguments.length; ) l.push(arguments[f++]);
-            for (f = 0; f < u.length; ) u[f].fn.apply(u[f++].ctx, l);
+            for (var l = [], h = 1; h < arguments.length; ) l.push(arguments[h++]);
+            for (h = 0; h < u.length; ) u[h].fn.apply(u[h++].ctx, l);
           }
           return this;
         };
       }, 945: (d) => {
         function n(a) {
           return typeof Float32Array < "u" ? (function() {
-            var h = new Float32Array([-0]), g = new Uint8Array(h.buffer), c = g[3] === 128;
+            var f = new Float32Array([-0]), g = new Uint8Array(f.buffer), c = g[3] === 128;
             function s(i, p, m) {
-              h[0] = i, p[m] = g[0], p[m + 1] = g[1], p[m + 2] = g[2], p[m + 3] = g[3];
+              f[0] = i, p[m] = g[0], p[m + 1] = g[1], p[m + 2] = g[2], p[m + 3] = g[3];
             }
             function t(i, p, m) {
-              h[0] = i, p[m] = g[3], p[m + 1] = g[2], p[m + 2] = g[1], p[m + 3] = g[0];
+              f[0] = i, p[m] = g[3], p[m + 1] = g[2], p[m + 2] = g[1], p[m + 3] = g[0];
             }
             function e(i, p) {
-              return g[0] = i[p], g[1] = i[p + 1], g[2] = i[p + 2], g[3] = i[p + 3], h[0];
+              return g[0] = i[p], g[1] = i[p + 1], g[2] = i[p + 2], g[3] = i[p + 3], f[0];
             }
             function r(i, p) {
-              return g[3] = i[p], g[2] = i[p + 1], g[1] = i[p + 2], g[0] = i[p + 3], h[0];
+              return g[3] = i[p], g[2] = i[p + 1], g[1] = i[p + 2], g[0] = i[p + 3], f[0];
             }
             a.writeFloatLE = c ? s : t, a.writeFloatBE = c ? t : s, a.readFloatLE = c ? e : r, a.readFloatBE = c ? r : e;
           })() : (function() {
-            function h(c, s, t, e) {
+            function f(c, s, t, e) {
               var r = s < 0 ? 1 : 0;
               if (r && (s = -s), s === 0) c(1 / s > 0 ? 0 : 2147483648, t, e);
               else if (isNaN(s)) c(2143289344, t, e);
@@ -2773,24 +2747,24 @@ function requireOrtWeb_min() {
               var e = c(s, t), r = 2 * (e >> 31) + 1, i = e >>> 23 & 255, p = 8388607 & e;
               return i === 255 ? p ? NaN : r * (1 / 0) : i === 0 ? 1401298464324817e-60 * r * p : r * Math.pow(2, i - 150) * (p + 8388608);
             }
-            a.writeFloatLE = h.bind(null, o), a.writeFloatBE = h.bind(null, u), a.readFloatLE = g.bind(null, l), a.readFloatBE = g.bind(null, f);
+            a.writeFloatLE = f.bind(null, o), a.writeFloatBE = f.bind(null, u), a.readFloatLE = g.bind(null, l), a.readFloatBE = g.bind(null, h);
           })(), typeof Float64Array < "u" ? (function() {
-            var h = new Float64Array([-0]), g = new Uint8Array(h.buffer), c = g[7] === 128;
+            var f = new Float64Array([-0]), g = new Uint8Array(f.buffer), c = g[7] === 128;
             function s(i, p, m) {
-              h[0] = i, p[m] = g[0], p[m + 1] = g[1], p[m + 2] = g[2], p[m + 3] = g[3], p[m + 4] = g[4], p[m + 5] = g[5], p[m + 6] = g[6], p[m + 7] = g[7];
+              f[0] = i, p[m] = g[0], p[m + 1] = g[1], p[m + 2] = g[2], p[m + 3] = g[3], p[m + 4] = g[4], p[m + 5] = g[5], p[m + 6] = g[6], p[m + 7] = g[7];
             }
             function t(i, p, m) {
-              h[0] = i, p[m] = g[7], p[m + 1] = g[6], p[m + 2] = g[5], p[m + 3] = g[4], p[m + 4] = g[3], p[m + 5] = g[2], p[m + 6] = g[1], p[m + 7] = g[0];
+              f[0] = i, p[m] = g[7], p[m + 1] = g[6], p[m + 2] = g[5], p[m + 3] = g[4], p[m + 4] = g[3], p[m + 5] = g[2], p[m + 6] = g[1], p[m + 7] = g[0];
             }
             function e(i, p) {
-              return g[0] = i[p], g[1] = i[p + 1], g[2] = i[p + 2], g[3] = i[p + 3], g[4] = i[p + 4], g[5] = i[p + 5], g[6] = i[p + 6], g[7] = i[p + 7], h[0];
+              return g[0] = i[p], g[1] = i[p + 1], g[2] = i[p + 2], g[3] = i[p + 3], g[4] = i[p + 4], g[5] = i[p + 5], g[6] = i[p + 6], g[7] = i[p + 7], f[0];
             }
             function r(i, p) {
-              return g[7] = i[p], g[6] = i[p + 1], g[5] = i[p + 2], g[4] = i[p + 3], g[3] = i[p + 4], g[2] = i[p + 5], g[1] = i[p + 6], g[0] = i[p + 7], h[0];
+              return g[7] = i[p], g[6] = i[p + 1], g[5] = i[p + 2], g[4] = i[p + 3], g[3] = i[p + 4], g[2] = i[p + 5], g[1] = i[p + 6], g[0] = i[p + 7], f[0];
             }
             a.writeDoubleLE = c ? s : t, a.writeDoubleBE = c ? t : s, a.readDoubleLE = c ? e : r, a.readDoubleBE = c ? r : e;
           })() : (function() {
-            function h(c, s, t, e, r, i) {
+            function f(c, s, t, e, r, i) {
               var p = e < 0 ? 1 : 0;
               if (p && (e = -e), e === 0) c(0, r, i + s), c(1 / e > 0 ? 0 : 2147483648, r, i + t);
               else if (isNaN(e)) c(0, r, i + s), c(2146959360, r, i + t);
@@ -2808,20 +2782,20 @@ function requireOrtWeb_min() {
               var i = c(e, r + s), p = c(e, r + t), m = 2 * (p >> 31) + 1, _ = p >>> 20 & 2047, b = 4294967296 * (1048575 & p) + i;
               return _ === 2047 ? b ? NaN : m * (1 / 0) : _ === 0 ? 5e-324 * m * b : m * Math.pow(2, _ - 1075) * (b + 4503599627370496);
             }
-            a.writeDoubleLE = h.bind(null, o, 0, 4), a.writeDoubleBE = h.bind(null, u, 4, 0), a.readDoubleLE = g.bind(null, l, 0, 4), a.readDoubleBE = g.bind(null, f, 4, 0);
+            a.writeDoubleLE = f.bind(null, o, 0, 4), a.writeDoubleBE = f.bind(null, u, 4, 0), a.readDoubleLE = g.bind(null, l, 0, 4), a.readDoubleBE = g.bind(null, h, 4, 0);
           })(), a;
         }
-        function o(a, h, g) {
-          h[g] = 255 & a, h[g + 1] = a >>> 8 & 255, h[g + 2] = a >>> 16 & 255, h[g + 3] = a >>> 24;
+        function o(a, f, g) {
+          f[g] = 255 & a, f[g + 1] = a >>> 8 & 255, f[g + 2] = a >>> 16 & 255, f[g + 3] = a >>> 24;
         }
-        function u(a, h, g) {
-          h[g] = a >>> 24, h[g + 1] = a >>> 16 & 255, h[g + 2] = a >>> 8 & 255, h[g + 3] = 255 & a;
+        function u(a, f, g) {
+          f[g] = a >>> 24, f[g + 1] = a >>> 16 & 255, f[g + 2] = a >>> 8 & 255, f[g + 3] = 255 & a;
         }
-        function l(a, h) {
-          return (a[h] | a[h + 1] << 8 | a[h + 2] << 16 | a[h + 3] << 24) >>> 0;
+        function l(a, f) {
+          return (a[f] | a[f + 1] << 8 | a[f + 2] << 16 | a[f + 3] << 24) >>> 0;
         }
-        function f(a, h) {
-          return (a[h] << 24 | a[h + 1] << 16 | a[h + 2] << 8 | a[h + 3]) >>> 0;
+        function h(a, f) {
+          return (a[f] << 24 | a[f + 1] << 16 | a[f + 2] << 8 | a[f + 3]) >>> 0;
         }
         d.exports = n(n);
       }, 7199: (module) => {
@@ -2836,26 +2810,26 @@ function requireOrtWeb_min() {
         module.exports = inquire;
       }, 6662: (d) => {
         d.exports = function(n, o, u) {
-          var l = u || 8192, f = l >>> 1, a = null, h = l;
+          var l = u || 8192, h = l >>> 1, a = null, f = l;
           return function(g) {
-            if (g < 1 || g > f) return n(g);
-            h + g > l && (a = n(l), h = 0);
-            var c = o.call(a, h, h += g);
-            return 7 & h && (h = 1 + (7 | h)), c;
+            if (g < 1 || g > h) return n(g);
+            f + g > l && (a = n(l), f = 0);
+            var c = o.call(a, f, f += g);
+            return 7 & f && (f = 1 + (7 | f)), c;
           };
         };
       }, 4997: (d, n) => {
         var o = n;
         o.length = function(u) {
-          for (var l = 0, f = 0, a = 0; a < u.length; ++a) (f = u.charCodeAt(a)) < 128 ? l += 1 : f < 2048 ? l += 2 : (64512 & f) == 55296 && (64512 & u.charCodeAt(a + 1)) == 56320 ? (++a, l += 4) : l += 3;
+          for (var l = 0, h = 0, a = 0; a < u.length; ++a) (h = u.charCodeAt(a)) < 128 ? l += 1 : h < 2048 ? l += 2 : (64512 & h) == 55296 && (64512 & u.charCodeAt(a + 1)) == 56320 ? (++a, l += 4) : l += 3;
           return l;
-        }, o.read = function(u, l, f) {
-          if (f - l < 1) return "";
-          for (var a, h = null, g = [], c = 0; l < f; ) (a = u[l++]) < 128 ? g[c++] = a : a > 191 && a < 224 ? g[c++] = (31 & a) << 6 | 63 & u[l++] : a > 239 && a < 365 ? (a = ((7 & a) << 18 | (63 & u[l++]) << 12 | (63 & u[l++]) << 6 | 63 & u[l++]) - 65536, g[c++] = 55296 + (a >> 10), g[c++] = 56320 + (1023 & a)) : g[c++] = (15 & a) << 12 | (63 & u[l++]) << 6 | 63 & u[l++], c > 8191 && ((h || (h = [])).push(String.fromCharCode.apply(String, g)), c = 0);
-          return h ? (c && h.push(String.fromCharCode.apply(String, g.slice(0, c))), h.join("")) : String.fromCharCode.apply(String, g.slice(0, c));
-        }, o.write = function(u, l, f) {
-          for (var a, h, g = f, c = 0; c < u.length; ++c) (a = u.charCodeAt(c)) < 128 ? l[f++] = a : a < 2048 ? (l[f++] = a >> 6 | 192, l[f++] = 63 & a | 128) : (64512 & a) == 55296 && (64512 & (h = u.charCodeAt(c + 1))) == 56320 ? (a = 65536 + ((1023 & a) << 10) + (1023 & h), ++c, l[f++] = a >> 18 | 240, l[f++] = a >> 12 & 63 | 128, l[f++] = a >> 6 & 63 | 128, l[f++] = 63 & a | 128) : (l[f++] = a >> 12 | 224, l[f++] = a >> 6 & 63 | 128, l[f++] = 63 & a | 128);
-          return f - g;
+        }, o.read = function(u, l, h) {
+          if (h - l < 1) return "";
+          for (var a, f = null, g = [], c = 0; l < h; ) (a = u[l++]) < 128 ? g[c++] = a : a > 191 && a < 224 ? g[c++] = (31 & a) << 6 | 63 & u[l++] : a > 239 && a < 365 ? (a = ((7 & a) << 18 | (63 & u[l++]) << 12 | (63 & u[l++]) << 6 | 63 & u[l++]) - 65536, g[c++] = 55296 + (a >> 10), g[c++] = 56320 + (1023 & a)) : g[c++] = (15 & a) << 12 | (63 & u[l++]) << 6 | 63 & u[l++], c > 8191 && ((f || (f = [])).push(String.fromCharCode.apply(String, g)), c = 0);
+          return f ? (c && f.push(String.fromCharCode.apply(String, g.slice(0, c))), f.join("")) : String.fromCharCode.apply(String, g.slice(0, c));
+        }, o.write = function(u, l, h) {
+          for (var a, f, g = h, c = 0; c < u.length; ++c) (a = u.charCodeAt(c)) < 128 ? l[h++] = a : a < 2048 ? (l[h++] = a >> 6 | 192, l[h++] = 63 & a | 128) : (64512 & a) == 55296 && (64512 & (f = u.charCodeAt(c + 1))) == 56320 ? (a = 65536 + ((1023 & a) << 10) + (1023 & f), ++c, l[h++] = a >> 18 | 240, l[h++] = a >> 12 & 63 | 128, l[h++] = a >> 6 & 63 | 128, l[h++] = 63 & a | 128) : (l[h++] = a >> 12 | 224, l[h++] = a >> 6 & 63 | 128, l[h++] = 63 & a | 128);
+          return h - g;
         };
       }, 3442: (d, n) => {
         n.__esModule = !0;
@@ -2865,8 +2839,8 @@ function requireOrtWeb_min() {
             this.value = u.EMPTY, l && u.isGuid(l) && (this.value = l);
           }
           return u.isGuid = function(l) {
-            var f = l.toString();
-            return l && (l instanceof u || u.validator.test(f));
+            var h = l.toString();
+            return l && (l instanceof u || u.validator.test(h));
           }, u.create = function() {
             return new u([u.gen(2), u.gen(1), u.gen(1), u.gen(1), u.gen(3)].join("-"));
           }, u.createEmpty = function() {
@@ -2876,8 +2850,8 @@ function requireOrtWeb_min() {
           }, u.raw = function() {
             return [u.gen(2), u.gen(1), u.gen(1), u.gen(1), u.gen(3)].join("-");
           }, u.gen = function(l) {
-            for (var f = "", a = 0; a < l; a++) f += (65536 * (1 + Math.random()) | 0).toString(16).substring(1);
-            return f;
+            for (var h = "", a = 0; a < l; a++) h += (65536 * (1 + Math.random()) | 0).toString(16).substring(1);
+            return h;
           }, u.prototype.equals = function(l) {
             return u.isGuid(l) && this.value === l.toString();
           }, u.prototype.isEmpty = function() {
@@ -2896,52 +2870,52 @@ function requireOrtWeb_min() {
           n = new WebAssembly.Instance(new WebAssembly.Module(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 13, 2, 96, 0, 1, 127, 96, 4, 127, 127, 127, 127, 1, 127, 3, 7, 6, 0, 1, 1, 1, 1, 1, 6, 6, 1, 127, 1, 65, 0, 11, 7, 50, 6, 3, 109, 117, 108, 0, 1, 5, 100, 105, 118, 95, 115, 0, 2, 5, 100, 105, 118, 95, 117, 0, 3, 5, 114, 101, 109, 95, 115, 0, 4, 5, 114, 101, 109, 95, 117, 0, 5, 8, 103, 101, 116, 95, 104, 105, 103, 104, 0, 0, 10, 191, 1, 6, 4, 0, 35, 0, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 126, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 127, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 128, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 129, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 130, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11])), {}).exports;
         } catch {
         }
-        function o(v, M, L) {
-          this.low = 0 | v, this.high = 0 | M, this.unsigned = !!L;
+        function o(v, A, L) {
+          this.low = 0 | v, this.high = 0 | A, this.unsigned = !!L;
         }
         function u(v) {
           return (v && v.__isLong__) === !0;
         }
         o.prototype.__isLong__, Object.defineProperty(o.prototype, "__isLong__", { value: !0 }), o.isLong = u;
-        var l = {}, f = {};
-        function a(v, M) {
+        var l = {}, h = {};
+        function a(v, A) {
           var L, j, B;
-          return M ? (B = 0 <= (v >>>= 0) && v < 256) && (j = f[v]) ? j : (L = g(v, (0 | v) < 0 ? -1 : 0, !0), B && (f[v] = L), L) : (B = -128 <= (v |= 0) && v < 128) && (j = l[v]) ? j : (L = g(v, v < 0 ? -1 : 0, !1), B && (l[v] = L), L);
+          return A ? (B = 0 <= (v >>>= 0) && v < 256) && (j = h[v]) ? j : (L = g(v, (0 | v) < 0 ? -1 : 0, !0), B && (h[v] = L), L) : (B = -128 <= (v |= 0) && v < 128) && (j = l[v]) ? j : (L = g(v, v < 0 ? -1 : 0, !1), B && (l[v] = L), L);
         }
-        function h(v, M) {
-          if (isNaN(v)) return M ? _ : m;
-          if (M) {
+        function f(v, A) {
+          if (isNaN(v)) return A ? _ : m;
+          if (A) {
             if (v < 0) return _;
             if (v >= r) return S;
           } else {
             if (v <= -i) return E;
             if (v + 1 >= i) return T;
           }
-          return v < 0 ? h(-v, M).neg() : g(v % e | 0, v / e | 0, M);
+          return v < 0 ? f(-v, A).neg() : g(v % e | 0, v / e | 0, A);
         }
-        function g(v, M, L) {
-          return new o(v, M, L);
+        function g(v, A, L) {
+          return new o(v, A, L);
         }
-        o.fromInt = a, o.fromNumber = h, o.fromBits = g;
+        o.fromInt = a, o.fromNumber = f, o.fromBits = g;
         var c = Math.pow;
-        function s(v, M, L) {
+        function s(v, A, L) {
           if (v.length === 0) throw Error("empty string");
           if (v === "NaN" || v === "Infinity" || v === "+Infinity" || v === "-Infinity") return m;
-          if (typeof M == "number" ? (L = M, M = !1) : M = !!M, (L = L || 10) < 2 || 36 < L) throw RangeError("radix");
+          if (typeof A == "number" ? (L = A, A = !1) : A = !!A, (L = L || 10) < 2 || 36 < L) throw RangeError("radix");
           var j;
           if ((j = v.indexOf("-")) > 0) throw Error("interior hyphen");
-          if (j === 0) return s(v.substring(1), M, L).neg();
-          for (var B = h(c(L, 8)), F = m, D = 0; D < v.length; D += 8) {
+          if (j === 0) return s(v.substring(1), A, L).neg();
+          for (var B = f(c(L, 8)), F = m, D = 0; D < v.length; D += 8) {
             var I = Math.min(8, v.length - D), $ = parseInt(v.substring(D, D + I), L);
             if (I < 8) {
-              var Q = h(c(L, I));
-              F = F.mul(Q).add(h($));
-            } else F = (F = F.mul(B)).add(h($));
+              var Q = f(c(L, I));
+              F = F.mul(Q).add(f($));
+            } else F = (F = F.mul(B)).add(f($));
           }
-          return F.unsigned = M, F;
+          return F.unsigned = A, F;
         }
-        function t(v, M) {
-          return typeof v == "number" ? h(v, M) : typeof v == "string" ? s(v, M) : g(v.low, v.high, typeof M == "boolean" ? M : v.unsigned);
+        function t(v, A) {
+          return typeof v == "number" ? f(v, A) : typeof v == "string" ? s(v, A) : g(v.low, v.high, typeof A == "boolean" ? A : v.unsigned);
         }
         o.fromString = s, o.fromValue = t;
         var e = 4294967296, r = e * e, i = r / 2, p = a(1 << 24), m = a(0);
@@ -2970,12 +2944,12 @@ function requireOrtWeb_min() {
           if (this.isZero()) return "0";
           if (this.isNegative()) {
             if (this.eq(E)) {
-              var M = h(v), L = this.div(M), j = L.mul(M).sub(this);
+              var A = f(v), L = this.div(A), j = L.mul(A).sub(this);
               return L.toString(v) + j.toInt().toString(v);
             }
             return "-" + this.neg().toString(v);
           }
-          for (var B = h(c(v, 6), this.unsigned), F = this, D = ""; ; ) {
+          for (var B = f(c(v, 6), this.unsigned), F = this, D = ""; ; ) {
             var I = F.div(B), $ = (F.sub(I.mul(B)).toInt() >>> 0).toString(v);
             if ((F = I).isZero()) return $ + D;
             for (; $.length < 6; ) $ = "0" + $;
@@ -2991,8 +2965,8 @@ function requireOrtWeb_min() {
           return this.low >>> 0;
         }, O.getNumBitsAbs = function() {
           if (this.isNegative()) return this.eq(E) ? 64 : this.neg().getNumBitsAbs();
-          for (var v = this.high != 0 ? this.high : this.low, M = 31; M > 0 && (v & 1 << M) == 0; M--) ;
-          return this.high != 0 ? M + 33 : M + 1;
+          for (var v = this.high != 0 ? this.high : this.low, A = 31; A > 0 && (v & 1 << A) == 0; A--) ;
+          return this.high != 0 ? A + 33 : A + 1;
         }, O.isZero = function() {
           return this.high === 0 && this.low === 0;
         }, O.eqz = O.isZero, O.isNegative = function() {
@@ -3017,14 +2991,14 @@ function requireOrtWeb_min() {
           return this.comp(v) >= 0;
         }, O.gte = O.greaterThanOrEqual, O.ge = O.greaterThanOrEqual, O.compare = function(v) {
           if (u(v) || (v = t(v)), this.eq(v)) return 0;
-          var M = this.isNegative(), L = v.isNegative();
-          return M && !L ? -1 : !M && L ? 1 : this.unsigned ? v.high >>> 0 > this.high >>> 0 || v.high === this.high && v.low >>> 0 > this.low >>> 0 ? -1 : 1 : this.sub(v).isNegative() ? -1 : 1;
+          var A = this.isNegative(), L = v.isNegative();
+          return A && !L ? -1 : !A && L ? 1 : this.unsigned ? v.high >>> 0 > this.high >>> 0 || v.high === this.high && v.low >>> 0 > this.low >>> 0 ? -1 : 1 : this.sub(v).isNegative() ? -1 : 1;
         }, O.comp = O.compare, O.negate = function() {
           return !this.unsigned && this.eq(E) ? E : this.not().add(b);
         }, O.neg = O.negate, O.add = function(v) {
           u(v) || (v = t(v));
-          var M = this.high >>> 16, L = 65535 & this.high, j = this.low >>> 16, B = 65535 & this.low, F = v.high >>> 16, D = 65535 & v.high, I = v.low >>> 16, $ = 0, Q = 0, Y = 0, te = 0;
-          return Y += (te += B + (65535 & v.low)) >>> 16, Q += (Y += j + I) >>> 16, $ += (Q += L + D) >>> 16, $ += M + F, g((Y &= 65535) << 16 | (te &= 65535), ($ &= 65535) << 16 | (Q &= 65535), this.unsigned);
+          var A = this.high >>> 16, L = 65535 & this.high, j = this.low >>> 16, B = 65535 & this.low, F = v.high >>> 16, D = 65535 & v.high, I = v.low >>> 16, $ = 0, Q = 0, Y = 0, te = 0;
+          return Y += (te += B + (65535 & v.low)) >>> 16, Q += (Y += j + I) >>> 16, $ += (Q += L + D) >>> 16, $ += A + F, g((Y &= 65535) << 16 | (te &= 65535), ($ &= 65535) << 16 | (Q &= 65535), this.unsigned);
         }, O.subtract = function(v) {
           return u(v) || (v = t(v)), this.add(v.neg());
         }, O.sub = O.subtract, O.multiply = function(v) {
@@ -3035,12 +3009,12 @@ function requireOrtWeb_min() {
           if (v.eq(E)) return this.isOdd() ? E : m;
           if (this.isNegative()) return v.isNegative() ? this.neg().mul(v.neg()) : this.neg().mul(v).neg();
           if (v.isNegative()) return this.mul(v.neg()).neg();
-          if (this.lt(p) && v.lt(p)) return h(this.toNumber() * v.toNumber(), this.unsigned);
-          var M = this.high >>> 16, L = 65535 & this.high, j = this.low >>> 16, B = 65535 & this.low, F = v.high >>> 16, D = 65535 & v.high, I = v.low >>> 16, $ = 65535 & v.low, Q = 0, Y = 0, te = 0, ne = 0;
-          return te += (ne += B * $) >>> 16, Y += (te += j * $) >>> 16, te &= 65535, Y += (te += B * I) >>> 16, Q += (Y += L * $) >>> 16, Y &= 65535, Q += (Y += j * I) >>> 16, Y &= 65535, Q += (Y += B * D) >>> 16, Q += M * $ + L * I + j * D + B * F, g((te &= 65535) << 16 | (ne &= 65535), (Q &= 65535) << 16 | (Y &= 65535), this.unsigned);
+          if (this.lt(p) && v.lt(p)) return f(this.toNumber() * v.toNumber(), this.unsigned);
+          var A = this.high >>> 16, L = 65535 & this.high, j = this.low >>> 16, B = 65535 & this.low, F = v.high >>> 16, D = 65535 & v.high, I = v.low >>> 16, $ = 65535 & v.low, Q = 0, Y = 0, te = 0, ne = 0;
+          return te += (ne += B * $) >>> 16, Y += (te += j * $) >>> 16, te &= 65535, Y += (te += B * I) >>> 16, Q += (Y += L * $) >>> 16, Y &= 65535, Q += (Y += j * I) >>> 16, Y &= 65535, Q += (Y += B * D) >>> 16, Q += A * $ + L * I + j * D + B * F, g((te &= 65535) << 16 | (ne &= 65535), (Q &= 65535) << 16 | (Y &= 65535), this.unsigned);
         }, O.mul = O.multiply, O.divide = function(v) {
           if (u(v) || (v = t(v)), v.isZero()) throw Error("division by zero");
-          var M, L, j;
+          var A, L, j;
           if (n) return this.unsigned || this.high !== -2147483648 || v.low !== -1 || v.high !== -1 ? g((this.unsigned ? n.div_u : n.div_s)(this.low, this.high, v.low, v.high), n.get_high(), this.unsigned) : this;
           if (this.isZero()) return this.unsigned ? _ : m;
           if (this.unsigned) {
@@ -3048,15 +3022,15 @@ function requireOrtWeb_min() {
             if (v.gt(this.shru(1))) return y;
             j = _;
           } else {
-            if (this.eq(E)) return v.eq(b) || v.eq(w) ? E : v.eq(E) ? b : (M = this.shr(1).div(v).shl(1)).eq(m) ? v.isNegative() ? b : w : (L = this.sub(v.mul(M)), j = M.add(L.div(v)));
+            if (this.eq(E)) return v.eq(b) || v.eq(w) ? E : v.eq(E) ? b : (A = this.shr(1).div(v).shl(1)).eq(m) ? v.isNegative() ? b : w : (L = this.sub(v.mul(A)), j = A.add(L.div(v)));
             if (v.eq(E)) return this.unsigned ? _ : m;
             if (this.isNegative()) return v.isNegative() ? this.neg().div(v.neg()) : this.neg().div(v).neg();
             if (v.isNegative()) return this.div(v.neg()).neg();
             j = m;
           }
           for (L = this; L.gte(v); ) {
-            M = Math.max(1, Math.floor(L.toNumber() / v.toNumber()));
-            for (var B = Math.ceil(Math.log(M) / Math.LN2), F = B <= 48 ? 1 : c(2, B - 48), D = h(M), I = D.mul(v); I.isNegative() || I.gt(L); ) I = (D = h(M -= F, this.unsigned)).mul(v);
+            A = Math.max(1, Math.floor(L.toNumber() / v.toNumber()));
+            for (var B = Math.ceil(Math.log(A) / Math.LN2), F = B <= 48 ? 1 : c(2, B - 48), D = f(A), I = D.mul(v); I.isNegative() || I.gt(L); ) I = (D = f(A -= F, this.unsigned)).mul(v);
             D.isZero() && (D = b), j = j.add(D), L = L.sub(I);
           }
           return j;
@@ -3076,8 +3050,8 @@ function requireOrtWeb_min() {
           return u(v) && (v = v.toInt()), (v &= 63) == 0 ? this : v < 32 ? g(this.low >>> v | this.high << 32 - v, this.high >> v, this.unsigned) : g(this.high >> v - 32, this.high >= 0 ? 0 : -1, this.unsigned);
         }, O.shr = O.shiftRight, O.shiftRightUnsigned = function(v) {
           if (u(v) && (v = v.toInt()), (v &= 63) == 0) return this;
-          var M = this.high;
-          return v < 32 ? g(this.low >>> v | M << 32 - v, M >>> v, this.unsigned) : g(v === 32 ? M : M >>> v - 32, 0, this.unsigned);
+          var A = this.high;
+          return v < 32 ? g(this.low >>> v | A << 32 - v, A >>> v, this.unsigned) : g(v === 32 ? A : A >>> v - 32, 0, this.unsigned);
         }, O.shru = O.shiftRightUnsigned, O.shr_u = O.shiftRightUnsigned, O.toSigned = function() {
           return this.unsigned ? g(this.low, this.high, !1) : this;
         }, O.toUnsigned = function() {
@@ -3085,21 +3059,21 @@ function requireOrtWeb_min() {
         }, O.toBytes = function(v) {
           return v ? this.toBytesLE() : this.toBytesBE();
         }, O.toBytesLE = function() {
-          var v = this.high, M = this.low;
-          return [255 & M, M >>> 8 & 255, M >>> 16 & 255, M >>> 24, 255 & v, v >>> 8 & 255, v >>> 16 & 255, v >>> 24];
+          var v = this.high, A = this.low;
+          return [255 & A, A >>> 8 & 255, A >>> 16 & 255, A >>> 24, 255 & v, v >>> 8 & 255, v >>> 16 & 255, v >>> 24];
         }, O.toBytesBE = function() {
-          var v = this.high, M = this.low;
-          return [v >>> 24, v >>> 16 & 255, v >>> 8 & 255, 255 & v, M >>> 24, M >>> 16 & 255, M >>> 8 & 255, 255 & M];
-        }, o.fromBytes = function(v, M, L) {
-          return L ? o.fromBytesLE(v, M) : o.fromBytesBE(v, M);
-        }, o.fromBytesLE = function(v, M) {
-          return new o(v[0] | v[1] << 8 | v[2] << 16 | v[3] << 24, v[4] | v[5] << 8 | v[6] << 16 | v[7] << 24, M);
-        }, o.fromBytesBE = function(v, M) {
-          return new o(v[4] << 24 | v[5] << 16 | v[6] << 8 | v[7], v[0] << 24 | v[1] << 16 | v[2] << 8 | v[3], M);
+          var v = this.high, A = this.low;
+          return [v >>> 24, v >>> 16 & 255, v >>> 8 & 255, 255 & v, A >>> 24, A >>> 16 & 255, A >>> 8 & 255, 255 & A];
+        }, o.fromBytes = function(v, A, L) {
+          return L ? o.fromBytesLE(v, A) : o.fromBytesBE(v, A);
+        }, o.fromBytesLE = function(v, A) {
+          return new o(v[0] | v[1] << 8 | v[2] << 16 | v[3] << 24, v[4] | v[5] << 8 | v[6] << 16 | v[7] << 24, A);
+        }, o.fromBytesBE = function(v, A) {
+          return new o(v[4] << 24 | v[5] << 16 | v[6] << 8 | v[7], v[0] << 24 | v[1] << 16 | v[2] << 8 | v[3], A);
         };
       }, 1446: (d, n, o) => {
-        var u, l, f, a = o(2100), h = a.Reader, g = a.Writer, c = a.util, s = a.roots.default || (a.roots.default = {});
-        s.onnx = ((f = {}).Version = (u = {}, (l = Object.create(u))[u[0] = "_START_VERSION"] = 0, l[u[1] = "IR_VERSION_2017_10_10"] = 1, l[u[2] = "IR_VERSION_2017_10_30"] = 2, l[u[3] = "IR_VERSION_2017_11_3"] = 3, l[u[4] = "IR_VERSION_2019_1_22"] = 4, l[u[5] = "IR_VERSION"] = 5, l), f.AttributeProto = (function() {
+        var u, l, h, a = o(2100), f = a.Reader, g = a.Writer, c = a.util, s = a.roots.default || (a.roots.default = {});
+        s.onnx = ((h = {}).Version = (u = {}, (l = Object.create(u))[u[0] = "_START_VERSION"] = 0, l[u[1] = "IR_VERSION_2017_10_10"] = 1, l[u[2] = "IR_VERSION_2017_10_30"] = 2, l[u[3] = "IR_VERSION_2017_11_3"] = 3, l[u[4] = "IR_VERSION_2019_1_22"] = 4, l[u[5] = "IR_VERSION"] = 5, l), h.AttributeProto = (function() {
           function t(e) {
             if (this.floats = [], this.ints = [], this.strings = [], this.tensors = [], this.graphs = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3122,7 +3096,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.AttributeProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3176,7 +3150,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.name != null && e.hasOwnProperty("name") && !c.isString(e.name)) return "name: string expected";
@@ -3335,7 +3309,7 @@ function requireOrtWeb_min() {
             var e = {}, r = Object.create(e);
             return r[e[0] = "UNDEFINED"] = 0, r[e[1] = "FLOAT"] = 1, r[e[2] = "INT"] = 2, r[e[3] = "STRING"] = 3, r[e[4] = "TENSOR"] = 4, r[e[5] = "GRAPH"] = 5, r[e[6] = "FLOATS"] = 6, r[e[7] = "INTS"] = 7, r[e[8] = "STRINGS"] = 8, r[e[9] = "TENSORS"] = 9, r[e[10] = "GRAPHS"] = 10, r;
           })(), t;
-        })(), f.ValueInfoProto = (function() {
+        })(), h.ValueInfoProto = (function() {
           function t(e) {
             if (e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3346,7 +3320,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.ValueInfoProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3365,7 +3339,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.name != null && e.hasOwnProperty("name") && !c.isString(e.name)) return "name: string expected";
@@ -3389,7 +3363,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.NodeProto = (function() {
+        })(), h.NodeProto = (function() {
           function t(e) {
             if (this.input = [], this.output = [], this.attribute = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3403,7 +3377,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.NodeProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3434,7 +3408,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.input != null && e.hasOwnProperty("input")) {
@@ -3489,7 +3463,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.ModelProto = (function() {
+        })(), h.ModelProto = (function() {
           function t(e) {
             if (this.opsetImport = [], this.metadataProps = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3502,7 +3476,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.ModelProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3539,7 +3513,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.irVersion != null && e.hasOwnProperty("irVersion") && !(c.isInteger(e.irVersion) || e.irVersion && c.isInteger(e.irVersion.low) && c.isInteger(e.irVersion.high))) return "irVersion: integer|Long expected";
@@ -3603,7 +3577,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.StringStringEntryProto = (function() {
+        })(), h.StringStringEntryProto = (function() {
           function t(e) {
             if (e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3614,7 +3588,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.StringStringEntryProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3630,7 +3604,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             return typeof e != "object" || e === null ? "object expected" : e.key != null && e.hasOwnProperty("key") && !c.isString(e.key) ? "key: string expected" : e.value != null && e.hasOwnProperty("value") && !c.isString(e.value) ? "value: string expected" : null;
           }, t.fromObject = function(e) {
@@ -3644,7 +3618,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.TensorAnnotation = (function() {
+        })(), h.TensorAnnotation = (function() {
           function t(e) {
             if (this.quantParameterTensorNames = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3656,7 +3630,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.TensorAnnotation(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3672,7 +3646,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.tensorName != null && e.hasOwnProperty("tensorName") && !c.isString(e.tensorName)) return "tensorName: string expected";
@@ -3707,7 +3681,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.GraphProto = (function() {
+        })(), h.GraphProto = (function() {
           function t(e) {
             if (this.node = [], this.initializer = [], this.input = [], this.output = [], this.valueInfo = [], this.quantizationAnnotation = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3724,7 +3698,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.GraphProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3758,7 +3732,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.node != null && e.hasOwnProperty("node")) {
@@ -3854,7 +3828,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f.TensorProto = (function() {
+        })(), h.TensorProto = (function() {
           function t(e) {
             if (this.dims = [], this.floatData = [], this.int32Data = [], this.stringData = [], this.int64Data = [], this.externalData = [], this.doubleData = [], this.uint64Data = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -3892,7 +3866,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.TensorProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -3950,7 +3924,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.dims != null && e.hasOwnProperty("dims")) {
@@ -4084,7 +4058,7 @@ function requireOrtWeb_min() {
             }, e.encodeDelimited = function(r, i) {
               return this.encode(r, i).ldelim();
             }, e.decode = function(r, i) {
-              r instanceof h || (r = h.create(r));
+              r instanceof f || (r = f.create(r));
               for (var p = i === void 0 ? r.len : r.pos + i, m = new s.onnx.TensorProto.Segment(); r.pos < p; ) {
                 var _ = r.uint32();
                 switch (_ >>> 3) {
@@ -4100,7 +4074,7 @@ function requireOrtWeb_min() {
               }
               return m;
             }, e.decodeDelimited = function(r) {
-              return r instanceof h || (r = new h(r)), this.decode(r, r.uint32());
+              return r instanceof f || (r = new f(r)), this.decode(r, r.uint32());
             }, e.verify = function(r) {
               return typeof r != "object" || r === null ? "object expected" : r.begin != null && r.hasOwnProperty("begin") && !(c.isInteger(r.begin) || r.begin && c.isInteger(r.begin.low) && c.isInteger(r.begin.high)) ? "begin: integer|Long expected" : r.end != null && r.hasOwnProperty("end") && !(c.isInteger(r.end) || r.end && c.isInteger(r.end.low) && c.isInteger(r.end.high)) ? "end: integer|Long expected" : null;
             }, e.fromObject = function(r) {
@@ -4125,7 +4099,7 @@ function requireOrtWeb_min() {
             var e = {}, r = Object.create(e);
             return r[e[0] = "DEFAULT"] = 0, r[e[1] = "EXTERNAL"] = 1, r;
           })(), t;
-        })(), f.TensorShapeProto = (function() {
+        })(), h.TensorShapeProto = (function() {
           function t(e) {
             if (this.dim = [], e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -4137,14 +4111,14 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.TensorShapeProto(); e.pos < i; ) {
               var m = e.uint32();
               m >>> 3 == 1 ? (p.dim && p.dim.length || (p.dim = []), p.dim.push(s.onnx.TensorShapeProto.Dimension.decode(e, e.uint32()))) : e.skipType(7 & m);
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             if (typeof e != "object" || e === null) return "object expected";
             if (e.dim != null && e.hasOwnProperty("dim")) {
@@ -4189,7 +4163,7 @@ function requireOrtWeb_min() {
             }, e.encodeDelimited = function(i, p) {
               return this.encode(i, p).ldelim();
             }, e.decode = function(i, p) {
-              i instanceof h || (i = h.create(i));
+              i instanceof f || (i = f.create(i));
               for (var m = p === void 0 ? i.len : i.pos + p, _ = new s.onnx.TensorShapeProto.Dimension(); i.pos < m; ) {
                 var b = i.uint32();
                 switch (b >>> 3) {
@@ -4208,7 +4182,7 @@ function requireOrtWeb_min() {
               }
               return _;
             }, e.decodeDelimited = function(i) {
-              return i instanceof h || (i = new h(i)), this.decode(i, i.uint32());
+              return i instanceof f || (i = new f(i)), this.decode(i, i.uint32());
             }, e.verify = function(i) {
               if (typeof i != "object" || i === null) return "object expected";
               var p = {};
@@ -4230,7 +4204,7 @@ function requireOrtWeb_min() {
               return this.constructor.toObject(this, a.util.toJSONOptions);
             }, e;
           })(), t;
-        })(), f.TypeProto = (function() {
+        })(), h.TypeProto = (function() {
           function t(r) {
             if (r) for (var i = Object.keys(r), p = 0; p < i.length; ++p) r[i[p]] != null && (this[i[p]] = r[i[p]]);
           }
@@ -4242,7 +4216,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(r, i) {
             return this.encode(r, i).ldelim();
           }, t.decode = function(r, i) {
-            r instanceof h || (r = h.create(r));
+            r instanceof f || (r = f.create(r));
             for (var p = i === void 0 ? r.len : r.pos + i, m = new s.onnx.TypeProto(); r.pos < p; ) {
               var _ = r.uint32();
               switch (_ >>> 3) {
@@ -4258,7 +4232,7 @@ function requireOrtWeb_min() {
             }
             return m;
           }, t.decodeDelimited = function(r) {
-            return r instanceof h || (r = new h(r)), this.decode(r, r.uint32());
+            return r instanceof f || (r = new f(r)), this.decode(r, r.uint32());
           }, t.verify = function(r) {
             if (typeof r != "object" || r === null) return "object expected";
             if (r.tensorType != null && r.hasOwnProperty("tensorType")) {
@@ -4291,7 +4265,7 @@ function requireOrtWeb_min() {
             }, r.encodeDelimited = function(i, p) {
               return this.encode(i, p).ldelim();
             }, r.decode = function(i, p) {
-              i instanceof h || (i = h.create(i));
+              i instanceof f || (i = f.create(i));
               for (var m = p === void 0 ? i.len : i.pos + p, _ = new s.onnx.TypeProto.Tensor(); i.pos < m; ) {
                 var b = i.uint32();
                 switch (b >>> 3) {
@@ -4307,7 +4281,7 @@ function requireOrtWeb_min() {
               }
               return _;
             }, r.decodeDelimited = function(i) {
-              return i instanceof h || (i = new h(i)), this.decode(i, i.uint32());
+              return i instanceof f || (i = new f(i)), this.decode(i, i.uint32());
             }, r.verify = function(i) {
               if (typeof i != "object" || i === null) return "object expected";
               if (i.elemType != null && i.hasOwnProperty("elemType") && !c.isInteger(i.elemType)) return "elemType: integer expected";
@@ -4332,7 +4306,7 @@ function requireOrtWeb_min() {
               return this.constructor.toObject(this, a.util.toJSONOptions);
             }, r;
           })(), t;
-        })(), f.OperatorSetIdProto = (function() {
+        })(), h.OperatorSetIdProto = (function() {
           function t(e) {
             if (e) for (var r = Object.keys(e), i = 0; i < r.length; ++i) e[r[i]] != null && (this[r[i]] = e[r[i]]);
           }
@@ -4343,7 +4317,7 @@ function requireOrtWeb_min() {
           }, t.encodeDelimited = function(e, r) {
             return this.encode(e, r).ldelim();
           }, t.decode = function(e, r) {
-            e instanceof h || (e = h.create(e));
+            e instanceof f || (e = f.create(e));
             for (var i = r === void 0 ? e.len : e.pos + r, p = new s.onnx.OperatorSetIdProto(); e.pos < i; ) {
               var m = e.uint32();
               switch (m >>> 3) {
@@ -4359,7 +4333,7 @@ function requireOrtWeb_min() {
             }
             return p;
           }, t.decodeDelimited = function(e) {
-            return e instanceof h || (e = new h(e)), this.decode(e, e.uint32());
+            return e instanceof f || (e = new f(e)), this.decode(e, e.uint32());
           }, t.verify = function(e) {
             return typeof e != "object" || e === null ? "object expected" : e.domain != null && e.hasOwnProperty("domain") && !c.isString(e.domain) ? "domain: string expected" : e.version != null && e.hasOwnProperty("version") && !(c.isInteger(e.version) || e.version && c.isInteger(e.version.low) && c.isInteger(e.version.high)) ? "version: integer|Long expected" : null;
           }, t.fromObject = function(e) {
@@ -4377,7 +4351,7 @@ function requireOrtWeb_min() {
           }, t.prototype.toJSON = function() {
             return this.constructor.toObject(this, a.util.toJSONOptions);
           }, t;
-        })(), f), d.exports = s;
+        })(), h), d.exports = s;
       }, 2100: (d, n, o) => {
         d.exports = o(9482);
       }, 9482: (d, n, o) => {
@@ -4388,8 +4362,8 @@ function requireOrtWeb_min() {
         u.build = "minimal", u.Writer = o(1173), u.BufferWriter = o(3155), u.Reader = o(1408), u.BufferReader = o(593), u.util = o(9693), u.rpc = o(5994), u.roots = o(5054), u.configure = l, l();
       }, 1408: (d, n, o) => {
         d.exports = g;
-        var u, l = o(9693), f = l.LongBits, a = l.utf8;
-        function h(p, m) {
+        var u, l = o(9693), h = l.LongBits, a = l.utf8;
+        function f(p, m) {
           return RangeError("index out of range: " + p.pos + " + " + (m || 1) + " > " + p.len);
         }
         function g(p) {
@@ -4409,10 +4383,10 @@ function requireOrtWeb_min() {
           } : s;
         };
         function e() {
-          var p = new f(0, 0), m = 0;
+          var p = new h(0, 0), m = 0;
           if (!(this.len - this.pos > 4)) {
             for (; m < 3; ++m) {
-              if (this.pos >= this.len) throw h(this);
+              if (this.pos >= this.len) throw f(this);
               if (p.lo = (p.lo | (127 & this.buf[this.pos]) << 7 * m) >>> 0, this.buf[this.pos++] < 128) return p;
             }
             return p.lo = (p.lo | (127 & this.buf[this.pos++]) << 7 * m) >>> 0, p;
@@ -4422,7 +4396,7 @@ function requireOrtWeb_min() {
           if (m = 0, this.len - this.pos > 4) {
             for (; m < 5; ++m) if (p.hi = (p.hi | (127 & this.buf[this.pos]) << 7 * m + 3) >>> 0, this.buf[this.pos++] < 128) return p;
           } else for (; m < 5; ++m) {
-            if (this.pos >= this.len) throw h(this);
+            if (this.pos >= this.len) throw f(this);
             if (p.hi = (p.hi | (127 & this.buf[this.pos]) << 7 * m + 3) >>> 0, this.buf[this.pos++] < 128) return p;
           }
           throw Error("invalid varint encoding");
@@ -4431,12 +4405,12 @@ function requireOrtWeb_min() {
           return (p[m - 4] | p[m - 3] << 8 | p[m - 2] << 16 | p[m - 1] << 24) >>> 0;
         }
         function i() {
-          if (this.pos + 8 > this.len) throw h(this, 8);
-          return new f(r(this.buf, this.pos += 4), r(this.buf, this.pos += 4));
+          if (this.pos + 8 > this.len) throw f(this, 8);
+          return new h(r(this.buf, this.pos += 4), r(this.buf, this.pos += 4));
         }
         g.create = t(), g.prototype._slice = l.Array.prototype.subarray || l.Array.prototype.slice, g.prototype.uint32 = (c = 4294967295, function() {
           if (c = (127 & this.buf[this.pos]) >>> 0, this.buf[this.pos++] < 128 || (c = (c | (127 & this.buf[this.pos]) << 7) >>> 0, this.buf[this.pos++] < 128) || (c = (c | (127 & this.buf[this.pos]) << 14) >>> 0, this.buf[this.pos++] < 128) || (c = (c | (127 & this.buf[this.pos]) << 21) >>> 0, this.buf[this.pos++] < 128) || (c = (c | (15 & this.buf[this.pos]) << 28) >>> 0, this.buf[this.pos++] < 128)) return c;
-          if ((this.pos += 5) > this.len) throw this.pos = this.len, h(this, 10);
+          if ((this.pos += 5) > this.len) throw this.pos = this.len, f(this, 10);
           return c;
         }), g.prototype.int32 = function() {
           return 0 | this.uint32();
@@ -4446,32 +4420,32 @@ function requireOrtWeb_min() {
         }, g.prototype.bool = function() {
           return this.uint32() !== 0;
         }, g.prototype.fixed32 = function() {
-          if (this.pos + 4 > this.len) throw h(this, 4);
+          if (this.pos + 4 > this.len) throw f(this, 4);
           return r(this.buf, this.pos += 4);
         }, g.prototype.sfixed32 = function() {
-          if (this.pos + 4 > this.len) throw h(this, 4);
+          if (this.pos + 4 > this.len) throw f(this, 4);
           return 0 | r(this.buf, this.pos += 4);
         }, g.prototype.float = function() {
-          if (this.pos + 4 > this.len) throw h(this, 4);
+          if (this.pos + 4 > this.len) throw f(this, 4);
           var p = l.float.readFloatLE(this.buf, this.pos);
           return this.pos += 4, p;
         }, g.prototype.double = function() {
-          if (this.pos + 8 > this.len) throw h(this, 4);
+          if (this.pos + 8 > this.len) throw f(this, 4);
           var p = l.float.readDoubleLE(this.buf, this.pos);
           return this.pos += 8, p;
         }, g.prototype.bytes = function() {
           var p = this.uint32(), m = this.pos, _ = this.pos + p;
-          if (_ > this.len) throw h(this, p);
+          if (_ > this.len) throw f(this, p);
           return this.pos += p, Array.isArray(this.buf) ? this.buf.slice(m, _) : m === _ ? new this.buf.constructor(0) : this._slice.call(this.buf, m, _);
         }, g.prototype.string = function() {
           var p = this.bytes();
           return a.read(p, 0, p.length);
         }, g.prototype.skip = function(p) {
           if (typeof p == "number") {
-            if (this.pos + p > this.len) throw h(this, p);
+            if (this.pos + p > this.len) throw f(this, p);
             this.pos += p;
           } else do
-            if (this.pos >= this.len) throw h(this);
+            if (this.pos >= this.len) throw f(this);
           while (128 & this.buf[this.pos++]);
           return this;
         }, g.prototype.skipType = function(p) {
@@ -4511,19 +4485,19 @@ function requireOrtWeb_min() {
           } });
         };
       }, 593: (d, n, o) => {
-        d.exports = f;
+        d.exports = h;
         var u = o(1408);
-        (f.prototype = Object.create(u.prototype)).constructor = f;
+        (h.prototype = Object.create(u.prototype)).constructor = h;
         var l = o(9693);
-        function f(a) {
+        function h(a) {
           u.call(this, a);
         }
-        f._configure = function() {
-          l.Buffer && (f.prototype._slice = l.Buffer.prototype.slice);
-        }, f.prototype.string = function() {
+        h._configure = function() {
+          l.Buffer && (h.prototype._slice = l.Buffer.prototype.slice);
+        }, h.prototype.string = function() {
           var a = this.uint32();
           return this.buf.utf8Slice ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + a, this.len)) : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + a, this.len));
-        }, f._configure();
+        }, h._configure();
       }, 5054: (d) => {
         d.exports = {};
       }, 5994: (d, n, o) => {
@@ -4531,16 +4505,16 @@ function requireOrtWeb_min() {
       }, 7948: (d, n, o) => {
         d.exports = l;
         var u = o(9693);
-        function l(f, a, h) {
-          if (typeof f != "function") throw TypeError("rpcImpl must be a function");
-          u.EventEmitter.call(this), this.rpcImpl = f, this.requestDelimited = !!a, this.responseDelimited = !!h;
+        function l(h, a, f) {
+          if (typeof h != "function") throw TypeError("rpcImpl must be a function");
+          u.EventEmitter.call(this), this.rpcImpl = h, this.requestDelimited = !!a, this.responseDelimited = !!f;
         }
-        (l.prototype = Object.create(u.EventEmitter.prototype)).constructor = l, l.prototype.rpcCall = function f(a, h, g, c, s) {
+        (l.prototype = Object.create(u.EventEmitter.prototype)).constructor = l, l.prototype.rpcCall = function h(a, f, g, c, s) {
           if (!c) throw TypeError("request must be specified");
           var t = this;
-          if (!s) return u.asPromise(f, t, a, h, g, c);
+          if (!s) return u.asPromise(h, t, a, f, g, c);
           if (t.rpcImpl) try {
-            return t.rpcImpl(a, h[t.requestDelimited ? "encodeDelimited" : "encode"](c).finish(), (function(e, r) {
+            return t.rpcImpl(a, f[t.requestDelimited ? "encodeDelimited" : "encode"](c).finish(), (function(e, r) {
               if (e) return t.emit("error", e, a), s(e);
               if (r !== null) {
                 if (!(r instanceof g)) try {
@@ -4560,8 +4534,8 @@ function requireOrtWeb_min() {
           else setTimeout((function() {
             s(Error("already ended"));
           }), 0);
-        }, l.prototype.end = function(f) {
-          return this.rpcImpl && (f || this.rpcImpl(null, null, null), this.rpcImpl = null, this.emit("end").off()), this;
+        }, l.prototype.end = function(h) {
+          return this.rpcImpl && (h || this.rpcImpl(null, null, null), this.rpcImpl = null, this.emit("end").off()), this;
         };
       }, 1945: (d, n, o) => {
         d.exports = l;
@@ -4569,17 +4543,17 @@ function requireOrtWeb_min() {
         function l(g, c) {
           this.lo = g >>> 0, this.hi = c >>> 0;
         }
-        var f = l.zero = new l(0, 0);
-        f.toNumber = function() {
+        var h = l.zero = new l(0, 0);
+        h.toNumber = function() {
           return 0;
-        }, f.zzEncode = f.zzDecode = function() {
+        }, h.zzEncode = h.zzDecode = function() {
           return this;
-        }, f.length = function() {
+        }, h.length = function() {
           return 1;
         };
         var a = l.zeroHash = "\0\0\0\0\0\0\0\0";
         l.fromNumber = function(g) {
-          if (g === 0) return f;
+          if (g === 0) return h;
           var c = g < 0;
           c && (g = -g);
           var s = g >>> 0, t = (g - s) / 4294967296 >>> 0;
@@ -4590,7 +4564,7 @@ function requireOrtWeb_min() {
             if (!u.Long) return l.fromNumber(parseInt(g, 10));
             g = u.Long.fromString(g);
           }
-          return g.low || g.high ? new l(g.low >>> 0, g.high >>> 0) : f;
+          return g.low || g.high ? new l(g.low >>> 0, g.high >>> 0) : h;
         }, l.prototype.toNumber = function(g) {
           if (!g && this.hi >>> 31) {
             var c = 1 + ~this.lo >>> 0, s = ~this.hi >>> 0;
@@ -4600,9 +4574,9 @@ function requireOrtWeb_min() {
         }, l.prototype.toLong = function(g) {
           return u.Long ? new u.Long(0 | this.lo, 0 | this.hi, !!g) : { low: 0 | this.lo, high: 0 | this.hi, unsigned: !!g };
         };
-        var h = String.prototype.charCodeAt;
+        var f = String.prototype.charCodeAt;
         l.fromHash = function(g) {
-          return g === a ? f : new l((h.call(g, 0) | h.call(g, 1) << 8 | h.call(g, 2) << 16 | h.call(g, 3) << 24) >>> 0, (h.call(g, 4) | h.call(g, 5) << 8 | h.call(g, 6) << 16 | h.call(g, 7) << 24) >>> 0);
+          return g === a ? h : new l((f.call(g, 0) | f.call(g, 1) << 8 | f.call(g, 2) << 16 | f.call(g, 3) << 24) >>> 0, (f.call(g, 4) | f.call(g, 5) << 8 | f.call(g, 6) << 16 | f.call(g, 7) << 24) >>> 0);
         }, l.prototype.toHash = function() {
           return String.fromCharCode(255 & this.lo, this.lo >>> 8 & 255, this.lo >>> 16 & 255, this.lo >>> 24, 255 & this.hi, this.hi >>> 8 & 255, this.hi >>> 16 & 255, this.hi >>> 24);
         }, l.prototype.zzEncode = function() {
@@ -4617,22 +4591,22 @@ function requireOrtWeb_min() {
         };
       }, 9693: function(d, n, o) {
         var u = n;
-        function l(a, h, g) {
-          for (var c = Object.keys(h), s = 0; s < c.length; ++s) a[c[s]] !== void 0 && g || (a[c[s]] = h[c[s]]);
+        function l(a, f, g) {
+          for (var c = Object.keys(f), s = 0; s < c.length; ++s) a[c[s]] !== void 0 && g || (a[c[s]] = f[c[s]]);
           return a;
         }
-        function f(a) {
-          function h(g, c) {
-            if (!(this instanceof h)) return new h(g, c);
+        function h(a) {
+          function f(g, c) {
+            if (!(this instanceof f)) return new f(g, c);
             Object.defineProperty(this, "message", { get: function() {
               return g;
-            } }), Error.captureStackTrace ? Error.captureStackTrace(this, h) : Object.defineProperty(this, "stack", { value: new Error().stack || "" }), c && l(this, c);
+            } }), Error.captureStackTrace ? Error.captureStackTrace(this, f) : Object.defineProperty(this, "stack", { value: new Error().stack || "" }), c && l(this, c);
           }
-          return (h.prototype = Object.create(Error.prototype)).constructor = h, Object.defineProperty(h.prototype, "name", { get: function() {
+          return (f.prototype = Object.create(Error.prototype)).constructor = f, Object.defineProperty(f.prototype, "name", { get: function() {
             return a;
-          } }), h.prototype.toString = function() {
+          } }), f.prototype.toString = function() {
             return this.name + ": " + this.message;
-          }, h;
+          }, f;
         }
         u.asPromise = o(4537), u.base64 = o(7419), u.EventEmitter = o(9211), u.float = o(945), u.inquire = o(7199), u.utf8 = o(4997), u.pool = o(6662), u.LongBits = o(1945), u.isNode = !!(o.g !== void 0 && o.g && o.g.process && o.g.process.versions && o.g.process.versions.node), u.global = u.isNode && o.g || typeof window < "u" && window || typeof self < "u" && self || this, u.emptyArray = Object.freeze ? Object.freeze([]) : [], u.emptyObject = Object.freeze ? Object.freeze({}) : {}, u.isInteger = Number.isInteger || function(a) {
           return typeof a == "number" && isFinite(a) && Math.floor(a) === a;
@@ -4640,9 +4614,9 @@ function requireOrtWeb_min() {
           return typeof a == "string" || a instanceof String;
         }, u.isObject = function(a) {
           return a && typeof a == "object";
-        }, u.isset = u.isSet = function(a, h) {
-          var g = a[h];
-          return !(g == null || !a.hasOwnProperty(h)) && (typeof g != "object" || (Array.isArray(g) ? g.length : Object.keys(g).length) > 0);
+        }, u.isset = u.isSet = function(a, f) {
+          var g = a[f];
+          return !(g == null || !a.hasOwnProperty(f)) && (typeof g != "object" || (Array.isArray(g) ? g.length : Object.keys(g).length) > 0);
         }, u.Buffer = (function() {
           try {
             var a = u.inquire("buffer").Buffer;
@@ -4654,31 +4628,31 @@ function requireOrtWeb_min() {
           return typeof a == "number" ? u.Buffer ? u._Buffer_allocUnsafe(a) : new u.Array(a) : u.Buffer ? u._Buffer_from(a) : typeof Uint8Array > "u" ? a : new Uint8Array(a);
         }, u.Array = typeof Uint8Array < "u" ? Uint8Array : Array, u.Long = u.global.dcodeIO && u.global.dcodeIO.Long || u.global.Long || u.inquire("long"), u.key2Re = /^true|false|0|1$/, u.key32Re = /^-?(?:0|[1-9][0-9]*)$/, u.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/, u.longToHash = function(a) {
           return a ? u.LongBits.from(a).toHash() : u.LongBits.zeroHash;
-        }, u.longFromHash = function(a, h) {
+        }, u.longFromHash = function(a, f) {
           var g = u.LongBits.fromHash(a);
-          return u.Long ? u.Long.fromBits(g.lo, g.hi, h) : g.toNumber(!!h);
+          return u.Long ? u.Long.fromBits(g.lo, g.hi, f) : g.toNumber(!!f);
         }, u.merge = l, u.lcFirst = function(a) {
           return a.charAt(0).toLowerCase() + a.substring(1);
-        }, u.newError = f, u.ProtocolError = f("ProtocolError"), u.oneOfGetter = function(a) {
-          for (var h = {}, g = 0; g < a.length; ++g) h[a[g]] = 1;
+        }, u.newError = h, u.ProtocolError = h("ProtocolError"), u.oneOfGetter = function(a) {
+          for (var f = {}, g = 0; g < a.length; ++g) f[a[g]] = 1;
           return function() {
-            for (var c = Object.keys(this), s = c.length - 1; s > -1; --s) if (h[c[s]] === 1 && this[c[s]] !== void 0 && this[c[s]] !== null) return c[s];
+            for (var c = Object.keys(this), s = c.length - 1; s > -1; --s) if (f[c[s]] === 1 && this[c[s]] !== void 0 && this[c[s]] !== null) return c[s];
           };
         }, u.oneOfSetter = function(a) {
-          return function(h) {
-            for (var g = 0; g < a.length; ++g) a[g] !== h && delete this[a[g]];
+          return function(f) {
+            for (var g = 0; g < a.length; ++g) a[g] !== f && delete this[a[g]];
           };
         }, u.toJSONOptions = { longs: String, enums: String, bytes: String, json: !0 }, u._configure = function() {
           var a = u.Buffer;
-          a ? (u._Buffer_from = a.from !== Uint8Array.from && a.from || function(h, g) {
-            return new a(h, g);
-          }, u._Buffer_allocUnsafe = a.allocUnsafe || function(h) {
-            return new a(h);
+          a ? (u._Buffer_from = a.from !== Uint8Array.from && a.from || function(f, g) {
+            return new a(f, g);
+          }, u._Buffer_allocUnsafe = a.allocUnsafe || function(f) {
+            return new a(f);
           }) : u._Buffer_from = u._Buffer_allocUnsafe = null;
         };
       }, 1173: (d, n, o) => {
         d.exports = t;
-        var u, l = o(9693), f = l.LongBits, a = l.base64, h = l.utf8;
+        var u, l = o(9693), h = l.LongBits, a = l.base64, f = l.utf8;
         function g(b, y, w) {
           this.fn = b, this.len = y, this.next = void 0, this.val = w;
         }
@@ -4723,21 +4697,21 @@ function requireOrtWeb_min() {
         }, t.prototype.uint32 = function(b) {
           return this.len += (this.tail = this.tail.next = new i((b >>>= 0) < 128 ? 1 : b < 16384 ? 2 : b < 2097152 ? 3 : b < 268435456 ? 4 : 5, b)).len, this;
         }, t.prototype.int32 = function(b) {
-          return b < 0 ? this._push(p, 10, f.fromNumber(b)) : this.uint32(b);
+          return b < 0 ? this._push(p, 10, h.fromNumber(b)) : this.uint32(b);
         }, t.prototype.sint32 = function(b) {
           return this.uint32((b << 1 ^ b >> 31) >>> 0);
         }, t.prototype.uint64 = function(b) {
-          var y = f.from(b);
+          var y = h.from(b);
           return this._push(p, y.length(), y);
         }, t.prototype.int64 = t.prototype.uint64, t.prototype.sint64 = function(b) {
-          var y = f.from(b).zzEncode();
+          var y = h.from(b).zzEncode();
           return this._push(p, y.length(), y);
         }, t.prototype.bool = function(b) {
           return this._push(r, 1, b ? 1 : 0);
         }, t.prototype.fixed32 = function(b) {
           return this._push(m, 4, b >>> 0);
         }, t.prototype.sfixed32 = t.prototype.fixed32, t.prototype.fixed64 = function(b) {
-          var y = f.from(b);
+          var y = h.from(b);
           return this._push(m, 4, y.lo)._push(m, 4, y.hi);
         }, t.prototype.sfixed64 = t.prototype.fixed64, t.prototype.float = function(b) {
           return this._push(l.float.writeFloatLE, 4, b);
@@ -4758,8 +4732,8 @@ function requireOrtWeb_min() {
           }
           return this.uint32(y)._push(_, y, b);
         }, t.prototype.string = function(b) {
-          var y = h.length(b);
-          return y ? this.uint32(y)._push(h.write, y, b) : this._push(r, 1, 0);
+          var y = f.length(b);
+          return y ? this.uint32(y)._push(f.write, y, b) : this._push(r, 1, 0);
         }, t.prototype.fork = function() {
           return this.states = new s(this), this.head = this.tail = new g(c, 0, 0), this.len = 0, this;
         }, t.prototype.reset = function() {
@@ -4774,80 +4748,80 @@ function requireOrtWeb_min() {
           u = b, t.create = e(), u._configure();
         };
       }, 3155: (d, n, o) => {
-        d.exports = f;
+        d.exports = h;
         var u = o(1173);
-        (f.prototype = Object.create(u.prototype)).constructor = f;
+        (h.prototype = Object.create(u.prototype)).constructor = h;
         var l = o(9693);
-        function f() {
+        function h() {
           u.call(this);
         }
-        function a(h, g, c) {
-          h.length < 40 ? l.utf8.write(h, g, c) : g.utf8Write ? g.utf8Write(h, c) : g.write(h, c);
+        function a(f, g, c) {
+          f.length < 40 ? l.utf8.write(f, g, c) : g.utf8Write ? g.utf8Write(f, c) : g.write(f, c);
         }
-        f._configure = function() {
-          f.alloc = l._Buffer_allocUnsafe, f.writeBytesBuffer = l.Buffer && l.Buffer.prototype instanceof Uint8Array && l.Buffer.prototype.set.name === "set" ? function(h, g, c) {
-            g.set(h, c);
-          } : function(h, g, c) {
-            if (h.copy) h.copy(g, c, 0, h.length);
-            else for (var s = 0; s < h.length; ) g[c++] = h[s++];
+        h._configure = function() {
+          h.alloc = l._Buffer_allocUnsafe, h.writeBytesBuffer = l.Buffer && l.Buffer.prototype instanceof Uint8Array && l.Buffer.prototype.set.name === "set" ? function(f, g, c) {
+            g.set(f, c);
+          } : function(f, g, c) {
+            if (f.copy) f.copy(g, c, 0, f.length);
+            else for (var s = 0; s < f.length; ) g[c++] = f[s++];
           };
-        }, f.prototype.bytes = function(h) {
-          l.isString(h) && (h = l._Buffer_from(h, "base64"));
-          var g = h.length >>> 0;
-          return this.uint32(g), g && this._push(f.writeBytesBuffer, g, h), this;
-        }, f.prototype.string = function(h) {
-          var g = l.Buffer.byteLength(h);
-          return this.uint32(g), g && this._push(a, g, h), this;
-        }, f._configure();
+        }, h.prototype.bytes = function(f) {
+          l.isString(f) && (f = l._Buffer_from(f, "base64"));
+          var g = f.length >>> 0;
+          return this.uint32(g), g && this._push(h.writeBytesBuffer, g, f), this;
+        }, h.prototype.string = function(f) {
+          var g = l.Buffer.byteLength(f);
+          return this.uint32(g), g && this._push(a, g, f), this;
+        }, h._configure();
       }, 7714: (d, n, o) => {
         n.R = void 0;
         const u = o(6919), l = o(7448);
         n.R = new class {
           async init() {
           }
-          async createSessionHandler(f, a) {
-            const h = new u.Session(a);
-            return await h.loadModel(f), new l.OnnxjsSessionHandler(h);
+          async createSessionHandler(h, a) {
+            const f = new u.Session(a);
+            return await f.loadModel(h), new l.OnnxjsSessionHandler(f);
           }
         }();
       }, 4200: (d, n, o) => {
         n.c8 = n.rX = void 0;
-        const u = o(1670), l = o(5381), f = o(2157), a = o(2306);
+        const u = o(1670), l = o(5381), h = o(2157), a = o(2306);
         n.rX = () => {
           if ((typeof u.env.wasm.initTimeout != "number" || u.env.wasm.initTimeout < 0) && (u.env.wasm.initTimeout = 0), typeof u.env.wasm.simd != "boolean" && (u.env.wasm.simd = !0), typeof u.env.wasm.proxy != "boolean" && (u.env.wasm.proxy = !1), typeof u.env.wasm.numThreads != "number" || !Number.isInteger(u.env.wasm.numThreads) || u.env.wasm.numThreads <= 0) {
-            const h = typeof navigator > "u" ? (0, l.cpus)().length : navigator.hardwareConcurrency;
-            u.env.wasm.numThreads = Math.min(4, Math.ceil((h || 1) / 2));
+            const f = typeof navigator > "u" ? (0, l.cpus)().length : navigator.hardwareConcurrency;
+            u.env.wasm.numThreads = Math.min(4, Math.ceil((f || 1) / 2));
           }
         }, n.c8 = new class {
           async init() {
-            (0, n.rX)(), await (0, f.initWasm)();
+            (0, n.rX)(), await (0, h.initWasm)();
           }
-          async createSessionHandler(h, g) {
+          async createSessionHandler(f, g) {
             const c = new a.OnnxruntimeWebAssemblySessionHandler();
-            return await c.loadModel(h, g), Promise.resolve(c);
+            return await c.loadModel(f, g), Promise.resolve(c);
           }
         }();
       }, 6018: function(d, n, o) {
-        var u = this && this.__createBinding || (Object.create ? function(a, h, g, c) {
+        var u = this && this.__createBinding || (Object.create ? function(a, f, g, c) {
           c === void 0 && (c = g);
-          var s = Object.getOwnPropertyDescriptor(h, g);
-          s && !("get" in s ? !h.__esModule : s.writable || s.configurable) || (s = { enumerable: !0, get: function() {
-            return h[g];
+          var s = Object.getOwnPropertyDescriptor(f, g);
+          s && !("get" in s ? !f.__esModule : s.writable || s.configurable) || (s = { enumerable: !0, get: function() {
+            return f[g];
           } }), Object.defineProperty(a, c, s);
-        } : function(a, h, g, c) {
-          c === void 0 && (c = g), a[c] = h[g];
-        }), l = this && this.__exportStar || function(a, h) {
-          for (var g in a) g === "default" || Object.prototype.hasOwnProperty.call(h, g) || u(h, a, g);
+        } : function(a, f, g, c) {
+          c === void 0 && (c = g), a[c] = f[g];
+        }), l = this && this.__exportStar || function(a, f) {
+          for (var g in a) g === "default" || Object.prototype.hasOwnProperty.call(f, g) || u(f, a, g);
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), l(o(1670), n);
-        const f = o(1670);
+        const h = o(1670);
         {
           const a = o(7714).R;
-          (0, f.registerBackend)("webgl", a, -10);
+          (0, h.registerBackend)("webgl", a, -10);
         }
         {
           const a = o(4200).c8;
-          (0, f.registerBackend)("cpu", a, 10), (0, f.registerBackend)("wasm", a, 10), (0, f.registerBackend)("xnnpack", a, 9);
+          (0, h.registerBackend)("cpu", a, 10), (0, h.registerBackend)("wasm", a, 10), (0, h.registerBackend)("xnnpack", a, 9);
         }
       }, 246: (d, n) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createAttributeWithCacheKey = void 0;
@@ -4862,12 +4836,12 @@ function requireOrtWeb_min() {
         n.createAttributeWithCacheKey = (u) => new o(u);
       }, 7778: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Attribute = void 0;
-        const u = o(1446), l = o(9395), f = o(9162), a = o(2517);
-        var h = l.onnxruntime.experimental.fbs;
+        const u = o(1446), l = o(9395), h = o(9162), a = o(2517);
+        var f = l.onnxruntime.experimental.fbs;
         class g {
           constructor(s) {
             if (this._attributes = /* @__PURE__ */ new Map(), s != null) {
-              for (const t of s) t instanceof u.onnx.AttributeProto ? this._attributes.set(t.name, [g.getValue(t), g.getType(t)]) : t instanceof h.Attribute && this._attributes.set(t.name(), [g.getValue(t), g.getType(t)]);
+              for (const t of s) t instanceof u.onnx.AttributeProto ? this._attributes.set(t.name, [g.getValue(t), g.getType(t)]) : t instanceof f.Attribute && this._attributes.set(t.name(), [g.getValue(t), g.getType(t)]);
               if (this._attributes.size < s.length) throw new Error("duplicated attribute names");
             }
           }
@@ -4946,10 +4920,10 @@ function requireOrtWeb_min() {
               }
               return i;
             }
-            if (t === u.onnx.AttributeProto.AttributeType.TENSOR) return s instanceof u.onnx.AttributeProto ? f.Tensor.fromProto(e) : f.Tensor.fromOrtTensor(e);
+            if (t === u.onnx.AttributeProto.AttributeType.TENSOR) return s instanceof u.onnx.AttributeProto ? h.Tensor.fromProto(e) : h.Tensor.fromOrtTensor(e);
             if (t === u.onnx.AttributeProto.AttributeType.TENSORS) {
-              if (s instanceof u.onnx.AttributeProto) return e.map(((r) => f.Tensor.fromProto(r)));
-              if (s instanceof h.Attribute) return e.map(((r) => f.Tensor.fromOrtTensor(r)));
+              if (s instanceof u.onnx.AttributeProto) return e.map(((r) => h.Tensor.fromProto(r)));
+              if (s instanceof f.Attribute) return e.map(((r) => h.Tensor.fromOrtTensor(r)));
             }
             if (t === u.onnx.AttributeProto.AttributeType.STRING && s instanceof u.onnx.AttributeProto) {
               const r = e;
@@ -4988,35 +4962,35 @@ function requireOrtWeb_min() {
           }
           static getValueNoCheckFromOrtFormat(s) {
             switch (s.type()) {
-              case h.AttributeType.FLOAT:
+              case f.AttributeType.FLOAT:
                 return s.f();
-              case h.AttributeType.INT:
+              case f.AttributeType.INT:
                 return s.i();
-              case h.AttributeType.STRING:
+              case f.AttributeType.STRING:
                 return s.s();
-              case h.AttributeType.TENSOR:
+              case f.AttributeType.TENSOR:
                 return s.t();
-              case h.AttributeType.GRAPH:
+              case f.AttributeType.GRAPH:
                 return s.g();
-              case h.AttributeType.FLOATS:
+              case f.AttributeType.FLOATS:
                 return s.floatsArray();
-              case h.AttributeType.INTS: {
+              case f.AttributeType.INTS: {
                 const t = [];
                 for (let e = 0; e < s.intsLength(); e++) t.push(s.ints(e));
                 return t;
               }
-              case h.AttributeType.STRINGS: {
+              case f.AttributeType.STRINGS: {
                 const t = [];
                 for (let e = 0; e < s.stringsLength(); e++) t.push(s.strings(e));
                 return t;
               }
-              case h.AttributeType.TENSORS: {
+              case f.AttributeType.TENSORS: {
                 const t = [];
                 for (let e = 0; e < s.tensorsLength(); e++) t.push(s.tensors(e));
                 return t;
               }
               default:
-                throw new Error(`unsupported attribute type: ${h.AttributeType[s.type()]}`);
+                throw new Error(`unsupported attribute type: ${f.AttributeType[s.type()]}`);
             }
           }
         }
@@ -5024,25 +4998,25 @@ function requireOrtWeb_min() {
       }, 7091: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.resolveBackend = n.backend = void 0;
         const u = o(5038), l = /* @__PURE__ */ new Map();
-        async function f(a) {
-          const h = n.backend;
-          if (h[a] !== void 0 && (function(g) {
+        async function h(a) {
+          const f = n.backend;
+          if (f[a] !== void 0 && (function(g) {
             const c = g;
             return "initialize" in c && typeof c.initialize == "function" && "createSessionHandler" in c && typeof c.createSessionHandler == "function" && "dispose" in c && typeof c.dispose == "function";
-          })(h[a])) {
-            const g = h[a];
+          })(f[a])) {
+            const g = f[a];
             let c = g.initialize();
             if (typeof c == "object" && "then" in c && (c = await c), c) return l.set(a, g), g;
           }
         }
-        n.backend = { webgl: new u.WebGLBackend() }, n.resolveBackend = async function a(h) {
-          if (!h) return a(["webgl"]);
+        n.backend = { webgl: new u.WebGLBackend() }, n.resolveBackend = async function a(f) {
+          if (!f) return a(["webgl"]);
           {
-            const g = typeof h == "string" ? [h] : h;
+            const g = typeof f == "string" ? [f] : f;
             for (const c of g) {
               const s = l.get(c);
               if (s) return s;
-              const t = await f(c);
+              const t = await h(c);
               if (t) return t;
             }
           }
@@ -5050,47 +5024,47 @@ function requireOrtWeb_min() {
         };
       }, 5038: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.WebGLBackend = void 0;
-        const u = o(1670), l = o(6231), f = o(6416), a = o(7305);
+        const u = o(1670), l = o(6231), h = o(6416), a = o(7305);
         n.WebGLBackend = class {
           get contextId() {
             return u.env.webgl.contextId;
           }
-          set contextId(h) {
-            u.env.webgl.contextId = h;
+          set contextId(f) {
+            u.env.webgl.contextId = f;
           }
           get matmulMaxBatchSize() {
             return u.env.webgl.matmulMaxBatchSize;
           }
-          set matmulMaxBatchSize(h) {
-            u.env.webgl.matmulMaxBatchSize = h;
+          set matmulMaxBatchSize(f) {
+            u.env.webgl.matmulMaxBatchSize = f;
           }
           get textureCacheMode() {
             return u.env.webgl.textureCacheMode;
           }
-          set textureCacheMode(h) {
-            u.env.webgl.textureCacheMode = h;
+          set textureCacheMode(f) {
+            u.env.webgl.textureCacheMode = f;
           }
           get pack() {
             return u.env.webgl.pack;
           }
-          set pack(h) {
-            u.env.webgl.pack = h;
+          set pack(f) {
+            u.env.webgl.pack = f;
           }
           get async() {
             return u.env.webgl.async;
           }
-          set async(h) {
-            u.env.webgl.async = h;
+          set async(f) {
+            u.env.webgl.async = f;
           }
           initialize() {
             try {
               return this.glContext = (0, a.createWebGLContext)(this.contextId), typeof this.matmulMaxBatchSize != "number" && (this.matmulMaxBatchSize = 16), typeof this.textureCacheMode != "string" && (this.textureCacheMode = "full"), typeof this.pack != "boolean" && (this.pack = !1), typeof this.async != "boolean" && (this.async = !1), l.Logger.setWithEnv(u.env), l.Logger.verbose("WebGLBackend", `Created WebGLContext: ${typeof this.glContext} with matmulMaxBatchSize: ${this.matmulMaxBatchSize}; textureCacheMode: ${this.textureCacheMode}; pack: ${this.pack}; async: ${this.async}.`), !0;
-            } catch (h) {
-              return l.Logger.warning("WebGLBackend", `Unable to initialize WebGLBackend. ${h}`), !1;
+            } catch (f) {
+              return l.Logger.warning("WebGLBackend", `Unable to initialize WebGLBackend. ${f}`), !1;
             }
           }
-          createSessionHandler(h) {
-            return new f.WebGLSessionHandler(this, h);
+          createSessionHandler(f) {
+            return new h.WebGLSessionHandler(this, f);
           }
           dispose() {
             this.glContext.dispose();
@@ -5098,7 +5072,7 @@ function requireOrtWeb_min() {
         };
       }, 5107: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.CoordsGlslLib = void 0;
-        const u = o(2517), l = o(8520), f = o(5060), a = o(7859), h = o(9390);
+        const u = o(2517), l = o(8520), h = o(5060), a = o(7859), f = o(9390);
         class g extends l.GlslLib {
           constructor(s) {
             super(s);
@@ -5153,7 +5127,7 @@ function requireOrtWeb_min() {
             }
             const p = `
       void setOutput(vec4 val) {
-        ${(0, f.getGlsl)(this.context.glContext.version).output} = val;
+        ${(0, h.getGlsl)(this.context.glContext.version).output} = val;
       }
     `;
             return r.floatTextureSetRGBA = new l.GlslLibRoutine(p), r;
@@ -5187,7 +5161,7 @@ function requireOrtWeb_min() {
             }
             const p = `
         void setOutput(float val) {
-          ${(0, f.getGlsl)(this.context.glContext.version).output} = vec4(val, 0, 0, 0);
+          ${(0, h.getGlsl)(this.context.glContext.version).output} = vec4(val, 0, 0, 0);
         }
     `;
             return r.floatTextureSetR = new l.GlslLibRoutine(p), r;
@@ -5413,7 +5387,7 @@ function requireOrtWeb_min() {
         return (vec2(texC, texR) + halfCR) / vec2(texNumC, texNumR);
       }
       `), t = "sampleTexture";
-            const e = (0, f.getGlsl)(this.context.glContext.version);
+            const e = (0, h.getGlsl)(this.context.glContext.version);
             return s[t] = new l.GlslLibRoutine(`
         float sampleTexture(sampler2D textureSampler, vec2 uv) {
             return ${e.texture2D}(textureSampler, uv).r;
@@ -5422,33 +5396,33 @@ function requireOrtWeb_min() {
           getInputsSamplingSnippets() {
             const s = {}, t = this.context.outputTextureLayout;
             return this.context.programInfo.inputNames.forEach(((e, r) => {
-              const i = this.context.inputTextureLayouts[r], p = (0, h.generateShaderFuncNameFromInputSamplerName)(e);
+              const i = this.context.inputTextureLayouts[r], p = (0, f.generateShaderFuncNameFromInputSamplerName)(e);
               i.isPacked ? s[p] = this.getPackedSamplerFromInput(p, e, i) : s[p] = this.getUnpackedSamplerFromInput(p, e, i);
-              const m = (0, h.generateShaderFuncNameFromInputSamplerNameAtOutCoords)(e);
+              const m = (0, f.generateShaderFuncNameFromInputSamplerNameAtOutCoords)(e);
               i.unpackedShape.length <= t.unpackedShape.length && (i.isPacked ? s[m] = this.getPackedSamplerAtOutputCoords(m, i, t, e) : s[m] = this.getUnpackedSamplerAtOutputCoords(m, i, t, e));
             })), s;
           }
           getPackedSamplerAtOutputCoords(s, t, e, r) {
-            const i = t.unpackedShape, p = e.unpackedShape, m = r, _ = (0, h.generateShaderFuncNameFromInputSamplerName)(m), b = i.length, y = p.length, w = u.BroadcastUtil.getBroadcastDims(i, p), T = (0, h.getCoordsDataType)(y), S = y - b;
+            const i = t.unpackedShape, p = e.unpackedShape, m = r, _ = (0, f.generateShaderFuncNameFromInputSamplerName)(m), b = i.length, y = p.length, w = u.BroadcastUtil.getBroadcastDims(i, p), T = (0, f.getCoordsDataType)(y), S = y - b;
             let E;
-            const O = (0, h.getGlChannels)();
+            const O = (0, f.getGlChannels)();
             E = b === 0 ? "" : y < 2 && w.length >= 1 ? "coords = 0;" : w.map(((F) => `coords.${O[F + S]} = 0;`)).join(`
 `);
             let v = "";
             v = y < 2 && b > 0 ? "coords" : i.map(((F, D) => `coords.${O[D + S]}`)).join(", ");
-            let M = "return outputValue;";
+            let A = "return outputValue;";
             const L = u.ShapeUtil.size(i) === 1, j = u.ShapeUtil.size(p) === 1;
             if (b !== 1 || L || j) {
-              if (L && !j) M = y === 1 ? `
+              if (L && !j) A = y === 1 ? `
           return vec4(outputValue.x, outputValue.x, 0., 0.);
         ` : `
           return vec4(outputValue.x);
         `;
               else if (w.length) {
                 const F = b - 2, D = b - 1;
-                w.indexOf(F) > -1 && w.indexOf(D) > -1 ? M = "return vec4(outputValue.x);" : w.indexOf(F) > -1 ? M = "return vec4(outputValue.x, outputValue.y, outputValue.x, outputValue.y);" : w.indexOf(D) > -1 && (M = "return vec4(outputValue.xx, outputValue.zz);");
+                w.indexOf(F) > -1 && w.indexOf(D) > -1 ? A = "return vec4(outputValue.x);" : w.indexOf(F) > -1 ? A = "return vec4(outputValue.x, outputValue.y, outputValue.x, outputValue.y);" : w.indexOf(D) > -1 && (A = "return vec4(outputValue.xx, outputValue.zz);");
               }
-            } else M = `
+            } else A = `
         return vec4(outputValue.xy, outputValue.xy);
       `;
             const B = `
@@ -5461,13 +5435,13 @@ function requireOrtWeb_min() {
       
         ${E}
         vec4 outputValue = ${_}(${v});
-        ${M}
+        ${A}
       }
     `;
             return new l.GlslLibRoutine(B, ["coordinates.getOutputCoords"]);
           }
           getUnpackedSamplerAtOutputCoords(s, t, e, r) {
-            const i = [e.width, e.height], p = [t.width, t.height], m = t.unpackedShape.length, _ = e.unpackedShape.length, b = t.unpackedShape, y = e.unpackedShape, w = (0, h.generateShaderFuncNameFromInputSamplerName)(r);
+            const i = [e.width, e.height], p = [t.width, t.height], m = t.unpackedShape.length, _ = e.unpackedShape.length, b = t.unpackedShape, y = e.unpackedShape, w = (0, f.generateShaderFuncNameFromInputSamplerName)(r);
             if (m === _ && u.ArrayUtil.arraysEqual(p, i)) {
               const j = `
           float ${s}() {
@@ -5476,18 +5450,18 @@ function requireOrtWeb_min() {
         `;
               return new l.GlslLibRoutine(j, ["coordinates.sampleTexture"]);
             }
-            const T = (0, h.getCoordsDataType)(_), S = u.BroadcastUtil.getBroadcastDims(b, y), E = _ - m;
+            const T = (0, f.getCoordsDataType)(_), S = u.BroadcastUtil.getBroadcastDims(b, y), E = _ - m;
             let O;
-            const v = (0, h.getGlChannels)();
+            const v = (0, f.getGlChannels)();
             O = m === 0 ? "" : _ < 2 && S.length >= 1 ? "coords = 0;" : S.map(((j) => `coords.${v[j + E]} = 0;`)).join(`
 `);
-            let M = "";
-            M = _ < 2 && m > 0 ? "coords" : t.unpackedShape.map(((j, B) => `coords.${v[B + E]}`)).join(", ");
+            let A = "";
+            A = _ < 2 && m > 0 ? "coords" : t.unpackedShape.map(((j, B) => `coords.${v[B + E]}`)).join(", ");
             const L = `
         float ${s}() {
           ${T} coords = getOutputCoords();
           ${O}
-          return ${w}(${M});
+          return ${w}(${A});
         }
       `;
             return new l.GlslLibRoutine(L, ["coordinates.getOutputCoords"]);
@@ -5530,13 +5504,13 @@ function requireOrtWeb_min() {
           getPackedSamplerScalar(s, t) {
             const e = `
           vec4 ${s}() {
-            return ${(0, f.getGlsl)(this.context.glContext.version).texture2D}(${t}, halfCR);
+            return ${(0, h.getGlsl)(this.context.glContext.version).texture2D}(${t}, halfCR);
           }
         `;
             return new l.GlslLibRoutine(e);
           }
           getPackedSampler1D(s, t, e) {
-            const r = [e.width, e.height], i = [r[1], r[0]], p = (0, f.getGlsl)(this.context.glContext.version), m = `vec4 ${s}(int index) {
+            const r = [e.width, e.height], i = [r[1], r[0]], p = (0, h.getGlsl)(this.context.glContext.version), m = `vec4 ${s}(int index) {
       vec2 uv = packedUVfrom1D(
       ${i[0]}, ${i[1]}, index);
       return ${p.texture2D}(${t}, uv);
@@ -5544,7 +5518,7 @@ function requireOrtWeb_min() {
             return new l.GlslLibRoutine(m, ["coordinates.packedUVfrom1D"]);
           }
           getPackedSampler2D(s, t, e) {
-            const r = e.unpackedShape, i = [e.width, e.height], p = (0, f.getGlsl)(this.context.glContext.version), m = i[0], _ = i[1];
+            const r = e.unpackedShape, i = [e.width, e.height], p = (0, h.getGlsl)(this.context.glContext.version), m = i[0], _ = i[1];
             if (i != null && u.ArrayUtil.arraysEqual(r, i)) {
               const T = `vec4 ${s}(int row, int col) {
         vec2 uv = (vec2(col, row) + halfCR) / vec2(${_}.0, ${m}.0);
@@ -5559,15 +5533,15 @@ function requireOrtWeb_min() {
             return new l.GlslLibRoutine(w, ["coordinates.packedUVfrom2D"]);
           }
           getPackedSampler3D(s, t, e) {
-            const r = e.unpackedShape, i = [e.width, e.height], p = [i[0], i[1]], m = (0, f.getGlsl)(this.context.glContext.version);
+            const r = e.unpackedShape, i = [e.width, e.height], p = [i[0], i[1]], m = (0, h.getGlsl)(this.context.glContext.version);
             if (r[0] === 1) {
-              const T = r.slice(1), S = [1, 2], E = (0, h.squeezeInputShape)(r, T), O = ["b", "row", "col"], v = JSON.parse(JSON.stringify(e));
+              const T = r.slice(1), S = [1, 2], E = (0, f.squeezeInputShape)(r, T), O = ["b", "row", "col"], v = JSON.parse(JSON.stringify(e));
               v.unpackedShape = E;
-              const M = this.getPackedSamplerFromInput(s, t, v), L = `${M.routineBody}
+              const A = this.getPackedSamplerFromInput(s, t, v), L = `${A.routineBody}
       vec4 ${s}(int b, int row, int col) {
-        return ${s}(${(0, h.getSqueezedParams)(O, S)});
+        return ${s}(${(0, f.getSqueezedParams)(O, S)});
       } `;
-              return new l.GlslLibRoutine(L, M.dependencies);
+              return new l.GlslLibRoutine(L, A.dependencies);
             }
             const _ = p[0], b = p[1], y = Math.ceil(r[2] / 2), w = `vec4 ${s}(int b, int row, int col) {
       vec2 uv = packedUVfrom3D(
@@ -5576,7 +5550,7 @@ function requireOrtWeb_min() {
             return new l.GlslLibRoutine(w, ["coordinates.packedUVfrom3D"]);
           }
           getPackedSamplerND(s, t, e) {
-            const r = e.unpackedShape, i = r.length, p = [e.width, e.height], m = (0, f.getGlsl)(this.context.glContext.version), _ = [p[0], p[1]], b = _[1], y = _[0], w = Math.ceil(r[i - 1] / 2);
+            const r = e.unpackedShape, i = r.length, p = [e.width, e.height], m = (0, h.getGlsl)(this.context.glContext.version), _ = [p[0], p[1]], b = _[1], y = _[0], w = Math.ceil(r[i - 1] / 2);
             let T = w * Math.ceil(r[i - 2] / 2), S = "int b, int row, int col", E = `b * ${T} + (row / 2) * ${w} + (col / 2)`;
             for (let v = 2; v < i - 1; v++) S = `int b${v}, ` + S, T *= r[i - v - 1], E = `b${v} * ${T} + ` + E;
             const O = `vec4 ${s}(${S}) {
@@ -5656,12 +5630,12 @@ function requireOrtWeb_min() {
             }
             const { newShape: p, keptDims: m } = (0, a.squeezeShape)(r), _ = p;
             if (_.length < r.length) {
-              const T = (0, h.squeezeInputShape)(r, _), S = JSON.parse(JSON.stringify(e));
+              const T = (0, f.squeezeInputShape)(r, _), S = JSON.parse(JSON.stringify(e));
               S.unpackedShape = T;
               const E = ["col", "row"], O = `
           ${this.getUnpackedSamplerFromInput(s, t, S).routineBody}
           float ${s}(int row, int col) {
-            return ${s}(${(0, h.getSqueezedParams)(E, m)});
+            return ${s}(${(0, f.getSqueezedParams)(E, m)});
           }
         `;
               return new l.GlslLibRoutine(O, ["coordinates.sampleTexture"]);
@@ -5701,12 +5675,12 @@ function requireOrtWeb_min() {
           getUnpackedSampler3D(s, t, e) {
             const r = e.unpackedShape, i = r[1] * r[2], p = r[2], { newShape: m, keptDims: _ } = (0, a.squeezeShape)(r), b = m;
             if (b.length < r.length) {
-              const w = (0, h.squeezeInputShape)(r, b), T = ["batch", "col", "row"], S = JSON.parse(JSON.stringify(e));
+              const w = (0, f.squeezeInputShape)(r, b), T = ["batch", "col", "row"], S = JSON.parse(JSON.stringify(e));
               S.unpackedShape = w;
               const E = this.getUnpackedSamplerFromInput(s, t, S), O = _.reverse(), v = `
           ${E.routineBody}
           float ${s}(int batch, int row, int col) {
-            return ${s}(${(0, h.getSqueezedParams)(T, O)});
+            return ${s}(${(0, f.getSqueezedParams)(T, O)});
           }
         `;
               return new l.GlslLibRoutine(v, E.dependencies);
@@ -5735,12 +5709,12 @@ function requireOrtWeb_min() {
           getUnpackedSampler5D(s, t, e) {
             const r = e.unpackedShape, i = r[4], p = r[3] * i, m = r[2] * p, _ = r[1] * m, { newShape: b, keptDims: y } = (0, a.squeezeShape)(r);
             if (b.length < r.length) {
-              const T = (0, h.squeezeInputShape)(r, b), S = ["row", "col", "depth", "depth2", "depth3"], E = JSON.parse(JSON.stringify(e));
+              const T = (0, f.squeezeInputShape)(r, b), S = ["row", "col", "depth", "depth2", "depth3"], E = JSON.parse(JSON.stringify(e));
               E.unpackedShape = T;
               const O = `
           ${this.getUnpackedSamplerFromInput(s, t, E).routineBody}
           float ${s}(int row, int col, int depth, int depth2, int depth3) {
-            return ${s}(${(0, h.getSqueezedParams)(S, y)});
+            return ${s}(${(0, f.getSqueezedParams)(S, y)});
           }
         `;
               return new l.GlslLibRoutine(O, ["coordinates.sampleTexture", "coordinates.uvFromFlat"]);
@@ -5758,13 +5732,13 @@ function requireOrtWeb_min() {
           getUnpackedSampler6D(s, t, e) {
             const r = e.unpackedShape, i = r[5], p = r[4] * i, m = r[3] * p, _ = r[2] * m, b = r[1] * _, { newShape: y, keptDims: w } = (0, a.squeezeShape)(r);
             if (y.length < r.length) {
-              const S = (0, h.squeezeInputShape)(r, y), E = ["row", "col", "depth", "depth2", "depth3", "depth4"], O = JSON.parse(JSON.stringify(e));
+              const S = (0, f.squeezeInputShape)(r, y), E = ["row", "col", "depth", "depth2", "depth3", "depth4"], O = JSON.parse(JSON.stringify(e));
               O.unpackedShape = S;
               const v = `
             ${this.getUnpackedSamplerFromInput(s, t, O).routineBody}
             float ${s}(int row, int col, int depth,
               int depth2, int depth3, int depth4) {
-              return ${s}(${(0, h.getSqueezedParams)(E, w)});
+              return ${s}(${(0, f.getSqueezedParams)(E, w)});
             }
           `;
               return new l.GlslLibRoutine(v, ["coordinates.sampleTexture", "coordinates.uvFromFlat"]);
@@ -5812,7 +5786,7 @@ function requireOrtWeb_min() {
         float ${p}(int m[${t}]) {
           int offset = indicesToOffset${p}(m);
           vec2 coords = offsetToCoords(offset, ${e}, ${r});
-          float value = getColorAsFloat(${(0, f.getGlsl)(this.context.glContext.version).texture2D}(${s}, coords));
+          float value = getColorAsFloat(${(0, h.getGlsl)(this.context.glContext.version).texture2D}(${s}, coords));
           return value;
         }
         `;
@@ -5823,7 +5797,7 @@ function requireOrtWeb_min() {
         vec4 ${p}(int m[${t}]) {
           int offset = indicesToOffset_${s}(m);
           vec2 coords = offsetToCoords(offset, ${e}, ${r});
-          return ${(0, f.getGlsl)(this.context.glContext.version).texture2D}(${s}, coords);
+          return ${(0, h.getGlsl)(this.context.glContext.version).texture2D}(${s}, coords);
         }
         `;
           }
@@ -5832,8 +5806,8 @@ function requireOrtWeb_min() {
       }, 8520: (d, n) => {
         var o;
         Object.defineProperty(n, "__esModule", { value: !0 }), n.TopologicalSortGlslRoutines = n.GlslLibRoutineNode = n.GlslLibRoutine = n.GlslLib = n.GlslContext = n.FunctionType = void 0, (o = n.FunctionType || (n.FunctionType = {}))[o.ValueBased = 0] = "ValueBased", o[o.Positional = 1] = "Positional", n.GlslContext = class {
-          constructor(u, l, f, a) {
-            this.glContext = u, this.programInfo = l, this.inputTextureLayouts = f, this.outputTextureLayout = a;
+          constructor(u, l, h, a) {
+            this.glContext = u, this.programInfo = l, this.inputTextureLayouts = h, this.outputTextureLayout = a;
           }
         }, n.GlslLib = class {
           constructor(u) {
@@ -5844,8 +5818,8 @@ function requireOrtWeb_min() {
             this.routineBody = u, this.dependencies = l;
           }
         }, n.GlslLibRoutineNode = class {
-          constructor(u, l, f) {
-            this.name = u, this.dependencies = f || [], l && (this.routineBody = l);
+          constructor(u, l, h) {
+            this.name = u, this.dependencies = h || [], l && (this.routineBody = l);
           }
           addDependency(u) {
             u && this.dependencies.push(u);
@@ -5854,19 +5828,19 @@ function requireOrtWeb_min() {
           static returnOrderedNodes(u) {
             if (!u || u.length === 0) return [];
             if (u.length === 1) return u;
-            const l = /* @__PURE__ */ new Set(), f = /* @__PURE__ */ new Set(), a = new Array();
-            return this.createOrderedNodes(u, l, f, a), a;
+            const l = /* @__PURE__ */ new Set(), h = /* @__PURE__ */ new Set(), a = new Array();
+            return this.createOrderedNodes(u, l, h, a), a;
           }
-          static createOrderedNodes(u, l, f, a) {
-            for (let h = 0; h < u.length; ++h) this.dfsTraverse(u[h], l, f, a);
+          static createOrderedNodes(u, l, h, a) {
+            for (let f = 0; f < u.length; ++f) this.dfsTraverse(u[f], l, h, a);
           }
-          static dfsTraverse(u, l, f, a) {
-            if (!u || f.has(u.name)) return;
+          static dfsTraverse(u, l, h, a) {
+            if (!u || h.has(u.name)) return;
             if (l.has(u.name)) throw new Error("Cyclic dependency detected. Can't topologically sort routines needed for shader.");
             l.add(u.name);
-            const h = u.dependencies;
-            if (h && h.length > 0) for (let g = 0; g < h.length; ++g) this.dfsTraverse(h[g], l, f, a);
-            a.push(u), f.add(u.name), l.delete(u.name);
+            const f = u.dependencies;
+            if (f && f.length > 0) for (let g = 0; g < f.length; ++g) this.dfsTraverse(f[g], l, h, a);
+            a.push(u), h.add(u.name), l.delete(u.name);
           }
         };
       }, 7341: (d, n, o) => {
@@ -5929,8 +5903,8 @@ function requireOrtWeb_min() {
         `) };
           }
           static isLittleEndian() {
-            const a = new ArrayBuffer(4), h = new Uint32Array(a), g = new Uint8Array(a);
-            if (h[0] = 3735928559, g[0] === 239) return !0;
+            const a = new ArrayBuffer(4), f = new Uint32Array(a), g = new Uint8Array(a);
+            if (f[0] = 3735928559, g[0] === 239) return !0;
             if (g[0] === 222) return !1;
             throw new Error("unknown endianness");
           }
@@ -5939,9 +5913,9 @@ function requireOrtWeb_min() {
       }, 9894: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.FragColorGlslLib = void 0;
         const u = o(8520), l = o(5060);
-        class f extends u.GlslLib {
-          constructor(h) {
-            super(h);
+        class h extends u.GlslLib {
+          constructor(f) {
+            super(f);
           }
           getFunctions() {
             return Object.assign(Object.assign({}, this.setFragColor()), this.getColorAsFloat());
@@ -5950,10 +5924,10 @@ function requireOrtWeb_min() {
             return {};
           }
           setFragColor() {
-            const h = (0, l.getGlsl)(this.context.glContext.version);
+            const f = (0, l.getGlsl)(this.context.glContext.version);
             return { setFragColor: new u.GlslLibRoutine(`
         void setFragColor(float value) {
-            ${h.output} = encode(value);
+            ${f.output} = encode(value);
         }
         `, ["encoding.encode"]) };
           }
@@ -5965,24 +5939,24 @@ function requireOrtWeb_min() {
         `, ["encoding.decode"]) };
           }
         }
-        n.FragColorGlslLib = f;
+        n.FragColorGlslLib = h;
       }, 2848: (d, n) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.replaceInlines = void 0;
         const o = /@inline[\s\n\r]+(\w+)[\s\n\r]+([0-9a-zA-Z_]+)\s*\(([^)]*)\)\s*{(([^}]|[\n\r])*)}/gm;
         n.replaceInlines = function(u) {
           const l = {};
-          let f;
-          for (; (f = o.exec(u)) !== null; ) {
-            const a = f[3].split(",").map(((h) => {
-              const g = h.trim().split(" ");
+          let h;
+          for (; (h = o.exec(u)) !== null; ) {
+            const a = h[3].split(",").map(((f) => {
+              const g = f.trim().split(" ");
               return g && g.length === 2 ? { type: g[0], name: g[1] } : null;
-            })).filter(((h) => h !== null));
-            l[f[2]] = { params: a, body: f[4] };
+            })).filter(((f) => f !== null));
+            l[h[2]] = { params: a, body: h[4] };
           }
           for (const a in l) {
-            const h = "(\\w+)?\\s+([_0-9a-zA-Z]+)\\s+=\\s+__FUNC__\\((.*)\\)\\s*;".replace("__FUNC__", a), g = new RegExp(h, "gm");
-            for (; (f = g.exec(u)) !== null; ) {
-              const c = f[1], s = f[2], t = f[3].split(","), e = c ? `${c} ${s};` : "";
+            const f = "(\\w+)?\\s+([_0-9a-zA-Z]+)\\s+=\\s+__FUNC__\\((.*)\\)\\s*;".replace("__FUNC__", a), g = new RegExp(f, "gm");
+            for (; (h = g.exec(u)) !== null; ) {
+              const c = h[1], s = h[2], t = h[3].split(","), e = c ? `${c} ${s};` : "";
               let r = l[a].body, i = "";
               l[a].params.forEach(((m, _) => {
                 m && (i += `${m.type} ${m.name} = ${t[_]};
@@ -5995,18 +5969,18 @@ function requireOrtWeb_min() {
         ${r}
       }
       `;
-              u = u.replace(f[0], p);
+              u = u.replace(h[0], p);
             }
           }
           return u.replace(o, "");
         };
       }, 8879: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.GlslPreprocessor = void 0;
-        const u = o(8520), l = o(2848), f = o(5483), a = o(5060);
+        const u = o(8520), l = o(2848), h = o(5483), a = o(5060);
         n.GlslPreprocessor = class {
-          constructor(h, g, c, s) {
-            this.libs = {}, this.glslLibRoutineDependencyGraph = {}, this.context = new u.GlslContext(h, g, c, s), Object.keys(f.glslRegistry).forEach(((e) => {
-              const r = new f.glslRegistry[e](this.context);
+          constructor(f, g, c, s) {
+            this.libs = {}, this.glslLibRoutineDependencyGraph = {}, this.context = new u.GlslContext(f, g, c, s), Object.keys(h.glslRegistry).forEach(((e) => {
+              const r = new h.glslRegistry[e](this.context);
               this.libs[e] = r;
             }));
             const t = this.glslLibRoutineDependencyGraph;
@@ -6026,16 +6000,16 @@ function requireOrtWeb_min() {
             }
           }
           preprocess() {
-            const h = this.context.programInfo;
-            let g = h.shaderSource;
+            const f = this.context.programInfo;
+            let g = f.shaderSource;
             return this.context.programInfo.hasMain || (g = `${g}
       ${(0, a.getDefaultFragShaderMain)(this.context.glContext.version, this.context.outputTextureLayout.shape.length)}`), g = (0, l.replaceInlines)(g), `${(0, a.getFragShaderPreamble)(this.context.glContext.version)}
-    ${this.getUniforms(h.inputNames, h.variables)}
+    ${this.getUniforms(f.inputNames, f.variables)}
     ${this.getImports(g)}
     ${g}`;
           }
-          getImports(h) {
-            const g = this.selectGlslLibRoutinesToBeIncluded(h);
+          getImports(f) {
+            const g = this.selectGlslLibRoutinesToBeIncluded(f);
             if (g.length === 0) return "";
             let c = "";
             for (let s = 0; s < g.length; ++s) {
@@ -6045,16 +6019,16 @@ function requireOrtWeb_min() {
             }
             return c;
           }
-          selectGlslLibRoutinesToBeIncluded(h) {
+          selectGlslLibRoutinesToBeIncluded(f) {
             const g = [];
             return Object.keys(this.glslLibRoutineDependencyGraph).forEach(((c) => {
               const s = c.split(".")[1];
-              h.indexOf(s) !== -1 && g.push(this.glslLibRoutineDependencyGraph[c]);
+              f.indexOf(s) !== -1 && g.push(this.glslLibRoutineDependencyGraph[c]);
             })), u.TopologicalSortGlslRoutines.returnOrderedNodes(g);
           }
-          getUniforms(h, g) {
+          getUniforms(f, g) {
             const c = [];
-            if (h) for (const s of h) c.push(`uniform sampler2D ${s};`);
+            if (f) for (const s of f) c.push(`uniform sampler2D ${s};`);
             if (g) for (const s of g) c.push(`uniform ${s.type} ${s.name}${s.arrayLength ? `[${s.arrayLength}]` : ""};`);
             return c.join(`
 `);
@@ -6062,8 +6036,8 @@ function requireOrtWeb_min() {
         };
       }, 5483: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.glslRegistry = void 0;
-        const u = o(5107), l = o(7341), f = o(9894), a = o(2655), h = o(3891);
-        n.glslRegistry = { encoding: l.EncodingGlslLib, fragcolor: f.FragColorGlslLib, vec: h.VecGlslLib, shapeUtils: a.ShapeUtilsGlslLib, coordinates: u.CoordsGlslLib };
+        const u = o(5107), l = o(7341), h = o(9894), a = o(2655), f = o(3891);
+        n.glslRegistry = { encoding: l.EncodingGlslLib, fragcolor: h.FragColorGlslLib, vec: f.VecGlslLib, shapeUtils: a.ShapeUtilsGlslLib, coordinates: u.CoordsGlslLib };
       }, 2655: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.ShapeUtilsGlslLib = void 0;
         const u = o(8520);
@@ -6078,7 +6052,7 @@ function requireOrtWeb_min() {
             return {};
           }
           bcastIndex() {
-            const a = this.context.outputTextureLayout.shape.length, h = {};
+            const a = this.context.outputTextureLayout.shape.length, f = {};
             return this.context.programInfo.inputNames.forEach(((g, c) => {
               const s = this.context.inputTextureLayouts[c].unpackedShape;
               if (s.length <= a) {
@@ -6092,12 +6066,12 @@ function requireOrtWeb_min() {
           ${i}
         }
         `;
-                h[r] = new u.GlslLibRoutine(p);
+                f[r] = new u.GlslLibRoutine(p);
               }
-            })), h;
+            })), f;
           }
           bcastMatmulIndex() {
-            const a = this.context.outputTextureLayout.shape.length, h = {};
+            const a = this.context.outputTextureLayout.shape.length, f = {};
             return this.context.programInfo.inputNames.forEach(((g, c) => {
               const s = this.context.inputTextureLayouts[c].shape;
               if (!(s.length < 2 || s.length > a)) {
@@ -6113,25 +6087,25 @@ function requireOrtWeb_min() {
           realIndices[${t - 2}] = bcastedIndices[${a - 2}];
         }
         `;
-                h[r] = new u.GlslLibRoutine(p);
+                f[r] = new u.GlslLibRoutine(p);
               }
-            })), h;
+            })), f;
           }
           indicesToOffset() {
             const a = {};
-            return this.context.programInfo.inputNames.forEach(((h, g) => {
+            return this.context.programInfo.inputNames.forEach(((f, g) => {
               const c = this.context.inputTextureLayouts[g].shape, s = this.context.inputTextureLayouts[g].strides, t = c.length;
-              let e = `indicesToOffset_${h}`;
-              a[e] = new u.GlslLibRoutine(l.indexToOffsetSingle(e, t, s)), e = `indicesToOffset_${h}_T`, a[e] = new u.GlslLibRoutine(l.indexToOffsetSingle(e, t, s.slice().reverse()));
+              let e = `indicesToOffset_${f}`;
+              a[e] = new u.GlslLibRoutine(l.indexToOffsetSingle(e, t, s)), e = `indicesToOffset_${f}_T`, a[e] = new u.GlslLibRoutine(l.indexToOffsetSingle(e, t, s.slice().reverse()));
             })), a;
           }
-          static indexToOffsetSingle(a, h, g) {
+          static indexToOffsetSingle(a, f, g) {
             let c = "";
-            for (let s = h - 1; s >= 0; --s) c += `
+            for (let s = f - 1; s >= 0; --s) c += `
         offset += indices[${s}] * ${g[s]};
         `;
             return `
-      int ${a}(int indices[${h}]) {
+      int ${a}(int indices[${f}]) {
         int offset = 0;
         ${c}
         return offset;
@@ -6140,28 +6114,28 @@ function requireOrtWeb_min() {
           }
           offsetToIndices() {
             const a = {};
-            return this.context.programInfo.inputNames.forEach(((h, g) => {
+            return this.context.programInfo.inputNames.forEach(((f, g) => {
               const c = this.context.inputTextureLayouts[g].shape, s = this.context.inputTextureLayouts[g].strides, t = c.length;
-              let e = `offsetToIndices_${h}`;
-              a[e] = new u.GlslLibRoutine(l.offsetToIndicesSingle(e, t, s)), e = `offsetToIndices_${h}_T`, a[e] = new u.GlslLibRoutine(l.offsetToIndicesSingle(e, t, s.slice().reverse()));
+              let e = `offsetToIndices_${f}`;
+              a[e] = new u.GlslLibRoutine(l.offsetToIndicesSingle(e, t, s)), e = `offsetToIndices_${f}_T`, a[e] = new u.GlslLibRoutine(l.offsetToIndicesSingle(e, t, s.slice().reverse()));
             })), a;
           }
-          static offsetToIndicesSingle(a, h, g) {
+          static offsetToIndicesSingle(a, f, g) {
             const c = [];
-            for (let s = 0; s < h - 1; ++s) c.push(`
+            for (let s = 0; s < f - 1; ++s) c.push(`
       indices[${s}] = offset / ${g[s]};`), c.push(`
         offset -= indices[${s}] * ${g[s]};`);
             return c.push(`
-      indices[${h - 1}] = offset;`), `
-      void ${a}(int offset, out int indices[${h}]) {
+      indices[${f - 1}] = offset;`), `
+      void ${a}(int offset, out int indices[${f}]) {
         ${c.join("")}
       }
       `;
           }
           incrementIndices() {
             const a = {};
-            return this.context.programInfo.inputNames.forEach(((h, g) => {
-              const c = this.context.inputTextureLayouts[g].shape, s = c.length, t = `incrementIndices_${h}`;
+            return this.context.programInfo.inputNames.forEach(((f, g) => {
+              const c = this.context.inputTextureLayouts[g].shape, s = c.length, t = `incrementIndices_${f}`;
               let e = "";
               for (let i = 0; i < s; ++i) e += `
         shape[${i}] = ${c[i]};`;
@@ -6187,11 +6161,11 @@ function requireOrtWeb_min() {
       }, 5060: (d, n) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.getDefaultFragShaderMain = n.getFragShaderPreamble = n.getVertexShaderSource = n.getGlsl = void 0;
         const o = { version: "", attribute: "attribute", varyingVertex: "varying", varyingFrag: "varying", texture2D: "texture2D", output: "gl_FragColor", outputDeclaration: "" }, u = { version: "#version 300 es", attribute: "in", varyingVertex: "out", varyingFrag: "in", texture2D: "texture", output: "outputColor", outputDeclaration: "out vec4 outputColor;" };
-        function l(f) {
-          return f === 1 ? o : u;
+        function l(h) {
+          return h === 1 ? o : u;
         }
-        n.getGlsl = l, n.getVertexShaderSource = function(f) {
-          const a = l(f);
+        n.getGlsl = l, n.getVertexShaderSource = function(h) {
+          const a = l(h);
           return `${a.version}
       precision highp float;
       ${a.attribute} vec3 position;
@@ -6204,8 +6178,8 @@ function requireOrtWeb_min() {
           gl_Position = vec4(position, 1.0);
           TexCoords = textureCoord;
       }`;
-        }, n.getFragShaderPreamble = function(f) {
-          const a = l(f);
+        }, n.getFragShaderPreamble = function(h) {
+          const a = l(h);
           return `${a.version}
     precision highp float;
     precision highp int;
@@ -6239,13 +6213,13 @@ function requireOrtWeb_min() {
     }
 
     `;
-        }, n.getDefaultFragShaderMain = function(f, a) {
+        }, n.getDefaultFragShaderMain = function(h, a) {
           return `
   void main() {
     int indices[${a}];
     toVec(TexCoords, indices);
     vec4 result = vec4(process(indices));
-    ${l(f).output} = result;
+    ${l(h).output} = result;
   }
   `;
         };
@@ -6263,12 +6237,12 @@ function requireOrtWeb_min() {
             return Object.assign(Object.assign(Object.assign(Object.assign({}, this.binaryVecFunctions()), this.copyVec()), this.setVecItem()), this.getVecItem());
           }
           binaryVecFunctions() {
-            const a = this.context.outputTextureLayout.shape.length, h = { add: "+=", sub: "-=", mul: "*=", div: "/=" }, g = {};
-            for (const c in h) {
+            const a = this.context.outputTextureLayout.shape.length, f = { add: "+=", sub: "-=", mul: "*=", div: "/=" }, g = {};
+            for (const c in f) {
               const s = `${c}Vec`;
               let t = "";
               for (let r = 0; r < a; ++r) t += `
-          dest[${r}] ${h[c]} src[${r}];
+          dest[${r}] ${f[c]} src[${r}];
           `;
               const e = `
         void ${s}(int src[${a}], out int dest[${a}]) {
@@ -6281,59 +6255,59 @@ function requireOrtWeb_min() {
           }
           copyVec() {
             const a = this.context.outputTextureLayout.shape.length;
-            let h = "";
-            for (let c = 0; c < a; ++c) h += `
+            let f = "";
+            for (let c = 0; c < a; ++c) f += `
         dest[${c}] = src[${c}];
         `;
             const g = `
       void copyVec(int src[${a}], out int dest[${a}]) {
-        ${h}
+        ${f}
       }
       `;
             return { copyVec: new u.GlslLibRoutine(g) };
           }
           setVecItem() {
             const a = this.context.outputTextureLayout.shape.length;
-            let h = `
+            let f = `
         if(index < 0)
             index =${a} + index;
         if (index == 0)
             m[0] = value;
         `;
-            for (let c = 1; c < a - 1; ++c) h += `
+            for (let c = 1; c < a - 1; ++c) f += `
         else if (index == ${c})
             m[${c}] = value;
             `;
-            h += `
+            f += `
         else
             m[${a - 1}] = value;
         `;
             const g = `
       void setVecItem(out int m[${a}], int index, int value) {
-        ${h}
+        ${f}
       }
         `;
             return { setVecItem: new u.GlslLibRoutine(g) };
           }
           getVecItem() {
             const a = this.context.outputTextureLayout.shape.length;
-            let h = `
+            let f = `
         if(index < 0)
             index = ${a} + index;
         if (index == 0)
             return m[0];
       `;
-            for (let c = 1; c < a - 1; ++c) h += `
+            for (let c = 1; c < a - 1; ++c) f += `
         else if (index == ${c})
             return m[${c}];
       `;
-            h += `
+            f += `
         else
             return m[${a - 1}];
         `;
             const g = `
       int getVecItem(int m[${a}], int index) {
-        ${h}
+        ${f}
       }
     `;
             return { getVecItem: new u.GlslLibRoutine(g) };
@@ -6342,7 +6316,7 @@ function requireOrtWeb_min() {
         n.VecGlslLib = l;
       }, 8316: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.WebGLInferenceHandler = void 0;
-        const u = o(6231), l = o(9162), f = o(2517), a = o(2403), h = o(7019), g = o(8710), c = o(5611), s = o(4057), t = o(2039);
+        const u = o(6231), l = o(9162), h = o(2517), a = o(2403), f = o(7019), g = o(8710), c = o(5611), s = o(4057), t = o(2039);
         n.WebGLInferenceHandler = class {
           constructor(e) {
             this.session = e, this.packedTextureDataCache = /* @__PURE__ */ new Map(), this.unpackedTextureDataCache = /* @__PURE__ */ new Map();
@@ -6386,8 +6360,8 @@ function requireOrtWeb_min() {
                     const S = b[0], E = b[1] * b[2] * b[3], O = Math.ceil(E * 1 / 4) * 4;
                     T = new Float32Array(S * O);
                     for (let v = 0; v < S; ++v) {
-                      const M = v * E, L = v * O + v % 1 * E;
-                      T.set(e.numberData.subarray(M, M + E), L);
+                      const A = v * E, L = v * O + v % 1 * E;
+                      T.set(e.numberData.subarray(A, A + E), L);
                     }
                   }
                   return this.createTextureData(w, e.type, T, e, 1);
@@ -6409,16 +6383,16 @@ function requireOrtWeb_min() {
             return this.createTextureDataFromTexture(e, r, _, p);
           }
           reshapeUnpacked(e, r) {
-            const i = this.getOrCreateTextureData(e, t.TextureType.unpacked), p = { channels: i.channels, height: i.height, width: i.width, shape: r.length !== 0 ? r : [1], strides: f.ShapeUtil.computeStrides(r), unpackedShape: r };
+            const i = this.getOrCreateTextureData(e, t.TextureType.unpacked), p = { channels: i.channels, height: i.height, width: i.width, shape: r.length !== 0 ? r : [1], strides: h.ShapeUtil.computeStrides(r), unpackedShape: r };
             return this.createTextureDataFromTexture(p, e.type, i.texture).tensor;
           }
           reshapePacked(e, r) {
             const i = this.getOrCreateTextureData(e, t.TextureType.packed);
-            if ((0, h.isReshapeCheap)(e.dims, r)) {
-              const y = { channels: i.channels, height: i.height, width: i.width, shape: r.length !== 0 ? r : [1], strides: f.ShapeUtil.computeStrides(r), unpackedShape: r, isPacked: !0 };
+            if ((0, f.isReshapeCheap)(e.dims, r)) {
+              const y = { channels: i.channels, height: i.height, width: i.width, shape: r.length !== 0 ? r : [1], strides: h.ShapeUtil.computeStrides(r), unpackedShape: r, isPacked: !0 };
               return this.createTextureDataFromTexture(y, e.type, i.texture).tensor;
             }
-            const p = (0, h.processDims3D)(e.dims), m = (0, h.processDims3D)(r), _ = this.reshapePacked(e, p), b = this.run((0, h.createPackedReshape3DProgramInfoLoader)(this, _, m), [_]);
+            const p = (0, f.processDims3D)(e.dims), m = (0, f.processDims3D)(r), _ = this.reshapePacked(e, p), b = this.run((0, f.createPackedReshape3DProgramInfoLoader)(this, _, m), [_]);
             return this.reshapePacked(b, r);
           }
           cast(e, r) {
@@ -6457,34 +6431,34 @@ function requireOrtWeb_min() {
       }, 1640: function(d, n, o) {
         var u = this && this.__createBinding || (Object.create ? function(Y, te, ne, me) {
           me === void 0 && (me = ne);
-          var Me = Object.getOwnPropertyDescriptor(te, ne);
-          Me && !("get" in Me ? !te.__esModule : Me.writable || Me.configurable) || (Me = { enumerable: !0, get: function() {
+          var Ae = Object.getOwnPropertyDescriptor(te, ne);
+          Ae && !("get" in Ae ? !te.__esModule : Ae.writable || Ae.configurable) || (Ae = { enumerable: !0, get: function() {
             return te[ne];
-          } }), Object.defineProperty(Y, me, Me);
+          } }), Object.defineProperty(Y, me, Ae);
         } : function(Y, te, ne, me) {
           me === void 0 && (me = ne), Y[me] = te[ne];
         }), l = this && this.__setModuleDefault || (Object.create ? function(Y, te) {
           Object.defineProperty(Y, "default", { enumerable: !0, value: te });
         } : function(Y, te) {
           Y.default = te;
-        }), f = this && this.__importStar || function(Y) {
+        }), h = this && this.__importStar || function(Y) {
           if (Y && Y.__esModule) return Y;
           var te = {};
           if (Y != null) for (var ne in Y) ne !== "default" && Object.prototype.hasOwnProperty.call(Y, ne) && u(te, Y, ne);
           return l(te, Y), te;
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.WEBGL_OP_RESOLVE_RULES = void 0;
-        const a = o(2898), h = f(o(7839)), g = o(4196), c = o(2069), s = o(8138), t = o(9663), e = o(5193), r = o(7992), i = o(1253), p = o(4776), m = o(6572), _ = o(3346), b = o(5623), y = o(2870), w = o(2143), T = o(4939), S = o(718), E = o(2268), O = o(8117), v = o(2278), M = o(5524), L = o(5975), j = o(3933), B = o(6558), F = o(5723), D = o(3738), I = f(o(4909)), $ = o(8428), Q = o(9793);
-        n.WEBGL_OP_RESOLVE_RULES = [["Abs", "", "6+", I.abs], ["Acos", "", "7+", I.acos], ["Add", "", "7+", h.add], ["And", "", "7+", h.and], ["Asin", "", "7+", I.asin], ["Atan", "", "7+", I.atan], ["AveragePool", "", "7+", w.averagePool, w.parseAveragePoolAttributes], ["BatchNormalization", "", "7+", a.batchNormalization, a.parseBatchNormalizationAttributes], ["Cast", "", "6+", g.cast, g.parseCastAttributes], ["Ceil", "", "6+", I.ceil], ["Clip", "", "6-10", I.clip, I.parseClipAttributes], ["Clip", "", "11+", I.clipV11], ["Concat", "", "4+", c.concat, c.parseConcatAttributes], ["Conv", "", "1+", s.conv, s.parseConvAttributes], ["ConvTranspose", "", "1+", t.convTranspose, t.parseConvTransposeAttributes], ["Cos", "", "7+", I.cos], ["Div", "", "7+", h.div], ["Dropout", "", "7+", I.identity], ["DepthToSpace", "", "1+", e.depthToSpace, e.parseDepthToSpaceAttributes], ["Equal", "", "7+", h.equal], ["Elu", "", "6+", I.elu, I.parseEluAttributes], ["Exp", "", "6+", I.exp], ["Flatten", "", "1+", r.flatten, r.parseFlattenAttributes], ["Floor", "", "6+", I.floor], ["FusedConv", "com.microsoft", "1+", s.conv, s.parseConvAttributes], ["Gather", "", "1+", i.gather, i.parseGatherAttributes], ["Gemm", "", "7-10", p.gemm, p.parseGemmAttributesV7], ["Gemm", "", "11+", p.gemm, p.parseGemmAttributesV11], ["GlobalAveragePool", "", "1+", w.globalAveragePool, w.parseGlobalAveragePoolAttributes], ["GlobalMaxPool", "", "1+", w.globalMaxPool], ["Greater", "", "7+", h.greater], ["Identity", "", "1+", I.identity], ["ImageScaler", "", "1+", m.imageScaler, m.parseImageScalerAttributes], ["InstanceNormalization", "", "6+", _.instanceNormalization, _.parseInstanceNormalizationAttributes], ["LeakyRelu", "", "6+", I.leakyRelu, I.parseLeakyReluAttributes], ["Less", "", "7+", h.less], ["Log", "", "6+", I.log], ["MatMul", "", "1+", b.matMul, b.parseMatMulAttributes], ["MaxPool", "", "1+", w.maxPool, w.parseMaxPoolAttributes], ["Mul", "", "7+", h.mul], ["Neg", "", "6+", I.neg], ["Not", "", "1+", I.not], ["Or", "", "7+", h.or], ["Pad", "", "2-10", y.padV2, y.parsePadAttributesV2], ["Pad", "", "11+", y.padV11, y.parsePadAttributesV11], ["Pow", "", "7+", h.pow], ["PRelu", "", "7+", h.pRelu], ["ReduceLogSum", "", "1+", T.reduceLogSum, T.parseReduceAttributes], ["ReduceMax", "", "1+", T.reduceMax, T.parseReduceAttributes], ["ReduceMean", "", "1+", T.reduceMean, T.parseReduceAttributes], ["ReduceMin", "", "1+", T.reduceMin, T.parseReduceAttributes], ["ReduceProd", "", "1+", T.reduceProd, T.parseReduceAttributes], ["ReduceSum", "", "1-12", T.reduceSum, T.parseReduceAttributes], ["ReduceSumSquare", "", "1+", T.reduceLogSumSquare, T.parseReduceAttributes], ["Relu", "", "6+", I.relu], ["Reshape", "", "5+", S.reshape], ["Resize", "", "10", E.resize, E.parseResizeAttributesV10], ["Resize", "", "11+", E.resize, E.parseResizeAttributesV11], ["Shape", "", "1+", O.shape], ["Sigmoid", "", "6+", I.sigmoid], ["Sin", "", "7+", I.sin], ["Slice", "", "10+", v.sliceV10], ["Slice", "", "1-9", v.slice, v.parseSliceAttributes], ["Softmax", "", "1-12", M.softmax, M.parseSoftmaxAttributes], ["Softmax", "", "13+", M.softmaxV13, M.parseSoftmaxAttributesV13], ["Split", "", "2-12", L.split, L.parseSplitAttributes], ["Sqrt", "", "6+", I.sqrt], ["Squeeze", "", "1-12", j.squeeze, j.parseSqueezeAttributes], ["Squeeze", "", "13+", j.squeezeV13], ["Sub", "", "7+", h.sub], ["Sum", "", "6+", B.sum], ["Tan", "", "7+", I.tan], ["Tanh", "", "6+", I.tanh], ["Tile", "", "6+", F.tile], ["Transpose", "", "1+", D.transpose, D.parseTransposeAttributes], ["Upsample", "", "7-8", Q.upsample, Q.parseUpsampleAttributesV7], ["Upsample", "", "9", Q.upsample, Q.parseUpsampleAttributesV9], ["Unsqueeze", "", "1-12", $.unsqueeze, $.parseUnsqueezeAttributes], ["Unsqueeze", "", "13+", $.unsqueezeV13], ["Xor", "", "7+", h.xor]];
+        const a = o(2898), f = h(o(7839)), g = o(4196), c = o(2069), s = o(8138), t = o(9663), e = o(5193), r = o(7992), i = o(1253), p = o(4776), m = o(6572), _ = o(3346), b = o(5623), y = o(2870), w = o(2143), T = o(4939), S = o(718), E = o(2268), O = o(8117), v = o(2278), A = o(5524), L = o(5975), j = o(3933), B = o(6558), F = o(5723), D = o(3738), I = h(o(4909)), $ = o(8428), Q = o(9793);
+        n.WEBGL_OP_RESOLVE_RULES = [["Abs", "", "6+", I.abs], ["Acos", "", "7+", I.acos], ["Add", "", "7+", f.add], ["And", "", "7+", f.and], ["Asin", "", "7+", I.asin], ["Atan", "", "7+", I.atan], ["AveragePool", "", "7+", w.averagePool, w.parseAveragePoolAttributes], ["BatchNormalization", "", "7+", a.batchNormalization, a.parseBatchNormalizationAttributes], ["Cast", "", "6+", g.cast, g.parseCastAttributes], ["Ceil", "", "6+", I.ceil], ["Clip", "", "6-10", I.clip, I.parseClipAttributes], ["Clip", "", "11+", I.clipV11], ["Concat", "", "4+", c.concat, c.parseConcatAttributes], ["Conv", "", "1+", s.conv, s.parseConvAttributes], ["ConvTranspose", "", "1+", t.convTranspose, t.parseConvTransposeAttributes], ["Cos", "", "7+", I.cos], ["Div", "", "7+", f.div], ["Dropout", "", "7+", I.identity], ["DepthToSpace", "", "1+", e.depthToSpace, e.parseDepthToSpaceAttributes], ["Equal", "", "7+", f.equal], ["Elu", "", "6+", I.elu, I.parseEluAttributes], ["Exp", "", "6+", I.exp], ["Flatten", "", "1+", r.flatten, r.parseFlattenAttributes], ["Floor", "", "6+", I.floor], ["FusedConv", "com.microsoft", "1+", s.conv, s.parseConvAttributes], ["Gather", "", "1+", i.gather, i.parseGatherAttributes], ["Gemm", "", "7-10", p.gemm, p.parseGemmAttributesV7], ["Gemm", "", "11+", p.gemm, p.parseGemmAttributesV11], ["GlobalAveragePool", "", "1+", w.globalAveragePool, w.parseGlobalAveragePoolAttributes], ["GlobalMaxPool", "", "1+", w.globalMaxPool], ["Greater", "", "7+", f.greater], ["Identity", "", "1+", I.identity], ["ImageScaler", "", "1+", m.imageScaler, m.parseImageScalerAttributes], ["InstanceNormalization", "", "6+", _.instanceNormalization, _.parseInstanceNormalizationAttributes], ["LeakyRelu", "", "6+", I.leakyRelu, I.parseLeakyReluAttributes], ["Less", "", "7+", f.less], ["Log", "", "6+", I.log], ["MatMul", "", "1+", b.matMul, b.parseMatMulAttributes], ["MaxPool", "", "1+", w.maxPool, w.parseMaxPoolAttributes], ["Mul", "", "7+", f.mul], ["Neg", "", "6+", I.neg], ["Not", "", "1+", I.not], ["Or", "", "7+", f.or], ["Pad", "", "2-10", y.padV2, y.parsePadAttributesV2], ["Pad", "", "11+", y.padV11, y.parsePadAttributesV11], ["Pow", "", "7+", f.pow], ["PRelu", "", "7+", f.pRelu], ["ReduceLogSum", "", "1+", T.reduceLogSum, T.parseReduceAttributes], ["ReduceMax", "", "1+", T.reduceMax, T.parseReduceAttributes], ["ReduceMean", "", "1+", T.reduceMean, T.parseReduceAttributes], ["ReduceMin", "", "1+", T.reduceMin, T.parseReduceAttributes], ["ReduceProd", "", "1+", T.reduceProd, T.parseReduceAttributes], ["ReduceSum", "", "1-12", T.reduceSum, T.parseReduceAttributes], ["ReduceSumSquare", "", "1+", T.reduceLogSumSquare, T.parseReduceAttributes], ["Relu", "", "6+", I.relu], ["Reshape", "", "5+", S.reshape], ["Resize", "", "10", E.resize, E.parseResizeAttributesV10], ["Resize", "", "11+", E.resize, E.parseResizeAttributesV11], ["Shape", "", "1+", O.shape], ["Sigmoid", "", "6+", I.sigmoid], ["Sin", "", "7+", I.sin], ["Slice", "", "10+", v.sliceV10], ["Slice", "", "1-9", v.slice, v.parseSliceAttributes], ["Softmax", "", "1-12", A.softmax, A.parseSoftmaxAttributes], ["Softmax", "", "13+", A.softmaxV13, A.parseSoftmaxAttributesV13], ["Split", "", "2-12", L.split, L.parseSplitAttributes], ["Sqrt", "", "6+", I.sqrt], ["Squeeze", "", "1-12", j.squeeze, j.parseSqueezeAttributes], ["Squeeze", "", "13+", j.squeezeV13], ["Sub", "", "7+", f.sub], ["Sum", "", "6+", B.sum], ["Tan", "", "7+", I.tan], ["Tanh", "", "6+", I.tanh], ["Tile", "", "6+", F.tile], ["Transpose", "", "1+", D.transpose, D.parseTransposeAttributes], ["Upsample", "", "7-8", Q.upsample, Q.parseUpsampleAttributesV7], ["Upsample", "", "9", Q.upsample, Q.parseUpsampleAttributesV9], ["Unsqueeze", "", "1-12", $.unsqueeze, $.parseUnsqueezeAttributes], ["Unsqueeze", "", "13+", $.unsqueezeV13], ["Xor", "", "7+", f.xor]];
       }, 2898: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseBatchNormalizationAttributes = n.batchNormalization = void 0;
-        const u = o(246), l = o(5060), f = o(2039), a = { name: "BatchNormalization", inputNames: ["A", "Scale", "B", "Mean", "Variance"], inputTypes: [f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked] };
-        n.batchNormalization = (c, s, t) => (g(s), [c.run(Object.assign(Object.assign({}, a), { cacheHint: t.cacheKey, get: () => h(c, s, t) }), s)]), n.parseBatchNormalizationAttributes = (c) => {
+        const u = o(246), l = o(5060), h = o(2039), a = { name: "BatchNormalization", inputNames: ["A", "Scale", "B", "Mean", "Variance"], inputTypes: [h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked] };
+        n.batchNormalization = (c, s, t) => (g(s), [c.run(Object.assign(Object.assign({}, a), { cacheHint: t.cacheKey, get: () => f(c, s, t) }), s)]), n.parseBatchNormalizationAttributes = (c) => {
           const s = c.attributes.getFloat("epsilon", 1e-5), t = c.attributes.getFloat("momentum", 0.9), e = c.attributes.getInt("spatial", 1);
           return (0, u.createAttributeWithCacheKey)({ epsilon: s, momentum: t, spatial: e });
         };
-        const h = (c, s, t) => {
-          const e = (0, l.getGlsl)(c.session.backend.glContext.version), r = s[0].dims.length, [i, p] = c.calculateTextureWidthAndHeight(s[1].dims, f.TextureType.unpacked), m = `
+        const f = (c, s, t) => {
+          const e = (0, l.getGlsl)(c.session.backend.glContext.version), r = s[0].dims.length, [i, p] = c.calculateTextureWidthAndHeight(s[1].dims, h.TextureType.unpacked), m = `
   float process(int[${r}] indices) {
     vec2 position = offsetToCoords(indices[1], ${i}, ${p});
     float scale = getColorAsFloat(${e.texture2D}(Scale, position));
@@ -6494,7 +6468,7 @@ function requireOrtWeb_min() {
 
     return scale * ( (_A(indices) - mean) / sqrt(variance + float(${t.epsilon})) ) + b;
   }`;
-          return Object.assign(Object.assign({}, a), { output: { dims: s[0].dims, type: s[0].type, textureType: f.TextureType.unpacked }, shaderSource: m });
+          return Object.assign(Object.assign({}, a), { output: { dims: s[0].dims, type: s[0].type, textureType: h.TextureType.unpacked }, shaderSource: m });
         }, g = (c) => {
           if (!c || c.length !== 5) throw new Error("BatchNormalization requires 5 inputs.");
           const s = c[0], t = c[1], e = c[2], r = c[3], i = c[4];
@@ -6504,8 +6478,8 @@ function requireOrtWeb_min() {
         };
       }, 7839: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.xor = n.sub = n.pRelu = n.pow = n.or = n.mul = n.less = n.greater = n.equal = n.div = n.and = n.add = n.glslPRelu = n.glslPow = n.glslXor = n.glslOr = n.glslAnd = n.glslLess = n.glslGreater = n.glslEqual = n.glslSub = n.glslMul = n.glslDiv = n.glslAdd = void 0;
-        const u = o(2517), l = o(8520), f = o(5060), a = o(2039);
-        function h() {
+        const u = o(2517), l = o(8520), h = o(5060), a = o(2039);
+        function f() {
           const T = "add_";
           return { body: `
   float ${T}(float a, float b) {
@@ -6664,19 +6638,19 @@ function requireOrtWeb_min() {
   }
   `, name: T, type: l.FunctionType.ValueBased };
         }
-        n.glslAdd = h, n.glslDiv = g, n.glslMul = c, n.glslSub = s, n.glslEqual = t, n.glslGreater = e, n.glslLess = r, n.glslAnd = i, n.glslOr = p, n.glslXor = m, n.glslPow = _, n.glslPRelu = b;
+        n.glslAdd = f, n.glslDiv = g, n.glslMul = c, n.glslSub = s, n.glslEqual = t, n.glslGreater = e, n.glslLess = r, n.glslAnd = i, n.glslOr = p, n.glslXor = m, n.glslPow = _, n.glslPRelu = b;
         const y = (T, S, E, O = S[0].type, v) => {
-          const M = T.session.pack ? a.TextureType.packed : a.TextureType.unpacked;
-          return { name: E.name, inputNames: ["A", "B"], inputTypes: [M, M], cacheHint: v, get: () => w(T, S, E, O) };
+          const A = T.session.pack ? a.TextureType.packed : a.TextureType.unpacked;
+          return { name: E.name, inputNames: ["A", "B"], inputTypes: [A, A], cacheHint: v, get: () => w(T, S, E, O) };
         }, w = (T, S, E, O = S[0].type) => {
-          const v = T.session.pack ? a.TextureType.packed : a.TextureType.unpacked, M = !u.ShapeUtil.areEqual(S[0].dims, S[1].dims);
+          const v = T.session.pack ? a.TextureType.packed : a.TextureType.unpacked, A = !u.ShapeUtil.areEqual(S[0].dims, S[1].dims);
           let L = S[0].dims;
           const j = T.session.pack;
-          if (M) {
+          if (A) {
             const D = u.BroadcastUtil.calcShape(S[0].dims, S[1].dims, !1);
             if (!D) throw new Error("Can't perform binary op on the given tensors");
             L = D;
-            const I = L.length, $ = S[0].dims.length !== 0 ? S[0].dims.length : 1, Q = S[1].dims.length !== 0 ? S[1].dims.length : 1, Y = S[0].dims.length !== 0 ? "bcastIndices_A(indices, aindices);" : "aindices[0] = 0;", te = S[1].dims.length !== 0 ? "bcastIndices_B(indices, bindices);" : "bindices[0] = 0;", ne = (0, f.getGlsl)(T.session.backend.glContext.version), me = j ? `
+            const I = L.length, $ = S[0].dims.length !== 0 ? S[0].dims.length : 1, Q = S[1].dims.length !== 0 ? S[1].dims.length : 1, Y = S[0].dims.length !== 0 ? "bcastIndices_A(indices, aindices);" : "aindices[0] = 0;", te = S[1].dims.length !== 0 ? "bcastIndices_B(indices, bindices);" : "bindices[0] = 0;", ne = (0, h.getGlsl)(T.session.backend.glContext.version), me = j ? `
       ${E.body}
       void main() {
         vec4 a = getAAtOutCoords();
@@ -6694,7 +6668,7 @@ function requireOrtWeb_min() {
       }`;
             return { name: E.name, inputNames: ["A", "B"], inputTypes: [v, v], output: { dims: L, type: O, textureType: v }, shaderSource: me, hasMain: j };
           }
-          const B = (0, f.getGlsl)(T.session.backend.glContext.version), F = `
+          const B = (0, h.getGlsl)(T.session.backend.glContext.version), F = `
     ${E.body}
     void main() {
       vec4 v1 = ${B.texture2D}(A, TexCoords);
@@ -6705,18 +6679,18 @@ function requireOrtWeb_min() {
     `;
           return { name: E.name, inputNames: ["A", "B"], inputTypes: [v, v], output: { dims: S[0].dims, type: O, textureType: v }, shaderSource: F, hasMain: !0 };
         };
-        n.add = (T, S) => [T.run(y(T, S, h()), S)], n.and = (T, S) => [T.run(y(T, S, i(), "bool"), S)], n.div = (T, S) => [T.run(y(T, S, g()), S)], n.equal = (T, S) => [T.run(y(T, S, t(), "bool"), S)], n.greater = (T, S) => [T.run(y(T, S, e(), "bool"), S)], n.less = (T, S) => [T.run(y(T, S, r(), "bool"), S)], n.mul = (T, S) => [T.run(y(T, S, c()), S)], n.or = (T, S) => [T.run(y(T, S, p(), "bool"), S)], n.pow = (T, S) => [T.run(y(T, S, _()), S)], n.pRelu = (T, S) => [T.run(y(T, S, b()), S)], n.sub = (T, S) => [T.run(y(T, S, s()), S)], n.xor = (T, S) => [T.run(y(T, S, m(), "bool"), S)];
+        n.add = (T, S) => [T.run(y(T, S, f()), S)], n.and = (T, S) => [T.run(y(T, S, i(), "bool"), S)], n.div = (T, S) => [T.run(y(T, S, g()), S)], n.equal = (T, S) => [T.run(y(T, S, t(), "bool"), S)], n.greater = (T, S) => [T.run(y(T, S, e(), "bool"), S)], n.less = (T, S) => [T.run(y(T, S, r(), "bool"), S)], n.mul = (T, S) => [T.run(y(T, S, c()), S)], n.or = (T, S) => [T.run(y(T, S, p(), "bool"), S)], n.pow = (T, S) => [T.run(y(T, S, _()), S)], n.pRelu = (T, S) => [T.run(y(T, S, b()), S)], n.sub = (T, S) => [T.run(y(T, S, s()), S)], n.xor = (T, S) => [T.run(y(T, S, m(), "bool"), S)];
       }, 4196: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseCastAttributes = n.cast = void 0;
         const u = o(2517);
-        n.cast = (f, a, h) => (l(a), [f.cast(a[0], h)]), n.parseCastAttributes = (f) => u.ProtoUtil.tensorDataTypeFromProto(f.attributes.getInt("to"));
-        const l = (f) => {
-          if (!f || f.length !== 1) throw new Error("Cast requires 1 input.");
-          if (f[0].type === "string") throw new Error("Invalid input type.");
+        n.cast = (h, a, f) => (l(a), [h.cast(a[0], f)]), n.parseCastAttributes = (h) => u.ProtoUtil.tensorDataTypeFromProto(h.attributes.getInt("to"));
+        const l = (h) => {
+          if (!h || h.length !== 1) throw new Error("Cast requires 1 input.");
+          if (h[0].type === "string") throw new Error("Invalid input type.");
         };
       }, 1163: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createPackedConcatProgramInfoLoader = void 0;
-        const u = o(5060), l = o(2039), f = o(9390), a = o(2827);
+        const u = o(5060), l = o(2039), h = o(9390), a = o(2827);
         n.createPackedConcatProgramInfoLoader = (g, c, s) => {
           const t = (e = c.length, r = s.cacheKey, { name: "Concat (packed)", inputNames: Array.from({ length: e }, ((i, p) => `X${p}`)), inputTypes: Array(e).fill(l.TextureType.packed), cacheHint: r });
           var e, r;
@@ -6730,28 +6704,28 @@ function requireOrtWeb_min() {
               for (let ne = 0; ne < b.length; ne++) if (ne === _) y[_] += te[ne];
               else if (b[ne] !== te[ne]) throw new Error("non concat dimensions must match");
             }
-            const w = y.length, T = (0, a.getChannels)("coords", w), S = (0, f.getCoordsDataType)(w), E = (0, a.unpackFromChannel)(), O = m.map(((Y) => Y.dims)), v = (0, f.getGlChannels)(w), M = new Array(O.length - 1);
-            M[0] = O[0][_];
-            for (let Y = 1; Y < M.length; Y++) M[Y] = M[Y - 1] + O[Y][_];
+            const w = y.length, T = (0, a.getChannels)("coords", w), S = (0, h.getCoordsDataType)(w), E = (0, a.unpackFromChannel)(), O = m.map(((Y) => Y.dims)), v = (0, h.getGlChannels)(w), A = new Array(O.length - 1);
+            A[0] = O[0][_];
+            for (let Y = 1; Y < A.length; Y++) A[Y] = A[Y - 1] + O[Y][_];
             const L = v[_], j = v.slice(-2), B = v.join();
-            let F = `if (${L} < ${M[0]}) {
+            let F = `if (${L} < ${A[0]}) {
         return getChannel(
             getX0(${B}), vec2(${j.join()}));
         }`;
-            for (let Y = 1; Y < M.length; Y++) {
-              const te = M[Y - 1];
+            for (let Y = 1; Y < A.length; Y++) {
+              const te = A[Y - 1];
               F += `
-            if (${L} < ${M[Y]}  && ${L} >= ${M[Y - 1]}) {
+            if (${L} < ${A[Y]}  && ${L} >= ${A[Y - 1]}) {
               return getChannel(
-                getX${Y}(${h(v, L, te)}),
-                vec2(${h(j, L, te)}));
+                getX${Y}(${f(v, L, te)}),
+                vec2(${f(j, L, te)}));
             }`;
             }
-            const D = M.length, I = M[M.length - 1];
+            const D = A.length, I = A[A.length - 1];
             F += `
             return getChannel(
-              getX${D}(${h(v, L, I)}),
-              vec2(${h(j, L, I)}));`;
+              getX${D}(${f(v, L, I)}),
+              vec2(${f(j, L, I)}));`;
             const $ = (0, u.getGlsl)(i.session.backend.glContext.version), Q = `
           ${E}
           float getValue(${v.map(((Y) => "int " + Y))}) {
@@ -6787,14 +6761,14 @@ function requireOrtWeb_min() {
             return Object.assign(Object.assign({}, p), { output: { dims: y, type: m[0].type, textureType: l.TextureType.packed }, shaderSource: Q, hasMain: !0 });
           })(g, t, c, s.axis) });
         };
-        const h = (g, c, s) => {
+        const f = (g, c, s) => {
           const t = g.indexOf(c);
           return g.map(((e, r) => r === t ? `${e} - ${s}` : e)).join();
         };
       }, 2069: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseConcatAttributes = n.concat = void 0;
-        const u = o(246), l = o(2039), f = o(1163);
-        n.concat = (e, r, i) => (t(r), e.session.pack && r[0].dims.length > 1 ? [e.run((0, f.createPackedConcatProgramInfoLoader)(e, r, i), r)] : [e.run(a(e, r, i), r)]);
+        const u = o(246), l = o(2039), h = o(1163);
+        n.concat = (e, r, i) => (t(r), e.session.pack && r[0].dims.length > 1 ? [e.run((0, h.createPackedConcatProgramInfoLoader)(e, r, i), r)] : [e.run(a(e, r, i), r)]);
         const a = (e, r, i) => {
           const p = (m = r.length, _ = i.cacheKey, { name: "Concat", inputNames: Array.from({ length: m }, ((b, y) => `X${y}`)), inputTypes: Array(m).fill(l.TextureType.unpacked), cacheHint: _ });
           var m, _;
@@ -6809,10 +6783,10 @@ function requireOrtWeb_min() {
               else if (S[D] !== F[D]) throw new Error("non concat dimensions must match");
             }
             const O = E.length, v = new Array(w.length);
-            let M = 0;
-            for (let B = 0; B < v.length; ++B) M += w[B].dims[T], v[B] = M;
+            let A = 0;
+            for (let B = 0; B < v.length; ++B) A += w[B].dims[T], v[B] = A;
             let L = "";
-            L = w.length < 5 ? h(v) : g(v);
+            L = w.length < 5 ? f(v) : g(v);
             const j = `
         ${c(w.length, O)}
         ${s(v)}
@@ -6828,10 +6802,10 @@ function requireOrtWeb_min() {
         }`;
             return Object.assign(Object.assign({}, y), { output: { dims: E, type: w[0].type, textureType: l.TextureType.unpacked }, shaderSource: j });
           })(0, p, r, i.axis) });
-        }, h = (e) => `int getTextureWhereDataResides(int index) {
+        }, f = (e) => `int getTextureWhereDataResides(int index) {
       ${e.map(((r, i) => `if(index<${r}) {return ${i};}
 `)).join("")}
-    }`, g = (e) => h(e), c = (e, r) => {
+    }`, g = (e) => f(e), c = (e, r) => {
           const i = [`float fetchDataFromCorrectTexture(int textureIndex, int indices[${r}]) {`];
           for (let p = 0; p < e; ++p) p === 0 ? i.push(`	if (textureIndex == ${p}) { return _X${p}(indices); }`) : p === e - 1 ? i.push(`	else { return _X${p}(indices); }`) : i.push(`	else if (textureIndex == ${p}) { return _X${p}(indices); }`);
           return i.push("	}"), i.join(`
@@ -6854,14 +6828,14 @@ function requireOrtWeb_min() {
         };
       }, 4770: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createUnpackedGroupedConvProgramInfoLoader = void 0;
-        const u = o(6231), l = o(5060), f = o(2039), a = o(8138), h = o(2823);
+        const u = o(6231), l = o(5060), h = o(2039), a = o(8138), f = o(2823);
         n.createUnpackedGroupedConvProgramInfoLoader = (g, c, s) => {
-          const t = (e = c.length > 2, r = s.cacheKey, { name: "GroupedConv", inputNames: e ? ["X", "W", "Bias"] : ["X", "W"], inputTypes: e ? [f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked] : [f.TextureType.unpacked, f.TextureType.unpacked], cacheHint: r });
+          const t = (e = c.length > 2, r = s.cacheKey, { name: "GroupedConv", inputNames: e ? ["X", "W", "Bias"] : ["X", "W"], inputTypes: e ? [h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked] : [h.TextureType.unpacked, h.TextureType.unpacked], cacheHint: r });
           var e, r;
           return Object.assign(Object.assign({}, t), { get: () => ((i, p, m, _) => {
             const b = p.length > 2 ? "value += getBias(output_channel);" : "", y = p[0].dims.slice(), w = p[1].dims.slice(), T = w[0] / _.group;
             u.Logger.verbose("GroupedConv", `autpPad:${_.autoPad}, dilations:${_.dilations}, group:${_.group}, kernelShape:${_.kernelShape}, pads:${_.pads}, strides:${_.strides}`);
-            const S = (0, a.calculateOutputShape)(y, w, _.dilations, _.pads, _.strides), E = (0, l.getGlsl)(i.session.backend.glContext.version), { activationFunction: O, applyActivation: v } = (0, h.getActivationSnippet)(_), M = `
+            const S = (0, a.calculateOutputShape)(y, w, _.dilations, _.pads, _.strides), E = (0, l.getGlsl)(i.session.backend.glContext.version), { activationFunction: O, applyActivation: v } = (0, f.getActivationSnippet)(_), A = `
   const ivec2 strides = ivec2(${_.strides[0]}, ${_.strides[1]});
   const ivec2 pads = ivec2(${_.pads[0]}, ${_.pads[1]});
   ${O}
@@ -6899,22 +6873,22 @@ function requireOrtWeb_min() {
     ${E.output} = vec4(value, .0, .0, .0);
   }
 `;
-            return Object.assign(Object.assign({}, m), { output: { dims: S, type: p[0].type, textureType: f.TextureType.unpacked }, shaderSource: M, hasMain: !0 });
+            return Object.assign(Object.assign({}, m), { output: { dims: S, type: p[0].type, textureType: h.TextureType.unpacked }, shaderSource: A, hasMain: !0 });
           })(g, c, t, s) });
         };
       }, 1386: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.conv2DPacked = n.conv2DPackedPointwise = void 0;
-        const u = o(8138), l = o(8555), f = o(708);
-        n.conv2DPackedPointwise = (a, h, g) => {
-          const c = h[0].dims, s = h[1].dims, t = (0, u.calculateOutputShape)(c, s, g.dilations, g.pads, g.strides), e = a.reshapePacked(h[0], [c[1], c[2] * c[3]]), r = a.reshapePacked(h[1], [s[0], s[1]]), i = h.length > 2 ? [r, e, h[2]] : [r, e], p = a.run((0, f.createPackedMatmulProgramInfoLoader)(a, i, g), i);
+        const u = o(8138), l = o(8555), h = o(708);
+        n.conv2DPackedPointwise = (a, f, g) => {
+          const c = f[0].dims, s = f[1].dims, t = (0, u.calculateOutputShape)(c, s, g.dilations, g.pads, g.strides), e = a.reshapePacked(f[0], [c[1], c[2] * c[3]]), r = a.reshapePacked(f[1], [s[0], s[1]]), i = f.length > 2 ? [r, e, f[2]] : [r, e], p = a.run((0, h.createPackedMatmulProgramInfoLoader)(a, i, g), i);
           return a.reshapePacked(p, t);
-        }, n.conv2DPacked = (a, h, g) => {
-          const c = h[0].dims, s = h[1].dims, t = (0, u.calculateOutputShape)(c, s, g.dilations, g.pads, g.strides), e = a.run((0, l.createPackedIm2ColProgramInfoLoader)(a, h[0], h[1], t, g), [h[0]]), r = a.reshapePacked(h[1], [s[0], s[1] * s[2] * s[3]]), i = h.length === 3 ? [r, e, h[2]] : [r, e], p = a.run((0, f.createPackedMatmulProgramInfoLoader)(a, i, g), i);
+        }, n.conv2DPacked = (a, f, g) => {
+          const c = f[0].dims, s = f[1].dims, t = (0, u.calculateOutputShape)(c, s, g.dilations, g.pads, g.strides), e = a.run((0, l.createPackedIm2ColProgramInfoLoader)(a, f[0], f[1], t, g), [f[0]]), r = a.reshapePacked(f[1], [s[0], s[1] * s[2] * s[3]]), i = f.length === 3 ? [r, e, f[2]] : [r, e], p = a.run((0, h.createPackedMatmulProgramInfoLoader)(a, i, g), i);
           return a.reshapePacked(p, t);
         };
       }, 9663: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseConvTransposeAttributes = n.convTranspose = void 0;
-        const u = o(246), l = o(5060), f = o(2039), a = o(2823), h = (r, i, p, m, _, b) => (r - 1) * i + p + (m - 1) * _ + 1 - b, g = (r, i, p, m, _) => {
+        const u = o(246), l = o(5060), h = o(2039), a = o(2823), f = (r, i, p, m, _, b) => (r - 1) * i + p + (m - 1) * _ + 1 - b, g = (r, i, p, m, _) => {
           const b = Math.floor(r / 2);
           i === "SAME_UPPER" ? (p[m] = b, p[_] = r - b) : i === "SAME_LOWER" && (p[m] = r - b, p[_] = b);
         };
@@ -6923,10 +6897,10 @@ function requireOrtWeb_min() {
           const m = t(p, i);
           return [s(r, i, m)];
         }, s = (r, i, p) => r.run(((m, _, b) => {
-          const y = (w = _.length > 2, T = b.cacheKey, { name: "ConvTranspose", inputNames: w ? ["X", "W", "B"] : ["X", "W"], inputTypes: w ? [f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked] : [f.TextureType.unpacked, f.TextureType.unpacked], cacheHint: T });
+          const y = (w = _.length > 2, T = b.cacheKey, { name: "ConvTranspose", inputNames: w ? ["X", "W", "B"] : ["X", "W"], inputTypes: w ? [h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked] : [h.TextureType.unpacked, h.TextureType.unpacked], cacheHint: T });
           var w, T;
           return Object.assign(Object.assign({}, y), { get: () => ((S, E, O, v) => {
-            const M = E.length > 2 ? "getB(output_channel)" : "0.0", L = E[0].dims, j = E[1].dims, B = j[1], F = j[0] / v.group, D = [E[0].dims[0], E[1].dims[1] * v.group, ...v.outputShape], I = (0, l.getGlsl)(S.session.backend.glContext.version), { activationFunction: $, applyActivation: Q } = (0, a.getActivationSnippet)(v), Y = `
+            const A = E.length > 2 ? "getB(output_channel)" : "0.0", L = E[0].dims, j = E[1].dims, B = j[1], F = j[0] / v.group, D = [E[0].dims[0], E[1].dims[1] * v.group, ...v.outputShape], I = (0, l.getGlsl)(S.session.backend.glContext.version), { activationFunction: $, applyActivation: Q } = (0, a.getActivationSnippet)(v), Y = `
   const ivec2 strides = ivec2(${v.strides[0]}, ${v.strides[1]});
   const ivec2 pads = ivec2(${v.pads[0]}, ${v.pads[1]});
   ${$}
@@ -6940,7 +6914,7 @@ function requireOrtWeb_min() {
     int group_id = output_channel / ${B};
     int wOutChannel = output_channel - group_id * ${B};
 
-    float value = ${M};
+    float value = ${A};
     for (int inChannelOffset = 0; inChannelOffset < ${F}; inChannelOffset++) {
       int input_channel = group_id * ${F} + inChannelOffset;
       for (int wWOff = 0; wWOff < ${j[2]}; wWOff++) {
@@ -6964,17 +6938,17 @@ function requireOrtWeb_min() {
     ${I.output} = vec4(value, .0, .0, .0);
   }
 `;
-            return Object.assign(Object.assign({}, O), { output: { dims: D, type: E[0].type, textureType: f.TextureType.unpacked }, shaderSource: Y, hasMain: !0 });
+            return Object.assign(Object.assign({}, O), { output: { dims: D, type: E[0].type, textureType: h.TextureType.unpacked }, shaderSource: Y, hasMain: !0 });
           })(m, _, y, b) });
         })(r, i, p), i), t = (r, i) => {
           const p = r.kernelShape.slice();
           if (r.kernelShape.length === 0) for (let y = 2; y < i[1].dims.length; ++y) p.push(i[1].dims[y]);
           const m = r.pads.slice(), _ = r.outputShape.slice();
-          ((y, w, T, S, E, O, v, M) => {
-            const L = y.length - 2, j = M.length === 0;
+          ((y, w, T, S, E, O, v, A) => {
+            const L = y.length - 2, j = A.length === 0;
             for (let B = 0; B < L; ++B) {
-              const F = j ? y[B + 2] * O[B] : M[B], D = h(y[B + 2], O[B], E[B], w[B], T[B], F);
-              g(D, S, E, B, B + L), j && M.push(O[B] * (y[B + 2] - 1) + v[B] + (w[B] - 1) * T[B] + 1 - E[B] - E[B + L]);
+              const F = j ? y[B + 2] * O[B] : A[B], D = f(y[B + 2], O[B], E[B], w[B], T[B], F);
+              g(D, S, E, B, B + L), j && A.push(O[B] * (y[B + 2] - 1) + v[B] + (w[B] - 1) * T[B] + 1 - E[B] - E[B + L]);
             }
           })(i[0].dims, p, r.dilations, r.autoPad, m, r.strides, r.outputPadding, _);
           const b = Object.assign({}, r);
@@ -7002,20 +6976,20 @@ function requireOrtWeb_min() {
         };
       }, 8138: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseConvAttributes = n.conv = n.calculateOutputShape = void 0;
-        const u = o(246), l = o(2517), f = o(4770), a = o(1386), h = o(9828), g = o(2823), c = o(3248), s = o(5623);
+        const u = o(246), l = o(2517), h = o(4770), a = o(1386), f = o(9828), g = o(2823), c = o(3248), s = o(5623);
         n.calculateOutputShape = (m, _, b, y, w) => {
-          const T = m[0], S = m.slice(2), E = S.length, O = _[0], v = _.slice(2).map(((L, j) => L + (L - 1) * (b[j] - 1))), M = S.map(((L, j) => L + y[j] + y[j + E])).map(((L, j) => Math.floor((L - v[j] + w[j]) / w[j])));
-          return [T, O].concat(...M);
+          const T = m[0], S = m.slice(2), E = S.length, O = _[0], v = _.slice(2).map(((L, j) => L + (L - 1) * (b[j] - 1))), A = S.map(((L, j) => L + y[j] + y[j + E])).map(((L, j) => Math.floor((L - v[j] + w[j]) / w[j])));
+          return [T, O].concat(...A);
         }, n.conv = (m, _, b) => (p(_, b), t(m, _, b));
         const t = (m, _, b) => {
           const y = i(b, _), w = m.session.pack, T = y.kernelShape[0] === 1 && y.kernelShape[1] === 1;
-          return y.group > 1 ? [m.run((0, f.createUnpackedGroupedConvProgramInfoLoader)(m, _, y), _)] : T && w ? [e(m, _, y)] : w && _[0].dims.length === 4 && _[0].dims[0] === 1 && !T ? [(0, a.conv2DPacked)(m, _, y)] : [r(m, _, y)];
+          return y.group > 1 ? [m.run((0, h.createUnpackedGroupedConvProgramInfoLoader)(m, _, y), _)] : T && w ? [e(m, _, y)] : w && _[0].dims.length === 4 && _[0].dims[0] === 1 && !T ? [(0, a.conv2DPacked)(m, _, y)] : [r(m, _, y)];
         }, e = (m, _, b) => {
           const y = _[0].dims, w = _[1].dims, T = (0, n.calculateOutputShape)(y, w, b.dilations, b.pads, b.strides), S = m.reshapeUnpacked(_[0], [y[1], y[2] * y[3]]), E = m.reshapeUnpacked(_[1], [w[0], w[1]]), O = _.length > 2 ? [E, S, _[2]] : [E, S], v = m.run((0, s.createMatmulProgramInfoLoader)(O, b), O);
           return m.reshapeUnpacked(v, T);
         }, r = (m, _, b) => {
           const y = _[0].dims, w = _[1].dims, T = (0, n.calculateOutputShape)(y, w, b.dilations, b.pads, b.strides), S = m.run((0, c.createIm2ColProgramInfoLoader)(m, _[0], _[1], T, b), [_[0]]), E = _.length === 3 ? [S, _[1], _[2]] : [S, _[1]];
-          return m.run((0, h.createDotProductProgramInfoLoader)(m, _, T, b), E);
+          return m.run((0, f.createDotProductProgramInfoLoader)(m, _, T, b), E);
         }, i = (m, _) => {
           const b = m.kernelShape.slice();
           if (m.kernelShape.length === 0) for (let T = 2; T < _[1].dims.length; ++T) b.push(_[1].dims[T]);
@@ -7044,28 +7018,28 @@ function requireOrtWeb_min() {
       }, 5193: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseDepthToSpaceAttributes = n.depthToSpace = void 0;
         const u = o(3738);
-        n.depthToSpace = (f, a, h) => {
+        n.depthToSpace = (h, a, f) => {
           l(a);
-          const g = h.blocksize, c = g * g, s = h.mode === "DCR" ? [0, 3, 4, 1, 5, 2] : [0, 1, 4, 2, 5, 3], t = h.mode === "DCR" ? [a[0].dims[0], g, g, a[0].dims[1] / c, a[0].dims[2], a[0].dims[3]] : [a[0].dims[0], a[0].dims[1] / c, g, g, a[0].dims[2], a[0].dims[3]], e = f.reshapeUnpacked(a[0], t), r = { perm: s, cacheKey: `${s}` }, [i] = (0, u.transpose)(f, [e], r), p = [a[0].dims[0], a[0].dims[1] / c, a[0].dims[2] * g, a[0].dims[3] * g];
-          return [f.reshapeUnpacked(i, p)];
-        }, n.parseDepthToSpaceAttributes = (f) => {
-          const a = f.attributes.getInt("blocksize");
+          const g = f.blocksize, c = g * g, s = f.mode === "DCR" ? [0, 3, 4, 1, 5, 2] : [0, 1, 4, 2, 5, 3], t = f.mode === "DCR" ? [a[0].dims[0], g, g, a[0].dims[1] / c, a[0].dims[2], a[0].dims[3]] : [a[0].dims[0], a[0].dims[1] / c, g, g, a[0].dims[2], a[0].dims[3]], e = h.reshapeUnpacked(a[0], t), r = { perm: s, cacheKey: `${s}` }, [i] = (0, u.transpose)(h, [e], r), p = [a[0].dims[0], a[0].dims[1] / c, a[0].dims[2] * g, a[0].dims[3] * g];
+          return [h.reshapeUnpacked(i, p)];
+        }, n.parseDepthToSpaceAttributes = (h) => {
+          const a = h.attributes.getInt("blocksize");
           if (a < 1) throw new Error(`blocksize must be >= 1, but got : ${a} for DepthToSpace`);
-          const h = f.attributes.getString("mode", "DCR");
-          if (h !== "DCR" && h !== "CRD") throw new Error(`unrecognized mode: ${h} for DepthToSpace`);
-          return { mode: h, blocksize: a };
+          const f = h.attributes.getString("mode", "DCR");
+          if (f !== "DCR" && f !== "CRD") throw new Error(`unrecognized mode: ${f} for DepthToSpace`);
+          return { mode: f, blocksize: a };
         };
-        const l = (f) => {
-          if (f.length !== 1) throw new Error(`DepthToSpace expect 1 inputs, but got ${f.length}`);
-          if (f[0].type === "string" || f[0].dims.length !== 4) throw new TypeError("DepthToSpace input should be a 4-D numeric tensor");
+        const l = (h) => {
+          if (h.length !== 1) throw new Error(`DepthToSpace expect 1 inputs, but got ${h.length}`);
+          if (h[0].type === "string" || h[0].dims.length !== 4) throw new TypeError("DepthToSpace input should be a 4-D numeric tensor");
         };
       }, 9828: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createDotProductProgramInfoLoader = void 0;
-        const u = o(2517), l = o(5060), f = o(2039), a = o(2823), h = o(3248);
+        const u = o(2517), l = o(5060), h = o(2039), a = o(2823), f = o(3248);
         n.createDotProductProgramInfoLoader = (g, c, s, t) => {
-          const e = ((r, i) => ({ name: "ConvDotProduct", inputNames: r ? ["Im2Col", "K", "B"] : ["Im2Col", "K"], inputTypes: r ? [f.TextureType.unpacked, f.TextureType.packedLastDimension, f.TextureType.unpacked] : [f.TextureType.unpacked, f.TextureType.packedLastDimension], cacheKey: i.activationCacheKey }))(c.length > 2, t);
+          const e = ((r, i) => ({ name: "ConvDotProduct", inputNames: r ? ["Im2Col", "K", "B"] : ["Im2Col", "K"], inputTypes: r ? [h.TextureType.unpacked, h.TextureType.packedLastDimension, h.TextureType.unpacked] : [h.TextureType.unpacked, h.TextureType.packedLastDimension], cacheKey: i.activationCacheKey }))(c.length > 2, t);
           return Object.assign(Object.assign({}, e), { get: () => ((r, i, p, m, _) => {
-            const b = p[0].dims, y = p[1].dims, w = [y[0], Math.ceil(b[1] * y[2] * y[3] / 4)], T = (0, h.calculateIm2ColDims)(b, y, m), [S, E] = r.calculateTextureWidthAndHeight(w, f.TextureType.packedLastDimension), O = u.ShapeUtil.computeStrides(T), [v, M] = r.calculateTextureWidthAndHeight(T, f.TextureType.packedLastDimension), L = m.length, j = p.length < 3 ? "0.0" : "_B(b)", B = Math.ceil(b[1] * y[2] * y[3] / 4), { activationFunction: F, applyActivation: D } = (0, a.getActivationSnippet)(_), I = (0, l.getGlsl)(r.session.backend.glContext.version), $ = `
+            const b = p[0].dims, y = p[1].dims, w = [y[0], Math.ceil(b[1] * y[2] * y[3] / 4)], T = (0, f.calculateIm2ColDims)(b, y, m), [S, E] = r.calculateTextureWidthAndHeight(w, h.TextureType.packedLastDimension), O = u.ShapeUtil.computeStrides(T), [v, A] = r.calculateTextureWidthAndHeight(T, h.TextureType.packedLastDimension), L = m.length, j = p.length < 3 ? "0.0" : "_B(b)", B = Math.ceil(b[1] * y[2] * y[3] / 4), { activationFunction: F, applyActivation: D } = (0, a.getActivationSnippet)(_), I = (0, l.getGlsl)(r.session.backend.glContext.version), $ = `
 ${F}
 float process(int indices[${L}]) {
   int b[1];
@@ -7078,7 +7052,7 @@ float process(int indices[${L}]) {
   int kernelOffset = indices[1] * ${w[1]};
   float value = ${j};
   for (int i = 0; i < ${B}; ++i) {
-    vec2 im2colCoords = offsetToCoords(im2colOffset, ${v}, ${M});
+    vec2 im2colCoords = offsetToCoords(im2colOffset, ${v}, ${A});
     vec2 kernelCoords = offsetToCoords(kernelOffset, ${S}, ${E});
     value += dot(${I.texture2D}(Im2Col, im2colCoords), ${I.texture2D}(K, kernelCoords));
     ++im2colOffset;
@@ -7087,30 +7061,30 @@ float process(int indices[${L}]) {
   ${D}
   return value;
 }`;
-            return Object.assign(Object.assign({}, i), { output: { dims: m, type: p[0].type, textureType: f.TextureType.unpacked }, shaderSource: $ });
+            return Object.assign(Object.assign({}, i), { output: { dims: m, type: p[0].type, textureType: h.TextureType.unpacked }, shaderSource: $ });
           })(g, e, c, s, t) });
         };
       }, 7992: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseFlattenAttributes = n.flatten = void 0;
         const u = o(2517);
-        n.flatten = (f, a, h) => {
-          l(a, h);
-          const g = u.ShapeUtil.flattenShape(a[0].dims, h);
-          return [f.reshapeUnpacked(a[0], g)];
-        }, n.parseFlattenAttributes = (f) => f.attributes.getInt("axis", 1);
-        const l = (f, a) => {
-          if (!f || f.length !== 1) throw new Error("Flatten requires 1 input.");
-          const h = f[0].dims.length;
-          if (h === 0) throw new Error("scalar tensor is not supported.");
-          if (a < -h || a > h) throw new Error("Invalid axis");
-          if (f[0].type === "string") throw new Error("string tensor is not supported.");
+        n.flatten = (h, a, f) => {
+          l(a, f);
+          const g = u.ShapeUtil.flattenShape(a[0].dims, f);
+          return [h.reshapeUnpacked(a[0], g)];
+        }, n.parseFlattenAttributes = (h) => h.attributes.getInt("axis", 1);
+        const l = (h, a) => {
+          if (!h || h.length !== 1) throw new Error("Flatten requires 1 input.");
+          const f = h[0].dims.length;
+          if (f === 0) throw new Error("scalar tensor is not supported.");
+          if (a < -f || a > f) throw new Error("Invalid axis");
+          if (h[0].type === "string") throw new Error("string tensor is not supported.");
         };
       }, 2823: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseInternalActivationAttributes = n.getActivationSnippet = void 0;
         const u = o(2517), l = o(4909);
-        n.getActivationSnippet = function(f) {
+        n.getActivationSnippet = function(h) {
           let a;
-          switch (f.activation) {
+          switch (h.activation) {
             case "Relu":
               a = (0, l.glslRelu)();
               break;
@@ -7118,30 +7092,30 @@ float process(int indices[${L}]) {
               a = (0, l.glslSigmoid)();
               break;
             case "Clip":
-              a = (0, l.glslClip)(f.clipMin, f.clipMax);
+              a = (0, l.glslClip)(h.clipMin, h.clipMax);
               break;
             default:
               return { activationFunction: "", applyActivation: "" };
           }
-          const h = a.name;
-          return { activationFunction: a.body, applyActivation: `value = ${h}_(value);` };
-        }, n.parseInternalActivationAttributes = (f) => {
-          const a = f.getString("activation", "");
+          const f = a.name;
+          return { activationFunction: a.body, applyActivation: `value = ${f}_(value);` };
+        }, n.parseInternalActivationAttributes = (h) => {
+          const a = h.getString("activation", "");
           if (a === "Clip") {
-            const [h, g] = f.getFloats("activation_params", [u.MIN_CLIP, u.MAX_CLIP]);
-            return { activation: a, clipMax: g, clipMin: h, activationCacheKey: `${a}:${h},${g}` };
+            const [f, g] = h.getFloats("activation_params", [u.MIN_CLIP, u.MAX_CLIP]);
+            return { activation: a, clipMax: g, clipMin: f, activationCacheKey: `${a}:${f},${g}` };
           }
           return { activation: a, activationCacheKey: a };
         };
       }, 1253: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseGatherAttributes = n.gather = void 0;
-        const u = o(246), l = o(782), f = o(2517), a = o(2039);
+        const u = o(246), l = o(782), h = o(2517), a = o(2039);
         n.gather = (s, t, e) => (c(t, e.axis), [s.run(g(s, t, e), t)]), n.parseGatherAttributes = (s) => (0, u.createAttributeWithCacheKey)({ axis: s.attributes.getInt("axis", 0) });
-        const h = { name: "Gather", inputNames: ["A", "B"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked] }, g = (s, t, e) => {
-          const r = Object.assign(Object.assign({}, h), { cacheHint: e.cacheKey });
+        const f = { name: "Gather", inputNames: ["A", "B"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked] }, g = (s, t, e) => {
+          const r = Object.assign(Object.assign({}, f), { cacheHint: e.cacheKey });
           return Object.assign(Object.assign({}, r), { get: () => ((i, p, m, _) => {
             const b = m[0].dims.slice(), y = m[1].dims.slice(), w = new Array(b.length + y.length - 1);
-            _ = f.ShapeUtil.normalizeAxis(_, b.length);
+            _ = h.ShapeUtil.normalizeAxis(_, b.length);
             const T = [];
             for (let E = 0; E < w.length; E++) E < _ ? (w[E] = b[E], T.push(`inputIdx[${E}] = outputIdx[${E}];`)) : E < _ + y.length ? (w[E] = y[E - _], T.push(`indexDataIdx[${E - _}] = outputIdx[${E}];`)) : (w[E] = b[E - y.length + 1], T.push(`inputIdx[${E - y.length + 1}] = outputIdx[${E}];`));
             const S = `
@@ -7167,15 +7141,15 @@ float process(int indices[${L}]) {
         };
       }, 4776: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseGemmAttributesV11 = n.parseGemmAttributesV7 = n.gemm = void 0;
-        const u = o(246), l = o(2517), f = o(2039);
-        n.gemm = (s, t, e) => (c(t, e), [s.run(h(t, e), t)]);
+        const u = o(246), l = o(2517), h = o(2039);
+        n.gemm = (s, t, e) => (c(t, e), [s.run(f(t, e), t)]);
         const a = (s, t) => {
           const e = s.attributes.getInt("transA", 0) !== 0, r = s.attributes.getInt("transB", 0) !== 0, i = s.attributes.getFloat("alpha", 1), p = s.attributes.getFloat("beta", 1);
           return (0, u.createAttributeWithCacheKey)({ transA: e, transB: r, alpha: i, beta: p, isOptionalC: t });
         };
         n.parseGemmAttributesV7 = (s) => a(s, !1), n.parseGemmAttributesV11 = (s) => a(s, !0);
-        const h = (s, t) => {
-          const e = { name: "Gemm", inputNames: s.length === 3 ? ["A", "B", "C"] : ["A", "B"], inputTypes: s.length === 3 ? [f.TextureType.unpacked, f.TextureType.unpacked, f.TextureType.unpacked] : [f.TextureType.unpacked, f.TextureType.unpacked], key: t.cacheKey };
+        const f = (s, t) => {
+          const e = { name: "Gemm", inputNames: s.length === 3 ? ["A", "B", "C"] : ["A", "B"], inputTypes: s.length === 3 ? [h.TextureType.unpacked, h.TextureType.unpacked, h.TextureType.unpacked] : [h.TextureType.unpacked, h.TextureType.unpacked], key: t.cacheKey };
           return Object.assign(Object.assign({}, e), { get: () => g(e, s, t) });
         }, g = (s, t, e) => {
           const r = t[0].dims.slice(), i = t[1].dims.slice(), [p, m] = l.GemmUtil.getShapeOfGemmResult(r, e.transA, i, e.transB, t.length === 3 ? t[2].dims : void 0), _ = [p, m];
@@ -7203,7 +7177,7 @@ float process(int indices[${L}]) {
           ${t.length === 3 ? "value += beta * _C(c);" : ""}
           return value;
       }`;
-          return Object.assign(Object.assign({}, s), { output: { dims: _, type: t[0].type, textureType: f.TextureType.unpacked }, variables: [{ name: "alpha", type: "float", data: e.alpha }, { name: "beta", type: "float", data: e.beta }], shaderSource: T });
+          return Object.assign(Object.assign({}, s), { output: { dims: _, type: t[0].type, textureType: h.TextureType.unpacked }, variables: [{ name: "alpha", type: "float", data: e.alpha }, { name: "beta", type: "float", data: e.beta }], shaderSource: T });
         }, c = (s, t) => {
           if (!s) throw new Error("Input is missing");
           if (t.isOptionalC && (s.length < 2 || s.length > 3)) throw new Error("Invaid input shape.");
@@ -7214,14 +7188,14 @@ float process(int indices[${L}]) {
         };
       }, 8555: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createPackedIm2ColProgramInfoLoader = void 0;
-        const u = o(5060), l = o(2039), f = o(2827);
-        n.createPackedIm2ColProgramInfoLoader = (a, h, g, c, s) => {
+        const u = o(5060), l = o(2039), h = o(2827);
+        n.createPackedIm2ColProgramInfoLoader = (a, f, g, c, s) => {
           const t = (e = s.cacheKey, { name: "Im2Col (packed)", inputNames: ["A"], inputTypes: [l.TextureType.packed], cacheHint: e });
           var e;
           return Object.assign(Object.assign({}, t), { get: () => ((r, i, p, m, _, b) => {
-            const y = p.dims, w = m.dims, T = _.length, S = [w[1] * w[2] * w[3], _[2] * _[3]], E = w[2] * w[3], O = (0, f.unpackFromChannel)(), v = (0, u.getGlsl)(r.session.backend.glContext.version);
-            let M = "";
-            for (let j = 0; j <= 1; j++) for (let B = 0; B <= 1; B++) M += `
+            const y = p.dims, w = m.dims, T = _.length, S = [w[1] * w[2] * w[3], _[2] * _[3]], E = w[2] * w[3], O = (0, h.unpackFromChannel)(), v = (0, u.getGlsl)(r.session.backend.glContext.version);
+            let A = "";
+            for (let j = 0; j <= 1; j++) for (let B = 0; B <= 1; B++) A += `
             blockIndex = rc.x + ${B};
             pos = rc.y + ${j};
 
@@ -7255,17 +7229,17 @@ float process(int indices[${L}]) {
           vec4 result = vec4(0.0);
           int blockIndex, pos, offsetY, d0, offsetX, d1, ch;
           vec2 innerDims;
-          ${M}
+          ${A}
           ${v.output} = result;
       }
             `;
             return Object.assign(Object.assign({}, i), { output: { dims: S, type: p.type, textureType: l.TextureType.packed }, shaderSource: L, hasMain: !0 });
-          })(a, t, h, g, c, s) });
+          })(a, t, f, g, c, s) });
         };
       }, 3248: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.calculateIm2ColDims = n.createIm2ColProgramInfoLoader = void 0;
         const u = o(2039);
-        n.createIm2ColProgramInfoLoader = (l, f, a, h, g) => {
+        n.createIm2ColProgramInfoLoader = (l, h, a, f, g) => {
           const c = (s = g.cacheKey, { name: "Im2Col", inputNames: ["X"], inputTypes: [u.TextureType.unpacked], cacheHint: s });
           var s;
           return Object.assign(Object.assign({}, c), { get: () => ((t, e, r, i, p, m) => {
@@ -7315,8 +7289,8 @@ float process(int indices[${L}]) {
         }
         `;
             return Object.assign(Object.assign({}, e), { output: { dims: w, type: r.type, textureType: u.TextureType.packedLastDimension }, shaderSource: T });
-          })(0, c, f, a, h, g) });
-        }, n.calculateIm2ColDims = (l, f, a, h = 4) => [a[0], a[2], a[3], Math.ceil(l[1] * f[2] * f[3] / h)];
+          })(0, c, h, a, f, g) });
+        }, n.calculateIm2ColDims = (l, h, a, f = 4) => [a[0], a[2], a[3], Math.ceil(l[1] * h[2] * h[3] / f)];
       }, 6572: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseImageScalerAttributes = n.imageScaler = void 0;
         const u = o(246), l = o(2039);
@@ -7324,17 +7298,17 @@ float process(int indices[${L}]) {
           const s = c.attributes.getFloat("scale"), t = c.attributes.getFloats("bias");
           return (0, u.createAttributeWithCacheKey)({ scale: s, bias: t });
         };
-        const f = { name: "ImageScaler", inputNames: ["X"], inputTypes: [l.TextureType.unpacked] }, a = (c, s, t) => {
-          const e = Object.assign(Object.assign({}, f), { cacheHint: t.cacheKey });
+        const h = { name: "ImageScaler", inputNames: ["X"], inputTypes: [l.TextureType.unpacked] }, a = (c, s, t) => {
+          const e = Object.assign(Object.assign({}, h), { cacheHint: t.cacheKey });
           return Object.assign(Object.assign({}, e), { get: () => ((r, i, p, m) => {
             const _ = p[0].dims.slice(), b = _.length, y = `
-      ${h(m.bias.length)}
+      ${f(m.bias.length)}
       float process(int indices[${b}]) {
         return _X(indices) * scale + getBias(bias, indices[1]);
       }`;
             return Object.assign(Object.assign({}, i), { output: { dims: _, type: p[0].type, textureType: l.TextureType.unpacked }, variables: [{ name: "bias", type: "float", arrayLength: m.bias.length, data: m.bias }, { name: "scale", type: "float", data: m.scale }], shaderSource: y });
           })(0, e, s, t) });
-        }, h = (c) => {
+        }, f = (c) => {
           const s = [`float getBias(float bias[${c}], int channel) {`];
           for (let t = 0; t < c; ++t) t === 0 ? s.push(`	if (channel == ${t}) { return bias[${t}]; }`) : t === c - 1 ? s.push(`	else { return bias[${t}]; }`) : s.push(`	else if (channel == ${t}) { return bias[${t}]; }`);
           return s.push("	}"), s.join(`
@@ -7352,7 +7326,7 @@ float process(int indices[${L}]) {
           const r = s.run(a(t[0]), t);
           return [s.run(g(s, t[0], e, r.dims), [t[0], r, t[1], t[2]])];
         }, n.parseInstanceNormalizationAttributes = (s) => s.attributes.getFloat("epsilon", 1e-5);
-        const f = { name: "InstanceNormalization_MeanAndVariance", inputNames: ["X"], inputTypes: [l.TextureType.unpacked] }, a = (s) => Object.assign(Object.assign({}, f), { get: () => ((t, e) => {
+        const h = { name: "InstanceNormalization_MeanAndVariance", inputNames: ["X"], inputTypes: [l.TextureType.unpacked] }, a = (s) => Object.assign(Object.assign({}, h), { get: () => ((t, e) => {
           const r = e.dims.slice(), i = r[1], p = r[2] * r[3], m = [r[0], i], _ = `
       vec4 process(int[2] indices) {
         vec4 v = vec4(0.0);
@@ -7384,8 +7358,8 @@ float process(int indices[${L}]) {
         return v;
       }`;
           return Object.assign(Object.assign({}, t), { output: { dims: m, type: e.type, textureType: l.TextureType.packedLastDimension }, shaderSource: _ });
-        })(f, s) }), h = { name: "InstanceNormalization_ComputeOutput", inputNames: ["X", "MeanAndVariance", "Scale", "B"], inputTypes: [l.TextureType.unpacked, l.TextureType.packedLastDimension, l.TextureType.unpacked, l.TextureType.unpacked] }, g = (s, t, e, r) => {
-          const i = Object.assign(Object.assign({}, h), { cacheHint: `${e}` });
+        })(h, s) }), f = { name: "InstanceNormalization_ComputeOutput", inputNames: ["X", "MeanAndVariance", "Scale", "B"], inputTypes: [l.TextureType.unpacked, l.TextureType.packedLastDimension, l.TextureType.unpacked, l.TextureType.unpacked] }, g = (s, t, e, r) => {
+          const i = Object.assign(Object.assign({}, f), { cacheHint: `${e}` });
           return Object.assign(Object.assign({}, i), { get: () => ((p, m, _, b, y) => {
             const w = (0, u.getGlsl)(p.session.backend.glContext.version), [T, S] = p.calculateTextureWidthAndHeight(y, l.TextureType.packedLastDimension), [E, O] = [T / 4, S], v = `
       vec4 get_MeanAndVariance(int[2] mv) {
@@ -7421,14 +7395,14 @@ float process(int indices[${L}]) {
         };
       }, 708: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createPackedMatmulProgramInfoLoader = void 0;
-        const u = o(2517), l = o(5060), f = o(2039), a = o(9390), h = o(2823), g = o(5623);
+        const u = o(2517), l = o(5060), h = o(2039), a = o(9390), f = o(2823), g = o(5623);
         n.createPackedMatmulProgramInfoLoader = (c, s, t) => {
-          const e = (r = s.length > 2, i = t.activationCacheKey, { name: "MatMul (packed)", inputNames: r ? ["A", "B", "Bias"] : ["A", "B"], inputTypes: r ? [f.TextureType.packed, f.TextureType.packed, f.TextureType.packed] : [f.TextureType.packed, f.TextureType.packed], cacheHint: i });
+          const e = (r = s.length > 2, i = t.activationCacheKey, { name: "MatMul (packed)", inputNames: r ? ["A", "B", "Bias"] : ["A", "B"], inputTypes: r ? [h.TextureType.packed, h.TextureType.packed, h.TextureType.packed] : [h.TextureType.packed, h.TextureType.packed], cacheHint: i });
           var r, i;
           return Object.assign(Object.assign({}, e), { get: () => ((p, m, _, b) => {
             const y = _.length > 2, w = y ? "value += getBiasForMatmul();" : "", T = _[0].dims, S = _[1].dims, E = u.BroadcastUtil.calcShape(T, S, !0), O = !u.ShapeUtil.areEqual(_[0].dims, _[1].dims);
             if (!E) throw new Error("Can't use matmul on the given tensors");
-            const v = T[T.length - 1], M = Math.ceil(v / 2), L = T.length, j = S.length, B = (0, l.getGlsl)(p.session.backend.glContext.version), F = (0, a.getCoordsDataType)(E.length), D = E.length, I = (0, a.getGlChannels)(), { activationFunction: $, applyActivation: Q } = (0, h.getActivationSnippet)(b), Y = y ? `${(0, g.getBiasForMatmul)(F, I, _[2].dims, E, !0)}` : "", te = O ? `${(function(Ee, ce, ve, ye) {
+            const v = T[T.length - 1], A = Math.ceil(v / 2), L = T.length, j = S.length, B = (0, l.getGlsl)(p.session.backend.glContext.version), F = (0, a.getCoordsDataType)(E.length), D = E.length, I = (0, a.getGlChannels)(), { activationFunction: $, applyActivation: Q } = (0, f.getActivationSnippet)(b), Y = y ? `${(0, g.getBiasForMatmul)(F, I, _[2].dims, E, !0)}` : "", te = O ? `${(function(Ee, ce, ve, ye) {
               let Le = [], We = [];
               const Oe = ve[0].dims, Ne = ve[1].dims, Ce = Oe.length, Pe = Ne.length, Te = ye.length, Be = Te - Ce, Ve = Te - Pe;
               Le = Oe.map(((Se, $e) => `coords.${ce[$e + Be]}`)), Le[Ce - 1] = "i*2", Le.join(", "), We = Ne.map(((Se, $e) => `coords.${ce[$e + Ve]}`)), We[Pe - 2] = "i*2", We.join(", ");
@@ -7461,7 +7435,7 @@ vec4 getBAtOutCoordsMatmul(int i) {
               let ve = "";
               for (let ye = 0; ye < ce - 2; ye++) ve += `rc.${Ee[ye]}, `;
               return ve += `i*2, rc.${Ee[ce - 1]}`, ve;
-            })(I, j)})`, Me = `
+            })(I, j)})`, Ae = `
             ${te}
             ${Y}
             ${$}
@@ -7472,7 +7446,7 @@ vec4 getBAtOutCoordsMatmul(int i) {
       `}
 
               vec4 value = vec4(0);
-              for (int i = 0; i < ${M}; i++) {
+              for (int i = 0; i < ${A}; i++) {
                 vec4 a = ${ne};
                 vec4 b = ${me};
 
@@ -7483,19 +7457,19 @@ vec4 getBAtOutCoordsMatmul(int i) {
               ${Q}
               ${B.output} = value;
             }`;
-            return Object.assign(Object.assign({}, m), { output: { dims: E, type: _[0].type, textureType: f.TextureType.packed }, shaderSource: Me, hasMain: !0 });
+            return Object.assign(Object.assign({}, m), { output: { dims: E, type: _[0].type, textureType: h.TextureType.packed }, shaderSource: Ae, hasMain: !0 });
           })(c, e, s, t) });
         };
       }, 5623: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.getBiasForMatmul = n.createMatmulProgramInfoLoader = n.parseMatMulAttributes = n.matMul = void 0;
-        const u = o(2517), l = o(2039), f = o(9390), a = o(2823), h = o(708);
+        const u = o(2517), l = o(2039), h = o(9390), a = o(2823), f = o(708);
         function g(t, e) {
           const r = (i = t.length > 2, p = e.activationCacheKey, { name: "MatMul", inputNames: i ? ["A", "B", "Bias"] : ["A", "B"], inputTypes: i ? [l.TextureType.unpacked, l.TextureType.unpacked, l.TextureType.unpacked] : [l.TextureType.unpacked, l.TextureType.unpacked], cacheHint: p });
           var i, p;
           return Object.assign(Object.assign({}, r), { get: () => (function(m, _, b) {
             const y = _[0].dims, w = _[1].dims, T = u.BroadcastUtil.calcShape(y, w, !0);
             if (!T) throw new Error("Can't use matmul on the given tensors");
-            const S = (0, f.getCoordsDataType)(T.length), E = (0, f.getGlChannels)(), { activationFunction: O, applyActivation: v } = (0, a.getActivationSnippet)(b), M = _.length > 2, L = M ? "value += getBiasForMatmul();" : "", j = M ? `${s(S, E, _[2].dims, T, !1)}` : "", B = T.length, F = y.length, D = w.length, I = `
+            const S = (0, h.getCoordsDataType)(T.length), E = (0, h.getGlChannels)(), { activationFunction: O, applyActivation: v } = (0, a.getActivationSnippet)(b), A = _.length > 2, L = A ? "value += getBiasForMatmul();" : "", j = A ? `${s(S, E, _[2].dims, T, !1)}` : "", B = T.length, F = y.length, D = w.length, I = `
     ${O}
     ${j}
     float process(int indices[${B}]) {
@@ -7517,7 +7491,7 @@ vec4 getBAtOutCoordsMatmul(int i) {
             return Object.assign(Object.assign({}, m), { output: { dims: T, type: _[0].type, textureType: l.TextureType.unpacked }, shaderSource: I });
           })(r, t, e) });
         }
-        n.matMul = (t, e, r) => (c(e), t.session.pack ? [t.run((0, h.createPackedMatmulProgramInfoLoader)(t, e, r), e)] : [t.run(g(e, r), e)]), n.parseMatMulAttributes = (t) => (0, a.parseInternalActivationAttributes)(t.attributes), n.createMatmulProgramInfoLoader = g;
+        n.matMul = (t, e, r) => (c(e), t.session.pack ? [t.run((0, f.createPackedMatmulProgramInfoLoader)(t, e, r), e)] : [t.run(g(e, r), e)]), n.parseMatMulAttributes = (t) => (0, a.parseInternalActivationAttributes)(t.attributes), n.createMatmulProgramInfoLoader = g;
         const c = (t) => {
           if (!t || t.length !== 2) throw new Error("MatMul requires 2 inputs.");
           if (t[0].dims[t[0].dims.length - 1] !== t[1].dims[t[1].dims.length - 2]) throw new Error("shared dimension does not match.");
@@ -7547,9 +7521,9 @@ float getBiasForMatmul() {
         n.getBiasForMatmul = s;
       }, 2403: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createPackProgramInfoLoader = void 0;
-        const u = o(5060), l = o(2039), f = o(9390), a = o(2827), h = { name: "pack", inputNames: ["A"], inputTypes: [l.TextureType.unpackedReversed] };
-        n.createPackProgramInfoLoader = (g, c) => Object.assign(Object.assign({}, h), { get: () => ((s, t) => {
-          const e = (0, u.getGlsl)(s.session.backend.glContext.version), r = t.dims, i = r.length, p = t.dims.length, m = (0, f.getCoordsDataType)(p), _ = (0, a.getChannels)("rc", p), b = (y = p, w = _, T = r[r.length - 2], S = r[r.length - 1], y === 0 || y === 1 ? "" : `
+        const u = o(5060), l = o(2039), h = o(9390), a = o(2827), f = { name: "pack", inputNames: ["A"], inputTypes: [l.TextureType.unpackedReversed] };
+        n.createPackProgramInfoLoader = (g, c) => Object.assign(Object.assign({}, f), { get: () => ((s, t) => {
+          const e = (0, u.getGlsl)(s.session.backend.glContext.version), r = t.dims, i = r.length, p = t.dims.length, m = (0, h.getCoordsDataType)(p), _ = (0, a.getChannels)("rc", p), b = (y = p, w = _, T = r[r.length - 2], S = r[r.length - 1], y === 0 || y === 1 ? "" : `
     int r = ${w[y - 2]};
     int c = ${w[y - 1]};
     int rp1 = ${w[y - 2]} + 1;
@@ -7578,7 +7552,7 @@ float getBiasForMatmul() {
           rEdge ? 0. : getA(${F}rp1, c),
           cEdge ? 0. : getA(${F}r, cp1),
           rEdge || cEdge ? 0. : getA(${F}rp1, cp1)`;
-          })(r, _), M = `
+          })(r, _), A = `
         void main() {
           ${m} rc = getOutputCoords();
 
@@ -7591,16 +7565,16 @@ float getBiasForMatmul() {
           }
         }
       `;
-          return Object.assign(Object.assign({}, h), { hasMain: !0, output: { dims: t.dims, type: t.type, textureType: l.TextureType.packed }, shaderSource: M });
+          return Object.assign(Object.assign({}, f), { hasMain: !0, output: { dims: t.dims, type: t.type, textureType: l.TextureType.packed }, shaderSource: A });
         })(g, c) });
       }, 2827: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.unpackFromChannel = n.getChannels = n.getVecChannels = void 0;
         const u = o(9390);
-        function l(f, a) {
-          return (0, u.getGlChannels)(a).map(((h) => `${f}.${h}`));
+        function l(h, a) {
+          return (0, u.getGlChannels)(a).map(((f) => `${h}.${f}`));
         }
-        n.getVecChannels = l, n.getChannels = function(f, a) {
-          return a === 1 ? [f] : l(f, a);
+        n.getVecChannels = l, n.getChannels = function(h, a) {
+          return a === 1 ? [h] : l(h, a);
         }, n.unpackFromChannel = function() {
           return `
     float getChannel(vec4 frag, int dim) {
@@ -7618,8 +7592,8 @@ float getBiasForMatmul() {
         };
       }, 2870: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parsePadAttributesV11 = n.padV11 = n.parsePadAttributesV2 = n.padV2 = void 0;
-        const u = o(246), l = o(2517), f = o(5060), a = o(2039), h = { name: "Pad", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] };
-        n.padV2 = (m, _, b) => (s(_), [m.run(Object.assign(Object.assign({}, h), { cacheHint: b.cacheKey, get: () => c(m, _[0], b) }), _)]), n.parsePadAttributesV2 = (m) => {
+        const u = o(246), l = o(2517), h = o(5060), a = o(2039), f = { name: "Pad", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] };
+        n.padV2 = (m, _, b) => (s(_), [m.run(Object.assign(Object.assign({}, f), { cacheHint: b.cacheKey, get: () => c(m, _[0], b) }), _)]), n.parsePadAttributesV2 = (m) => {
           const _ = m.attributes.getString("mode", "constant"), b = m.attributes.getFloat("value", 0), y = m.attributes.getInts("pads");
           return (0, u.createAttributeWithCacheKey)({ mode: _, value: b, pads: y });
         }, n.padV11 = (m, _, b) => {
@@ -7646,7 +7620,7 @@ float getBiasForMatmul() {
           if (m[1].type !== "int32") throw new Error("Invalid input type.");
           if (m.length >= 3 && m[2].type === "string") throw new Error("Invalid input type.");
         }, e = (m, _, b) => {
-          const y = (0, f.getGlsl)(m.session.backend.glContext.version), [w, T] = m.calculateTextureWidthAndHeight(_.dims, a.TextureType.unpacked), S = l.ShapeUtil.computeStrides(_.dims);
+          const y = (0, h.getGlsl)(m.session.backend.glContext.version), [w, T] = m.calculateTextureWidthAndHeight(_.dims, a.TextureType.unpacked), S = l.ShapeUtil.computeStrides(_.dims);
           switch (b.mode) {
             case "constant":
               return r(y, _.dims, S, w, T, b.pads, b.value);
@@ -7722,10 +7696,10 @@ float getBiasForMatmul() {
         };
       }, 2143: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.globalMaxPool = n.parseMaxPoolAttributes = n.maxPool = n.parseGlobalAveragePoolAttributes = n.globalAveragePool = n.parseAveragePoolAttributes = n.averagePool = void 0;
-        const u = o(246), l = o(2517), f = o(2039);
+        const u = o(246), l = o(2517), h = o(2039);
         n.averagePool = (p, m, _) => {
           t(m);
-          const b = { name: "AveragePool", inputNames: ["X"], inputTypes: [f.TextureType.unpacked], cacheHint: _.cacheKey };
+          const b = { name: "AveragePool", inputNames: ["X"], inputTypes: [h.TextureType.unpacked], cacheHint: _.cacheKey };
           return [p.run(Object.assign(Object.assign({}, b), { get: () => a(m, b, !1, _) }), m)];
         }, n.parseAveragePoolAttributes = (p) => {
           const m = p.attributes.getString("auto_pad", "NOTSET"), _ = p.attributes.getInt("ceil_mode", 0), b = p.attributes.getInt("count_include_pad", 0) !== 0, y = p.attributes.getInts("kernel_shape"), w = p.attributes.getInts("strides", []), T = p.attributes.getInts("pads", []);
@@ -7739,39 +7713,39 @@ float getBiasForMatmul() {
           const E = `
         ${e(p[0].dims, y, "value += _X(x);", S, "0.0")}
       `;
-          return Object.assign(Object.assign({}, m), { output: { dims: w, type: p[0].type, textureType: f.TextureType.unpacked }, shaderSource: E });
+          return Object.assign(Object.assign({}, m), { output: { dims: w, type: p[0].type, textureType: h.TextureType.unpacked }, shaderSource: E });
         };
         n.globalAveragePool = (p, m, _) => {
           t(m);
-          const b = { name: "GlobalAveragePool", inputNames: ["X"], inputTypes: [f.TextureType.unpacked], cacheHint: `${_.countIncludePad}` };
+          const b = { name: "GlobalAveragePool", inputNames: ["X"], inputTypes: [h.TextureType.unpacked], cacheHint: `${_.countIncludePad}` };
           return [p.run(Object.assign(Object.assign({}, b), { get: () => a(m, b, !0, _) }), m)];
         }, n.parseGlobalAveragePoolAttributes = (p) => {
           const m = p.attributes.getInt("count_include_pad", 0) !== 0;
           return (0, u.createAttributeWithCacheKey)({ autoPad: "", ceilMode: 0, countIncludePad: m, kernelShape: [], strides: [], pads: [] });
         }, n.maxPool = (p, m, _) => {
           t(m);
-          const b = { name: "MaxPool", inputNames: ["X"], inputTypes: [f.TextureType.unpacked], cacheHint: _.cacheKey };
-          return [p.run(Object.assign(Object.assign({}, b), { get: () => h(m, b, !1, _) }), m)];
+          const b = { name: "MaxPool", inputNames: ["X"], inputTypes: [h.TextureType.unpacked], cacheHint: _.cacheKey };
+          return [p.run(Object.assign(Object.assign({}, b), { get: () => f(m, b, !1, _) }), m)];
         }, n.parseMaxPoolAttributes = (p) => {
           const m = p.attributes.getString("auto_pad", "NOTSET"), _ = p.attributes.getInt("ceil_mode", 0), b = p.attributes.getInts("kernel_shape"), y = p.attributes.getInts("strides", []), w = p.attributes.getInts("pads", []), T = p.attributes.getInt("storage_order", 0), S = p.attributes.getInts("dilations", []);
           if (T !== 0) throw new Error("column major storage order is not yet supported for MaxPool");
           if (_ !== 0) throw new Error("using ceil() in shape computation is not yet supported for MaxPool");
           return (0, u.createAttributeWithCacheKey)({ autoPad: m, ceilMode: _, countIncludePad: !1, kernelShape: b, strides: y, pads: w, storageOrder: T, dilations: S });
         };
-        const h = (p, m, _, b) => {
+        const f = (p, m, _, b) => {
           const [y, w] = g(p, b, _), T = `
       ${e(p[0].dims, y, `
       value = max(_X(x), value);
     `, "", "-1e5")}
     `;
-          return Object.assign(Object.assign({}, m), { output: { dims: w, type: p[0].type, textureType: f.TextureType.unpacked }, shaderSource: T });
+          return Object.assign(Object.assign({}, m), { output: { dims: w, type: p[0].type, textureType: h.TextureType.unpacked }, shaderSource: T });
         }, g = (p, m, _) => {
           const b = p[0].dims.slice(), y = Object.hasOwnProperty.call(m, "dilations"), w = m.kernelShape.slice(), T = m.strides.slice(), S = y ? m.dilations.slice() : [], E = m.pads.slice();
           l.PoolConvUtil.adjustPoolAttributes(_, b, w, T, S, E);
           const O = l.PoolConvUtil.computePoolOutputShape(_, b, T, S, w, E, m.autoPad), v = Object.assign({}, m);
           return y ? Object.assign(v, { kernelShape: w, strides: T, pads: E, dilations: S, cacheKey: m.cacheKey }) : Object.assign(v, { kernelShape: w, strides: T, pads: E, cacheKey: m.cacheKey }), [v, O];
-        }, c = { autoPad: "", ceilMode: 0, countIncludePad: !1, kernelShape: [], strides: [], pads: [], storageOrder: 0, dilations: [], cacheKey: "" }, s = { name: "GlobalMaxPool", inputNames: ["X"], inputTypes: [f.TextureType.unpacked] };
-        n.globalMaxPool = (p, m) => (t(m), [p.run(Object.assign(Object.assign({}, s), { get: () => h(m, s, !0, c) }), m)]);
+        }, c = { autoPad: "", ceilMode: 0, countIncludePad: !1, kernelShape: [], strides: [], pads: [], storageOrder: 0, dilations: [], cacheKey: "" }, s = { name: "GlobalMaxPool", inputNames: ["X"], inputTypes: [h.TextureType.unpacked] };
+        n.globalMaxPool = (p, m) => (t(m), [p.run(Object.assign(Object.assign({}, s), { get: () => f(m, s, !0, c) }), m)]);
         const t = (p) => {
           if (!p || p.length !== 1) throw new Error("Pool ops requires 1 input.");
           if (p[0].type !== "float32" && p[0].type !== "float64") throw new Error("Invalid input type.");
@@ -7779,8 +7753,8 @@ float getBiasForMatmul() {
           const w = p.length;
           if (m.kernelShape.length <= 2) {
             const T = m.kernelShape[m.kernelShape.length - 1], S = m.strides[m.strides.length - 1], E = m.pads[m.pads.length / 2 - 1], O = m.pads[m.pads.length - 1], v = p[w - 1];
-            let M = "", L = "", j = "";
-            if (M = E + O !== 0 ? `
+            let A = "", L = "", j = "";
+            if (A = E + O !== 0 ? `
           for (int i = 0; i < ${T}; i++) {
             x[${w} - 1] = indices[${w} - 1] * ${S} - ${E} + i;
             if (x[${w} - 1] < 0 || x[${w} - 1] >= ${v}) {
@@ -7816,7 +7790,7 @@ float getBiasForMatmul() {
           float value = ${y};
           int pad = 0;
           ${L}
-          ${M}
+          ${A}
           ${j}
           ${b}
           return value;
@@ -7824,7 +7798,7 @@ float getBiasForMatmul() {
       `;
           }
           {
-            const T = l.ShapeUtil.size(m.kernelShape), S = l.ShapeUtil.computeStrides(m.kernelShape), E = S.length, O = m.pads.length, v = i(E), M = r(p, "inputDims"), L = r(m.pads, "pads"), j = r(S, "kernelStrides"), B = r(m.strides, "strides");
+            const T = l.ShapeUtil.size(m.kernelShape), S = l.ShapeUtil.computeStrides(m.kernelShape), E = S.length, O = m.pads.length, v = i(E), A = r(p, "inputDims"), L = r(m.pads, "pads"), j = r(S, "kernelStrides"), B = r(m.strides, "strides");
             let F = "";
             return F = m.pads.reduce(((D, I) => D + I)) ? `
             if (x[j] >= inputDims[j] || x[j] < 0) {
@@ -7849,7 +7823,7 @@ float getBiasForMatmul() {
           int kernelStrides[${E}];
           int strides[${E}];
           ${L}
-          ${M}
+          ${A}
           ${B}
           ${j}
 
@@ -7889,7 +7863,7 @@ float getBiasForMatmul() {
   }`;
       }, 4939: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.reduceLogSumSquare = n.reduceLogSum = n.reduceProd = n.reduceMin = n.reduceMax = n.reduceMean = n.reduceSum = n.parseReduceAttributes = void 0;
-        const u = o(246), l = o(782), f = o(2517), a = o(2039), h = (s, t, e, r, i) => {
+        const u = o(246), l = o(782), h = o(2517), a = o(2039), f = (s, t, e, r, i) => {
           c(t);
           const p = { name: r, inputNames: ["A"], inputTypes: [a.TextureType.unpacked] };
           return [s.run(Object.assign(Object.assign({}, p), { cacheHint: e.cacheKey, get: () => g(s, t, e, r, i, p) }), t)];
@@ -7899,7 +7873,7 @@ float getBiasForMatmul() {
           return (0, u.createAttributeWithCacheKey)({ axes: t, keepDims: e });
         };
         const g = (s, t, e, r, i, p) => {
-          const m = [], _ = t[0].dims.length || 1, b = [], y = f.ShapeUtil.normalizeAxes(e.axes, t[0].dims.length), w = i(t, y);
+          const m = [], _ = t[0].dims.length || 1, b = [], y = h.ShapeUtil.normalizeAxes(e.axes, t[0].dims.length), w = i(t, y);
           let T = w[1];
           for (let E = 0; E < t[0].dims.length; E++) y.indexOf(E) >= 0 || y.length === 0 ? (e.keepDims && m.push(1), T = `
           for(int j${E} = 0; j${E} < ${t[0].dims[E]}; j${E}++) {
@@ -7922,28 +7896,28 @@ float getBiasForMatmul() {
           if (!s || s.length !== 1) throw new Error("Reduce op requires 1 input.");
           if (l.NUMBER_TYPES.indexOf(s[0].type) === -1) throw new Error("Invalid input type.");
         };
-        n.reduceSum = (s, t, e) => h(s, t, e, "ReduceSum", (() => ["value = 0.0;", "value += _A(inputIdx);", ""])), n.reduceMean = (s, t, e) => h(s, t, e, "ReduceMean", ((r, i) => {
+        n.reduceSum = (s, t, e) => f(s, t, e, "ReduceSum", (() => ["value = 0.0;", "value += _A(inputIdx);", ""])), n.reduceMean = (s, t, e) => f(s, t, e, "ReduceMean", ((r, i) => {
           let p = 1;
           for (let m = 0; m < r[0].dims.length; m++) (i.indexOf(m) >= 0 || i.length === 0) && (p *= r[0].dims[m]);
           return ["value = 0.0;", "value += _A(inputIdx);", `value /= ${p}.;`];
-        })), n.reduceMax = (s, t, e) => h(s, t, e, "ReduceMax", ((r, i) => {
+        })), n.reduceMax = (s, t, e) => f(s, t, e, "ReduceMax", ((r, i) => {
           const p = [];
           for (let m = 0; m < r[0].dims.length; m++) (i.indexOf(m) >= 0 || i.length === 0) && p.push(`inputIdx[${m}] = 0;`);
           return [`${p.join(`
 `)}
 value = _A(inputIdx);`, "value = max(value, _A(inputIdx));", ""];
-        })), n.reduceMin = (s, t, e) => h(s, t, e, "ReduceMin", ((r, i) => {
+        })), n.reduceMin = (s, t, e) => f(s, t, e, "ReduceMin", ((r, i) => {
           const p = [];
           for (let m = 0; m < r[0].dims.length; m++) (i.indexOf(m) >= 0 || i.length === 0) && p.push(`inputIdx[${m}] = 0;`);
           return [`${p.join(`
 `)}
 value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
-        })), n.reduceProd = (s, t, e) => h(s, t, e, "ReduceProd", (() => ["value = 1.0;", "value *= _A(inputIdx);", ""])), n.reduceLogSum = (s, t, e) => h(s, t, e, "ReduceLogSum", (() => ["value = 0.0;", "value += _A(inputIdx);", "value = log(value);"])), n.reduceLogSumSquare = (s, t, e) => h(s, t, e, "ReduceLogSumSquare", (() => ["float t; value = 0.0;", "t = _A(inputIdx); value += t * t;", ""]));
+        })), n.reduceProd = (s, t, e) => f(s, t, e, "ReduceProd", (() => ["value = 1.0;", "value *= _A(inputIdx);", ""])), n.reduceLogSum = (s, t, e) => f(s, t, e, "ReduceLogSum", (() => ["value = 0.0;", "value += _A(inputIdx);", "value = log(value);"])), n.reduceLogSumSquare = (s, t, e) => f(s, t, e, "ReduceLogSumSquare", (() => ["float t; value = 0.0;", "t = _A(inputIdx); value += t * t;", ""]));
       }, 7019: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.isReshapeCheap = n.processDims3D = n.createPackedReshape3DProgramInfoLoader = void 0;
-        const u = o(2517), l = o(5060), f = o(2039), a = o(2827);
-        n.createPackedReshape3DProgramInfoLoader = (h, g, c) => {
-          const s = ((t) => ({ name: "Reshape (packed)", inputTypes: [f.TextureType.packed], inputNames: ["A"], cacheHint: `${t}` }))(c);
+        const u = o(2517), l = o(5060), h = o(2039), a = o(2827);
+        n.createPackedReshape3DProgramInfoLoader = (f, g, c) => {
+          const s = ((t) => ({ name: "Reshape (packed)", inputTypes: [h.TextureType.packed], inputNames: ["A"], cacheHint: `${t}` }))(c);
           return Object.assign(Object.assign({}, s), { get: () => ((t, e, r, i) => {
             const p = e.dims, m = i;
             let _ = "";
@@ -8012,28 +7986,28 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         ${b.output} = result;
       }
     `;
-            return Object.assign(Object.assign({}, r), { output: { dims: m, type: e.type, textureType: f.TextureType.packed }, shaderSource: y, hasMain: !0 });
-          })(h, g, s, c) });
-        }, n.processDims3D = function(h) {
-          if (h.length === 0) return [1, 1, 1];
+            return Object.assign(Object.assign({}, r), { output: { dims: m, type: e.type, textureType: h.TextureType.packed }, shaderSource: y, hasMain: !0 });
+          })(f, g, s, c) });
+        }, n.processDims3D = function(f) {
+          if (f.length === 0) return [1, 1, 1];
           let g = 1;
-          for (let c = 0; c < h.length - 2; ++c) g *= h[c];
-          return [g, h.length > 1 ? h[h.length - 2] : 1, h[h.length - 1]];
-        }, n.isReshapeCheap = function(h, g) {
+          for (let c = 0; c < f.length - 2; ++c) g *= f[c];
+          return [g, f.length > 1 ? f[f.length - 2] : 1, f[f.length - 1]];
+        }, n.isReshapeCheap = function(f, g) {
           let c = !1;
-          return c = h.length === 0 || g.length === 0 || (h.length < 2 || g.length < 2 ? h[h.length - 1] === g[g.length - 1] : h[h.length - 1] === g[g.length - 1] && h[h.length - 2] === g[g.length - 2]), c;
+          return c = f.length === 0 || g.length === 0 || (f.length < 2 || g.length < 2 ? f[f.length - 1] === g[g.length - 1] : f[f.length - 1] === g[g.length - 1] && f[f.length - 2] === g[g.length - 2]), c;
         };
       }, 718: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.reshape = void 0;
         const u = o(2517);
-        n.reshape = (l, f) => {
-          const a = u.ShapeUtil.calculateReshapedDims(f[0].dims, f[1].integerData);
-          return l.session.pack ? [l.reshapePacked(f[0], a)] : [l.reshapeUnpacked(f[0], a)];
+        n.reshape = (l, h) => {
+          const a = u.ShapeUtil.calculateReshapedDims(h[0].dims, h[1].integerData);
+          return l.session.pack ? [l.reshapePacked(h[0], a)] : [l.reshapeUnpacked(h[0], a)];
         };
       }, 2268: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseResizeAttributesV11 = n.parseResizeAttributesV10 = n.resize = void 0;
-        const u = o(5060), l = o(2039), f = o(9390), a = o(2827), h = o(9793), g = { name: "Resize", inputNames: ["A"], inputTypes: [l.TextureType.packed] };
-        n.resize = (r, i, p) => ((0, h.validateInputs)(i, p), [r.run(Object.assign(Object.assign({}, g), { cacheHint: p.cacheKey, get: () => c(r, i, p) }), i)]), n.parseResizeAttributesV10 = (r) => (0, h.parseUpsampleAttributes)(r, 10), n.parseResizeAttributesV11 = (r) => (0, h.parseUpsampleAttributes)(r, 11);
+        const u = o(5060), l = o(2039), h = o(9390), a = o(2827), f = o(9793), g = { name: "Resize", inputNames: ["A"], inputTypes: [l.TextureType.packed] };
+        n.resize = (r, i, p) => ((0, f.validateInputs)(i, p), [r.run(Object.assign(Object.assign({}, g), { cacheHint: p.cacheKey, get: () => c(r, i, p) }), i)]), n.parseResizeAttributesV10 = (r) => (0, f.parseUpsampleAttributes)(r, 10), n.parseResizeAttributesV11 = (r) => (0, f.parseUpsampleAttributes)(r, 11);
         const c = (r, i, p) => {
           const m = (0, u.getGlsl)(r.session.backend.glContext.version), [_, b] = s(i, p);
           if (_.every(((F) => F === 1)) && p.coordinateTransformMode !== "tf_crop_and_resize") return Object.assign(Object.assign({}, g), { output: { dims: b, type: i[0].type, textureType: l.TextureType.packed }, hasMain: !0, shaderSource: `void main() {
@@ -8044,7 +8018,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
           if (y < 2) throw new Error(`output dimension should be at least 2, but got ${y}`);
           const w = b[y - 2], T = b[y - 1], S = i[0].dims;
           if (y !== S.length) throw new Error(`output dimension should match input ${S.length}, but got ${y}`);
-          const E = S[y - 2], O = S[y - 1], v = _[y - 2], M = _[y - 1];
+          const E = S[y - 2], O = S[y - 1], v = _[y - 2], A = _[y - 1];
           let L = "";
           if (p.mode !== "linear") throw new Error(`resize (packed) does not support mode: '${p.mode}'`);
           switch (p.coordinateTransformMode) {
@@ -8090,9 +8064,9 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
             default:
               throw new Error(`resize (packed) does not support coordinateTransformMode:                                 '${p.coordinateTransformMode}'`);
           }
-          const j = (0, f.getCoordsDataType)(y), B = `
+          const j = (0, h.getCoordsDataType)(y), B = `
             const vec2 inputWH = vec2(${E}.0, ${O}.0);
-            const vec4 scaleWHWH = vec4(float(${v}), float(${M}), float(${v}), float(${M}));
+            const vec4 scaleWHWH = vec4(float(${v}), float(${A}), float(${v}), float(${A}));
             ${(0, a.unpackFromChannel)()}
             ${L}
             float getAValue(int x10, int r, int c, int d) {
@@ -8177,31 +8151,31 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
           return [_, b];
         }, t = (r, i, p) => {
           const m = Array.from(r.floatData);
-          return (0, h.scalesValidation)(m, i, p), m;
+          return (0, f.scalesValidation)(m, i, p), m;
         }, e = (r, i, p, m) => {
           const _ = i.length, b = new Array(_);
           for (let y = 0, w = _; y < w; y++) if (i[y] === 0) {
             if (r[y] !== 0) throw new Error("Input dim is zero but required output dim is non-zero.");
             b[y] = 1;
           } else b[y] = r[y] / i[y];
-          return (0, h.scalesValidation)(b, p, m), b;
+          return (0, f.scalesValidation)(b, p, m), b;
         };
       }, 8117: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.shape = void 0;
         const u = o(9162);
-        n.shape = (f, a) => (l(a), [new u.Tensor([a[0].dims.length], "int32", void 0, void 0, new Int32Array(a[0].dims))]);
-        const l = (f) => {
-          if (!f || f.length !== 1) throw new Error("Shape requires 1 input.");
+        n.shape = (h, a) => (l(a), [new u.Tensor([a[0].dims.length], "int32", void 0, void 0, new Int32Array(a[0].dims))]);
+        const l = (h) => {
+          if (!h || h.length !== 1) throw new Error("Shape requires 1 input.");
         };
       }, 2278: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.sliceV10 = n.parseSliceAttributes = n.slice = void 0;
-        const u = o(246), l = o(782), f = o(2517), a = o(2039), h = { name: "Slice", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] };
-        n.slice = (e, r, i) => (c(r), [e.run(Object.assign(Object.assign({}, h), { cacheHint: i.cacheKey, get: () => g(e, r[0], i) }), r)]), n.parseSliceAttributes = (e) => {
+        const u = o(246), l = o(782), h = o(2517), a = o(2039), f = { name: "Slice", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] };
+        n.slice = (e, r, i) => (c(r), [e.run(Object.assign(Object.assign({}, f), { cacheHint: i.cacheKey, get: () => g(e, r[0], i) }), r)]), n.parseSliceAttributes = (e) => {
           const r = e.attributes.getInts("starts"), i = e.attributes.getInts("ends"), p = e.attributes.getInts("axes", []);
           return (0, u.createAttributeWithCacheKey)({ starts: r, ends: i, axes: p });
         };
         const g = (e, r, i) => {
-          const p = i.axes.length === 0 ? r.dims.slice(0).map(((S, E) => E)) : i.axes, m = f.ShapeUtil.normalizeAxes(p, r.dims.length), _ = i.starts.map(((S, E) => S > r.dims[m[E]] - 1 ? r.dims[m[E]] : f.ShapeUtil.normalizeAxis(S, r.dims[m[E]]))), b = i.ends.map(((S, E) => S > r.dims[m[E]] - 1 ? r.dims[m[E]] : f.ShapeUtil.normalizeAxis(S, r.dims[m[E]]))), y = r.dims.slice(), w = [];
+          const p = i.axes.length === 0 ? r.dims.slice(0).map(((S, E) => E)) : i.axes, m = h.ShapeUtil.normalizeAxes(p, r.dims.length), _ = i.starts.map(((S, E) => S > r.dims[m[E]] - 1 ? r.dims[m[E]] : h.ShapeUtil.normalizeAxis(S, r.dims[m[E]]))), b = i.ends.map(((S, E) => S > r.dims[m[E]] - 1 ? r.dims[m[E]] : h.ShapeUtil.normalizeAxis(S, r.dims[m[E]]))), y = r.dims.slice(), w = [];
           for (let S = 0; S < m.length; S++) y[m[S]] = b[S] - _[S], _[S] > 0 && w.push(`outputIdx[${m[S]}] += ${_[S]};`);
           const T = `
       float process(int outputIdx[${y.length}]) {
@@ -8209,7 +8183,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
       `)}
         return _A(outputIdx);
       }`;
-          return Object.assign(Object.assign({}, h), { output: { dims: y, type: r.type, textureType: a.TextureType.unpacked }, shaderSource: T });
+          return Object.assign(Object.assign({}, f), { output: { dims: y, type: r.type, textureType: a.TextureType.unpacked }, shaderSource: T });
         }, c = (e) => {
           if (!e || e.length !== 1) throw new Error("Slice requires 1 input.");
           if (l.NUMBER_TYPES.indexOf(e[0].type) === -1) throw new Error("Invalid input type.");
@@ -8217,7 +8191,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         n.sliceV10 = (e, r) => {
           t(r);
           const i = s(e, r);
-          return [e.run(Object.assign(Object.assign({}, h), { cacheHint: i.cacheKey, get: () => g(e, r[0], i) }), [r[0]])];
+          return [e.run(Object.assign(Object.assign({}, f), { cacheHint: i.cacheKey, get: () => g(e, r[0], i) }), [r[0]])];
         };
         const s = (e, r) => {
           if (!e.session.isInitializer(r[1].dataId) || !e.session.isInitializer(r[2].dataId) || r.length >= 4 && !e.session.isInitializer(r[3].dataId) || r.length >= 5 && !e.session.isInitializer(r[4].dataId)) throw new Error("dynamic slice attributes are not allowed");
@@ -8233,7 +8207,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         };
       }, 5524: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.softmaxV13 = n.parseSoftmaxAttributesV13 = n.parseSoftmaxAttributes = n.softmax = void 0;
-        const u = o(246), l = o(2517), f = o(5060), a = o(2039), h = o(3738), g = { name: "SoftmaxComputeMax", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] }, c = { name: "SoftmaxComputeScale", inputNames: ["A", "Max"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked] }, s = { name: "SoftMax", inputNames: ["A", "Max", "Norm"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked, a.TextureType.unpacked] };
+        const u = o(246), l = o(2517), h = o(5060), a = o(2039), f = o(3738), g = { name: "SoftmaxComputeMax", inputNames: ["A"], inputTypes: [a.TextureType.unpacked] }, c = { name: "SoftmaxComputeScale", inputNames: ["A", "Max"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked] }, s = { name: "SoftMax", inputNames: ["A", "Max", "Norm"], inputTypes: [a.TextureType.unpacked, a.TextureType.unpacked, a.TextureType.unpacked] };
         n.softmax = (m, _, b) => {
           p(_);
           const y = _[0].dims.slice(), w = l.ShapeUtil.normalizeAxis(b.axis, y.length), T = l.ShapeUtil.sizeToDimension(y, w), S = l.ShapeUtil.sizeFromDimension(y, w);
@@ -8241,10 +8215,10 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         }, n.parseSoftmaxAttributes = (m) => (0, u.createAttributeWithCacheKey)({ axis: m.attributes.getInt("axis", 1) }), n.parseSoftmaxAttributesV13 = (m) => (0, u.createAttributeWithCacheKey)({ axis: m.attributes.getInt("axis", -1) }), n.softmaxV13 = (m, _, b) => {
           p(_);
           const y = _[0].dims.slice(), w = l.ShapeUtil.normalizeAxis(b.axis, y.length), T = y.length, S = w !== T - 1, E = [];
-          let O, v = [], M = [];
-          S && (v = Array.from({ length: T }).map(((F, D) => D)), v[w] = T - 1, v[T - 1] = w, v.map(((F) => E.push(y[F]))), O = (0, u.createAttributeWithCacheKey)({ perm: v }), M = (0, h.transpose)(m, _, O));
-          const L = S ? l.ShapeUtil.sizeToDimension(E, T - 1) : l.ShapeUtil.sizeToDimension(y, T - 1), j = S ? l.ShapeUtil.sizeFromDimension(E, T - 1) : l.ShapeUtil.sizeFromDimension(y, T - 1), B = t(m, S ? M : _, b, L, j);
-          return S ? (0, h.transpose)(m, B, O) : B;
+          let O, v = [], A = [];
+          S && (v = Array.from({ length: T }).map(((F, D) => D)), v[w] = T - 1, v[T - 1] = w, v.map(((F) => E.push(y[F]))), O = (0, u.createAttributeWithCacheKey)({ perm: v }), A = (0, f.transpose)(m, _, O));
+          const L = S ? l.ShapeUtil.sizeToDimension(E, T - 1) : l.ShapeUtil.sizeToDimension(y, T - 1), j = S ? l.ShapeUtil.sizeFromDimension(E, T - 1) : l.ShapeUtil.sizeFromDimension(y, T - 1), B = t(m, S ? A : _, b, L, j);
+          return S ? (0, f.transpose)(m, B, O) : B;
         };
         const t = (m, _, b, y, w) => {
           const T = e(m, _[0], y, w, [y]), S = m.run(Object.assign(Object.assign({}, g), { cacheHint: b.cacheKey, get: () => T }), _), E = r(m, _[0], y, w, T.output.dims, [y]), O = m.run(Object.assign(Object.assign({}, c), { cacheHint: b.cacheKey, get: () => E }), [_[0], S]), v = i(m, _[0], y, w, T.output.dims, E.output.dims);
@@ -8254,7 +8228,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
           if (b < 1 || y < 1) throw new Error("Logical row count N and feature count D must be greater than or equal to 1");
           if (w.length !== 1) throw new Error("Dimensionality of the output should be 1");
           if (w[0] !== b) throw new Error("Shape of the output should be equal to logical row count");
-          const O = (0, f.getGlsl)(m.session.backend.glContext.version), v = `
+          const O = (0, h.getGlsl)(m.session.backend.glContext.version), v = `
       float process(int[${E}] indices) {
         int logical_row_start_offset = indices[0] * ${y};
 
@@ -8286,7 +8260,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         float max = _Max(indices);
         for(int i=0; i<${y}; ++i)
         {
-          norm_factor += exp(getColorAsFloat(${(0, f.getGlsl)(m.session.backend.glContext.version).texture2D}(A, offsetToCoords(logical_row_start_offset + i,
+          norm_factor += exp(getColorAsFloat(${(0, h.getGlsl)(m.session.backend.glContext.version).texture2D}(A, offsetToCoords(logical_row_start_offset + i,
             ${S}, ${E}))) - max);
         }
 
@@ -8325,17 +8299,17 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         };
       }, 5975: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseSplitAttributes = n.split = void 0;
-        const u = o(246), l = o(2517), f = o(2039), a = { name: "Split", inputNames: ["A"], inputTypes: [f.TextureType.unpacked] };
+        const u = o(246), l = o(2517), h = o(2039), a = { name: "Split", inputNames: ["A"], inputTypes: [h.TextureType.unpacked] };
         n.split = (s, t, e) => {
           c(t);
-          const r = l.ShapeUtil.normalizeAxis(e.axis, t[0].dims.length), i = h(s, t, r, e), p = [];
+          const r = l.ShapeUtil.normalizeAxis(e.axis, t[0].dims.length), i = f(s, t, r, e), p = [];
           for (let m = 0; m < i; ++m) p.push(s.run(Object.assign(Object.assign({}, a), { cacheHint: `${e.cacheKey};${m}`, get: () => g(s, t[0], e, r, m) }), t));
           return p;
         }, n.parseSplitAttributes = (s) => {
           const t = s.attributes.getInt("axis", 0), e = s.attributes.getInts("split", []), r = s.outputs.length;
           return (0, u.createAttributeWithCacheKey)({ axis: t, split: e, numOutputs: r });
         };
-        const h = (s, t, e, r) => {
+        const f = (s, t, e, r) => {
           const [, i] = l.SplitUtil.splitShape(t[0].dims, e, r.split, r.numOutputs);
           return i.length;
         }, g = (s, t, e, r, i) => {
@@ -8345,7 +8319,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         return _A(indices);
       }
     `;
-          return Object.assign(Object.assign({}, a), { cacheHint: `${e.cacheKey}:${i}`, output: { dims: b, type: t.type, textureType: f.TextureType.unpacked }, shaderSource: y });
+          return Object.assign(Object.assign({}, a), { cacheHint: `${e.cacheKey}:${i}`, output: { dims: b, type: t.type, textureType: h.TextureType.unpacked }, shaderSource: y });
         }, c = (s) => {
           if (!s || s.length !== 1) throw new Error("Split requires one input.");
           if (s[0].type !== "int8" && s[0].type !== "uint8" && s[0].type !== "int16" && s[0].type !== "uint16" && s[0].type !== "int32" && s[0].type !== "uint32" && s[0].type !== "float32" && s[0].type !== "float64" && s[0].type !== "bool") throw new Error("Invalid input type.");
@@ -8353,53 +8327,53 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
       }, 3933: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseSqueezeAttributes = n.squeezeV13 = n.squeeze = void 0;
         const u = o(2517);
-        n.squeeze = (a, h, g) => {
-          l(h);
-          const c = u.ShapeUtil.squeezeShape(h[0].dims, g);
-          return [a.reshapeUnpacked(h[0], c)];
-        }, n.squeezeV13 = (a, h) => (f(h), (0, n.squeeze)(a, [h[0]], Array.from(h[1].integerData))), n.parseSqueezeAttributes = (a) => a.attributes.getInts("axes");
+        n.squeeze = (a, f, g) => {
+          l(f);
+          const c = u.ShapeUtil.squeezeShape(f[0].dims, g);
+          return [a.reshapeUnpacked(f[0], c)];
+        }, n.squeezeV13 = (a, f) => (h(f), (0, n.squeeze)(a, [f[0]], Array.from(f[1].integerData))), n.parseSqueezeAttributes = (a) => a.attributes.getInts("axes");
         const l = (a) => {
           if (!a || a.length !== 1) throw new Error("Squeeze requires 1 input.");
           if (a[0].type === "string") throw new Error("invalid input tensor types.");
-        }, f = (a) => {
+        }, h = (a) => {
           if (!a || a.length !== 2) throw new Error("Squeeze requires 2 inputs.");
           if (a[1].type !== "int32") throw new Error("Invalid input type.");
         };
       }, 6558: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.sum = void 0;
         const u = o(5060), l = o(2039);
-        n.sum = (h, g) => {
+        n.sum = (f, g) => {
           a(g);
           const c = { name: "Sum", inputNames: g.map(((s, t) => `X${t}`)), inputTypes: new Array(g.length).fill(l.TextureType.unpacked) };
-          return [h.run(Object.assign(Object.assign({}, c), { get: () => f(h, g, c) }), g)];
+          return [f.run(Object.assign(Object.assign({}, c), { get: () => h(f, g, c) }), g)];
         };
-        const f = (h, g, c) => {
-          const s = (0, u.getGlsl)(h.session.backend.glContext.version), t = g[0].dims.slice(), e = `
+        const h = (f, g, c) => {
+          const s = (0, u.getGlsl)(f.session.backend.glContext.version), t = g[0].dims.slice(), e = `
       void main() {
         vec4 result = ${g.map(((r, i) => `${s.texture2D}(X${i},TexCoords)`)).join(" + ")};
         ${s.output} = result;
       }
     `;
           return Object.assign(Object.assign({}, c), { output: { dims: t, type: g[0].type, textureType: l.TextureType.unpacked }, hasMain: !0, shaderSource: e });
-        }, a = (h) => {
-          if (!h || h.length === 0) throw new Error("Sum requires inputs.");
-          const g = h[0].dims.length;
-          for (let c = 1; c < h.length; c++) {
-            if (g !== h[c].dims.length) throw new Error("Input shapes are mismatched.");
-            for (let s = 0; s < g; s++) if (h[0].dims[s] !== h[c].dims[s]) throw new Error("Input shapes are not matched.");
+        }, a = (f) => {
+          if (!f || f.length === 0) throw new Error("Sum requires inputs.");
+          const g = f[0].dims.length;
+          for (let c = 1; c < f.length; c++) {
+            if (g !== f[c].dims.length) throw new Error("Input shapes are mismatched.");
+            for (let s = 0; s < g; s++) if (f[0].dims[s] !== f[c].dims[s]) throw new Error("Input shapes are not matched.");
           }
-          if (h[0].type !== "float32" && h[0].type !== "float64") throw new Error("Invalid input type.");
-          for (let c = 1; c < h.length; c++) if (h[0].type !== h[c].type) throw new Error("Input types are not matched.");
+          if (f[0].type !== "float32" && f[0].type !== "float64") throw new Error("Invalid input type.");
+          for (let c = 1; c < f.length; c++) if (f[0].type !== f[c].type) throw new Error("Input types are not matched.");
         };
       }, 5723: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.tile = void 0;
         const u = o(782), l = o(2039);
-        n.tile = (h, g) => {
+        n.tile = (f, g) => {
           a(g);
           const c = { name: "Tile", inputNames: ["A"], inputTypes: [l.TextureType.unpacked] };
-          return [h.run(Object.assign(Object.assign({}, c), { get: () => f(h, g, c) }), g)];
+          return [f.run(Object.assign(Object.assign({}, c), { get: () => h(f, g, c) }), g)];
         };
-        const f = (h, g, c) => {
+        const h = (f, g, c) => {
           const s = g[0].dims.slice(), t = new Array(s.length), e = [];
           for (let p = 0; p < s.length; p++) t[p] = s[p] * g[1].numberData[p], e.push(`inputIdx[${p}] = int(mod(float(outputIdx[${p}]), ${s[p]}.));`);
           const r = t.length, i = `
@@ -8411,18 +8385,18 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
       }
     `;
           return Object.assign(Object.assign({}, c), { output: { dims: t, type: g[0].type, textureType: l.TextureType.unpacked }, shaderSource: i });
-        }, a = (h) => {
-          if (!h || h.length !== 2) throw new Error("Tile requires 2 input.");
-          if (h[1].dims.length !== 1) throw new Error("The second input shape must 1 dimension.");
-          if (h[1].dims[0] !== h[0].dims.length) throw new Error("Invalid input shape.");
-          if (u.NUMBER_TYPES.indexOf(h[0].type) === -1) throw new Error("Invalid input type.");
-          if (h[1].type !== "int32" && h[1].type !== "int16") throw new Error("Invalid repeat type.");
+        }, a = (f) => {
+          if (!f || f.length !== 2) throw new Error("Tile requires 2 input.");
+          if (f[1].dims.length !== 1) throw new Error("The second input shape must 1 dimension.");
+          if (f[1].dims[0] !== f[0].dims.length) throw new Error("Invalid input shape.");
+          if (u.NUMBER_TYPES.indexOf(f[0].type) === -1) throw new Error("Invalid input type.");
+          if (f[1].type !== "int32" && f[1].type !== "int16") throw new Error("Invalid repeat type.");
         };
       }, 3738: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseTransposeAttributes = n.transpose = void 0;
-        const u = o(246), l = o(2517), f = o(2039), a = { name: "Transpose", inputNames: ["A"], inputTypes: [f.TextureType.unpacked] };
-        n.transpose = (e, r, i) => (t(r), [e.run(Object.assign(Object.assign({}, a), { cacheHint: i.cacheKey, get: () => h(e, r[0], i.perm) }), r)]), n.parseTransposeAttributes = (e) => (0, u.createAttributeWithCacheKey)({ perm: e.attributes.getInts("perm", []) });
-        const h = (e, r, i) => {
+        const u = o(246), l = o(2517), h = o(2039), a = { name: "Transpose", inputNames: ["A"], inputTypes: [h.TextureType.unpacked] };
+        n.transpose = (e, r, i) => (t(r), [e.run(Object.assign(Object.assign({}, a), { cacheHint: i.cacheKey, get: () => f(e, r[0], i.perm) }), r)]), n.parseTransposeAttributes = (e) => (0, u.createAttributeWithCacheKey)({ perm: e.attributes.getInts("perm", []) });
+        const f = (e, r, i) => {
           const p = r.dims;
           i = g(p, i);
           const m = c(p, i), _ = p.length, b = `
@@ -8432,7 +8406,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         perm(a, indices);
         return _A(a);
       }`;
-          return Object.assign(Object.assign({}, a), { output: { dims: m, type: r.type, textureType: f.TextureType.unpacked }, shaderSource: b });
+          return Object.assign(Object.assign({}, a), { output: { dims: m, type: r.type, textureType: h.TextureType.unpacked }, shaderSource: b });
         }, g = (e, r) => (r && r.length !== e.length && (r = [...e.keys()].reverse()), r), c = (e, r) => (r = g(e, r), l.ShapeUtil.sortBasedOnPerm(e, r)), s = (e, r, i) => {
           const p = [];
           p.push(`void ${e}(out int a[${i}], int src[${i}]) {`);
@@ -8446,8 +8420,8 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
       }, 8710: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.encodeAsUint8 = void 0;
         const u = o(5060), l = o(2039);
-        n.encodeAsUint8 = (f, a) => {
-          const h = a.shape, g = (0, u.getGlsl)(f.session.backend.glContext.version), c = `
+        n.encodeAsUint8 = (h, a) => {
+          const f = a.shape, g = (0, u.getGlsl)(h.session.backend.glContext.version), c = `
     const float FLOAT_MAX = 1.70141184e38;
     const float FLOAT_MIN = 1.17549435e-38;
 
@@ -8494,12 +8468,12 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
     void main() {
       float value = ${g.texture2D}(X,TexCoords).r;
       ${g.output} = encodeAsUint8(value);
-    }`, s = { name: "Uint8Encode", inputTypes: [l.TextureType.unpacked], inputNames: ["X"], output: { dims: h, type: a.tensor.type, textureType: l.TextureType.downloadUint8AsFloat }, shaderSource: c, hasMain: !0 };
-          return f.executeProgram(s, [a.tensor]);
+    }`, s = { name: "Uint8Encode", inputTypes: [l.TextureType.unpacked], inputNames: ["X"], output: { dims: f, type: a.tensor.type, textureType: l.TextureType.downloadUint8AsFloat }, shaderSource: c, hasMain: !0 };
+          return h.executeProgram(s, [a.tensor]);
         };
       }, 4909: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.tanh = n.tan = n.sqrt = n.sin = n.sigmoid = n.relu = n.not = n.neg = n.log = n.parseLeakyReluAttributes = n.leakyRelu = n.identity = n.floor = n.exp = n.parseEluAttributes = n.elu = n.cos = n.ceil = n.clipV11 = n.parseClipAttributes = n.clip = n.atan = n.asin = n.acos = n.abs = n.glslTanh = n.glslTan = n.glslSqrt = n.glslSigmoid = n.glslRelu = n.glslSin = n.glslNot = n.glslNeg = n.glslLog = n.glslLeakyRelu = n.glslIdentity = n.glslClip = n.glslFloor = n.glslExp = n.glslElu = n.glslCos = n.glslCeil = n.glslAtan = n.glslAsin = n.glslAcos = n.glslAbs = void 0;
-        const u = o(246), l = o(2517), f = o(8520), a = o(5060), h = o(2039);
+        const u = o(246), l = o(2517), h = o(8520), a = o(5060), f = o(2039);
         function g() {
           return B("abs");
         }
@@ -8528,7 +8502,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 elu_(vec4 v) {
     return vec4(elu_(v.x), elu_(v.y), elu_(v.z), elu_(v.w));
   }
-  `, name: "elu", type: f.FunctionType.ValueBased };
+  `, name: "elu", type: h.FunctionType.ValueBased };
         }
         function p() {
           return B("exp");
@@ -8548,7 +8522,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${Q}_(vec4 v) {
     return clamp(v, min, max);
   }
-  `, name: Q, type: f.FunctionType.ValueBased };
+  `, name: Q, type: h.FunctionType.ValueBased };
         }
         function b() {
           const I = "indentity";
@@ -8559,7 +8533,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${I}_(vec4 v) {
     return v;
   }
-  `, name: I, type: f.FunctionType.ValueBased };
+  `, name: I, type: h.FunctionType.ValueBased };
         }
         function y(I) {
           const $ = "leakyRelu";
@@ -8572,7 +8546,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${$}_(vec4 v) {
     return vec4(${$}_(v.x), ${$}_(v.y), ${$}_(v.z), ${$}_(v.w));
   }
-  `, name: $, type: f.FunctionType.ValueBased };
+  `, name: $, type: h.FunctionType.ValueBased };
         }
         function w() {
           return B("log");
@@ -8585,7 +8559,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 neg_(vec4 v) {
     return -v;
   }
-  `, name: "neg", type: f.FunctionType.ValueBased };
+  `, name: "neg", type: h.FunctionType.ValueBased };
         }
         function S() {
           return { body: `
@@ -8601,7 +8575,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   bvec4 not_(bvec4 v) {
     return bvec4(!v.x, !v.y, !v.z, !v.w);
   }
-  `, name: "not", type: f.FunctionType.ValueBased };
+  `, name: "not", type: h.FunctionType.ValueBased };
         }
         function E() {
           return B("sin");
@@ -8615,7 +8589,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${I}_(vec4 v) {
     return max( v, 0.0 );
   }
-  `, name: I, type: f.FunctionType.ValueBased };
+  `, name: I, type: h.FunctionType.ValueBased };
         }
         function v() {
           const I = "sigmoid";
@@ -8626,9 +8600,9 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${I}_(vec4 v) {
     return 1.0 / (1.0 + exp(-v));
   }
-  `, name: I, type: f.FunctionType.ValueBased };
+  `, name: I, type: h.FunctionType.ValueBased };
         }
-        function M() {
+        function A() {
           return B("sqrt");
         }
         function L() {
@@ -8647,7 +8621,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
     v = exp(2.*v);
     return (v - 1.) / (v + 1.);
   }
-  `, name: I, type: f.FunctionType.ValueBased };
+  `, name: I, type: h.FunctionType.ValueBased };
         }
         function B(I) {
           return { body: `
@@ -8657,14 +8631,14 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
   vec4 ${I}_(vec4 v) {
     return ${I}(v);
   }
-  `, name: I, type: f.FunctionType.ValueBased };
+  `, name: I, type: h.FunctionType.ValueBased };
         }
-        n.glslAbs = g, n.glslAcos = c, n.glslAsin = s, n.glslAtan = t, n.glslCeil = e, n.glslCos = r, n.glslElu = i, n.glslExp = p, n.glslFloor = m, n.glslClip = _, n.glslIdentity = b, n.glslLeakyRelu = y, n.glslLog = w, n.glslNeg = T, n.glslNot = S, n.glslSin = E, n.glslRelu = O, n.glslSigmoid = v, n.glslSqrt = M, n.glslTan = L, n.glslTanh = j;
+        n.glslAbs = g, n.glslAcos = c, n.glslAsin = s, n.glslAtan = t, n.glslCeil = e, n.glslCos = r, n.glslElu = i, n.glslExp = p, n.glslFloor = m, n.glslClip = _, n.glslIdentity = b, n.glslLeakyRelu = y, n.glslLog = w, n.glslNeg = T, n.glslNot = S, n.glslSin = E, n.glslRelu = O, n.glslSigmoid = v, n.glslSqrt = A, n.glslTan = L, n.glslTanh = j;
         const F = (I, $, Q, Y) => {
-          const te = I.session.pack ? h.TextureType.packed : h.TextureType.unpacked, ne = { name: Q.name, inputTypes: [te], inputNames: ["A"], cacheHint: Y };
-          return Object.assign(Object.assign({}, ne), { get: () => ((me, Me, Ee, ce) => {
-            const ve = me.session.pack ? h.TextureType.packed : h.TextureType.unpacked, ye = (0, a.getGlsl)(me.session.backend.glContext.version);
-            return Object.assign(Object.assign({}, Me), { output: { dims: Ee.dims, type: Ee.type, textureType: ve }, shaderSource: `
+          const te = I.session.pack ? f.TextureType.packed : f.TextureType.unpacked, ne = { name: Q.name, inputTypes: [te], inputNames: ["A"], cacheHint: Y };
+          return Object.assign(Object.assign({}, ne), { get: () => ((me, Ae, Ee, ce) => {
+            const ve = me.session.pack ? f.TextureType.packed : f.TextureType.unpacked, ye = (0, a.getGlsl)(me.session.backend.glContext.version);
+            return Object.assign(Object.assign({}, Ae), { output: { dims: Ee.dims, type: Ee.type, textureType: ve }, shaderSource: `
      ${ce.body}
      void main() {
        vec4 v = ${ye.texture2D}(A, TexCoords);
@@ -8683,12 +8657,12 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
           const Q = $.length >= 3 ? $[1].numberData[0] : l.MIN_CLIP, Y = $.length >= 3 ? $[2].numberData[0] : l.MAX_CLIP;
           return (0, u.createAttributeWithCacheKey)({ min: Q, max: Y });
         };
-        n.ceil = (I, $) => [I.run(F(I, $[0], e()), $)], n.cos = (I, $) => [I.run(F(I, $[0], r()), $)], n.elu = (I, $, Q) => [I.run(F(I, $[0], i(Q.alpha), Q.cacheKey), $)], n.parseEluAttributes = (I) => (0, u.createAttributeWithCacheKey)({ alpha: I.attributes.getFloat("alpha", 1) }), n.exp = (I, $) => [I.run(F(I, $[0], p()), $)], n.floor = (I, $) => [I.run(F(I, $[0], m()), $)], n.identity = (I, $) => [I.run(F(I, $[0], b()), $)], n.leakyRelu = (I, $, Q) => [I.run(F(I, $[0], y(Q.alpha), Q.cacheKey), $)], n.parseLeakyReluAttributes = (I) => (0, u.createAttributeWithCacheKey)({ alpha: I.attributes.getFloat("alpha", 0.01) }), n.log = (I, $) => [I.run(F(I, $[0], w()), $)], n.neg = (I, $) => [I.run(F(I, $[0], T()), $)], n.not = (I, $) => [I.run(F(I, $[0], S()), $)], n.relu = (I, $) => [I.run(F(I, $[0], O()), $)], n.sigmoid = (I, $) => [I.run(F(I, $[0], v()), $)], n.sin = (I, $) => [I.run(F(I, $[0], E()), $)], n.sqrt = (I, $) => [I.run(F(I, $[0], M()), $)], n.tan = (I, $) => [I.run(F(I, $[0], L()), $)], n.tanh = (I, $) => [I.run(F(I, $[0], j()), $)];
+        n.ceil = (I, $) => [I.run(F(I, $[0], e()), $)], n.cos = (I, $) => [I.run(F(I, $[0], r()), $)], n.elu = (I, $, Q) => [I.run(F(I, $[0], i(Q.alpha), Q.cacheKey), $)], n.parseEluAttributes = (I) => (0, u.createAttributeWithCacheKey)({ alpha: I.attributes.getFloat("alpha", 1) }), n.exp = (I, $) => [I.run(F(I, $[0], p()), $)], n.floor = (I, $) => [I.run(F(I, $[0], m()), $)], n.identity = (I, $) => [I.run(F(I, $[0], b()), $)], n.leakyRelu = (I, $, Q) => [I.run(F(I, $[0], y(Q.alpha), Q.cacheKey), $)], n.parseLeakyReluAttributes = (I) => (0, u.createAttributeWithCacheKey)({ alpha: I.attributes.getFloat("alpha", 0.01) }), n.log = (I, $) => [I.run(F(I, $[0], w()), $)], n.neg = (I, $) => [I.run(F(I, $[0], T()), $)], n.not = (I, $) => [I.run(F(I, $[0], S()), $)], n.relu = (I, $) => [I.run(F(I, $[0], O()), $)], n.sigmoid = (I, $) => [I.run(F(I, $[0], v()), $)], n.sin = (I, $) => [I.run(F(I, $[0], E()), $)], n.sqrt = (I, $) => [I.run(F(I, $[0], A()), $)], n.tan = (I, $) => [I.run(F(I, $[0], L()), $)], n.tanh = (I, $) => [I.run(F(I, $[0], j()), $)];
       }, 5611: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createUnpackProgramInfoLoader = n.createUnpackProgramInfo = void 0;
-        const u = o(5060), l = o(2039), f = o(9390), a = o(2827), h = { name: "unpack", inputNames: ["A"], inputTypes: [l.TextureType.packed] };
+        const u = o(5060), l = o(2039), h = o(9390), a = o(2827), f = { name: "unpack", inputNames: ["A"], inputTypes: [l.TextureType.packed] };
         n.createUnpackProgramInfo = (g, c) => {
-          const s = c.dims.length, t = (0, a.getChannels)("rc", s), e = t.slice(-2), r = (0, f.getCoordsDataType)(s), i = (0, a.unpackFromChannel)(), p = c.dims.length === 0 ? "" : (function(b, y) {
+          const s = c.dims.length, t = (0, a.getChannels)("rc", s), e = t.slice(-2), r = (0, h.getCoordsDataType)(s), i = (0, a.unpackFromChannel)(), p = c.dims.length === 0 ? "" : (function(b, y) {
             if (b === 1) return "rc";
             let w = "";
             for (let T = 0; T < b; T++) w += y[T], T < b - 1 && (w += ",");
@@ -8704,27 +8678,27 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
        ${(0, u.getGlsl)(g.session.backend.glContext.version).output} = vec4(getChannel(packedInput, ${m}), 0, 0, 0);
      }
    `;
-          return Object.assign(Object.assign({}, h), { hasMain: !0, output: { dims: c.dims, type: c.type, textureType: l.TextureType.unpacked }, shaderSource: _ });
-        }, n.createUnpackProgramInfoLoader = (g, c) => Object.assign(Object.assign({}, h), { get: () => (0, n.createUnpackProgramInfo)(g, c) });
+          return Object.assign(Object.assign({}, f), { hasMain: !0, output: { dims: c.dims, type: c.type, textureType: l.TextureType.unpacked }, shaderSource: _ });
+        }, n.createUnpackProgramInfoLoader = (g, c) => Object.assign(Object.assign({}, f), { get: () => (0, n.createUnpackProgramInfo)(g, c) });
       }, 8428: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.parseUnsqueezeAttributes = n.unsqueezeV13 = n.unsqueeze = void 0;
         const u = o(2517);
-        n.unsqueeze = (a, h, g) => {
-          l(h);
-          const c = u.ShapeUtil.unsqueezeShape(h[0].dims, g);
-          return [a.reshapeUnpacked(h[0], c)];
-        }, n.unsqueezeV13 = (a, h) => (f(h), (0, n.unsqueeze)(a, [h[0]], Array.from(h[1].integerData))), n.parseUnsqueezeAttributes = (a) => a.attributes.getInts("axes");
+        n.unsqueeze = (a, f, g) => {
+          l(f);
+          const c = u.ShapeUtil.unsqueezeShape(f[0].dims, g);
+          return [a.reshapeUnpacked(f[0], c)];
+        }, n.unsqueezeV13 = (a, f) => (h(f), (0, n.unsqueeze)(a, [f[0]], Array.from(f[1].integerData))), n.parseUnsqueezeAttributes = (a) => a.attributes.getInts("axes");
         const l = (a) => {
           if (!a || a.length !== 1) throw new Error("Unsqueeze requires 1 input.");
           if (a[0].type === "string") throw new Error("invalid input tensor types.");
-        }, f = (a) => {
+        }, h = (a) => {
           if (!a || a.length !== 2) throw new Error("Unsqueeze requires 2 inputs.");
           if (a[1].type !== "int32") throw new Error("Invalid input type.");
         };
       }, 9793: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.scalesValidation = n.validateInputs = n.parseUpsampleAttributes = n.parseUpsampleAttributesV9 = n.parseUpsampleAttributesV7 = n.upsample = void 0;
-        const u = o(246), l = o(5060), f = o(2039), a = { name: "Upsample", inputNames: ["X"], inputTypes: [f.TextureType.unpacked] };
-        n.upsample = (g, c, s) => ((0, n.validateInputs)(c, s), [g.run(Object.assign(Object.assign({}, a), { cacheHint: s.cacheKey, get: () => h(g, c, s) }), c)]), n.parseUpsampleAttributesV7 = (g) => (0, n.parseUpsampleAttributes)(g, 7), n.parseUpsampleAttributesV9 = (g) => (0, n.parseUpsampleAttributes)(g, 9), n.parseUpsampleAttributes = (g, c) => {
+        const u = o(246), l = o(5060), h = o(2039), a = { name: "Upsample", inputNames: ["X"], inputTypes: [h.TextureType.unpacked] };
+        n.upsample = (g, c, s) => ((0, n.validateInputs)(c, s), [g.run(Object.assign(Object.assign({}, a), { cacheHint: s.cacheKey, get: () => f(g, c, s) }), c)]), n.parseUpsampleAttributesV7 = (g) => (0, n.parseUpsampleAttributes)(g, 7), n.parseUpsampleAttributesV9 = (g) => (0, n.parseUpsampleAttributes)(g, 9), n.parseUpsampleAttributes = (g, c) => {
           const s = c >= 10, t = g.attributes.getString("mode", "nearest");
           if (t !== "nearest" && t !== "linear" && (c < 11 || t !== "cubic")) throw new Error(`unrecognized mode: ${t}`);
           let e = [];
@@ -8739,8 +8713,8 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
           let T = 0, S = 0, E = 0;
           return c > 10 ? g.inputs.length > 2 ? (T = 1, S = 2, E = 3) : (S = 1, E = 2) : c === 9 && (S = 1), (0, u.createAttributeWithCacheKey)({ opset: c, isResize: s, mode: t, scales: e, extrapolationValue: r, coordinateTransformMode: i, useExtrapolation: m, needRoiInput: p, nearestMode: _, cubicCoefficientA: b, excludeOutside: y, useNearest2xOptimization: w, roiInputIdx: T, scalesInputIdx: S, sizesInputIdx: E });
         };
-        const h = (g, c, s) => {
-          const t = (0, l.getGlsl)(g.session.backend.glContext.version), [e, r] = g.calculateTextureWidthAndHeight(c[0].dims, f.TextureType.unpacked), i = c[0].dims.map(((E, O) => Math.floor(E * s.scales[O]))), [p, m] = g.calculateTextureWidthAndHeight(i, f.TextureType.unpacked), _ = i.length, b = new Array(_), y = new Array(_);
+        const f = (g, c, s) => {
+          const t = (0, l.getGlsl)(g.session.backend.glContext.version), [e, r] = g.calculateTextureWidthAndHeight(c[0].dims, h.TextureType.unpacked), i = c[0].dims.map(((E, O) => Math.floor(E * s.scales[O]))), [p, m] = g.calculateTextureWidthAndHeight(i, h.TextureType.unpacked), _ = i.length, b = new Array(_), y = new Array(_);
           let w = `
       int output_pitches[${_}];
       int input_pitches[${_}];
@@ -8880,7 +8854,7 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
       float y1 = x10 + float(y_offset) * (x11 - x10) / float(scales[0]);
       return y0 + float(x_offset) * (y1 - y0) / float(scales[1]);
     }`;
-          return Object.assign(Object.assign({}, a), { output: { dims: i, type: c[0].type, textureType: f.TextureType.unpacked }, shaderSource: S, variables: [{ name: "scales", type: "int", arrayLength: s.scales.length, data: s.scales.map(((E) => Math.ceil(E))) }] });
+          return Object.assign(Object.assign({}, a), { output: { dims: i, type: c[0].type, textureType: h.TextureType.unpacked }, shaderSource: S, variables: [{ name: "scales", type: "int", arrayLength: s.scales.length, data: s.scales.map(((E) => Math.ceil(E))) }] });
         };
         n.validateInputs = (g, c) => {
           if (!g || c.opset < 9 && g.length !== 1 || c.opset >= 9 && c.opset < 11 && g.length !== 2 || c.opset >= 11 && g.length < 2) throw new Error("invalid inputs.");
@@ -8894,27 +8868,27 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
         };
       }, 1958: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.ProgramManager = void 0;
-        const u = o(1670), l = o(6231), f = o(8879), a = o(5060);
+        const u = o(1670), l = o(6231), h = o(8879), a = o(5060);
         n.ProgramManager = class {
-          constructor(h, g, c) {
-            this.profiler = h, this.glContext = g, this.textureLayoutStrategy = c, this.repo = /* @__PURE__ */ new Map(), this.attributesBound = !1;
+          constructor(f, g, c) {
+            this.profiler = f, this.glContext = g, this.textureLayoutStrategy = c, this.repo = /* @__PURE__ */ new Map(), this.attributesBound = !1;
           }
-          getArtifact(h) {
-            return this.repo.get(h);
+          getArtifact(f) {
+            return this.repo.get(f);
           }
-          setArtifact(h, g) {
-            this.repo.set(h, g);
+          setArtifact(f, g) {
+            this.repo.set(f, g);
           }
-          run(h, g, c) {
+          run(f, g, c) {
             var s;
-            this.profiler.event("op", `ProgramManager.run ${(s = h.programInfo.name) !== null && s !== void 0 ? s : "unknown kernel"}`, (() => {
+            this.profiler.event("op", `ProgramManager.run ${(s = f.programInfo.name) !== null && s !== void 0 ? s : "unknown kernel"}`, (() => {
               var t;
-              const e = this.glContext.gl, r = h.program;
+              const e = this.glContext.gl, r = f.program;
               e.useProgram(r);
               try {
-                this.bindOutput(c), this.attributesBound || this.bindAttributes(h.attribLocations), this.bindUniforms(h.uniformLocations, (t = h.programInfo.variables) !== null && t !== void 0 ? t : [], g);
+                this.bindOutput(c), this.attributesBound || this.bindAttributes(f.attribLocations), this.bindUniforms(f.uniformLocations, (t = f.programInfo.variables) !== null && t !== void 0 ? t : [], g);
               } catch (i) {
-                throw l.Logger.error("ProgramManager", h.programInfo.shaderSource), i;
+                throw l.Logger.error("ProgramManager", f.programInfo.shaderSource), i;
               }
               this.profiler.event("backend", "GlContext.draw()", (() => {
                 this.glContext.draw();
@@ -8922,39 +8896,39 @@ value = _A(inputIdx);`, "value = min(value, _A(inputIdx));", ""];
             }), this.glContext);
           }
           dispose() {
-            this.vertexShader && this.glContext.deleteShader(this.vertexShader), this.repo.forEach(((h) => this.glContext.deleteProgram(h.program)));
+            this.vertexShader && this.glContext.deleteShader(this.vertexShader), this.repo.forEach(((f) => this.glContext.deleteProgram(f.program)));
           }
-          build(h, g, c) {
+          build(f, g, c) {
             return this.profiler.event("backend", "ProgramManager.build", (() => {
-              const s = new f.GlslPreprocessor(this.glContext, h, g, c), t = s.preprocess(), e = this.compile(t);
-              return { programInfo: h, program: e, uniformLocations: this.getUniformLocations(e, s.context.programInfo.inputNames, s.context.programInfo.variables), attribLocations: this.getAttribLocations(e) };
+              const s = new h.GlslPreprocessor(this.glContext, f, g, c), t = s.preprocess(), e = this.compile(t);
+              return { programInfo: f, program: e, uniformLocations: this.getUniformLocations(e, s.context.programInfo.inputNames, s.context.programInfo.variables), attribLocations: this.getAttribLocations(e) };
             }));
           }
-          compile(h) {
+          compile(f) {
             if (!this.vertexShader) {
               l.Logger.verbose("ProrgramManager", "Compiling and caching Vertex shader for the first time");
               const s = (0, a.getVertexShaderSource)(this.glContext.version);
               this.vertexShader = this.glContext.compileShader(s, this.glContext.gl.VERTEX_SHADER);
             }
             u.env.debug && l.Logger.verbose("ProrgramManager", `FragShader:
-${h}
+${f}
 `);
-            const g = this.glContext.compileShader(h, this.glContext.gl.FRAGMENT_SHADER), c = this.glContext.createProgram(this.vertexShader, g);
+            const g = this.glContext.compileShader(f, this.glContext.gl.FRAGMENT_SHADER), c = this.glContext.createProgram(this.vertexShader, g);
             return this.glContext.deleteShader(g), c;
           }
-          bindOutput(h) {
-            const g = h.width, c = h.height;
-            l.Logger.verbose("ProrgramManager", `Binding output texture to Framebuffer: w/h=${g}/${c}, shape=${h.shape}, type=${h.tensor.type}`), this.glContext.attachFramebuffer(h.texture, g, c);
+          bindOutput(f) {
+            const g = f.width, c = f.height;
+            l.Logger.verbose("ProrgramManager", `Binding output texture to Framebuffer: w/h=${g}/${c}, shape=${f.shape}, type=${f.tensor.type}`), this.glContext.attachFramebuffer(f.texture, g, c);
           }
-          bindAttributes(h) {
-            const g = h.position, c = h.textureCoord;
+          bindAttributes(f) {
+            const g = f.position, c = f.textureCoord;
             this.glContext.setVertexAttributes(g, c), this.attributesBound = !0;
           }
-          bindUniforms(h, g, c) {
+          bindUniforms(f, g, c) {
             var s;
             const t = this.glContext.gl;
             let e = 0;
-            for (const { name: r, type: i, location: p, arrayLength: m } of h) {
+            for (const { name: r, type: i, location: p, arrayLength: m } of f) {
               const _ = (s = g.find(((b) => b.name === r))) === null || s === void 0 ? void 0 : s.data;
               if (i !== "sampler2D" && !_) throw new Error(`variable '${r}' does not have data defined in program info`);
               switch (i) {
@@ -8972,36 +8946,36 @@ ${h}
               }
             }
           }
-          bindTexture(h, g, c) {
-            this.glContext.bindTextureToUniform(h.texture, c, g);
+          bindTexture(f, g, c) {
+            this.glContext.bindTextureToUniform(f.texture, c, g);
           }
-          getAttribLocations(h) {
-            return { position: this.getAttribLocation(h, "position"), textureCoord: this.getAttribLocation(h, "textureCoord") };
+          getAttribLocations(f) {
+            return { position: this.getAttribLocation(f, "position"), textureCoord: this.getAttribLocation(f, "textureCoord") };
           }
-          getUniformLocations(h, g, c) {
+          getUniformLocations(f, g, c) {
             const s = [];
-            if (g) for (const t of g) s.push({ name: t, type: "sampler2D", location: this.getUniformLocation(h, t) });
-            if (c) for (const t of c) s.push(Object.assign(Object.assign({}, t), { location: this.getUniformLocation(h, t.name) }));
+            if (g) for (const t of g) s.push({ name: t, type: "sampler2D", location: this.getUniformLocation(f, t) });
+            if (c) for (const t of c) s.push(Object.assign(Object.assign({}, t), { location: this.getUniformLocation(f, t.name) }));
             return s;
           }
-          getUniformLocation(h, g) {
-            const c = this.glContext.gl.getUniformLocation(h, g);
+          getUniformLocation(f, g) {
+            const c = this.glContext.gl.getUniformLocation(f, g);
             if (c === null) throw new Error(`Uniform ${g} not found.`);
             return c;
           }
-          getAttribLocation(h, g) {
-            return this.glContext.gl.getAttribLocation(h, g);
+          getAttribLocation(f, g) {
+            return this.glContext.gl.getAttribLocation(f, g);
           }
         };
       }, 6416: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.WebGLSessionHandler = void 0;
-        const u = o(6231), l = o(1047), f = o(8316), a = o(1640), h = o(1958), g = o(7859), c = o(5702);
+        const u = o(6231), l = o(1047), h = o(8316), a = o(1640), f = o(1958), g = o(7859), c = o(5702);
         n.WebGLSessionHandler = class {
           constructor(s, t) {
-            this.backend = s, this.context = t, this.layoutStrategy = new g.PreferLogicalStrategy(s.glContext.maxTextureSize), this.programManager = new h.ProgramManager(this.context.profiler, s.glContext, this.layoutStrategy), this.textureManager = new c.TextureManager(s.glContext, this.layoutStrategy, this.context.profiler, { reuseTextures: s.textureCacheMode === "full" }), this.packedTextureDataCache = /* @__PURE__ */ new Map(), this.unpackedTextureDataCache = /* @__PURE__ */ new Map(), this.pack = s.pack, this.pack2unpackMap = /* @__PURE__ */ new Map(), this.unpack2packMap = /* @__PURE__ */ new Map();
+            this.backend = s, this.context = t, this.layoutStrategy = new g.PreferLogicalStrategy(s.glContext.maxTextureSize), this.programManager = new f.ProgramManager(this.context.profiler, s.glContext, this.layoutStrategy), this.textureManager = new c.TextureManager(s.glContext, this.layoutStrategy, this.context.profiler, { reuseTextures: s.textureCacheMode === "full" }), this.packedTextureDataCache = /* @__PURE__ */ new Map(), this.unpackedTextureDataCache = /* @__PURE__ */ new Map(), this.pack = s.pack, this.pack2unpackMap = /* @__PURE__ */ new Map(), this.unpack2packMap = /* @__PURE__ */ new Map();
           }
           createInferenceHandler() {
-            return new f.WebGLInferenceHandler(this);
+            return new h.WebGLInferenceHandler(this);
           }
           onGraphInitialized(s) {
             const t = s.getValues().filter(((e) => e.from === -1 && e.tensor)).map(((e) => e.tensor.dataId));
@@ -9031,61 +9005,61 @@ ${h}
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Uint8DataEncoder = n.RGBAFloatDataEncoder = n.RedFloat32DataEncoder = void 0;
         const u = o(6231);
         n.RedFloat32DataEncoder = class {
-          constructor(l, f = 1) {
-            if (f === 1) this.internalFormat = l.R32F, this.format = l.RED, this.textureType = l.FLOAT, this.channelSize = f;
+          constructor(l, h = 1) {
+            if (h === 1) this.internalFormat = l.R32F, this.format = l.RED, this.textureType = l.FLOAT, this.channelSize = h;
             else {
-              if (f !== 4) throw new Error(`Invalid number of channels: ${f}`);
-              this.internalFormat = l.RGBA32F, this.format = l.RGBA, this.textureType = l.FLOAT, this.channelSize = f;
+              if (h !== 4) throw new Error(`Invalid number of channels: ${h}`);
+              this.internalFormat = l.RGBA32F, this.format = l.RGBA, this.textureType = l.FLOAT, this.channelSize = h;
             }
           }
-          encode(l, f) {
-            let a, h;
-            return l.constructor !== Float32Array && (u.Logger.warning("Encoder", "data was not of type Float32; creating new Float32Array"), h = new Float32Array(l)), f * this.channelSize > l.length ? (u.Logger.warning("Encoder", "Source data too small. Allocating larger array"), h = l, a = this.allocate(f * this.channelSize), h.forEach(((g, c) => a[c] = g))) : (h = l, a = h), a;
+          encode(l, h) {
+            let a, f;
+            return l.constructor !== Float32Array && (u.Logger.warning("Encoder", "data was not of type Float32; creating new Float32Array"), f = new Float32Array(l)), h * this.channelSize > l.length ? (u.Logger.warning("Encoder", "Source data too small. Allocating larger array"), f = l, a = this.allocate(h * this.channelSize), f.forEach(((g, c) => a[c] = g))) : (f = l, a = f), a;
           }
           allocate(l) {
             return new Float32Array(4 * l);
           }
-          decode(l, f) {
-            return this.channelSize === 1 ? l.filter(((a, h) => h % 4 == 0)).subarray(0, f) : l.subarray(0, f);
+          decode(l, h) {
+            return this.channelSize === 1 ? l.filter(((a, f) => f % 4 == 0)).subarray(0, h) : l.subarray(0, h);
           }
         }, n.RGBAFloatDataEncoder = class {
-          constructor(l, f = 1, a) {
-            if (f !== 1 && f !== 4) throw new Error(`Invalid number of channels: ${f}`);
-            this.internalFormat = l.RGBA, this.format = l.RGBA, this.channelSize = f, this.textureType = a || l.FLOAT;
+          constructor(l, h = 1, a) {
+            if (h !== 1 && h !== 4) throw new Error(`Invalid number of channels: ${h}`);
+            this.internalFormat = l.RGBA, this.format = l.RGBA, this.channelSize = h, this.textureType = a || l.FLOAT;
           }
-          encode(l, f) {
+          encode(l, h) {
             let a = l;
-            return this.channelSize === 1 && (u.Logger.verbose("Encoder", "Exploding into a larger array"), a = this.allocate(f), l.forEach(((h, g) => a[4 * g] = h))), a;
+            return this.channelSize === 1 && (u.Logger.verbose("Encoder", "Exploding into a larger array"), a = this.allocate(h), l.forEach(((f, g) => a[4 * g] = f))), a;
           }
           allocate(l) {
             return new Float32Array(4 * l);
           }
-          decode(l, f) {
-            return this.channelSize === 1 ? l.filter(((a, h) => h % 4 == 0)).subarray(0, f) : l.subarray(0, f);
+          decode(l, h) {
+            return this.channelSize === 1 ? l.filter(((a, f) => f % 4 == 0)).subarray(0, h) : l.subarray(0, h);
           }
         }, n.Uint8DataEncoder = class {
-          constructor(l, f = 1) {
-            if (this.channelSize = 4, f === 1) this.internalFormat = l.ALPHA, this.format = l.ALPHA, this.textureType = l.UNSIGNED_BYTE, this.channelSize = f;
+          constructor(l, h = 1) {
+            if (this.channelSize = 4, h === 1) this.internalFormat = l.ALPHA, this.format = l.ALPHA, this.textureType = l.UNSIGNED_BYTE, this.channelSize = h;
             else {
-              if (f !== 4) throw new Error(`Invalid number of channels: ${f}`);
-              this.internalFormat = l.RGBA, this.format = l.RGBA, this.textureType = l.UNSIGNED_BYTE, this.channelSize = f;
+              if (h !== 4) throw new Error(`Invalid number of channels: ${h}`);
+              this.internalFormat = l.RGBA, this.format = l.RGBA, this.textureType = l.UNSIGNED_BYTE, this.channelSize = h;
             }
           }
-          encode(l, f) {
+          encode(l, h) {
             return new Uint8Array(l.buffer, l.byteOffset, l.byteLength);
           }
           allocate(l) {
             return new Uint8Array(l * this.channelSize);
           }
-          decode(l, f) {
-            if (l instanceof Uint8Array) return l.subarray(0, f);
+          decode(l, h) {
+            if (l instanceof Uint8Array) return l.subarray(0, h);
             throw new Error(`Invalid array type: ${l.constructor}`);
           }
         };
       }, 7859: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.getBatchDim = n.sizeToSquarishShape = n.getRowsCols = n.sizeFromShape = n.isInt = n.parseAxisParam = n.squeezeShape = n.PreferLogicalStrategy = n.AlwaysKeepOriginalSizeStrategy = void 0;
         const u = o(6231), l = o(2517);
-        function f(s, t) {
+        function h(s, t) {
           const e = [], r = [], i = t != null && Array.isArray(t) && t.length === 0, p = t == null || i ? null : a(t, s).sort();
           let m = 0;
           for (let _ = 0; _ < s.length; ++_) {
@@ -9099,9 +9073,9 @@ ${h}
         }
         function a(s, t) {
           const e = t.length;
-          return s = s == null ? t.map(((r, i) => i)) : [].concat(s), (0, l.assert)(s.every(((r) => r >= -e && r < e)), (() => `All values in axis param must be in range [-${e}, ${e}) but got axis ${s}`)), (0, l.assert)(s.every(h), (() => `All values in axis param must be integers but got axis ${s}`)), s.map(((r) => r < 0 ? e + r : r));
+          return s = s == null ? t.map(((r, i) => i)) : [].concat(s), (0, l.assert)(s.every(((r) => r >= -e && r < e)), (() => `All values in axis param must be in range [-${e}, ${e}) but got axis ${s}`)), (0, l.assert)(s.every(f), (() => `All values in axis param must be integers but got axis ${s}`)), s.map(((r) => r < 0 ? e + r : r));
         }
-        function h(s) {
+        function f(s) {
           return s % 1 == 0;
         }
         function g(s) {
@@ -9150,11 +9124,11 @@ ${h}
               u.Logger.verbose("TextureLayout", `Given width/height preferences were unattainable: shape:${s}, breakAxis:${t.breakAxis}`);
             }
             let i = s.slice(0);
-            e && (r *= 2, i = i.map(((m, _) => _ >= i.length - 2 ? i[_] % 2 == 0 ? i[_] : i[_] + 1 : i[_])), i.length === 1 && (i = [2, i[0]])), i.length !== 2 && (i = f(i).newShape);
+            e && (r *= 2, i = i.map(((m, _) => _ >= i.length - 2 ? i[_] % 2 == 0 ? i[_] : i[_] + 1 : i[_])), i.length === 1 && (i = [2, i[0]])), i.length !== 2 && (i = h(i).newShape);
             const p = g(i);
             return i.length <= 1 && p <= r ? [1, p] : i.length === 2 && i[0] <= r && i[1] <= r ? i : i.length === 3 && i[0] * i[1] <= r && i[2] <= r ? [i[0] * i[1], i[2]] : i.length === 3 && i[0] <= r && i[1] * i[2] <= r ? [i[0], i[1] * i[2]] : i.length === 4 && i[0] * i[1] * i[2] <= r && i[3] <= r ? [i[0] * i[1] * i[2], i[3]] : i.length === 4 && i[0] <= r && i[1] * i[2] * i[3] <= r ? [i[0], i[1] * i[2] * i[3]] : e ? c(p / 4).map(((m) => 2 * m)) : c(p);
           }
-        }, n.squeezeShape = f, n.parseAxisParam = a, n.isInt = h, n.sizeFromShape = g, n.getRowsCols = function(s) {
+        }, n.squeezeShape = h, n.parseAxisParam = a, n.isInt = f, n.sizeFromShape = g, n.getRowsCols = function(s) {
           if (s.length === 0) throw Error("Cannot get rows and columns of an empty shape array.");
           return [s.length > 1 ? s[s.length - 2] : 1, s[s.length - 1]];
         }, n.sizeToSquarishShape = c, n.getBatchDim = function(s, t = 2) {
@@ -9163,113 +9137,113 @@ ${h}
       }, 4057: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createTextureLayoutFromShape = n.calculateTextureWidthAndHeight = n.createTextureLayoutFromTextureType = void 0;
         const u = o(2517), l = o(2039);
-        n.createTextureLayoutFromTextureType = (f, a, h) => {
-          const g = h === l.TextureType.unpacked || h === l.TextureType.unpackedReversed ? 1 : 4, c = h === l.TextureType.packed, s = h === l.TextureType.unpackedReversed || h === l.TextureType.packed, t = h === l.TextureType.packedLastDimension ? a.length - 1 : void 0, e = h === l.TextureType.packedLastDimension ? a.map(((r, i) => i === a.length - 1 ? 4 * r : r)) : void 0;
-          return (0, n.createTextureLayoutFromShape)(f, a, g, e, { isPacked: c, reverseWH: s, breakAxis: t });
-        }, n.calculateTextureWidthAndHeight = (f, a, h) => {
-          const g = (0, n.createTextureLayoutFromTextureType)(f, a, h);
+        n.createTextureLayoutFromTextureType = (h, a, f) => {
+          const g = f === l.TextureType.unpacked || f === l.TextureType.unpackedReversed ? 1 : 4, c = f === l.TextureType.packed, s = f === l.TextureType.unpackedReversed || f === l.TextureType.packed, t = f === l.TextureType.packedLastDimension ? a.length - 1 : void 0, e = f === l.TextureType.packedLastDimension ? a.map(((r, i) => i === a.length - 1 ? 4 * r : r)) : void 0;
+          return (0, n.createTextureLayoutFromShape)(h, a, g, e, { isPacked: c, reverseWH: s, breakAxis: t });
+        }, n.calculateTextureWidthAndHeight = (h, a, f) => {
+          const g = (0, n.createTextureLayoutFromTextureType)(h, a, f);
           return [g.width, g.height];
-        }, n.createTextureLayoutFromShape = (f, a, h = 1, g, c) => {
-          const s = !(!c || !c.isPacked), [t, e] = f.computeTextureWH(s && g || a, c), r = a.length;
+        }, n.createTextureLayoutFromShape = (h, a, f = 1, g, c) => {
+          const s = !(!c || !c.isPacked), [t, e] = h.computeTextureWH(s && g || a, c), r = a.length;
           let i = a.slice(0);
-          if (r === 0 && (i = [1]), h === 1) g = a;
+          if (r === 0 && (i = [1]), f === 1) g = a;
           else if (s) {
-            if (h !== 4) throw new Error("a packed texture must be 4-channel");
+            if (f !== 4) throw new Error("a packed texture must be 4-channel");
             g = a, r > 0 && (i[r - 1] = Math.ceil(i[r - 1] / 2)), r > 1 && (i[r - 2] = Math.ceil(i[r - 2] / 2));
           } else if (!g) throw new Error("Unpacked shape is needed when using channels > 1");
-          return { width: t, height: e, channels: h, isPacked: s, shape: i, strides: u.ShapeUtil.computeStrides(i), unpackedShape: g, reversedWH: c && c.reverseWH };
+          return { width: t, height: e, channels: f, isPacked: s, shape: i, strides: u.ShapeUtil.computeStrides(i), unpackedShape: g, reversedWH: c && c.reverseWH };
         };
       }, 5702: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.TextureManager = void 0;
         const u = o(6231);
         n.TextureManager = class {
-          constructor(l, f, a, h) {
-            this.glContext = l, this.layoutStrategy = f, this.profiler = a, this.config = h, this.pendingRead = /* @__PURE__ */ new Map(), h.reuseTextures && (this.inUseTextures = /* @__PURE__ */ new Map(), this.idleTextures = /* @__PURE__ */ new Map(), this.textureLookup = /* @__PURE__ */ new Map());
+          constructor(l, h, a, f) {
+            this.glContext = l, this.layoutStrategy = h, this.profiler = a, this.config = f, this.pendingRead = /* @__PURE__ */ new Map(), f.reuseTextures && (this.inUseTextures = /* @__PURE__ */ new Map(), this.idleTextures = /* @__PURE__ */ new Map(), this.textureLookup = /* @__PURE__ */ new Map());
           }
-          createTextureFromLayout(l, f, a, h) {
-            const g = this.toEncoderType(l), c = this.glContext.getEncoder(g, f.channels || 1, h);
-            if (f.isPacked && h === 1) throw new Error("not implemented");
-            const s = f.width, t = f.height;
+          createTextureFromLayout(l, h, a, f) {
+            const g = this.toEncoderType(l), c = this.glContext.getEncoder(g, h.channels || 1, f);
+            if (h.isPacked && f === 1) throw new Error("not implemented");
+            const s = h.width, t = h.height;
             let e, r;
             if (this.config.reuseTextures) {
               e = `${s}x${t}_${c.format}_${c.internalFormat}_${c.textureType}`, r = this.inUseTextures.get(e), r || (r = [], this.inUseTextures.set(e, r));
               const p = this.idleTextures.get(e);
               if (p && p.length > 0) {
                 const m = p.pop();
-                return r.push(m), h === 1 && this.glContext.updateTexture(m, s, t, c, this.toTextureData(l, a)), m;
+                return r.push(m), f === 1 && this.glContext.updateTexture(m, s, t, c, this.toTextureData(l, a)), m;
               }
             }
-            u.Logger.verbose("TextureManager", `Creating new texture of size ${f.width}x${f.height}`);
+            u.Logger.verbose("TextureManager", `Creating new texture of size ${h.width}x${h.height}`);
             const i = this.glContext.allocateTexture(s, t, c, this.toTextureData(l, a));
             return this.config.reuseTextures && (r.push(i), this.textureLookup.set(i, e)), i;
           }
-          readTexture(l, f, a) {
+          readTexture(l, h, a) {
             return a || (a = 1), this.profiler.event("backend", "TextureManager.readTexture", (() => {
-              const h = l.shape.reduce(((c, s) => c * s)) * a, g = this.glContext.readTexture(l.texture, l.width, l.height, h, this.toEncoderType(f), a);
-              return this.toTensorData(f, g);
+              const f = l.shape.reduce(((c, s) => c * s)) * a, g = this.glContext.readTexture(l.texture, l.width, l.height, f, this.toEncoderType(h), a);
+              return this.toTensorData(h, g);
             }));
           }
-          async readTextureAsync(l, f, a) {
-            const h = l.tensor.dataId;
-            if (a || (a = 1), this.pendingRead.has(h)) {
-              const g = this.pendingRead.get(h);
+          async readTextureAsync(l, h, a) {
+            const f = l.tensor.dataId;
+            if (a || (a = 1), this.pendingRead.has(f)) {
+              const g = this.pendingRead.get(f);
               return new Promise(((c) => g?.push(c)));
             }
             return this.profiler.event("backend", "TextureManager.readTextureAsync", (async () => {
-              this.pendingRead.set(h, []);
+              this.pendingRead.set(f, []);
               const g = l.shape.reduce(((e, r) => e * r)) * a;
               await this.glContext.createAndWaitForFence();
-              const c = this.glContext.readTexture(l.texture, l.width, l.height, g, this.toEncoderType(f), a), s = this.toTensorData(f, c), t = this.pendingRead.get(h);
-              return this.pendingRead.delete(h), t?.forEach(((e) => e(s))), s;
+              const c = this.glContext.readTexture(l.texture, l.width, l.height, g, this.toEncoderType(h), a), s = this.toTensorData(h, c), t = this.pendingRead.get(f);
+              return this.pendingRead.delete(f), t?.forEach(((e) => e(s))), s;
             }));
           }
           readUint8TextureAsFloat(l) {
             return this.profiler.event("backend", "TextureManager.readUint8TextureAsFloat", (() => {
-              const f = l.shape.reduce(((h, g) => h * g)), a = this.glContext.readTexture(l.texture, l.width, l.height, 4 * f, "byte", 4);
-              return new Float32Array(a.buffer, a.byteOffset, f);
+              const h = l.shape.reduce(((f, g) => f * g)), a = this.glContext.readTexture(l.texture, l.width, l.height, 4 * h, "byte", 4);
+              return new Float32Array(a.buffer, a.byteOffset, h);
             }));
           }
-          releaseTexture(l, f) {
+          releaseTexture(l, h) {
             let a;
             if (this.config.reuseTextures && (a = this.textureLookup.get(l.texture), a)) {
-              f && this.textureLookup.delete(a);
-              const h = this.inUseTextures.get(a);
-              if (h) {
-                const g = h.indexOf(l.texture);
+              h && this.textureLookup.delete(a);
+              const f = this.inUseTextures.get(a);
+              if (f) {
+                const g = f.indexOf(l.texture);
                 if (g !== -1) {
-                  h.splice(g, 1);
+                  f.splice(g, 1);
                   let c = this.idleTextures.get(a);
                   c || (c = [], this.idleTextures.set(a, c)), c.push(l.texture);
                 }
               }
             }
-            a && !f || (u.Logger.verbose("TextureManager", `Deleting texture of size ${l.width}x${l.height}`), this.glContext.deleteTexture(l.texture));
+            a && !h || (u.Logger.verbose("TextureManager", `Deleting texture of size ${l.width}x${l.height}`), this.glContext.deleteTexture(l.texture));
           }
-          toTensorData(l, f) {
+          toTensorData(l, h) {
             switch (l) {
               case "int16":
-                return f instanceof Int16Array ? f : Int16Array.from(f);
+                return h instanceof Int16Array ? h : Int16Array.from(h);
               case "int32":
-                return f instanceof Int32Array ? f : Int32Array.from(f);
+                return h instanceof Int32Array ? h : Int32Array.from(h);
               case "int8":
-                return f instanceof Int8Array ? f : Int8Array.from(f);
+                return h instanceof Int8Array ? h : Int8Array.from(h);
               case "uint16":
-                return f instanceof Uint16Array ? f : Uint16Array.from(f);
+                return h instanceof Uint16Array ? h : Uint16Array.from(h);
               case "uint32":
-                return f instanceof Uint32Array ? f : Uint32Array.from(f);
+                return h instanceof Uint32Array ? h : Uint32Array.from(h);
               case "uint8":
               case "bool":
-                return f instanceof Uint8Array ? f : Uint8Array.from(f);
+                return h instanceof Uint8Array ? h : Uint8Array.from(h);
               case "float32":
-                return f instanceof Float32Array ? f : Float32Array.from(f);
+                return h instanceof Float32Array ? h : Float32Array.from(h);
               case "float64":
-                return f instanceof Float64Array ? f : Float64Array.from(f);
+                return h instanceof Float64Array ? h : Float64Array.from(h);
               default:
                 throw new Error(`TensorData type ${l} is not supported`);
             }
           }
-          toTextureData(l, f) {
-            if (f) return f instanceof Float32Array ? f : new Float32Array(f);
+          toTextureData(l, h) {
+            if (h) return h instanceof Float32Array ? h : new Float32Array(h);
           }
           toEncoderType(l) {
             return "float";
@@ -9285,15 +9259,15 @@ ${h}
         Object.defineProperty(n, "__esModule", { value: !0 }), n.getGlChannels = n.getCoordsDataType = n.getSqueezedParams = n.squeezeInputShape = n.generateShaderFuncNameFromInputSamplerNameAtOutCoords = n.generateShaderFuncNameFromInputSamplerName = n.repeatedTry = n.getPackedShape = void 0;
         const u = o(2517);
         n.getPackedShape = function(l) {
-          const f = l.length;
-          return l.slice(0, f - 1).concat(l[f - 1] / 4);
-        }, n.repeatedTry = async function(l, f = ((h) => 0), a) {
-          return new Promise(((h, g) => {
+          const h = l.length;
+          return l.slice(0, h - 1).concat(l[h - 1] / 4);
+        }, n.repeatedTry = async function(l, h = ((f) => 0), a) {
+          return new Promise(((f, g) => {
             let c = 0;
             const s = () => {
-              if (l()) return void h();
+              if (l()) return void f();
               c++;
-              const t = f(c);
+              const t = h(c);
               a != null && c >= a ? g() : setTimeout(s, t);
             };
             s();
@@ -9302,11 +9276,11 @@ ${h}
           return (0, u.assert)(l !== void 0 && l.length !== 0, (() => "empty string found for sampler name")), "get" + l.charAt(0).toUpperCase() + l.slice(1);
         }, n.generateShaderFuncNameFromInputSamplerNameAtOutCoords = function(l) {
           return (0, u.assert)(l !== void 0 && l.length !== 0, (() => "empty string found for sampler name")), "get" + l.charAt(0).toUpperCase() + l.slice(1) + "AtOutCoords";
-        }, n.squeezeInputShape = function(l, f) {
+        }, n.squeezeInputShape = function(l, h) {
           let a = JSON.parse(JSON.stringify(l));
-          return a = f, a;
-        }, n.getSqueezedParams = function(l, f) {
-          return f.map(((a) => l[a])).join(", ");
+          return a = h, a;
+        }, n.getSqueezedParams = function(l, h) {
+          return h.map(((a) => l[a])).join(", ");
         }, n.getCoordsDataType = function(l) {
           if (l <= 1) return "int";
           if (l === 2) return "ivec2";
@@ -9320,8 +9294,8 @@ ${h}
         };
       }, 7305: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.createNewWebGLContext = n.createWebGLContext = void 0;
-        const u = o(6231), l = o(1713), f = {};
-        function a(h) {
+        const u = o(6231), l = o(1713), h = {};
+        function a(f) {
           const g = (function() {
             if (typeof document > "u") {
               if (typeof OffscreenCanvas > "u") throw new TypeError("failed to create canvas: OffscreenCanvas is not supported");
@@ -9332,23 +9306,23 @@ ${h}
           })();
           let c;
           const s = { alpha: !1, depth: !1, antialias: !1, stencil: !1, preserveDrawingBuffer: !1, premultipliedAlpha: !1, failIfMajorPerformanceCaveat: !1 };
-          if ((!h || h === "webgl2") && (c = g.getContext("webgl2", s), c)) try {
+          if ((!f || f === "webgl2") && (c = g.getContext("webgl2", s), c)) try {
             return new l.WebGLContext(c, 2);
           } catch (t) {
             u.Logger.warning("GlContextFactory", `failed to create WebGLContext using contextId 'webgl2'. Error: ${t}`);
           }
-          if ((!h || h === "webgl") && (c = g.getContext("webgl", s) || g.getContext("experimental-webgl", s), c)) try {
+          if ((!f || f === "webgl") && (c = g.getContext("webgl", s) || g.getContext("experimental-webgl", s), c)) try {
             return new l.WebGLContext(c, 1);
           } catch (t) {
             u.Logger.warning("GlContextFactory", `failed to create WebGLContext using contextId 'webgl' or 'experimental-webgl'. Error: ${t}`);
           }
           throw new Error("WebGL is not supported");
         }
-        n.createWebGLContext = function h(g) {
+        n.createWebGLContext = function f(g) {
           let c;
-          g && g !== "webgl2" || !("webgl2" in f) ? g && g !== "webgl" || !("webgl" in f) || (c = f.webgl) : c = f.webgl2, c = c || a(g), g = g || c.version === 1 ? "webgl" : "webgl2";
+          g && g !== "webgl2" || !("webgl2" in h) ? g && g !== "webgl" || !("webgl" in h) || (c = h.webgl) : c = h.webgl2, c = c || a(g), g = g || c.version === 1 ? "webgl" : "webgl2";
           const s = c.gl;
-          return f[g] = c, s.isContextLost() ? (delete f[g], h(g)) : (s.disable(s.DEPTH_TEST), s.disable(s.STENCIL_TEST), s.disable(s.BLEND), s.disable(s.DITHER), s.disable(s.POLYGON_OFFSET_FILL), s.disable(s.SAMPLE_COVERAGE), s.enable(s.SCISSOR_TEST), s.enable(s.CULL_FACE), s.cullFace(s.BACK), c);
+          return h[g] = c, s.isContextLost() ? (delete h[g], f(g)) : (s.disable(s.DEPTH_TEST), s.disable(s.STENCIL_TEST), s.disable(s.BLEND), s.disable(s.DITHER), s.disable(s.POLYGON_OFFSET_FILL), s.disable(s.SAMPLE_COVERAGE), s.enable(s.SCISSOR_TEST), s.enable(s.CULL_FACE), s.cullFace(s.BACK), c);
         }, n.createNewWebGLContext = a;
       }, 1713: function(d, n, o) {
         var u = this && this.__createBinding || (Object.create ? function(s, t, e, r) {
@@ -9363,14 +9337,14 @@ ${h}
           Object.defineProperty(s, "default", { enumerable: !0, value: t });
         } : function(s, t) {
           s.default = t;
-        }), f = this && this.__importStar || function(s) {
+        }), h = this && this.__importStar || function(s) {
           if (s && s.__esModule) return s;
           var t = {};
           if (s != null) for (var e in s) e !== "default" && Object.prototype.hasOwnProperty.call(s, e) && u(t, s, e);
           return l(t, s), t;
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.WebGLContext = n.linearSearchLastTrue = void 0;
-        const a = o(1670), h = f(o(7769)), g = o(9390);
+        const a = o(1670), f = h(o(7769)), g = o(9390);
         function c(s) {
           let t = 0;
           for (; t < s.length && s[t](); ++t) ;
@@ -9479,14 +9453,14 @@ ${s}`);
             this.gl.deleteProgram(s);
           }
           getEncoder(s, t, e = 0) {
-            if (this.version === 2) return new h.RedFloat32DataEncoder(this.gl, t);
+            if (this.version === 2) return new f.RedFloat32DataEncoder(this.gl, t);
             switch (s) {
               case "float":
-                return e === 1 || this.isRenderFloat32Supported ? new h.RGBAFloatDataEncoder(this.gl, t) : new h.RGBAFloatDataEncoder(this.gl, t, this.textureHalfFloatExtension.HALF_FLOAT_OES);
+                return e === 1 || this.isRenderFloat32Supported ? new f.RGBAFloatDataEncoder(this.gl, t) : new f.RGBAFloatDataEncoder(this.gl, t, this.textureHalfFloatExtension.HALF_FLOAT_OES);
               case "int":
                 throw new Error("not implemented");
               case "byte":
-                return new h.Uint8DataEncoder(this.gl, t);
+                return new f.Uint8DataEncoder(this.gl, t);
               default:
                 throw new Error(`Invalid dataType: ${s}`);
             }
@@ -9623,21 +9597,21 @@ ${s}`);
         Object.defineProperty(n, "__esModule", { value: !0 }), n.ExecutionPlan = void 0;
         const u = o(6231);
         class l {
-          constructor(a, h) {
-            this.op = a, this.node = h;
+          constructor(a, f) {
+            this.op = a, this.node = f;
           }
         }
         n.ExecutionPlan = class {
-          constructor(f, a, h) {
-            this.graph = f, this.profiler = h, this.initialize(a);
+          constructor(h, a, f) {
+            this.graph = h, this.profiler = f, this.initialize(a);
           }
-          initialize(f) {
+          initialize(h) {
             this.profiler.event("session", "ExecutionPlan.initialize", (() => {
               const a = this.graph.getNodes();
-              if (a.length !== f.length) throw new Error("The size of nodes and OPs do not match.");
-              this._ops = f.map(((h, g) => new l(h, a[g]))), this.reset(), this._starter = [], this._ops.forEach(((h, g) => {
+              if (a.length !== h.length) throw new Error("The size of nodes and OPs do not match.");
+              this._ops = h.map(((f, g) => new l(f, a[g]))), this.reset(), this._starter = [], this._ops.forEach(((f, g) => {
                 let c = !0;
-                for (const s of h.node.inputs) if (!this._values[s] && this.graph.getInputIndices().indexOf(s) === -1) {
+                for (const s of f.node.inputs) if (!this._values[s] && this.graph.getInputIndices().indexOf(s) === -1) {
                   c = !1;
                   break;
                 }
@@ -9646,12 +9620,12 @@ ${s}`);
             }));
           }
           reset() {
-            this._values = this.graph.getValues().map(((f) => f.tensor));
+            this._values = this.graph.getValues().map(((h) => h.tensor));
           }
-          async execute(f, a) {
+          async execute(h, a) {
             return this.profiler.event("session", "ExecutionPlan.execute", (async () => {
               this.reset();
-              const h = f.createInferenceHandler(), g = this.graph.getInputIndices();
+              const f = h.createInferenceHandler(), g = this.graph.getInputIndices();
               if (a.length !== g.length) throw new Error(`number of input tensors don't match the number of inputs to the model: actual: ${a.length} expected: ${g.length}`);
               a.forEach(((i, p) => {
                 const m = g[p];
@@ -9664,7 +9638,7 @@ ${s}`);
                 if (m.indexOf(void 0) !== -1) throw new Error(`unresolved input detected: op: ${p.node}`);
                 const _ = m;
                 u.Logger.verbose("ExecPlan", `Runing op:${p.node.name} (${_.map(((w, T) => `'${p.node.inputs[T]}': ${w.type}[${w.dims.join(",")}]`)).join(", ")})`);
-                const b = await this.profiler.event("node", p.node.name, (async () => p.op.impl(h, _, p.op.context)));
+                const b = await this.profiler.event("node", p.node.name, (async () => p.op.impl(f, _, p.op.context)));
                 if (b.length !== p.node.outputs.length) throw new Error("the size of output does not match model definition.");
                 b.forEach(((w, T) => {
                   const S = p.node.outputs[T];
@@ -9677,7 +9651,7 @@ ${s}`);
                   for (const E of s[S].to) {
                     const O = t[E];
                     let v = !0;
-                    for (const M of O.inputs) if (!this._values[M]) {
+                    for (const A of O.inputs) if (!this._values[A]) {
                       v = !1;
                       break;
                     }
@@ -9691,18 +9665,18 @@ ${s}`);
                 if (m === void 0) throw new Error(`required output [${p}] does not have value`);
                 p === 0 ? await m.getData() : m.data, r.push(m);
               }
-              return u.Logger.verbose("ExecPlan", "disposing of inferenceHandler"), h.dispose(), r;
+              return u.Logger.verbose("ExecPlan", "disposing of inferenceHandler"), f.dispose(), r;
             }));
           }
         };
       }, 7070: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Graph = void 0;
-        const u = o(1446), l = o(7778), f = o(9395), a = o(9162), h = o(2517);
-        var g = f.onnxruntime.experimental.fbs;
+        const u = o(1446), l = o(7778), h = o(9395), a = o(9162), f = o(2517);
+        var g = h.onnxruntime.experimental.fbs;
         n.Graph = { from: (e, r) => new t(e, r) };
         class c {
           constructor(r) {
-            this._from = void 0, this._to = [], this.tensor = void 0, this.type = void 0, r && (this.type = h.ProtoUtil.tensorValueTypeFromProto(r.type.tensorType));
+            this._from = void 0, this._to = [], this.tensor = void 0, this.type = void 0, r && (this.type = f.ProtoUtil.tensorValueTypeFromProto(r.type.tensorType));
           }
           get from() {
             return this._from;
@@ -9713,7 +9687,7 @@ ${s}`);
         }
         class s {
           constructor(r, i) {
-            r instanceof u.onnx.NodeProto ? (this.name = r.name, this.opType = r.opType, this.attributes = new l.Attribute(r.attribute)) : r instanceof g.Node && (this.name = i ?? r.name(), this.opType = r.opType(), this.attributes = new l.Attribute(h.ProtoUtil.tensorAttributesFromORTFormat(r))), this.inputs = [], this.outputs = [], this.executeNode = !0;
+            r instanceof u.onnx.NodeProto ? (this.name = r.name, this.opType = r.opType, this.attributes = new l.Attribute(r.attribute)) : r instanceof g.Node && (this.name = i ?? r.name(), this.opType = r.opType(), this.attributes = new l.Attribute(f.ProtoUtil.tensorAttributesFromORTFormat(r))), this.inputs = [], this.outputs = [], this.executeNode = !0;
           }
         }
         class t {
@@ -9762,7 +9736,7 @@ ${s}`);
               let b = i.get(_.name);
               if (b === void 0) {
                 const y = new c();
-                y.type = { shape: { dims: h.ProtoUtil.tensorDimsFromProto(_.dims) }, tensorType: h.ProtoUtil.tensorDataTypeFromProto(_.dataType) }, b = this._allData.push(y) - 1, i.set(_.name, b);
+                y.type = { shape: { dims: f.ProtoUtil.tensorDimsFromProto(_.dims) }, tensorType: f.ProtoUtil.tensorDataTypeFromProto(_.dataType) }, b = this._allData.push(y) - 1, i.set(_.name, b);
               }
               this._allData[b]._from = -1, this._allData[b].tensor = a.Tensor.fromProto(_);
             }
@@ -9824,8 +9798,8 @@ ${s}`);
               for (let S = 0; S < r.nodeArgsLength(); S++) if (((i = r.nodeArgs(S)) === null || i === void 0 ? void 0 : i.name()) === T) {
                 const E = new c();
                 if (((m = (p = r.nodeArgs(S)) === null || p === void 0 ? void 0 : p.type()) === null || m === void 0 ? void 0 : m.valueType()) !== g.TypeInfoValue.tensor_type) throw new Error("Unexpected value type for the nodeArg.");
-                const O = r.nodeArgs(S).type().value(new g.TensorTypeAndShape()), v = h.ProtoUtil.tensorDataTypeFromProto(O.elemType()), M = O.shape(), L = [];
-                for (let B = 0; B < M.dimLength(); B++) L.push(h.LongUtil.longToNumber(M.dim(B).value().dimValue()));
+                const O = r.nodeArgs(S).type().value(new g.TensorTypeAndShape()), v = f.ProtoUtil.tensorDataTypeFromProto(O.elemType()), A = O.shape(), L = [];
+                for (let B = 0; B < A.dimLength(); B++) L.push(f.LongUtil.longToNumber(A.dim(B).value().dimValue()));
                 E.type = { shape: { dims: L }, tensorType: v };
                 const j = this._allData.push(E) - 1;
                 _.set(T, j), y.push(T);
@@ -9835,7 +9809,7 @@ ${s}`);
               const T = r.initializers(w);
               let S = _.get(T.name());
               if (S === void 0) {
-                const E = new c(), O = h.ProtoUtil.tensorDimsFromORTFormat(T), v = h.ProtoUtil.tensorDataTypeFromProto(T.dataType());
+                const E = new c(), O = f.ProtoUtil.tensorDimsFromORTFormat(T), v = f.ProtoUtil.tensorDataTypeFromProto(T.dataType());
                 E.type = { shape: { dims: O }, tensorType: v }, S = this._allData.push(E) - 1, _.set(T.name(), S);
               }
               this._allData[S]._from = -1, this._allData[S].tensor = a.Tensor.fromOrtTensor(T);
@@ -9975,7 +9949,7 @@ ${s}`);
                 if (p.opType === "Clip") if (p.inputs.length === 1) try {
                   r.attributes.set("activation_params", "floats", [p.attributes.getFloat("min"), p.attributes.getFloat("max")]);
                 } catch {
-                  r.attributes.set("activation_params", "floats", [h.MIN_CLIP, h.MAX_CLIP]);
+                  r.attributes.set("activation_params", "floats", [f.MIN_CLIP, f.MAX_CLIP]);
                 }
                 else {
                   if (!(p.inputs.length >= 3 && this._allData[p.inputs[1]].tensor !== void 0 && this._allData[p.inputs[2]].tensor !== void 0)) continue;
@@ -10012,31 +9986,31 @@ ${s}`);
             }
           }
         }() }, l = { provider: "console", minimalSeverity: "warning", logDateTime: !0, logSourceLocation: !1 };
-        let f = { "": l };
+        let h = { "": l };
         function a(s, t, e, r) {
           if (t === void 0) return i = s, { verbose: a.verbose.bind(null, i), info: a.info.bind(null, i), warning: a.warning.bind(null, i), error: a.error.bind(null, i), fatal: a.fatal.bind(null, i) };
-          if (e === void 0) h(s, t);
-          else if (typeof e == "number" && r === void 0) h(s, t);
-          else if (typeof e == "string" && r === void 0) h(s, e, 0, t);
+          if (e === void 0) f(s, t);
+          else if (typeof e == "number" && r === void 0) f(s, t);
+          else if (typeof e == "string" && r === void 0) f(s, e, 0, t);
           else {
             if (typeof e != "string" || typeof r != "number") throw new TypeError("input is valid");
-            h(s, e, 0, t);
+            f(s, e, 0, t);
           }
           var i;
         }
-        function h(s, t, e, r) {
-          const i = f[r || ""] || f[""];
+        function f(s, t, e, r) {
+          const i = h[r || ""] || h[""];
           o[s] < o[i.minimalSeverity] || (i.logDateTime && (t = `${(/* @__PURE__ */ new Date()).toISOString()}|${t}`), i.logSourceLocation, u[i.provider].log(s, t, r));
         }
         (function(s) {
           function t(r) {
-            f = {}, e("", r || {});
+            h = {}, e("", r || {});
           }
           function e(r, i) {
             if (r === "*") t(i);
             else {
-              const p = f[r] || l;
-              f[r] = { provider: i.provider || p.provider, minimalSeverity: i.minimalSeverity || p.minimalSeverity, logDateTime: i.logDateTime === void 0 ? p.logDateTime : i.logDateTime, logSourceLocation: i.logSourceLocation === void 0 ? p.logSourceLocation : i.logSourceLocation };
+              const p = h[r] || l;
+              h[r] = { provider: i.provider || p.provider, minimalSeverity: i.minimalSeverity || p.minimalSeverity, logDateTime: i.logDateTime === void 0 ? p.logDateTime : i.logDateTime, logSourceLocation: i.logSourceLocation === void 0 ? p.logSourceLocation : i.logSourceLocation };
             }
           }
           s.verbose = function(r, i) {
@@ -10141,7 +10115,7 @@ ${s}`);
         }, n.now = typeof performance < "u" && performance.now ? () => performance.now() : Date.now;
       }, 2644: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Model = void 0;
-        const u = o(5686), l = o(1446), f = o(7070), a = o(9395), h = o(2517);
+        const u = o(5686), l = o(1446), h = o(7070), a = o(9395), f = o(2517);
         var g = a.onnxruntime.experimental.fbs;
         n.Model = class {
           constructor() {
@@ -10156,18 +10130,18 @@ ${s}`);
           }
           loadFromOnnxFormat(c, s) {
             const t = l.onnx.ModelProto.decode(c);
-            if (h.LongUtil.longToNumber(t.irVersion) < 3) throw new Error("only support ONNX model with IR_VERSION>=3");
-            this._opsets = t.opsetImport.map(((e) => ({ domain: e.domain, version: h.LongUtil.longToNumber(e.version) }))), this._graph = f.Graph.from(t.graph, s);
+            if (f.LongUtil.longToNumber(t.irVersion) < 3) throw new Error("only support ONNX model with IR_VERSION>=3");
+            this._opsets = t.opsetImport.map(((e) => ({ domain: e.domain, version: f.LongUtil.longToNumber(e.version) }))), this._graph = h.Graph.from(t.graph, s);
           }
           loadFromOrtFormat(c, s) {
             const t = new u.flatbuffers.ByteBuffer(c), e = g.InferenceSession.getRootAsInferenceSession(t).model();
-            if (h.LongUtil.longToNumber(e.irVersion()) < 3) throw new Error("only support ONNX model with IR_VERSION>=3");
+            if (f.LongUtil.longToNumber(e.irVersion()) < 3) throw new Error("only support ONNX model with IR_VERSION>=3");
             this._opsets = [];
             for (let r = 0; r < e.opsetImportLength(); r++) {
               const i = e.opsetImport(r);
-              this._opsets.push({ domain: i?.domain(), version: h.LongUtil.longToNumber(i.version()) });
+              this._opsets.push({ domain: i?.domain(), version: f.LongUtil.longToNumber(i.version()) });
             }
-            this._graph = f.Graph.from(e.graph(), s);
+            this._graph = h.Graph.from(e.graph(), s);
           }
           get graph() {
             return this._graph;
@@ -10181,19 +10155,19 @@ ${s}`);
       }, 1047: (d, n) => {
         function o(u, l) {
           if (l.endsWith("+")) {
-            const f = Number.parseInt(l.substring(0, l.length - 1), 10);
-            return !isNaN(f) && f <= u;
+            const h = Number.parseInt(l.substring(0, l.length - 1), 10);
+            return !isNaN(h) && h <= u;
           }
           if (l.split("-").length === 2) {
-            const f = l.split("-"), a = Number.parseInt(f[0], 10), h = Number.parseInt(f[1], 10);
-            return !isNaN(a) && !isNaN(h) && a <= u && u <= h;
+            const h = l.split("-"), a = Number.parseInt(h[0], 10), f = Number.parseInt(h[1], 10);
+            return !isNaN(a) && !isNaN(f) && a <= u && u <= f;
           }
           return Number.parseInt(l, 10) === u;
         }
-        Object.defineProperty(n, "__esModule", { value: !0 }), n.resolveOperator = void 0, n.resolveOperator = function(u, l, f) {
-          for (const a of f) {
-            const h = a[0], g = a[1], c = a[2], s = a[3], t = a[4];
-            if (u.opType === h) {
+        Object.defineProperty(n, "__esModule", { value: !0 }), n.resolveOperator = void 0, n.resolveOperator = function(u, l, h) {
+          for (const a of h) {
+            const f = a[0], g = a[1], c = a[2], s = a[3], t = a[4];
+            if (u.opType === f) {
               for (const e of l) if ((e.domain === g || e.domain === "ai.onnx" && g === "") && o(e.version, c)) return { opImpl: s, opInit: t };
             }
           }
@@ -10202,45 +10176,45 @@ ${s}`);
       }, 9395: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.onnxruntime = void 0;
         const u = o(5686);
-        var l, f;
+        var l, h;
         l = n.onnxruntime || (n.onnxruntime = {}), (function(a) {
-          (function(h) {
-            h[h.UNDEFINED = 0] = "UNDEFINED", h[h.FLOAT = 1] = "FLOAT", h[h.INT = 2] = "INT", h[h.STRING = 3] = "STRING", h[h.TENSOR = 4] = "TENSOR", h[h.GRAPH = 5] = "GRAPH", h[h.FLOATS = 6] = "FLOATS", h[h.INTS = 7] = "INTS", h[h.STRINGS = 8] = "STRINGS", h[h.TENSORS = 9] = "TENSORS", h[h.GRAPHS = 10] = "GRAPHS", h[h.SPARSE_TENSOR = 11] = "SPARSE_TENSOR", h[h.SPARSE_TENSORS = 12] = "SPARSE_TENSORS";
+          (function(f) {
+            f[f.UNDEFINED = 0] = "UNDEFINED", f[f.FLOAT = 1] = "FLOAT", f[f.INT = 2] = "INT", f[f.STRING = 3] = "STRING", f[f.TENSOR = 4] = "TENSOR", f[f.GRAPH = 5] = "GRAPH", f[f.FLOATS = 6] = "FLOATS", f[f.INTS = 7] = "INTS", f[f.STRINGS = 8] = "STRINGS", f[f.TENSORS = 9] = "TENSORS", f[f.GRAPHS = 10] = "GRAPHS", f[f.SPARSE_TENSOR = 11] = "SPARSE_TENSOR", f[f.SPARSE_TENSORS = 12] = "SPARSE_TENSORS";
           })(a.AttributeType || (a.AttributeType = {}));
-        })((f = l.experimental || (l.experimental = {})).fbs || (f.fbs = {})), (function(a) {
-          (function(h) {
+        })((h = l.experimental || (l.experimental = {})).fbs || (h.fbs = {})), (function(a) {
+          (function(f) {
             (function(g) {
               (function(c) {
                 c[c.UNKNOWN = 0] = "UNKNOWN", c[c.VALUE = 1] = "VALUE", c[c.PARAM = 2] = "PARAM";
               })(g.DimensionValueType || (g.DimensionValueType = {}));
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               (function(c) {
                 c[c.UNDEFINED = 0] = "UNDEFINED", c[c.FLOAT = 1] = "FLOAT", c[c.UINT8 = 2] = "UINT8", c[c.INT8 = 3] = "INT8", c[c.UINT16 = 4] = "UINT16", c[c.INT16 = 5] = "INT16", c[c.INT32 = 6] = "INT32", c[c.INT64 = 7] = "INT64", c[c.STRING = 8] = "STRING", c[c.BOOL = 9] = "BOOL", c[c.FLOAT16 = 10] = "FLOAT16", c[c.DOUBLE = 11] = "DOUBLE", c[c.UINT32 = 12] = "UINT32", c[c.UINT64 = 13] = "UINT64", c[c.COMPLEX64 = 14] = "COMPLEX64", c[c.COMPLEX128 = 15] = "COMPLEX128", c[c.BFLOAT16 = 16] = "BFLOAT16";
               })(g.TensorDataType || (g.TensorDataType = {}));
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               (function(c) {
                 c[c.Primitive = 0] = "Primitive", c[c.Fused = 1] = "Fused";
               })(g.NodeType || (g.NodeType = {}));
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               (function(c) {
                 c[c.NONE = 0] = "NONE", c[c.tensor_type = 1] = "tensor_type", c[c.sequence_type = 2] = "sequence_type", c[c.map_type = 3] = "map_type";
               })(g.TypeInfoValue || (g.TypeInfoValue = {}));
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10285,10 +10259,10 @@ ${s}`);
                 }
               }
               g.Shape = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10328,10 +10302,10 @@ ${s}`);
                 }
               }
               g.Dimension = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10378,10 +10352,10 @@ ${s}`);
                 }
               }
               g.DimensionValue = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10421,10 +10395,10 @@ ${s}`);
                 }
               }
               g.TensorTypeAndShape = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10464,10 +10438,10 @@ ${s}`);
                 }
               }
               g.MapType = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10500,11 +10474,11 @@ ${s}`);
                 }
               }
               g.SequenceType = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
-            (h.fbs || (h.fbs = {})).EdgeEnd = class {
+          (function(f) {
+            (f.fbs || (f.fbs = {})).EdgeEnd = class {
               constructor() {
                 this.bb = null, this.bb_pos = 0;
               }
@@ -10526,7 +10500,7 @@ ${s}`);
             };
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10587,10 +10561,10 @@ ${s}`);
                 }
               }
               g.NodeEdge = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10771,10 +10745,10 @@ ${s}`);
                 }
               }
               g.Node = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10821,10 +10795,10 @@ ${s}`);
                 }
               }
               g.ValueInfo = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10871,10 +10845,10 @@ ${s}`);
                 }
               }
               g.TypeInfo = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -10914,10 +10888,10 @@ ${s}`);
                 }
               }
               g.OperatorSetId = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11025,10 +10999,10 @@ ${s}`);
                 }
               }
               g.Tensor = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11087,10 +11061,10 @@ ${s}`);
                 }
               }
               g.SparseTensor = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11271,10 +11245,10 @@ ${s}`);
                 }
               }
               g.Attribute = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11440,10 +11414,10 @@ ${s}`);
                 }
               }
               g.Graph = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11544,10 +11518,10 @@ ${s}`);
                 }
               }
               g.Model = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11615,10 +11589,10 @@ ${s}`);
                 }
               }
               g.KernelCreateInfos = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11659,10 +11633,10 @@ ${s}`);
                 }
               }
               g.SubGraphSessionState = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11714,10 +11688,10 @@ ${s}`);
                 }
               }
               g.SessionState = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {})), (function(a) {
-          (function(h) {
+          (function(f) {
             (function(g) {
               class c {
                 constructor() {
@@ -11773,22 +11747,22 @@ ${s}`);
                 }
               }
               g.InferenceSession = c;
-            })(h.fbs || (h.fbs = {}));
+            })(f.fbs || (f.fbs = {}));
           })(a.experimental || (a.experimental = {}));
         })(n.onnxruntime || (n.onnxruntime = {}));
       }, 7448: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.OnnxjsSessionHandler = void 0;
         const u = o(1670), l = o(9162);
         n.OnnxjsSessionHandler = class {
-          constructor(f) {
-            this.session = f, this.inputNames = this.session.inputNames, this.outputNames = this.session.outputNames;
+          constructor(h) {
+            this.session = h, this.inputNames = this.session.inputNames, this.outputNames = this.session.outputNames;
           }
           async dispose() {
           }
-          async run(f, a, h) {
+          async run(h, a, f) {
             const g = /* @__PURE__ */ new Map();
-            for (const t in f) if (Object.hasOwnProperty.call(f, t)) {
-              const e = f[t];
+            for (const t in h) if (Object.hasOwnProperty.call(h, t)) {
+              const e = h[t];
               g.set(t, new l.Tensor(e.dims, e.type, void 0, void 0, e.data));
             }
             const c = await this.session.run(g), s = {};
@@ -11805,10 +11779,10 @@ ${s}`);
         };
       }, 6919: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Session = void 0;
-        const u = o(7067), l = o(1296), f = o(7091), a = o(1036), h = o(6231), g = o(2644);
+        const u = o(7067), l = o(1296), h = o(7091), a = o(1036), f = o(6231), g = o(2644);
         n.Session = class {
           constructor(c = {}) {
-            this._initialized = !1, this.backendHint = c.backendHint, this.profiler = h.Profiler.create(c.profiler), this.context = { profiler: this.profiler, graphInputTypes: [], graphInputDims: [] };
+            this._initialized = !1, this.backendHint = c.backendHint, this.profiler = f.Profiler.create(c.profiler), this.context = { profiler: this.profiler, graphInputTypes: [], graphInputDims: [] };
           }
           get inputNames() {
             return this._model.graph.getInputNames();
@@ -11824,7 +11798,7 @@ ${s}`);
           }
           async loadModel(c, s, t) {
             await this.profiler.event("session", "Session.loadModel", (async () => {
-              const e = await (0, f.resolveBackend)(this.backendHint);
+              const e = await (0, h.resolveBackend)(this.backendHint);
               if (this.sessionHandler = e.createSessionHandler(this.context), this._model = new g.Model(), typeof c == "string") {
                 const r = c.endsWith(".ort");
                 if (typeof fetch > "u") {
@@ -11916,8 +11890,8 @@ ${s}`);
           return p && p.__esModule ? p : { default: p };
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.Tensor = void 0;
-        const l = o(3442), f = u(o(3720)), a = o(1446), h = o(9395), g = o(2517);
-        var c = h.onnxruntime.experimental.fbs;
+        const l = o(3442), h = u(o(3720)), a = o(1446), f = o(9395), g = o(2517);
+        var c = f.onnxruntime.experimental.fbs;
         class s {
           get data() {
             if (this.cache === void 0) {
@@ -12002,8 +11976,8 @@ ${s}`);
                       throw new Error(`cannot calculate sizeof() on type ${v}`);
                   }
                 })(_));
-                this.cache = (function(v, M) {
-                  return new (e(M))(v);
+                this.cache = (function(v, A) {
+                  return new (e(A))(v);
                 })(O, _);
               }
             }
@@ -12054,7 +12028,7 @@ ${s}`);
               if (T.length !== w.length) throw new Error("array length mismatch");
               for (let S = 0; S < w.length; S++) {
                 const E = w[S];
-                f.default.isLong(E) ? T[S] = r(E, m.dataType) : T[S] = E;
+                h.default.isLong(E) ? T[S] = r(E, m.dataType) : T[S] = E;
               }
             }
             return y;
@@ -12149,11 +12123,11 @@ ${s}`);
             case a.onnx.TensorProto.DataType.UINT32:
               return p.getUint32(_, !0);
             case a.onnx.TensorProto.DataType.INT64:
-              return r(f.default.fromBits(p.getUint32(_, !0), p.getUint32(_ + 4, !0), !1), m);
+              return r(h.default.fromBits(p.getUint32(_, !0), p.getUint32(_ + 4, !0), !1), m);
             case a.onnx.TensorProto.DataType.DOUBLE:
               return p.getFloat64(_, !0);
             case a.onnx.TensorProto.DataType.UINT64:
-              return r(f.default.fromBits(p.getUint32(_, !0), p.getUint32(_ + 4, !0), !0), m);
+              return r(h.default.fromBits(p.getUint32(_, !0), p.getUint32(_ + 4, !0), !0), m);
             default:
               throw new Error(`cannot read from DataView for type ${a.onnx.TensorProto.DataType[m]}`);
           }
@@ -12164,7 +12138,7 @@ ${s}`);
           return m && m.__esModule ? m : { default: m };
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.decodeUtf8String = n.MAX_CLIP = n.MIN_CLIP = n.PoolConvUtil = n.ReduceUtil = n.SplitUtil = n.MathUtil = n.ShapeUtil = n.LongUtil = n.ProtoUtil = n.GemmUtil = n.arrayCopyHelper = n.BroadcastUtil = n.MatMulUtil = n.ArrayUtil = n.assert = n.checkInputsShape = void 0;
-        const l = o(5686), f = u(o(3720)), a = o(1446), h = o(9162);
+        const l = o(5686), h = u(o(3720)), a = o(1446), f = o(9162);
         n.checkInputsShape = function(m, ..._) {
           if (!m || m.length !== _.length) return !1;
           for (let b = 0; b < m.length; b++) if (!m[b].dims || m[b].dims.length !== _[b]) return !1;
@@ -12203,9 +12177,9 @@ ${s}`);
               [E[S - 2], E[S - 1]] = O;
             }
             for (let O = y ? 3 : 1; O <= S; O++) {
-              const v = w - O < 0 ? 1 : _[w - O], M = T - O < 0 ? 1 : b[T - O];
-              if (v !== M && v > 1 && M > 1) return;
-              E[S - O] = Math.max(v, M);
+              const v = w - O < 0 ? 1 : _[w - O], A = T - O < 0 ? 1 : b[T - O];
+              if (v !== A && v > 1 && A > 1) return;
+              E[S - O] = Math.max(v, A);
             }
             return E;
           }
@@ -12221,16 +12195,16 @@ ${s}`);
             const S = c.calcShape(_.dims, b.dims);
             if (S) {
               if (w && !e.areEqual(S, _.dims)) return;
-              const E = e.size(S), O = w ? _ : new h.Tensor(S, T || _.type);
+              const E = e.size(S), O = w ? _ : new f.Tensor(S, T || _.type);
               if (S.length === 0) O.set([], y(_.get([]), b.get([])));
               else {
-                const v = new Array(S.length), M = new Array(_.dims.length), L = new Array(b.dims.length);
+                const v = new Array(S.length), A = new Array(_.dims.length), L = new Array(b.dims.length);
                 let j, B = 0, F = 0, D = !1, I = !1;
                 _.dims.length === 0 && (B = _.get([]), D = !0), b.dims.length === 0 && (F = b.get([]), I = !0);
                 for (let $ = 0; $ < E; $++) {
                   j = $;
                   for (let Q = S.length - 1; Q >= 0; Q--) v[Q] = j % S[Q], j = Math.floor(j / S[Q]);
-                  D || (c.fillIndex(v, _.dims, M), B = _.get(M)), I || (c.fillIndex(v, b.dims, L), F = b.get(L)), O.set(v, y(B, F));
+                  D || (c.fillIndex(v, _.dims, A), B = _.get(A)), I || (c.fillIndex(v, b.dims, L), F = b.get(L)), O.set(v, y(B, F));
                 }
               }
               return O;
@@ -12331,7 +12305,7 @@ ${s}`);
             }
           }
           static tensorDimsFromProto(_) {
-            return _.map(((b) => f.default.isLong(b) ? b.toNumber() : b));
+            return _.map(((b) => h.default.isLong(b) ? b.toNumber() : b));
           }
           static tensorValueTypeFromProto(_) {
             return { tensorType: s.tensorDataTypeFromProto(_.elemType), shape: { dims: s.tensorDimsFromProto(_.shape.dim.map(((b) => b.dimValue))) } };
@@ -12350,10 +12324,10 @@ ${s}`);
         n.ProtoUtil = s;
         class t {
           static longToNumber(_, b) {
-            return f.default.isLong(_) ? _.toNumber() : _ instanceof l.flatbuffers.Long ? f.default.fromValue({ low: _.low, high: _.high, unsigned: b != null && b }).toNumber() : _;
+            return h.default.isLong(_) ? _.toNumber() : _ instanceof l.flatbuffers.Long ? h.default.fromValue({ low: _.low, high: _.high, unsigned: b != null && b }).toNumber() : _;
           }
           static isLong(_) {
-            return f.default.isLong(_) || _ instanceof l.flatbuffers.Long;
+            return h.default.isLong(_) || _ instanceof l.flatbuffers.Long;
           }
         }
         n.LongUtil = t;
@@ -12547,18 +12521,18 @@ ${s}`);
           static calcReduce(_, b, y, w, T) {
             const S = _.dims.slice(0);
             b.length === 0 && S.forEach(((B, F) => b.push(F)));
-            const E = i.calcReduceShape(S, b, !0), O = e.size(E), v = new h.Tensor(E, _.type), M = e.computeStrides(E), L = e.computeStrides(S), j = new Array(S.length);
+            const E = i.calcReduceShape(S, b, !0), O = e.size(E), v = new f.Tensor(E, _.type), A = e.computeStrides(E), L = e.computeStrides(S), j = new Array(S.length);
             for (let B = 0; B < O; B++) {
-              const F = e.offsetToIndices(B, M);
+              const F = e.offsetToIndices(B, A);
               c.fillIndex(F, S, j), v.set(F, i.calcReduceByAxis(_.numberData, b, S, 0, e.indicesToOffset(j, L), w, T));
             }
-            return y ? v : new h.Tensor(i.calcReduceShape(S, b, y), v.type, void 0, void 0, v.data, v.dataId);
+            return y ? v : new f.Tensor(i.calcReduceShape(S, b, y), v.type, void 0, void 0, v.data, v.dataId);
           }
           static calcReduceByAxis(_, b, y, w, T, S, E) {
             let O = 0;
             if (w >= b.length) return S(_[T]);
-            const v = b[w], M = v >= y.length ? 1 : e.size(y.slice(v + 1));
-            for (let L = 0; L < y[v]; L++) O = L === 0 ? i.calcReduceByAxis(_, b, y, w + 1, T, S, E) : E(O, i.calcReduceByAxis(_, b, y, w + 1, T, S, E)), T += M;
+            const v = b[w], A = v >= y.length ? 1 : e.size(y.slice(v + 1));
+            for (let L = 0; L < y[v]; L++) O = L === 0 ? i.calcReduceByAxis(_, b, y, w + 1, T, S, E) : E(O, i.calcReduceByAxis(_, b, y, w + 1, T, S, E)), T += A;
             return O;
           }
           static calcReduceShape(_, b, y) {
@@ -12618,8 +12592,8 @@ ${s}`);
               case "SAME_UPPER":
                 if (y !== 1) throw new Error("Dilation not supported for SAME_UPPER or SAME_LOWER");
                 {
-                  const M = ((_ + b - 1) / b - 1) * b + w - _;
-                  return T[S] = Math.floor(O === "SAME_LOWER" ? (M + 1) / 2 : M / 2), T[E] = M - T[S], Math.floor((_ + M - w) / b + 1);
+                  const A = ((_ + b - 1) / b - 1) * b + w - _;
+                  return T[S] = Math.floor(O === "SAME_LOWER" ? (A + 1) / 2 : A / 2), T[E] = A - T[S], Math.floor((_ + A - w) / b + 1);
                 }
               default:
                 throw new Error("Unsupported AutoPad type");
@@ -12630,70 +12604,70 @@ ${s}`);
           return new TextDecoder().decode(m);
         };
       }, 7967: (d, n) => {
-        Object.defineProperty(n, "__esModule", { value: !0 }), n.iterateExtraOptions = void 0, n.iterateExtraOptions = (o, u, l, f) => {
+        Object.defineProperty(n, "__esModule", { value: !0 }), n.iterateExtraOptions = void 0, n.iterateExtraOptions = (o, u, l, h) => {
           if (typeof o == "object" && o !== null) {
             if (l.has(o)) throw new Error("Circular reference in options");
             l.add(o);
           }
-          Object.entries(o).forEach((([a, h]) => {
+          Object.entries(o).forEach((([a, f]) => {
             const g = u ? u + a : a;
-            if (typeof h == "object") (0, n.iterateExtraOptions)(h, g + ".", l, f);
-            else if (typeof h == "string" || typeof h == "number") f(g, h.toString());
+            if (typeof f == "object") (0, n.iterateExtraOptions)(f, g + ".", l, h);
+            else if (typeof f == "string" || typeof f == "number") h(g, f.toString());
             else {
-              if (typeof h != "boolean") throw new Error("Can't handle extra config type: " + typeof h);
-              f(g, h ? "1" : "0");
+              if (typeof f != "boolean") throw new Error("Can't handle extra config type: " + typeof f);
+              h(g, f ? "1" : "0");
             }
           }));
         };
       }, 2157: function(d, n, o) {
-        var u, l = this && this.__createBinding || (Object.create ? function(M, L, j, B) {
+        var u, l = this && this.__createBinding || (Object.create ? function(A, L, j, B) {
           B === void 0 && (B = j);
           var F = Object.getOwnPropertyDescriptor(L, j);
           F && !("get" in F ? !L.__esModule : F.writable || F.configurable) || (F = { enumerable: !0, get: function() {
             return L[j];
-          } }), Object.defineProperty(M, B, F);
-        } : function(M, L, j, B) {
-          B === void 0 && (B = j), M[B] = L[j];
-        }), f = this && this.__setModuleDefault || (Object.create ? function(M, L) {
-          Object.defineProperty(M, "default", { enumerable: !0, value: L });
-        } : function(M, L) {
-          M.default = L;
-        }), a = this && this.__importStar || function(M) {
-          if (M && M.__esModule) return M;
+          } }), Object.defineProperty(A, B, F);
+        } : function(A, L, j, B) {
+          B === void 0 && (B = j), A[B] = L[j];
+        }), h = this && this.__setModuleDefault || (Object.create ? function(A, L) {
+          Object.defineProperty(A, "default", { enumerable: !0, value: L });
+        } : function(A, L) {
+          A.default = L;
+        }), a = this && this.__importStar || function(A) {
+          if (A && A.__esModule) return A;
           var L = {};
-          if (M != null) for (var j in M) j !== "default" && Object.prototype.hasOwnProperty.call(M, j) && l(L, M, j);
-          return f(L, M), L;
+          if (A != null) for (var j in A) j !== "default" && Object.prototype.hasOwnProperty.call(A, j) && l(L, A, j);
+          return h(L, A), L;
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.endProfiling = n.run = n.releaseSession = n.createSession = n.createSessionFinalize = n.createSessionAllocate = n.initOrt = n.initWasm = void 0;
-        const h = o(1670), g = a(o(349)), c = o(6361), s = () => !!h.env.wasm.proxy && typeof document < "u";
+        const f = o(1670), g = a(o(349)), c = o(6361), s = () => !!f.env.wasm.proxy && typeof document < "u";
         let t, e, r, i = !1, p = !1, m = !1;
         const _ = [], b = [], y = [], w = [], T = [], S = [], E = () => {
           if (i || !p || m || !t) throw new Error("worker not ready");
-        }, O = (M) => {
-          switch (M.data.type) {
+        }, O = (A) => {
+          switch (A.data.type) {
             case "init-wasm":
-              i = !1, M.data.err ? (m = !0, e[1](M.data.err)) : (p = !0, e[0]());
+              i = !1, A.data.err ? (m = !0, e[1](A.data.err)) : (p = !0, e[0]());
               break;
             case "init-ort":
-              M.data.err ? r[1](M.data.err) : r[0]();
+              A.data.err ? r[1](A.data.err) : r[0]();
               break;
             case "create_allocate":
-              M.data.err ? _.shift()[1](M.data.err) : _.shift()[0](M.data.out);
+              A.data.err ? _.shift()[1](A.data.err) : _.shift()[0](A.data.out);
               break;
             case "create_finalize":
-              M.data.err ? b.shift()[1](M.data.err) : b.shift()[0](M.data.out);
+              A.data.err ? b.shift()[1](A.data.err) : b.shift()[0](A.data.out);
               break;
             case "create":
-              M.data.err ? y.shift()[1](M.data.err) : y.shift()[0](M.data.out);
+              A.data.err ? y.shift()[1](A.data.err) : y.shift()[0](A.data.out);
               break;
             case "release":
-              M.data.err ? w.shift()[1](M.data.err) : w.shift()[0]();
+              A.data.err ? w.shift()[1](A.data.err) : w.shift()[0]();
               break;
             case "run":
-              M.data.err ? T.shift()[1](M.data.err) : T.shift()[0](M.data.out);
+              A.data.err ? T.shift()[1](A.data.err) : T.shift()[0](A.data.out);
               break;
             case "end-profiling":
-              M.data.err ? S.shift()[1](M.data.err) : S.shift()[0]();
+              A.data.err ? S.shift()[1](A.data.err) : S.shift()[0]();
           }
         }, v = typeof document < "u" ? (u = document?.currentScript) === null || u === void 0 ? void 0 : u.src : void 0;
         n.initWasm = async () => {
@@ -12701,56 +12675,56 @@ ${s}`);
             if (p) return;
             if (i) throw new Error("multiple calls to 'initWasm()' detected.");
             if (m) throw new Error("previous call to 'initWasm()' failed.");
-            return i = !0, h.env.wasm.wasmPaths === void 0 && v && v.indexOf("blob:") !== 0 && (h.env.wasm.wasmPaths = v.substr(0, +v.lastIndexOf("/") + 1)), new Promise(((M, L) => {
-              t?.terminate(), t = o(9710).Z(), t.onmessage = O, e = [M, L];
-              const j = { type: "init-wasm", in: h.env.wasm };
+            return i = !0, f.env.wasm.wasmPaths === void 0 && v && v.indexOf("blob:") !== 0 && (f.env.wasm.wasmPaths = v.substr(0, +v.lastIndexOf("/") + 1)), new Promise(((A, L) => {
+              t?.terminate(), t = o(9710).Z(), t.onmessage = O, e = [A, L];
+              const j = { type: "init-wasm", in: f.env.wasm };
               t.postMessage(j);
             }));
           }
-          return (0, c.initializeWebAssembly)(h.env.wasm);
-        }, n.initOrt = async (M, L) => {
+          return (0, c.initializeWebAssembly)(f.env.wasm);
+        }, n.initOrt = async (A, L) => {
           if (s()) return E(), new Promise(((j, B) => {
             r = [j, B];
-            const F = { type: "init-ort", in: { numThreads: M, loggingLevel: L } };
+            const F = { type: "init-ort", in: { numThreads: A, loggingLevel: L } };
             t.postMessage(F);
           }));
-          g.initOrt(M, L);
-        }, n.createSessionAllocate = async (M) => s() ? (E(), new Promise(((L, j) => {
+          g.initOrt(A, L);
+        }, n.createSessionAllocate = async (A) => s() ? (E(), new Promise(((L, j) => {
           _.push([L, j]);
-          const B = { type: "create_allocate", in: { model: M } };
-          t.postMessage(B, [M.buffer]);
-        }))) : g.createSessionAllocate(M), n.createSessionFinalize = async (M, L) => s() ? (E(), new Promise(((j, B) => {
+          const B = { type: "create_allocate", in: { model: A } };
+          t.postMessage(B, [A.buffer]);
+        }))) : g.createSessionAllocate(A), n.createSessionFinalize = async (A, L) => s() ? (E(), new Promise(((j, B) => {
           b.push([j, B]);
-          const F = { type: "create_finalize", in: { modeldata: M, options: L } };
+          const F = { type: "create_finalize", in: { modeldata: A, options: L } };
           t.postMessage(F);
-        }))) : g.createSessionFinalize(M, L), n.createSession = async (M, L) => s() ? (E(), new Promise(((j, B) => {
+        }))) : g.createSessionFinalize(A, L), n.createSession = async (A, L) => s() ? (E(), new Promise(((j, B) => {
           y.push([j, B]);
-          const F = { type: "create", in: { model: M, options: L } };
-          t.postMessage(F, [M.buffer]);
-        }))) : g.createSession(M, L), n.releaseSession = async (M) => {
+          const F = { type: "create", in: { model: A, options: L } };
+          t.postMessage(F, [A.buffer]);
+        }))) : g.createSession(A, L), n.releaseSession = async (A) => {
           if (s()) return E(), new Promise(((L, j) => {
             w.push([L, j]);
-            const B = { type: "release", in: M };
+            const B = { type: "release", in: A };
             t.postMessage(B);
           }));
-          g.releaseSession(M);
-        }, n.run = async (M, L, j, B, F) => s() ? (E(), new Promise(((D, I) => {
+          g.releaseSession(A);
+        }, n.run = async (A, L, j, B, F) => s() ? (E(), new Promise(((D, I) => {
           T.push([D, I]);
-          const $ = { type: "run", in: { sessionId: M, inputIndices: L, inputs: j, outputIndices: B, options: F } };
+          const $ = { type: "run", in: { sessionId: A, inputIndices: L, inputs: j, outputIndices: B, options: F } };
           t.postMessage($, g.extractTransferableBuffers(j));
-        }))) : g.run(M, L, j, B, F), n.endProfiling = async (M) => {
+        }))) : g.run(A, L, j, B, F), n.endProfiling = async (A) => {
           if (s()) return E(), new Promise(((L, j) => {
             S.push([L, j]);
-            const B = { type: "end-profiling", in: M };
+            const B = { type: "end-profiling", in: A };
             t.postMessage(B);
           }));
-          g.endProfiling(M);
+          g.endProfiling(A);
         };
       }, 586: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.setRunOptions = void 0;
-        const u = o(7967), l = o(4983), f = o(6361);
+        const u = o(7967), l = o(4983), h = o(6361);
         n.setRunOptions = (a) => {
-          const h = (0, f.getInstance)();
+          const f = (0, h.getInstance)();
           let g = 0;
           const c = [], s = a || {};
           try {
@@ -12760,26 +12734,26 @@ ${s}`);
             else if (typeof a.logVerbosityLevel != "number" || !Number.isInteger(a.logVerbosityLevel)) throw new Error(`log verbosity level is not valid: ${a.logVerbosityLevel}`);
             a?.terminate === void 0 && (s.terminate = !1);
             let t = 0;
-            if (a?.tag !== void 0 && (t = (0, l.allocWasmString)(a.tag, c)), g = h._OrtCreateRunOptions(s.logSeverityLevel, s.logVerbosityLevel, !!s.terminate, t), g === 0) throw new Error("Can't create run options");
+            if (a?.tag !== void 0 && (t = (0, l.allocWasmString)(a.tag, c)), g = f._OrtCreateRunOptions(s.logSeverityLevel, s.logVerbosityLevel, !!s.terminate, t), g === 0) throw new Error("Can't create run options");
             return a?.extra !== void 0 && (0, u.iterateExtraOptions)(a.extra, "", /* @__PURE__ */ new WeakSet(), ((e, r) => {
               const i = (0, l.allocWasmString)(e, c), p = (0, l.allocWasmString)(r, c);
-              if (h._OrtAddRunConfigEntry(g, i, p) !== 0) throw new Error(`Can't set a run config entry: ${e} - ${r}`);
+              if (f._OrtAddRunConfigEntry(g, i, p) !== 0) throw new Error(`Can't set a run config entry: ${e} - ${r}`);
             })), [g, c];
           } catch (t) {
-            throw g !== 0 && h._OrtReleaseRunOptions(g), c.forEach(h._free), t;
+            throw g !== 0 && f._OrtReleaseRunOptions(g), c.forEach(f._free), t;
           }
         };
       }, 2306: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.OnnxruntimeWebAssemblySessionHandler = void 0;
-        const u = o(2806), l = o(1670), f = o(2850), a = o(2157);
-        let h;
+        const u = o(2806), l = o(1670), h = o(2850), a = o(2157);
+        let f;
         n.OnnxruntimeWebAssemblySessionHandler = class {
           async createSessionAllocate(g) {
             const c = await fetch(g), s = await c.arrayBuffer();
             return (0, a.createSessionAllocate)(new Uint8Array(s));
           }
           async loadModel(g, c) {
-            if (h || (await (0, a.initOrt)(l.env.wasm.numThreads, ((s) => {
+            if (f || (await (0, a.initOrt)(l.env.wasm.numThreads, ((s) => {
               switch (s) {
                 case "verbose":
                   return 0;
@@ -12794,8 +12768,8 @@ ${s}`);
                 default:
                   throw new Error(`unsupported logging level: ${s}`);
               }
-            })(l.env.logLevel)), h = !0), typeof g == "string") if (typeof fetch > "u") {
-              const s = await (0, f.promisify)(u.readFile)(g);
+            })(l.env.logLevel)), f = !0), typeof g == "string") if (typeof fetch > "u") {
+              const s = await (0, h.promisify)(u.readFile)(g);
               [this.sessionId, this.inputNames, this.outputNames] = await (0, a.createSession)(s, c);
             } else {
               const s = await this.createSessionAllocate(g);
@@ -12831,9 +12805,9 @@ ${s}`);
         };
       }, 4919: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.setSessionOptions = void 0;
-        const u = o(7967), l = o(4983), f = o(6361);
+        const u = o(7967), l = o(4983), h = o(6361);
         n.setSessionOptions = (a) => {
-          const h = (0, f.getInstance)();
+          const f = (0, h.getInstance)();
           let g = 0;
           const c = [], s = a || {};
           ((t) => {
@@ -12873,7 +12847,7 @@ ${s}`);
             else if (typeof a.logSeverityLevel != "number" || !Number.isInteger(a.logSeverityLevel) || a.logSeverityLevel < 0 || a.logSeverityLevel > 4) throw new Error(`log serverity level is not valid: ${a.logSeverityLevel}`);
             if (a?.logVerbosityLevel === void 0) s.logVerbosityLevel = 0;
             else if (typeof a.logVerbosityLevel != "number" || !Number.isInteger(a.logVerbosityLevel)) throw new Error(`log verbosity level is not valid: ${a.logVerbosityLevel}`);
-            if (a?.enableProfiling === void 0 && (s.enableProfiling = !1), g = h._OrtCreateSessionOptions(t, !!s.enableCpuMemArena, !!s.enableMemPattern, e, !!s.enableProfiling, 0, r, s.logSeverityLevel, s.logVerbosityLevel), g === 0) throw new Error("Can't create session options");
+            if (a?.enableProfiling === void 0 && (s.enableProfiling = !1), g = f._OrtCreateSessionOptions(t, !!s.enableCpuMemArena, !!s.enableMemPattern, e, !!s.enableProfiling, 0, r, s.logSeverityLevel, s.logVerbosityLevel), g === 0) throw new Error("Can't create session options");
             return a?.executionProviders && ((i, p, m) => {
               for (const _ of p) {
                 let b = typeof _ == "string" ? _ : _.name;
@@ -12888,31 +12862,31 @@ ${s}`);
                     throw new Error(`not supported EP: ${b}`);
                 }
                 const y = (0, l.allocWasmString)(b, m);
-                if ((0, f.getInstance)()._OrtAppendExecutionProvider(i, y) !== 0) throw new Error(`Can't append execution provider: ${b}`);
+                if ((0, h.getInstance)()._OrtAppendExecutionProvider(i, y) !== 0) throw new Error(`Can't append execution provider: ${b}`);
               }
             })(g, a.executionProviders, c), a?.extra !== void 0 && (0, u.iterateExtraOptions)(a.extra, "", /* @__PURE__ */ new WeakSet(), ((i, p) => {
               const m = (0, l.allocWasmString)(i, c), _ = (0, l.allocWasmString)(p, c);
-              if (h._OrtAddSessionConfigEntry(g, m, _) !== 0) throw new Error(`Can't set a session config entry: ${i} - ${p}`);
+              if (f._OrtAddSessionConfigEntry(g, m, _) !== 0) throw new Error(`Can't set a session config entry: ${i} - ${p}`);
             })), [g, c];
           } catch (t) {
-            throw g !== 0 && h._OrtReleaseSessionOptions(g), c.forEach(h._free), t;
+            throw g !== 0 && f._OrtReleaseSessionOptions(g), c.forEach(f._free), t;
           }
         };
       }, 4983: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.allocWasmString = void 0;
         const u = o(6361);
-        n.allocWasmString = (l, f) => {
-          const a = (0, u.getInstance)(), h = a.lengthBytesUTF8(l) + 1, g = a._malloc(h);
-          return a.stringToUTF8(l, g, h), f.push(g), g;
+        n.allocWasmString = (l, h) => {
+          const a = (0, u.getInstance)(), f = a.lengthBytesUTF8(l) + 1, g = a._malloc(f);
+          return a.stringToUTF8(l, g, f), h.push(g), g;
         };
       }, 349: (d, n, o) => {
         Object.defineProperty(n, "__esModule", { value: !0 }), n.extractTransferableBuffers = n.endProfiling = n.run = n.releaseSession = n.createSession = n.createSessionFinalize = n.createSessionAllocate = n.initOrt = void 0;
-        const u = o(586), l = o(4919), f = o(4983), a = o(6361);
+        const u = o(586), l = o(4919), h = o(4983), a = o(6361);
         n.initOrt = (t, e) => {
           const r = (0, a.getInstance)()._OrtInit(t, e);
           if (r !== 0) throw new Error(`Can't initialize onnxruntime. error code = ${r}`);
         };
-        const h = /* @__PURE__ */ new Map();
+        const f = /* @__PURE__ */ new Map();
         n.createSessionAllocate = (t) => {
           const e = (0, a.getInstance)(), r = e._malloc(t.byteLength);
           return e.HEAPU8.set(t, r), [r, t.byteLength];
@@ -12935,15 +12909,15 @@ ${s}`);
             if (O === 0) throw new Error("Can't get an output name");
             S.push(O), T.push(r.UTF8ToString(O));
           }
-          return h.set(i, [i, w, S]), [i, y, T];
+          return f.set(i, [i, w, S]), [i, y, T];
         }, n.createSession = (t, e) => {
           const r = (0, n.createSessionAllocate)(t);
           return (0, n.createSessionFinalize)(r, e);
         }, n.releaseSession = (t) => {
-          const e = (0, a.getInstance)(), r = h.get(t);
+          const e = (0, a.getInstance)(), r = f.get(t);
           if (!r) throw new Error("invalid session id");
           const i = r[0], p = r[1], m = r[2];
-          p.forEach(e._OrtFree), m.forEach(e._OrtFree), e._OrtReleaseSession(i), h.delete(t);
+          p.forEach(e._OrtFree), m.forEach(e._OrtFree), e._OrtReleaseSession(i), f.delete(t);
         };
         const g = (t) => {
           switch (t) {
@@ -13031,29 +13005,29 @@ ${s}`);
           }
         };
         n.run = (t, e, r, i, p) => {
-          const m = (0, a.getInstance)(), _ = h.get(t);
+          const m = (0, a.getInstance)(), _ = f.get(t);
           if (!_) throw new Error("invalid session id");
           const b = _[0], y = _[1], w = _[2], T = e.length, S = i.length;
           let E = 0, O = [];
-          const v = [], M = [];
+          const v = [], A = [];
           try {
             [E, O] = (0, u.setRunOptions)(p);
             for (let I = 0; I < T; I++) {
               const $ = r[I][0], Q = r[I][1], Y = r[I][2];
               let te, ne;
               if (Array.isArray(Y)) {
-                ne = 4 * Y.length, te = m._malloc(ne), M.push(te);
+                ne = 4 * Y.length, te = m._malloc(ne), A.push(te);
                 let Ee = te / 4;
                 for (let ce = 0; ce < Y.length; ce++) {
                   if (typeof Y[ce] != "string") throw new TypeError(`tensor data at index ${ce} is not a string`);
-                  m.HEAPU32[Ee++] = (0, f.allocWasmString)(Y[ce], M);
+                  m.HEAPU32[Ee++] = (0, h.allocWasmString)(Y[ce], A);
                 }
-              } else ne = Y.byteLength, te = m._malloc(ne), M.push(te), m.HEAPU8.set(new Uint8Array(Y.buffer, Y.byteOffset, ne), te);
-              const me = m.stackSave(), Me = m.stackAlloc(4 * Q.length);
+              } else ne = Y.byteLength, te = m._malloc(ne), A.push(te), m.HEAPU8.set(new Uint8Array(Y.buffer, Y.byteOffset, ne), te);
+              const me = m.stackSave(), Ae = m.stackAlloc(4 * Q.length);
               try {
-                let Ee = Me / 4;
+                let Ee = Ae / 4;
                 Q.forEach(((ve) => m.HEAP32[Ee++] = ve));
-                const ce = m._OrtCreateTensor(g($), te, ne, Me, Q.length);
+                const ce = m._OrtCreateTensor(g($), te, ne, Ae, Q.length);
                 if (ce === 0) throw new Error("Can't create a tensor");
                 v.push(ce);
               } finally {
@@ -13068,10 +13042,10 @@ ${s}`);
               let te = m._OrtRun(b, B, j, T, D, S, F, E);
               const ne = [];
               if (te === 0) for (let me = 0; me < S; me++) {
-                const Me = m.HEAPU32[F / 4 + me], Ee = m.stackSave(), ce = m.stackAlloc(16);
+                const Ae = m.HEAPU32[F / 4 + me], Ee = m.stackSave(), ce = m.stackAlloc(16);
                 let ve, ye = 0;
                 try {
-                  if (te = m._OrtGetTensorData(Me, ce, ce + 4, ce + 8, ce + 12), te !== 0) throw new Error(`Can't access output tensor data. error code = ${te}`);
+                  if (te = m._OrtGetTensorData(Ae, ce, ce + 4, ce + 8, ce + 12), te !== 0) throw new Error(`Can't access output tensor data. error code = ${te}`);
                   let Le = ce / 4;
                   const We = m.HEAPU32[Le++];
                   ye = m.HEAPU32[Le++];
@@ -13092,7 +13066,7 @@ ${s}`);
                     new Uint8Array(Te.buffer, Te.byteOffset, Te.byteLength).set(m.HEAPU8.subarray(ye, ye + Te.byteLength)), ne.push([ve, Ce, Te]);
                   }
                 } finally {
-                  m.stackRestore(Ee), ve === "string" && ye && m._free(ye), m._OrtReleaseTensor(Me);
+                  m.stackRestore(Ee), ve === "string" && ye && m._free(ye), m._OrtReleaseTensor(Ae);
                 }
               }
               if (te === 0) return ne;
@@ -13101,10 +13075,10 @@ ${s}`);
               m.stackRestore(L);
             }
           } finally {
-            v.forEach(m._OrtReleaseTensor), M.forEach(m._free), m._OrtReleaseRunOptions(E), O.forEach(m._free);
+            v.forEach(m._OrtReleaseTensor), A.forEach(m._free), m._OrtReleaseRunOptions(E), O.forEach(m._free);
           }
         }, n.endProfiling = (t) => {
-          const e = (0, a.getInstance)(), r = h.get(t);
+          const e = (0, a.getInstance)(), r = f.get(t);
           if (!r) throw new Error("invalid session id");
           const i = r[0], p = e._OrtEndProfiling(i);
           if (p === 0) throw new Error("Can't get an profile file name");
@@ -13130,7 +13104,7 @@ ${s}`);
           Object.defineProperty(p, "default", { enumerable: !0, value: m });
         } : function(p, m) {
           p.default = m;
-        }), f = this && this.__importStar || function(p) {
+        }), h = this && this.__importStar || function(p) {
           if (p && p.__esModule) return p;
           var m = {};
           if (p != null) for (var _ in p) _ !== "default" && Object.prototype.hasOwnProperty.call(p, _) && u(m, p, _);
@@ -13139,7 +13113,7 @@ ${s}`);
           return p && p.__esModule ? p : { default: p };
         };
         Object.defineProperty(n, "__esModule", { value: !0 }), n.dispose = n.getInstance = n.initializeWebAssembly = void 0;
-        const h = f(o(6449)), g = a(o(932)), c = o(3474);
+        const f = h(o(6449)), g = a(o(932)), c = o(3474);
         let s, t = !1, e = !1, r = !1;
         const i = (p, m) => m ? p ? "ort-wasm-simd-threaded.wasm" : "ort-wasm-threaded.wasm" : p ? "ort-wasm-simd.wasm" : "ort-wasm.wasm";
         n.initializeWebAssembly = async (p) => {
@@ -13161,14 +13135,14 @@ ${s}`);
             }
           })(), T = typeof p.wasmPaths == "string" ? p.wasmPaths : void 0, S = i(!1, y), E = i(w, y), O = typeof p.wasmPaths == "object" ? p.wasmPaths[E] : void 0;
           let v = !1;
-          const M = [];
-          if (m > 0 && M.push(new Promise(((L) => {
+          const A = [];
+          if (m > 0 && A.push(new Promise(((L) => {
             setTimeout((() => {
               v = !0, L();
             }), m);
-          }))), M.push(new Promise(((L, j) => {
+          }))), A.push(new Promise(((L, j) => {
             const B = y ? c : g.default, F = { locateFile: (D, I) => y && D.endsWith(".worker.js") && typeof Blob < "u" ? URL.createObjectURL(new Blob([o(4154)], { type: "text/javascript" })) : D === S ? O ?? (T ?? I) + E : I + D };
-            if (y) if (typeof Blob > "u") F.mainScriptUrlOrBlob = h.join("/", "ort-wasm-threaded.js");
+            if (y) if (typeof Blob > "u") F.mainScriptUrlOrBlob = f.join("/", "ort-wasm-threaded.js");
             else {
               const D = `var ortWasmThreaded=(function(){var _scriptDir;return ${B.toString()}})();`;
               F.mainScriptUrlOrBlob = new Blob([D], { type: "text/javascript" });
@@ -13178,7 +13152,7 @@ ${s}`);
             }), ((D) => {
               e = !1, r = !0, j(D);
             }));
-          }))), await Promise.race(M), v) throw new Error(`WebAssembly backend initializing failed due to timeout: ${m}ms`);
+          }))), await Promise.race(A), v) throw new Error(`WebAssembly backend initializing failed due to timeout: ${m}ms`);
         }, n.getInstance = () => {
           if (t && s) return s;
           throw new Error("WebAssembly is not initialized yet.");
@@ -13187,30 +13161,30 @@ ${s}`);
           !t || e || r || (e = !0, (p = s.PThread) === null || p === void 0 || p.terminateAllThreads(), s = void 0, e = !1, t = !1, r = !0);
         };
       }, 9710: (d, n, o) => {
-        o.d(n, { Z: () => f });
+        o.d(n, { Z: () => h });
         var u = o(477), l = o.n(u);
-        function f() {
+        function h() {
           return l()('/*!\n* ONNX Runtime Web v1.14.0\n* Copyright (c) Microsoft Corporation. All rights reserved.\n* Licensed under the MIT License.\n*/\n(()=>{var t={474:(t,e,n)=>{var _scriptDir,r=(_scriptDir=(_scriptDir="undefined"!=typeof document&&document.currentScript?document.currentScript.src:void 0)||"/index.js",function(t){function e(){return j.buffer!=D&&N(j.buffer),P}function r(){return j.buffer!=D&&N(j.buffer),U}function a(){return j.buffer!=D&&N(j.buffer),F}function i(){return j.buffer!=D&&N(j.buffer),I}function o(){return j.buffer!=D&&N(j.buffer),W}var u,c,s;t=t||{},u||(u=void 0!==t?t:{}),u.ready=new Promise((function(t,e){c=t,s=e}));var l,f,p,h,d,y,b=Object.assign({},u),m="./this.program",g=(t,e)=>{throw e},v="object"==typeof window,w="function"==typeof importScripts,_="object"==typeof process&&"object"==typeof process.versions&&"string"==typeof process.versions.node,O=u.ENVIRONMENT_IS_PTHREAD||!1,A="";function S(t){return u.locateFile?u.locateFile(t,A):A+t}if(_){let e;A=w?n(908).dirname(A)+"/":"//",y=()=>{d||(h=n(384),d=n(908))},l=function(t,e){return y(),t=d.normalize(t),h.readFileSync(t,e?void 0:"utf8")},p=t=>((t=l(t,!0)).buffer||(t=new Uint8Array(t)),t),f=(t,e,n)=>{y(),t=d.normalize(t),h.readFile(t,(function(t,r){t?n(t):e(r.buffer)}))},1<process.argv.length&&(m=process.argv[1].replace(/\\\\/g,"/")),process.argv.slice(2),process.on("uncaughtException",(function(t){if(!(t instanceof ct))throw t})),process.on("unhandledRejection",(function(t){throw t})),g=(t,e)=>{if(Q())throw process.exitCode=t,e;e instanceof ct||x("exiting due to exception: "+e),process.exit(t)},u.inspect=function(){return"[Emscripten Module object]"};try{e=n(925)}catch(t){throw console.error(\'The "worker_threads" module is not supported in this node.js build - perhaps a newer version is needed?\'),t}n.g.Worker=e.Worker}else(v||w)&&(w?A=self.location.href:"undefined"!=typeof document&&document.currentScript&&(A=document.currentScript.src),_scriptDir&&(A=_scriptDir),A=0!==A.indexOf("blob:")?A.substr(0,A.replace(/[?#].*/,"").lastIndexOf("/")+1):"",_||(l=t=>{var e=new XMLHttpRequest;return e.open("GET",t,!1),e.send(null),e.responseText},w&&(p=t=>{var e=new XMLHttpRequest;return e.open("GET",t,!1),e.responseType="arraybuffer",e.send(null),new Uint8Array(e.response)}),f=(t,e,n)=>{var r=new XMLHttpRequest;r.open("GET",t,!0),r.responseType="arraybuffer",r.onload=()=>{200==r.status||0==r.status&&r.response?e(r.response):n()},r.onerror=n,r.send(null)}));_&&"undefined"==typeof performance&&(n.g.performance=n(953).performance);var T=console.log.bind(console),E=console.warn.bind(console);_&&(y(),T=t=>h.writeSync(1,t+"\\n"),E=t=>h.writeSync(2,t+"\\n"));var M,C=u.print||T,x=u.printErr||E;Object.assign(u,b),b=null,u.thisProgram&&(m=u.thisProgram),u.quit&&(g=u.quit),u.wasmBinary&&(M=u.wasmBinary);var R=u.noExitRuntime||!1;"object"!=typeof WebAssembly&&at("no native wasm support detected");var j,k,D,P,U,F,I,W,H=!1,L="undefined"!=typeof TextDecoder?new TextDecoder("utf8"):void 0;function z(t,e,n){var r=(e>>>=0)+n;for(n=e;t[n]&&!(n>=r);)++n;if(16<n-e&&t.buffer&&L)return L.decode(t.buffer instanceof SharedArrayBuffer?t.slice(e,n):t.subarray(e,n));for(r="";e<n;){var a=t[e++];if(128&a){var i=63&t[e++];if(192==(224&a))r+=String.fromCharCode((31&a)<<6|i);else{var o=63&t[e++];65536>(a=224==(240&a)?(15&a)<<12|i<<6|o:(7&a)<<18|i<<12|o<<6|63&t[e++])?r+=String.fromCharCode(a):(a-=65536,r+=String.fromCharCode(55296|a>>10,56320|1023&a))}}else r+=String.fromCharCode(a)}return r}function Y(t,e){return(t>>>=0)?z(r(),t,e):""}function B(t,e,n,r){if(!(0<r))return 0;var a=n>>>=0;r=n+r-1;for(var i=0;i<t.length;++i){var o=t.charCodeAt(i);if(55296<=o&&57343>=o&&(o=65536+((1023&o)<<10)|1023&t.charCodeAt(++i)),127>=o){if(n>=r)break;e[n++>>>0]=o}else{if(2047>=o){if(n+1>=r)break;e[n++>>>0]=192|o>>6}else{if(65535>=o){if(n+2>=r)break;e[n++>>>0]=224|o>>12}else{if(n+3>=r)break;e[n++>>>0]=240|o>>18,e[n++>>>0]=128|o>>12&63}e[n++>>>0]=128|o>>6&63}e[n++>>>0]=128|63&o}}return e[n>>>0]=0,n-a}function G(t){for(var e=0,n=0;n<t.length;++n){var r=t.charCodeAt(n);127>=r?e++:2047>=r?e+=2:55296<=r&&57343>=r?(e+=4,++n):e+=3}return e}function N(t){D=t,u.HEAP8=P=new Int8Array(t),u.HEAP16=new Int16Array(t),u.HEAP32=F=new Int32Array(t),u.HEAPU8=U=new Uint8Array(t),u.HEAPU16=new Uint16Array(t),u.HEAPU32=I=new Uint32Array(t),u.HEAPF32=new Float32Array(t),u.HEAPF64=W=new Float64Array(t)}O&&(D=u.buffer);var V=u.INITIAL_MEMORY||16777216;if(O)j=u.wasmMemory,D=u.buffer;else if(u.wasmMemory)j=u.wasmMemory;else if(!((j=new WebAssembly.Memory({initial:V/65536,maximum:65536,shared:!0})).buffer instanceof SharedArrayBuffer))throw x("requested a shared WebAssembly.Memory but the returned buffer is not a SharedArrayBuffer, indicating that while the browser has SharedArrayBuffer it does not have WebAssembly threads support - you may need to set a flag"),_&&console.log("(on node you may need: --experimental-wasm-threads --experimental-wasm-bulk-memory and also use a recent version)"),Error("bad memory");j&&(D=j.buffer),V=D.byteLength,N(D);var $,q=[],X=[],J=[],Z=[];function Q(){return R||!1}function K(){var t=u.preRun.shift();q.unshift(t)}var tt,et=0,nt=null,rt=null;function at(t){throw O?postMessage({cmd:"onAbort",arg:t}):u.onAbort&&u.onAbort(t),x(t="Aborted("+t+")"),H=!0,t=new WebAssembly.RuntimeError(t+". Build with -sASSERTIONS for more info."),s(t),t}function it(){return tt.startsWith("data:application/octet-stream;base64,")}function ot(){var t=tt;try{if(t==tt&&M)return new Uint8Array(M);if(p)return p(t);throw"both async and sync fetching of the wasm failed"}catch(t){at(t)}}tt="ort-wasm-threaded.wasm",it()||(tt=S(tt));var ut={};function ct(t){this.name="ExitStatus",this.message="Program terminated with exit("+t+")",this.status=t}function st(t){(t=ht.Vb[t])||at(),ht.mc(t)}function lt(t){var e=ht.Cc();if(!e)return 6;ht.ac.push(e),ht.Vb[t.Ub]=e,e.Ub=t.Ub;var n={cmd:"run",start_routine:t.Ic,arg:t.zc,pthread_ptr:t.Ub};return e.$b=()=>{n.time=performance.now(),e.postMessage(n,t.Nc)},e.loaded&&(e.$b(),delete e.$b),0}function ft(t){if(O)return $t(1,1,t);Q()||(ht.oc(),u.onExit&&u.onExit(t),H=!0),g(t,new ct(t))}function pt(t,e){if(!e&&O)throw bt(t),"unwind";Q()||O||(me(),dt(J),be(0),re[1].length&&ae(1,10),re[2].length&&ae(2,10),ht.oc()),ft(t)}var ht={Yb:[],ac:[],qc:[],Vb:{},fc:function(){O&&ht.Ec()},Pc:function(){},Ec:function(){ht.receiveObjectTransfer=ht.Gc,ht.threadInitTLS=ht.pc,ht.setExitStatus=ht.nc,R=!1},nc:function(){},oc:function(){for(var t of Object.values(ht.Vb))ht.mc(t);for(t of ht.Yb)t.terminate();ht.Yb=[]},mc:function(t){var e=t.Ub;delete ht.Vb[e],ht.Yb.push(t),ht.ac.splice(ht.ac.indexOf(t),1),t.Ub=0,Oe(e)},Gc:function(){},pc:function(){ht.qc.forEach((t=>t()))},Fc:function(t,e){t.onmessage=n=>{var r=(n=n.data).cmd;if(t.Ub&&(ht.Bc=t.Ub),n.targetThread&&n.targetThread!=he()){var a=ht.Vb[n.Qc];a?a.postMessage(n,n.transferList):x(\'Internal error! Worker sent a message "\'+r+\'" to target pthread \'+n.targetThread+", but that thread no longer exists!")}else"processProxyingQueue"===r?zt(n.queue):"spawnThread"===r?lt(n):"cleanupThread"===r?st(n.thread):"killThread"===r?(n=n.thread,r=ht.Vb[n],delete ht.Vb[n],r.terminate(),Oe(n),ht.ac.splice(ht.ac.indexOf(r),1),r.Ub=0):"cancelThread"===r?ht.Vb[n.thread].postMessage({cmd:"cancel"}):"loaded"===r?(t.loaded=!0,e&&e(t),t.$b&&(t.$b(),delete t.$b)):"print"===r?C("Thread "+n.threadId+": "+n.text):"printErr"===r?x("Thread "+n.threadId+": "+n.text):"alert"===r?alert("Thread "+n.threadId+": "+n.text):"setimmediate"===n.target?t.postMessage(n):"onAbort"===r?u.onAbort&&u.onAbort(n.arg):r&&x("worker sent an unknown command "+r);ht.Bc=void 0},t.onerror=t=>{throw x("worker sent an error! "+t.filename+":"+t.lineno+": "+t.message),t},_&&(t.on("message",(function(e){t.onmessage({data:e})})),t.on("error",(function(e){t.onerror(e)})),t.on("detachedExit",(function(){}))),t.postMessage({cmd:"load",urlOrBlob:u.mainScriptUrlOrBlob||_scriptDir,wasmMemory:j,wasmModule:k})},yc:function(){var t=S("ort-wasm-threaded.worker.js");ht.Yb.push(new Worker(t))},Cc:function(){return 0==ht.Yb.length&&(ht.yc(),ht.Fc(ht.Yb[0])),ht.Yb.pop()}};function dt(t){for(;0<t.length;)t.shift()(u)}function yt(t){var e=Ee();return t=t(),Me(e),t}function bt(t){if(O)return $t(2,0,t);try{pt(t)}catch(t){t instanceof ct||"unwind"==t||g(1,t)}}u.PThread=ht,u.establishStackSpace=function(){var t=he(),e=a()[t+44>>2>>>0];t=a()[t+48>>2>>>0],Te(e,e-t),Me(e)};var mt=[];function gt(t){var e=mt[t];return e||(t>=mt.length&&(mt.length=t+1),mt[t]=e=$.get(t)),e}u.invokeEntryPoint=function(t,e){t=gt(t)(e),Q()?ht.nc(t):Ae(t)};var vt,wt,_t=[],Ot=0,At=0;function St(t){this.Zb=t,this.Sb=t-24,this.xc=function(t){i()[this.Sb+4>>2>>>0]=t},this.bc=function(){return i()[this.Sb+4>>2>>>0]},this.wc=function(t){i()[this.Sb+8>>2>>>0]=t},this.Dc=function(){return i()[this.Sb+8>>2>>>0]},this.rc=function(){a()[this.Sb>>2>>>0]=0},this.hc=function(t){t=t?1:0,e()[this.Sb+12>>0>>>0]=t},this.uc=function(){return 0!=e()[this.Sb+12>>0>>>0]},this.ic=function(t){t=t?1:0,e()[this.Sb+13>>0>>>0]=t},this.kc=function(){return 0!=e()[this.Sb+13>>0>>>0]},this.fc=function(t,e){this.cc(0),this.xc(t),this.wc(e),this.rc(),this.hc(!1),this.ic(!1)},this.sc=function(){Atomics.add(a(),this.Sb>>2,1)},this.Hc=function(){return 1===Atomics.sub(a(),this.Sb>>2,1)},this.cc=function(t){i()[this.Sb+16>>2>>>0]=t},this.tc=function(){return i()[this.Sb+16>>2>>>0]},this.vc=function(){if(Re(this.bc()))return i()[this.Zb>>2>>>0];var t=this.tc();return 0!==t?t:this.Zb}}function Tt(t){return ye(new St(t).Sb)}function Et(t,e,n,r){return O?$t(3,1,t,e,n,r):Mt(t,e,n,r)}function Mt(t,e,n,r){if("undefined"==typeof SharedArrayBuffer)return x("Current environment does not support SharedArrayBuffer, pthreads are not available!"),6;var a=[];return O&&0===a.length?Et(t,e,n,r):(t={Ic:n,Ub:t,zc:r,Nc:a},O?(t.Oc="spawnThread",postMessage(t,a),0):lt(t))}function Ct(t,e,n){return O?$t(4,1,t,e,n):0}function xt(t,e){if(O)return $t(5,1,t,e)}function Rt(t,e){if(O)return $t(6,1,t,e)}function jt(t,e,n){if(O)return $t(7,1,t,e,n)}function kt(t,e,n){return O?$t(8,1,t,e,n):0}function Dt(t,e){if(O)return $t(9,1,t,e)}function Pt(t,e,n){if(O)return $t(10,1,t,e,n)}function Ut(t,e,n,r){if(O)return $t(11,1,t,e,n,r)}function Ft(t,e,n,r){if(O)return $t(12,1,t,e,n,r)}function It(t,e,n,r){if(O)return $t(13,1,t,e,n,r)}function Wt(t){if(O)return $t(14,1,t)}function Ht(t,e){if(O)return $t(15,1,t,e)}function Lt(t,e,n){if(O)return $t(16,1,t,e,n)}function zt(t){Atomics.store(a(),t>>2,1),he()&&_e(t),Atomics.compareExchange(a(),t>>2,1,0)}function Yt(t){return i()[t>>>2]+4294967296*a()[t+4>>>2]}function Bt(t,e,n,r,a,i){return O?$t(17,1,t,e,n,r,a,i):-52}function Gt(t,e,n,r,a,i){if(O)return $t(18,1,t,e,n,r,a,i)}function Nt(t){var n=G(t)+1,r=de(n);return r&&B(t,e(),r,n),r}function Vt(t,e,n){function r(t){return(t=t.toTimeString().match(/\\(([A-Za-z ]+)\\)$/))?t[1]:"GMT"}if(O)return $t(19,1,t,e,n);var o=(new Date).getFullYear(),u=new Date(o,0,1),c=new Date(o,6,1);o=u.getTimezoneOffset();var s=c.getTimezoneOffset(),l=Math.max(o,s);a()[t>>2>>>0]=60*l,a()[e>>2>>>0]=Number(o!=s),t=r(u),e=r(c),t=Nt(t),e=Nt(e),s<o?(i()[n>>2>>>0]=t,i()[n+4>>2>>>0]=e):(i()[n>>2>>>0]=e,i()[n+4>>2>>>0]=t)}function $t(t,e){var n=arguments.length-2,r=arguments;return yt((()=>{for(var a=Ce(8*n),i=a>>3,u=0;u<n;u++){var c=r[2+u];o()[i+u>>>0]=c}return we(t,n,a,e)}))}u.executeNotifiedProxyingQueue=zt,wt=_?()=>{var t=process.hrtime();return 1e3*t[0]+t[1]/1e6}:O?()=>performance.now()-u.__performance_now_clock_drift:()=>performance.now();var qt,Xt=[],Jt={};function Zt(){if(!qt){var t,e={USER:"web_user",LOGNAME:"web_user",PATH:"/",PWD:"/",HOME:"/home/web_user",LANG:("object"==typeof navigator&&navigator.languages&&navigator.languages[0]||"C").replace("-","_")+".UTF-8",_:m||"./this.program"};for(t in Jt)void 0===Jt[t]?delete e[t]:e[t]=Jt[t];var n=[];for(t in e)n.push(t+"="+e[t]);qt=n}return qt}function Qt(t,n){if(O)return $t(20,1,t,n);var r=0;return Zt().forEach((function(a,o){var u=n+r;for(o=i()[t+4*o>>2>>>0]=u,u=0;u<a.length;++u)e()[o++>>0>>>0]=a.charCodeAt(u);e()[o>>0>>>0]=0,r+=a.length+1})),0}function Kt(t,e){if(O)return $t(21,1,t,e);var n=Zt();i()[t>>2>>>0]=n.length;var r=0;return n.forEach((function(t){r+=t.length+1})),i()[e>>2>>>0]=r,0}function te(t){return O?$t(22,1,t):52}function ee(t,e,n,r){return O?$t(23,1,t,e,n,r):52}function ne(t,e,n,r,a){return O?$t(24,1,t,e,n,r,a):70}var re=[null,[],[]];function ae(t,e){var n=re[t];0===e||10===e?((1===t?C:x)(z(n,0)),n.length=0):n.push(e)}function ie(t,e,n,a){if(O)return $t(25,1,t,e,n,a);for(var o=0,u=0;u<n;u++){var c=i()[e>>2>>>0],s=i()[e+4>>2>>>0];e+=8;for(var l=0;l<s;l++)ae(t,r()[c+l>>>0]);o+=s}return i()[a>>2>>>0]=o,0}var oe=0;function ue(t){return 0==t%4&&(0!=t%100||0==t%400)}var ce=[31,29,31,30,31,30,31,31,30,31,30,31],se=[31,28,31,30,31,30,31,31,30,31,30,31];function le(t,n,r,i){function o(t,e,n){for(t="number"==typeof t?t.toString():t||"";t.length<e;)t=n[0]+t;return t}function u(t,e){return o(t,e,"0")}function c(t,e){function n(t){return 0>t?-1:0<t?1:0}var r;return 0===(r=n(t.getFullYear()-e.getFullYear()))&&0===(r=n(t.getMonth()-e.getMonth()))&&(r=n(t.getDate()-e.getDate())),r}function s(t){switch(t.getDay()){case 0:return new Date(t.getFullYear()-1,11,29);case 1:return t;case 2:return new Date(t.getFullYear(),0,3);case 3:return new Date(t.getFullYear(),0,2);case 4:return new Date(t.getFullYear(),0,1);case 5:return new Date(t.getFullYear()-1,11,31);case 6:return new Date(t.getFullYear()-1,11,30)}}function l(t){var e=t.Wb;for(t=new Date(new Date(t.Xb+1900,0,1).getTime());0<e;){var n=t.getMonth(),r=(ue(t.getFullYear())?ce:se)[n];if(!(e>r-t.getDate())){t.setDate(t.getDate()+e);break}e-=r-t.getDate()+1,t.setDate(1),11>n?t.setMonth(n+1):(t.setMonth(0),t.setFullYear(t.getFullYear()+1))}return n=new Date(t.getFullYear()+1,0,4),e=s(new Date(t.getFullYear(),0,4)),n=s(n),0>=c(e,t)?0>=c(n,t)?t.getFullYear()+1:t.getFullYear():t.getFullYear()-1}var f=a()[i+40>>2>>>0];for(var p in i={Lc:a()[i>>2>>>0],Kc:a()[i+4>>2>>>0],dc:a()[i+8>>2>>>0],jc:a()[i+12>>2>>>0],ec:a()[i+16>>2>>>0],Xb:a()[i+20>>2>>>0],Tb:a()[i+24>>2>>>0],Wb:a()[i+28>>2>>>0],Rc:a()[i+32>>2>>>0],Jc:a()[i+36>>2>>>0],Mc:f?Y(f):""},r=Y(r),f={"%c":"%a %b %d %H:%M:%S %Y","%D":"%m/%d/%y","%F":"%Y-%m-%d","%h":"%b","%r":"%I:%M:%S %p","%R":"%H:%M","%T":"%H:%M:%S","%x":"%m/%d/%y","%X":"%H:%M:%S","%Ec":"%c","%EC":"%C","%Ex":"%m/%d/%y","%EX":"%H:%M:%S","%Ey":"%y","%EY":"%Y","%Od":"%d","%Oe":"%e","%OH":"%H","%OI":"%I","%Om":"%m","%OM":"%M","%OS":"%S","%Ou":"%u","%OU":"%U","%OV":"%V","%Ow":"%w","%OW":"%W","%Oy":"%y"})r=r.replace(new RegExp(p,"g"),f[p]);var h="Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),d="January February March April May June July August September October November December".split(" ");for(p in f={"%a":function(t){return h[t.Tb].substring(0,3)},"%A":function(t){return h[t.Tb]},"%b":function(t){return d[t.ec].substring(0,3)},"%B":function(t){return d[t.ec]},"%C":function(t){return u((t.Xb+1900)/100|0,2)},"%d":function(t){return u(t.jc,2)},"%e":function(t){return o(t.jc,2," ")},"%g":function(t){return l(t).toString().substring(2)},"%G":function(t){return l(t)},"%H":function(t){return u(t.dc,2)},"%I":function(t){return 0==(t=t.dc)?t=12:12<t&&(t-=12),u(t,2)},"%j":function(t){for(var e=0,n=0;n<=t.ec-1;e+=(ue(t.Xb+1900)?ce:se)[n++]);return u(t.jc+e,3)},"%m":function(t){return u(t.ec+1,2)},"%M":function(t){return u(t.Kc,2)},"%n":function(){return"\\n"},"%p":function(t){return 0<=t.dc&&12>t.dc?"AM":"PM"},"%S":function(t){return u(t.Lc,2)},"%t":function(){return"\\t"},"%u":function(t){return t.Tb||7},"%U":function(t){return u(Math.floor((t.Wb+7-t.Tb)/7),2)},"%V":function(t){var e=Math.floor((t.Wb+7-(t.Tb+6)%7)/7);if(2>=(t.Tb+371-t.Wb-2)%7&&e++,e)53==e&&(4==(n=(t.Tb+371-t.Wb)%7)||3==n&&ue(t.Xb)||(e=1));else{e=52;var n=(t.Tb+7-t.Wb-1)%7;(4==n||5==n&&ue(t.Xb%400-1))&&e++}return u(e,2)},"%w":function(t){return t.Tb},"%W":function(t){return u(Math.floor((t.Wb+7-(t.Tb+6)%7)/7),2)},"%y":function(t){return(t.Xb+1900).toString().substring(2)},"%Y":function(t){return t.Xb+1900},"%z":function(t){var e=0<=(t=t.Jc);return t=Math.abs(t)/60,(e?"+":"-")+String("0000"+(t/60*100+t%60)).slice(-4)},"%Z":function(t){return t.Mc},"%%":function(){return"%"}},r=r.replace(/%%/g,"\\0\\0"),f)r.includes(p)&&(r=r.replace(new RegExp(p,"g"),f[p](i)));return p=function(t){var e=Array(G(t)+1);return B(t,e,0,e.length),e}(r=r.replace(/\\0\\0/g,"%")),p.length>n?0:(function(t,n){e().set(t,n>>>0)}(p,t),p.length-1)}ht.fc();var fe=[null,ft,bt,Et,Ct,xt,Rt,jt,kt,Dt,Pt,Ut,Ft,It,Wt,Ht,Lt,Bt,Gt,Vt,Qt,Kt,te,ee,ne,ie],pe={b:function(t){return de(t+24)+24},n:function(t){return(t=new St(t)).uc()||(t.hc(!0),Ot--),t.ic(!1),_t.push(t),t.sc(),t.vc()},ma:function(t){throw x("Unexpected exception thrown, this is not properly supported - aborting"),H=!0,t},x:function(){Se(0);var t=_t.pop();if(t.Hc()&&!t.kc()){var e=t.Dc();e&&gt(e)(t.Zb),Tt(t.Zb)}At=0},e:function(){var t=At;if(!t)return oe=0;var e=new St(t);e.cc(t);var n=e.bc();if(!n)return oe=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(xe(i,n,e.Sb+16))return oe=i,t}return oe=n,t},l:function(){var t=At;if(!t)return oe=0;var e=new St(t);e.cc(t);var n=e.bc();if(!n)return oe=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(xe(i,n,e.Sb+16))return oe=i,t}return oe=n,t},h:function(){var t=At;if(!t)return oe=0;var e=new St(t);e.cc(t);var n=e.bc();if(!n)return oe=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(xe(i,n,e.Sb+16))return oe=i,t}return oe=n,t},t:Tt,M:function(){var t=_t.pop();t||at("no exception to throw");var e=t.Zb;throw t.kc()||(_t.push(t),t.ic(!0),t.hc(!1),Ot++),At=e,e},c:function(t,e,n){throw new St(t).fc(e,n),At=t,Ot++,t},pa:function(){return Ot},Fa:function(t){ge(t,!w,1,!v),ht.pc()},T:function(t){O?postMessage({cmd:"cleanupThread",thread:t}):st(t)},xa:Mt,j:function(t){throw At||(At=t),t},H:Ct,Ma:xt,ua:Rt,wa:jt,oa:kt,Ka:Dt,Ca:Pt,Ja:Ut,V:Ft,va:It,sa:Wt,La:Ht,ta:Lt,Ta:function(){},X:function(){at("To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking")},Ua:function(){at("To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking")},W:function(){return Date.now()},ya:function(){return 2097152},Oa:function(){return!0},za:function(t,e,n,r){if(t==e)setTimeout((()=>zt(r)));else if(O)postMessage({targetThread:t,cmd:"processProxyingQueue",queue:r});else{if(!(t=ht.Vb[t]))return;t.postMessage({cmd:"processProxyingQueue",queue:r})}return 1},Ea:function(){return-1},Pa:function(t,e){t=new Date(1e3*Yt(t)),a()[e>>2>>>0]=t.getUTCSeconds(),a()[e+4>>2>>>0]=t.getUTCMinutes(),a()[e+8>>2>>>0]=t.getUTCHours(),a()[e+12>>2>>>0]=t.getUTCDate(),a()[e+16>>2>>>0]=t.getUTCMonth(),a()[e+20>>2>>>0]=t.getUTCFullYear()-1900,a()[e+24>>2>>>0]=t.getUTCDay(),t=(t.getTime()-Date.UTC(t.getUTCFullYear(),0,1,0,0,0,0))/864e5|0,a()[e+28>>2>>>0]=t},Qa:function(t,e){t=new Date(1e3*Yt(t)),a()[e>>2>>>0]=t.getSeconds(),a()[e+4>>2>>>0]=t.getMinutes(),a()[e+8>>2>>>0]=t.getHours(),a()[e+12>>2>>>0]=t.getDate(),a()[e+16>>2>>>0]=t.getMonth(),a()[e+20>>2>>>0]=t.getFullYear()-1900,a()[e+24>>2>>>0]=t.getDay();var n=new Date(t.getFullYear(),0,1),r=(t.getTime()-n.getTime())/864e5|0;a()[e+28>>2>>>0]=r,a()[e+36>>2>>>0]=-60*t.getTimezoneOffset(),r=new Date(t.getFullYear(),6,1).getTimezoneOffset(),t=0|(r!=(n=n.getTimezoneOffset())&&t.getTimezoneOffset()==Math.min(n,r)),a()[e+32>>2>>>0]=t},Ra:function(t){var e=new Date(a()[t+20>>2>>>0]+1900,a()[t+16>>2>>>0],a()[t+12>>2>>>0],a()[t+8>>2>>>0],a()[t+4>>2>>>0],a()[t>>2>>>0],0),n=a()[t+32>>2>>>0],r=e.getTimezoneOffset(),i=new Date(e.getFullYear(),0,1),o=new Date(e.getFullYear(),6,1).getTimezoneOffset(),u=i.getTimezoneOffset(),c=Math.min(u,o);return 0>n?a()[t+32>>2>>>0]=Number(o!=u&&c==r):0<n!=(c==r)&&(o=Math.max(u,o),e.setTime(e.getTime()+6e4*((0<n?c:o)-r))),a()[t+24>>2>>>0]=e.getDay(),n=(e.getTime()-i.getTime())/864e5|0,a()[t+28>>2>>>0]=n,a()[t>>2>>>0]=e.getSeconds(),a()[t+4>>2>>>0]=e.getMinutes(),a()[t+8>>2>>>0]=e.getHours(),a()[t+12>>2>>>0]=e.getDate(),a()[t+16>>2>>>0]=e.getMonth(),e.getTime()/1e3|0},Aa:Bt,Ba:Gt,Sa:function t(e,n,r){t.Ac||(t.Ac=!0,Vt(e,n,r))},y:function(){at("")},U:function(){if(!_&&!w){var t="Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread";vt||(vt={}),vt[t]||(vt[t]=1,_&&(t="warning: "+t),x(t))}},ra:function(){return 4294901760},B:wt,Ia:function(t,e,n){r().copyWithin(t>>>0,e>>>0,e+n>>>0)},F:function(){return _?n(993).cpus().length:navigator.hardwareConcurrency},Da:function(t,e,n){Xt.length=e,n>>=3;for(var r=0;r<e;r++)Xt[r]=o()[n+r>>>0];return(0>t?ut[-t-1]:fe[t]).apply(null,Xt)},qa:function(t){var e=r().length;if((t>>>=0)<=e||4294901760<t)return!1;for(var n=1;4>=n;n*=2){var a=e*(1+.2/n);a=Math.min(a,t+100663296);var i=Math;a=Math.max(t,a),i=i.min.call(i,4294901760,a+(65536-a%65536)%65536);t:{try{j.grow(i-D.byteLength+65535>>>16),N(j.buffer);var o=1;break t}catch(t){}o=void 0}if(o)return!0}return!1},Na:function(){throw"unwind"},Ga:Qt,Ha:Kt,J:pt,I:te,S:ee,ga:ne,R:ie,d:function(){return oe},na:function t(r,a){t.lc||(t.lc=function(){if("object"==typeof crypto&&"function"==typeof crypto.getRandomValues){var t=new Uint8Array(1);return()=>(crypto.getRandomValues(t),t[0])}if(_)try{var e=n(Object(function(){var t=new Error("Cannot find module \'crypto\'");throw t.code="MODULE_NOT_FOUND",t}()));return()=>e.randomBytes(1)[0]}catch(t){}return()=>at("randomDevice")}());for(var i=0;i<a;i++)e()[r+i>>0>>>0]=t.lc();return 0},ia:function(t,e,n){var r=Ee();try{return gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},ja:function(t,e,n){var r=Ee();try{return gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},K:function(t){var e=Ee();try{return gt(t)()}catch(t){if(Me(e),t!==t+0)throw t;Se(1,0)}},f:function(t,e){var n=Ee();try{return gt(t)(e)}catch(t){if(Me(n),t!==t+0)throw t;Se(1,0)}},P:function(t,e,n){var r=Ee();try{return gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},Q:function(t,e,n){var r=Ee();try{return gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},k:function(t,e,n){var r=Ee();try{return gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},p:function(t,e,n,r){var a=Ee();try{return gt(t)(e,n,r)}catch(t){if(Me(a),t!==t+0)throw t;Se(1,0)}},q:function(t,e,n,r,a){var i=Ee();try{return gt(t)(e,n,r,a)}catch(t){if(Me(i),t!==t+0)throw t;Se(1,0)}},N:function(t,e,n,r,a,i){var o=Ee();try{return gt(t)(e,n,r,a,i)}catch(t){if(Me(o),t!==t+0)throw t;Se(1,0)}},s:function(t,e,n,r,a,i){var o=Ee();try{return gt(t)(e,n,r,a,i)}catch(t){if(Me(o),t!==t+0)throw t;Se(1,0)}},w:function(t,e,n,r,a,i,o){var u=Ee();try{return gt(t)(e,n,r,a,i,o)}catch(t){if(Me(u),t!==t+0)throw t;Se(1,0)}},L:function(t,e,n,r,a,i,o,u){var c=Ee();try{return gt(t)(e,n,r,a,i,o,u)}catch(t){if(Me(c),t!==t+0)throw t;Se(1,0)}},E:function(t,e,n,r,a,i,o,u,c,s,l,f){var p=Ee();try{return gt(t)(e,n,r,a,i,o,u,c,s,l,f)}catch(t){if(Me(p),t!==t+0)throw t;Se(1,0)}},aa:function(t,e,n,r,a,i,o,u){var c=Ee();try{return He(t,e,n,r,a,i,o,u)}catch(t){if(Me(c),t!==t+0)throw t;Se(1,0)}},_:function(t,e,n,r,a,i,o){var u=Ee();try{return ke(t,e,n,r,a,i,o)}catch(t){if(Me(u),t!==t+0)throw t;Se(1,0)}},Z:function(t,e,n,r,a){var i=Ee();try{return Le(t,e,n,r,a)}catch(t){if(Me(i),t!==t+0)throw t;Se(1,0)}},ca:function(t,e,n,r){var a=Ee();try{return Ie(t,e,n,r)}catch(t){if(Me(a),t!==t+0)throw t;Se(1,0)}},$:function(t){var e=Ee();try{return je(t)}catch(t){if(Me(e),t!==t+0)throw t;Se(1,0)}},ba:function(t,e){var n=Ee();try{return We(t,e)}catch(t){if(Me(n),t!==t+0)throw t;Se(1,0)}},Y:function(t,e,n){var r=Ee();try{return De(t,e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},g:function(t){var e=Ee();try{gt(t)()}catch(t){if(Me(e),t!==t+0)throw t;Se(1,0)}},r:function(t,e){var n=Ee();try{gt(t)(e)}catch(t){if(Me(n),t!==t+0)throw t;Se(1,0)}},i:function(t,e,n){var r=Ee();try{gt(t)(e,n)}catch(t){if(Me(r),t!==t+0)throw t;Se(1,0)}},ha:function(t,e,n,r){var a=Ee();try{gt(t)(e,n,r)}catch(t){if(Me(a),t!==t+0)throw t;Se(1,0)}},m:function(t,e,n,r){var a=Ee();try{gt(t)(e,n,r)}catch(t){if(Me(a),t!==t+0)throw t;Se(1,0)}},v:function(t,e,n,r,a){var i=Ee();try{gt(t)(e,n,r,a)}catch(t){if(Me(i),t!==t+0)throw t;Se(1,0)}},u:function(t,e,n,r,a,i){var o=Ee();try{gt(t)(e,n,r,a,i)}catch(t){if(Me(o),t!==t+0)throw t;Se(1,0)}},O:function(t,e,n,r,a,i,o){var u=Ee();try{gt(t)(e,n,r,a,i,o)}catch(t){if(Me(u),t!==t+0)throw t;Se(1,0)}},A:function(t,e,n,r,a,i,o,u){var c=Ee();try{gt(t)(e,n,r,a,i,o,u)}catch(t){if(Me(c),t!==t+0)throw t;Se(1,0)}},ka:function(t,e,n,r,a,i,o,u,c){var s=Ee();try{gt(t)(e,n,r,a,i,o,u,c)}catch(t){if(Me(s),t!==t+0)throw t;Se(1,0)}},C:function(t,e,n,r,a,i,o,u,c,s,l){var f=Ee();try{gt(t)(e,n,r,a,i,o,u,c,s,l)}catch(t){if(Me(f),t!==t+0)throw t;Se(1,0)}},D:function(t,e,n,r,a,i,o,u,c,s,l,f,p,h,d,y){var b=Ee();try{gt(t)(e,n,r,a,i,o,u,c,s,l,f,p,h,d,y)}catch(t){if(Me(b),t!==t+0)throw t;Se(1,0)}},fa:function(t,e,n,r,a,i,o,u){var c=Ee();try{Pe(t,e,n,r,a,i,o,u)}catch(t){if(Me(c),t!==t+0)throw t;Se(1,0)}},da:function(t,e,n,r,a,i,o,u,c,s,l,f){var p=Ee();try{Fe(t,e,n,r,a,i,o,u,c,s,l,f)}catch(t){if(Me(p),t!==t+0)throw t;Se(1,0)}},ea:function(t,e,n,r,a,i){var o=Ee();try{Ue(t,e,n,r,a,i)}catch(t){if(Me(o),t!==t+0)throw t;Se(1,0)}},o:function(t){return t},a:j||u.wasmMemory,G:function(t){oe=t},la:le,z:function(t,e,n,r){return le(t,e,n,r)}};!function(){function t(t,e){u.asm=t.exports,ht.qc.push(u.asm.sb),$=u.asm.ub,X.unshift(u.asm.Va),k=e,O||(et--,u.monitorRunDependencies&&u.monitorRunDependencies(et),0==et&&(null!==nt&&(clearInterval(nt),nt=null),rt&&(t=rt,rt=null,t())))}function e(e){t(e.instance,e.module)}function n(t){return function(){if(!M&&(v||w)){if("function"==typeof fetch&&!tt.startsWith("file://"))return fetch(tt,{credentials:"same-origin"}).then((function(t){if(!t.ok)throw"failed to load wasm binary file at \'"+tt+"\'";return t.arrayBuffer()})).catch((function(){return ot()}));if(f)return new Promise((function(t,e){f(tt,(function(e){t(new Uint8Array(e))}),e)}))}return Promise.resolve().then((function(){return ot()}))}().then((function(t){return WebAssembly.instantiate(t,r)})).then((function(t){return t})).then(t,(function(t){x("failed to asynchronously prepare wasm: "+t),at(t)}))}var r={a:pe};if(O||(et++,u.monitorRunDependencies&&u.monitorRunDependencies(et)),u.instantiateWasm)try{return u.instantiateWasm(r,t)}catch(t){return x("Module.instantiateWasm callback failed with error: "+t),!1}(M||"function"!=typeof WebAssembly.instantiateStreaming||it()||tt.startsWith("file://")||_||"function"!=typeof fetch?n(e):fetch(tt,{credentials:"same-origin"}).then((function(t){return WebAssembly.instantiateStreaming(t,r).then(e,(function(t){return x("wasm streaming compile failed: "+t),x("falling back to ArrayBuffer instantiation"),n(e)}))}))).catch(s)}(),u.___wasm_call_ctors=function(){return(u.___wasm_call_ctors=u.asm.Va).apply(null,arguments)},u._OrtInit=function(){return(u._OrtInit=u.asm.Wa).apply(null,arguments)},u._OrtCreateSessionOptions=function(){return(u._OrtCreateSessionOptions=u.asm.Xa).apply(null,arguments)},u._OrtAppendExecutionProvider=function(){return(u._OrtAppendExecutionProvider=u.asm.Ya).apply(null,arguments)},u._OrtAddSessionConfigEntry=function(){return(u._OrtAddSessionConfigEntry=u.asm.Za).apply(null,arguments)},u._OrtReleaseSessionOptions=function(){return(u._OrtReleaseSessionOptions=u.asm._a).apply(null,arguments)},u._OrtCreateSession=function(){return(u._OrtCreateSession=u.asm.$a).apply(null,arguments)},u._OrtReleaseSession=function(){return(u._OrtReleaseSession=u.asm.ab).apply(null,arguments)},u._OrtGetInputCount=function(){return(u._OrtGetInputCount=u.asm.bb).apply(null,arguments)},u._OrtGetOutputCount=function(){return(u._OrtGetOutputCount=u.asm.cb).apply(null,arguments)},u._OrtGetInputName=function(){return(u._OrtGetInputName=u.asm.db).apply(null,arguments)},u._OrtGetOutputName=function(){return(u._OrtGetOutputName=u.asm.eb).apply(null,arguments)},u._OrtFree=function(){return(u._OrtFree=u.asm.fb).apply(null,arguments)},u._OrtCreateTensor=function(){return(u._OrtCreateTensor=u.asm.gb).apply(null,arguments)},u._OrtGetTensorData=function(){return(u._OrtGetTensorData=u.asm.hb).apply(null,arguments)},u._OrtReleaseTensor=function(){return(u._OrtReleaseTensor=u.asm.ib).apply(null,arguments)},u._OrtCreateRunOptions=function(){return(u._OrtCreateRunOptions=u.asm.jb).apply(null,arguments)},u._OrtAddRunConfigEntry=function(){return(u._OrtAddRunConfigEntry=u.asm.kb).apply(null,arguments)},u._OrtReleaseRunOptions=function(){return(u._OrtReleaseRunOptions=u.asm.lb).apply(null,arguments)},u._OrtRun=function(){return(u._OrtRun=u.asm.mb).apply(null,arguments)},u._OrtEndProfiling=function(){return(u._OrtEndProfiling=u.asm.nb).apply(null,arguments)};var he=u._pthread_self=function(){return(he=u._pthread_self=u.asm.ob).apply(null,arguments)},de=u._malloc=function(){return(de=u._malloc=u.asm.pb).apply(null,arguments)},ye=u._free=function(){return(ye=u._free=u.asm.qb).apply(null,arguments)},be=u._fflush=function(){return(be=u._fflush=u.asm.rb).apply(null,arguments)};u.__emscripten_tls_init=function(){return(u.__emscripten_tls_init=u.asm.sb).apply(null,arguments)};var me=u.___funcs_on_exit=function(){return(me=u.___funcs_on_exit=u.asm.tb).apply(null,arguments)},ge=u.__emscripten_thread_init=function(){return(ge=u.__emscripten_thread_init=u.asm.vb).apply(null,arguments)};u.__emscripten_thread_crashed=function(){return(u.__emscripten_thread_crashed=u.asm.wb).apply(null,arguments)};var ve,we=u._emscripten_run_in_main_runtime_thread_js=function(){return(we=u._emscripten_run_in_main_runtime_thread_js=u.asm.xb).apply(null,arguments)},_e=u.__emscripten_proxy_execute_task_queue=function(){return(_e=u.__emscripten_proxy_execute_task_queue=u.asm.yb).apply(null,arguments)},Oe=u.__emscripten_thread_free_data=function(){return(Oe=u.__emscripten_thread_free_data=u.asm.zb).apply(null,arguments)},Ae=u.__emscripten_thread_exit=function(){return(Ae=u.__emscripten_thread_exit=u.asm.Ab).apply(null,arguments)},Se=u._setThrew=function(){return(Se=u._setThrew=u.asm.Bb).apply(null,arguments)},Te=u._emscripten_stack_set_limits=function(){return(Te=u._emscripten_stack_set_limits=u.asm.Cb).apply(null,arguments)},Ee=u.stackSave=function(){return(Ee=u.stackSave=u.asm.Db).apply(null,arguments)},Me=u.stackRestore=function(){return(Me=u.stackRestore=u.asm.Eb).apply(null,arguments)},Ce=u.stackAlloc=function(){return(Ce=u.stackAlloc=u.asm.Fb).apply(null,arguments)},xe=u.___cxa_can_catch=function(){return(xe=u.___cxa_can_catch=u.asm.Gb).apply(null,arguments)},Re=u.___cxa_is_pointer_type=function(){return(Re=u.___cxa_is_pointer_type=u.asm.Hb).apply(null,arguments)},je=u.dynCall_j=function(){return(je=u.dynCall_j=u.asm.Ib).apply(null,arguments)},ke=u.dynCall_iiiiij=function(){return(ke=u.dynCall_iiiiij=u.asm.Jb).apply(null,arguments)},De=u.dynCall_jii=function(){return(De=u.dynCall_jii=u.asm.Kb).apply(null,arguments)},Pe=u.dynCall_viiiiij=function(){return(Pe=u.dynCall_viiiiij=u.asm.Lb).apply(null,arguments)},Ue=u.dynCall_vjji=function(){return(Ue=u.dynCall_vjji=u.asm.Mb).apply(null,arguments)},Fe=u.dynCall_viiijjjii=function(){return(Fe=u.dynCall_viiijjjii=u.asm.Nb).apply(null,arguments)},Ie=u.dynCall_iij=function(){return(Ie=u.dynCall_iij=u.asm.Ob).apply(null,arguments)},We=u.dynCall_ji=function(){return(We=u.dynCall_ji=u.asm.Pb).apply(null,arguments)},He=u.dynCall_iiiiiij=function(){return(He=u.dynCall_iiiiiij=u.asm.Qb).apply(null,arguments)},Le=u.dynCall_iiij=function(){return(Le=u.dynCall_iiij=u.asm.Rb).apply(null,arguments)};function ze(){function t(){if(!ve&&(ve=!0,u.calledRun=!0,!H)&&(O||dt(X),c(u),u.onRuntimeInitialized&&u.onRuntimeInitialized(),!O)){if(u.postRun)for("function"==typeof u.postRun&&(u.postRun=[u.postRun]);u.postRun.length;){var t=u.postRun.shift();Z.unshift(t)}dt(Z)}}if(!(0<et))if(O)c(u),O||dt(X),postMessage({cmd:"loaded"});else{if(u.preRun)for("function"==typeof u.preRun&&(u.preRun=[u.preRun]);u.preRun.length;)K();dt(q),0<et||(u.setStatus?(u.setStatus("Running..."),setTimeout((function(){setTimeout((function(){u.setStatus("")}),1),t()}),1)):t())}}if(u.UTF8ToString=Y,u.stringToUTF8=function(t,e,n){return B(t,r(),e,n)},u.lengthBytesUTF8=G,u.keepRuntimeAlive=Q,u.wasmMemory=j,u.stackSave=Ee,u.stackRestore=Me,u.stackAlloc=Ce,u.ExitStatus=ct,u.PThread=ht,rt=function t(){ve||ze(),ve||(rt=t)},u.preInit)for("function"==typeof u.preInit&&(u.preInit=[u.preInit]);0<u.preInit.length;)u.preInit.pop()();return ze(),t.ready});t.exports=r},932:(t,e,n)=>{var _scriptDir,r=(_scriptDir=(_scriptDir="undefined"!=typeof document&&document.currentScript?document.currentScript.src:void 0)||"/index.js",function(t){var e,r,a;t=t||{},e||(e=void 0!==t?t:{}),e.ready=new Promise((function(t,e){r=t,a=e}));var i,o,u,c,s,l,f=Object.assign({},e),p="./this.program",h=(t,e)=>{throw e},d="object"==typeof window,y="function"==typeof importScripts,b="object"==typeof process&&"object"==typeof process.versions&&"string"==typeof process.versions.node,m="";b?(m=y?n(908).dirname(m)+"/":"//",l=()=>{s||(c=n(384),s=n(908))},i=function(t,e){return l(),t=s.normalize(t),c.readFileSync(t,e?void 0:"utf8")},u=t=>((t=i(t,!0)).buffer||(t=new Uint8Array(t)),t),o=(t,e,n)=>{l(),t=s.normalize(t),c.readFile(t,(function(t,r){t?n(t):e(r.buffer)}))},1<process.argv.length&&(p=process.argv[1].replace(/\\\\/g,"/")),process.argv.slice(2),process.on("uncaughtException",(function(t){if(!(t instanceof J))throw t})),process.on("unhandledRejection",(function(t){throw t})),h=(t,e)=>{if(_||0<L)throw process.exitCode=t,e;e instanceof J||w("exiting due to exception: "+e),process.exit(t)},e.inspect=function(){return"[Emscripten Module object]"}):(d||y)&&(y?m=self.location.href:"undefined"!=typeof document&&document.currentScript&&(m=document.currentScript.src),_scriptDir&&(m=_scriptDir),m=0!==m.indexOf("blob:")?m.substr(0,m.replace(/[?#].*/,"").lastIndexOf("/")+1):"",i=t=>{var e=new XMLHttpRequest;return e.open("GET",t,!1),e.send(null),e.responseText},y&&(u=t=>{var e=new XMLHttpRequest;return e.open("GET",t,!1),e.responseType="arraybuffer",e.send(null),new Uint8Array(e.response)}),o=(t,e,n)=>{var r=new XMLHttpRequest;r.open("GET",t,!0),r.responseType="arraybuffer",r.onload=()=>{200==r.status||0==r.status&&r.response?e(r.response):n()},r.onerror=n,r.send(null)});var g,v=e.print||console.log.bind(console),w=e.printErr||console.warn.bind(console);Object.assign(e,f),f=null,e.thisProgram&&(p=e.thisProgram),e.quit&&(h=e.quit),e.wasmBinary&&(g=e.wasmBinary);var _=e.noExitRuntime||!1;"object"!=typeof WebAssembly&&V("no native wasm support detected");var O,A,S,T,E,M,C=!1,x="undefined"!=typeof TextDecoder?new TextDecoder("utf8"):void 0;function R(t,e,n){var r=(e>>>=0)+n;for(n=e;t[n]&&!(n>=r);)++n;if(16<n-e&&t.buffer&&x)return x.decode(t.subarray(e,n));for(r="";e<n;){var a=t[e++];if(128&a){var i=63&t[e++];if(192==(224&a))r+=String.fromCharCode((31&a)<<6|i);else{var o=63&t[e++];65536>(a=224==(240&a)?(15&a)<<12|i<<6|o:(7&a)<<18|i<<12|o<<6|63&t[e++])?r+=String.fromCharCode(a):(a-=65536,r+=String.fromCharCode(55296|a>>10,56320|1023&a))}}else r+=String.fromCharCode(a)}return r}function j(t,e){return(t>>>=0)?R(T,t,e):""}function k(t,e,n,r){if(!(0<r))return 0;var a=n>>>=0;r=n+r-1;for(var i=0;i<t.length;++i){var o=t.charCodeAt(i);if(55296<=o&&57343>=o&&(o=65536+((1023&o)<<10)|1023&t.charCodeAt(++i)),127>=o){if(n>=r)break;e[n++>>>0]=o}else{if(2047>=o){if(n+1>=r)break;e[n++>>>0]=192|o>>6}else{if(65535>=o){if(n+2>=r)break;e[n++>>>0]=224|o>>12}else{if(n+3>=r)break;e[n++>>>0]=240|o>>18,e[n++>>>0]=128|o>>12&63}e[n++>>>0]=128|o>>6&63}e[n++>>>0]=128|63&o}}return e[n>>>0]=0,n-a}function D(t){for(var e=0,n=0;n<t.length;++n){var r=t.charCodeAt(n);127>=r?e++:2047>=r?e+=2:55296<=r&&57343>=r?(e+=4,++n):e+=3}return e}function P(){var t=O.buffer;A=t,e.HEAP8=S=new Int8Array(t),e.HEAP16=new Int16Array(t),e.HEAP32=E=new Int32Array(t),e.HEAPU8=T=new Uint8Array(t),e.HEAPU16=new Uint16Array(t),e.HEAPU32=M=new Uint32Array(t),e.HEAPF32=new Float32Array(t),e.HEAPF64=new Float64Array(t)}var U,F=[],I=[],W=[],H=[],L=0;function z(){var t=e.preRun.shift();F.unshift(t)}var Y,B=0,G=null,N=null;function V(t){throw e.onAbort&&e.onAbort(t),w(t="Aborted("+t+")"),C=!0,t=new WebAssembly.RuntimeError(t+". Build with -sASSERTIONS for more info."),a(t),t}function $(){return Y.startsWith("data:application/octet-stream;base64,")}if(Y="ort-wasm.wasm",!$()){var q=Y;Y=e.locateFile?e.locateFile(q,m):m+q}function X(){var t=Y;try{if(t==Y&&g)return new Uint8Array(g);if(u)return u(t);throw"both async and sync fetching of the wasm failed"}catch(t){V(t)}}function J(t){this.name="ExitStatus",this.message="Program terminated with exit("+t+")",this.status=t}function Z(t){for(;0<t.length;)t.shift()(e)}var Q=[],K=0,tt=0;function et(t){this.Db=t,this.zb=t-24,this.Ub=function(t){M[this.zb+4>>2>>>0]=t},this.Eb=function(){return M[this.zb+4>>2>>>0]},this.Sb=function(t){M[this.zb+8>>2>>>0]=t},this.Wb=function(){return M[this.zb+8>>2>>>0]},this.Tb=function(){E[this.zb>>2>>>0]=0},this.Ib=function(t){S[this.zb+12>>0>>>0]=t?1:0},this.Pb=function(){return 0!=S[this.zb+12>>0>>>0]},this.Jb=function(t){S[this.zb+13>>0>>>0]=t?1:0},this.Lb=function(){return 0!=S[this.zb+13>>0>>>0]},this.Rb=function(t,e){this.Fb(0),this.Ub(t),this.Sb(e),this.Tb(),this.Ib(!1),this.Jb(!1)},this.Nb=function(){E[this.zb>>2>>>0]+=1},this.Xb=function(){var t=E[this.zb>>2>>>0];return E[this.zb>>2>>>0]=t-1,1===t},this.Fb=function(t){M[this.zb+16>>2>>>0]=t},this.Ob=function(){return M[this.zb+16>>2>>>0]},this.Qb=function(){if(Mt(this.Eb()))return M[this.Db>>2>>>0];var t=this.Ob();return 0!==t?t:this.Db}}function nt(t){return vt(new et(t).zb)}var rt=[];function at(t){var e=rt[t];return e||(t>=rt.length&&(rt.length=t+1),rt[t]=e=U.get(t)),e}function it(t){var e=D(t)+1,n=gt(e);return n&&k(t,S,n,e),n}var ot={};function ut(){if(!ct){var t,e={USER:"web_user",LOGNAME:"web_user",PATH:"/",PWD:"/",HOME:"/home/web_user",LANG:("object"==typeof navigator&&navigator.languages&&navigator.languages[0]||"C").replace("-","_")+".UTF-8",_:p||"./this.program"};for(t in ot)void 0===ot[t]?delete e[t]:e[t]=ot[t];var n=[];for(t in e)n.push(t+"="+e[t]);ct=n}return ct}var ct,st=[null,[],[]];function lt(t,e){var n=st[t];0===e||10===e?((1===t?v:w)(R(n,0)),n.length=0):n.push(e)}var ft=0;function pt(t){return 0==t%4&&(0!=t%100||0==t%400)}var ht=[31,29,31,30,31,30,31,31,30,31,30,31],dt=[31,28,31,30,31,30,31,31,30,31,30,31];function yt(t,e,n,r){function a(t,e,n){for(t="number"==typeof t?t.toString():t||"";t.length<e;)t=n[0]+t;return t}function i(t,e){return a(t,e,"0")}function o(t,e){function n(t){return 0>t?-1:0<t?1:0}var r;return 0===(r=n(t.getFullYear()-e.getFullYear()))&&0===(r=n(t.getMonth()-e.getMonth()))&&(r=n(t.getDate()-e.getDate())),r}function u(t){switch(t.getDay()){case 0:return new Date(t.getFullYear()-1,11,29);case 1:return t;case 2:return new Date(t.getFullYear(),0,3);case 3:return new Date(t.getFullYear(),0,2);case 4:return new Date(t.getFullYear(),0,1);case 5:return new Date(t.getFullYear()-1,11,31);case 6:return new Date(t.getFullYear()-1,11,30)}}function c(t){var e=t.Bb;for(t=new Date(new Date(t.Cb+1900,0,1).getTime());0<e;){var n=t.getMonth(),r=(pt(t.getFullYear())?ht:dt)[n];if(!(e>r-t.getDate())){t.setDate(t.getDate()+e);break}e-=r-t.getDate()+1,t.setDate(1),11>n?t.setMonth(n+1):(t.setMonth(0),t.setFullYear(t.getFullYear()+1))}return n=new Date(t.getFullYear()+1,0,4),e=u(new Date(t.getFullYear(),0,4)),n=u(n),0>=o(e,t)?0>=o(n,t)?t.getFullYear()+1:t.getFullYear():t.getFullYear()-1}var s=E[r+40>>2>>>0];for(var l in r={$b:E[r>>2>>>0],Zb:E[r+4>>2>>>0],Gb:E[r+8>>2>>>0],Kb:E[r+12>>2>>>0],Hb:E[r+16>>2>>>0],Cb:E[r+20>>2>>>0],Ab:E[r+24>>2>>>0],Bb:E[r+28>>2>>>0],bc:E[r+32>>2>>>0],Yb:E[r+36>>2>>>0],ac:s?j(s):""},n=j(n),s={"%c":"%a %b %d %H:%M:%S %Y","%D":"%m/%d/%y","%F":"%Y-%m-%d","%h":"%b","%r":"%I:%M:%S %p","%R":"%H:%M","%T":"%H:%M:%S","%x":"%m/%d/%y","%X":"%H:%M:%S","%Ec":"%c","%EC":"%C","%Ex":"%m/%d/%y","%EX":"%H:%M:%S","%Ey":"%y","%EY":"%Y","%Od":"%d","%Oe":"%e","%OH":"%H","%OI":"%I","%Om":"%m","%OM":"%M","%OS":"%S","%Ou":"%u","%OU":"%U","%OV":"%V","%Ow":"%w","%OW":"%W","%Oy":"%y"})n=n.replace(new RegExp(l,"g"),s[l]);var f="Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),p="January February March April May June July August September October November December".split(" ");for(l in s={"%a":function(t){return f[t.Ab].substring(0,3)},"%A":function(t){return f[t.Ab]},"%b":function(t){return p[t.Hb].substring(0,3)},"%B":function(t){return p[t.Hb]},"%C":function(t){return i((t.Cb+1900)/100|0,2)},"%d":function(t){return i(t.Kb,2)},"%e":function(t){return a(t.Kb,2," ")},"%g":function(t){return c(t).toString().substring(2)},"%G":function(t){return c(t)},"%H":function(t){return i(t.Gb,2)},"%I":function(t){return 0==(t=t.Gb)?t=12:12<t&&(t-=12),i(t,2)},"%j":function(t){for(var e=0,n=0;n<=t.Hb-1;e+=(pt(t.Cb+1900)?ht:dt)[n++]);return i(t.Kb+e,3)},"%m":function(t){return i(t.Hb+1,2)},"%M":function(t){return i(t.Zb,2)},"%n":function(){return"\\n"},"%p":function(t){return 0<=t.Gb&&12>t.Gb?"AM":"PM"},"%S":function(t){return i(t.$b,2)},"%t":function(){return"\\t"},"%u":function(t){return t.Ab||7},"%U":function(t){return i(Math.floor((t.Bb+7-t.Ab)/7),2)},"%V":function(t){var e=Math.floor((t.Bb+7-(t.Ab+6)%7)/7);if(2>=(t.Ab+371-t.Bb-2)%7&&e++,e)53==e&&(4==(n=(t.Ab+371-t.Bb)%7)||3==n&&pt(t.Cb)||(e=1));else{e=52;var n=(t.Ab+7-t.Bb-1)%7;(4==n||5==n&&pt(t.Cb%400-1))&&e++}return i(e,2)},"%w":function(t){return t.Ab},"%W":function(t){return i(Math.floor((t.Bb+7-(t.Ab+6)%7)/7),2)},"%y":function(t){return(t.Cb+1900).toString().substring(2)},"%Y":function(t){return t.Cb+1900},"%z":function(t){var e=0<=(t=t.Yb);return t=Math.abs(t)/60,(e?"+":"-")+String("0000"+(t/60*100+t%60)).slice(-4)},"%Z":function(t){return t.ac},"%%":function(){return"%"}},n=n.replace(/%%/g,"\\0\\0"),s)n.includes(l)&&(n=n.replace(new RegExp(l,"g"),s[l](r)));return l=function(t){var e=Array(D(t)+1);return k(t,e,0,e.length),e}(n=n.replace(/\\0\\0/g,"%")),l.length>e?0:(S.set(l,t>>>0),l.length-1)}var bt={a:function(t){return gt(t+24)+24},m:function(t){return(t=new et(t)).Pb()||(t.Ib(!0),K--),t.Jb(!1),Q.push(t),t.Nb(),t.Qb()},ia:function(t){throw w("Unexpected exception thrown, this is not properly supported - aborting"),C=!0,t},w:function(){Ot(0);var t=Q.pop();if(t.Xb()&&!t.Lb()){var e=t.Wb();e&&at(e)(t.Db),nt(t.Db)}tt=0},d:function(){var t=tt;if(!t)return ft=0;var e=new et(t);e.Fb(t);var n=e.Eb();if(!n)return ft=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(Et(i,n,e.zb+16))return ft=i,t}return ft=n,t},k:function(){var t=tt;if(!t)return ft=0;var e=new et(t);e.Fb(t);var n=e.Eb();if(!n)return ft=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(Et(i,n,e.zb+16))return ft=i,t}return ft=n,t},g:function(){var t=tt;if(!t)return ft=0;var e=new et(t);e.Fb(t);var n=e.Eb();if(!n)return ft=0,t;for(var r=Array.prototype.slice.call(arguments),a=0;a<r.length;a++){var i=r[a];if(0===i||i===n)break;if(Et(i,n,e.zb+16))return ft=i,t}return ft=n,t},s:nt,L:function(){var t=Q.pop();t||V("no exception to throw");var e=t.Db;throw t.Lb()||(Q.push(t),t.Jb(!0),t.Ib(!1),K++),tt=e,e},b:function(t,e,n){throw new et(t).Rb(e,n),tt=t,K++,t},la:function(){return K},i:function(t){throw tt||(tt=t),t},H:function(){return 0},Ba:function(){},pa:function(){},ra:function(){},ka:function(){return 0},za:function(){},ua:function(){},ya:function(){},R:function(){},qa:function(){},na:function(){},Aa:function(){},oa:function(){},Ha:function(){},Ja:function(){V("To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking")},Ia:function(){V("To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking")},S:function(){return Date.now()},Ca:function(){return!0},Da:function(t,e){t=new Date(1e3*(M[t>>>2]+4294967296*E[t+4>>>2])),E[e>>2>>>0]=t.getUTCSeconds(),E[e+4>>2>>>0]=t.getUTCMinutes(),E[e+8>>2>>>0]=t.getUTCHours(),E[e+12>>2>>>0]=t.getUTCDate(),E[e+16>>2>>>0]=t.getUTCMonth(),E[e+20>>2>>>0]=t.getUTCFullYear()-1900,E[e+24>>2>>>0]=t.getUTCDay(),E[e+28>>2>>>0]=(t.getTime()-Date.UTC(t.getUTCFullYear(),0,1,0,0,0,0))/864e5|0},Ea:function(t,e){t=new Date(1e3*(M[t>>>2]+4294967296*E[t+4>>>2])),E[e>>2>>>0]=t.getSeconds(),E[e+4>>2>>>0]=t.getMinutes(),E[e+8>>2>>>0]=t.getHours(),E[e+12>>2>>>0]=t.getDate(),E[e+16>>2>>>0]=t.getMonth(),E[e+20>>2>>>0]=t.getFullYear()-1900,E[e+24>>2>>>0]=t.getDay();var n=new Date(t.getFullYear(),0,1);E[e+28>>2>>>0]=(t.getTime()-n.getTime())/864e5|0,E[e+36>>2>>>0]=-60*t.getTimezoneOffset();var r=new Date(t.getFullYear(),6,1).getTimezoneOffset();n=n.getTimezoneOffset(),E[e+32>>2>>>0]=0|(r!=n&&t.getTimezoneOffset()==Math.min(n,r))},Fa:function(t){var e=new Date(E[t+20>>2>>>0]+1900,E[t+16>>2>>>0],E[t+12>>2>>>0],E[t+8>>2>>>0],E[t+4>>2>>>0],E[t>>2>>>0],0),n=E[t+32>>2>>>0],r=e.getTimezoneOffset(),a=new Date(e.getFullYear(),0,1),i=new Date(e.getFullYear(),6,1).getTimezoneOffset(),o=a.getTimezoneOffset(),u=Math.min(o,i);return 0>n?E[t+32>>2>>>0]=Number(i!=o&&u==r):0<n!=(u==r)&&(i=Math.max(o,i),e.setTime(e.getTime()+6e4*((0<n?u:i)-r))),E[t+24>>2>>>0]=e.getDay(),E[t+28>>2>>>0]=(e.getTime()-a.getTime())/864e5|0,E[t>>2>>>0]=e.getSeconds(),E[t+4>>2>>>0]=e.getMinutes(),E[t+8>>2>>>0]=e.getHours(),E[t+12>>2>>>0]=e.getDate(),E[t+16>>2>>>0]=e.getMonth(),e.getTime()/1e3|0},sa:function(){return-52},ta:function(){},Ga:function t(e,n,r){t.Vb||(t.Vb=!0,function(t,e,n){function r(t){return(t=t.toTimeString().match(/\\(([A-Za-z ]+)\\)$/))?t[1]:"GMT"}var a=(new Date).getFullYear(),i=new Date(a,0,1),o=new Date(a,6,1);a=i.getTimezoneOffset();var u=o.getTimezoneOffset();E[t>>2>>>0]=60*Math.max(a,u),E[e>>2>>>0]=Number(a!=u),t=r(i),e=r(o),t=it(t),e=it(e),u<a?(M[n>>2>>>0]=t,M[n+4>>2>>>0]=e):(M[n>>2>>>0]=e,M[n+4>>2>>>0]=t)}(e,n,r))},B:function(){V("")},ma:function(){return 4294901760},I:b?()=>{var t=process.hrtime();return 1e3*t[0]+t[1]/1e6}:()=>performance.now(),xa:function(t,e,n){T.copyWithin(t>>>0,e>>>0,e+n>>>0)},G:function(t){var e=T.length;if(4294901760<(t>>>=0))return!1;for(var n=1;4>=n;n*=2){var r=e*(1+.2/n);r=Math.min(r,t+100663296);var a=Math;r=Math.max(t,r),a=a.min.call(a,4294901760,r+(65536-r%65536)%65536);t:{try{O.grow(a-A.byteLength+65535>>>16),P();var i=1;break t}catch(t){}i=void 0}if(i)return!0}return!1},va:function(t,e){var n=0;return ut().forEach((function(r,a){var i=e+n;for(a=M[t+4*a>>2>>>0]=i,i=0;i<r.length;++i)S[a++>>0>>>0]=r.charCodeAt(i);S[a>>0>>>0]=0,n+=r.length+1})),0},wa:function(t,e){var n=ut();M[t>>2>>>0]=n.length;var r=0;return n.forEach((function(t){r+=t.length+1})),M[e>>2>>>0]=r,0},ba:function(t){_||0<L||(_t(),Z(W),wt(0),st[1].length&&lt(1,10),st[2].length&&lt(2,10)),_||0<L||(e.onExit&&e.onExit(t),C=!0),h(t,new J(t))},E:function(){return 52},Q:function(){return 52},ca:function(){return 70},P:function(t,e,n,r){for(var a=0,i=0;i<n;i++){var o=M[e>>2>>>0],u=M[e+4>>2>>>0];e+=8;for(var c=0;c<u;c++)lt(t,T[o+c>>>0]);a+=u}return M[r>>2>>>0]=a,0},c:function(){return ft},ja:function t(e,r){t.Mb||(t.Mb=function(){if("object"==typeof crypto&&"function"==typeof crypto.getRandomValues){var t=new Uint8Array(1);return()=>(crypto.getRandomValues(t),t[0])}if(b)try{var e=n(Object(function(){var t=new Error("Cannot find module \'crypto\'");throw t.code="MODULE_NOT_FOUND",t}()));return()=>e.randomBytes(1)[0]}catch(t){}return()=>V("randomDevice")}());for(var a=0;a<r;a++)S[e+a>>0>>>0]=t.Mb();return 0},ea:function(t,e,n){var r=At();try{return at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},fa:function(t,e,n){var r=At();try{return at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},J:function(t){var e=At();try{return at(t)()}catch(t){if(St(e),t!==t+0)throw t;Ot(1,0)}},e:function(t,e){var n=At();try{return at(t)(e)}catch(t){if(St(n),t!==t+0)throw t;Ot(1,0)}},N:function(t,e,n){var r=At();try{return at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},O:function(t,e,n){var r=At();try{return at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},j:function(t,e,n){var r=At();try{return at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},o:function(t,e,n,r){var a=At();try{return at(t)(e,n,r)}catch(t){if(St(a),t!==t+0)throw t;Ot(1,0)}},p:function(t,e,n,r,a){var i=At();try{return at(t)(e,n,r,a)}catch(t){if(St(i),t!==t+0)throw t;Ot(1,0)}},M:function(t,e,n,r,a,i){var o=At();try{return at(t)(e,n,r,a,i)}catch(t){if(St(o),t!==t+0)throw t;Ot(1,0)}},r:function(t,e,n,r,a,i){var o=At();try{return at(t)(e,n,r,a,i)}catch(t){if(St(o),t!==t+0)throw t;Ot(1,0)}},v:function(t,e,n,r,a,i,o){var u=At();try{return at(t)(e,n,r,a,i,o)}catch(t){if(St(u),t!==t+0)throw t;Ot(1,0)}},K:function(t,e,n,r,a,i,o,u){var c=At();try{return at(t)(e,n,r,a,i,o,u)}catch(t){if(St(c),t!==t+0)throw t;Ot(1,0)}},D:function(t,e,n,r,a,i,o,u,c,s,l,f){var p=At();try{return at(t)(e,n,r,a,i,o,u,c,s,l,f)}catch(t){if(St(p),t!==t+0)throw t;Ot(1,0)}},X:function(t,e,n,r,a,i,o,u){var c=At();try{return Ft(t,e,n,r,a,i,o,u)}catch(t){if(St(c),t!==t+0)throw t;Ot(1,0)}},V:function(t,e,n,r,a,i,o){var u=At();try{return xt(t,e,n,r,a,i,o)}catch(t){if(St(u),t!==t+0)throw t;Ot(1,0)}},U:function(t,e,n,r,a){var i=At();try{return It(t,e,n,r,a)}catch(t){if(St(i),t!==t+0)throw t;Ot(1,0)}},Z:function(t,e,n,r){var a=At();try{return Pt(t,e,n,r)}catch(t){if(St(a),t!==t+0)throw t;Ot(1,0)}},W:function(t){var e=At();try{return Ct(t)}catch(t){if(St(e),t!==t+0)throw t;Ot(1,0)}},Y:function(t,e){var n=At();try{return Ut(t,e)}catch(t){if(St(n),t!==t+0)throw t;Ot(1,0)}},T:function(t,e,n){var r=At();try{return Rt(t,e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},f:function(t){var e=At();try{at(t)()}catch(t){if(St(e),t!==t+0)throw t;Ot(1,0)}},q:function(t,e){var n=At();try{at(t)(e)}catch(t){if(St(n),t!==t+0)throw t;Ot(1,0)}},h:function(t,e,n){var r=At();try{at(t)(e,n)}catch(t){if(St(r),t!==t+0)throw t;Ot(1,0)}},da:function(t,e,n,r){var a=At();try{at(t)(e,n,r)}catch(t){if(St(a),t!==t+0)throw t;Ot(1,0)}},l:function(t,e,n,r){var a=At();try{at(t)(e,n,r)}catch(t){if(St(a),t!==t+0)throw t;Ot(1,0)}},t:function(t,e,n,r,a){var i=At();try{at(t)(e,n,r,a)}catch(t){if(St(i),t!==t+0)throw t;Ot(1,0)}},u:function(t,e,n,r,a,i){var o=At();try{at(t)(e,n,r,a,i)}catch(t){if(St(o),t!==t+0)throw t;Ot(1,0)}},x:function(t,e,n,r,a,i,o){var u=At();try{at(t)(e,n,r,a,i,o)}catch(t){if(St(u),t!==t+0)throw t;Ot(1,0)}},z:function(t,e,n,r,a,i,o,u){var c=At();try{at(t)(e,n,r,a,i,o,u)}catch(t){if(St(c),t!==t+0)throw t;Ot(1,0)}},ga:function(t,e,n,r,a,i,o,u,c){var s=At();try{at(t)(e,n,r,a,i,o,u,c)}catch(t){if(St(s),t!==t+0)throw t;Ot(1,0)}},A:function(t,e,n,r,a,i,o,u,c,s,l){var f=At();try{at(t)(e,n,r,a,i,o,u,c,s,l)}catch(t){if(St(f),t!==t+0)throw t;Ot(1,0)}},C:function(t,e,n,r,a,i,o,u,c,s,l,f,p,h,d,y){var b=At();try{at(t)(e,n,r,a,i,o,u,c,s,l,f,p,h,d,y)}catch(t){if(St(b),t!==t+0)throw t;Ot(1,0)}},aa:function(t,e,n,r,a,i,o,u){var c=At();try{jt(t,e,n,r,a,i,o,u)}catch(t){if(St(c),t!==t+0)throw t;Ot(1,0)}},_:function(t,e,n,r,a,i,o,u,c,s,l,f){var p=At();try{Dt(t,e,n,r,a,i,o,u,c,s,l,f)}catch(t){if(St(p),t!==t+0)throw t;Ot(1,0)}},$:function(t,e,n,r,a,i){var o=At();try{kt(t,e,n,r,a,i)}catch(t){if(St(o),t!==t+0)throw t;Ot(1,0)}},n:function(t){return t},F:function(t){ft=t},ha:yt,y:function(t,e,n,r){return yt(t,e,n,r)}};!function(){function t(t){e.asm=t.exports,O=e.asm.Ka,P(),U=e.asm.ib,I.unshift(e.asm.La),B--,e.monitorRunDependencies&&e.monitorRunDependencies(B),0==B&&(null!==G&&(clearInterval(G),G=null),N&&(t=N,N=null,t()))}function n(e){t(e.instance)}function r(t){return function(){if(!g&&(d||y)){if("function"==typeof fetch&&!Y.startsWith("file://"))return fetch(Y,{credentials:"same-origin"}).then((function(t){if(!t.ok)throw"failed to load wasm binary file at \'"+Y+"\'";return t.arrayBuffer()})).catch((function(){return X()}));if(o)return new Promise((function(t,e){o(Y,(function(e){t(new Uint8Array(e))}),e)}))}return Promise.resolve().then((function(){return X()}))}().then((function(t){return WebAssembly.instantiate(t,i)})).then((function(t){return t})).then(t,(function(t){w("failed to asynchronously prepare wasm: "+t),V(t)}))}var i={a:bt};if(B++,e.monitorRunDependencies&&e.monitorRunDependencies(B),e.instantiateWasm)try{return e.instantiateWasm(i,t)}catch(t){return w("Module.instantiateWasm callback failed with error: "+t),!1}(g||"function"!=typeof WebAssembly.instantiateStreaming||$()||Y.startsWith("file://")||b||"function"!=typeof fetch?r(n):fetch(Y,{credentials:"same-origin"}).then((function(t){return WebAssembly.instantiateStreaming(t,i).then(n,(function(t){return w("wasm streaming compile failed: "+t),w("falling back to ArrayBuffer instantiation"),r(n)}))}))).catch(a)}(),e.___wasm_call_ctors=function(){return(e.___wasm_call_ctors=e.asm.La).apply(null,arguments)},e._OrtInit=function(){return(e._OrtInit=e.asm.Ma).apply(null,arguments)},e._OrtCreateSessionOptions=function(){return(e._OrtCreateSessionOptions=e.asm.Na).apply(null,arguments)},e._OrtAppendExecutionProvider=function(){return(e._OrtAppendExecutionProvider=e.asm.Oa).apply(null,arguments)},e._OrtAddSessionConfigEntry=function(){return(e._OrtAddSessionConfigEntry=e.asm.Pa).apply(null,arguments)},e._OrtReleaseSessionOptions=function(){return(e._OrtReleaseSessionOptions=e.asm.Qa).apply(null,arguments)},e._OrtCreateSession=function(){return(e._OrtCreateSession=e.asm.Ra).apply(null,arguments)},e._OrtReleaseSession=function(){return(e._OrtReleaseSession=e.asm.Sa).apply(null,arguments)},e._OrtGetInputCount=function(){return(e._OrtGetInputCount=e.asm.Ta).apply(null,arguments)},e._OrtGetOutputCount=function(){return(e._OrtGetOutputCount=e.asm.Ua).apply(null,arguments)},e._OrtGetInputName=function(){return(e._OrtGetInputName=e.asm.Va).apply(null,arguments)},e._OrtGetOutputName=function(){return(e._OrtGetOutputName=e.asm.Wa).apply(null,arguments)},e._OrtFree=function(){return(e._OrtFree=e.asm.Xa).apply(null,arguments)},e._OrtCreateTensor=function(){return(e._OrtCreateTensor=e.asm.Ya).apply(null,arguments)},e._OrtGetTensorData=function(){return(e._OrtGetTensorData=e.asm.Za).apply(null,arguments)},e._OrtReleaseTensor=function(){return(e._OrtReleaseTensor=e.asm._a).apply(null,arguments)},e._OrtCreateRunOptions=function(){return(e._OrtCreateRunOptions=e.asm.$a).apply(null,arguments)},e._OrtAddRunConfigEntry=function(){return(e._OrtAddRunConfigEntry=e.asm.ab).apply(null,arguments)},e._OrtReleaseRunOptions=function(){return(e._OrtReleaseRunOptions=e.asm.bb).apply(null,arguments)},e._OrtRun=function(){return(e._OrtRun=e.asm.cb).apply(null,arguments)},e._OrtEndProfiling=function(){return(e._OrtEndProfiling=e.asm.db).apply(null,arguments)};var mt,gt=e._malloc=function(){return(gt=e._malloc=e.asm.eb).apply(null,arguments)},vt=e._free=function(){return(vt=e._free=e.asm.fb).apply(null,arguments)},wt=e._fflush=function(){return(wt=e._fflush=e.asm.gb).apply(null,arguments)},_t=e.___funcs_on_exit=function(){return(_t=e.___funcs_on_exit=e.asm.hb).apply(null,arguments)},Ot=e._setThrew=function(){return(Ot=e._setThrew=e.asm.jb).apply(null,arguments)},At=e.stackSave=function(){return(At=e.stackSave=e.asm.kb).apply(null,arguments)},St=e.stackRestore=function(){return(St=e.stackRestore=e.asm.lb).apply(null,arguments)},Tt=e.stackAlloc=function(){return(Tt=e.stackAlloc=e.asm.mb).apply(null,arguments)},Et=e.___cxa_can_catch=function(){return(Et=e.___cxa_can_catch=e.asm.nb).apply(null,arguments)},Mt=e.___cxa_is_pointer_type=function(){return(Mt=e.___cxa_is_pointer_type=e.asm.ob).apply(null,arguments)},Ct=e.dynCall_j=function(){return(Ct=e.dynCall_j=e.asm.pb).apply(null,arguments)},xt=e.dynCall_iiiiij=function(){return(xt=e.dynCall_iiiiij=e.asm.qb).apply(null,arguments)},Rt=e.dynCall_jii=function(){return(Rt=e.dynCall_jii=e.asm.rb).apply(null,arguments)},jt=e.dynCall_viiiiij=function(){return(jt=e.dynCall_viiiiij=e.asm.sb).apply(null,arguments)},kt=e.dynCall_vjji=function(){return(kt=e.dynCall_vjji=e.asm.tb).apply(null,arguments)},Dt=e.dynCall_viiijjjii=function(){return(Dt=e.dynCall_viiijjjii=e.asm.ub).apply(null,arguments)},Pt=e.dynCall_iij=function(){return(Pt=e.dynCall_iij=e.asm.vb).apply(null,arguments)},Ut=e.dynCall_ji=function(){return(Ut=e.dynCall_ji=e.asm.wb).apply(null,arguments)},Ft=e.dynCall_iiiiiij=function(){return(Ft=e.dynCall_iiiiiij=e.asm.xb).apply(null,arguments)},It=e.dynCall_iiij=function(){return(It=e.dynCall_iiij=e.asm.yb).apply(null,arguments)};function Wt(){function t(){if(!mt&&(mt=!0,e.calledRun=!0,!C)){if(Z(I),r(e),e.onRuntimeInitialized&&e.onRuntimeInitialized(),e.postRun)for("function"==typeof e.postRun&&(e.postRun=[e.postRun]);e.postRun.length;){var t=e.postRun.shift();H.unshift(t)}Z(H)}}if(!(0<B)){if(e.preRun)for("function"==typeof e.preRun&&(e.preRun=[e.preRun]);e.preRun.length;)z();Z(F),0<B||(e.setStatus?(e.setStatus("Running..."),setTimeout((function(){setTimeout((function(){e.setStatus("")}),1),t()}),1)):t())}}if(e.UTF8ToString=j,e.stringToUTF8=function(t,e,n){return k(t,T,e,n)},e.lengthBytesUTF8=D,e.stackSave=At,e.stackRestore=St,e.stackAlloc=Tt,N=function t(){mt||Wt(),mt||(N=t)},e.preInit)for("function"==typeof e.preInit&&(e.preInit=[e.preInit]);0<e.preInit.length;)e.preInit.pop()();return Wt(),t.ready});t.exports=r},967:(t,e)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.iterateExtraOptions=void 0,e.iterateExtraOptions=(t,n,r,a)=>{if("object"==typeof t&&null!==t){if(r.has(t))throw new Error("Circular reference in options");r.add(t)}Object.entries(t).forEach((([t,i])=>{const o=n?n+t:t;if("object"==typeof i)(0,e.iterateExtraOptions)(i,o+".",r,a);else if("string"==typeof i||"number"==typeof i)a(o,i.toString());else{if("boolean"!=typeof i)throw new Error("Can\'t handle extra config type: "+typeof i);a(o,i?"1":"0")}}))}},586:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.setRunOptions=void 0;const r=n(967),a=n(983),i=n(361);e.setRunOptions=t=>{const e=(0,i.getInstance)();let n=0;const o=[],u=t||{};try{if(void 0===(null==t?void 0:t.logSeverityLevel))u.logSeverityLevel=2;else if("number"!=typeof t.logSeverityLevel||!Number.isInteger(t.logSeverityLevel)||t.logSeverityLevel<0||t.logSeverityLevel>4)throw new Error(`log serverity level is not valid: ${t.logSeverityLevel}`);if(void 0===(null==t?void 0:t.logVerbosityLevel))u.logVerbosityLevel=0;else if("number"!=typeof t.logVerbosityLevel||!Number.isInteger(t.logVerbosityLevel))throw new Error(`log verbosity level is not valid: ${t.logVerbosityLevel}`);void 0===(null==t?void 0:t.terminate)&&(u.terminate=!1);let i=0;if(void 0!==(null==t?void 0:t.tag)&&(i=(0,a.allocWasmString)(t.tag,o)),n=e._OrtCreateRunOptions(u.logSeverityLevel,u.logVerbosityLevel,!!u.terminate,i),0===n)throw new Error("Can\'t create run options");return void 0!==(null==t?void 0:t.extra)&&(0,r.iterateExtraOptions)(t.extra,"",new WeakSet,((t,r)=>{const i=(0,a.allocWasmString)(t,o),u=(0,a.allocWasmString)(r,o);if(0!==e._OrtAddRunConfigEntry(n,i,u))throw new Error(`Can\'t set a run config entry: ${t} - ${r}`)})),[n,o]}catch(t){throw 0!==n&&e._OrtReleaseRunOptions(n),o.forEach(e._free),t}}},919:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.setSessionOptions=void 0;const r=n(967),a=n(983),i=n(361);e.setSessionOptions=t=>{const e=(0,i.getInstance)();let n=0;const o=[],u=t||{};(t=>{t.extra||(t.extra={}),t.extra.session||(t.extra.session={});const e=t.extra.session;e.use_ort_model_bytes_directly||(e.use_ort_model_bytes_directly="1")})(u);try{void 0===(null==t?void 0:t.graphOptimizationLevel)&&(u.graphOptimizationLevel="all");const c=(t=>{switch(t){case"disabled":return 0;case"basic":return 1;case"extended":return 2;case"all":return 99;default:throw new Error(`unsupported graph optimization level: ${t}`)}})(u.graphOptimizationLevel);void 0===(null==t?void 0:t.enableCpuMemArena)&&(u.enableCpuMemArena=!0),void 0===(null==t?void 0:t.enableMemPattern)&&(u.enableMemPattern=!0),void 0===(null==t?void 0:t.executionMode)&&(u.executionMode="sequential");const s=(t=>{switch(t){case"sequential":return 0;case"parallel":return 1;default:throw new Error(`unsupported execution mode: ${t}`)}})(u.executionMode);let l=0;if(void 0!==(null==t?void 0:t.logId)&&(l=(0,a.allocWasmString)(t.logId,o)),void 0===(null==t?void 0:t.logSeverityLevel))u.logSeverityLevel=2;else if("number"!=typeof t.logSeverityLevel||!Number.isInteger(t.logSeverityLevel)||t.logSeverityLevel<0||t.logSeverityLevel>4)throw new Error(`log serverity level is not valid: ${t.logSeverityLevel}`);if(void 0===(null==t?void 0:t.logVerbosityLevel))u.logVerbosityLevel=0;else if("number"!=typeof t.logVerbosityLevel||!Number.isInteger(t.logVerbosityLevel))throw new Error(`log verbosity level is not valid: ${t.logVerbosityLevel}`);if(void 0===(null==t?void 0:t.enableProfiling)&&(u.enableProfiling=!1),n=e._OrtCreateSessionOptions(c,!!u.enableCpuMemArena,!!u.enableMemPattern,s,!!u.enableProfiling,0,l,u.logSeverityLevel,u.logVerbosityLevel),0===n)throw new Error("Can\'t create session options");return(null==t?void 0:t.executionProviders)&&((t,e,n)=>{for(const r of e){let e="string"==typeof r?r:r.name;switch(e){case"xnnpack":e="XNNPACK";break;case"wasm":case"cpu":continue;default:throw new Error(`not supported EP: ${e}`)}const o=(0,a.allocWasmString)(e,n);if(0!==(0,i.getInstance)()._OrtAppendExecutionProvider(t,o))throw new Error(`Can\'t append execution provider: ${e}`)}})(n,t.executionProviders,o),void 0!==(null==t?void 0:t.extra)&&(0,r.iterateExtraOptions)(t.extra,"",new WeakSet,((t,r)=>{const i=(0,a.allocWasmString)(t,o),u=(0,a.allocWasmString)(r,o);if(0!==e._OrtAddSessionConfigEntry(n,i,u))throw new Error(`Can\'t set a session config entry: ${t} - ${r}`)})),[n,o]}catch(t){throw 0!==n&&e._OrtReleaseSessionOptions(n),o.forEach(e._free),t}}},983:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.allocWasmString=void 0;const r=n(361);e.allocWasmString=(t,e)=>{const n=(0,r.getInstance)(),a=n.lengthBytesUTF8(t)+1,i=n._malloc(a);return n.stringToUTF8(t,i,a),e.push(i),i}},349:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.extractTransferableBuffers=e.endProfiling=e.run=e.releaseSession=e.createSession=e.createSessionFinalize=e.createSessionAllocate=e.initOrt=void 0;const r=n(586),a=n(919),i=n(983),o=n(361);e.initOrt=(t,e)=>{const n=(0,o.getInstance)()._OrtInit(t,e);if(0!==n)throw new Error(`Can\'t initialize onnxruntime. error code = ${n}`)};const u=new Map;e.createSessionAllocate=t=>{const e=(0,o.getInstance)(),n=e._malloc(t.byteLength);return e.HEAPU8.set(t,n),[n,t.byteLength]},e.createSessionFinalize=(t,e)=>{const n=(0,o.getInstance)();let r=0,i=0,c=[];try{if([i,c]=(0,a.setSessionOptions)(e),r=n._OrtCreateSession(t[0],t[1],i),0===r)throw new Error("Can\'t create a session")}finally{n._free(t[0]),n._OrtReleaseSessionOptions(i),c.forEach(n._free)}const s=n._OrtGetInputCount(r),l=n._OrtGetOutputCount(r),f=[],p=[],h=[],d=[];for(let t=0;t<s;t++){const e=n._OrtGetInputName(r,t);if(0===e)throw new Error("Can\'t get an input name");p.push(e),f.push(n.UTF8ToString(e))}for(let t=0;t<l;t++){const e=n._OrtGetOutputName(r,t);if(0===e)throw new Error("Can\'t get an output name");d.push(e),h.push(n.UTF8ToString(e))}return u.set(r,[r,p,d]),[r,f,h]},e.createSession=(t,n)=>{const r=(0,e.createSessionAllocate)(t);return(0,e.createSessionFinalize)(r,n)},e.releaseSession=t=>{const e=(0,o.getInstance)(),n=u.get(t);if(!n)throw new Error("invalid session id");const r=n[0],a=n[1],i=n[2];a.forEach(e._OrtFree),i.forEach(e._OrtFree),e._OrtReleaseSession(r),u.delete(t)};const c=t=>{switch(t){case"int8":return 3;case"uint8":return 2;case"bool":return 9;case"int16":return 5;case"uint16":return 4;case"int32":return 6;case"uint32":return 12;case"float32":return 1;case"float64":return 11;case"string":return 8;case"int64":return 7;case"uint64":return 13;default:throw new Error(`unsupported data type: ${t}`)}},s=t=>{switch(t){case 3:return"int8";case 2:return"uint8";case 9:return"bool";case 5:return"int16";case 4:return"uint16";case 6:return"int32";case 12:return"uint32";case 1:return"float32";case 11:return"float64";case 8:return"string";case 7:return"int64";case 13:return"uint64";default:throw new Error(`unsupported data type: ${t}`)}},l=t=>{switch(t){case"float32":return Float32Array;case"uint8":case"bool":return Uint8Array;case"int8":return Int8Array;case"uint16":return Uint16Array;case"int16":return Int16Array;case"int32":return Int32Array;case"float64":return Float64Array;case"uint32":return Uint32Array;case"int64":return BigInt64Array;case"uint64":return BigUint64Array;default:throw new Error(`unsupported type: ${t}`)}};e.run=(t,e,n,a,f)=>{const p=(0,o.getInstance)(),h=u.get(t);if(!h)throw new Error("invalid session id");const d=h[0],y=h[1],b=h[2],m=e.length,g=a.length;let v=0,w=[];const _=[],O=[];try{[v,w]=(0,r.setRunOptions)(f);for(let t=0;t<m;t++){const e=n[t][0],r=n[t][1],a=n[t][2];let o,u;if(Array.isArray(a)){u=4*a.length,o=p._malloc(u),O.push(o);let t=o/4;for(let e=0;e<a.length;e++){if("string"!=typeof a[e])throw new TypeError(`tensor data at index ${e} is not a string`);p.HEAPU32[t++]=(0,i.allocWasmString)(a[e],O)}}else u=a.byteLength,o=p._malloc(u),O.push(o),p.HEAPU8.set(new Uint8Array(a.buffer,a.byteOffset,u),o);const s=p.stackSave(),l=p.stackAlloc(4*r.length);try{let t=l/4;r.forEach((e=>p.HEAP32[t++]=e));const n=p._OrtCreateTensor(c(e),o,u,l,r.length);if(0===n)throw new Error("Can\'t create a tensor");_.push(n)}finally{p.stackRestore(s)}}const t=p.stackSave(),o=p.stackAlloc(4*m),u=p.stackAlloc(4*m),h=p.stackAlloc(4*g),A=p.stackAlloc(4*g);try{let n=o/4,r=u/4,i=h/4,c=A/4;for(let t=0;t<m;t++)p.HEAPU32[n++]=_[t],p.HEAPU32[r++]=y[e[t]];for(let t=0;t<g;t++)p.HEAPU32[i++]=0,p.HEAPU32[c++]=b[a[t]];let f=p._OrtRun(d,u,o,m,A,g,h,v);const w=[];if(0===f)for(let t=0;t<g;t++){const e=p.HEAPU32[h/4+t],n=p.stackSave(),r=p.stackAlloc(16);let a,i=0;try{if(f=p._OrtGetTensorData(e,r,r+4,r+8,r+12),0!==f)throw new Error(`Can\'t access output tensor data. error code = ${f}`);let t=r/4;const o=p.HEAPU32[t++];i=p.HEAPU32[t++];const u=p.HEAPU32[t++],c=p.HEAPU32[t++],h=[];for(let t=0;t<c;t++)h.push(p.HEAPU32[u/4+t]);p._OrtFree(u);const d=0===h.length?1:h.reduce(((t,e)=>t*e));if(a=s(o),"string"===a){const t=[];let e=i/4;for(let n=0;n<d;n++){const r=p.HEAPU32[e++],a=n===d-1?void 0:p.HEAPU32[e]-r;t.push(p.UTF8ToString(r,a))}w.push([a,h,t])}else{const t=new(l(a))(d);new Uint8Array(t.buffer,t.byteOffset,t.byteLength).set(p.HEAPU8.subarray(i,i+t.byteLength)),w.push([a,h,t])}}finally{p.stackRestore(n),"string"===a&&i&&p._free(i),p._OrtReleaseTensor(e)}}if(0===f)return w;throw new Error(`failed to call OrtRun(). error code = ${f}.`)}finally{p.stackRestore(t)}}finally{_.forEach(p._OrtReleaseTensor),O.forEach(p._free),p._OrtReleaseRunOptions(v),w.forEach(p._free)}},e.endProfiling=t=>{const e=(0,o.getInstance)(),n=u.get(t);if(!n)throw new Error("invalid session id");const r=n[0],a=e._OrtEndProfiling(r);if(0===a)throw new Error("Can\'t get an profile file name");e._OrtFree(a)},e.extractTransferableBuffers=t=>{const e=[];for(const n of t){const t=n[2];!Array.isArray(t)&&t.buffer&&e.push(t.buffer)}return e}},361:function(t,e,n){"use strict";var r=this&&this.__createBinding||(Object.create?function(t,e,n,r){void 0===r&&(r=n);var a=Object.getOwnPropertyDescriptor(e,n);a&&!("get"in a?!e.__esModule:a.writable||a.configurable)||(a={enumerable:!0,get:function(){return e[n]}}),Object.defineProperty(t,r,a)}:function(t,e,n,r){void 0===r&&(r=n),t[r]=e[n]}),a=this&&this.__setModuleDefault||(Object.create?function(t,e){Object.defineProperty(t,"default",{enumerable:!0,value:e})}:function(t,e){t.default=e}),i=this&&this.__importStar||function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)"default"!==n&&Object.prototype.hasOwnProperty.call(t,n)&&r(e,t,n);return a(e,t),e},o=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.dispose=e.getInstance=e.initializeWebAssembly=void 0;const u=i(n(449)),c=o(n(932)),s=n(474);let l,f=!1,p=!1,h=!1;const d=(t,e)=>e?t?"ort-wasm-simd-threaded.wasm":"ort-wasm-threaded.wasm":t?"ort-wasm-simd.wasm":"ort-wasm.wasm";e.initializeWebAssembly=async t=>{if(f)return Promise.resolve();if(p)throw new Error("multiple calls to \'initializeWebAssembly()\' detected.");if(h)throw new Error("previous call to \'initializeWebAssembly()\' failed.");p=!0;const e=t.initTimeout,r=t.numThreads,a=t.simd,i=r>1&&(()=>{try{return"undefined"!=typeof SharedArrayBuffer&&("undefined"!=typeof MessageChannel&&(new MessageChannel).port1.postMessage(new SharedArrayBuffer(1)),WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,1,4,1,96,0,0,3,2,1,0,5,4,1,3,1,1,10,11,1,9,0,65,0,254,16,2,0,26,11])))}catch(t){return!1}})(),o=a&&(()=>{try{return WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,1,4,1,96,0,0,3,2,1,0,10,30,1,28,0,65,0,253,15,253,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,253,186,1,26,11]))}catch(t){return!1}})(),y="string"==typeof t.wasmPaths?t.wasmPaths:void 0,b=d(!1,i),m=d(o,i),g="object"==typeof t.wasmPaths?t.wasmPaths[m]:void 0;let v=!1;const w=[];if(e>0&&w.push(new Promise((t=>{setTimeout((()=>{v=!0,t()}),e)}))),w.push(new Promise(((t,e)=>{const r=i?s:c.default,a={locateFile:(t,e)=>i&&t.endsWith(".worker.js")&&"undefined"!=typeof Blob?URL.createObjectURL(new Blob([n(154)],{type:"text/javascript"})):t===b?null!=g?g:(null!=y?y:e)+m:e+t};if(i)if("undefined"==typeof Blob)a.mainScriptUrlOrBlob=u.join("/","ort-wasm-threaded.js");else{const t=`var ortWasmThreaded=(function(){var _scriptDir;return ${r.toString()}})();`;a.mainScriptUrlOrBlob=new Blob([t],{type:"text/javascript"})}r(a).then((e=>{p=!1,f=!0,l=e,t()}),(t=>{p=!1,h=!0,e(t)}))}))),await Promise.race(w),v)throw new Error(`WebAssembly backend initializing failed due to timeout: ${e}ms`)},e.getInstance=()=>{if(f&&l)return l;throw new Error("WebAssembly is not initialized yet.")},e.dispose=()=>{var t;!f||p||h||(p=!0,null===(t=l.PThread)||void 0===t||t.terminateAllThreads(),l=void 0,p=!1,f=!1,h=!0)}},154:t=>{"use strict";t.exports=\'"use strict";var e={},t="object"==typeof process&&"object"==typeof process.versions&&"string"==typeof process.versions.node;if(t){var r=require("worker_threads"),a=r.parentPort;a.on("message",(e=>onmessage({data:e})));var o=require("fs");Object.assign(global,{self:global,require:require,Module:e,location:{href:__filename},Worker:r.Worker,importScripts:function(e){(0,eval)(o.readFileSync(e,"utf8"))},postMessage:function(e){a.postMessage(e)},performance:global.performance||{now:function(){return Date.now()}}})}var s=!1,n=[],i=function(){var e=Array.prototype.slice.call(arguments).join(" ");t?o.writeSync(2,e+"\\\\n"):console.error(e)};self.alert=function(){var t=Array.prototype.slice.call(arguments).join(" ");postMessage({cmd:"alert",text:t,threadId:e._pthread_self()})},e.instantiateWasm=(t,r)=>{var a=new WebAssembly.Instance(e.wasmModule,t);return r(a),e.wasmModule=null,a.exports},self.onunhandledrejection=e=>{throw e.reason??e},self.onmessage=t=>{try{if("load"===t.data.cmd){if(e.wasmModule=t.data.wasmModule,e.wasmMemory=t.data.wasmMemory,e.buffer=e.wasmMemory.buffer,e.ENVIRONMENT_IS_PTHREAD=!0,"string"==typeof t.data.urlOrBlob)importScripts(t.data.urlOrBlob);else{var r=URL.createObjectURL(t.data.urlOrBlob);importScripts(r),URL.revokeObjectURL(r)}ortWasmThreaded(e).then((function(t){e=t}))}else if("run"===t.data.cmd){e.__performance_now_clock_drift=performance.now()-t.data.time,e.__emscripten_thread_init(t.data.pthread_ptr,0,0,1),e.establishStackSpace(),e.PThread.receiveObjectTransfer(t.data),e.PThread.threadInitTLS(),s||(n.forEach((t=>{e.executeNotifiedProxyingQueue(t)})),n=[],s=!0);try{e.invokeEntryPoint(t.data.start_routine,t.data.arg)}catch(t){if("unwind"!=t){if(!(t instanceof e.ExitStatus))throw t;e.keepRuntimeAlive()||e.__emscripten_thread_exit(t.status)}}}else"cancel"===t.data.cmd?e._pthread_self()&&e.__emscripten_thread_exit(-1):"setimmediate"===t.data.target||("processProxyingQueue"===t.data.cmd?s?e.executeNotifiedProxyingQueue(t.data.queue):n.push(t.data.queue):(i("worker.js received unknown command "+t.data.cmd),i(t.data)))}catch(t){throw i("worker.js onmessage() captured an uncaught exception: "+t),t&&t.stack&&i(t.stack),e.__emscripten_thread_crashed&&e.__emscripten_thread_crashed(),t}};\\n\'},384:()=>{},993:()=>{},908:()=>{},953:()=>{},925:()=>{},449:()=>{}},e={};function n(r){var a=e[r];if(void 0!==a)return a.exports;var i=e[r]={exports:{}};return t[r].call(i.exports,i,i.exports,n),i.exports}n.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"==typeof window)return window}}(),(()=>{"use strict";const t=n(349),e=n(361);self.onmessage=n=>{switch(n.data.type){case"init-wasm":(0,e.initializeWebAssembly)(n.data.in).then((()=>postMessage({type:"init-wasm"})),(t=>postMessage({type:"init-wasm",err:t})));break;case"init-ort":try{const{numThreads:e,loggingLevel:r}=n.data.in;(0,t.initOrt)(e,r),postMessage({type:"init-ort"})}catch(t){postMessage({type:"init-ort",err:t})}break;case"create_allocate":try{const{model:e}=n.data.in,r=(0,t.createSessionAllocate)(e);postMessage({type:"create_allocate",out:r})}catch(t){postMessage({type:"create_allocate",err:t})}break;case"create_finalize":try{const{modeldata:e,options:r}=n.data.in,a=(0,t.createSessionFinalize)(e,r);postMessage({type:"create_finalize",out:a})}catch(t){postMessage({type:"create_finalize",err:t})}break;case"create":try{const{model:e,options:r}=n.data.in,a=(0,t.createSession)(e,r);postMessage({type:"create",out:a})}catch(t){postMessage({type:"create",err:t})}break;case"release":try{const e=n.data.in;(0,t.releaseSession)(e),postMessage({type:"release"})}catch(t){postMessage({type:"release",err:t})}break;case"run":try{const{sessionId:e,inputIndices:r,inputs:a,outputIndices:i,options:o}=n.data.in,u=(0,t.run)(e,r,a,i,o);postMessage({type:"run",out:u},(0,t.extractTransferableBuffers)(u))}catch(t){postMessage({type:"run",err:t})}break;case"end-profiling":try{const e=n.data.in;(0,t.endProfiling)(e),postMessage({type:"end-profiling"})}catch(t){postMessage({type:"end-profiling",err:t})}}}})()})();\n', "Worker", void 0, void 0);
         }
       }, 477: (d) => {
         d.exports = function(n, o, u, l) {
-          var f = self || window;
+          var h = self || window;
           try {
             try {
               var a;
               try {
-                a = new f.Blob([n]);
+                a = new h.Blob([n]);
               } catch {
-                (a = new (f.BlobBuilder || f.WebKitBlobBuilder || f.MozBlobBuilder || f.MSBlobBuilder)()).append(n), a = a.getBlob();
+                (a = new (h.BlobBuilder || h.WebKitBlobBuilder || h.MozBlobBuilder || h.MSBlobBuilder)()).append(n), a = a.getBlob();
               }
-              var h = f.URL || f.webkitURL, g = h.createObjectURL(a), c = new f[o](g, u);
-              return h.revokeObjectURL(g), c;
+              var f = h.URL || h.webkitURL, g = f.createObjectURL(a), c = new h[o](g, u);
+              return f.revokeObjectURL(g), c;
             } catch {
-              return new f[o]("data:application/javascript,".concat(encodeURIComponent(n)), u);
+              return new h[o]("data:application/javascript,".concat(encodeURIComponent(n)), u);
             }
           } catch {
             if (!l) throw Error("Inline worker is not supported");
-            return new f[o](l, u);
+            return new h[o](l, u);
           }
         };
       }, 4154: (d) => {
@@ -13232,18 +13206,18 @@ ${s}`);
       }, 5686: (d, n, o) => {
         o.r(n), o.d(n, { flatbuffers: () => u });
         var u = {};
-        u.Offset, u.Table, u.SIZEOF_SHORT = 2, u.SIZEOF_INT = 4, u.FILE_IDENTIFIER_LENGTH = 4, u.SIZE_PREFIX_LENGTH = 4, u.Encoding = { UTF8_BYTES: 1, UTF16_STRING: 2 }, u.int32 = new Int32Array(2), u.float32 = new Float32Array(u.int32.buffer), u.float64 = new Float64Array(u.int32.buffer), u.isLittleEndian = new Uint16Array(new Uint8Array([1, 0]).buffer)[0] === 1, u.Long = function(l, f) {
-          this.low = 0 | l, this.high = 0 | f;
-        }, u.Long.create = function(l, f) {
-          return l == 0 && f == 0 ? u.Long.ZERO : new u.Long(l, f);
+        u.Offset, u.Table, u.SIZEOF_SHORT = 2, u.SIZEOF_INT = 4, u.FILE_IDENTIFIER_LENGTH = 4, u.SIZE_PREFIX_LENGTH = 4, u.Encoding = { UTF8_BYTES: 1, UTF16_STRING: 2 }, u.int32 = new Int32Array(2), u.float32 = new Float32Array(u.int32.buffer), u.float64 = new Float64Array(u.int32.buffer), u.isLittleEndian = new Uint16Array(new Uint8Array([1, 0]).buffer)[0] === 1, u.Long = function(l, h) {
+          this.low = 0 | l, this.high = 0 | h;
+        }, u.Long.create = function(l, h) {
+          return l == 0 && h == 0 ? u.Long.ZERO : new u.Long(l, h);
         }, u.Long.prototype.toFloat64 = function() {
           return (this.low >>> 0) + 4294967296 * this.high;
         }, u.Long.prototype.equals = function(l) {
           return this.low == l.low && this.high == l.high;
         }, u.Long.ZERO = new u.Long(0, 0), u.Builder = function(l) {
-          if (l) f = l;
-          else var f = 1024;
-          this.bb = u.ByteBuffer.allocate(f), this.space = f, this.minalign = 1, this.vtable = null, this.vtable_in_use = 0, this.isNested = !1, this.object_start = 0, this.vtables = [], this.vector_num_elems = 0, this.force_defaults = !1;
+          if (l) h = l;
+          else var h = 1024;
+          this.bb = u.ByteBuffer.allocate(h), this.space = h, this.minalign = 1, this.vtable = null, this.vtable_in_use = 0, this.isNested = !1, this.object_start = 0, this.vtables = [], this.vector_num_elems = 0, this.force_defaults = !1;
         }, u.Builder.prototype.clear = function() {
           this.bb.clear(), this.space = this.bb.capacity(), this.minalign = 1, this.vtable = null, this.vtable_in_use = 0, this.isNested = !1, this.object_start = 0, this.vtables = [], this.vector_num_elems = 0, this.force_defaults = !1;
         }, u.Builder.prototype.forceDefaults = function(l) {
@@ -13252,15 +13226,15 @@ ${s}`);
           return this.bb;
         }, u.Builder.prototype.asUint8Array = function() {
           return this.bb.bytes().subarray(this.bb.position(), this.bb.position() + this.offset());
-        }, u.Builder.prototype.prep = function(l, f) {
+        }, u.Builder.prototype.prep = function(l, h) {
           l > this.minalign && (this.minalign = l);
-          for (var a = 1 + ~(this.bb.capacity() - this.space + f) & l - 1; this.space < a + l + f; ) {
-            var h = this.bb.capacity();
-            this.bb = u.Builder.growByteBuffer(this.bb), this.space += this.bb.capacity() - h;
+          for (var a = 1 + ~(this.bb.capacity() - this.space + h) & l - 1; this.space < a + l + h; ) {
+            var f = this.bb.capacity();
+            this.bb = u.Builder.growByteBuffer(this.bb), this.space += this.bb.capacity() - f;
           }
           this.pad(a);
         }, u.Builder.prototype.pad = function(l) {
-          for (var f = 0; f < l; f++) this.bb.writeInt8(--this.space, 0);
+          for (var h = 0; h < l; h++) this.bb.writeInt8(--this.space, 0);
         }, u.Builder.prototype.writeInt8 = function(l) {
           this.bb.writeInt8(this.space -= 1, l);
         }, u.Builder.prototype.writeInt16 = function(l) {
@@ -13285,22 +13259,22 @@ ${s}`);
           this.prep(4, 0), this.writeFloat32(l);
         }, u.Builder.prototype.addFloat64 = function(l) {
           this.prep(8, 0), this.writeFloat64(l);
-        }, u.Builder.prototype.addFieldInt8 = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addInt8(f), this.slot(l));
-        }, u.Builder.prototype.addFieldInt16 = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addInt16(f), this.slot(l));
-        }, u.Builder.prototype.addFieldInt32 = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addInt32(f), this.slot(l));
-        }, u.Builder.prototype.addFieldInt64 = function(l, f, a) {
-          !this.force_defaults && f.equals(a) || (this.addInt64(f), this.slot(l));
-        }, u.Builder.prototype.addFieldFloat32 = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addFloat32(f), this.slot(l));
-        }, u.Builder.prototype.addFieldFloat64 = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addFloat64(f), this.slot(l));
-        }, u.Builder.prototype.addFieldOffset = function(l, f, a) {
-          (this.force_defaults || f != a) && (this.addOffset(f), this.slot(l));
-        }, u.Builder.prototype.addFieldStruct = function(l, f, a) {
-          f != a && (this.nested(f), this.slot(l));
+        }, u.Builder.prototype.addFieldInt8 = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addInt8(h), this.slot(l));
+        }, u.Builder.prototype.addFieldInt16 = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addInt16(h), this.slot(l));
+        }, u.Builder.prototype.addFieldInt32 = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addInt32(h), this.slot(l));
+        }, u.Builder.prototype.addFieldInt64 = function(l, h, a) {
+          !this.force_defaults && h.equals(a) || (this.addInt64(h), this.slot(l));
+        }, u.Builder.prototype.addFieldFloat32 = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addFloat32(h), this.slot(l));
+        }, u.Builder.prototype.addFieldFloat64 = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addFloat64(h), this.slot(l));
+        }, u.Builder.prototype.addFieldOffset = function(l, h, a) {
+          (this.force_defaults || h != a) && (this.addOffset(h), this.slot(l));
+        }, u.Builder.prototype.addFieldStruct = function(l, h, a) {
+          h != a && (this.nested(h), this.slot(l));
         }, u.Builder.prototype.nested = function(l) {
           if (l != this.offset()) throw new Error("FlatBuffers: struct must be serialized inline.");
         }, u.Builder.prototype.notNested = function() {
@@ -13310,65 +13284,65 @@ ${s}`);
         }, u.Builder.prototype.offset = function() {
           return this.bb.capacity() - this.space;
         }, u.Builder.growByteBuffer = function(l) {
-          var f = l.capacity();
-          if (3221225472 & f) throw new Error("FlatBuffers: cannot grow buffer beyond 2 gigabytes.");
-          var a = f << 1, h = u.ByteBuffer.allocate(a);
-          return h.setPosition(a - f), h.bytes().set(l.bytes(), a - f), h;
+          var h = l.capacity();
+          if (3221225472 & h) throw new Error("FlatBuffers: cannot grow buffer beyond 2 gigabytes.");
+          var a = h << 1, f = u.ByteBuffer.allocate(a);
+          return f.setPosition(a - h), f.bytes().set(l.bytes(), a - h), f;
         }, u.Builder.prototype.addOffset = function(l) {
           this.prep(u.SIZEOF_INT, 0), this.writeInt32(this.offset() - l + u.SIZEOF_INT);
         }, u.Builder.prototype.startObject = function(l) {
           this.notNested(), this.vtable == null && (this.vtable = []), this.vtable_in_use = l;
-          for (var f = 0; f < l; f++) this.vtable[f] = 0;
+          for (var h = 0; h < l; h++) this.vtable[h] = 0;
           this.isNested = !0, this.object_start = this.offset();
         }, u.Builder.prototype.endObject = function() {
           if (this.vtable == null || !this.isNested) throw new Error("FlatBuffers: endObject called without startObject");
           this.addInt32(0);
-          for (var l = this.offset(), f = this.vtable_in_use - 1; f >= 0 && this.vtable[f] == 0; f--) ;
-          for (var a = f + 1; f >= 0; f--) this.addInt16(this.vtable[f] != 0 ? l - this.vtable[f] : 0);
+          for (var l = this.offset(), h = this.vtable_in_use - 1; h >= 0 && this.vtable[h] == 0; h--) ;
+          for (var a = h + 1; h >= 0; h--) this.addInt16(this.vtable[h] != 0 ? l - this.vtable[h] : 0);
           this.addInt16(l - this.object_start);
-          var h = (a + 2) * u.SIZEOF_SHORT;
-          this.addInt16(h);
+          var f = (a + 2) * u.SIZEOF_SHORT;
+          this.addInt16(f);
           var g = 0, c = this.space;
-          e: for (f = 0; f < this.vtables.length; f++) {
-            var s = this.bb.capacity() - this.vtables[f];
-            if (h == this.bb.readInt16(s)) {
-              for (var t = u.SIZEOF_SHORT; t < h; t += u.SIZEOF_SHORT) if (this.bb.readInt16(c + t) != this.bb.readInt16(s + t)) continue e;
-              g = this.vtables[f];
+          e: for (h = 0; h < this.vtables.length; h++) {
+            var s = this.bb.capacity() - this.vtables[h];
+            if (f == this.bb.readInt16(s)) {
+              for (var t = u.SIZEOF_SHORT; t < f; t += u.SIZEOF_SHORT) if (this.bb.readInt16(c + t) != this.bb.readInt16(s + t)) continue e;
+              g = this.vtables[h];
               break;
             }
           }
           return g ? (this.space = this.bb.capacity() - l, this.bb.writeInt32(this.space, g - l)) : (this.vtables.push(this.offset()), this.bb.writeInt32(this.bb.capacity() - l, this.offset() - l)), this.isNested = !1, l;
-        }, u.Builder.prototype.finish = function(l, f, a) {
-          var h = a ? u.SIZE_PREFIX_LENGTH : 0;
-          if (f) {
-            var g = f;
-            if (this.prep(this.minalign, u.SIZEOF_INT + u.FILE_IDENTIFIER_LENGTH + h), g.length != u.FILE_IDENTIFIER_LENGTH) throw new Error("FlatBuffers: file identifier must be length " + u.FILE_IDENTIFIER_LENGTH);
+        }, u.Builder.prototype.finish = function(l, h, a) {
+          var f = a ? u.SIZE_PREFIX_LENGTH : 0;
+          if (h) {
+            var g = h;
+            if (this.prep(this.minalign, u.SIZEOF_INT + u.FILE_IDENTIFIER_LENGTH + f), g.length != u.FILE_IDENTIFIER_LENGTH) throw new Error("FlatBuffers: file identifier must be length " + u.FILE_IDENTIFIER_LENGTH);
             for (var c = u.FILE_IDENTIFIER_LENGTH - 1; c >= 0; c--) this.writeInt8(g.charCodeAt(c));
           }
-          this.prep(this.minalign, u.SIZEOF_INT + h), this.addOffset(l), h && this.addInt32(this.bb.capacity() - this.space), this.bb.setPosition(this.space);
-        }, u.Builder.prototype.finishSizePrefixed = function(l, f) {
-          this.finish(l, f, !0);
-        }, u.Builder.prototype.requiredField = function(l, f) {
-          var a = this.bb.capacity() - l, h = a - this.bb.readInt32(a);
-          if (this.bb.readInt16(h + f) == 0) throw new Error("FlatBuffers: field " + f + " must be set");
-        }, u.Builder.prototype.startVector = function(l, f, a) {
-          this.notNested(), this.vector_num_elems = f, this.prep(u.SIZEOF_INT, l * f), this.prep(a, l * f);
+          this.prep(this.minalign, u.SIZEOF_INT + f), this.addOffset(l), f && this.addInt32(this.bb.capacity() - this.space), this.bb.setPosition(this.space);
+        }, u.Builder.prototype.finishSizePrefixed = function(l, h) {
+          this.finish(l, h, !0);
+        }, u.Builder.prototype.requiredField = function(l, h) {
+          var a = this.bb.capacity() - l, f = a - this.bb.readInt32(a);
+          if (this.bb.readInt16(f + h) == 0) throw new Error("FlatBuffers: field " + h + " must be set");
+        }, u.Builder.prototype.startVector = function(l, h, a) {
+          this.notNested(), this.vector_num_elems = h, this.prep(u.SIZEOF_INT, l * h), this.prep(a, l * h);
         }, u.Builder.prototype.endVector = function() {
           return this.writeInt32(this.vector_num_elems), this.offset();
         }, u.Builder.prototype.createString = function(l) {
-          if (l instanceof Uint8Array) var f = l;
+          if (l instanceof Uint8Array) var h = l;
           else {
-            f = [];
+            h = [];
             for (var a = 0; a < l.length; ) {
-              var h, g = l.charCodeAt(a++);
-              (h = g < 55296 || g >= 56320 ? g : (g << 10) + l.charCodeAt(a++) + -56613888) < 128 ? f.push(h) : (h < 2048 ? f.push(h >> 6 & 31 | 192) : (h < 65536 ? f.push(h >> 12 & 15 | 224) : f.push(h >> 18 & 7 | 240, h >> 12 & 63 | 128), f.push(h >> 6 & 63 | 128)), f.push(63 & h | 128));
+              var f, g = l.charCodeAt(a++);
+              (f = g < 55296 || g >= 56320 ? g : (g << 10) + l.charCodeAt(a++) + -56613888) < 128 ? h.push(f) : (f < 2048 ? h.push(f >> 6 & 31 | 192) : (f < 65536 ? h.push(f >> 12 & 15 | 224) : h.push(f >> 18 & 7 | 240, f >> 12 & 63 | 128), h.push(f >> 6 & 63 | 128)), h.push(63 & f | 128));
             }
           }
-          this.addInt8(0), this.startVector(1, f.length, 1), this.bb.setPosition(this.space -= f.length), a = 0;
-          for (var c = this.space, s = this.bb.bytes(); a < f.length; a++) s[c++] = f[a];
+          this.addInt8(0), this.startVector(1, h.length, 1), this.bb.setPosition(this.space -= h.length), a = 0;
+          for (var c = this.space, s = this.bb.bytes(); a < h.length; a++) s[c++] = h[a];
           return this.endVector();
-        }, u.Builder.prototype.createLong = function(l, f) {
-          return u.Long.create(l, f);
+        }, u.Builder.prototype.createLong = function(l, h) {
+          return u.Long.create(l, h);
         }, u.ByteBuffer = function(l) {
           this.bytes_ = l, this.position_ = 0;
         }, u.ByteBuffer.allocate = function(l) {
@@ -13403,39 +13377,39 @@ ${s}`);
           return u.int32[0] = this.readInt32(l), u.float32[0];
         }, u.ByteBuffer.prototype.readFloat64 = function(l) {
           return u.int32[u.isLittleEndian ? 0 : 1] = this.readInt32(l), u.int32[u.isLittleEndian ? 1 : 0] = this.readInt32(l + 4), u.float64[0];
-        }, u.ByteBuffer.prototype.writeInt8 = function(l, f) {
-          this.bytes_[l] = f;
-        }, u.ByteBuffer.prototype.writeUint8 = function(l, f) {
-          this.bytes_[l] = f;
-        }, u.ByteBuffer.prototype.writeInt16 = function(l, f) {
-          this.bytes_[l] = f, this.bytes_[l + 1] = f >> 8;
-        }, u.ByteBuffer.prototype.writeUint16 = function(l, f) {
-          this.bytes_[l] = f, this.bytes_[l + 1] = f >> 8;
-        }, u.ByteBuffer.prototype.writeInt32 = function(l, f) {
-          this.bytes_[l] = f, this.bytes_[l + 1] = f >> 8, this.bytes_[l + 2] = f >> 16, this.bytes_[l + 3] = f >> 24;
-        }, u.ByteBuffer.prototype.writeUint32 = function(l, f) {
-          this.bytes_[l] = f, this.bytes_[l + 1] = f >> 8, this.bytes_[l + 2] = f >> 16, this.bytes_[l + 3] = f >> 24;
-        }, u.ByteBuffer.prototype.writeInt64 = function(l, f) {
-          this.writeInt32(l, f.low), this.writeInt32(l + 4, f.high);
-        }, u.ByteBuffer.prototype.writeUint64 = function(l, f) {
-          this.writeUint32(l, f.low), this.writeUint32(l + 4, f.high);
-        }, u.ByteBuffer.prototype.writeFloat32 = function(l, f) {
-          u.float32[0] = f, this.writeInt32(l, u.int32[0]);
-        }, u.ByteBuffer.prototype.writeFloat64 = function(l, f) {
-          u.float64[0] = f, this.writeInt32(l, u.int32[u.isLittleEndian ? 0 : 1]), this.writeInt32(l + 4, u.int32[u.isLittleEndian ? 1 : 0]);
+        }, u.ByteBuffer.prototype.writeInt8 = function(l, h) {
+          this.bytes_[l] = h;
+        }, u.ByteBuffer.prototype.writeUint8 = function(l, h) {
+          this.bytes_[l] = h;
+        }, u.ByteBuffer.prototype.writeInt16 = function(l, h) {
+          this.bytes_[l] = h, this.bytes_[l + 1] = h >> 8;
+        }, u.ByteBuffer.prototype.writeUint16 = function(l, h) {
+          this.bytes_[l] = h, this.bytes_[l + 1] = h >> 8;
+        }, u.ByteBuffer.prototype.writeInt32 = function(l, h) {
+          this.bytes_[l] = h, this.bytes_[l + 1] = h >> 8, this.bytes_[l + 2] = h >> 16, this.bytes_[l + 3] = h >> 24;
+        }, u.ByteBuffer.prototype.writeUint32 = function(l, h) {
+          this.bytes_[l] = h, this.bytes_[l + 1] = h >> 8, this.bytes_[l + 2] = h >> 16, this.bytes_[l + 3] = h >> 24;
+        }, u.ByteBuffer.prototype.writeInt64 = function(l, h) {
+          this.writeInt32(l, h.low), this.writeInt32(l + 4, h.high);
+        }, u.ByteBuffer.prototype.writeUint64 = function(l, h) {
+          this.writeUint32(l, h.low), this.writeUint32(l + 4, h.high);
+        }, u.ByteBuffer.prototype.writeFloat32 = function(l, h) {
+          u.float32[0] = h, this.writeInt32(l, u.int32[0]);
+        }, u.ByteBuffer.prototype.writeFloat64 = function(l, h) {
+          u.float64[0] = h, this.writeInt32(l, u.int32[u.isLittleEndian ? 0 : 1]), this.writeInt32(l + 4, u.int32[u.isLittleEndian ? 1 : 0]);
         }, u.ByteBuffer.prototype.getBufferIdentifier = function() {
           if (this.bytes_.length < this.position_ + u.SIZEOF_INT + u.FILE_IDENTIFIER_LENGTH) throw new Error("FlatBuffers: ByteBuffer is too short to contain an identifier.");
-          for (var l = "", f = 0; f < u.FILE_IDENTIFIER_LENGTH; f++) l += String.fromCharCode(this.readInt8(this.position_ + u.SIZEOF_INT + f));
+          for (var l = "", h = 0; h < u.FILE_IDENTIFIER_LENGTH; h++) l += String.fromCharCode(this.readInt8(this.position_ + u.SIZEOF_INT + h));
           return l;
-        }, u.ByteBuffer.prototype.__offset = function(l, f) {
+        }, u.ByteBuffer.prototype.__offset = function(l, h) {
           var a = l - this.readInt32(l);
-          return f < this.readInt16(a) ? this.readInt16(a + f) : 0;
-        }, u.ByteBuffer.prototype.__union = function(l, f) {
-          return l.bb_pos = f + this.readInt32(f), l.bb = this, l;
-        }, u.ByteBuffer.prototype.__string = function(l, f) {
+          return h < this.readInt16(a) ? this.readInt16(a + h) : 0;
+        }, u.ByteBuffer.prototype.__union = function(l, h) {
+          return l.bb_pos = h + this.readInt32(h), l.bb = this, l;
+        }, u.ByteBuffer.prototype.__string = function(l, h) {
           l += this.readInt32(l);
-          var a = this.readInt32(l), h = "", g = 0;
-          if (l += u.SIZEOF_INT, f === u.Encoding.UTF8_BYTES) return this.bytes_.subarray(l, l + a);
+          var a = this.readInt32(l), f = "", g = 0;
+          if (l += u.SIZEOF_INT, h === u.Encoding.UTF8_BYTES) return this.bytes_.subarray(l, l + a);
           for (; g < a; ) {
             var c, s = this.readUint8(l + g++);
             if (s < 192) c = s;
@@ -13447,9 +13421,9 @@ ${s}`);
                 c = s < 240 ? (15 & s) << 12 | (63 & t) << 6 | 63 & e : (7 & s) << 18 | (63 & t) << 12 | (63 & e) << 6 | 63 & this.readUint8(l + g++);
               }
             }
-            c < 65536 ? h += String.fromCharCode(c) : (c -= 65536, h += String.fromCharCode(55296 + (c >> 10), 56320 + (1023 & c)));
+            c < 65536 ? f += String.fromCharCode(c) : (c -= 65536, f += String.fromCharCode(55296 + (c >> 10), 56320 + (1023 & c)));
           }
-          return h;
+          return f;
         }, u.ByteBuffer.prototype.__indirect = function(l) {
           return l + this.readInt32(l);
         }, u.ByteBuffer.prototype.__vector = function(l) {
@@ -13458,10 +13432,10 @@ ${s}`);
           return this.readInt32(l + this.readInt32(l));
         }, u.ByteBuffer.prototype.__has_identifier = function(l) {
           if (l.length != u.FILE_IDENTIFIER_LENGTH) throw new Error("FlatBuffers: file identifier must be length " + u.FILE_IDENTIFIER_LENGTH);
-          for (var f = 0; f < u.FILE_IDENTIFIER_LENGTH; f++) if (l.charCodeAt(f) != this.readInt8(this.position_ + u.SIZEOF_INT + f)) return !1;
+          for (var h = 0; h < u.FILE_IDENTIFIER_LENGTH; h++) if (l.charCodeAt(h) != this.readInt8(this.position_ + u.SIZEOF_INT + h)) return !1;
           return !0;
-        }, u.ByteBuffer.prototype.createLong = function(l, f) {
-          return u.Long.create(l, f);
+        }, u.ByteBuffer.prototype.createLong = function(l, h) {
+          return u.Long.create(l, h);
         };
       } }, __webpack_module_cache__ = {};
       function __webpack_require__(d) {
@@ -13501,8 +13475,8 @@ const executionProviders = [
   "wasm"
 ];
 typeof process < "u" && process?.release?.name === "node" ? (ONNX = sharp ?? ONNX_NODE, executionProviders.unshift("cpu")) : (ONNX = ortWeb_min ?? ONNX_WEB, typeof navigator < "u" && /iP(hone|od|ad).+16_4.+AppleWebKit/.test(navigator.userAgent) && (ONNX.env.wasm.simd = !1));
-const { env: onnx_env } = ONNX, VERSION = "2.17.2", WEB_CACHE_AVAILABLE = typeof self < "u" && "caches" in self, FS_AVAILABLE = !isEmpty(sharp), PATH_AVAILABLE = !isEmpty(sharp), RUNNING_LOCALLY = FS_AVAILABLE && PATH_AVAILABLE, __dirname = RUNNING_LOCALLY ? sharp.dirname(sharp.dirname(sharp.fileURLToPath(import.meta.url))) : "./", DEFAULT_CACHE_DIR = RUNNING_LOCALLY ? sharp.join(__dirname, "/.cache/") : null, DEFAULT_LOCAL_MODEL_PATH = "/models/", localModelPath = RUNNING_LOCALLY ? sharp.join(__dirname, DEFAULT_LOCAL_MODEL_PATH) : DEFAULT_LOCAL_MODEL_PATH;
-onnx_env?.wasm && (onnx_env.wasm.wasmPaths = RUNNING_LOCALLY ? sharp.join(__dirname, "/dist/") : `https://cdn.jsdelivr.net/npm/@xenova/transformers@${VERSION}/dist/`);
+const { env: onnx_env } = ONNX, VERSION = "2.17.2", WEB_CACHE_AVAILABLE = typeof self < "u" && "caches" in self, FS_AVAILABLE = !isEmpty(sharp), PATH_AVAILABLE = !isEmpty(sharp), RUNNING_LOCALLY = FS_AVAILABLE && PATH_AVAILABLE, __dirname$1 = RUNNING_LOCALLY ? sharp.dirname(sharp.dirname(sharp.fileURLToPath(import.meta.url))) : "./", DEFAULT_CACHE_DIR = RUNNING_LOCALLY ? sharp.join(__dirname$1, "/.cache/") : null, DEFAULT_LOCAL_MODEL_PATH = "/models/", localModelPath = RUNNING_LOCALLY ? sharp.join(__dirname$1, DEFAULT_LOCAL_MODEL_PATH) : DEFAULT_LOCAL_MODEL_PATH;
+onnx_env?.wasm && (onnx_env.wasm.wasmPaths = RUNNING_LOCALLY ? sharp.join(__dirname$1, "/dist/") : `https://cdn.jsdelivr.net/npm/@xenova/transformers@${VERSION}/dist/`);
 const env$1 = {
   /////////////////// Backends settings ///////////////////
   backends: {
@@ -13510,6 +13484,8 @@ const env$1 = {
     onnx: onnx_env
   },
   version: VERSION,
+  /////////////////// Model settings ///////////////////
+  allowRemoteModels: !0,
   remoteHost: "https://huggingface.co/",
   remotePathTemplate: "{model}/resolve/{revision}/",
   allowLocalModels: !0,
@@ -13518,7 +13494,10 @@ const env$1 = {
   /////////////////// Cache settings ///////////////////
   useBrowserCache: WEB_CACHE_AVAILABLE,
   useFSCache: FS_AVAILABLE,
-  cacheDir: DEFAULT_CACHE_DIR
+  cacheDir: DEFAULT_CACHE_DIR,
+  useCustomCache: !1,
+  customCache: null
+  //////////////////////////////////////////////////////
 };
 function isEmpty(d) {
   return Object.keys(d).length === 0;
@@ -13550,8 +13529,8 @@ class FileResponse {
       let u = this;
       this.body = new ReadableStream({
         start(l) {
-          u.arrayBuffer().then((f) => {
-            l.enqueue(new Uint8Array(f)), l.close();
+          u.arrayBuffer().then((h) => {
+            l.enqueue(new Uint8Array(h)), l.close();
           });
         }
       });
@@ -13629,8 +13608,8 @@ async function getFile(d) {
   if (typeof process < "u" && process?.release?.name === "node") {
     const n = !!process.env?.TESTING_REMOTELY, o = env$1.version, u = new Headers();
     if (u.set("User-Agent", `transformers.js/${o}; is_ci/${n};`), isValidUrl(d, ["http:", "https:"], ["huggingface.co", "hf.co"])) {
-      const f = process.env?.HF_TOKEN ?? process.env?.HF_ACCESS_TOKEN;
-      f && u.set("Authorization", `Bearer ${f}`);
+      const h = process.env?.HF_TOKEN ?? process.env?.HF_ACCESS_TOKEN;
+      h && u.set("Authorization", `Bearer ${h}`);
     }
     return fetch(d, { headers: u });
   } else
@@ -13684,8 +13663,8 @@ class FileCache {
     let l = sharp.join(this.path, n);
     try {
       await sharp.promises.mkdir(sharp.dirname(l), { recursive: !0 }), await sharp.promises.writeFile(l, u);
-    } catch (f) {
-      console.warn("An error occurred while writing the file to cache:", f);
+    } catch (h) {
+      console.warn("An error occurred while writing the file to cache:", h);
     }
   }
   // TODO add the rest?
@@ -13705,8 +13684,12 @@ async function tryCache(d, ...n) {
     }
 }
 async function getModelFile(d, n, o = !0, u = {}) {
-  if (!env$1.allowLocalModels && u.local_files_only)
-    throw Error("Invalid configuration detected: local models are disabled (`env.allowLocalModels=false`) but you have requested to only use local models (`local_files_only=true`).");
+  if (!env$1.allowLocalModels) {
+    if (u.local_files_only)
+      throw Error("Invalid configuration detected: local models are disabled (`env.allowLocalModels=false`) but you have requested to only use local models (`local_files_only=true`).");
+    if (!env$1.allowRemoteModels)
+      throw Error("Invalid configuration detected: both local and remote models are disabled. Fix by setting `env.allowLocalModels` or `env.allowRemoteModels` to `true`.");
+  }
   dispatchCallback(u.progress_callback, {
     status: "initiate",
     name: d,
@@ -13722,29 +13705,39 @@ async function getModelFile(d, n, o = !0, u = {}) {
       console.warn("An error occurred while opening the browser cache:", _);
     }
   }
-  !l && env$1.useFSCache && (l = new FileCache(u.cache_dir ?? env$1.cacheDir));
-  const f = u.revision ?? "main";
-  let a = pathJoin(d, n), h = pathJoin(env$1.localModelPath, a), g = pathJoin(
+  if (!l && env$1.useFSCache && (l = new FileCache(u.cache_dir ?? env$1.cacheDir)), !l && env$1.useCustomCache) {
+    if (!env$1.customCache)
+      throw Error("`env.useCustomCache=true`, but `env.customCache` is not defined.");
+    if (!env$1.customCache.match || !env$1.customCache.put)
+      throw new Error(
+        "`env.customCache` must be an object which implements the `match` and `put` functions of the Web Cache API. For more information, see https://developer.mozilla.org/en-US/docs/Web/API/Cache"
+      );
+    l = env$1.customCache;
+  }
+  const h = u.revision ?? "main";
+  let a = pathJoin(d, n), f = pathJoin(env$1.localModelPath, a), g = pathJoin(
     env$1.remoteHost,
-    env$1.remotePathTemplate.replaceAll("{model}", d).replaceAll("{revision}", encodeURIComponent(f)),
+    env$1.remotePathTemplate.replaceAll("{model}", d).replaceAll("{revision}", encodeURIComponent(h)),
     n
-  ), c = f === "main" ? a : pathJoin(d, f, n), s, t = l instanceof FileCache ? c : g, e = !1, r;
-  l && (r = await tryCache(l, h, t));
+  ), c = h === "main" ? a : pathJoin(d, h, n), s, t = l instanceof FileCache ? c : g, e = !1, r;
+  l && (r = await tryCache(l, f, t));
   const i = r !== void 0;
   if (r === void 0) {
     if (env$1.allowLocalModels)
       if (isValidUrl(a, ["http:", "https:"])) {
         if (u.local_files_only)
           throw new Error(`\`local_files_only=true\`, but attempted to load a remote file from: ${a}.`);
+        if (!env$1.allowRemoteModels)
+          throw new Error(`\`env.allowRemoteModels=false\`, but attempted to load a remote file from: ${a}.`);
       } else try {
-        r = await getFile(h), s = h;
+        r = await getFile(f), s = f;
       } catch (b) {
-        console.warn(`Unable to load from local path "${h}": "${b}"`);
+        console.warn(`Unable to load from local path "${f}": "${b}"`);
       }
     if (r === void 0 || r.status === 404) {
-      if (u.local_files_only) {
+      if (u.local_files_only || !env$1.allowRemoteModels) {
         if (o)
-          throw Error(`\`local_files_only=true\` or \`env.allowRemoteModels=false\` and file was not found locally at "${h}".`);
+          throw Error(`\`local_files_only=true\` or \`env.allowRemoteModels=false\` and file was not found locally at "${f}".`);
         return null;
       }
       if (r = await getFile(g), r.status !== 200)
@@ -13797,46 +13790,46 @@ async function getModelJSON(d, n, o = !0, u = {}) {
 async function readResponse(d, n) {
   const o = d.headers.get("Content-Length");
   o === null && console.warn("Unable to determine content-length from response headers. Will expand buffer when needed.");
-  let u = parseInt(o ?? "0"), l = new Uint8Array(u), f = 0;
+  let u = parseInt(o ?? "0"), l = new Uint8Array(u), h = 0;
   const a = d.body.getReader();
-  async function h() {
+  async function f() {
     const { done: g, value: c } = await a.read();
     if (g) return;
-    let s = f + c.length;
+    let s = h + c.length;
     if (s > u) {
       u = s;
       let e = new Uint8Array(u);
       e.set(l), l = e;
     }
-    l.set(c, f), f = s;
-    const t = f / u * 100;
+    l.set(c, h), h = s;
+    const t = h / u * 100;
     return n({
       progress: t,
-      loaded: f,
+      loaded: h,
       total: u
-    }), h();
+    }), f();
   }
-  return await h(), l;
+  return await f(), l;
 }
 function pathJoin(...d) {
   return d = d.map((n, o) => (o && (n = n.replace(new RegExp("^/"), "")), o !== d.length - 1 && (n = n.replace(new RegExp("/$"), "")), n)), d.join("/");
 }
 function permute_data(d, n, o) {
   const u = new Array(o.length), l = new Array(o.length);
-  for (let h = o.length - 1, g = 1; h >= 0; --h)
-    l[h] = g, u[h] = n[o[h]], g *= u[h];
-  const f = o.map((h, g) => l[o.indexOf(g)]), a = new d.constructor(d.length);
-  for (let h = 0; h < d.length; ++h) {
+  for (let f = o.length - 1, g = 1; f >= 0; --f)
+    l[f] = g, u[f] = n[o[f]], g *= u[f];
+  const h = o.map((f, g) => l[o.indexOf(g)]), a = new d.constructor(d.length);
+  for (let f = 0; f < d.length; ++f) {
     let g = 0;
-    for (let c = n.length - 1, s = h; c >= 0; --c)
-      g += s % n[c] * f[c], s = Math.floor(s / n[c]);
-    a[g] = d[h];
+    for (let c = n.length - 1, s = f; c >= 0; --c)
+      g += s % n[c] * h[c], s = Math.floor(s / n[c]);
+    a[g] = d[f];
   }
   return [a, u];
 }
 function softmax(d) {
-  const n = max(d)[0], o = d.map((f) => Math.exp(f - n)), u = o.reduce((f, a) => f + a, 0);
-  return o.map((f) => f / u);
+  const n = max(d)[0], o = d.map((h) => Math.exp(h - n)), u = o.reduce((h, a) => h + a, 0);
+  return o.map((h) => h / u);
 }
 function log_softmax(d) {
   return softmax(d).map((u) => Math.log(u));
@@ -13862,13 +13855,13 @@ function medianFilter(d, n) {
   if (n % 2 === 0 || n <= 0)
     throw new Error("Window size must be a positive odd number");
   const o = new d.constructor(d.length), u = new d.constructor(n), l = Math.floor(n / 2);
-  for (let f = 0; f < d.length; ++f) {
+  for (let h = 0; h < d.length; ++h) {
     let a = 0;
-    for (let h = -l; h <= l; ++h) {
-      let g = f + h;
+    for (let f = -l; f <= l; ++f) {
+      let g = h + f;
       g < 0 ? g = Math.abs(g) : g >= d.length && (g = 2 * (d.length - 1) - g), u[a++] = d[g];
     }
-    u.sort(), o[f] = u[l];
+    u.sort(), o[h] = u[l];
   }
   return o;
 }
@@ -13931,7 +13924,7 @@ class Tensor {
   *[Symbol.iterator]() {
     const [n, ...o] = this.dims;
     if (o.length > 0) {
-      const u = o.reduce((l, f) => l * f);
+      const u = o.reduce((l, h) => l * h);
       for (let l = 0; l < n; ++l)
         yield this._subarray(l, u, o);
     } else
@@ -13945,7 +13938,7 @@ class Tensor {
   _getitem(n) {
     const [o, ...u] = this.dims;
     if (n = safeIndex(n, o), u.length > 0) {
-      const l = u.reduce((f, a) => f * a);
+      const l = u.reduce((h, a) => h * a);
       return this._subarray(n, l, u);
     } else
       return new Tensor(this.type, [this.data[n]], u);
@@ -13967,7 +13960,7 @@ class Tensor {
    * @returns {Tensor}
    */
   _subarray(n, o, u) {
-    const l = n * o, f = (n + 1) * o, a = "subarray" in this.data ? this.data.subarray(l, f) : this.data.slice(l, f);
+    const l = n * o, h = (n + 1) * o, a = "subarray" in this.data ? this.data.subarray(l, h) : this.data.slice(l, h);
     return new Tensor(this.type, a, u);
   }
   /**
@@ -14062,13 +14055,13 @@ class Tensor {
       } else
         throw new Error(`Invalid slice: ${c}`);
     }
-    let l = u.map(([g, c]) => c - g), f = l.reduce((g, c) => g * c), a = new this.data.constructor(f);
-    const h = this.stride();
-    for (let g = 0; g < f; ++g) {
+    let l = u.map(([g, c]) => c - g), h = l.reduce((g, c) => g * c), a = new this.data.constructor(h);
+    const f = this.stride();
+    for (let g = 0; g < h; ++g) {
       let c = 0;
       for (let s = l.length - 1, t = g; s >= 0; --s) {
         const e = l[s];
-        c += (t % e + u[s][0]) * h[s], t = Math.floor(t / e);
+        c += (t % e + u[s][0]) * f[s], t = Math.floor(t / e);
       }
       a[g] = this.data[c];
     }
@@ -14111,29 +14104,29 @@ class Tensor {
     else if (typeof n == "string")
       throw Error(`Unsupported norm: ${n}`);
     if (o === null) {
-      let a = this.data.reduce((h, g) => h + g ** n, 0) ** (1 / n);
+      let a = this.data.reduce((f, g) => f + g ** n, 0) ** (1 / n);
       return new Tensor(this.type, [a], []);
     }
     o = safeIndex(o, this.dims.length);
     const l = this.dims.slice();
     l[o] = 1;
-    const f = new this.data.constructor(this.data.length / this.dims[o]);
+    const h = new this.data.constructor(this.data.length / this.dims[o]);
     for (let a = 0; a < this.data.length; ++a) {
-      let h = 0;
+      let f = 0;
       for (let g = this.dims.length - 1, c = a, s = 1; g >= 0; --g) {
         const t = this.dims[g];
         if (g !== o) {
           const e = c % t;
-          h += e * s, s *= l[g];
+          f += e * s, s *= l[g];
         }
         c = Math.floor(c / t);
       }
-      f[h] += this.data[a] ** n;
+      h[f] += this.data[a] ** n;
     }
     if (n !== 1)
-      for (let a = 0; a < f.length; ++a)
-        f[a] = f[a] ** (1 / n);
-    return u || l.splice(o, 1), new Tensor(this.type, f, l);
+      for (let a = 0; a < h.length; ++a)
+        h[a] = h[a] ** (1 / n);
+    return u || l.splice(o, 1), new Tensor(this.type, h, l);
   }
   /**
    * Performs `L_p` normalization of inputs over specified dimension. Operates in place.
@@ -14145,16 +14138,16 @@ class Tensor {
     o = safeIndex(o, this.dims.length);
     const u = this.norm(n, o, !0);
     for (let l = 0; l < this.data.length; ++l) {
-      let f = 0;
-      for (let a = this.dims.length - 1, h = l, g = 1; a >= 0; --a) {
+      let h = 0;
+      for (let a = this.dims.length - 1, f = l, g = 1; a >= 0; --a) {
         const c = this.dims[a];
         if (a !== o) {
-          const s = h % c;
-          f += s * g, g *= this.dims[a];
+          const s = f % c;
+          h += s * g, g *= this.dims[a];
         }
-        h = Math.floor(h / c);
+        f = Math.floor(f / c);
       }
-      this.data[l] /= u.data[f];
+      this.data[l] /= u.data[h];
     }
     return this;
   }
@@ -14223,8 +14216,8 @@ class Tensor {
    */
   flatten_(n = 0, o = -1) {
     o = (o + this.dims.length) % this.dims.length;
-    let u = this.dims.slice(0, n), l = this.dims.slice(n, o + 1), f = this.dims.slice(o + 1);
-    return this.dims = [...u, l.reduce((a, h) => a * h, 1), ...f], this;
+    let u = this.dims.slice(0, n), l = this.dims.slice(n, o + 1), h = this.dims.slice(o + 1);
+    return this.dims = [...u, l.reduce((a, f) => a * f, 1), ...h], this;
   }
   /**
    * Flattens input by reshaping it into a one-dimensional tensor.
@@ -14251,7 +14244,7 @@ class Tensor {
         o = u;
       }
     if (o !== -1) {
-      const u = n.reduce((l, f, a) => a !== o ? l * f : l, 1);
+      const u = n.reduce((l, h, a) => a !== o ? l * h : l, 1);
       n[o] = this.data.length / u;
     }
     return new Tensor(this.type, this.data, n);
@@ -14309,14 +14302,14 @@ class Tensor {
   }
 }
 function reshape(d, n) {
-  const o = d.length, u = n.reduce((f, a) => f * a);
+  const o = d.length, u = n.reduce((h, a) => h * a);
   if (o !== u)
     throw Error(`cannot reshape array of size ${o} into shape (${n})`);
   let l = d;
-  for (let f = n.length - 1; f >= 0; f--)
-    l = l.reduce((a, h) => {
+  for (let h = n.length - 1; h >= 0; h--)
+    l = l.reduce((a, f) => {
       let g = a[a.length - 1];
-      return g.length < n[f] ? g.push(h) : a.push([h]), a;
+      return g.length < n[h] ? g.push(f) : a.push([f]), a;
     }, [[]]);
   return l[0];
 }
@@ -14338,16 +14331,16 @@ function safeIndex(d, n, o = null) {
 function cat(d, n = 0) {
   n = safeIndex(n, d[0].dims.length);
   const o = d[0].dims.slice();
-  o[n] = d.reduce((a, h) => a + h.dims[n], 0);
-  const u = o.reduce((a, h) => a * h, 1), l = new d[0].data.constructor(u), f = d[0].type;
+  o[n] = d.reduce((a, f) => a + f.dims[n], 0);
+  const u = o.reduce((a, f) => a * f, 1), l = new d[0].data.constructor(u), h = d[0].type;
   if (n === 0) {
     let a = 0;
-    for (let h of d)
-      l.set(h.data, a), a += h.data.length;
+    for (let f of d)
+      l.set(f.data, a), a += f.data.length;
   } else {
     let a = 0;
-    for (let h = 0; h < d.length; ++h) {
-      let g = d[h];
+    for (let f = 0; f < d.length; ++f) {
+      let g = d[f];
       for (let c = 0; c < g.data.length; ++c) {
         let s = 0;
         for (let t = g.dims.length - 1, e = c, r = 1; t >= 0; --t) {
@@ -14360,7 +14353,7 @@ function cat(d, n = 0) {
       a += g.dims[n];
     }
   }
-  return new Tensor(f, l, o);
+  return new Tensor(h, l, o);
 }
 function stack(d, n = 0) {
   return cat(d.map((o) => o.unsqueeze(n)), n);
@@ -14375,8 +14368,8 @@ function std_mean(d, n = null, o = 1, u = !1) {
     ]), t];
   }
   n = safeIndex(n, d.dims.length);
-  const l = mean(d, n, u), f = d.dims.slice();
-  f[n] = 1;
+  const l = mean(d, n, u), h = d.dims.slice();
+  h[n] = 1;
   const a = new d.data.constructor(d.data.length / d.dims[n]);
   for (let g = 0; g < d.data.length; ++g) {
     let c = 0;
@@ -14384,7 +14377,7 @@ function std_mean(d, n = null, o = 1, u = !1) {
       const r = d.dims[s];
       if (s !== n) {
         const i = t % r;
-        c += i * e, e *= f[s];
+        c += i * e, e *= h[s];
       }
       t = Math.floor(t / r);
     }
@@ -14392,12 +14385,12 @@ function std_mean(d, n = null, o = 1, u = !1) {
   }
   for (let g = 0; g < a.length; ++g)
     a[g] = Math.sqrt(a[g] / (d.dims[n] - o));
-  return u || f.splice(n, 1), [new Tensor(d.type, a, f), l];
+  return u || h.splice(n, 1), [new Tensor(d.type, a, h), l];
 }
 function mean(d, n = null, o = !1) {
   if (n === null) {
-    let f = d.data.reduce((a, h) => a + h, 0);
-    return new Tensor(d.type, [f / d.data.length], [
+    let h = d.data.reduce((a, f) => a + f, 0);
+    return new Tensor(d.type, [h / d.data.length], [
       /* scalar */
     ]);
   }
@@ -14405,21 +14398,21 @@ function mean(d, n = null, o = !1) {
   const u = d.dims.slice();
   u[n] = 1;
   const l = new d.data.constructor(d.data.length / d.dims[n]);
-  for (let f = 0; f < d.data.length; ++f) {
+  for (let h = 0; h < d.data.length; ++h) {
     let a = 0;
-    for (let h = d.dims.length - 1, g = f, c = 1; h >= 0; --h) {
-      const s = d.dims[h];
-      if (h !== n) {
+    for (let f = d.dims.length - 1, g = h, c = 1; f >= 0; --f) {
+      const s = d.dims[f];
+      if (f !== n) {
         const t = g % s;
-        a += t * c, c *= u[h];
+        a += t * c, c *= u[f];
       }
       g = Math.floor(g / s);
     }
-    l[a] += d.data[f];
+    l[a] += d.data[h];
   }
   if (d.dims[n] !== 1)
-    for (let f = 0; f < l.length; ++f)
-      l[f] = l[f] / d.dims[n];
+    for (let h = 0; h < l.length; ++h)
+      l[h] = l[h] / d.dims[n];
   return o || u.splice(n, 1), new Tensor(d.type, l, u);
 }
 function dynamicTimeWarping(d) {
@@ -14427,7 +14420,7 @@ function dynamicTimeWarping(d) {
     "float32",
     new Float32Array(u[0] * u[1]).fill(1 / 0),
     u
-  ), f = new Tensor(
+  ), h = new Tensor(
     "float32",
     new Float32Array(u[0] * u[1]).fill(-1),
     u
@@ -14437,27 +14430,27 @@ function dynamicTimeWarping(d) {
     for (let t = 1; t < n + 1; ++t) {
       const e = l[t - 1][s - 1].item(), r = l[t - 1][s].item(), i = l[t][s - 1].item();
       let p, m;
-      e < r && e < i ? (p = e, m = 0) : r < e && r < i ? (p = r, m = 1) : (p = i, m = 2), l[t].data[s] = d[t - 1][s - 1].item() + p, f[t].data[s] = m;
+      e < r && e < i ? (p = e, m = 0) : r < e && r < i ? (p = r, m = 1) : (p = i, m = 2), l[t].data[s] = d[t - 1][s - 1].item() + p, h[t].data[s] = m;
     }
-  let a = n, h = o;
-  f.data.fill(2, 0, u[1]);
+  let a = n, f = o;
+  h.data.fill(2, 0, u[1]);
   for (let s = 0; s < u[0]; ++s)
-    f[s].data[0] = 1;
+    h[s].data[0] = 1;
   let g = [], c = [];
-  for (; a > 0 || h > 0; )
-    switch (g.push(a - 1), c.push(h - 1), f[a][h].item()) {
+  for (; a > 0 || f > 0; )
+    switch (g.push(a - 1), c.push(f - 1), h[a][f].item()) {
       case 0:
-        --a, --h;
+        --a, --f;
         break;
       case 1:
         --a;
         break;
       case 2:
-        --h;
+        --f;
         break;
       default:
         throw new Error(
-          `Internal error in dynamic time warping. Unexpected trace[${a}, ${h}]. Please file a bug report.`
+          `Internal error in dynamic time warping. Unexpected trace[${a}, ${f}]. Please file a bug report.`
         );
     }
   return g.reverse(), c.reverse(), [g, c];
@@ -14644,8 +14637,8 @@ class CharTrie {
   *commonPrefixSearch(n) {
     let o = this.root, u = "";
     for (let l = 0; l < n.length && o !== void 0; ++l) {
-      const f = n[l];
-      u += f, o = o.children.get(f), o !== void 0 && o.isLeaf && (yield u);
+      const h = n[l];
+      u += h, o = o.children.get(h), o !== void 0 && o.isLeaf && (yield u);
     }
   }
 }
@@ -14676,8 +14669,8 @@ class TokenLattice {
    */
   constructor(n, o, u) {
     this.sentence = n, this.len = n.length, this.bosTokenId = o, this.eosTokenId = u, this.nodes = [], this.beginNodes = Array.from({ length: this.len + 1 }, () => []), this.endNodes = Array.from({ length: this.len + 1 }, () => []);
-    const l = new TokenLatticeNode(this.bosTokenId, 0, 0, 0, 0), f = new TokenLatticeNode(this.eosTokenId, 1, this.len, 0, 0);
-    this.nodes.push(l.clone()), this.nodes.push(f.clone()), this.beginNodes[this.len].push(f), this.endNodes[0].push(l);
+    const l = new TokenLatticeNode(this.bosTokenId, 0, 0, 0, 0), h = new TokenLatticeNode(this.eosTokenId, 1, this.len, 0, 0);
+    this.nodes.push(l.clone()), this.nodes.push(h.clone()), this.beginNodes[this.len].push(h), this.endNodes[0].push(l);
   }
   /**
    * Inserts a new token node into the token lattice.
@@ -14688,7 +14681,7 @@ class TokenLattice {
    * @param {number} tokenId The token ID of the token.
    */
   insert(n, o, u, l) {
-    const f = this.nodes.length, a = new TokenLatticeNode(l, f, n, o, u);
+    const h = this.nodes.length, a = new TokenLatticeNode(l, h, n, o, u);
     this.beginNodes[n].push(a), this.endNodes[n + o].push(a), this.nodes.push(a);
   }
   /**
@@ -14702,24 +14695,24 @@ class TokenLattice {
     for (; o <= n; ) {
       if (this.beginNodes[o].length == 0)
         return [];
-      for (let h of this.beginNodes[o]) {
-        h.prev = null;
+      for (let f of this.beginNodes[o]) {
+        f.prev = null;
         let g = 0, c = null;
         for (let s of this.endNodes[o]) {
-          const t = s.backtraceScore + h.score;
+          const t = s.backtraceScore + f.score;
           (c === null || t > g) && (c = s.clone(), g = t);
         }
         if (c !== null)
-          h.prev = c, h.backtraceScore = g;
+          f.prev = c, f.backtraceScore = g;
         else
           return [];
       }
       ++o;
     }
-    const u = [], f = this.beginNodes[n][0].prev;
-    if (f === null)
+    const u = [], h = this.beginNodes[n][0].prev;
+    if (h === null)
       return [];
-    let a = f.clone();
+    let a = h.clone();
     for (; a.prev !== null; )
       u.push(a.clone()), a = a.clone().prev.clone();
     return u.reverse(), u;
@@ -14753,8 +14746,8 @@ class TokenLatticeNode {
    * @param {number} length The length of the token.
    * @param {number} score The score associated with the token.
    */
-  constructor(n, o, u, l, f) {
-    this.tokenId = n, this.nodeId = o, this.pos = u, this.length = l, this.score = f, this.prev = null, this.backtraceScore = 0;
+  constructor(n, o, u, l, h) {
+    this.tokenId = n, this.nodeId = o, this.pos = u, this.length = l, this.score = h, this.prev = null, this.backtraceScore = 0;
   }
   /**
    * Returns a clone of this node.
@@ -14923,8 +14916,8 @@ function preprocess(d, n = {}) {
 function tokenize(d, n = {}) {
   const o = [], u = preprocess(d, n);
   let l = 0;
-  const f = (a) => {
-    let h = "";
+  const h = (a) => {
+    let f = "";
     for (; a(u[l]); ) {
       if (u[l] === "\\") {
         if (++l, l >= u.length)
@@ -14932,13 +14925,13 @@ function tokenize(d, n = {}) {
         const g = u[l++], c = ESCAPE_CHARACTERS.get(g);
         if (c === void 0)
           throw new SyntaxError(`Unexpected escaped character: ${g}`);
-        h += c;
+        f += c;
         continue;
       }
-      if (h += u[l++], l >= u.length)
+      if (f += u[l++], l >= u.length)
         throw new SyntaxError("Unexpected end of input");
     }
-    return h;
+    return f;
   };
   e:
     for (; l < u.length; ) {
@@ -14953,12 +14946,12 @@ function tokenize(d, n = {}) {
           continue;
         }
       }
-      f((g) => /\s/.test(g));
-      const h = u[l];
-      if (h === "-" || h === "+") {
+      h((g) => /\s/.test(g));
+      const f = u[l];
+      if (f === "-" || f === "+") {
         const g = o.at(-1)?.type;
         if (g === TOKEN_TYPES.Text || g === void 0)
-          throw new SyntaxError(`Unexpected character: ${h}`);
+          throw new SyntaxError(`Unexpected character: ${f}`);
         switch (g) {
           case TOKEN_TYPES.Identifier:
           case TOKEN_TYPES.NumericLiteral:
@@ -14969,9 +14962,9 @@ function tokenize(d, n = {}) {
             break;
           default: {
             ++l;
-            const c = f(isInteger);
+            const c = h(isInteger);
             o.push(
-              new Token(`${h}${c}`, c.length > 0 ? TOKEN_TYPES.NumericLiteral : TOKEN_TYPES.UnaryOperator)
+              new Token(`${f}${c}`, c.length > 0 ? TOKEN_TYPES.NumericLiteral : TOKEN_TYPES.UnaryOperator)
             );
             continue;
           }
@@ -14982,23 +14975,23 @@ function tokenize(d, n = {}) {
           o.push(new Token(g, c)), l += g.length;
           continue e;
         }
-      if (h === "'" || h === '"') {
+      if (f === "'" || f === '"') {
         ++l;
-        const g = f((c) => c !== h);
+        const g = h((c) => c !== f);
         o.push(new Token(g, TOKEN_TYPES.StringLiteral)), ++l;
         continue;
       }
-      if (isInteger(h)) {
-        const g = f(isInteger);
+      if (isInteger(f)) {
+        const g = h(isInteger);
         o.push(new Token(g, TOKEN_TYPES.NumericLiteral));
         continue;
       }
-      if (isWord(h)) {
-        const g = f(isWord), c = Object.hasOwn(KEYWORDS, g) ? KEYWORDS[g] : TOKEN_TYPES.Identifier;
+      if (isWord(f)) {
+        const g = h(isWord), c = Object.hasOwn(KEYWORDS, g) ? KEYWORDS[g] : TOKEN_TYPES.Identifier;
         c === TOKEN_TYPES.In && o.at(-1)?.type === TOKEN_TYPES.Not ? (o.pop(), o.push(new Token("not in", TOKEN_TYPES.NotIn))) : o.push(new Token(g, c));
         continue;
       }
-      throw new SyntaxError(`Unexpected character: ${h}`);
+      throw new SyntaxError(`Unexpected character: ${f}`);
     }
   return o;
 }
@@ -15104,7 +15097,7 @@ function parse(d) {
   function l() {
     switch (d[o].type) {
       case TOKEN_TYPES.Text:
-        return h();
+        return f();
       case TOKEN_TYPES.OpenStatement:
         return g();
       case TOKEN_TYPES.OpenExpression:
@@ -15113,13 +15106,13 @@ function parse(d) {
         throw new SyntaxError(`Unexpected token type: ${d[o].type}`);
     }
   }
-  function f(...D) {
+  function h(...D) {
     return o + D.length <= d.length && D.some((I, $) => I !== d[o + $].type);
   }
   function a(...D) {
     return o + D.length <= d.length && D.every((I, $) => I === d[o + $].type);
   }
-  function h() {
+  function f() {
     return new StringLiteral(u(TOKEN_TYPES.Text, "Expected text token").value);
   }
   function g() {
@@ -15182,7 +15175,7 @@ function parse(d) {
     const I = i();
     u(TOKEN_TYPES.CloseStatement, "Expected closing statement token");
     const $ = [];
-    for (; f(TOKEN_TYPES.OpenStatement, TOKEN_TYPES.EndFor); )
+    for (; h(TOKEN_TYPES.OpenStatement, TOKEN_TYPES.EndFor); )
       $.push(l());
     return new For(D, I, $);
   }
@@ -15251,7 +15244,7 @@ function parse(d) {
     return D;
   }
   function T() {
-    const D = M();
+    const D = A();
     return a(TOKEN_TYPES.OpenParen) ? S(D) : D;
   }
   function S(D) {
@@ -15291,7 +15284,7 @@ function parse(d) {
     }
     return D[0];
   }
-  function M() {
+  function A() {
     let D = F();
     for (; a(TOKEN_TYPES.Dot) || a(TOKEN_TYPES.OpenSquareBracket); ) {
       const I = d[o];
@@ -15394,10 +15387,10 @@ function range(d, n, o = 1) {
 function slice(d, n, o, u = 1) {
   const l = Math.sign(u);
   l >= 0 ? (n = (n ??= 0) < 0 ? Math.max(d.length + n, 0) : Math.min(n, d.length), o = (o ??= d.length) < 0 ? Math.max(d.length + o, 0) : Math.min(o, d.length)) : (n = (n ??= d.length - 1) < 0 ? Math.max(d.length + n, -1) : Math.min(n, d.length - 1), o = (o ??= -1) < -1 ? Math.max(d.length + o, -1) : Math.min(o, d.length - 1));
-  const f = [];
+  const h = [];
   for (let a = n; l * a < l * o; a += u)
-    f.push(d[a]);
-  return f;
+    h.push(d[a]);
+  return h;
 }
 function titleCase(d) {
   return d.replace(/\b\w/g, (n) => n.toUpperCase());
@@ -15666,7 +15659,7 @@ var RuntimeValue = class {
           return new ArrayValue(o.value.concat(u.value));
       }
     else if (u instanceof ArrayValue) {
-      const l = u.value.find((f) => f.value === o.value) !== void 0;
+      const l = u.value.find((h) => h.value === o.value) !== void 0;
       switch (d.operator.value) {
         case "in":
           return new BooleanValue(l);
@@ -15716,14 +15709,14 @@ var RuntimeValue = class {
             return new ArrayValue(o.value.reverse());
           case "sort":
             return new ArrayValue(
-              o.value.sort((l, f) => {
-                if (l.type !== f.type)
-                  throw new Error(`Cannot compare different types: ${l.type} and ${f.type}`);
+              o.value.sort((l, h) => {
+                if (l.type !== h.type)
+                  throw new Error(`Cannot compare different types: ${l.type} and ${h.type}`);
                 switch (l.type) {
                   case "NumericValue":
-                    return l.value - f.value;
+                    return l.value - h.value;
                   case "StringValue":
-                    return l.value.localeCompare(f.value);
+                    return l.value.localeCompare(h.value);
                   default:
                     throw new Error(`Cannot compare type: ${l.type}`);
                 }
@@ -15760,7 +15753,7 @@ var RuntimeValue = class {
         switch (u.value) {
           case "items":
             return new ArrayValue(
-              Array.from(o.value.entries()).map(([l, f]) => new ArrayValue([new StringValue(l), f]))
+              Array.from(o.value.entries()).map(([l, h]) => new ArrayValue([new StringValue(l), h]))
             );
           case "length":
             return new NumericValue(o.value.size);
@@ -15780,7 +15773,7 @@ var RuntimeValue = class {
               throw new Error("`selectattr` can only be applied to array of objects");
             if (u.args.some((s) => s.type !== "StringLiteral"))
               throw new Error("arguments of `selectattr` must be strings");
-            const [f, a, h] = u.args.map((s) => this.evaluate(s, n));
+            const [h, a, f] = u.args.map((s) => this.evaluate(s, n));
             let g;
             if (a) {
               const s = n.tests.get(a.value);
@@ -15790,8 +15783,8 @@ var RuntimeValue = class {
             } else
               g = (...s) => s[0].__bool__().value;
             const c = o.value.filter((s) => {
-              const t = s.value.get(f.value);
-              return t ? g(t, h) : !1;
+              const t = s.value.get(h.value);
+              return t ? g(t, f) : !1;
             });
             return new ArrayValue(c);
           }
@@ -15840,12 +15833,12 @@ var RuntimeValue = class {
   }
   evaluateCallExpression(d, n) {
     const o = [], u = /* @__PURE__ */ new Map();
-    for (const f of d.args)
-      if (f.type === "KeywordArgumentExpression") {
-        const a = f;
+    for (const h of d.args)
+      if (h.type === "KeywordArgumentExpression") {
+        const a = h;
         u.set(a.key.value, this.evaluate(a.value, n));
       } else
-        o.push(this.evaluate(f, n));
+        o.push(this.evaluate(h, n));
     u.size > 0 && o.push(new ObjectValue(u));
     const l = this.evaluate(d.callee, n);
     if (l.type !== "FunctionValue")
@@ -15855,14 +15848,14 @@ var RuntimeValue = class {
   evaluateSliceExpression(d, n, o) {
     if (!(d instanceof ArrayValue || d instanceof StringValue))
       throw new Error("Slice object must be an array or string");
-    const u = this.evaluate(n.start, o), l = this.evaluate(n.stop, o), f = this.evaluate(n.step, o);
+    const u = this.evaluate(n.start, o), l = this.evaluate(n.stop, o), h = this.evaluate(n.step, o);
     if (!(u instanceof NumericValue || u instanceof UndefinedValue))
       throw new Error("Slice start must be numeric or undefined");
     if (!(l instanceof NumericValue || l instanceof UndefinedValue))
       throw new Error("Slice stop must be numeric or undefined");
-    if (!(f instanceof NumericValue || f instanceof UndefinedValue))
+    if (!(h instanceof NumericValue || h instanceof UndefinedValue))
       throw new Error("Slice step must be numeric or undefined");
-    return d instanceof ArrayValue ? new ArrayValue(slice(d.value, u.value, l.value, f.value)) : new StringValue(slice(Array.from(d.value), u.value, l.value, f.value).join(""));
+    return d instanceof ArrayValue ? new ArrayValue(slice(d.value, u.value, l.value, h.value)) : new StringValue(slice(Array.from(d.value), u.value, l.value, h.value).join(""));
   }
   evaluateMemberExpression(d, n) {
     const o = this.evaluate(d.object, n);
@@ -15917,27 +15910,27 @@ var RuntimeValue = class {
     if (!(u instanceof ArrayValue))
       throw new Error(`Expected iterable type in for loop: got ${u.type}`);
     let l = "";
-    for (let f = 0; f < u.value.length; ++f) {
+    for (let h = 0; h < u.value.length; ++h) {
       const a = /* @__PURE__ */ new Map([
-        ["index", new NumericValue(f + 1)],
-        ["index0", new NumericValue(f)],
-        ["revindex", new NumericValue(u.value.length - f)],
-        ["revindex0", new NumericValue(u.value.length - f - 1)],
-        ["first", new BooleanValue(f === 0)],
-        ["last", new BooleanValue(f === u.value.length - 1)],
+        ["index", new NumericValue(h + 1)],
+        ["index0", new NumericValue(h)],
+        ["revindex", new NumericValue(u.value.length - h)],
+        ["revindex0", new NumericValue(u.value.length - h - 1)],
+        ["first", new BooleanValue(h === 0)],
+        ["last", new BooleanValue(h === u.value.length - 1)],
         ["length", new NumericValue(u.value.length)],
-        ["previtem", f > 0 ? u.value[f - 1] : new UndefinedValue()],
-        ["nextitem", f < u.value.length - 1 ? u.value[f + 1] : new UndefinedValue()]
+        ["previtem", h > 0 ? u.value[h - 1] : new UndefinedValue()],
+        ["nextitem", h < u.value.length - 1 ? u.value[h + 1] : new UndefinedValue()]
       ]);
       o.setVariable("loop", new ObjectValue(a));
-      const h = u.value[f];
+      const f = u.value[h];
       if (d.loopvar.type === "Identifier")
-        o.setVariable(d.loopvar.value, h);
+        o.setVariable(d.loopvar.value, f);
       else if (d.loopvar.type === "TupleLiteral") {
         const c = d.loopvar;
-        if (h.type !== "ArrayValue")
-          throw new Error(`Cannot unpack non-iterable type: ${h.type}`);
-        const s = h;
+        if (f.type !== "ArrayValue")
+          throw new Error(`Cannot unpack non-iterable type: ${f.type}`);
+        const s = f;
         if (c.value.length !== s.value.length)
           throw new Error(`Too ${c.value.length > s.value.length ? "few" : "many"} items to unpack`);
         for (let t = 0; t < c.value.length; ++t) {
@@ -15976,10 +15969,10 @@ var RuntimeValue = class {
       case "ObjectLiteral": {
         const o = /* @__PURE__ */ new Map();
         for (const [u, l] of d.value) {
-          const f = this.evaluate(u, n);
-          if (!(f instanceof StringValue))
-            throw new Error(`Object keys must be strings: got ${f.type}`);
-          o.set(f.value, this.evaluate(l, n));
+          const h = this.evaluate(u, n);
+          if (!(h instanceof StringValue))
+            throw new Error(`Object keys must be strings: got ${h.type}`);
+          o.set(h.value, this.evaluate(l, n));
         }
         return new ObjectValue(o);
       }
@@ -16040,8 +16033,8 @@ var Template = class {
     n.set("false", !1), n.set("true", !0), n.set("raise_exception", (l) => {
       throw new Error(l);
     }), n.set("range", range);
-    for (const [l, f] of Object.entries(d))
-      n.set(l, f);
+    for (const [l, h] of Object.entries(d))
+      n.set(l, h);
     return new Interpreter(n).run(this.parsed).value;
   }
 };
@@ -16056,8 +16049,8 @@ function regexSplit(d, n) {
   const o = [];
   let u = 0;
   for (const l of d.matchAll(n)) {
-    const f = l[0];
-    u < l.index && o.push(d.slice(u, l.index)), f.length > 0 && o.push(f), u = l.index + f.length;
+    const h = l[0];
+    u < l.index && o.push(d.slice(u, l.index)), h.length > 0 && o.push(h), u = l.index + h.length;
   }
   return u < d.length && o.push(d.slice(u)), o;
 }
@@ -16225,8 +16218,8 @@ class WordPieceTokenizer extends TokenizerModel {
         o.push(this.unk_token);
         continue;
       }
-      let f = !1, a = 0;
-      const h = [];
+      let h = !1, a = 0;
+      const f = [];
       for (; a < l.length; ) {
         let g = l.length, c = null;
         for (; a < g; ) {
@@ -16238,12 +16231,12 @@ class WordPieceTokenizer extends TokenizerModel {
           --g;
         }
         if (c === null) {
-          f = !0;
+          h = !0;
           break;
         }
-        h.push(c), a = g;
+        f.push(c), a = g;
       }
-      f ? o.push(this.unk_token) : o.push(...h);
+      h ? o.push(this.unk_token) : o.push(...f);
     }
     return o;
   }
@@ -16261,10 +16254,10 @@ class Unigram extends TokenizerModel {
     const u = n.vocab.length;
     this.vocab = new Array(u), this.scores = new Array(u);
     for (let l = 0; l < u; ++l) {
-      const f = n.vocab[l];
-      this.vocab[l] = f[0], this.scores[l] = f[1];
+      const h = n.vocab[l];
+      this.vocab[l] = h[0], this.scores[l] = h[1];
     }
-    this.unk_token_id = n.unk_id, this.unk_token = this.vocab[n.unk_id], this.tokens_to_ids = new Map(this.vocab.map((l, f) => [l, f])), this.bosToken = " ", this.bosTokenId = this.tokens_to_ids.get(this.bosToken), this.eosToken = o.eos_token, this.eosTokenId = this.tokens_to_ids.get(this.eosToken), this.unkToken = this.vocab[this.unk_token_id], this.minScore = min(this.scores)[0], this.unkScore = this.minScore - 10, this.scores[this.unk_token_id] = this.unkScore, this.trie = new CharTrie(), this.trie.extend(this.vocab), this.fuse_unk = !0;
+    this.unk_token_id = n.unk_id, this.unk_token = this.vocab[n.unk_id], this.tokens_to_ids = new Map(this.vocab.map((l, h) => [l, h])), this.bosToken = " ", this.bosTokenId = this.tokens_to_ids.get(this.bosToken), this.eosToken = o.eos_token, this.eosTokenId = this.tokens_to_ids.get(this.eosToken), this.unkToken = this.vocab[this.unk_token_id], this.minScore = min(this.scores)[0], this.unkScore = this.minScore - 10, this.scores[this.unk_token_id] = this.unkScore, this.trie = new CharTrie(), this.trie.extend(this.vocab), this.fuse_unk = !0;
   }
   /**
    * Populates lattice nodes.
@@ -16275,8 +16268,8 @@ class Unigram extends TokenizerModel {
     let l = 0;
     for (; l < u; ) {
       let a = !1;
-      for (let h of this.trie.commonPrefixSearch(o.slice(l))) {
-        const g = this.tokens_to_ids.get(h), c = this.scores[g], s = h.length;
+      for (let f of this.trie.commonPrefixSearch(o.slice(l))) {
+        const g = this.tokens_to_ids.get(f), c = this.scores[g], s = f.length;
         n.insert(l, s, c, g), !a && s === 1 && (a = !0);
       }
       a || n.insert(l, 1, this.unkScore, this.unk_token_id), l += 1;
@@ -16308,15 +16301,15 @@ class Unigram extends TokenizerModel {
 }
 const BYTES_TO_UNICODE = (() => {
   const d = [
-    ...Array.from({ length: 94 }, (l, f) => f + 33),
-    ...Array.from({ length: 12 }, (l, f) => f + 161),
-    ...Array.from({ length: 82 }, (l, f) => f + 174)
+    ...Array.from({ length: 94 }, (l, h) => h + 33),
+    ...Array.from({ length: 12 }, (l, h) => h + 161),
+    ...Array.from({ length: 82 }, (l, h) => h + 174)
   ], n = d.slice();
   let o = 0;
   for (let l = 0; l < 256; ++l)
     d.includes(l) || (d.push(l), n.push(256 + o), o += 1);
   const u = n.map((l) => String.fromCharCode(l));
-  return Object.fromEntries(d.map((l, f) => [l, u[f]]));
+  return Object.fromEntries(d.map((l, h) => [l, u[h]]));
 })(), UNICODE_TO_BYTES = reverseDictionary(BYTES_TO_UNICODE);
 class BPE extends TokenizerModel {
   /**
@@ -16352,25 +16345,25 @@ class BPE extends TokenizerModel {
     this.end_of_word_suffix && (u[u.length - 1] += this.end_of_word_suffix);
     let l = [];
     if (u.length > 1) {
-      const f = new PriorityQueue((g, c) => g.score < c.score);
+      const h = new PriorityQueue((g, c) => g.score < c.score);
       let a = {
         token: u[0],
         bias: 0,
         prev: null,
         next: null
-      }, h = a;
+      }, f = a;
       for (let g = 1; g < u.length; ++g) {
         const c = {
           bias: g / u.length,
           // Add fractional component to break ties
           token: u[g],
-          prev: h,
+          prev: f,
           next: null
         };
-        h.next = c, this._add_node(f, h), h = c;
+        f.next = c, this._add_node(h, f), f = c;
       }
-      for (; !f.isEmpty(); ) {
-        const g = f.pop();
+      for (; !h.isEmpty(); ) {
+        const g = h.pop();
         if (g.deleted || !g.next || g.next.deleted) continue;
         if (g.deleted = !0, g.next.deleted = !0, g.prev) {
           const s = { ...g.prev };
@@ -16382,15 +16375,15 @@ class BPE extends TokenizerModel {
           prev: g.prev,
           next: g.next.next
         };
-        c.prev ? (c.prev.next = c, this._add_node(f, c.prev)) : a = c, c.next && (c.next.prev = c, this._add_node(f, c));
+        c.prev ? (c.prev.next = c, this._add_node(h, c.prev)) : a = c, c.next && (c.next.prev = c, this._add_node(h, c));
       }
       for (let g = a; g !== null; g = g.next)
         l.push(g.token);
     } else
       l = u;
     if (this.continuing_subword_suffix)
-      for (let f = 0; f < l.length - 1; ++f)
-        l[f] += this.continuing_subword_suffix;
+      for (let h = 0; h < l.length - 1; ++h)
+        l[h] += this.continuing_subword_suffix;
     return this.cache.set(n, l), l;
   }
   /**
@@ -16416,9 +16409,9 @@ class BPE extends TokenizerModel {
         continue;
       }
       const l = this.bpe(u);
-      for (const f of l)
-        this.tokens_to_ids.has(f) ? o.push(f) : this.byte_fallback ? o.push(
-          ...Array.from(this.text_encoder.encode(f)).map((a) => `<0x${a.toString(16).toUpperCase().padStart(2, "0")}>`)
+      for (const h of l)
+        this.tokens_to_ids.has(h) ? o.push(h) : this.byte_fallback ? o.push(
+          ...Array.from(this.text_encoder.encode(h)).map((a) => `<0x${a.toString(16).toUpperCase().padStart(2, "0")}>`)
         ) : o.push(this.unk_token);
     }
     return o;
@@ -16613,8 +16606,8 @@ class BertNormalizer extends Normalizer {
   _tokenize_chinese_chars(n) {
     const o = [];
     for (let u = 0; u < n.length; ++u) {
-      const l = n[u], f = l.charCodeAt(0);
-      this._is_chinese_char(f) ? (o.push(" "), o.push(l), o.push(" ")) : o.push(l);
+      const l = n[u], h = l.charCodeAt(0);
+      this._is_chinese_char(h) ? (o.push(" "), o.push(l), o.push(" ")) : o.push(l);
     }
     return o.join("");
   }
@@ -16787,7 +16780,7 @@ class ByteLevelPreTokenizer extends PreTokenizer {
    */
   pre_tokenize_text(n, o) {
     return this.add_prefix_space && !n.startsWith(" ") && (n = " " + n), (this.use_regex ? n.match(this.pattern) || [] : [n]).map(
-      (l) => Array.from(this.text_encoder.encode(l), (f) => this.byte_encoder[f]).join("")
+      (l) => Array.from(this.text_encoder.encode(l), (h) => this.byte_encoder[h]).join("")
     );
   }
 }
@@ -16924,8 +16917,8 @@ class BertProcessing extends PostProcessor {
     u && (n = mergeArrays([this.cls], n, [this.sep]));
     let l = new Array(n.length).fill(0);
     if (o !== null) {
-      const f = u && this instanceof RobertaProcessing ? [this.sep] : [], a = u ? [this.sep] : [];
-      n = mergeArrays(n, f, o, a), l = mergeArrays(l, new Array(o.length + f.length + a.length).fill(1));
+      const h = u && this instanceof RobertaProcessing ? [this.sep] : [], a = u ? [this.sep] : [];
+      n = mergeArrays(n, h, o, a), l = mergeArrays(l, new Array(o.length + h.length + a.length).fill(1));
     }
     return { tokens: n, token_type_ids: l };
   }
@@ -16952,10 +16945,10 @@ class TemplateProcessing extends PostProcessor {
     add_special_tokens: u = !0
   } = {}) {
     const l = o === null ? this.single : this.pair;
-    let f = [], a = [];
-    for (const h of l)
-      "SpecialToken" in h ? u && (f.push(h.SpecialToken.id), a.push(h.SpecialToken.type_id)) : "Sequence" in h && (h.Sequence.id === "A" ? (f = mergeArrays(f, n), a = mergeArrays(a, new Array(n.length).fill(h.Sequence.type_id))) : h.Sequence.id === "B" && (f = mergeArrays(f, o), a = mergeArrays(a, new Array(o.length).fill(h.Sequence.type_id))));
-    return { tokens: f, token_type_ids: a };
+    let h = [], a = [];
+    for (const f of l)
+      "SpecialToken" in f ? u && (h.push(f.SpecialToken.id), a.push(f.SpecialToken.type_id)) : "Sequence" in f && (f.Sequence.id === "A" ? (h = mergeArrays(h, n), a = mergeArrays(a, new Array(n.length).fill(f.Sequence.type_id))) : f.Sequence.id === "B" && (h = mergeArrays(h, o), a = mergeArrays(a, new Array(o.length).fill(f.Sequence.type_id))));
+    return { tokens: h, token_type_ids: a };
   }
 }
 class ByteLevelPostProcessor extends PostProcessor {
@@ -16986,11 +16979,11 @@ class PostProcessorSequence extends PostProcessor {
    */
   post_process(n, o = null, u = {}) {
     let l;
-    for (const f of this.processors)
-      if (f instanceof ByteLevelPostProcessor)
-        n = f.post_process(n).tokens, o && (o = f.post_process(o).tokens);
+    for (const h of this.processors)
+      if (h instanceof ByteLevelPostProcessor)
+        n = h.post_process(n).tokens, o && (o = h.post_process(o).tokens);
       else {
-        const a = f.post_process(n, o, u);
+        const a = h.post_process(n, o, u);
         n = a.tokens, l = a.token_type_ids;
       }
     return { tokens: n, token_type_ids: l };
@@ -17083,13 +17076,13 @@ class ByteFallback extends Decoder {
     const o = [];
     let u = [];
     for (const l of n) {
-      let f = null;
+      let h = null;
       if (l.length === 6 && l.startsWith("<0x") && l.endsWith(">")) {
         const a = parseInt(l.slice(3, 5), 16);
-        isNaN(a) || (f = a);
+        isNaN(a) || (h = a);
       }
-      if (f !== null)
-        u.push(f);
+      if (h !== null)
+        u.push(h);
       else {
         if (u.length > 0) {
           const a = this.text_decoder.decode(Uint8Array.from(u));
@@ -17119,13 +17112,13 @@ class StripDecoder extends Decoder {
   decode_chain(n) {
     return n.map((o) => {
       let u = 0;
-      for (let f = 0; f < this.start && o[f] === this.content; ++f) {
-        u = f + 1;
+      for (let h = 0; h < this.start && o[h] === this.content; ++h) {
+        u = h + 1;
         continue;
       }
       let l = o.length;
-      for (let f = 0; f < this.stop; ++f) {
-        const a = o.length - f - 1;
+      for (let h = 0; h < this.stop; ++h) {
+        const a = o.length - h - 1;
         if (o[a] === this.content) {
           l = a;
           continue;
@@ -17168,7 +17161,7 @@ class ByteLevelDecoder extends Decoder {
    * @returns {string} The decoded string.
    */
   convert_tokens_to_string(n) {
-    const o = n.join(""), u = new Uint8Array([...o].map((f) => this.byte_decoder[f]));
+    const o = n.join(""), u = new Uint8Array([...o].map((h) => this.byte_decoder[h]));
     return this.text_decoder.decode(u);
   }
   /** @type {Decoder['decode_chain']} */
@@ -17176,7 +17169,7 @@ class ByteLevelDecoder extends Decoder {
     const o = [];
     let u = [];
     for (const l of n)
-      this.added_tokens.find((f) => f.content === l) !== void 0 ? (u.length > 0 && (o.push(this.convert_tokens_to_string(u)), u = []), o.push(l)) : u.push(l);
+      this.added_tokens.find((h) => h.content === l) !== void 0 ? (u.length > 0 && (o.push(this.convert_tokens_to_string(u)), u = []), o.push(l)) : u.push(l);
     return u.length > 0 && o.push(this.convert_tokens_to_string(u)), o;
   }
 }
@@ -17192,9 +17185,9 @@ class CTCDecoder extends Decoder {
   convert_tokens_to_string(n) {
     if (n.length === 0) return "";
     const o = [n[0]];
-    for (let f = 1; f < n.length; ++f)
-      n[f] !== o.at(-1) && o.push(n[f]);
-    let l = o.filter((f) => f !== this.pad_token).join("");
+    for (let h = 1; h < n.length; ++h)
+      n[h] !== o.at(-1) && o.push(n[h]);
+    let l = o.filter((h) => h !== this.pad_token).join("");
     return this.cleanup && (l = clean_up_tokenization(l).replaceAll(this.word_delimiter_token, " ").trim()), l;
   }
   /** @type {Decoder['decode_chain']} */
@@ -17389,8 +17382,8 @@ const SPECIAL_TOKEN_ATTRIBUTES = [
 ];
 function padHelper(d, n, o, u) {
   for (const l of Object.keys(d)) {
-    const f = n - d[l].length, a = o(l), h = new Array(f).fill(a);
-    d[l] = u === "right" ? mergeArrays(d[l], h) : mergeArrays(h, d[l]);
+    const h = n - d[l].length, a = o(l), f = new Array(h).fill(a);
+    d[l] = u === "right" ? mergeArrays(d[l], f) : mergeArrays(f, d[l]);
   }
 }
 function truncateHelper(d, n) {
@@ -17418,10 +17411,10 @@ class PreTrainedTokenizer extends Callable {
       this.added_tokens.map((u) => `${u.lstrip ? "\\s*" : ""}(${escapeRegExp(u.content)})${u.rstrip ? "\\s*" : ""}`).join("|")
     ) : null, this.mask_token = this.getToken("mask_token"), this.mask_token_id = this.model.tokens_to_ids.get(this.mask_token), this.pad_token = this.getToken("pad_token", "eos_token"), this.pad_token_id = this.model.tokens_to_ids.get(this.pad_token), this.sep_token = this.getToken("sep_token"), this.sep_token_id = this.model.tokens_to_ids.get(this.sep_token), this.unk_token = this.getToken("unk_token"), this.unk_token_id = this.model.tokens_to_ids.get(this.unk_token), this.model_max_length = o.model_max_length, this.remove_space = o.remove_space, this.clean_up_tokenization_spaces = o.clean_up_tokenization_spaces ?? !0, this.do_lowercase_and_remove_accent = o.do_lowercase_and_remove_accent ?? !1, this.padding_side = "right", this.legacy = !1, this.chat_template = o.chat_template ?? null, Array.isArray(this.chat_template)) {
       const u = /* @__PURE__ */ Object.create(null);
-      for (const { name: l, template: f } of this.chat_template) {
-        if (typeof l != "string" || typeof f != "string")
+      for (const { name: l, template: h } of this.chat_template) {
+        if (typeof l != "string" || typeof h != "string")
           throw new Error('Chat template must be a list of objects with "name" and "template" properties');
-        u[l] = f;
+        u[l] = h;
       }
       this.chat_template = u;
     }
@@ -17459,16 +17452,16 @@ class PreTrainedTokenizer extends Callable {
     progress_callback: o = null,
     config: u = null,
     cache_dir: l = null,
-    local_files_only: f = !1,
+    local_files_only: h = !1,
     revision: a = "main",
-    legacy: h = null
+    legacy: f = null
   } = {}) {
     const g = await loadTokenizer(n, {
       progress_callback: o,
       cache_dir: l,
-      local_files_only: f,
+      local_files_only: h,
       revision: a,
-      legacy: h
+      legacy: f
     });
     return new this(...g);
   }
@@ -17497,9 +17490,9 @@ class PreTrainedTokenizer extends Callable {
     text_pair: o = null,
     add_special_tokens: u = !0,
     padding: l = !1,
-    truncation: f = null,
+    truncation: h = null,
     max_length: a = null,
-    return_tensor: h = !0,
+    return_tensor: f = !0,
     // Different to HF
     return_token_type_ids: g = null
   } = {}) {
@@ -17525,17 +17518,17 @@ class PreTrainedTokenizer extends Callable {
         throw Error("When specifying `text_pair`, since `text` is a string, `text_pair` must also be a string (i.e., not an array).");
       s = [this._encode_plus(n, o, { add_special_tokens: u, return_token_type_ids: g })];
     }
-    if (a === null ? l === "max_length" ? a = this.model_max_length : a = max(s.map((e) => e.input_ids.length))[0] : f || console.warn("Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=true` to explicitly truncate examples to max length."), a = Math.min(a, this.model_max_length), l || f)
+    if (a === null ? l === "max_length" ? a = this.model_max_length : a = max(s.map((e) => e.input_ids.length))[0] : h || console.warn("Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=true` to explicitly truncate examples to max length."), a = Math.min(a, this.model_max_length), l || h)
       for (let e = 0; e < s.length; ++e)
-        s[e].input_ids.length !== a && (s[e].input_ids.length > a ? f && truncateHelper(s[e], a) : l && padHelper(
+        s[e].input_ids.length !== a && (s[e].input_ids.length > a ? h && truncateHelper(s[e], a) : l && padHelper(
           s[e],
           a,
           (r) => r === "input_ids" ? this.pad_token_id : 0,
           this.padding_side
         ));
     const t = {};
-    if (h) {
-      if (!(l && f) && s.some((r) => {
+    if (f) {
+      if (!(l && h) && s.some((r) => {
         for (const i of Object.keys(r))
           if (r[i].length !== s[0][i]?.length)
             return !0;
@@ -17570,16 +17563,16 @@ class PreTrainedTokenizer extends Callable {
    * @returns {string[]|null} The encoded tokens.
    */
   _encode_text(n) {
-    return n === null ? null : (this.added_tokens_regex ? n.split(this.added_tokens_regex).filter((l) => l) : [n]).map((l, f) => {
-      if (this.added_tokens.find((h) => h.content === l) !== void 0)
+    return n === null ? null : (this.added_tokens_regex ? n.split(this.added_tokens_regex).filter((l) => l) : [n]).map((l, h) => {
+      if (this.added_tokens.find((f) => f.content === l) !== void 0)
         return l;
       {
         if (this.remove_space === !0 && (l = l.trim().split(/\s+/).join(" ")), this.do_lowercase_and_remove_accent && (l = lowercase_and_remove_accent(l)), this.normalizer !== null && (l = this.normalizer(l)), l.length === 0)
           return [];
-        const h = this.pre_tokenizer !== null ? this.pre_tokenizer(l, {
-          section_index: f
+        const f = this.pre_tokenizer !== null ? this.pre_tokenizer(l, {
+          section_index: h
         }) : [l];
-        return this.model(h);
+        return this.model(f);
       }
     }).flat();
   }
@@ -17598,11 +17591,11 @@ class PreTrainedTokenizer extends Callable {
     add_special_tokens: u = !0,
     return_token_type_ids: l = null
   } = {}) {
-    const f = this._encode_text(n), a = this._encode_text(o), h = this.post_processor ? this.post_processor(f, a, { add_special_tokens: u }) : { tokens: mergeArrays(f ?? [], a ?? []) }, g = this.model.convert_tokens_to_ids(h.tokens), c = {
+    const h = this._encode_text(n), a = this._encode_text(o), f = this.post_processor ? this.post_processor(h, a, { add_special_tokens: u }) : { tokens: mergeArrays(h ?? [], a ?? []) }, g = this.model.convert_tokens_to_ids(f.tokens), c = {
       input_ids: g,
       attention_mask: new Array(g.length).fill(1)
     };
-    return (l ?? this.return_token_type_ids) && h.token_type_ids && (c.token_type_ids = h.token_type_ids), c;
+    return (l ?? this.return_token_type_ids) && f.token_type_ids && (c.token_type_ids = f.token_type_ids), c;
   }
   /**
    * Encodes a single text or a pair of texts using the model's tokenizer.
@@ -17618,11 +17611,11 @@ class PreTrainedTokenizer extends Callable {
     add_special_tokens: u = !0,
     return_token_type_ids: l = null
   } = {}) {
-    const { input_ids: f } = this._encode_plus(n, o, {
+    const { input_ids: h } = this._encode_plus(n, o, {
       add_special_tokens: u,
       return_token_type_ids: l
     });
-    return f;
+    return h;
   }
   /**
    * Decode a batch of tokenized sequences.
@@ -17664,8 +17657,8 @@ class PreTrainedTokenizer extends Callable {
   }) {
     let l = this.model.convert_ids_to_tokens(n);
     o && (l = l.filter((a) => !this.special_tokens.includes(a)));
-    let f = this.decoder ? this.decoder(l) : l.join(" ");
-    return this.decoder && this.decoder.end_of_word_suffix && (f = f.replaceAll(this.decoder.end_of_word_suffix, " "), o && (f = f.trim())), (u ?? this.clean_up_tokenization_spaces) && (f = clean_up_tokenization(f)), f;
+    let h = this.decoder ? this.decoder(l) : l.join(" ");
+    return this.decoder && this.decoder.end_of_word_suffix && (h = h.replaceAll(this.decoder.end_of_word_suffix, " "), o && (h = h.trim())), (u ?? this.clean_up_tokenization_spaces) && (h = clean_up_tokenization(h)), h;
   }
   get default_chat_template() {
     return this._warned_about_chat_template || (console.warn(
@@ -17721,9 +17714,9 @@ class PreTrainedTokenizer extends Callable {
     chat_template: o = null,
     add_generation_prompt: u = !1,
     tokenize: l = !0,
-    padding: f = !1,
+    padding: h = !1,
     truncation: a = !1,
-    max_length: h = null,
+    max_length: f = null,
     return_tensor: g = !0,
     tokenizer_kwargs: c = {},
     ...s
@@ -17757,9 +17750,9 @@ class PreTrainedTokenizer extends Callable {
     });
     return l ? this._call(r, {
       add_special_tokens: !1,
-      padding: f,
+      padding: h,
       truncation: a,
-      max_length: h,
+      max_length: f,
       return_tensor: g,
       ...c
     }).input_ids : r;
@@ -17906,9 +17899,9 @@ function _build_translation_inputs(d, n, o, u) {
     throw new Error("Tokenizer must have `languageRegex` attribute set and it should be a regular expression.");
   if (!("lang_to_token" in d) || typeof d.lang_to_token != "function")
     throw new Error("Tokenizer must have `lang_to_token` attribute set and it should be a function.");
-  const l = u.src_lang, f = u.tgt_lang;
-  if (!d.language_codes.includes(f))
-    throw new Error(`Target language code "${f}" is not valid. Must be one of: {${d.language_codes.join(", ")}}`);
+  const l = u.src_lang, h = u.tgt_lang;
+  if (!d.language_codes.includes(h))
+    throw new Error(`Target language code "${h}" is not valid. Must be one of: {${d.language_codes.join(", ")}}`);
   if (l !== void 0) {
     if (!d.language_codes.includes(l))
       throw new Error(`Source language code "${l}" is not valid. Must be one of: {${d.language_codes.join(", ")}}`);
@@ -17918,7 +17911,7 @@ function _build_translation_inputs(d, n, o, u) {
         break;
       }
   }
-  return u.forced_bos_token_id = d.model.convert_tokens_to_ids([d.lang_to_token(f)])[0], d._call(n, o);
+  return u.forced_bos_token_id = d.model.convert_tokens_to_ids([d.lang_to_token(h)])[0], d._call(n, o);
 }
 class NllbTokenizer extends PreTrainedTokenizer {
   constructor(n, o) {
@@ -18076,12 +18069,12 @@ class WhisperTokenizer extends PreTrainedTokenizer {
     return_timestamps: o = !1,
     return_language: u = !1,
     time_precision: l = null,
-    force_full_sequences: f = !0
+    force_full_sequences: h = !0
   } = {}) {
     if (l === null)
       throw Error("Must specify time_precision");
     let a = null;
-    const h = o === "word";
+    const f = o === "word";
     function g() {
       return { language: a, timestamp: [null, null], text: "" };
     }
@@ -18091,7 +18084,7 @@ class WhisperTokenizer extends PreTrainedTokenizer {
     let r = [], i = [], p = !1, m = null;
     const _ = new Set(this.all_special_ids);
     for (const w of n) {
-      const T = w.tokens, S = h ? w.token_timestamps : null;
+      const T = w.tokens, S = f ? w.token_timestamps : null;
       let E = null, O = e;
       if ("stride" in w) {
         const [L, j, B] = w.stride;
@@ -18105,7 +18098,7 @@ class WhisperTokenizer extends PreTrainedTokenizer {
             }
           }
       }
-      let v = [], M = [];
+      let v = [], A = [];
       for (let L = 0; L < T.length; ++L) {
         const j = T[L];
         if (_.has(j)) {
@@ -18127,35 +18120,35 @@ class WhisperTokenizer extends PreTrainedTokenizer {
           else if (s.timestamp[0] === null)
             s.timestamp[0] = F;
           else if (F !== s.timestamp[0]) {
-            s.timestamp[1] = F, r.push(v), h && i.push(M);
+            s.timestamp[1] = F, r.push(v), f && i.push(A);
             const [D, I] = this.findLongestCommonSequence(
               r,
               i
             ), $ = this.decode(D);
-            s.text = $, h && (s.words = this.collateWordTimestamps(
+            s.text = $, f && (s.words = this.collateWordTimestamps(
               D,
               I,
               a
-            )), c.push(s), r = [], v = [], i = [], M = [], s = g();
+            )), c.push(s), r = [], v = [], i = [], A = [], s = g();
           }
-        } else if (v.push(j), h) {
+        } else if (v.push(j), f) {
           let B = round(S[L] + t, 2), F;
-          L + 1 < S.length ? F = round(S[L + 1] + t, 2) : F = null, M.push([B, F]);
+          L + 1 < S.length ? F = round(S[L + 1] + t, 2) : F = null, A.push([B, F]);
         }
       }
       if ("stride" in w) {
         const [L, j, B] = w.stride;
         t += L - B;
       }
-      v.length > 0 ? (r.push(v), h && i.push(M)) : r.every((L) => L.length === 0) && (s = g(), r = [], v = [], i = [], M = []);
+      v.length > 0 ? (r.push(v), f && i.push(A)) : r.every((L) => L.length === 0) && (s = g(), r = [], v = [], i = [], A = []);
     }
     if (r.length > 0) {
-      if (f && o)
+      if (h && o)
         throw new Error(
           "Whisper did not predict an ending timestamp, which can happen if audio is cut off in the middle of a word. Also make sure WhisperTimeStampLogitsProcessor was used during generation."
         );
       const [w, T] = this.findLongestCommonSequence(r, i), S = this.decode(w);
-      s.text = S, h && (s.words = this.collateWordTimestamps(
+      s.text = S, f && (s.words = this.collateWordTimestamps(
         w,
         T,
         a
@@ -18168,7 +18161,7 @@ class WhisperTokenizer extends PreTrainedTokenizer {
         const T = c[w];
         o || delete T.timestamp, u || delete T.language;
       }
-      if (h) {
+      if (f) {
         const w = [];
         for (const T of c)
           for (const S of T.words)
@@ -18187,31 +18180,31 @@ class WhisperTokenizer extends PreTrainedTokenizer {
    * @private
    */
   findLongestCommonSequence(n, o = null) {
-    let u = n[0], l = u.length, f = [];
+    let u = n[0], l = u.length, h = [];
     const a = Array.isArray(o) && o.length > 0;
-    let h = a ? [] : null, g = a ? o[0] : null;
+    let f = a ? [] : null, g = a ? o[0] : null;
     for (let c = 1; c < n.length; ++c) {
       const s = n[c];
       let t = 0, e = [l, l, 0, 0];
       const r = s.length;
       for (let w = 1; w < l + r; ++w) {
-        const T = w / 1e4, S = Math.max(0, l - w), E = Math.min(l, l + r - w), O = u.slice(S, E), v = Math.max(0, w - l), M = Math.min(r, w), L = s.slice(v, M);
+        const T = w / 1e4, S = Math.max(0, l - w), E = Math.min(l, l + r - w), O = u.slice(S, E), v = Math.max(0, w - l), A = Math.min(r, w), L = s.slice(v, A);
         if (O.length !== L.length)
           throw new Error("There is a bug within whisper `decode_asr` function, please report it. Dropping to prevent bad inference.");
         const j = O.filter((F, D) => F === L[D]).length, B = j / w + T;
-        j > 1 && B > t && (t = B, e = [S, E, v, M]);
+        j > 1 && B > t && (t = B, e = [S, E, v, A]);
       }
       const [i, p, m, _] = e, b = Math.floor((p + i) / 2), y = Math.floor((_ + m) / 2);
-      f.push(...u.slice(0, b)), u = s.slice(y), l = u.length, a && (h.push(...g.slice(0, b)), g = o[c].slice(y));
+      h.push(...u.slice(0, b)), u = s.slice(y), l = u.length, a && (f.push(...g.slice(0, b)), g = o[c].slice(y));
     }
-    return f.push(...u), a ? (h.push(...g), [f, h]) : [f, []];
+    return h.push(...u), a ? (f.push(...g), [h, f]) : [h, []];
   }
   /** @private */
   collateWordTimestamps(n, o, u) {
-    const [l, f, a] = this.combineTokensIntoWords(n, u), h = [];
+    const [l, h, a] = this.combineTokensIntoWords(n, u), f = [];
     for (let g = 0; g < l.length; ++g) {
       const c = a[g];
-      h.push({
+      f.push({
         text: l[g],
         timestamp: [
           o[c.at(0)][0],
@@ -18219,7 +18212,7 @@ class WhisperTokenizer extends PreTrainedTokenizer {
         ]
       });
     }
-    return h;
+    return f;
   }
   /**
    * Groups tokens by word. Returns a tuple containing a list of strings with the words,
@@ -18233,8 +18226,8 @@ class WhisperTokenizer extends PreTrainedTokenizer {
    */
   combineTokensIntoWords(n, o, u = `"'“¡¿([{-`, l = `"'.。,，!！?？:：”)]}、`) {
     o = o ?? "english";
-    let f, a, h;
-    return ["chinese", "japanese", "thai", "lao", "myanmar"].includes(o) ? [f, a, h] = this.splitTokensOnUnicode(n) : [f, a, h] = this.splitTokensOnSpaces(n), this.mergePunctuations(f, a, h, u, l);
+    let h, a, f;
+    return ["chinese", "japanese", "thai", "lao", "myanmar"].includes(o) ? [h, a, f] = this.splitTokensOnUnicode(n) : [h, a, f] = this.splitTokensOnSpaces(n), this.mergePunctuations(h, a, f, u, l);
   }
   /** @type {PreTrainedTokenizer['decode']} */
   decode(n, o) {
@@ -18248,16 +18241,16 @@ class WhisperTokenizer extends PreTrainedTokenizer {
    */
   decodeWithTimestamps(n, o) {
     const u = o?.time_precision ?? 0.02, l = Array.from(this.all_special_ids).at(-1) + 1;
-    let f = [[]];
+    let h = [[]];
     for (const a of n)
       if (a >= l) {
-        const h = round((a - l) * u, 2);
-        f.push(`<|${h}|>`), f.push([]);
+        const f = round((a - l) * u, 2);
+        h.push(`<|${f}|>`), h.push([]);
       } else
-        f[f.length - 1].push(a);
-    return f = f.map(
+        h[h.length - 1].push(a);
+    return h = h.map(
       (a) => typeof a == "string" ? a : super.decode(a, o)
-    ), f.join("");
+    ), h.join("");
   }
   /**
    * Combine tokens into words by splitting at any position where the tokens are decoded as valid unicode points.
@@ -18269,18 +18262,18 @@ class WhisperTokenizer extends PreTrainedTokenizer {
     const o = this.decode(n, {
       // @ts-ignore
       decode_with_timestamps: !0
-    }), u = "�", l = [], f = [], a = [];
-    let h = [], g = [], c = 0;
+    }), u = "�", l = [], h = [], a = [];
+    let f = [], g = [], c = 0;
     for (let s = 0; s < n.length; ++s) {
       const t = n[s];
-      h.push(t), g.push(s);
-      const e = this.decode(h, {
+      f.push(t), g.push(s);
+      const e = this.decode(f, {
         // @ts-ignore
         decode_with_timestamps: !0
       });
-      (!e.includes(u) || o[c + e.indexOf(u)] === u) && (l.push(e), f.push(h), a.push(g), h = [], g = [], c += e.length);
+      (!e.includes(u) || o[c + e.indexOf(u)] === u) && (l.push(e), h.push(f), a.push(g), f = [], g = [], c += e.length);
     }
-    return [l, f, a];
+    return [l, h, a];
   }
   /**
    * Combine tokens into words by splitting at whitespace and punctuation tokens.
@@ -18288,17 +18281,17 @@ class WhisperTokenizer extends PreTrainedTokenizer {
    * @private
    */
   splitTokensOnSpaces(n) {
-    const [o, u, l] = this.splitTokensOnUnicode(n), f = [], a = [], h = [], g = new RegExp(`^[${PUNCTUATION_REGEX}]$`, "gu");
+    const [o, u, l] = this.splitTokensOnUnicode(n), h = [], a = [], f = [], g = new RegExp(`^[${PUNCTUATION_REGEX}]$`, "gu");
     for (let c = 0; c < o.length; ++c) {
       const s = o[c], t = u[c], e = l[c], r = t[0] >= this.model.tokens_to_ids.get("<|endoftext|>"), i = s.startsWith(" "), p = s.trim(), m = g.test(p);
-      if (r || i || m || f.length === 0)
-        f.push(s), a.push(t), h.push(e);
+      if (r || i || m || h.length === 0)
+        h.push(s), a.push(t), f.push(e);
       else {
-        const _ = f.length - 1;
-        f[_] += s, a[_].push(...t), h[_].push(...e);
+        const _ = h.length - 1;
+        h[_] += s, a[_].push(...t), f[_].push(...e);
       }
     }
-    return [f, a, h];
+    return [h, a, f];
   }
   /**
    * Merges punctuation tokens with neighboring words.
@@ -18309,16 +18302,16 @@ class WhisperTokenizer extends PreTrainedTokenizer {
    * @param {string} appended 
    * @private
    */
-  mergePunctuations(n, o, u, l, f) {
-    const a = structuredClone(n), h = structuredClone(o), g = structuredClone(u);
+  mergePunctuations(n, o, u, l, h) {
+    const a = structuredClone(n), f = structuredClone(o), g = structuredClone(u);
     let c = a.length - 2, s = a.length - 1;
     for (; c >= 0; )
-      a[c].startsWith(" ") && l.includes(a[c].trim()) ? (a[s] = a[c] + a[s], h[s] = mergeArrays(h[c], h[s]), g[s] = mergeArrays(g[c], g[s]), a[c] = "", h[c] = [], g[c] = []) : s = c, --c;
+      a[c].startsWith(" ") && l.includes(a[c].trim()) ? (a[s] = a[c] + a[s], f[s] = mergeArrays(f[c], f[s]), g[s] = mergeArrays(g[c], g[s]), a[c] = "", f[c] = [], g[c] = []) : s = c, --c;
     for (c = 0, s = 1; s < a.length; )
-      !a[c].endsWith(" ") && f.includes(a[s]) ? (a[c] += a[s], h[c] = mergeArrays(h[c], h[s]), g[c] = mergeArrays(g[c], g[s]), a[s] = "", h[s] = [], g[s] = []) : c = s, ++s;
+      !a[c].endsWith(" ") && h.includes(a[s]) ? (a[c] += a[s], f[c] = mergeArrays(f[c], f[s]), g[c] = mergeArrays(g[c], g[s]), a[s] = "", f[s] = [], g[s] = []) : c = s, ++s;
     return [
       a.filter((t) => t),
-      h.filter((t) => t.length > 0),
+      f.filter((t) => t.length > 0),
       g.filter((t) => t.length > 0)
     ];
   }
@@ -18355,36 +18348,36 @@ class WhisperTokenizer extends PreTrainedTokenizer {
     const l = [];
     if (n) {
       n = n.toLowerCase();
-      let f = WHISPER_TO_LANGUAGE_CODE_MAPPING.get(n);
-      if (f === void 0)
+      let h = WHISPER_TO_LANGUAGE_CODE_MAPPING.get(n);
+      if (h === void 0)
         if (WHISPER_LANGUAGE_MAPPING.has(n))
-          f = n;
+          h = n;
         else {
           const g = n.length === 2 ? WHISPER_LANGUAGE_MAPPING.keys() : WHISPER_LANGUAGE_MAPPING.values();
           throw new Error(`Language "${n}" is not supported. Must be one of: ${JSON.stringify(g)}`);
         }
-      const a = this.model.tokens_to_ids.get(`<|${f}|>`);
+      const a = this.model.tokens_to_ids.get(`<|${h}|>`);
       if (a === void 0)
-        throw new Error(`Unable to find language "${f}" in model vocabulary. Please report this issue at https://github.com/xenova/transformers.js/issues/new/choose.`);
+        throw new Error(`Unable to find language "${h}" in model vocabulary. Please report this issue at https://github.com/xenova/transformers.js/issues/new/choose.`);
       l.push(a);
     } else
       l.push(null);
     if (o) {
       if (o = o.toLowerCase(), o !== "transcribe" && o !== "translate")
         throw new Error(`Task "${o}" is not supported. Must be one of: ["transcribe", "translate"]`);
-      const f = this.model.tokens_to_ids.get(`<|${o}|>`);
-      if (f === void 0)
+      const h = this.model.tokens_to_ids.get(`<|${o}|>`);
+      if (h === void 0)
         throw new Error(`Unable to find task "${o}" in model vocabulary. Please report this issue at https://github.com/xenova/transformers.js/issues/new/choose.`);
-      l.push(f);
+      l.push(h);
     } else
       l.push(null);
     if (u) {
-      const f = this.model.tokens_to_ids.get("<|notimestamps|>");
-      if (f === void 0)
+      const h = this.model.tokens_to_ids.get("<|notimestamps|>");
+      if (h === void 0)
         throw new Error('Unable to find "<|notimestamps|>" in model vocabulary. Please report this issue at https://github.com/xenova/transformers.js/issues/new/choose.');
-      l.push(f);
+      l.push(h);
     }
-    return l.map((f, a) => [a + 1, f]).filter((f) => f[1] !== null);
+    return l.map((h, a) => [a + 1, h]).filter((h) => h[1] !== null);
   }
 }
 class CodeGenTokenizer extends PreTrainedTokenizer {
@@ -18418,8 +18411,8 @@ class MarianTokenizer extends PreTrainedTokenizer {
     if (u.length === 0)
       return super._encode_text(o);
     if (u.length === 2) {
-      const [l, f] = u;
-      return this.supported_language_codes.includes(l) || console.warn(`Unsupported language code "${l}" detected, which may lead to unexpected behavior. Should be one of: ${JSON.stringify(this.supported_language_codes)}`), mergeArrays([l], super._encode_text(f));
+      const [l, h] = u;
+      return this.supported_language_codes.includes(l) || console.warn(`Unsupported language code "${l}" detected, which may lead to unexpected behavior. Should be one of: ${JSON.stringify(this.supported_language_codes)}`), mergeArrays([l], super._encode_text(h));
     }
   }
 }
@@ -18509,16 +18502,16 @@ class AutoTokenizer {
     quantized: o = !0,
     progress_callback: u = null,
     config: l = null,
-    cache_dir: f = null,
+    cache_dir: h = null,
     local_files_only: a = !1,
-    revision: h = "main",
+    revision: f = "main",
     legacy: g = null
   } = {}) {
     const [c, s] = await loadTokenizer(n, {
       progress_callback: u,
-      cache_dir: f,
+      cache_dir: h,
       local_files_only: a,
-      revision: h,
+      revision: f,
       legacy: g
     }), t = s.tokenizer_class?.replace(/Fast$/, "") ?? "PreTrainedTokenizer";
     let e = this.TOKENIZER_CLASS_MAPPING[t];
@@ -18550,16 +18543,16 @@ class PretrainedConfig {
     progress_callback: o = null,
     config: u = null,
     cache_dir: l = null,
-    local_files_only: f = !1,
+    local_files_only: h = !1,
     revision: a = "main"
   } = {}) {
-    let h = u ?? await loadConfig(n, {
+    let f = u ?? await loadConfig(n, {
       progress_callback: o,
       cache_dir: l,
-      local_files_only: f,
+      local_files_only: h,
       revision: a
     });
-    return new this(h);
+    return new this(f);
   }
 }
 class AutoConfig {
@@ -18725,12 +18718,12 @@ class WhisperTimeStampLogitsProcessor extends LogitsProcessor {
     );
     if (u[this.no_timestamps_token_id] = -1 / 0, n.length === this.begin_index - 1)
       return u.fill(-1 / 0), u[this.timestamp_begin] = 0, o;
-    const l = n.slice(this.begin_index), f = l.length >= 1 && l[l.length - 1] >= this.timestamp_begin, a = l.length < 2 || l[l.length - 2] >= this.timestamp_begin;
-    if (f && (a ? u.subarray(this.timestamp_begin).fill(-1 / 0) : u.subarray(0, this.eos_token_id).fill(-1 / 0)), n.length === this.begin_index && this.max_initial_timestamp_index !== null) {
+    const l = n.slice(this.begin_index), h = l.length >= 1 && l[l.length - 1] >= this.timestamp_begin, a = l.length < 2 || l[l.length - 2] >= this.timestamp_begin;
+    if (h && (a ? u.subarray(this.timestamp_begin).fill(-1 / 0) : u.subarray(0, this.eos_token_id).fill(-1 / 0)), n.length === this.begin_index && this.max_initial_timestamp_index !== null) {
       const s = this.timestamp_begin + this.max_initial_timestamp_index;
       u.subarray(s + 1).fill(-1 / 0);
     }
-    const h = log_softmax(u), g = Math.log(h.subarray(this.timestamp_begin).map(Math.exp).reduce((s, t) => s + t)), c = max(h.subarray(0, this.timestamp_begin))[0];
+    const f = log_softmax(u), g = Math.log(f.subarray(this.timestamp_begin).map(Math.exp).reduce((s, t) => s + t)), c = max(f.subarray(0, this.timestamp_begin))[0];
     return g > c && u.subarray(0, this.timestamp_begin).fill(-1 / 0), o;
   }
 }
@@ -18749,16 +18742,16 @@ class NoRepeatNGramLogitsProcessor extends LogitsProcessor {
    */
   getNgrams(n) {
     const o = n.length, u = [];
-    for (let f = 0; f < o + 1 - this.no_repeat_ngram_size; ++f) {
+    for (let h = 0; h < o + 1 - this.no_repeat_ngram_size; ++h) {
       const a = [];
-      for (let h = 0; h < this.no_repeat_ngram_size; ++h)
-        a.push(n[f + h]);
+      for (let f = 0; f < this.no_repeat_ngram_size; ++f)
+        a.push(n[h + f]);
       u.push(a);
     }
     const l = /* @__PURE__ */ new Map();
-    for (const f of u) {
-      const a = f.slice(0, f.length - 1), h = JSON.stringify(a), g = l.get(h) ?? [];
-      g.push(f[f.length - 1]), l.set(h, g);
+    for (const h of u) {
+      const a = h.slice(0, h.length - 1), f = JSON.stringify(a), g = l.get(f) ?? [];
+      g.push(h[h.length - 1]), l.set(f, g);
     }
     return l;
   }
@@ -18882,8 +18875,8 @@ class NoBadWordsLogitsProcessor extends LogitsProcessor {
   _call(n, o) {
     for (const u of this.bad_words_ids) {
       let l = !0;
-      for (let f = 1; f <= u.length - 1 && u.length < n.length; ++f)
-        if (u.at(-f - 1) !== n.at(-f)) {
+      for (let h = 1; h <= u.length - 1 && u.length < n.length; ++h)
+        if (u.at(-h - 1) !== n.at(-h)) {
           l = !1;
           break;
         }
@@ -18944,10 +18937,10 @@ class Sampler extends Callable {
     if (o === -1)
       l = l.slice(-u);
     else {
-      let f = o * u;
-      l = l.slice(f, f + u);
+      let h = o * u;
+      l = l.slice(h, h + u);
     }
-    return this.generation_config.temperature > 0 && (l = l.map((f) => f / this.generation_config.temperature)), l;
+    return this.generation_config.temperature > 0 && (l = l.map((h) => h / this.generation_config.temperature)), l;
   }
   /**
    * Selects an item randomly based on the specified probabilities.
@@ -18955,7 +18948,7 @@ class Sampler extends Callable {
    * @returns {number} The index of the selected item.
    */
   randomSelect(n) {
-    let o = n.reduce((l, f) => l + f, 0), u = Math.random() * o;
+    let o = n.reduce((l, h) => l + h, 0), u = Math.random() * o;
     for (let l = 0; l < n.length; ++l)
       if (u -= n[l], u <= 0)
         return l;
@@ -19000,13 +18993,13 @@ class MultinomialSampler extends Sampler {
   sample(n, o = -1) {
     let u = n.dims.at(-1);
     this.generation_config.top_k > 0 && (u = Math.min(this.generation_config.top_k, u));
-    const l = this.getLogits(n, o), f = getTopItems(l, u), a = softmax(f.map((h) => h[1]));
+    const l = this.getLogits(n, o), h = getTopItems(l, u), a = softmax(h.map((f) => f[1]));
     return Array.from({ length: this.generation_config.num_beams }, () => {
-      const h = this.randomSelect(a);
+      const f = this.randomSelect(a);
       return [
-        f[h][0],
+        h[f][0],
         // token id
-        Math.log(a[h])
+        Math.log(a[f])
         // score
       ];
     });
@@ -19022,9 +19015,9 @@ class BeamSearchSampler extends Sampler {
   sample(n, o = -1) {
     let u = n.dims.at(-1);
     this.generation_config.top_k > 0 && (u = Math.min(this.generation_config.top_k, u));
-    const l = this.getLogits(n, o), f = getTopItems(l, u), a = softmax(f.map((h) => h[1]));
-    return Array.from({ length: this.generation_config.num_beams }, (h, g) => [
-      f[g][0],
+    const l = this.getLogits(n, o), h = getTopItems(l, u), a = softmax(h.map((f) => f[1]));
+    return Array.from({ length: this.generation_config.num_beams }, (f, g) => [
+      h[g][0],
       // token id
       Math.log(a[g])
       // score
@@ -19045,10 +19038,10 @@ async function constructSession(d, n, o) {
     return await InferenceSession.create(l, {
       executionProviders
     });
-  } catch (f) {
+  } catch (h) {
     if (executionProviders.length === 1 && executionProviders[0] === "wasm")
-      throw f;
-    return console.warn(f), console.warn(
+      throw h;
+    return console.warn(h), console.warn(
       "Something went wrong during model construction (most likely a missing operation). Using `wasm` as a fallback. "
     ), await InferenceSession.create(l, {
       executionProviders: ["wasm"]
@@ -19058,21 +19051,21 @@ async function constructSession(d, n, o) {
 function validateInputs(d, n) {
   const o = /* @__PURE__ */ Object.create(null), u = [];
   for (const a of d.inputNames) {
-    const h = n[a];
-    if (!(h instanceof Tensor)) {
+    const f = n[a];
+    if (!(f instanceof Tensor)) {
       u.push(a);
       continue;
     }
-    o[a] = env.wasm.proxy ? h.clone() : h;
+    o[a] = env.wasm.proxy ? f.clone() : f;
   }
   if (u.length > 0)
     throw new Error(
       `An error occurred during model execution: "Missing the following inputs: ${u.join(", ")}.`
     );
-  const l = Object.keys(n).length, f = d.inputNames.length;
-  if (l > f) {
-    let a = Object.keys(n).filter((h) => !d.inputNames.includes(h));
-    console.warn(`WARNING: Too many inputs were provided (${l} > ${f}). The following inputs will be ignored: "${a.join(", ")}".`);
+  const l = Object.keys(n).length, h = d.inputNames.length;
+  if (l > h) {
+    let a = Object.keys(n).filter((f) => !d.inputNames.includes(f));
+    console.warn(`WARNING: Too many inputs were provided (${l} > ${h}). The following inputs will be ignored: "${a.join(", ")}".`);
   }
   return o;
 }
@@ -19113,12 +19106,12 @@ function toI64Tensor(d) {
 function prepareAttentionMask(d, n) {
   let o = d.config.pad_token_id ?? null, u = d.config.eos_token_id ?? null;
   isIntegralNumber(u) && (u = [u]);
-  let l = n.indexOf(o) !== -1, f = u === null || !u.includes(o);
-  if (l && f) {
+  let l = n.indexOf(o) !== -1, h = u === null || !u.includes(o);
+  if (l && h) {
     let a = BigInt64Array.from(
       // Note: != so that int matches bigint
       // @ts-ignore
-      n.data.map((h) => h != o)
+      n.data.map((f) => f != o)
     );
     return new Tensor("int64", a, n.dims);
   } else
@@ -19128,9 +19121,9 @@ function preparePositionIds(d, n, o) {
   if (!d.inputNames.includes("position_ids")) return;
   const u = new BigInt64Array(n.attention_mask.data.length);
   for (let l = 0; l < n.attention_mask.dims[0]; ++l) {
-    let f = l * n.attention_mask.dims[1], a = BigInt(0);
-    for (let h = 0; h < n.attention_mask.dims[1]; ++h) {
-      const g = f + h;
+    let h = l * n.attention_mask.dims[1], a = BigInt(0);
+    for (let f = 0; f < n.attention_mask.dims[1]; ++f) {
+      const g = h + f;
       n.attention_mask.data[g] === 0n ? u[g] = BigInt(1) : (u[g] = a, a += n.attention_mask.data[g]);
     }
   }
@@ -19146,29 +19139,29 @@ async function seq2seqForward(d, n) {
     input_ids: n.decoder_input_ids,
     encoder_hidden_states: o
   };
-  const f = !!u;
-  d.decoder_merged_session.inputNames.includes("use_cache_branch") && (l.use_cache_branch = boolTensor(f)), d.decoder_merged_session.inputNames.includes("encoder_attention_mask") && (l.encoder_attention_mask = n.attention_mask), preparePositionIds(d.decoder_merged_session, l, f), d.addPastKeyValues(l, u);
+  const h = !!u;
+  d.decoder_merged_session.inputNames.includes("use_cache_branch") && (l.use_cache_branch = boolTensor(h)), d.decoder_merged_session.inputNames.includes("encoder_attention_mask") && (l.encoder_attention_mask = n.attention_mask), preparePositionIds(d.decoder_merged_session, l, h), d.addPastKeyValues(l, u);
   const a = await sessionRun(d.decoder_merged_session, l);
-  let h = a.logits;
+  let f = a.logits;
   u = d.getPastKeyValues(a, u);
   const g = d.getAttentions(a);
-  return new Seq2SeqLMOutput({ logits: h, past_key_values: u, encoder_outputs: o, ...g });
+  return new Seq2SeqLMOutput({ logits: f, past_key_values: u, encoder_outputs: o, ...g });
 }
 function seq2seqStartBeams(d, n, o, u) {
-  let l = [], f = 0;
+  let l = [], h = 0;
   const a = d.requires_attention_mask ?? !0;
-  let h = o.decoder_input_ids ?? o.decoder_start_token_id ?? o.bos_token_id ?? o.eos_token_id;
-  h instanceof Tensor ? h = h.tolist().flat() : Array.isArray(h) || (h = [h]);
+  let f = o.decoder_input_ids ?? o.decoder_start_token_id ?? o.bos_token_id ?? o.eos_token_id;
+  f instanceof Tensor ? f = f.tolist().flat() : Array.isArray(f) || (f = [f]);
   for (let g of n) {
     g.dims = [1, ...g.dims];
     let c = {
       inputs: g,
       encoder_outputs: null,
       prev_model_outputs: null,
-      output_token_ids: h,
+      output_token_ids: f,
       done: !1,
       score: 0,
-      id: f++
+      id: h++
       // assign unique id to beams
     };
     a && (c.attention_mask = prepareAttentionMask(d, g)), l.push(c);
@@ -19186,8 +19179,8 @@ async function seq2seqRunBeam(d, n) {
     past_key_values: n.prev_model_outputs?.past_key_values
   };
   n.attention_mask && (l.attention_mask = n.attention_mask);
-  let f = await d.forward(l);
-  return n.prev_model_outputs = f, n.encoder_outputs = f.encoder_outputs, f;
+  let h = await d.forward(l);
+  return n.prev_model_outputs = h, n.encoder_outputs = h.encoder_outputs, h;
 }
 function seq2seqUpdatebeam(d, n) {
   d.output_token_ids = [...d.output_token_ids, n];
@@ -19203,25 +19196,25 @@ async function encoderForward(d, n) {
   )), await sessionRun(d.session, o);
 }
 async function decoderForward(d, n) {
-  let { input_ids: o, past_key_values: u, attention_mask: l } = n, f = {
+  let { input_ids: o, past_key_values: u, attention_mask: l } = n, h = {
     input_ids: o,
     attention_mask: l ?? prepareAttentionMask(d, o)
   };
   const a = !!u;
-  d.session.inputNames.includes("use_cache_branch") && (f.use_cache_branch = boolTensor(a)), preparePositionIds(d.session, f, a), d.addPastKeyValues(f, u);
-  let h = await sessionRun(d.session, f), g = h.logits;
-  return u = d.getPastKeyValues(h, u), { logits: g, past_key_values: u };
+  d.session.inputNames.includes("use_cache_branch") && (h.use_cache_branch = boolTensor(a)), preparePositionIds(d.session, h, a), d.addPastKeyValues(h, u);
+  let f = await sessionRun(d.session, h), g = f.logits;
+  return u = d.getPastKeyValues(f, u), { logits: g, past_key_values: u };
 }
 function decoderStartBeams(d, n, o, u, l) {
-  let f = [], a = 0;
-  for (let h of n) {
-    let g = h.tolist().map(Number);
-    h.dims = [1, ...h.dims];
+  let h = [], a = 0;
+  for (let f of n) {
+    let g = f.tolist().map(Number);
+    f.dims = [1, ...f.dims];
     let c;
-    l ? (c = l[a], c.dims = [1, ...c.dims]) : c = prepareAttentionMask(d, h);
+    l ? (c = l[a], c.dims = [1, ...c.dims]) : c = prepareAttentionMask(d, f);
     let s = {
-      input: h,
-      model_input_ids: h,
+      input: f,
+      model_input_ids: f,
       attention_mask: c,
       prev_model_outputs: null,
       output_token_ids: g,
@@ -19231,9 +19224,9 @@ function decoderStartBeams(d, n, o, u, l) {
       id: a++
       // assign unique id to beams
     };
-    f.push(s);
+    h.push(s);
   }
-  return f;
+  return h;
 }
 async function decoderRunBeam(d, n) {
   let o = new BigInt64Array(n.output_token_ids.length).fill(1n), u = {
@@ -19294,18 +19287,18 @@ class PreTrainedModel extends Callable {
     quantized: o = !0,
     progress_callback: u = null,
     config: l = null,
-    cache_dir: f = null,
+    cache_dir: h = null,
     local_files_only: a = !1,
-    revision: h = "main",
+    revision: f = "main",
     model_file_name: g = null
   } = {}) {
     let c = {
       quantized: o,
       progress_callback: u,
       config: l,
-      cache_dir: f,
+      cache_dir: h,
       local_files_only: a,
-      revision: h,
+      revision: f,
       model_file_name: g
     };
     const s = MODEL_CLASS_TO_NAME_MAPPING.get(this), t = MODEL_TYPE_MAPPING.get(s);
@@ -19366,8 +19359,8 @@ class PreTrainedModel extends Callable {
       n.max_length,
       n.forced_eos_token_id
     )), n.begin_suppress_tokens !== null) {
-      let f = o > 1 || n.forced_bos_token_id === null ? o : o + 1;
-      n.forced_decoder_ids !== null && (f += n.forced_decoder_ids[n.forced_decoder_ids.length - 1][0]), l.push(new SuppressTokensAtBeginLogitsProcessor(n.begin_suppress_tokens, f));
+      let h = o > 1 || n.forced_bos_token_id === null ? o : o + 1;
+      n.forced_decoder_ids !== null && (h += n.forced_decoder_ids[n.forced_decoder_ids.length - 1][0]), l.push(new SuppressTokensAtBeginLogitsProcessor(n.begin_suppress_tokens, h));
     }
     return n.forced_decoder_ids !== null && l.push(new ForceTokensLogitsProcessor(n.forced_decoder_ids)), u !== null && l.extend(u), l;
   }
@@ -19407,22 +19400,22 @@ class PreTrainedModel extends Callable {
     }
     if (!(n instanceof Tensor) && !isTypedArray(n) && !Array.isArray(n))
       throw Error(`\`inputs\` must be a Tensor, TypedArray, or Array, but is "${n.constructor.name}".`);
-    let f;
+    let h;
     if (this.config.is_encoder_decoder)
-      f = 0;
-    else if (f = n instanceof Tensor ? n.dims.at(-1) : n.length, f === 0)
+      h = 0;
+    else if (h = n instanceof Tensor ? n.dims.at(-1) : n.length, h === 0)
       throw Error("Must supply a non-empty array of input token ids.");
     o = this._get_generation_config(o), u = u ?? new LogitsProcessorList(), u = this._get_logits_processor(
       o,
-      f,
+      h,
       u
     );
     let a = o.eos_token_id;
     a !== null && !Array.isArray(a) && (a = [a]);
-    let h = 1;
-    const g = h + (o.max_new_tokens ?? 1 / 0), c = Number.isInteger(o.max_length) && (o.max_new_tokens ?? null) === null;
-    let s = Sampler.getSampler(o), t = this.getStartBeams(n, o, h, l);
-    for (; t.some((p) => !p.done) && h < g; ) {
+    let f = 1;
+    const g = f + (o.max_new_tokens ?? 1 / 0), c = Number.isInteger(o.max_length) && (o.max_new_tokens ?? null) === null;
+    let s = Sampler.getSampler(o), t = this.getStartBeams(n, o, f, l);
+    for (; t.some((p) => !p.done) && f < g; ) {
       let p = [];
       for (let m of t) {
         if (m.done) {
@@ -19443,7 +19436,7 @@ class PreTrainedModel extends Callable {
           this.updateBeam(S, w), S.score += T, a && a.includes(w) && (S.done = !0), p.push(S);
         }
       }
-      ++h, p = this.groupBeams(p).map(
+      ++f, p = this.groupBeams(p).map(
         (m) => m.sort((_, b) => b.score - _.score).slice(0, o.num_beams)
         // remove outside beam width
       ), t = p.flat(), o.callback_function && o.callback_function(t);
@@ -19504,8 +19497,8 @@ class PreTrainedModel extends Callable {
     const u = /* @__PURE__ */ Object.create(null);
     for (const l in n)
       if (l.startsWith("present")) {
-        let f = l.replace("present", "past_key_values");
-        o && l.includes("encoder") ? u[f] = o[f] : u[f] = n[l];
+        let h = l.replace("present", "past_key_values");
+        o && l.includes("encoder") ? u[h] = o[h] : u[h] = n[l];
       }
     return u;
   }
@@ -19519,10 +19512,10 @@ class PreTrainedModel extends Callable {
     const o = /* @__PURE__ */ Object.create(null);
     for (const u of ["cross_attentions", "decoder_attentions"]) {
       const l = [];
-      for (const f in n)
-        if (f.startsWith(u)) {
-          const a = f.split(".").pop();
-          l[a] = n[f];
+      for (const h in n)
+        if (h.startsWith(u)) {
+          const a = h.split(".").pop();
+          l[a] = n[h];
         }
       o[u] = l;
     }
@@ -19538,25 +19531,25 @@ class PreTrainedModel extends Callable {
     if (o)
       Object.assign(n, o);
     else if (this.config.is_encoder_decoder && (this.add_encoder_pkv ?? !0)) {
-      let l = [1, this.num_encoder_heads, 0, this.encoder_dim_kv], f = [1, this.num_decoder_heads, 0, this.decoder_dim_kv];
+      let l = [1, this.num_encoder_heads, 0, this.encoder_dim_kv], h = [1, this.num_decoder_heads, 0, this.decoder_dim_kv];
       for (let a = 0; a < this.num_decoder_layers; ++a)
-        n[`past_key_values.${a}.encoder.key`] = new Tensor("float32", [], l), n[`past_key_values.${a}.encoder.value`] = new Tensor("float32", [], l), n[`past_key_values.${a}.decoder.key`] = new Tensor("float32", [], f), n[`past_key_values.${a}.decoder.value`] = new Tensor("float32", [], f);
+        n[`past_key_values.${a}.encoder.key`] = new Tensor("float32", [], l), n[`past_key_values.${a}.encoder.value`] = new Tensor("float32", [], l), n[`past_key_values.${a}.decoder.key`] = new Tensor("float32", [], h), n[`past_key_values.${a}.decoder.value`] = new Tensor("float32", [], h);
     } else if (this.config.model_type === "falcon") {
       let l = [1 * this.num_heads, 0, this.dim_kv];
-      for (let f = 0; f < this.num_layers; ++f)
-        n[`past_key_values.${f}.key`] = new Tensor("float32", [], l), n[`past_key_values.${f}.value`] = new Tensor("float32", [], l);
+      for (let h = 0; h < this.num_layers; ++h)
+        n[`past_key_values.${h}.key`] = new Tensor("float32", [], l), n[`past_key_values.${h}.value`] = new Tensor("float32", [], l);
     } else if (this.config.multi_query) {
       let l = [1 * this.num_heads, 0, 2 * this.dim_kv];
-      for (let f = 0; f < this.num_layers; ++f)
-        n[`past_key_values.${f}.key_value`] = new Tensor("float32", [], l);
+      for (let h = 0; h < this.num_layers; ++h)
+        n[`past_key_values.${h}.key_value`] = new Tensor("float32", [], l);
     } else if (this.config.model_type === "bloom") {
-      let l = [1 * this.num_heads, this.dim_kv, 0], f = [1 * this.num_heads, 0, this.dim_kv];
+      let l = [1 * this.num_heads, this.dim_kv, 0], h = [1 * this.num_heads, 0, this.dim_kv];
       for (let a = 0; a < this.num_layers; ++a)
-        n[`past_key_values.${a}.key`] = new Tensor("float32", [], l), n[`past_key_values.${a}.value`] = new Tensor("float32", [], f);
+        n[`past_key_values.${a}.key`] = new Tensor("float32", [], l), n[`past_key_values.${a}.value`] = new Tensor("float32", [], h);
     } else {
       let l = [1, this.num_heads, 0, this.dim_kv];
-      for (let f = 0; f < this.num_layers; ++f)
-        n[`past_key_values.${f}.key`] = new Tensor("float32", [], l), n[`past_key_values.${f}.value`] = new Tensor("float32", [], l);
+      for (let h = 0; h < this.num_layers; ++h)
+        n[`past_key_values.${h}.key`] = new Tensor("float32", [], l), n[`past_key_values.${h}.value`] = new Tensor("float32", [], l);
     }
   }
   /**
@@ -20533,8 +20526,8 @@ class WhisperForConditionalGeneration extends WhisperPreTrainedModel {
       throw new Error(
         "Model outputs must contain cross attentions to extract timestamps. This is most likely because the model was not exported with `output_attentions=True`."
       );
-    let f = this.config.median_filter_width;
-    f === void 0 && (console.warn("Model config has no `median_filter_width`, using default value of 7."), f = 7);
+    let h = this.config.median_filter_width;
+    h === void 0 && (console.warn("Model config has no `median_filter_width`, using default value of 7."), h = 7);
     const a = n.cross_attentions.map((c) => {
       let s = Array.from(
         { length: this.config.decoder_layers },
@@ -20551,17 +20544,17 @@ class WhisperForConditionalGeneration extends WhisperPreTrainedModel {
             let E = y[S];
             for (let O = 0; O < E.data.length; ++O)
               E.data[O] = (E.data[O] - T.data[O]) / w.data[O];
-            E.data.set(medianFilter(E.data, f));
+            E.data.set(medianFilter(E.data, h));
           }
         }
       }
       return mean(i, 1);
-    }), h = [n.sequences.length, n.sequences[0].length], g = new Tensor(
+    }), f = [n.sequences.length, n.sequences[0].length], g = new Tensor(
       "float32",
-      new Float32Array(h[0] * h[1]),
-      h
+      new Float32Array(f[0] * f[1]),
+      f
     );
-    for (let c = 0; c < h[0]; ++c) {
+    for (let c = 0; c < f[0]; ++c) {
       const s = a[c].neg().squeeze_(0);
       let [t, e] = dynamicTimeWarping(s), r = Array.from({ length: t.length - 1 }, (m, _) => t[_ + 1] - t[_]), i = mergeArrays([1], r).map((m) => !!m), p = [];
       for (let m = 0; m < i.length; ++m)
@@ -20582,8 +20575,8 @@ class VisionEncoderDecoderModel extends PreTrainedModel {
    */
   constructor(n, o, u, l) {
     super(n, o), this.decoder_merged_session = u, this.generation_config = l;
-    const f = this.config.encoder, a = this.config.decoder, h = f.model_type;
-    (MODEL_MAPPING_NAMES_ENCODER_ONLY.get(h) ?? MODEL_MAPPING_NAMES_ENCODER_DECODER.get(h)) || console.warn(`Model type for encoder '${h}' not found, assuming encoder-only architecture. Please report this at https://github.com/xenova/transformers.js/issues/new/choose.`);
+    const h = this.config.encoder, a = this.config.decoder, f = h.model_type;
+    (MODEL_MAPPING_NAMES_ENCODER_ONLY.get(f) ?? MODEL_MAPPING_NAMES_ENCODER_DECODER.get(f)) || console.warn(`Model type for encoder '${f}' not found, assuming encoder-only architecture. Please report this at https://github.com/xenova/transformers.js/issues/new/choose.`);
     const c = MODEL_WITH_LM_HEAD_MAPPING_NAMES.get(a.model_type);
     if (!c)
       throw new Error(`Unable to construct \`VisionEncoderDecoder\` due to unsupported decoder: "${this.config.decoder.model_type}"`);
@@ -21119,7 +21112,7 @@ class SamModel extends SamPreTrainedModel {
       ...n,
       ...await this.get_image_embeddings(n)
     }), !n.input_labels) {
-      const o = n.input_points.dims.slice(0, -1), u = o.reduce((l, f) => l * f, 1);
+      const o = n.input_points.dims.slice(0, -1), u = o.reduce((l, h) => l * h, 1);
       n.input_labels = new Tensor(
         "int64",
         new BigInt64Array(u).fill(1n),
@@ -21404,13 +21397,13 @@ class SpeechT5ForTextToSpeech extends SpeechT5PreTrainedModel {
   async generate_speech(n, o, {
     threshold: u = 0.5,
     minlenratio: l = 0,
-    maxlenratio: f = 20,
+    maxlenratio: h = 20,
     vocoder: a = null
     // output_cross_attentions = false, // TODO add
   } = {}) {
-    const h = {
+    const f = {
       input_ids: n
-    }, { encoder_outputs: g, encoder_attention_mask: c } = await encoderForward(this, h), s = g.dims[1] / this.config.reduction_factor, t = Math.floor(s * f), e = Math.floor(s * l), r = this.config.num_mel_bins;
+    }, { encoder_outputs: g, encoder_attention_mask: c } = await encoderForward(this, f), s = g.dims[1] / this.config.reduction_factor, t = Math.floor(s * h), e = Math.floor(s * l), r = this.config.num_mel_bins;
     let i = [], p = null, m = null, _ = 0;
     for (; ; ) {
       ++_;
@@ -21578,18 +21571,18 @@ class PretrainedMixin {
     quantized: o = !0,
     progress_callback: u = null,
     config: l = null,
-    cache_dir: f = null,
+    cache_dir: h = null,
     local_files_only: a = !1,
-    revision: h = "main",
+    revision: f = "main",
     model_file_name: g = null
   } = {}) {
     let c = {
       quantized: o,
       progress_callback: u,
       config: l,
-      cache_dir: f,
+      cache_dir: h,
       local_files_only: a,
-      revision: h,
+      revision: f,
       model_file_name: g
     };
     if (l = await AutoConfig.from_pretrained(n, c), c.config || (c.config = l), !this.MODEL_CLASS_MAPPINGS)
@@ -21907,8 +21900,8 @@ class Seq2SeqLMOutput extends ModelOutput {
    * @param {Tensor} [output.decoder_attentions] Attentions weights of the decoder, after the attention softmax, used to compute the weighted average in the self-attention heads.
    * @param {Tensor} [output.cross_attentions] Attentions weights of the decoder's cross-attention layer, after the attention softmax, used to compute the weighted average in the cross-attention heads.
    */
-  constructor({ logits: n, past_key_values: o, encoder_outputs: u, decoder_attentions: l = null, cross_attentions: f = null }) {
-    super(), this.logits = n, this.past_key_values = o, this.encoder_outputs = u, this.decoder_attentions = l, this.cross_attentions = f;
+  constructor({ logits: n, past_key_values: o, encoder_outputs: u, decoder_attentions: l = null, cross_attentions: h = null }) {
+    super(), this.logits = n, this.past_key_values = o, this.encoder_outputs = u, this.decoder_attentions = l, this.cross_attentions = h;
   }
 }
 class SequenceClassifierOutput extends ModelOutput {
@@ -21992,12 +21985,19 @@ if (!BROWSER_ENV) {
   if (!sharp) throw new Error("Unable to load image processing library.");
 }
 let MODELS_BASE = "";
-function initEnv({ wasmBase: d = "/wasm/", modelsBase: n = "", threads: o, simd: u } = {}) {
+function initEnv({ wasmBase: d = "/wasm/", modelsBase: n = "", threads: o, simd: u, customCache: l } = {}) {
   if (env$1.allowLocalModels = !0, env$1.useBrowserCache = !0, env$1.backends.onnx.wasm.wasmPaths = d, MODELS_BASE = n || "", MODELS_BASE) {
-    const l = MODELS_BASE.endsWith("/") ? MODELS_BASE.slice(0, -1) : MODELS_BASE;
-    env$1.localModelPath = l;
+    const h = MODELS_BASE.endsWith("/") ? MODELS_BASE.slice(0, -1) : MODELS_BASE;
+    /^https?:\/\//i.test(h) ? (env$1.allowRemoteModels = !0, env$1.allowLocalModels = !1, env$1.remoteHost = h + "/", env$1.remotePathTemplate = "{model}/", console.debug("[aifw-js] using remote models base:", h)) : env$1.localModelPath = h;
   }
-  typeof o == "number" && o > 0 && (env$1.backends.onnx.wasm.numThreads = o), typeof u == "boolean" && (env$1.backends.onnx.wasm.simd = u);
+  l && (env$1.useCustomCache = !0, env$1.customCache = {
+    async match(h) {
+      return (await caches.open(typeof l == "string" ? l : l.name || "oneaifw-assets")).match(h);
+    },
+    async put(h, a) {
+      return (await caches.open(typeof l == "string" ? l : l.name || "oneaifw-assets")).put(h, a);
+    }
+  }), typeof o == "number" && o > 0 && (env$1.backends.onnx.wasm.numThreads = o), typeof u == "boolean" && (env$1.backends.onnx.wasm.simd = u);
 }
 const SUPPORTED = /* @__PURE__ */ new Set([
   "Xenova/distilbert-base-cased-finetuned-conll03-english",
@@ -22020,10 +22020,10 @@ class TokenClassificationPipeline {
     this.model = n, this.tokenizer = o, this.processor = u;
   }
   async run(n, { ignore_labels: o = ["O"], offsetText: u, tokenTransform: l } = {}) {
-    const f = this.tokenizer([n], { padding: !0, truncation: !0, add_special_tokens: !0 }), a = f.input_ids[0], h = a.dims[0];
+    const h = this.tokenizer([n], { padding: !0, truncation: !0, add_special_tokens: !0 }), a = h.input_ids[0], f = a.dims[0];
     let g = [];
-    const c = new Array(h).fill(-1);
-    for (let y = 0; y < h; y++) {
+    const c = new Array(f).fill(-1);
+    for (let y = 0; y < f; y++) {
       const w = a[y].item(), T = this.tokenizer.decode([w], { skip_special_tokens: !0 });
       if (T) {
         const S = g.length;
@@ -22035,8 +22035,8 @@ class TokenClassificationPipeline {
       for (let w = 0; w < g.length; w++) y[w] = l(g[w]) || g[w];
       g = y;
     }
-    const t = computeOffsetsFromTokens(typeof u == "string" ? u : n, g), r = (await this.model(f)).logits, p = (r.dims || [])[2] || 0, m = r.data, _ = this.model.config.id2label, b = [];
-    for (let y = 0; y < h && !(!p || !m); y++) {
+    const t = computeOffsetsFromTokens(typeof u == "string" ? u : n, g), r = (await this.model(h)).logits, p = (r.dims || [])[2] || 0, m = r.data, _ = this.model.config.id2label, b = [];
+    for (let y = 0; y < f && !(!p || !m); y++) {
       const w = y * p;
       if (w + p > m.length) break;
       let T = 0, S = -1 / 0;
@@ -22048,9 +22048,9 @@ class TokenClassificationPipeline {
       for (let B = 0; B < p; B++) E += Math.exp(m[w + B] - S);
       const O = E > 0 ? Math.exp(m[w + T] - S) / E : 0, v = _ ? _[T] : `LABEL_${T}`;
       if (o.includes(v)) continue;
-      const M = c[y];
-      if (M < 0) continue;
-      const L = g[M] || "", j = t[M] || [null, null];
+      const A = c[y];
+      if (A < 0) continue;
+      const L = g[A] || "", j = t[A] || [null, null];
       b.push({ entity: v, score: O, index: y, word: L, start: j[0], end: j[1] });
     }
     return mergeSubwordItems(b);
@@ -22058,37 +22058,37 @@ class TokenClassificationPipeline {
 }
 async function buildNerPipeline(d, { quantized: n = !0, preferWebGPU: o = !0 } = {}) {
   if (!SUPPORTED.has(d)) throw new Error(`Unsupported model: ${d}`);
-  const l = `${localDirFor(d)}`, a = await (PREFER_BERT_FAST.has(d), AutoTokenizer).from_pretrained(l), h = [];
-  o && typeof navigator < "u" && "gpu" in navigator && h.push("webgpu"), h.push("wasm");
-  const g = await AutoModelForTokenClassification.from_pretrained(l, { quantized: !!n, device: h });
+  const l = `${localDirFor(d)}`, a = await (PREFER_BERT_FAST.has(d), AutoTokenizer).from_pretrained(l), f = [];
+  o && typeof navigator < "u" && "gpu" in navigator && f.push("webgpu"), f.push("wasm");
+  const g = await AutoModelForTokenClassification.from_pretrained(l, { quantized: !!n, device: f });
   return new TokenClassificationPipeline({ model: g, tokenizer: a });
 }
 function computeOffsetsFromTokens(d, n) {
-  const o = new Array(n.length), u = d.toLowerCase(), l = buildStrippedMap(u), f = l.stripped, a = l.map;
-  let h = 0, g = 0;
+  const o = new Array(n.length), u = d.toLowerCase(), l = buildStrippedMap(u), h = l.stripped, a = l.map;
+  let f = 0, g = 0;
   for (let c = 0; c < n.length; c++) {
     const s = String(n[c] ?? ""), t = s.startsWith("##") ? s.slice(2) : s;
     if (!t) {
-      o[c] = [h, h];
+      o[c] = [f, f];
       continue;
     }
     const e = t.toLowerCase();
-    let r = u.indexOf(e, h);
+    let r = u.indexOf(e, f);
     if (r === -1 && (r = u.indexOf(e)), r !== -1) {
       const p = r, m = r + t.length;
-      o[c] = [p, m], h = m, g = findStrippedIndexAtOrAfter(a, m);
+      o[c] = [p, m], f = m, g = findStrippedIndexAtOrAfter(a, m);
       continue;
     }
     const i = stripAccents(e);
     if (i) {
-      let p = f.indexOf(i, g);
-      if (p === -1 && (p = f.indexOf(i)), p !== -1) {
+      let p = h.indexOf(i, g);
+      if (p === -1 && (p = h.indexOf(i)), p !== -1) {
         const m = a[p] ?? 0, _ = p + i.length, b = _ < a.length ? a[_] : d.length;
-        o[c] = [m, b], h = b, g = _;
+        o[c] = [m, b], f = b, g = _;
         continue;
       }
     }
-    o[c] = [h, h];
+    o[c] = [f, f];
   }
   return o;
 }
@@ -22096,14 +22096,14 @@ function mergeSubwordItems(d) {
   if (!Array.isArray(d) || d.length === 0) return d;
   const n = [];
   let o = null, u = 0;
-  const l = (f) => f.startsWith("B-") || f.startsWith("I-") || f.startsWith("E-") ? f.slice(2) : f;
-  for (const f of d) {
+  const l = (h) => h.startsWith("B-") || h.startsWith("I-") || h.startsWith("E-") ? h.slice(2) : h;
+  for (const h of d) {
     if (!o) {
-      o = { ...f }, u = 1;
+      o = { ...h }, u = 1;
       continue;
     }
-    const a = l(o.entity) === l(f.entity), h = o.end === f.start;
-    a && h ? (o.word = o.word + f.word, o.end = f.end, o.score = (o.score * u + f.score) / (u + 1), u += 1) : (n.push(o), o = { ...f }, u = 1);
+    const a = l(o.entity) === l(h.entity), f = o.end === h.start;
+    a && f ? (o.word = o.word + h.word, o.end = h.end, o.score = (o.score * u + h.score) / (u + 1), u += 1) : (n.push(o), o = { ...h }, u = 1);
   }
   return o && n.push(o), n;
 }
@@ -22118,12 +22118,12 @@ function buildStrippedMap(d) {
   const n = [], o = [];
   let u = 0;
   for (; u < d.length; ) {
-    const l = d.codePointAt(u), f = String.fromCodePoint(l), a = f.normalize("NFD");
-    for (let h = 0; h < a.length; h++) {
-      const g = a[h];
+    const l = d.codePointAt(u), h = String.fromCodePoint(l), a = h.normalize("NFD");
+    for (let f = 0; f < a.length; f++) {
+      const g = a[f];
       new RegExp("\\p{M}", "u").test(g) || isConnectorPunct(g) || (n.push(g), o.push(u));
     }
-    u += f.length;
+    u += h.length;
   }
   return { stripped: n.join(""), map: o };
 }
@@ -22140,9 +22140,9 @@ function findStrippedIndexAtOrAfter(d, n) {
 }
 function buildNerEntitiesBuffer(d, n, o) {
   if (!n?.length) return { ptr: 0, count: 0, owned: [], byteSize: 0 };
-  const u = 20, l = n.length >>> 0, f = u * l, a = d.aifw_malloc(f);
+  const u = 20, l = n.length >>> 0, h = u * l, a = d.aifw_malloc(h);
   if (!a) throw new Error("aifw_malloc ner entities failed");
-  const h = new DataView(d.memory.buffer), g = typeof o == "string", c = g ? o.length : Number(o || 0), s = g ? computeUtf8OffsetMap(o) : null, t = {
+  const f = new DataView(d.memory.buffer), g = typeof o == "string", c = g ? o.length : Number(o || 0), s = g ? computeUtf8OffsetMap(o) : null, t = {
     None: 0,
     PHYSICAL_ADDRESS: 1,
     ORGANIZATION: 3,
@@ -22176,18 +22176,18 @@ function buildNerEntitiesBuffer(d, n, o) {
       _ = E, b = Math.max(E, O);
     }
     const y = a + p * u, [w, T] = r(m.entity), S = i(w);
-    h.setUint8(y + 0, S), h.setUint8(y + 1, T), h.setFloat32(y + 4, Number(m.score || 0), !0), h.setUint32(y + 8, Number(m.index || 0) >>> 0, !0), h.setUint32(y + 12, _ >>> 0, !0), h.setUint32(y + 16, b >>> 0, !0);
+    f.setUint8(y + 0, S), f.setUint8(y + 1, T), f.setFloat32(y + 4, Number(m.score || 0), !0), f.setUint32(y + 8, Number(m.index || 0) >>> 0, !0), f.setUint32(y + 12, _ >>> 0, !0), f.setUint32(y + 16, b >>> 0, !0);
   }
-  return { ptr: a, count: l, owned: [], byteSize: f };
+  return { ptr: a, count: l, owned: [], byteSize: h };
 }
 function computeUtf8OffsetMap(d) {
   const n = new Array(d.length + 1);
   let o = 0, u = 0;
   for (; u < d.length; ) {
     n[u] = o;
-    const l = d.codePointAt(u), f = l > 65535 ? 2 : 1;
+    const l = d.codePointAt(u), h = l > 65535 ? 2 : 1;
     let a = 0;
-    l <= 127 ? a = 1 : l <= 2047 ? a = 2 : l <= 65535 ? a = 3 : a = 4, o += a, u += f;
+    l <= 127 ? a = 1 : l <= 2047 ? a = 2 : l <= 65535 ? a = 3 : a = 4, o += a, u += h;
   }
   return n[d.length] = o, n;
 }

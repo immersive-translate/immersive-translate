@@ -522,6 +522,11 @@ select.translate-service {
   color: var(--text-black-2);
 }
 
+.min-select-container.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* dark use black, for windows */
 @media (prefers-color-scheme: dark) {
   select.language-select option,

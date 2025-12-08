@@ -839,13 +839,13 @@ article {
   border-bottom: 2px solid;
 }
 
-.youtube-header {
+.card-header {
   display: flex;
   align-items: center;
   margin-top: 1rem;
 }
 
-.youtube-container {
+.card-container {
   border-radius: 8px;
   border: 1px solid var(--muted-border-color);
   padding: 0 24px;
@@ -894,11 +894,11 @@ article {
     display: flex;
   }
 
-  .youtube-header {
+  .card-header {
     margin-top: 1rem;
   }
 
-  .youtube-container {
+  .card-container {
     margin-bottom: 1rem;
   }
 }
@@ -1234,7 +1234,7 @@ textarea[disabled] {
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 27px; 
+  line-height: 27px;
 }
 
 .consent-modal strong {
@@ -1242,7 +1242,7 @@ textarea[disabled] {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
 .consent-modal .highlight-text {
@@ -1250,14 +1250,14 @@ textarea[disabled] {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
 .consent-modal .button {
   padding: 9px 32px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 24px; 
+  line-height: 24px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -1274,9 +1274,155 @@ textarea[disabled] {
 
 .consent-modal .cancel {
   color: #333;
-  background-color: #F3F5F6;
+  background-color: #f3f5f6;
 }
 
 .consent-modal input {
   margin: 24px 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.consent-modal ul {
+  margin: 12px 0;
+  padding-left: 24px;
+  list-style-type: disc;
+}
+
+.consent-modal li {
+  margin: 8px 0;
+  line-height: 24px;
+  color: var(--text-color, #333);
+}
+
+.consent-modal div {
+  line-height: 24px;
+  color: var(--text-color, #333);
+}
+
+.consent-modal-wrapper {
+  padding: 24px 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .consent-modal-wrapper {
+    padding: 20px 20px;
+  }
+
+  .consent-modal {
+    font-size: 13px;
+  }
+
+  .consent-modal h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 24px;
+  }
+
+  .consent-modal strong {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .consent-modal .highlight-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .consent-modal ul {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+
+  .consent-modal li {
+    margin: 6px 0;
+    line-height: 20px;
+  }
+
+  .consent-modal div {
+    line-height: 20px;
+  }
+
+  .consent-modal input {
+    margin: 16px 0;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .consent-modal .button {
+    padding: 8px 24px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .consent-modal .button-container {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .consent-modal-wrapper {
+    padding: 16px 16px;
+  }
+
+  .consent-modal {
+    font-size: 12px;
+  }
+
+  .consent-modal h2 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 22px;
+  }
+
+  .consent-modal strong {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .consent-modal .highlight-text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .consent-modal ul {
+    margin: 8px 0;
+    padding-left: 18px;
+  }
+
+  .consent-modal li {
+    margin: 5px 0;
+    line-height: 18px;
+    font-size: 12px;
+  }
+
+  .consent-modal div {
+    line-height: 18px;
+  }
+
+  .consent-modal input {
+    margin: 12px 0;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .consent-modal .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    float: none;
+    justify-content: stretch;
+  }
+
+  .consent-modal .button {
+    padding: 7px 20px;
+    font-size: 13px;
+    line-height: 18px;
+    flex: 1;
+    min-width: 0;
+  }
 }

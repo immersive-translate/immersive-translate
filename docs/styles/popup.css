@@ -522,6 +522,11 @@ select.translate-service {
   color: var(--text-black-2);
 }
 
+.min-select-container.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* dark use black, for windows */
 @media (prefers-color-scheme: dark) {
   select.language-select option,
@@ -896,7 +901,7 @@ select.text-gray-6 {
   border: 1px solid var(--service-select-border-color);
   padding: 4px 5px;
   position: absolute;
-  left: 0;
+  left: -10px;
   right: 0;
   z-index: 100;
   overflow-y: auto;
@@ -947,11 +952,13 @@ select.text-gray-6 {
 .custom-select-item-pro {
   font-size: 12px;
   margin-left: 6px;
+  display: flex;
 }
 
 .custom-select-item-pro img {
   margin: 0 3px;
   width: 20px;
+  flex-shrink: 0;
 }
 
 .custom-select-group-header {

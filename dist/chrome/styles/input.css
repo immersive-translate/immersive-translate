@@ -200,7 +200,6 @@
 }
 
 .immersive-translate-modal {
-  display: none;
   position: fixed;
   z-index: 2147483647;
   left: 0;
@@ -280,7 +279,6 @@
   font-weight: 400;
   color: #333333;
   margin-top: 24px;
-  word-break: break-all;
 }
 
 @media screen and (max-width: 768px) {

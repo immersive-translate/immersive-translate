@@ -110,9 +110,6 @@
   "translateText": {
     "message": "翻译文本：\"{text}\""
   },
-  "shareToDraft": {
-    "message": "生成网页快照"
-  },
   "toggleTranslatePageOfficialPage": {
     "message": "翻译网页/显示原文"
   }

@@ -23,9 +23,6 @@
   "toggleTranslateTheMainPage": {
     "message": "페이지의 주요 영역 번역/원문 텍스트 표시"
   },
-  "shareToDraft": {
-    "message": "이중 언어 페이지 공유"
-  },
   "openOptionsPage": {
     "message": "설정 페이지 열기"
   },

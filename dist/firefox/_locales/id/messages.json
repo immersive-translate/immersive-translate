@@ -1,0 +1,116 @@
+{
+  "shortBrandName": {
+    "message": "Immersive Translate"
+  },
+  "brandName": {
+    "message": "Immersive Translate - Terjemahkan Web & PDF"
+  },
+  "brandDescription": {
+    "message": "Situs Terjemahan Gratis, Terjemahkan PDF & Epub eBook, Terjemahkan Subtitle Video dalam Bilingual"
+  },
+  "toggleTranslatePage": {
+    "message": "Terjemahkan ke {targetLanguage}"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "Terjemahkan seluruh halaman/Tampilkan teks asli"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "Langsung terjemahkan hingga bagian bawah halaman/Tampilkan teks asli"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "Terjemahkan halaman utama/Tampilkan teks asli"
+  },
+  "openOptionsPage": {
+    "message": "Buka Halaman Pengaturan"
+  },
+  "babelDOC": {
+    "message": "BabelDOC Pertahankan Tata Letak PDF"
+  },
+  "translateLocalPdfFile": {
+    "message": "Terjemahkan File PDF lokal"
+  },
+  "openEbookViewer": {
+    "message": "Baca buku elektronik lokal"
+  },
+  "openEbookBuilder": {
+    "message": "Buat eBook EPUB Dwibahasa"
+  },
+  "translateLocalHtmlFile": {
+    "message": "Terjemahkan File HTML/txt"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "Terjemahkan File Subtitle Lokal"
+  },
+  "openAboutPage": {
+    "message": "Tentang / Masukan/Sponsor"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "Aktifkan atau nonaktifkan sementara terjemahan langsung saat mouse diarahkan ke halaman"
+  },
+  "translateWithOpenAI": {
+    "message": "Terjemahkan halaman saat ini dengan OpenAI"
+  },
+  "translateWithDeepL": {
+    "message": "Terjemahkan halaman saat ini dengan DeepL"
+  },
+  "translateWithGoogle": {
+    "message": "Terjemahkan halaman saat ini dengan Google"
+  },
+  "translateWithBing": {
+    "message": "Terjemahkan halaman saat ini dengan Microsoft Translator"
+  },
+  "translateWithGemini": {
+    "message": "Terjemahkan halaman saat ini dengan Gemini"
+  },
+  "translateWithTransmart": {
+    "message": "Terjemahkan halaman saat ini dengan Tencent Translator"
+  },
+  "translateInputBox": {
+    "message": "Terjemahkan isi kotak input saat ini"
+  },
+  "toggleSidePanel": {
+    "message": "Buka/Tutup Panel Samping"
+  },
+  "toggleOnlyTransation": {
+    "message": "Beralih ke mode hanya terjemahan"
+  },
+  "toggleTranslationMask": {
+    "message": "Alihkan efek blur pada teks terjemahan (mode belajar) untuk halaman saat ini"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "Beralih Subtitle Video dengan Fitur Immersive Translation"
+  },
+  "brandDescriptionForSafari": {
+    "message": "Situs Terjemahan Gratis, Terjemahkan PDF & Epub eBook, Terjemahkan Subtitle Video dalam Bilingual"
+  },
+  "PdfProFile": {
+    "message": "Terjemahan PDF Pro berbasis AI"
+  },
+  "textTranslate": {
+    "message": "Terjemahan Teks"
+  },
+  "translateWithClaude": {
+    "message": "Gunakan Claude sementara untuk menerjemahkan halaman saat ini."
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "Terjemahkan Halaman Web/Tampilkan Teks Asli"
+  },
+  "translateText": {
+    "message": "Terjemahkan \"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(1)"
+  },
+  "translateWithCustom2": {
+    "message": "Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(2)"
+  },
+  "translateWithCustom3": {
+    "message": "Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(3)"
+  },
+  "translateMangaMenuId": {
+    "message": "Terjemahkan gambar/pulihkan gambar"
+  },
+  "openAiWritingModal": {
+    "message": "Buka Modal AI Tulis"
+  }
+}

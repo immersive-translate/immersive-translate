@@ -5,30 +5,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/base.css?v={date}" />
-    <link rel="stylesheet" href="styles/side-panel.css?v={date}" />
-    <link rel="stylesheet" href="styles/reward-center.css?v={date}" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/side-panel.css" />
+    <link rel="stylesheet" href="styles/reward-center.css" />
     <style>
         body {
             margin: 0;
+        }
+
+        /* 页面加载中的占位 loading */
+        .side-panel-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--c-ff, #ffffff);
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--s-1, #f3f5f6);
+            border-top: 2px solid var(--p-main, #ea4c89);
+            border-radius: 50%;
+            animation: imt-spin 1s linear infinite;
+        }
+
+        @keyframes imt-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div id="mount"></div>
-    <div id="immersive-translate-status" style="display: none;">Loading...</div>
-    <div id="storage">
-        <input type="hidden" id="immersive-translate-page-ready" name="immersive-translate-page-ready" value="false" />
-        <input type="hidden" id="immersive-translate-local-storage" name="immersive-translate-local-storage" value="" />
-
-        <input type="hidden" id="immersive-translate-sync-storage" name="immersive-translate-sync-storage" value="" />
-
-        <input type="hidden" id="immersive-translate-message" name="immersive-translate-message" value="" />
-
-        <input type="hidden" id="immersive-translate-manifest" name="immersive-translate-manifest" value="" />
+    <div id="mount">
+        <div class="side-panel-loading">
+            <div class="loading-spinner"></div>
+        </div>
     </div>
-    <script src="./side-panel.js?v={date}"></script>
+
+    <script src="./side-panel.js"></script>
 </body>
 
 </html>

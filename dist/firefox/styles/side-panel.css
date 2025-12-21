@@ -604,6 +604,7 @@
   border: 1px solid #fafbfb;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
   padding: 12px 16px;
+  display: none;
 }
 
 .imt-dropdown ul {

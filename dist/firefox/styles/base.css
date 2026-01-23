@@ -95,6 +95,7 @@
   --switch-background-color: var(--c-c7, hsl(205deg, 16%, 77%));
   --float-ball-more-button-border-color: var(--c-f5, #f6f6f6);
   --float-ball-more-button-background-color: var(--c-ff);
+  --float-ball-more-button-hover-color: var(--p-weak);
   --float-ball-more-button-svg-color: #6c6f73;
   --service-bg-hover: var(--s-1-hover, #f7faff);
   --service-bg: var(--s-1-weak, #fafbfb);
@@ -181,6 +182,7 @@
   --switch-background-color: var(--c-c7, hsl(205deg, 16%, 77%));
   --float-ball-more-button-border-color: var(--c-f5, #f6f6f6);
   --float-ball-more-button-background-color: var(--c-ff);
+  --float-ball-more-button-hover-color: var(--p-weak);
   --float-ball-more-button-svg-color: #6c6f73;
   --service-bg-hover: var(--s-1-hover, #f7faff);
   --service-bg: var(--s-1-weak, #fafbfb);

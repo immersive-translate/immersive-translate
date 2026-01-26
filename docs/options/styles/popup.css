@@ -513,7 +513,6 @@ select.language-select {
 
 select.min-select {
   --form-element-spacing-horizontal: 0;
-  margin-bottom: 4px;
   max-width: 128px;
   overflow: hidden;
   color: var(--primary);

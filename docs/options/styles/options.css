@@ -1296,12 +1296,12 @@ textarea[disabled] {
 .consent-modal li {
   margin: 8px 0;
   line-height: 24px;
-  color: var(--text-color, #333);
+  color: var(--text-black-2);
 }
 
 .consent-modal div {
   line-height: 24px;
-  color: var(--text-color, #333);
+  color: var(--text-black-2);
 }
 
 .consent-modal-wrapper {

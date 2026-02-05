@@ -1,0 +1,116 @@
+{
+  "shortBrandName": {
+    "message": "沉浸式翻譯"
+  },
+  "brandName": {
+    "message": "沉浸式翻譯 - 網頁翻譯及 PDF 翻譯"
+  },
+  "brandDescription": {
+    "message": "【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯插件，支持 PDF 翻譯（保留排版），影片雙語字幕翻譯（Youtube, Netflix），EPUB 電子書翻譯；支持人工智能 AI 翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）"
+  },
+  "toggleTranslatePage": {
+    "message": "翻譯為{targetLanguage}"
+  },
+  "toggleTranslateTheWholePage": {
+    "message": "翻譯頁面全部區域/顯示原文"
+  },
+  "toggleTranslateToThePageEndImmediately": {
+    "message": "立即翻譯到頁面底端/顯示原文"
+  },
+  "toggleTranslateTheMainPage": {
+    "message": "翻譯頁面主要區域/顯示原文"
+  },
+  "openOptionsPage": {
+    "message": "開啟設定頁面"
+  },
+  "babelDOC": {
+    "message": "BabelDOC 保留排版 PDF 翻譯"
+  },
+  "translateLocalPdfFile": {
+    "message": "翻譯本機 PDF 檔案"
+  },
+  "openEbookViewer": {
+    "message": "閱讀本機電子書"
+  },
+  "openEbookBuilder": {
+    "message": "製作雙語 EPUB 電子書"
+  },
+  "translateLocalHtmlFile": {
+    "message": "翻譯 HTML/txt 檔案"
+  },
+  "translateLocalSubtitleFile": {
+    "message": "翻譯字幕檔案"
+  },
+  "openAboutPage": {
+    "message": "關於/問題回報"
+  },
+  "toggleMouseHoverTranslateDirectly": {
+    "message": "在頁面上臨時啟用或關閉滑鼠懸停直接翻譯"
+  },
+  "translateWithOpenAI": {
+    "message": "臨時使用 OpenAI 翻譯目前頁面"
+  },
+  "translateWithDeepL": {
+    "message": "臨時使用 DeepL 翻譯目前頁面"
+  },
+  "translateWithGoogle": {
+    "message": "臨時使用 Google 翻譯目前頁面"
+  },
+  "translateWithBing": {
+    "message": "臨時使用微軟翻譯目前頁面"
+  },
+  "translateWithGemini": {
+    "message": "臨時使用 Gemini 翻譯目前頁面"
+  },
+  "translateWithTransmart": {
+    "message": "臨時使用騰訊翻譯目前頁面"
+  },
+  "translateInputBox": {
+    "message": "翻譯目前輸入框內容"
+  },
+  "toggleSidePanel": {
+    "message": "開啟/關閉側邊欄"
+  },
+  "toggleOnlyTransation": {
+    "message": "切換雙語/僅譯文模式"
+  },
+  "toggleTranslationMask": {
+    "message": "切換目前頁面譯文為模糊效果（學習模式）"
+  },
+  "toggleVideoSubtitlePreTranslation": {
+    "message": "切換雙語字幕優先使用沉浸式翻譯設定"
+  },
+  "brandDescriptionForSafari": {
+    "message": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;"
+  },
+  "PdfProFile": {
+    "message": "AI 驅動的 PDF Pro 翻譯"
+  },
+  "textTranslate": {
+    "message": "文字翻譯（對比多個翻譯服務）"
+  },
+  "translateWithClaude": {
+    "message": "臨時使用 Claude 翻譯目前頁面"
+  },
+  "toggleTranslatePageOfficialPage": {
+    "message": "翻譯網頁/顯示原文"
+  },
+  "translateText": {
+    "message": "翻譯文字：\"{text}\""
+  },
+  "translateWithCustom1": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面 (1)"
+  },
+  "translateWithCustom2": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面 (2)"
+  },
+  "translateWithCustom3": {
+    "message": "暫時使用自訂翻譯服務翻譯目前頁面 (3)"
+  },
+  "translateMangaMenuId": {
+    "message": "翻譯圖片/還原圖片"
+  },
+  "openAiWritingModal": {
+    "message": "開啟 AI Write 視窗"
+  }
+}

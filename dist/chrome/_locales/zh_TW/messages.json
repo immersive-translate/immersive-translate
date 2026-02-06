@@ -6,7 +6,7 @@
     "message": "沉浸式翻譯 - 網頁翻譯及 PDF 翻譯"
   },
   "brandDescription": {
-    "message": "【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯插件，支持 PDF 翻譯（保留排版），影片雙語字幕翻譯（Youtube, Netflix），EPUB 電子書翻譯；支持人工智能 AI 翻譯大模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）"
+    "message": "【沉浸式翻譯】免費的（原文/譯文）雙語對照網頁翻譯擴充功能，支援 PDF 翻譯（保留排版），影片雙語字幕翻譯（Youtube, Netflix），EPUB 電子書翻譯；支持 AI 模型（OpenAI (ChatGPT)、DeepL、Gemini(Bard) 等）"
   },
   "toggleTranslatePage": {
     "message": "翻譯為{targetLanguage}"
@@ -81,7 +81,7 @@
     "message": "切換雙語字幕優先使用沉浸式翻譯設定"
   },
   "brandDescriptionForSafari": {
-    "message": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯插件，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;"
+    "message": "【沉浸式翻譯】一款免費的（原文/譯文）雙語對照網頁翻譯擴充功能，同時支持PDF翻譯和EPUB電子書翻譯且保留原文檔排版，YouTube/Netflix等在線影片雙語字幕翻譯，支持Deepl/Google等主流翻譯服務;"
   },
   "PdfProFile": {
     "message": "AI 驅動的 PDF Pro 翻譯"

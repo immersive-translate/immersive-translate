@@ -16,7 +16,6 @@ body:
     attributes:
       label: 插件版本号 | Version
       description: What version of our extension are you running?
-      placeholder: 1.14.8
     validations:
       required: true
   - type: input

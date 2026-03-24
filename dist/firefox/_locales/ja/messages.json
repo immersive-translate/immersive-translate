@@ -12,16 +12,16 @@
     "message": "{targetLanguage}に翻訳"
   },
   "toggleTranslateTheWholePage": {
-    "message": "ページ全体を翻訳/原文を表示"
+    "message": "ページ全体を翻訳／原文表示"
   },
   "toggleOnlyTransation": {
     "message": "「翻訳のみモード」に切り替える"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "ページの最下部まで即時翻訳/原文を表示"
+    "message": "ページ最下部まで即時翻訳／原文表示"
   },
   "toggleTranslateTheMainPage": {
-    "message": "ページのメインエリアを翻訳/原文を表示"
+    "message": "ページのメインエリアを翻訳／原文表示"
   },
   "openOptionsPage": {
     "message": "設定ページを開く"
@@ -51,31 +51,31 @@
     "message": "バージョン情報/フィードバック/スポンサー"
   },
   "translateWithGemini": {
-    "message": "現在のページを一時的にGeminiで翻訳してください"
+    "message": "現在のページを一時的に Gemini で翻訳する"
   },
   "translateWithOpenAI": {
-    "message": "一時的にOpenAIを使って現在のページを翻訳してください"
+    "message": "現在のページを一時的に OpenAI で翻訳する"
   },
   "translateInputBox": {
     "message": "現在の入力ボックスの内容を翻訳する"
   },
   "translateWithDeepL": {
-    "message": "現在のページを一時的にDeepLで翻訳してください。"
+    "message": "現在のページを一時的に DeepL で翻訳する"
   },
   "translateWithGoogle": {
-    "message": "一時的にGoogle翻訳で現在のページを翻訳してください。"
+    "message": "現在のページを一時的に Google 翻訳で翻訳する"
   },
   "translateWithTransmart": {
-    "message": "一時的にテンセント翻訳で現在のページを翻訳してください"
+    "message": "現在のページを一時的に Tencent 翻訳で翻訳する"
   },
   "translateWithBing": {
     "message": "現在のページをMicrosoft Translatorで一時的に翻訳する"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "ページ上のマウスホバーによる直接翻訳を一時的に有効/無効にする"
+    "message": "ページ上のホバー即時翻訳を一時的に有効／無効にする"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "没入型翻訳の機能で動画字幕を切り替える"
+    "message": "Immersive Translate の動画字幕を切り替"
   },
   "brandDescriptionForSafari": {
     "message": "ウェブページ、PDF、ePub電子書籍、動画字幕を無料で二か国語翻訳"
@@ -87,7 +87,7 @@
     "message": "テキスト翻訳"
   },
   "translateWithClaude": {
-    "message": "現在のページをClaudeで一時的に翻訳する"
+    "message": "現在のページを一時的に Claude で翻訳する"
   },
   "translateText": {
     "message": "「{text}」を翻訳"
@@ -96,13 +96,13 @@
     "message": "ウェブページを翻訳/原文を表示"
   },
   "translateWithCustom1": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(1)"
+    "message": "カスタム翻訳サービス（1）で現在のページを一時的に翻訳する"
   },
   "translateWithCustom3": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(3)"
+    "message": "カスタム翻訳サービス（3）で現在のページを一時的に翻訳する"
   },
   "translateWithCustom2": {
-    "message": "現在のページを翻訳するためのカスタム翻訳サービスの一時的な使用(2)"
+    "message": "カスタム翻訳サービス（2）で現在のページを一時的に翻訳する"
   },
   "translateMangaMenuId": {
     "message": "画像を翻訳/元に戻す"

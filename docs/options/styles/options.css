@@ -1031,6 +1031,99 @@ textarea[disabled] {
   margin-top: 12px;
 }
 
+.free-model-setting-list {
+  width: 100%;
+}
+
+.free-model-service-card {
+  width: 100%;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--muted-border-color);
+}
+
+.free-model-service-card:hover .free-model-service-card-action,
+.free-model-service-card:focus-within .free-model-service-card-action {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.free-model-service-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.free-model-service-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.free-model-service-card-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.free-model-service-card-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 0;
+  color: var(--h3-color);
+}
+
+.free-model-service-card-preferred {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #999999;
+}
+
+.free-model-service-card-action {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.free-model-service-card-action,
+.service-verify-link {
+  font-size: 13px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.free-model-service-card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color);
+  margin-top: 12px;
+}
+
+.free-model-service-card-description picture,
+.free-model-service-card-description img {
+  display: block;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 640px) {
+  .free-model-service-card-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .free-model-service-card-title {
+    font-size: 16px;
+  }
+}
+
 .service-setting-footer {
   display: flex;
   align-items: center;
@@ -1219,7 +1312,6 @@ textarea[disabled] {
   color: var(--text-gray-9);
   padding: 6px 8px 4px;
   margin-top: 2px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 

@@ -381,9 +381,9 @@ select.language-select {
   background: var(--popup-content-background-color);
   box-shadow: var(--service-select-content-shadow);
   border: 1px solid var(--service-select-border-color);
-  padding: 4px 5px;
+  padding: 8px;
   position: absolute;
-  left: -10px;
+  left: -68px;
   right: 0;
   z-index: 100;
   overflow-y: auto;
@@ -395,8 +395,8 @@ select.language-select {
 }
 
 .custom-select-item {
-  font-size: 13px;
-  padding: 5px 6px;
+  font-size: 14px;
+  padding: 5px 8px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -409,9 +409,9 @@ select.language-select {
 }
 
 .custom-select-item-img {
-  width: 20px;
-  height: 20px;
-  margin-right: 4px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -449,7 +449,6 @@ select.language-select {
   color: var(--text-gray-9);
   padding: 6px 8px 4px;
   margin-top: 2px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 

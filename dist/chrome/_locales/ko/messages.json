@@ -12,22 +12,22 @@
     "message": "{targetLanguage}로 번역하세요"
   },
   "toggleTranslateTheWholePage": {
-    "message": "페이지의 모든 영역 번역/원문 텍스트 표시"
+    "message": "페이지 전체 영역 번역 / 원문 보기"
   },
   "toggleOnlyTransation": {
-    "message": "언어전환/번역문만 보기"
+    "message": "이중 언어 전환/번역문만 보기"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "페이지 하단으로 즉시 번역/원문 표시"
+    "message": "페이지 하단까지 즉시 번역 / 원문 보기"
   },
   "toggleTranslateTheMainPage": {
-    "message": "페이지의 주요 영역 번역/원문 텍스트 표시"
+    "message": "페이지 주요 영역 번역 / 원문 보기"
   },
   "openOptionsPage": {
     "message": "설정 페이지 열기"
   },
   "toggleTranslationMask": {
-    "message": "번역 흐림 효과 표시/숨기기"
+    "message": "번역 텍스트 흐림 효과 켜기 / 끄기 (학습 모드)"
   },
   "babelDOC": {
     "message": "BabelDOC 레이아웃 보존 PDF 번역"
@@ -51,31 +51,31 @@
     "message": "정보/피드백"
   },
   "translateWithGoogle": {
-    "message": "현재 페이지를 임시로 Google 번역 사용하기"
+    "message": "현재 페이지를 Google 번역으로 임시 번역"
   },
   "translateInputBox": {
-    "message": "현재 입력 상자 내용 번역"
+    "message": "현재 입력창 내용 번역"
   },
   "translateWithGemini": {
-    "message": "현재 페이지를 임시로 Gemini로 번역하십시오."
+    "message": "현재 페이지를 Gemini로 임시 번역"
   },
   "translateWithBing": {
-    "message": "임시로 마이크로소프트 번역을 사용하여 현재 페이지를 번역하십시오."
+    "message": "현재 페이지를 Microsoft 번역으로 임시 번역"
   },
   "translateWithTransmart": {
-    "message": "임시로 텐센트 번역을 사용하여 현재 페이지를 번역하십시오."
+    "message": "현재 페이지를 Tencent 번역으로 임시 번역"
   },
   "translateWithOpenAI": {
-    "message": "임시로 OpenAI를 사용하여 현재 페이지를 번역하십시오."
+    "message": "현재 페이지를 OpenAI로 임시 번역"
   },
   "translateWithDeepL": {
-    "message": "현재 페이지를 임시로 DeepL로 번역하십시오."
+    "message": "현재 페이지를 DeepL로 임시 번역"
   },
   "toggleMouseHoverTranslateDirectly": {
-    "message": "페이지에서 임시로 마우스 호버를 사용하여 직접 번역을 활성화하거나 비활성화하십시오."
+    "message": "페이지에서 마우스 호버 번역을 임시로 켜기 / 끄기"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "이중 언어 자막을 전환하고, 몰입형 번역 설정을 우선적으로 사용하십시오."
+    "message": "이중 자막 전환 (Immersive Translation 우선)"
   },
   "brandDescriptionForSafari": {
     "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. YouTube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
@@ -87,7 +87,7 @@
     "message": "문서 번역"
   },
   "translateWithClaude": {
-    "message": "임시로 Claude를 사용하여 현재 페이지를 번역하십시오."
+    "message": "현재 페이지를 Claude로 임시 번역"
   },
   "translateText": {
     "message": "Translate \"{text}\""
@@ -96,19 +96,19 @@
     "message": "웹 페이지 번역하기/원문 표시하기"
   },
   "translateWithCustom1": {
-    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(1)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(1)"
   },
   "translateWithCustom3": {
-    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(3)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(3)"
   },
   "translateWithCustom2": {
-    "message": "현재 페이지 번역을 위한 사용자 지정 번역 서비스 임시 사용(2)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(2)"
   },
   "translateMangaMenuId": {
     "message": "이미지 번역/이미지 복원"
   },
   "toggleSidePanel": {
-    "message": "사이드 패널 열기/닫기"
+    "message": "사이드 패널 열기 / 닫기"
   },
   "openAiWritingModal": {
     "message": "AI Write 모달 열기"

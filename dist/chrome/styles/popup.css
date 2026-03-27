@@ -443,6 +443,41 @@ select.language-select {
   flex-shrink: 0;
 }
 
+.service-select-inline-sponsor-container {
+  width: 40px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.service-select-inline-sponsor-marquee {
+  min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 12px;
+  animation: service-select-inline-sponsor-scroll 10s linear infinite;
+}
+
+.service-select-inline-sponsor-track {
+  min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes service-select-inline-sponsor-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
 .custom-select-group-header {
   font-size: 12px;
   font-weight: 500;

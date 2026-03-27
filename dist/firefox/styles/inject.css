@@ -44,6 +44,10 @@
   text-align: right;
 }
 
+.immersive-translate-target-wrapper {
+  font-feature-settings: normal;
+}
+
 [imt-state="dual"]
   .immersive-translate-pdf-target-container
   .immersive-translate-target-wrapper {

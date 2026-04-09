@@ -1,0 +1,1137 @@
+/* ============================================================
+   Hero 组件样式
+   各设置页面（悬停翻译、输入翻译、字幕、划词、浮动球、漫画、图片、术语、AI 写作）
+   的 Hero 区域基础样式 + 响应式覆盖。
+   从 options.css 拆出，减少主文件体积。
+   ============================================================ */
+
+/* Hero 图片骨架屏 + 渐显 */
+.hero-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-reveal__skeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: hero-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes hero-skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.hero-reveal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-reveal__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-reveal__overlay > * {
+  pointer-events: auto;
+}
+
+/* ============================================================
+   共享基础样式（各 Hero 区块的通用模式）
+   ============================================================ */
+
+/* --- 容器：统一文字色 --- */
+.ai-writing-hero,
+.mouse-hover-hero,
+.input-hero,
+.subtitle-hero,
+.selection-hero,
+.float-ball-hero,
+.manga-hero,
+.image-hero,
+.terms-hero {
+  color: #415462;
+}
+
+/* --- 容器：统一外边距 --- */
+.mouse-hover-hero,
+.input-hero,
+.selection-hero,
+.float-ball-hero,
+.manga-hero,
+.terms-hero {
+  margin: 0 0 24px;
+}
+
+.ai-writing-hero {
+  margin: 0;
+}
+
+.image-hero {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* --- Copy 区块：垂直排列 --- */
+.mouse-hover-hero-copy,
+.input-hero-copy,
+.subtitle-hero-copy,
+.float-ball-hero-copy,
+.manga-hero-copy,
+.image-hero-copy,
+.ai-writing-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ai-writing-hero-copy {
+  gap: 12px;
+}
+
+/* --- Copy 标题 h1 --- */
+.mouse-hover-hero-copy h1,
+.input-hero-copy h1,
+.subtitle-hero-copy h1,
+.float-ball-hero-copy h1,
+.manga-hero-copy h1,
+.image-hero-copy h1,
+.ai-writing-hero-copy h1,
+.terms-hero-copy h1 {
+  margin: 0;
+  color: #415462;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.terms-hero-copy h1 {
+  margin-bottom: 12px;
+}
+
+/* --- Copy 描述 p --- */
+.mouse-hover-hero-copy p,
+.input-hero-copy p,
+.subtitle-hero-copy p,
+.selection-hero-copy p,
+.float-ball-hero-copy p,
+.manga-hero-copy p,
+.image-hero-copy p,
+.ai-writing-hero-copy p,
+.terms-hero-copy p {
+  margin: 0;
+  color: #415462;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.terms-hero-copy p {
+  white-space: pre-line;
+}
+
+/* --- Preview 容器 --- */
+.mouse-hover-hero-preview,
+.input-hero-preview,
+.subtitle-hero-preview,
+.selection-hero-preview,
+.float-ball-hero-preview,
+.manga-hero-preview,
+.image-hero-preview,
+.ai-writing-hero-preview,
+.terms-hero-preview {
+  width: min(100%, 620px);
+  margin-top: 12px;
+}
+
+.mouse-hover-hero-preview,
+.selection-hero-preview,
+.float-ball-hero-preview,
+.manga-hero-preview,
+.image-hero-preview,
+.ai-writing-hero-preview,
+.terms-hero-preview {
+  position: relative;
+}
+
+/* --- Preview 图片 --- */
+.mouse-hover-hero-preview-image,
+.subtitle-hero-preview-image,
+.selection-hero-preview-image,
+.float-ball-hero-preview-image,
+.manga-hero-preview-image,
+.image-hero-preview-image,
+.ai-writing-hero-preview-image,
+.terms-hero-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mouse-hover-hero-preview-image,
+.selection-hero-preview-image,
+.float-ball-hero-preview-image {
+  border-radius: 8px;
+}
+
+/* --- Preview stage / Mobile stage --- */
+.subtitle-hero-preview-stage,
+.float-ball-hero-preview-stage,
+.manga-hero-preview-stage {
+  position: relative;
+}
+
+.subtitle-hero-mobile-stage,
+.float-ball-hero-mobile-stage,
+.manga-hero-mobile-stage {
+  display: none;
+}
+
+/* ============================================================
+   Mouse Hover Hero（悬停翻译）
+   ============================================================ */
+
+.mouse-hover-hero-translation {
+  position: absolute;
+  top: 61.4%;
+  left: 14.2%;
+  right: 14.2%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.mouse-hover-hero-translation p {
+  margin: 0;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(237, 109, 143, 0.72);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-skip-ink: none;
+}
+
+/* ============================================================
+   Input Hero（输入翻译）
+   ============================================================ */
+
+.input-hero-preview {
+  padding: 14px 0 0;
+  border: 1px solid #edeef0;
+  border-radius: 8px;
+  background: #fafbfb;
+  overflow: hidden;
+}
+
+.input-hero-preview-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px 11px;
+}
+
+.input-hero-preview-chrome span {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #e2e2e2;
+}
+
+.input-hero-preview-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 56px;
+  min-height: 190px;
+  padding: 36px 32px;
+  gap: 24px;
+  box-sizing: border-box;
+  border-radius: 12px 12px 0 0;
+  background: #fff;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+.input-hero-preview-tip {
+  margin: 0;
+  width: 100%;
+  min-height: 72px;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  border: 1px solid #edeef0;
+  border-radius: 8px;
+  background: #fafbfb;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+}
+
+.input-hero-preview-keycap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(270px, 100%);
+  min-height: 36px;
+  padding: 7px 20px;
+  border: 1px solid #f5f5f5;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 3px 2px #e4ebf2;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.input-hero-preview-hand {
+  position: absolute;
+  right: calc(50% - 52px);
+  bottom: -14px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Subtitle Hero（字幕翻译）
+   ============================================================ */
+
+.subtitle-hero-menu-panel {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 7.742px;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+}
+
+.subtitle-hero-menu-panel-desktop {
+  top: 32.9%;
+  right: 19.7%;
+  max-width: 126px;
+  padding: 10px 0;
+}
+
+.subtitle-hero-menu-panel-mobile {
+  top: 38%;
+  left: 18%;
+  width: 40%;
+}
+
+.subtitle-hero-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10.323px;
+  padding: 5.161px 10.323px;
+}
+
+.subtitle-hero-menu-item.is-header {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.subtitle-hero-menu-item-main {
+  display: flex;
+  align-items: center;
+  gap: 3.871px;
+  min-width: 0;
+  flex: 1;
+}
+
+.subtitle-hero-menu-icon {
+  width: 10.323px;
+  height: 10.323px;
+  flex-shrink: 0;
+}
+
+.subtitle-hero-menu-label {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: 9.032px;
+  font-weight: 400;
+  line-height: 13.548px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtitle-hero-menu-item.is-accent .subtitle-hero-menu-label {
+  background: linear-gradient(176deg, #f5efad 7.27%, #75b4fd 96.43%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.subtitle-hero-menu-trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.323px;
+  height: 10.323px;
+  flex-shrink: 0;
+}
+
+.subtitle-hero-menu-trailing svg {
+  width: 10.323px;
+  height: 10.323px;
+}
+
+.subtitle-hero-supported-sites {
+  margin-top: 8px;
+  color: #415462;
+}
+
+.subtitle-hero-supported-sites summary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  list-style: none;
+  color: #415462;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.subtitle-hero-supported-sites summary::-webkit-details-marker {
+  display: none;
+}
+
+.subtitle-hero-supported-sites-content {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.subtitle-hero-supported-sites-content a {
+  color: var(--primary);
+}
+
+.subtitle-hero-mobile-preview {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   Selection Hero（划词翻译）
+   ============================================================ */
+
+.selection-hero-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.selection-hero-modal {
+  position: absolute;
+  top: 30%;
+  left: 48.87%;
+  width: 239px;
+  min-height: 136px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 6px 21px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selection-hero-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selection-hero-modal-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.selection-hero-modal-logo {
+  width: 14px;
+  height: 14px;
+}
+
+.selection-hero-modal-service {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #f3f5f6;
+  flex: 1;
+}
+
+.selection-hero-modal-service-icon {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.selection-hero-modal-service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selection-hero-modal-service-icon-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 50%, #ffffff 0 22%, transparent 23%),
+    radial-gradient(
+      circle at 50% 50%,
+      #111111 0 58%,
+      #111111 58%,
+      transparent 60%
+    ),
+    linear-gradient(135deg, #f7f7f7 0%, #e9edf1 100%);
+}
+
+.selection-hero-modal-service-name {
+  min-width: 0;
+  overflow: hidden;
+  color: #666666;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selection-hero-modal-service-caret {
+  width: 12px;
+  height: 12px;
+  color: #999999;
+  flex-shrink: 0;
+}
+
+.selection-hero-modal-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.selection-hero-modal-action,
+.selection-hero-modal-feedback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #999999;
+}
+
+.selection-hero-modal-action svg,
+.selection-hero-modal-feedback svg {
+  width: 16px;
+  height: 16px;
+}
+
+.selection-hero-modal-body {
+  color: #333333;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+[lang="zh-CN"] .selection-hero-modal-body,
+[lang="zh-HK"] .selection-hero-modal-body,
+[lang="zh-TW"] .selection-hero-modal-body {
+  line-height: 1.5;
+}
+
+.selection-hero-modal-body p {
+  margin: 0;
+}
+
+.selection-hero-modal-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* ============================================================
+   Float Ball Hero（浮动球）
+   ============================================================ */
+
+.float-ball-hero-target {
+  position: absolute;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  white-space: normal;
+}
+
+.float-ball-hero-target p {
+  margin: 0;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(237, 109, 143, 0.72);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: none;
+}
+
+.float-ball-hero-target-desktop {
+  top: 59%;
+  left: 14.2%;
+  right: 19%;
+}
+
+.float-ball-hero-target-mobile {
+  top: 57%;
+  left: 9.5%;
+  right: 9.5%;
+}
+
+.float-ball-hero-target-mobile p {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.float-ball-hero-tooltip {
+  position: absolute;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(24, 24, 24, 0.88);
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+
+.float-ball-hero-tooltip-desktop {
+  top: 38%;
+  right: 17%;
+  max-width: min(180px, 28%);
+}
+
+.float-ball-hero-tooltip-mobile {
+  top: 25%;
+  right: 17%;
+  max-width: min(150px, 34%);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.float-ball-hero-tooltip.is-english-ui {
+  min-width: 128px;
+}
+
+/* ============================================================
+   Manga Hero（漫画翻译）
+   ============================================================ */
+
+.manga-hero-supported-sites {
+  margin-top: 12px;
+}
+
+.manga-enable-nav {
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.manga-hero-bubble-copy {
+  position: absolute;
+  margin: 0;
+  color: #333333;
+  font-weight: 500;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.manga-hero-bubble-copy-source {
+  top: 67.3%;
+  left: 35%;
+  width: 12.8%;
+  font-size: 11px;
+  line-height: 12px;
+}
+
+.manga-hero-bubble-copy-target {
+  top: 73.1%;
+  left: 57.7%;
+  width: 12.8%;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+[lang="ja"] .manga-hero-bubble-copy-target {
+  font-size: 11px;
+  line-height: 12px;
+}
+
+[lang="ar"] .manga-hero .manga-hero-bubble-copy-target {
+  top: 70.1%;
+  left: 57.7%;
+  width: 12.8%;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+[lang="en"] .manga-hero .manga-hero-bubble-copy-source {
+  top: 70.6%;
+  left: 35.5%;
+  width: 11.2%;
+  font-size: 10px;
+  line-height: 11px;
+}
+
+[lang="en"] .manga-hero .manga-hero-bubble-copy-target {
+  top: 68.9%;
+  left: 59%;
+  width: 10.8%;
+  font-size: 10px;
+  line-height: 11px;
+}
+
+/* ============================================================
+   Image Hero（图片翻译）
+   ============================================================ */
+
+.image-hero-panel {
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 146, 188, 0.18) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.image-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-hero-panel .image-hero-content {
+  padding: 24px 38px 0;
+}
+
+.image-hero-mobile-tooltip {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72%, 260px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(24, 24, 24, 0.9);
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.image-hero-line {
+  background: #ebebeb;
+  height: 1px;
+  width: 100%;
+}
+
+.image-hero-body {
+  padding: 0 24px 8px;
+}
+
+/* ============================================================
+   Terms Hero（术语管理）
+   ============================================================ */
+
+.terms-hero-mobile-preview {
+  display: none;
+}
+
+.terms-hero-preview-copy {
+  position: absolute;
+  top: 37.3%;
+  left: 16.9%;
+  width: 40.5%;
+  color: #333333;
+}
+
+.terms-hero-preview-title,
+.terms-hero-preview-description {
+  margin: 0;
+}
+
+.terms-hero-preview-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.terms-hero-preview-description {
+  margin-top: 12px;
+  color: #c7c7c7;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* ============================================================
+   AI Writing Hero（AI 写作）
+   ============================================================ */
+
+.ai-writing-hero-popover {
+  position: absolute;
+  top: 18.5247%;
+  right: 17.7419%;
+  width: clamp(132px, 25.1613%, 156px);
+  min-height: 132px;
+  padding: 5px 10px 13px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 3px 14px #ebeae8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ai-writing-hero-popover::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 45%;
+  border-radius: 10px 10px 0 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 68%,
+      rgba(255, 255, 255, 0.96) 100%
+    ),
+    linear-gradient(90deg, #cfdef8 0%, #eadcf3 100%);
+  opacity: 0.6;
+}
+
+.ai-writing-hero-popover::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 2px;
+}
+
+.ai-writing-hero-popover-illustration {
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ai-writing-hero-popover-copy {
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.ai-writing-hero-popover-title,
+.ai-writing-hero-popover-description {
+  margin: 0;
+}
+
+.ai-writing-hero-popover-title {
+  color: #333333;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.ai-writing-hero-popover-description {
+  color: #333333;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+/* ============================================================
+   响应式覆盖（max-width: 768px）
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  /* --- 共享响应式：容器 margin-bottom --- */
+  .mouse-hover-hero,
+  .input-hero,
+  .subtitle-hero,
+  .selection-hero,
+  .float-ball-hero,
+  .manga-hero,
+  .terms-hero {
+    margin-bottom: 16px;
+  }
+
+  .image-hero {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  /* --- 共享响应式：Copy p 字号缩小 --- */
+  .mouse-hover-hero-copy p,
+  .input-hero-copy p,
+  .float-ball-hero-copy p,
+  .image-hero-copy p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  /* --- 共享响应式：Preview 满宽 + 间距收紧 --- */
+  .mouse-hover-hero-preview,
+  .float-ball-hero-preview,
+  .image-hero-preview {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .selection-hero-preview {
+    width: 100%;
+  }
+
+  /* --- 共享响应式：桌面/移动端 stage 切换 --- */
+  .subtitle-hero-desktop-stage,
+  .float-ball-hero-desktop-stage,
+  .manga-hero-desktop-stage,
+  .terms-hero-desktop-preview {
+    display: none;
+  }
+
+  .subtitle-hero-mobile-stage,
+  .float-ball-hero-mobile-stage,
+  .manga-hero-mobile-stage {
+    display: block;
+  }
+
+  .subtitle-hero-mobile-preview,
+  .terms-hero-mobile-preview {
+    display: block;
+    margin-top: 12px;
+  }
+
+  /* --- Mouse Hover Hero --- */
+  .mouse-hover-hero-translation {
+    top: 61.4%;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .mouse-hover-hero-translation p {
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    font-size: 11px;
+  }
+
+  /* --- Input Hero --- */
+  .input-hero-preview {
+    margin-top: 10px;
+    padding-top: 12px;
+  }
+
+  .input-hero-preview-chrome {
+    padding: 0 18px 9px;
+  }
+
+  .input-hero-preview-shell {
+    margin: 0 18px;
+    min-height: 146px;
+    gap: 20px;
+    padding: 12px 14px 42px;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .input-hero-preview-tip {
+    min-height: 64px;
+    padding: 12px 18px;
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .input-hero-preview-keycap {
+    width: min(220px, 100%);
+    min-height: 34px;
+    margin-top: 6px;
+    padding: 6px 16px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .input-hero-preview-hand {
+    right: calc(50% - 42px);
+    bottom: -12px;
+    width: 28px;
+    height: 28px;
+  }
+
+  /* --- Float Ball Hero --- */
+  .float-ball-hero-target-mobile.is-english-ui {
+    top: 50%;
+    right: 25%;
+  }
+
+  .float-ball-hero-tooltip-mobile.is-english-ui {
+    right: 17%;
+    top: 22%;
+    max-width: min(156px, 38%);
+  }
+
+  /* --- Selection Hero --- */
+  .selection-hero-stage {
+    overflow: visible;
+  }
+
+  .selection-hero-modal {
+    top: 36%;
+    left: 50%;
+    width: min(calc(100% - 40px), 239px);
+    transform: translateX(-50%);
+  }
+
+  /* --- Subtitle Hero --- */
+  .subtitle-hero-menu-panel-mobile {
+    max-width: 126px;
+  }
+
+  /* --- Manga Hero --- */
+  .manga-hero-supported-sites {
+    margin-top: 8px;
+  }
+
+  .manga-enable-nav {
+    padding-top: 8px;
+    padding-bottom: 20px;
+  }
+
+  .manga-hero-bubble-copy-source {
+    top: 67.8%;
+    left: 24.6%;
+    width: 18%;
+    font-size: 10px;
+    line-height: 11px;
+  }
+
+  .manga-hero-bubble-copy-target {
+    top: 71.4%;
+    left: 60.5%;
+    width: 18.8%;
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  [lang="ja"] .manga-hero-bubble-copy-target {
+    font-size: 10px;
+    line-height: 11px;
+  }
+
+  [lang="ar"] .manga-hero .manga-hero-bubble-copy-target {
+    top: 69.2%;
+    left: 59.4%;
+    width: 19.8%;
+    font-size: 10px;
+    line-height: 11px;
+  }
+
+  [lang="en"] .manga-hero .manga-hero-bubble-copy-source {
+    top: 70.6%;
+    left: 24.5%;
+    width: 16.2%;
+    font-size: 8px;
+    line-height: 9px;
+  }
+
+  [lang="en"] .manga-hero .manga-hero-bubble-copy-target {
+    top: 70.4%;
+    left: 58.3%;
+    width: 20.2%;
+    font-size: 7px;
+    line-height: 8px;
+  }
+
+  /* --- Image Hero --- */
+  .image-hero-panel {
+    border-radius: 20px;
+  }
+
+  .image-hero-panel .image-hero-content {
+    padding: 20px 20px 0;
+  }
+
+  .image-hero-mobile-tooltip {
+    top: 50%;
+    width: min(78%, 240px);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .image-hero-body {
+    padding: 0 16px 8px;
+  }
+
+  /* --- Terms Hero --- */
+  .terms-hero-preview-copy {
+    top: 40.7%;
+    left: 13.8%;
+    width: 43.5%;
+  }
+
+  .terms-hero-preview-title {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .terms-hero-preview-description {
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

@@ -6,7 +6,7 @@
     "message": "몰입형 번역 - 웹 사이트 번역 확장 프로그램 | PDF 번역 | 무료"
   },
   "brandDescription": {
-    "message": "[몰입형 번역] 무료 (원문/번역문) 이중 언어 대조 웹사이트 번역 확장 프로그램으로 PDF 번역(조판 유지), 비디오 이중 언어 자막 번역(YouTube, Netflix 등), EPUB 전자책 번역을 지원합니다."
+    "message": "[몰입형 번역] 무료 (원문/번역문) 이중 언어 대조 웹사이트 번역 확장 프로그램으로 PDF 번역 (조판 유지), 비디오 이중 언어 자막 번역 (YouTube, Netflix 등), EPUB 전자책 번역을 지원합니다."
   },
   "toggleTranslatePage": {
     "message": "{targetLanguage}로 번역하세요"
@@ -57,7 +57,7 @@
     "message": "현재 입력창 내용 번역"
   },
   "translateWithGemini": {
-    "message": "현재 페이지를 Gemini로 임시 번역"
+    "message": "현재 페이지를 Gemini 로 임시 번역"
   },
   "translateWithBing": {
     "message": "현재 페이지를 Microsoft 번역으로 임시 번역"
@@ -66,10 +66,10 @@
     "message": "현재 페이지를 Tencent 번역으로 임시 번역"
   },
   "translateWithOpenAI": {
-    "message": "현재 페이지를 OpenAI로 임시 번역"
+    "message": "현재 페이지를 OpenAI 로 임시 번역"
   },
   "translateWithDeepL": {
-    "message": "현재 페이지를 DeepL로 임시 번역"
+    "message": "현재 페이지를 DeepL 로 임시 번역"
   },
   "toggleMouseHoverTranslateDirectly": {
     "message": "페이지에서 마우스 호버 번역을 임시로 켜기 / 끄기"
@@ -81,13 +81,13 @@
     "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. YouTube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
   },
   "PdfProFile": {
-    "message": "AI가 구동하는 PDF Pro 번역"
+    "message": "AI 가 구동하는 PDF Pro 번역"
   },
   "textTranslate": {
     "message": "문서 번역"
   },
   "translateWithClaude": {
-    "message": "현재 페이지를 Claude로 임시 번역"
+    "message": "현재 페이지를 Claude 로 임시 번역"
   },
   "translateText": {
     "message": "Translate \"{text}\""
@@ -96,13 +96,13 @@
     "message": "웹 페이지 번역하기/원문 표시하기"
   },
   "translateWithCustom1": {
-    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(1)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (1)"
   },
   "translateWithCustom3": {
-    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(3)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (3)"
   },
   "translateWithCustom2": {
-    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용(2)"
+    "message": "현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (2)"
   },
   "translateMangaMenuId": {
     "message": "이미지 번역/이미지 복원"

@@ -1,9 +1,10 @@
 :root {
-  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
-    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  --font-family:
+    system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell",
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --code-font-family: "Fira Code", "Consolas", "Monaco", "Courier New",
-    monospace;
+  --code-font-family:
+    "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
   --line-height: 1.5;
   --font-weight: 400;
   --border-radius: 0.25rem;
@@ -224,8 +225,7 @@ hgroup.hgroup {
 }
 
 .nav-left {
-  flex-shrink: 0;
-  flex: 6;
+  flex: 6 0 0%;
   padding-right: 1.2rem;
 }
 
@@ -241,6 +241,40 @@ hgroup.hgroup {
   margin: 0;
   flex: 0 1 10rem;
   max-height: 12rem;
+}
+
+.options-lang-select-container {
+  position: relative;
+  flex: 0 1 10rem;
+  min-width: 0;
+}
+
+.options-lang-select-trigger {
+  cursor: pointer;
+  justify-content: space-between;
+  border: 1px solid
+    var(--form-element-border-color, var(--pico-form-element-border-color, #b3c5d1));
+  border-radius: var(--pico-border-radius, 6px);
+  padding: 0.75rem 1rem;
+  background: var(
+    --form-element-background-color,
+    var(--pico-form-element-background-color, #fff)
+  );
+  color: var(--form-element-color, var(--text-gray-2, #222222));
+}
+
+.options-lang-select-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.options-language-dropdown {
+  --c-ff: var(--popup-content-background-color, #ffffff);
+  --c-33: var(--text-gray-2, #222222);
+  --c-99: var(--text-gray-9, #999999);
+  --s-1-weak: var(--popup-item-background-color, #f3f5f6);
+  --input-border: var(--service-select-border-color, #ecf0f7);
 }
 
 .title {
@@ -292,6 +326,7 @@ label {
 }
 
 .option-list {
+  top: 50px !important;
   max-height: 16rem;
   overflow: scroll;
 }
@@ -349,6 +384,63 @@ label {
 
 .add-button {
   padding: 0.5rem 1rem;
+}
+
+.general-advanced-settings {
+  margin: 0.75rem 0 0;
+}
+
+.general-advanced-settings-summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+  color: #445764;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  list-style: none;
+}
+
+.general-advanced-settings-summary::marker {
+  content: "";
+}
+
+.general-advanced-settings-summary::-webkit-details-marker {
+  display: none;
+}
+
+.general-advanced-settings-summary::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin-inline-start: 0.125rem;
+  background-image: var(--icon-chevron);
+  background-position: center;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+  transform: rotate(-90deg);
+  transition: transform var(--transition);
+}
+
+.general-advanced-settings[open] > .general-advanced-settings-summary::after {
+  transform: rotate(0deg);
+}
+
+.general-advanced-settings-content {
+  margin-top: 0.625rem;
+}
+
+[dir="rtl"] .general-advanced-settings-summary {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .general-advanced-settings-summary::after {
+  margin-inline-start: 0;
+  margin-inline-end: 0.125rem;
 }
 
 nav li[role="list"] a,
@@ -425,6 +517,30 @@ a.tiny-button {
   background: #f3f6f8;
   padding: 12px 0;
   border-radius: 6px;
+}
+
+.url-list-collapse-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  background: transparent;
+  color: var(--text-gray-6);
+  font-size: 0.875rem;
+  box-shadow: none;
+}
+
+.url-list-collapse-trigger::after {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
 }
 
 /* dark */
@@ -913,6 +1029,7 @@ textarea[disabled] {
 /* --- 翻译服务设置改版修改 --- */
 .container-fluid {
   padding: 0 !important;
+  margin-bottom: 16px;
   column-gap: calc(var(--block-spacing-horizontal) * 2) !important;
 }
 
@@ -1098,6 +1215,15 @@ textarea[disabled] {
 
 .free-model-setting-list {
   width: 100%;
+}
+
+.free-model-setting-mobile-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .free-model-service-card {

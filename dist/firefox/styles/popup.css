@@ -1784,6 +1784,6 @@ select.min-select-no-arrow {
 }
 
 .ad-banner-container {
-  margin-top: 16px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
 }

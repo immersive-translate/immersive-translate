@@ -1653,6 +1653,31 @@ select.min-select-no-arrow {
   color: #e0e0e0;
 }
 
+.more-settings-cache-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.more-settings-cache-size {
+  color: #999999;
+}
+
+.more-settings-cache-clean-link {
+  color: #ea4c89;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.more-settings-cache-clean-link:hover {
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .more-settings-cache-size {
+  color: #8a8a8a;
+}
+
 [data-theme="dark"] .more-settings-feature-card {
   background-color: #2a2a2a;
 }

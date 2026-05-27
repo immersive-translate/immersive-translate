@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Security verification completed - Immersive Translate</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --background: #f7f8fb;
+        --panel: #ffffff;
+        --text: #172033;
+        --muted: #64748b;
+        --accent: #ea4c89;
+        --accent-soft: #fff0f6;
+        --border: rgba(15, 23, 42, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #111827;
+          --panel: #1f2937;
+          --text: #f8fafc;
+          --muted: #cbd5e1;
+          --accent-soft: rgba(234, 76, 137, 0.14);
+          --border: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--background);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+          "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        width: min(100%, 520px);
+        padding: 36px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--panel);
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        line-height: 1.35;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .hint {
+        margin-top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="badge" aria-hidden="true">✓</div>
+      <h1 data-i18n="title">Security verification completed</h1>
+      <p data-i18n="description">
+        This browser has passed the Cloudflare managed challenge. Return to
+        Immersive Translate or the original page, then retry the previous
+        action.
+      </p>
+      <p class="hint" data-i18n="hint">
+        If you still see the verification prompt, refresh this page to complete
+        verification, then return and try again.
+      </p>
+    </main>
+    <script>
+      const messages = {
+        en: {
+          lang: "en",
+          documentTitle:
+            "Security verification completed - Immersive Translate",
+          title: "Security verification completed",
+          description:
+            "This browser has passed the Cloudflare managed challenge. Return to Immersive Translate or the original page, then retry the previous action.",
+          hint:
+            "If you still see the verification prompt, refresh this page to complete verification, then return and try again.",
+        },
+        "zh-CN": {
+          lang: "zh-CN",
+          documentTitle: "安全验证已完成 - 沉浸式翻译",
+          title: "安全验证已完成",
+          description:
+            "当前浏览器已经通过 Cloudflare 托管质询验证。请返回沉浸式翻译扩展或原页面，重新执行刚才的操作。",
+          hint: "如果仍然看到验证提示，请刷新本页面完成验证后再返回重试。",
+        },
+        "zh-TW": {
+          lang: "zh-Hant",
+          documentTitle: "安全驗證已完成 - 沉浸式翻譯",
+          title: "安全驗證已完成",
+          description:
+            "目前瀏覽器已通過 Cloudflare 託管質詢驗證。請返回沉浸式翻譯擴充功能或原頁面，重新執行剛才的操作。",
+          hint: "如果仍然看到驗證提示，請重新整理本頁完成驗證後再返回重試。",
+        },
+      };
+
+      function detectLocale() {
+        const locales = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || ""];
+        const normalizedLocales = locales.map((locale) =>
+          locale.toLowerCase()
+        );
+        if (
+          normalizedLocales.some((locale) =>
+            locale.includes("zh-hant") ||
+            locale.includes("zh-tw") ||
+            locale.includes("zh-hk") ||
+            locale.includes("zh-mo")
+          )
+        ) {
+          return "zh-TW";
+        }
+        if (
+          normalizedLocales.some((locale) =>
+            locale.includes("zh-hans") ||
+            locale.includes("zh-cn") ||
+            locale.includes("zh-sg") ||
+            locale === "zh"
+          )
+        ) {
+          return "zh-CN";
+        }
+        return "en";
+      }
+
+      const currentMessages = messages[detectLocale()] || messages.en;
+      document.documentElement.lang = currentMessages.lang;
+      document.title = currentMessages.documentTitle;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        if (key && currentMessages[key]) {
+          node.textContent = currentMessages[key];
+        }
+      });
+    </script>
+  </body>
+</html>

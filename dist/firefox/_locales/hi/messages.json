@@ -87,7 +87,7 @@
     "message": "लिखित अनुवाद"
   },
   "translateWithClaude": {
-    "message": "क्लॉड का उपयोग करके वर्तमान पृष्ठ का अस्थायी अनुवाद करें"
+    "message": "Claude का उपयोग करके वर्तमान पृष्ठ का अस्थायी रूप से अनुवाद करें"
   },
   "translateText": {
     "message": "Translate \"{text}\""

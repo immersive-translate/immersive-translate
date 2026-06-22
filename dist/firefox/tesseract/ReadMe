@@ -1,0 +1,7 @@
+https://unpkg.com/browse/tesseract.js-core@5.1.1/tesseract-core-simd-lstm.wasm
+https://unpkg.com/browse/tesseract.js-core@5.1.1/tesseract-core-simd-lstm.js
+
+https://unpkg.com/tesseract.js@5.1.1/dist/worker.min.js
+https://unpkg.com/tesseract.js@5.1.1/dist/tesseract.min.js
+  -> replace "https://cdn.jsdelivr.net/npm/tesseract.js@v" with "" per review request
+

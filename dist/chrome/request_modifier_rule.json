@@ -713,5 +713,31 @@
         "amkbmndfnliijdhojkpoglbnaaahippg"
       ]
     }
+  },
+  {
+    "id": 320,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://toonily.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://data.tnlycdn.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
   }
 ]

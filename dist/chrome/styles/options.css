@@ -281,6 +281,18 @@ hgroup.hgroup {
   line-height: 1.6rem;
 }
 
+.screenshot-area-setting-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.screenshot-area-premium-icon {
+  width: 24px;
+  height: 12px;
+  flex: 0 0 auto;
+}
+
 .description {
   color: rgb(148 163 184);
   font-size: 15px;
@@ -1510,9 +1522,6 @@ textarea[disabled] {
 }
 
 .custom-select-group-header--recommendation {
-  color: #beb3a0;
-  font-weight: 400;
-  letter-spacing: 0;
   padding-top: 4px;
 }
 
@@ -1719,11 +1728,30 @@ textarea[disabled] {
     justify-content: stretch;
   }
 
-  .consent-modal .button {
+.consent-modal .button {
     padding: 7px 20px;
     font-size: 13px;
     line-height: 18px;
     flex: 1;
     min-width: 0;
   }
+}
+
+.screenshot-area-membership-prompt-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.36);
+  box-sizing: border-box;
+}
+
+.screenshot-area-membership-prompt-card {
+  width: min(300px, calc(100vw - 40px));
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
 }

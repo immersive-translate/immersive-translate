@@ -455,6 +455,32 @@
     }
   },
   {
+    "id": 321,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://rcostation.xyz"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://*.rconet.*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
+  },
+  {
     "id": 310,
     "priority": 1,
     "action": {
@@ -729,6 +755,32 @@
     },
     "condition": {
       "urlFilter": "https://data.tnlycdn.com/*",
+      "resourceTypes": [
+        "xmlhttprequest"
+      ],
+      "domainType": "thirdParty",
+      "initiatorDomains": [
+        "cfhamdkdjgoelclgllcoikbckcfpaklj",
+        "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+        "amkbmndfnliijdhojkpoglbnaaahippg"
+      ]
+    }
+  },
+  {
+    "id": 322,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://youngchampion.jp"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://viewer.youngchampion.jp/*",
       "resourceTypes": [
         "xmlhttprequest"
       ],

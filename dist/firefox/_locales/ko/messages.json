@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "AI Write 모달 열기"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[사용 중단됨] 이중 언어 전환/번역문만 보기"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[사용 중단됨] 페이지 하단까지 즉시 번역 / 원문 보기"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[사용 중단됨] 페이지 주요 영역 번역 / 원문 보기"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[사용 중단됨] 번역 텍스트 흐림 효과 켜기 / 끄기 (학습 모드)"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[사용 중단됨] 페이지에서 마우스 호버 번역을 임시로 켜기 / 끄기"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[사용 중단됨] AI Write 모달 열기"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[사용 중단됨] 이중 자막 전환 (Immersive Translation 우선)"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[사용 중단됨] 현재 페이지를 OpenAI 로 임시 번역"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[사용 중단됨] 현재 페이지를 DeepL 로 임시 번역"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[사용 중단됨] 현재 페이지를 Google 번역으로 임시 번역"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[사용 중단됨] 현재 페이지를 Tencent 번역으로 임시 번역"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[사용 중단됨] 현재 페이지를 Gemini 로 임시 번역"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[사용 중단됨] 현재 페이지를 Microsoft 번역으로 임시 번역"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[사용 중단됨] 현재 페이지를 Claude 로 임시 번역"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[사용 중단됨] 현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[사용 중단됨] 현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[사용 중단됨] 현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[사용 중단됨] 웹 페이지 번역하기/원문 표시하기"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[사용 중단됨] 페이지 전체 영역 번역 / 원문 보기"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[사용 중단됨] 현재 입력창 내용 번역"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[사용 중단됨] 사이드바 열기/닫기"
   }
 }

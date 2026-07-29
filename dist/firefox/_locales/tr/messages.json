@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "AI Write modalını aç"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[Kullanımdan kaldırıldı] Çift Dilli/Sadece Çeviri Moduna Geç"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[Kullanımdan kaldırıldı] Anında sayfanın altına çevirin/Orijinal metni görüntüleyin"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[Kullanımdan kaldırıldı] Ana sayfayı çevir/Orijinal metni göster"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[Kullanımdan kaldırıldı] Geçerli sayfa için çevrilmiş metinde bulanıklaştırma efektini (öğrenme modu) değiştir"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[Kullanımdan kaldırıldı] Fareyi üzerine getirerek çevir"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[Kullanımdan kaldırıldı] AI Write modalını aç"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[Kullanımdan kaldırıldı] Immersive Translation ile Altyazıları Önceden Çevir"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı OpenAI ile çevir"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı DeepL ile çevir"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı Google ile çevir"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı Transmart ile çevir"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı Gemini ile çevir"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı Bing ile çevir"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[Kullanımdan kaldırıldı] Geçici olarak sayfayı Claude ile çevir"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[Kullanımdan kaldırıldı] Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[Kullanımdan kaldırıldı] Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[Kullanımdan kaldırıldı] Geçerli sayfayı çevirmek için özel çeviri hizmetlerinin geçici kullanımı(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[Kullanımdan kaldırıldı] Web sayfasını çevir/Gösterilen orijinal metin"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[Kullanımdan kaldırıldı] Tüm sayfayı çevir/Orijinal metni göster"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[Kullanımdan kaldırıldı] Geçerli giriş kutusunun içeriğini çevir"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[Kullanımdan kaldırıldı] Yan Paneli Aç/Kapat"
   }
 }

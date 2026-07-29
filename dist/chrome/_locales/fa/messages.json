@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "باز کردن پنجره AI Write"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【منسوخ】 به /حالت فقط ترجمه بروید"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【منسوخ】 از انتهای برگه ترجمه کنید/نمایش متن اصلی"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【منسوخ】 ترجمه قسمت‌های اصلی برگه/نمایش متن اصلی"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【منسوخ】 نمایش/پنهان کردن جلوه تاری ترجمه"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【منسوخ】 در صفحه، به طور موقت فعال یا غیرفعال کردن ترجمه مستقیم موس هنگام اشاره"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【منسوخ】 باز کردن پنجره AI Write"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【منسوخ】 تغییر زیرنویس دوزبانه با استفاده از تنظیمات ترجمه فرو رفته اولویت دارد"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【منسوخ】 از OpenAI برای ترجمه موقتی صفحه فعلی استفاده کنید"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【منسوخ】 استفاده موقت از DeepL برای ترجمه صفحه فعلی"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【منسوخ】 از ترجمه گوگل برای صفحه فعلی به طور موقت استفاده کنید"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【منسوخ】 از ترجمه موقتی تنسنت برای صفحه فعلی استفاده کنید"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【منسوخ】 به طور موقت از Gemini برای ترجمه صفحه فعلی استفاده کنید"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【منسوخ】 از ترجمه مایکروسافت برای ترجمه موقتی صفحه فعلی استفاده کنید"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【منسوخ】 به طور موقت از Claude برای ترجمه صفحه فعلی استفاده کنید."
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【منسوخ】 به طور موقت از یک سرویس ترجمه سفارشی برای ترجمه صفحه فعلی استفاده کنید (1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【منسوخ】 به طور موقت از یک سرویس ترجمه سفارشی برای ترجمه صفحه فعلی استفاده کنید (2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【منسوخ】 به طور موقت از یک سرویس ترجمه سفارشی برای ترجمه صفحه فعلی استفاده کنید (3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【منسوخ】 ترجمه صفحه وب/نمایش متن اصلی"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【منسوخ】 ترجمه تمام برگه/نمایش متن اصلی"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【منسوخ】 ترجمه محتوای جعبه ورودی فعلی"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【منسوخ】 باز/بسته کردن پانل کناری"
   }
 }

@@ -118,5 +118,68 @@
   },
   "closeSidePanel": {
     "message": "ปิดแผงด้านข้าง"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[เลิกใช้แล้ว] สลับเป็น/ออกจากโหมดแสดงเฉพาะคำแปล"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[เลิกใช้แล้ว] แปลไปจนถึงท้ายหน้า/แสดงข้อความต้นฉบับ"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[เลิกใช้แล้ว] แปลเฉพาะส่วนหลักของหน้า/แสดงข้อความต้นฉบับ"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[เลิกใช้แล้ว] สลับเอฟเฟกต์เบลอบนข้อความแปล (โหมดเรียนรู้) สำหรับหน้าปัจจุบัน"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[เลิกใช้แล้ว] เปิดหรือปิดการแปลโดยตรงเมื่อวางเมาส์บนหน้าเว็บชั่วคราว"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[เลิกใช้แล้ว] เปิดหน้าต่าง AI Write"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[เลิกใช้แล้ว] สลับให้ใช้การตั้งค่า Immersive Translate ก่อนสำหรับคำบรรยายสองภาษา"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย OpenAI ชั่วคราว"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย DeepL ชั่วคราว"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย Google ชั่วคราว"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย Tencent Translator ชั่วคราว"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย Gemini ชั่วคราว"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าปัจจุบันด้วย Microsoft Translator ชั่วคราว"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[เลิกใช้แล้ว] ใช้ Claude แปลหน้าเว็บปัจจุบันชั่วคราว"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[เลิกใช้แล้ว] ใช้บริการแปลแบบกำหนดเองชั่วคราวเพื่อแปลหน้าเว็บปัจจุบัน(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[เลิกใช้แล้ว] ใช้บริการแปลแบบกำหนดเองชั่วคราวเพื่อแปลหน้าเว็บปัจจุบัน(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[เลิกใช้แล้ว] ใช้บริการแปลแบบกำหนดเองชั่วคราวเพื่อแปลหน้าเว็บปัจจุบัน(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[เลิกใช้แล้ว] แปลหน้าเว็บ/แสดงต้นฉบับ"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[เลิกใช้แล้ว] แปลทั้งหน้า/แสดงข้อความต้นฉบับ"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[เลิกใช้แล้ว] แปลเนื้อหาในช่องป้อนข้อมูลปัจจุบัน"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[เลิกใช้แล้ว] เปิด/ปิดแผงด้านข้าง"
   }
 }

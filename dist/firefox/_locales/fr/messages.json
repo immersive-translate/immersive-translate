@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "Ouvrir la fenêtre modale AI Write"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[Obsolète] Basculer en mode bilingue / mode traduction uniquement"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[Obsolète] Traduction immédiate en bas de page/affichage du texte original"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[Obsolète] Traduire la zone principale de la page/afficher le texte original"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[Obsolète] Afficher/masquer l'effet de flou de translation"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[Obsolète] Activer ou désactiver temporairement la traduction directe au survol de la souris sur la page"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[Obsolète] Ouvrir la fenêtre modale AI Write"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[Obsolète] Basculer vers les sous-titres bilingues en privilégiant les paramètres de traduction immersive"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[Obsolète] Utilisation temporaire d'OpenAI pour traduire la page actuelle"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[Obsolète] Utilisation temporaire de DeepL pour traduire la page actuelle"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[Obsolète] Utilisation temporaire de Google Traduction pour la page actuelle"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[Obsolète] Utilisation temporaire de Tencent pour traduire la page actuelle"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[Obsolète] Utilisez temporairement Gemini pour traduire la page actuelle"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[Obsolète] Utilisation temporaire de Microsoft Traduction pour la page actuelle"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[Obsolète] Utilisez temporairement Claude pour traduire la page actuelle."
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[Obsolète] Utilisation temporaire de services de traduction personnalisés pour traduire la page actuelle(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[Obsolète] Utilisation temporaire de services de traduction personnalisés pour traduire la page actuelle(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[Obsolète] Utilisation temporaire de services de traduction personnalisés pour traduire la page actuelle(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[Obsolète] Traduire la page web / Afficher le texte original"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[Obsolète] Traduire toutes les zones de la page/afficher le texte original"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[Obsolète] Traduire le contenu de la boîte de saisie actuelle"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[Obsolète] Ouvrir/Fermer le panneau latéral"
   }
 }

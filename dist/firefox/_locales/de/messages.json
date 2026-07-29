@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "AI Write Modal öffnen"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【Veraltet】 Wechseln Sie in den Zweisprachen-/Nur-Übersetzungsmodus"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【Veraltet】 Sofortige Übersetzung am Ende der Seite/Anzeige des Originaltextes"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【Veraltet】 Den Hauptbereich der Seite übersetzen/den Originaltext anzeigen"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【Veraltet】 Translationsunschärfe-Effekt ein-/ausblenden"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【Veraltet】 Auf der Seite das direkte Übersetzen durch Mouseover temporär aktivieren oder deaktivieren"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【Veraltet】 AI Write Modal öffnen"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【Veraltet】 Wechseln Sie zu zweisprachigen Untertiteln und verwenden Sie vorzugsweise immersive Übersetzungseinstellungen."
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【Veraltet】 Vorübergehende Verwendung von OpenAI zum Übersetzen der aktuellen Seite"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【Veraltet】 Vorübergehende Verwendung von DeepL zur Übersetzung der aktuellen Seite"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【Veraltet】 Vorübergehende Verwendung von Google Übersetzer für die aktuelle Seite"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【Veraltet】 Verwenden Sie vorübergehend Tencent, um die aktuelle Seite zu übersetzen."
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【Veraltet】 Verwenden Sie vorübergehend Gemini, um die aktuelle Seite zu übersetzen."
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【Veraltet】 Verwenden Sie vorübergehend Microsoft Translate, um die aktuelle Seite zu übersetzen."
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【Veraltet】 Verwenden Sie vorübergehend Claude, um die aktuelle Seite zu übersetzen."
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【Veraltet】 Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【Veraltet】 Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【Veraltet】 Vorübergehende Nutzung von kundenspezifischen Übersetzungsdiensten zur Übersetzung der aktuellen Seite(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【Veraltet】 Webseite übersetzen/Originaltext anzeigen"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【Veraltet】 Alle Bereiche der Seite übersetzen/den Originaltext anzeigen"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【Veraltet】 Übersetzen Sie den aktuellen Inhalt des Eingabefelds."
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【Veraltet】 Seitenpanel öffnen/schließen"
   }
 }

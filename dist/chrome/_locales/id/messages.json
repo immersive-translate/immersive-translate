@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "Buka Modal AI Tulis"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[Tidak digunakan lagi] Beralih ke mode hanya terjemahan"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[Tidak digunakan lagi] Langsung terjemahkan hingga bagian bawah halaman/Tampilkan teks asli"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman utama/Tampilkan teks asli"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[Tidak digunakan lagi] Alihkan efek blur pada teks terjemahan (mode belajar) untuk halaman saat ini"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[Tidak digunakan lagi] Aktifkan atau nonaktifkan sementara terjemahan langsung saat mouse diarahkan ke halaman"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[Tidak digunakan lagi] Buka Modal AI Tulis"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[Tidak digunakan lagi] Beralih Subtitle Video dengan Fitur Immersive Translation"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan OpenAI"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan DeepL"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan Google"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan Tencent Translator"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan Gemini"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[Tidak digunakan lagi] Terjemahkan halaman saat ini dengan Microsoft Translator"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[Tidak digunakan lagi] Gunakan Claude sementara untuk menerjemahkan halaman saat ini."
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[Tidak digunakan lagi] Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[Tidak digunakan lagi] Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[Tidak digunakan lagi] Gunakan sementara layanan terjemahan kustom untuk menerjemahkan halaman saat ini(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[Tidak digunakan lagi] Terjemahkan Halaman Web/Tampilkan Teks Asli"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[Tidak digunakan lagi] Terjemahkan seluruh halaman/Tampilkan teks asli"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[Tidak digunakan lagi] Terjemahkan isi kotak input saat ini"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[Tidak digunakan lagi] Buka/Tutup Panel Samping"
   }
 }

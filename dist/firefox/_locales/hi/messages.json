@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "AI Write मॉडल खोलें"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【बहिष्कृत】 द्विभाषी/केवल अनुवाद मोड पर स्विच करें"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【बहिष्कृत】 तुरंत पृष्ठ के नीचे अनुवाद करें/मूल पाठ दिखाएं"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【बहिष्कृत】 पृष्ठ के मुख्य क्षेत्र का अनुवाद करें/मूल पाठ प्रदर्शित करें"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【बहिष्कृत】 अनुवाद धुंधला प्रभाव दिखाएँ/छिपाएँ"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【बहिष्कृत】 पेज पर अस्थायी रूप से माउस होवर सीधे अनुवाद को सक्षम या बंद करें"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【बहिष्कृत】 AI Write मॉडल खोलें"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【बहिष्कृत】 द्विभाषीय सबटायटल स्विच करें, डुबकी अनुवाद सेटिंग्स का प्राथमिकता से उपयोग करें"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【बहिष्कृत】 अस्थायी रूप से OpenAI का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【बहिष्कृत】 अस्थायी रूप से DeepL का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【बहिष्कृत】 अस्थायी रूप से Google अनुवाद का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【बहिष्कृत】 अस्थायी रूप से टेंसेंट अनुवाद का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【बहिष्कृत】 अस्थायी रूप से Gemini का उपयोग करके वर्तमान पृष्ठ का अनुवाद करें"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【बहिष्कृत】 माइक्रोसॉफ्ट अनुवाद का अस्थायी रूप से वर्तमान पृष्ठ का उपयोग करें"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【बहिष्कृत】 Claude का उपयोग करके वर्तमान पृष्ठ का अस्थायी रूप से अनुवाद करें"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【बहिष्कृत】 वर्तमान पृष्ठ का अनुवाद करने के लिए अस्थायी रूप से कस्टम अनुवाद सेवा का उपयोग करें(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【बहिष्कृत】 वर्तमान पृष्ठ का अनुवाद करने के लिए अस्थायी रूप से कस्टम अनुवाद सेवा का उपयोग करें(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【बहिष्कृत】 वर्तमान पृष्ठ का अनुवाद करने के लिए अस्थायी रूप से कस्टम अनुवाद सेवा का उपयोग करें(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【बहिष्कृत】 वेब पेज अनुवाद करें/मूल पाठ दिखाएं"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【बहिष्कृत】 पृष्ठ के सभी क्षेत्रों का अनुवाद करें/मूल पाठ प्रदर्शित करें"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【बहिष्कृत】 वर्तमान इनपुट बॉक्स की सामग्री का अनुवाद करें"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【बहिष्कृत】 साइड पैनल खोलें/बंद करें"
   }
 }

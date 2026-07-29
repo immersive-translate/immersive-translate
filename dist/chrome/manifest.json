@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_brandName__",
   "description": "__MSG_brandDescription__",
-  "version": "1.31.7",
+  "version": "1.31.8",
   "default_locale": "en",
   "background": {
     "service_worker": "background.js"
@@ -60,49 +60,13 @@
       "suggested_key": {
         "default": "Alt+W"
       },
-      "description": "__MSG_toggleTranslateTheWholePage__"
-    },
-    "toggleOnlyTransation": {
-      "description": "__MSG_toggleOnlyTransation__"
-    },
-    "toggleTranslateToThePageEndImmediately": {
-      "description": "__MSG_toggleTranslateToThePageEndImmediately__"
-    },
-    "toggleTranslateTheMainPage": {
-      "description": "__MSG_toggleTranslateTheMainPage__"
-    },
-    "toggleTranslationMask": {
-      "description": "__MSG_toggleTranslationMask__"
-    },
-    "toggleMouseHoverTranslateDirectly": {
-      "description": "__MSG_toggleMouseHoverTranslateDirectly__"
-    },
-    "translateWithOpenAI": {
-      "description": "__MSG_translateWithOpenAI__"
-    },
-    "translateWithDeepL": {
-      "description": "__MSG_translateWithDeepL__"
-    },
-    "translateWithGoogle": {
-      "description": "__MSG_translateWithGoogle__"
-    },
-    "translateWithTransmart": {
-      "description": "__MSG_translateWithTransmart__"
-    },
-    "translateWithGemini": {
-      "description": "__MSG_translateWithGemini__"
-    },
-    "translateWithBing": {
-      "description": "__MSG_translateWithBing__"
-    },
-    "translateWithClaude": {
-      "description": "__MSG_translateWithClaude__"
+      "description": "__MSG_legacyShortcut_toggleTranslateTheWholePage__"
     },
     "translateInputBox": {
       "suggested_key": {
         "default": "Alt+I"
       },
-      "description": "__MSG_translateInputBox__"
+      "description": "__MSG_legacyShortcut_translateInputBox__"
     },
     "toggleSidePanel": {
       "suggested_key": {
@@ -110,20 +74,56 @@
       },
       "description": "__MSG_toggleSidePanel__"
     },
+    "toggleOnlyTransation": {
+      "description": "__MSG_legacyShortcut_toggleOnlyTransation__"
+    },
+    "toggleTranslateToThePageEndImmediately": {
+      "description": "__MSG_legacyShortcut_toggleTranslateToThePageEndImmediately__"
+    },
+    "toggleTranslateTheMainPage": {
+      "description": "__MSG_legacyShortcut_toggleTranslateTheMainPage__"
+    },
+    "toggleTranslationMask": {
+      "description": "__MSG_legacyShortcut_toggleTranslationMask__"
+    },
+    "toggleMouseHoverTranslateDirectly": {
+      "description": "__MSG_legacyShortcut_toggleMouseHoverTranslateDirectly__"
+    },
+    "translateWithOpenAI": {
+      "description": "__MSG_legacyShortcut_translateWithOpenAI__"
+    },
+    "translateWithDeepL": {
+      "description": "__MSG_legacyShortcut_translateWithDeepL__"
+    },
+    "translateWithGoogle": {
+      "description": "__MSG_legacyShortcut_translateWithGoogle__"
+    },
+    "translateWithTransmart": {
+      "description": "__MSG_legacyShortcut_translateWithTransmart__"
+    },
+    "translateWithGemini": {
+      "description": "__MSG_legacyShortcut_translateWithGemini__"
+    },
+    "translateWithBing": {
+      "description": "__MSG_legacyShortcut_translateWithBing__"
+    },
+    "translateWithClaude": {
+      "description": "__MSG_legacyShortcut_translateWithClaude__"
+    },
     "openAiWritingModal": {
-      "description": "__MSG_openAiWritingModal__"
+      "description": "__MSG_legacyShortcut_openAiWritingModal__"
     },
     "translateWithCustom1": {
-      "description": "__MSG_translateWithCustom1__"
+      "description": "__MSG_legacyShortcut_translateWithCustom1__"
     },
     "translateWithCustom2": {
-      "description": "__MSG_translateWithCustom2__"
+      "description": "__MSG_legacyShortcut_translateWithCustom2__"
     },
     "translateWithCustom3": {
-      "description": "__MSG_translateWithCustom3__"
+      "description": "__MSG_legacyShortcut_translateWithCustom3__"
     },
     "toggleVideoSubtitlePreTranslation": {
-      "description": "__MSG_toggleVideoSubtitlePreTranslation__"
+      "description": "__MSG_legacyShortcut_toggleVideoSubtitlePreTranslation__"
     }
   },
   "options_page": "options.html",

@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "AI Write モーダルを開く"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【非推奨】 バイリンガル/訳文のみモードを切り替え"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【非推奨】 すぐにページ最下部まで翻訳 / 原文を表示"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【非推奨】 ページのメインエリアを翻訳 / 原文を表示"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【非推奨】 現在のページの訳文をぼかし効果（学習モード）に切り替え"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【非推奨】 ページ上でのマウスホバーによる直接翻訳を一時的に有効/無効にする"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【非推奨】 AI Write モーダルを開く"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【非推奨】 バイリンガル字幕でImmersive Translateの設定を優先するかどうかを切り替え"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【非推奨】 一時的にOpenAIを使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【非推奨】 一時的にDeepLを使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【非推奨】 一時的にGoogle翻訳を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【非推奨】 一時的にTencent翻訳を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【非推奨】 一時的にGeminiを使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【非推奨】 一時的にMicrosoft翻訳を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【非推奨】 一時的にClaudeを使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【非推奨】 一時的にカスタム翻訳サービス(1)を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【非推奨】 一時的にカスタム翻訳サービス(2)を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【非推奨】 一時的にカスタム翻訳サービス(3)を使用して現在のページを翻訳"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【非推奨】 ウェブページを翻訳/原文を表示"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【非推奨】 ページ全体を翻訳 / 原文を表示"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【非推奨】 現在の入力欄の内容を翻訳"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【非推奨】 サイドバーを開く/閉じる"
   }
 }

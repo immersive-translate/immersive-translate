@@ -64,7 +64,7 @@ body {
 .popup-content {
   background-color: var(--popup-content-background-color);
   border-radius: 0px 0px 12px 12px;
-  padding: 16px 20px;
+  padding: 14px 16px;
 }
 
 .popup-userscript-three-feature-layout {
@@ -410,7 +410,7 @@ select.translate-service {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .popup-userscript-three-feature-layout .widgets-container-compact-monkey {

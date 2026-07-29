@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "فتح نافذة AI Write المنبثقة"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【متوقف】 تبديل الوضع ثنائي اللغة / الترجمة فقط"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【متوقف】 ترجمة فورية إلى أسفل الصفحة/إظهار النص الأصلي"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【متوقف】 ترجمة المنطقة الرئيسية للصفحة/عرض النص الأصلي"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【متوقف】 إظهار/إخفاء تأثير طمس الترجمة"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【متوقف】 تمكين أو تعطيل الترجمة المباشرة عند تمرير الماوس مؤقتًا على الصفحة"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【متوقف】 فتح نافذة AI Write المنبثقة"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【متوقف】 تبديل إلى الترجمة الغامرة المفضلة للترجمات الثنائية اللغة"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【متوقف】 استخدم OpenAI مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【متوقف】 استخدم DeepL مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【متوقف】 استخدم Google Translate مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【متوقف】 استخدم ترجمة تينسنت مؤقتًا للصفحة الحالية"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【متوقف】 استخدم Gemini مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【متوقف】 استخدم ترجمة مايكروسوفت مؤقتًا للصفحة الحالية"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【متوقف】 استخدم Claude مؤقتًا لترجمة الصفحة الحالية"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【متوقف】 استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【متوقف】 استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【متوقف】 استخدام خدمة ترجمة مخصصة مؤقتًا لترجمة الصفحة الحالية(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【متوقف】 ترجمة صفحة الويب / عرض النص الأصلي"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【متوقف】 ترجمة جميع مناطق الصفحة/عرض النص الأصلي"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【متوقف】 ترجم محتوى مربع الإدخال الحالي"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【متوقف】 فتح/إغلاق اللوحة الجانبية"
   }
 }

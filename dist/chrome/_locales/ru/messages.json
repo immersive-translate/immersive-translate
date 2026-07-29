@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "Открыть модальное окно «Напишет ИИ»"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "[Устарело] Переключиться в режим только для перевода"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "[Устарело] Показать перевод внизу страницы / Показать оригинальный текст"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "[Устарело] Перевести основную область страницы / Показать оригинальный текст"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "[Устарело] Показать/скрыть эффект размытия при переводе"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "[Устарело] На странице временно включите или отключите прямой перевод при наведении мыши"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "[Устарело] Открыть модальное окно «Напишет ИИ»"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "[Устарело] Переключите двуязычные субтитры для использования функции иммерсивного перевода."
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "[Устарело] Временно используйте OpenAI для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "[Устарело] Временно используйте DeepL для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "[Устарело] Временное использование Google Translate для текущей страницы"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "[Устарело] Временно используйте Tencent для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "[Устарело] Временно используйте Gemini для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "[Устарело] Временно используйте Microsoft для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "[Устарело] Временно используйте Claude для перевода текущей страницы"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "[Устарело] Временное использование пользовательских сервисов перевода для перевода текущей страницы (1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "[Устарело] Временное использование пользовательских сервисов перевода для перевода текущей страницы (2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "[Устарело] Временное использование пользовательских сервисов перевода для перевода текущей страницы (3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "[Устарело] Перевести веб-страницу / Показать оригинал"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "[Устарело] Перевести всю страницу / Показать исходный текст"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "[Устарело] Перевести текущее содержимое ввода"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "[Устарело] Открыть / Закрыть боковую панель"
   }
 }

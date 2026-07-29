@@ -1361,10 +1361,338 @@ textarea[disabled] {
   margin-bottom: 16px;
 }
 
+/* 快捷键页的翻译服务新增弹窗：独立于通用 Modal，避免影响其他设置弹窗。 */
+.shortcut-service-modal {
+  color: var(--text-color);
+}
+
+.shortcut-nav-left__icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.shortcut-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  margin-bottom: 8px;
+}
+
+.shortcut-service-shortcut-add-button {
+  display: inline-block;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  color: #999999 !important;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+  text-decoration: underline;
+}
+
+.shortcut-service-shortcut-add-button:hover:not(:disabled) {
+  background: transparent !important;
+  color: #666666 !important;
+  text-decoration: underline;
+}
+
+.shortcut-service-shortcut-empty {
+  margin: 4px 0 0;
+  color: var(--text-gray-9);
+  font-size: 13px;
+}
+
+.shortcut-service-inline-select.custom-select-container {
+  width: auto;
+  min-width: 220px;
+  max-width: 280px;
+  height: 40px;
+}
+
+.shortcut-service-inline-select .custom-select-content {
+  min-width: 280px;
+}
+
+.shortcut-service-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shortcut-browser-managed {
+  align-items: center;
+}
+
+.shortcut-browser-managed__description {
+  color: rgb(148 163 184);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.shortcut-browser-managed__description .shortcut-browser-managed__link {
+  color: var(--primary);
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: none;
+}
+
+.shortcut-browser-managed__link:hover,
+.shortcut-browser-managed__link:focus-visible {
+  text-decoration: underline;
+}
+
+.shortcut-browser-managed__value {
+  flex: 0 0 9rem;
+  width: 9rem;
+}
+
+.shortcut-browser-managed__value .shortcut-recorder {
+  width: 100%;
+  cursor: not-allowed;
+}
+
+.shortcut-browser-managed__value .shortcut-recorder__input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.shortcut-recorder {
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  width: 9rem;
+  height: 38px;
+  vertical-align: middle;
+}
+
+.shortcut-recorder__input {
+  display: block;
+  grid-area: 1 / 1;
+  width: 100% !important;
+  height: 38px;
+  margin: 0 !important;
+  padding: 0 38px 0 12px;
+  border: 1px solid var(--service-select-border-color, #e4e7ec);
+  border-radius: 8px;
+  background: var(--popup-item-background-color, #f5f6f7);
+  box-shadow: inset 0 1px 2px rgb(16 24 40 / 4%);
+  color: var(--form-element-color, var(--text-gray-2));
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 38px;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.shortcut-recorder__input:hover:not(:disabled) {
+  border-color: var(--text-gray-c2);
+}
+
+.shortcut-recorder__input:focus {
+  border-color: var(--p-main, #ea4c89);
+  background: var(--popup-content-background-color, #fff);
+  box-shadow: 0 0 0 3px rgb(234 76 137 / 16%);
+}
+
+.shortcut-recorder__clear {
+  position: relative;
+  z-index: 1;
+  grid-area: 1 / 1;
+  place-self: center end;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  margin: 0 5px 0 0 !important;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-gray-9);
+  cursor: pointer;
+  line-height: 0;
+  transition: opacity 0.15s ease;
+}
+
+.shortcut-recorder__clear svg {
+  display: block;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+}
+
+.shortcut-recorder__clear svg path {
+  transition: fill 0.15s ease;
+}
+
+.shortcut-recorder__clear:hover:not(:disabled) svg path {
+  fill: var(--text-gray-6, #666666);
+}
+
+.shortcut-recorder__clear:focus-visible {
+  outline: 2px solid var(--p-main, #ea4c89);
+  outline-offset: 1px;
+}
+
+.shortcut-recorder__clear:disabled {
+  visibility: hidden;
+}
+
+.shortcut-service-modal__field .shortcut-recorder {
+  width: 100%;
+}
+
+.shortcut-service-delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  min-height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-gray-9);
+}
+
+.shortcut-service-delete-button:hover {
+  background: transparent !important;
+  color: var(--primary);
+}
+
+.shortcut-service-delete-button svg path {
+  fill: currentColor;
+}
+
+.shortcut-service-modal__title {
+  margin: 0 32px 24px 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.shortcut-service-modal__field {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.shortcut-service-modal__field > span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.shortcut-service-modal__field input {
+  width: 100%;
+  height: 42px;
+  margin: 0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.shortcut-service-modal__field input {
+  letter-spacing: 0.01em;
+}
+
+.shortcut-service-modal__service-select.custom-select-container {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+}
+
+.shortcut-service-modal__service-select .custom-select-content {
+  left: 0;
+  right: 0;
+}
+
+.shortcut-service-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 26px -28px -28px;
+  padding: 18px 28px;
+  border-top: 1px solid var(--border-color);
+}
+
+.shortcut-service-modal__footer button {
+  width: auto;
+  min-width: 96px;
+  height: 38px;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.shortcut-service-modal__footer .shortcut-service-modal__cancel-button {
+  --background-color: transparent !important;
+  --border-color: var(--secondary) !important;
+  --color: var(--secondary) !important;
+  background-color: transparent !important;
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
+
+.shortcut-service-modal__footer .shortcut-service-modal__cancel-button:hover {
+  --border-color: var(--secondary-hover) !important;
+  --color: var(--secondary-hover) !important;
+}
+
+.shortcut-service-modal__footer .shortcut-service-modal__save-button {
+  --background-color: var(--primary) !important;
+  --border-color: var(--primary) !important;
+  --color: var(--primary-inverse) !important;
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary-inverse) !important;
+}
+
+.shortcut-service-modal__footer .shortcut-service-modal__save-button:hover:not(:disabled) {
+  --background-color: var(--primary-hover) !important;
+  --border-color: var(--primary-hover) !important;
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.shortcut-service-modal__footer .shortcut-service-modal__save-button:disabled {
+  --background-color: var(--primary) !important;
+  --border-color: var(--primary) !important;
+  --color: var(--primary-inverse) !important;
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary-inverse) !important;
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .add-custom-service-item-list {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  /* 为弹窗的上下留出 24px，避免低高度屏幕下服务选项被裁到视口外。 */
+  max-height: calc(100vh - 144px);
+  max-height: calc(100dvh - 144px);
+  overflow-y: auto;
 
   /* 隐藏滚动条 */
   scrollbar-width: none;

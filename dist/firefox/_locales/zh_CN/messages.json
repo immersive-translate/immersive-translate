@@ -118,5 +118,68 @@
   },
   "toggleTranslatePageOfficialPage": {
     "message": "翻译网页/显示原文"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【已废弃】切换双语/仅译文模式"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【已废弃】立即翻译到页面底部/显示原文"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【已废弃】翻译页面主要区域/显示原文"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【已废弃】切换当前页面译文为模糊效果（学习模式）"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【已废弃】在页面上临时启用或关闭鼠标悬停直接翻译"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【已废弃】打开 AI Write 弹窗"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【已废弃】切换双语字幕优先使用沉浸式翻译设置"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【已废弃】临时使用 OpenAI 翻译当前页面"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【已废弃】临时使用 DeepL 翻译当前页面"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【已废弃】临时使用 Google 翻译当前页面"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【已废弃】临时使用腾讯翻译当前页面"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【已废弃】临时使用 Gemini 翻译当前页面"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【已废弃】临时使用微软翻译当前页面"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【已废弃】临时使用 Claude 翻译当前页面"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【已废弃】临时使用自定义翻译服务翻译当前页面(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【已废弃】临时使用自定义翻译服务翻译当前页面(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【已废弃】临时使用自定义翻译服务翻译当前页面(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【已废弃】翻译网页/显示原文"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【已废弃】翻译页面全部区域/显示原文"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【已废弃】翻译当前输入框内容"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【已废弃】开启/关闭侧边栏"
   }
 }

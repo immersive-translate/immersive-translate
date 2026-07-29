@@ -118,5 +118,68 @@
   },
   "openAiWritingModal": {
     "message": "פתח חלון AI Write"
+  },
+  "legacyShortcut_toggleOnlyTransation": {
+    "message": "【הוצא משימוש】 ‫החלף למצב תרגום בלבד‬"
+  },
+  "legacyShortcut_toggleTranslateToThePageEndImmediately": {
+    "message": "【הוצא משימוש】 ‫תרגם מיד את כל העמוד ⁦/⁩ הצג מקור‬"
+  },
+  "legacyShortcut_toggleTranslateTheMainPage": {
+    "message": "【הוצא משימוש】 ‫תרגם את התוכן העיקרי ⁦/⁩ הצג מקור‬"
+  },
+  "legacyShortcut_toggleTranslationMask": {
+    "message": "【הוצא משימוש】 ‫הפעל⁦/⁩כבה אפקט טשטוש (מצב למידה) לטקסט המתורגם‬"
+  },
+  "legacyShortcut_toggleMouseHoverTranslateDirectly": {
+    "message": "【הוצא משימוש】 ‫הפעל⁦/⁩השבת זמנית תרגום בהצבעת עכבר‬"
+  },
+  "legacyShortcut_openAiWritingModal": {
+    "message": "【הוצא משימוש】 פתח חלון AI Write"
+  },
+  "legacyShortcut_toggleVideoSubtitlePreTranslation": {
+    "message": "【הוצא משימוש】 ‫החלף בין תרגום כתוביות וידאו באמצעות התוסף‬"
+  },
+  "legacyShortcut_translateWithOpenAI": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦OpenAI⁩‬"
+  },
+  "legacyShortcut_translateWithDeepL": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦DeepL⁩‬"
+  },
+  "legacyShortcut_translateWithGoogle": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦Google⁩‬"
+  },
+  "legacyShortcut_translateWithTransmart": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦⁦Tencent Translator⁩⁩‬"
+  },
+  "legacyShortcut_translateWithGemini": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦Gemini⁩‬"
+  },
+  "legacyShortcut_translateWithBing": {
+    "message": "【הוצא משימוש】 ‫תרגם כעת בעזרת ⁦⁦Microsoft Translator⁩⁩‬"
+  },
+  "legacyShortcut_translateWithClaude": {
+    "message": "【הוצא משימוש】 ‫תרגם זמנית בעזרת ⁦Claude⁩‬"
+  },
+  "legacyShortcut_translateWithCustom1": {
+    "message": "【הוצא משימוש】 שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(1)"
+  },
+  "legacyShortcut_translateWithCustom2": {
+    "message": "【הוצא משימוש】 שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(2)"
+  },
+  "legacyShortcut_translateWithCustom3": {
+    "message": "【הוצא משימוש】 שימוש זמני בשירותי תרגום מותאמים אישית לתרגום הדף הנוכחי(3)"
+  },
+  "legacyShortcut_toggleTranslatePage": {
+    "message": "【הוצא משימוש】 ‫תרגם עמוד⁦/⁩הצג מקור‬"
+  },
+  "legacyShortcut_toggleTranslateTheWholePage": {
+    "message": "【הוצא משימוש】 ‫תרגם את העמוד כולו ⁦/⁩ הצג מקור‬"
+  },
+  "legacyShortcut_translateInputBox": {
+    "message": "【הוצא משימוש】 ‫תרגם את תוכן תיבת הקלט הנוכחית‬"
+  },
+  "legacyShortcut_toggleSidePanel": {
+    "message": "【הוצא משימוש】 פתח/סגור חלונית צדדית"
   }
 }

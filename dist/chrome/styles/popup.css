@@ -1930,3 +1930,76 @@ select.min-select-no-arrow {
   margin-top: 10px;
   margin-bottom: -5px;
 }
+
+/*
+ * 在组件动态注入完整样式前提供首帧布局约束，避免 Chromium 根据远程图片或长文本的
+ * 中间布局放大扩展 Popup。几何规则需与 components/ad-banner/styles.ts 保持一致。
+ */
+.imt-ad-banner {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 77px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.imt-ad-banner__bg-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imt-ad-banner__right-image {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  display: block;
+  width: 126px;
+  max-width: 100%;
+  height: 126px;
+  transform: translateY(-50%);
+  object-fit: contain;
+}
+
+.imt-ad-banner__content {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imt-ad-banner__title,
+.imt-ad-banner__desc {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.imt-ad-banner__slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imt-ad-banner__slides {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+}
+
+.imt-ad-banner__slide {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}

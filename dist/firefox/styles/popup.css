@@ -14,6 +14,9 @@
   --translate-language-text-color: #222222;
   --translate-language-hover-background-color: #fdedf3;
   --translate-language-hover-icon-color: #e95d93;
+  --popup-scrollbar-thumb-color: var(--c-c7);
+  --popup-scrollbar-thumb-hover-color: var(--c-99);
+  --popup-scrollbar-thumb-active-color: var(--p-main);
   --error-bg: #fdedf3;
   --error-text: #222;
   --error-link: #ea4c89;
@@ -34,6 +37,9 @@
   --translate-language-text-color: #b3b3b3;
   --translate-language-hover-background-color: #a97b8c;
   --translate-language-hover-icon-color: rgba(255, 255, 255, 0.9);
+  --popup-scrollbar-thumb-color: var(--c-c7);
+  --popup-scrollbar-thumb-hover-color: var(--c-99);
+  --popup-scrollbar-thumb-active-color: var(--p-main);
   --error-bg: #26171d;
   --error-text: #dbdbdb;
   --error-link: #ea4c89;
@@ -251,10 +257,23 @@ select.translate-service {
 }
 
 .footer-version-inline-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
   font-size: 12px;
   color: #999999;
   line-height: 1;
   border-bottom: 1px solid transparent;
+}
+
+.footer-release-new-badge {
+  width: 28px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .footer-version-inline-text {
@@ -262,11 +281,7 @@ select.translate-service {
 }
 
 .footer-version-inline-text:hover {
-  border-bottom-color: #999999;
-}
-
-[data-theme="dark"] .footer-version-inline-text:hover {
-  border-bottom-color: #707070;
+  background-color: transparent;
 }
 
 .translate-language-row {
@@ -1059,17 +1074,252 @@ select.min-select-no-arrow {
 .drawer-body {
   padding: 16px 20px;
   overflow-y: auto;
+  min-height: 0;
   flex: 1;
 }
 
+/*
+ * Popup 抽屉滚动条：默认保持低对比，悬停时增强可见性，拖动时才使用品牌色。
+ * 轨道透明，避免在 316px 的紧凑工作区内形成额外的视觉分栏。
+ */
+.drawer-body-hover > .popup-drawer-container,
+.drawer-body-selection > .popup-drawer-container,
+.drawer-body-more-settings > .more-settings-drawer,
+.service-select-drawer-content {
+  scrollbar-color: var(--popup-scrollbar-thumb-color) transparent;
+  scrollbar-width: thin;
+  overscroll-behavior-y: contain;
+}
+
+.drawer-body-hover > .popup-drawer-container::-webkit-scrollbar,
+.drawer-body-selection > .popup-drawer-container::-webkit-scrollbar,
+.drawer-body-more-settings > .more-settings-drawer::-webkit-scrollbar,
+.service-select-drawer-content::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+  height: 6px;
+}
+
+.drawer-body-hover > .popup-drawer-container::-webkit-scrollbar-track,
+.drawer-body-selection > .popup-drawer-container::-webkit-scrollbar-track,
+.drawer-body-more-settings > .more-settings-drawer::-webkit-scrollbar-track,
+.service-select-drawer-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drawer-body-hover > .popup-drawer-container::-webkit-scrollbar-thumb,
+.drawer-body-selection > .popup-drawer-container::-webkit-scrollbar-thumb,
+.drawer-body-more-settings > .more-settings-drawer::-webkit-scrollbar-thumb,
+.service-select-drawer-content::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background-color: var(--popup-scrollbar-thumb-color);
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.drawer-body-hover > .popup-drawer-container::-webkit-scrollbar-thumb:hover,
+.drawer-body-selection > .popup-drawer-container::-webkit-scrollbar-thumb:hover,
+.drawer-body-more-settings > .more-settings-drawer::-webkit-scrollbar-thumb:hover,
+.service-select-drawer-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--popup-scrollbar-thumb-hover-color);
+}
+
+.drawer-body-hover > .popup-drawer-container::-webkit-scrollbar-thumb:active,
+.drawer-body-selection > .popup-drawer-container::-webkit-scrollbar-thumb:active,
+.drawer-body-more-settings > .more-settings-drawer::-webkit-scrollbar-thumb:active,
+.service-select-drawer-content::-webkit-scrollbar-thumb:active {
+  background-color: var(--popup-scrollbar-thumb-active-color);
+}
+
 .drawer-body.drawer-body-hover {
-  padding: 0 20px 20px 20px;
-  overflow-y: auto;
+  padding: 0 12px;
+  display: flex;
+  overflow: hidden;
   flex: 1;
 }
 
 .drawer-body.drawer-body-more-settings {
-  padding-top: 0;
+  padding: 0 12px;
+  display: flex;
+  overflow: hidden;
+}
+
+.drawer-body-hover > .popup-drawer-container,
+.drawer-body-selection > .popup-drawer-container,
+.drawer-body-more-settings > .more-settings-drawer {
+  width: 100%;
+  min-height: 0;
+  padding-inline: 8px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.drawer-body-hover > .popup-drawer-container,
+.drawer-body-selection > .popup-drawer-container {
+  padding-block-end: 20px;
+}
+
+.drawer-body-more-settings > .more-settings-drawer {
+  padding-block-end: 16px;
+}
+
+.drawer-body-hover > .popup-drawer-container > *,
+.drawer-body-selection > .popup-drawer-container > *,
+.drawer-body-more-settings > .more-settings-drawer > * {
+  flex-shrink: 0;
+}
+
+/* Popup 核心选择器：沿用通用底部抽屉，仅替换展开容器。 */
+.drawer-panel.select-drawer-panel {
+  max-height: 90%;
+  background: var(--popup-content-background-color);
+}
+
+.select-drawer-panel .drawer-header {
+  padding: 16px 16px 12px;
+}
+
+.service-select-drawer-panel .drawer-header {
+  padding: 16px;
+}
+
+.drawer-body.select-drawer-body {
+  min-height: 0;
+  padding: 0 12px 12px;
+  display: flex;
+  overflow: hidden;
+}
+
+.drawer-body.service-select-drawer-body {
+  padding: 4px 12px 12px;
+}
+
+.service-select-drawer-content {
+  position: static;
+  inset: auto;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  overflow-y: auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.service-select-drawer-content .custom-select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-select-drawer-content .custom-select-group +
+  .custom-select-group {
+  margin-top: 12px;
+}
+
+.service-select-drawer-content .custom-select-group--recommendation {
+  gap: 6px;
+}
+
+.service-select-drawer-content .custom-select-group-header {
+  min-height: 18px;
+  margin: 0;
+  padding: 0 4px;
+  gap: 4px;
+  color: #999999;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.service-select-drawer-content
+  .custom-select-group-header--recommendation {
+  min-width: 0;
+  padding: 0;
+}
+
+.service-select-drawer-content .custom-select-group-header-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  gap: var(--space-4);
+  padding: 2px 8px 2px 6px;
+  color: var(--p-main);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  background: var(--p-weak);
+  border-radius: 100px;
+}
+
+.service-select-drawer-content .service-recommendation-badge-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.service-select-drawer-content .custom-select-group-header-badge-text {
+  flex-shrink: 0;
+}
+
+.service-select-drawer-content .custom-select-group-header-context {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.service-select-drawer-content
+  .custom-select-group-header-tip--recommendation {
+  flex-shrink: 0;
+}
+
+.service-select-drawer-content
+  .service-recommendation-tip-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.service-select-drawer-content .custom-select-item {
+  width: 100%;
+  min-height: 34px;
+  height: auto;
+  padding: 5px 8px;
+  line-height: 20px;
+}
+
+.service-select-drawer-content .custom-select-item.selected {
+  background: var(--p-weak);
+}
+
+.service-select-drawer-content .custom-select-item-membership-badge {
+  margin-left: 2px;
+}
+
+.service-select-drawer-content .custom-select-item-membership-badge img {
+  width: 24px;
+  height: 12px;
+  margin: 0;
+}
+
+.service-select-drawer-content .custom-select-item:focus-visible {
+  outline: 2px solid var(--p-main);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-drawer-overlay,
+  .select-drawer-overlay .drawer-panel {
+    transition-duration: 0.01ms;
+  }
 }
 
 .drawer-footer {
@@ -1172,8 +1422,8 @@ select.min-select-no-arrow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px;
-  padding: 4px;
-  border-radius: 8px;
+  padding: 6px;
+  border-radius: 12px;
   background: #f3f5f6;
 }
 
@@ -1182,9 +1432,9 @@ select.min-select-no-arrow {
 }
 
 .popup-drawer-tabs button {
-  height: 30px;
+  height: 44px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   color: #666666;
   background: transparent;
   font-size: 13px;
@@ -1666,9 +1916,10 @@ select.min-select-no-arrow {
 }
 
 .drawer-body.drawer-body-selection {
-  padding: 0 20px 20px 20px;
+  padding: 0 12px;
+  display: flex;
   overflow: hidden;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
 }
 
 /* ========== 更多设置抽屉样式 ========== */

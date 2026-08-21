@@ -42,6 +42,7 @@
   --text-gray-6: #666666;
   --text-gray-9: #999999;
   --text-gray-c2: #c2c2c2;
+  --dropdown-checkbox-border-color: #ecf0f7;
   --service-select-content-shadow: 0px 2px 12px 0px rgba(75, 76, 77, 0.2);
   --service-select-border-color: #fafafa;
   --service-select-selected-background-color: #f3f5f6;
@@ -59,6 +60,7 @@
     --text-gray-6: #b3b3b3;
     --text-gray-9: #777777;
     --text-gray-c2: #5b5b5b;
+    --dropdown-checkbox-border-color: #3e434b;
     --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
     --service-select-border-color: #2c2c2c;
     --service-select-selected-background-color: #333333;
@@ -78,6 +80,7 @@
   --text-gray-6: #b3b3b3;
   --text-gray-9: #777777;
   --text-gray-c2: #5b5b5b;
+  --dropdown-checkbox-border-color: #3e434b;
   --service-select-content-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.9);
   --service-select-border-color: #2c2c2c;
   --service-select-selected-background-color: #333333;
@@ -261,6 +264,54 @@ hgroup.hgroup {
   max-height: 12rem;
 }
 
+button.select {
+  --background-color: var(--form-element-background-color);
+  --border-color: var(--form-element-border-color);
+  --color: var(--form-element-color);
+  width: 100%;
+  justify-content: space-between;
+  padding: var(--form-element-spacing-vertical)
+    calc(var(--form-element-spacing-horizontal) + 1.5rem)
+    var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--background-color);
+  background-image: var(--icon-chevron);
+  background-position: center right 0.75rem;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+  color: var(--color);
+  font-weight: var(--font-weight);
+  text-align: left;
+}
+
+button.select:is(:hover, :active, :focus) {
+  --background-color: var(--form-element-background-color);
+  --border-color: var(--form-element-active-border-color);
+  --color: var(--form-element-color);
+}
+
+[dir="rtl"] button.select {
+  padding: var(--form-element-spacing-vertical)
+    var(--form-element-spacing-horizontal)
+    var(--form-element-spacing-vertical)
+    calc(var(--form-element-spacing-horizontal) + 1.5rem);
+  background-position: center left 0.75rem;
+  text-align: right;
+}
+
+button.select.options-lang-select-trigger {
+  background-image: none;
+  padding-right: var(--form-element-spacing-horizontal);
+}
+
+button.select.options-lang-select-trigger .arrow-down {
+  flex: 0 0 1rem;
+}
+
+[dir="rtl"] button.select.options-lang-select-trigger {
+  padding-left: var(--form-element-spacing-horizontal);
+}
+
 .options-lang-select-container {
   position: relative;
   flex: 0 1 10rem;
@@ -353,12 +404,6 @@ label {
 .confirm-button {
   margin: 0.4rem 9rem;
   padding: 0.4rem 1rem;
-}
-
-.option-list {
-  top: 50px !important;
-  max-height: 16rem;
-  overflow: scroll;
 }
 
 .langs-list {
@@ -486,6 +531,10 @@ dialog article .close {
 
 article.add-modal {
   width: 30rem;
+}
+
+article.glossary-add-modal--dropdown-open {
+  overflow: visible;
 }
 
 div.add-text {
@@ -1749,6 +1798,7 @@ textarea[disabled] {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1757,6 +1807,8 @@ textarea[disabled] {
     position: relative !important;
     width: max-content;
     max-height: 80% !important;
+    top: unset !important;
+    bottom: unset !important;
   }
 }
 
@@ -1768,7 +1820,7 @@ textarea[disabled] {
   padding: 4px 5px;
   position: absolute;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   overflow-y: auto;
 
   scrollbar-width: none;

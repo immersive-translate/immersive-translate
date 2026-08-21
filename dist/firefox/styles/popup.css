@@ -56,6 +56,31 @@ body {
   border-radius: 10px;
 }
 
+/*
+ * Chrome action popup 可能在 popup.js 挂载 316px 业务根节点前测量文档。
+ * 该静态壳只作用于同步识别出的桌面 Chrome，Safari 和移动端继续沿用原布局。
+ */
+html[data-popup-layout="chrome-desktop"],
+html[data-popup-layout="chrome-desktop"] body,
+html[data-popup-layout="chrome-desktop"] #mount {
+  box-sizing: border-box;
+  width: 316px;
+  min-width: 316px;
+  max-width: 316px;
+}
+
+html[data-popup-layout="chrome-desktop"] #mount:empty {
+  min-height: 506px;
+  border-radius: 10px;
+  background: #f3f5f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-popup-layout="chrome-desktop"] #mount:empty {
+    background: #191919;
+  }
+}
+
 .popup-container {
   font-size: 16px;
   --font-size: 16px;
@@ -71,6 +96,26 @@ body {
   background-color: var(--popup-content-background-color);
   border-radius: 0px 0px 12px 12px;
   padding: 14px 16px;
+}
+
+.popup-presentation--inert {
+  max-height: 599px;
+  color: var(--translate-language-text-color);
+  pointer-events: none;
+}
+
+.popup-presentation--inert button {
+  cursor: default;
+  opacity: 1;
+}
+
+.popup-presentation--inert .main-button {
+  color: #ffffff;
+  background-color: var(--p-main, #ec4c8c);
+}
+
+.popup-presentation--inert .widget-item {
+  cursor: default;
 }
 
 .popup-userscript-three-feature-layout {
@@ -393,6 +438,11 @@ select.translate-service {
   margin-right: 8px;
 }
 
+.translate-mode[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.5;
+}
+
 /* 快捷操作设置标题栏 */
 .widgets-header {
   display: flex;
@@ -453,6 +503,10 @@ select.translate-service {
 
 .widgets-container.widgets-two-items .widget-item {
   max-width: none;
+}
+
+.widgets-container.widgets-four-items .widget-item {
+  justify-content: flex-start;
 }
 
 .widget-item {
@@ -681,7 +735,7 @@ select.translate-service {
   position: absolute;
   left: -68px;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   overflow-y: auto;
 }
 
@@ -2141,8 +2195,7 @@ select.min-select-no-arrow {
   display: flex;
   align-items: flex-start;
   padding: 12px 16px;
-  margin-top: 6px;
-  margin-bottom: -14px;
+  margin: 6px 0;
   border: 1px solid #f53f3f;
   border-radius: 12px;
   background-color: var(--error-bg);
@@ -2193,6 +2246,11 @@ select.min-select-no-arrow {
   height: 77px;
   overflow: hidden;
   flex-shrink: 0;
+}
+
+.imt-ad-banner--reserved {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .imt-ad-banner__bg-image {

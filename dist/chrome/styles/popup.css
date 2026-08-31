@@ -20,6 +20,11 @@
   --error-bg: #fdedf3;
   --error-text: #222;
   --error-link: #ea4c89;
+  --membership-prompt-background-color: #ffffff;
+  --membership-prompt-muted-background-color: #f3f5f6;
+  --membership-prompt-text-color: #333333;
+  --membership-prompt-secondary-text-color: #666666;
+  --membership-prompt-banner-opacity: 1;
 }
 
 [data-theme="dark"] {
@@ -43,6 +48,11 @@
   --error-bg: #26171d;
   --error-text: #dbdbdb;
   --error-link: #ea4c89;
+  --membership-prompt-background-color: #222222;
+  --membership-prompt-muted-background-color: #222222;
+  --membership-prompt-text-color: #dbdbdb;
+  --membership-prompt-secondary-text-color: #b3b3b3;
+  --membership-prompt-banner-opacity: 0.9;
 }
 
 #mount {
@@ -370,6 +380,12 @@ select.translate-service {
 .translation-service-container {
   background-color: var(--popup-item-background-color);
   border-radius: 12px;
+}
+
+/* 基础翻译模式仅弱化已选服务的图标、名称和箭头，标签及外层区域保持正常。 */
+.translation-service-control--basic {
+  filter: grayscale(0.65);
+  opacity: 0.55;
 }
 
 .translation-service-primary-field {
@@ -1125,11 +1141,24 @@ select.min-select-no-arrow {
   background-color: #333333;
 }
 
+[data-theme="dark"] .membership-prompt-drawer .drawer-title {
+  color: var(--membership-prompt-text-color);
+}
+
+[data-theme="dark"] .membership-prompt-drawer .drawer-close path {
+  stroke: #666666;
+}
+
 .drawer-body {
   padding: 16px 20px;
   overflow-y: auto;
   min-height: 0;
   flex: 1;
+}
+
+.drawer-body-membership-prompt {
+  padding: 0 16px 16px;
+  overflow: hidden;
 }
 
 /*

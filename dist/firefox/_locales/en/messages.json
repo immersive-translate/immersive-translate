@@ -24,7 +24,7 @@
     "message": "Open Settings Page"
   },
   "babelDOC": {
-    "message": "BabelDOC Preserve PDF Layout"
+    "message": "BabelDOC PDF Translation with Layout Preservation"
   },
   "translateLocalPdfFile": {
     "message": "Translate local PDF File"
@@ -78,13 +78,13 @@
     "message": "Close Side Panel"
   },
   "toggleOnlyTransation": {
-    "message": "Switch to /translation-only mode"
+    "message": "Switch Between Bilingual View and Translation Only"
   },
   "toggleTranslationMask": {
     "message": "Toggle blur effect on translated text (learning mode) for the current page"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "Switch Video Subtitles with Immersive Translation Feature"
+    "message": "Switch Video Subtitles with Immersive Translate Feature"
   },
   "brandDescriptionForSafari": {
     "message": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual"
@@ -120,7 +120,7 @@
     "message": "Open AI Write Modal"
   },
   "legacyShortcut_toggleOnlyTransation": {
-    "message": "[Deprecated] Switch to /translation-only mode"
+    "message": "[Deprecated] Switch Between Bilingual View and Translation Only"
   },
   "legacyShortcut_toggleTranslateToThePageEndImmediately": {
     "message": "[Deprecated] Translate instantly to the bottom of the page/Display original text"
@@ -138,7 +138,7 @@
     "message": "[Deprecated] Open AI Write Modal"
   },
   "legacyShortcut_toggleVideoSubtitlePreTranslation": {
-    "message": "[Deprecated] Switch Video Subtitles with Immersive Translation Feature"
+    "message": "[Deprecated] Switch Video Subtitles with Immersive Translate Feature"
   },
   "legacyShortcut_translateWithOpenAI": {
     "message": "[Deprecated] Temporarily translate the current page with OpenAI"

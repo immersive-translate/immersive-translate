@@ -392,6 +392,14 @@ select.translate-service {
   position: relative;
 }
 
+.translation-service-primary-field .custom-select-container {
+  min-width: 0;
+}
+
+.translation-service-primary-field #translation-service-select > svg {
+  flex-shrink: 0;
+}
+
 .translation-service-guide-hitbox {
   position: absolute;
   right: 46px;

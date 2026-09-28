@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>文件上传隐私入口 · 组件预览</title>
+  <link rel="stylesheet" href="./upload-privacy.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f1f1f1; color: #8c8c8c; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { width: min(640px, calc(100% - 40px)); margin: 100px auto 60px; }
+    .upload-box { overflow: hidden; border: 1px solid #d6d6d6; border-radius: 20px; background: #fafafa; }
+    .upload-tabs { display: flex; gap: 8px; padding: 10px; background: #eee; }
+    .upload-tabs span { flex: 1; padding: 11px 6px; text-align: center; font-size: 18px; line-height: 26px; }
+    .upload-tabs .active { border-radius: 12px; background: #fff; color: #f23e8d; box-shadow: 0 2px 3px #00000006; }
+    .upload-content { min-height: 324px; padding: 88px 28px 76px; text-align: center; }
+    .upload-button { display: inline-flex; align-items: center; justify-content: center; gap: 13px; padding: 20px 34px; border: 0; border-radius: 50px; background: #ec468d; color: #fff; font-family: inherit; font-size: 20px; font-weight: 600; line-height: 32px; box-shadow: 0 3px 4px #00000012; }
+    .upload-button svg { width: 27px; height: 30px; flex-shrink: 0; }
+    .formats { margin: 30px auto 0; max-width: 410px; font-size: 18px; line-height: 1.5; }
+    @media (max-width: 600px) {
+      main { margin-top: 56px; }
+      .upload-tabs span { font-size: 15px; }
+      .upload-content { min-height: 290px; padding: 64px 20px; }
+      .upload-button { padding: 15px 24px; gap: 10px; font-size: 17px; }
+      .formats { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="文件上传隐私入口预览">
+    <!-- Existing uploader shown as a non-interactive layout reference only. -->
+    <section class="upload-box" aria-label="原上传框样式参考">
+      <div class="upload-tabs"><span class="active">翻译单个文件</span><span>批量翻译</span></div>
+      <div class="upload-content">
+        <button class="upload-button" type="button" disabled aria-label="上传文件并翻译（本页仅展示位置）">
+          <svg viewBox="0 0 28 32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2h14l6 6v20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 23V10m-5 6 5-6 5 6"/></svg>
+          上传文件并翻译
+        </button>
+        <p class="formats">支持 PDF, ePub, HTML, JSON, TXT, DOCX,<br>Markdown 及各种字幕文件</p>
+      </div>
+    </section>
+    <p class="upload-privacy-note">
+      <a href="https://immersivetranslate.com/zh-Hans/security/">了解文件如何处理与保护</a>
+    </p>
+  </main>
+</body>
+</html>

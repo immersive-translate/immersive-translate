@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 44 45" xmlns="http://www.w3.org/2000/svg">
+<title>分组</title>
+<desc>Created with Sketch.</desc>
+<g fill="none" fill-rule="evenodd">
+<g transform="translate(-618 -2152)">
+<g transform="translate(618 2152)">
+<g transform="translate(0 19)">
+<rect x=".5" y=".5" width="9" height="9" rx="4.5" stroke="#D8D8D8"/>
+<rect x="2" y="2" width="6" height="6" rx="3" fill="#D8D8D8" fill-rule="evenodd"/>
+</g>
+<g transform="translate(18)">
+<rect x="2" y="2" width="8" height="8" rx="4" fill="#D8D8D8" fill-rule="evenodd"/>
+<rect x=".5" y=".5" width="11" height="11" rx="5.5" stroke="#D8D8D8"/>
+</g>
+<g transform="translate(5 6)">
+<rect x=".5" y=".5" width="9" height="9" rx="4.5" stroke="#D8D8D8"/>
+<rect x="2" y="2" width="6" height="6" rx="3" fill="#D8D8D8" fill-rule="evenodd"/>
+</g>
+<g transform="translate(6 33)">
+<rect x="2" y="2" width="4" height="4" rx="2" fill="#D8D8D8" fill-rule="evenodd"/>
+<rect x=".5" y=".5" width="7" height="7" rx="3.5" stroke="#D8D8D8"/>
+</g>
+<g transform="translate(21 40)">
+<rect x=".66667" y=".66667" width="2.6667" height="2.6667" rx="1.3333" fill="#D8D8D8" fill-rule="evenodd"/>
+<rect x="-.5" y="-.5" width="5" height="5" rx="2.5" stroke="#D8D8D8"/>
+</g>
+<rect x="35" y="36" width="2" height="2" rx="1" fill="#D8D8D8"/>
+<rect x="41" y="24" width="1" height="1" rx=".5" fill="#D8D8D8"/>
+<rect x="34" y="35" width="4" height="4" rx="2" stroke="#D8D8D8"/>
+<rect x="40" y="23" width="3" height="3" rx="1.5" stroke="#D8D8D8"/>
+<rect x="35.5" y="10.5" width="2" height="2" rx="1" stroke="#D8D8D8"/>
+</g>
+</g>
+</g>
+</svg>

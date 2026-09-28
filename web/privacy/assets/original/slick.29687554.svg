@@ -1,0 +1,187 @@
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var _defs, _defs2, _defs3, _defs4;
+var _excluded = ["title", "titleId"];
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var n = Object.getOwnPropertySymbols(e); for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
+function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
+import React from 'react';
+var SvgSlick = function SvgSlick(_ref) {
+  var title = _ref.title,
+    titleId = _ref.titleId,
+    props = _objectWithoutProperties(_ref, _excluded);
+  var id = React.useId();
+  var processedJsx = /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("font", {
+    id: "slick_svg__slick",
+    horizAdvX: 512
+  }, /*#__PURE__*/React.createElement("fontFace", {
+    ascent: 480,
+    descent: -32,
+    fontFamily: "slick",
+    unitsPerEm: 512
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m241 113 130 130c4 4 6 8 6 13s-2 9-6 13L241 399c-3 3-7 5-12 5s-10-2-13-5l-29-30q-6-4.5-6-12c0-5 2-10 6-13l87-88-87-88c-4-3-6-8-6-13q0-7.5 6-12l29-30c3-3 8-5 13-5s9 2 12 5m234 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2192"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m296 113 29 30q6 4.5 6 12c0 5-2 10-6 13l-87 88 87 88c4 3 6 8 6 13q0 7.5-6 12l-29 30c-3 3-8 5-13 5s-9-2-12-5L141 269c-4-4-6-8-6-13s2-9 6-13l130-130c3-3 7-5 12-5s10 2 13 5m179 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2190"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 256c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2022"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 439V311c0-5-1-9-5-13s-8-5-13-5H329c-8 0-13 3-17 11-3 7-2 14 4 20l40 39c-28 26-62 39-100 39-20 0-39-4-57-11-18-8-33-18-46-32-14-13-24-28-32-46-7-18-11-37-11-57s4-39 11-57c8-18 18-33 32-46 13-14 28-24 46-32 18-7 37-11 57-11 23 0 44 5 64 15 20 9 38 23 51 42 2 1 4 3 7 3s5-1 7-3l39-39c2-2 3-3 3-6 0-2-1-4-2-6-21-25-46-45-76-59-29-14-60-20-93-20-30 0-58 5-85 17s-51 27-70 47c-20 19-35 43-47 70s-17 55-17 85 5 58 17 85 27 51 47 70c19 20 43 35 70 47s55 17 85 17q42 0 81-15c26-11 50-26 70-45l37 37c6 6 12 7 20 4 8-4 11-9 11-17",
+    unicode: "a"
+  }))))).props.children ? /*#__PURE__*/React.cloneElement(/*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _defs2 || (_defs2 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("font", {
+    id: "slick_svg__slick",
+    horizAdvX: 512
+  }, /*#__PURE__*/React.createElement("fontFace", {
+    ascent: 480,
+    descent: -32,
+    fontFamily: "slick",
+    unitsPerEm: 512
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m241 113 130 130c4 4 6 8 6 13s-2 9-6 13L241 399c-3 3-7 5-12 5s-10-2-13-5l-29-30q-6-4.5-6-12c0-5 2-10 6-13l87-88-87-88c-4-3-6-8-6-13q0-7.5 6-12l29-30c3-3 8-5 13-5s9 2 12 5m234 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2192"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m296 113 29 30q6 4.5 6 12c0 5-2 10-6 13l-87 88 87 88c4 3 6 8 6 13q0 7.5-6 12l-29 30c-3 3-8 5-13 5s-9-2-12-5L141 269c-4-4-6-8-6-13s2-9 6-13l130-130c3-3 7-5 12-5s10 2 13 5m179 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2190"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 256c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2022"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 439V311c0-5-1-9-5-13s-8-5-13-5H329c-8 0-13 3-17 11-3 7-2 14 4 20l40 39c-28 26-62 39-100 39-20 0-39-4-57-11-18-8-33-18-46-32-14-13-24-28-32-46-7-18-11-37-11-57s4-39 11-57c8-18 18-33 32-46 13-14 28-24 46-32 18-7 37-11 57-11 23 0 44 5 64 15 20 9 38 23 51 42 2 1 4 3 7 3s5-1 7-3l39-39c2-2 3-3 3-6 0-2-1-4-2-6-21-25-46-45-76-59-29-14-60-20-93-20-30 0-58 5-85 17s-51 27-70 47c-20 19-35 43-47 70s-17 55-17 85 5 58 17 85 27 51 47 70c19 20 43 35 70 47s55 17 85 17q42 0 81-15c26-11 50-26 70-45l37 37c6 6 12 7 20 4 8-4 11-9 11-17",
+    unicode: "a"
+  }))))), {
+    children: React.Children.map(/*#__PURE__*/React.createElement("svg", _extends({
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "1em",
+      height: "1em",
+      "aria-labelledby": titleId
+    }, props), title ? /*#__PURE__*/React.createElement("title", {
+      id: titleId
+    }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+      id: titleId
+    }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+      id: titleId
+    }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+      id: titleId
+    }, title) : null, _defs3 || (_defs3 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("font", {
+      id: "slick_svg__slick",
+      horizAdvX: 512
+    }, /*#__PURE__*/React.createElement("fontFace", {
+      ascent: 480,
+      descent: -32,
+      fontFamily: "slick",
+      unitsPerEm: 512
+    }), /*#__PURE__*/React.createElement("glyph", {
+      d: "m241 113 130 130c4 4 6 8 6 13s-2 9-6 13L241 399c-3 3-7 5-12 5s-10-2-13-5l-29-30q-6-4.5-6-12c0-5 2-10 6-13l87-88-87-88c-4-3-6-8-6-13q0-7.5 6-12l29-30c3-3 8-5 13-5s9 2 12 5m234 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+      unicode: "\\u2192"
+    }), /*#__PURE__*/React.createElement("glyph", {
+      d: "m296 113 29 30q6 4.5 6 12c0 5-2 10-6 13l-87 88 87 88c4 3 6 8 6 13q0 7.5-6 12l-29 30c-3 3-8 5-13 5s-9-2-12-5L141 269c-4-4-6-8-6-13s2-9 6-13l130-130c3-3 7-5 12-5s10 2 13 5m179 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+      unicode: "\\u2190"
+    }), /*#__PURE__*/React.createElement("glyph", {
+      d: "M475 256c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+      unicode: "\\u2022"
+    }), /*#__PURE__*/React.createElement("glyph", {
+      d: "M475 439V311c0-5-1-9-5-13s-8-5-13-5H329c-8 0-13 3-17 11-3 7-2 14 4 20l40 39c-28 26-62 39-100 39-20 0-39-4-57-11-18-8-33-18-46-32-14-13-24-28-32-46-7-18-11-37-11-57s4-39 11-57c8-18 18-33 32-46 13-14 28-24 46-32 18-7 37-11 57-11 23 0 44 5 64 15 20 9 38 23 51 42 2 1 4 3 7 3s5-1 7-3l39-39c2-2 3-3 3-6 0-2-1-4-2-6-21-25-46-45-76-59-29-14-60-20-93-20-30 0-58 5-85 17s-51 27-70 47c-20 19-35 43-47 70s-17 55-17 85 5 58 17 85 27 51 47 70c19 20 43 35 70 47s55 17 85 17q42 0 81-15c26-11 50-26 70-45l37 37c6 6 12 7 20 4 8-4 11-9 11-17",
+      unicode: "a"
+    }))))).props.children, function (child) {
+      if (/*#__PURE__*/React.isValidElement(child)) {
+        return processJSXElement(child, id);
+      }
+      return child;
+    })
+  }) : /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _defs4 || (_defs4 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("font", {
+    id: "slick_svg__slick",
+    horizAdvX: 512
+  }, /*#__PURE__*/React.createElement("fontFace", {
+    ascent: 480,
+    descent: -32,
+    fontFamily: "slick",
+    unitsPerEm: 512
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m241 113 130 130c4 4 6 8 6 13s-2 9-6 13L241 399c-3 3-7 5-12 5s-10-2-13-5l-29-30q-6-4.5-6-12c0-5 2-10 6-13l87-88-87-88c-4-3-6-8-6-13q0-7.5 6-12l29-30c3-3 8-5 13-5s9 2 12 5m234 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2192"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "m296 113 29 30q6 4.5 6 12c0 5-2 10-6 13l-87 88 87 88c4 3 6 8 6 13q0 7.5-6 12l-29 30c-3 3-8 5-13 5s-9-2-12-5L141 269c-4-4-6-8-6-13s2-9 6-13l130-130c3-3 7-5 12-5s10 2 13 5m179 143c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2190"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 256c0-40-9-77-29-110-20-34-46-60-80-80-33-20-70-29-110-29s-77 9-110 29c-34 20-60 46-80 80-20 33-29 70-29 110s9 77 29 110c20 34 46 60 80 80 33 20 70 29 110 29s77-9 110-29c34-20 60-46 80-80 20-33 29-70 29-110",
+    unicode: "\\u2022"
+  }), /*#__PURE__*/React.createElement("glyph", {
+    d: "M475 439V311c0-5-1-9-5-13s-8-5-13-5H329c-8 0-13 3-17 11-3 7-2 14 4 20l40 39c-28 26-62 39-100 39-20 0-39-4-57-11-18-8-33-18-46-32-14-13-24-28-32-46-7-18-11-37-11-57s4-39 11-57c8-18 18-33 32-46 13-14 28-24 46-32 18-7 37-11 57-11 23 0 44 5 64 15 20 9 38 23 51 42 2 1 4 3 7 3s5-1 7-3l39-39c2-2 3-3 3-6 0-2-1-4-2-6-21-25-46-45-76-59-29-14-60-20-93-20-30 0-58 5-85 17s-51 27-70 47c-20 19-35 43-47 70s-17 55-17 85 5 58 17 85 27 51 47 70c19 20 43 35 70 47s55 17 85 17q42 0 81-15c26-11 50-26 70-45l37 37c6 6 12 7 20 4 8-4 11-9 11-17",
+    unicode: "a"
+  })))));
+  return processedJsx;
+};
+function processJSXElement(element, id) {
+  if (! /*#__PURE__*/React.isValidElement(element)) return element;
+  var newProps = _objectSpread({}, element.props); // Process id attributes
+  if (newProps.id && typeof newProps.id === 'string') {
+    newProps.id = newProps.id + '_' + id;
+  } // Process href attributes that reference ids
+  var referenceAttributes = ['href', 'xlinkHref', 'xlink:href'];
+  referenceAttributes.forEach(function (attr) {
+    var value = newProps[attr];
+    if (value && typeof value === 'string' && value.startsWith('#')) {
+      newProps[attr] = value + '_' + id;
+    }
+  }); // Process url() references in fill, stroke, etc.
+  ['fill', 'stroke'].forEach(function (attr) {
+    if (newProps[attr] && typeof newProps[attr] === 'string' && newProps[attr].includes('url(#')) {
+      newProps[attr] = newProps[attr].replace(/url\(#([^)]+)\)/g, function (match, id_part) {
+        return 'url(#' + id_part + '_' + id + ')';
+      });
+    }
+  }); // Process children recursively
+  if (newProps.children) {
+    newProps.children = React.Children.map(newProps.children, function (child) {
+      return processJSXElement(child, id);
+    });
+  }
+  return /*#__PURE__*/React.cloneElement(element, newProps);
+}
+export default SvgSlick;

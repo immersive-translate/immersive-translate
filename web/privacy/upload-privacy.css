@@ -1,0 +1,24 @@
+.upload-privacy-note {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.upload-privacy-note a {
+  display: inline-block;
+  padding: 3px 6px;
+  color: #707070;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  border-radius: 4px;
+}
+.upload-privacy-note a:hover {
+  color: #c52c72;
+  text-decoration: underline;
+}
+.upload-privacy-note a:focus-visible {
+  outline: 2px solid #c52c72;
+  outline-offset: 3px;
+  text-decoration: underline;
+}

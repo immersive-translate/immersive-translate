@@ -1,0 +1,8 @@
+Use case: stylized-concept
+Asset type: small website content privacy illustration, final display approximately 160 x 140 pixels.
+Primary request: Generate one standalone illustration of a white document with several raised pastel blue horizontal abstract lines and folded top corner, overlapped by a rounded blue shield bearing a small white padlock with a pink keyhole. Inspired by the illustration in the left card of the attached reference. The reference is only visual style guidance, not an edit target.
+Scene/backdrop: pure white background, very faint soft contact shadow. A few soft pale cyan cloudlike round shapes behind the document and shield.
+Style/medium: soft 3D clay illustration, smooth rounded forms, pastel icy blue and teal, pink accent, clean friendly polished website asset.
+Composition/framing: tightly grouped centered complete objects, occupies roughly 85 percent of image width and 75 percent of height; generous enough safe border that no part is cropped. Single asset only, landscape 8:7 aspect ratio if possible.
+Lighting/mood: diffuse bright studio light, soft low contrast shadows.
+Constraints: No words, letters, logos, watermark, card frame, UI, heading or button. Do not reproduce any watermark from reference. No full section layout.

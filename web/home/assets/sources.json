@@ -1,0 +1,8 @@
+{
+  "homepage": "https://immersivetranslate.com/zh-Hans/",
+  "captured": "2026-09-29",
+  "styles": "../privacy/assets/original/",
+  "illustrations": "Built-in ImageGen; prompts saved alongside assets",
+  "chevron": "Existing homepage SVG",
+  "preview": "Original homepage app preserved; public assets loaded via serve.py"
+}

@@ -1,0 +1,7 @@
+Use case: stylized-concept
+Asset type: one standalone small website feature illustration, eventually displayed at about 160 x 140 CSS pixels.
+Reference image: use only the small illustration inside the THIRD/rightmost white card as visual guidance, do not recreate the UI or any of its text.
+Primary request: create a compact centered soft 3D clay illustration of encrypted requests: a rounded pale icy-blue padlock body, teal-blue rounded shackle, pink keyhole, with two blue curved wireless transmission ripples on each side. A few subtle very pale blue rounded cloud-like blobs sit behind it. White background.
+Style: friendly high-quality soft clay render, pastel blue/cyan and muted pink accent, matte smooth surfaces, gentle ambient occlusion, soft studio light, very similar visual weight and styling to the supplied rightmost reference icon.
+Composition: landscape 8:7 composition, entire object centered and fully visible, illustration fills about 85% width and 80% height; modest white margin; keep readable when small.
+Constraints: asset illustration only; no words, letters, numbers, titles, logos, watermarks, card container, border or webpage elements. Preserve pure white at the outer canvas edges.

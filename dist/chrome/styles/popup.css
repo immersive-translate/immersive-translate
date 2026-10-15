@@ -304,6 +304,10 @@ select.translate-service {
 }
 
 .footer-privacy-link {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -575,6 +579,24 @@ select.translate-service {
   flex: 0 0 24px;
 }
 
+.widget-item > svg,
+.widget-item > .widget-icon-text {
+  opacity: 0.8;
+  transition: opacity 160ms ease-out;
+}
+
+.widget-item:hover > svg,
+.widget-item:hover > .widget-icon-text {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .widget-item > svg,
+  .widget-item > .widget-icon-text {
+    transition: none;
+  }
+}
+
 .widget-icon-text {
   white-space: nowrap;
   overflow: hidden;
@@ -626,9 +648,16 @@ select.translate-service {
   fill: var(--text-gray-9);
 }
 
-.min-select-container:hover,
-.widget-item:hover {
+.min-select-container:hover {
   background-color: var(--popup-item-hover-background-color);
+}
+
+.widget-item:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--popup-item-hover-background-color) 60%,
+    transparent
+  );
 }
 
 .main-button:hover {
@@ -1105,6 +1134,16 @@ select.min-select-no-arrow {
 
 .drawer-visible .drawer-panel {
   transform: translateY(0);
+}
+
+.select-drawer-overlay,
+.more-settings-drawer-overlay {
+  transition-duration: 0.15s;
+}
+
+.select-drawer-overlay .drawer-panel,
+.more-settings-drawer-overlay .drawer-panel {
+  transition-duration: 0.2s;
 }
 
 [data-theme="dark"] .drawer-panel {
@@ -2349,3 +2388,200 @@ select.min-select-no-arrow {
   overflow: hidden;
   flex-shrink: 0;
 }
+
+/* 用户选择的简洁模式，沿用 316px 面板与既有品牌、主题变量。 */
+.popup-simple-mode { min-height: 0; display: flex; flex-direction: column; }
+.popup-simple-mode > .popup-content { flex: 1; padding-top: 14px; padding-bottom: 14px; }
+.popup-simple-mode .translation-service-container { margin-top: 18px; }
+.popup-simple-mode .min-select-container { min-height: 48px; }
+.popup-simple-mode .main-button { min-height: 48px; }
+.popup-simple-mode .popup-footer { min-height: 44px; }
+.simple-site-translate { border-top: 1px solid rgba(0, 0, 0, .05); background: var(--popup-trial-pro-background-color); border-radius: 0 0 12px 12px; }
+[data-theme="dark"] .simple-site-translate { border-top-color: rgba(255, 255, 255, .06); }
+.simple-site-row { display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 0 16px; gap: 8px; font-size: 13px; color: var(--translate-language-text-color); }
+.simple-site-row input { flex-shrink: 0; }
+.simple-display-mode { margin-top: 14px; padding: 10px 12px; background: var(--popup-item-background-color); border-radius: 12px; color: var(--translate-language-text-color); }
+.simple-display-row { display: flex; justify-content: space-between; gap: 8px; align-items: center; font-size: 13px; }
+.simple-display-segments { display: flex; padding: 3px; border: 1px solid var(--input-border-strong); border-radius: 10px; background: var(--popup-content-background-color); }
+.simple-display-segments button { border: 0; border-radius: 7px; padding: 6px 12px; color: var(--translate-language-text-color); background: transparent; font-size: 13px; cursor: pointer; }
+.simple-display-segments button[aria-pressed="true"] { background: var(--popup-item-hover-background-color); color: var(--c-00); font-weight: 600; }
+.simple-display-segments button:disabled { opacity: .5; cursor: default; }
+.simple-mode-overlay { position: absolute; inset: 48px 0 0; z-index: 11000; background: var(--popup-content-background-color); padding: 0; box-sizing: border-box; display: flex; min-height: 0; overflow: clip; align-items: flex-end; }
+.popup-container.popup-mode-confirming { overflow: hidden; }
+.simple-mode-dialog { position: relative; display: grid; grid-template-columns: 86px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); width: 100%; height: max-content; max-height: 100%; min-height: 0; flex-shrink: 0; border-radius: 14px 14px 0 0; overflow: hidden; overflow-y: hidden; background: var(--popup-content-background-color); color: var(--c-00); border: 1px solid var(--input-border-strong); border-left: 0; border-right: 0; border-bottom: 0; box-shadow: 0 8px 28px rgba(0,0,0,.12); animation: simple-mode-sheet-enter 220ms cubic-bezier(.2,.8,.2,1) both; }
+.simple-mode-dialog h2 { font-size: 23px; font-weight: 700; line-height: 1.35; margin: 0 0 16px; letter-spacing: -.5px; color: var(--c-00); white-space: pre-line; flex-shrink: 0; hyphens: none; overflow-wrap: break-word; }
+.simple-mode-dialog p { font-size: 12px; line-height: 1.7; margin: 0; overflow-wrap: anywhere; hyphens: auto; }
+.simple-mode-close { position: absolute; inset-inline-end: 6px; top: 6px; padding: 5px; display: flex; border: none; border-radius: 6px; background: transparent; color: var(--membership-prompt-secondary-text-color); cursor: pointer; }
+.simple-mode-close:hover { background: var(--popup-item-background-color); }
+.simple-mode-dialog-actions { margin-top: 16px; padding-top: 0; flex-shrink: 0; }
+.simple-mode-confirm { width: 100%; min-height: 42px; padding: 10px 6px; border: 0; border-radius: 10px; background: var(--p-main); color: white; font-size: 14px; font-weight: 600; cursor: pointer; }
+.simple-mode-confirm:hover { background: var(--p-hover); }
+.simple-mode-confirm:disabled { opacity: .6; cursor: wait; }
+.simple-mode-dialog .simple-mode-reversible { font-size: 10px; color: var(--membership-prompt-secondary-text-color); margin-top: 13px; text-align: center; }
+.simple-mode-error { font-size: 12px; color: var(--p-main); margin: 6px 0; line-height: 1.5; }
+.simple-mode-dialog .simple-mode-error { margin-bottom: 8px; }
+.simple-mode-close:focus-visible, .simple-mode-confirm:focus-visible,
+.simple-display-segments button:focus-visible { outline: 2px solid var(--p-main); outline-offset: 2px; }
+
+/* Scoped resets also outrank the shared button hover rule. */
+.popup-container .simple-display-segments > button { width: auto; min-width: 0; min-height: 30px; flex: 1 1 0; margin: 0; padding: 6px 8px; line-height: 18px; white-space: normal; overflow-wrap: anywhere; hyphens: auto; background: transparent; }
+.popup-container .simple-display-segments > button[aria-pressed="true"] { background: var(--popup-item-hover-background-color); }
+.simple-display-segments { flex: 1 1 170px; min-width: 0; max-width: 100%; box-sizing: border-box; }
+.simple-mode-dialog .simple-mode-close { width: 28px; height: 28px; min-height: 0; margin: 0; padding: 5px; right: 6px; left: auto; align-items: center; justify-content: center; background: transparent; box-shadow: none; }
+.simple-mode-dialog .simple-mode-close:hover { background: var(--popup-item-background-color); }
+
+/* 确认弹窗沿用切换前实测高度，内容溢出留在面板内部。 */
+.popup-container.popup-mode-height-locked { display: flex; flex-direction: column; overflow: clip; }
+.popup-mode-height-locked > .popup-content { flex: 1; min-height: 0; overflow-y: auto; }
+.popup-mode-height-locked > footer { flex-shrink: 0; }
+@keyframes simple-mode-sheet-enter { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .simple-mode-dialog { animation: none; } }
+/* 两行开关共用右边距；清除表单默认 margin，避免第二行偏左。 */
+.popup-simple-mode .popup-ai-context-switch { margin: 0; margin-inline-end: 12px; }
+.popup-simple-mode .simple-site-row { padding-inline-start: 16px; padding-inline-end: 12px; margin: 0; }
+.popup-simple-mode .simple-site-row input[role="switch"] { margin: 0; flex-shrink: 0; }
+.simple-mode-feature-choices { display: flex; flex-direction: column; gap: 6px; }
+.simple-mode-dialog .simple-mode-feature-choice { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 12px; line-height: 20px; color: var(--c-00); cursor: pointer; }
+.simple-mode-dialog .simple-mode-feature-choice input[type="checkbox"] { appearance: auto; accent-color: var(--p-main); width: 15px; height: 15px; min-height: 0; margin: 0; padding: 0; flex: 0 0 15px; }
+.simple-mode-feature-choice input:focus-visible { outline: 2px solid var(--p-main); outline-offset: 2px; }
+.simple-mode-feature-choice input:disabled { cursor: wait; }
+
+/* 多语言：容纳长标签，保留完整内容和字号，溢出仅在弹窗内部滚动。 */
+.simple-display-row { flex-wrap: wrap; }
+.simple-site-row > span, .simple-mode-feature-choice > span { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+.simple-site-row { padding-block: 8px; box-sizing: border-box; }
+.simple-mode-dialog .simple-mode-confirm { white-space: normal; overflow-wrap: anywhere; hyphens: auto; height: auto; }
+.popup-container[dir="rtl"] .simple-mode-close { right: auto; left: 6px; }
+
+/* 固定可见的确认区；长语种只滚动中间说明，不把操作按钮推到面板外。 */
+.simple-mode-dialog #simple-mode-details { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+/* 聚焦滚动只发生在内容区，禁止外壳被浏览器自动滚动。 */
+.popup-simple-mode .min-select-container { padding-left: 0; padding-inline-start: 16px; }
+.popup-simple-mode .popup-ai-context-label { min-width: 0; flex: 1 1 auto; overflow-wrap: anywhere; }
+/* 隐私入口保持单份可聚焦文本，长语言可换行。 */
+.footer-privacy-slot .footer-center-content {
+  min-width: 0;
+  max-width: 100%;
+}
+.footer-privacy-link {
+  min-width: 0;
+  color: #169447;
+}
+[data-theme="dark"] .footer-privacy-link {
+  color: #4ade80;
+}
+
+/* 两层共用同一格，长文案收回后也不改变底部高度。 */
+.footer-privacy-slot .footer-center-content {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.footer-privacy-slot .footer-privacy-link,
+.footer-privacy-slot .footer-version-inline-text {
+  grid-area: 1 / 1;
+}
+.footer-privacy-slot .footer-privacy-link {
+  opacity: 0;
+  transform: translateY(calc(100% + 4px));
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease-out;
+}
+.footer-privacy-slot[data-privacy-phase="visible"] .footer-privacy-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer-privacy-slot[data-privacy-phase="exiting"] .footer-privacy-link {
+  transition-duration: 240ms, 180ms;
+}
+.footer-privacy-slot[data-privacy-phase="hidden"] .footer-privacy-link {
+  visibility: hidden;
+  pointer-events: none;
+}
+.footer-privacy-slot .footer-version-inline-text {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease-out;
+}
+.footer-privacy-slot[data-privacy-phase="hidden"] .footer-version-inline-text {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-privacy-slot .footer-privacy-link,
+  .footer-privacy-slot .footer-version-inline-text {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* 左右等宽，版本号始终对齐面板中线，不受两侧入口文案宽度影响。 */
+.popup-privacy-footer .popup-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr) minmax(0, 1fr);
+}
+.popup-privacy-footer .footer-link-btn {
+  min-width: 0;
+}
+.popup-privacy-footer .footer-link-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer-privacy-slot .footer-version-inline-text {
+  width: max-content;
+  max-width: 100%;
+  justify-self: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 统一模式管理：当前状态与未提交选择分离，确认区固定在底部。 */
+.simple-mode-overlay { inset: 0; align-items: flex-end; background: rgba(0,0,0,.46); }
+.simple-mode-dialog.mode-manager { display: flex; flex-direction: column; max-height: calc(100% - 48px); height: 444px; border-radius: 12px 12px 0 0; border: 0; box-shadow: none; }
+.mode-manager-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px 8px; flex-shrink: 0; }
+.mode-manager .mode-manager-header h2 { margin: 0; font-size: 15px; line-height: 22px; font-weight: 600; letter-spacing: 0; }
+.mode-manager .simple-mode-close { position: static; flex-shrink: 0; }
+.mode-manager #simple-mode-details { flex: 1 1 auto; padding: 0 18px 8px; min-height: 0; overflow-y: auto; }
+.mode-manager .mode-manager-notice { display: flex; gap: 5px; align-items: flex-start; color: var(--p-main); background: var(--p-weak); padding: 8px 10px; border-radius: 9px; line-height: 18px; font-size: 11px; margin: 0 0 10px; }
+.mode-manager .mode-manager-description { color: var(--membership-prompt-secondary-text-color); font-size: 11px; line-height: 18px; margin-bottom: 6px; }
+.mode-manager .simple-mode-feature-choices { gap: 0; }
+.mode-manager .simple-mode-feature-choice { min-height: 30px; padding: 2px 0; gap: 9px; line-height: 18px; font-size: 13px; box-sizing: border-box; }
+.mode-manager .simple-mode-feature-choice > span:not(.mode-feature-icon) { flex: 1 1 auto; }
+.mode-feature-icon { display: flex; justify-content: center; align-items: center; width: 23px; height: 23px; flex: 0 0 23px; color: var(--membership-prompt-secondary-text-color); background: var(--popup-item-background-color); border-radius: 5px; }
+.mode-manager .simple-mode-feature-choice input[type="checkbox"] { width: 15px; height: 15px; flex: 0 0 15px; accent-color: var(--p-main); cursor: pointer; }
+.mode-manager .simple-mode-dialog-actions { margin: 0; padding: 11px 18px 12px; border-top: 1px solid var(--input-border-strong); flex-shrink: 0; }
+.mode-manager .simple-mode-confirm { border-radius: 10px; min-height: 42px; padding: 9px 8px; font-size: 14px; line-height: 20px; }
+.mode-manager .simple-mode-confirm:disabled { opacity: .35; cursor: default; }
+.mode-manager .simple-mode-reversible { margin-top: 8px; line-height: 16px; }
+
+/* 原生 disabled 会把品牌粉变灰；保留 checkbox 语义并统一两种主题外观。 */
+.mode-manager .simple-mode-feature-choice input[type="checkbox"] { appearance: none; border: 1px solid var(--input-border-strong); border-radius: 4px; background: transparent; }
+.mode-manager .simple-mode-feature-choice input[type="checkbox"]:checked { border-color: var(--p-main); background: var(--p-main) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 8 3 3 5-6' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 14px no-repeat; }
+
+/* 开启流程：顶部告知 + 启用选择，无模式分段。 */
+.simple-mode-enablement .mode-manager-header { padding: 16px 14px 20px; }
+.simple-mode-enablement .simple-mode-feature-choice { min-height: 34px; }
+.simple-mode-enablement .mode-manager-notice { margin-bottom: 16px; }
+.popup-container .simple-mode-toggle { display:flex; align-items:center; justify-content:flex-end; gap:8px; width:auto; min-width:0; min-height:24px; max-width:52%; margin:0; padding:0; border:0; border-radius:0; background:transparent; color:var(--p-main); font-size:12px; line-height:18px; }
+.popup-container .simple-mode-toggle:hover, .popup-container .simple-mode-toggle:active, .popup-container .simple-mode-toggle:focus { background:transparent; }
+.simple-mode-toggle > span:first-child { min-width:0; overflow-wrap:anywhere; text-align:start; }
+.simple-mode-toggle-track { width:30px; height:18px; border-radius:20px; background:var(--switch-background-color); display:flex; align-items:center; padding:2px; flex:0 0 30px; box-sizing:border-box; }
+.simple-mode-toggle-track > span { width:14px; height:14px; border-radius:50%; background:white; }
+.simple-mode-toggle[aria-checked="true"] .simple-mode-toggle-track { background:var(--p-main); justify-content:flex-end; }
+.simple-mode-toggle:focus-visible { outline:2px solid var(--p-main); outline-offset:4px; }
+.simple-mode-toggle:disabled { opacity:.5; cursor:default; }
+
+/* 简洁面板与设计稿保持同一层级；减少真实内容高度，避免锁高后产生滚动条。 */
+.popup-simple-mode > .popup-content { padding-top:14px; padding-bottom:14px; }
+.popup-simple-mode .translate-language-row { margin-top:16px; }
+.popup-simple-mode .translation-service-container { margin-top:14px; }
+.popup-simple-mode .simple-site-translate { border-top:0; }
+.popup-simple-mode .simple-display-mode { padding:4px; margin-top:12px; }
+.popup-simple-mode .simple-display-row { display:block; }
+.popup-simple-mode .simple-display-segments { width:100%; border:0; padding:0; background:transparent; gap:4px; }
+.popup-simple-mode .simple-display-segments > button { display:flex; align-items:center; justify-content:center; gap:6px; padding:7px 6px; min-height:34px; border-radius:9px; }
+.popup-simple-mode .simple-display-segments > button[aria-pressed="true"] { background:var(--popup-content-background-color); }
+.simple-display-icon { flex:0 0 19px; }
+.popup-simple-mode .simple-display-segments > button > span { min-width:0; }

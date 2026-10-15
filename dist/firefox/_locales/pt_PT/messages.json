@@ -6,7 +6,7 @@
     "message": "Tradução por imersão: Tradução bilingue de páginas Web e de documentos PDF"
   },
   "brandDescription": {
-    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
+    "message": "Tradução bilingue gratuita de páginas Web e legendas de vídeo, além de tradução de PDF e livros EPUB."
   },
   "toggleTranslatePage": {
     "message": "Traduzir para {targetLanguage}"
@@ -93,7 +93,7 @@
     "message": "Traduzir página / Mostrar texto original"
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "Traduzir «{text}»"
   },
   "translateWithCustom1": {
     "message": "Utilização temporária de serviços de tradução personalizados para traduzir a página atual(1)"

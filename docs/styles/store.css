@@ -45,6 +45,15 @@
   margin-right: 24px;
 }
 
+/* 术语页两列卡片与上方设置卡片共享完整内容宽度。 */
+.terms-list .store-container {
+  width: calc((100% - 24px) / 2);
+}
+
+.terms-list .store-container:nth-child(even) {
+  margin-right: 0;
+}
+
 .store-container [type="checkbox"][role="switch"]:checked {
   background-color: var(--switch-checked-background-color) !important;
   border-color: var(--switch-checked-background-color) !important;

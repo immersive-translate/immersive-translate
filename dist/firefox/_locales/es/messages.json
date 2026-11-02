@@ -6,7 +6,7 @@
     "message": "Immersion Translation: Traducción bilingüe de páginas web y documentos PDF"
   },
   "brandDescription": {
-    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
+    "message": "Traducción bilingüe gratuita de páginas web y subtítulos de vídeo, además de traducción de PDF y libros EPUB."
   },
   "toggleTranslatePage": {
     "message": "Traducir a {targetLanguage}"
@@ -90,7 +90,7 @@
     "message": "Utilice temporalmente a Claude para traducir la página actual."
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "Traducir «{text}»"
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Traducir página web/Mostrar texto original"

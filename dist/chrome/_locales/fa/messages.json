@@ -6,7 +6,7 @@
     "message": "ترجمه همه‌جانبه - ترجمه وب و پی‌دی‌اف"
   },
   "brandDescription": {
-    "message": "Web bilingual translation, completely free to use, supports Deepl/Google/Bing/Tencent/Youdao, etc."
+    "message": "ترجمهٔ رایگان وب‌سایت، فایل‌های PDF وePub و زیرنویس دوزبانهٔ ویدیو."
   },
   "toggleTranslatePage": {
     "message": "ترجمه به {targetLanguage}"
@@ -42,7 +42,7 @@
     "message": "کتاب های الکترونیکی دو زبانه EPUB ایجاد کنید"
   },
   "translateLocalHtmlFile": {
-    "message": "翻译本地 HTML 文件"
+    "message": "ترجمهٔ فایل HTML/txt"
   },
   "translateLocalSubtitleFile": {
     "message": "ترجمه فایل های زیرنویس محلی"
@@ -93,7 +93,7 @@
     "message": "ترجمه صفحه وب/نمایش متن اصلی"
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "ترجمهٔ \"{text}\""
   },
   "translateWithCustom1": {
     "message": "به طور موقت از یک سرویس ترجمه سفارشی برای ترجمه صفحه فعلی استفاده کنید (1)"

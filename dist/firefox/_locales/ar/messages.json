@@ -3,10 +3,10 @@
     "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "Immersive Translate - Translate Web & PDF"
+    "message": "Immersive Translate: ترجمة الويب وPDF والفيديو بالذكاء الاصطناعي"
   },
   "brandDescription": {
-    "message": "Bilingual web page translation, also supports PDF translation, bilingual Epub eBook translation, free to use."
+    "message": "ترجمة صفحات الويب وملفات PDF وePub مجانًا، مع ترجمة نصية ثنائية اللغة للفيديو."
   },
   "toggleTranslatePage": {
     "message": "ترجم إلى {targetLanguage}"
@@ -90,7 +90,7 @@
     "message": "استخدم Claude مؤقتًا لترجمة الصفحة الحالية"
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "ترجمة \"{text}\""
   },
   "toggleTranslatePageOfficialPage": {
     "message": "ترجمة صفحة الويب / عرض النص الأصلي"

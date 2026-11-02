@@ -90,7 +90,7 @@
     "message": "Usar temporariamente o Claude para traduzir a página atual."
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "Traduzir “{text}”"
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Traduzir página / Mostrar texto original"

@@ -57,7 +57,7 @@
     "message": "현재 입력창 내용 번역"
   },
   "translateWithGemini": {
-    "message": "현재 페이지를 Gemini 로 임시 번역"
+    "message": "현재 페이지를 Gemini로 임시 번역"
   },
   "translateWithBing": {
     "message": "현재 페이지를 Microsoft 번역으로 임시 번역"
@@ -66,16 +66,16 @@
     "message": "현재 페이지를 Tencent 번역으로 임시 번역"
   },
   "translateWithOpenAI": {
-    "message": "현재 페이지를 OpenAI 로 임시 번역"
+    "message": "현재 페이지를 OpenAI로 임시 번역"
   },
   "translateWithDeepL": {
-    "message": "현재 페이지를 DeepL 로 임시 번역"
+    "message": "현재 페이지를 DeepL로 임시 번역"
   },
   "toggleMouseHoverTranslateDirectly": {
     "message": "페이지에서 마우스 호버 번역을 임시로 켜기 / 끄기"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "이중 자막 전환 (Immersive Translation 우선)"
+    "message": "이중 자막 전환 (몰입형 번역 우선)"
   },
   "brandDescriptionForSafari": {
     "message": "【몰입형 번역】무료의 (원문/번역문) 이중 언어 대조 웹 페이지 번역 플러그인으로, PDF 번역 및 EPUB 전자책 번역을 지원하며 원문의 문서 배치를 유지합니다. YouTube/Netflix 등의 온라인 비디오 이중 언어 자막 번역을 지원하며, Deepl/Google 등 주요 번역 서비스를 지원합니다."
@@ -87,7 +87,7 @@
     "message": "문서 번역"
   },
   "translateWithClaude": {
-    "message": "현재 페이지를 Claude 로 임시 번역"
+    "message": "현재 페이지를 Claude로 임시 번역"
   },
   "translateText": {
     "message": "\"{text}\" 번역"
@@ -138,13 +138,13 @@
     "message": "[사용 중단됨] AI Write 모달 열기"
   },
   "legacyShortcut_toggleVideoSubtitlePreTranslation": {
-    "message": "[사용 중단됨] 이중 자막 전환 (Immersive Translation 우선)"
+    "message": "[사용 중단됨] 이중 자막 전환 (몰입형 번역 우선)"
   },
   "legacyShortcut_translateWithOpenAI": {
-    "message": "[사용 중단됨] 현재 페이지를 OpenAI 로 임시 번역"
+    "message": "[사용 중단됨] 현재 페이지를 OpenAI로 임시 번역"
   },
   "legacyShortcut_translateWithDeepL": {
-    "message": "[사용 중단됨] 현재 페이지를 DeepL 로 임시 번역"
+    "message": "[사용 중단됨] 현재 페이지를 DeepL로 임시 번역"
   },
   "legacyShortcut_translateWithGoogle": {
     "message": "[사용 중단됨] 현재 페이지를 Google 번역으로 임시 번역"
@@ -153,13 +153,13 @@
     "message": "[사용 중단됨] 현재 페이지를 Tencent 번역으로 임시 번역"
   },
   "legacyShortcut_translateWithGemini": {
-    "message": "[사용 중단됨] 현재 페이지를 Gemini 로 임시 번역"
+    "message": "[사용 중단됨] 현재 페이지를 Gemini로 임시 번역"
   },
   "legacyShortcut_translateWithBing": {
     "message": "[사용 중단됨] 현재 페이지를 Microsoft 번역으로 임시 번역"
   },
   "legacyShortcut_translateWithClaude": {
-    "message": "[사용 중단됨] 현재 페이지를 Claude 로 임시 번역"
+    "message": "[사용 중단됨] 현재 페이지를 Claude로 임시 번역"
   },
   "legacyShortcut_translateWithCustom1": {
     "message": "[사용 중단됨] 현재 페이지 번역에 사용자 지정 번역 서비스 임시 적용 (1)"

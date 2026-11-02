@@ -75,7 +75,7 @@
 }
 
 [imt-state="dual"] .immersive-translate-target-translation-block-wrapper {
-  margin: 8px 0 !important;
+  margin: var(--immersive-translate-translation-spacing, 8px) 0 8px !important;
   display: inline-block;
 }
 
@@ -93,6 +93,7 @@
 [imt-trans-position="before"]
   .immersive-translate-target-translation-block-wrapper {
   margin-top: 0 !important;
+  margin-bottom: var(--immersive-translate-translation-spacing, 8px) !important;
 }
 
 [imt-state="dual"] .immersive-translate-target-translation-pdf-block-wrapper {

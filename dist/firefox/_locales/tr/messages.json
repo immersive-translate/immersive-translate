@@ -90,7 +90,7 @@
     "message": "Geçici olarak sayfayı Claude ile çevir"
   },
   "translateText": {
-    "message": "Translate \"{text}\""
+    "message": "“{text}” metnini çevir"
   },
   "toggleTranslatePageOfficialPage": {
     "message": "Web sayfasını çevir/Gösterilen orijinal metin"

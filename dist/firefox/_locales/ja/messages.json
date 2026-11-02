@@ -3,10 +3,10 @@
     "message": "Immersive Translate"
   },
   "brandName": {
-    "message": "没入型翻訳 - AI 2カ国語ウェブ翻訳 | PDF翻訳 | 動画翻訳 | 漫画翻訳"
+    "message": "Immersive Translate - AI 2カ国語ウェブ翻訳 | PDF 翻訳 | 動画翻訳 | 漫画翻訳"
   },
   "brandDescription": {
-    "message": "原文と訳文を並べて読める無料のWebページ翻訳拡張機能。PDF翻訳（レイアウト保持）、動画のバイリンガル字幕翻訳（YouTube、Netflixなど）、EPUB翻訳に対応。OpenAI (ChatGPT)、DeepL、Gemini(Bard) などのAI翻訳LLMも利用できます"
+    "message": "原文と訳文を並べて読める無料のWebページ翻訳拡張機能。PDF 翻訳（レイアウト保持）、動画のバイリンガル字幕翻訳（YouTube、Netflixなど）、EPUB翻訳に対応。OpenAI (ChatGPT)、DeepL、Gemini(Bard) などのAI翻訳LLMも利用できます"
   },
   "toggleTranslatePage": {
     "message": "{targetLanguage}に翻訳"
@@ -15,7 +15,7 @@
     "message": "ページ全体を翻訳 / 原文を表示"
   },
   "toggleOnlyTransation": {
-    "message": "バイリンガル/訳文のみモードを切り替え"
+    "message": "バイリンガル表示と翻訳文のみを切り替え"
   },
   "toggleTranslateToThePageEndImmediately": {
     "message": "すぐにページ最下部まで翻訳 / 原文を表示"
@@ -30,7 +30,7 @@
     "message": "現在のページの訳文をぼかし効果（学習モード）に切り替え"
   },
   "babelDOC": {
-    "message": "BabelDOC レイアウト保持PDF翻訳"
+    "message": "BabelDOC レイアウト保持PDF 翻訳"
   },
   "translateLocalPdfFile": {
     "message": "ローカルPDFファイルを翻訳"
@@ -39,10 +39,10 @@
     "message": "ローカル電子書籍を読む"
   },
   "openEbookBuilder": {
-    "message": "バイリンガルEPUB電子書籍を作成"
+    "message": "バイリンガル EPUB 電子書籍を作成"
   },
   "translateLocalHtmlFile": {
-    "message": "HTML/txtファイルを翻訳"
+    "message": "HTML／txt ファイルを翻訳"
   },
   "translateLocalSubtitleFile": {
     "message": "ローカル字幕ファイルを翻訳"
@@ -81,7 +81,7 @@
     "message": "原文と訳文を並べて読める無料のWebページ翻訳拡張機能。PDFとEPUBを元のレイアウトを保ったまま翻訳できます。YouTube/Netflixなどの動画字幕翻訳、DeepL/Googleなどの主要な翻訳サービスにも対応しています"
   },
   "PdfProFile": {
-    "message": "AI駆動のPDF Pro翻訳"
+    "message": "AI 駆動の PDF Pro 翻訳"
   },
   "textTranslate": {
     "message": "テキスト翻訳"
@@ -120,7 +120,7 @@
     "message": "AI Write モーダルを開く"
   },
   "legacyShortcut_toggleOnlyTransation": {
-    "message": "【非推奨】 バイリンガル/訳文のみモードを切り替え"
+    "message": "【非推奨】 バイリンガル表示と翻訳文のみを切り替え"
   },
   "legacyShortcut_toggleTranslateToThePageEndImmediately": {
     "message": "【非推奨】 すぐにページ最下部まで翻訳 / 原文を表示"

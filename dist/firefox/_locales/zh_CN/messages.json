@@ -12,13 +12,13 @@
     "message": "【沉浸式翻译】一款免费的（原文/译文）双语对照网页翻译插件，同时支持PDF翻译和EPUB电子书翻译且保留原文档排版，YouTube/Netflix等在线视频双语字幕翻译，支持Deepl/Google等主流翻译服务;"
   },
   "toggleTranslatePage": {
-    "message": "翻译为{targetLanguage}"
+    "message": "翻译当前网页"
   },
   "toggleTranslateTheWholePage": {
-    "message": "翻译页面全部区域/显示原文"
+    "message": "显示 / 隐藏译文"
   },
   "toggleTranslateToThePageEndImmediately": {
-    "message": "立即翻译到页面底部/显示原文"
+    "message": "翻译到页面底部"
   },
   "toggleTranslateTheMainPage": {
     "message": "翻译页面主要区域/显示原文"
@@ -87,7 +87,7 @@
     "message": "翻译当前输入框内容"
   },
   "toggleSidePanel": {
-    "message": "开启/关闭侧边栏"
+    "message": "打开侧边栏"
   },
   "openSidePanel": {
     "message": "开启侧边栏"
@@ -96,16 +96,16 @@
     "message": "关闭侧边栏"
   },
   "openAiWritingModal": {
-    "message": "打开 AI Write 弹窗"
+    "message": "打开 AI Write"
   },
   "toggleTranslationMask": {
     "message": "切换当前页面译文为模糊效果（学习模式）"
   },
   "toggleVideoSubtitlePreTranslation": {
-    "message": "切换双语字幕优先使用沉浸式翻译设置"
+    "message": "预翻译视频字幕"
   },
   "toggleOnlyTransation": {
-    "message": "切换双语/仅译文模式"
+    "message": "切换仅译文"
   },
   "PdfProFile": {
     "message": "AI 驱动的 PDF Pro 翻译"

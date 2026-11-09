@@ -192,11 +192,44 @@ textarea::placeholder {
 }
 
 @media (min-width: 1200px) {
+  .menu-nav .settings-version-link {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 4px;
+    width: 178px;
+    max-width: 100%;
+    min-height: 38px;
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 10px 8px;
+    color: #536d79;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    background: var(--popup-content-background-color);
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+  }
+
+  .menu-nav .settings-version-link img { flex: 0 0 16px; }
+  .menu-nav .settings-version-link span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .menu-nav .settings-version-link-caret { margin-inline-start: 8px; }
+  .menu-nav .settings-version-link:hover { background: var(--popup-item-hover-background-color); }
+
   .menu-nav {
     position: fixed;
-    width: 250px;
+    width: 262px;
     max-height: calc(100vh - 5.5rem);
+    box-sizing: border-box;
+    margin-inline-start: -12px;
+    padding-inline-start: 12px;
   }
+}
+
+@media (max-width: 1199px) {
+  .menu-nav .settings-version-link img { display: none; }
 }
 
 a[role="button"] {

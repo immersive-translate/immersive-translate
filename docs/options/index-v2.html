@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Immersive Translate Settings</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="immersive-translate-options" content="true" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/options-v2.css" />
+    <link rel="stylesheet" href="styles/subtitle-auto-adapt.css" />
+    <link rel="stylesheet" href="styles/options-v2-webpage.css" />
+  </head>
+  <body>
+    <div id="immersive-translate-status"></div>
+    <p id="legacy-fallback" class="legacy-fallback is-pending">
+      新版设置页未能启动？<a href="options.html?settings-version-switch=legacy">打开旧版设置页</a>
+    </p>
+    <div id="mount">
+      <div
+        class="settings-v2-boot"
+        role="status"
+        aria-live="polite"
+        aria-label="Loading settings"
+      >
+        <aside class="settings-v2-boot-sidebar" aria-hidden="true">
+          <span class="settings-v2-boot-line is-brand"></span>
+          <span class="settings-v2-boot-line is-search"></span>
+          <span class="settings-v2-boot-line"></span>
+          <span class="settings-v2-boot-line is-short"></span>
+          <span class="settings-v2-boot-line"></span>
+          <span class="settings-v2-boot-line is-short"></span>
+        </aside>
+        <main class="settings-v2-boot-main" aria-hidden="true">
+          <div class="settings-v2-boot-content">
+            <span class="settings-v2-boot-line is-title"></span>
+            <span class="settings-v2-boot-line is-copy"></span>
+            <span class="settings-v2-boot-card"></span>
+            <span class="settings-v2-boot-card is-small"></span>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div id="storage" hidden>
+      <input id="immersive-translate-page-ready" value="false" />
+      <input id="immersive-translate-local-storage" value="" />
+      <input id="immersive-translate-sync-storage" value="" />
+      <input id="immersive-translate-message" value="" />
+      <input id="immersive-translate-manifest" value="" />
+    </div>
+    <script src="./options-v2.js?v=fe87000f744a5b10046b53c522ad886fde5e2b4f9fe03b8064fe48ba1e2a749a"></script>
+  </body>
+</html>

@@ -912,7 +912,6 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-account-device-copy strong { font-weight: 500; }
 .settings-v2-account-device-copy span { color: var(--settings-muted); font-size: 12px; line-height: 18px; }
 .settings-v2-account-current { flex: 0 0 auto; min-height: 40px; padding: 8px 12px; box-sizing: border-box; color: var(--settings-muted); font-size: 14px; line-height: 21px; border: 1px solid var(--settings-control-border); border-radius: 8px; }
-.settings-v2-account-login-banner { display: block; width: 100%; height: auto; border-radius: 16px; }
 .settings-v2-account-message { display: flex; align-items: center; gap: 12px; min-height: 40px; margin: 0; color: var(--settings-muted); font-size: 13px; }
 .settings-v2-account-message.is-error { color: var(--settings-error); }
 .settings-v2-account-action-message { margin: -16px 0 0; color: var(--settings-muted); font-size: 12px; }
@@ -1652,7 +1651,19 @@ a.settings-v2-about-info-card:hover { background: var(--settings-surface-muted);
 
 
 
-.settings-v2-account-login-banner-button { display: block; width: 100%; padding: 0; border: 0; border-radius: 16px; background: transparent; cursor: pointer; }
+.settings-v2-account-login-banner-button { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 80px; padding: 16px; overflow: hidden; box-sizing: border-box; color: #fff; font-family: inherit; border: 0; border-radius: 16px; background: radial-gradient(ellipse 60% 100% at 0% 100%, #e0c4f7, transparent), radial-gradient(ellipse 60% 100% at 100% 0%, #e0c4f6, transparent), radial-gradient(ellipse 50% 100% at 0% 0%, #aed5ff, transparent), linear-gradient(100deg, #8685d6, #757ed8); cursor: pointer; }
+.settings-v2-account-login-banner-text { position: relative; font-size: 18px; font-weight: 700; line-height: 27px; text-align: center; text-shadow: 0 0 12px rgba(255, 255, 255, .6); overflow-wrap: anywhere; }
+.settings-v2-account-login-banner-decoration { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.settings-v2-account-login-banner-decoration span { position: absolute; color: #fff; opacity: .08; line-height: 1; white-space: nowrap; }
+.settings-v2-account-login-banner-decoration span:nth-child(1) { left: calc(50% + 196px); top: 51px; font-size: 52px; }
+.settings-v2-account-login-banner-decoration span:nth-child(2) { left: calc(50% - 268px); top: 50px; font-size: 40px; transform: rotate(16.57deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(3) { left: calc(50% - 138px); top: 56px; font-size: 17px; transform: rotate(3.07deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(4) { left: calc(50% + 107px); top: 7px; font-size: 26px; transform: rotate(3.07deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(5) { left: calc(50% - 211px); top: 14px; font-size: 26px; transform: rotate(3.07deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(6) { left: calc(50% + 245px); top: 7px; font-size: 23px; transform: rotate(-6.02deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(7) { left: calc(50% + 24px); top: 56px; font-size: 26px; transform: rotate(-6.02deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(8) { left: calc(50% - 335px); top: 16px; font-size: 26px; transform: rotate(-14.06deg); }
+.settings-v2-account-login-banner-decoration span:nth-child(9) { left: calc(50% - 99px); top: -12px; font-size: 24px; transform: rotate(7.32deg); }
 .settings-v2-account-login-banner-button:disabled { cursor: not-allowed; opacity: .55; }
 :root[data-settings-v2-theme="dark"] .settings-v2-account-button.is-secondary img { filter: invert(1); }
 :root[data-settings-v2-theme="dark"] .settings-v2-subtitle-style-editor,

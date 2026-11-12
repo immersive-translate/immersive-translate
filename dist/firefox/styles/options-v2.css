@@ -251,6 +251,31 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-confirm-dialog-copy p { width: 100%; margin: 0; color: var(--settings-muted); font-size: 12px; font-weight: 400; line-height: 18px; }
 .settings-v2-confirm-dialog-actions { display: flex; align-items: center; gap: 16px; width: 100%; }
 .settings-v2-confirm-dialog-actions button { flex: 1 0 0; }
+
+/* 旧设置组件复用的弹窗不加载旧版 options.css。 */
+.shared-modal-content { --background-color: var(--settings-surface); box-sizing: border-box; max-width: calc(100vw - 32px); color: var(--settings-text); }
+.shared-modal-content :is(h3, h4) { color: var(--settings-text); font-size: 16px; font-weight: 600; line-height: 24px; }
+.shared-modal-content p { color: var(--settings-secondary); font-size: 14px; }
+.shared-modal-content button { min-height: 40px; padding: 8px 12px; color: #fff; font: inherit; font-size: 14px; background: #ec4c8c; border: 1px solid #ec4c8c; border-radius: 8px; cursor: pointer; }
+.shared-modal-content button:hover:not(:disabled) { background: #ec5e95; border-color: #ec5e95; }
+.shared-modal-content button.secondary { color: var(--settings-text); background: var(--settings-button-surface); border-color: var(--settings-control-border); }
+.shared-modal-content button.secondary:hover:not(:disabled) { background: var(--settings-hover); }
+.shared-modal-content button:disabled { cursor: not-allowed; opacity: .55; }
+.shared-modal-content .flex.flex-col { display: flex; flex-direction: column; gap: 16px; }
+.shared-modal-content .flex.items-center.justify-end { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 8px; }
+.shared-modal-content .m-0 { margin: 0; }
+.shared-modal-content .text-sm { font-size: 14px; line-height: 24px; opacity: .9; }
+.settings-v2-model-modal { position: absolute; z-index: 10; inset: 0; display: grid; padding: 16px; box-sizing: border-box; background: rgb(0 0 0 / 36%); place-items: center; }
+.settings-v2-model-modal-panel { position: relative; display: flex; width: min(480px, 100%); max-height: calc(100dvh - 32px); flex-direction: column; gap: 16px; padding: 24px; box-sizing: border-box; overflow: auto; color: var(--settings-text); background: var(--settings-surface); border-radius: 16px; box-shadow: 0 16px 48px rgb(0 0 0 / 18%); }
+.settings-v2-model-modal-panel h2 { margin: 0; padding-inline-end: 32px; font-size: 18px; line-height: 27px; }
+.settings-v2-model-modal-close { position: absolute; top: 20px; inset-inline-end: 20px; display: grid; width: 32px; height: 32px; padding: 4px; color: var(--settings-muted); background: transparent; border: 0; border-radius: 8px; cursor: pointer; place-items: center; }
+.settings-v2-model-modal-close:hover { color: var(--settings-text); background: var(--settings-hover); }
+.settings-v2-model-modal-close svg { width: 24px; height: 24px; }
+.settings-v2-model-modal-panel textarea { width: 100%; min-height: 112px; padding: 8px 12px; box-sizing: border-box; color: var(--settings-text); font: inherit; background: var(--settings-surface); border: 1px solid var(--settings-control-border); border-radius: 8px; resize: vertical; }
+.settings-v2-model-modal-description { color: var(--settings-secondary); font-size: 14px; line-height: 21px; }
+.settings-v2-model-modal-description p { margin: 0; }
+.settings-v2-model-modal-description p + p { margin-top: 8px; }
+.settings-v2-model-modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
 .settings-v2-nav { display: flex; flex: 0 0 auto; flex-direction: column; gap: 16px; }
 .settings-v2-nav-group { display: flex; flex-direction: column; gap: 3px; margin: 0; }
 .settings-v2-nav-group h2 { min-height: 24px; overflow-wrap: anywhere; margin: 0; padding: 3px 12px; box-sizing: border-box; color: var(--settings-muted); font-size: 12px; font-weight: 500; line-height: 18px; }
@@ -801,6 +826,7 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-service-verification { display: inline-flex; align-items: center; gap: 6px; min-width: 0; min-height: 20px; overflow-wrap: anywhere; color: var(--settings-muted); font-size: 12px; }
 .settings-v2-service-verification[data-state="error"] { color: var(--settings-error); }
 .settings-v2-service-verification[data-state="success"] { color: var(--settings-success); }
+.settings-v2-service-verification a { color: inherit; text-decoration: underline; }
 .settings-v2-service-test-group { display: flex; align-items: center; gap: 16px; margin-left: auto; }
 .settings-v2-service-verify-button { width: auto; min-width: 88px; }
 .settings-v2-input-rules-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; }

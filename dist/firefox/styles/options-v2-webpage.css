@@ -1,6 +1,10 @@
 .settings-v2-webpage-page { gap: 32px; }
 .settings-v2-webpage-card { display: flex; flex-direction: column; gap: 24px; padding: 16px; border-radius: 16px; }
 .settings-v2-webpage-card .settings-v2-webpage-row { min-height: 41px; padding: 0; border: 0; }
+.settings-v2-webpage-row.settings-v2-number-setting-row { display: grid; grid-template-columns: minmax(0, 1fr) var(--settings-number-input-width); align-items: center; gap: 8px; }
+.settings-v2-webpage-row.settings-v2-number-setting-row > span { min-width: 0; max-width: none; overflow-wrap: anywhere; }
+.settings-v2-webpage-row.settings-v2-number-setting-row > .settings-v2-number-stepper { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; max-width: none; }
+.settings-v2-webpage-row.settings-v2-number-setting-row > em { grid-column: 1 / -1; }
 .settings-v2-webpage-row > span { gap: 2px; min-width: 0; max-width: 500px; }
 .settings-v2-webpage-row strong { font-size: 14px; font-weight: 500; line-height: 21px; }
 .settings-v2-webpage-row small { font-size: 12px; line-height: 18px; }

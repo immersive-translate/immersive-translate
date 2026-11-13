@@ -20,6 +20,7 @@
 .settings-v2-subtitle-auto-adapt-drawer .settings-v2-status { min-height: 20px; margin: 0; color: var(--settings-muted); }
 .settings-v2-subtitle-auto-adapt-drawer .settings-v2-status[data-state="error"] { color: var(--settings-error); }
 
+.subtitle-auto-adapt-scope[data-empty="true"] { margin-bottom: 0; }
 .subtitle-auto-adapt-scope .subtitle-auto-adapt-sites-heading { margin-bottom: 0; }
 .subtitle-auto-adapt-scope .subtitle-auto-adapt-sites-list { margin: 0 0 12px; padding: 6px 0; color: inherit; background: #f3f6f8; border-radius: 6px; }
 .subtitle-auto-adapt-scope .subtitle-auto-adapt-site { min-height: 36px; gap: 12px; padding: 4px 16px; }
@@ -29,8 +30,7 @@
 .subtitle-auto-adapt-retry[aria-disabled="true"] { pointer-events: none; opacity: .55; }
 .subtitle-auto-adapt-delete { width: auto; margin: 0; padding: 4px 10px; color: #b91c1c; font: inherit; background: transparent; border: 1px solid var(--form-element-border-color, #ccc); border-radius: 4px; box-shadow: none; }
 .subtitle-auto-adapt-delete:disabled { cursor: not-allowed; opacity: .55; }
-.subtitle-auto-adapt-empty, .subtitle-auto-adapt-error { margin: 8px 16px; }
-.subtitle-auto-adapt-error { color: #b91c1c; }
+.subtitle-auto-adapt-error { margin: 8px 16px; color: #b91c1c; }
 :root[data-theme="dark"] .subtitle-auto-adapt-scope .subtitle-auto-adapt-sites-list { background: rgba(0, 0, 0, .1); }
 :root[data-theme="dark"] .subtitle-auto-adapt-delete,
 :root[data-theme="dark"] .subtitle-auto-adapt-error { color: #ff9b9b; }

@@ -251,6 +251,14 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-confirm-dialog-copy p { width: 100%; margin: 0; color: var(--settings-muted); font-size: 12px; font-weight: 400; line-height: 18px; }
 .settings-v2-confirm-dialog-actions { display: flex; align-items: center; gap: 16px; width: 100%; }
 .settings-v2-confirm-dialog-actions button { flex: 1 0 0; }
+.settings-v2-confirm-dialog.is-choice .settings-v2-confirm-dialog-panel { width: min(480px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto; gap: 28px; padding: 28px 24px 24px; border-radius: 12px; }
+.settings-v2-confirm-dialog.is-choice .settings-v2-confirm-dialog-copy { align-items: stretch; gap: 16px; text-align: start; }
+.settings-v2-confirm-dialog.is-choice .settings-v2-confirm-dialog-copy h2 { padding-inline-end: 24px; box-sizing: border-box; font-size: 16px; line-height: 24px; }
+.settings-v2-confirm-dialog.is-choice .settings-v2-confirm-dialog-copy p { font-size: 14px; line-height: 22px; }
+.settings-v2-confirm-dialog-close { position: absolute; top: 8px; inset-inline-end: 8px; display: grid; width: 32px; height: 32px; padding: 6px; color: var(--settings-muted); background: transparent; border: 0; border-radius: 8px; cursor: pointer; place-items: center; }
+.settings-v2-confirm-dialog-close svg { width: 20px; height: 20px; }
+.settings-v2-confirm-dialog-close:hover { color: var(--settings-text); background: var(--settings-hover); }
+.settings-v2-terms-create-example { max-width: 100%; margin: 4px 0 0; padding: 8px 12px; overflow-x: auto; border-inline-start: 3px solid var(--settings-border); text-align: left; font-size: 14px; line-height: 21px; }
 
 /* 旧设置组件复用的弹窗不加载旧版 options.css。 */
 .shared-modal-content { --background-color: var(--settings-surface); box-sizing: border-box; max-width: calc(100vw - 32px); color: var(--settings-text); }
@@ -540,6 +548,27 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-service-editor-content .service-number-stepper > button { width: 40px; height: 40px; margin: 0; padding: 0; color: var(--settings-text); font: inherit; font-size: 20px; background: var(--settings-surface); border: 1px solid var(--settings-control-border); border-radius: 8px; cursor: pointer; }
 .settings-v2-service-editor-content .service-number-stepper > button:hover:not(:disabled) { background: var(--settings-hover); }
 .settings-v2-service-editor-content .service-number-stepper > button:disabled { cursor: not-allowed; opacity: .55; }
+/* Custom translation service connection fields. */
+.settings-v2-custom-service-fields > .description { margin-top: 8px; padding: 0; color: var(--settings-muted); font-size: 12px; line-height: 18px; }
+.settings-v2-custom-service-fields .service-connection-field { padding-block-start: 24px; }
+.settings-v2-service-editor-content .settings-v2-custom-service-fields :is([data-service-field="APIKEY"], [data-service-field="name"], [data-service-field="apiUrl"]) .service-input-row,
+.settings-v2-custom-service-fields .service-model-field { display: flex; flex-direction: column; align-items: stretch; gap: 8px; margin: 0; }
+.settings-v2-service-editor-content .settings-v2-custom-service-fields :is([data-service-field="APIKEY"], [data-service-field="name"], [data-service-field="apiUrl"]) .service-input-row > div:first-child { flex: none; max-width: none; gap: 8px; }
+.settings-v2-service-editor-content .settings-v2-custom-service-fields :is([data-service-field="APIKEY"], [data-service-field="name"], [data-service-field="apiUrl"]) input,
+.settings-v2-service-editor-content .settings-v2-custom-service-fields .service-model-field > input,
+.settings-v2-service-editor-content .settings-v2-custom-service-fields .service-model-field button.model-select { width: 100%; min-height: 48px; margin: 0; padding: 8px 16px; font-size: 16px; line-height: 24px; }
+.settings-v2-service-editor-content .settings-v2-custom-service-fields [data-service-field="apiUrl"] small a { color: inherit; text-decoration: underline; }
+.settings-v2-custom-service-fields .service-model-field-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.settings-v2-custom-service-fields .service-model-field-header > label:first-child { margin: 0; color: var(--settings-text); font-size: 14px; font-weight: 500; line-height: 21px; }
+.settings-v2-custom-service-fields .service-model-field-header .service-field-checkbox { margin: 0; margin-inline-start: auto; color: var(--settings-muted); font-size: 12px; line-height: 18px; }
+.settings-v2-custom-service-fields .service-model-field-header .service-field-checkbox input { inline-size: 16px; block-size: 16px; }
+.settings-v2-custom-service-fields .service-input-with-action { position: relative; flex: none; }
+.settings-v2-service-editor-content .settings-v2-custom-service-fields .service-input-with-action input { padding-inline-end: 56px; }
+.settings-v2-custom-service-fields .service-password-visibility { position: absolute; inset-inline-end: 8px; inset-block-start: 4px; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 8px; color: var(--settings-muted); background: transparent; cursor: pointer; }
+.settings-v2-custom-service-fields .service-password-visibility::before { content: ""; width: 24px; height: 24px; background: currentColor; -webkit-mask: url("../icons/settings-v2-nav/service-eye-slash.svg") center no-repeat; mask: url("../icons/settings-v2-nav/service-eye-slash.svg") center no-repeat; }
+.settings-v2-custom-service-fields .service-password-visibility[aria-pressed="true"]::before { -webkit-mask-image: url("../icons/settings-v2-nav/service-eye.svg"); mask-image: url("../icons/settings-v2-nav/service-eye.svg"); }
+.settings-v2-custom-service-fields .service-password-visibility:not(:disabled):hover { background: var(--settings-hover); }
+.settings-v2-custom-service-fields .service-password-visibility:disabled { opacity: .55; cursor: not-allowed; }
 .settings-v2-service-editor-content .options-language-dropdown { color: var(--settings-text); --c-33: var(--settings-text); --c-99: var(--settings-muted); --c-ff: var(--settings-surface); --input-bg-base: var(--settings-surface-muted); --input-border: var(--settings-control-border); --s-1-weak: var(--settings-control-border); --p-main: var(--settings-focus); --p-weak: var(--settings-hover); --service-select-selected-background-color: var(--settings-hover); }
 .settings-v2-service-editor-content .options-language-dropdown li[role="option"]:not([aria-disabled="true"]):hover { background: var(--settings-hover); }
 .settings-v2-service-editor-content .options-language-dropdown li[aria-selected="true"] { background: var(--settings-hover); }
@@ -666,7 +695,7 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-ai-assistant-prompt-scope .general-advanced-settings:has(textarea:disabled) { background: var(--settings-surface); }
 .settings-v2-ai-assistant-prompt-scope .service-number-stepper > button { min-width: 0; }
 .settings-v2-ai-assistant-detail .settings-v2-ai-assistant-prompt-scope :is(input, textarea, select):is(:disabled, [readonly]) { color: var(--settings-readonly-text); -webkit-text-fill-color: var(--settings-readonly-text); opacity: 1; background: var(--settings-surface-muted); border-color: transparent; cursor: not-allowed; }
-.settings-v2-ai-assistant-detail .settings-v2-ai-assistant-prompt-scope textarea:is(:disabled, [readonly]) { resize: none; }
+.settings-v2-ai-assistant-detail .settings-v2-ai-assistant-prompt-scope textarea:is(:disabled, [readonly]) { background: var(--settings-surface); border-color: var(--settings-control-border); resize: none; }
 .settings-v2-catalog-glossary-search { position: relative; display: flex; width: min(320px, 100%); }
 .settings-v2-catalog-glossary-search input { width: 100%; height: 40px; padding: 8px 44px 8px 12px; box-sizing: border-box; color: var(--settings-text); font: inherit; background: var(--settings-surface); border: 1px solid var(--settings-control-border); border-radius: 8px; }
 .settings-v2-catalog-glossary-search input::-webkit-search-cancel-button { display: none; }
@@ -1917,7 +1946,7 @@ a.settings-v2-about-info-card:hover { background: var(--settings-surface-muted);
 
 
 
-.settings-v2-service-editor-content .settings-v2-ai-batch-card { padding: 0; overflow: visible; border-radius: 16px; }
+.settings-v2-service-editor-content .settings-v2-ai-batch-card { --service-advanced-row-gap: 24px; --service-batch-block-padding: 20px; padding: 0; overflow: visible; border-radius: 16px; }
 .settings-v2-service-editor-content .ai-batch-settings-header { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(45%); gap: 2px 24px; align-items: center; padding: 16px; background: var(--settings-surface); border-radius: 15px 15px 0 0; }
 .settings-v2-service-editor-content .ai-batch-settings-header > div { display: contents; }
 .settings-v2-service-editor-content .ai-batch-settings-header > div > label { grid-column: 1; margin: 0; color: var(--settings-text); font-size: 14px; font-weight: 500; line-height: 21px; }
@@ -1925,7 +1954,7 @@ a.settings-v2-about-info-card:hover { background: var(--settings-surface-muted);
 .settings-v2-service-editor-content .ai-batch-settings-header .options-lang-select-trigger { width: auto; max-width: 100%; min-width: 40px; padding-inline: 8px; gap: 8px; border: 0; background: transparent; font-size: 14px; font-weight: 500; line-height: 21px; text-align: end; }
 .settings-v2-service-editor-content .ai-batch-settings-header .options-lang-select-trigger:hover { background: var(--settings-hover); }
 .settings-v2-service-editor-content .ai-batch-settings-header .ai-batch-settings-description { grid-column: 1; max-width: 500px; margin: 0; overflow-wrap: anywhere; }
-.settings-v2-service-editor-content .ai-batch-settings-body { display: flex; flex-direction: column; gap: 24px; padding: 20px 32px; background: var(--settings-surface-muted); border-top: 1px solid var(--settings-border); }
+.settings-v2-service-editor-content .ai-batch-settings-body { display: flex; flex-direction: column; gap: var(--service-advanced-row-gap); padding: var(--service-batch-block-padding) 32px; background: var(--settings-surface-muted); border-top: 1px solid var(--settings-border); }
 .settings-v2-service-editor-content .ai-batch-settings-body .service-input-row { margin: 0; }
 .settings-v2-service-editor-content .ai-batch-settings-body textarea { height: 140px; min-height: 140px; }
 .settings-v2-service-editor-content .ai-batch-settings-body textarea[rows="14"] { height: 200px; min-height: 80px; }
@@ -1935,18 +1964,27 @@ a.settings-v2-about-info-card:hover { background: var(--settings-surface-muted);
 .settings-v2-ai-assistant-fields-section .settings-v2-catalog-drawer-field > span { font-size: 14px; font-weight: 500; line-height: 21px; }
 .settings-v2-ai-assistant-drawer .settings-v2-ai-assistant-rules-section { padding: 0 0 24px; border-bottom: 0; }
 .settings-v2-ai-assistant-detail .settings-v2-ai-assistant-rules-section { padding: 24px 0 0; }
+.settings-v2-ai-assistant-rules-section .settings-v2-table { max-height: 376px; overflow-y: auto; }
+.settings-v2-ai-assistant-rules-section .settings-v2-table-header { position: sticky; top: 0; z-index: 1; }
+.settings-v2-ai-assistant-prompt-scope .service-number-stepper > input[type="number"]::placeholder { color: var(--settings-muted); opacity: 1; }
 @media (max-width: 600px) {
   .settings-v2-service-editor-content .ai-batch-settings-header { column-gap: 12px; }
-  .settings-v2-service-editor-content .ai-batch-settings-body { padding: 16px; }
+  .settings-v2-service-editor-content .settings-v2-ai-batch-card { --service-batch-block-padding: 16px; }
+  .settings-v2-service-editor-content .ai-batch-settings-body { padding-inline: 16px; }
 }
 /* Generated from the preceding viewport rules. */
   :where(html.settings-v2-mobile) .settings-v2-service-editor-content .ai-batch-settings-header { column-gap: 12px; }
-  :where(html.settings-v2-mobile) .settings-v2-service-editor-content .ai-batch-settings-body { padding: 16px; }
+  :where(html.settings-v2-mobile) .settings-v2-service-editor-content .settings-v2-ai-batch-card { --service-batch-block-padding: 16px; }
+  :where(html.settings-v2-mobile) .settings-v2-service-editor-content .ai-batch-settings-body { padding-inline: 16px; }
 
 
 
 .settings-v2-service-editor-content .settings-v2-ai-batch-card > .general-advanced-settings-content > :not(.ai-batch-settings) { padding-inline: 32px; }
 .settings-v2-service-editor-content .settings-v2-ai-batch-card > .general-advanced-settings-content { padding-bottom: 20px; }
+.settings-v2-service-editor-content .settings-v2-ai-batch-card .service-advanced-number-field { margin-block: 0; padding-block-start: var(--service-advanced-row-gap); }
+.settings-v2-service-editor-content .settings-v2-ai-batch-card .service-advanced-number-field .service-input-row { margin-block: 0; }
+.settings-v2-service-editor-content .settings-v2-ai-batch-card > .general-advanced-settings-content > .service-advanced-number-field:nth-child(2 of :not([hidden])),
+.settings-v2-service-editor-content .settings-v2-ai-batch-card > .general-advanced-settings-content > .service-optional-fields:nth-child(2 of :not([hidden])) > .service-advanced-number-field:nth-child(1 of :not([hidden])) { padding-block-start: calc(var(--service-advanced-row-gap) - var(--service-batch-block-padding)); }
 @media (max-width: 600px) {
   .settings-v2-service-editor-content .settings-v2-ai-batch-card > .general-advanced-settings-content > :not(.ai-batch-settings) { padding-inline: 16px; }
 }

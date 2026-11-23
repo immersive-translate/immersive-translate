@@ -459,7 +459,7 @@ html[data-settings-v2-theme="dark"] .notie-alert.notie-background-warning { --se
 .settings-v2-drawer::backdrop { background: transparent; }
 .settings-v2-drawer-mask { position: absolute; inset: 0; background: rgb(0 0 0 / 30%); opacity: 0; touch-action: none; transition: opacity 180ms ease-in; }
 .settings-v2-drawer-content-wrapper { position: absolute; inset: 0; display: flex; justify-content: flex-end; overflow: clip; pointer-events: none; }
-.settings-v2-drawer-panel { position: relative; display: flex; flex-direction: column; width: min(800px, 100vw); height: 100dvh; min-height: 0; overflow: hidden; box-sizing: border-box; pointer-events: auto; background: var(--settings-surface); border-left: 1px solid var(--settings-border); box-shadow: -6px 0 16px rgba(0, 0, 0, .08), -3px 0 6px rgba(0, 0, 0, .05); transform: translateX(100%); transition: transform 180ms cubic-bezier(.4, 0, 1, 1); will-change: transform; }
+.settings-v2-drawer-panel { position: relative; display: flex; flex-direction: column; width: min(800px, 100vw); height: 100dvh; min-height: 0; overflow: hidden; box-sizing: border-box; pointer-events: auto; background: var(--settings-surface); border-left: 1px solid var(--settings-border); box-shadow: -6px 0 16px rgba(0, 0, 0, .08), -3px 0 6px rgba(0, 0, 0, .05); transform: translateX(100%); transition: transform 180ms cubic-bezier(.4, 0, 1, 1); }
 .settings-v2-drawer.is-open .settings-v2-drawer-mask { opacity: 1; transition: opacity 200ms ease-out; }
 .settings-v2-drawer.is-open .settings-v2-drawer-panel { transform: translateX(0); transition: transform 240ms cubic-bezier(.22, 1, .36, 1); }
 .settings-v2-drawer.is-closing { pointer-events: none; }
